@@ -5,7 +5,7 @@
 	slot = ATTACHMENT_SLOT_MUZZLE
 	silence_mod = TRUE
 	pixel_shift_y = 16
-	attach_shell_speed_mod = -1
+	attach_shell_speed_mod = -0.5
 	accuracy_mod = 0.1
 	recoil_mod = -2
 	scatter_mod = -2
@@ -233,7 +233,7 @@
 	desc = "Cool barrel for cool revolver"
 	slot = ATTACHMENT_SLOT_MUZZLE
 	delay_mod = -0.4 SECONDS
-	icon = 'icons/Marine/attachments_64.dmi'
+	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	icon_state = "barrel"
 	attach_shell_speed_mod = 1
 	accuracy_mod = 0.15
@@ -250,7 +250,7 @@
 	desc = "Cool compensator for cool revolver"
 	slot = ATTACHMENT_SLOT_MUZZLE
 	delay_mod = -0.2 SECONDS
-	icon = 'icons/Marine/attachments_64.dmi'
+	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	icon_state = "shortbarrel"
 	scatter_mod = -2
 	recoil_mod = -0.5

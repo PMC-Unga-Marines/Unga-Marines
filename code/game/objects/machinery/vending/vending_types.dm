@@ -161,7 +161,9 @@
 			/obj/item/storage/pill_bottle/spaceacillin = 6,
 			/obj/item/storage/pill_bottle/alkysine = 6,
 			/obj/item/storage/pill_bottle/imidazoline = 6,
+			/obj/item/storage/pill_bottle/imialky = 6,
 			/obj/item/storage/pill_bottle/hypervene = 6,
+			/obj/item/storage/pill_bottle/russian_red = 4,
 		),
 		"Hypospray" = list (
 			/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus = 10,
@@ -264,6 +266,7 @@
 			/obj/item/storage/pill_bottle/spaceacillin = -1,
 			/obj/item/storage/pill_bottle/alkysine = -1,
 			/obj/item/storage/pill_bottle/imidazoline = -1,
+			/obj/item/storage/pill_bottle/imialky = -1,
 			/obj/item/storage/pill_bottle/quickclot = -1,
 			/obj/item/storage/pill_bottle/hypervene = -1,
 			/obj/item/storage/pill_bottle/russian_red = -1,

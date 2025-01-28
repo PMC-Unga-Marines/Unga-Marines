@@ -67,6 +67,10 @@
 	AddComponent(/datum/component/attachment_handler, attachments_by_slot, attachments_allowed, starting_attachments = starting_attachments)
 	update_icon()
 
+/obj/item/armor_module/Destroy()
+	parent = null
+	return ..()
+
 /// Called before a module is attached.
 /obj/item/armor_module/proc/can_attach(obj/item/attaching_to, mob/user)
 	return TRUE
@@ -119,7 +123,6 @@
 
 /obj/item/armor_module/ui_action_click(mob/user, datum/action/item_action/toggle/action)
 	action.set_toggle(activate(user))
-	action.update_button_icon()
 
 ///Called on ui_action_click. Used for activating the module.
 /obj/item/armor_module/proc/activate(mob/living/user)

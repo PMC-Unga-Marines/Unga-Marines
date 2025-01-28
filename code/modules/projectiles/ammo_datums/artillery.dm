@@ -181,7 +181,7 @@
 	handful_icon_state = "40mm_grenade"
 	handful_amount = 1
 	ping = null //no bounce off.
-	sound_bounce = "rocket_bounce"
+	sound_bounce = SFX_ROCKET_BOUNCE
 	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_IFF
 	armor_type = BOMB
 	damage_falloff = 0.5
@@ -195,19 +195,19 @@
 	var/bonus_projectile_quantity = 15
 
 /datum/ammo/ags_shrapnel/on_hit_mob(mob/M, obj/projectile/proj)
-	playsound(proj, sound(get_sfx("explosion_micro")), 30, falloff = 5)
+	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
 	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, M) )
 
 /datum/ammo/ags_shrapnel/on_hit_obj(obj/O, obj/projectile/proj)
-	playsound(proj, sound(get_sfx("explosion_micro")), 30, falloff = 5)
+	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
 	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, O) )
 
 /datum/ammo/ags_shrapnel/on_hit_turf(turf/T, obj/projectile/proj)
-	playsound(proj, sound(get_sfx("explosion_micro")), 30, falloff = 5)
+	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
 	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, T) )
 
 /datum/ammo/ags_shrapnel/do_at_max_range(turf/T, obj/projectile/proj)
-	playsound(proj, sound(get_sfx("explosion_micro")), 30, falloff = 5)
+	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
 	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, get_turf(proj)) )
 
 /datum/ammo/ags_shrapnel/incendiary
@@ -220,10 +220,10 @@
 	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB
 	accuracy_var_low = 15
 	accuracy_var_high = 5
-	max_range = 6
+	max_range = 4
 	damage = 30
 	penetration = 20
-	sundering = 3
+	sundering = 1
 	damage_falloff = 0
 
 /datum/ammo/bullet/ags_spread/incendiary

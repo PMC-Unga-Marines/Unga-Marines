@@ -514,9 +514,10 @@
 	name = "flare pouch"
 	desc = "A pouch designed to hold flares and a single flaregun. Refillable with a M94 flare pack."
 	flags_equip_slot = ITEM_SLOT_POCKET
+	flags_storage = BYPASS_CRYO_CHECK
 	storage_slots = 28
 	max_storage_space = 28
-	icon = 'icons/Marine/marine-pouches.dmi'
+	icon = 'icons/obj/items/storage/pouches.dmi'
 	icon_state = "flare"
 	storage_type_limits = list(/obj/item/weapon/gun/grenade_launcher/single_shot/flare = 1)
 	can_hold = list(
@@ -566,6 +567,7 @@
 		/obj/item/weapon/gun/pistol,
 		/obj/item/ammo_magazine/pistol,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
 		/obj/item/cell/lasgun/lasrifle,
 		/obj/item/cell/lasgun/volkite/small,
@@ -578,10 +580,13 @@
 /obj/item/storage/holster/belt/pistol
 	name = "generic pistol belt"
 	desc = "A pistol belt that is not a revolver belt"
+	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_SUITSTORE
 
 /obj/item/storage/holster/belt/pistol/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/tac_reload_storage)
+	AddComponent(/datum/component/magazine_catcher)
+	AddComponent(/datum/component/easy_restock)
 
 /obj/item/storage/holster/belt/pistol/m4a3
 	name = "\improper M4A3 holster rig"
@@ -715,10 +720,13 @@
 /obj/item/storage/holster/belt/revolver
 	name = "generic revolver belt"
 	desc = "A revolver belt that is not a pistol belt"
+	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_SUITSTORE
 
 /obj/item/storage/holster/belt/revolver/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/tac_reload_storage)
+	AddComponent(/datum/component/magazine_catcher)
+	AddComponent(/datum/component/easy_restock)
 
 /obj/item/storage/holster/belt/revolver/t457
 	name = "\improper T457 pattern revolver holster rig"
@@ -732,15 +740,19 @@
 
 /obj/item/storage/holster/belt/revolver/t500
 	name = "\improper BM500 pattern BF revolver holster rig"
-	desc = "The BM500 is the special modular belt for R-500 BF revolver."
+	desc = "The BM500 is the special modular belt for BMSS revolvers."
 	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "t500_holster"
 	bypass_w_limit = list(/obj/item/weapon/gun/revolver/t500)
 	can_hold = list(
 		/obj/item/weapon/gun/revolver/t500,
+		/obj/item/weapon/gun/revolver/t312,
 		/obj/item/ammo_magazine/revolver/t500,
 		/obj/item/ammo_magazine/revolver/t500/slavs,
 		/obj/item/ammo_magazine/packet/t500,
+		/obj/item/ammo_magazine/revolver/t312,
+		/obj/item/ammo_magazine/packet/t312,
+		/obj/item/ammo_magazine/handful
 	)
 
 /obj/item/storage/holster/belt/revolver/m44
@@ -1047,3 +1059,10 @@
 	. = ..()
 	var/obj/item/new_item = new /obj/item/weapon/claymore/tomahawk/classic(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_item)
+
+/obj/item/storage/holster/belt/pistol/laser/Initialize(mapload)
+	. = ..()
+	for(var/i in 1 to 5)
+		new /obj/item/cell/lasgun/lasrifle(src)
+	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical(src)
+	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_gun)

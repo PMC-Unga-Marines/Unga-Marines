@@ -205,7 +205,7 @@
 		die()
 
 // Hotspots kill vines.
-/obj/effect/plantsegment/fire_act(burn_level)
+/obj/effect/plantsegment/fire_act(burn_level, flame_color)
 	qdel(src)
 
 /obj/effect/plantsegment/proc/die()

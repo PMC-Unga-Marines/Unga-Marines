@@ -263,38 +263,38 @@ as having entered the turf.
 	var/far_dist = power * 0.1
 	if(!silent)
 		var/frequency = GET_RAND_FREQUENCY
-		var/sound/explosion_sound = sound(get_sfx("explosion_large"))
-		var/sound/far_explosion_sound = sound(get_sfx("explosion_large_distant"))
-		var/sound/creak_sound = sound(get_sfx("explosion_creak"))
+		var/sound/explosion_sound = SFX_EXPLOSION_LARGE
+		var/sound/far_explosion_sound = SFX_EXPLOSION_LARGE_DISTANT
 
 		//no need to loop this for every mob
 		switch(power)
 			if(0 to EXPLODE_LIGHT)
-				explosion_sound = sound(get_sfx("explosion_small"))
-				far_explosion_sound = sound(get_sfx("explosion_small_distant"))
+				explosion_sound = SFX_EXPLOSION_SMALL
+				far_explosion_sound = SFX_EXPLOSION_SMALL_DISTANT
 			if(EXPLODE_LIGHT to EXPLODE_HEAVY)
-				explosion_sound = sound(get_sfx("explosion_med"))
+				explosion_sound = SFX_EXPLOSION_MED
 			if(EXPLODE_HEAVY to INFINITY)
-				explosion_sound = sound(get_sfx("explosion_large"))
+				explosion_sound = SFX_EXPLOSION_LARGE
 
 		//there should be a use of client_by_zlevel, but due to the nature of explosions this is difficult to implement
 		for(var/MN in GLOB.player_list|GLOB.aiEyes)
 			var/mob/our_mob = MN
 			// Double check for client
 			var/turf/mob_turf = get_turf(our_mob)
-			if(mob_turf?.z == epicenter.z)
-				var/dist = get_dist(mob_turf, epicenter)
-				if(dist <= max(round(power, 1)))
-					our_mob.playsound_local(epicenter, null, 75, 1, frequency, falloff = 5, S = explosion_sound)
-					if(is_mainship_level(epicenter.z))
-						our_mob.playsound_local(epicenter, null, 40, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
-				// You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
-				else if(dist <= far_dist)
-					var/far_volume = clamp(far_dist, 30, 60) // Volume is based on explosion size and dist
-					far_volume += (dist <= far_dist * 0.5 ? 50 : 0) // add 50 volume if the mob is pretty close to the explosion
-					our_mob.playsound_local(epicenter, null, far_volume, 1, frequency, falloff = 5, S = far_explosion_sound)
-					if(is_mainship_level(epicenter.z))
-						our_mob.playsound_local(epicenter, null, far_volume * 3, 1, frequency, falloff = 5, S = creak_sound)//ship groaning under explosion effect
+			if(mob_turf?.z != epicenter.z)
+				continue
+			var/dist = get_dist(mob_turf, epicenter)
+			if(dist <= max(round(power, 1)))
+				our_mob.playsound_local(epicenter, explosion_sound, 75, 1, frequency, falloff = 5)
+				if(is_mainship_level(epicenter.z))
+					our_mob.playsound_local(epicenter, SFX_EXPLOSION_CREAK, 40, 1, frequency, falloff = 5)//ship groaning under explosion effect
+			// You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
+			else if(dist <= far_dist)
+				var/far_volume = clamp(far_dist, 30, 60) // Volume is based on explosion size and dist
+				far_volume += (dist <= far_dist * 0.5 ? 50 : 0) // add 50 volume if the mob is pretty close to the explosion
+				our_mob.playsound_local(epicenter, far_explosion_sound, far_volume, 1, frequency, falloff = 5)
+				if(is_mainship_level(epicenter.z))
+					our_mob.playsound_local(epicenter, SFX_EXPLOSION_CREAK, far_volume * 3, 1, frequency, falloff = 5)//ship groaning under explosion effect
 	if(!orig_range)
 		orig_range = round(power / falloff)
 	new /obj/effect/temp_visual/explosion(epicenter, orig_range, color, power)

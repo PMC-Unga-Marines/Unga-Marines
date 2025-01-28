@@ -1693,7 +1693,7 @@
 /turf/open/floor/plating,
 /area/barren/engie/engine)
 "hV" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/weapon/gun/shotgun/double,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /turf/open/floor/wood/variable/wide,
@@ -2275,7 +2275,7 @@
 /turf/open/floor/tile/hydro,
 /area/barren/civilian/botany)
 "ku" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/clothing/mask/cigarette/kelo,
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
@@ -2742,7 +2742,7 @@
 "mE" = (
 /obj/structure/closet/secure_closet,
 /obj/item/radio,
-/obj/item/spacecash/c500,
+/obj/item/spacecash/bundle/c500,
 /turf/open/floor/wood,
 /area/bigredv2/outside/general_offices)
 "mG" = (
@@ -3035,7 +3035,7 @@
 /turf/open/floor/wood,
 /area/barren/civilian/cook)
 "nW" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle{
 	pixel_x = -10
 	},
@@ -3859,7 +3859,7 @@
 /turf/open/floor/plating/ground/lavaland/catwalk,
 /area/barren/cave/east)
 "rS" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/toy/deck,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/grimy,
@@ -5580,7 +5580,7 @@
 /turf/open/floor/plating,
 /area/barren/cave/central)
 "An" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/grimy,
 /area/barren/civilian/workdorm)
@@ -6261,7 +6261,7 @@
 	},
 /area/barren/medical)
 "DG" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/structure/paper_bin,
 /obj/item/tool/pen,
 /mob/living/simple_animal/cat/Runtime,
@@ -6667,7 +6667,7 @@
 /turf/open/floor/carpet,
 /area/barren/misc/ashshelter)
 "FB" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/flashlight/lamp,
 /obj/item/paper/clockresearch1,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -6934,7 +6934,7 @@
 	},
 /area/barren/security)
 "GJ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
 "GK" = (
@@ -8606,7 +8606,7 @@
 /turf/open/floor/wood,
 /area/barren/cave/lz1)
 "OZ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ashtray/bronze,
 /obj/item/tool/lighter/zippo,
@@ -9139,7 +9139,7 @@
 /turf/open/floor/plating,
 /area/barren/cave/central)
 "RB" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/computer3/laptop/secure_data,
 /turf/open/floor/wood/broken,
 /area/barren/civilian/workdorm)

@@ -53,13 +53,15 @@ REAGENT SCANNER
 			if(O.invisibility == INVISIBILITY_MAXIMUM)
 				O.invisibility = 0
 				O.alpha = 128
-				spawn(10)
-					if(O && !O.gc_destroyed)
-						var/turf/U = O.loc
-						if(U.intact_tile)
-							O.invisibility = INVISIBILITY_MAXIMUM
-							O.alpha = 255
+				addtimer(CALLBACK(src, PROC_REF(scan_for_items), O), 1 SECONDS)
 
+/obj/item/t_scanner/proc/scan_for_items(obj/our_object)
+	if(our_object.gc_destroyed)
+		return
+	var/turf/U = our_object.loc
+	if(U.intact_tile)
+		our_object.invisibility = INVISIBILITY_MAXIMUM
+		our_object.alpha = 255
 
 /obj/item/healthanalyzer
 	name = "\improper HF2 health analyzer"
@@ -499,6 +501,7 @@ REAGENT SCANNER
 /obj/item/reagent_scanner
 	name = "reagent scanner"
 	desc = "A hand-held reagent scanner which identifies chemical agents."
+	icon = 'icons/obj/device.dmi'
 	icon_state = "spectrometer"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
@@ -510,6 +513,11 @@ REAGENT SCANNER
 
 	var/details = FALSE
 	var/recent_fail = FALSE
+
+/obj/item/reagent_scanner/adv
+	name = "advanced reagent scanner"
+	icon_state = "adv_spectrometer"
+	details = TRUE
 
 /obj/item/reagent_scanner/afterattack(obj/O, mob/user as mob, proximity)
 	if(!proximity)
@@ -537,8 +545,3 @@ REAGENT SCANNER
 		else
 			recent_fail = TRUE
 	to_chat(user, span_notice("Chemicals found: [dat]"))
-
-/obj/item/reagent_scanner/adv
-	name = "advanced reagent scanner"
-	icon_state = "adv_spectrometer"
-	details = TRUE

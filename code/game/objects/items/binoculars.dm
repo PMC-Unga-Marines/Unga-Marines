@@ -1,7 +1,7 @@
 /obj/item/binoculars
 	name = "binoculars"
 	desc = "A pair of binoculars."
-	icon = 'icons/Marine/marine-navigation.dmi'
+	icon = 'icons/obj/items/binoculars.dmi'
 	icon_state = "binoculars"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/binoculars_left.dmi',
@@ -30,7 +30,6 @@
 /obj/item/binoculars/tactical
 	name = "tactical binoculars"
 	desc = "A pair of binoculars, with a laser targeting function."
-	icon = 'icons/Marine/marine-navigation.dmi'
 	icon_state = "range_finders"
 	///The cooldown after we use
 	var/laser_cooldown = 0
@@ -289,7 +288,7 @@
 			if(!targ_area)
 				to_chat(user, "[icon2html(src, user)] [span_warning("No target detected!")]")
 			else
-				var/obj/effect/overlay/temp/laser_target/OB/OBL = new (TU, 0, laz_name, S)
+				var/obj/effect/overlay/temp/laser_target/ob/OBL = new (TU, 0, laz_name, S)
 				laser = OBL
 				playsound(src, 'sound/effects/binoctarget.ogg', 35)
 				if(!do_after(user, 15 SECONDS, NONE, user, BUSY_ICON_GENERIC))

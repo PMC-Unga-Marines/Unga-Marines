@@ -28,7 +28,7 @@
 		else if(HAS_TRAIT(src, TRAIT_BURROWED))
 			icon_state = "[xeno_caste.caste_name] Burrowed"
 		else if(lying_angle)
-			if((resting || IsSleeping()) && (!IsParalyzed() && !IsUnconscious() && health > 0))
+			if((resting || has_status_effect(STATUS_EFFECT_SLEEPING)) && (!has_status_effect(STATUS_EFFECT_PARALYZED) && !has_status_effect(STATUS_EFFECT_UNCONSCIOUS) && health > 0))
 				icon_state = "[xeno_caste.caste_name] Sleeping"
 			else
 				icon_state = "[xeno_caste.caste_name] Knocked Down"
@@ -101,7 +101,7 @@
 	wound_overlay.layer = layer + 0.3
 	wound_overlay.icon = src.icon
 	wound_overlay.vis_flags |= VIS_HIDE
-	if(HAS_TRAIT(src, TRAIT_MOB_ICON_UPDATE_BLOCKED))
+	if(HAS_TRAIT(src, TRAIT_MOB_ICON_UPDATE_BLOCKED) || HAS_TRAIT(src, TRAIT_BURROWED))
 		wound_overlay.icon_state = "none"
 		return
 	if(health > health_threshold_crit)
@@ -119,7 +119,7 @@
 				health_thresholds = 3
 	var/overlay_to_show
 	if(lying_angle)
-		if((resting || IsSleeping()) && (!IsParalyzed() && !IsUnconscious() && health > 0))
+		if((resting || has_status_effect(STATUS_EFFECT_SLEEPING)) && (!has_status_effect(STATUS_EFFECT_PARALYZED) && !has_status_effect(STATUS_EFFECT_UNCONSCIOUS) && health > 0))
 			overlay_to_show = "wounded_resting_[health_thresholds]"
 		else
 			overlay_to_show = "wounded_stunned_[health_thresholds]"
@@ -183,7 +183,7 @@
 		icon_state = ""
 		return
 	layer = layer + 0.4
-	if((!owner.lying_angle && !owner.resting && !owner.IsSleeping()))
+	if((!owner.lying_angle && !owner.resting && !owner.has_status_effect(STATUS_EFFECT_SLEEPING)))
 		icon_state = "alien_fire"
 	else
 		icon_state = "alien_fire_lying"
@@ -201,3 +201,21 @@
 	else
 		set_light_range_power_color(intensity, 0.5, LIGHT_COLOR_FIRE)
 		set_light_on(TRUE)
+
+/mob/living/carbon/xenomorph/hud_set_hunter()
+	var/image/holder = hud_list[HUNTER_HUD]
+	if(!holder)
+		return
+	holder.icon_state = ""
+	holder.overlays.Cut()
+	holder.pixel_x = -17
+	holder.pixel_y = 20
+	if(hunter_data.hunted)
+		holder.overlays += image('icons/mob/screen/yautja.dmi', src, "hunter_hunted")
+
+	if(hunter_data.dishonored)
+		holder.overlays += image('icons/mob/screen/yautja.dmi', src, "hunter_dishonored")
+	else if(hunter_data.honored)
+		holder.overlays += image('icons/mob/screen/yautja.dmi', src, "hunter_honored")
+
+	hud_list[HUNTER_HUD] = holder

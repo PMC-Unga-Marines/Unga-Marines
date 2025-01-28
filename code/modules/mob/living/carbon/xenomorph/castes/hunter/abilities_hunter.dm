@@ -28,7 +28,8 @@
 		return FALSE
 	var/mob/living/carbon/xenomorph/stealthy_beno = owner
 	if(stealthy_beno.on_fire)
-		owner.balloon_alert(stealthy_beno, "Cannot enter Stealth!")
+		if(!silent)
+			owner.balloon_alert(stealthy_beno, "Cannot enter Stealth!")
 		return FALSE
 	return TRUE
 
@@ -60,7 +61,7 @@
 	RegisterSignals(owner, list(
 		COMSIG_XENOMORPH_GRAB,
 		COMSIG_LIVING_IGNITED,
-		COMSIG_LIVING_ADD_VENTCRAWL), PROC_REF(cancel_stealth))
+		COMSIG_LIVING_HANDLE_VENTCRAWL), PROC_REF(cancel_stealth))
 
 	RegisterSignal(owner, COMSIG_XENOMORPH_ATTACK_OBJ, PROC_REF(on_obj_attack))
 
@@ -90,7 +91,7 @@
 		COMSIG_XENOMORPH_ATTACK_OBJ,
 		COMSIG_XENOMORPH_THROW_HIT,
 		COMSIG_LIVING_IGNITED,
-		COMSIG_LIVING_ADD_VENTCRAWL,
+		COMSIG_LIVING_HANDLE_VENTCRAWL,
 		SIGNAL_ADDTRAIT(TRAIT_KNOCKEDOUT),
 		SIGNAL_ADDTRAIT(TRAIT_FLOORED),
 		COMSIG_XENOMORPH_ZONE_SELECT,
@@ -239,19 +240,13 @@
 	var/turf/target_turf = get_turf(A)
 	var/turf/origin_turf = get_turf(X)
 
-	target_turf = get_step_rand(target_turf)
-
 	new /obj/effect/temp_visual/blink_portal(origin_turf)
 	new /obj/effect/temp_visual/blink_portal(target_turf)
 	new /obj/effect/particle_effect/sparks(origin_turf)
 	new /obj/effect/particle_effect/sparks(target_turf)
 	playsound(target_turf, 'sound/effects/EMPulse.ogg', 25, TRUE)
 
-	if(target_turf)
-		X.forceMove(target_turf)
-	else
-		X.forceMove(A.loc)
-
+	X.forceMove(target_turf)
 	X.apply_status_effect(/datum/status_effect/hunt)
 
 	succeed_activate()
@@ -572,7 +567,7 @@
 	var/swap_used = FALSE
 
 /datum/action/ability/xeno_action/mirage/remove_action()
-	clean_illusions()
+	illusions = list() //the actual illusions fade on their own, and the cooldown object may be qdel'd
 	return ..()
 
 /datum/action/ability/xeno_action/mirage/can_use_action(silent = FALSE, override_flags)
@@ -632,12 +627,13 @@
 	ability_cost = 0
 	cooldown_duration = 0
 	keybind_flags = ABILITY_USE_STAGGERED | ABILITY_IGNORE_SELECTED_ABILITY
+	hidden = TRUE
 
 /datum/action/ability/xeno_action/hunter_army/give_action(mob/living/L)
 	. = ..()
 	RegisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_attack))
 
-/datum/action/ability/xeno_action/deathstroke/remove_action(mob/living/L)
+/datum/action/ability/xeno_action/hunter_army/remove_action(mob/living/L)
 	. = ..()
 	UnregisterSignal(L, COMSIG_XENOMORPH_ATTACK_LIVING)
 
@@ -653,16 +649,13 @@
 	if(prob(ILUSSION_CHANCE))
 		new /mob/illusion/xeno(target_turf, owner, owner, ILLUSION_LIFETIME)
 
-/datum/action/ability/xeno_action/hunter_army/should_show()
-	return FALSE
-
 // ***************************************
 // *********** Crippling strike
 // ***************************************
 
 /datum/action/ability/xeno_action/crippling_strike/hunter
 	additional_damage = 1
-	heal_amount = 0
+	heal_amount = 12
 	plasma_gain = 20
 	decay_time = 15 SECONDS
 

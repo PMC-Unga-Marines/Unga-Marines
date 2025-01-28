@@ -9,11 +9,15 @@
 	isshared = TRUE
 
 	products = list(
-		"Rifles" = list(
+		"Винтовки" = list(
 			/obj/item/weapon/gun/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12/ap = -1,
 			/obj/item/ammo_magazine/rifle/ar12/hp = -1,
+			/obj/item/weapon/gun/rifle/ar18 = -1,
+			/obj/item/ammo_magazine/rifle/ar18 = -1,
+			/obj/item/ammo_magazine/rifle/ar18/ap = -1,
+			/obj/item/ammo_magazine/rifle/ar18/hp = -1,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
@@ -28,21 +32,30 @@
 			/obj/item/ammo_magazine/rifle/ar21/ap = -1,
 			/obj/item/ammo_magazine/rifle/ar21/hp = -1,
 		),
-		"SMGs" = list(
+		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector/ap = -1,
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 	),
-		"Marksman" = list(
+		"Снайперские винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
-			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
+			/obj/item/weapon/gun/rifle/sr127= -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
 			/obj/item/weapon/gun/rifle/sniper/svd = -1,
 			/obj/item/ammo_magazine/sniper/svd = -1,
 		),
-		"Shotgun" = list(
+		"Энергетическое" = list(
+			/obj/item/cell/lasgun/lasrifle = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = -1,
+		),
+		"Дробовики" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
 			/obj/item/weapon/gun/shotgun/combat/standardmarine = -1,
 			/obj/item/weapon/gun/shotgun/combat/shq6 = -1,
@@ -55,13 +68,17 @@
 			/obj/item/ammo_magazine/rifle/sh15_slug = -1,
 			/obj/item/storage/holster/belt/ts34/full = 5,
 		),
-		"Machinegun" = list(
+		"Пулемёты" = list(
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/mg27 = 5,
 			/obj/item/ammo_magazine/mg27 = -1,
+			/obj/item/storage/box/hsg102 = 1,
+			/obj/item/weapon/gun/hmg08 = 1,
+			/obj/item/ammo_magazine/hmg08 = 5,
+			/obj/item/ammo_magazine/hmg08/small = 10,
 		),
-		"Melee" = list(
+		"Ближний бой" = list(
 			/obj/item/weapon/combat_knife = -1,
 			/obj/item/attachable/bayonetknife = -1,
 			/obj/item/stack/throwing_knife = -1,
@@ -71,17 +88,19 @@
 			/obj/item/storage/holster/blade/harvester/full = -1,
 			/obj/item/weapon/twohanded/spear/tactical = -1,
 			/obj/item/weapon/twohanded/spear/tactical/harvester = -1,
+			/obj/item/weapon/powerfist = -1,
 			/obj/item/weapon/twohanded/glaive/harvester = -1,
 			/obj/item/weapon/shield/riot/marine = 6,
 			/obj/item/weapon/shield/riot/marine/deployable = 6,
 			/obj/item/weapon/combat_knife/harvester = 12,
 		),
-		"Sidearm" = list(
+		"Пистолеты" = list(
 			/obj/item/weapon/gun/revolver/r44 = 5,
 			/obj/item/ammo_magazine/revolver/r44 = -1,
 			/obj/item/storage/box/t500case = 10,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/ammo_magazine/revolver/t500/slavs = -1,
+			/obj/item/ammo_magazine/revolver/t312 = -1,
 			/obj/item/weapon/gun/pistol/p17 = -1,
 			/obj/item/ammo_magazine/pistol/p17 = -1,
 			/obj/item/weapon/gun/pistol/vp70 = -1,
@@ -93,8 +112,9 @@
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,
 			/obj/item/ammo_magazine/pistol/derringer = -1,
 		),
-		"Grenades" = list(
+		"Гранаты" = list(
 			/obj/item/weapon/gun/grenade_launcher/single_shot = 4,
+			/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded = 2,
 			/obj/item/weapon/gun/rifle/tx54 = 2,
 			/obj/item/ammo_magazine/rifle/tx54 = 10,
 			/obj/item/ammo_magazine/rifle/tx54/incendiary = 4,
@@ -113,8 +133,8 @@
 			/obj/item/storage/box/m94 = -1,
 			/obj/item/storage/box/m94/cas = -1,
 		),
-		"Specialized" = list(
-			/obj/item/cell/lasgun/lasrifle = -1,
+		"Специализированное" = list(
+			/obj/item/storage/box/crate/sentry = 4,
 			/obj/item/weapon/gun/rifle/pepperball = 4,
 			/obj/item/ammo_magazine/rifle/pepperball = -1,
 			/obj/item/weapon/gun/flamer/big_flamer/marinestandard = 4,
@@ -127,20 +147,14 @@
 			/obj/item/mortar_kit/knee = 4,
 			/obj/item/mortal_shell/knee = 40,
 		),
-		"Heavy Weapons" = list(
-			/obj/item/storage/box/crate/sentry = 4,
-			/obj/item/storage/box/hsg102 = 1,
-			/obj/item/weapon/gun/hmg08 = 1,
-			/obj/item/ammo_magazine/hmg08 = 5,
-			/obj/item/ammo_magazine/hmg08/small = 10,
-		),
-		"Attachments" = list(
+		"Модули" = list(
 			/obj/item/attachable/bayonet = -1,
 			/obj/item/attachable/compensator = -1,
 			/obj/item/attachable/extended_barrel = -1,
 			/obj/item/attachable/suppressor = -1,
 			/obj/item/attachable/heavy_barrel = -1,
 			/obj/item/attachable/lace = -1,
+			/obj/item/attachable/lace/t500 = -1,
 			/obj/item/attachable/flashlight = -1,
 			/obj/item/attachable/flashlight/under = -1,
 			/obj/item/attachable/magnetic_harness = -1,
@@ -165,11 +179,13 @@
 			/obj/item/ammo_magazine/rifle/pepperball/pepperball_mini = -1,
 			/obj/item/attachable/stock/t76 = -1,
 			/obj/item/attachable/flamer_nozzle = -1,
+			/obj/item/attachable/flamer_nozzle/wide = -1,
 			/obj/item/attachable/flamer_nozzle/long = -1,
 		),
-		"Boxes" = list(
+		"Коробки" = list(
 			/obj/item/ammo_magazine/packet/p9mm = -1,
 			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
+			/obj/item/ammo_magazine/packet/p9mm/hp = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/acp/ap = -1,
 			/obj/item/ammo_magazine/packet/acp/hp = -1,
@@ -179,6 +195,7 @@
 			/obj/item/ammo_magazine/packet/t500 = -1,
 			/obj/item/ammo_magazine/packet/t500/qk = -1,
 			/obj/item/ammo_magazine/packet/t500/slavs = -1,
+			/obj/item/ammo_magazine/packet/t312 = -1,
 			/obj/item/ammo_magazine/packet/p10x20mm = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm/ap = -1,
@@ -212,7 +229,7 @@
 			/obj/structure/closet/crate/mass_produced_crate/supply = 5,
 			/obj/structure/closet/crate/mass_produced_crate/weapon = 5,
 		),
-		"Utility" = list(
+		"Утилити" = list(
 			/obj/item/flashlight/combat = -1,
 			/obj/item/weapon/gun/grenade_launcher/single_shot/flare/marine = -1,
 			/obj/item/tool/shovel/etool = -1,
@@ -223,22 +240,27 @@
 			/obj/item/compass = -1,
 			/obj/item/tool/hand_labeler = -1,
 			/obj/item/toy/deck/kotahi = -1,
+			/obj/item/toy/deck = -1,
 			/obj/item/deployable_floodlight = 5,
 		),
 	)
 
 	seasonal_items = list(
-		SEASONAL_GUNS = "Seasonal",
-		SEASONAL_HEAVY = "Operational Weapons",
+		SEASONAL_GUNS = "Сезонное",
+		SEASONAL_HEAVY = "Сезонное тяжёлое вооружение",
 	)
 
 /obj/machinery/vending/weapon/crash
 	products = list(
-		"Rifles" = list(
+		"Винтовки" = list(
 			/obj/item/weapon/gun/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12/ap = -1,
 			/obj/item/ammo_magazine/rifle/ar12/hp = -1,
+			/obj/item/weapon/gun/rifle/ar18 = -1,
+			/obj/item/ammo_magazine/rifle/ar18 = -1,
+			/obj/item/ammo_magazine/rifle/ar18/ap = -1,
+			/obj/item/ammo_magazine/rifle/ar18/hp = -1,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
@@ -252,24 +274,34 @@
 			/obj/item/ammo_magazine/rifle/ar21 = -1,
 			/obj/item/ammo_magazine/rifle/ar21/ap = -1,
 			/obj/item/ammo_magazine/rifle/ar21/hp = -1,
+			/obj/item/weapon/gun/revolver/r44/coltrifle = -1,
+			/obj/item/ammo_magazine/revolver/rifle = -1,
+
 		),
-		"SMGs" = list(
+		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector/ap = -1,
 			/obj/item/ammo_magazine/smg/vector/hp = -1,
 		),
-		"Marksman" = list(
+		"Энергетическое" = list(
+			/obj/item/cell/lasgun/lasrifle = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = -1,
+		),
+		"Снайперские винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
-			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
+			/obj/item/weapon/gun/rifle/sr127= -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
-			/obj/item/weapon/gun/revolver/r44/coltrifle = -1,
-			/obj/item/ammo_magazine/revolver/rifle = -1,
 			/obj/item/weapon/gun/rifle/sniper/svd = -1,
 			/obj/item/ammo_magazine/sniper/svd = -1,
 		),
-		"Shotgun" = list(
+		"Дробовики" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
 			/obj/item/weapon/gun/shotgun/combat/standardmarine = -1,
 			/obj/item/weapon/gun/shotgun/combat/shq6 = -1,
@@ -282,13 +314,13 @@
 			/obj/item/ammo_magazine/rifle/sh15_slug = -1,
 			/obj/item/storage/holster/belt/ts34/full = 5,
 		),
-		"Machinegun" = list(
+		"Пулемёты" = list(
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/mg27 = 5,
 			/obj/item/ammo_magazine/mg27 = -1,
 		),
-		"Melee" = list(
+		"Ближний бой" = list(
 			/obj/item/weapon/combat_knife = -1,
 			/obj/item/attachable/bayonetknife = -1,
 			/obj/item/stack/throwing_knife = -1,
@@ -304,12 +336,13 @@
 			/obj/item/weapon/shield/riot/marine/deployable = 6,
 			/obj/item/weapon/combat_knife/harvester = 12,
 		),
-		"Sidearm" = list(
+		"Пистолеты" = list(
 			/obj/item/weapon/gun/revolver/r44 = 5,
 			/obj/item/ammo_magazine/revolver/r44 = -1,
 			/obj/item/storage/box/t500case = 10,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/ammo_magazine/revolver/t500/slavs = -1,
+			/obj/item/ammo_magazine/revolver/t312 = -1,
 			/obj/item/weapon/gun/pistol/p17 = -1,
 			/obj/item/ammo_magazine/pistol/p17 = -1,
 			/obj/item/weapon/gun/pistol/vp70 = -1,
@@ -321,22 +354,23 @@
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,
 			/obj/item/ammo_magazine/pistol/derringer = -1,
 		),
-		"Grenades" = list(
+		"Гранаты" = list(
 			/obj/item/weapon/gun/grenade_launcher/single_shot = 4,
+			/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded = 2,
 			/obj/item/explosive/grenade = 50,
 			/obj/item/explosive/grenade/m15 = 10,
 			/obj/item/explosive/grenade/sticky = 25,
 			/obj/item/explosive/grenade/incendiary = 50,
+			/obj/item/explosive/grenade/sticky/trailblazer = 25,
 			/obj/item/explosive/grenade/smokebomb/cloak = 25,
 			/obj/item/explosive/grenade/smokebomb/drain = 10,
 			/obj/item/explosive/grenade/mirage = 100,
-			/obj/item/storage/box/m94 = 200,
-			/obj/item/storage/box/m94/cas = 50,
+			/obj/item/storage/box/m94 = -1,
+			/obj/item/storage/box/m94/cas = -1,
 		),
-		"Specialized" = list(
-			/obj/item/cell/lasgun/lasrifle = -1,
+		"Специализированное" = list(
 			/obj/item/weapon/gun/rifle/pepperball = 4,
-			/obj/item/ammo_magazine/rifle/pepperball = 40,
+			/obj/item/ammo_magazine/rifle/pepperball = -1,
 			/obj/item/weapon/gun/flamer/big_flamer/marinestandard = 4,
 			/obj/item/ammo_magazine/flamer_tank/large = 30,
 			/obj/item/ammo_magazine/flamer_tank/large/G = 15,
@@ -344,13 +378,14 @@
 			/obj/item/ammo_magazine/flamer_tank/water = -1,
 			/obj/item/jetpack_marine = 3,
 		),
-		"Attachments" = list(
+		"Модули" = list(
 			/obj/item/attachable/bayonet = -1,
 			/obj/item/attachable/compensator = -1,
 			/obj/item/attachable/extended_barrel = -1,
 			/obj/item/attachable/suppressor = -1,
 			/obj/item/attachable/heavy_barrel = -1,
 			/obj/item/attachable/lace = -1,
+			/obj/item/attachable/lace/t500 = -1,
 			/obj/item/attachable/flashlight = -1,
 			/obj/item/attachable/flashlight/under = -1,
 			/obj/item/attachable/magnetic_harness = -1,
@@ -375,9 +410,10 @@
 			/obj/item/ammo_magazine/rifle/pepperball/pepperball_mini = -1,
 			/obj/item/attachable/stock/t76 = -1,
 			/obj/item/attachable/flamer_nozzle = -1,
+			/obj/item/attachable/flamer_nozzle/wide = -1,
 			/obj/item/attachable/flamer_nozzle/long = -1,
 		),
-		"Boxes" = list(
+		"Коробки" = list(
 			/obj/item/ammo_magazine/packet/p9mm = -1,
 			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
 			/obj/item/ammo_magazine/packet/p9mm/hp = -1,
@@ -390,8 +426,14 @@
 			/obj/item/ammo_magazine/packet/t500 = -1,
 			/obj/item/ammo_magazine/packet/t500/qk = -1,
 			/obj/item/ammo_magazine/packet/t500/slavs = -1,
+			/obj/item/ammo_magazine/packet/t312 = -1,
 			/obj/item/ammo_magazine/packet/p10x20mm = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm = -1,
+			/obj/item/ammo_magazine/packet/p10x24mm/ap = -1,
+			/obj/item/ammo_magazine/packet/p10x24mm/hp = -1,
+			/obj/item/ammo_magazine/packet/p10x25mm = -1,
+			/obj/item/ammo_magazine/packet/p10x25mm/ap = -1,
+			/obj/item/ammo_magazine/packet/p10x25mm/hp = -1,
 			/obj/item/ammo_magazine/packet/groza = -1,
 			/obj/item/ammo_magazine/packet/groza/ap = -1,
 			/obj/item/ammo_magazine/packet/groza/hp = -1,
@@ -399,6 +441,7 @@
 			/obj/item/ammo_magazine/packet/p10x26mm = -1,
 			/obj/item/ammo_magazine/packet/p10x27mm = -1,
 			/obj/item/ammo_magazine/packet/p86x70mm = -1,
+			/obj/item/ammo_magazine/packet/svd762x54mmR = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun = -1,
 			/obj/item/ammo_magazine/packet/standardautoshotgun/flechette = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
@@ -417,7 +460,7 @@
 			/obj/structure/closet/crate/mass_produced_crate/supply = 5,
 			/obj/structure/closet/crate/mass_produced_crate/weapon = 5,
 		),
-		"Utility" = list(
+		"Утилити" = list(
 			/obj/item/flashlight/combat = -1,
 			/obj/item/weapon/gun/grenade_launcher/single_shot/flare/marine = -1,
 			/obj/item/tool/shovel/etool = -1,
@@ -428,23 +471,28 @@
 			/obj/item/compass = -1,
 			/obj/item/tool/hand_labeler = -1,
 			/obj/item/toy/deck/kotahi = -1,
+			/obj/item/toy/deck = -1,
 			/obj/item/deployable_floodlight = 5,
 		),
 	)
 
 	seasonal_items = list(
-		SEASONAL_GUNS = "Seasonal",
+		SEASONAL_GUNS = "Сезонное",
 	)
 
 /obj/machinery/vending/weapon/valhalla
 	resistance_flags = INDESTRUCTIBLE
 	use_power = NO_POWER_USE
 	products = list(
-		"Rifles" = list(
+		"Винтовки" = list(
 			/obj/item/weapon/gun/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12/ap = -1,
 			/obj/item/ammo_magazine/rifle/ar12/hp = -1,
+			/obj/item/weapon/gun/rifle/ar18 = -1,
+			/obj/item/ammo_magazine/rifle/ar18 = -1,
+			/obj/item/ammo_magazine/rifle/ar18/ap = -1,
+			/obj/item/ammo_magazine/rifle/ar18/hp = -1,
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
@@ -459,7 +507,24 @@
 			/obj/item/ammo_magazine/rifle/ar21/ap = -1,
 			/obj/item/ammo_magazine/rifle/ar21/hp = -1,
 		),
-		"Energy Weapons" = list(
+		"Пистолеты-пулемёты" = list(
+			/obj/item/weapon/gun/smg/vector = -1,
+			/obj/item/ammo_magazine/smg/vector = -1,
+			/obj/item/ammo_magazine/smg/vector/ap = -1,
+			/obj/item/ammo_magazine/smg/vector/hp = -1,
+			/obj/item/ammo_magazine/smg/vector/incendiary = -1,
+		),
+		"Снайперские винтовки" = list(
+			/obj/item/weapon/gun/rifle/dmr37 = -1,
+			/obj/item/ammo_magazine/rifle/dmr37 = -1,
+			/obj/item/weapon/gun/rifle/sr127= -1,
+			/obj/item/ammo_magazine/rifle/sr127 = -1,
+			/obj/item/weapon/gun/rifle/sniper/svd = -1,
+			/obj/item/ammo_magazine/sniper/svd = -1,
+			/obj/item/weapon/gun/revolver/r44/coltrifle = -1,
+			/obj/item/ammo_magazine/revolver/rifle = -1,
+		),
+		"Энергетическое" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_sniper = -1,
@@ -468,24 +533,7 @@
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = -1,
 		),
-		"SMGs" = list(
-			/obj/item/weapon/gun/smg/vector = -1,
-			/obj/item/ammo_magazine/smg/vector = -1,
-			/obj/item/ammo_magazine/smg/vector/ap = -1,
-			/obj/item/ammo_magazine/smg/vector/hp = -1,
-			/obj/item/ammo_magazine/smg/vector/incendiary = -1,
-		),
-		"Marksman" = list(
-			/obj/item/weapon/gun/rifle/dmr37 = -1,
-			/obj/item/ammo_magazine/rifle/dmr37 = -1,
-			/obj/item/weapon/gun/rifle/sniper/antimaterial/sr127= -1,
-			/obj/item/ammo_magazine/rifle/sr127 = -1,
-			/obj/item/weapon/gun/rifle/sniper/svd = -1,
-			/obj/item/ammo_magazine/sniper/svd = -1,
-			/obj/item/weapon/gun/revolver/r44/coltrifle = -1,
-			/obj/item/ammo_magazine/revolver/rifle = -1,
-		),
-		"Shotgun" = list(
+		"Дробовики" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
 			/obj/item/weapon/gun/shotgun/combat/standardmarine = -1,
 			/obj/item/weapon/gun/shotgun/combat/shq6 = -1,
@@ -499,13 +547,17 @@
 			/obj/item/weapon/gun/shotgun/double/marine = -1,
 			/obj/item/storage/holster/belt/ts34/full = -1,
 		),
-		"Machinegun" = list(
+		"Пулемёты" = list(
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/mg27 = -1,
 			/obj/item/ammo_magazine/mg27 = -1,
+			/obj/item/storage/box/hsg102 = -1,
+			/obj/item/weapon/gun/hmg08 = -1,
+			/obj/item/ammo_magazine/hmg08 = -1,
+			/obj/item/ammo_magazine/hmg08/small = -1,
 		),
-		"Melee" = list(
+		"Ближний бой" = list(
 			/obj/item/weapon/combat_knife = -1,
 			/obj/item/attachable/bayonetknife = -1,
 			/obj/item/stack/throwing_knife = -1,
@@ -521,12 +573,13 @@
 			/obj/item/weapon/shield/riot/marine/deployable = -1,
 			/obj/item/weapon/combat_knife/harvester = -1,
 		),
-		"Sidearm" = list(
+		"Пистолеты" = list(
 			/obj/item/weapon/gun/revolver/r44 = -1,
 			/obj/item/ammo_magazine/revolver/r44 = -1,
 			/obj/item/storage/box/t500case = -1,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/ammo_magazine/revolver/t500/slavs = -1,
+			/obj/item/ammo_magazine/revolver/t312 = -1,
 			/obj/item/weapon/gun/pistol/p17 = -1,
 			/obj/item/ammo_magazine/pistol/p17 = -1,
 			/obj/item/weapon/gun/pistol/vp70 = -1,
@@ -538,7 +591,7 @@
 			/obj/item/weapon/gun/shotgun/double/derringer = -1,
 			/obj/item/ammo_magazine/pistol/derringer = -1,
 		),
-		"Grenades" = list(
+		"Гранаты" = list(
 			/obj/item/weapon/gun/grenade_launcher/single_shot = -1,
 			/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded = -1,
 			/obj/item/weapon/gun/rifle/tx54 = -1,
@@ -561,7 +614,7 @@
 			/obj/item/storage/box/m94 = -1,
 			/obj/item/storage/box/m94/cas = -1,
 		),
-		"Specialized" = list(
+		"Специализированное" = list(
 			/obj/item/weapon/gun/rifle/pepperball = -1,
 			/obj/item/ammo_magazine/rifle/pepperball = -1,
 			/obj/item/weapon/gun/flamer/big_flamer/marinestandard = -1,
@@ -573,15 +626,12 @@
 			/obj/item/mortar_kit/knee = 4,
 			/obj/item/mortal_shell/knee = 40,
 		),
-		"Heavy Weapons" = list(
+		"Тяжёлое вооружение" = list(
 			/obj/structure/closet/crate/mortar_ammo/mortar_kit = -1,
 			/obj/structure/closet/crate/mortar_ammo/howitzer_kit = -1,
 			/obj/structure/largecrate/supply/weapons/at36 = -1,
 			/obj/item/storage/box/crate/sentry = -1,
 			/obj/item/sentry_upgrade_kit = -1,
-			/obj/item/storage/box/hsg102 = -1,
-			/obj/item/weapon/gun/hmg08 = -1,
-			/obj/item/ammo_magazine/hmg08 = -1,
 			/obj/item/storage/holster/backholster/rpg/full = -1,
 			/obj/item/ammo_magazine/rocket/recoilless = -1,
 			/obj/item/ammo_magazine/rocket/recoilless/light = -1,
@@ -590,13 +640,14 @@
 			/obj/item/ammo_magazine/rocket/recoilless/smoke = -1,
 			/obj/item/ammo_magazine/rocket/recoilless/plasmaloss = -1,
 		),
-		"Attachments" = list(
+		"Модули" = list(
 			/obj/item/attachable/bayonet = -1,
 			/obj/item/attachable/compensator = -1,
 			/obj/item/attachable/extended_barrel = -1,
 			/obj/item/attachable/suppressor = -1,
 			/obj/item/attachable/heavy_barrel = -1,
 			/obj/item/attachable/lace = -1,
+			/obj/item/attachable/lace/t500 = -1,
 			/obj/item/attachable/flashlight = -1,
 			/obj/item/attachable/flashlight/under = -1,
 			/obj/item/attachable/magnetic_harness = -1,
@@ -621,9 +672,10 @@
 			/obj/item/ammo_magazine/rifle/pepperball/pepperball_mini = -1,
 			/obj/item/attachable/stock/t76 = -1,
 			/obj/item/attachable/flamer_nozzle = -1,
+			/obj/item/attachable/flamer_nozzle/wide = -1,
 			/obj/item/attachable/flamer_nozzle/long = -1,
 		),
-		"Boxes" = list(
+		"Коробки" = list(
 			/obj/item/ammo_magazine/packet/p9mm = -1,
 			/obj/item/ammo_magazine/packet/p9mm/ap = -1,
 			/obj/item/ammo_magazine/packet/p9mm/hp = -1,
@@ -637,6 +689,7 @@
 			/obj/item/ammo_magazine/packet/t500 = -1,
 			/obj/item/ammo_magazine/packet/t500/qk = -1,
 			/obj/item/ammo_magazine/packet/t500/slavs = -1,
+			/obj/item/ammo_magazine/packet/t312 = -1,
 			/obj/item/ammo_magazine/packet/p10x20mm = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm = -1,
 			/obj/item/ammo_magazine/packet/p10x24mm/ap = -1,
@@ -669,7 +722,7 @@
 			/obj/structure/closet/crate/mass_produced_crate/supply = -1,
 			/obj/structure/closet/crate/mass_produced_crate/weapon = -1,
 		),
-		"Utility" = list(
+		"Утилити" = list(
 			/obj/item/flashlight/combat = -1,
 			/obj/item/weapon/gun/grenade_launcher/single_shot/flare/marine = -1,
 			/obj/item/tool/shovel/etool = -1,
@@ -680,6 +733,7 @@
 			/obj/item/compass = -1,
 			/obj/item/tool/hand_labeler = -1,
 			/obj/item/toy/deck/kotahi = -1,
+			/obj/item/toy/deck = -1,
 			/obj/item/deployable_floodlight = -1,
 			/obj/item/fulton_extraction_pack = -1,
 			/obj/item/facepaint/premium = -1,
@@ -709,6 +763,10 @@
 	isshared = TRUE
 	products = list(
 		/obj/item/storage/fancy/cigarettes/luckystars = -1,
+		/obj/item/storage/fancy/cigarettes/dromedaryco = -1,
+		/obj/item/storage/fancy/cigarettes/kpack = -1,
+		/obj/item/storage/fancy/cigarettes/lady_finger = -1,
+		/obj/item/storage/fancy/cigarettes = -1,
 		/obj/item/storage/fancy/chemrettes = -1,
 		/obj/item/storage/box/matches = -1,
 		/obj/item/tool/lighter/random = -1,
@@ -757,11 +815,6 @@
 		"Surplus Special Equipment" = list(
 			/obj/item/pinpointer = 1,
 			/obj/item/beacon/supply_beacon = 1,
-			/obj/item/ammo_magazine/rifle/sr81 = 3,
-			/obj/item/ammo_magazine/rifle/tx8 = 3,
-			/obj/item/ammo_magazine/rocket/sadar = 3,
-			/obj/item/ammo_magazine/minigun_powerpack = 2,
-			/obj/item/ammo_magazine/shotgun/mbx900 = 2,
 			/obj/item/explosive/plastique = 5,
 			/obj/item/fulton_extraction_pack = 2,
 			/obj/item/clothing/suit/storage/marine/boomvest = 20,

@@ -124,6 +124,9 @@
 
 	placed_overlay_iconstate = "tx7"
 
+/obj/item/weapon/gun/pistol/plasma_pistol/beginner
+	starting_attachment_types = list(/obj/item/weapon/gun/shotgun/combat/masterkey, /obj/item/attachable/reddot, /obj/item/attachable/lasersight)
+
 /obj/item/weapon/gun/pistol/plasma_pistol/can_attach(obj/item/attaching_to, mob/attacher)
 	if(!attachments_by_slot[ATTACHMENT_SLOT_RAIL])
 		return TRUE
@@ -219,6 +222,10 @@
 
 /obj/item/weapon/gun/pistol/p23/tactical
 	starting_attachment_types = list(/obj/item/attachable/reddot)
+
+/obj/item/weapon/gun/pistol/p23/beginner
+	starting_attachment_types = list(/obj/item/attachable/lace, /obj/item/attachable/reddot)
+
 //-------------------------------------------------------
 //P-1911
 
@@ -236,7 +243,7 @@
 	default_ammo_type = /obj/item/ammo_magazine/pistol/m1911
 	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/m1911)
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 21,"rail_x" = 17, "rail_y" = 22, "under_x" = 21, "under_y" = 15, "stock_x" = 21, "stock_y" = 17)
-	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_AUTO_EJECT_LOCKED
+	reciever_flags = AMMO_RECIEVER_MAGAZINES
 	fire_delay = 0.2 SECONDS
 	accuracy_mult = 1.05
 	accuracy_mult_unwielded = 0.85
@@ -451,6 +458,7 @@
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/lace,
+		/obj/item/attachable/flashlight/under,
 	)
 
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -524,7 +532,6 @@
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/flashlight/under,
-		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/lace,
 	)
 
@@ -545,6 +552,9 @@
 
 /obj/item/weapon/gun/pistol/vp70/tactical
 	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/lasersight, /obj/item/attachable/compensator)
+
+/obj/item/weapon/gun/pistol/vp70/beginner
+	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/lasersight, /obj/item/attachable/lace)
 
 //-------------------------------------------------------
 //VP78
@@ -662,7 +672,7 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 	desc = "The PL-5 is a true and tested ICCAF handgun, used for a very long time with minimal changes to the core design, best used at close quarters with its higher than usual magazine size for its caliber. It is chambered in .45 ACP."
 	icon_state = "pl5"
 	item_state = "pl5"
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	caliber = CALIBER_45ACP //codex
 	max_shells = 18 //codex
 	fire_sound = 'sound/weapons/guns/fire/colt.ogg'
@@ -751,7 +761,7 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 /obj/item/weapon/gun/pistol/smart_pistol
 	name = "\improper SP-13 smart pistol"
 	desc = "The SP-13 is a IFF-capable sidearm used by the TerraGov Marine Corps. A cutting-edge miniaturization technology allows mounting of a KTLD IFF system on the pistol, albeit at high manufactoring cost and the usual specialized training required to use such a pistol. Unique design feature high-capacity mag on top of the barrel, with integrated sight."
-	icon = 'icons/Marine/gun64.dmi'
+	icon = 'icons/obj/items/gun/gun64.dmi'
 	icon_state = "sp13"
 	item_state = "sp13"
 	caliber = CALIBER_9X19 //codex

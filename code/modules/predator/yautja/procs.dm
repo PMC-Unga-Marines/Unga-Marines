@@ -48,7 +48,7 @@
 	set name = "Butcher"
 	set desc = "Butcher a corpse you're standing on for its tasty meats."
 
-	if(stat || (lying_angle && !resting && !IsSleeping()) || (IsParalyzed() || IsUnconscious()) || lying_angle || buckled)
+	if(stat || (lying_angle && !resting && !has_status_effect(STATUS_EFFECT_SLEEPING)) || (has_status_effect(STATUS_EFFECT_PARALYZED) || has_status_effect(STATUS_EFFECT_UNCONSCIOUS)) || lying_angle || buckled)
 		return
 
 	var/list/choices = list()
@@ -77,7 +77,7 @@
 		to_chat(src, span_warning("This tiny worm is not even worth using your tools on."))
 		return
 
-	if(stat || (lying_angle && !resting && !IsSleeping()) || (IsParalyzed() || IsUnconscious()) || lying_angle || buckled)
+	if(stat || (lying_angle && !resting && !has_status_effect(STATUS_EFFECT_SLEEPING)) || (has_status_effect(STATUS_EFFECT_PARALYZED) || has_status_effect(STATUS_EFFECT_UNCONSCIOUS)) || lying_angle || buckled)
 		return
 
 	if(isxeno(T))

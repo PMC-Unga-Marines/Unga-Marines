@@ -148,6 +148,9 @@
 /mob/living/carbon/xenomorph/praetorian/primordial
 	upgrade = XENO_UPGRADE_PRIMO
 
+/mob/living/carbon/xenomorph/praetorian/dancer/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
 //----PRAETORIAN END----//
 //================//
 //----RAVAGER START----//
@@ -353,6 +356,15 @@
 
 //----BEHEMOTH END----//
 //============//
+
+//----WIDOW START----//
+/mob/living/carbon/xenomorph/widow
+	upgrade = XENO_UPGRADE_NORMAL
+
+/mob/living/carbon/xenomorph/widow/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+//----WIDOW END----//
 
 //----PANTHER START----//
 /mob/living/carbon/xenomorph/panther/primordial

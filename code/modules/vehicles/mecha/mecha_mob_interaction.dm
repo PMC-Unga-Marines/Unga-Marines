@@ -2,16 +2,6 @@
 	if(!ishuman(entering_mob)) // no silicons or drones in mechas.
 		return
 	log_message("[entering_mob] tried to move into [src].", LOG_MECHA)
-	if(dna_lock)
-		var/mob/living/carbon/entering_carbon = entering_mob
-		if(md5(REF(entering_carbon)) != dna_lock)
-			to_chat(entering_mob, span_warning("Access denied. [name] is secured with a DNA lock."))
-			log_message("Permission denied (DNA LOCK).", LOG_MECHA)
-			return
-	if(!operation_allowed(entering_mob))
-		to_chat(entering_mob, span_warning("Access denied. Insufficient operation keycodes."))
-		log_message("Permission denied (No keycode).", LOG_MECHA)
-		return
 	. = ..()
 	if(.)
 		moved_inside(entering_mob)
@@ -68,7 +58,6 @@
 		mob_container = M
 	else
 		return ..()
-	mecha_flags  &= ~SILICON_PILOT
 	mob_container.forceMove(newloc)//ejecting mob container
 	log_message("[mob_container] moved out.", LOG_MECHA)
 	SStgui.close_user_uis(M, src)

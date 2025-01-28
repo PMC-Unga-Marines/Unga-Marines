@@ -4,7 +4,7 @@
 //Just about ALL the procs are tied to the parent, not to the children
 //This is so they can be easily transferred between them without copypasta
 
-/mob/living/carbon/xenomorph/Initialize(mapload)
+/mob/living/carbon/xenomorph/Initialize(mapload, do_not_set_as_ruler)
 	if(mob_size == MOB_SIZE_BIG)
 		move_resist = MOVE_FORCE_EXTREMELY_STRONG
 		move_force = MOVE_FORCE_EXTREMELY_STRONG
@@ -28,7 +28,7 @@
 	if(is_centcom_level(z) && hivenumber == XENO_HIVE_NORMAL)
 		hivenumber = XENO_HIVE_ADMEME //so admins can safely spawn xenos in Thunderdome for tests.
 
-	set_initial_hivenumber()
+	set_initial_hivenumber(prevent_ruler=do_not_set_as_ruler)
 
 	switch(stat)
 		if(CONSCIOUS)
@@ -167,7 +167,7 @@
 		if(4201 to 9000)
 			rank_name = "Ancient"
 		if(9001 to INFINITY)
-			rank_name = "Prime"
+			rank_name = "Primal"
 		else
 			rank_name = "Young"
 	var/prefix = (hive.prefix || xeno_caste.upgrade_name) ? "[hive.prefix][xeno_caste.upgrade_name] " : ""
@@ -382,8 +382,6 @@
 	hud_to_add.add_hud_to(src)
 
 	hud_to_add = GLOB.huds[DATA_HUD_XENO_REAGENTS]
-	hud_to_add.add_hud_to(src)
-	hud_to_add = GLOB.huds[DATA_HUD_XENO_TACTICAL] //Allows us to see xeno tactical elements clearly via HUD elements
 	hud_to_add.add_hud_to(src)
 	hud_to_add = GLOB.huds[DATA_HUD_MEDICAL_PAIN]
 	hud_to_add.add_hud_to(src)

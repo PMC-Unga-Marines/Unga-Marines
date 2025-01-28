@@ -18,7 +18,7 @@
 	. = ..()
 	set_cockpit_overlay("cockpit_closed")
 	RegisterSignal(SSdcs, COMSIG_GLOB_CAS_LASER_CREATED, PROC_REF(receive_laser_cas))
-	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED), PROC_REF(cas_usable))
+	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ), PROC_REF(cas_usable))
 
 /obj/structure/caspart/caschair/Destroy()
 	owner?.chair = null
@@ -37,7 +37,7 @@
 
 /obj/structure/caspart/caschair/proc/cas_usable(datum/source)
 	SIGNAL_HANDLER
-	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED))
+	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ))
 	cas_usable = TRUE
 	if(occupant)
 		to_chat(occupant, span_notice("Combat initiated, CAS now available."))
@@ -45,15 +45,15 @@
 ///Handles updating the cockpit overlay
 /obj/structure/caspart/caschair/proc/set_cockpit_overlay(new_state)
 	cut_overlays()
-	cockpit = image('icons/Marine/cas_plane_cockpit.dmi', src, new_state)
+	cockpit = image('icons/obj/structures/cas/cockpit.dmi', src, new_state)
 	cockpit.pixel_x = -16
 	cockpit.pixel_y = -32
 	cockpit.layer = ABOVE_ALL_MOB_LAYER
 	add_overlay(cockpit)
-	var/image/side = image('icons/Marine/casship.dmi', src, "3")
+	var/image/side = image('icons/obj/structures/cas/ship.dmi', src, "3")
 	side.pixel_x = 32
 	add_overlay(side)
-	side = image('icons/Marine/casship.dmi', src, "6")
+	side = image('icons/obj/structures/cas/ship.dmi', src, "6")
 	side.pixel_x = -32
 	add_overlay(side)
 

@@ -4,6 +4,7 @@
 	default_ammo = /datum/ammo/bullet/revolver
 	flags_equip_slot = NONE
 	caliber = CALIBER_44
+	icon = 'icons/obj/items/ammo/revolver.dmi'
 	icon_state = "m44"
 	icon_state_mini = "mag_revolver_bronze"
 	w_class = WEIGHT_CLASS_SMALL
@@ -12,7 +13,6 @@
 /obj/item/ammo_magazine/revolver/rifle
 	name = "\improper M1855 speed loader (.44LS)"
 	desc = "A speed loader for the M1855, with special design to make it possible to speedload a rifle. Longer version of .44 Magnum, with uranium-neodimium core."
-	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "44LS"
 	default_ammo = /datum/ammo/bullet/revolver/rifle
 	caliber = CALIBER_44LS
@@ -20,19 +20,48 @@
 
 /obj/item/ammo_magazine/revolver/t500
 	name = "\improper R-500 speed loader (.500)"
-	icon = 'icons/obj/items/ammo.dmi'
 	icon_state = "t500"
-	desc = "A R-500 BF revolver speed loader."
+	desc = "A R-500 'Nigredo' revolver speed loader."
 	default_ammo = /datum/ammo/bullet/revolver/t500
-	flags_equip_slot = NONE
 	caliber = CALIBER_500
-	w_class = WEIGHT_CLASS_SMALL
 	max_rounds = 5
 
 /obj/item/ammo_magazine/revolver/t500/slavs
 	name = "\improper R-500 speed loader (.500 'Slavs')"
 	icon_state = "t500_sv"
 	default_ammo = /datum/ammo/bullet/revolver/t500/slavs
+
+/obj/item/ammo_magazine/revolver/t312
+	name = "\improper R-312 White Express speed loader (.500)"
+	desc = "A R-312 'Albedo' revolver speed loader."
+	icon_state = "t500_we"
+	default_ammo = /datum/ammo/bullet/revolver/t312
+	caliber = CALIBER_500_EMB
+	max_rounds = 5
+
+/obj/item/ammo_magazine/revolver/t312/med
+	name = "R-312 EMB speed loader"
+	desc = "A R-500 'Albedo' revolver speed loader."
+
+/obj/item/ammo_magazine/revolver/t312/med/adrenaline
+	name = "R-312 Adrenaline EMB speed loader"
+	icon_state = "t500_adr"
+	default_ammo = /datum/ammo/bullet/revolver/t312/med/adrenaline
+
+/obj/item/ammo_magazine/revolver/t312/med/rr
+	name = "R-312 Russian Red EMB speed loader"
+	icon_state = "t500_rr"
+	default_ammo = /datum/ammo/bullet/revolver/t312/med/rr
+
+/obj/item/ammo_magazine/revolver/t312/med/md
+	name = "R-312 Meraderm EMB speed loader"
+	icon_state = "t500_md"
+	default_ammo = /datum/ammo/bullet/revolver/t312/med/md
+
+/obj/item/ammo_magazine/revolver/t312/med/neu
+	name = "R-312 Neuraline EMB speed loader"
+	icon_state = "t500_neu"
+	default_ammo = /datum/ammo/bullet/revolver/t312/med/neu
 
 /obj/item/ammo_magazine/revolver/marksman
 	name = "\improper R-44 marksman speed loader (.44)"
@@ -114,6 +143,6 @@
 	desc = "A revolver speed loader for the R-76 Magnum, mind your shoulder, will stun most moderately sized targets on impact."
 	default_ammo = /datum/ammo/bullet/revolver/t76
 	max_rounds = 5
-	caliber = CALIBER_12x7
+	caliber = CALIBER_12X7
 	icon_state = "t76"
 	icon_state_mini = "mag_revolver_red"

@@ -133,6 +133,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
 	flags_equip_slot = ITEM_SLOT_BELT
+	flags_storage = BYPASS_CRYO_CHECK
 	max_storage_space = 18
 	storage_slots = 18
 	can_hold = list(

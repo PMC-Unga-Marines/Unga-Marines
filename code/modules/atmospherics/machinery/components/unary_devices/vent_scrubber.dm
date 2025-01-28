@@ -14,6 +14,7 @@
 	level = 1
 	layer = ATMOS_DEVICE_LAYER
 	flags_atom = SHUTTLE_IMMUNE
+	vent_movement = VENTCRAWL_ALLOWED | VENTCRAWL_CAN_SEE | VENTCRAWL_ENTRANCE_ALLOWED
 	var/scrubbing = SCRUBBING //0 = siphoning, 1 = scrubbing
 	var/filter_types = list()///datum/gas/carbon_dioxide)
 	var/volume_rate = 200
@@ -64,21 +65,18 @@
 	..()
 	update_icon_nopipes()
 
-/obj/machinery/atmospherics/components/unary/vent_scrubber/weld_cut_act(mob/living/user, obj/item/W)
-	if(istype(W, /obj/item/tool/pickaxe/plasmacutter))
-		var/obj/item/tool/pickaxe/plasmacutter/P = W
-
-		if(!welded)
-			to_chat(user, span_warning("\The [P] can only cut open welds!"))
-			return FALSE
-		if(!(P.start_cut(user, src.name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD)))
-			return FALSE
-		if(do_after(user, P.calc_delay(user) * PLASMACUTTER_VLOW_MOD, NONE, src, BUSY_ICON_BUILD))
-			P.cut_apart(user, src.name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD) //Vents require much less charge
-			welded = FALSE
-			update_icon()
-			return TRUE
-	return FALSE
+/obj/machinery/atmospherics/components/unary/vent_scrubber/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
+	if(!welded)
+		to_chat(user, span_warning("\The [I] can only cut open welds!"))
+		return FALSE
+	if(!(I.start_cut(user, src.name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD)))
+		return FALSE
+	if(!do_after(user, I.calc_delay(user) * PLASMACUTTER_VLOW_MOD, NONE, src, BUSY_ICON_BUILD))
+		return FALSE
+	I.cut_apart(user, src.name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD) //Vents require much less charge
+	welded = FALSE
+	update_icon()
+	return TRUE
 
 /obj/machinery/atmospherics/components/unary/vent_scrubber/welder_act(mob/living/user, obj/item/W)
 	if(iswelder(W))
@@ -101,7 +99,7 @@
 					cut_overlay(GLOB.welding_sparks)
 					welded = FALSE
 				update_icon()
-				pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
+				pipe_vision_img = image(src, loc, dir = dir)
 				pipe_vision_img.plane = ABOVE_HUD_PLANE
 				cut_overlay(GLOB.welding_sparks)
 				return TRUE
@@ -126,7 +124,7 @@
 	F.visible_message("[F] furiously claws at [src]!", "We manage to clear away the stuff blocking the scrubber.", "You hear loud scraping noises.")
 	welded = FALSE
 	update_icon()
-	pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
+	pipe_vision_img = image(src, loc, dir = dir)
 	pipe_vision_img.plane = ABOVE_HUD_PLANE
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 100, 1)
 
@@ -134,9 +132,6 @@
 	. = ..()
 	if(welded)
 		. += span_notice("It seems welded shut.")
-
-/obj/machinery/atmospherics/components/unary/vent_scrubber/can_crawl_through()
-	return !welded
 
 /obj/machinery/atmospherics/components/unary/vent_scrubber/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
@@ -146,7 +141,7 @@
 	xeno_attacker.visible_message("[xeno_attacker] furiously claws at [src]!", "We manage to clear away the stuff blocking the scrubber.", "You hear loud scraping noises.")
 	welded = FALSE
 	update_icon()
-	pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
+	pipe_vision_img = image(src, loc, dir = dir)
 	pipe_vision_img.plane = ABOVE_HUD_PLANE
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 100, 1)
 

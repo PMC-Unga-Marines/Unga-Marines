@@ -2,8 +2,8 @@
 /obj/item/storage/box/hsg102
 	name = "\improper HSG-102 crate"
 	desc = "A large and rusted metal case. It has not seen much use. Written in faded letters on its top, it says, \"This is a HSG-102 heavy smartgun\". There are many other warning labels atop that are too faded to read."
-	icon = 'icons/Marine/marine-hmg.dmi'
-	icon_state = "crate"
+	icon = 'icons/obj/items/ammo/stationary.dmi'
+	icon_state = "hsg102_crate"
 	w_class = WEIGHT_CLASS_HUGE
 	storage_slots = 7
 	bypass_w_limit = list(
@@ -23,7 +23,7 @@
 
 	w_class = WEIGHT_CLASS_HUGE
 	flags_equip_slot = ITEM_SLOT_BACK
-	icon = 'icons/Marine/marine-hmg.dmi'
+	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "turret"
 
 	fire_sound = 'sound/weapons/guns/fire/hmg2.ogg'
@@ -69,7 +69,7 @@
 /obj/item/weapon/gun/hsg102/hsg_nest
 	name = "\improper HSG-102 heavy smartgun nest"
 	desc = "A HSG-102 heavy smartgun mounted upon a small reinforced post with sandbags to provide a small machinegun nest for all your defense purpose needs.</span>"
-	icon = 'icons/Marine/marine-hmg.dmi'
+	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "entrenched"
 
 	default_ammo_type = /obj/item/ammo_magazine/hsg102/hsg_nest
@@ -98,7 +98,7 @@
 
 	w_class = WEIGHT_CLASS_HUGE
 	flags_equip_slot = ITEM_SLOT_BACK
-	icon = 'icons/Marine/marine-hmg.dmi'
+	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "minigun"
 	caliber = CALIBER_762X51
 
@@ -137,7 +137,7 @@
 /obj/item/weapon/gun/standard_minigun/nest
 	name = "\improper MG-2005 mounted minigun nest"
 	desc = "A MG-2005 mounted minigun mounted upon a small reinforced post with sandbags."
-	icon = 'icons/Marine/marine-hmg.dmi'
+	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "minigun_nest"
 
 	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
@@ -156,9 +156,9 @@
 	desc = "The ATR-22 is a recoiling barrel 20mm autocannon, created to be used against low flying targets, it is however able to engage ground targets at medium ranges with extreme efficency even if the recoil makes it near impossible to hit anything close by, its bullets will shred hard targets such as armored foes or walls. Both barrels can be fired at the same time rather than in sequence, but will incur large scatter penalties do so."
 	w_class = WEIGHT_CLASS_HUGE
 	flags_equip_slot = ITEM_SLOT_BACK
-	icon = 'icons/Marine/marine-ac.dmi'
+	icon = 'icons/obj/artillery/atr22.dmi'
 	icon_state = "autocannon"
-	fire_sound = "ac_fire"
+	fire_sound = SFX_AC_FIRE
 	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
 
 	default_ammo_type = /obj/item/ammo_magazine/atr22
@@ -203,7 +203,7 @@
 
 	w_class = WEIGHT_CLASS_HUGE
 	flags_equip_slot = ITEM_SLOT_BACK
-	icon = 'icons/Marine/marine-hmg.dmi'
+	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "heavylaser"
 
 	fire_sound = 'sound/weapons/guns/fire/tank_flamethrower.ogg'
@@ -286,7 +286,7 @@
 
 	w_class = WEIGHT_CLASS_HUGE
 	flags_equip_slot = ITEM_SLOT_BACK
-	icon = 'icons/Marine/marine-fkgun.dmi'
+	icon = 'icons/obj/artillery/fk88.dmi'
 	icon_state = "isg"
 	fire_sound = 'sound/weapons/guns/fire/tank_cannon1.ogg'
 	reload_sound = 'sound/weapons/guns/interact/tat36_reload.ogg'
@@ -331,7 +331,7 @@
 /obj/item/weapon/gun/hsg102/death
 	name = "\improper \"Death incarnate\" heavy machine gun"
 	desc = "It looks like a regular HSG-102, however glowing archaeic writing glows faintly on its sides and top. It beckons for blood."
-	icon = 'icons/Marine/marine-hmg.dmi'
+	icon = 'icons/obj/items/gun/hmg.dmi'
 
 	aim_slowdown = 3
 	scatter = 30
@@ -353,7 +353,7 @@
 	desc = "An absolute monster of a weapon, this is a watercooled heavy machinegun modernized by some crazy armorer with a wheeling kit included. Considering the mish mash of parts for the wheeling kit, you think its from another model of the gun. The pinnacle at holding a chokepoint. Holds 500 rounds of 10x28mm caseless in a box case. IS NOT IFF CAPABLE. Aiming carefully recommended. Can be repaired with a blowtorch once deployed. Alt Right click to unanchor and reanchor it."
 	w_class = WEIGHT_CLASS_HUGE
 	flags_equip_slot = ITEM_SLOT_BACK
-	icon = 'icons/Marine/marine-hmg.dmi'
+	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "mg08"
 
 	fire_sound = 'sound/weapons/guns/fire/mg08.ogg'
@@ -399,10 +399,10 @@
 	desc = "The MG-27 is the SG-29s aging IFF-less cousin, made for rapid accurate machinegun fire in a short amount of time, you could use it while standing, not a great idea. Use the tripod for actual combat. It uses 10x27mm boxes."
 	flags_equip_slot = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
-	icon = 'icons/Marine/marine-mmg.dmi'
+	icon = 'icons/obj/items/gun/mg27.dmi'
 	icon_state = "t27"
 	item_state = "t27"
-	caliber = CALIBER_10x27_CASELESS // codex
+	caliber = CALIBER_10X27_CASELESS // codex
 	max_shells = 150 //codex
 	force = 40
 	aim_slowdown = 1.2
@@ -431,10 +431,7 @@
 		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/scope/unremovable/mg27,
-		/obj/item/attachable/stock/mg27,
 	)
-
-	starting_attachment_types = list(/obj/item/attachable/stock/mg27)
 	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 19,"rail_x" = 18, "rail_y" = 24, "under_x" = 28, "under_y" = 13, "stock_x" = 0, "stock_y" = 0)
 
 	flags_item = IS_DEPLOYABLE|TWOHANDED
@@ -459,15 +456,14 @@
 	undeploy_time = 0.5 SECONDS
 	max_integrity = 200
 
-
 /obj/item/weapon/gun/mg27/machinegunner
-	starting_attachment_types = list(/obj/item/attachable/stock/mg27, /obj/item/attachable/scope/unremovable/mg27)
+	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/mg27)
 
 /obj/item/weapon/gun/clf_heavyrifle
 	name = "\improper PTR-41/1785 anti-mech gun"
 	desc = "The PTR-41/1785 is a bottom shelf solution modernized for dealing with armor, while one could use it while standing it is obviously not a great idea. It is recommended to be used while the bipod is deployed. It uses 14.5mm high velocity rounds that will certainly leave a hole in whatever unfortunate soul is hit by it."
 	w_class = WEIGHT_CLASS_BULKY
-	icon = 'icons/Marine/clf_heavyrifle.dmi'
+	icon = 'icons/obj/items/gun/clf_heavyrifle.dmi'
 	icon_state = "ptrs"
 	item_state = "ptrs"
 	item_icons = list(
@@ -522,6 +518,18 @@
 	undeploy_time = 0.25 SECONDS
 	movement_acc_penalty_mult = 20 // Good luck hitting on the move, bruv
 
+/obj/item/weapon/gun/clf_heavyrifle/imported
+	name = "\improper PTR-41/1785I1"
+	desc = "PTR-41/1785I1 is an imported version of the original PTR-41 with a replacement receiver, making it possible to install the more common T-47 sight on it. However, the replacement also introduced some inconvenience, which is why it takes longer to shoot while aiming. Otherwise, it is an almost complete copy. While one could use it while standing it is obviously not a great idea. It is recommended to be used while the bipod is deployed. It uses 14.5mm high velocity rounds that will certainly leave a hole in whatever unfortunate soul is hit by it."
+	attachable_allowed = list(
+		/obj/item/attachable/motiondetector,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/stock/clf_heavyrifle,
+		/obj/item/attachable/scope/marine,
+	)
+
+	aim_fire_delay = 3 SECONDS
 //-------------------------------------------------------
 //AT-36 Anti Tank Gun
 
@@ -529,7 +537,7 @@
 	name = "\improper AT-36 anti tank gun"
 	desc = "The AT-36 is a light dual purpose anti tank and anti personnel weapon used by the TGMC. Used for light vehicle or bunker busting on a short notice. Best used by two people. It can move around with wheels, and has an ammo rack intergral to the weapon. CANNOT BE UNDEPLOYED ONCE DEPLOYED! It uses several types of 37mm shells boxes. Alt-right click on it to anchor it so that it cannot be moved by anyone, then alt-right click again to move it."
 	w_class = WEIGHT_CLASS_BULKY
-	icon = 'icons/Marine/marine-atgun.dmi'
+	icon = 'icons/obj/artillery/at36.dmi'
 	icon_state = "tat36"
 	item_state = "tat36"
 	caliber = CALIBER_37MM // codex
@@ -613,13 +621,13 @@
 	w_class = WEIGHT_CLASS_HUGE
 	flags_equip_slot = ITEM_SLOT_BACK
 	caliber = CALIBER_40MM
-	icon = 'icons/Marine/marine-hmg.dmi'
+	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "ags"
 	fire_sound = 'sound/weapons/guns/fire/ags.ogg'
 	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/agls37
 	scatter = 0
-	fire_delay = 1.1 SECONDS
+	fire_delay = 1 SECONDS
 	burst_amount = 0
 	accuracy_mult = 1.2 //it's got a bipod
 	flags_item = IS_DEPLOYABLE|TWOHANDED
@@ -643,7 +651,7 @@
 		/obj/item/ammo_magazine/agls37/tanglefoot,
 	)
 
-	deploy_time = 6 SECONDS
+	deploy_time = 5 SECONDS
 	undeploy_time = 3 SECONDS
 	deployable_item = /obj/machinery/deployable/mounted
 

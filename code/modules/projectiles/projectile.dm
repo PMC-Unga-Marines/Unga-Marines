@@ -826,15 +826,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	return ..()
 
 /mob/living/carbon/human/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
-	if(wear_id?.iff_signal & proj.iff_signal)
-		proj.damage -= proj.damage*proj.damage_marine_falloff
+	if((wear_id?.iff_signal & proj.iff_signal) || (proj?.firer?.faction == faction && proj.original_target != src && Adjacent(proj.firer)))
+		proj.damage -= proj.damage * proj.damage_marine_falloff
 		return FALSE
-	//shooting from behind the shoulder
-	if(ismob(proj.firer))
-		var/mob/firer = proj.firer
-		if(firer.faction == faction && Adjacent(proj.firer))
-			proj.damage -= proj.damage*proj.damage_marine_falloff //no guns with marine falloff by the way
-			return FALSE
 	return ..()
 
 /mob/living/carbon/xenomorph/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
@@ -851,8 +845,10 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	return ..()
 
 /obj/projectile/proc/play_damage_effect(mob/M)
-	if(ammo.sound_hit) playsound(M, ammo.sound_hit, 50, 1)
-	if(M.stat != DEAD) animation_flash_color(M)
+	if(ammo.sound_hit)
+		playsound(M, ammo.sound_hit, 50, 1)
+	if(M.stat != DEAD)
+		animation_flash_color(M)
 
 //----------------------------------------------------------
 				//				    \\
@@ -916,7 +912,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	if(stat != DEAD && proj.firer)
 		proj.firer.record_projectile_damage(damage, src)	//Tally up whoever the shooter was
 
-	if(damage)
+	if(damage > 0)
 		if(do_shrapnel_roll(proj, damage))
 			feedback_flags |= (BULLET_FEEDBACK_SHRAPNEL|BULLET_FEEDBACK_SCREAM)
 			embed_projectile_shrapnel(proj)

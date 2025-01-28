@@ -102,7 +102,7 @@
 /obj/item/beacon/supply_beacon
 	name = "supply beacon"
 	desc = "A rugged, glorified laser pointer capable of sending a beam into space. Activate and throw this to call for a supply drop."
-	icon = 'icons/Marine/marine-navigation.dmi'
+	icon = 'icons/obj/items/beacon.dmi'
 	icon_state = "motion0"
 	icon_activated = "motion2"
 	activation_time = 60
@@ -121,10 +121,10 @@
 	SIGNAL_HANDLER
 	beacon_datum = null
 
-/obj/item/beacon/supply_beacon/onTransitZ(old_z,new_z)
+/obj/item/beacon/supply_beacon/on_changed_z_level(old_turf, new_turf, notify_contents)
 	. = ..()
 	//Assumes doMove sets loc before onTransitZ
-	if(beacon_datum) // RUTGMC ADDITION, supply beacon runtime fix
+	if(beacon_datum)
 		beacon_datum.drop_location = loc
 
 /obj/item/beacon/supply_beacon/activate(mob/living/carbon/human/H)
@@ -166,7 +166,7 @@
 /obj/item/beacon/orbital_bombardment_beacon
 	name = "orbital beacon"
 	desc = "A bulky device that fires a beam up to an orbiting vessel to send local coordinates."
-	icon = 'icons/Marine/marine-navigation.dmi'
+	icon = 'icons/obj/items/beacon.dmi'
 	icon_state = "motion4"
 	icon_activated = "motion1"
 	underground_signal = FALSE

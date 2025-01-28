@@ -61,9 +61,6 @@
 
 	if(master_gun)
 		apply_modifiers(master_gun, user, !folded)
-		for(var/X in master_gun.actions)
-			var/datum/action/A = X
-			A.update_button_icon()
 
 	return TRUE
 
@@ -77,7 +74,7 @@
 /obj/item/attachable/foldable/skorpion_stock
 	name = "\improper Skorpion submachinegun wooden stock"
 	desc = "A foldable wire stock for a Skorpion submachinegun"
-	icon = 'icons/Marine/attachments_64.dmi'
+	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	icon_state = "skorpion"
 	flags_attach_features = ATTACH_ACTIVATION
 	pixel_shift_x = 0
@@ -121,7 +118,7 @@
 	name = "\improper PL-38 machinepistol stock"
 	desc = "A submachinegun stock found on ICC subguns, this stock reduces recoil and improves accuracy, but at a reduction to handling and agility. Seemingly a bit more effective in a brawl."
 	flags_attach_features = ATTACH_ACTIVATION
-	icon = 'icons/Marine/attachments_64.dmi'
+	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	wield_delay_mod = 0.1 SECONDS
 	melee_mod = 5
 	size_mod = 1
@@ -135,7 +132,7 @@
 /obj/item/attachable/foldable/t35stock
 	name = "\improper SH-35 stock"
 	desc = "A non-standard heavy stock for the SH-35 shotgun. Less quick and more cumbersome than the standard issue stakeout, but reduces recoil and improves accuracy. Allegedly makes a pretty good club in a fight too."
-	icon = 'icons/Marine/attachments_64.dmi'
+	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	icon_state = "t35stock"
 	flags_attach_features = ATTACH_ACTIVATION
 	wield_delay_mod = 0.2 SECONDS
@@ -155,6 +152,7 @@
 	scatter_mod = -10
 	burst_scatter_mod = -3
 	aim_mode_delay_mod = -0.5
+	var/user_old_move_resist
 
 /obj/item/attachable/foldable/bipod/activate(mob/living/user, turn_off)
 	if(folded && !(master_gun.flags_item & WIELDED)) //no one handed bipod use
@@ -168,12 +166,16 @@
 		UnregisterSignal(master_gun, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNWIELD))
 		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 		to_chat(user, span_notice("You retract [src]."))
+		user.move_resist = user_old_move_resist
 		return
 
 	if(user)
 		RegisterSignals(master_gun, list(COMSIG_ITEM_DROPPED, COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNWIELD), PROC_REF(retract_bipod))
 		RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(retract_bipod))
 		to_chat(user, span_notice("You deploy [src]."))
+		user_old_move_resist = user.move_resist
+		user.move_resist = MOVE_FORCE_STRONG
+
 
 ///Signal handler for forced undeployment
 /obj/item/attachable/foldable/bipod/proc/retract_bipod(datum/source, mob/living/user)

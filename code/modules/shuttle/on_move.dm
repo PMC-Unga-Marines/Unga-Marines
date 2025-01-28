@@ -110,14 +110,12 @@ All ShuttleMove procs go here
 
 	var/turf/newT = get_turf(src)
 	if (newT.z != oldT.z)
-		onTransitZ(oldT.z, newT.z)
+		on_changed_z_level(oldT, newT)
 
 	if(light)
 		update_light()
 	if(rotation)
 		shuttleRotate(rotation)
-
-	update_parallax_contents()
 
 	return TRUE
 

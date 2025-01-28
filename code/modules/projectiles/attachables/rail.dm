@@ -66,10 +66,6 @@
 	else
 		return
 
-	for(var/X in master_gun.actions)
-		var/datum/action/A = X
-		A.update_button_icon()
-
 	update_icon()
 
 /obj/item/attachable/flashlight/attackby(obj/item/I, mob/user, params)
@@ -123,7 +119,7 @@
 
 /obj/item/attachable/buildasentry
 	name = "\improper Build-A-Sentry Attachment System"
-	icon = 'icons/Marine/sentry.dmi'
+	icon = 'icons/obj/sentry.dmi'
 	icon_state = "build_a_sentry_attachment"
 	desc = "The Build-A-Sentry is the latest design in cheap, automated, defense. Simple attach it to the rail of a gun and deploy. Its that easy!"
 	slot = ATTACHMENT_SLOT_RAIL
@@ -211,7 +207,6 @@
 		. = TRUE
 	for(var/datum/action/item_action/toggle/action_to_update AS in actions)
 		action_to_update.set_toggle(.)
-		action_to_update.update_button_icon()
 
 ///Handles the gun attaching to the armor.
 /obj/item/attachable/shoulder_mount/proc/handle_armor_attach(datum/source, attaching_item, mob/user)

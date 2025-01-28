@@ -152,10 +152,10 @@ GLOBAL_LIST_EMPTY(blood_particles)
 	flick("heavyimpact", src)
 
 /obj/effect/temp_visual/order
-	icon = 'icons/Marine/marine-items.dmi'
+	icon = 'icons/effects/blips.dmi'
 	var/icon_state_on
 	hud_possible = list(SQUAD_HUD_TERRAGOV, SQUAD_HUD_SOM)
-	duration = ORDER_DURATION
+	duration = CIC_ORDER_DURATION
 	layer = TURF_LAYER
 
 /obj/effect/temp_visual/order/Initialize(mapload, faction)
@@ -186,7 +186,7 @@ GLOBAL_LIST_EMPTY(blood_particles)
 /obj/effect/temp_visual/order/rally_order
 	name = "rally order"
 	icon_state_on = "rally"
-	duration = RALLY_ORDER_DURATION
+	duration = CIC_ORDER_DURATION
 
 ///Set visuals for the hud
 /obj/effect/temp_visual/order/proc/set_visuals(faction)
@@ -196,7 +196,7 @@ GLOBAL_LIST_EMPTY(blood_particles)
 	var/image/holder = hud_list[hud_type]
 	if(!holder)
 		return
-	holder.icon = 'icons/Marine/marine-items.dmi'
+	holder.icon = 'icons/effects/blips.dmi'
 	holder.icon_state = icon_state_on
 	hud_list[hud_type] = holder
 

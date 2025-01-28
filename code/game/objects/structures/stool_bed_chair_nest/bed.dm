@@ -153,19 +153,17 @@
 			new buildstacktype (loc, buildstackamount)
 		qdel(src)
 
+/obj/structure/bed/wrench_act(mob/living/user, obj/item/I)
+	if(!buildstacktype)
+		return
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+	if(dropmetal)
+		new buildstacktype(loc, buildstackamount)
+	qdel(src)
+
 /obj/structure/bed/attackby(obj/item/I, mob/user, params)
 	. = ..()
-
-	if(iswrench(I))
-		if(!buildstacktype)
-			return
-
-		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
-		if(dropmetal)
-			new buildstacktype(loc, buildstackamount)
-		qdel(src)
-
-	else if(istype(I, /obj/item/grab) && !LAZYLEN(buckled_mobs) && !buckled_bodybag)
+	if(istype(I, /obj/item/grab) && !LAZYLEN(buckled_mobs) && !buckled_bodybag)
 		var/obj/item/grab/G = I
 		if(!ismob(G.grabbed_thing))
 			return
@@ -579,7 +577,7 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 /obj/item/medevac_beacon
 	name = "medevac beacon"
 	desc = "A specialized teleportation beacon that links with a medvac stretcher; provides the target destination for the stretcher's displacement field. WARNING: Must be in a powered area to function."
-	icon = 'icons/Marine/marine-navigation.dmi'
+	icon = 'icons/obj/items/beacon.dmi'
 	icon_state = "med_beacon0"
 	w_class = WEIGHT_CLASS_SMALL
 	var/planted = FALSE

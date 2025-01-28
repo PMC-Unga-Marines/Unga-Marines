@@ -10,7 +10,7 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_XENO_STRUCTURES)
 	canSmoothWith = list(SMOOTH_GROUP_XENO_STRUCTURES)
-	soft_armor = list(MELEE = 0, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 30, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	resistance_flags = UNACIDABLE
 
 /turf/closed/wall/resin/add_debris_element()
@@ -25,6 +25,23 @@
 
 /turf/closed/wall/resin/proc/thicken()
 	ChangeTurf(/turf/closed/wall/resin/thick)
+	return TRUE
+
+/turf/closed/wall/resin/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
+	if(user.do_actions)
+		return FALSE
+	if(CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return FALSE
+	if(!I.powered || (I.flags_item & NOBLUDGEON))
+		return FALSE
+	var/charge_cost = PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD
+	if(!I.start_cut(user, name, src, charge_cost, no_string = TRUE))
+		return FALSE
+	user.changeNext_move(I.attack_speed)
+	user.do_attack_animation(src, used_item = I)
+	I.cut_apart(user, name, src, charge_cost)
+	take_damage(max(0, I.force * (2 + PLASMACUTTER_RESIN_MULTIPLIER)), I.damtype, MELEE)
+	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 	return TRUE
 
 /turf/closed/wall/resin/thick
@@ -82,7 +99,7 @@
 	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 	xeno_attacker.visible_message(span_xenonotice("\The [xeno_attacker] tears down \the [src]!"), \
 	span_xenonotice("We tear down \the [src]."))
-	playsound(src, "alien_resin_break", 25)
+	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 	dismantle_wall()
 
 /turf/closed/wall/resin/attack_hand(mob/living/user)
@@ -101,15 +118,9 @@
 	if(I.damtype == BURN) //Burn damage deals extra vs resin structures (mostly welders).
 		multiplier += 1
 
-	if(istype(I, /obj/item/tool/pickaxe/plasmacutter) && !user.do_actions)
-		var/obj/item/tool/pickaxe/plasmacutter/P = I
-		if(P.start_cut(user, name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD))
-			multiplier += PLASMACUTTER_RESIN_MULTIPLIER
-			P.cut_apart(user, name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD)
-
 	damage *= max(0, multiplier)
-	take_damage(damage, BRUTE, MELEE)
-	playsound(src, "alien_resin_break", 25)
+	take_damage(damage, I.damtype, MELEE)
+	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 
 /turf/closed/wall/resin/dismantle_wall()
 	ScrapeAway()
@@ -186,7 +197,7 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 0, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 100, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 15, BULLET = 35, LASER = 30, ENERGY = 0, BOMB = 100, BIO = 0, FIRE = 0, ACID = 0)
 	max_upgradable_health = 200
 
 /turf/closed/wall/resin/regenerating/bulletproof
@@ -196,7 +207,7 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 0, BULLET = 150, LASER = 150, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 15, BULLET = 150, LASER = 150, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	max_upgradable_health = 200
 
 /turf/closed/wall/resin/regenerating/fireproof
@@ -206,7 +217,7 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 0, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
+	soft_armor = list(MELEE = 15, BULLET = 35, LASER = 30, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
 	max_upgradable_health = 200
 
 /turf/closed/wall/resin/regenerating/meleeproof
@@ -216,5 +227,5 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 100, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 100, BULLET = 35, LASER = 30, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	max_upgradable_health = 200

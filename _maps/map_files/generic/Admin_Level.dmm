@@ -262,7 +262,7 @@
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
 "cRJ" = (
-/obj/structure/table/fancywoodentable,
+/obj/structure/table/wood/fancy,
 /obj/effect/spawner/random/food_or_drink/drink_alcohol_bottle,
 /turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
@@ -312,7 +312,7 @@
 	pixel_x = 1;
 	pixel_y = 15
 	},
-/obj/structure/table/fancywoodentable,
+/obj/structure/table/wood/fancy,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey{
 	pixel_x = 9;
 	pixel_y = 15
@@ -648,10 +648,10 @@
 /turf/closed/mineral/smooth/indestructible,
 /area/centcom/valhalla)
 "jvi" = (
-/obj/machinery/marine_selector/clothes/valhalla,
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 6
 	},
+/obj/machinery/quick_vendor/beginner,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "jvR" = (
@@ -739,7 +739,7 @@
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
 "kHt" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
@@ -860,7 +860,7 @@
 /area/tdome)
 "myT" = (
 /obj/effect/turf_decal/tile/metal/medical,
-/obj/structure/table/fancywoodentable,
+/obj/structure/table/wood/fancy,
 /obj/machinery/chem_dispenser/beer/nopower{
 	dir = 1
 	},
@@ -893,7 +893,7 @@
 /turf/open/floor,
 /area/tdome)
 "mKq" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/flashlight/lamp/green{
 	pixel_x = -7;
 	pixel_y = 12
@@ -1011,13 +1011,13 @@
 /turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "nKg" = (
-/obj/machinery/marine_selector/clothes/valhalla,
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 6
 	},
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 8
 	},
+/obj/machinery/quick_vendor/beginner,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "nOQ" = (
@@ -1253,7 +1253,7 @@
 /area/centcom/valhalla)
 "rei" = (
 /obj/effect/turf_decal/tile/metal/medical,
-/obj/structure/table/fancywoodentable,
+/obj/structure/table/wood/fancy,
 /obj/machinery/chem_dispenser/soda/nopower{
 	dir = 1
 	},
@@ -1434,7 +1434,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
 "tsg" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
 "tuZ" = (

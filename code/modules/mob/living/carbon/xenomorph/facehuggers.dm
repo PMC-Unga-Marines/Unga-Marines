@@ -448,9 +448,6 @@
 		if(species?.species_flags & (IS_SYNTHETIC|ROBOTIC_LIMBS))
 			return FALSE
 
-	if(on_fire)
-		return FALSE
-
 	if(check_mask)
 		if(wear_mask)
 			var/obj/item/W = wear_mask
@@ -473,82 +470,86 @@
 /////////////////////////////
 // ATTACHING AND IMPREGNATION
 //////////////////////////////
-/obj/item/clothing/mask/facehugger/proc/Attach(mob/living/carbon/M, can_catch = TRUE)
+/obj/item/clothing/mask/facehugger/proc/Attach(mob/living/carbon/hugged_carbon, can_catch = TRUE)
 
 	set_throwing(FALSE)
 	leaping = FALSE
 	update_icon()
 
-	if(!istype(M))
+	if(!istype(hugged_carbon))
 		return FALSE
 
 	if(attached)
 		return TRUE
 
-	if(M.status_flags & XENO_HOST || M.status_flags & GODMODE || isxeno(M))
+	if(hugged_carbon.status_flags & XENO_HOST || hugged_carbon.status_flags & GODMODE || isxeno(hugged_carbon))
 		return FALSE
 
 	if(isxeno(loc)) //Being carried? Drop it
-		var/mob/living/carbon/xenomorph/X = loc
-		X.dropItemToGround(src)
-		X.update_icons()
+		var/mob/living/carbon/xenomorph/carrier = loc
+		carrier.dropItemToGround(src)
+		carrier.update_icons()
 
-	if(M.in_throw_mode && M.dir != dir && !M.incapacitated() && !M.get_active_held_item() && can_catch)
+	if(hugged_carbon.in_throw_mode && hugged_carbon.dir != dir && !hugged_carbon.incapacitated() && !hugged_carbon.get_active_held_item() && can_catch)
 		var/catch_chance = 50
-		if(M.dir == REVERSE_DIR(dir))
+		if(hugged_carbon.dir == REVERSE_DIR(dir))
 			catch_chance += 20
-		catch_chance -= M.painloss * 0.3
-		if(M.get_inactive_held_item())
+		catch_chance -= hugged_carbon.painloss * 0.3
+		if(hugged_carbon.get_inactive_held_item())
 			catch_chance  -= 25
 
 		if(prob(catch_chance))
-			M.visible_message(span_notice("[M] snatches [src] out of the air and [pickweight(list("clobbers" = 30, "kills" = 30, "squashes" = 25, "dunks" = 10, "dribbles" = 5))] it!"))
+			hugged_carbon.visible_message(span_notice("[hugged_carbon] snatches [src] out of the air and [pickweight(list("clobbers" = 30, "kills" = 30, "squashes" = 25, "dunks" = 10, "dribbles" = 5))] it!"))
 			kill_hugger()
 			return TRUE
 
 	var/blocked = null //To determine if the hugger just rips off the protection or can infect.
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+	if(ishuman(hugged_carbon))
+		var/mob/living/carbon/human/hugged_human = hugged_carbon
 
-		if(!H.has_limb(HEAD))
-			visible_message(span_warning("[src] looks for a face to hug on [H], but finds none!"))
+		if(!hugged_human.has_limb(HEAD))
+			visible_message(span_warning("[src] looks for a face to hug on [hugged_human], but finds none!"))
 			return FALSE
 
-		if(H.head)
-			var/obj/item/clothing/head/D = H.head
-			if(istype(D))
-				if(D.anti_hug > 0 || HAS_TRAIT(D, TRAIT_NODROP))
-					blocked = D
-					D.anti_hug = max(0, --D.anti_hug)
-					H.visible_message(span_danger("[src] smashes against [H]'s [D.name], damaging it!"))
+		if(hugged_human.head)
+			var/obj/item/clothing/head/headwear = hugged_human.head
+			if(istype(headwear))
+				if(headwear.anti_hug > 0 || HAS_TRAIT(headwear, TRAIT_NODROP))
+					blocked = headwear
+					headwear.anti_hug = max(0, --headwear.anti_hug)
+					hugged_human.visible_message(span_danger("[src] smashes against [hugged_human]'s [headwear.name], damaging it!"))
+					if(headwear.anti_hug == 0)
+						headwear.on_hugger_damage()
 					return FALSE
 				else
-					H.update_inv_head()
+					hugged_human.update_inv_head()
 
-	if(M.wear_mask)
-		var/obj/item/clothing/mask/W = M.wear_mask
-		if(istype(W))
-			if(istype(W, /obj/item/clothing/mask/facehugger))
-				var/obj/item/clothing/mask/facehugger/hugger = W
+	if(hugged_carbon.wear_mask)
+		var/obj/item/clothing/mask/worn_mask = hugged_carbon.wear_mask
+		if(istype(worn_mask))
+			if(istype(worn_mask, /obj/item/clothing/mask/facehugger))
+				var/obj/item/clothing/mask/facehugger/hugger = worn_mask
 				if(hugger.stat != DEAD)
 					return FALSE
 
-			if(W.anti_hug > 0 || HAS_TRAIT(W, TRAIT_NODROP))
+			if(worn_mask.anti_hug > 0 || HAS_TRAIT(worn_mask, TRAIT_NODROP))
 				if(!blocked)
-					blocked = W
-				W.anti_hug = max(0, --W.anti_hug)
-				M.visible_message(span_danger("[src] smashes against [M]'s [blocked]!"))
+					blocked = worn_mask
+				worn_mask.anti_hug = max(0, --worn_mask.anti_hug)
+				hugged_carbon.visible_message(span_danger("[src] smashes against [hugged_carbon]'s [blocked]!"))
+				if(worn_mask.anti_hug == 0)
+					worn_mask.on_hugger_damage()
 				return FALSE
 
 			if(!blocked)
-				M.visible_message(span_danger("[src] smashes against [M]'s [W.name] and rips it off!"))
-				M.dropItemToGround(W)
+				hugged_carbon.visible_message(span_danger("[src] smashes against [hugged_carbon]'s [worn_mask.name] and rips it off!"))
+				hugged_carbon.dropItemToGround(worn_mask)
 
 	if(blocked)
-		M.visible_message(span_danger("[src] smashes against [M]'s [blocked]!"))
+		hugged_carbon.visible_message(span_danger("[src] smashes against [hugged_carbon]'s [blocked]!"))
 		return FALSE
 
-	M.equip_to_slot(src, SLOT_WEAR_MASK)
+	hugged_carbon.equip_to_slot(src, SLOT_WEAR_MASK)
 	return TRUE
 
 /obj/item/clothing/mask/facehugger/equipped(mob/living/user, slot)
@@ -559,9 +560,9 @@
 	if(ishuman(user))
 		var/hugsound
 		if(isyautja(user))
-			hugsound = get_sfx("pred_hugged")
+			hugsound = SFX_PRED_HUGGED
 		else
-			hugsound = user.gender == FEMALE ? get_sfx("female_hugged") : get_sfx("male_hugged")
+			hugsound = user.gender == FEMALE ? SFX_FEMALE_HUGGED : SFX_MALE_HUGGED
 		playsound(loc, hugsound, 25, 0)
 	if(!sterile && !issynth(user))
 		var/stamina_dmg = user.maxHealth + user.max_stamina
@@ -662,9 +663,6 @@
 		kill_hugger()
 	proj.ammo.on_hit_obj(src, proj)
 	return TRUE
-
-/obj/item/clothing/mask/facehugger/fire_act(burn_level, flame_color)
-	kill_hugger()
 
 /obj/item/clothing/mask/facehugger/dropped(mob/user)
 	. = ..()
@@ -780,7 +778,7 @@
 		return FALSE
 
 	visible_message(span_danger("[src] explodes into a mess of viscous resin!"))
-	playsound(loc, get_sfx("alien_resin_build"), 50, 1)
+	playsound(loc, SFX_ALIEN_RESIN_BUILD, 50, 1)
 	do_attack_animation(M)
 
 	if(have_resin)
@@ -818,7 +816,7 @@
 
 	var/mob/living/victim = M
 	do_attack_animation(M, ATTACK_EFFECT_REDSLASH)
-	playsound(loc, "alien_claw_flesh", 25, 1)
+	playsound(loc, SFX_ALIEN_CLAW_FLESH, 25, 1)
 	var/affecting = ran_zone(null, 0)
 	if(!affecting) //Still nothing??
 		affecting = BODY_ZONE_CHEST //Gotta have a torso?!

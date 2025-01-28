@@ -101,6 +101,12 @@
 	var/resting = FALSE
 
 	var/list/icon/pipes_shown = list()
+	var/last_played_vent = 0
+	/// The last direction we moved in a vent. Used to make holding two directions feel nice
+	var/last_vent_dir = 0
+	/// Cell tracker datum we use to manage the pipes around us, for faster ventcrawling
+	/// Should only exist if you're in a pipe
+	var/datum/cell_tracker/pipetracker
 	/// TODO MAKE ME A TRAIT
 	var/is_ventcrawling
 
@@ -151,3 +157,5 @@
 	var/time_entered_stasis = 0
 	///The world.time of when this mob entered a cryo tube
 	var/time_entered_cryo = 0
+	///The z level this mob is currently registered in
+	var/registered_z = null

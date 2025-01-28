@@ -10,7 +10,7 @@
 	name = "area power controller"
 	desc = "A control terminal for the area electrical systems."
 	icon = 'icons/obj/machines/apc.dmi'
-	icon_state = "apc0"
+	icon_state = "apc_closed"
 	anchored = TRUE
 	use_power = NO_POWER_USE
 	req_access = list(ACCESS_CIVILIAN_ENGINEERING)

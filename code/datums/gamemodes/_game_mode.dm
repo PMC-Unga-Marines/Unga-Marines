@@ -406,6 +406,10 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[SSevacuation.human_escaped] marines manage to evacuate, among [SSevacuation.initial_human_on_ship] that were on ship when xenomorphs arrived."
 	if(GLOB.round_statistics.now_pregnant)
 		parts += "[GLOB.round_statistics.now_pregnant] people infected among which [GLOB.round_statistics.total_larva_burst] burst. For a [(GLOB.round_statistics.total_larva_burst / max(GLOB.round_statistics.now_pregnant, 1)) * 100]% successful delivery rate!"
+	if(GLOB.round_statistics.failed_impregnations)
+		parts += "[GLOB.round_statistics.failed_impregnations] failed impregnations."
+	if(GLOB.round_statistics.larva_surgically_removed)
+		parts += "[GLOB.round_statistics.larva_surgically_removed] larvas surgically removed before burst."
 	if(length(GLOB.round_statistics.workout_counts))
 		for(var/faction in GLOB.round_statistics.workout_counts)
 			parts += "The [faction] faction did [GLOB.round_statistics.workout_counts[faction]] workout sets."
@@ -517,7 +521,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			var/mob/living/carbon/human/H = i
 			if(!istype(H)) // Small fix?
 				continue
-			if(isyautja(H)) //RU TGMC EDIT
+			if(isyautja(H))
 				continue
 			if(count_flags & COUNT_IGNORE_HUMAN_SSD && !H.client && H.afk_status == MOB_DISCONNECTED)
 				continue
@@ -534,7 +538,9 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	for(var/z in z_levels)
 		for(var/i in GLOB.hive_datums[XENO_HIVE_NORMAL].xenos_by_zlevel["[z]"])
 			var/mob/living/carbon/xenomorph/X = i
-			if(!istype(X) || isxenohellhound(X)) // Small fix? and // RU TGMC EDIT
+			if(!istype(X)) // Small fix?
+				continue
+			if(isxenohellhound(X))
 				continue
 			if(count_flags & COUNT_IGNORE_XENO_SSD && !X.client && X.afk_status == MOB_DISCONNECTED)
 				continue

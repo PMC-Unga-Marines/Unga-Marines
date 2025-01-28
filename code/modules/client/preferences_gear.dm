@@ -228,6 +228,12 @@ GLOBAL_LIST_INIT(gear_datums, populate_gear_list())
 /datum/gear/kotahi
 	slot = SLOT_IN_BACKPACK
 
+/datum/gear/cards
+	display_name = "Deck of cards"
+	path = /obj/item/toy/deck
+	cost = 2
+	slot = SLOT_IN_BACKPACK
+
 /datum/gear/pig
 	display_name = "Pig toy"
 	path = /obj/item/toy/plush/pig

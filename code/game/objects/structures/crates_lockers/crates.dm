@@ -18,6 +18,8 @@
 	. = ..()
 	var/static/list/connections = list(
 		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
+		COMSIG_FIND_FOOTSTEP_SOUND = TYPE_PROC_REF(/atom/movable, footstep_override),
+		COMSIG_TURF_CHECK_COVERED = TYPE_PROC_REF(/atom/movable, turf_cover_check),
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
@@ -159,6 +161,28 @@
 	icon_state = "closed_medical"
 	icon_opened = "open_medical"
 	icon_closed = "closed_medical"
+
+/obj/structure/closet/crate/mounted
+	name = "mounted weapon crate"
+	desc = "A robust crate containing stationary weapons."
+	icon_state = "closed_mounted_weapon"
+	icon_opened = "open_mounted_weapon"
+	icon_closed = "closed_mounted_weapon"
+
+/obj/structure/closet/crate/smart
+	name = "smart weapon crate"
+	desc = "A robust crate containing high-tech smartgun weapons and ammunitions."
+	icon_state = "closed_smart"
+	overlay_welded = "welded_smart"
+	icon_opened = "open_smart"
+	icon_closed = "closed_smart"
+
+/obj/structure/closet/crate/operations
+	name = "operations crate"
+	desc = "A robust crate containing support stuff."
+	icon_state = "close_operate"
+	icon_opened = "open_operate"
+	icon_closed = "close_operate"
 
 /obj/structure/closet/crate/plastic
 	name = "plastic crate"

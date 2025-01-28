@@ -56,24 +56,22 @@
 /obj/machinery/door/airlock/centcom
 	name = "\improper Airlock"
 	icon = 'icons/obj/doors/mainship/securedoor.dmi'
-	opacity = TRUE
+	openspeed = 4 //shorter open animation.
 
 /obj/machinery/door/airlock/vault
 	name = "\improper Vault"
 	icon = 'icons/obj/doors/vault.dmi'
-	opacity = TRUE
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity //Until somebody makes better sprites.
 
 /obj/machinery/door/airlock/freezer
 	name = "\improper Freezer Airlock"
 	icon = 'icons/obj/doors/mainship/personaldoor.dmi'
-	opacity = TRUE
 	assembly_type = /obj/structure/door_assembly/door_assembly_fre
 
 /obj/machinery/door/airlock/hatch
 	name = "\improper Airtight Hatch"
 	icon = 'icons/obj/doors/mainship/securedoor.dmi'
-	opacity = TRUE
+	openspeed = 4 //shorter open animation.
 	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
 
 /obj/machinery/door/airlock/hatch/engineering
@@ -82,7 +80,6 @@
 /obj/machinery/door/airlock/maintenance_hatch
 	name = "\improper Maintenance Hatch"
 	icon = 'icons/obj/doors/mainship/maintdoor.dmi'
-	opacity = TRUE
 	assembly_type = /obj/structure/door_assembly/door_assembly_mhatch
 
 /obj/machinery/door/airlock/glass_command

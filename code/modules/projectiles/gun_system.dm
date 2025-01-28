@@ -17,7 +17,7 @@
 /obj/item/weapon/gun
 	name = "Guns"
 	desc = "Its a gun. It's pretty terrible, though."
-	icon = 'icons/obj/items/gun.dmi'
+	icon = 'icons/obj/items/gun/gun.dmi'
 	icon_state = ""
 	item_state = "gun"
 	item_state_worn = TRUE
@@ -401,6 +401,7 @@
 	INVOKE_ASYNC(src, PROC_REF(fill_gun))
 
 /obj/item/weapon/gun/Destroy()
+	master_gun = null
 	active_attachable = null
 	gunattachment = null
 	QDEL_NULL(muzzle_flash)
@@ -452,7 +453,6 @@
 		COMSIG_KB_RAILATTACHMENT,
 		COMSIG_KB_UNDERRAILATTACHMENT,
 		COMSIG_KB_UNLOADGUN,
-		COMSIG_KB_FIREMODE,
 		COMSIG_KB_GUN_SAFETY,
 		COMSIG_KB_UNIQUEACTION,
 		COMSIG_KB_AUTOEJECT,
@@ -464,7 +464,7 @@
 		COMSIG_HUMAN_MARKSMAN_AURA_CHANGED))
 		gun_user.client?.mouse_pointer_icon = initial(gun_user.client.mouse_pointer_icon)
 		SEND_SIGNAL(gun_user, COMSIG_GUN_USER_UNSET)
-		gun_user.hud_used.remove_ammo_hud(src)
+		gun_user.hud_used?.remove_ammo_hud(src)
 		gun_user = null
 
 	if(!user)
@@ -475,7 +475,7 @@
 	gun_user = user
 	SEND_SIGNAL(gun_user, COMSIG_GUN_USER_SET, src)
 	if(flags_gun_features & GUN_AMMO_COUNTER)
-		gun_user.hud_used.add_ammo_hud(src, get_ammo_list(), get_display_ammo_count())
+		gun_user.hud_used?.add_ammo_hud(src, get_ammo_list(), get_display_ammo_count())
 	if(master_gun)
 		return
 	setup_bullet_accuracy()
@@ -495,7 +495,6 @@
 	RegisterSignal(gun_user, COMSIG_KB_RAILATTACHMENT, PROC_REF(activate_rail_attachment))
 	RegisterSignal(gun_user, COMSIG_KB_UNDERRAILATTACHMENT, PROC_REF(activate_underrail_attachment))
 	RegisterSignal(gun_user, COMSIG_KB_UNLOADGUN, PROC_REF(unload_gun))
-	RegisterSignal(gun_user, COMSIG_KB_FIREMODE, PROC_REF(do_toggle_firemode))
 	RegisterSignal(gun_user, COMSIG_KB_GUN_SAFETY, PROC_REF(toggle_gun_safety_keybind))
 	RegisterSignal(gun_user, COMSIG_KB_AUTOEJECT, PROC_REF(toggle_auto_eject_keybind))
 
@@ -504,38 +503,23 @@
 	SIGNAL_HANDLER
 	set_gun_user(null)
 
-/obj/item/weapon/gun/update_icon()
+/obj/item/weapon/gun/update_icon(updates=ALL)
 	. = ..()
-
-	for(var/datum/action/action AS in actions)
-		action.update_button_icon()
-
-	if(master_gun)
-		for(var/datum/action/action AS in master_gun.actions)
-			action.update_button_icon()
-
 	update_item_state()
 
 /obj/item/weapon/gun/update_icon_state()
 	. = ..()
 	var/real_icon = current_skin ? current_skin : base_gun_icon
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_TOGGLES_OPEN) && !CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_CLOSED))
-		icon_state = !greyscale_config ? real_icon + "_o" : GUN_ICONSTATE_OPEN
+		icon_state = real_icon + "_o"
 	else if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION) && !in_chamber && length(chamber_items))
-		icon_state = !greyscale_config ? real_icon + "_u" : GUN_ICONSTATE_UNRACKED
+		icon_state = real_icon + "_u"
 	else if((!length(chamber_items) && max_chamber_items) || (!rounds && !max_chamber_items))
-		icon_state = !greyscale_config ? real_icon + "_e" : GUN_ICONSTATE_UNLOADED
+		icon_state = real_icon + "_e"
 	else if(current_chamber_position <= length(chamber_items) && chamber_items[current_chamber_position] && chamber_items[current_chamber_position].loc != src)
 		icon_state = real_icon + "_l"
 	else
-		icon_state = !greyscale_config ? real_icon : GUN_ICONSTATE_LOADED
-
-/obj/item/weapon/gun/color_item(obj/item/facepaint/paint, mob/user)
-	. = ..()
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/human = user
-	human.regenerate_icons()
+		icon_state = real_icon
 
 //manages the overlays for the gun - separate from attachment overlays
 /obj/item/weapon/gun/update_overlays()
@@ -1423,6 +1407,7 @@
 			user.put_in_hands(mag)
 		else
 			mag.forceMove(get_turf(src))
+			SEND_SIGNAL(gun_user, COMSIG_MAGAZINE_DROP, mag)
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_ROTATES_CHAMBER))
 		chamber_items[chamber_items.Find(mag)] = null
 	else
@@ -1748,7 +1733,7 @@
 		projectile_to_fire.point_blank_range = 0
 	if(isliving(firer))
 		var/mob/living/living_firer = firer
-		if(living_firer.IsStaggered())
+		if(living_firer.has_status_effect(STATUS_EFFECT_STAGGER))
 			projectile_to_fire.damage *= STAGGER_DAMAGE_MULTIPLIER
 
 ///Sets the projectile accuracy and scatter
@@ -1849,6 +1834,6 @@
 		if(!istype(lit_flashlight))
 			continue
 		lit_flashlight.turn_light(null, FALSE)
-	playsound(loc, "alien_claw_metal", 25, 1)
+	playsound(loc, SFX_ALIEN_CLAW_METAL, 25, 1)
 	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 	to_chat(xeno_attacker, span_warning("We disable the metal thing's lights.") )

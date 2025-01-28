@@ -4,6 +4,7 @@
 	icon_state = "vehicle_chair"
 	resistance_flags = RESIST_ALL
 	dir = EAST
+	buildstacktype = null
 
 /obj/structure/bed/chair/vehicle_driver_seat
 	name = "driver seat"
@@ -13,6 +14,7 @@
 	dir = EAST
 	///owner of this object, assigned during interior linkage
 	var/obj/vehicle/sealed/armored/owner
+	buildstacktype = null
 
 /obj/structure/bed/chair/vehicle_driver_seat/Destroy()
 	owner = null
@@ -54,6 +56,11 @@
 	dir = EAST
 	///owner of this object, assigned during interior linkage
 	var/obj/vehicle/sealed/armored/owner
+	buildstacktype = null
+
+/obj/structure/bed/chair/vehicle_gunner_seat/Destroy()
+	owner = null
+	return ..()
 
 /obj/structure/bed/chair/vehicle_gunner_seat/link_interior(datum/interior/link)
 	if(!istype(link, /datum/interior/armored))
@@ -91,6 +98,11 @@
 	dir = EAST
 	///owner of this object, assigned during interior linkage
 	var/obj/vehicle/sealed/armored/owner
+	buildstacktype = null
+
+/obj/structure/bed/chair/driver_gunner_seat/Destroy()
+	owner = null
+	return ..()
 
 /obj/structure/bed/chair/driver_gunner_seat/link_interior(datum/interior/link)
 	if(!istype(link, /datum/interior/armored))

@@ -10,6 +10,21 @@
 
 	updatehealth()
 
+	if(client)
+		var/turf/T = get_turf(src)
+		if(!T)
+			return
+		if(registered_z != T.z)
+#ifdef TESTING
+			message_admins("[ADMIN_LOOKUPFLW(src)] has somehow ended up in Z-level [T.z] despite being registered in Z-level [registered_z]. If you could ask them how that happened and notify coderbus, it would be appreciated.")
+#endif
+			log_game("Z-TRACKING: [src] has somehow ended up in Z-level [T.z] despite being registered in Z-level [registered_z].")
+			update_z(T.z)
+		return
+	if(registered_z)
+		log_game("Z-TRACKING: [src] of type [src.type] has a Z-registration despite not having a client.")
+		update_z(null)
+
 
 //this updates all special effects: knockdown, druggy, etc.., DELETE ME!!
 /mob/living/proc/handle_status_effects()
@@ -200,6 +215,7 @@
 		if(client)
 			reset_perspective()
 
+///Updates the mob's registered_z
 /mob/living/proc/update_z(new_z) // 1+ to register, null to unregister
 	if(registered_z == new_z)
 		return
@@ -306,6 +322,8 @@
 	if(.) //We are thrown onto something.
 		return FALSE
 	if(buckled || now_pushing)
+		return
+	if(anchored)
 		return
 	if(isliving(A))
 		var/mob/living/L = A
@@ -550,37 +568,6 @@
 	else
 		smokecloak_off()
 
-
-/*
-adds a dizziness amount to a mob
-use this rather than directly changing var/dizziness
-since this ensures that the dizzy_process proc is started
-currently only humans get dizzy
-value of dizziness ranges from 0 to 1000
-below 100 is not dizzy
-*/
-
-/mob/living/carbon/dizzy(amount)
-	dizziness = clamp(dizziness + amount, 0, 1000)
-
-	if(dizziness > 100 && !is_dizzy)
-		INVOKE_ASYNC(src, PROC_REF(dizzy_process))
-
-/mob/living/proc/dizzy_process()
-	is_dizzy = TRUE
-	while(dizziness > 100)
-		if(client)
-			var/amplitude = dizziness*(sin(dizziness * 0.044 * world.time) + 1) / 70
-			client.pixel_x = amplitude * sin(0.008 * dizziness * world.time)
-			client.pixel_y = amplitude * cos(0.008 * dizziness * world.time)
-
-		sleep(0.1 SECONDS)
-	//endwhile - reset the pixel offsets to zero
-	is_dizzy = FALSE
-	if(client)
-		client.pixel_x = 0
-		client.pixel_y = 0
-
 /mob/living/proc/update_action_button_icons()
 	for(var/X in actions)
 		var/datum/action/A = X
@@ -627,19 +614,19 @@ below 100 is not dizzy
 	return
 
 /mob/living/reset_perspective(atom/A)
-	. = ..()
-	if(!.)
+	if(!..())
 		return
-
 	update_sight()
-	if (stat == DEAD)
-		animate(client, pixel_x = 0, pixel_y = 0)
+	update_fullscreen()
+	update_pipe_vision()
+
+/// Proc used to handle the fullscreen overlay updates, realistically meant for the reset_perspective() proc.
+/mob/living/proc/update_fullscreen()
 	if(client.eye && client.eye != src)
-		var/atom/AT = client.eye
-		AT.get_remote_view_fullscreens(src)
+		var/atom/client_eye = client.eye
+		client_eye.get_remote_view_fullscreens(src)
 	else
 		clear_fullscreen("remote_view", 0)
-	update_pipe_vision()
 
 /mob/living/update_sight()
 	if(SSticker.current_state == GAME_STATE_FINISHED && !is_centcom_level(z)) //Reveal ghosts to remaining survivors
@@ -761,9 +748,10 @@ below 100 is not dizzy
 /mob/living/can_interact_with(datum/D)
 	return D == src || D.Adjacent(src)
 
-/mob/living/onTransitZ(old_z, new_z)
-	. = ..()
+/mob/living/on_changed_z_level(turf/old_turf, turf/new_turf, notify_contents = TRUE)
 	set_jump_component()
+	. = ..()
+	update_z(new_turf?.z)
 
 /**
  * Changes the inclination angle of a mob, used by humans and others to differentiate between standing up and prone positions.
@@ -897,7 +885,7 @@ below 100 is not dizzy
 /mob/living/carbon/xenomorph/transfer_mob(mob/candidate)
 	. = ..()
 	if(is_ventcrawling)  //If we are in a vent, fetch a fresh vent map
-		add_ventcrawl(loc)
+		handle_ventcrawl(loc)
 		get_up()
 
 ///Sets up the jump component for the mob. Proc args can be altered so different mobs have different 'default' jump settings

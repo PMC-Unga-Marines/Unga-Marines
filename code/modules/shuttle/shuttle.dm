@@ -23,7 +23,7 @@
 //NORTH default dir
 /obj/docking_port
 	invisibility = INVISIBILITY_ABSTRACT
-	icon = 'icons/Marine/marine-navigation.dmi'
+	icon = 'icons/obj/items/pinpointer.dmi'
 	icon_state = "pinonfar"
 
 	resistance_flags = RESIST_ALL

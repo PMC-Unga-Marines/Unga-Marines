@@ -21,13 +21,9 @@
 #define SKILL_POLICE "police"
 #define SKILL_POWERLOADER "powerloader"
 #define SKILL_LARGE_VEHICLE "large_vehicle"
+#define SKILL_MECH_PILOT "mech_pilot"
 #define SKILL_STAMINA "stamina"
-#define SKILL_SWORDPLAY "swordplay"
 ////////////////////////////////////////////////
-
-//ability to use elegant melee weapons (i.e. rapiers)
-#define SKILL_SWORDPLAY_DEFAULT 0
-#define SKILL_SWORDPLAY_TRAINED 1
 
 //firearms skill (general knowledge of guns) (hidden skill)
 //increase or decrase accuracy, recoil, and firing delay of rifles and smgs.
@@ -145,6 +141,7 @@
 #define SKILL_MELEE_DEFAULT 0
 #define SKILL_MELEE_TRAINED 1
 #define SKILL_MELEE_SUPER 2
+#define SKILL_MELEE_MASTER 3
 
 ///The amount of extra damage per melee skill level
 #define MELEE_SKILL_DAM_BUFF 0.15
@@ -158,6 +155,10 @@
 #define SKILL_LARGE_VEHICLE_TRAINED 1 //loader
 #define SKILL_LARGE_VEHICLE_EXPERIENCED 2 //transport crew
 #define SKILL_LARGE_VEHICLE_VETERAN 3 //mech pilot and assault crew
+
+//Allow mech pilot use mechs
+#define SKILL_MECH_PILOT_DEFAULT 0
+#define SKILL_MECH_PILOT_TRAINED 1
 
 //stamina skill - you do cardio, right?
 //buff stamina related things
