@@ -89,7 +89,7 @@
 
 	var/ttype = 0
 	var/tabledirs = 0
-	for(var/direction in list(turn(dir, 90), turn(dir, -90)) )
+	for(var/direction in list(turn(dir, 90), turn(dir, -90)))
 		var/obj/structure/table/T = locate(/obj/structure/table, get_step(src, direction))
 		if(T?.flipped && T.dir == dir)
 			ttype++
@@ -98,9 +98,9 @@
 	icon_state = "[table_prefix]flip[ttype]"
 	if(ttype == 1)
 		if(tabledirs & turn(dir, 90))
-			icon_state = icon_state+"-"
+			icon_state += "-"
 		if(tabledirs & turn(dir, -90))
-			icon_state = icon_state+"+"
+			icon_state += "+"
 	return TRUE
 
 //Flipping tables, nothing more, nothing less
@@ -168,7 +168,7 @@
 		M.Paralyze(10 SECONDS)
 		user.visible_message(span_danger("[user] throws [M] on [src]."),
 		span_danger("You throw [M] on [src]."))
-		playsound(loc, 'sound/weapons/tablehit1.ogg', 25, 1)
+		playsound(loc, 'sound/weapons/tablehit1.ogg', 50, 1)
 		return
 
 	if(user.grab_state <= GRAB_AGGRESSIVE)
@@ -181,7 +181,7 @@
 	user.visible_message(span_danger("[user] slams [M]'s face against [src]!"),
 	span_danger("You slam [M]'s face against [src]!"))
 	log_combat(user, M, "slammed", "", "against \the [src]")
-	playsound(loc, 'sound/weapons/tablehit1.ogg', 25, 1)
+	playsound(loc, 'sound/weapons/tablehit1.ogg', 50, 1)
 
 /obj/structure/table/proc/straight_table_check(direction)
 	var/obj/structure/table/T
