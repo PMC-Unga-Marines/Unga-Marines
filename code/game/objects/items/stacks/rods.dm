@@ -10,7 +10,7 @@
 	throw_speed = 5
 	throw_range = 20
 	max_amount = 60
-	attack_verb = list("hit", "bludgeoned", "whacked")
+	attack_verb = list("hits", "bludgeons", "whacks")
 
 //Override to ignore the message
 /obj/item/stack/rods/ex_act(severity, explosion_direction)

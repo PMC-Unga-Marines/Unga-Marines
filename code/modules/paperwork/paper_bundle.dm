@@ -12,7 +12,7 @@
 	throw_range = 2
 	throw_speed = 1
 	layer = MOB_LAYER
-	attack_verb = list("bapped")
+	attack_verb = list("baps")
 	/// Amount of items clipped to the paper
 	var/amount = 0
 	var/page = 1

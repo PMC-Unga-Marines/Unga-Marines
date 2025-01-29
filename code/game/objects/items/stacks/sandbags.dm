@@ -13,7 +13,7 @@
 	throw_speed = 5
 	throw_range = 20
 	max_amount = 50
-	attack_verb = list("hit", "bludgeoned", "whacked")
+	attack_verb = list("hits", "bludgeons", "whacks")
 	number_of_extra_variants = 3
 
 /obj/item/stack/sandbags_empty/attackby(obj/item/I, mob/user, params)
@@ -74,7 +74,7 @@
 	throw_speed = 5
 	throw_range = 20
 	max_amount = 25
-	attack_verb = list("hit", "bludgeoned", "whacked")
+	attack_verb = list("hits", "bludgeons", "whacks")
 	merge_type = /obj/item/stack/sandbags
 
 /obj/item/stack/sandbags/examine(mob/user)
