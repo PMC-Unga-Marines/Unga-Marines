@@ -32,10 +32,8 @@
 
 /datum/outfit/quick/beginner/robot/laser_rifle/post_equip(mob/living/carbon/human/robot, visualsOnly)
 	. = ..()
-	for(var/i in 1 to 3)
+	for(var/i in 1 to 6)
 		robot.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BELT)
-	for(var/i in 1 to 3)
-		robot.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle/recharger, SLOT_IN_BELT)
 
 	for(var/i in 1 to 6)
 		robot.equip_to_slot_or_del(new /obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_BACKPACK)
