@@ -41,6 +41,7 @@ GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
 	/obj/item/armor_module/storage/grenade = list(CAT_MOD, "Grenade Storage Module", 0, "black"),
 	/obj/item/storage/pouch/medical_injectors/medic = list(CAT_POU, "Advanced Autoinjector pouch", 0, "orange"),
 	/obj/item/storage/pouch/medkit/medic = list(CAT_POU, "Medkit pouch", 0, "orange"),
+	/obj/item/storage/pouch/medkit/t312/medic = list(CAT_POU, "Medkit pouch for EMB", 0, "orange"),
 	/obj/effect/vendor_bundle/mimir = list(CAT_ARMMOD, "Mimir Resistance set", 0,"black"),
 	/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 	/obj/effect/vendor_bundle/tyr = list(CAT_ARMMOD, "Mark 1 Tyr extra armor set", 0,"black"),

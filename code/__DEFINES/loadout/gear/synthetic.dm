@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/item/reagent_containers/hypospray/advanced/dermaline = list(CAT_SYNTH, "Hypospray (120u dermaline)", 14, "cyan"), //half the units of the derm case half the price
 	/obj/item/reagent_containers/hypospray/advanced/meraderm = list(CAT_SYNTH, "Hypospray (120u Meraderm)", 14, "cyan"), //half the units of the meraderm case half the price
 	/obj/item/reagent_containers/hypospray/advanced/nanoblood = list(CAT_SYNTH, "Hypospray (60u Nanoblood)", 2, "cyan"), //bit more than half of the nanoblood case
-	/obj/item/reagent_containers/hypospray/advanced/russian_red = list(CAT_SYNTH, "Hypospray (120u Russian Red)", 8, "cyan"),
+	/obj/item/reagent_containers/hypospray/advanced/russian_red = list(CAT_SYNTH, "Hypospray (120u Russian Red)", 16, "cyan"),
 	/obj/item/reagent_containers/hypospray/advanced/quickclot = list(CAT_SYNTH, "Hypospray (120u Quickclot)", 4, "blue"),
 	/obj/item/reagent_containers/hypospray/advanced/oxycodone = list(CAT_SYNTH, "Hypospray (120u Oxycodone)", 12, "blue"),
 	/obj/item/reagent_containers/hypospray/advanced/peridaxon = list(CAT_SYNTH, "Hypospray (Peridaxon)", 7, "blue"),
@@ -58,4 +58,5 @@ GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/item/tweezers_advanced = list(CAT_SYNTH, "Advanced Tweezers", 8, "yellow"),
 	/obj/effect/vendor_bundle/stretcher = list(CAT_SYNTH, "Medivac Stretcher", 20, "yellow"),
 	/obj/item/deployable_optable = list(CAT_SYNTH, "Deployable Operating Table", 12, "yellow"),
+	/obj/item/storage/box/t312case = list(CAT_MEDSUP, "R-312 'Albedo' Revolver", 25, "red"), // can buy for other, why not
 ))

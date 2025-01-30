@@ -1,5 +1,11 @@
 GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/effect/vendor_bundle/leader = list(CAT_ESS, "Essential SL Set", 0, "white"),
+	/obj/item/implanter/implantator/combat/firearms = list(CAT_LEDSUP, "Aiming support implanter", 15, "cyan2"),
+	/obj/item/implanter/implantator/combat/melee = list(CAT_LEDSUP, "Close combat codex implanter", 15, "cyan2"),
+	/obj/item/implanter/implantator/codex/medical = list(CAT_LEDSUP, "Medtech implanter", 15, "cyan2"),
+	/obj/item/implanter/implantator/codex/engineer = list(CAT_LEDSUP, "Engineering support system implanter", 15, "cyan2"),
+	/obj/item/implanter/implantator/codex/construct = list(CAT_LEDSUP, "Construction support system implanter", 15, "cyan2"),
+	/obj/item/implanter/implantator/oper_system/leadership = list(CAT_LEDSUP, "Command protocols 'Graiyor' codex loader", 20, "cyan2"),
 	/obj/item/armor_module/module/valkyrie_autodoc = list(CAT_LEDSUP, "Valkyrie Automedical Armor System", 25,"white"),
 	/obj/effect/vendor_bundle/tyr/two = list(CAT_LEDSUP, "Tyr 2 extra armor set", 25,"white"),
 	/obj/effect/vendor_bundle/mimir/two = list(CAT_LEDSUP, "Mimir 2 extra armor set", 25,"white"),
