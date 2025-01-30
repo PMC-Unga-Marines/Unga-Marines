@@ -114,6 +114,7 @@
 		),
 		"Гранаты" = list(
 			/obj/item/weapon/gun/grenade_launcher/single_shot = 4,
+			/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded = 2,
 			/obj/item/weapon/gun/rifle/tx54 = 2,
 			/obj/item/ammo_magazine/rifle/tx54 = 10,
 			/obj/item/ammo_magazine/rifle/tx54/incendiary = 4,
@@ -355,6 +356,7 @@
 		),
 		"Гранаты" = list(
 			/obj/item/weapon/gun/grenade_launcher/single_shot = 4,
+			/obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded = 2,
 			/obj/item/explosive/grenade = 50,
 			/obj/item/explosive/grenade/m15 = 10,
 			/obj/item/explosive/grenade/sticky = 25,
@@ -1599,9 +1601,6 @@
 			/obj/item/clothing/suit/storage/marine/riot = -1,
 			/obj/item/clothing/head/helmet/marine/riot = -1,
 			/obj/item/clothing/suit/storage/marine/boomvest = -1,
-			/obj/item/implanter/cloak = -1,
-			/obj/item/implanter/chem/blood = -1,
-			/obj/item/implanter/blade = -1,
 		),
 		"Assault Vehicle" = list(
 			/obj/item/armored_weapon = -1,
@@ -1612,6 +1611,22 @@
 			/obj/item/ammo_magazine/tank/ltaap_chaingun = -1,
 			/obj/item/ammo_magazine/tank/secondary_cupola = -1,
 			/obj/item/ammo_magazine/tank/flamer = -1,
+		),
+		"Implants" = list(
+			/obj/item/implanter/sandevistan = -1,
+			/obj/item/implanter/suicide_dust = -1,
+			/obj/item/implanter/blade = -1,
+			/obj/item/implanter/cloak = -1,
+			/obj/item/implanter/chem/blood = -1,
+			/obj/item/implanter/chem = -1,
+			/obj/item/implanter/neurostim = -1,
+			/obj/item/implanter/implantator/combat/firearms = -1,
+			/obj/item/implanter/implantator/combat/melee = -1,
+			/obj/item/implanter/implantator/codex/medical = -1,
+			/obj/item/implanter/implantator/codex/surgery = -1,
+			/obj/item/implanter/implantator/codex/engineer = -1,
+			/obj/item/implanter/implantator/codex/construct = -1,
+			/obj/item/implanter/implantator/oper_system/leadership = -1,
 		),
 	)
 

@@ -133,7 +133,8 @@
 #define SKILL_LEAD_BEGINNER 1 //All non-Standard Marines
 #define SKILL_LEAD_TRAINED 2 //PO, CMO, etc
 #define SKILL_LEAD_EXPERT 3 //SL, SO
-#define SKILL_LEAD_MASTER 4 //XO, CO
+#define SKILL_LEAD_MASTER 4 //XO, FC
+#define SKILL_LEAD_SUPER 5 // implanted FC
 
 //melee_weapons skill
 //buff to melee weapon attack damage
