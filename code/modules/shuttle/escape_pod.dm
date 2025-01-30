@@ -20,12 +20,12 @@
 
 /obj/docking_port/mobile/escape_pod/register()
 	. = ..()
-	SSshuttle.escape_pods += src
+	SSshuttle.escape_pod_list += src
 
 /obj/docking_port/mobile/escape_pod/Destroy(force)
 	if(force)
-		SSshuttle.escape_pods -= src
-	. = ..()
+		SSshuttle.escape_pod_list -= src
+	return ..()
 
 /obj/docking_port/mobile/escape_pod/proc/count_escaped_humans()
 	for(var/turf/T AS in return_turfs())
@@ -67,7 +67,7 @@
 		return
 	playsound(return_center_turf(),'sound/effects/escape_pod_launch.ogg', 25, 1)
 	count_escaped_humans()
-	SSshuttle.moveShuttleToTransit(id, TRUE)
+	SSshuttle.moveShuttleToTransit(shuttle_id, TRUE)
 
 /obj/docking_port/stationary/escape_pod
 	name = "escape pod"
@@ -80,7 +80,7 @@
 
 /obj/docking_port/stationary/escape_pod/escape_shuttle
 	name = "escape shuttle"
-	id = "escape hangar"
+	shuttle_id = "escape hangar"
 	dir = EAST
 	dwidth = 3
 	width = 7
@@ -147,7 +147,7 @@
 	var/being_forced = 0 //Simple variable to prevent sound spam.
 	var/linked_to_shuttle = FALSE
 
-/obj/machinery/cryopod/evacuation/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
+/obj/machinery/cryopod/evacuation/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(linked_to_shuttle)
 		return
 	. = ..()
@@ -186,7 +186,7 @@
 	close()
 	lock(TRUE)
 
-/obj/machinery/door/airlock/evacuation/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
+/obj/machinery/door/airlock/evacuation/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(linked_to_shuttle)
 		return
 	. = ..()

@@ -27,7 +27,7 @@ SUBSYSTEM_DEF(weather)
 
 	// start random weather on relevant levels
 	for(var/z in eligible_zlevels)
-		var/list/possible_weather = deepCopyList(eligible_zlevels[z])
+		var/list/possible_weather = deep_copy_list(eligible_zlevels[z])
 		var/datum/weather/W = last_weather_by_zlevel[z]
 		if(!isnull(W) && !initial(W.repeatable))
 			possible_weather -= last_weather_by_zlevel[z]

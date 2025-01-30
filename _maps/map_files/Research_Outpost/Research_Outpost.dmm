@@ -7781,7 +7781,7 @@
 	},
 /area/outpost/science/xenobiology)
 "Kv" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/space)
 "Kw" = (
 /turf/open/floor/marking/asteroidwarning{

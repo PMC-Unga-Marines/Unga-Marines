@@ -159,7 +159,7 @@
 			var/turf/T = get_turf(src)
 			if(anchored)
 				return FALSE
-			if(!isfloorturf(T) && !isbasalt(T) && !islavacatwalk(T) && !isopengroundturf(T))
+			if(!isfloorturf(T) && !isbasalt(T) && !isopengroundturf(T))
 				to_chat(usr, span_warning("The girder must be secured on the floor!"))
 				return FALSE
 			playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
@@ -290,7 +290,7 @@
 	if(!reinforcement)
 		reinforcement = GIRDER_REINF_METAL
 	var/turf/source_turf = get_turf(src)
-	source_turf.PlaceOnTop(reinforcement_to_wall(reinforcement))
+	source_turf.place_on_top(reinforcement_to_wall(reinforcement))
 	qdel(src)
 
 

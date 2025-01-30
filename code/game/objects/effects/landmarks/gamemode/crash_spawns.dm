@@ -2,7 +2,7 @@
 /obj/effect/landmark/start/job/crash
 	delete_after_roundstart = FALSE
 
-/obj/effect/landmark/start/job/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
+/obj/effect/landmark/start/job/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
 	if(istype(port, /obj/docking_port/mobile/crashmode))
 		var/obj/docking_port/mobile/crashmode/C = port
@@ -91,7 +91,7 @@
 	return INITIALIZE_HINT_NORMAL
 
 
-/obj/effect/landmark/start/latejoin/crash/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override=FALSE)
+/obj/effect/landmark/start/latejoin/crash/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
 	if(istype(port, /obj/docking_port/mobile/crashmode))
 		var/obj/docking_port/mobile/crashmode/C = port

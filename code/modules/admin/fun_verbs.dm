@@ -1012,13 +1012,13 @@
 	if(!check_rights(R_FUN))
 		return
 
-	if(!length(SSshuttle.dropships) && !SSshuttle.canterbury)
+	if(!length(SSshuttle.dropship_list) && !SSshuttle.canterbury)
 		return
 
 	var/list/available_shuttles = list()
-	for(var/i in SSshuttle.mobile)
+	for(var/i in SSshuttle.mobile_docking_ports)
 		var/obj/docking_port/mobile/M = i
-		available_shuttles["[M.name] ([M.id])"] = M.id
+		available_shuttles["[M.name] ([M.shuttle_id])"] = M.shuttle_id
 
 	var/answer = tgui_input_list(usr, "Which shuttle do you want to move?", "Force Dropship", available_shuttles)
 	var/shuttle_id = available_shuttles[answer]
@@ -1026,10 +1026,11 @@
 		return
 
 	var/obj/docking_port/mobile/D
-	for(var/i in SSshuttle.mobile)
+	for(var/i in SSshuttle.mobile_docking_ports)
 		var/obj/docking_port/mobile/M = i
-		if(M.id == shuttle_id)
-			D = M
+		if(M.shuttle_id != shuttle_id)
+			continue
+		D = M
 
 	if(!D)
 		to_chat(usr, span_warning("Unable to find shuttle"))
@@ -1040,7 +1041,7 @@
 
 	var/list/valid_docks = list()
 	var/i = 1
-	for(var/obj/docking_port/stationary/S in SSshuttle.stationary)
+	for(var/obj/docking_port/stationary/S in SSshuttle.stationary_docking_ports)
 		if(istype(S, /obj/docking_port/stationary/transit))
 			continue // Don't use transit destinations
 		if(!D.check_dock(S, silent=TRUE))
@@ -1064,7 +1065,7 @@
 	if(tgui_alert(usr, "Do you want to move the [D.name] instantly?", "Force Dropship", list("Yes", "No")) == "Yes")
 		instant = TRUE
 
-	var/success = SSshuttle.moveShuttleToDock(D.id, target, !instant)
+	var/success = SSshuttle.moveShuttleToDock(D.shuttle_id, target, !instant)
 	switch(success)
 		if(0)
 			success = "successfully"
@@ -1075,8 +1076,8 @@
 		else
 			success = "failing somehow"
 
-	log_admin("[key_name(usr)] has moved [D.name] ([D.id]) to [target] ([target.id])[instant ? " instantly" : ""] [success].")
-	message_admins("[ADMIN_TPMONTY(usr)] has moved [D.name] ([D.id]) to [target] ([target.id])[instant ? " instantly" : ""] [success].")
+	log_admin("[key_name(usr)] has moved [D.name] ([D.shuttle_id]) to [target] ([target.shuttle_id])[instant ? " instantly" : ""] [success].")
+	message_admins("[ADMIN_TPMONTY(usr)] has moved [D.name] ([D.shuttle_id]) to [target] ([target.shuttle_id])[instant ? " instantly" : ""] [success].")
 
 
 /datum/admins/proc/play_cinematic()
