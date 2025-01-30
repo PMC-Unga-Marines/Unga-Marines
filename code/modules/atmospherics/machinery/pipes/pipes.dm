@@ -68,7 +68,7 @@
 	update_alpha()
 
 /obj/machinery/atmospherics/pipe/proc/update_alpha()
-	alpha = invisibility ? 64 : 255
+	alpha = 255
 
 /obj/machinery/atmospherics/pipe/proc/update_node_icon()
 	for(var/i in 1 to device_type)
