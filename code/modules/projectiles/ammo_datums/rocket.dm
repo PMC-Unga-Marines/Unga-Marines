@@ -159,6 +159,7 @@
 	damage = 200
 	penetration = 75
 	max_range = 20
+	sundering = 50
 	///The radius for the non explosion effects
 	var/effect_radius = 3
 
