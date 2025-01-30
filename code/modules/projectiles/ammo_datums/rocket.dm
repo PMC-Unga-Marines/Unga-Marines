@@ -460,7 +460,7 @@
 	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER
 	damage = 30
 	penetration = 50
-	sundering = 5
+	sundering = 35
 
 /datum/ammo/rocket/atgun_shell/he/drop_nade(turf/T)
 	cell_explosion(T, 110, 40)
