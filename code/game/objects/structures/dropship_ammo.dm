@@ -1,5 +1,5 @@
 /obj/structure/ship_ammo
-	icon = 'icons/Marine/mainship_props.dmi'
+	icon = 'icons/obj/structures/mainship_props.dmi'
 	density = TRUE
 	anchored = TRUE
 	climbable = TRUE
@@ -262,7 +262,7 @@
 	name = "Railgun Ammo"
 	desc = "This is not meant to exist. Moving this will require some sort of lifter."
 	icon_state = "30mm_crate_hv"
-	icon = 'icons/Marine/mainship_props.dmi'
+	icon = 'icons/obj/structures/mainship_props.dmi'
 	equipment_type = /obj/structure/dropship_equipment/cas/weapon/minirocket_pod
 	ammo_count = 400
 	max_ammo_count = 400
@@ -352,7 +352,7 @@
 /obj/structure/ship_ammo/cas/rocket
 	name = "abstract rocket"
 	icon_state = "single"
-	icon = 'icons/Marine/mainship_props64.dmi'
+	icon = 'icons/obj/structures/mainship_props64.dmi'
 	equipment_type = /obj/structure/dropship_equipment/cas/weapon/rocket_pod
 	ammo_count = 1
 	max_ammo_count = 1
@@ -482,7 +482,7 @@
 	name = "RGA-13A 'Sting'"
 	desc = "Old unguided rockets found in the strategic warehouses of the UPP combat airfield. Moving this will require some sort of lifter."
 	icon_state = "unguided_rocket"
-	icon = 'icons/Marine/mainship_props.dmi'
+	icon = 'icons/obj/structures/mainship_props.dmi'
 	equipment_type = /obj/structure/dropship_equipment/cas/weapon/unguided_rocket_pod
 	ammo_count = 12
 	max_ammo_count = 12
@@ -515,7 +515,7 @@
 	name = "MGA-112A 'Candies'"
 	desc = "A pack of explosive mini rockets. Moving this will require some sort of lifter."
 	icon_state = "minirocket"
-	icon = 'icons/Marine/mainship_props.dmi'
+	icon = 'icons/obj/structures/mainship_props.dmi'
 	equipment_type = /obj/structure/dropship_equipment/cas/weapon/minirocket_pod
 	ammo_count = 6
 	max_ammo_count = 6

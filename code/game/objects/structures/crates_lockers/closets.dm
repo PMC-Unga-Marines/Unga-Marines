@@ -431,7 +431,7 @@
 
 /mob/living/proc/on_closet_dump(obj/structure/closet/origin)
 	SetStun(origin.closet_stun_delay)//Action delay when going out of a closet
-	if(!lying_angle && IsStun())
+	if(!lying_angle && has_status_effect(STATUS_EFFECT_STUN))
 		balloon_alert_to_viewers("Gets out of [origin]", ignored_mobs = src)
 		balloon_alert(src, "You struggle to get your bearings")
 

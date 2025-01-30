@@ -30,7 +30,6 @@
 	name = "captain's secure box"
 	req_access = list(ACCESS_MARINE_CAPTAIN)
 	desc = "You could probably get court-marshaled just by looking at this..."
-	icon = 'icons/Marine/Marine_Lockers.dmi'
 	icon_state = "commander_safe"
 	icon_opened = "commander_safe_open"
 	icon_closed = "commander_safe"

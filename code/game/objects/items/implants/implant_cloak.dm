@@ -1,11 +1,10 @@
-#define CLOAK_IMPLANT_ALPHA 38
+#define CLOAK_IMPLANT_ALPHA 26
 #define CLOAK_IMPLANT_COOLDOWN_TIME 50 SECONDS
 
 /obj/item/implant/cloak
 	name = "cloak implant"
 	desc = "A top of the line nanotrasen implant, designed for infiltration."
 	icon_state = "gripper"
-	flags_implant = GRANT_ACTIVATION_ACTION
 	cooldown_time = 0
 	var/deactivation_timer
 

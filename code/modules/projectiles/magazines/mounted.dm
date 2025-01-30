@@ -3,8 +3,8 @@
 	name = "HSG-102 drum magazine (10x30mm Caseless)"
 	desc = "A box of 300, 10x30mm caseless tungsten rounds for the HSG-102 mounted heavy smartgun."
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'icons/Marine/marine-hmg.dmi'
-	icon_state = "mag"
+	icon = 'icons/obj/items/ammo/stationary.dmi'
+	icon_state = "hsg102"
 	flags_magazine = NONE
 	caliber = CALIBER_10X30
 	max_rounds = 300
@@ -21,8 +21,8 @@
 	desc = "A box of 500, 10x28mm caseless tungsten rounds for the HMG-08 mounted heavy machinegun. Is probably not going to fit in your backpack. Put it on your belt or back."
 	w_class = WEIGHT_CLASS_BULKY
 	flags_equip_slot = ITEM_SLOT_BACK|ITEM_SLOT_BELT
-	icon = 'icons/Marine/marine-hmg.dmi'
-	icon_state = "mg08_mag"
+	icon = 'icons/obj/items/ammo/stationary.dmi'
+	icon_state = "mg08"
 	icon_state_mini = "mag_drum_big_green"
 	flags_magazine = NONE
 	caliber = CALIBER_10X28
@@ -35,7 +35,7 @@
 	desc = "A box of 250 10x28mm caseless tungsten rounds for the HMG-08 mounted heavy machinegun."
 	w_class = WEIGHT_CLASS_NORMAL
 	flags_equip_slot = ITEM_SLOT_BELT
-	icon_state = "mg08_mag_small"
+	icon_state = "mg08_small"
 	icon_state_mini = "mag_hmg"
 	max_rounds = 250
 	reload_delay = 5 SECONDS
@@ -44,8 +44,8 @@
 	name = "MG-27 box magazine (10x27m Caseless)"
 	desc = "A box of 150 10x27mm caseless rounds for the MG-27 medium machinegun."
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'icons/Marine/marine-mmg.dmi'
-	icon_state = "mag"
+	icon_state = "mg27"
+	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state_mini = "mag_drum_big_armygreen"
 	flags_magazine = NONE
 	caliber = CALIBER_10X27_CASELESS
@@ -57,8 +57,8 @@
 	name = "AGLS-37 HE magazine (40mm Caseless)"
 	desc = "A box holding 30 40mm caseless HE grenades for the AGLS-37 automatic grenade launcher."
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'icons/Marine/marine-hmg.dmi'
-	icon_state = "ags_mag"
+	icon = 'icons/obj/items/ammo/stationary.dmi'
+	icon_state = "ags"
 	flags_magazine = NONE
 	caliber = CALIBER_40MM
 	max_rounds = 30
@@ -68,38 +68,38 @@
 /obj/item/ammo_magazine/agls37/fragmentation
 	name = "AGLS-37 Frag magazine (40mm Caseless)"
 	desc = "A box holding 30 40mm caseless Fragmentation grenades for the AGLS-37 automatic grenade launcher."
-	icon_state = "ags_mag_frag"
+	icon_state = "ags_frag"
 	default_ammo = /datum/ammo/ags_shrapnel
 
 /obj/item/ammo_magazine/agls37/incendiary
 	name = "AGLS-37 WP magazine (40mm Caseless)"
 	desc = "A box holding 30 40mm caseless White Phosphorous grenades for the AGLS-37 automatic grenade launcher."
-	icon_state = "ags_mag_incend"
+	icon_state = "ags_incend"
 	default_ammo = /datum/ammo/ags_shrapnel/incendiary
 
 /obj/item/ammo_magazine/agls37/flare
 	name = "AGLS-37 Flare magazine (40mm Caseless)"
 	desc = "A box holding 30 40mm caseless Flare grenades for the AGLS-37 automatic grenade launcher."
-	icon_state = "ags_mag_flare"
+	icon_state = "ags_flare"
 	default_ammo = /datum/ammo/grenade_container/agls37/flare
 
 /obj/item/ammo_magazine/agls37/cloak
 	name = "AGLS-37 Cloak magazine (40mm Caseless)"
 	desc = "A box holding 30 40mm caseless Cloak grenades for the AGLS-37 automatic grenade launcher."
-	icon_state = "ags_mag_cloak"
+	icon_state = "ags_cloak"
 	default_ammo = /datum/ammo/grenade_container/agls37/cloak
 
 /obj/item/ammo_magazine/agls37/tanglefoot
 	name = "AGLS-37 Tanglefoot magazine (40mm Caseless)"
 	desc = "A box holding 30 40mm caseless Tanglefoot grenades for the AGLS-37 automatic grenade launcher."
-	icon_state = "ags_mag_pgas"
+	icon_state = "ags_pgas"
 	default_ammo = /datum/ammo/grenade_container/agls37/tanglefoot
 
 /obj/item/ammo_magazine/at36
 	name = "AT-36 AP-HE shell (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns. Will penetrate walls and fortifications, before hitting a target and exploding, has less payload and punch than usual rounds."
 	w_class = WEIGHT_CLASS_BULKY
-	icon = 'icons/Marine/marine-atgun.dmi'
+	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "tat36_shell"
 	item_state = "tat36"
 	flags_magazine = MAGAZINE_REFUND_IN_CHAMBER
@@ -152,7 +152,7 @@
 	name = "autocannon high-velocity magazine(20mm)"
 	desc = "A box of 100 high-velocity 20mm rounds for the ATR-22 mounted autocannon. Will pierce people and cover."
 	w_class = WEIGHT_CLASS_NORMAL
-	icon = 'icons/Marine/marine-ac.dmi'
+	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "ac_mag"
 	item_state = "ac"
 	flags_magazine = NONE
@@ -174,13 +174,14 @@
 	w_class = WEIGHT_CLASS_BULKY
 	maxcharge = 225
 	reload_delay = 5 SECONDS
-	icon = 'icons/Marine/marine-hmg.dmi'
-	icon_state = "hl_mag"
+	icon = 'icons/obj/items/ammo/stationary.dmi'
+	icon_state = "hl"
+	charge_overlay = null
 
 /obj/item/ammo_magazine/heavy_isg
 	name = "FK-88 shell (155mm Shell)"
 	desc = "A 15cm shell for the FK-88 mounted flak gun. How did you even get this?"
-	icon = 'icons/Marine/marine-fkgun.dmi'
+	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "isg_ammo"
 	item_state = "isg_ammo"
 	w_class = WEIGHT_CLASS_BULKY

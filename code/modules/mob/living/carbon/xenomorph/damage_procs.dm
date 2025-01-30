@@ -34,26 +34,22 @@
 	if(severity >= max(health, EXPLOSION_THRESHOLD_GIB + get_soft_armor(BOMB) * 2))
 		var/oldloc = loc
 		gib()
-		create_shrapnel(oldloc, rand(16, 24), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/xeno)
+		create_shrapnel(oldloc, rand(8, 16), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/xeno)
 		return
 
-	var/sunder_amount = severity * modify_by_armor(1, BOMB) / 8
-
 	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
+
+	var/sunder_amount = severity * 0.125
 	adjust_sunder(sunder_amount)
 
-	var/powerfactor_value = round(severity * 0.05, 1)
-	powerfactor_value = min(powerfactor_value, 20)
-	if(powerfactor_value > 10)
-		powerfactor_value /= 5
-	else if(powerfactor_value > 0)
-		explosion_throw(severity, direction)
+	var/modified_severity = modify_by_armor(severity, BOMB)
+	explosion_throw(modified_severity, direction)
 
+	var/powerfactor_value = modified_severity * 0.01
 	if(mob_size < MOB_SIZE_BIG)
-		adjust_slowdown(powerfactor_value / 3)
-		adjust_stagger(powerfactor_value * 0.5)
-	else
-		adjust_slowdown(powerfactor_value / 3)
+		adjust_stagger(powerfactor_value SECONDS * 0.5)
+	adjust_slowdown(powerfactor_value)
+
 	TIMER_COOLDOWN_START(src, COOLDOWN_MOB_EX_ACT, 0.1 SECONDS) // this is to prevent x2 damage from mob getting thrown into the explosions wave
 
 /mob/living/carbon/xenomorph/apply_damage(damage = 0, damagetype = BRUTE, def_zone, blocked = 0, sharp = FALSE, edge = FALSE, updating_health = FALSE, penetration)
@@ -65,6 +61,10 @@
 		damage -= clamp(damage * (blocked - penetration) * 0.01, 0, damage)
 	else
 		damage = modify_by_armor(damage, blocked, penetration, def_zone)
+
+	// WARDING PHEROMONES EFFECT
+	if(warding_aura)
+		damage *= (1 - warding_aura * 0.025) // %damage decrease per level. Max base level is 6 (king)
 
 	if(!damage) //no damage
 		return FALSE

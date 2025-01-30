@@ -22,7 +22,7 @@
 		MECHA_R_ARM = list("N" = list(36,30), "S" = list(-2,16), "E" = list(44,16), "W" = list(-13,36)),
 		MECHA_L_ARM = list("N" = list(-4,30), "S" = list(32,16), "E" = list(44,36), "W" = list(-13,16)),
 	)
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	ammotype = /datum/ammo/bullet/pistol/mech
 	max_integrity = 500
 	projectiles = 20
@@ -31,7 +31,6 @@
 	variance = 10
 	slowdown = 0
 	projectile_delay = 0.3 SECONDS
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_PISTOL
 	hud_icons = list("pistol", "pistol_empty")
 	fire_mode = GUN_FIREMODE_SEMIAUTO
@@ -43,7 +42,7 @@
 	icon_state = "burstpistol"
 	fire_sound = 'sound/mecha/weapons/mech_pistol.ogg'
 	muzzle_iconstate = "muzzle_flash_light"
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	flash_offsets = list(
 		MECHA_R_ARM = list("N" = list(36,30), "S" = list(-2,8), "E" = list(52,8), "W" = list(-21,28)),
 		MECHA_L_ARM = list("N" = list(-4,30), "S" = list(32,8), "E" = list(52,28), "W" = list(-20,8)),
@@ -58,7 +57,6 @@
 	projectile_delay = 0.6 SECONDS
 	burst_amount = 3
 	projectile_burst_delay = 0.1 SECONDS
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_BURSTPISTOL
 	hud_icons = list("pistol_light", "pistol_empty")
 	fire_mode = GUN_FIREMODE_AUTOBURST
@@ -70,7 +68,7 @@
 	muzzle_iconstate = "muzzle_flash_light"
 	icon_state = "smg"
 	fire_sound = 'sound/mecha/weapons/mech_smg.ogg'
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	flash_offsets = list(
 		MECHA_R_ARM = list("N" = list(36,30), "S" = list(-2,12), "E" = list(54,14), "W" = list(-20,34)),
 		MECHA_L_ARM = list("N" = list(-4,30), "S" = list(32,12), "E" = list(52,34), "W" = list(-22,14)),
@@ -83,7 +81,6 @@
 	variance = 20
 	projectile_delay = 0.15 SECONDS
 	slowdown = 0.15
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_SMG
 	hud_icons = list("smg", "smg_empty")
 	fire_mode = GUN_FIREMODE_AUTOMATIC
@@ -94,7 +91,7 @@
 	desc = "Medium-sized mech assault weapon. Similar to the Cronus assault rifle, but fires in bursts."
 	icon_state = "burstrifle"
 	fire_sound = 'sound/mecha/weapons/mech_rifle.ogg'
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	flash_offsets = list(
 		MECHA_R_ARM = list("N" = list(36,30), "S" = list(-2,-6), "E" = list(64,17), "W" = list(-33,37)),
 		MECHA_L_ARM = list("N" = list(-4,30), "S" = list(32,-6), "E" = list(63,37), "W" = list(-34,17)),
@@ -109,7 +106,6 @@
 	burst_amount = 3
 	projectile_burst_delay = 0.2 SECONDS
 	slowdown = 0.25
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_BURSTRIFLE
 	hud_icons = list("hivelo", "hivelo_empty")
 	fire_mode = GUN_FIREMODE_AUTOBURST
@@ -120,7 +116,7 @@
 	desc = "The stock-and-standard extra-sized multipurpose rifle for TGMC mech units."
 	icon_state = "assaultrifle"
 	fire_sound = 'sound/mecha/weapons/mech_rifle.ogg'
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	flash_offsets = list(
 		MECHA_R_ARM = list("N" = list(36,30), "S" = list(-2,-6), "E" = list(64,17), "W" = list(-34,37)),
 		MECHA_L_ARM = list("N" = list(-4,30), "S" = list(32,-6), "E" = list(64,37), "W" = list(-34,17)),
@@ -133,7 +129,6 @@
 	variance = 15
 	projectile_delay = 0.2 SECONDS
 	slowdown = 0.2
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_RIFLE
 	hud_icons = list("rifle", "rifle_empty")
 	fire_mode = GUN_FIREMODE_AUTOMATIC
@@ -144,7 +139,7 @@
 	desc = "The TGMC classic weapon, but bigger and better! Fires plus-sized buckshot for high damage in close combat."
 	icon_state = "shotgun"
 	fire_sound = 'sound/mecha/weapons/mech_shotgun.ogg'
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	flash_offsets = list(
 		MECHA_R_ARM = list("N" = list(36,30), "S" = list(-2,-4), "E" = list(61,16), "W" = list(-31,36)),
 		MECHA_L_ARM = list("N" = list(-4,30), "S" = list(32,-4), "E" = list(61,36), "W" = list(-31,16)),
@@ -157,7 +152,6 @@
 	variance = 6
 	projectile_delay = 2.0 SECONDS
 	slowdown = 0.3
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_SHOTGUN
 	hud_icons = list("shotgun_buckshot", "shotgun_empty")
 	fire_mode = GUN_FIREMODE_SEMIAUTO
@@ -168,7 +162,7 @@
 	desc = "A massive hulk of metal that fires base-bleed LMG rounds. Like the standard LMG, but bigger, better and heavier."
 	icon_state = "lmg"
 	fire_sound = 'sound/mecha/weapons/mech_lmg.ogg'
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	flash_offsets = list(
 		MECHA_R_ARM = list("N" = list(36,30), "S" = list(-2,-6), "E" = list(64,17), "W" = list(-34,37)),
 		MECHA_L_ARM = list("N" = list(-4,30), "S" = list(32,-6), "E" = list(64,37), "W" = list(-34,17)),
@@ -181,7 +175,6 @@
 	variance = 25
 	projectile_delay = 0.15 SECONDS
 	slowdown = 0.3
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_GREY_LMG
 	hud_icons = list("rifle_heavy", "rifle_empty")
 	fire_mode = GUN_FIREMODE_AUTOMATIC
@@ -192,7 +185,7 @@
 	desc = "A drum-fed autocannon that fires fragmentation rounds that burst in a frontal cone when the bullet impacts. Extra effective against clusters of enemies."
 	icon_state = "lightcannon"
 	fire_sound = 'sound/mecha/weapons/mech_light_cannon.ogg'
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	flash_offsets = list(
 		MECHA_R_ARM = list("N" = list(36,30), "S" = list(-2,-15), "E" = list(80,4), "W" = list(-50,24)),
 		MECHA_L_ARM = list("N" = list(-4,30), "S" = list(32,-15), "E" = list(80,24), "W" = list(-50,4)),
@@ -205,7 +198,6 @@
 	variance = 20
 	projectile_delay = 0.7 SECONDS
 	slowdown = 0.4
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_LIGHTCANNON
 	hud_icons = list("grenade_airburst", "grenade_empty")
 	fire_mode = GUN_FIREMODE_AUTOMATIC
@@ -216,7 +208,7 @@
 	desc = "Standard mech laser rifle. Does not require amnmo refills and shoots highly accurate lasers that immediately hit, but deals slightly less damage compared to similar weapons."
 	icon_state = "lasermg"
 	fire_sound = 'sound/mecha/weapons/mech_laser_heavy.ogg'
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	flash_offsets = list(
 		MECHA_R_ARM = list("N" = list(33,68), "S" = list(-2,-6), "E" = list(80,13), "W" = list(-50,33)),
 		MECHA_L_ARM = list("N" = list(0,68), "S" = list(32,-6), "E" = list(80,33), "W" = list(-50,13)),
@@ -227,7 +219,6 @@
 	variance = 0
 	projectile_delay = 0.4 SECONDS
 	slowdown = 0.4
-	harmful = TRUE
 	fire_mode = GUN_FIREMODE_AUTOMATIC
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser_projector
@@ -236,7 +227,7 @@
 	desc = "A laser projector, capable of burstfiring. Does not require amnmo refills and shoots highly accurate lasers that immediately hit, but deals slightly less damage compared to similar weapons."
 	icon_state = "laserrifle"
 	fire_sound = 'sound/mecha/weapons/mech_laser_heavy.ogg'
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	flash_offsets = list(
 		MECHA_R_ARM = list("N" = list(33,52), "S" = list(-2,-6), "E" = list(75,11), "W" = list(-45,31)),
 		MECHA_L_ARM = list("N" = list(0,52), "S" = list(32,-6), "E" = list(75,31), "W" = list(-45,11)),
@@ -249,7 +240,6 @@
 	burst_amount = 3
 	projectile_burst_delay = 0.2 SECONDS
 	slowdown = 0.4
-	harmful = TRUE
 	fire_mode = GUN_FIREMODE_AUTOBURST
 
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/laser_smg
@@ -262,14 +252,13 @@
 		MECHA_R_ARM = list("N" = list(33,48), "S" = list(-2,6), "E" = list(67,11), "W" = list(-37,31)),
 		MECHA_L_ARM = list("N" = list(0,48), "S" = list(32,6), "E" = list(67,31), "W" = list(-37,11)),
 	)
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	ammotype = /datum/ammo/energy/lasgun/marine/mech/smg
 	max_integrity = 400
 	energy_drain = 5
 	variance = 0
 	projectile_delay = 0.2 SECONDS
 	slowdown = 0.2
-	harmful = TRUE
 	fire_mode = GUN_FIREMODE_AUTOMATIC
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/heavy_cannon
@@ -282,7 +271,7 @@
 		MECHA_R_ARM = list("N" = list(36,48), "S" = list(-1,1), "E" = list(72,32), "W" = list(-42,48)),
 		MECHA_L_ARM = list("N" = list(-4,48), "S" = list(33,1), "E" = list(72,48), "W" = list(-42,32)),
 	)
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	ammotype = /datum/ammo/bullet/apfsds
 	max_integrity = 400
 	projectiles = 1
@@ -291,7 +280,6 @@
 	variance = 0
 	projectile_delay = 1 SECONDS
 	slowdown = 1.2
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_HEAVYCANNON
 	hud_icons = list("shell_apcr", "shell_empty")
 	fire_mode = GUN_FIREMODE_SEMIAUTO
@@ -307,7 +295,7 @@
 		MECHA_R_ARM = list("N" = list(35,60), "S" = list(-2,-11), "E" = list(64,0), "W" = list(-34,20)),
 		MECHA_L_ARM = list("N" = list(-2,60), "S" = list(32,-11), "E" = list(64,20), "W" = list(-34,0)),
 	)
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	ammotype = /datum/ammo/bullet/minigun/mech
 	max_integrity = 400
 	projectiles = 200
@@ -317,7 +305,6 @@
 	projectile_delay = 1.5
 	slowdown = 0.7
 	windup_delay = 0.5 SECONDS
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_MINIGUN
 	hud_icons = list("smartgun", "smartgun_empty")
 	fire_mode = GUN_FIREMODE_AUTOMATIC
@@ -332,7 +319,7 @@
 		MECHA_R_ARM = list("N" = list(36,30), "S" = list(-2,-14), "E" = list(80,0), "W" = list(-50,22)),
 		MECHA_L_ARM = list("N" = list(-4,30), "S" = list(32,-14), "E" = list(80,22), "W" = list(-50,0)),
 	)
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	ammotype = /datum/ammo/bullet/sniper/mech
 	max_integrity = 200
 	projectiles = 15
@@ -341,7 +328,6 @@
 	variance = -15
 	projectile_delay = 1 SECONDS
 	slowdown = 0.6
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_SNIPER
 	hud_icons = list("sniper_supersonic", "sniper_empty")
 	fire_mode = GUN_FIREMODE_SEMIAUTO
@@ -352,7 +338,7 @@
 	icon = 'icons/mecha/mecha_equipment_64x32.dmi'
 	icon_state = "grenadelauncher"
 	fire_sound = 'sound/weapons/guns/fire/grenadelauncher.ogg'
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	ammotype = /obj/item/explosive/grenade
 	max_integrity = 350
 	projectiles = 10
@@ -384,7 +370,7 @@
 		MECHA_R_ARM = list("N" = list(36,30), "S" = list(-2,-11), "E" = list(77,3), "W" = list(-47,23)),
 		MECHA_L_ARM = list("N" = list(-4,30), "S" = list(32,-11), "E" = list(77,23), "W" = list(-47,3)),
 	)
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	ammotype = /datum/ammo/flamethrower/mech_flamer
 	max_integrity = 250
 	projectiles = 20
@@ -393,7 +379,6 @@
 	variance = 0
 	projectile_delay = 2 SECONDS
 	slowdown = 0.4
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_FLAMER
 	hud_icons = list("flame", "flame_empty")
 	fire_mode = GUN_FIREMODE_SEMIAUTO
@@ -408,7 +393,7 @@
 		MECHA_R_ARM = list("N" = list(36,48), "S" = list(-1,1), "E" = list(56,20), "W" = list(-26,36)),
 		MECHA_L_ARM = list("N" = list(-4,48), "S" = list(33,1), "E" = list(56,36), "W" = list(-26,20)),
 	)
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	ammotype = /datum/ammo/rocket/mech
 	max_integrity = 400
 	projectiles = 1
@@ -417,7 +402,6 @@
 	variance = 0
 	projectile_delay = 2 SECONDS
 	slowdown = 0.7
-	harmful = TRUE
 	ammo_type = MECHA_AMMO_RPG
 	hud_icons = list("rocket_he", "rocket_empty")
 	fire_mode = GUN_FIREMODE_SEMIAUTO
@@ -434,10 +418,9 @@
 	icon = 'icons/mecha/mecha_equipment_64x32.dmi'
 	desc = "A specialized mech laser blade made out of compressed energy with unimaginable power. Its compact size allows fast, short-ranged attacks. When activated, overloads the leg actuators to dash forward, before cutting with a superheated plasma beam. Melee core increases area cut and distance dashed. It is a top-of-the-line melee weapon of TGMC's fine line of mecha close-range offensive capability."
 	icon_state = "moonlight"
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	max_integrity = 400
 	slowdown = 0
-	harmful = TRUE
 	equip_cooldown = 3 SECONDS
 	energy_drain = 100
 	range = MECHA_MELEE|MECHA_RANGED
@@ -470,7 +453,7 @@
 	chassis.add_filter("dash_blur", 1, radial_blur_filter(0.3))
 	icon_state += "_on"
 	chassis.update_icon()
-	new /obj/effect/temp_visual/xenomorph/afterimage(chassis.loc, chassis)
+	new /obj/effect/temp_visual/after_image(chassis.loc, chassis)
 	RegisterSignal(chassis, COMSIG_MOVABLE_POST_THROW, PROC_REF(end_dash))
 	cutter = source
 	chassis.flags_atom |= DIRLOCK
@@ -481,7 +464,7 @@
 ///signal handler, drops afterimage every move executed while dashing
 /obj/item/mecha_parts/mecha_equipment/laser_sword/proc/drop_afterimage(datum/source)
 	SIGNAL_HANDLER
-	new /obj/effect/temp_visual/xenomorph/afterimage(chassis.loc, chassis)
+	new /obj/effect/temp_visual/after_image(chassis.loc, chassis)
 
 ///Ends dash and executes attack
 /obj/item/mecha_parts/mecha_equipment/laser_sword/proc/end_dash(datum/source)
@@ -520,12 +503,11 @@
 	icon_state = "lance"
 	fire_sound = 'sound/mecha/weapons/laser_sword.ogg'
 	windup_sound = 'sound/weapons/guns/fire/tank_minigun_start.OGG'
-	mech_flags = EXOSUIT_MODULE_GREYSCALE
+	can_equip = TRUE
 	ammotype = /datum/ammo/energy/lasgun/marine/mech/lance_strike
 	max_integrity = 400
 	slowdown = 0.15
 	windup_delay = 0.6 SECONDS
-	harmful = TRUE
 	projectile_delay = 3 SECONDS
 	energy_drain = 100
 	variance = 0

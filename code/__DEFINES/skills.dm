@@ -23,12 +23,7 @@
 #define SKILL_LARGE_VEHICLE "large_vehicle"
 #define SKILL_MECH_PILOT "mech_pilot"
 #define SKILL_STAMINA "stamina"
-#define SKILL_SWORDPLAY "swordplay"
 ////////////////////////////////////////////////
-
-//ability to use elegant melee weapons (i.e. rapiers)
-#define SKILL_SWORDPLAY_DEFAULT 0
-#define SKILL_SWORDPLAY_TRAINED 1
 
 //firearms skill (general knowledge of guns) (hidden skill)
 //increase or decrase accuracy, recoil, and firing delay of rifles and smgs.
@@ -138,7 +133,8 @@
 #define SKILL_LEAD_BEGINNER 1 //All non-Standard Marines
 #define SKILL_LEAD_TRAINED 2 //PO, CMO, etc
 #define SKILL_LEAD_EXPERT 3 //SL, SO
-#define SKILL_LEAD_MASTER 4 //XO, CO
+#define SKILL_LEAD_MASTER 4 //XO, FC
+#define SKILL_LEAD_SUPER 5 // implanted FC
 
 //melee_weapons skill
 //buff to melee weapon attack damage
@@ -146,6 +142,7 @@
 #define SKILL_MELEE_DEFAULT 0
 #define SKILL_MELEE_TRAINED 1
 #define SKILL_MELEE_SUPER 2
+#define SKILL_MELEE_MASTER 3
 
 ///The amount of extra damage per melee skill level
 #define MELEE_SKILL_DAM_BUFF 0.15

@@ -189,6 +189,11 @@ const ItemLine = (props) => {
               Medicine
             </Box>
           )}
+          {prod_color === 'cyan2' && (
+            <Box inline mr="6px" ml="6px" color="cyan">
+              Implant
+            </Box>
+          )}
           {prod_color === 'red' && (
             <Box inline mr="6px" ml="6px" color="red">
               Weapon

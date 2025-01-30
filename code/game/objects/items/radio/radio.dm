@@ -292,7 +292,8 @@
 		return
 
 	var/area/A = get_area(src)
-	if(!isnull(A) && (A.ceiling >= CEILING_UNDERGROUND) && !(A.flags_area & ALWAYS_RADIO))
+	var/mob/living/carbon/living = speaker.source
+	if(!isnull(A) && (A.ceiling >= CEILING_UNDERGROUND) && !(A.flags_area & ALWAYS_RADIO) && !istype(living.back, /obj/item/storage/backpack/marine/radiopack))
 		if(A.ceiling >= CEILING_DEEP_UNDERGROUND)
 			return
 		signal.data["compression"] += rand(20, 40)
@@ -347,7 +348,9 @@
 			return FALSE
 		var/area/A = get_area(src)
 		if(A?.ceiling >= CEILING_DEEP_UNDERGROUND)
-			return FALSE
+			var/mob/living/carbon/living = usr
+			if(!istype(living.back, /obj/item/storage/backpack/marine/radiopack))
+				return FALSE
 
 	// allow checks: are we listening on that frequency?
 	if(input_frequency == frequency)

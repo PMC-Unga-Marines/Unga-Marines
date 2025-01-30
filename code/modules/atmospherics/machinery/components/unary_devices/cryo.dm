@@ -10,10 +10,10 @@
 	layer = ABOVE_MOB_LAYER
 	pipe_flags = PIPING_ONE_PER_TURF|PIPING_DEFAULT_LAYER_ONLY
 	interaction_flags = INTERACT_MACHINE_TGUI
-	can_see_pipes = FALSE
 	light_range = 2
 	light_power = 0.5
 	light_color = LIGHT_COLOR_EMISSIVE_GREEN
+	vent_movement = NONE
 	var/autoeject = FALSE
 	var/release_notice = FALSE
 	var/temperature = 100
@@ -301,7 +301,7 @@
 	else
 		visible_message(span_notice("[usr] climbs into [src]."), 3)
 	M.forceMove(src)
-	if(M.health > -100 && (M.health < 0 || M.IsSleeping()))
+	if(M.health > -100 && (M.health < 0 || M.has_status_effect(STATUS_EFFECT_SLEEPING)))
 		to_chat(M, span_boldnotice("You feel a cold liquid surround you. Your skin starts to freeze up."))
 	occupant = M
 	occupant.time_entered_cryo = world.time
@@ -425,9 +425,6 @@
 	on = TRUE
 	start_processing()
 	update_icon()
-
-/obj/machinery/atmospherics/components/unary/cryo_cell/can_crawl_through()
-	return // can't ventcrawl in or out of cryo.
 
 /obj/machinery/atmospherics/components/unary/cryo_cell/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	if(!occupant)

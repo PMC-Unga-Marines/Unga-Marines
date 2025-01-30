@@ -1,5 +1,5 @@
 /mob/living/carbon/human/proc/mark_panel()
-	if(stat || (lying_angle && !resting && !IsSleeping()) || (IsParalyzed() || IsUnconscious()))
+	if(stat || (lying_angle && !resting && !has_status_effect(STATUS_EFFECT_SLEEPING)) || (has_status_effect(STATUS_EFFECT_PARALYZED) || has_status_effect(STATUS_EFFECT_UNCONSCIOUS)))
 		to_chat(src, span_danger("You're not able to do that right now."))
 		return
 
