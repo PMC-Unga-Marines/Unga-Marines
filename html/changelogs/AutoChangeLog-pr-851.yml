@@ -1,5 +1,0 @@
-author: "Helg2"
-delete-after: True
-changes:
-  - balance: "Цены в вендоре роботов повышены: Паверпак 20 >> 45, красные батарейки 5 >> 9"
-  - code_imp: "loadout.dm рассортирован по папкам и файлам."
