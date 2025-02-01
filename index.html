@@ -29,8 +29,8 @@ General Public License version 3.
 
 
 <h3 id="modules">Modules
-<aside>(476 modules,
-    851/7636 macros, 11.1%)</aside></h3>
+<aside>(482 modules,
+    862/7649 macros, 11.3%)</aside></h3>
 <ul class="index-tree modules">
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;__DEFINES">__DEFINES</span><ul class="index-tree">
@@ -41,6 +41,7 @@ General Public License version 3.
     <li><a href="code/__DEFINES/_radio.html" title="code&#x2F;__DEFINES&#x2F;_radio">_radio</a></li>
     <li><a href="code/__DEFINES/_subsystems.html" title="code&#x2F;__DEFINES&#x2F;_subsystems">_subsystems</a></li>
     <li><a href="code/__DEFINES/_tick.html" title="code&#x2F;__DEFINES&#x2F;_tick">_tick</a></li>
+    <li><a href="code/__DEFINES/access.html" title="code&#x2F;__DEFINES&#x2F;access">access</a></li>
     <li><a href="code/__DEFINES/action.html" title="code&#x2F;__DEFINES&#x2F;action">action</a> - This is just a file holding string defines for reference retrieval on /action datums
 ideally you should never override the base list , and just add onto its length
 The noting system for these is
@@ -83,9 +84,10 @@ SPDX-License-Identifier: MIT</li>
     <li><a href="code/__DEFINES/jobs.html" title="code&#x2F;__DEFINES&#x2F;jobs">jobs</a></li>
     <li><a href="code/__DEFINES/layers.html" title="code&#x2F;__DEFINES&#x2F;layers">layers</a></li>
     <li><a href="code/__DEFINES/lighting.html" title="code&#x2F;__DEFINES&#x2F;lighting">lighting</a></li>
-    <li><a href="code/__DEFINES/loadout.html" title="code&#x2F;__DEFINES&#x2F;loadout">loadout</a></li>
+    <li><span class="no-substance">loadout&#x2F;</span><a href="code/__DEFINES/loadout/_loadout.html" title="code&#x2F;__DEFINES&#x2F;loadout&#x2F;_loadout">_loadout</a></li>
     <li><a href="code/__DEFINES/logging.html" title="code&#x2F;__DEFINES&#x2F;logging">logging</a></li>
     <li><a href="code/__DEFINES/map_switch.html" title="code&#x2F;__DEFINES&#x2F;map_switch">map_switch</a></li>
+    <li><a href="code/__DEFINES/maps.html" title="code&#x2F;__DEFINES&#x2F;maps">maps</a></li>
     <li><a href="code/__DEFINES/maths.html" title="code&#x2F;__DEFINES&#x2F;maths">maths</a></li>
     <li><a href="code/__DEFINES/mecha.html" title="code&#x2F;__DEFINES&#x2F;mecha">mecha</a></li>
     <li><a href="code/__DEFINES/minimap.html" title="code&#x2F;__DEFINES&#x2F;minimap">minimap</a></li>
@@ -114,6 +116,8 @@ SPDX-License-Identifier: MIT</li>
     <li><a href="code/__DEFINES/tgs.html" title="code&#x2F;__DEFINES&#x2F;tgs">tgs</a></li>
     <li><a href="code/__DEFINES/tgui.html" title="code&#x2F;__DEFINES&#x2F;tgui">tgui</a></li>
     <li><a href="code/__DEFINES/traits.html" title="code&#x2F;__DEFINES&#x2F;traits">traits</a></li>
+    <li><a href="code/__DEFINES/turf_flags.html" title="code&#x2F;__DEFINES&#x2F;turf_flags">turf_flags</a></li>
+    <li><a href="code/__DEFINES/turfs.html" title="code&#x2F;__DEFINES&#x2F;turfs">turfs</a></li>
     <li><a href="code/__DEFINES/vehicles.html" title="code&#x2F;__DEFINES&#x2F;vehicles">vehicles</a></li>
     <li><a href="code/__DEFINES/xeno.html" title="code&#x2F;__DEFINES&#x2F;xeno">xeno</a></li>
     </ul></li>
@@ -430,6 +434,7 @@ that is in the general direction relative to the parent.</li>
     </ul></li>
     <li><a href="code/game/sound.html" title="code&#x2F;game&#x2F;sound">sound</a></li>
     <li class="has-children"><span title="code&#x2F;game&#x2F;turfs">turfs</span><ul class="index-tree">
+    <li><a href="code/game/turfs/closed.html" title="code&#x2F;game&#x2F;turfs&#x2F;closed">closed</a></li>
     <li><a href="code/game/turfs/floor_ground.html" title="code&#x2F;game&#x2F;turfs&#x2F;floor_ground">floor_ground</a></li>
     <li><a href="code/game/turfs/floor_types.html" title="code&#x2F;game&#x2F;turfs&#x2F;floor_types">floor_types</a></li>
     <li><a href="code/game/turfs/liquid_turfs.html" title="code&#x2F;game&#x2F;turfs&#x2F;liquid_turfs">liquid_turfs</a></li>
@@ -521,6 +526,7 @@ Thanks to forum_account for saving the day, the library can be found
     <li class="has-children"><a href="code/modules/mapping.html" title="code&#x2F;modules&#x2F;mapping">mapping</a><ul class="index-tree">
     <li><a href="code/modules/mapping/preloader.html" title="code&#x2F;modules&#x2F;mapping&#x2F;preloader">preloader</a></li>
     <li><a href="code/modules/mapping/reader.html" title="code&#x2F;modules&#x2F;mapping&#x2F;reader">reader</a></li>
+    <li><span class="no-substance">space_management&#x2F;</span><a href="code/modules/mapping/space_management/space_reservation.html" title="code&#x2F;modules&#x2F;mapping&#x2F;space_management&#x2F;space_reservation">space_reservation</a></li>
     <li><a href="code/modules/mapping/verify.html" title="code&#x2F;modules&#x2F;mapping&#x2F;verify">verify</a></li>
     </ul></li>
     <li class="has-children"><span title="code&#x2F;modules&#x2F;mining">mining</span><ul class="index-tree">
@@ -742,10 +748,11 @@ For this they have the following mechanics</li>
 
 
 <h3 id="types">Types
-<aside>(1056 detailed/1326 documented/19805 total, 6.7%)</aside></h3>
+<aside>(1062 detailed/1337 documented/19808 total, 6.7%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li class="has-children"><a href="area.html" title="&#x2F;area">area</a><ul class="index-tree">
+    <li><span class="no-substance">misc&#x2F;</span><span class="no-substance" title="&#x2F;area&#x2F;misc&#x2F;cordon">cordon</span> - Cordon area surrounding turf reservations</li>
     <li class="has-children"><span class="no-substance" title="&#x2F;area&#x2F;quartermaster">quartermaster</span><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;area&#x2F;quartermaster&#x2F;office">office</span> - WORK IN PROGRESS</li>
     <li><span class="no-substance" title="&#x2F;area&#x2F;quartermaster&#x2F;sorting">sorting</span> - WORK IN PROGRESS</li>
@@ -754,6 +761,9 @@ For this they have the following mechanics</li>
     <li><a href="area/shuttle/dropship.html" title="&#x2F;area&#x2F;shuttle&#x2F;dropship">dropship</a></li>
     </ul></li>
     <li><a href="area/space.html" title="&#x2F;area&#x2F;space">space</a></li>
+    <li><span class="no-substance" title="&#x2F;area&#x2F;template_noop">template_noop</span> - Template noop (no operation) is used to skip a turf or area when the template is loaded this allows for template transparency
+ex. if a ship has gaps in it's design, you would use template_noop to fill these in so that when the ship moves z-level, any
+tiles these gaps land on will not be deleted and replaced with the ships (empty) tiles</li>
     </ul></li>
     <li class="has-children"><a href="atom.html" title="&#x2F;atom">atom</a><ul class="index-tree">
     <li class="has-children"><a href="atom/movable.html" title="&#x2F;atom&#x2F;movable">movable</a><ul class="index-tree">
@@ -1359,7 +1369,7 @@ Processed by the SSloopingsounds <a href="datum/controller/subsystem.html" title
     <li><a href="datum/map_config.html" title="&#x2F;datum&#x2F;map_config">map_config</a></li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;map_preloader">map_preloader</span> - Preloader datum</li>
     <li><a href="datum/map_report.html" title="&#x2F;datum&#x2F;map_report">map_report</a> - An error report generated by [parsed_map/check_for_errors].</li>
-    <li class="has-children"><span title="&#x2F;datum&#x2F;map_template">map_template</span><ul class="index-tree">
+    <li class="has-children"><a href="datum/map_template.html" title="&#x2F;datum&#x2F;map_template">map_template</a><ul class="index-tree">
     <li><a href="datum/map_template/interior.html" title="&#x2F;datum&#x2F;map_template&#x2F;interior">interior</a></li>
     <li><a href="datum/map_template/modular.html" title="&#x2F;datum&#x2F;map_template&#x2F;modular">modular</a></li>
     <li><span class="no-substance">shuttle&#x2F;</span><a href="datum/map_template/shuttle/minidropship.html" title="&#x2F;datum&#x2F;map_template&#x2F;shuttle&#x2F;minidropship">minidropship</a></li>
@@ -1407,6 +1417,7 @@ And need a safe place to do the registration</li>
     <li><a href="datum/pipeline.html" title="&#x2F;datum&#x2F;pipeline">pipeline</a></li>
     <li><a href="datum/poll_option.html" title="&#x2F;datum&#x2F;poll_option">poll_option</a> - Datum which holds details of a poll option loaded from the database.</li>
     <li><a href="datum/poll_question.html" title="&#x2F;datum&#x2F;poll_question">poll_question</a> - Datum which holds details of a running poll loaded from the database and supplementary info.</li>
+    <li><a href="datum/powernet.html" title="&#x2F;datum&#x2F;powernet">powernet</a></li>
     <li><a href="datum/preferences.html" title="&#x2F;datum&#x2F;preferences">preferences</a></li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;qdel_item">qdel_item</span> - Qdel Item: Holds statistics on each type that passes thru qdel
 Holds the type as a string for this type
@@ -1466,6 +1477,7 @@ parameters.<ul class="index-tree">
     <li><a href="datum/song.html" title="&#x2F;datum&#x2F;song">Song datum</a> - These are the actual backend behind instruments.
 They attach to an atom and provide the editor + playback functionality.</li>
     <li><a href="datum/sortInstance.html" title="&#x2F;datum&#x2F;sortInstance">sortInstance</a></li>
+    <li><a href="datum/space_level.html" title="&#x2F;datum&#x2F;space_level">space_level</a></li>
     <li><a href="datum/spatial_grid_cell.html" title="&#x2F;datum&#x2F;spatial_grid_cell">Spatial Grid Cell</a> - used by <a href="datum/controller/subsystem/spatial_grid.html" title="/datum/controller/subsystem/spatial_grid">/datum/controller/subsystem/spatial_grid</a> to cover every z level so that the coordinates of every turf in the world corresponds to one of these in
 the subsystems list of grid cells by z level. each one of these contains content lists holding all atoms meeting a certain criteria that is in our borders.
 these datums shouldnt have significant behavior, they should just hold data. the lists are filled and emptied by the subsystem.</li>
@@ -1675,6 +1687,7 @@ also because some objects do not display particles due to how their visuals are 
     </ul></li>
     </ul></li>
     <li><a href="obj/effect/attach_point.html" title="&#x2F;obj&#x2F;effect&#x2F;attach_point">attach_point</a></li>
+    <li><a href="obj/effect/baseturf_helper.html" title="&#x2F;obj&#x2F;effect&#x2F;baseturf_helper">baseturf_helper</a></li>
     <li><span class="no-substance">beam&#x2F;</span><span class="no-substance" title="&#x2F;obj&#x2F;effect&#x2F;beam&#x2F;i_beam">i_beam</span> - IBeam</li>
     <li class="has-children"><a href="obj/effect/blip.html" title="&#x2F;obj&#x2F;effect&#x2F;blip">blip</a><ul class="index-tree">
     <li><a href="obj/effect/blip/close_blip.html" title="&#x2F;obj&#x2F;effect&#x2F;blip&#x2F;close_blip">close_blip</a></li>
@@ -2100,6 +2113,7 @@ It isn't required for a product of research to be subtype of these</li>
     <li><a href="obj/item/stack/medical/heal_pack.html" title="&#x2F;obj&#x2F;item&#x2F;stack&#x2F;medical&#x2F;heal_pack">heal_pack</a></li>
     <li><a href="obj/item/stack/medical/splint.html" title="&#x2F;obj&#x2F;item&#x2F;stack&#x2F;medical&#x2F;splint">splint</a></li>
     </ul></li>
+    <li><a href="obj/item/stack/rods.html" title="&#x2F;obj&#x2F;item&#x2F;stack&#x2F;rods">rods</a></li>
     <li><span class="no-substance">sheet&#x2F;</span><a href="obj/item/stack/sheet/wetleather.html" title="&#x2F;obj&#x2F;item&#x2F;stack&#x2F;sheet&#x2F;wetleather">wetleather</a></li>
     <li><a href="obj/item/stack/throwing_knife.html" title="&#x2F;obj&#x2F;item&#x2F;stack&#x2F;throwing_knife">throwing_knife</a></li>
     <li class="has-children"><a href="obj/item/stack/tile.html" title="&#x2F;obj&#x2F;item&#x2F;stack&#x2F;tile">tile</a><ul class="index-tree">
@@ -2335,7 +2349,9 @@ These hold the body until taken by a ghost where they &quot;burst&quot; from the
     <li><a href="obj/machinery/power/fusion_engine.html" title="&#x2F;obj&#x2F;machinery&#x2F;power&#x2F;fusion_engine">fusion_engine</a></li>
     <li><a href="obj/machinery/power/geothermal.html" title="&#x2F;obj&#x2F;machinery&#x2F;power&#x2F;geothermal">geothermal</a></li>
     <li><a href="obj/machinery/power/monitor.html" title="&#x2F;obj&#x2F;machinery&#x2F;power&#x2F;monitor">monitor</a></li>
-    <li><span class="no-substance">smes&#x2F;</span><a href="obj/machinery/power/smes/buildable.html" title="&#x2F;obj&#x2F;machinery&#x2F;power&#x2F;smes&#x2F;buildable">buildable</a></li>
+    <li class="has-children"><a href="obj/machinery/power/smes.html" title="&#x2F;obj&#x2F;machinery&#x2F;power&#x2F;smes">smes</a><ul class="index-tree">
+    <li><a href="obj/machinery/power/smes/buildable.html" title="&#x2F;obj&#x2F;machinery&#x2F;power&#x2F;smes&#x2F;buildable">buildable</a></li>
+    </ul></li>
     </ul></li>
     <li><span class="no-substance">prop&#x2F;</span><a href="obj/machinery/prop/computer.html" title="&#x2F;obj&#x2F;machinery&#x2F;prop&#x2F;computer">computer</a></li>
     <li><a href="obj/machinery/quick_vendor.html" title="&#x2F;obj&#x2F;machinery&#x2F;quick_vendor">quick_vendor</a></li>
@@ -2536,6 +2552,9 @@ These hold the body until taken by a ghost where they &quot;burst&quot; from the
 Default override for echo</li>
     <li class="has-children"><a href="turf.html" title="&#x2F;turf">turf</a><ul class="index-tree">
     <li class="has-children"><a href="turf/closed.html" title="&#x2F;turf&#x2F;closed">closed</a><ul class="index-tree">
+    <li class="has-children"><span class="no-substance" title="&#x2F;turf&#x2F;closed&#x2F;cordon">cordon</span> - Cordon turf marking z-level boundaries and surrounding reservations<ul class="index-tree">
+    <li><span class="no-substance" title="&#x2F;turf&#x2F;closed&#x2F;cordon&#x2F;debug">debug</span> - Used as placeholder turf when something went really wrong, as per /tg/ string lists handler</li>
+    </ul></li>
     <li><span class="no-substance">interior&#x2F;tank&#x2F;</span><a href="turf/closed/interior/tank/door.html" title="&#x2F;turf&#x2F;closed&#x2F;interior&#x2F;tank&#x2F;door">door</a></li>
     <li><a href="turf/closed/mineral.html" title="&#x2F;turf&#x2F;closed&#x2F;mineral">mineral</a></li>
     <li class="has-children"><a href="turf/closed/wall.html" title="&#x2F;turf&#x2F;closed&#x2F;wall">wall</a><ul class="index-tree">
@@ -2564,6 +2583,7 @@ Default override for echo</li>
     <li><a href="turf/open/space/transit.html" title="&#x2F;turf&#x2F;open&#x2F;space&#x2F;transit">transit</a></li>
     </ul></li>
     </ul></li>
+    <li><span class="no-substance" title="&#x2F;turf&#x2F;template_noop">template_noop</span> - See above explanation</li>
     </ul></li>
     <li><a href="world.html" title="&#x2F;world">world</a> - Used to find the sources of harddels, quite laggy, don't be surpised if it freezes your client for a good while</li>
     </ul>
@@ -2572,7 +2592,7 @@ Default override for echo</li>
 </main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/028a6e2e25804f62a08007508b903dd227634287">028a6e2</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/25b7c5462132bbb566b12dbb653cceb3d2526e80">25b7c54</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
