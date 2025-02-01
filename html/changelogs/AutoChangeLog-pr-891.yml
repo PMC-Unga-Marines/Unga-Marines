@@ -1,0 +1,6 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - balance: "Сандер ХЕ ракет 100 >> 0"
+  - balance: "Сандер ХИАТ ракет 0 >> 50"
+  - balance: "Сандер фосфорной ракеты для садара 100 >> 50"
