@@ -28,3 +28,7 @@
 
 	to_chat(usr, span_notice("Jumped to [caspoint]."))
 	plane.eyeobj.setLoc(get_turf(caspoint))
+
+/datum/action/innate/cas_banzai()
+	name = "BANZAI!"
+	action_icon_state = "cas_banzai"
