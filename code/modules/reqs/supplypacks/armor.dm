@@ -60,14 +60,14 @@
 	cost = 200
 
 /datum/supply_packs/armor/modular/attachments/valkyrie_autodoc
-	name = "Valkyrie autodoc armor module"
+	name = "Valkyrie automedical system"
 	contains = list(
 		/obj/item/armor_module/module/valkyrie_autodoc,
 	)
 	cost = 200
 
 /datum/supply_packs/armor/modular/attachments/fire_proof
-	name = "Surt fireproof module set"
+	name = "Surt thermal insulation system"
 	contains = list(
 		/obj/item/armor_module/module/fire_proof,
 		/obj/item/armor_module/module/fire_proof_helmet,
@@ -75,7 +75,7 @@
 	cost = 120
 
 /datum/supply_packs/armor/modular/attachments/tyr_extra_armor
-	name = "Tyr mark 2 armor module"
+	name = "Tyr Mk.2 armor reinforcement system"
 	contains = list(
 		/obj/item/armor_module/module/tyr_extra_armor,
 		/obj/item/armor_module/module/tyr_head/mark2,
@@ -83,7 +83,7 @@
 	cost = 120
 
 /datum/supply_packs/armor/modular/attachments/mimir_extra_armor
-	name = "Mimir mark 2 armor module"
+	name = "Mimir Mk.2 environmental resistance system"
 	contains = list(
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
 		/obj/item/armor_module/module/mimir_environment_protection,
@@ -91,7 +91,7 @@
 	cost = 160
 
 /datum/supply_packs/armor/modular/attachments/artemis_mark_two
-	name = "Freyr mark 2 helmet module"
+	name = "Freyr Mk.2 visual assistance helmet system"
 	contains = list(
 		/obj/item/armor_module/module/binoculars/artemis_mark_two,
 	)
