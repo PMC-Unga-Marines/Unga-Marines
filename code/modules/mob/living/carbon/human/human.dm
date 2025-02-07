@@ -953,3 +953,9 @@
 	if(!do_after(src, 2 SECONDS, IGNORE_LOC_CHANGE|IGNORE_HELD_ITEM, src))
 		return
 	return ..()
+
+/mob/living/carbon/human/attack_ghost(mob/dead/observer/user)
+	if(!user.health_scan)
+		return FALSE
+	user.health_analyzer.analyze_vitals(src, user)
+	return TRUE
