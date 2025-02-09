@@ -184,13 +184,12 @@
 /mob/living/fire_act(burn_level, flame_color)
 	if(!burn_level)
 		return
-	if(status_flags & (INCORPOREAL|GODMODE)) //Ignore incorporeal/invul targets
+	if(status_flags & (INCORPOREAL|GODMODE))
+		return FALSE
+	if(pass_flags & PASS_FIRE)
 		return FALSE
 	if(hard_armor.getRating(FIRE) >= 100)
 		to_chat(src, span_warning("You are untouched by the flames."))
-		return FALSE
-
-	if(pass_flags & PASS_FIRE) //Pass fire allow to cross fire without being ignited
 		return FALSE
 
 	. = TRUE
