@@ -6,23 +6,23 @@
 	faction = FACTION_SPECFORCE
 
 /datum/job/special_forces/standard
-	title = "Special Response Force Standard"
+	title = "Special Force Standard"
 	outfit = /datum/outfit/job/special_forces/standard
 
 /datum/job/special_forces/breacher
-	title = "Special Response Force Breacher"
+	title = "Special Force Breacher"
 	outfit = /datum/outfit/job/special_forces/breacher
 
 /datum/job/special_forces/drone_operator
-	title = "Special Response Force Drone Operator"
+	title = "Special Force Drone Operator"
 	outfit = /datum/outfit/job/special_forces/drone_operator
 
 /datum/job/special_forces/medic
-	title = "Special Response Force Medic"
+	title = "Special Force Medic"
 	outfit = /datum/outfit/job/special_forces/medic
 	skills_type = /datum/skills/combat_medic/special_forces
 
 /datum/job/special_forces/leader
-	title = "Special Response Force Leader"
+	title = "Special Force Leader"
 	skills_type = /datum/skills/sl/pmc/special_forces
 	outfit = /datum/outfit/job/special_forces/leader
