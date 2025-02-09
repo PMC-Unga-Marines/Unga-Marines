@@ -5127,7 +5127,7 @@
 	pixel_x = -17;
 	pixel_y = 16
 	},
-/obj/machinery/computer/camera_advanced/overwatch/bravo,
+/obj/machinery/computer/camera_advanced/overwatch/military/bravo,
 /obj/structure/table/mainship,
 /obj/machinery/camera/autoname{
 	dir = 4
@@ -5513,7 +5513,7 @@
 	pixel_x = 17;
 	pixel_y = 16
 	},
-/obj/machinery/computer/camera_advanced/overwatch/alpha,
+/obj/machinery/computer/camera_advanced/overwatch/military/alpha,
 /obj/structure/table/mainship,
 /obj/machinery/camera/autoname{
 	dir = 8
@@ -18473,7 +18473,7 @@
 /obj/structure/window/reinforced/toughened{
 	dir = 8
 	},
-/obj/machinery/computer/camera_advanced/overwatch/main,
+/obj/machinery/computer/camera_advanced/overwatch/military/main,
 /turf/open/floor/mainship/metal,
 /area/mainship/command/cic)
 "lco" = (
@@ -20234,9 +20234,7 @@
 /turf/open/floor/wood,
 /area/mainship/medical/lower_medical)
 "lYz" = (
-/obj/machinery/computer/camera_advanced/overwatch/alpha{
-	name = "CMO Overwatch Console"
-	},
+/obj/machinery/computer/camera_advanced/overwatch/medical,
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
@@ -27661,7 +27659,7 @@
 /obj/structure/sign/semiotic/terminal{
 	pixel_x = 32
 	},
-/obj/machinery/computer/camera_advanced/overwatch/req,
+/obj/machinery/computer/camera_advanced/overwatch/military/req,
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
@@ -31938,7 +31936,7 @@
 /area/mainship/medical/surgery_hallway)
 "sKh" = (
 /obj/structure/table/mainship,
-/obj/machinery/computer/camera_advanced/overwatch/delta,
+/obj/machinery/computer/camera_advanced/overwatch/military/delta,
 /obj/machinery/camera/autoname{
 	dir = 4
 	},
@@ -32201,7 +32199,7 @@
 /area/mainship/living/mechbunks)
 "sSK" = (
 /obj/structure/table/mainship,
-/obj/machinery/computer/camera_advanced/overwatch/charlie,
+/obj/machinery/computer/camera_advanced/overwatch/military/charlie,
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
