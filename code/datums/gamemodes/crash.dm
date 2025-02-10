@@ -65,7 +65,7 @@
 	GLOB.latejoin_gateway = shuttle.latejoins
 	// Launch shuttle
 	var/list/valid_docks = list()
-	for(var/obj/docking_port/stationary/crashmode/potential_crash_site in SSshuttle.stationary)
+	for(var/obj/docking_port/stationary/crashmode/potential_crash_site in SSshuttle.stationary_docking_ports)
 		if(!shuttle.check_dock(potential_crash_site, silent = TRUE))
 			continue
 		valid_docks += potential_crash_site
@@ -75,7 +75,7 @@
 	var/obj/docking_port/stationary/crashmode/actual_crash_site = pick(valid_docks)
 
 	shuttle.crashing = TRUE
-	SSshuttle.moveShuttleToDock(shuttle.id, actual_crash_site, TRUE) // FALSE = instant arrival
+	SSshuttle.moveShuttleToDock(shuttle.shuttle_id, actual_crash_site, TRUE) // FALSE = instant arrival
 	addtimer(CALLBACK(src, PROC_REF(crash_shuttle), actual_crash_site), 10 MINUTES)
 
 	GLOB.start_squad_landmarks_list = null
@@ -88,7 +88,6 @@
 
 	for(var/obj/effect/landmark/corpsespawner/corpse AS in GLOB.corpse_landmarks_list)
 		corpse.create_mob()
-
 
 	for(var/i in GLOB.nuke_spawn_locs)
 		new /obj/machinery/nuclearbomb(i)

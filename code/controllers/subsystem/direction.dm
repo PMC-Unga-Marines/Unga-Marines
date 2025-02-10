@@ -52,7 +52,7 @@ SUBSYSTEM_DEF(direction)
 
 /datum/controller/subsystem/direction/fire(resumed = FALSE)
 	if(!resumed)
-		currentrun = deepCopyList(processing_mobs)
+		currentrun = deep_copy_list(processing_mobs)
 
 	for(var/squad_id in currentrun)
 		var/mob/living/tracked_leader = leader_mapping[squad_id]

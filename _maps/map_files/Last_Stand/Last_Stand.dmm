@@ -241,21 +241,6 @@
 /obj/structure/largecrate/supply/medicine/blood,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
-"bq" = (
-/obj/structure/table/wood,
-/obj/item/toy/dice,
-/obj/item/toy/dice/d20,
-/obj/item/toy/deck,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/open/floor/prison/plate,
-/area/whiskey_outpost)
-"br" = (
-/obj/structure/table/wood,
-/obj/item/weapon/claymore/mercsword/captain,
-/turf/open/floor/wood,
-/area/whiskey_outpost)
 "bs" = (
 /obj/machinery/power/fusion_engine/preset,
 /obj/structure/cable,
@@ -474,11 +459,6 @@
 /obj/structure/closet/crate,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
-"cG" = (
-/obj/item/clothing/suit/storage/marine/smartgunner,
-/obj/structure/table/wood,
-/turf/open/floor/wood,
-/area/whiskey_outpost)
 "cH" = (
 /obj/machinery/power/terminal{
 	dir = 8
@@ -638,16 +618,6 @@
 	},
 /turf/open/floor/prison,
 /area/whiskey_outpost)
-"dw" = (
-/obj/structure/table/wood,
-/obj/effect/spawner/random/misc/paperbin,
-/obj/item/tool/pen,
-/obj/item/flashlight/lamp{
-	pixel_x = 6;
-	pixel_y = 10
-	},
-/turf/open/floor/plating/asteroidfloor,
-/area/whiskey_outpost)
 "dx" = (
 /turf/closed/mineral/smooth/indestructible,
 /area/whiskey_outpost/outside/rock)
@@ -712,10 +682,6 @@
 /obj/effect/turf_decal/lvsanddecal/full,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/west)
-"dQ" = (
-/obj/structure/largecrate/supply/ammo/smg90,
-/turf/open/floor/prison,
-/area/whiskey_outpost)
 "dS" = (
 /obj/machinery/floodlight/outpost,
 /turf/open/ground/jungle,
@@ -833,6 +799,11 @@
 /obj/effect/forcefield/fog,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
+"eM" = (
+/obj/structure/table/wood,
+/obj/item/weapon/claymore/mercsword/captain,
+/turf/open/floor/wood,
+/area/whiskey_outpost)
 "eR" = (
 /obj/machinery/conveyor{
 	id = "reqtorio"
@@ -2521,23 +2492,6 @@
 /obj/effect/landmark/start/job/requisitionsofficer,
 /turf/open/floor/prison,
 /area/whiskey_outpost)
-"px" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/pill/cyanide{
-	pixel_x = -3;
-	pixel_y = -4
-	},
-/obj/item/reagent_containers/pill/cyanide{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/pill/cyanide{
-	pixel_x = 4;
-	pixel_y = -4
-	},
-/obj/item/reagent_containers/pill/cyanide,
-/turf/open/floor/prison/plate,
-/area/whiskey_outpost)
 "py" = (
 /obj/machinery/light{
 	dir = 1
@@ -3386,6 +3340,16 @@
 /obj/effect/turf_decal/lvsanddecal/full,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/west)
+"vT" = (
+/obj/structure/table/wood,
+/obj/item/toy/dice,
+/obj/item/toy/dice/d20,
+/obj/item/toy/deck,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/prison/plate,
+/area/whiskey_outpost)
 "vU" = (
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/metal{
@@ -3492,6 +3456,16 @@
 	dir = 4
 	},
 /turf/open/floor/mainship,
+/area/whiskey_outpost)
+"wB" = (
+/obj/structure/table/wood,
+/obj/effect/spawner/random/misc/paperbin,
+/obj/item/tool/pen,
+/obj/item/flashlight/lamp{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "wD" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -4314,10 +4288,6 @@
 /obj/structure/barricade/plasteel,
 /turf/open/floor/mainship/sterile/dark,
 /area/whiskey_outpost)
-"FD" = (
-/obj/structure/largecrate/supply/weapons/smg90,
-/turf/open/floor/plating/asteroidfloor,
-/area/whiskey_outpost)
 "FE" = (
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
@@ -4356,6 +4326,28 @@
 "Gp" = (
 /obj/machinery/miner/damaged/platinum,
 /turf/open/ground/jungle,
+/area/whiskey_outpost/outside/west)
+"Gv" = (
+/obj/structure/closet/crate/secure/ammo,
+/obj/item/big_ammo_box/ap,
+/obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
+/obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
+/obj/item/storage/box/visual/magazine/compact/r44/full,
+/obj/item/storage/box/visual/magazine/compact/p14/full,
+/obj/item/storage/box/visual/magazine/compact/mg42/full,
+/obj/item/storage/box/visual/magazine/compact/mg42/full,
+/obj/item/storage/box/visual/magazine/compact/p23/full,
+/obj/item/storage/box/visual/magazine/compact/mg60/full,
+/obj/item/storage/box/visual/magazine/compact/mg60/full,
+/obj/item/storage/box/visual/magazine/compact/dmr37/full,
+/obj/item/storage/box/visual/magazine/compact/dmr37/full,
+/obj/item/storage/box/visual/magazine/compact/br64/full,
+/obj/item/storage/box/visual/magazine/compact/ar12/full,
+/obj/item/storage/box/visual/magazine/compact/plasma_pistol/full,
+/obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full,
+/obj/item/storage/box/visual/magazine/compact/lasrifle/full,
+/obj/item/storage/box/visual/magazine/compact/sr127/full,
+/turf/open/ground/grass,
 /area/whiskey_outpost/outside/west)
 "GE" = (
 /obj/effect/landmark/start/job/squadmarine,
@@ -4815,11 +4807,6 @@
 	dir = 4
 	},
 /area/whiskey_outpost/outside/west)
-"Lu" = (
-/obj/structure/rack,
-/obj/structure/rack,
-/turf/open/floor/prison,
-/area/whiskey_outpost)
 "Lz" = (
 /obj/structure/flora/ausbushes/grassybush,
 /turf/open/floor/plating/ground/dirt,
@@ -5296,49 +5283,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mainship/sterile/dark,
 /area/whiskey_outpost)
-"RI" = (
-/obj/structure/closet/crate/secure/ammo,
-/obj/item/big_ammo_box/ap,
-/obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
-/obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
-/obj/item/storage/box/visual/magazine/compact/r44/full,
-/obj/item/storage/box/visual/magazine/compact/p14/full,
-/obj/item/storage/box/visual/magazine/compact/mg42/full,
-/obj/item/storage/box/visual/magazine/compact/mg42/full,
-/obj/item/storage/box/visual/magazine/compact/p23/full,
-/obj/item/storage/box/visual/magazine/compact/mg60/full,
-/obj/item/storage/box/visual/magazine/compact/mg60/full,
-/obj/item/storage/box/visual/magazine/compact/dmr37/full,
-/obj/item/storage/box/visual/magazine/compact/dmr37/full,
-/obj/item/storage/box/visual/magazine/compact/br64/full,
-/obj/item/storage/box/visual/magazine/compact/ar12/full,
-/obj/item/storage/box/visual/magazine/compact/plasma_pistol/full,
-/obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full,
-/obj/item/storage/box/visual/magazine/compact/lasrifle/full,
-/obj/item/storage/box/visual/magazine/compact/sr127/full,
-/obj/structure/closet/crate/secure/ammo,
-/obj/item/big_ammo_box/ap,
-/obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
-/obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
-/obj/item/storage/box/visual/magazine/compact/plasma_pistol/full,
-/obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full,
-/obj/item/storage/box/visual/magazine/compact/lasrifle/full,
-/obj/structure/closet/crate/secure/ammo,
-/obj/item/big_ammo_box/ap,
-/obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
-/obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
-/obj/item/storage/box/visual/magazine/compact/plasma_pistol/full,
-/obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full,
-/obj/item/storage/box/visual/magazine/compact/lasrifle/full,
-/obj/structure/closet/crate/secure/ammo,
-/obj/item/big_ammo_box/ap,
-/obj/item/storage/box/visual/magazine/compact/sh15/flechette/full,
-/obj/item/storage/box/visual/magazine/compact/sh15/slug/full,
-/obj/item/storage/box/visual/magazine/compact/plasma_pistol/full,
-/obj/item/storage/box/visual/magazine/compact/lasrifle/marine/full,
-/obj/item/storage/box/visual/magazine/compact/lasrifle/full,
-/turf/open/ground/grass,
-/area/whiskey_outpost/outside/west)
 "RJ" = (
 /turf/open/floor/plating,
 /area/whiskey_outpost/outside/south)
@@ -5525,12 +5469,34 @@
 /obj/item/roller,
 /turf/open/floor/mainship/sterile/dark,
 /area/whiskey_outpost)
+"UI" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/pill/cyanide{
+	pixel_x = -3;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/pill/cyanide{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/pill/cyanide{
+	pixel_x = 4;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/pill/cyanide,
+/turf/open/floor/prison/plate,
+/area/whiskey_outpost)
 "UJ" = (
 /obj/structure/barricade/sandbags{
 	pixel_y = -6
 	},
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/north)
+"UM" = (
+/obj/item/clothing/suit/storage/marine/smartgunner,
+/obj/structure/table/wood,
+/turf/open/floor/wood,
+/area/whiskey_outpost)
 "UN" = (
 /obj/effect/turf_decal/grassdecal/corner{
 	dir = 4
@@ -12098,7 +12064,7 @@ NW
 NW
 NW
 ac
-Lu
+fE
 bl
 ns
 cd
@@ -12515,7 +12481,7 @@ bw
 ci
 fs
 dc
-dQ
+DR
 ac
 dC
 dJ
@@ -12787,7 +12753,7 @@ NW
 NW
 NW
 hO
-FD
+yw
 da
 dX
 yw
@@ -13677,7 +13643,7 @@ NN
 Kz
 Zq
 an
-RI
+Gv
 Zj
 bH
 UX
@@ -13904,7 +13870,7 @@ yw
 yQ
 yw
 yw
-FD
+yw
 Yr
 yw
 yQ
@@ -14155,7 +14121,7 @@ ac
 hv
 Iq
 ib
-px
+UI
 xG
 ac
 uc
@@ -14702,7 +14668,7 @@ NW
 ac
 aU
 bu
-bq
+vT
 bG
 Cr
 ac
@@ -15387,8 +15353,8 @@ NW
 NW
 ac
 gQ
-br
-cG
+eM
+UM
 mE
 ac
 DR
@@ -17730,7 +17696,7 @@ NW
 NW
 NW
 NW
-dw
+wB
 pp
 Er
 CK

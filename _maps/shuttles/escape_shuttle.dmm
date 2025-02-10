@@ -7,7 +7,7 @@
 /turf/open/floor/plating/mainship,
 /area/shuttle/escape_pod)
 "c" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/escape_pod)
 "d" = (
 /obj/machinery/cryopod/evacuation{

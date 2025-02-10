@@ -69,13 +69,11 @@ SUBSYSTEM_DEF(evacuation)
 			if(world.time < pod_cooldown + EVACUATION_POD_LAUNCH_COOLDOWN)
 				return
 			if(!length(pod_list)) // none left to pick from to evac
-				if(!length(SSshuttle.escape_pods)) // no valid pods left, all have launched/exploded
+				if(!length(SSshuttle.escape_pod_list)) // no valid pods left, all have launched/exploded
 					announce_evac_completion()
 				return
 			var/obj/docking_port/mobile/escape_pod/P = pick_n_take(pod_list)
 			P.launch()
-
-
 
 /datum/controller/subsystem/evacuation/proc/initiate_evacuation(override)
 	if(evac_status != EVACUATION_STATUS_STANDING_BY)
@@ -88,11 +86,10 @@ SUBSYSTEM_DEF(evacuation)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EVACUATION_STARTED)
 	priority_announce("Процесс экстренной эвакуации был запущен. Пожалуйста, проследуйте к спасательным капсулам. Запуск капсул состоится через [EVACUATION_AUTOMATIC_DEPARTURE/600] минут.", title = "Экстренная Эвакуация", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/evacuate.ogg', color_override = "orange")
 	xeno_message("A wave of adrenaline ripples through the hive. The fleshy creatures are trying to escape!")
-	pod_list = SSshuttle.escape_pods.Copy()
+	pod_list = SSshuttle.escape_pod_list.Copy()
 	for(var/obj/docking_port/mobile/escape_pod/pod AS in pod_list)
 		pod.prep_for_launch()
 	return TRUE
-
 
 /datum/controller/subsystem/evacuation/proc/begin_launch()
 	if(evac_status != EVACUATION_STATUS_INITIATING)
