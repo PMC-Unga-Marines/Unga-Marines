@@ -1211,7 +1211,8 @@ to_chat will check for valid clients itself already so no need to double check f
 	if(is_banned_from(xeno_candidate.ckey, ROLE_XENOMORPH))
 		to_chat(xeno_candidate.mob, span_warning("You are jobbaned from the [ROLE_XENOMORPH] role."))
 		return FALSE
-
+	if(isxenolarva(xeno_candidate.mob)) // avoid spawning larvas from the void via input spam
+		return FALSE
 	var/mob/living/carbon/xenomorph/larva/new_xeno = new /mob/living/carbon/xenomorph/larva(spawn_point)
 	new_xeno.visible_message(span_xenodanger("A larva suddenly burrows out of the ground!"),
 	span_xenodanger("We burrow out of the ground and awaken from our slumber. For the Hive!"))
