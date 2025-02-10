@@ -2,7 +2,8 @@
 	name = "emergency defibrillator"
 	desc = "A handheld emergency defibrillator, used to restore fibrillating patients. Can optionally bring people back from the dead."
 	icon = 'icons/obj/items/defibrillator.dmi'
-	icon_state = "defib"
+	icon_state = "defib_full"
+	base_icon_state = "defib"
 	item_state = "defib"
 	flags_atom = CONDUCT
 	flags_item = NOBLUDGEON
@@ -39,19 +40,20 @@
 	return ..()
 
 /obj/item/defibrillator/update_icon_state()
-	icon_state = initial(icon_state)
+	var/changed_icon_state = base_icon_state
 	if(ready)
-		icon_state += "_out"
+		changed_icon_state += "_out"
 	if(dcell?.charge)
 		switch(round(dcell.charge * 100 / dcell.maxcharge))
 			if(67 to INFINITY)
-				icon_state += "_full"
+				changed_icon_state += "_full"
 			if(34 to 66)
-				icon_state += "_half"
+				changed_icon_state += "_half"
 			if(1 to 33)
-				icon_state += "_low"
+				changed_icon_state += "_low"
 	else
-		icon_state += "_empty"
+		changed_icon_state += "_empty"
+	icon_state = changed_icon_state
 
 /obj/item/defibrillator/examine(mob/user)
 	. = ..()
@@ -314,7 +316,8 @@
 /obj/item/defibrillator/civi
 	name = "emergency defibrillator"
 	desc = "A handheld emergency defibrillator, used to restore fibrillating patients. Can optionally bring people back from the dead. Appears to be a civillian model."
-	icon_state = "civ_defib"
+	icon_state = "civ_defib_full"
+	base_icon_state = "civ_defib"
 	item_state = "defib"
 
 /obj/item/defibrillator/gloves
@@ -364,7 +367,7 @@
 /obj/item/defibrillator/advanced
 	name = "advanced emergency defibrillator"
 	desc = "A handheld advanced emergency defibrillator, used to restore fibrillating patients.  at the cost of increased charge consumption."
-	icon = 'icons/obj/items/defibrillator.dmi'
-	icon_state = "civ_defib"
+	icon_state = "civ_defib_full"
+	base_icon_state = "civ_defib"
 	charge_cost = 100
 	advanced = TRUE
