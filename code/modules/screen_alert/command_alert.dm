@@ -75,7 +75,7 @@
 			else
 				override_color = "grey"
 		for(var/mob/living/carbon/human/marine AS in human_owner.assigned_squad.marines_list | GLOB.observer_list)
-			marine.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>ПРИКАЗ ОТРЯДУ:</u></span><br>" + text, new /atom/movable/screen/text/screen_text/picture/potrait/custom_mugshot(null, null, owner))
+			marine.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING("ПРИКАЗ ОТРЯДУ:", text, LEFT_ALIGN_TEXT), new /atom/movable/screen/text/screen_text/picture/potrait/custom_mugshot(null, null, owner))
 			to_chat(marine, assemble_alert(
 				title = "Сообщение [human_owner.assigned_squad.name] Отряду",
 				subtitle = "Отправлено [human_owner.get_paygrade(0) ? human_owner.get_paygrade(0) : human_owner.job.title] [human_owner.real_name]",

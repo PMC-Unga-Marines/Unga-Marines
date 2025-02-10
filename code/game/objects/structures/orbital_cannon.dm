@@ -230,7 +230,7 @@
 	)
 	var/list/receivers = (GLOB.alive_human_list + GLOB.ai_list + GLOB.observer_list)
 	for(var/mob/living/screentext_receiver AS in receivers)
-		screentext_receiver.play_screen_text("<span class='maptext' style=font-size:36pt;text-align:left valign='top'><u><b>ОРБИТАЛЬНЫЙ УДАР</b></u></span><br>ТИП СНАРЯДА: [uppertext(tray.warhead.warhead_kind_rus)]", new /atom/movable/screen/text/screen_text/picture/potrait/custom_mugshot(null, null, user))
+		screentext_receiver.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING("ОРБИТАЛЬНЫЙ УДАР", "ТИП СНАРЯДА: [uppertext(tray.warhead.warhead_kind_rus)]", LEFT_ALIGN_TEXT), new /atom/movable/screen/text/screen_text/picture/potrait/custom_mugshot(null, null, user))
 	playsound(target, 'sound/effects/OB_warning_announce_novoiceover.ogg', 125, FALSE, 30, 10) //VOX-less version for xenomorphs
 
 	var/impact_time = 10 SECONDS + (WARHEAD_FLY_TIME * (GLOB.current_orbit/3))

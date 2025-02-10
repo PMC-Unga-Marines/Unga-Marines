@@ -48,6 +48,9 @@
 	var/middragtime = 0 //MMB exploit detection
 	var/atom/middragatom //MMB exploit detection
 
+	/// If this client has been fully initialized or not
+	var/fully_created = FALSE
+
 	/// datum wrapper for client view
 	var/datum/view_data/view_size
 
@@ -140,6 +143,3 @@
 	/// The direction we WANT to move, based off our keybinds
 	/// Will be udpated to be the actual direction later on
 	var/intended_direction = NONE
-
-	/// If this client has been fully initialized or not
-	var/fully_created = FALSE
