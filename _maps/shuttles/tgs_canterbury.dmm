@@ -106,6 +106,11 @@
 	dir = 4
 	},
 /obj/machinery/marine_selector/gear/commander,
+/obj/item/radio/intercom{
+	freerange = 1;
+	name = "General Listening Channel";
+	dir = 1
+	},
 /turf/open/floor/mainship/blue{
 	dir = 6
 	},
@@ -174,7 +179,6 @@
 	dir = 8
 	},
 /obj/effect/mapping_helpers/barricade/wired,
-/obj/effect/mapping_helpers/barricade/closed,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
 "aB" = (
@@ -197,7 +201,6 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/barricade/wired,
-/obj/effect/mapping_helpers/barricade/closed,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
 "aH" = (
@@ -588,7 +591,6 @@
 	dir = 8
 	},
 /obj/effect/mapping_helpers/barricade/wired,
-/obj/effect/mapping_helpers/barricade/closed,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
 "cl" = (
@@ -749,7 +751,6 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/barricade/wired,
-/obj/effect/mapping_helpers/barricade/closed,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
 "cY" = (
@@ -758,26 +759,26 @@
 	},
 /obj/structure/barricade/plasteel,
 /obj/effect/mapping_helpers/barricade/wired,
-/obj/effect/mapping_helpers/barricade/closed,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "cZ" = (
 /obj/structure/barricade/plasteel,
 /obj/effect/mapping_helpers/barricade/wired,
-/obj/effect/mapping_helpers/barricade/closed,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "da" = (
 /obj/machinery/light/small{
-	dir = 4
+	dir = 4;
+	pixel_y_offset = 5
 	},
 /obj/structure/barricade/plasteel,
 /obj/machinery/door_control{
 	dir = 8;
-	id = "aft_engine_podlock"
+	id = "aft_engine_podlock";
+	pixel_y = -5;
+	pixel_x = 22
 	},
 /obj/effect/mapping_helpers/barricade/wired,
-/obj/effect/mapping_helpers/barricade/closed,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "db" = (
@@ -891,11 +892,6 @@
 /obj/structure/closet/secure_closet/guncabinet/canterbury,
 /obj/machinery/firealarm{
 	dir = 1
-	},
-/obj/item/radio/intercom{
-	freerange = 1;
-	name = "General Listening Channel";
-	pixel_y = -28
 	},
 /turf/open/floor/mainship/blue{
 	dir = 10

@@ -259,7 +259,6 @@
 /obj/structure/barricade/plasteel{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/barricade/closed,
 /obj/effect/mapping_helpers/barricade/wired,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
@@ -392,7 +391,6 @@
 	is_wired = 1;
 	linked = 1
 	},
-/obj/effect/mapping_helpers/barricade/closed,
 /obj/effect/mapping_helpers/barricade/wired,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
@@ -546,7 +544,6 @@
 /area/shuttle/canterbury/medical)
 "gv" = (
 /obj/structure/barricade/plasteel,
-/obj/effect/mapping_helpers/barricade/closed,
 /obj/effect/mapping_helpers/barricade/wired,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
@@ -556,7 +553,6 @@
 	is_wired = 1;
 	linked = 1
 	},
-/obj/effect/mapping_helpers/barricade/closed,
 /obj/effect/mapping_helpers/barricade/wired,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
@@ -676,7 +672,6 @@
 /obj/structure/barricade/plasteel{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/barricade/closed,
 /obj/effect/mapping_helpers/barricade/wired,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
@@ -750,7 +745,6 @@
 	dir = 8;
 	id = "aft_engine_podlock"
 	},
-/obj/effect/mapping_helpers/barricade/closed,
 /obj/effect/mapping_helpers/barricade/wired,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
