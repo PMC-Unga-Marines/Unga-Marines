@@ -734,6 +734,14 @@
 	},
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
+"tY" = (
+/obj/structure/barricade/plasteel,
+/obj/machinery/door_control{
+	dir = 8;
+	id = "aft_engine_podlock"
+	},
+/turf/open/floor/mainship/stripesquare,
+/area/shuttle/canterbury)
 "ul" = (
 /obj/machinery/light,
 /turf/open/floor/mainship/red{
@@ -793,8 +801,8 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "wz" = (
-/obj/machinery/marine_selector/gear/robo,
 /obj/machinery/light,
+/obj/machinery/marine_selector/gear/marine,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "yp" = (
@@ -820,6 +828,10 @@
 	dir = 4
 	},
 /area/shuttle/canterbury/cic)
+"zv" = (
+/obj/machinery/marine_selector/gear/robo,
+/turf/open/floor/mainship/mono,
+/area/shuttle/canterbury)
 "zy" = (
 /obj/machinery/door/poddoor/mainship{
 	dir = 2;
@@ -852,10 +864,10 @@
 /turf/open/floor/mainship,
 /area/shuttle/canterbury)
 "DI" = (
-/obj/effect/landmark/start/job/crash/squadmarine,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/landmark/start/job/crash/squadrobot,
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "Fl" = (
@@ -911,6 +923,10 @@
 /obj/vehicle/ridden/powerloader,
 /turf/open/floor/mainship/cargo,
 /area/shuttle/canterbury)
+"LA" = (
+/obj/effect/landmark/start/job/crash/squadrobot,
+/turf/open/floor/mainship/red/full,
+/area/shuttle/canterbury)
 "Mj" = (
 /obj/machinery/mech_bay_recharge_port{
 	dir = 2
@@ -921,6 +937,10 @@
 "MY" = (
 /turf/open/floor/mainship/blue/full,
 /area/shuttle/canterbury/cic)
+"Ns" = (
+/obj/machinery/marine_selector/gear/marine,
+/turf/open/floor/mainship/mono,
+/area/shuttle/canterbury)
 "Oj" = (
 /obj/machinery/vending/boozeomat,
 /turf/open/floor/mainship/mono,
@@ -959,6 +979,10 @@
 /obj/structure/bed/chair/dropship/passenger,
 /obj/effect/landmark/start/job/crash/squadleader,
 /turf/open/floor/mainship/mono,
+/area/shuttle/canterbury)
+"Re" = (
+/obj/effect/landmark/start/job/crash/squadmarine,
+/turf/open/floor/mainship,
 /area/shuttle/canterbury)
 "RT" = (
 /obj/structure/bed/chair/dropship/passenger{
@@ -1081,20 +1105,6 @@
 	pixel_y = 32
 	},
 /turf/open/floor/mainship/mono,
-/area/shuttle/canterbury)
-"Xb" = (
-/obj/machinery/door/poddoor/mainship{
-	dir = 1;
-	id = "aft_engine_podlock"
-	},
-/obj/machinery/door/poddoor/shutters/transit{
-	dir = 2
-	},
-/obj/machinery/door_control{
-	dir = 8;
-	id = "aft_engine_podlock"
-	},
-/turf/open/floor/plating,
 /area/shuttle/canterbury)
 "Xf" = (
 /obj/machinery/iv_drip,
@@ -1403,7 +1413,7 @@ Yn
 qE
 XO
 ac
-ar
+gv
 bW
 Uo
 "}
@@ -1535,8 +1545,8 @@ ac
 SA
 RT
 ac
-ar
-Xb
+tY
+bW
 Uo
 "}
 (13,1,1) = {"
@@ -1592,9 +1602,9 @@ bt
 bx
 ul
 ab
+Qg
+LA
 bG
-UO
-aO
 Uc
 bA
 bA
@@ -1666,7 +1676,7 @@ bA
 bA
 aX
 bg
-em
+Re
 aT
 ab
 ah
@@ -1691,7 +1701,7 @@ bv
 tX
 ul
 ab
-Qg
+zv
 DF
 bA
 bA
@@ -1700,7 +1710,7 @@ bA
 bA
 bA
 DF
-Qg
+Ns
 ab
 ah
 "}
@@ -1724,9 +1734,9 @@ JM
 bz
 ow
 ab
-bG
+Qg
 DI
-aO
+bG
 GE
 cF
 aQ
