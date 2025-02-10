@@ -755,7 +755,8 @@
 /area/shuttle/canterbury)
 "cY" = (
 /obj/machinery/light/small{
-	dir = 8
+	dir = 8;
+	pixel_y_offset = 5
 	},
 /obj/structure/barricade/plasteel,
 /obj/effect/mapping_helpers/barricade/wired,
