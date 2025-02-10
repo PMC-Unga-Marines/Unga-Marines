@@ -173,6 +173,8 @@
 /obj/structure/barricade/plasteel{
 	dir = 8
 	},
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/effect/mapping_helpers/barricade/closed,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
 "aB" = (
@@ -194,6 +196,8 @@
 /obj/structure/barricade/plasteel{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/effect/mapping_helpers/barricade/closed,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
 "aH" = (
@@ -583,6 +587,8 @@
 /obj/structure/barricade/plasteel{
 	dir = 8
 	},
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/effect/mapping_helpers/barricade/closed,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
 "cl" = (
@@ -742,6 +748,8 @@
 /obj/structure/barricade/plasteel{
 	dir = 4
 	},
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/effect/mapping_helpers/barricade/closed,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
 "cY" = (
@@ -749,10 +757,14 @@
 	dir = 8
 	},
 /obj/structure/barricade/plasteel,
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/effect/mapping_helpers/barricade/closed,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "cZ" = (
 /obj/structure/barricade/plasteel,
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/effect/mapping_helpers/barricade/closed,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "da" = (
@@ -764,6 +776,8 @@
 	dir = 8;
 	id = "aft_engine_podlock"
 	},
+/obj/effect/mapping_helpers/barricade/wired,
+/obj/effect/mapping_helpers/barricade/closed,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "db" = (
