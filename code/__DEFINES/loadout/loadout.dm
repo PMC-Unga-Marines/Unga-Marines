@@ -62,25 +62,25 @@ GLOBAL_LIST_INIT(default_marine_points, list(
 #define VENDOR_FACTION_VALHALLA "Valhalla"
 
 GLOBAL_LIST_INIT(marine_selector_cats, list(
-		CAT_MOD = 1,
-		CAT_UNI = 1,
-		CAT_GLO = 1,
-		CAT_SHO = 1,
-		CAT_ARMMOD = 1,
-		CAT_STD = 1,
-		CAT_HEL = 1,
-		CAT_AMR = 1,
-		CAT_SMR = 1,
-		CAT_SHN = 1,
-		CAT_EAR = 1,
-		CAT_BAK = 1,
-		CAT_WEB = 1,
-		CAT_BEL = 1,
-		CAT_GLA = 1,
-		CAT_MAS = 1,
-		CAT_ESS = 1,
-		CAT_POU = 2,
-	))
+	CAT_MOD = 1,
+	CAT_UNI = 1,
+	CAT_GLO = 1,
+	CAT_SHO = 1,
+	CAT_ARMMOD = 1,
+	CAT_STD = 1,
+	CAT_HEL = 1,
+	CAT_AMR = 1,
+	CAT_SMR = 1,
+	CAT_SHN = 1,
+	CAT_EAR = 1,
+	CAT_BAK = 1,
+	CAT_WEB = 1,
+	CAT_BEL = 1,
+	CAT_GLA = 1,
+	CAT_MAS = 1,
+	CAT_ESS = 1,
+	CAT_POU = 2,
+))
 
 #define METAL_PRICE_IN_GEAR_VENDOR 2
 #define PLASTEEL_PRICE_IN_GEAR_VENDOR 4
@@ -142,30 +142,6 @@ GLOBAL_LIST_INIT(loadout_linked_vendor, list(
 		/obj/machinery/vending/cigarette,
 		/obj/machinery/vending/tool,
 	)
-))
-
-///Assoc list linking the job title with their specific clothes vendor
-GLOBAL_LIST_INIT(job_specific_clothes_vendor, list(
-	SQUAD_MARINE = GLOB.marine_clothes_listed_products,
-	SQUAD_ROBOT = GLOB.robot_clothes_listed_products,
-	SQUAD_ENGINEER = GLOB.engineer_clothes_listed_products,
-	SQUAD_CORPSMAN = GLOB.medic_clothes_listed_products,
-	SQUAD_SMARTGUNNER = GLOB.smartgunner_clothes_listed_products,
-	SQUAD_LEADER = GLOB.leader_clothes_listed_products,
-	FIELD_COMMANDER = GLOB.commander_clothes_listed_products,
-	SYNTHETIC = GLOB.synthetic_clothes_listed_products,
-))
-
-///Assoc list linking the job title with their specific points vendor
-GLOBAL_LIST_INIT(job_specific_points_vendor, list(
-	SQUAD_MARINE = GLOB.marine_gear_listed_products,
-	SQUAD_ROBOT = GLOB.robot_gear_listed_products,
-	SQUAD_ENGINEER = GLOB.engineer_gear_listed_products,
-	SQUAD_CORPSMAN = GLOB.medic_gear_listed_products,
-	SQUAD_SMARTGUNNER = GLOB.smartgunner_gear_listed_products,
-	SQUAD_LEADER = GLOB.leader_gear_listed_products,
-	FIELD_COMMANDER = GLOB.commander_gear_listed_products,
-	SYNTHETIC = GLOB.synthetic_gear_listed_products,
 ))
 
 GLOBAL_LIST_INIT(loadout_role_essential_set, list(
