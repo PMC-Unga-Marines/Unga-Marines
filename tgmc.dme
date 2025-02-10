@@ -141,7 +141,7 @@
 #include "code\__DEFINES\dcs\signals.dm"
 #include "code\__DEFINES\dcs\signals\signals_mind.dm"
 #include "code\__DEFINES\dcs\signals\signals_subsystem.dm"
-#include "code\__DEFINES\loadout\_loadout.dm"
+#include "code\__DEFINES\loadout\loadout.dm"
 #include "code\__DEFINES\loadout\clothes\corpsman.dm"
 #include "code\__DEFINES\loadout\clothes\engineer.dm"
 #include "code\__DEFINES\loadout\clothes\field_commander.dm"
