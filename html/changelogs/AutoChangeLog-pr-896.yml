@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - bugfix: "Смоляные хаггера больше не стакают липкую резину на одном тайле."
