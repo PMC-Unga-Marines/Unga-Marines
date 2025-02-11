@@ -777,13 +777,13 @@
 	if(!combat_hugger_check_target(M))
 		return FALSE
 
-	visible_message(span_danger("[src] explodes into a mess of viscous resin!"))
-	playsound(loc, SFX_ALIEN_RESIN_BUILD, 50, 1)
 	do_attack_animation(M)
 
 	if(have_resin)
+		visible_message(span_danger("[src] explodes into a mess of viscous resin!"))
+		playsound(loc, SFX_ALIEN_RESIN_BUILD, 50, 1)
 		for(var/turf/sticky_tile AS in RANGE_TURFS(1, loc))
-			if(!locate(/obj/effect/xenomorph/spray) in sticky_tile.contents)
+			if(!locate(/obj/alien/resin/sticky) in sticky_tile)
 				new /obj/alien/resin/sticky/thin(sticky_tile)
 		for(var/mob/living/target in range(1, loc))
 			if(isxeno(target)) //Xenos aren't affected by sticky resin
@@ -794,7 +794,9 @@
 		have_resin = FALSE
 	else
 		var/mob/living/victim = M
+		playsound(victim, 'sound/effects/vegetation_hit.ogg', 25, 1)
 		victim.apply_damage(80, STAMINA, BODY_ZONE_HEAD, BIO, updating_health = TRUE) //This should prevent sprinting
+		victim.visible_message(span_danger("[src] hastily claws at [victim]!"), span_danger("[src] hastily claws at you, making you feel weaker!"))
 
 	leaping = FALSE
 	go_idle() //We're a bit slow on the recovery
