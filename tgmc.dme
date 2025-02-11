@@ -1103,6 +1103,7 @@
 #include "code\game\objects\machinery\suit_storage_unit.dm"
 #include "code\game\objects\machinery\surgery_table.dm"
 #include "code\game\objects\machinery\teleporter.dm"
+#include "code\game\objects\machinery\tesla_turret.dm"
 #include "code\game\objects\machinery\washing_machine.dm"
 #include "code\game\objects\machinery\artillery\_mortar.dm"
 #include "code\game\objects\machinery\artillery\crate.dm"
