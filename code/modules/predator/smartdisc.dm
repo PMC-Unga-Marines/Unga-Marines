@@ -3,7 +3,7 @@
 	spawner_type = /mob/living/simple_animal/hostile/smartdisc
 	deliveryamt = 1
 	desc = "A strange piece of alien technology. It has many jagged, whirring blades and bizarre writing."
-	flags_item = ITEM_PREDATOR
+	item_flags = ITEM_PREDATOR
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	item_icons = list(
 		slot_back_str = 'icons/mob/hunter/pred_gear.dmi',

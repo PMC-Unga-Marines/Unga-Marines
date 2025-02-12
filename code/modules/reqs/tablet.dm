@@ -3,7 +3,7 @@
 	desc = "A tablet for an Automated Storage and Retrieval System"
 	icon_state = "req_tablet_off"
 	req_access = list(ACCESS_MARINE_CARGO)
-	flags_equip_slot = ITEM_SLOT_POCKET
+	equip_slot_flags = ITEM_SLOT_POCKET
 	w_class = WEIGHT_CLASS_NORMAL
 	var/datum/supply_ui/supply_ui
 	///Id of the shuttle controlled

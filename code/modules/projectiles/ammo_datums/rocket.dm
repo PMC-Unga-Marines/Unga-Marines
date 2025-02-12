@@ -5,7 +5,7 @@
 	hud_state_empty = "rocket_empty"
 	ping = null //no bounce off.
 	sound_bounce = SFX_ROCKET_BOUNCE
-	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER
+	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_SNIPER
 	armor_type = BOMB
 	damage_falloff = 0
 	shell_speed = 2
@@ -46,7 +46,7 @@
 
 /datum/ammo/rocket/he/unguided
 	damage = 60
-	flags_ammo_behavior = AMMO_SNIPER // We want this one to specifically go over onscreen range.
+	ammo_behavior_flags = AMMO_SNIPER // We want this one to specifically go over onscreen range.
 
 /datum/ammo/rocket/he/unguided/drop_nade(turf/T)
 	cell_explosion(T, 240, 60)
@@ -66,7 +66,7 @@
 /datum/ammo/rocket/ltb
 	name = "cannon round"
 	icon_state = "ltb"
-	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER
+	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_SNIPER
 	accurate_range = 15
 	max_range = 40
 	penetration = 50
@@ -80,7 +80,7 @@
 	name = "8.8cm APFDS round"
 	icon_state = "apfds"
 	hud_state = "bigshell_apfds"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
 	damage = 300
 	penetration = 75
 	shell_speed = 4
@@ -109,7 +109,7 @@
 	icon_state = "heavyrr"
 	hud_state = "bigshell_he"
 	hud_state_empty = "shell_empty"
-	flags_ammo_behavior = AMMO_SNIPER|AMMO_TARGET_TURF
+	ammo_behavior_flags = AMMO_SNIPER|AMMO_TARGET_TURF
 	damage = 50
 	penetration = 200
 	max_range = 30
@@ -123,13 +123,13 @@
 
 /datum/ammo/rocket/heavy_isg/unguided
 	hud_state = "bigshell_he_unguided"
-	flags_ammo_behavior = AMMO_SNIPER
+	ammo_behavior_flags = AMMO_SNIPER
 
 /datum/ammo/bullet/heavy_isg_apfds
 	name = "15cm APFDS round"
 	icon_state = "apfds"
 	hud_state = "bigshell_apfds"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
 	damage = 200
 	penetration = 75
 	shell_speed = 7
@@ -151,7 +151,7 @@
 	name = "white phosphorous rocket"
 	icon_state = "rocket_wp"
 	hud_state = "rocket_fire"
-	flags_ammo_behavior = AMMO_SNIPER|AMMO_INCENDIARY|AMMO_TARGET_TURF
+	ammo_behavior_flags = AMMO_SNIPER|AMMO_INCENDIARY|AMMO_TARGET_TURF
 	armor_type = FIRE
 	damage_type = BURN
 	accuracy_var_low = 7
@@ -172,7 +172,7 @@
 /datum/ammo/rocket/wp/quad
 	name = "thermobaric rocket"
 	hud_state = "rocket_thermobaric"
-	flags_ammo_behavior = AMMO_SNIPER
+	ammo_behavior_flags = AMMO_SNIPER
 	damage = 40
 	penetration = 25
 	max_range = 30
@@ -196,13 +196,13 @@
 	name = "white phosphorous RPG"
 	hud_state = SFX_RPG_FIRE
 	icon_state = "rpg_incendiary"
-	flags_ammo_behavior = AMMO_SNIPER
+	ammo_behavior_flags = AMMO_SNIPER
 	effect_radius = 5
 
 /datum/ammo/rocket/wp/quad/ds
 	name = "super thermobaric rocket"
 	hud_state = "rocket_thermobaric"
-	flags_ammo_behavior = AMMO_SNIPER
+	ammo_behavior_flags = AMMO_SNIPER
 	damage = 200
 	penetration = 75
 	max_range = 30
@@ -210,7 +210,7 @@
 
 /datum/ammo/rocket/wp/unguided
 	damage = 100
-	flags_ammo_behavior = AMMO_SNIPER|AMMO_INCENDIARY
+	ammo_behavior_flags = AMMO_SNIPER|AMMO_INCENDIARY
 	effect_radius = 5
 
 /datum/ammo/rocket/recoilless
@@ -218,7 +218,7 @@
 	icon_state = "recoilless_rifle_he"
 	hud_state = "shell_he"
 	hud_state_empty = "shell_empty"
-	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER
+	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_SNIPER
 	armor_type = BOMB
 	damage_falloff = 0
 	shell_speed = 2
@@ -234,7 +234,7 @@
 	name = "HEAT shell"
 	icon_state = "recoilless_rifle_heat"
 	hud_state = "shell_heat"
-	flags_ammo_behavior = AMMO_SNIPER
+	ammo_behavior_flags = AMMO_SNIPER
 	damage = 200
 	penetration = 100
 	sundering = 50
@@ -245,7 +245,7 @@
 /datum/ammo/rocket/recoilless/heat/mech //for anti mech use in HvH
 	name = "HEAM shell"
 	accuracy = -10 //Not designed for anti human use
-	flags_ammo_behavior = AMMO_SNIPER|AMMO_UNWIELDY
+	ammo_behavior_flags = AMMO_SNIPER|AMMO_UNWIELDY
 
 /datum/ammo/rocket/recoilless/heat/mech/on_hit_obj(obj/O, obj/projectile/P)
 	drop_nade(get_turf(O))
@@ -259,7 +259,7 @@
 	name = "light explosive shell"
 	icon_state = "recoilless_rifle_le"
 	hud_state = "shell_le"
-	flags_ammo_behavior = AMMO_SNIPER //We want this to specifically go farther than onscreen range.
+	ammo_behavior_flags = AMMO_SNIPER //We want this to specifically go farther than onscreen range.
 	accurate_range = 15
 	max_range = 20
 	penetration = 50
@@ -272,7 +272,7 @@
 	name = "low velocity chemical shell"
 	icon_state = "recoilless_rifle_smoke"
 	hud_state = "shell_le"
-	flags_ammo_behavior = AMMO_SNIPER|AMMO_IFF //We want this to specifically go farther than onscreen range and pass through friendlies.
+	ammo_behavior_flags = AMMO_SNIPER|AMMO_IFF //We want this to specifically go farther than onscreen range and pass through friendlies.
 	accurate_range = 21
 	max_range = 21
 	damage = 10
@@ -305,7 +305,7 @@
 	name = "low impact explosive shell"
 	icon_state = "recoilless_rifle_le"
 	hud_state = "shell_le"
-	flags_ammo_behavior = AMMO_SNIPER //We want this to specifically go farther than onscreen range.
+	ammo_behavior_flags = AMMO_SNIPER //We want this to specifically go farther than onscreen range.
 	accurate_range = 15
 	max_range = 20
 	damage = 35
@@ -328,7 +328,7 @@
 	name = "high explosive RPG"
 	icon_state = "rpg_he"
 	hud_state = "rpg_he"
-	flags_ammo_behavior = AMMO_SNIPER
+	ammo_behavior_flags = AMMO_SNIPER
 	accurate_range = 15
 	max_range = 20
 	damage = 50
@@ -342,7 +342,7 @@
 	name = "low impact RPG"
 	icon_state = "rpg_le"
 	hud_state = "rpg_le"
-	flags_ammo_behavior = AMMO_SNIPER
+	ammo_behavior_flags = AMMO_SNIPER
 	accurate_range = 15
 	damage = 35
 	penetration = 10
@@ -368,7 +368,7 @@
 	penetration = 100
 	sundering = 50
 	accuracy = -10 //Not designed for anti human use
-	flags_ammo_behavior = AMMO_SNIPER|AMMO_UNWIELDY
+	ammo_behavior_flags = AMMO_SNIPER|AMMO_UNWIELDY
 
 /datum/ammo/rocket/som/heat/on_hit_obj(obj/O, obj/projectile/P)
 	drop_nade(get_turf(O))
@@ -418,7 +418,7 @@
 	icon_state = "atgun"
 	hud_state = "shell_heat"
 	hud_state_empty = "shell_empty"
-	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_PASS_THROUGH_TURF
+	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_PASS_THROUGH_TURF
 	shell_speed = 2
 	damage = 30
 	penetration = 30
@@ -435,7 +435,7 @@
 /datum/ammo/rocket/atgun_shell/apcr
 	name = "tungsten penetrator"
 	hud_state = "shell_apcr"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
 	shell_speed = 4
 	damage = 200
 	penetration = 70
@@ -458,7 +458,7 @@
 /datum/ammo/rocket/atgun_shell/he
 	name = "low velocity high explosive shell"
 	hud_state = "shell_he"
-	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER
+	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_SNIPER
 	damage = 30
 	penetration = 50
 	sundering = 35
@@ -472,7 +472,7 @@
 /datum/ammo/rocket/atgun_shell/beehive
 	name = "beehive shell"
 	hud_state = "shell_le"
-	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER
+	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_SNIPER
 	shell_speed = 3
 	damage = 30
 	penetration = 30
@@ -505,7 +505,7 @@
 /datum/ammo/rocket/atgun_shell/beehive/incend
 	name = "napalm shell"
 	hud_state = "shell_heat"
-	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER
+	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_SNIPER
 	shell_speed = 3
 	bonus_projectiles_type = /datum/ammo/bullet/atgun_spread/incendiary
 

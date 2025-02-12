@@ -3,7 +3,7 @@
 	desc = "A foldable stock. You shouldn't see this."
 	icon_state = ""
 	slot = ATTACHMENT_SLOT_STOCK
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
+	attach_features_flags = ATTACH_REMOVABLE|ATTACH_ACTIVATION
 	attachment_action_type = /datum/action/item_action/toggle
 	///How long it takes to fold or unfold
 	var/deploy_time
@@ -76,7 +76,7 @@
 	desc = "A foldable wire stock for a Skorpion submachinegun"
 	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	icon_state = "skorpion"
-	flags_attach_features = ATTACH_ACTIVATION
+	attach_features_flags = ATTACH_ACTIVATION
 	pixel_shift_x = 0
 	pixel_shift_y = 0
 	size_mod = 2
@@ -90,7 +90,7 @@
 /obj/item/attachable/foldable/mp19stock
 	name = "\improper MP-19 machinepistol stock"
 	desc = "A submachinegun stock distributed in small numbers to TGMC forces. Compatible with the MP-19, this stock reduces recoil and improves accuracy, but at a reduction to handling and agility. Seemingly a bit more effective in a brawl."
-	flags_attach_features = ATTACH_ACTIVATION
+	attach_features_flags = ATTACH_ACTIVATION
 	wield_delay_mod = 0.1 SECONDS
 	melee_mod = 5
 	size_mod = 1
@@ -104,7 +104,7 @@
 /obj/item/attachable/foldable/som_carbine
 	name = "\improper V-34 carbine stock"
 	desc = "A side folding stock built into the V-34 carbine. The gun is designed to be fired with the stock deployed, but can be done without, with some difficulty."
-	flags_attach_features = ATTACH_ACTIVATION
+	attach_features_flags = ATTACH_ACTIVATION
 	wield_delay_mod = 0.1 SECONDS
 	melee_mod = 5
 	size_mod = 1
@@ -117,7 +117,7 @@
 /obj/item/attachable/foldable/icc_machinepistol
 	name = "\improper PL-38 machinepistol stock"
 	desc = "A submachinegun stock found on ICC subguns, this stock reduces recoil and improves accuracy, but at a reduction to handling and agility. Seemingly a bit more effective in a brawl."
-	flags_attach_features = ATTACH_ACTIVATION
+	attach_features_flags = ATTACH_ACTIVATION
 	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	wield_delay_mod = 0.1 SECONDS
 	melee_mod = 5
@@ -134,7 +134,7 @@
 	desc = "A non-standard heavy stock for the SH-35 shotgun. Less quick and more cumbersome than the standard issue stakeout, but reduces recoil and improves accuracy. Allegedly makes a pretty good club in a fight too."
 	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	icon_state = "t35stock"
-	flags_attach_features = ATTACH_ACTIVATION
+	attach_features_flags = ATTACH_ACTIVATION
 	wield_delay_mod = 0.2 SECONDS
 	accuracy_mod = 0.15
 	recoil_mod = -3
@@ -155,7 +155,7 @@
 	var/user_old_move_resist
 
 /obj/item/attachable/foldable/bipod/activate(mob/living/user, turn_off)
-	if(folded && !(master_gun.flags_item & WIELDED)) //no one handed bipod use
+	if(folded && !(master_gun.item_flags & WIELDED)) //no one handed bipod use
 		if(user)
 			balloon_alert(user, "Unwielded")
 		return

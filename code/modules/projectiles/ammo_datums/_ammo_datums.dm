@@ -66,7 +66,7 @@
 	///how much damage airbursts do to mobs around the target, multiplier of the bullet's damage
 	var/airburst_multiplier = 0.1
 	///What kind of behavior the ammo has
-	var/flags_ammo_behavior = NONE
+	var/ammo_behavior_flags = NONE
 	///Determines what color our bullet will be when it flies
 	var/bullet_color = COLOR_WHITE
 	///If this ammo is hitscan, the icon of beam coming out from the gun

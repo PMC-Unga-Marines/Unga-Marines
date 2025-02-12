@@ -27,9 +27,9 @@
 #define EVACUATION_ESTIMATE_DEPARTURE ((evac_time + EVACUATION_AUTOMATIC_DEPARTURE - world.time) * 0.1)
 #define EVACUATION_POD_LAUNCH_COOLDOWN 5 SECONDS
 
-#define FLAGS_EVACUATION_DENY (1<<0)
-#define FLAGS_SELF_DESTRUCT_DENY (1<<1)
-#define FLAGS_SDEVAC_TIMELOCK (1<<2)
+#define EVACUATION_DENY_flags (1<<0)
+#define SELF_DESTRUCT_DENY_flags (1<<1)
+#define SDEVAC_TIMELOCK_flags (1<<2)
 
 
 //Mode defines

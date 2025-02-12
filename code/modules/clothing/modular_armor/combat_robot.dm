@@ -39,7 +39,7 @@
 
 	allowed_uniform_type = /obj/item/clothing/under/marine/robotic
 
-	flags_item_map_variant = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
+	item_map_variant_flags = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
 
 /obj/item/clothing/suit/modular/robot/mob_can_equip(mob/user, slot, warning = TRUE, override_nodrop = FALSE, bitslot = FALSE)
 	. = ..()
@@ -141,7 +141,7 @@
 	icon_state = "helmet"
 	item_state = "helmet"
 	species_exception = list(/datum/species/robot)
-	flags_item_map_variant = (ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_PRISON_VARIANT)
+	item_map_variant_flags = (ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_PRISON_VARIANT)
 	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 	colorable_colors = ARMOR_PALETTES_LIST
@@ -167,7 +167,7 @@
 		/obj/item/armor_module/armor/visor/marine/robot/heavy,
 	)
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/armor/visor/marine/robot)
-	flags_item_map_variant = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
+	item_map_variant_flags = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
 
 /obj/item/clothing/head/modular/robot/mob_can_equip(mob/user, slot, warning = TRUE, override_nodrop = FALSE, bitslot = FALSE)
 	. = ..()
@@ -206,7 +206,7 @@
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/armor/visor/marine/robot/heavy, /obj/item/armor_module/module/tyr_head)
 
 /obj/item/clothing/head/helmet/marine/robot/advanced
-	flags_item_map_variant = NONE
+	item_map_variant_flags = NONE
 	icon = 'icons/obj/clothing/headwear/marine_helmets.dmi'
 	item_icons = list(
 		slot_head_str = 'icons/mob/clothing/headwear/robot_helmets.dmi',
@@ -220,7 +220,7 @@
 		return FALSE
 
 /obj/item/clothing/suit/storage/marine/robot/advanced
-	flags_item_map_variant = NONE
+	item_map_variant_flags = NONE
 	icon = 'icons/obj/clothing/suits/marine_armor.dmi'
 	item_icons = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/robot_armor.dmi',

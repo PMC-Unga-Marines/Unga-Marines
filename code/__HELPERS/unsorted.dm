@@ -220,7 +220,7 @@
 			continue
 		if((object.allow_pass_flags & PASS_AIR) && air_pass)
 			continue
-		if(object.flags_atom & ON_BORDER && object.dir != direction)
+		if(object.atom_flags & ON_BORDER && object.dir != direction)
 			continue
 		return TRUE
 	return FALSE
@@ -517,7 +517,7 @@
 	var/i = 0
 	while(i < length(.))
 		var/atom/checked_atom = .[++i]
-		if(checked_atom.flags_atom & ignore_flag_1)
+		if(checked_atom.atom_flags & ignore_flag_1)
 			continue
 		. += checked_atom.contents
 
@@ -1031,9 +1031,9 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 
 /mob/dview/Initialize(mapload) //Properly prevents this mob from gaining huds or joining any global lists
 	SHOULD_CALL_PARENT(FALSE)
-	if(flags_atom & INITIALIZED)
+	if(atom_flags & INITIALIZED)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
-	flags_atom |= INITIALIZED
+	atom_flags |= INITIALIZED
 	return INITIALIZE_HINT_NORMAL
 
 /mob/dview/Destroy(force = FALSE)

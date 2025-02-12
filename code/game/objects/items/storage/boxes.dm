@@ -235,7 +235,7 @@
 	icon_state = "matchbox"
 	item_state = "zippo"
 	w_class = WEIGHT_CLASS_TINY
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	spawn_type = /obj/item/tool/match
 	spawn_number = 14
 
@@ -381,7 +381,7 @@
 	max_storage_space = 14
 	spawn_type = /obj/item/explosive/grenade/flare
 	spawn_number = 14
-	flags_storage = BYPASS_CRYO_CHECK
+	storage_flags = BYPASS_CRYO_CHECK
 
 /obj/item/storage/box/m94/update_icon_state()
 	. = ..()
@@ -416,7 +416,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/packaged_meal)
 	storage_slots = 4
-	flags_storage = BYPASS_CRYO_CHECK
+	storage_flags = BYPASS_CRYO_CHECK
 	foldable = 0
 	var/isopened = 0
 	///the item left behind when this is used up

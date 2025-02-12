@@ -76,7 +76,7 @@
 	item_state = "candlebox5"
 	storage_slots = 5
 	throwforce = 2
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	spawn_type = /obj/item/tool/candle
 	spawn_number = 5
 
@@ -132,8 +132,8 @@
 	item_state = "cigpacket"
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
-	flags_equip_slot = ITEM_SLOT_BELT
-	flags_storage = BYPASS_CRYO_CHECK
+	equip_slot_flags = ITEM_SLOT_BELT
+	storage_flags = BYPASS_CRYO_CHECK
 	max_storage_space = 18
 	storage_slots = 18
 	can_hold = list(
@@ -173,7 +173,7 @@
 	item_state = "chempacketbox"
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	max_storage_space = 18
 	storage_slots = 18
 	can_hold = list(
@@ -235,7 +235,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
 	w_class = WEIGHT_CLASS_SMALL
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	storage_slots = 7
 	spawn_type = /obj/item/clothing/mask/cigarette/cigar
 	spawn_number = 7

@@ -262,7 +262,7 @@
 	storage_slots = null
 	use_sound = 'sound/items/pillbottle.ogg'
 	max_storage_space = 16
-	flags_storage = BYPASS_CRYO_CHECK
+	storage_flags = BYPASS_CRYO_CHECK
 	greyscale_config = /datum/greyscale_config/pillbottle
 	greyscale_colors = "#d9cd07#f2cdbb" //default colors
 	refill_types = list(/obj/item/storage/pill_bottle)

@@ -125,7 +125,7 @@
 
 
 /obj/item/weapon/gun/launcher/rocket/m57a4/xmas
-	flags_gun_features = NONE
+	gun_features_flags = NONE
 
 
 /obj/item/weapon/gun/launcher/rocket/m57a4/xmas/able_to_fire(mob/living/user)
@@ -137,7 +137,7 @@
 
 
 /obj/item/weapon/gun/rifle/sniper/elite/xmas
-	flags_gun_features = NONE
+	gun_features_flags = NONE
 
 
 /obj/item/weapon/gun/rifle/sniper/elite/xmas/able_to_fire(mob/living/user)

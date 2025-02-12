@@ -263,7 +263,7 @@
 		return equip_to_slot_if_possible(W, slot, TRUE, del_on_fail, warning, redraw_mob, override_nodrop)
 	equip_to_slot(W, slot) //This proc should not ever fail.
 	//This will unwield items -without- triggering lights.
-	if(CHECK_BITFIELD(W.flags_item, TWOHANDED))
+	if(CHECK_BITFIELD(W.item_flags, TWOHANDED))
 		W.unwield(src)
 	return TRUE
 
@@ -324,7 +324,7 @@
 	var/obj/item/found = I.do_quick_equip(src)
 	if(!found)
 		return FALSE
-	if(CHECK_BITFIELD(found.flags_inventory, NOQUICKEQUIP))
+	if(CHECK_BITFIELD(found.inventory_flags, NOQUICKEQUIP))
 		return FALSE
 	temporarilyRemoveItemFromInventory(found)
 	put_in_hands(found)

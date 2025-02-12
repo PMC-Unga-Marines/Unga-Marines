@@ -2,7 +2,7 @@
 	name = "default stock"
 	desc = "Default parent object, not meant for use."
 	slot = ATTACHMENT_SLOT_STOCK
-	flags_attach_features = NONE //most stocks are not removable
+	attach_features_flags = NONE //most stocks are not removable
 	size_mod = 2
 	pixel_shift_x = 30
 	pixel_shift_y = 14
@@ -137,7 +137,7 @@
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 	size_mod = 1
-	flags_attach_features = ATTACH_REMOVABLE
+	attach_features_flags = ATTACH_REMOVABLE
 	wield_delay_mod = 0.2 SECONDS
 	accuracy_mod = 0.15
 	recoil_mod = -2
@@ -211,7 +211,7 @@
 	name = "T-76 magnum stock"
 	desc = "A R-76 magnum stock. Makes about all your handling better outside of making it harder to wield. Recommended to be kept on the R-76 at all times if you value your shoulder."
 	icon_state = "t76stock"
-	flags_attach_features = ATTACH_REMOVABLE
+	attach_features_flags = ATTACH_REMOVABLE
 	melee_mod = 5
 	scatter_mod = -1
 	size_mod = 2
@@ -223,7 +223,7 @@
 /obj/item/attachable/stock/t500stock
 	name = "R-500 stock"
 	desc = "Cool stock for cool revolver."
-	flags_attach_features = ATTACH_REMOVABLE
+	attach_features_flags = ATTACH_REMOVABLE
 	wield_delay_mod = 0.2 SECONDS
 	delay_mod = -0.4 SECONDS
 	icon = 'icons/obj/items/attachments/attachments_64.dmi'

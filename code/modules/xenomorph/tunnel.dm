@@ -37,7 +37,7 @@
 	if(creator)
 		creator.tunnels -= src
 	creator = null
-	
+
 	SSminimaps.remove_marker(src)
 
 	return ..()
@@ -83,7 +83,7 @@
 		balloon_alert(xeno_attacker, "No exit tunnel")
 		return FALSE
 
-	if(isrightclick && SSticker.mode?.flags_round_type & MODE_XENO_DEN && (z == 6 || z == 2))
+	if(isrightclick && SSticker.mode?.round_type_flags & MODE_XENO_DEN && (z == 6 || z == 2))
 		pick_a_tunnel(xeno_attacker, z == 6 ? 2 : 6) //hardcoded
 		return
 

@@ -1,7 +1,7 @@
 /obj/item/clothing/glasses/hud
 	name = "HUD"
 	desc = "A heads-up display that provides important info in (almost) real time."
-	flags_armor_protection = NONE //doesn't protect eyes because it's a monocle, duh
+	armor_protection_flags = NONE //doesn't protect eyes because it's a monocle, duh
 	var/hud_type
 	var/mob/living/carbon/human/affected_user
 
@@ -83,7 +83,7 @@
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
 	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 0, ENERGY = 15, BOMB = 35, BIO = 10, FIRE = 30, ACID = 30)
-	flags_equip_slot = ITEM_SLOT_EYES
+	equip_slot_flags = ITEM_SLOT_EYES
 	goggles_layer = TRUE
 
 /obj/item/clothing/glasses/hud/medgoggles/prescription
@@ -189,4 +189,4 @@
 
 /obj/item/clothing/glasses/hud/sa/nodrop
 	desc = "Glasses worn by a spatial agent. They delete themselves if you take them off!"
-	flags_item = DELONDROP
+	item_flags = DELONDROP

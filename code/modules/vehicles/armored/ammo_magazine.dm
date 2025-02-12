@@ -2,7 +2,7 @@
 //Special ammo magazines for hardpoint modules. Some may not be here since you can use normal magazines on them
 /obj/item/ammo_magazine/tank
 	icon = 'icons/obj/items/ammo/tank.dmi'
-	flags_magazine = NONE
+	magazine_flags = NONE
 	///loading sound to play when
 	var/loading_sound
 

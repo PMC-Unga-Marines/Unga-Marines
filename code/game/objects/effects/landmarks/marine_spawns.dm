@@ -99,7 +99,7 @@
 	job = /datum/job/terragov/silicon/ai
 
 /obj/effect/landmark/start/job/survivor
-	icon_state = "Shaft Miner"
+	icon_state = "Survivor"
 	job = /datum/job/survivor/rambo
 
 /obj/effect/landmark/start/job/fallen

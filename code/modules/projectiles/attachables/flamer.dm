@@ -37,7 +37,7 @@
 	flamer.mob_flame_damage_mod /= mob_flame_damage_mod
 
 /obj/item/attachable/flamer_nozzle/unremovable
-	flags_attach_features = NONE
+	attach_features_flags = NONE
 
 /obj/item/attachable/flamer_nozzle/unremovable/invisible
 	icon_state = null

@@ -3,7 +3,7 @@
 	shell_speed = 2
 	bullet_color = COLOR_STRONG_VIOLET
 	damage_type = BURN
-	flags_ammo_behavior = NONE
+	ammo_behavior_flags = NONE
 
 	hud_state = "plasma"
 	hud_state_empty = "electrothermal_empty"
@@ -45,7 +45,7 @@
 
 	bullet_color = COLOR_VIOLET
 	damage = 0
-	flags_ammo_behavior = AMMO_ENERGY
+	ammo_behavior_flags = AMMO_ENERGY
 	var/stun_time = 2.5 SECONDS
 
 /datum/ammo/energy/yautja/caster/stun/on_hit_mob(mob/M, obj/projectile/P)
@@ -81,7 +81,7 @@
 	hud_state = "plasma_rifle"
 
 	damage = 0
-	flags_ammo_behavior = AMMO_ENERGY
+	ammo_behavior_flags = AMMO_ENERGY
 
 /datum/ammo/energy/yautja/caster/bolt/stun/on_hit_mob(mob/M, obj/projectile/P)
 	var/mob/living/carbon/C = M
@@ -104,7 +104,7 @@
 	name = "plasma immobilizer"
 	bullet_color = COLOR_MAGENTA
 	damage = 0
-	flags_ammo_behavior = AMMO_ENERGY
+	ammo_behavior_flags = AMMO_ENERGY
 	hud_state = "plasma_rifle_blast"
 	accurate_range = 20
 	max_range = 20

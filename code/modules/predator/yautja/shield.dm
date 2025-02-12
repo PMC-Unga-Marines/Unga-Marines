@@ -9,8 +9,8 @@
 		slot_back_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	item_state = "shield"
-	flags_item = ITEM_PREDATOR
-	flags_equip_slot = ITEM_SLOT_BACK
+	item_flags = ITEM_PREDATOR
+	equip_slot_flags = ITEM_SLOT_BACK
 	resistance_flags = UNACIDABLE
 
 	base_icon_state = "shield"
@@ -117,7 +117,7 @@
 
 /obj/item/weapon/shield/riot/yautja/attackby(obj/item/I, mob/user)
 	if(cooldown < world.time - 25)
-		if(istype(I, /obj/item/weapon) && (I.flags_item & ITEM_PREDATOR))
+		if(istype(I, /obj/item/weapon) && (I.item_flags & ITEM_PREDATOR))
 			user.visible_message(span_warning("[user] bashes \the [src] with \the [I]!"))
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 25, 1)
 			cooldown = world.time
