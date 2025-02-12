@@ -1,8 +1,8 @@
 /datum/game_mode/last_stand
 	name = "Last Stand"
 	config_tag = "Last Stand"
-	flags_xeno_abilities = ABILITY_LAST_STAND
-	flags_round_type = MODE_XENO_SPAWN_PROTECT
+	xeno_abilities_flags = ABILITY_LAST_STAND
+	round_type_flags = MODE_XENO_SPAWN_PROTECT
 	valid_job_types = list(
 		/datum/job/terragov/command/captain = 1,
 		/datum/job/terragov/command/fieldcommander = 1,

@@ -4,7 +4,7 @@
 	icon_state = "wizard"
 	//Not given any special protective value since the magic robes are full-body protection --NEO
 	siemens_coefficient = 0.8
-	flags_armor_protection = NONE
+	armor_protection_flags = NONE
 
 /obj/item/clothing/head/wizard/red
 	name = "red wizard hat"
@@ -15,7 +15,7 @@
 	name = "wizard hat"
 	desc = "It has WIZZARD written across it in sequins. Comes with a cool beard."
 	icon_state = "wizard-fake"
-	flags_armor_protection = HEAD|FACE
+	armor_protection_flags = HEAD|FACE
 
 /obj/item/clothing/head/wizard/marisa
 	name = "Witch Hat"
@@ -35,7 +35,7 @@
 	gas_transfer_coefficient = 0.01 // IT'S MAGICAL OKAY JEEZ +1 TO NOT DIE
 	permeability_coefficient = 0.01
 	soft_armor = list(MELEE = 30, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 20, BIO = 20, FIRE = 20, ACID = 20)
-	flags_inv_hide = HIDEJUMPSUIT
+	inv_hide_flags = HIDEJUMPSUIT
 	siemens_coefficient = 0.8
 
 /obj/item/clothing/suit/wizrobe/red
@@ -55,8 +55,8 @@
 	desc = "A heavy threaded twead gray jacket. For a different sort of Gentleman."
 	icon_state = "gentlecoat"
 	item_state = "gentlecoat"
-	flags_armor_protection = CHEST|GROIN|ARMS
-	flags_inv_hide = NONE
+	armor_protection_flags = CHEST|GROIN|ARMS
+	inv_hide_flags = NONE
 
 /obj/item/clothing/suit/wizrobe/fake
 	name = "wizard robe"
@@ -78,7 +78,7 @@
 	desc = "Magic is all about the spell power, ZE!"
 	icon_state = "marisa"
 	item_state = "marisarobe"
-	flags_armor_protection = CHEST|GROIN|ARMS|LEGS
+	armor_protection_flags = CHEST|GROIN|ARMS|LEGS
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	siemens_coefficient = 1
 

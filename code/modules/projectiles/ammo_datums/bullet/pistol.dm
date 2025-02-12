@@ -2,7 +2,7 @@
 	name = "pistol bullet"
 	hud_state = "pistol"
 	hud_state_empty = "pistol_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	damage = 15
 	penetration = 5
 	accurate_range = 5
@@ -91,7 +91,7 @@
 	hud_state = "pistol_fire"
 	damage_type = BURN
 	shrapnel_chance = 0
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
 	damage = 20
 	penetration = 0
 	additional_xeno_penetration = 0
@@ -112,7 +112,7 @@
 	hud_state_empty = "monkey_empty"
 	ping = null //no bounce off.
 	damage_type = BURN
-	flags_ammo_behavior = AMMO_INCENDIARY
+	ammo_behavior_flags = AMMO_INCENDIARY
 	shell_speed = 2
 	damage = 15
 

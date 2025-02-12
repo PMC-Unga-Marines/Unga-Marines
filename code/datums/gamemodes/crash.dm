@@ -1,8 +1,8 @@
 /datum/game_mode/infestation/crash
 	name = "Crash"
 	config_tag = "Crash"
-	flags_round_type = MODE_INFESTATION|MODE_XENO_SPAWN_PROTECT|MODE_DEAD_GRAB_FORBIDDEN|MODE_DISALLOW_RAILGUN|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_SILOS_SPAWN_MINIONS
-	flags_xeno_abilities = ABILITY_NUCLEARWAR
+	round_type_flags = MODE_INFESTATION|MODE_XENO_SPAWN_PROTECT|MODE_DEAD_GRAB_FORBIDDEN|MODE_DISALLOW_RAILGUN|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_SILOS_SPAWN_MINIONS
+	xeno_abilities_flags = ABILITY_NUCLEARWAR
 	valid_job_types = list(
 		/datum/job/terragov/squad/standard = -1,
 		/datum/job/terragov/squad/robot = -1,
@@ -103,7 +103,7 @@
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_DIFFUSED, PROC_REF(on_nuclear_diffuse))
 	RegisterSignal(SSdcs, COMSIG_GLOB_NUKE_START, PROC_REF(on_nuke_started))
 
-	if(!(flags_round_type & MODE_INFESTATION))
+	if(!(round_type_flags & MODE_INFESTATION))
 		return
 
 	for(var/i in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])

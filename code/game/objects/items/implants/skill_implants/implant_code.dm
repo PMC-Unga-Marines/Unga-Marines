@@ -1,5 +1,5 @@
 /obj/item/implant/skill
-	flags_implant = BENEFICIAL_IMPLANT|HIGHLANDER_IMPLANT
+	implant_flags = BENEFICIAL_IMPLANT|HIGHLANDER_IMPLANT
 	w_class = WEIGHT_CLASS_TINY
 //  Maximum skill a user can possess
 	var/list/max_skills

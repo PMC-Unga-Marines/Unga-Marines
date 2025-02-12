@@ -141,7 +141,7 @@
 	)
 	force = 40
 	force_wielded = 95 //Reminder: putting trama inside deals 60% additional damage
-	flags_item = TWOHANDED
+	item_flags = TWOHANDED
 	resistance_flags = 0 //override glavie
 	attack_speed = 10 //Default is 7, this has slower attack
 	reach = 2 //like spear
@@ -162,7 +162,7 @@
 /obj/item/weapon/twohanded/glaive/halberd/harvester/wield(mob/user)
 	. = ..()
 
-	if (!(flags_item & WIELDED))
+	if (!(item_flags & WIELDED))
 		return
 
 	if(wield_delay > 0)

@@ -54,7 +54,7 @@
 	if(xeno_attacker.a_intent != INTENT_HARM)
 		try_toggle_state(xeno_attacker)
 		return TRUE
-	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker))
+	if(CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker))
 		SSresinshaping.decrement_build_counter(xeno_attacker)
 		qdel(src)
 		return TRUE

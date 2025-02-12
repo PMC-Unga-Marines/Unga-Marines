@@ -44,9 +44,9 @@
 	desc = "A segmented, lightweight whip made of durable, acid-resistant metal. Not very common among Yautja Hunters, but still a dangerous weapon capable of shredding prey."
 	icon_state = "whip"
 	item_state = "whip"
-	flags_atom = CONDUCT
-	flags_item = ITEM_PREDATOR
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	item_flags = ITEM_PREDATOR
+	equip_slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = UNACIDABLE
 	force = 37
@@ -70,9 +70,9 @@
 	name = "clan sword"
 	desc = "An expertly crafted Yautja blade carried by hunters who wish to fight up close. Razor sharp and capable of cutting flesh into ribbons. Commonly carried by aggressive and lethal hunters."
 	icon_state = "clansword"
-	flags_atom = CONDUCT
-	flags_item = ITEM_PREDATOR
-	flags_equip_slot = ITEM_SLOT_BACK
+	atom_flags = CONDUCT
+	item_flags = ITEM_PREDATOR
+	equip_slot_flags = ITEM_SLOT_BACK
 	force = 40
 	throwforce = 25
 	penetration = 20
@@ -97,9 +97,9 @@
 	desc = "A huge, incredibly sharp dual blade used for hunting dangerous prey. This weapon is commonly carried by Yautja who wish to disable and slice apart their foes."
 	icon_state = "predscythe"
 	item_state = "scythe_dual"
-	flags_atom = CONDUCT
-	flags_item = ITEM_PREDATOR
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	item_flags = ITEM_PREDATOR
+	equip_slot_flags = ITEM_SLOT_BELT
 	force = 35
 	throwforce = 25
 	penetration = 20
@@ -188,9 +188,9 @@
 	name = "combi-stick"
 	desc = "A compact yet deadly personal weapon. Can be concealed when folded. Functions well as a throwing weapon or defensive tool. A common sight in Yautja packs due to its versatility."
 	icon_state = "combistick"
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BACK
-	flags_item = TWOHANDED|ITEM_PREDATOR
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BACK
+	item_flags = TWOHANDED|ITEM_PREDATOR
 	w_class = WEIGHT_CLASS_HUGE
 	throw_speed = 10
 	throw_range = 4
@@ -268,7 +268,7 @@
 /obj/item/weapon/yautja/combistick/attack_self(mob/user)
 	..()
 	if(on)
-		if(flags_item & WIELDED)
+		if(item_flags & WIELDED)
 			unwield(user)
 		else
 			wield(user)
@@ -292,7 +292,7 @@
 
 /obj/item/weapon/yautja/combistick/update_icon()
 	. = ..()
-	if(flags_item & WIELDED)
+	if(item_flags & WIELDED)
 		item_state = "combistick_w"
 	else if(!on)
 		item_state = "combistick_f"
@@ -308,8 +308,8 @@
 		"You hear blades extending.")
 		playsound(src,'sound/items/combistick_open.ogg', 50, TRUE, 3)
 		icon_state = initial(icon_state)
-		flags_equip_slot = initial(flags_equip_slot)
-		flags_item |= TWOHANDED
+		equip_slot_flags = initial(equip_slot_flags)
+		item_flags |= TWOHANDED
 		w_class = WEIGHT_CLASS_HUGE
 		force = force_unwielded
 		throwforce = throwforce_base
@@ -325,8 +325,8 @@
 		to_chat(user, span_notice("You collapse [src] for storage."))
 		playsound(src, 'sound/items/combistick_close.ogg', 50, TRUE, 3)
 		icon_state = initial(icon_state) + "_f"
-		flags_equip_slot = ITEM_SLOT_BACK
-		flags_item &= ~TWOHANDED
+		equip_slot_flags = ITEM_SLOT_BACK
+		item_flags &= ~TWOHANDED
 		w_class = WEIGHT_CLASS_TINY
 		force = force_storage
 		throwforce = throwforce_storage
@@ -389,9 +389,9 @@
 	desc = "A viciously sharp dagger inscribed with ancient Yautja markings. Smells thickly of blood. Carried by some hunters."
 	icon_state = "predknife"
 	item_state = "knife"
-	flags_atom = CONDUCT
-	flags_item = ITEM_PREDATOR
-	flags_equip_slot = ITEM_SLOT_BACK
+	atom_flags = CONDUCT
+	item_flags = ITEM_PREDATOR
+	equip_slot_flags = ITEM_SLOT_BACK
 	sharp = IS_SHARP_ITEM_ACCURATE
 	force = 20
 	penetration = 10

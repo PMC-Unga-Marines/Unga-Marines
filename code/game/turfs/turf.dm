@@ -56,9 +56,9 @@
 
 /turf/Initialize(mapload)
 	SHOULD_CALL_PARENT(FALSE) // anti laggies
-	if(flags_atom & INITIALIZED)
+	if(atom_flags & INITIALIZED)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
-	ENABLE_BITFIELD(flags_atom, INITIALIZED)
+	ENABLE_BITFIELD(atom_flags, INITIALIZED)
 
 	// by default, vis_contents is inherited from the turf that was here before
 	vis_contents.Cut()
@@ -122,7 +122,7 @@
 			B.vars[I] = null
 		return QDEL_HINT_IWILLGC
 	visibilityChanged()
-	DISABLE_BITFIELD(flags_atom, INITIALIZED)
+	DISABLE_BITFIELD(atom_flags, INITIALIZED)
 	soft_armor = null
 	hard_armor = null
 	. = ..()
@@ -171,7 +171,7 @@
 			return TRUE //We've entered the tile and gotten entangled inside it.
 		if(QDELETED(mover)) //Mover deleted from Cross/CanPass, do not proceed.
 			return FALSE
-		else if(!firstbump || ((thing.layer > firstbump.layer || thing.flags_atom & ON_BORDER) && !(firstbump.flags_atom & ON_BORDER)))
+		else if(!firstbump || ((thing.layer > firstbump.layer || thing.atom_flags & ON_BORDER) && !(firstbump.atom_flags & ON_BORDER)))
 			firstbump = thing
 	if(QDELETED(mover)) //Mover deleted from Cross/CanPass/Bump, do not proceed.
 		return FALSE
@@ -217,7 +217,7 @@
 
 /turf/proc/levelupdate()
 	for(var/obj/O in src)
-		if(O.flags_atom & INITIALIZED)
+		if(O.atom_flags & INITIALIZED)
 			SEND_SIGNAL(O, COMSIG_OBJ_HIDE, intact_tile)
 
 // Creates a new turf
@@ -492,7 +492,7 @@
  */
 /turf/proc/check_disallow_alien_fortification(mob/living/builder, silent = FALSE)
 	var/area/ourarea = loc
-	if(ourarea.flags_area & DISALLOW_WEEDING)
+	if(ourarea.area_flags & DISALLOW_WEEDING)
 		if(!silent)
 			to_chat(builder, span_warning("We cannot build in this area before the talls are out!"))
 		return FALSE
@@ -546,7 +546,7 @@
 			has_obstacle = TRUE
 			break
 
-		if(O.density && !(O.flags_atom & ON_BORDER))
+		if(O.density && !(O.atom_flags & ON_BORDER))
 			has_obstacle = TRUE
 			break
 
@@ -661,7 +661,7 @@
 // Removes all signs of lattice on the pos of the turf -Donkieyo
 /turf/proc/RemoveLattice()
 	var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
-	if(L && (L.flags_atom & INITIALIZED))
+	if(L && (L.atom_flags & INITIALIZED))
 		qdel(L)
 
 /// A proc in case it needs to be recreated or badmins want to change the baseturfs

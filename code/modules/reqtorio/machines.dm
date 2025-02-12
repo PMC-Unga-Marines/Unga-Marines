@@ -5,7 +5,7 @@
 	density = TRUE
 	anchored = FALSE // start off unanchored so its easier to move
 	resistance_flags = XENO_DAMAGEABLE
-	flags_atom = PREVENT_CONTENTS_EXPLOSION
+	atom_flags = PREVENT_CONTENTS_EXPLOSION
 	interaction_flags = INTERACT_MACHINE_TGUI
 	///Curent items being processed
 	var/list/held_items
@@ -150,7 +150,7 @@
 	density = TRUE
 	anchored = FALSE // start off unanchored so its easier to move
 	resistance_flags = XENO_DAMAGEABLE
-	flags_atom = PREVENT_CONTENTS_EXPLOSION
+	atom_flags = PREVENT_CONTENTS_EXPLOSION
 	///Curent items being processed
 	var/item_to_fabricate = /obj/item/stack/sheet/metal/large_stack
 	///Icon state displayed while something is being processed in the machine
@@ -227,7 +227,7 @@
 	density = TRUE
 	anchored = FALSE // start off unanchored so its easier to move
 	resistance_flags = XENO_DAMAGEABLE
-	flags_atom = PREVENT_CONTENTS_EXPLOSION
+	atom_flags = PREVENT_CONTENTS_EXPLOSION
 	///Icon state displayed while something is being processed in the machine
 	var/processiconstate = "spitter"
 	var/current_split_dir

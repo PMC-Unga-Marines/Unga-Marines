@@ -3,7 +3,7 @@
 	hud_state = "revolver"
 	hud_state_empty = "revolver_empty"
 	handful_amount = 7
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	damage = 40
 	penetration = 10
 	additional_xeno_penetration = 20
@@ -73,7 +73,7 @@
 	damage = 20
 	penetration = 100
 	shrapnel_chance = 0
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SKIPS_ALIENS
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SKIPS_ALIENS
 
 /datum/ammo/bullet/revolver/t312/med/on_hit_mob(mob/M, obj/projectile/P)
 	return

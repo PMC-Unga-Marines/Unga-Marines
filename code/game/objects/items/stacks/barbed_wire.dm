@@ -2,7 +2,7 @@
 	name = "barbed wire"
 	desc = "A spiky length of wire."
 	icon_state = "barbed_wire"
-	flags_item = NOBLUDGEON
+	item_flags = NOBLUDGEON
 	singular_name = "length"
 	w_class = WEIGHT_CLASS_SMALL
 	force = 0

@@ -7,8 +7,8 @@
 		slot_l_hand_str = 'icons/mob/inhands/weapons/ammo_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/ammo_right.dmi',
 	)
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	throwforce = 2
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 2
@@ -32,7 +32,7 @@
 	///Just an easier way to track how many shells to eject later.
 	var/used_casings = 0
 	///flags specifically for magazines.
-	var/flags_magazine = MAGAZINE_REFILLABLE
+	var/magazine_flags = MAGAZINE_REFILLABLE
 	///the default mag icon state.
 	var/base_mag_icon
 
@@ -59,7 +59,7 @@
 
 /obj/item/ammo_magazine/update_icon_state()
 	. = ..()
-	if(CHECK_BITFIELD(flags_magazine, MAGAZINE_HANDFUL))
+	if(CHECK_BITFIELD(magazine_flags, MAGAZINE_HANDFUL))
 		setDir(current_rounds + round(current_rounds/3))
 		return
 	if(current_rounds <= 0)
@@ -80,7 +80,7 @@
 	. += "[src] has <b>[current_rounds]</b> rounds out of <b>[max_rounds]</b>."
 
 /obj/item/ammo_magazine/attack_hand(mob/living/user)
-	if(user.get_inactive_held_item() != src || !CHECK_BITFIELD(flags_magazine, MAGAZINE_REFILLABLE))
+	if(user.get_inactive_held_item() != src || !CHECK_BITFIELD(magazine_flags, MAGAZINE_REFILLABLE))
 		return ..()
 	if(current_rounds <= 0)
 		to_chat(user, span_notice("[src] is empty. There is nothing to grab."))
@@ -90,7 +90,7 @@
 /obj/item/ammo_magazine/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	if(!istype(I, /obj/item/ammo_magazine))
-		if(!CHECK_BITFIELD(flags_magazine, MAGAZINE_WORN) || !istype(I, /obj/item/weapon/gun) || loc != user)
+		if(!CHECK_BITFIELD(magazine_flags, MAGAZINE_WORN) || !istype(I, /obj/item/weapon/gun) || loc != user)
 			return ..()
 		var/obj/item/weapon/gun/gun = I
 		if(!CHECK_BITFIELD(gun.reciever_flags, AMMO_RECIEVER_MAGAZINES))
@@ -98,10 +98,10 @@
 		gun.reload(src, user)
 		return
 
-	if(!CHECK_BITFIELD(flags_magazine, MAGAZINE_REFILLABLE)) //and a refillable magazine
+	if(!CHECK_BITFIELD(magazine_flags, MAGAZINE_REFILLABLE)) //and a refillable magazine
 		return
 
-	if(src != user.get_inactive_held_item() && !CHECK_BITFIELD(flags_magazine, MAGAZINE_HANDFUL)) //It has to be held.
+	if(src != user.get_inactive_held_item() && !CHECK_BITFIELD(magazine_flags, MAGAZINE_HANDFUL)) //It has to be held.
 		to_chat(user, span_notice("Try holding [src] before you attempt to restock it."))
 		return
 
@@ -179,7 +179,7 @@
 		ammo_band_color = source.ammo_band_color
 		update_ammo_band()
 
-	if(source.current_rounds <= 0 && CHECK_BITFIELD(source.flags_magazine, MAGAZINE_HANDFUL)) //We want to delete it if it's a handful.
+	if(source.current_rounds <= 0 && CHECK_BITFIELD(source.magazine_flags, MAGAZINE_HANDFUL)) //We want to delete it if it's a handful.
 		user?.temporarilyRemoveItemFromInventory(source)
 		QDEL_NULL(source) //Dangerous. Can mean future procs break if they reference the source. Have to account for this.
 	else
@@ -222,13 +222,13 @@
 		user.put_in_hands(new_handful)
 		to_chat(user, span_notice("You grab <b>[rounds]</b> round\s from [src]."))
 		update_icon() //Update the other one.
-		if(current_rounds <= 0 && CHECK_BITFIELD(flags_magazine, MAGAZINE_HANDFUL))
+		if(current_rounds <= 0 && CHECK_BITFIELD(magazine_flags, MAGAZINE_HANDFUL))
 			user.temporarilyRemoveItemFromInventory(src)
 			qdel(src)
 		return rounds //Give the number created.
 	else
 		update_icon()
-		if(current_rounds <= 0 && CHECK_BITFIELD(flags_magazine, MAGAZINE_HANDFUL))
+		if(current_rounds <= 0 && CHECK_BITFIELD(magazine_flags, MAGAZINE_HANDFUL))
 			qdel(src)
 		return new_handful
 

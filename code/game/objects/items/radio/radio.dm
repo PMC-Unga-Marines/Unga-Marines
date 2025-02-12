@@ -8,8 +8,8 @@
 	)
 	item_state = "radio"
 
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	throw_speed = 2
 	throw_range = 9
 	w_class = WEIGHT_CLASS_SMALL
@@ -293,7 +293,7 @@
 
 	var/area/A = get_area(src)
 	var/mob/living/carbon/living = speaker.source
-	if(!isnull(A) && (A.ceiling >= CEILING_UNDERGROUND) && !(A.flags_area & ALWAYS_RADIO) && !istype(living.back, /obj/item/storage/backpack/marine/radiopack))
+	if(!isnull(A) && (A.ceiling >= CEILING_UNDERGROUND) && !(A.area_flags & ALWAYS_RADIO) && !istype(living.back, /obj/item/storage/backpack/marine/radiopack))
 		if(A.ceiling >= CEILING_DEEP_UNDERGROUND)
 			return
 		signal.data["compression"] += rand(20, 40)

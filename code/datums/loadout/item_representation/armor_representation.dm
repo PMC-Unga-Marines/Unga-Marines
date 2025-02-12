@@ -182,7 +182,7 @@
 	//if(!item_type)
 	//	return
 	var/obj/item/armor_module/module_type = item_type
-	if(!CHECK_BITFIELD(initial(module_type.flags_attach_features), ATTACH_REMOVABLE))
+	if(!CHECK_BITFIELD(initial(module_type.attach_features_flags), ATTACH_REMOVABLE))
 		bypass_vendor_check = TRUE
 	var/obj/item/armor_module/module = instantiate_object(seller, null, user)
 	if(!module)

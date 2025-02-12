@@ -12,8 +12,8 @@
 	possible_transfer_amounts = list(1, 3, 5, 10, 15, 20, 30, 60, 120)
 	volume = 120
 	init_reagent_flags = OPENCONTAINER
-	flags_equip_slot = ITEM_SLOT_BELT
-	flags_item = NOBLUDGEON
+	equip_slot_flags = ITEM_SLOT_BELT
+	item_flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
 	var/skilllock = 1
 	var/inject_mode = HYPOSPRAY_INJECT_MODE_INJECT

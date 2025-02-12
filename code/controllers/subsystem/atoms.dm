@@ -101,7 +101,7 @@ SUBSYSTEM_DEF(atoms)
 
 		for(var/I in 1 to length(atoms))
 			var/atom/A = atoms[I]
-			if(A.flags_atom & INITIALIZED)
+			if(A.atom_flags & INITIALIZED)
 				continue
 			// Unrolled CHECK_TICK setup to let us enable/disable mapload based off source
 				if(TICK_CHECK)
@@ -117,7 +117,7 @@ SUBSYSTEM_DEF(atoms)
 		count = 0
 		#endif
 		for(var/atom/A as anything in world)
-			if(A.flags_atom & INITIALIZED)
+			if(A.atom_flags & INITIALIZED)
 				continue
 			PROFILE_INIT_ATOM_BEGIN()
 			InitAtom(A, FALSE, mapload_arg)
@@ -170,7 +170,7 @@ SUBSYSTEM_DEF(atoms)
 
 	if(!A) //possible harddel
 		qdeleted = TRUE
-	else if(!(A.flags_atom & INITIALIZED))
+	else if(!(A.atom_flags & INITIALIZED))
 		BadInitializeCalls[the_type] |= BAD_INIT_DIDNT_INIT
 	else
 		SEND_SIGNAL(A, COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZE)

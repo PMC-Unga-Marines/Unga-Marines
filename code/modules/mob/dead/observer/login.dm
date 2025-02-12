@@ -47,5 +47,5 @@
 	if(length(GLOB.offered_mob_list))
 		to_chat(src, span_boldnotice("There's mobs available for taking! Ghost > Take Offered Mob"))
 
-	if(SSticker.mode && SSticker.mode.flags_round_type & MODE_PREDATOR)
+	if(SSticker.mode && SSticker.mode.round_type_flags & MODE_PREDATOR)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(to_chat), src, "<span style='color: red;'>This is a <B>PREDATOR ROUND</B>! If you are whitelisted, you may Join the Hunt!</span>"), 2 SECONDS)

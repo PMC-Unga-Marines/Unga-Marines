@@ -4,7 +4,7 @@
 	desc = "It's good to be emperor."
 	item_state = "centhat"
 	siemens_coefficient = 0.9
-	flags_armor_protection = NONE
+	armor_protection_flags = NONE
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/hairflower
@@ -12,7 +12,7 @@
 	icon_state = "hairflower"
 	desc = "Smells nice."
 	item_state = "hairflower"
-	flags_armor_protection = NONE
+	armor_protection_flags = NONE
 	w_class = WEIGHT_CLASS_TINY
 	species_exception = list(/datum/species/robot)
 
@@ -29,7 +29,7 @@
 	icon_state = "tophat"
 	item_state = "that"
 	siemens_coefficient = 0.9
-	flags_armor_protection = NONE
+	armor_protection_flags = NONE
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/plaguedoctorhat
@@ -38,7 +38,7 @@
 	icon_state = "plaguedoctor"
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
-	flags_armor_protection = NONE
+	armor_protection_flags = NONE
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/nursehat
@@ -46,7 +46,7 @@
 	desc = "It allows quick identification of trained medical personnel."
 	icon_state = "nursehat"
 	siemens_coefficient = 0.9
-	flags_armor_protection = NONE
+	armor_protection_flags = NONE
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/syndicatefake
@@ -54,10 +54,10 @@
 	icon_state = "syndicate"
 	item_state = "syndicate"
 	desc = "A plastic replica of a syndicate agent's space helmet, you'll look just like a real murderous syndicate agent in this! This is a toy, it is not made for use in space!"
-	flags_inventory = COVEREYES|COVERMOUTH
-	flags_inv_hide = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEALLHAIR
+	inventory_flags = COVEREYES|COVERMOUTH
+	inv_hide_flags = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEALLHAIR
 	siemens_coefficient = 2
-	flags_armor_protection = HEAD|FACE|EYES
+	armor_protection_flags = HEAD|FACE|EYES
 	anti_hug = 1
 	species_exception = list(/datum/species/robot)
 
@@ -65,11 +65,11 @@
 	name = "cueball helmet"
 	desc = "A large, featureless white orb mean to be worn on your head. How do you even see out of this thing?"
 	icon_state = "cueball"
-	flags_inventory = COVEREYES|COVERMOUTH
-	flags_inv_hide = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEALLHAIR
+	inventory_flags = COVEREYES|COVERMOUTH
+	inv_hide_flags = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEALLHAIR
 	item_state="cueball"
-	flags_inventory = NONE
-	flags_armor_protection = HEAD|FACE|EYES
+	inventory_flags = NONE
+	armor_protection_flags = HEAD|FACE|EYES
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/greenbandanna
@@ -77,9 +77,9 @@
 	desc = "It's a green bandanna with some fine nanotech lining."
 	icon_state = "greenbandanna"
 	item_state = "greenbandanna"
-	flags_inventory = NONE
-	flags_inv_hide = NONE
-	flags_armor_protection = NONE
+	inventory_flags = NONE
+	inv_hide_flags = NONE
+	armor_protection_flags = NONE
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/cardborg
@@ -87,9 +87,9 @@
 	desc = "A helmet made out of a box."
 	icon_state = "cardborg_h"
 	item_state = "cardborg_h"
-	flags_inventory = COVERMOUTH|COVEREYES
-	flags_inv_hide = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEALLHAIR
-	flags_armor_protection = HEAD|FACE|EYES
+	inventory_flags = COVERMOUTH|COVEREYES
+	inv_hide_flags = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEALLHAIR
+	armor_protection_flags = HEAD|FACE|EYES
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/flatcap
@@ -105,7 +105,7 @@
 	desc = "Yarr."
 	icon_state = "pirate"
 	item_state = "pirate"
-	flags_armor_protection = NONE
+	armor_protection_flags = NONE
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/bandanna/brown
@@ -134,7 +134,7 @@
 	desc = "Gentleman, elite aboard!"
 	icon_state = "bowler"
 	item_state = "bowler"
-	flags_armor_protection = NONE
+	armor_protection_flags = NONE
 	species_exception = list(/datum/species/robot)
 
 //stylish bs12 hats
@@ -144,7 +144,7 @@
 	icon_state = "bowler_hat"
 	item_state = "bowler_hat"
 	desc = "For the gentleman of distinction."
-	flags_armor_protection = NONE
+	armor_protection_flags = NONE
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/beaverhat
@@ -175,8 +175,8 @@
 	desc = "Eeeee~heheheheheheh!"
 	icon_state = "witch"
 	item_state = "witch"
-	flags_inventory = NONE
-	flags_inv_hide = HIDEALLHAIR
+	inventory_flags = NONE
+	inv_hide_flags = HIDEALLHAIR
 	siemens_coefficient = 2
 	species_exception = list(/datum/species/robot)
 
@@ -185,10 +185,10 @@
 	desc = "Bkaw!"
 	icon_state = "chickenhead"
 	item_state = "chickensuit"
-	flags_inventory = NONE
-	flags_inv_hide = HIDEALLHAIR
+	inventory_flags = NONE
+	inv_hide_flags = HIDEALLHAIR
 	siemens_coefficient = 2
-	flags_armor_protection = HEAD|FACE|EYES
+	armor_protection_flags = HEAD|FACE|EYES
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/xenos
@@ -196,10 +196,10 @@
 	icon_state = "xenos"
 	item_state = "xenos_helm"
 	desc = "A helmet made out of chitinous alien hide."
-	flags_inventory = COVERMOUTH|COVEREYES|BLOCKSHARPOBJ
-	flags_inv_hide = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEALLHAIR
+	inventory_flags = COVERMOUTH|COVEREYES|BLOCKSHARPOBJ
+	inv_hide_flags = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEALLHAIR
 	siemens_coefficient = 2
-	flags_armor_protection = HEAD|FACE|EYES
+	armor_protection_flags = HEAD|FACE|EYES
 	anti_hug = 10 //Lel
 	species_exception = list(/datum/species/robot)
 
@@ -250,6 +250,6 @@
 	desc = "Praise the Omnissiah!"
 	icon_state = "tp_hood"
 	item_state = "tp_hood"
-	flags_inv_hide = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEALLHAIR
-	flags_armor_protection = HEAD|FACE|EYES
+	inv_hide_flags = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEALLHAIR
+	armor_protection_flags = HEAD|FACE|EYES
 	species_exception = list(/datum/species/robot)

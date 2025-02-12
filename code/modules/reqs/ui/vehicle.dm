@@ -40,7 +40,7 @@ GLOBAL_LIST_EMPTY(purchased_tanks)
 /datum/supply_ui/vehicles/ui_static_data(mob/user)
 	var/list/data = list()
 	for(var/obj/vehicle/sealed/armored/vehtype AS in typesof(/obj/vehicle/sealed/armored))
-		var/flags = vehtype::flags_armored
+		var/flags = vehtype::armored_flags
 
 		if(flags & ARMORED_PURCHASABLE_TRANSPORT)
 			if(user.skills.getRating(SKILL_LARGE_VEHICLE) < SKILL_LARGE_VEHICLE_EXPERIENCED)
@@ -148,7 +148,7 @@ GLOBAL_LIST_EMPTY(purchased_tanks)
 			if(!ispath(newtype, /obj/vehicle/sealed/armored))
 				return
 			var/obj/vehicle/sealed/armored/tank_type = newtype
-			var/is_assault = initial(tank_type.flags_armored) & ARMORED_PURCHASABLE_ASSAULT
+			var/is_assault = initial(tank_type.armored_flags) & ARMORED_PURCHASABLE_ASSAULT
 			if(GLOB.purchased_tanks[usr.faction]?["[is_assault]"])
 				to_chat(usr, span_danger("A vehicle of this type has already been purchased!"))
 				return

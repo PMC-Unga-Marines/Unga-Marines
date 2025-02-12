@@ -16,7 +16,7 @@
 		/obj/item/attachable/magnetic_harness,
 	)
 
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
 	gun_skill_category = SKILL_SMGS
 
@@ -45,7 +45,7 @@
 	caliber = CALIBER_10X20_CASELESS //codex
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST)
 	max_shells = 30 //codex
-	flags_equip_slot = ITEM_SLOT_BACK|ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/mp19
 	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/mp19)
@@ -118,7 +118,7 @@
 		)
 	caliber = CALIBER_10X20_CASELESS //codex
 	max_shells = 50 //codex
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	wield_delay = 0.5 SECONDS
 	force = 20
 	type_of_casings = null
@@ -141,7 +141,7 @@
 		/obj/item/attachable/shoulder_mount,
 	)
 
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 15,"rail_x" = 22, "rail_y" = 22, "under_x" = 17, "under_y" = 15, "stock_x" = 24, "stock_y" = 10)
 	aim_fire_delay = 0.1 SECONDS
@@ -181,7 +181,7 @@
 	fire_sound = 'sound/weapons/guns/fire/mp5.ogg'
 	unload_sound = 'sound/weapons/guns/interact/mp5_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/mp5_reload.ogg'
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/m25
 	allowed_ammo_types = list(
@@ -250,7 +250,7 @@
 		/obj/item/attachable/gyro,
 	)
 
-	flags_item_map_variant = NONE
+	item_map_variant_flags = NONE
 
 	burst_amount = 4
 	accuracy_mult = 1.1
@@ -312,7 +312,7 @@
 	item_state = "skorpion"
 	caliber = CALIBER_32ACP //codex
 	max_shells = 20 //codex
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_sound = 'sound/weapons/guns/fire/skorpion.ogg'
 	unload_sound = 'sound/weapons/guns/interact/skorpion_unload.ogg'
@@ -353,7 +353,7 @@
 	item_state = "ppsh"
 	caliber = CALIBER_762X25 //codex
 	max_shells = 42 //codex
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	fire_sound = 'sound/weapons/guns/fire/ppsh.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/ppsh_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/ppsh_unload.ogg'
@@ -380,7 +380,7 @@
 		/obj/item/attachable/foldable/bipod,
 	)
 
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	attachable_offset = list("muzzle_x" = 38, "muzzle_y" = 19,"rail_x" = 13, "rail_y" = 21, "under_x" = 26, "under_y" = 15, "stock_x" = 19, "stock_y" = 13)
 	aim_fire_delay = 0.15 SECONDS
 	aim_speed_modifier = 2.5
@@ -444,7 +444,7 @@
 	item_state = "v21"
 	caliber = CALIBER_10X20_CASELESS
 	max_shells = 50
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/som
 	allowed_ammo_types = list(
@@ -552,7 +552,7 @@
 	caliber = CALIBER_10X20_CASELESS //codex
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST)
 	max_shells = 32 //codex
-	flags_equip_slot = ITEM_SLOT_BACK|ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/icc_machinepistol
 	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/icc_machinepistol, /obj/item/ammo_magazine/smg/icc_machinepistol/hp)
@@ -619,7 +619,7 @@
 
 	caliber = CALIBER_46X30
 	max_shells = 45
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/icc_pdw
 	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/icc_pdw)
@@ -688,7 +688,7 @@
 	)
 	caliber = CALIBER_45ACP //codex
 	max_shells = 25 //codex
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	force = 20
 	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/vector
@@ -720,7 +720,7 @@
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
 	)
 
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 16, "rail_x" = 22, "rail_y" = 19, "under_x" = 26, "under_y" = 14, "stock_x" = 24, "stock_y" = 10)
 

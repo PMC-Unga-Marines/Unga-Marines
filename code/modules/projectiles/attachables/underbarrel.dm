@@ -56,7 +56,7 @@
 	desc = "A simple lace to wrap around your wrist."
 	icon_state = "lace"
 	slot = ATTACHMENT_SLOT_MUZZLE //so you cannot have this and RC at once aka balance
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
+	attach_features_flags = ATTACH_REMOVABLE|ATTACH_ACTIVATION
 	attachment_action_type = /datum/action/item_action/toggle
 
 /obj/item/attachable/lace/activate(mob/living/user, turn_off)

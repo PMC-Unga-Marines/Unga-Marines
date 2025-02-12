@@ -1712,7 +1712,7 @@
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	max_integrity = 50
 	resistance_flags = XENO_DAMAGEABLE
-	flags_atom = ON_BORDER
+	atom_flags = ON_BORDER
 	climbable = TRUE
 	climb_delay = 2 SECONDS
 	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_WALKOVER

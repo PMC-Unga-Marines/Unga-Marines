@@ -77,7 +77,7 @@
 	SIGNAL_HANDLER
 	if(isitem(AM))
 		var/obj/item/I = AM
-		if(I.flags_item & ITEM_ABSTRACT)
+		if(I.item_flags & ITEM_ABSTRACT)
 			return
 
 	if(istype(AM, /obj/projectile))

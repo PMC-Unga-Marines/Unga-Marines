@@ -14,7 +14,7 @@
 	damage_falloff_mod = 0
 
 /obj/item/attachable/suppressor/unremovable
-	flags_attach_features = NONE
+	attach_features_flags = NONE
 
 /obj/item/attachable/suppressor/unremovable/invisible
 	icon_state = ""
@@ -143,7 +143,7 @@
 	icon_state = "sniperbarrel"
 	desc = "A heavy barrel. CANNOT BE REMOVED."
 	slot = ATTACHMENT_SLOT_MUZZLE
-	flags_attach_features = NONE
+	attach_features_flags = NONE
 	accuracy_mod = 0.15
 	scatter_mod = -3
 
@@ -152,7 +152,7 @@
 	icon_state = "t81barrel"
 	desc = "A heavy barrel. CANNOT BE REMOVED."
 	slot = ATTACHMENT_SLOT_UNDER
-	flags_attach_features = NONE
+	attach_features_flags = NONE
 	pixel_shift_x = 7
 	pixel_shift_y = 14
 	accuracy_mod = 0
@@ -163,7 +163,7 @@
 	icon_state = "smartbarrel"
 	desc = "A heavy rotating barrel. CANNOT BE REMOVED."
 	slot = ATTACHMENT_SLOT_MUZZLE
-	flags_attach_features = NONE
+	attach_features_flags = NONE
 
 /obj/item/attachable/focuslens
 	name = "M43 focused lens"
@@ -209,7 +209,7 @@
 	desc = "The standard barrel on the SX-16. CANNOT BE REMOVED."
 	slot = ATTACHMENT_SLOT_MUZZLE
 	icon_state = "sx16barrel"
-	flags_attach_features = NONE
+	attach_features_flags = NONE
 
 /obj/item/attachable/pulselens
 	name = "M43 pulse lens"
@@ -226,7 +226,7 @@
 	icon_state = "sg29barrel"
 	desc = "A heavy barrel. CANNOT BE REMOVED."
 	slot = ATTACHMENT_SLOT_MUZZLE
-	flags_attach_features = NONE
+	attach_features_flags = NONE
 
 /obj/item/attachable/t500barrel
 	name = "R-500 extended barrel"

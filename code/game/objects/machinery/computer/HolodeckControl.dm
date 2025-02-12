@@ -47,7 +47,7 @@
 	density = TRUE
 	layer = WINDOW_LAYER
 	anchored = TRUE
-	flags_atom = ON_BORDER
+	atom_flags = ON_BORDER
 
 //BASKETBALL OBJECTS
 

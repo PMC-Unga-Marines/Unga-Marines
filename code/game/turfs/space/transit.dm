@@ -58,7 +58,7 @@
 	//find a random spot to drop them
 	var/list/area/potential_areas = shuffle(SSmapping.areas_in_z["[ground_z_levels[1]]"])
 	for(var/area/potential_area in potential_areas)
-		if(potential_area.flags_area & NO_DROPPOD || !potential_area.outside) // no dropping inside the caves and etc.
+		if(potential_area.area_flags & NO_DROPPOD || !potential_area.outside) // no dropping inside the caves and etc.
 			continue
 		if(isspacearea(potential_area)) // make sure its not space, just in case
 			continue

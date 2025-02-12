@@ -7,9 +7,9 @@
 	)
 	w_class = WEIGHT_CLASS_SMALL
 	active = TRUE
-	flags_inventory = COVEREYES
-	flags_equip_slot = ITEM_SLOT_EYES
-	flags_armor_protection = EYES
+	inventory_flags = COVEREYES
+	equip_slot_flags = ITEM_SLOT_EYES
+	armor_protection_flags = EYES
 	/// If TRUE it will help with near-sightness
 	var/prescription = FALSE
 	// If TRUE we are able to toggle the glasses and spawn with toggle action
@@ -89,7 +89,7 @@
 	desc = "Yarr."
 	icon_state = "eyepatch"
 	item_state = "eyepatch"
-	flags_armor_protection = NONE
+	armor_protection_flags = NONE
 
 /obj/item/clothing/glasses/eyepatch/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -119,7 +119,7 @@
 	name = "monocle"
 	desc = "Such a dapper eyepiece!"
 	icon_state = "monocle"
-	flags_armor_protection = NONE
+	armor_protection_flags = NONE
 
 /obj/item/clothing/glasses/regular
 	name = "\improper regulation prescription glasses"
@@ -158,7 +158,7 @@
 	icon_state = "mgoggles"
 	item_state = "mgoggles"
 	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 0, ENERGY = 15, BOMB = 35, BIO = 10, FIRE = 30, ACID = 30)
-	flags_equip_slot = ITEM_SLOT_EYES|ITEM_SLOT_MASK
+	equip_slot_flags = ITEM_SLOT_EYES|ITEM_SLOT_MASK
 	goggles_layer = TRUE
 	w_class = WEIGHT_CLASS_TINY
 
@@ -261,9 +261,9 @@
 
 ///Toggle the welding goggles on
 /obj/item/clothing/glasses/welding/proc/flip_up(mob/user)
-	DISABLE_BITFIELD(flags_inventory, COVEREYES)
-	DISABLE_BITFIELD(flags_inv_hide, HIDEEYES)
-	DISABLE_BITFIELD(flags_armor_protection, EYES)
+	DISABLE_BITFIELD(inventory_flags, COVEREYES)
+	DISABLE_BITFIELD(inv_hide_flags, HIDEEYES)
+	DISABLE_BITFIELD(armor_protection_flags, EYES)
 	eye_protection = 0
 	update_icon()
 	if(user)
@@ -271,9 +271,9 @@
 
 ///Toggle the welding goggles off
 /obj/item/clothing/glasses/welding/proc/flip_down(mob/user)
-	ENABLE_BITFIELD(flags_inventory, COVEREYES)
-	ENABLE_BITFIELD(flags_inv_hide, HIDEEYES)
-	ENABLE_BITFIELD(flags_armor_protection, EYES)
+	ENABLE_BITFIELD(inventory_flags, COVEREYES)
+	ENABLE_BITFIELD(inv_hide_flags, HIDEEYES)
+	ENABLE_BITFIELD(armor_protection_flags, EYES)
 	eye_protection = initial(eye_protection)
 	update_icon()
 	if(user)
@@ -393,7 +393,7 @@
 
 /obj/item/clothing/glasses/sunglasses/sa/nodrop
 	desc = "Glasses worn by a spatial agent. cannot be dropped"
-	flags_item = DELONDROP
+	item_flags = DELONDROP
 
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUDSunglasses"

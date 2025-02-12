@@ -16,7 +16,7 @@
 	///What level of malfunction/breakage this implant is at, used for functionality checks
 	var/malfunction = MALFUNCTION_NONE
 	///Implant secific flags
-	var/flags_implant = GRANT_ACTIVATION_ACTION|BENEFICIAL_IMPLANT
+	var/implant_flags = GRANT_ACTIVATION_ACTION|BENEFICIAL_IMPLANT
 	///Whitelist for llimbs that this implavnt is allowed to be inserted into, all limbs by default
 	var/list/allowed_limbs
 	///Type of action to give
@@ -29,7 +29,7 @@
 
 /obj/item/implant/Initialize(mapload)
 	. = ..()
-	if(flags_implant & GRANT_ACTIVATION_ACTION)
+	if(implant_flags & GRANT_ACTIVATION_ACTION)
 		activation_action = new action_type(src, src)
 	if(allow_reagents)
 		reagents = new /datum/reagents(MAX_IMPLANT_REAGENTS)
@@ -48,7 +48,7 @@
 	activate()
 
 /obj/item/implant/is_beneficial_implant()
-	return flags_implant & BENEFICIAL_IMPLANT
+	return implant_flags & BENEFICIAL_IMPLANT
 
 /obj/item/implant/unembed_ourself()
 	. = ..()
@@ -70,7 +70,7 @@
 	if(!(limb_targeting in allowed_limbs))
 		to_chat(user, span_warning("You cannot implant this into that limb!"))
 		return FALSE
-	if(flags_implant & DUPLICATE_IMPLANT_ALLOWED)
+	if(implant_flags & DUPLICATE_IMPLANT_ALLOWED)
 		return
 	return TRUE
 
@@ -87,10 +87,10 @@
 	if(!affected)
 		CRASH("[src] implanted into [target] [user ? "by [user]" : ""] but had no limb, despite being set to implant in [limb_targeting].")
 	for(var/obj/item/implant/embedded in affected.implants)
-		if(flags_implant & HIGHLANDER_IMPLANT || embedded.flags_implant & HIGHLANDER_IMPLANT)
+		if(implant_flags & HIGHLANDER_IMPLANT || embedded.implant_flags & HIGHLANDER_IMPLANT)
 			to_chat(user, span_warning("Cannot fit the [name] due to the [embedded.name] already there!"))
 			return FALSE
-		if(embedded.type != type || flags_implant & DUPLICATE_IMPLANT_ALLOWED)
+		if(embedded.type != type || implant_flags & DUPLICATE_IMPLANT_ALLOWED)
 			continue
 		to_chat(user, span_warning("There is already another [name] in this limb!"))
 		return FALSE
@@ -99,7 +99,7 @@
 	implant_owner = target
 	implanted = TRUE
 	part = affected
-	if(flags_implant & ACTIVATE_ON_HEAR)
+	if(implant_flags & ACTIVATE_ON_HEAR)
 		RegisterSignal(src, COMSIG_MOVABLE_HEAR, PROC_REF(on_hear))
 	activation_action?.give_action(target)
 	return TRUE
@@ -110,7 +110,7 @@
 	if(!implanted)
 		return FALSE
 	activation_action?.remove_action(implant_owner)
-	if(flags_implant & ACTIVATE_ON_HEAR)
+	if(implant_flags & ACTIVATE_ON_HEAR)
 		UnregisterSignal(src, COMSIG_MOVABLE_HEAR)
 	implanted = FALSE
 	part = null

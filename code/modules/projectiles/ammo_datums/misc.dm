@@ -9,7 +9,7 @@
 	bullet_color = COLOR_SOFT_RED
 	hud_state = "rifle"
 	hud_state_empty = "rifle_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SENTRY
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SENTRY
 	accurate_range = 10
 	damage = 20
 	penetration = 20
@@ -28,7 +28,7 @@
 	damage = 12
 	penetration = 10
 	damage_falloff = 0.5
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SENTRY
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SENTRY
 
 /datum/ammo/bullet/turret/sniper
 	name = "antimaterial bullet"
@@ -68,7 +68,7 @@
 	name = "small caliber autocannon bullet"
 	damage = 20
 	penetration = 20
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SENTRY
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SENTRY
 
 /*
 //================================================
@@ -85,7 +85,7 @@
 	handful_amount = 3
 	ping = null //no bounce off.
 	sound_bounce = SFX_ROCKET_BOUNCE
-	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER
+	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_SNIPER
 	armor_type = BOMB
 	damage_falloff = 0.5
 	shell_speed = 2
@@ -190,7 +190,7 @@
 /datum/ammo/bullet/tx54_spread
 	name = "Shrapnel"
 	icon_state = "flechette"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB
 	accuracy_var_low = 5
 	accuracy_var_high = 5
 	max_range = 4
@@ -203,7 +203,7 @@
 
 /datum/ammo/bullet/tx54_spread/incendiary
 	name = "incendiary flechette"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB|AMMO_INCENDIARY|AMMO_LEAVE_TURF
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB|AMMO_INCENDIARY|AMMO_LEAVE_TURF
 	damage = 15
 	penetration = 10
 
@@ -220,7 +220,7 @@
 
 /datum/ammo/bullet/tx54_spread/smoke
 	name = "chemical bomblet"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB|AMMO_LEAVE_TURF
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB|AMMO_LEAVE_TURF
 	max_range = 3
 	damage = 5
 	penetration = 0
@@ -253,7 +253,7 @@
 
 /datum/ammo/bullet/tx54_spread/razor
 	name = "chemical bomblet"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB|AMMO_LEAVE_TURF
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB|AMMO_LEAVE_TURF
 	max_range = 4
 	damage = 5
 	penetration = 0
@@ -287,7 +287,7 @@
 /datum/ammo/bullet/micro_rail
 	hud_state_empty = "grenade_empty_flash"
 	handful_icon_state = "micro_grenade_airburst"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	shell_speed = 2
 	handful_amount = 3
 	max_range = 3 //failure to detonate if the target is too close
@@ -346,7 +346,7 @@
 /datum/ammo/bullet/micro_rail_spread
 	name = "Shrapnel"
 	icon_state = "flechette"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB
 	accuracy_var_low = 5
 	accuracy_var_high = 5
 	max_range = 7
@@ -360,7 +360,7 @@
 
 /datum/ammo/bullet/micro_rail_spread/incendiary
 	name = "incendiary flechette"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB|AMMO_INCENDIARY|AMMO_LEAVE_TURF
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB|AMMO_INCENDIARY|AMMO_LEAVE_TURF
 	damage = 15
 	penetration = 5
 	sundering = 1.5
@@ -381,7 +381,7 @@
 /datum/ammo/micro_rail_cluster
 	name = "bomblet"
 	icon_state = "bullet"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_LEAVE_TURF
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_LEAVE_TURF
 	sound_hit 	 = SFX_BALLISTIC_HIT
 	sound_armor = SFX_BALLISTIC_ARMOR
 	sound_miss	 = SFX_BALLISTIC_MISS
@@ -444,7 +444,7 @@
 /datum/ammo/smoke_burst
 	name = "micro smoke canister"
 	icon_state = "bullet"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	sound_hit 	 = SFX_BALLISTIC_HIT
 	sound_armor = SFX_BALLISTIC_ARMOR
 	sound_miss	 = SFX_BALLISTIC_MISS
@@ -487,7 +487,7 @@
 	name = "pepperball"
 	hud_state = "pepperball"
 	hud_state_empty = "pepperball_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	accurate_range = 15
 	damage_type = STAMINA
 	armor_type = BIO

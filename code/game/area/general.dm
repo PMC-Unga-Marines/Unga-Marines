@@ -9,7 +9,7 @@
 	power_environ = 0
 	ambience = list('sound/ambience/ambispace.ogg')
 	temperature = TCMB
-	flags_area = NO_DROPPOD
+	area_flags = NO_DROPPOD
 	///What type of debuff do we apply when someone enters this area?
 	var/debuff_type = /datum/status_effect/spacefreeze
 
@@ -41,7 +41,7 @@
 /area/shuttle //DO NOT TURN THE dynamic_lighting STUFF ON FOR SHUTTLES. IT BREAKS THINGS.
 	requires_power = FALSE
 	outside = FALSE
-	flags_area = OB_CAS_IMMUNE
+	area_flags = OB_CAS_IMMUNE
 	minimap_color = MINIMAP_AREA_LZ
 
 /area/shuttle/arrival
@@ -227,7 +227,7 @@
 /area/shuttle/drop1/lz1
 	name = "Normandy Landing Zone"
 	icon_state = "away1"
-	flags_area = NONE
+	area_flags = NONE
 
 /area/shuttle/drop2/Enter(atom/movable/arrived, direction)
 	if(istype(arrived, /obj/structure/barricade))
@@ -237,7 +237,7 @@
 /area/shuttle/drop2/lz2
 	name = "Normandy Landing Zone"
 	icon_state = "away2"
-	flags_area = NONE
+	area_flags = NONE
 
 /area/start            // will be unused once kurper gets his login interface patch done
 	name = "start area"
@@ -1223,7 +1223,7 @@
 	requires_power = 0
 	name = "Abandoned Test Room"
 	icon_state = "storage"
-	flags_area = NO_DROPPOD
+	area_flags = NO_DROPPOD
 
 
 //DJSTATION

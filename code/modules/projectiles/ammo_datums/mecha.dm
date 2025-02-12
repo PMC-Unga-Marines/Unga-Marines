@@ -85,7 +85,7 @@
 
 /datum/ammo/energy/lasgun/marine/mech/lance_strike
 	name = "particle lance"
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_SNIPER|AMMO_HITSCAN|AMMO_PASS_THROUGH_MOVABLE|AMMO_PASS_THROUGH_MOB
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_SNIPER|AMMO_HITSCAN|AMMO_PASS_THROUGH_MOVABLE|AMMO_PASS_THROUGH_MOB
 	damage_type = BRUTE
 	damage = 100
 	armor_type = MELEE
@@ -104,7 +104,7 @@
 	name = "\improper APFSDS round"
 	hud_state = "alloy_spike"
 	icon_state = "blue_bullet"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOVABLE|AMMO_UNWIELDY
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOVABLE|AMMO_UNWIELDY
 	shell_speed = 4
 	max_range = 14
 	damage = 150
@@ -121,7 +121,7 @@
 
 /datum/ammo/bullet/sniper/mech
 	name = "light anti-tank bullet"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_IFF
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_IFF
 	damage = 100
 	penetration = 35
 	sundering = 0

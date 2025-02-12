@@ -9,7 +9,7 @@
 		slot_r_hand_str = 'icons/mob/inhands/equipment/engineering_right.dmi',
 	)
 	item_state = "table_parts"
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	attack_verb = list("slammed", "bashed", "battered", "bludgeoned", "thrashed", "whacked")
 	/// What type of table it creates when assembled
 	var/table_type = /obj/structure/table
@@ -93,7 +93,7 @@
 	name = "wooden table parts"
 	desc = "A kit for a table, including a large, flat wooden surface and four legs. Some assembly required."
 	icon_state = "wood_tableparts"
-	flags_atom = null
+	atom_flags = null
 	table_type = /obj/structure/table/wood
 	deconstruct_type = /obj/item/stack/sheet/wood
 
@@ -123,7 +123,7 @@
 	name = "gamble table parts"
 	desc = "A kit for a table, including a large, flat wooden and carpet surface and four legs. Some assembly required."
 	icon_state = "gamble_tableparts"
-	flags_atom = null
+	atom_flags = null
 	table_type = /obj/structure/table/wood/gambling
 	deconstruct_type = /obj/item/stack/sheet/wood
 

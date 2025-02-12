@@ -5,9 +5,9 @@
 	icon_state = "defib_full"
 	base_icon_state = "defib"
 	item_state = "defib"
-	flags_atom = CONDUCT
-	flags_item = NOBLUDGEON
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	item_flags = NOBLUDGEON
+	equip_slot_flags = ITEM_SLOT_BELT
 	force = 5
 	throwforce = 6
 	w_class = WEIGHT_CLASS_NORMAL
@@ -188,7 +188,7 @@
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Patient's organs are too damaged to sustain life. Deliver patient to a MD for surgical intervention."))
 		return
 
-	if((H.wear_suit && H.wear_suit.flags_atom & CONDUCT && !advanced))
+	if((H.wear_suit && H.wear_suit.atom_flags & CONDUCT && !advanced))
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Paddles registering >100,000 ohms, Possible cause: Suit or Armor interferring."))
 		return
 
@@ -219,7 +219,7 @@
 	H.visible_message(span_danger("[H]'s body convulses a bit."))
 	defib_cooldown = world.time + 10 //1 second cooldown before you can shock again
 
-	if(H.wear_suit && H.wear_suit.flags_atom & CONDUCT && !advanced)
+	if(H.wear_suit && H.wear_suit.atom_flags & CONDUCT && !advanced)
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Defibrillation failed: Paddles registering >100,000 ohms, Possible cause: Suit or Armor interferring."))
 		return
 
@@ -327,18 +327,18 @@
 	item_state = "defib_gloves"
 	ready = TRUE
 	ready_needed = FALSE
-	flags_equip_slot = ITEM_SLOT_GLOVES
+	equip_slot_flags = ITEM_SLOT_GLOVES
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/clothing/gloves.dmi'
 	item_state_worn = TRUE
 	siemens_coefficient = 0.50
 	blood_sprite_state = "bloodyhands"
-	flags_armor_protection = HANDS
-	flags_equip_slot = ITEM_SLOT_GLOVES
+	armor_protection_flags = HANDS
+	equip_slot_flags = ITEM_SLOT_GLOVES
 	attack_verb = "zaps"
 	soft_armor = list(MELEE = 25, BULLET = 15, LASER = 10, ENERGY = 15, BOMB = 15, BIO = 5, FIRE = 15, ACID = 15)
-	flags_cold_protection = HANDS
-	flags_heat_protection = HANDS
+	cold_protection_flags = HANDS
+	heat_protection_flags = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 	advanced = TRUE

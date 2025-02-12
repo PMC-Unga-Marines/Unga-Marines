@@ -1,7 +1,7 @@
 /datum/ammo/mortar
 	name = "80mm shell"
 	icon_state = "mortar"
-	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
+	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
 	shell_speed = 0.75
 	damage = 0
 	penetration = 0
@@ -146,7 +146,7 @@
 /datum/ammo/bullet/atgun_spread
 	name = "Shrapnel"
 	icon_state = "flechette"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB
 	accuracy_var_low = 15
 	accuracy_var_high = 5
 	max_range = 6
@@ -157,7 +157,7 @@
 
 /datum/ammo/bullet/atgun_spread/incendiary
 	name = "incendiary flechette"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB|AMMO_INCENDIARY|AMMO_LEAVE_TURF
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB|AMMO_INCENDIARY|AMMO_LEAVE_TURF
 	damage = 20
 	penetration = 10
 	sundering = 1.5
@@ -182,7 +182,7 @@
 	handful_amount = 1
 	ping = null //no bounce off.
 	sound_bounce = SFX_ROCKET_BOUNCE
-	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_IFF
+	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_IFF
 	armor_type = BOMB
 	damage_falloff = 0.5
 	shell_speed = 2
@@ -217,7 +217,7 @@
 /datum/ammo/bullet/ags_spread
 	name = "Shrapnel"
 	icon_state = "flechette"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOB
 	accuracy_var_low = 15
 	accuracy_var_high = 5
 	max_range = 4
@@ -228,7 +228,7 @@
 
 /datum/ammo/bullet/ags_spread/incendiary
 	name = "White phosphorous shrapnel"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
 	damage = 20
 	penetration = 10
 	sundering = 1.5
@@ -287,7 +287,7 @@
 
 /datum/ammo/grenade_container/agls37
 	name = "grenade shell"
-	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_IFF
+	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_IFF
 	icon_state = "grenade_projectile"
 	hud_state = "grenade_he"
 	hud_state_empty = "grenade_empty"
