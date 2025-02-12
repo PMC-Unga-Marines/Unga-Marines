@@ -2,7 +2,7 @@
 	name = "submachinegun bullet"
 	hud_state = "smg"
 	hud_state_empty = "smg_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	accuracy_var_low = 7
 	accuracy_var_high = 7
 	damage = 17
@@ -22,7 +22,7 @@
 	name = "submachinegun ACP bullet"
 	hud_state = "smg"
 	hud_state_empty = "smg_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	accuracy_var_low = 7
 	accuracy_var_high = 7
 	damage = 20
@@ -47,7 +47,7 @@
 /datum/ammo/bullet/smg/acp/incendiary
 	name = "incendiary submachinegun ACP bullet"
 	hud_state = "smg_fire"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
 	incendiary_strength = 1
 	damage_type = BURN
 	damage = 10
@@ -61,7 +61,7 @@
 /datum/ammo/bullet/smg/hollow
 	name = "hollow-point submachinegun bullet"
 	hud_state = "pistol_squash"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	damage = 35
 	penetration = 0
 	damage_falloff = 3
@@ -70,7 +70,7 @@
 /datum/ammo/bullet/smg/incendiary
 	name = "incendiary submachinegun bullet"
 	hud_state = "smg_fire"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
 	damage = 18
 	penetration = 0
 

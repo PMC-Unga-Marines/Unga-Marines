@@ -12,13 +12,13 @@
 	name = "captain's cap"
 	desc = "You fear to wear it for the negligence it brings."
 	icon_state = "capcap"
-	flags_inventory = NONE
-	flags_inv_hide = NONE
-	flags_armor_protection = NONE
-	flags_cold_protection = HEAD
+	inventory_flags = NONE
+	inv_hide_flags = NONE
+	armor_protection_flags = NONE
+	cold_protection_flags = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.9
-	flags_armor_protection = NONE
+	armor_protection_flags = NONE
 	species_exception = list(/datum/species/robot)
 
 //Chaplain
@@ -26,10 +26,10 @@
 	name = "chaplain's hood"
 	desc = "It's hood that covers the head. It keeps you warm during the space winters."
 	icon_state = "chaplain_hood"
-	flags_inventory = COVEREYES
-	flags_inv_hide = HIDEEARS|HIDEALLHAIR
+	inventory_flags = COVEREYES
+	inv_hide_flags = HIDEEARS|HIDEALLHAIR
 	siemens_coefficient = 0.9
-	flags_armor_protection = HEAD|EYES
+	armor_protection_flags = HEAD|EYES
 	species_exception = list(/datum/species/robot)
 
 //Chaplain
@@ -37,8 +37,8 @@
 	name = "nun hood"
 	desc = "Maximum piety in this star system."
 	icon_state = "nun_hood"
-	flags_inventory = COVEREYES
-	flags_inv_hide = HIDEEARS|HIDEALLHAIR
+	inventory_flags = COVEREYES
+	inv_hide_flags = HIDEEARS|HIDEALLHAIR
 	siemens_coefficient = 0.9
 	species_exception = list(/datum/species/robot)
 
@@ -50,7 +50,7 @@
 	siemens_coefficient = 0.9
 	species_exception = list(/datum/species/robot)
 	soft_armor = MARINE_HAT_ARMOR
-	flags_armor_features = ARMOR_NO_DECAP
+	armor_features_flags = ARMOR_NO_DECAP
 
 //Security
 /obj/item/clothing/head/beret/sec
@@ -84,7 +84,7 @@
 	name = "surgical cap"
 	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs."
 	icon_state = "surgcap_blue"
-	flags_inv_hide = HIDETOPHAIR
+	inv_hide_flags = HIDETOPHAIR
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/surgery/purple
@@ -108,7 +108,7 @@
 	allowed = list(/obj/item/reagent_containers/food/snacks/candy_corn, /obj/item/tool/pen)
 	soft_armor = MARINE_HAT_ARMOR
 	siemens_coefficient = 0.9
-	flags_armor_protection = NONE
+	armor_protection_flags = NONE
 	species_exception = list(/datum/species/robot)
 
 /obj/item/clothing/head/det_hat/black

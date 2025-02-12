@@ -91,7 +91,7 @@
 	icon = 'icons/obj/items/ammo/rocket.dmi'
 	icon_state = "rocket"
 	w_class = WEIGHT_CLASS_NORMAL
-	flags_magazine = MAGAZINE_REFUND_IN_CHAMBER
+	magazine_flags = MAGAZINE_REFUND_IN_CHAMBER
 	max_rounds = 1
 	default_ammo = /datum/ammo/rocket
 	reload_delay = 60
@@ -407,37 +407,37 @@
 	desc = "A heavy reinforced backpack with support equipment, power cells, and spare rounds for the MG-100 Minigun System.\nClick the icon in the top left to reload your M56."
 	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "powerpack"
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BACK
-	flags_magazine = MAGAZINE_WORN
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BACK
+	magazine_flags = MAGAZINE_WORN
 	w_class = WEIGHT_CLASS_HUGE
 	default_ammo = /datum/ammo/bullet/minigun
 	current_rounds = 600
 	max_rounds = 600
-	flags_item_map_variant = (ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_PRISON_VARIANT)
+	item_map_variant_flags = (ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_PRISON_VARIANT)
 
 /obj/item/ammo_magazine/minigun_powerpack/snow
 	icon_state = "s_powerpack"
-	flags_item_map_variant = null
+	item_map_variant_flags = null
 
 /obj/item/ammo_magazine/minigun_powerpack/fancy
 	icon_state = "powerpackw"
-	flags_item_map_variant = null
+	item_map_variant_flags = null
 
 /obj/item/ammo_magazine/minigun_powerpack/merc
 	icon_state = "powerpackp"
-	flags_item_map_variant = null
+	item_map_variant_flags = null
 
 /obj/item/ammo_magazine/minigun_powerpack/smartgun
 	name = "\improper SG-85 powerpack"
 	desc = "A reinforced backpack heavy with the IFF altered ammunition, onboard micro generator, and extensive cooling system which enables the SG-85 gatling gun to operate. \nUse the SG-85 on the backpack itself to connect them."
 	icon_state = "powerpacksg"
-	flags_magazine = MAGAZINE_WORN|MAGAZINE_REFILLABLE
+	magazine_flags = MAGAZINE_WORN|MAGAZINE_REFILLABLE
 	default_ammo = /datum/ammo/bullet/smart_minigun
 	current_rounds = 1000
 	max_rounds = 1000
 	caliber = CALIBER_10X26_CASELESS
-	flags_item_map_variant = null
+	item_map_variant_flags = null
 
 
 // ICC coilgun

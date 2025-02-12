@@ -91,7 +91,7 @@
 	if(CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		to_chat(user, span_warning("[I] can't cut through this!"))
 		return FALSE
-	if(!I.powered || (I.flags_item & NOBLUDGEON))
+	if(!I.powered || (I.item_flags & NOBLUDGEON))
 		return FALSE
 	if(!I.start_cut(user, name, src))
 		return FALSE

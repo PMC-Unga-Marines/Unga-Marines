@@ -30,7 +30,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	///Determines the amount of pixels to move the icon state for the overlay. in the y direction
 	var/pixel_shift_y = 16
 
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	w_class = WEIGHT_CLASS_SMALL
 	force = 1
 	///ATTACHMENT_SLOT_MUZZLE, ATTACHMENT_SLOT_RAIL, ATTACHMENT_SLOT_UNDER, ATTACHMENT_SLOT_STOCK the particular 'slot' the attachment can attach to. must always be a singular slot.
@@ -115,7 +115,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	var/activation_sound = 'sound/machines/click.ogg'
 
 	///various yes no flags associated with attachments. See defines for these: [ATTACH_REMOVABLE]
-	var/flags_attach_features = ATTACH_REMOVABLE
+	var/attach_features_flags = ATTACH_REMOVABLE
 
 	///only used by lace, denotes whether the lace is currently deployed
 	var/lace_deployed = FALSE
@@ -152,7 +152,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 
 /obj/item/attachable/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/attachment, slot, icon, PROC_REF(on_attach), PROC_REF(on_detach), PROC_REF(activate), PROC_REF(can_attach), pixel_shift_x, pixel_shift_y, flags_attach_features, attach_delay, detach_delay, attach_skill, attach_skill_upper_threshold, attach_sound)
+	AddElement(/datum/element/attachment, slot, icon, PROC_REF(on_attach), PROC_REF(on_detach), PROC_REF(activate), PROC_REF(can_attach), pixel_shift_x, pixel_shift_y, attach_features_flags, attach_delay, detach_delay, attach_skill, attach_skill_upper_threshold, attach_sound)
 
 ///Called when the attachment is attached to something. If it is a gun it will update the guns stats.
 /obj/item/attachable/proc/on_attach(attaching_item, mob/user)
@@ -312,7 +312,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 			master_gun.fire_sound = initial(master_gun.fire_sound)
 
 /obj/item/attachable/ui_action_click(mob/living/user, datum/action/item_action/action, obj/item/weapon/gun/G)
-	if(G == user.get_active_held_item() || G == user.get_inactive_held_item() || CHECK_BITFIELD(G.flags_item, IS_DEPLOYED))
+	if(G == user.get_active_held_item() || G == user.get_inactive_held_item() || CHECK_BITFIELD(G.item_flags, IS_DEPLOYED))
 		if(activate(user)) //success
 			playsound(user, activation_sound, 15, 1)
 	else

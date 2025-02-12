@@ -77,7 +77,7 @@
 	///What sound gets played when the item is tactical refilled
 	var/refill_sound = null
 	///Flags for specifically storage items
-	var/flags_storage = NONE
+	var/storage_flags = NONE
 
 /obj/item/storage/MouseDrop(atom/over_object)
 	if(!ishuman(usr))
@@ -660,7 +660,7 @@
 			continue
 		if(!blocking_object.density)
 			continue
-		if(blocking_object.flags_atom & ON_BORDER && blocking_object.dir != user.dir)
+		if(blocking_object.atom_flags & ON_BORDER && blocking_object.dir != user.dir)
 			continue
 		return
 

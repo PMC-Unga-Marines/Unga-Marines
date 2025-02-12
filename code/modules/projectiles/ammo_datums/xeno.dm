@@ -4,7 +4,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	icon_state = "neurotoxin"
 	ping = "ping_x"
 	damage_type = TOX
-	flags_ammo_behavior = AMMO_XENO
+	ammo_behavior_flags = AMMO_XENO
 	armor_type = BIO
 	shell_speed = 1
 	accuracy = 40
@@ -34,7 +34,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/toxin
 	icon_state = "transvitox"
 	name = "transvitox spit"
-	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
+	ammo_behavior_flags = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
 	spit_cost = 55
 	added_spit_delay = 0
 	damage_type = STAMINA
@@ -125,7 +125,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/tox_loss
 	name = "toxin spit"
 	icon_state = "transvitox"
-	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
+	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS
 	spit_cost = 50
 	added_spit_delay = 0
 	damage_type = STAMINA
@@ -154,7 +154,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	name = "sticky resin spit"
 	icon_state = "sticky"
 	ping = null
-	flags_ammo_behavior = AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF|AMMO_XENO
+	ammo_behavior_flags = AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF|AMMO_XENO
 	damage_type = STAMINA
 	armor_type = BIO
 	spit_cost = 50
@@ -246,7 +246,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	damage_type = BURN
 	added_spit_delay = 5
 	spit_cost = 50
-	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF
+	ammo_behavior_flags = AMMO_XENO|AMMO_TARGET_TURF
 	armor_type = ACID
 	damage = 18
 	max_range = 8
@@ -267,7 +267,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/acid/medium
 	name = "acid spatter"
 	damage = 30
-	flags_ammo_behavior = AMMO_XENO
+	ammo_behavior_flags = AMMO_XENO
 	icon_state = "xeno_acid_normal"
 	bullet_color = COLOR_VERY_PALE_LIME_GREEN
 
@@ -277,7 +277,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	new /obj/effect/xenomorph/spray(T, puddle_duration, puddle_acid_damage)
 
 /datum/ammo/xeno/acid/medium/passthrough //Spitter
-	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
+	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS
 
 /datum/ammo/xeno/acid/auto
 	name = "light acid spatter"
@@ -285,7 +285,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	damage_falloff = 0.3
 	spit_cost = 25
 	added_spit_delay = 0
-	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
+	ammo_behavior_flags = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
 
 /datum/ammo/xeno/acid/auto/on_hit_mob(mob/M, obj/projectile/P)
 	var/turf/T = get_turf(M)
@@ -303,7 +303,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/acid/passthrough
 	name = "acid spittle"
 	damage = 20
-	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS
+	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS
 
 /datum/ammo/xeno/acid/heavy
 	name = "acid splash"
@@ -319,7 +319,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	new /obj/effect/xenomorph/spray/strong(T, puddle_duration, puddle_acid_damage)
 
 /datum/ammo/xeno/acid/heavy/passthrough //Praetorian
-	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
+	ammo_behavior_flags = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
 
 /datum/ammo/xeno/acid/heavy/turret
 	damage = 20
@@ -350,7 +350,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 ///For the Spitter's Scatterspit ability
 /datum/ammo/xeno/acid/heavy/scatter
 	damage = 20
-	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
+	ammo_behavior_flags = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
 	bonus_projectiles_type = /datum/ammo/xeno/acid/heavy/scatter
 	bonus_projectiles_amount = 6
 	bonus_projectiles_scatter = 2
@@ -378,7 +378,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	var/icon_key = BOILER_GLOB_NEURO
 	///This text will show up when a boiler selects this ammo. Span proc should be applied when this var is used.
 	var/select_text = "We will now fire neurotoxic gas. This is nonlethal."
-	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF
+	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF
 	var/danger_message = span_danger("A glob of acid lands with a splat and explodes into noxious fumes!")
 	armor_type = BIO
 	accuracy_var_high = 10
@@ -427,7 +427,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 /datum/ammo/xeno/boiler_gas/New()
 	. = ..()
-	if((flags_ammo_behavior & AMMO_LEAVE_TURF) && passed_turf_smoke_type)
+	if((ammo_behavior_flags & AMMO_LEAVE_TURF) && passed_turf_smoke_type)
 		trail_spread_system = new passed_turf_smoke_type(only_once = FALSE)
 
 /datum/ammo/xeno/boiler_gas/Destroy()
@@ -495,7 +495,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	sound_bounce = SFX_ACID_BOUNCE
 	icon_key = BOILER_GLOB_ACID
 	select_text = "We will now fire corrosive acid. This is lethal!"
-	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF
+	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF
 	armor_type = ACID
 	danger_message = span_danger("A glob of acid lands with a splat and explodes into corrosive bile!")
 	damage = 50
@@ -526,7 +526,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	icon_key = BOILER_GLOB_NEURO_LANCE
 	select_text = "We will now fire a pressurized neurotoxic lance. This is barely nonlethal."
 	///As opposed to normal globs, this will pass by the target tile if they hit nothing.
-	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_LEAVE_TURF
+	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_LEAVE_TURF
 	danger_message = span_danger("A pressurized glob of acid lands with a nasty splat and explodes into noxious fumes!")
 	max_range = 40
 	damage = 75
@@ -546,7 +546,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	icon_key = BOILER_GLOB_ACID_LANCE
 	select_text = "We will now fire a pressurized corrosive lance. This lethal!"
 	///As opposed to normal globs, this will pass by the target tile if they hit nothing.
-	flags_ammo_behavior = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_LEAVE_TURF
+	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_LEAVE_TURF
 	danger_message = span_danger("A pressurized glob of acid lands with a concerning hissing sound and explodes into corrosive bile!")
 	max_range = 40
 	damage = 75
@@ -563,7 +563,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/hugger
 	name = "hugger ammo"
 	ping = ""
-	flags_ammo_behavior = AMMO_XENO
+	ammo_behavior_flags = AMMO_XENO
 	damage = 0
 	max_range = 6
 	shell_speed = 1
@@ -610,7 +610,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	icon_state = "widow_snareball"
 	ping = "ping_x"
 	damage_type = STAMINA
-	flags_ammo_behavior = AMMO_SKIPS_ALIENS | AMMO_TARGET_TURF
+	ammo_behavior_flags = AMMO_SKIPS_ALIENS | AMMO_TARGET_TURF
 	bullet_color = COLOR_PURPLE
 	ping = null
 	damage = 0
@@ -645,7 +645,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	sound_bounce = "alien_resin_build3"
 	damage_type = STAMINA
 	bullet_color = COLOR_PURPLE
-	flags_ammo_behavior = AMMO_SKIPS_ALIENS
+	ammo_behavior_flags = AMMO_SKIPS_ALIENS
 	ping = null
 	armor_type = BIO
 	accurate_range = 8

@@ -19,9 +19,9 @@
 	singular_name = "composite sheet"
 	icon_state = "CuFe_composite"
 	item_state = "CuFe_composite"
-	flags_item = NOBLUDGEON
+	item_flags = NOBLUDGEON
 	throwforce = 14
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	merge_type = /obj/item/stack/sheet/composite
 	number_of_extra_variants = 1
 
@@ -34,9 +34,9 @@
 	singular_name = "steel sheet"
 	icon_state = "jeweler_steel"
 	item_state = "jeweler_steel"
-	flags_item = NOBLUDGEON
+	item_flags = NOBLUDGEON
 	throwforce = 14
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	merge_type = /obj/item/stack/sheet/jeweler_steel
 	number_of_extra_variants = 3
 

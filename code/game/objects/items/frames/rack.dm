@@ -7,7 +7,7 @@
 		slot_r_hand_str = 'icons/mob/inhands/equipment/engineering_right.dmi',
 	)
 	icon_state = "rack_parts"
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 
 /obj/item/frame/rack/attackby(obj/item/I, mob/user, params)
 	. = ..()

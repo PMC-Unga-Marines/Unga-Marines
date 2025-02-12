@@ -191,7 +191,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	if(!veh_ui || !veh_ui.current_veh_type)
 		return
 	var/obj/vehicle/sealed/armored/tanktype = veh_ui.current_veh_type
-	var/is_assault = initial(tanktype.flags_armored) & ARMORED_PURCHASABLE_ASSAULT
+	var/is_assault = initial(tanktype.armored_flags) & ARMORED_PURCHASABLE_ASSAULT
 	if(GLOB.purchased_tanks[user.faction]?["[is_assault]"])
 		to_chat(usr, span_danger("A vehicle of this type has already been purchased!"))
 		return

@@ -31,7 +31,7 @@
 	light_mod = 6
 	light_system = MOVABLE_LIGHT
 	slot = ATTACHMENT_SLOT_RAIL
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
+	attach_features_flags = ATTACH_REMOVABLE|ATTACH_ACTIVATION
 	attachment_action_type = /datum/action/item_action/toggle
 	activation_sound = 'sound/items/flashlight.ogg'
 
@@ -84,7 +84,7 @@
 	desc = "A simple flashlight used for mounting on a firearm. \nHas no drawbacks, but isn't particuraly useful outside of providing a light source."
 	icon_state = "uflashlight"
 	slot = ATTACHMENT_SLOT_UNDER
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION
+	attach_features_flags = ATTACH_REMOVABLE|ATTACH_ACTIVATION
 
 /obj/item/attachable/quickfire
 	name = "quickfire adapter"
@@ -142,7 +142,7 @@
 
 /obj/item/attachable/buildasentry/on_attach(attaching_item, mob/user)
 	. = ..()
-	ENABLE_BITFIELD(master_gun.flags_item, IS_DEPLOYABLE|IS_SENTRY)
+	ENABLE_BITFIELD(master_gun.item_flags, IS_DEPLOYABLE|IS_SENTRY)
 	master_gun.deployable_item = /obj/machinery/deployable/mounted/sentry/buildasentry
 	master_gun.turret_flags |= TURRET_HAS_CAMERA|TURRET_SAFETY|TURRET_ALERTS
 	master_gun.AddComponent(/datum/component/deployable_item, master_gun.deployable_item, deploy_time, undeploy_time)
@@ -151,7 +151,7 @@
 /obj/item/attachable/buildasentry/on_detach(detaching_item, mob/user)
 	. = ..()
 	var/obj/item/weapon/gun/detaching_gun = detaching_item
-	DISABLE_BITFIELD(detaching_gun.flags_item, IS_DEPLOYABLE|IS_SENTRY)
+	DISABLE_BITFIELD(detaching_gun.item_flags, IS_DEPLOYABLE|IS_SENTRY)
 	qdel(detaching_gun.GetComponent(/datum/component/deployable_item))
 	detaching_gun.deployable_item = null
 	detaching_gun.turret_flags &= ~(TURRET_HAS_CAMERA|TURRET_SAFETY|TURRET_ALERTS)
@@ -174,15 +174,15 @@
 /obj/item/attachable/shoulder_mount/on_attach(attaching_item, mob/user)
 	. = ..()
 	var/obj/item/weapon/gun/attaching_gun = attaching_item
-	ENABLE_BITFIELD(flags_attach_features, ATTACH_BYPASS_ALLOWED_LIST|ATTACH_APPLY_ON_MOB)
-	attaching_gun.AddElement(/datum/element/attachment, ATTACHMENT_SLOT_MODULE, icon, null, null, null, null, 0, 0, flags_attach_features, attach_delay, detach_delay, attach_skill, attach_skill_upper_threshold, attach_sound, attachment_layer = COLLAR_LAYER)
+	ENABLE_BITFIELD(attach_features_flags, ATTACH_BYPASS_ALLOWED_LIST|ATTACH_APPLY_ON_MOB)
+	attaching_gun.AddElement(/datum/element/attachment, ATTACHMENT_SLOT_MODULE, icon, null, null, null, null, 0, 0, attach_features_flags, attach_delay, detach_delay, attach_skill, attach_skill_upper_threshold, attach_sound, attachment_layer = COLLAR_LAYER)
 	RegisterSignal(attaching_gun, COMSIG_ATTACHMENT_ATTACHED, PROC_REF(handle_armor_attach))
 	RegisterSignal(attaching_gun, COMSIG_ATTACHMENT_DETACHED, PROC_REF(handle_armor_detach))
 
 /obj/item/attachable/shoulder_mount/on_detach(detaching_item, mob/user)
 	var/obj/item/weapon/gun/detaching_gun = detaching_item
-	detaching_gun.RemoveElement(/datum/element/attachment, ATTACHMENT_SLOT_MODULE, icon, null, null, null, null, 0, 0, flags_attach_features, attach_delay, detach_delay, attach_skill, attach_skill_upper_threshold, attach_sound, attachment_layer = COLLAR_LAYER)
-	DISABLE_BITFIELD(flags_attach_features, ATTACH_BYPASS_ALLOWED_LIST|ATTACH_APPLY_ON_MOB)
+	detaching_gun.RemoveElement(/datum/element/attachment, ATTACHMENT_SLOT_MODULE, icon, null, null, null, null, 0, 0, attach_features_flags, attach_delay, detach_delay, attach_skill, attach_skill_upper_threshold, attach_sound, attachment_layer = COLLAR_LAYER)
+	DISABLE_BITFIELD(attach_features_flags, ATTACH_BYPASS_ALLOWED_LIST|ATTACH_APPLY_ON_MOB)
 	UnregisterSignal(detaching_gun, list(COMSIG_ATTACHMENT_ATTACHED, COMSIG_ATTACHMENT_DETACHED))
 	return ..()
 
@@ -193,13 +193,13 @@
 
 /obj/item/attachable/shoulder_mount/activate(mob/user, turn_off)
 	. = ..()
-	if(CHECK_BITFIELD(master_gun.flags_item, IS_DEPLOYED))
-		DISABLE_BITFIELD(master_gun.flags_item, IS_DEPLOYED)
+	if(CHECK_BITFIELD(master_gun.item_flags, IS_DEPLOYED))
+		DISABLE_BITFIELD(master_gun.item_flags, IS_DEPLOYED)
 		UnregisterSignal(user, COMSIG_MOB_MOUSEDOWN)
 		master_gun.set_gun_user(null)
 		. = FALSE
 	else if(!turn_off)
-		ENABLE_BITFIELD(master_gun.flags_item, IS_DEPLOYED)
+		ENABLE_BITFIELD(master_gun.item_flags, IS_DEPLOYED)
 		update_icon()
 		master_gun.set_gun_user(user)
 		RegisterSignal(user, COMSIG_MOB_MOUSEDOWN, PROC_REF(handle_firing))
@@ -265,7 +265,7 @@
 	if(source.Adjacent(object))
 		return
 	var/mob/living/user = master_gun.gun_user
-	if(user.incapacitated()  || user.lying_angle || LAZYACCESS(user.do_actions, src) || !user.dextrous || (!CHECK_BITFIELD(master_gun.flags_gun_features, GUN_ALLOW_SYNTHETIC) && !CONFIG_GET(flag/allow_synthetic_gun_use) && issynth(user)))
+	if(user.incapacitated()  || user.lying_angle || LAZYACCESS(user.do_actions, src) || !user.dextrous || (!CHECK_BITFIELD(master_gun.gun_features_flags, GUN_ALLOW_SYNTHETIC) && !CONFIG_GET(flag/allow_synthetic_gun_use) && issynth(user)))
 		return
 	var/active_hand = user.get_active_held_item()
 	var/inactive_hand = user.get_inactive_held_item()
@@ -309,6 +309,6 @@
 		to_chat(user, span_warning("[src] beeps. Guns or shields in your hands are interfering with its targetting. Stopping fire."))
 		master_gun.stop_fire()
 		return
-	if(!user.incapacitated() && !user.lying_angle && !LAZYACCESS(user.do_actions, src) && user.dextrous && (CHECK_BITFIELD(master_gun.flags_gun_features, GUN_ALLOW_SYNTHETIC) || CONFIG_GET(flag/allow_synthetic_gun_use) || !issynth(user)))
+	if(!user.incapacitated() && !user.lying_angle && !LAZYACCESS(user.do_actions, src) && user.dextrous && (CHECK_BITFIELD(master_gun.gun_features_flags, GUN_ALLOW_SYNTHETIC) || CONFIG_GET(flag/allow_synthetic_gun_use) || !issynth(user)))
 		return
 	master_gun.stop_fire()

@@ -23,18 +23,18 @@
 	COOLDOWN_DECLARE(silo_proxy_alert_cooldown)
 
 /obj/structure/xeno/silo/Initialize(mapload, _hivenumber)
-	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_SILO_NO_LARVA))
+	if(CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_SILO_NO_LARVA))
 		xeno_structure_flags &= ~CRITICAL_STRUCTURE
 	. = ..()
 	center_turf = get_step(src, NORTHEAST)
 	if(!istype(center_turf))
 		center_turf = loc
 
-	if(SSticker.mode?.flags_round_type & MODE_SILO_RESPAWN)
+	if(SSticker.mode?.round_type_flags & MODE_SILO_RESPAWN)
 		for(var/turfs in RANGE_TURFS(XENO_SILO_DETECTION_RANGE, src))
 			RegisterSignal(turfs, COMSIG_ATOM_ENTERED, PROC_REF(resin_silo_proxy_alert))
 
-	if(SSticker.mode?.flags_round_type & MODE_SILOS_SPAWN_MINIONS)
+	if(SSticker.mode?.round_type_flags & MODE_SILOS_SPAWN_MINIONS)
 		SSspawning.registerspawner(src, INFINITY, GLOB.xeno_ai_spawnable, 0, 0, CALLBACK(src, PROC_REF(on_spawn)))
 		SSspawning.spawnerdata[src].required_increment = 2 * max(45 SECONDS, 3 MINUTES - SSmonitor.maximum_connected_players_count * SPAWN_RATE_PER_PLAYER)/SSspawning.wait
 		SSspawning.spawnerdata[src].max_allowed_mobs = max(1, MAX_SPAWNABLE_MOB_PER_PLAYER * SSmonitor.maximum_connected_players_count * 0.5)

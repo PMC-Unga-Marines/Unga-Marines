@@ -21,13 +21,13 @@
 	name = "identification card"
 	desc = "A card used to provide ID and determine access to a large array of machinery."
 	icon_state = "id"
-	flags_equip_slot = ITEM_SLOT_ID
+	equip_slot_flags = ITEM_SLOT_ID
 	///The access this id card has
 	var/access = list()
 	/// The name registered_name on the card
 	var/registered_name = "Unknown"
 	///Miscelaneous ID flags
-	var/flags_id = CAN_BUY_LOADOUT
+	var/id_flags = CAN_BUY_LOADOUT
 	///Blood type of the person that has it.
 	var/blood_type = "\[UNSET\]"
 

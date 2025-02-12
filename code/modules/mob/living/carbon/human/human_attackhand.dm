@@ -42,11 +42,11 @@
 				to_chat(H, span_boldnotice("You can't help this one, [p_they()] [p_have()] no lungs!"))
 				return FALSE
 
-			if((head && (head.flags_inventory & COVERMOUTH)) || (wear_mask && (wear_mask.flags_inventory & COVERMOUTH)))
+			if((head && (head.inventory_flags & COVERMOUTH)) || (wear_mask && (wear_mask.inventory_flags & COVERMOUTH)))
 				to_chat(H, span_boldnotice("Remove [p_their()] mask!"))
 				return FALSE
 
-			if((H.head && (H.head.flags_inventory & COVERMOUTH)) || (H.wear_mask && (H.wear_mask.flags_inventory & COVERMOUTH)))
+			if((H.head && (H.head.inventory_flags & COVERMOUTH)) || (H.wear_mask && (H.wear_mask.inventory_flags & COVERMOUTH)))
 				to_chat(H, span_boldnotice("Remove your mask!"))
 				return FALSE
 

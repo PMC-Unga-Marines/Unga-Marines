@@ -466,7 +466,7 @@
 	icon_state = "mortar"
 	max_integrity = 200
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 15, BIO = 100, FIRE = 0, ACID = 0)
-	flags_item = IS_DEPLOYABLE
+	item_flags = IS_DEPLOYABLE
 	/// What item is this going to deploy when we put down the mortar?
 	var/deployable_item = /obj/machinery/deployable/mortar
 	resistance_flags = XENO_DAMAGEABLE
@@ -496,7 +496,7 @@
 	icon_state = "mortar_db"
 	icon = 'icons/obj/artillery/mortar_double.dmi'
 	max_integrity = 400
-	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	w_class = WEIGHT_CLASS_HUGE
 	deployable_item = /obj/machinery/deployable/mortar/double
 
@@ -517,7 +517,7 @@
 	icon = 'icons/obj/artillery/howitzer.dmi'
 	icon_state = "howitzer"
 	max_integrity = 400
-	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	w_class = WEIGHT_CLASS_HUGE
 	deployable_item = /obj/machinery/deployable/mortar/howitzer
 
@@ -603,7 +603,7 @@
 	icon_state = "mlrs"
 	icon = 'icons/obj/artillery/mlrs.dmi'
 	max_integrity = 400
-	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	w_class = WEIGHT_CLASS_HUGE
 	deployable_item = /obj/machinery/deployable/mortar/howitzer/mlrs
 
@@ -700,7 +700,7 @@
 	)
 	icon_state = "mortar_ammo_cas"
 	w_class = WEIGHT_CLASS_SMALL
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	///Ammo datum typepath that the shell uses
 	var/ammo_type
 

@@ -18,7 +18,7 @@ Turn() or Shift() as there is virtually no overhead. ~N
 	w_class = WEIGHT_CLASS_TINY
 	layer = LOWER_ITEM_LAYER //Below other objects
 	dir = 1 //Always north when it spawns.
-	flags_atom = CONDUCT|DIRLOCK
+	atom_flags = CONDUCT|DIRLOCK
 	///This is manipulated in the procs that use these.
 	var/current_casings = 1
 	///Maximum amount of casings 1 stack can have

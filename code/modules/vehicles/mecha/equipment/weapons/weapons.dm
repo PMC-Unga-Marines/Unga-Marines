@@ -152,7 +152,7 @@
 	var/mob/living/living_firer = firer
 	if(living_firer.has_status_effect(STATUS_EFFECT_STAGGER))
 		projectile_to_fire.damage *= STAGGER_DAMAGE_MULTIPLIER
-	if((projectile_to_fire.ammo.flags_ammo_behavior & AMMO_IFF) && ishuman(firer))
+	if((projectile_to_fire.ammo.ammo_behavior_flags & AMMO_IFF) && ishuman(firer))
 		var/mob/living/carbon/human/human_firer = firer
 		var/obj/item/card/id/id = human_firer.get_idcard()
 		projectile_to_fire.iff_signal = id?.iff_signal
@@ -167,7 +167,7 @@
 	if(dir_target_diff > (MECH_FIRE_CONE_ALLOWED * 0.5))
 		return AUTOFIRE_CONTINUE
 
-	var/type_to_spawn = CHECK_BITFIELD(initial(ammotype.flags_ammo_behavior), AMMO_HITSCAN) ? /obj/projectile/hitscan : /obj/projectile
+	var/type_to_spawn = CHECK_BITFIELD(initial(ammotype.ammo_behavior_flags), AMMO_HITSCAN) ? /obj/projectile/hitscan : /obj/projectile
 	var/obj/projectile/projectile_to_fire = new type_to_spawn(get_turf(src), initial(ammotype.hitscan_effect_icon))
 	projectile_to_fire.generate_bullet(GLOB.ammo_list[ammotype])
 

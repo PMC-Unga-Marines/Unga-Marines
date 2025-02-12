@@ -2,7 +2,7 @@
 /datum/ammo/bullet
 	name = "default bullet"
 	icon_state = "bullet"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	sound_hit = SFX_BALLISTIC_HIT
 	sound_armor = SFX_BALLISTIC_ARMOR
 	sound_miss = SFX_BALLISTIC_MISS

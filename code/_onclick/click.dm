@@ -18,18 +18,18 @@
 	Note that this proc can be overridden, and is in the case of screen objects.
 */
 /atom/Click(location, control, params)
-	if(flags_atom & INITIALIZED)
+	if(atom_flags & INITIALIZED)
 		SEND_SIGNAL(src, COMSIG_CLICK, location, control, params, usr)
 		usr.ClickOn(src, location, params)
 
 
 /atom/DblClick(location, control, params)
-	if(flags_atom & INITIALIZED)
+	if(atom_flags & INITIALIZED)
 		usr.DblClickOn(src, params)
 
 
 /atom/MouseWheel(delta_x, delta_y, location, control, params)
-	if(flags_atom & INITIALIZED)
+	if(atom_flags & INITIALIZED)
 		usr.MouseWheelOn(src, delta_x, delta_y, params)
 
 
@@ -206,14 +206,14 @@
 	if(!T)
 		return FALSE
 	for(var/atom/movable/AM AS in T)
-		if(AM.flags_atom & PREVENT_CLICK_UNDER && AM.density && AM.layer > layer)
+		if(AM.atom_flags & PREVENT_CLICK_UNDER && AM.density && AM.layer > layer)
 			return TRUE
 	return FALSE
 
 
 /turf/IsObscured()
 	for(var/atom/movable/AM AS in src)
-		if(AM.flags_atom & PREVENT_CLICK_UNDER && AM.density)
+		if(AM.atom_flags & PREVENT_CLICK_UNDER && AM.density)
 			return TRUE
 	return FALSE
 
@@ -313,14 +313,14 @@
 	if(selected_ability.can_use_ability(A))
 		selected_ability.use_ability(A)
 
-#define TARGET_FLAGS_MACRO(flagname, typepath) \
+#define TARGET_MACRO_flags(flagname, typepath) \
 if(selected_ability.target_flags & flagname && !istype(A, typepath)){\
 	. = locate(typepath) in get_turf(A);\
 	if(.){\
 		return;}}
 
 /mob/living/carbon/proc/ability_target(atom/A)
-	TARGET_FLAGS_MACRO(ABILITY_MOB_TARGET, /mob/living)
+	TARGET_MACRO_flags(ABILITY_MOB_TARGET, /mob/living)
 	if(selected_ability.target_flags & ABILITY_TURF_TARGET)
 		return get_turf(A)
 	return A

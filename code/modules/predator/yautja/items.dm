@@ -55,9 +55,9 @@
 
 	soft_armor = list(MELEE = 20, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 25, BIO = 20, FIRE = 20, ACID = 20)
 
-	flags_armor_protection = CHEST|GROIN|ARMS
-	flags_item = ITEM_PREDATOR
-	flags_inventory = NONE
+	armor_protection_flags = CHEST|GROIN|ARMS
+	item_flags = ITEM_PREDATOR
+	inventory_flags = NONE
 	slowdown = 0
 	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
@@ -77,8 +77,8 @@
 	if(thrall)
 		return
 
-	flags_cold_protection = flags_armor_protection
-	flags_heat_protection = flags_armor_protection
+	cold_protection_flags = armor_protection_flags
+	heat_protection_flags = armor_protection_flags
 
 	if(legacy != "None")
 		switch(legacy)
@@ -129,8 +129,8 @@
 	name = "heavy clan armor"
 	desc = "A suit of armor with heavy padding. It looks old, yet functional."
 	icon_state = "fullarmor_ebony"
-	flags_armor_protection = CHEST|GROIN|ARMS|HEAD|LEGS
-	flags_item = ITEM_PREDATOR
+	armor_protection_flags = CHEST|GROIN|ARMS|HEAD|LEGS
+	item_flags = ITEM_PREDATOR
 
 	soft_armor = list(MELEE = 40, BULLET = 30, LASER = 35, ENERGY = 35, BOMB = 45, BIO = 40, FIRE = 30, ACID = 30)
 	slowdown = 0.7
@@ -157,8 +157,8 @@
 	item_icons = list(
 		slot_back_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
-	flags_equip_slot = ITEM_SLOT_BACK
-	flags_item = ITEM_PREDATOR
+	equip_slot_flags = ITEM_SLOT_BACK
+	item_flags = ITEM_PREDATOR
 	resistance_flags = UNACIDABLE
 	var/clan_rank_required = CLAN_RANK_ELDER_INT
 	var/councillor_override = FALSE
@@ -217,9 +217,9 @@
 
 	resistance_flags = UNACIDABLE
 	permeability_coefficient = 0.01
-	flags_inventory = NOSLIPPING
-	flags_armor_protection = FEET|LEGS
-	flags_item = ITEM_PREDATOR
+	inventory_flags = NOSLIPPING
+	armor_protection_flags = FEET|LEGS
+	item_flags = ITEM_PREDATOR
 
 	siemens_coefficient = 0.2
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
@@ -236,8 +236,8 @@
 		boot_number = 1
 	icon_state = "y-boots[boot_number]_[armor_material]"
 
-	flags_cold_protection = flags_armor_protection
-	flags_heat_protection = flags_armor_protection
+	cold_protection_flags = armor_protection_flags
+	heat_protection_flags = armor_protection_flags
 
 /obj/item/clothing/shoes/marine/yautja/update_icon_state()
 	return
@@ -272,10 +272,10 @@
 		slot_w_uniform_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 
-	flags_armor_protection = CHEST|GROIN|ARMS
-	flags_cold_protection = CHEST|GROIN|LEGS|ARMS|FEET|HANDS //Does not cover the head though.
-	flags_heat_protection = CHEST|GROIN|LEGS|ARMS|FEET|HANDS
-	flags_item = ITEM_PREDATOR
+	armor_protection_flags = CHEST|GROIN|ARMS
+	cold_protection_flags = CHEST|GROIN|LEGS|ARMS|FEET|HANDS //Does not cover the head though.
+	heat_protection_flags = CHEST|GROIN|LEGS|ARMS|FEET|HANDS
+	item_flags = ITEM_PREDATOR
 	has_sensor = 0
 	sensor_mode = 0
 	siemens_coefficient = 0.9
@@ -359,7 +359,7 @@
 
 	can_hold = list()
 	max_w_class = WEIGHT_CLASS_BULKY
-	flags_item = ITEM_PREDATOR
+	item_flags = ITEM_PREDATOR
 	storage_slots = 12
 	max_storage_space = 30
 
@@ -370,8 +370,8 @@
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "teleporter"
 
-	flags_item = ITEM_PREDATOR
-	flags_atom = CONDUCT
+	item_flags = ITEM_PREDATOR
+	atom_flags = CONDUCT
 	w_class = WEIGHT_CLASS_TINY
 	force = 1
 	throwforce = 1
@@ -501,7 +501,7 @@
 	var/variant = rand(1, 4) //Random sprite variant.
 	icon_state = "scalp_[variant]"
 	blood_color =  "#A10808" //So examine describes it as 'bloody'. Synths can't be scalped so it'll always be human blood.
-	flags_atom = NOBLOODY //Don't want the ugly item blood overlay ending up on this. We'll use our own blood overlay.
+	atom_flags = NOBLOODY //Don't want the ugly item blood overlay ending up on this. We'll use our own blood overlay.
 
 	var/image/blood_overlay = image('icons/obj/hunter/pred_gear.dmi', "scalp_[variant]_blood")
 	blood_overlay.appearance_flags = RESET_COLOR
@@ -867,7 +867,7 @@
 	item_state = "armor"
 	icon_state = "fullarmor_ebony"
 
-	flags_armor_protection = CHEST|GROIN|ARMS|HEAD|LEGS
+	armor_protection_flags = CHEST|GROIN|ARMS|HEAD|LEGS
 	soft_armor = list(MELEE = 20, BULLET = 30, LASER = 25, ENERGY = 25, BOMB = 30, BIO = 25, FIRE = 25, ACID = 25)
 	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
 	siemens_coefficient = 0.1
@@ -891,7 +891,7 @@
 	icon_state = "y-boots2_ebony"
 
 	resistance_flags = UNACIDABLE
-	flags_armor_protection = FEET|LEGS|GROIN
+	armor_protection_flags = FEET|LEGS|GROIN
 	soft_armor = list(MELEE = 20, BULLET = 30, LASER = 25, ENERGY = 25, BOMB = 30, BIO = 25, FIRE = 25, ACID = 25)
 
 /obj/item/card/id/bracer_chip
@@ -901,7 +901,7 @@
 	icon_state = "upp_key"
 	access = list(ACCESS_YAUTJA_SECURE)
 	w_class = WEIGHT_CLASS_TINY
-	flags_item = ITEM_PREDATOR
+	item_flags = ITEM_PREDATOR
 	paygrade = null
 
 /obj/item/card/id/bracer_chip/Initialize()
@@ -932,7 +932,7 @@
 	icon_state = "medicomp"
 	use_sound = "toolbox"
 	w_class = WEIGHT_CLASS_SMALL
-	flags_item = ITEM_PREDATOR
+	item_flags = ITEM_PREDATOR
 	storage_slots = 16
 	max_storage_space = 17
 	can_hold = list(
@@ -1003,7 +1003,7 @@
 /obj/item/armor_module/limb/skeleton
 	name = "How did you get this?"
 	desc = "A bone from a human."
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB|ATTACH_SEPERATE_MOB_OVERLAY|ATTACH_NO_HANDS
+	attach_features_flags = ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB|ATTACH_SEPERATE_MOB_OVERLAY|ATTACH_NO_HANDS
 	icon = 'icons/obj/items/skeleton.dmi'
 	attach_icon = 'icons/obj/items/skeleton.dmi'
 	mob_overlay_icon = 'icons/mob/hunter/pred_gear.dmi'

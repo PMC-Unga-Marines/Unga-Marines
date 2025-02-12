@@ -413,7 +413,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 		return
 	if(CHECK_BITFIELD(internal_gun.reciever_flags, AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION) && length(internal_gun.chamber_items))
 		INVOKE_ASYNC(internal_gun, TYPE_PROC_REF(/obj/item/weapon/gun, do_unique_action))
-	if(!CHECK_BITFIELD(internal_gun.flags_item, IS_DEPLOYED) || get_dist(src, gun_target) > range || (!CHECK_BITFIELD(get_dir(src, gun_target), dir) && !CHECK_BITFIELD(internal_gun.turret_flags, TURRET_RADIAL)) || !check_target_path(gun_target))
+	if(!CHECK_BITFIELD(internal_gun.item_flags, IS_DEPLOYED) || get_dist(src, gun_target) > range || (!CHECK_BITFIELD(get_dir(src, gun_target), dir) && !CHECK_BITFIELD(internal_gun.turret_flags, TURRET_RADIAL)) || !check_target_path(gun_target))
 		internal_gun.stop_fire()
 		firing = FALSE
 		update_minimap_icon()
@@ -496,7 +496,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 				continue
 			if(AM.type in GLOB.sentry_ignore_List) //todo:accurately populate GLOB.sentry_ignore_List
 				continue
-			if(AM.allow_pass_flags & (gun.ammo_datum_type::flags_ammo_behavior  & AMMO_ENERGY ? (PASS_GLASS|PASS_PROJECTILE) : PASS_PROJECTILE))
+			if(AM.allow_pass_flags & (gun.ammo_datum_type::ammo_behavior_flags  & AMMO_ENERGY ? (PASS_GLASS|PASS_PROJECTILE) : PASS_PROJECTILE))
 				continue
 			return FALSE
 
@@ -577,7 +577,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	var/obj/item/item = get_internal_item()
 	if(!item)
 		return
-	if(CHECK_BITFIELD(item.flags_item, DEPLOYED_NO_PICKUP))
+	if(CHECK_BITFIELD(item.item_flags, DEPLOYED_NO_PICKUP))
 		to_chat(user, span_notice("[src] is anchored in place and cannot be disassembled."))
 		return
 	if(!match_iff(user)) //You can't steal other faction's turrets
@@ -595,7 +595,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 		set_on(TRUE)
 		return
 
-	DISABLE_BITFIELD(attached_item.flags_item, IS_DEPLOYED)
+	DISABLE_BITFIELD(attached_item.item_flags, IS_DEPLOYED)
 
 	attached_item.reset()
 	user.unset_interaction()

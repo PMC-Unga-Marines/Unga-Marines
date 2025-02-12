@@ -5,7 +5,7 @@
 	icon = 'icons/obj/items/ammo/box.dmi'
 	icon_state = "big_ammo_box"
 	item_state = "big_ammo_box"
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	base_icon_state = "big_ammo_box"
 	///Ammunition type
 	var/default_ammo = /datum/ammo/bullet/rifle
@@ -38,7 +38,7 @@
 		if(!isturf(loc))
 			to_chat(user, span_warning("[src] must be on the ground to be used."))
 			return
-		if(AM.flags_magazine & MAGAZINE_REFILLABLE)
+		if(AM.magazine_flags & MAGAZINE_REFILLABLE)
 			if(default_ammo != AM.default_ammo)
 				to_chat(user, span_warning("Those aren't the same rounds. Better not mix them up."))
 				return
@@ -62,7 +62,7 @@
 				to_chat(user, span_notice("You refill [AM]."))
 			else
 				to_chat(user, span_notice("You put [S] rounds in [AM]."))
-		else if(AM.flags_magazine & MAGAZINE_HANDFUL)
+		else if(AM.magazine_flags & MAGAZINE_HANDFUL)
 			if(caliber != AM.caliber)
 				to_chat(user, span_warning("The rounds don't match up. Better not mix them up."))
 				return
@@ -128,7 +128,7 @@
 	item_state = "ammoboxslug"
 	base_icon_state = "ammoboxslug"
 	w_class = WEIGHT_CLASS_HUGE
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	///Current stored rounds
 	var/current_rounds = 200
 	///Maximum stored rounds

@@ -1,5 +1,5 @@
 /obj/item/weapon/energy
-	flags_atom = NOBLOODY
+	atom_flags = NOBLOODY
 
 /obj/item/weapon/energy/axe
 	name = "energy axe"
@@ -10,7 +10,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_NORMAL
-	flags_atom = CONDUCT|NOBLOODY
+	atom_flags = CONDUCT|NOBLOODY
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	sharp = IS_SHARP_ITEM_BIG
 	edge = 1
@@ -41,11 +41,11 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL
-	flags_atom = NOBLOODY
+	atom_flags = NOBLOODY
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	sharp = IS_SHARP_ITEM_BIG
 	edge = 1
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	///Sword color, if applicable
 	var/sword_color
 	///Force of the weapon when activated
