@@ -30,8 +30,7 @@
 
 
 //This proc returns a number made up of the flags for body parts which you are protected on. (such as HEAD, CHEST, GROIN, etc. See setup.dm for the full list)
-/mob/living/carbon/human/proc/get_heat_protection_flags(temperature) //Temperature is the temperature you're being exposed to.
-
+/mob/living/carbon/human/proc/get_heat_protection_flags_flags(temperature) //Temperature is the temperature you're being exposed to.
 	var/thermal_protection_flags = NONE
 
 	//Handle normal clothing
@@ -58,7 +57,7 @@
 
 
 /mob/living/carbon/human/proc/get_heat_protection_flags(temperature) //Temperature is the temperature you're being exposed to.
-	var/thermal_protection_flags = get_heat_protection_flags(temperature)
+	var/thermal_protection_flags = get_heat_protection_flags_flags(temperature)
 	var/thermal_protection = 0
 	if(thermal_protection_flags)
 		if(thermal_protection_flags & HEAD)
@@ -89,7 +88,7 @@
 
 
 //See proc/get_heat_protection_flags(temperature) for the description of this proc.
-/mob/living/carbon/human/proc/get_cold_protection_flags(temperature, deficit = 0)
+/mob/living/carbon/human/proc/get_cold_protection_flags_flags(temperature, deficit = 0)
 
 	var/thermal_protection_flags = NONE
 
@@ -123,7 +122,7 @@
 
 /mob/living/carbon/human/proc/get_cold_protection_flags(temperature)
 	temperature = max(temperature, 2.7) //There is an occasional bug where the temperature is miscalculated in ares with a small amount of gas on them, so this is necessary to ensure that that bug does not affect this calculation. Space's temperature is 2.7K and most suits that are intended to protect against any cold, protect down to 2.0K.
-	var/thermal_protection_flags = get_cold_protection_flags(temperature)
+	var/thermal_protection_flags = get_cold_protection_flags_flags(temperature)
 	var/thermal_protection = 0
 
 	if(thermal_protection_flags)
