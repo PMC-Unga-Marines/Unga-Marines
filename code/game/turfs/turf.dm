@@ -252,8 +252,6 @@
 	//hybrid lighting
 	var/list/old_hybrid_lights_affecting = hybrid_lights_affecting?.Copy()
 	var/old_directional_opacity = directional_opacity
-	//so the decals keep their look on the floor
-	var/old_turf_dir = dir
 	var/list/old_baseturfs = baseturfs
 
 	var/list/post_change_callbacks = list()
@@ -292,8 +290,6 @@
 	lighting_corner_SE = old_lighting_corner_SE
 	lighting_corner_SW = old_lighting_corner_SW
 	lighting_corner_NW = old_lighting_corner_NW
-
-	dir = old_turf_dir
 
 	var/area/thisarea = get_area(W)
 	//static Update
