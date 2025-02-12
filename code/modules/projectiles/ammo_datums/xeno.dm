@@ -662,7 +662,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 		return
 	playsound(get_turf(target_mob), SFX_SNAP, 30, falloff = 5)
 	var/mob/living/carbon/human/human_victim = target_mob
-	human_victim.apply_effect(hit_weaken, WEAKEN)
+	human_victim.apply_effect(hit_weaken, EFFECT_PARALYZE)
 
 /datum/ammo/energy/xeno
 	barricade_clear_distance = 0

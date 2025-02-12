@@ -125,7 +125,7 @@
 
 	var/mob/living/carbon/carbon = target
 	carbon.Immobilize(freeze_duration)
-	carbon.apply_effect(0.5, WEAKEN)
+	carbon.apply_effect(0.5, EFFECT_PARALYZE)
 
 	for(var/mob/living/carbon/human/human in oview(round(min(xeno_owner.life_kills_total, xeno_owner.max_bonus_life_kills) * 0.5 + 2), xeno_owner))
 		if(human.stat != DEAD)
@@ -189,7 +189,7 @@
 		xeno_owner.visible_message(span_xenouserdanger("[xeno_owner] rips open the guts of [carbon]!"), span_xenouserdanger("You rip open the guts of [carbon]!"))
 		carbon.spawn_gibs()
 		playsound(get_turf(carbon), 'sound/effects/gibbed.ogg', 75, 1)
-		carbon.apply_effect(0.5, WEAKEN)
+		carbon.apply_effect(0.5, EFFECT_PARALYZE)
 		carbon.apply_damage(base_damage + damage_scale * min(xeno_owner.life_kills_total, xeno_owner.max_bonus_life_kills), BRUTE, "chest", MELEE, FALSE, FALSE, TRUE, 20)
 
 		xeno_owner.do_attack_animation(carbon, ATTACK_EFFECT_CLAW)

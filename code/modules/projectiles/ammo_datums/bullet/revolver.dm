@@ -39,7 +39,7 @@
 	handful_icon_state = "nigro_sv"
 
 /datum/ammo/bullet/revolver/t500/slavs/on_hit_mob(mob/target_mob, obj/projectile/proj)
-	staggerstun(target_mob, proj, weaken = 2 SECONDS, knockback = 1)
+	staggerstun(target_mob, proj, paralyze = 2 SECONDS, knockback = 1)
 
 /datum/ammo/bullet/revolver/t500/qk
 	name = ".500 'Queen Killer' revolver bullet"
@@ -180,7 +180,7 @@
 	additional_xeno_penetration = 15
 
 /datum/ammo/bullet/revolver/t76/on_hit_mob(mob/target_mob, obj/projectile/proj)
-	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 0.5, slowdown = 1)
+	staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 0.5, slowdown = 1)
 
 /datum/ammo/bullet/revolver/highimpact
 	name = "high-impact revolver bullet"
@@ -191,7 +191,7 @@
 	additional_xeno_penetration = 15
 
 /datum/ammo/bullet/revolver/highimpact/on_hit_mob(mob/target_mob,obj/projectile/proj)
-	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 2 SECONDS, slowdown = 1, knockback = 1)
+	staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 2 SECONDS, slowdown = 1, knockback = 1)
 
 /datum/ammo/bullet/revolver/ricochet
 	bonus_projectiles_type = /datum/ammo/bullet/revolver/small

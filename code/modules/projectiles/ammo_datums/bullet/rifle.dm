@@ -286,7 +286,7 @@
 	sundering = 0.5
 
 /datum/ammo/bullet/sg153/tungsten/on_hit_mob(mob/target_mob,obj/projectile/proj)
-	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 0.5 SECONDS, knockback = 1, max_range = 12)
+	staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 0.5 SECONDS, knockback = 1, max_range = 12)
 
 /datum/ammo/bullet/sg153/flak
 	name = "smart flak spotting bullet"
@@ -320,7 +320,7 @@
 	on_pierce_multiplier = 0.85
 
 /datum/ammo/bullet/railgun/on_hit_mob(mob/target_mob, obj/projectile/proj)
-	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 4 SECONDS, slowdown = 2, knockback = 2)
+	staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 4 SECONDS, slowdown = 2, knockback = 2)
 
 /datum/ammo/bullet/railgun/hvap
 	name = "high velocity railgun slug"
@@ -359,7 +359,7 @@
 	on_pierce_multiplier = 0.85
 
 /datum/ammo/bullet/coilgun/on_hit_mob(mob/target_mob, obj/projectile/proj)
-	staggerstun(target_mob, proj, weaken = 0.2 SECONDS, slowdown = 1, knockback = 3)
+	staggerstun(target_mob, proj, paralyze = 0.2 SECONDS, slowdown = 1, knockback = 3)
 
 /datum/ammo/bullet/sarden
 	name = "heavy autocannon armor piercing"

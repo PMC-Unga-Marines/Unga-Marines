@@ -182,8 +182,8 @@
 			shake_camera(current_mob, 0.7 SECONDS)
 			to_chat(current_mob, span_warning("The deck of the [SSmapping.configs[SHIP_MAP].map_name] shudders as her orbital cannon opens fire."))
 			continue
-	playsound(loc, 'sound/effects/obfire.ogg', 100, FALSE, 20, 4)
-	if(current_mob.z != target.z)
+		playsound(loc, 'sound/effects/obfire.ogg', 100, FALSE, 20, 4)
+		if(current_mob.z != target.z)
 			continue
 		if(get_dist(current_mob, target) > WARHEAD_FALLING_SOUND_RANGE)
 			continue

@@ -166,7 +166,7 @@
 		user.visible_message(span_userdanger("[user] slices open the guts of [target]!"), span_userdanger("You slice open the guts of [target]!"))
 		target.spawn_gibs()
 		playsound(get_turf(target), 'sound/effects/gibbed.ogg', 30, 1)
-		target.apply_effect(1, WEAKEN)
+		target.apply_effect(1, EFFECT_PARALYZE)
 		target.apply_damage(force * 3, BRUTE, "chest", MELEE, FALSE, FALSE, TRUE, 65)
 
 		log_attack("[key_name(target)] was sliced by [key_name(user)] whirling their scythe.")

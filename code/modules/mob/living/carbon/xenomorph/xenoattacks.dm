@@ -104,7 +104,7 @@
 
 			xeno_attacker.visible_message("\The [xeno_attacker] shoves \the [src] out of her way!", \
 				span_warning("You shove \the [src] out of your way!"), null, 5)
-			apply_effect(1 SECONDS, WEAKEN)
+			apply_effect(1 SECONDS, EFFECT_PARALYZE)
 			return TRUE
 
 		if(INTENT_GRAB)
