@@ -92,6 +92,7 @@
 #define ENDURE_TRAIT "endure" //Ravager Endure ability.
 #define RAGE_TRAIT "rage" //Ravager Rage ability.
 #define UNMANNED_VEHICLE "unmanned"
+#define MECH_VENDOR_TRAIT "mechvendor"
 #define REVIVE_TO_CRIT_TRAIT "revive_to_crit"
 #define GUN_TRAIT "gun" //Traits related to guns
 #define ZOMBIE_TRAIT "zombie"
@@ -141,7 +142,7 @@
 ///AM will not be submerged. Trait must ALWAYS be added via the add_nosubmerge_trait proc for correct behavior
 #define TRAIT_NOSUBMERGE "trait_nosubmerge"
 
-
+#define TRAIT_HAS_SPAWNED_MECH "has_spawned_mech"
 
 //added b grilling a food
 #define TRAIT_FOOD_GRILLED "food_grilled"
