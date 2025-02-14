@@ -36,36 +36,6 @@
 	///Whether the chamber can be spun for Russian Roulette. If False the chamber can be spun.
 	var/catchworking = TRUE
 
-/mob/living/carbon/human/verb/revolvertrick()
-	set category = "IC.Weapons"
-	set name = "Do a revolver trick"
-	set desc = "Show off to all your friends!"
-
-	var/obj/item/weapon/gun/revolver/gun = get_active_firearm(usr)
-	if(!gun)
-		return
-	if(!istype(gun))
-		return
-	gun.revolvertrick()
-
-/obj/item/weapon/gun/revolver/verb/revolvertrick()
-	set category = "IC.Weapons"
-	set name = "Do a revolver trick"
-	set desc = "Show off to all your friends!"
-
-	var/obj/item/weapon/gun/revolver/gun = get_active_firearm(usr)
-	if(!gun)
-		return
-	if(!istype(gun))
-		return
-	if(usr.do_actions)
-		src.balloon_alert(usr, "Busy!")
-		return
-	if(zoom)
-		to_chat(usr, span_warning("You cannot conceviably do that while looking down \the [src]'s scope!"))
-		return
-	do_trick(usr)
-
 /obj/item/weapon/gun/revolver/tactical_reload(obj/item/new_magazine, mob/living/carbon/human/user)
 	if(!istype(user) || user.incapacitated(TRUE) || user.do_actions)
 		return
