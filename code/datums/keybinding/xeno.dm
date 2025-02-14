@@ -726,28 +726,29 @@
 
 /datum/keybinding/xeno/dodge
 	name = "Dodge"
-	full_name = "Praetorian: Dodge"
-	description = "Gain a speed boost upon activation and the ability to pass through mobs. Enemies automatically receive bump attacks when passed."
+	full_name = "Dancer: Dodge"
+	description = "Flood your body with adrenaline, gaining a speed boost upon activation and the ability to pass through mobs. Enemies automatically receive bump attacks when passed."
 	keybind_signal = COMSIG_XENOABILITY_DODGE
 	hotkey_keys = list("Q")
 
 /datum/keybinding/xeno/impale
 	name = "Impale"
-	full_name = "Praetorian: Impale"
-	description = "Impale a marine next to you with your tail for moderate damage. Marked enemies are impaled twice."
+	full_name = "Dancer: Impale"
+	description = "Skewer an object next to you with your tail. The more debuffs on a living target, the greater the damage done. Penetrates the armor of marked targets."
 	keybind_signal = COMSIG_XENOABILITY_IMPALE
 	hotkey_keys = list("Z")
 
 /datum/keybinding/xeno/tail_trip
 	name = "Tail Trip"
-	full_name = "Praetorian: Tail Trip"
-	description = "Target a marine within two tiles of you to disorient and slows them. Marked enemies receive stronger debuffs and are stunned for a second."
+	full_name = "Dancer: Tail Trip"
+	description = "Twirl your tail around low to the ground, knocking over and disorienting any adjacent marines. Marked enemies receive stronger debuffs and are briefly stunned."
 	keybind_signal = COMSIG_XENOABILITY_TAIL_TRIP
 	hotkey_keys = list("R")
+
 /datum/keybinding/xeno/screech
 	name = "screech"
 	full_name = "Queen: Screech"
-	description = ""
+	description = "Screech, shortly stunning and deafening all nearby marines."
 	keybind_signal = COMSIG_XENOABILITY_SCREECH
 	hotkey_keys = list("E")
 
