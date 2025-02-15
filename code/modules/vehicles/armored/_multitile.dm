@@ -179,7 +179,6 @@
 	armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_SECONDARY_WEAPON|ARMORED_HAS_UNDERLAY|ARMORED_HAS_HEADLIGHTS|ARMORED_WRECKABLE
 	move_delay = 0.6 SECONDS
 	glide_size = 2.5
-	vis_range_mod = 4
 	ram_damage = 130
 
 /obj/vehicle/sealed/armored/multitile/campaign/Initialize(mapload)
