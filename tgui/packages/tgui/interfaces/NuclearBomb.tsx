@@ -1,4 +1,3 @@
-import { useBackend } from '../backend';
 import {
   AnimatedNumber,
   Box,
@@ -7,7 +6,10 @@ import {
   NoticeBox,
   ProgressBar,
   Section,
-} from '../components';
+  Stack,
+} from 'tgui-core/components';
+
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 type NuclearBombData = {

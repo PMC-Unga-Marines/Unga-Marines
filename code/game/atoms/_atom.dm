@@ -320,7 +320,7 @@ directive is properly returned.
 		. += desc
 	if(user.can_use_codex() && SScodex.get_codex_entry(get_codex_value()))
 		. += EXAMINE_SECTION_BREAK
-		. += span_notice("The codex has <a href='?_src_=codex;show_examined_info=[REF(src)];show_to=[REF(user)]'>relevant information</a> available.")
+		. += span_notice("The codex has <a href='byond://?_src_=codex;show_examined_info=[REF(src)];show_to=[REF(user)]'>relevant information</a> available.")
 
 	if((get_dist(user,src) <= 2) && reagents)
 		. += EXAMINE_SECTION_BREAK
@@ -637,11 +637,11 @@ directive is properly returned.
 	. += "---"
 	var/turf/curturf = get_turf(src)
 	if(curturf)
-		.["Jump to"] = "?_src_=holder;[HrefToken()];observecoordjump=1;X=[curturf.x];Y=[curturf.y];Z=[curturf.z]"
-	.["Modify Transform"] = "?_src_=vars;[HrefToken()];modtransform=[REF(src)]"
-	.["Add reagent"] = "?_src_=vars;[HrefToken()];addreagent=[REF(src)]"
-	.["Modify Filters"] = "?_src_=vars;[HrefToken()];filteredit=[REF(src)]"
-	.["Modify Greyscale Colors"] = "?_src_=vars;[HrefToken()];modify_greyscale=[REF(src)]"
+		.["Jump to"] = "byond://?_src_=holder;[HrefToken()];observecoordjump=1;X=[curturf.x];Y=[curturf.y];Z=[curturf.z]"
+	.["Modify Transform"] = "byond://?_src_=vars;[HrefToken()];modtransform=[REF(src)]"
+	.["Add reagent"] = "byond://?_src_=vars;[HrefToken()];addreagent=[REF(src)]"
+	.["Modify Filters"] = "byond://?_src_=vars;[HrefToken()];filteredit=[REF(src)]"
+	.["Modify Greyscale Colors"] = "byond://?_src_=vars;[HrefToken()];modify_greyscale=[REF(src)]"
 
 /atom/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SEND_SIGNAL(src, COMSIG_ATOM_ENTERED, arrived, old_loc, old_locs)

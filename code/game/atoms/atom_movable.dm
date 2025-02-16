@@ -767,12 +767,12 @@
 /atom/movable/vv_get_dropdown()
 	. = ..()
 	. += "---"
-	.["Follow"] = "?_src_=holder;[HrefToken()];observefollow=[REF(src)]"
-	.["Get"] = "?_src_=vars;[HrefToken()];getatom=[REF(src)]"
-	.["Send"] = "?_src_=vars;[HrefToken()];sendatom=[REF(src)]"
-	.["Delete All Instances"] = "?_src_=vars;[HrefToken()];delall=[REF(src)]"
-	.["Update Icon"] = "?_src_=vars;[HrefToken()];updateicon=[REF(src)]"
-	.["Edit Particles"] = "?_src_=vars;[HrefToken()];modify_particles=[REF(src)]"
+	.["Follow"] = "byond://?_src_=holder;[HrefToken()];observefollow=[REF(src)]"
+	.["Get"] = "byond://?_src_=vars;[HrefToken()];getatom=[REF(src)]"
+	.["Send"] = "byond://?_src_=vars;[HrefToken()];sendatom=[REF(src)]"
+	.["Delete All Instances"] = "byond://?_src_=vars;[HrefToken()];delall=[REF(src)]"
+	.["Update Icon"] = "byond://?_src_=vars;[HrefToken()];updateicon=[REF(src)]"
+	.["Edit Particles"] = "byond://?_src_=vars;[HrefToken()];modify_particles=[REF(src)]"
 
 
 /atom/movable/proc/get_language_holder(shadow = TRUE)

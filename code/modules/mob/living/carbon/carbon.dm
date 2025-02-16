@@ -259,7 +259,7 @@
 	. = ..()
 	. += "---"
 	. -= "Update Icon"
-	.["Regenerate Icons"] = "?_src_=vars;[HrefToken()];regenerateicons=[REF(src)]"
+	.["Regenerate Icons"] = "byond://?_src_=vars;[HrefToken()];regenerateicons=[REF(src)]"
 
 /mob/living/carbon/update_tracking(mob/living/carbon/C)
 	var/atom/movable/screen/LL_dir = hud_used.SL_locator

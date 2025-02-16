@@ -160,10 +160,10 @@
 /datum/proc/vv_get_dropdown()
 	. = list()
 	. += "---"
-	.["Call Proc"] = "?_src_=vars;[HrefToken()];[VV_HK_CALLPROC]=[REF(src)]"
-	.["Mark Object"] = "?_src_=vars;[HrefToken()];[VV_HK_MARK]=[REF(src)]"
-	.["Delete"] = "?_src_=vars;[HrefToken()];[VV_HK_DELETE]=[REF(src)]"
-	.["Show VV To Player"] = "?_src_=vars;[HrefToken()];[VV_HK_EXPOSE]=[REF(src)]"
+	.["Call Proc"] = "byond://?_src_=vars;[HrefToken()];[VV_HK_CALLPROC]=[REF(src)]"
+	.["Mark Object"] = "byond://?_src_=vars;[HrefToken()];[VV_HK_MARK]=[REF(src)]"
+	.["Delete"] = "byond://?_src_=vars;[HrefToken()];[VV_HK_DELETE]=[REF(src)]"
+	.["Show VV To Player"] = "byond://?_src_=vars;[HrefToken()];[VV_HK_EXPOSE]=[REF(src)]"
 
 
 /client/proc/debug_variables(datum/D in world)
@@ -210,27 +210,27 @@
 	if(istype(D, /atom))
 		var/atom/A = D
 		if(ismob(A))
-			atomsnowflake += "<a href='?_src_=vars;[HrefToken()];rename=[refid]'><b id='name'>[D]</b></a>"
+			atomsnowflake += "<a href='byond://?_src_=vars;[HrefToken()];rename=[refid]'><b id='name'>[D]</b></a>"
 		else
-			atomsnowflake += "<a href='?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=name'><b id='name'>[D]</b></a>"
-			atomsnowflake += "<br><font size='1'><a href='?_src_=vars;[HrefToken()];rotatedatum=[refid];rotatedir=left'><<</a> <a href='?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=dir' id='dir'>[dir2text(A.dir) || A.dir]</a> <a href='?_src_=vars;[HrefToken()];rotatedatum=[refid];rotatedir=right'>>></a></font>"
+			atomsnowflake += "<a href='byond://?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=name'><b id='name'>[D]</b></a>"
+			atomsnowflake += "<br><font size='1'><a href='byond://?_src_=vars;[HrefToken()];rotatedatum=[refid];rotatedir=left'><<</a> <a href='byond://?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=dir' id='dir'>[dir2text(A.dir) || A.dir]</a> <a href='byond://?_src_=vars;[HrefToken()];rotatedatum=[refid];rotatedir=right'>>></a></font>"
 		if(isliving(A))
-			atomsnowflake += "<br><font size='1'><a href='?_src_=vars;[HrefToken()];rotatedatum=[refid];rotatedir=left'><<</a> <a href='?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=dir' id='dir'>[dir2text(A.dir) || A.dir]</a> <a href='?_src_=vars;[HrefToken()];rotatedatum=[refid];rotatedir=right'>>></a></font>"
+			atomsnowflake += "<br><font size='1'><a href='byond://?_src_=vars;[HrefToken()];rotatedatum=[refid];rotatedir=left'><<</a> <a href='byond://?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=dir' id='dir'>[dir2text(A.dir) || A.dir]</a> <a href='byond://?_src_=vars;[HrefToken()];rotatedatum=[refid];rotatedir=right'>>></a></font>"
 			var/mob/living/M = A
 			atomsnowflake += {"
-				<br><font size='1'><a href='?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=ckey' id='ckey'>[M.ckey || "No ckey"]</a> / <a href='?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=real_name' id='real_name'>[M.real_name || "No real name"]</a></font>
+				<br><font size='1'><a href='byond://?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=ckey' id='ckey'>[M.ckey || "No ckey"]</a> / <a href='byond://?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=real_name' id='real_name'>[M.real_name || "No real name"]</a></font>
 				<br><font size='1'>
-					BRUTE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brute' id='brute'>[M.get_brute_loss()]</a>
-					FIRE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=fire' id='fire'>[M.get_fire_loss()]</a>
-					TOXIN:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=toxin' id='toxin'>[M.get_tox_loss()]</a>
-					OXY:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=oxygen' id='oxygen'>[M.get_oxy_loss()]</a>
-					CLONE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=clone' id='clone'>[M.get_clone_Loss()]</a>
-					BRAIN:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brain' id='brain'>[M.get_brain_loss()]</a>
-					STAMINA:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=stamina' id='stamina'>[M.get_stamina_loss()]</a>
+					BRUTE:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brute' id='brute'>[M.get_brute_loss()]</a>
+					FIRE:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=fire' id='fire'>[M.get_fire_loss()]</a>
+					TOXIN:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=toxin' id='toxin'>[M.get_tox_loss()]</a>
+					OXY:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=oxygen' id='oxygen'>[M.get_oxy_loss()]</a>
+					CLONE:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=clone' id='clone'>[M.get_clone_Loss()]</a>
+					BRAIN:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brain' id='brain'>[M.get_brain_loss()]</a>
+					STAMINA:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=stamina' id='stamina'>[M.get_stamina_loss()]</a>
 				</font>
 			"}
 	else if("name" in D.vars)
-		atomsnowflake += "<a href='?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=name'><b id='name'>[D]</b></a>"
+		atomsnowflake += "<a href='byond://?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=name'><b id='name'>[D]</b></a>"
 	else
 		atomsnowflake += "<b>[formatted_type]</b>"
 		formatted_type = null
@@ -249,12 +249,12 @@
 	if(islist)
 		dropdownoptions = list(
 			"---",
-			"Add Item" = "?_src_=vars;[HrefToken()];listadd=[refid]",
-			"Remove Nulls" = "?_src_=vars;[HrefToken()];listnulls=[refid]",
-			"Remove Dupes" = "?_src_=vars;[HrefToken()];listdupes=[refid]",
-			"Set len" = "?_src_=vars;[HrefToken()];listlen=[refid]",
-			"Shuffle" = "?_src_=vars;[HrefToken()];listshuffle=[refid]",
-			"Show VV To Player" = "?_src_=vars;[HrefToken()];expose=[refid]"
+			"Add Item" = "byond://?_src_=vars;[HrefToken()];listadd=[refid]",
+			"Remove Nulls" = "byond://?_src_=vars;[HrefToken()];listnulls=[refid]",
+			"Remove Dupes" = "byond://?_src_=vars;[HrefToken()];listdupes=[refid]",
+			"Set len" = "byond://?_src_=vars;[HrefToken()];listlen=[refid]",
+			"Shuffle" = "byond://?_src_=vars;[HrefToken()];listshuffle=[refid]",
+			"Show VV To Player" = "byond://?_src_=vars;[HrefToken()];expose=[refid]"
 			)
 	else
 		dropdownoptions = D.vv_get_dropdown()
@@ -475,7 +475,7 @@
 					</td>
 					<td width='50%'>
 						<div align='center'>
-							<a id='refresh_link' href='?_src_=vars;[HrefToken()];datumrefresh=[refid]'>Refresh</a>
+							<a id='refresh_link' href='byond://?_src_=vars;[HrefToken()];datumrefresh=[refid]'>Refresh</a>
 							<form>
 								<select name="file" size="1"
 									onchange="handle_dropdown(this)"
@@ -540,9 +540,9 @@
 				name = list_owner[name] //name is really the index until this line
 			else
 				value = list_owner[name]
-			header = "<li style='backgroundColor:white'>(<a href='?_src_=vars;[HrefToken()];listedit=[REF(owner)];index=[index]'>E</a>) (<a href='?_src_=vars;[HrefToken()];listchange=[REF(owner)];index=[index]'>C</a>) (<a href='?_src_=vars;[HrefToken()];listremove=[REF(owner)];index=[index]'>-</a>) "
+			header = "<li style='backgroundColor:white'>(<a href='byond://?_src_=vars;[HrefToken()];listedit=[REF(owner)];index=[index]'>E</a>) (<a href='byond://?_src_=vars;[HrefToken()];listchange=[REF(owner)];index=[index]'>C</a>) (<a href='byond://?_src_=vars;[HrefToken()];listremove=[REF(owner)];index=[index]'>-</a>) "
 		else
-			header = "<li style='backgroundColor:white'>(<a href='?_src_=vars;[HrefToken()];datumedit=[REF(owner)];varnameedit=[name]'>E</a>) (<a href='?_src_=vars;[HrefToken()];datumchange=[REF(owner)];varnamechange=[name]'>C</a>) (<a href='?_src_=vars;[HrefToken()];datummass=[REF(owner)];varnamemass=[name]'>M</a>) "
+			header = "<li style='backgroundColor:white'>(<a href='byond://?_src_=vars;[HrefToken()];datumedit=[REF(owner)];varnameedit=[name]'>E</a>) (<a href='byond://?_src_=vars;[HrefToken()];datumchange=[REF(owner)];varnamechange=[name]'>C</a>) (<a href='byond://?_src_=vars;[HrefToken()];datummass=[REF(owner)];varnamemass=[name]'>M</a>) "
 	else
 		header = "<li>"
 
@@ -562,9 +562,9 @@
 	else if(istype(value, /datum))
 		var/datum/D = value
 		if("[D]" != "[D.type]") //if the thing as a name var, lets use it.
-			item = "<a href='?_src_=vars;[HrefToken()];vars=[REF(value)]'>[VV_HTML_ENCODE(name)] [REF(value)]</a> = [D] [D.type]"
+			item = "<a href='byond://?_src_=vars;[HrefToken()];vars=[REF(value)]'>[VV_HTML_ENCODE(name)] [REF(value)]</a> = [D] [D.type]"
 		else
-			item = "<a href='?_src_=vars;[HrefToken()];vars=[REF(value)]'>[VV_HTML_ENCODE(name)] [REF(value)]</a> = [D.type]"
+			item = "<a href='byond://?_src_=vars;[HrefToken()];vars=[REF(value)]'>[VV_HTML_ENCODE(name)] [REF(value)]</a> = [D.type]"
 
 	else if(islist(value))
 		var/list/L = value
@@ -584,9 +584,9 @@
 
 				items += debug_variable(key, val, level + 1, sanitize = sanitize)
 
-			item = "<a href='?_src_=vars;[HrefToken()];vars=[REF(value)]'>[VV_HTML_ENCODE(name)] = /list ([length(L)])</a><ul>[items.Join()]</ul>"
+			item = "<a href='byond://?_src_=vars;[HrefToken()];vars=[REF(value)]'>[VV_HTML_ENCODE(name)] = /list ([length(L)])</a><ul>[items.Join()]</ul>"
 		else
-			item = "<a href='?_src_=vars;[HrefToken()];vars=[REF(value)]'>[VV_HTML_ENCODE(name)] = /list ([length(L)])</a>"
+			item = "<a href='byond://?_src_=vars;[HrefToken()];vars=[REF(value)]'>[VV_HTML_ENCODE(name)] = /list ([length(L)])</a>"
 
 	else if(name in GLOB.bitfields)
 		var/list/flags = list()
@@ -683,7 +683,7 @@
 		C.debug_variables(thing)
 
 		log_admin("Admin [key_name(usr)] showed [key_name(C)] a VV window of: [thing].")
-		message_admins("[ADMIN_TPMONTY(usr)] showed [key_name_admin(C)] a <a href='?_src_=vars;[HrefToken(TRUE)];datumrefresh=[REF(thing)]'>VV window</a>.")
+		message_admins("[ADMIN_TPMONTY(usr)] showed [key_name_admin(C)] a <a href='byond://?_src_=vars;[HrefToken(TRUE)];datumrefresh=[REF(thing)]'>VV window</a>.")
 
 
 	if(href_list["rename"])
