@@ -8091,7 +8091,7 @@
 /turf/open/floor/wood,
 /area/oscar_outpost/village/east)
 "Rn" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/open/floor/asteroidfloor,
 /area/storage/testroom)
 "Rs" = (

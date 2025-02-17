@@ -73,9 +73,3 @@
 // Bitshifts: (If you change the status values to be something other than an int or able to exceed 3 you will need to change these too)
 /// Bit shift for the charging status of the APC.
 #define UPOVERLAY_CHARGING_SHIFT (2)
-/// Bit shift for the equipment status of the APC.
-#define UPOVERLAY_EQUIPMENT_SHIFT (4)
-/// Bit shift for the lighting channel status of the APC.
-#define UPOVERLAY_LIGHTING_SHIFT (6)
-/// Bit shift for the environment channel status of the APC.
-#define UPOVERLAY_ENVIRON_SHIFT (8)

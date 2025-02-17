@@ -5145,7 +5145,7 @@
 /turf/open/floor,
 /area/lv624/lazarus/spaceport)
 "Ay" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/closed/mineral/smooth/indestructible,
 /area/storage/testroom)
 "AC" = (

@@ -2636,7 +2636,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/slumbridge/inside/sombase/hangar)
 "bUs" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/open/floor/elevatorshaft,
 /area/slumbridge/console)
 "bUW" = (

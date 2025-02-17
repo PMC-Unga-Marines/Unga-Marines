@@ -12595,7 +12595,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/outside/east)
 "kRe" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/closed/mineral/smooth/indestructible,
 /area/lv624/lazarus/console)
 "kRj" = (

@@ -46442,7 +46442,7 @@
 /turf/open/floor/prison/bright_clean,
 /area/prison/hallway/central)
 "pIl" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/storage/testroom)
 "pIp" = (

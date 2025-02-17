@@ -6897,7 +6897,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle4)
 "fYF" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/closed/mineral/smooth/indestructible,
 /area/storage/testroom)
 "fYW" = (

@@ -810,7 +810,7 @@
 	},
 /area/whiskey_outpost/outside/north)
 "dX" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /obj/structure/cable,
 /turf/open/floor/plating/asteroidwarning{
 	dir = 6
