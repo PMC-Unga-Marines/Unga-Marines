@@ -8169,7 +8169,7 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/garage)
 "Qb" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/closed/mineral/smooth/darkfrostwall/indestructible,
 /area/lv624/lazarus/console)
 "Qc" = (

@@ -14280,7 +14280,7 @@
 /turf/open/floor/plating/ground/concrete/lines,
 /area/magmoor/compound/southwest)
 "ksR" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/closed/mineral/smooth/indestructible,
 /area/storage/testroom)
 "ksX" = (

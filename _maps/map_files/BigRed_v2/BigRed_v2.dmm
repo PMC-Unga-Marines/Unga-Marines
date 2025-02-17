@@ -9943,7 +9943,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "hbe" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/closed/mineral/smooth/bigred/indestructible,
 /area/storage/testroom)
 "hbp" = (

@@ -35367,7 +35367,7 @@
 /turf/open/floor/prison/plate,
 /area/gelida/landing_zone_2)
 "ybs" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/closed/mineral/smooth/snowrock/indestructible,
 /area/storage/testroom)
 "ybx" = (

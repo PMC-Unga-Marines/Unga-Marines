@@ -60,6 +60,10 @@
 	id = "Telecomms Relay"
 	autolinkers = list("relay")
 
+/obj/machinery/telecomms/relay/preset/telecomms/ground/Initialize(mapload)
+	. = ..()
+	GLOB.ground_telecomms_relay += src
+
 //proper cicbackup relay
 /obj/machinery/telecomms/relay/preset/telecomms/cicbackup
 	on = 0
