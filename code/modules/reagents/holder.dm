@@ -151,7 +151,7 @@
  * * multiplier - multiplies amount of each reagent by this number
  * * preserve_data - if preserve_data=0, the reagents data will be lost. Usefull if you use data for some strange stuff and don't want it to be transferred.
  * * no_react - passed through to [/datum/reagents/proc/add_reagent]
- * * transfer_to_stomach - does it goes to stomach like from pills and food?
+ * * transfer_to_stomach - does it go to stomach like from pills and food?
  *  */
 /datum/reagents/proc/trans_to(
 	atom/target,
