@@ -76,7 +76,7 @@ export const changelog_labels = {
 		default_text: 'fixed a few things',
 		keywords: ['fix', 'fixes', 'bugfix'],
 	},
-	'Quality of Life': {
+	'QoL': {
 		default_text: 'made something easier to use',
 		keywords: ['qol'],
 	},
@@ -101,6 +101,10 @@ export const changelog_labels = {
 		default_text: 'fixed a few typos',
 		keywords: ['typo', 'spellcheck'],
 	},
+	'Mapping': {
+		default_text: 'added/modified/removed map content',
+		keywords: ['map', 'mapping'],
+	},
 	'Balance': {
 		default_text: 'rebalanced something',
 		keywords: ['balance'],
@@ -120,5 +124,9 @@ export const changelog_labels = {
 	'Administration': {
 		default_text: 'messed with admin stuff',
 		keywords: ['admin'],
+	},
+	'Server': {
+		default_text: 'something server ops should know',
+		keywords: ['server'],
 	},
 }
