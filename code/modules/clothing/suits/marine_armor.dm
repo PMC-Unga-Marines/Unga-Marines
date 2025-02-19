@@ -49,6 +49,10 @@
 	armor_overlays = list("lamp") //Just one for now, can add more later.
 	update_icon()
 
+/obj/item/clothing/suit/storage/marine/turn_light(mob/user, toggle_on)
+	. = ..()
+	user?.update_inv_wear_suit()
+
 /obj/item/clothing/suit/storage/marine/update_overlays()
 	. = ..()
 	if(armor_features_flags & ARMOR_LAMP_OVERLAY)
@@ -80,8 +84,8 @@
 	var/mob/living/carbon/human/H = user
 	if(H.wear_suit != src)
 		return
-	turn_light(user, !light_on)
-	return TRUE
+	if(turn_light(user, !light_on) == CHECKS_PASSED)
+		return TRUE
 
 /obj/item/clothing/suit/storage/marine/item_action_slot_check(mob/user, slot)
 	if(!ishuman(user))
@@ -411,8 +415,8 @@
 	var/mob/living/carbon/human/H = user
 	if(H.wear_suit != src) return
 
-	turn_light(user, !light_on)
-	return 1
+	if(turn_light(user, !light_on) == CHECKS_PASSED)
+		return TRUE
 
 /obj/item/clothing/suit/storage/faction/item_action_slot_check(mob/user, slot)
 	if(!ishuman(user)) return FALSE
