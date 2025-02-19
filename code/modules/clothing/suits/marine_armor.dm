@@ -49,6 +49,10 @@
 	armor_overlays = list("lamp") //Just one for now, can add more later.
 	update_icon()
 
+/obj/item/clothing/suit/storage/marine/turn_light(mob/user, toggle_on)
+	. = ..()
+	user?.update_inv_wear_suit()
+
 /obj/item/clothing/suit/storage/marine/update_overlays()
 	. = ..()
 	if(armor_features_flags & ARMOR_LAMP_OVERLAY)
