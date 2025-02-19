@@ -623,7 +623,7 @@ function checkchangelog($payload, $compile = true) {
 				}
 				break;
 			case 'sound':
-				if($item != 'added a new sound thingy') {
+				if($item != 'added/modified/removed audio or sound effects') {
 					$tags[] = 'Sound';
 					$currentchangelogblock[] = array('type' => 'sound', 'body' => $item);
 				}
