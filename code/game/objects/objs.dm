@@ -446,3 +446,7 @@
 		return FALSE
 	SEND_SIGNAL(src, COMSIG_ITEM_UNDEPLOY, user)
 	return TRUE
+
+/// Handles successful disassembly tasks on a deployable, cannot be used for failure checks as disassembly has completed already
+/obj/proc/post_disassemble(mob/user)
+	return TRUE
