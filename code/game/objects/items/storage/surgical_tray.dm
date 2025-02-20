@@ -12,8 +12,7 @@
 		/obj/item/stack/nanopaste,
 	)
 
-/obj/item/storage/surgical_tray/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/surgical_tray/PopulateContents()
 	new /obj/item/tool/surgery/scalpel(src)
 	new /obj/item/tool/surgery/hemostat(src)
 	new /obj/item/tool/surgery/retractor(src)

@@ -567,7 +567,6 @@
 		/obj/item/weapon/gun/pistol,
 		/obj/item/ammo_magazine/pistol,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
-		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
 		/obj/item/cell/lasgun/lasrifle,
 		/obj/item/cell/lasgun/volkite/small,
@@ -769,12 +768,11 @@
 /obj/item/storage/holster/belt/revolver/m44/full/Initialize(mapload)
 	. = ..()
 	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/revolver/single_action/m44(src)
+
 	new /obj/item/ammo_magazine/revolver/heavy(src)
 	new /obj/item/ammo_magazine/revolver/marksman(src)
-	new /obj/item/ammo_magazine/revolver(src)
-	new /obj/item/ammo_magazine/revolver(src)
-	new /obj/item/ammo_magazine/revolver(src)
-	new /obj/item/ammo_magazine/revolver(src)
+	for(var/i in 1 to 4)
+		new /obj/item/ammo_magazine/revolver(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_gun)
 
 /obj/item/storage/holster/belt/revolver/mateba
@@ -791,12 +789,8 @@
 /obj/item/storage/holster/belt/revolver/mateba/full/Initialize(mapload)
 	. = ..()
 	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/revolver/mateba(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_gun)
 
 /obj/item/storage/holster/belt/revolver/mateba/officer
@@ -805,24 +799,16 @@
 /obj/item/storage/holster/belt/revolver/mateba/officer/full/Initialize(mapload)
 	. = ..()
 	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/revolver/mateba/custom(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/revolver/mateba(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_gun)
 
 /obj/item/storage/holster/belt/revolver/mateba/notmarine/Initialize(mapload)
 	. = ..()
 	icon_state = "a_mateba_holster"
 	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/revolver/mateba/(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
-	new /obj/item/ammo_magazine/revolver/mateba(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/revolver/mateba(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_gun)
 
 /obj/item/storage/holster/belt/pistol/korovin
@@ -838,23 +824,17 @@
 /obj/item/storage/holster/belt/pistol/korovin/standard/Initialize(mapload)
 	. = ..()
 	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/pistol/c99(src)
-	new /obj/item/ammo_magazine/pistol/c99(src)
-	new /obj/item/ammo_magazine/pistol/c99(src)
-	new /obj/item/ammo_magazine/pistol/c99(src)
-	new /obj/item/ammo_magazine/pistol/c99(src)
-	new /obj/item/ammo_magazine/pistol/c99(src)
-	new /obj/item/ammo_magazine/pistol/c99(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/pistol/c99(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_gun)
 
 /obj/item/storage/holster/belt/pistol/korovin/tranq/Initialize(mapload)
 	. = ..()
 	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/pistol/c99/tranq(src)
-	new /obj/item/ammo_magazine/pistol/c99t(src)
-	new /obj/item/ammo_magazine/pistol/c99t(src)
-	new /obj/item/ammo_magazine/pistol/c99t(src)
-	new /obj/item/ammo_magazine/pistol/c99(src)
-	new /obj/item/ammo_magazine/pistol/c99(src)
-	new /obj/item/ammo_magazine/pistol/c99(src)
+	for(var/i in 1 to 3)
+		new /obj/item/ammo_magazine/pistol/c99t(src)
+	for(var/i in 1 to 3)
+		new /obj/item/ammo_magazine/pistol/c99(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_gun)
 
 /obj/item/storage/holster/belt/ts34
@@ -889,12 +869,8 @@
 /obj/item/storage/holster/belt/pistol/smart_pistol/full/Initialize(mapload)
 	. = ..()
 	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/pistol/smart_pistol(src)
-	new /obj/item/ammo_magazine/pistol/p14/smart_pistol(src)
-	new /obj/item/ammo_magazine/pistol/p14/smart_pistol(src)
-	new /obj/item/ammo_magazine/pistol/p14/smart_pistol(src)
-	new /obj/item/ammo_magazine/pistol/p14/smart_pistol(src)
-	new /obj/item/ammo_magazine/pistol/p14/smart_pistol(src)
-	new /obj/item/ammo_magazine/pistol/p14/smart_pistol(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/pistol/p14/smart_pistol(src)
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), new_gun)
 
 ///RL SADAR bag

@@ -17,8 +17,7 @@
 	storage_slots = 3
 	can_hold = list() //Nada. Once you take the stuff out it doesn't fit back in.
 
-/obj/item/storage/box/crate/heavy_armor/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/box/crate/heavy_armor/PopulateContents()
 	new /obj/item/clothing/gloves/marine/specialist(src)
 	new /obj/item/clothing/suit/storage/marine/specialist(src)
 	new /obj/item/clothing/head/helmet/marine/specialist(src)
@@ -32,8 +31,7 @@
 	slowdown = 1
 	can_hold = list() //Nada. Once you take the stuff out it doesn't fit back in.
 
-/obj/item/storage/box/crate/grenade_system/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/box/crate/grenade_system/PopulateContents()
 	new /obj/item/weapon/gun/grenade_launcher/multinade_launcher(src)
 	new /obj/item/storage/belt/grenade/b17(src)
 
@@ -46,8 +44,7 @@
 	slowdown = 1
 	can_hold = list() //Nada. Once you take the stuff out it doesn't fit back in.
 
-/obj/item/storage/box/crate/rocket_system/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/box/crate/rocket_system/PopulateContents()
 	new /obj/item/weapon/gun/launcher/rocket/sadar(src)
 	new /obj/item/ammo_magazine/rocket/sadar(src)
 	new /obj/item/ammo_magazine/rocket/sadar(src)
@@ -64,8 +61,7 @@
 	slowdown = 1
 	can_hold = list() //Nada. Once you take the stuff out it doesn't fit back in.
 
-/obj/item/storage/box/crate/heavy_grenadier/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/box/crate/heavy_grenadier/PopulateContents()
 	new /obj/item/weapon/gun/grenade_launcher/multinade_launcher(src)
 	new /obj/item/storage/belt/grenade/b17(src)
 	new /obj/item/clothing/suit/storage/marine/B17(src)
@@ -83,8 +79,7 @@
 	slowdown = 1
 	can_hold = list() //Nada. Once you take the stuff out it doesn't fit back in.
 
-/obj/item/storage/box/crate/heavy_gunner/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/box/crate/heavy_gunner/PopulateContents()
 	new /obj/item/clothing/gloves/marine/specialist(src)
 	new /obj/item/clothing/suit/storage/marine/specialist(src)
 	new /obj/item/clothing/head/helmet/marine/specialist(src)
@@ -101,8 +96,7 @@
 	slowdown = 1
 	can_hold = list() //Nada. Once you take the stuff out it doesn't fit back in.
 
-/obj/item/storage/box/crate/m42c_system/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/box/crate/m42c_system/PopulateContents()
 	new /obj/item/clothing/suit/modular/xenonauten/light(src)
 	new /obj/item/clothing/head/modular/m10x(src)
 	new /obj/item/clothing/glasses/night/m42_night_goggles(src)
@@ -126,8 +120,7 @@
 	slowdown = 1
 	can_hold = list() //Nada. Once you take the stuff out it doesn't fit back in.
 
-/obj/item/storage/box/crate/m42c_system_Jungle/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/box/crate/m42c_system_Jungle/PopulateContents()
 	new /obj/item/clothing/suit/modular/xenonauten/light(src)
 	new /obj/item/clothing/head/modular/m10x(src)
 	new /obj/item/clothing/glasses/m42_goggles(src)
@@ -143,3 +136,24 @@
 		new /obj/item/facepaint/sniper(src)
 		new /obj/item/storage/backpack/marine/smock(src)
 		new /obj/item/bodybag/tarp(src)
+
+/obj/item/storage/box/crate/sentry
+	name = "\improper ST-571 sentry crate"
+	desc = "A large case containing all you need to set up an automated sentry."
+	icon_state = "sentry_case"
+	w_class = WEIGHT_CLASS_HUGE
+	max_w_class = WEIGHT_CLASS_HUGE
+	storage_slots = 6
+	max_storage_space = 16
+	can_hold = list(
+		/obj/item/weapon/gun/sentry,
+		/obj/item/ammo_magazine/sentry,
+	)
+	bypass_w_limit = list(
+		/obj/item/weapon/gun/sentry,
+		/obj/item/ammo_magazine/sentry,
+	)
+
+/obj/item/storage/box/crate/sentry/PopulateContents()
+	new /obj/item/weapon/gun/sentry/basic(src)
+	new /obj/item/ammo_magazine/sentry(src)

@@ -431,8 +431,6 @@
 		/obj/item/weapon/gun,
 	)
 
-
-
 /obj/item/storage/belt/security/tactical
 	name = "combat belt"
 	desc = "Can hold security gear like handcuffs and flashes, with more pouches for more storage."
@@ -481,100 +479,54 @@
 	AddComponent(/datum/component/easy_restock)
 
 /obj/item/storage/belt/marine/ar12/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/ar12(src)
-	new /obj/item/ammo_magazine/rifle/ar12(src)
-	new /obj/item/ammo_magazine/rifle/ar12(src)
-	new /obj/item/ammo_magazine/rifle/ar12(src)
-	new /obj/item/ammo_magazine/rifle/ar12(src)
-	new /obj/item/ammo_magazine/rifle/ar12(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/ar12(src)
 
 /obj/item/storage/belt/marine/ar18/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/ar18(src)
-	new /obj/item/ammo_magazine/rifle/ar18(src)
-	new /obj/item/ammo_magazine/rifle/ar18(src)
-	new /obj/item/ammo_magazine/rifle/ar18(src)
-	new /obj/item/ammo_magazine/rifle/ar18(src)
-	new /obj/item/ammo_magazine/rifle/ar18(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/ar18(src)
 
 /obj/item/storage/belt/marine/ar21/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/ar21(src)
-	new /obj/item/ammo_magazine/rifle/ar21(src)
-	new /obj/item/ammo_magazine/rifle/ar21(src)
-	new /obj/item/ammo_magazine/rifle/ar21(src)
-	new /obj/item/ammo_magazine/rifle/ar21(src)
-	new /obj/item/ammo_magazine/rifle/ar21(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/ar21(src)
 
 /obj/item/storage/belt/marine/br64/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/br64(src)
-	new /obj/item/ammo_magazine/rifle/br64(src)
-	new /obj/item/ammo_magazine/rifle/br64(src)
-	new /obj/item/ammo_magazine/rifle/br64(src)
-	new /obj/item/ammo_magazine/rifle/br64(src)
-	new /obj/item/ammo_magazine/rifle/br64(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/br64(src)
 
 /obj/item/storage/belt/marine/t90/PopulateContents()
-	new /obj/item/ammo_magazine/smg/smg90(src)
-	new /obj/item/ammo_magazine/smg/smg90(src)
-	new /obj/item/ammo_magazine/smg/smg90(src)
-	new /obj/item/ammo_magazine/smg/smg90(src)
-	new /obj/item/ammo_magazine/smg/smg90(src)
-	new /obj/item/ammo_magazine/smg/smg90(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/smg/smg90(src)
 
 /obj/item/storage/belt/marine/secondary/PopulateContents()
-	new /obj/item/ammo_magazine/smg/m25(src)
-	new /obj/item/ammo_magazine/smg/m25(src)
-	new /obj/item/ammo_magazine/smg/m25(src)
-	new /obj/item/ammo_magazine/smg/m25(src)
-	new /obj/item/ammo_magazine/smg/m25(src)
-	new /obj/item/ammo_magazine/smg/m25(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/smg/m25(src)
 
 /obj/item/storage/belt/marine/antimaterial/PopulateContents()
-	new /obj/item/ammo_magazine/sniper/flak(src)
-	new /obj/item/ammo_magazine/sniper/flak(src)
-	new /obj/item/ammo_magazine/sniper/incendiary(src)
-	new /obj/item/ammo_magazine/sniper/incendiary(src)
-	new /obj/item/ammo_magazine/sniper(src)
-	new /obj/item/ammo_magazine/sniper(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/sniper(src)
 
 /obj/item/storage/belt/marine/tx8/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/tx8/impact(src)
-	new /obj/item/ammo_magazine/rifle/tx8/impact(src)
-	new /obj/item/ammo_magazine/rifle/tx8/incendiary(src)
-	new /obj/item/ammo_magazine/rifle/tx8/incendiary(src)
-	new /obj/item/ammo_magazine/rifle/tx8(src)
-	new /obj/item/ammo_magazine/rifle/tx8(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/tx8(src)
 
 /obj/item/storage/belt/marine/combat_rifle/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/ar11(src)
-	new /obj/item/ammo_magazine/rifle/ar11(src)
-	new /obj/item/ammo_magazine/rifle/ar11(src)
-	new /obj/item/ammo_magazine/rifle/ar11(src)
-	new /obj/item/ammo_magazine/rifle/ar11(src)
-	new /obj/item/ammo_magazine/rifle/ar11(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/ar11(src)
 
 /obj/item/storage/belt/marine/alf_machinecarbine/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/alf_machinecarbine(src)
-	new /obj/item/ammo_magazine/rifle/alf_machinecarbine(src)
-	new /obj/item/ammo_magazine/rifle/alf_machinecarbine(src)
-	new /obj/item/ammo_magazine/rifle/alf_machinecarbine(src)
-	new /obj/item/ammo_magazine/rifle/alf_machinecarbine(src)
-	new /obj/item/ammo_magazine/rifle/alf_machinecarbine(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/alf_machinecarbine(src)
 
 /obj/item/storage/belt/marine/auto_shotgun/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/sh15_slug(src)
-	new /obj/item/ammo_magazine/rifle/sh15_slug(src)
-	new /obj/item/ammo_magazine/rifle/sh15_slug(src)
-	new /obj/item/ammo_magazine/rifle/sh15_flechette(src)
-	new /obj/item/ammo_magazine/rifle/sh15_flechette(src)
-	new /obj/item/ammo_magazine/rifle/sh15_flechette(src)
+	for(var/i in 1 to 3)
+		new /obj/item/ammo_magazine/rifle/sh15_slug(src)
+	for(var/i in 1 to 3)
+		new /obj/item/ammo_magazine/rifle/sh15_flechette(src)
 
 /obj/item/storage/belt/marine/te_cells/PopulateContents()
-	new /obj/item/cell/lasgun/lasrifle(src)
-	new /obj/item/cell/lasgun/lasrifle(src)
-	new /obj/item/cell/lasgun/lasrifle(src)
-	new /obj/item/cell/lasgun/lasrifle(src)
-	new /obj/item/cell/lasgun/lasrifle(src)
-	new /obj/item/cell/lasgun/lasrifle(src)
+	for(var/i in 1 to 6)
+		new /obj/item/cell/lasgun/lasrifle(src)
 
 /obj/item/storage/belt/marine/oicw/PopulateContents()
 	new /obj/item/ammo_magazine/rifle/ar12(src)
@@ -585,20 +537,12 @@
 	new /obj/item/ammo_magazine/rifle/tx54(src)
 
 /obj/item/storage/belt/marine/smartgun/PopulateContents()
-	new /obj/item/ammo_magazine/sg29(src)
-	new /obj/item/ammo_magazine/sg29(src)
-	new /obj/item/ammo_magazine/sg29(src)
-	new /obj/item/ammo_magazine/sg29(src)
-	new /obj/item/ammo_magazine/sg29(src)
-	new /obj/item/ammo_magazine/sg29(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/sg29(src)
 
 /obj/item/storage/belt/marine/sg62/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/sg62(src)
-	new /obj/item/ammo_magazine/rifle/sg62(src)
-	new /obj/item/ammo_magazine/rifle/sg62(src)
-	new /obj/item/ammo_magazine/rifle/sg62(src)
-	new /obj/item/ammo_magazine/rifle/sg62(src)
-	new /obj/item/ammo_magazine/rifle/sg62(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/sg62(src)
 
 /obj/item/storage/belt/marine/upp
 	name = "\improper Type 41 pattern load rig"
@@ -608,12 +552,8 @@
 
 //version full of type 71 mags
 /obj/item/storage/belt/marine/upp/full/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/type71(src)
-	new /obj/item/ammo_magazine/rifle/type71(src)
-	new /obj/item/ammo_magazine/rifle/type71(src)
-	new /obj/item/ammo_magazine/rifle/type71(src)
-	new /obj/item/ammo_magazine/rifle/type71(src)
-	new /obj/item/ammo_magazine/rifle/type71(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/type71(src)
 
 /obj/item/storage/belt/marine/som
 	name = "\improper S18 ammo belt"
@@ -622,76 +562,40 @@
 	item_state = "som_belt"
 
 /obj/item/storage/belt/marine/som/som_rifle/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/som(src)
-	new /obj/item/ammo_magazine/rifle/som(src)
-	new /obj/item/ammo_magazine/rifle/som(src)
-	new /obj/item/ammo_magazine/rifle/som(src)
-	new /obj/item/ammo_magazine/rifle/som(src)
-	new /obj/item/ammo_magazine/rifle/som(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/som(src)
 
 /obj/item/storage/belt/marine/som/som_rifle_ap/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/som/ap(src)
-	new /obj/item/ammo_magazine/rifle/som/ap(src)
-	new /obj/item/ammo_magazine/rifle/som/ap(src)
-	new /obj/item/ammo_magazine/rifle/som/ap(src)
-	new /obj/item/ammo_magazine/rifle/som/ap(src)
-	new /obj/item/ammo_magazine/rifle/som/ap(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/som/ap(src)
 
 /obj/item/storage/belt/marine/som/som_smg/PopulateContents()
-	new /obj/item/ammo_magazine/smg/som(src)
-	new /obj/item/ammo_magazine/smg/som(src)
-	new /obj/item/ammo_magazine/smg/som(src)
-	new /obj/item/ammo_magazine/smg/som(src)
-	new /obj/item/ammo_magazine/smg/som(src)
-	new /obj/item/ammo_magazine/smg/som(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/smg/som(src)
 
 /obj/item/storage/belt/marine/som/som_smg_ap/PopulateContents()
-	new /obj/item/ammo_magazine/smg/som/ap(src)
-	new /obj/item/ammo_magazine/smg/som/ap(src)
-	new /obj/item/ammo_magazine/smg/som/ap(src)
-	new /obj/item/ammo_magazine/smg/som/ap(src)
-	new /obj/item/ammo_magazine/smg/som/ap(src)
-	new /obj/item/ammo_magazine/smg/som/ap(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/smg/som/ap(src)
 
 /obj/item/storage/belt/marine/som/volkite/PopulateContents()
-	new /obj/item/cell/lasgun/volkite(src)
-	new /obj/item/cell/lasgun/volkite(src)
-	new /obj/item/cell/lasgun/volkite(src)
-	new /obj/item/cell/lasgun/volkite(src)
-	new /obj/item/cell/lasgun/volkite(src)
-	new /obj/item/cell/lasgun/volkite(src)
+	for(var/i in 1 to 6)
+		new /obj/item/cell/lasgun/volkite(src)
 
 /obj/item/storage/belt/marine/som/mpi_plum/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/mpi_km/plum(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/plum(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/plum(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/plum(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/plum(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/plum(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/mpi_km/plum(src)
 
 /obj/item/storage/belt/marine/som/mpi_black/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/mpi_km/black(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/black(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/black(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/black(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/black(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/black(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/mpi_km/black(src)
 
 /obj/item/storage/belt/marine/som/carbine/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/mpi_km/carbine(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/carbine(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/carbine(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/carbine(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/carbine(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/carbine(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/mpi_km/carbine(src)
 
 /obj/item/storage/belt/marine/som/carbine_black/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black(src)
-	new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black(src)
+	for(var/i in 1 to 6)
+		new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black(src)
 
 /obj/item/storage/belt/marine/icc
 	name = "\improper Modello/120 ammo belt"
@@ -719,11 +623,8 @@
 	)
 
 /obj/item/storage/belt/marine/sectoid/full/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
-	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
-	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
-	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
-	new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
+	for(var/i in 1 to 5)
+		new /obj/item/ammo_magazine/rifle/sectoid_rifle(src)
 	new /obj/item/tool/crowbar/red(src)
 
 /obj/item/storage/belt/shotgun
@@ -751,7 +652,6 @@
 				to_chat(user, span_warning("[src] is full."))
 				return
 
-
 			to_chat(user, span_notice("You start refilling [src] with [M]."))
 			if(!do_after(user, 1.5 SECONDS, NONE, src, BUSY_ICON_GENERIC))
 				return
@@ -764,76 +664,31 @@
 			playsound(user.loc, SFX_RUSTLE, 15, TRUE, 6)
 			to_chat(user, span_notice("You refill [src] with [M]."))
 			return TRUE
-
 	return ..()
 
 /obj/item/storage/belt/shotgun/flechette/PopulateContents()
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
+	for(var/i in 1 to 14)
+		new /obj/item/ammo_magazine/handful/flechette(src)
 
 /obj/item/storage/belt/shotgun/mixed/PopulateContents()
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_magazine/handful/buckshot(src)
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_magazine/handful/flechette(src)
 
 /obj/item/storage/belt/shotgun/som
 	desc = "An ammunition belt designed to hold shotgun shells or individual bullets. Made with traditional SOM leather."
 	icon_state = "shotgunbelt_som"
 
 /obj/item/storage/belt/shotgun/som/flechette/PopulateContents()
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
+	for(var/i in 1 to 14)
+		new /obj/item/ammo_magazine/handful/flechette(src)
 
 /obj/item/storage/belt/shotgun/som/mixed/PopulateContents()
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_magazine/handful/buckshot(src)
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_magazine/handful/flechette(src)
 
 /obj/item/storage/belt/shotgun/icc
 	name = "\improper Modelle/121 shell load rig"
@@ -841,36 +696,12 @@
 	icon_state = "shotgunbelt_icc"
 
 /obj/item/storage/belt/shotgun/icc/flechette/PopulateContents()
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
+	for(var/i in 1 to 14)
+		new /obj/item/ammo_magazine/handful/flechette(src)
 
 /obj/item/storage/belt/shotgun/icc/mixed/PopulateContents()
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/buckshot(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
-	new /obj/item/ammo_magazine/handful/flechette(src)
+	for(var/i in 1 to 14)
+		new /obj/item/ammo_magazine/handful/flechette(src)
 
 /obj/item/storage/belt/shotgun/martini
 	name = "martini henry ammo belt"
@@ -921,7 +752,6 @@
 	existing_handful.create_handful(user, 1)
 	update_icon()
 
-
 /obj/item/storage/belt/knifepouch
 	name="\improper M276 pattern knife rig"
 	desc="The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is specially designed with six holsters to store throwing knives. Not commonly issued, but kept in service."
@@ -935,12 +765,8 @@
 	can_hold = list(/obj/item/stack/throwing_knife)
 
 /obj/item/storage/belt/knifepouch/PopulateContents()
-	new /obj/item/stack/throwing_knife(src)
-	new /obj/item/stack/throwing_knife(src)
-	new /obj/item/stack/throwing_knife(src)
-	new /obj/item/stack/throwing_knife(src)
-	new /obj/item/stack/throwing_knife(src)
-	new /obj/item/stack/throwing_knife(src)
+	for(var/i in 1 to 6)
+		new /obj/item/stack/throwing_knife(src)
 
 /obj/item/storage/belt/grenade
 	name="\improper M276 pattern M40 HEDP rig"
@@ -960,12 +786,8 @@
 /obj/item/storage/belt/grenade/standard/PopulateContents()
 	new /obj/item/explosive/grenade/incendiary(src)
 	new /obj/item/explosive/grenade/incendiary(src)
-	new /obj/item/explosive/grenade(src)
-	new /obj/item/explosive/grenade(src)
-	new /obj/item/explosive/grenade(src)
-	new /obj/item/explosive/grenade(src)
-	new /obj/item/explosive/grenade(src)
-	new /obj/item/explosive/grenade(src)
+	for(var/i in 1 to 6)
+		new /obj/item/explosive/grenade(src)
 
 /obj/item/storage/belt/grenade/som
 	name = "\improper S16 pattern grenade rig"
@@ -975,12 +797,8 @@
 /obj/item/storage/belt/grenade/som/standard/PopulateContents()
 	new /obj/item/explosive/grenade/incendiary/som(src)
 	new /obj/item/explosive/grenade/incendiary/som(src)
-	new /obj/item/explosive/grenade/som(src)
-	new /obj/item/explosive/grenade/som(src)
-	new /obj/item/explosive/grenade/som(src)
-	new /obj/item/explosive/grenade/som(src)
-	new /obj/item/explosive/grenade/som(src)
-	new /obj/item/explosive/grenade/som(src)
+	for(var/i in 1 to 6)
+		new /obj/item/explosive/grenade/som(src)
 
 /obj/item/storage/belt/grenade/b17
 	name = "\improper M276 pattern M40 HEDP rig Mk II"
@@ -991,22 +809,10 @@
 	can_hold = list(/obj/item/explosive/grenade)
 
 /obj/item/storage/belt/grenade/b17/PopulateContents()
-	new /obj/item/explosive/grenade/incendiary(src)
-	new /obj/item/explosive/grenade/incendiary(src)
-	new /obj/item/explosive/grenade/incendiary(src)
-	new /obj/item/explosive/grenade/incendiary(src)
-	new /obj/item/explosive/grenade/incendiary(src)
-	new /obj/item/explosive/grenade/incendiary(src)
-	new /obj/item/explosive/grenade/incendiary(src)
-	new /obj/item/explosive/grenade/incendiary(src)
-	new /obj/item/explosive/grenade(src)
-	new /obj/item/explosive/grenade(src)
-	new /obj/item/explosive/grenade(src)
-	new /obj/item/explosive/grenade(src)
-	new /obj/item/explosive/grenade(src)
-	new /obj/item/explosive/grenade(src)
-	new /obj/item/explosive/grenade(src)
-	new /obj/item/explosive/grenade(src)
+	for(var/i in 1 to 8)
+		new /obj/item/explosive/grenade/incendiary(src)
+	for(var/i in 1 to 8)
+		new /obj/item/explosive/grenade(src)
 
 /obj/item/storage/belt/sparepouch
 	name = "\improper G8 general utility pouch"

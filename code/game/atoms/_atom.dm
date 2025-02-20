@@ -122,6 +122,8 @@
 	var/list/managed_vis_overlays
 	///The list of alternate appearances for this atom
 	var/list/alternate_appearances
+	///var containing our storage, see atom/proc/create_storage()
+	var/datum/storage/storage_datum
 
 /*
 We actually care what this returns, since it can return different directives.
@@ -133,6 +135,9 @@ directive is properly returned.
 /atom/Destroy()
 	if(reagents)
 		QDEL_NULL(reagents)
+
+	if(storage_datum)
+		QDEL_NULL(storage_datum)
 
 	orbiters = null // The component is attached to us normaly and will be deleted elsewhere
 
@@ -382,8 +387,9 @@ directive is properly returned.
  * Default behaviour is to call [contents_explosion][/atom/proc/contents_explosion] and send the [COMSIG_ATOM_EX_ACT] signal
  */
 /atom/proc/ex_act(severity, explosion_direction)
-	if(!(atom_flags & PREVENT_CONTENTS_EXPLOSION))
-		contents_explosion(severity, explosion_direction)
+	if(atom_flags & PREVENT_CONTENTS_EXPLOSION)
+		return
+	contents_explosion(severity, explosion_direction)
 
 ///Effects of fire
 /atom/proc/fire_act(burn_level, flame_color)
@@ -408,18 +414,19 @@ directive is properly returned.
 /atom/proc/GenerateTag()
 	return
 
-
 /atom/proc/prevent_content_explosion()
 	return FALSE
 
 /atom/proc/contents_explosion(severity, explosion_direction)
-	for(var/atom/A in contents)
-		A.ex_act(severity, explosion_direction)
+	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(src, COMSIG_CONTENTS_EX_ACT, severity)
+	for(var/atom/exploded_atom in contents)
+		exploded_atom.ex_act(severity, explosion_direction)
 
-//This proc is called on the location of an atom when the atom is Destroy()'d
+///This proc is called on the location of an atom when the atom is Destroy()'d
 /atom/proc/handle_atom_del(atom/A)
+	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_ATOM_CONTENTS_DEL, A)
-
 
 /atom/New(loc, ...)
 	if(GLOB.use_preloader && (src.type == GLOB._preloader_path))//in case the instanciated atom is creating other atoms in New()
@@ -683,12 +690,15 @@ directive is properly returned.
 	SEND_SIGNAL(src, COMSIG_ATOM_EXITED, AM, direction)
 
 
-// Stacks and storage redefined procs.
-
+/// Stacks and storage redefined procs.
 /atom/proc/max_stack_merging(obj/item/stack/S)
+	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(src, ATOM_MAX_STACK_MERGING, S)
 	return FALSE //But if they do, limit is not an issue.
 
 /atom/proc/recalculate_storage_space()
+	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(src, ATOM_RECALCULATE_STORAGE_SPACE)
 	return //Nothing to see here.
 
 // Tool-specific behavior procs. To be overridden in subtypes.

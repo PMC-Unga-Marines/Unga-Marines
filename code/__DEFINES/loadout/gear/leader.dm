@@ -27,7 +27,7 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/item/explosive/grenade/sticky/trailblazer/phosphorus = list(CAT_LEDSUP, "M45 Phosphorus trailblazer grenade", 5, "orange3"),
 	/obj/item/storage/pouch/explosive/razorburn = list(CAT_LEDSUP, "Pack of Razorburn grenades", 11, "orange3"),
 	/obj/item/explosive/grenade/chem_grenade/razorburn_large = list(CAT_LEDSUP, "Razorburn canister", 7, "orange3"),
-	/obj/item/explosive/grenade/chem_grenade/razorburn_smol = list(CAT_LEDSUP, "Razorburn grenade", 3, "orange3"),
+	/obj/item/explosive/grenade/chem_grenade/razorburn_small = list(CAT_LEDSUP, "Razorburn grenade", 3, "orange3"),
 	/obj/item/whistle = list(CAT_LEDSUP, "Whistle", 1, "yellow"),
 	/obj/item/megaphone = list(CAT_LEDSUP, "Megaphone", 1, "yellow"),
 	/obj/item/binoculars/tactical/scout = list(CAT_LEDSUP, "Scout Tactical Binoculars", 5, "yellow"),

@@ -100,8 +100,7 @@
 		/obj/item/tweezers_advanced,
 	)
 
-/obj/item/storage/internal/surgery_webbing/Initialize(mapload)
-	. = ..()
+/obj/item/storage/internal/surgery_webbing/PopulateContents()
 	new /obj/item/tool/surgery/scalpel/manager(src)
 	new /obj/item/tool/surgery/scalpel(src)
 	new /obj/item/tool/surgery/hemostat(src)
@@ -124,29 +123,25 @@
 	. = ..()
 	AddComponent(/datum/component/tac_reload_storage)
 
-/obj/item/armor_module/storage/uniform/holster/freelancer/Initialize(mapload)
-	. = ..()
+/obj/item/armor_module/storage/uniform/holster/freelancer/PopulateContents()
 	new /obj/item/ammo_magazine/pistol/g22(storage)
 	new /obj/item/ammo_magazine/pistol/g22(storage)
 	new /obj/item/ammo_magazine/pistol/g22(storage)
 	new /obj/item/weapon/gun/pistol/g22(storage)
 
-/obj/item/armor_module/storage/uniform/holster/vp/Initialize(mapload)
-	. = ..()
+/obj/item/armor_module/storage/uniform/holster/vp/PopulateContents()
 	new /obj/item/ammo_magazine/pistol/vp70(storage)
 	new /obj/item/ammo_magazine/pistol/vp70(storage)
 	new /obj/item/ammo_magazine/pistol/vp70(storage)
 	new /obj/item/weapon/gun/pistol/vp70(storage)
 
-/obj/item/armor_module/storage/uniform/holster/highpower/Initialize(mapload)
-	. = ..()
+/obj/item/armor_module/storage/uniform/holster/highpower/PopulateContents()
 	new /obj/item/ammo_magazine/pistol/highpower(storage)
 	new /obj/item/ammo_magazine/pistol/highpower(storage)
 	new /obj/item/ammo_magazine/pistol/highpower(storage)
 	new /obj/item/weapon/gun/pistol/highpower(storage)
 
-/obj/item/armor_module/storage/uniform/holster/deathsquad/Initialize(mapload)
-	. = ..()
+/obj/item/armor_module/storage/uniform/holster/deathsquad/PopulateContents()
 	new /obj/item/ammo_magazine/revolver/mateba(storage)
 	new /obj/item/ammo_magazine/revolver/mateba(storage)
 	new /obj/item/ammo_magazine/revolver/mateba(storage)

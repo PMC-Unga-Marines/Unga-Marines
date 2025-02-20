@@ -119,6 +119,8 @@
 #define AUTOBALANCE_CHECK (1<<21)
 ///This item is a sentry, so we won't allow to place it nearby other sentries
 #define IS_SENTRY (1<<22)
+///This item is in any storage
+#define IN_STORAGE (1<<23)
 
 //storage_flags
 ///If a storage container can be restocked into a vendor
