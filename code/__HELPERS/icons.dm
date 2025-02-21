@@ -740,8 +740,8 @@ ColorTone(rgb, tone)
 	var/render_icon = curicon
 
 	if(render_icon)
-		if(!icon_exists(curstate in curicon))
-			if(icon_exists("" in curicon))
+		if(!icon_exists(curicon, curstate))
+			if(icon_exists(curicon, ""))
 				curstate = ""
 			else
 				render_icon = FALSE
