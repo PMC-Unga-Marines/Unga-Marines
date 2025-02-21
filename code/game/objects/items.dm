@@ -43,7 +43,11 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	/// This is used to determine on which slots an item can fit.
 	/// Since any item can now be a piece of clothing, this has to be put here so all items share it.
 	var/equip_slot_flags = NONE
-	/// This flag is used for various clothing/equipment item stuff
+	///Last slot that item was equipped to (aka sticky slot)
+	var/last_equipped_slot
+
+	//Since any item can now be a piece of clothing, this has to be put here so all items share it.
+	///This flag is used for various clothing/equipment item stuff
 	var/inventory_flags = NONE
 	/// This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.
 	var/inv_hide_flags = NONE
@@ -397,9 +401,19 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 /obj/item/proc/do_quick_equip(mob/user)
 	return src
 
+
+///Helper function for updating last_equipped_slot when item is drawn from storage
+/obj/item/proc/set_last_equipped_slot_of_storage(datum/storage/storage_datum)
+	var/obj/item/storage_item = storage_datum.parent
+	while(isitem(storage_item.loc)) // for stuff like armor modules we have to find topmost item
+		storage_item = storage_item.loc
+	if(storage_item)
+		last_equipped_slot = slot_to_in_storage_slot(storage_item.last_equipped_slot)
+
 ///called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
 /obj/item/proc/on_exit_storage(obj/item/storage/S as obj)
 	item_flags &= ~IN_STORAGE
+	set_last_equipped_slot_of_storage(S)
 	return
 
 ///called when this item is added into a storage item, which is passed on as S. The loc variable is already set to the storage item.
@@ -422,6 +436,8 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	SHOULD_CALL_PARENT(TRUE) // no exceptions
 	item_flags |= IN_INVENTORY // if it's located after the signal is sent, it doesn't update stuff like verbs for storages
 	SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, slot)
+	if (slot != SLOT_R_HAND && slot != SLOT_L_HAND)
+		last_equipped_slot = slot
 
 	var/equipped_to_slot = equip_slot_flags & slotdefine2slotbit(slot)
 	if(equipped_to_slot) // equip_slot_flags is a bitfield
