@@ -74,7 +74,6 @@
 	browser.set_content(msg)
 	browser.open()
 
-
 /client/verb/staffwho()
 	set category = "Admin"
 	set name = "Staffwho"
