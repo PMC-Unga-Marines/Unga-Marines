@@ -343,11 +343,10 @@
 	screen_overlay = "guest"
 	req_access = list(ACCESS_MARINE_LOGISTICS)
 	resistance_flags = INDESTRUCTIBLE
+	faction = FACTION_TERRAGOV
 	var/obj/item/card/id/modify = null
 	///0: main, 1: squad menu
 	var/screen = 0
-	///Which faction this computer belongs to
-	var/faction = FACTION_TERRAGOV
 
 /obj/machinery/computer/squad_changer/attackby(obj/item/I, mob/user, params)
 	. = ..()
