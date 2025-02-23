@@ -309,6 +309,15 @@ export const GameSettings = (props) => {
                   action="split_admin_tabs"
                   leftLabel={'Enabled'}
                   rightLabel={'Disabled'}
+                  tooltip="When enabled, staff commands will be split into multiple tabs (Admin/Fun/etc). Otherwise, non-debug commands will remain in one statpanel tab."
+                />
+                <ToggleFieldPreference
+                  label="Hear OOC from anywhere"
+                  value="hear_ooc_anywhere_as_staff"
+                  action="hear_ooc_anywhere_as_staff"
+                  leftLabel={'Enabled'}
+                  rightLabel={'Disabled'}
+                  tooltip="Enables hearing OOC channels from anywhere in any situation."
                 />
               </LabeledList>
             </Section>
