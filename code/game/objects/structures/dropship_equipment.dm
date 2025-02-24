@@ -947,7 +947,7 @@
 //////////////// OTHER EQUIPMENT /////////////////
 
 /obj/structure/dropship_equipment/shuttle/operatingtable
-	name = "Dropship Operating Table Deployment System"
+	name = "\improper Dropship Operating Table Deployment System"
 	desc = "Used for advanced medical procedures. Fits on the crewserved weapon attach points of dropships. You need a powerloader to lift it."
 	equip_category = DROPSHIP_CREW_WEAPON
 	icon = 'icons/obj/surgery.dmi'

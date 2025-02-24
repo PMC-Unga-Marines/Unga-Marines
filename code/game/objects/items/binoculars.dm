@@ -31,7 +31,7 @@
 #define MODE_RANGE_FINDER 3
 
 /obj/item/binoculars/tactical
-	name = "tactical binoculars"
+	name = "pair of tactical binoculars"
 	desc = "A pair of binoculars, with a laser targeting function."
 	icon_state = "range_finders"
 	///The cooldown after we use

@@ -814,7 +814,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		if(item_to_insert.w_class >= parent_storage.w_class && istype(item_to_insert, /obj/item/storage) && !is_type_in_typecache(item_to_insert.type, typecacheof(storage_type_limits)))
 			if(!istype(src, /obj/item/storage/backpack/holding))	//bohs should be able to hold backpacks again. The override for putting a boh in a boh is in backpack.dm.
 				if(warning)
-					to_chat(user, span_notice("\The [parent.name] cannot hold [item_to_insert] as it's a storage item of the same size."))
+					to_chat(user, span_notice("\The [parent.name] cannot hold \the [item_to_insert] as it's a storage item of the same size."))
 				return FALSE //To prevent the stacking of same sized storage items.
 
 	for(var/limited_type in storage_type_limits_max)
@@ -848,7 +848,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(!alert_user)
 		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, parent)
 
-	to_chat(user, "<span class='notice'>You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] [parent.name]")
+	to_chat(user, "<span class='notice'>You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] \the [parent.name]")
 	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, parent))
 		to_chat(user, span_warning("You fumble [accessed]!"))
 		return FALSE
