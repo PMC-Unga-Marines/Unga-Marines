@@ -83,7 +83,6 @@
 	reagents.reaction(A, INJECT, min(amount_per_transfer_from_this, reagents.total_volume) / reagents.total_volume)
 	var/trans = reagents.trans_to(A, amount_per_transfer_from_this)
 	to_chat(user, span_notice("[trans] units injected. [reagents.total_volume] units remaining in [src]. ")) // better to not balloon
-
 	return TRUE
 
 /obj/item/reagent_containers/hypospray/afterattack_alternate(atom/A, mob/living/user)

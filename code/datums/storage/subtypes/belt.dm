@@ -251,3 +251,29 @@
 /datum/storage/belt/protein_pack/New(atom/parent)
 	. = ..()
 	set_holdable(list(/obj/item/reagent_containers/food/snacks/protein_pack))
+
+/datum/storage/belt/mortar_belt
+	storage_slots = 24
+	max_storage_space = 49
+	max_w_class = 3
+	use_sound = null
+
+/datum/storage/belt/mortar_belt/New(atom/parent)
+	set_holdable(
+		can_hold = list(
+			/obj/item/mortar_kit/knee,
+			/obj/item/mortal_shell/knee,
+			/obj/item/compass,
+			/obj/item/binoculars,
+		)
+		storage_type_limits_list = list(
+			/obj/item/mortar_kit/knee,
+			/obj/item/binoculars,
+			/obj/item/compass,
+		)
+		storage_type_limits_max = list(
+			/obj/item/mortar_kit/knee = 1,
+			/obj/item/binoculars = 1,
+			/obj/item/compass = 1,
+		)
+	)

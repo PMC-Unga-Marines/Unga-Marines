@@ -5,12 +5,7 @@
 	icon = 'icons/obj/surgery.dmi'
 	atom_flags = CONDUCT
 	w_class = WEIGHT_CLASS_BULKY //Should not fit in backpacks
-	storage_slots = 12
-	max_storage_space = 24
-	can_hold = list(
-		/obj/item/tool/surgery,
-		/obj/item/stack/nanopaste,
-	)
+	storage_type = /datum/storage/surgical_tray
 
 /obj/item/storage/surgical_tray/PopulateContents()
 	new /obj/item/tool/surgery/scalpel(src)

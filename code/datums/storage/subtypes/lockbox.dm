@@ -9,3 +9,14 @@
 		to_chat(user, span_warning("Its locked!"))
 		return
 	return ..()
+
+/datum/storage/secure
+	max_w_class = WEIGHT_CLASS_SMALL
+	max_storage_space = 14
+
+/datum/storage/secure/safe
+	max_w_class = WEIGHT_CLASS_GIGANTIC
+
+/datum/storage/wallet/New(atom/parent)
+	. = ..()
+	set_holdable(cant_hold = list(/obj/item/storage/secure/briefcase))

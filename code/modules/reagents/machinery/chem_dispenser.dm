@@ -107,15 +107,14 @@
 	. = ..()
 	replace_beaker(user)
 
-
 /obj/machinery/chem_dispenser/proc/work_animation()
 	if(working_state)
 		flick(working_state,src)
 
 /obj/machinery/chem_dispenser/handle_atom_del(atom/movable/AM)
+	. = ..()
 	if(AM == beaker)
 		beaker = null
-
 
 /obj/machinery/chem_dispenser/multitool_act(mob/living/user, obj/item/I)
 	. = ..()

@@ -295,11 +295,29 @@
 		pill.reagents.trans_to(I, pill.reagents.total_volume)
 
 		to_chat(user, span_notice("You dissolve [pill] from [src] in [I]."))
-		remove_from_storage(pill, null, user)
+		storage_datum.remove_from_storage(pill, null, user)
 		qdel(pill)
 		return TRUE
 
-	return ..()
+	. = ..()
+	if(.)
+		return
+	if(!istype(I, /obj/item/facepaint) || isnull(greyscale_config))
+		return
+
+	var/obj/item/facepaint/paint = I
+	if(paint.uses < 1)
+		to_chat(user, span_warning("\the [paint] is out of color!"))
+		return
+	var/bottle_color = input(user, "Pick a color", "Pick color") as null|color
+	var/label_color = input(user, "Pick a color", "Pick color") as null|color
+
+	if(isnull(bottle_color) || isnull(label_color) || !do_after(user, 1 SECONDS, NONE, src, BUSY_ICON_GENERIC))
+		return
+
+	set_greyscale_colors(list(bottle_color,label_color))
+	paint.uses--
+	update_icon()
 
 /obj/item/storage/pill_bottle/attack_self(mob/living/user)
 	if(user.get_inactive_held_item())
@@ -553,30 +571,6 @@
 	max_storage_space = 7
 	pill_type_to_fill = /obj/item/reagent_containers/pill/zoom
 	greyscale_colors = "#ef3ad4#ffffff"
-
-/obj/item/storage/pill_bottle/attackby(obj/item/I, mob/user, params)
-	. = ..()
-	if(.)
-		return
-	if(!istype(I, /obj/item/facepaint) || isnull(greyscale_config))
-		return
-
-	var/obj/item/facepaint/paint = I
-	if(paint.uses < 1)
-		to_chat(user, span_warning("\the [paint] is out of color!"))
-		return
-	var/bottle_color
-	var/label_color
-	bottle_color = input(user, "Pick a color", "Pick color") as null|color
-	label_color = input(user, "Pick a color", "Pick color") as null|color
-
-	if(!bottle_color || !label_color || !do_after(user, 1 SECONDS, NONE, src, BUSY_ICON_GENERIC))
-		return
-
-
-	set_greyscale_colors(list(bottle_color,label_color))
-	paint.uses--
-	update_icon()
 
 //АИ-2
 

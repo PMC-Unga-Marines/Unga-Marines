@@ -121,14 +121,14 @@
 		grilled_item = null
 	return ..()
 
-
 /obj/machinery/grill/handle_atom_del(atom/A)
+	. = ..()
 	if(A == grilled_item)
 		grilled_item = null
 	return ..()
 
 /obj/machinery/grill/wrench_act(mob/living/user, obj/item/I)
-	..()
+	. = ..()
 	balloon_alert(user, "You begin [anchored ? "un" : ""]securing...")
 	I.play_tool_sound(src, 50)
 	//as long as we're the same anchored state and we're either on a floor or are anchored, toggle our anchored state

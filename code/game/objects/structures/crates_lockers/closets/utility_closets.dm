@@ -62,8 +62,6 @@
 	icon_opened = "fireclosetopen"
 
 /obj/structure/closet/firecloset/PopulateContents()
-	..()
-
 	new /obj/item/clothing/suit/fire(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/tool/extinguisher(src)
@@ -83,7 +81,6 @@
 	else
 		icon_state = icon_opened
 
-
 /*
 * Tool Closet
 */
@@ -94,9 +91,7 @@
 	icon_closed = "toolcloset"
 	icon_opened = "toolclosetopen"
 
-
 /obj/structure/closet/toolcloset/PopulateContents()
-	. = ..()
 	new /obj/item/clothing/suit/storage/hazardvest(src)
 	new /obj/item/clothing/suit/storage/hazardvest/lime(src)
 	new /obj/item/clothing/suit/storage/hazardvest/blue(src)
@@ -106,7 +101,6 @@
 	new /obj/item/clothing/head/hardhat(src)
 	if(prob(10))
 		new /obj/item/clothing/gloves/insulated(src)
-
 
 /*
 * Radiation Closet
@@ -119,7 +113,6 @@
 	icon_closed = "radsuitcloset"
 
 /obj/structure/closet/radiation/PopulateContents()
-	..()
 	new /obj/item/clothing/suit/radiation(src)
 	new /obj/item/clothing/head/radiation(src)
 	new /obj/item/clothing/suit/radiation(src)
@@ -136,11 +129,10 @@
 	icon_opened = "bombsuitopen"
 
 /obj/structure/closet/bombcloset/PopulateContents()
-	new /obj/item/clothing/suit/bomb_suit( src )
-	new /obj/item/clothing/under/color/black( src )
-	new /obj/item/clothing/shoes/black( src )
-	new /obj/item/clothing/head/bomb_hood( src )
-
+	new /obj/item/clothing/suit/bomb_suit(src)
+	new /obj/item/clothing/under/color/black(src)
+	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/clothing/head/bomb_hood(src)
 
 /obj/structure/closet/bombclosetsecurity
 	name = "\improper EOD closet"
@@ -150,7 +142,7 @@
 	icon_opened = "bombsuitsecopen"
 
 /obj/structure/closet/bombclosetsecurity/PopulateContents()
-	new /obj/item/clothing/suit/bomb_suit/security( src )
-	new /obj/item/clothing/under/rank/security( src )
-	new /obj/item/clothing/shoes/brown( src )
-	new /obj/item/clothing/head/bomb_hood/security( src )
+	new /obj/item/clothing/suit/bomb_suit/security(src)
+	new /obj/item/clothing/under/rank/security(src)
+	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/head/bomb_hood/security(src)

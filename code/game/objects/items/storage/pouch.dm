@@ -3,7 +3,6 @@
 	icon = 'icons/obj/items/storage/pouches.dmi'
 	icon_state = "small_drop"
 	w_class = WEIGHT_CLASS_BULKY //does not fit in backpack
-	max_w_class = WEIGHT_CLASS_SMALL
 	equip_slot_flags = ITEM_SLOT_POCKET
 	storage_slots = 1
 	draw_mode = 0
