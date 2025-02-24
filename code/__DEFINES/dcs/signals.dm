@@ -820,3 +820,7 @@
 
 /// Cave comms interference check signal.
 #define COMSIG_CAVE_INTERFERENCE_CHECK "cave_interference_check"
+
+/// From [/datum/controller/subsystem/security_level/proc/set_level]
+/// `/datum/security_level/next_level`, `/datum/security_level/previous_level`
+#define COMSIG_SECURITY_LEVEL_CHANGED "security_level_changed"
