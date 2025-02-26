@@ -214,7 +214,7 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 
 ///Storage items that will always have their default content
 GLOBAL_LIST_INIT(loadout_instantiate_default_contents, typecacheof(list(
-	/obj/item/storage/box/MRE,
+	/obj/item/storage/box/mre,
 	/obj/item/storage/pill_bottle/packet,
 	/obj/item/storage/pill_bottle,
 	/obj/item/storage/box/m94,

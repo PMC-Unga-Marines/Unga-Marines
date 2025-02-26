@@ -4,10 +4,8 @@
 	icon_state = "lockbox+l"
 	item_state = "syringe_kit"
 	w_class = WEIGHT_CLASS_BULKY
-	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 14
-	storage_slots = 4
 	req_access = list(ACCESS_MARINE_CAPTAIN)
+	storage_type = /datum/storage/lockbox
 	var/locked = 1
 	var/broken = 0
 	var/icon_locked = "lockbox+l"
@@ -37,27 +35,14 @@
 		return
 	return ..()
 
-/obj/item/storage/lockbox/show_to(mob/user)
-	if(locked)
-		to_chat(user, span_warning("Its locked!"))
-		return
-	return ..()
-
 /obj/item/storage/lockbox/vials
 	name = "secure vial storage box"
 	desc = "A locked box for keeping things away from children."
 	icon = 'icons/obj/items/storage/vialbox.dmi'
 	icon_state = "vialbox0"
 	item_state = "syringe_kit"
-	max_w_class = WEIGHT_CLASS_NORMAL
-	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
-	max_storage_space = 14 //The sum of the w_classes of all the items in this storage item.
-	storage_slots = 6
+	storage_type = /datum/storage/lockbox
 	req_access = list(ACCESS_MARINE_MEDBAY)
-
-/obj/item/storage/lockbox/vials/Initialize(mapload, ...)
-	. = ..()
-	update_icon()
 
 /obj/item/storage/lockbox/vials/update_icon_state()
 	. = ..()
@@ -65,7 +50,7 @@
 
 /obj/item/storage/lockbox/vials/update_overlays()
 	. = ..()
-	if (!broken)
+	if(!broken)
 		. += image(icon, src, "led[locked]")
 		if(locked)
 			. += image(icon, src, "cover")

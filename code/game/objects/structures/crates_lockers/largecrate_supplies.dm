@@ -300,7 +300,7 @@
 /obj/structure/largecrate/supply/supplies/mre
 	name = "\improper TGMC MRE crate (x50)"
 	desc = "A supply crate containing fifty TGMC MRE packets."
-	supplies = list(/obj/item/storage/box/MRE = 50)
+	supplies = list(/obj/item/storage/box/mre = 50)
 
 /obj/structure/largecrate/supply/supplies/water
 	name = "\improper NT Bottled Water crate (x50)"

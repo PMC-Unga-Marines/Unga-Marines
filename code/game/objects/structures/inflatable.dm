@@ -182,7 +182,6 @@
 			return
 	toggle_state()
 
-
 ///The proc that actually does the door closing. Plays the animation, etc. Copypasta. TODO: un-copypasta this
 /obj/structure/inflatable/door/proc/toggle_state()
 	switching_states = TRUE
@@ -191,17 +190,3 @@
 	density = !density
 	update_icon()
 	addtimer(VARSET_CALLBACK(src, switching_states, FALSE), 1 SECONDS)
-
-/obj/item/storage/briefcase/inflatable
-	name = "inflatable barrier box"
-	desc = "Contains inflatable walls and doors."
-	icon_state = "inf_box"
-	item_state = "syringe_kit"
-	max_storage_space = 21
-
-/obj/item/storage/briefcase/inflatable/Initialize(mapload, ...)
-	. = ..()
-	for(var/i in 1 to 3)
-		new /obj/item/inflatable/door(src)
-	for(var/i in 1 to 4)
-		new /obj/item/inflatable/wall(src)

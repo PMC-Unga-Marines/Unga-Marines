@@ -8,10 +8,15 @@
 	max_storage_space = 42	//holds 21 items of w_class 2
 	use_to_pickup = TRUE // for picking up broken bulbs, not that most people will try
 
+/datum/storage/box/m94
+	max_storage_space = 14
+	storage_flags = BYPASS_CRYO_CHECK
+
 /datum/storage/box/mre
 	storage_slots = 4
 	foldable = 0
 	trash_item = /obj/item/trash/mre
+	storage_flags = BYPASS_CRYO_CHECK
 
 /datum/storage/box/mre/New(atom/parent)
 	. = ..()
@@ -21,6 +26,9 @@
 	. = ..()
 	if(. && !length(parent.contents) && !gc_destroyed)
 		qdel(parent)
+
+/datum/storage/box/mre/som
+	trash_item = /obj/item/trash/mre/som
 
 /datum/storage/box/visual
 	max_w_class = WEIGHT_CLASS_BULKY

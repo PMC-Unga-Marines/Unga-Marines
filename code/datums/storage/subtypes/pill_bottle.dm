@@ -6,6 +6,7 @@
 	max_storage_space = 16
 	refill_types = list(/obj/item/storage/pill_bottle)
 	refill_sound = 'sound/items/pills.ogg'
+	storage_flags = BYPASS_CRYO_CHECK
 
 /datum/storage/pill_bottle/New(atom/parent)
 	. = ..()
@@ -43,3 +44,26 @@
 		qdel(parent)
 		return
 	parent.update_icon()
+
+/datum/storage/ai2
+	storage_slots = 8
+	use_sound = 'sound/effects/toolbox.ogg'
+
+/datum/storage/ai2/New(atom/parent)
+	. = ..()
+	set_holdable(can_hold_list = list(
+		/obj/item/storage/pill_bottle/penal,
+		/obj/item/reagent_containers/hypospray/autoinjector/pen,
+	))
+
+/datum/storage/ai2/open(mob/user)
+	. = ..()
+	icon_state = "firstaidkit_empty"
+	is_open = TRUE
+	update_icon()
+
+/datum/storage/ai2/close(mob/user)
+	. = ..()
+	icon_state = "firstaidkit"
+	is_open = FALSE
+	update_icon()

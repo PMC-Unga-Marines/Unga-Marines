@@ -1,13 +1,13 @@
 /datum/component/magazine_catcher
 	var/mob/living/carbon/human/wearer
 	///Parent storage in which we want to collect magazines
-	var/obj/item/storage/storage
+	var/datum/storage/storage
 	////Auto catching empty magazines: FALSE - disabled, TRUE - enabled
 	var/auto_catch = TRUE
 
 /datum/component/magazine_catcher/Initialize()
 	. = ..()
-	if(!isstorage(parent))
+	if(!parent.storage_datum)
 		return COMPONENT_INCOMPATIBLE
 
 /datum/component/magazine_catcher/Destroy(force, silent)
@@ -19,7 +19,7 @@
 	. = ..()
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED_TO_SLOT, PROC_REF(equipped_to_slot))
 	RegisterSignals(parent, list(COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT, COMSIG_ITEM_DROPPED), PROC_REF(removed_from_slot))
-	storage = parent
+	storage = parent.storage_datum
 	storage.verbs += /datum/component/magazine_catcher/proc/toggle_auto_catch
 
 /datum/component/magazine_catcher/UnregisterFromParent()

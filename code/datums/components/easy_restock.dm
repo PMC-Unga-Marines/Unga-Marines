@@ -1,10 +1,10 @@
 /datum/component/easy_restock
 	///Parent storage. Use this over checking the item directly.
-	var/obj/item/storage/reloading_storage
+	var/datum/storage/reloading_storage
 
 /datum/component/easy_restock/Initialize()
 	. = ..()
-	if(!isstorage(parent))
+	if(!parent.storage_datum)
 		return COMPONENT_INCOMPATIBLE
 
 /datum/component/easy_restock/Destroy(force, silent)
@@ -12,7 +12,7 @@
 	return ..()
 
 /datum/component/easy_restock/RegisterWithParent()
-	reloading_storage = parent
+	reloading_storage = parent.storage_datum
 	RegisterSignal(parent, COMSIG_ATOM_ATTACKBY_ALTERNATE, PROC_REF(on_parent_attackby_alternate))
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 

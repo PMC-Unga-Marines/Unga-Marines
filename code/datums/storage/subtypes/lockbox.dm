@@ -10,6 +10,14 @@
 		return
 	return ..()
 
+/datum/storage/lockbox/vials
+	max_storage_space = 14
+	storage_slots = 6
+
+/datum/storage/lockbox/vials/New(atom/parent)
+	. = ..()
+	set_holdable(can_hold_list = list(/obj/item/reagent_containers/glass/beaker/vial))
+
 /datum/storage/secure
 	max_w_class = WEIGHT_CLASS_SMALL
 	max_storage_space = 14

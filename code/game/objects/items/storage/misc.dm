@@ -3,7 +3,6 @@
 	desc = "It's a small container with dice inside."
 
 /obj/item/storage/pill_bottle/dice/PopulateContents()
-	. = ..()
 	new /obj/item/toy/dice(src)
 	new /obj/item/toy/dice/d20(src)
 
@@ -30,7 +29,6 @@
 /obj/item/storage/donut_box/PopulateContents()
 	for(var/i in 1 to startswith)
 		new /obj/item/reagent_containers/food/snacks/donut/normal(src)
-	update_icon()
 
 /obj/item/storage/donut_box/attack_self(mob/user as mob)
 	to_chat(user, "You [open ? "close [src]. Another time, then." : "open [src]. Mmmmm... donuts."]")

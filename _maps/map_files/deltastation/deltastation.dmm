@@ -28781,7 +28781,7 @@
 /turf/closed/wall,
 /area/deltastation/engineering/atmos/storage)
 "fQK" = (
-/obj/structure/closet/secure_closet/CMO,
+/obj/structure/closet/secure_closet/cmo,
 /obj/item/clothing/head/nursehat,
 /obj/effect/turf_decal/tile/transparent/neutral/half/contrasted,
 /obj/effect/turf_decal/stripes/line,

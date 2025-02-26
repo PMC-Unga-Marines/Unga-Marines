@@ -1,26 +1,20 @@
 /obj/item/clothing
 	name = "clothing"
-
 	// Resets the armor on clothing since by default /objs get 100 bio armor
 	soft_armor = list()
 	inventory_flags = NOQUICKEQUIP
-
 	///Assoc list of available slots. Since this keeps track of all currently equiped attachments per object, this cannot be a string_list()
 	var/list/attachments_by_slot = list()
 	///Typepath list of allowed attachment types.
 	var/list/attachments_allowed = list()
-
 	///Pixel offsets for specific attachment slots. Is not used currently.
 	var/list/attachment_offsets = list()
 	///List of attachment types that is attached to the object on initialize.
 	var/list/starting_attachments = list()
-
 	/// Bitflags used to determine the state of the armor (light on, overlay used, or reinfornced), currently support flags are in [equipment.dm:100]
 	var/armor_features_flags = NONE
-
 	/// used for headgear, masks, and glasses, to see how much they protect eyes from bright lights.
 	var/eye_protection = 0
-
 	/// Used by headgear mostly to affect accuracy
 	var/accuracy_mod = 0
 
@@ -31,7 +25,6 @@
 	if(!length(attachments_allowed) || !length(attachments_by_slot))
 		return
 	AddComponent(/datum/component/attachment_handler, attachments_by_slot, attachments_allowed, attachment_offsets, starting_attachments, null, null, null)
-
 
 /obj/item/clothing/equipped(mob/user, slot)
 	. = ..()
@@ -44,7 +37,6 @@
 		human_user.adjust_mob_accuracy(accuracy_mod)
 	if(armor_features_flags & ARMOR_FIRE_RESISTANT)
 		ADD_TRAIT(human_user, TRAIT_NON_FLAMMABLE, src)
-
 
 /obj/item/clothing/unequipped(mob/unequipper, slot)
 	if(!(equip_slot_flags & slotdefine2slotbit(slot)))
@@ -59,23 +51,8 @@
 	return ..()
 
 /obj/item/clothing/vendor_equip(mob/user)
-	..()
+	. = ..()
 	return user.equip_to_appropriate_slot(src)
-
-/obj/item/clothing/on_pocket_insertion()
-	. = ..()
-	update_icon()
-
-/obj/item/clothing/on_pocket_removal()
-	. = ..()
-	update_icon()
-
-/obj/item/clothing/do_quick_equip(mob/user)
-	for(var/attachment_slot in attachments_by_slot)
-		if(ismodulararmorstoragemodule(attachments_by_slot[attachment_slot]))
-			var/obj/item/armor_module/storage/storage_attachment = attachments_by_slot[attachment_slot]
-			return storage_attachment.storage.do_quick_equip(user)
-	return src
 
 ///Updates the icons of the mob wearing the clothing item, if any.
 /obj/item/clothing/proc/update_clothing_icon()
@@ -131,7 +108,6 @@
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_ears()
-
 
 /obj/item/clothing/ears/earmuffs
 	name = "earmuffs"
@@ -198,15 +174,6 @@
 		var/mob/M = loc
 		M.update_inv_wear_suit()
 
-/obj/item/clothing/suit/MouseDrop(over_object, src_location, over_location)
-	if(!attachments_by_slot[ATTACHMENT_SLOT_STORAGE])
-		return ..()
-	if(!istype(attachments_by_slot[ATTACHMENT_SLOT_STORAGE], /obj/item/armor_module/storage))
-		return ..()
-	var/obj/item/armor_module/storage/armor_storage = attachments_by_slot[ATTACHMENT_SLOT_STORAGE]
-	if(armor_storage.storage.handle_mousedrop(usr, over_object))
-		return ..()
-
 /////////////////////////////////////////////////////////
 //Gloves
 /obj/item/clothing/gloves
@@ -220,15 +187,14 @@
 	)
 	item_state_worn = TRUE
 	siemens_coefficient = 0.50
-	var/wired = 0
-	var/obj/item/cell/cell = 0
-	var/clipped = 0
-	var/transfer_prints = TRUE
 	blood_sprite_state = "bloodyhands"
 	armor_protection_flags = HANDS
 	equip_slot_flags = ITEM_SLOT_GLOVES
 	attack_verb = list("challenged")
-
+	var/wired = 0
+	var/obj/item/cell/cell = 0
+	var/clipped = 0
+	var/transfer_prints = TRUE
 
 /obj/item/clothing/gloves/update_greyscale(list/colors, update)
 	. = ..()
@@ -244,7 +210,7 @@
 			cell.charge = 0
 		if(cell.reliability != 100 && prob(50/severity))
 			cell.reliability -= 10 / severity
-	..()
+	return ..()
 
 // Called just before an attack_hand(), in mob/UnarmedAttack()
 /obj/item/clothing/gloves/proc/Touch(atom/A, proximity)
@@ -265,9 +231,6 @@
 		name = "mangled [name]"
 		desc = "[desc]<br>They have had the fingertips cut off of them."
 
-
-
-
 //////////////////////////////////////////////////////////////////
 //Mask
 /obj/item/clothing/mask
@@ -280,15 +243,14 @@
 	equip_slot_flags = ITEM_SLOT_MASK
 	armor_protection_flags = FACE|EYES
 	blood_sprite_state = "maskblood"
+	active = TRUE
 	var/anti_hug = 0
 	var/toggleable = FALSE
-	active = TRUE
 
 /obj/item/clothing/mask/update_clothing_icon()
-	if (ismob(src.loc))
-		var/mob/M = src.loc
+	if (ismob(loc))
+		var/mob/M = loc
 		M.update_inv_wear_mask()
-
 
 ////////////////////////////////////////////////////////////////////////
 //Shoes
@@ -310,16 +272,6 @@
 	soft_armor = list(MELEE = 25, BULLET = 15, LASER = 5, ENERGY = 5, BOMB = 5, BIO = 5, FIRE = 5, ACID = 20)
 
 /obj/item/clothing/shoes/update_clothing_icon()
-	if (ismob(src.loc))
-		var/mob/M = src.loc
+	if(ismob(loc))
+		var/mob/M = loc
 		M.update_inv_shoes()
-
-
-/obj/item/clothing/shoes/MouseDrop(over_object, src_location, over_location)
-	if(!attachments_by_slot[ATTACHMENT_SLOT_STORAGE])
-		return ..()
-	if(!istype(attachments_by_slot[ATTACHMENT_SLOT_STORAGE], /obj/item/armor_module/storage))
-		return ..()
-	var/obj/item/armor_module/storage/armor_storage = attachments_by_slot[ATTACHMENT_SLOT_STORAGE]
-	if(armor_storage.storage.handle_mousedrop(usr, over_object))
-		return ..()

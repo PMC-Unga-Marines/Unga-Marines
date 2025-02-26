@@ -1,0 +1,1 @@
+/obj/structure/closet/secure_closet/CMO : /obj/structure/closet/secure_closet/cmo

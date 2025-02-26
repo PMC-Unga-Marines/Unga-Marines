@@ -17917,8 +17917,8 @@
 /area/lv624/lazarus/internal_affairs)
 "scP" = (
 /obj/structure/rack,
-/obj/item/storage/box/MRE,
-/obj/item/storage/box/MRE,
+/datum/storage/box/mre,
+/datum/storage/box/mre,
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage)
 "sdo" = (

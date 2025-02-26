@@ -5414,7 +5414,7 @@
 "ebL" = (
 /obj/effect/turf_decal/stripes/white/box,
 /obj/effect/spawner/random/medical/medbelt,
-/obj/structure/closet/secure_closet/CMO,
+/obj/structure/closet/secure_closet/cmo,
 /turf/open/floor/tile/cmo,
 /area/slumbridge/inside/medical/cmo)
 "ebW" = (

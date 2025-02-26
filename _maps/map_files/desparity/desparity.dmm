@@ -8061,7 +8061,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "Pa" = (
-/obj/structure/closet/secure_closet/CMO,
+/obj/structure/closet/secure_closet/cmo,
 /obj/effect/spawner/random/medical/medbelt,
 /turf/open/floor/tile/green,
 /area/lv624/lazarus/medbay)

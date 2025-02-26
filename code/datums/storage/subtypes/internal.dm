@@ -14,7 +14,6 @@
 	RegisterSignal(parent, COMSIG_MOUSEDROP_ONTO, PROC_REF(on_mousedrop_onto)) //Click dragging
 
 	//Something is happening to our storage
-	RegisterSignal(parent, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp)) //Getting EMP'd
 	RegisterSignal(parent, COMSIG_CONTENTS_EX_ACT, PROC_REF(on_contents_explode)) //Getting exploded
 
 	RegisterSignal(parent, COMSIG_ATOM_CONTENTS_DEL, PROC_REF(handle_atom_del))
@@ -35,7 +34,6 @@
 		COMSIG_ATOM_ATTACK_GHOST,
 		COMSIG_MOUSEDROP_ONTO,
 
-		COMSIG_ATOM_EMP_ACT,
 		COMSIG_CONTENTS_EX_ACT,
 
 		COMSIG_ATOM_CONTENTS_DEL,
@@ -199,9 +197,7 @@
 /datum/storage/internal/pocket/insertion_message(obj/item/item, mob/user)
 	var/vision_distance = item.w_class >= WEIGHT_CLASS_NORMAL ? 3 : 1
 	//Grab the name of the object this pocket belongs to
-	user.visible_message(span_notice("[user] puts \a [item] into \the [parent.name]."),\
-						span_notice("You put \the [item] into \the [parent.name]."),\
-						null, vision_distance)
+	user.visible_message(span_notice("[user] puts \a [item] into \the [parent.name]."), span_notice("You put \the [item] into \the [parent.name]."), null, vision_distance)
 
 /datum/storage/internal/pocket/medical
 	max_storage_space = 30
@@ -244,7 +240,7 @@
 			/obj/item/ammo_magazine/revolver,
 			/obj/item/ammo_magazine/sniper,
 			/obj/item/ammo_magazine/handful,
-			/obj/item/cell/lasgun/plasma,
+			// /obj/item/cell/lasgun/plasma, // we don't have it yet
 		)
 	)
 
@@ -385,9 +381,9 @@
 			/obj/item/attachable/bayonetknife/som,
 			/obj/item/weapon/yautja/knife,
 			/obj/item/stack/throwing_knife,
-			/obj/item/storage/box/MRE,
+			/obj/item/storage/box/mre,
 			/obj/item/reagent_containers/food/snacks,
-		)
+		),
 		cant_hold_list = list(
 			/obj/item/stack/sheet,
 		)
@@ -436,7 +432,6 @@
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_GHOST, PROC_REF(on_attack_ghost)) //Ghosts can see inside your storages
 
 	//Something is happening to our storage
-	RegisterSignal(parent, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp)) //Getting EMP'd
 	RegisterSignal(parent, COMSIG_CONTENTS_EX_ACT, PROC_REF(on_contents_explode)) //Getting exploded
 
 	RegisterSignal(parent, COMSIG_ATOM_CONTENTS_DEL, PROC_REF(handle_atom_del))

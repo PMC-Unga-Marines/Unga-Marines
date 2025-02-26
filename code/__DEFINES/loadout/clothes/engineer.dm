@@ -1,5 +1,5 @@
 GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
-	/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0, "white"),
+	/obj/item/storage/box/mre = list(CAT_STD, "TGMC MRE", 0, "white"),
 	/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black"),
 	/obj/item/clothing/under/marine/engineer = list(CAT_UNI, "TGMC Engineer Fatigues", 0, "black"),
 	/obj/item/clothing/under/marine/gorka_eng = list(CAT_UNI, "Engineer Gorka", 0, "black"),

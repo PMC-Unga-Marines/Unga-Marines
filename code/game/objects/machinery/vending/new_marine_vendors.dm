@@ -480,7 +480,7 @@
 
 /obj/effect/vendor_bundle/basic
 	gear_to_spawn = list(
-		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/mre,
 		/obj/item/paper/tutorial/medical,
 		/obj/item/paper/tutorial/mechanics,
 	)

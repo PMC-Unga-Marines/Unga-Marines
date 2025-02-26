@@ -1,17 +1,3 @@
-/* Utility Closets
-* Contains:
-*		Emergency Closet
-*		Fire Closet
-*		Tool Closet
-*		Radiation Closet
-*		Bombsuit Closet
-*		Hydrant
-*		First Aid
-*/
-
-/*
-* Emergency Closet
-*/
 /obj/structure/closet/emcloset
 	name = "emergency closet"
 	desc = "It's a storage unit for emergency breathmasks."
@@ -20,27 +6,27 @@
 	icon_opened = "emergencyopen"
 
 /obj/structure/closet/emcloset/PopulateContents()
-	switch (pickweight(list("small" = 55, "aid" = 25, "mask" = 10, "both" = 10, "nothing" = 0, "delete" = 0)))
-		if ("small")
+	switch(pickweight(list("small" = 55, "aid" = 25, "mask" = 10, "both" = 10, "nothing" = 0, "delete" = 0)))
+		if("small")
 			new /obj/item/clothing/mask/breath(src)
 			new /obj/item/clothing/mask/breath(src)
 			new /obj/item/clothing/mask/gas(src)
 			new /obj/item/clothing/mask/gas(src)
-		if ("aid")
+		if("aid")
 			new /obj/item/storage/toolbox/emergency(src)
 			new /obj/item/storage/firstaid/o2(src)
 			new /obj/item/clothing/mask/gas(src)
-		if ("mask")
+		if("mask")
 			new /obj/item/clothing/mask/breath(src)
 			new /obj/item/clothing/mask/gas(src)
-		if ("both")
+		if("both")
 			new /obj/item/storage/toolbox/emergency(src)
 			new /obj/item/clothing/mask/gas(src)
 			new /obj/item/clothing/mask/gas(src)
 			new /obj/item/storage/firstaid/o2(src)
 
 		// teehee - Ah, tg coders...
-		if ("delete")
+		if("delete")
 			qdel(src)
 
 		//If you want to re-add fire, just add "fire" = 15 to the pick list.
@@ -51,9 +37,6 @@
 /obj/structure/closet/emcloset/legacy/PopulateContents()
 	new /obj/item/clothing/mask/gas(src)
 
-/*
-* Fire Closet
-*/
 /obj/structure/closet/firecloset
 	name = "fire-safety closet"
 	desc = "It's a storage unit for fire-fighting supplies."
@@ -81,9 +64,6 @@
 	else
 		icon_state = icon_opened
 
-/*
-* Tool Closet
-*/
 /obj/structure/closet/toolcloset
 	name = "tool closet"
 	desc = "It's a storage unit for tools."
@@ -102,9 +82,6 @@
 	if(prob(10))
 		new /obj/item/clothing/gloves/insulated(src)
 
-/*
-* Radiation Closet
-*/
 /obj/structure/closet/radiation
 	name = "radiation suit closet"
 	desc = "It's a storage unit for rad-protective suits."
@@ -118,9 +95,6 @@
 	new /obj/item/clothing/suit/radiation(src)
 	new /obj/item/clothing/head/radiation(src)
 
-/*
-* Bombsuit closet
-*/
 /obj/structure/closet/bombcloset
 	name = "\improper EOD closet"
 	desc = "It's a storage unit for explosion-protective suits."

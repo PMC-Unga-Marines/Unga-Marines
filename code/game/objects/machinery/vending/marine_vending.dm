@@ -945,7 +945,7 @@
 		/obj/item/reagent_containers/food/snacks/mre_pack/meal4 = -1,
 		/obj/item/reagent_containers/food/snacks/mre_pack/meal5 = -1,
 		/obj/item/reagent_containers/food/snacks/mre_pack/meal6 = -1,
-		/obj/item/storage/box/MRE = -1,
+		/obj/item/storage/box/mre = -1,
 		/obj/item/reagent_containers/food/drinks/flask/marine = -1,
 	)
 //Christmas inventory
@@ -963,7 +963,7 @@
 	faction = FACTION_SOM
 	products = list(
 		/obj/item/reagent_containers/food/snacks/protein_pack/som = -1,
-		/obj/item/storage/box/MRE/som = -1,
+		/obj/item/storage/box/mre/som = -1,
 		/obj/item/reagent_containers/food/drinks/flask/marine = -1,
 	)
 

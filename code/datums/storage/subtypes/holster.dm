@@ -37,6 +37,14 @@
 	holster.update_icon() //So that the icon actually updates after we've assigned our holstered_item
 	playsound(parent, draw_sound, 15, 1)
 
+/datum/storage/holster/blade/officer
+	draw_sound = 'sound/items/unsheath.ogg'
+	sheathe_sound = 'sound/items/sheath.ogg'
+
+/datum/storage/holster/blade/officer/New(atom/parent)
+	. = ..()
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/claymore/mercsword/machete/officersword))
+
 /datum/storage/holster/backholster
 	max_w_class = WEIGHT_CLASS_NORMAL //normal items
 	max_storage_space = 24
@@ -84,6 +92,7 @@
 		/obj/item/mortal_shell/flare,
 		/obj/item/mortal_shell/plasmaloss,
 		/obj/item/mortar_kit,
+		/obj/item/hud_tablet/artillery,
 	),
 		storage_type_limits_list = list(/obj/item/mortar_kit)
 	)
@@ -158,6 +167,7 @@
 	max_storage_space = 28
 	refill_types = list(/obj/item/storage/box/m94)
 	refill_sound = "rustle"
+	storage_flags = BYPASS_CRYO_CHECK
 
 /datum/storage/holster/flarepouch/New(atom/parent)
 	. = ..()
@@ -196,6 +206,20 @@
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
 		/obj/item/cell/lasgun/lasrifle,
 		/obj/item/cell/lasgun/volkite/small,
+	))
+
+/datum/storage/holster/belt/t500/New(atom/parent)
+	. = ..()
+	//storage_type_limits = list(/obj/item/weapon/gun/revolver/t500)
+	set_holdable(can_hold_list = list(
+		/obj/item/weapon/gun/revolver/t500,
+		/obj/item/weapon/gun/revolver/t312,
+		/obj/item/ammo_magazine/revolver/t500,
+		/obj/item/ammo_magazine/revolver/t500/slavs,
+		/obj/item/ammo_magazine/packet/t500,
+		/obj/item/ammo_magazine/revolver/t312,
+		/obj/item/ammo_magazine/packet/t312,
+		/obj/item/ammo_magazine/handful
 	))
 
 /datum/storage/holster/belt/m44
