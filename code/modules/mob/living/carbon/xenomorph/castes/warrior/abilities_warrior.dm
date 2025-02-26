@@ -74,8 +74,6 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_AGILITY,
 	)
 	action_type = ACTION_TOGGLE
-	/// Whether the ability is active or not.
-	var/ability_active = FALSE
 
 /datum/action/ability/xeno_action/toggle_agility/New(Target)
 	. = ..()
@@ -84,12 +82,12 @@
 /datum/action/ability/xeno_action/toggle_agility/action_activate()
 	GLOB.round_statistics.warrior_agility_toggles++
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "warrior_agility_toggles")
-	ability_active = !ability_active
+	toggled = !toggled
 	TOGGLE_BITFIELD(xeno_owner.xeno_flags, XENO_AGILITY)
-	set_toggle(ability_active ? TRUE : FALSE)
+	set_toggle(toggled)
 	xeno_owner.update_icons()
 	add_cooldown()
-	if(!ability_active)
+	if(!toggled)
 		xeno_owner.remove_movespeed_modifier(MOVESPEED_ID_WARRIOR_AGILITY)
 		xeno_owner.soft_armor = xeno_owner.soft_armor.modifyAllRatings(WARRIOR_AGILITY_ARMOR_MODIFIER)
 		return
@@ -107,7 +105,7 @@
 
 /datum/action/ability/activable/xeno/warrior/use_ability(atom/A)
 	var/datum/action/ability/xeno_action/toggle_agility/agility_action = xeno_owner.actions_by_path[/datum/action/ability/xeno_action/toggle_agility]
-	if(agility_action?.ability_active)
+	if(agility_action?.toggled)
 		agility_action.action_activate()
 
 /// Adds an outline around the ability button to represent Empower.
