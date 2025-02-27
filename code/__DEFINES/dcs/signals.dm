@@ -78,6 +78,9 @@
 ///called when an AI is requested by a holopad
 #define COMSIG_GLOB_HOLOPAD_AI_CALLED "!holopad_calling"
 
+///from /atom/notify_ai_hazard()
+#define COMSIG_GLOB_AI_HAZARD_NOTIFIED "!ai_hazard_notified"
+
 //////////////////////////////////////////////////////////////////
 
 // /datum/component signals
@@ -525,6 +528,13 @@
 ///From get_zone_with_miss_chance
 #define MOB_GET_MISS_CHANCE_MOD "mob_get_miss_chance_mod"
 
+///AI mob wants to jump
+#define COMSIG_AI_JUMP "ai_jump"
+///AI mob equipped a melee weapon
+#define COMSIG_AI_EQUIPPED_GUN "ai_equipped_gun"
+///AI mob equipped a melee weapon
+#define COMSIG_AI_EQUIPPED_MELEE "ai_equipped_melee"
+
 //mob/dead/observer
 #define COMSIG_OBSERVER_CLICKON "observer_clickon"				//from mob/dead/observer/ClickOn(): (atom/A, params)
 
@@ -541,6 +551,9 @@
 ///from /mob/living/proc/set_lying_angle
 #define COMSIG_LIVING_SET_LYING_ANGLE "living_set_lying_angle"
 #define COMSIG_LIVING_IGNITED "living_ignited" //from /mob/living/proc/IgniteMob() : (fire_stacks)
+
+///From /mob/living/can_jump
+#define COMSIG_LIVING_CAN_JUMP "living_can_jump"
 
 /// From mob/living/treat_message(): (list/message_args)
 #define COMSIG_LIVING_TREAT_MESSAGE "living_treat_message"

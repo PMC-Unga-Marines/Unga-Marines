@@ -6,6 +6,7 @@
 	desc = "An energised battle axe."
 	icon_state = "axe0"
 	force = 40
+	force_activated = 150
 	throwforce = 25
 	throw_speed = 1
 	throw_range = 5
@@ -19,13 +20,13 @@
 	active = !active
 	if(active)
 		to_chat(user, span_notice("The axe is now energised."))
-		force = 150
+		force = force_activated
 		icon_state = "axe1"
 		w_class = WEIGHT_CLASS_HUGE
 		heat = 3500
 	else
 		to_chat(user, span_notice("The axe can now be concealed."))
-		force = 40
+		force = initial(force)
 		icon_state = "axe0"
 		w_class = WEIGHT_CLASS_HUGE
 		heat = 0
@@ -35,6 +36,7 @@
 	desc = "May the force be within you."
 	icon_state = "sword"
 	force = 10
+	force_activated = 40
 	throwforce = 12
 	throw_speed = 1
 	throw_range = 5
@@ -46,8 +48,10 @@
 	equip_slot_flags = ITEM_SLOT_BELT
 	///Sword color, if applicable
 	var/sword_color
-	///Force of the weapon when activated
-	var/active_force = 40
+	///Penetration when activated
+	var/active_penetration = 30
+	///Special attack action granted to users with the right trait
+	var/datum/action/ability/activable/weapon_skill/sword_lunge/special_attack
 
 /obj/item/weapon/energy/sword/Initialize(mapload)
 	. = ..()
@@ -56,6 +60,12 @@
 	AddComponent(/datum/component/shield, SHIELD_TOGGLE|SHIELD_PURE_BLOCKING, list(MELEE = 35, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0))
 	AddComponent(/datum/component/stun_mitigation, shield_cover = list(MELEE = 40, BULLET = 40, LASER = 40, ENERGY = 40, BOMB = 40, BIO = 40, FIRE = 40, ACID = 40))
 	AddElement(/datum/element/strappable)
+	AddElement(/datum/element/scalping)
+	special_attack = new(src, force_activated, active_penetration)
+
+/obj/item/weapon/energy/sword/Destroy()
+	QDEL_NULL(special_attack)
+	return ..()
 
 /obj/item/weapon/energy/sword/attack_self(mob/living/user)
 	switch_state(src, user)
@@ -73,9 +83,9 @@
 	if(active)
 		toggle_item_bump_attack(user, TRUE)
 		hitsound = 'sound/weapons/blade1.ogg'
-		force = active_force
-		throwforce = active_force
-		penetration = 30
+		force = force_activated
+		throwforce = force_activated
+		penetration = active_penetration
 		heat = 3500
 		icon_state = "[initial(icon_state)]_[sword_color]"
 		w_class = WEIGHT_CLASS_BULKY
@@ -110,12 +120,12 @@
 
 /obj/item/weapon/energy/sword/deathsquad
 	sword_color = "blue"
-	active_force = 55
+	force_activated = 55
 
 /obj/item/weapon/energy/sword/som
 	icon_state = "som_sword"
 	desc = "A SOM energy sword. Designed to cut through armored plate."
-	active_force = 50
+	force_activated = 50
 	sword_color = "on"
 
 /obj/item/weapon/energy/sword/som/Initialize(mapload)

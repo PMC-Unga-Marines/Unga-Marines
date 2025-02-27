@@ -436,6 +436,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	SHOULD_CALL_PARENT(TRUE) // no exceptions
 	item_flags |= IN_INVENTORY // if it's located after the signal is sent, it doesn't update stuff like verbs for storages
 	SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, slot)
+	SEND_SIGNAL(user, COMSIG_MOB_ITEM_EQUIPPED, src, slot)
 	if (slot != SLOT_R_HAND && slot != SLOT_L_HAND)
 		last_equipped_slot = slot
 
@@ -463,6 +464,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 /obj/item/proc/unequipped(mob/unequipper, slot)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_ITEM_UNEQUIPPED, unequipper, slot)
+	SEND_SIGNAL(unequipper, COMSIG_MOB_ITEM_UNEQUIPPED, src, slot)
 
 	var/equipped_from_slot = equip_slot_flags & slotdefine2slotbit(slot)
 

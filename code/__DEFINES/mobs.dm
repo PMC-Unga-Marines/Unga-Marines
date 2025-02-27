@@ -149,6 +149,7 @@
 #define CUT "cut"
 #define BRUISE "bruise"
 #define STAMINA "stamina"
+#define PAIN "pain"
 //=================================================
 
 #define EFFECT_STUN "stun"
@@ -961,3 +962,14 @@ GLOBAL_LIST_INIT(human_body_parts, list(
 #define CARBON_NO_CHEST_BURST 0
 #define CARBON_IS_CHEST_BURSTING 1
 #define CARBON_CHEST_BURSTED 2
+
+//This is here because the damage defines aren't set before the AI defines and it breaks everything and I don't know where else to put it
+///Assoc list of items to use to treat different damage types
+GLOBAL_LIST_INIT(ai_damtype_to_heal_list, list(
+	BRUTE = GLOB.ai_brute_heal_items,
+	BURN = GLOB.ai_burn_heal_items,
+	TOX = GLOB.ai_tox_heal_items,
+	OXY = GLOB.ai_oxy_heal_items,
+	CLONE = GLOB.ai_clone_heal_items,
+	PAIN = GLOB.ai_pain_heal_items,
+))
