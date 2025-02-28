@@ -697,6 +697,148 @@
 		/obj/item/attachable/reddot,
 	)
 
+//-------------------------------------------------------
+// MPI-KM but for marines
+
+/obj/item/weapon/gun/rifle/zarya
+	name = "\improper Type-16 Felon rifle"
+	desc = "Chinese replica of the MPi-KM rifle, made in bakelite with picatinny tactical rail. Uses 6.02x41mm ammo."
+	icon = 'icons/obj/items/gun/gun64.dmi'
+	unique_reskin = list(
+		"Polymer" = "ak47_black",
+		"Plum" = "ak47",
+	)
+	icon_state = "ak47"
+	item_state = "ak47"
+	caliber = CALIBER_602X41
+	muzzleflash_iconstate = "muzzle_flash_medium"
+	max_shells = 40
+	fire_sound = 'sound/weapons/guns/fire/ak47.ogg'
+	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/ak47_reload.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
+	default_ammo_type = /obj/item/ammo_magazine/rifle/zarya
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/zarya,
+		/obj/item/ammo_magazine/rifle/zarya/carbine,
+		/obj/item/ammo_magazine/rifle/zarya/extended,
+	)
+	aim_slowdown = 0.5
+	attachable_allowed = list(
+		/obj/item/attachable/stock/mpi_km,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/burstfire_assembly,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/angledgrip,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/attachable/motiondetector,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
+	)
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
+	actions_types = list(/datum/action/item_action/aim_mode)
+	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_AUTOMATIC)
+	attachable_offset = list("muzzle_x" = 35, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 5, "stock_y" = 12)
+	starting_attachment_types = list(/obj/item/attachable/stock/mpi_km)
+	force = 20
+	burst_amount = 2
+	autoburst_delay = 0.10 SECONDS
+	aim_slowdown = 0.5
+	fire_delay = 0.20 SECONDS
+	scatter = 0
+	wield_delay = 0.8 SECONDS
+	placed_overlay_iconstate = "ak47"
+
+/obj/item/weapon/gun/rifle/zarya/foldable
+	name = "\improper Type-16M2 Zarya carbine"
+	desc = "Chinese replica of MPi-KM rifle, made in fashionable polymer with tactical picatinny rail and folding stock. Uses 6.02x41mm ammo."
+	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon_state = "v34_black"
+	item_state = "v34_black"
+	unique_reskin = list(
+		"Polymer" = "v34_black",
+		"Plum" = "v34",
+	)
+	muzzleflash_iconstate = "muzzle_flash"
+	max_shells = 30
+	w_class = WEIGHT_CLASS_NORMAL
+	default_ammo_type = /obj/item/ammo_magazine/rifle/zarya/carbine
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/zarya/carbine,
+		/obj/item/ammo_magazine/rifle/zarya/extended,
+	)
+	attachable_allowed = list(
+		/obj/item/attachable/foldable/som_carbine,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/burstfire_assembly,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/angledgrip,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/attachable/motiondetector,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/attachable/shoulder_mount,
+	)
+	actions_types = null
+	equip_slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_SEMIAUTO)
+	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 18,"rail_x" = 8, "rail_y" = 20, "under_x" = 17, "under_y" = 13, "stock_x" = -6, "stock_y" = 16)
+	starting_attachment_types = list(/obj/item/attachable/foldable/som_carbine)
+	force = 10
+	burst_amount = 1
+	fire_delay = 0.15 SECONDS
+	accuracy_mult = 0.75
+	scatter = 12
+	recoil = 2
+	wield_delay = 0.5 SECONDS
+	aim_slowdown = 0.3
+	movement_acc_penalty_mult = 4
+	burst_amount = 3
+	autoburst_delay = 0.10 SECONDS
+	damage_falloff_mult = 1.5
+	upper_akimbo_accuracy = 12
+	lower_akimbo_accuracy = 9
+	akimbo_additional_delay = 2
+
+//-------------------------------------------------------
+
 // RPD
 
 /obj/item/weapon/gun/rifle/lmg_d

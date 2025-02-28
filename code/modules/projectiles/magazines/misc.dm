@@ -407,6 +407,15 @@
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/rifle/hp
 
+/obj/item/ammo_magazine/packet/p602x41
+	name = "box of 6.02x41mm"
+	desc = "A box containing 100 rounds of 6.02x41mm."
+	caliber = CALIBER_602X41
+	icon_state = "box_602x41"
+	default_ammo = /datum/ammo/bullet/rifle/mpi_km/mar
+	current_rounds = 150
+	max_rounds = 150
+
 /obj/item/ammo_magazine/packet/p10x25mm/ap
 	name = "box of 10x25mm AP"
 	desc = "A box containing 125 armor piercing rounds of 10x25mm caseless."
