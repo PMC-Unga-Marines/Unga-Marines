@@ -28,6 +28,7 @@
 #define CALIBER_32ACP ".32 ACP"
 #define CALIBER_762X25 "7.62x25mm"
 #define CALIBER_9X21 "9x21mm IMI"
+#define CALIBER_9X39_CASELESS "9x39mm" // Rifle or SMG?? Is it real???
 #define CALIBER_10X20_CASELESS "10x20mm caseless"
 
 // --- Rifles ---

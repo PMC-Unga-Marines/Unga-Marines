@@ -143,6 +143,20 @@
 	recoil_mod = -3
 	scatter_mod = -2
 
+/obj/item/attachable/foldable/viktor
+	name = "\improper PDWM Mk.5 stock"
+	desc = "If you saw this, you are probably very bored."
+	flags_attach_features = ATTACH_ACTIVATION
+	wield_delay_mod = 0.1 SECONDS
+	melee_mod = 5
+	size_mod = 1
+	icon_state = "viktorstock"
+	accuracy_mod = 0.3
+	recoil_mod = -2
+	scatter_mod = -8
+	accuracy_unwielded_mod = -0.1
+	scatter_unwielded_mod = 4
+
 /obj/item/attachable/foldable/bipod
 	name = "bipod"
 	desc = "A simple set of telescopic poles to keep a weapon stabilized during firing. \nGreatly increases accuracy and reduces recoil and scatter when properly placed, but also increases weapon size."

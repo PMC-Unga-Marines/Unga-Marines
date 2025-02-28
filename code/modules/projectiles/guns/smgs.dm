@@ -672,6 +672,66 @@
 /obj/item/weapon/gun/smg/icc_pdw/standard
 	starting_attachment_types = list(/obj/item/attachable/stock/icc_pdw, /obj/item/attachable/magnetic_harness, /obj/item/attachable/verticalgrip, /obj/item/attachable/extended_barrel)
 
+//-------------------------------------------------------
+// PDWM Viktor Mk.5 aka SR-3M Vikhr
+
+/obj/item/weapon/gun/smg/viktor
+	name = "\improper PDWM Viktor Mk.5"
+	desc = "This misunderstanding of the weapons industry was developed when infantry had to face the threat of armored enemies while carrying a bunch of other weapons. It uses caseless 9x39mm ammunition."
+	icon = 'icons/Marine/gun64.dmi'
+	icon_state = "viktor"
+	item_state = "viktor"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+	)
+
+	inhand_x_dimension = 64
+	inhand_y_dimension = 32
+
+	caliber = CALIBER_9X39_CASELESS //codex
+	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_AUTOBURST)
+	max_shells = 30
+	flags_equip_slot = ITEM_SLOT_BACK|ITEM_SLOT_BELT
+	type_of_casings = null
+	default_ammo_type = /obj/item/ammo_magazine/smg/viktor
+	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/viktor)
+	fire_sound = "mp38_fire"
+	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/rifle_reload.ogg'
+
+	w_class = WEIGHT_CLASS_NORMAL
+	attachable_allowed = list(
+		/obj/item/attachable/foldable/viktor,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
+	)
+	starting_attachment_types = list(/obj/item/attachable/foldable/viktor)
+
+	attachable_offset = list("muzzle_x" = 29, "muzzle_y" = 19,"rail_x" = 9, "rail_y" = 21, "under_x" = 21, "under_y" = 15, "stock_x" = -4, "stock_y" = 16)
+
+	burst_amount = 3
+	accuracy_mult_unwielded = 0.65
+	recoil_unwielded = 0.1
+	fire_delay = 0.1 SECONDS
+
+	scatter = 2
+	scatter_unwielded = 5
+	wield_delay = 0.30 SECONDS
+
+	upper_akimbo_accuracy = 5
+	lower_akimbo_accuracy = 3
+
 ///////////////////////////////////////////////////////////////////////
 ////////////// Vector, based on KRISS Vector 45ACP. ///////////////////
 ///////////////////////////////////////////////////////////////////////
