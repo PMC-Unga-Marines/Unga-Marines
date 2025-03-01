@@ -45,6 +45,10 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	var/time_between_round = 0
 	///What factions are used in this gamemode, typically TGMC and xenos
 	var/list/factions = list(FACTION_TERRAGOV, FACTION_XENO)
+	///Increases the amount of xenos needed to evolve to tier three by the value.
+	var/tier_three_penalty = 0
+	///List of castes we dont want to be evolvable depending on gamemode.
+	var/list/restricted_castes
 
 	var/list/predators = list()
 
@@ -1012,10 +1016,6 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			items += "Xeno respawn timer: READY"
 		else
 			items += "Xeno respawn timer: [(status_value / 60) % 60]:[add_leading(num2text(status_value % 60), 2, "0")]"
-
-///Returns the armor color variant applicable for this mode
-/datum/game_mode/proc/get_map_color_variant()
-	return SSmapping.configs[GROUND_MAP].armor_style
 
 /// Adjusts the inputted jobworth list.
 /datum/game_mode/proc/get_adjusted_jobworth_list(list/jobworth_list)

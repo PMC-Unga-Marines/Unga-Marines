@@ -24,6 +24,9 @@
 	)
 	blacklist_ground_maps = list(MAP_BIG_RED, MAP_DELTA_STATION, MAP_PRISON_STATION, MAP_LV_624, MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_LAST_STAND)
 
+	tier_three_penalty = 1
+	restricted_castes = list(/datum/xeno_caste/ravager, /datum/xeno_caste/hivemind)
+
 	// Round end conditions
 	var/shuttle_landed = FALSE
 	var/marines_evac = CRASH_EVAC_NONE
@@ -216,7 +219,7 @@
 		. += H.job.jobworth[/datum/job/xenomorph]
 
 /datum/game_mode/infestation/crash/get_adjusted_jobworth_list(list/jobworth_list)
-	var/list/adjusted_jobworth_list = deepCopyList(jobworth_list)
+	var/list/adjusted_jobworth_list = deep_copy_list(jobworth_list)
 	for(var/index in jobworth_list)
 		var/datum/job/scaled_job = SSjob.GetJobType(index)
 		if(!(index in SSticker.mode.valid_job_types))
