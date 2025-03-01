@@ -63,6 +63,11 @@
 	contains = list(/obj/item/ammo_magazine/packet/sg62)
 	cost = 50
 
+/datum/supply_packs/smartguns/smartspotting_rifle_ammo_bin
+	name = "SG-153 spotting rifle ammo bin"
+	contains = list(/obj/item/ammo_magazine/packet/sg153)
+	cost = 50
+
 /datum/supply_packs/smartguns/sg153_ammo
 	name = "SG-153 spotting rifle ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/sg153)
