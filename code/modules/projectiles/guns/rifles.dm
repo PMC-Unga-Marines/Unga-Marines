@@ -784,6 +784,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	default_ammo_type = /obj/item/ammo_magazine/rifle/zarya/carbine
 	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/zarya,
 		/obj/item/ammo_magazine/rifle/zarya/carbine,
 		/obj/item/ammo_magazine/rifle/zarya/extended,
 	)
@@ -832,7 +833,7 @@
 	movement_acc_penalty_mult = 4
 	burst_amount = 3
 	autoburst_delay = 0.10 SECONDS
-	damage_falloff_mult = 1.5
+	damage_falloff_mult = 2.5
 	upper_akimbo_accuracy = 12
 	lower_akimbo_accuracy = 9
 	akimbo_additional_delay = 2

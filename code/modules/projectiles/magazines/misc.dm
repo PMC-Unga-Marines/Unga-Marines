@@ -412,7 +412,7 @@
 	desc = "A box containing 100 rounds of 6.02x41mm."
 	caliber = CALIBER_602X41
 	icon_state = "box_602x41"
-	default_ammo = /datum/ammo/bullet/rifle/mpi_km/mar
+	default_ammo = /datum/ammo/bullet/rifle/kalashnikov
 	current_rounds = 150
 	max_rounds = 150
 

@@ -213,7 +213,7 @@
 	icon_state = "ak_40"
 	icon_state_mini = "mag_rifle_brown"
 	bonus_overlay = "ak_40"
-	default_ammo = /datum/ammo/bullet/rifle/mpi_km/mar
+	default_ammo = /datum/ammo/bullet/rifle/kalashnikov
 	max_rounds = 40
 	scatter_mod = 2
 	aim_speed_mod = 0.1
