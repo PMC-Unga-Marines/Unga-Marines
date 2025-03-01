@@ -364,7 +364,6 @@
 				return TRUE
 	return FALSE
 
-
 /obj/item/radio/examine(mob/user)
 	. = ..()
 	if(frequency && in_range(src, user))
