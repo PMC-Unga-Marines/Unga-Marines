@@ -353,6 +353,8 @@
 		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/splint = 1,
 	)
+	mouse_over_pointer = MOUSE_HAND_POINTER
+
 
 /obj/machinery/vending/nanomed/Initialize(mapload, ...)
 	. = ..()

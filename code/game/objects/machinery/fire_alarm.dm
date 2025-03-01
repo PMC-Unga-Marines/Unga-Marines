@@ -11,6 +11,8 @@
 	idle_power_usage = 2
 	active_power_usage = 6
 	power_channel = ENVIRON
+	mouse_over_pointer = MOUSE_HAND_POINTER
+
 	var/detecting = 1
 	var/working = 1
 	var/time = 10
