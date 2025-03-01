@@ -4,7 +4,8 @@
 
 /datum/component/easy_restock/Initialize()
 	. = ..()
-	if(!parent.storage_datum)
+	var/atom/atom_parent = parent
+	if(!atom_parent.storage_datum)
 		return COMPONENT_INCOMPATIBLE
 
 /datum/component/easy_restock/Destroy(force, silent)
@@ -12,7 +13,8 @@
 	return ..()
 
 /datum/component/easy_restock/RegisterWithParent()
-	reloading_storage = parent.storage_datum
+	var/atom/atom_parent = parent
+	reloading_storage = atom_parent.storage_datum
 	RegisterSignal(parent, COMSIG_ATOM_ATTACKBY_ALTERNATE, PROC_REF(on_parent_attackby_alternate))
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 
@@ -35,7 +37,8 @@
 	INVOKE_ASYNC(src, PROC_REF(do_tac_reload), ammo_box, user, params)
 
 /datum/component/easy_restock/proc/do_tac_reload(obj/item/ammo_magazine/ammo_box, mob/user, params)
-	for(var/obj/item/ammo_magazine/item_to_restock in reloading_storage.contents)
+	var/atom/atom_parent = parent
+	for(var/obj/item/ammo_magazine/item_to_restock in atom_parent.contents)
 		var/amount_to_transfer = ammo_box.current_rounds
 
 		if(!item_to_restock.can_transfer_ammo(ammo_box, user, amount_to_transfer, TRUE))

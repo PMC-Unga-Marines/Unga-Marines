@@ -71,11 +71,11 @@
 			/obj/item/tool/surgery/solderingtool,
 			/obj/item/tweezers,
 			/obj/item/tweezers_advanced,
-		)
+		),
 		storage_type_limits_list = list(
 			/obj/item/stack/medical/heal_pack/advanced/burn_combat_pack,
 			/obj/item/stack/medical/heal_pack/advanced/bruise_combat_pack,
-		)
+		),
 	)
 
 /datum/storage/belt/rig
@@ -179,7 +179,7 @@
 		/obj/item/reagent_containers/food/snacks,
 	))
 
-/datum/storage/belt/marine/autocatch
+/datum/storage/belt/marine/auto_catch
 	storage_slots = 4
 
 /datum/storage/belt/marine/sectoid/New(atom/parent)
@@ -260,20 +260,20 @@
 
 /datum/storage/belt/mortar_belt/New(atom/parent)
 	set_holdable(
-		can_hold = list(
+		can_hold_list = list(
 			/obj/item/mortar_kit/knee,
 			/obj/item/mortal_shell/knee,
 			/obj/item/compass,
 			/obj/item/binoculars,
-		)
+		),
 		storage_type_limits_list = list(
 			/obj/item/mortar_kit/knee,
 			/obj/item/binoculars,
 			/obj/item/compass,
-		)
-		storage_type_limits_max = list(
-			/obj/item/mortar_kit/knee = 1,
-			/obj/item/binoculars = 1,
-			/obj/item/compass = 1,
-		)
+		),
+	)
+	storage_type_limits_max = list(
+		/obj/item/mortar_kit/knee = 1,
+		/obj/item/binoculars = 1,
+		/obj/item/compass = 1,
 	)

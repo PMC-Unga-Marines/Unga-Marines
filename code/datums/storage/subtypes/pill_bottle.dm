@@ -58,12 +58,14 @@
 
 /datum/storage/ai2/open(mob/user)
 	. = ..()
-	icon_state = "firstaidkit_empty"
-	is_open = TRUE
-	update_icon()
+	var/obj/item/storage/ai2/ai2 = parent
+	ai2.icon_state = "firstaidkit_empty"
+	ai2.is_open = TRUE
+	ai2.update_icon()
 
 /datum/storage/ai2/close(mob/user)
 	. = ..()
-	icon_state = "firstaidkit"
-	is_open = FALSE
-	update_icon()
+	var/obj/item/storage/ai2/ai2 = parent
+	ai2.icon_state = "firstaidkit"
+	ai2.is_open = FALSE
+	ai2.update_icon()

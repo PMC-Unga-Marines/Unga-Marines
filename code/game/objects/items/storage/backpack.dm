@@ -21,7 +21,7 @@
 /obj/item/storage/backpack/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
-	if(storage_datum.stouse_sound)
+	if(storage_datum.use_sound)
 		playsound(loc, storage_datum.use_sound, 15, 1, 6)
 
 /obj/item/storage/backpack/equipped(mob/user, slot)

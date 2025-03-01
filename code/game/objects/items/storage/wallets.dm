@@ -31,7 +31,7 @@
 		/obj/item/spacecash/bundle/c100,
 		/obj/item/spacecash/bundle/c200,
 		/obj/item/spacecash/bundle/c50,
-		/obj/item/spacecash/bundle/c500
+		/obj/item/spacecash/bundle/c500,
 	)
 	var/item2_type
 	if(prob(50))
@@ -40,7 +40,7 @@
 			/obj/item/spacecash/bundle/c100,
 			/obj/item/spacecash/bundle/c200,
 			/obj/item/spacecash/bundle/c50,
-			/obj/item/spacecash/bundle/c500
+			/obj/item/spacecash/bundle/c500,
 		)
 	var/item3_type = pickweight(
 		/obj/item/coin/gold = 1,

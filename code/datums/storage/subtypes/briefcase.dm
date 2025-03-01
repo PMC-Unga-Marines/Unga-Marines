@@ -32,14 +32,14 @@
 			/obj/item/attachable/t500_barrel/short,
 			/obj/item/attachable/t500_barrel,
 			/obj/item/weapon/gun/revolver/t500,
-		)
+		),
 		storage_type_limits_list = list(
 			/obj/item/attachable/stock/t500,
 			/obj/item/attachable/lace/t500,
 			/obj/item/attachable/t500_barrel/short,
 			/obj/item/attachable/t500_barrel,
 			/obj/item/weapon/gun/revolver/t500,
-		)
+		),
 	)
 
 /datum/storage/briefcase/t312
@@ -62,7 +62,7 @@
 			/obj/item/storage/pouch/medkit/t312,
 			/obj/item/attachable/lace/t500,
 			/obj/item/weapon/gun/revolver/t312,
-		)
+		),
 		storage_type_limits_list = list(
 			/obj/item/ammo_magazine/packet/t312/med/adrenaline,
 			/obj/item/ammo_magazine/packet/t312/med/rr,
@@ -75,5 +75,5 @@
 			/obj/item/storage/pouch/medkit/t312,
 			/obj/item/attachable/lace/t500,
 			/obj/item/weapon/gun/revolver/t312,
-		)
+		),
 	)

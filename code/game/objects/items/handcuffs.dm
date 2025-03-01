@@ -47,7 +47,6 @@
 			H.equip_to_slot_if_possible(src, SLOT_HANDCUFFED, 1, 0, 1, 1)
 			return TRUE
 
-
 /obj/item/restraints/handcuffs/zip
 	name = "zip cuffs"
 	desc = "Single-use plastic zip tie handcuffs."
@@ -57,14 +56,11 @@
 	cuff_sound = 'sound/weapons/cablecuff.ogg'
 	cuff_delay = 2 SECONDS
 
-
 /obj/item/restraints/handcuffs/zip/place_handcuffs(mob/living/carbon/target, mob/user)
 	. = ..()
 	if(!.)
 		return
 	item_flags |= DELONDROP
-
-
 
 /obj/item/restraints/handcuffs/cable
 	name = "cable restraints"
@@ -99,6 +95,8 @@
 
 /obj/item/restraints/handcuffs/cable/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = I

@@ -606,7 +606,7 @@
 		return
 	return sponson.attack_hand_alternate(user)
 
-/obj/machinery/deployable/mounted/moveable/atgun/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+/obj/machinery/deployable/mounted/moveable/at36/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	if(!ishuman(usr) || usr.lying_angle || usr.incapacitated())
 		return FALSE
 

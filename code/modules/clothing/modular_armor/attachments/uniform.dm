@@ -22,7 +22,7 @@
 	name = "brown webbing vest"
 	desc = "Worn brownish synthcotton vest with lots of pockets to unload your hands."
 	icon_state = "vest_brown"
-	storage = /obj/item/storage/internal/vest
+	storage_type = /datum/storage/internal/vest
 
 /obj/item/armor_module/storage/uniform/white_vest
 	name = "white webbing vest"
@@ -60,28 +60,28 @@
 	AddComponent(/datum/component/tac_reload_storage)
 
 /obj/item/armor_module/storage/uniform/holster/freelancer/PopulateContents()
-	new /obj/item/ammo_magazine/pistol/g22(storage)
-	new /obj/item/ammo_magazine/pistol/g22(storage)
-	new /obj/item/ammo_magazine/pistol/g22(storage)
-	new /obj/item/weapon/gun/pistol/g22(storage)
+	new /obj/item/ammo_magazine/pistol/g22(src)
+	new /obj/item/ammo_magazine/pistol/g22(src)
+	new /obj/item/ammo_magazine/pistol/g22(src)
+	new /obj/item/weapon/gun/pistol/g22(src)
 
 /obj/item/armor_module/storage/uniform/holster/vp/PopulateContents()
-	new /obj/item/ammo_magazine/pistol/vp70(storage)
-	new /obj/item/ammo_magazine/pistol/vp70(storage)
-	new /obj/item/ammo_magazine/pistol/vp70(storage)
-	new /obj/item/weapon/gun/pistol/vp70(storage)
+	new /obj/item/ammo_magazine/pistol/vp70(src)
+	new /obj/item/ammo_magazine/pistol/vp70(src)
+	new /obj/item/ammo_magazine/pistol/vp70(src)
+	new /obj/item/weapon/gun/pistol/vp70(src)
 
 /obj/item/armor_module/storage/uniform/holster/highpower/PopulateContents()
-	new /obj/item/ammo_magazine/pistol/highpower(storage)
-	new /obj/item/ammo_magazine/pistol/highpower(storage)
-	new /obj/item/ammo_magazine/pistol/highpower(storage)
-	new /obj/item/weapon/gun/pistol/highpower(storage)
+	new /obj/item/ammo_magazine/pistol/highpower(src)
+	new /obj/item/ammo_magazine/pistol/highpower(src)
+	new /obj/item/ammo_magazine/pistol/highpower(src)
+	new /obj/item/weapon/gun/pistol/highpower(src)
 
 /obj/item/armor_module/storage/uniform/holster/deathsquad/PopulateContents()
-	new /obj/item/ammo_magazine/revolver/mateba(storage)
-	new /obj/item/ammo_magazine/revolver/mateba(storage)
-	new /obj/item/ammo_magazine/revolver/mateba(storage)
-	new /obj/item/weapon/gun/revolver/mateba(storage)
+	new /obj/item/ammo_magazine/revolver/mateba(src)
+	new /obj/item/ammo_magazine/revolver/mateba(src)
+	new /obj/item/ammo_magazine/revolver/mateba(src)
+	new /obj/item/weapon/gun/revolver/mateba(src)
 
 /obj/item/armor_module/storage/uniform/holster/armpit
 	name = "shoulder holster"

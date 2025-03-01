@@ -254,7 +254,7 @@
 	if(!has_limb_for_slot(slot))
 		return
 
-	if(item_to_equipW == l_hand)
+	if(item_to_equip == l_hand)
 		l_hand = null
 		item_to_equip.unequipped(src, SLOT_L_HAND)
 		update_inv_l_hand()

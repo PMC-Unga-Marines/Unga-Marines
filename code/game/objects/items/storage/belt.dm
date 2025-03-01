@@ -478,7 +478,7 @@
 	desc = "A belt made of a strong but unusual fabric, with clips to hold your equipment."
 	icon_state = "swatbelt"
 	item_state = "swatbelt"
-	storage_type = /datum/storage/belt/sectoid
+	storage_type = /datum/storage/belt/marine/sectoid
 
 /obj/item/storage/belt/marine/sectoid/full/PopulateContents()
 	for(var/i in 1 to 5)
@@ -647,7 +647,7 @@
 /obj/item/storage/belt/grenade/b17
 	name = "\improper M276 pattern M40 HEDP rig Mk II"
 	w_class = WEIGHT_CLASS_BULKY
-	storage_type = /datum/storage/belt/b17
+	storage_type = /datum/storage/belt/grenade/b17
 
 /obj/item/storage/belt/grenade/b17/PopulateContents()
 	for(var/i in 1 to 8)

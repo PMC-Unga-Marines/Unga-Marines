@@ -56,7 +56,7 @@
 	name = "General Purpose Storage module"
 	desc = "Designed for mounting on the Jaeger Combat Exoskeleton. Certainly not as specialised as any other storage modules, but definitely able to hold some larger things, like binoculars, maps, and motion detectors."
 	icon_state = "mod_general_bag"
-	storage_type = /datum/storage/internal/genera
+	storage_type = /datum/storage/internal/general
 
 /obj/item/armor_module/storage/general/som
 	name = "General Purpose Storage module"
@@ -72,23 +72,23 @@
 	storage_type = /datum/storage/internal/ammo_mag
 	slowdown = 0.1
 
-/obj/item/armor_module/storage/ammo_mag/freelancer/PopulateContents
-	new /obj/item/ammo_magazine/rifle/m16(storage)
-	new /obj/item/ammo_magazine/rifle/m16(storage)
-	new /obj/item/ammo_magazine/rifle/m16(storage)
-	new /obj/item/ammo_magazine/rifle/m16(storage)
+/obj/item/armor_module/storage/ammo_mag/freelancer/PopulateContents()
+	new /obj/item/ammo_magazine/rifle/m16(src)
+	new /obj/item/ammo_magazine/rifle/m16(src)
+	new /obj/item/ammo_magazine/rifle/m16(src)
+	new /obj/item/ammo_magazine/rifle/m16(src)
 
-/obj/item/armor_module/storage/ammo_mag/freelancer_two/PopulateContents
-	new /obj/item/ammo_magazine/rifle/ar11(storage)
-	new /obj/item/ammo_magazine/rifle/ar11(storage)
-	new /obj/item/ammo_magazine/rifle/ar11(storage)
-	new /obj/item/ammo_magazine/rifle/ar11(storage)
+/obj/item/armor_module/storage/ammo_mag/freelancer_two/PopulateContents()
+	new /obj/item/ammo_magazine/rifle/ar11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
+	new /obj/item/ammo_magazine/rifle/ar11(src)
 
 /obj/item/armor_module/storage/ammo_mag/freelancer_three/PopulateContents()
-	new /obj/item/ammo_magazine/rifle/tx54(storage)
-	new /obj/item/ammo_magazine/rifle/tx54(storage)
-	new /obj/item/ammo_magazine/rifle/tx54/incendiary(storage)
-	new /obj/item/ammo_magazine/rifle/tx54/incendiary(storage)
+	new /obj/item/ammo_magazine/rifle/tx54(src)
+	new /obj/item/ammo_magazine/rifle/tx54(src)
+	new /obj/item/ammo_magazine/rifle/tx54/incendiary(src)
+	new /obj/item/ammo_magazine/rifle/tx54/incendiary(src)
 
 /obj/item/armor_module/storage/engineering
 	name = "Engineering Storage module"
@@ -109,12 +109,12 @@
 	icon_state = "mod_medic_bag"
 	storage_type = /datum/storage/internal/medical
 
-/obj/item/armor_module/storage/medical/freelancer/Populate_Contents
-	new /obj/item/stack/medical/heal_pack/advanced/bruise_pack(storage)
-	new /obj/item/stack/medical/heal_pack/advanced/burn_pack(storage)
-	new /obj/item/storage/pill_bottle/meralyne(storage)
-	new /obj/item/storage/pill_bottle/dermaline(storage)
-	new /obj/item/storage/pill_bottle/tramadol(storage)
+/obj/item/armor_module/storage/medical/freelancer/PopulateContents()
+	new /obj/item/stack/medical/heal_pack/advanced/bruise_pack(src)
+	new /obj/item/stack/medical/heal_pack/advanced/burn_pack(src)
+	new /obj/item/storage/pill_bottle/meralyne(src)
+	new /obj/item/storage/pill_bottle/dermaline(src)
+	new /obj/item/storage/pill_bottle/tramadol(src)
 
 /obj/item/armor_module/storage/medical/som
 	name = "Medical Storage module"
@@ -149,11 +149,11 @@
 	storage_type = /datum/storage/internal/shoes/boot_knife
 	attach_features_flags = ATTACH_APPLY_ON_MOB
 
-/obj/item/armor_module/storage/boot/full/Populate_Contents
-	new /obj/item/weapon/combat_knife(storage)
+/obj/item/armor_module/storage/boot/full/PopulateContents()
+	new /obj/item/weapon/combat_knife(src)
 
-/obj/item/armor_module/storage/boot/som_knife/Populate_Contents
-	new /obj/item/attachable/bayonetknife/som(storage)
+/obj/item/armor_module/storage/boot/som_knife/PopulateContents()
+	new /obj/item/attachable/bayonetknife/som(src)
 
 /obj/item/armor_module/storage/helmet
 	name = "Jaeger Pattern helmet storage"

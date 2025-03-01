@@ -97,7 +97,7 @@
 		"Пистолеты" = list(
 			/obj/item/weapon/gun/revolver/r44 = 5,
 			/obj/item/ammo_magazine/revolver/r44 = -1,
-			/obj/item/storage/box/t500case = 10,
+			/obj/item/storage/briefcase/t500 = 10,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/ammo_magazine/revolver/t500/slavs = -1,
 			/obj/item/ammo_magazine/revolver/t312 = -1,
@@ -339,7 +339,7 @@
 		"Пистолеты" = list(
 			/obj/item/weapon/gun/revolver/r44 = 5,
 			/obj/item/ammo_magazine/revolver/r44 = -1,
-			/obj/item/storage/box/t500case = 10,
+			/obj/item/storage/briefcase/t500 = 10,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/ammo_magazine/revolver/t500/slavs = -1,
 			/obj/item/ammo_magazine/revolver/t312 = -1,
@@ -576,7 +576,7 @@
 		"Пистолеты" = list(
 			/obj/item/weapon/gun/revolver/r44 = -1,
 			/obj/item/ammo_magazine/revolver/r44 = -1,
-			/obj/item/storage/box/t500case = -1,
+			/obj/item/storage/briefcase/t500 = -1,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/ammo_magazine/revolver/t500/slavs = -1,
 			/obj/item/ammo_magazine/revolver/t312 = -1,

@@ -375,7 +375,7 @@
 	set_holdable(
 		can_hold_list = list(
 			/obj/item/weapon/combat_knife,
-			/obj/item/weapon/gun/pistol/standard_pocketpistol,
+			/obj/item/weapon/gun/pistol/p17,
 			/obj/item/weapon/gun/shotgun/double/derringer,
 			/obj/item/attachable/bayonetknife,
 			/obj/item/attachable/bayonetknife/som,
@@ -421,7 +421,7 @@
 
 /datum/storage/internal/ammo_rack/New(atom/parent)
 	. = ..()
-	set_holdable(can_hold_list = list(/obj/item/ammo_magazine/standard_atgun))
+	set_holdable(can_hold_list = list(/obj/item/ammo_magazine/at36))
 
 //Reason for this override is due to conflict controls from deployables
 /datum/storage/internal/ammo_rack/register_storage_signals(atom/parent)
@@ -448,7 +448,6 @@
 		COMSIG_ATOM_ATTACK_HAND_ALTERNATE,
 		COMSIG_ATOM_ATTACK_GHOST,
 
-		COMSIG_ATOM_EMP_ACT,
 		COMSIG_CONTENTS_EX_ACT,
 
 		COMSIG_ATOM_CONTENTS_DEL,

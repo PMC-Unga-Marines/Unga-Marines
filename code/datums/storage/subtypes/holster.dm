@@ -43,7 +43,7 @@
 
 /datum/storage/holster/blade/officer/New(atom/parent)
 	. = ..()
-	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/claymore/mercsword/machete/officersword))
+	set_holdable(can_hold_list = list(/obj/item/weapon/claymore/mercsword/machete/officersword))
 
 /datum/storage/holster/backholster
 	max_w_class = WEIGHT_CLASS_NORMAL //normal items
@@ -130,10 +130,10 @@
 		can_hold_list = list(
 			/obj/item/weapon/gun/launcher/rocket/sadar,
 			/obj/item/ammo_magazine/rocket/sadar,
-		)
-		storage_type_limits_list = list(/obj/item/weapon/gun/launcher/rocket/sadar)
-		storage_type_limits_max = list(/obj/item/weapon/gun/launcher/rocket/sadar = 1)
+		),
+		storage_type_limits_list = list(/obj/item/weapon/gun/launcher/rocket/sadar),
 	)
+	storage_type_limits_max = list(/obj/item/weapon/gun/launcher/rocket/sadar = 1)
 
 /datum/storage/holster/backholster/rlquad
 	storage_slots = 3
@@ -145,10 +145,10 @@
 	set_holdable(
 		can_hold_list = list(
 			/obj/item/ammo_magazine/rocket/m57a4,
-		)
-		storage_type_limits_list = list(/obj/item/weapon/gun/launcher/rocket/m57a4/t57)
-		storage_type_limits_max = list(/obj/item/weapon/gun/launcher/rocket/m57a4/t57 = 1)
+		),
+		storage_type_limits_list = list(/obj/item/weapon/gun/launcher/rocket/m57a4/t57),
 	)
+	storage_type_limits_max = list(/obj/item/weapon/gun/launcher/rocket/m57a4/t57 = 1)
 
 /datum/storage/holster/t19
 	storage_slots = 4
@@ -158,8 +158,8 @@
 /datum/storage/holster/t19/New(atom/parent)
 	. = ..()
 	set_holdable(can_hold_list = list(
-		/obj/item/weapon/gun/smg/standard_machinepistol,
-		/obj/item/ammo_magazine/smg/standard_machinepistol,
+		/obj/item/weapon/gun/smg/mp19,
+		/obj/item/ammo_magazine/smg/mp19,
 	))
 
 /datum/storage/holster/flarepouch

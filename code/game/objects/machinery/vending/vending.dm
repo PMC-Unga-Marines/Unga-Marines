@@ -316,45 +316,70 @@
 
 /obj/machinery/vending/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(tipped_level)
 		to_chat(user, "Tip it back upright first!")
+		return
 
-	else if(isscrewdriver(I))
-		TOGGLE_BITFIELD(machine_stat, PANEL_OPEN)
-		to_chat(user, "You [CHECK_BITFIELD(machine_stat, PANEL_OPEN) ? "open" : "close"] the maintenance panel.")
-		overlays.Cut()
-		if(CHECK_BITFIELD(machine_stat, PANEL_OPEN))
-			overlays += image(icon, "[initial(icon_state)]-panel")
-
-	else if(ismultitool(I) || iswirecutter(I))
-		if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
-			return
-
-		attack_hand(user)
-
-	else if(iswrench(I))
-		if(!wrenchable)
-			return
-
-		if(!do_after(user, 20, NONE, src, BUSY_ICON_BUILD))
-			return
-
-		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
-		anchored = !anchored
-		if(anchored)
-			user.visible_message("[user] tightens the bolts securing \the [src] to the floor.", "You tighten the bolts securing \the [src] to the floor.")
-			var/turf/current_turf = get_turf(src)
-			if(current_turf && density)
-				current_turf.atom_flags |= AI_BLOCKED
-		else
-			user.visible_message("[user] unfastens the bolts securing \the [src] to the floor.", "You unfasten the bolts securing \the [src] to the floor.")
-			var/turf/current_turf = get_turf(src)
-			if(current_turf && density)
-				current_turf.atom_flags &= ~AI_BLOCKED
-	else if(isitem(I))
+	if(isitem(I))
 		var/obj/item/to_stock = I
 		stock(to_stock, user)
+
+/obj/machinery/vending/screwdriver_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(tipped_level)
+		to_chat(user, span_warning("Tip it back upright first!"))
+		return
+
+	TOGGLE_BITFIELD(machine_stat, PANEL_OPEN)
+	to_chat(user, "You [CHECK_BITFIELD(machine_stat, PANEL_OPEN) ? "open" : "close"] the maintenance panel.")
+	overlays.Cut()
+	if(CHECK_BITFIELD(machine_stat, PANEL_OPEN))
+		overlays += image(icon, "[initial(icon_state)]-panel")
+
+/obj/machinery/vending/multitool_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(tipped_level)
+		to_chat(user, span_warning("Tip it back upright first!"))
+		return
+
+	if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
+		return
+	attack_hand(user)
+
+/obj/machinery/vending/wirecutter_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(tipped_level)
+		to_chat(user, span_warning("Tip it back upright first!"))
+		return
+
+	if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
+		return
+	attack_hand(user)
+
+/obj/machinery/vending/wrench_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(tipped_level)
+		to_chat(user, span_warning("Tip it back upright first!"))
+		return
+	if(!wrenchable)
+		return
+	if(!do_after(user, 20, NONE, src, BUSY_ICON_BUILD))
+		return
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+	anchored = !anchored
+	if(anchored)
+		user.visible_message("[user] tightens the bolts securing \the [src] to the floor.", "You tighten the bolts securing \the [src] to the floor.")
+		var/turf/current_turf = get_turf(src)
+		if(current_turf && density)
+			current_turf.atom_flags |= AI_BLOCKED
+	else
+		user.visible_message("[user] unfastens the bolts securing \the [src] to the floor.", "You unfasten the bolts securing \the [src] to the floor.")
+		var/turf/current_turf = get_turf(src)
+		if(current_turf && density)
+			current_turf.atom_flags &= ~AI_BLOCKED
 
 /obj/machinery/vending/can_interact(mob/user)
 	. = ..()

@@ -22,9 +22,10 @@
 		coat = null
 		update_icon()
 
-
 /obj/structure/coatrack/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(!(I.type in allowed) || coat)
 		to_chat(user, span_notice("You cannot hang [I] on [src]"))
@@ -35,7 +36,6 @@
 	user.drop_held_item(src)
 	coat.forceMove(src)
 	update_icon()
-
 
 /obj/structure/coatrack/proc/on_cross(datum/source, atom/movable/AM, oldloc, oldlocs)
 	SIGNAL_HANDLER
@@ -48,7 +48,6 @@
 			coat.forceMove(src)
 			update_icon()
 			break
-
 
 /obj/structure/coatrack/update_overlays()
 	. = ..()

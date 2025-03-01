@@ -242,7 +242,6 @@
 	INVOKE_ASYNC(src, PROC_REF(talk_into_impl), talking_movable, message, channel, spans.Copy(), language, message_mods)
 	return ITALICS | REDUCE_RANGE
 
-
 /obj/item/radio/proc/talk_into_impl(atom/movable/talking_movable, message, channel, list/spans, datum/language/language, list/message_mods)
 	if(!on)
 		return // the device has to be on
@@ -309,7 +308,6 @@
 	// was never received, send a mundane broadcast (no headsets).
 	addtimer(CALLBACK(src, PROC_REF(backup_transmission), signal), 20)
 
-
 /obj/item/radio/proc/backup_transmission(datum/signal/subspace/vocal/signal)
 	var/turf/T = get_turf(src)
 	if(signal.data["done"] && (T.z in signal.levels))
@@ -320,7 +318,6 @@
 	signal.transmission_method = TRANSMISSION_RADIO
 	signal.levels = list(T.z)
 	signal.broadcast()
-
 
 /obj/item/radio/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	. = ..()
@@ -338,7 +335,6 @@
 			return FALSE
 
 	talk_into(speaker, raw_message, , spans, language = message_language)
-
 
 /// Checks if this radio can receive on the given frequency.
 /obj/item/radio/proc/can_receive(input_frequency, list/levels)
@@ -362,7 +358,6 @@
 				return TRUE
 	return FALSE
 
-
 /obj/item/radio/examine(mob/user)
 	. = ..()
 	if(frequency && in_range(src, user))
@@ -372,15 +367,15 @@
 	else
 		. += span_notice("It cannot be modified or attached.")
 
-
-/obj/item/radio/attackby(obj/item/I, mob/user, params)
+/obj/item/radio/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
-	if(isscrewdriver(I) && !subspace_transmission)
-		unscrewed = !unscrewed
-		if(unscrewed)
-			to_chat(user, span_notice("The radio can now be attached and modified!"))
-		else
-			to_chat(user, span_notice("The radio can no longer be modified or attached!"))
+	if(subspace_transmission)
+		return
+	unscrewed = !unscrewed
+	if(unscrewed)
+		to_chat(user, span_notice("The radio can now be attached and modified!"))
+	else
+		to_chat(user, span_notice("The radio can no longer be modified or attached!"))
 
 /obj/item/radio/proc/recalculateChannels()
 	channels = list()
@@ -396,7 +391,6 @@
 
 	for(var/ch_name in channels)
 		secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
-
 
 /obj/item/radio/off/Initialize(mapload)
 	. = ..()

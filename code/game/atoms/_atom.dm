@@ -689,7 +689,6 @@ directive is properly returned.
 /atom/Exited(atom/movable/AM, direction)
 	SEND_SIGNAL(src, COMSIG_ATOM_EXITED, AM, direction)
 
-
 /// Stacks and storage redefined procs.
 /atom/proc/max_stack_merging(obj/item/stack/S)
 	SHOULD_CALL_PARENT(TRUE)
@@ -714,7 +713,6 @@ directive is properly returned.
 			to_chat(user, span_warning("[I] has no data buffer!"))
 		return FALSE
 	return TRUE
-
 
 /atom/proc/screwdriver_act(mob/living/user, obj/item/I)
 	SEND_SIGNAL(src, COMSIG_ATOM_SCREWDRIVER_ACT, user, I)
@@ -946,7 +944,6 @@ directive is properly returned.
 /atom/proc/get_hard_armor(armor_type, proj_def_zone)
 	return
 
-//not fully portet from tg
 ///Interaction for using a grab on an atom
 /atom/proc/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
 	return

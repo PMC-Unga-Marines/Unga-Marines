@@ -90,7 +90,6 @@
 	icon_state = "crayonbox"
 	w_class = WEIGHT_CLASS_SMALL
 	icon_type = "crayon"
-	can_hold = list(/obj/item/toy/crayon)
 
 /obj/item/storage/fancy/crayons/Initialize(mapload, ...)
 	. = ..()
@@ -113,6 +112,8 @@
 
 /obj/item/storage/fancy/crayons/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(!istype(I, /obj/item/toy/crayon))
 		return
@@ -180,7 +181,7 @@
 
 /obj/item/storage/fancy/chemrettes/Initialize(mapload, ...)
 	. = ..()
-	storage_datum.storage_slots =
+	storage_datum.storage_slots = 18
 	storage_datum.max_storage_space = 18
 	storage_datum.set_holdable(can_hold_list = list(
 		/obj/item/clothing/mask/cigarette,

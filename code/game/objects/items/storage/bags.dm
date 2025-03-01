@@ -16,9 +16,7 @@
 
 //  Generic non-item
 /obj/item/storage/bag
-	allow_quick_gather = 1
-	display_contents_with_number = 0 // UNStABLE AS FuCK, turn on when it stops crashing clients
-	use_to_pickup = 1
+	storage_type = /datum/storage/bag
 	equip_slot_flags = ITEM_SLOT_BELT
 
 // -----------------------------

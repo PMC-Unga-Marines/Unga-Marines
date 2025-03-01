@@ -1,5 +1,3 @@
-
-
 /obj/item/frame/light_fixture
 	name = "light fixture frame"
 	desc = "Used for building lights."
@@ -9,12 +7,10 @@
 	var/fixture_type = "tube"
 	var/sheets_refunded = 2
 
-/obj/item/frame/light_fixture/attackby(obj/item/I, mob/user, params)
+/obj/item/frame/light_fixture/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
-
-	if(iswrench(I))
-		new /obj/item/stack/sheet/metal(loc, sheets_refunded)
-		qdel(src)
+	new /obj/item/stack/sheet/metal(loc, sheets_refunded)
+	qdel(src)
 
 /obj/item/frame/light_fixture/proc/try_build(turf/on_wall, mob/user)
 	if(get_dist(on_wall, user) > 1)

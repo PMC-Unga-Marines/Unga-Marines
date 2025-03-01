@@ -65,8 +65,8 @@
 		if(!(item_to_reload_with.type in reloading_gun.allowed_ammo_types))
 			continue
 		if(user.get_active_held_item(reloading_gun))
-			reloading_gun.storage_datum.tactical_reload(item_to_reload_with, user)
-			reloading_storage.orient2hud()
+			reloading_gun.tactical_reload(item_to_reload_with, user)
+			reloading_storage.storage_datum.orient2hud()
 		return COMPONENT_NO_AFTERATTACK
 
 /**

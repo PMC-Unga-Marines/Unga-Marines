@@ -239,7 +239,6 @@
 	RegisterSignal(parent, COMSIG_MOUSEDROP_ONTO, PROC_REF(on_mousedrop_onto)) //Click dragging
 
 	//----Something is happening to our storage
-	RegisterSignal(parent, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp)) //Getting EMP'd
 	RegisterSignal(parent, COMSIG_CONTENTS_EX_ACT, PROC_REF(on_contents_explode)) //Getting exploded
 
 	RegisterSignal(parent, COMSIG_ATOM_CONTENTS_DEL, PROC_REF(handle_atom_del))
@@ -261,7 +260,6 @@
 		COMSIG_ATOM_ATTACK_GHOST,
 		COMSIG_MOUSEDROP_ONTO,
 
-		COMSIG_ATOM_EMP_ACT,
 		COMSIG_CONTENTS_EX_ACT,
 
 		COMSIG_ATOM_CONTENTS_DEL,

@@ -82,7 +82,6 @@
 /obj/item/storage/pouch/general/large/som
 	desc = "A general purpose pouch used to carry small items used during mining."
 	icon_state = "large_drop_som"
-	sprite_slots = null
 
 /obj/item/storage/pouch/general/large/som/Initialize(mapload, ...)
 	. = ..()
@@ -100,8 +99,8 @@
 		/obj/item/stack/throwing_knife,
 		/obj/item/attachable/bayonet,
 	))
-	storage_slots = 3
-	draw_mode = 1
+	storage_datum.storage_slots = 3
+	storage_datum.draw_mode = 1
 
 /obj/item/storage/pouch/bayonet/full
 	fill_type = /obj/item/weapon/combat_knife
@@ -184,7 +183,7 @@
 
 /obj/item/storage/pouch/firstaid/som/Initialize(mapload, ...)
 	. = ..()
-	sprite_slots = null
+	storage_datum.sprite_slots = null
 
 /obj/item/storage/pouch/firstaid/som/full/PopulateContents()
 	new /obj/item/storage/pill_bottle/packet/bicaridine(src)
@@ -246,7 +245,7 @@
 
 /obj/item/storage/pouch/pistol/som/Initialize(mapload, ...)
 	. = ..()
-	sprite_slots = null
+	storage_datum.sprite_slots = null
 
 /obj/item/storage/pouch/pistol/icc
 	desc = "It can contain a pistol or revolver. Useful for emergencies, and made is out of a syntheic tan fabric."
@@ -254,7 +253,7 @@
 
 /obj/item/storage/pouch/pistol/icc/Initialize(mapload, ...)
 	. = ..()
-	sprite_slots = null
+	storage_datum.sprite_slots = null
 
 //// MAGAZINE POUCHES /////
 
@@ -308,7 +307,7 @@
 
 /obj/item/storage/pouch/magazine/large/som/Initialize(mapload, ...)
 	. = ..()
-	sprite_slots = null
+	storage_datum.sprite_slots = null
 
 /obj/item/storage/pouch/magazine/large/icc
 	desc = "This pouch can contain three ammo magazines, appears to be made with a synthetic tan fiber."
@@ -316,7 +315,7 @@
 
 /obj/item/storage/pouch/magazine/large/icc/Initialize(mapload, ...)
 	. = ..()
-	sprite_slots = null
+	storage_datum.sprite_slots = null
 
 /obj/item/storage/pouch/magazine/pistol
 	name = "pistol magazine pouch"
@@ -329,7 +328,7 @@
 	storage_datum.sprite_slots = 3
 	storage_datum.storage_slots = 3
 
-	storage_datum.set_holdable(can_hold = list(
+	storage_datum.set_holdable(can_hold_list = list(
 		/obj/item/ammo_magazine/pistol,
 		/obj/item/ammo_magazine/revolver,
 		/obj/item/ammo_magazine/smg/mp19,
@@ -683,6 +682,7 @@
 	fill_number = 6
 
 /obj/item/storage/pouch/berrypouch/Initialize(mapload, ...)
+	. = ..()
 	storage_datum.sprite_slots = 3
 	storage_datum.storage_slots = 6
 	storage_datum.set_holdable(can_hold_list = list(/obj/item/reagent_containers/food/snacks/wrapped/berrybar))

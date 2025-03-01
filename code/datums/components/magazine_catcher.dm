@@ -7,7 +7,8 @@
 
 /datum/component/magazine_catcher/Initialize()
 	. = ..()
-	if(!parent.storage_datum)
+	var/atom/atom_parent = parent
+	if(!atom_parent.storage_datum)
 		return COMPONENT_INCOMPATIBLE
 
 /datum/component/magazine_catcher/Destroy(force, silent)
@@ -19,13 +20,14 @@
 	. = ..()
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED_TO_SLOT, PROC_REF(equipped_to_slot))
 	RegisterSignals(parent, list(COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT, COMSIG_ITEM_DROPPED), PROC_REF(removed_from_slot))
-	storage = parent.storage_datum
-	storage.verbs += /datum/component/magazine_catcher/proc/toggle_auto_catch
+	var/atom/atom_parent = parent
+	atom_parent.verbs += /datum/component/magazine_catcher/proc/toggle_auto_catch
 
 /datum/component/magazine_catcher/UnregisterFromParent()
 	. = ..()
 	if(storage)
-		storage.verbs -= /datum/component/magazine_catcher/proc/toggle_auto_catch
+		var/atom/atom_parent = parent
+		atom_parent.verbs -= /datum/component/magazine_catcher/proc/toggle_auto_catch
 	UnregisterSignal(parent, list(COMSIG_ITEM_EQUIPPED_TO_SLOT, COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT, COMSIG_ITEM_DROPPED))
 
 /datum/component/magazine_catcher/proc/equipped_to_slot(datum/source, mob/user, slot)

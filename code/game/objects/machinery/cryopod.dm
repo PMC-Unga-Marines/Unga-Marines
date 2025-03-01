@@ -52,7 +52,6 @@
 
 		for(var/obj/item/I AS in GLOB.cryoed_item_list)
 			dispense_item(I, usr, FALSE)
-
 	updateUsrDialog()
 
 /obj/machinery/computer/cryopod/proc/dispense_item(obj/item/I, mob/user, message = TRUE)
@@ -75,8 +74,8 @@
 	icon = 'icons/obj/machines/cryogenics.dmi'
 	icon_state = "cryo_rear"
 	anchored = TRUE
-
-	var/orient_right //Flips the sprite.
+	///Flips the sprite.
+	var/orient_right
 
 /obj/structure/cryofeed/right
 	orient_right = TRUE
@@ -174,13 +173,9 @@
 		if((G.fields["name"] == real_name))
 			GLOB.datacore.general -= G
 			qdel(G)
-
 	GLOB.real_names_joined -= real_name
-
 	GLOB.key_to_time_of_role_death[key] = world.time
-
 	ghostize(FALSE) //We want to make sure they are not kicked to lobby.
-
 	qdel(src)
 
 /mob/living/carbon/human/despawn()
@@ -188,7 +183,7 @@
 	return ..()
 
 /// Move the item to the cryo, if storage_to_remove_from is set, it will try to properly remove the item from the storage
-/obj/item/proc/store_in_cryo(obj/item/storage/storage_to_remove_from)
+/obj/item/proc/store_in_cryo(datum/storage/storage_to_remove_from)
 	if(is_type_in_typecache(src, GLOB.do_not_preserve) || HAS_TRAIT(src, TRAIT_NODROP) || (item_flags & (ITEM_ABSTRACT|DELONDROP)))
 		if(!QDELETED(src))
 			qdel(src)
@@ -200,46 +195,32 @@
 	GLOB.cryoed_item_list += src
 
 /obj/item/storage/store_in_cryo()
-	if(!(storage_flags & BYPASS_CRYO_CHECK))
+	if(!(storage_datum.storage_flags & BYPASS_CRYO_CHECK))
 		for(var/obj/item/I AS in src)
 			I.store_in_cryo(src)
 	return ..()
 
-/obj/machinery/cryopod/attackby(obj/item/I, mob/user, params)
+/obj/machinery/cryopod/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
 	. = ..()
-
-	if(!istype(I, /obj/item/grab))
+	if(.)
+		return
+	if(isxeno(user))
+		return
+	var/mob/living/carbon/human/grabbed_mob = grab.grabbed_thing
+	if(!ishuman(grabbed_mob))
+		to_chat(user, span_warning("There is no way [src] will accept [grabbed_mob]!"))
 		return
 
-	else if(isxeno(user))
-		return
-
-	var/obj/item/grab/G = I
-	if(!isliving(G.grabbed_thing))
-		return
-
-	if(!QDELETED(occupant))
-		to_chat(user, span_warning("[src] is occupied."))
-		return
-
-	var/mob/living/M = G.grabbed_thing
-
-	if(M.stat == DEAD) //This mob is dead
-		to_chat(user, span_warning("[src] immediately rejects [M]. [M.p_they(TRUE)] passed away!"))
-		return
-
-	if(!ishuman(M))
-		to_chat(user, span_warning("There is no way [src] will accept [M]!"))
-		return
-
-	if(M.client)
-		if(tgui_alert(M, "Would you like to enter cryosleep?", null, list("Yes", "No")) == "Yes")
-			if(QDELETED(M) || !(G?.grabbed_thing == M))
+	if(grabbed_mob.client)
+		if(tgui_alert(grabbed_mob, "Would you like to enter cryosleep?", null, list("Yes", "No")) == "Yes")
+			if(QDELETED(grabbed_mob) || !(grab?.grabbed_thing == grabbed_mob))
 				return
 		else
 			return
 
-	climb_in(M, user)
+	climb_in(grabbed_mob, user)
+
+	return TRUE
 
 /obj/machinery/cryopod/verb/eject()
 	set name = "Eject Pod"

@@ -328,16 +328,13 @@
 /obj/item/storage/box/visual/magazine/compact/pepperball
 	name = "Pepperball canister box"
 	desc = "A box specifically designed to hold a large amount of Pepperball canisters."
-	storage_slots = 30
 	closed_overlay = "mag_box_small_overlay_pepperball"
-	can_hold = list(
-		/obj/item/ammo_magazine/rifle/pepperball,
-	)
 
-/obj/item/storage/box/visual/magazine/compact/derringer/Initialize(mapload, ...)
+/obj/item/storage/box/visual/magazine/compact/pepperball/Initialize(mapload, ...)
 	. = ..()
+	storage_datum.storage_slots = 30
 	storage_datum.set_holdable(can_hold_list = list(
-		/obj/item/ammo_magazine/pistol/derringer,
+		/obj/item/ammo_magazine/rifle/pepperball,
 	))
 
 /obj/item/storage/box/visual/magazine/compact/pepperball/full
@@ -349,16 +346,13 @@
 /obj/item/storage/box/visual/magazine/compact/ar12
 	name = "AR-12 magazine box"
 	desc = "A box specifically designed to hold a large amount of AR-12 magazines."
-	storage_slots = 30
 	closed_overlay = "mag_box_small_overlay_ar12"
-	can_hold = list(
-		/obj/item/ammo_magazine/rifle/ar12,
-	)
 
-/obj/item/storage/box/visual/magazine/compact/derringer/Initialize(mapload, ...)
+/obj/item/storage/box/visual/magazine/compact/ar12/Initialize(mapload, ...)
 	. = ..()
+	storage_datum.storage_slots = 30
 	storage_datum.set_holdable(can_hold_list = list(
-		/obj/item/ammo_magazine/pistol/derringer,
+		/obj/item/ammo_magazine/rifle/ar12,
 	))
 
 /obj/item/storage/box/visual/magazine/compact/ar12/full
@@ -606,12 +600,6 @@
 	overlay_pixel_y = BOX_GRENADE_OFFSET_Y
 	amt_horizontal = BOX_GRENADE_COLUMNS
 	amt_vertical = BOX_GRENADE_ROWS
-
-/obj/item/storage/box/visual/magazine/compact/derringer/Initialize(mapload, ...)
-	. = ..()
-	storage_datum.set_holdable(can_hold_list = list(
-		/obj/item/ammo_magazine/pistol/derringer,
-	))
 
 /obj/item/storage/box/visual/grenade/m15
 	name = "\improper M15 grenade box"

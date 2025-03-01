@@ -526,7 +526,6 @@
 /obj/item/storage/pill_bottle/happy
 	name = "happy pill bottle"
 	desc = "Contains highly illegal drugs. When you want to see the rainbow."
-	max_storage_space = 7
 	pill_type_to_fill = /obj/item/reagent_containers/pill/happy
 	greyscale_colors = "#6C52BF#ffffff"
 
@@ -537,7 +536,6 @@
 /obj/item/storage/pill_bottle/zoom
 	name = "zoom pill bottle"
 	desc = "Containts highly illegal drugs. Trade heart for speed."
-	max_storage_space = 7
 	pill_type_to_fill = /obj/item/reagent_containers/pill/zoom
 	greyscale_colors = "#ef3ad4#ffffff"
 

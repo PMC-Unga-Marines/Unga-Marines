@@ -39,9 +39,9 @@
 	if(!storage_datum.storage_slots)
 		for(var/obj/item/i in contents)
 			total_weight += i.w_class
-		total_weight = ROUND_UP(total_weight / max_storage_space * storage_datum.sprite_slots)
+		total_weight = ROUND_UP(total_weight / storage_datum.max_storage_space * storage_datum.sprite_slots)
 	else
-		total_weight = ROUND_UP(length(contents) / storage_slots * storage_datum.sprite_slots)
+		total_weight = ROUND_UP(length(contents) / storage_datum.storage_slots * storage_datum.sprite_slots)
 
 	if(!total_weight)
 		icon_state = initial(icon_state) + "_e"
