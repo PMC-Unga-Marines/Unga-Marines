@@ -170,6 +170,15 @@
 	penetration = 0
 	additional_xeno_penetration = -10
 
+/datum/ammo/bullet/rifle/kalashnikov
+	name = "crude rifle bullet"
+	hud_state = "rifle_crude"
+	ammo_behavior_flags = AMMO_BALLISTIC
+	damage = 30
+	damage_falloff = 1
+	penetration = 10
+	additional_xeno_penetration = 15
+
 /datum/ammo/bullet/rifle/dmr37
 	name = "marksman bullet"
 	hud_state = "hivelo"
