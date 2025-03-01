@@ -348,6 +348,8 @@
 			return FALSE
 		var/area/A = get_area(src)
 		if(A?.ceiling >= CEILING_DEEP_UNDERGROUND)
+			if(!usr)
+				return FALSE
 			var/mob/living/carbon/living = usr
 			if(!istype(living.back, /obj/item/storage/backpack/marine/radiopack))
 				return FALSE
