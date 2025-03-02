@@ -3,25 +3,21 @@
 #define HEADBITE_DEATH "headbite_death"
 #define CHESTBURST_DEATH "chestburst_death"
 
-
 ///////////////////// LANDMARK CORPSE ///////
 
-
-
-
 //These are meant for spawning on maps, namely Away Missions.
-
 //If someone can do this in a neater way, be my guest-Kor
-
 //To do: Allow corpses to appear mangled, bloody, etc. Allow customizing the bodies appearance (they're all bald and white right now).
 
 /obj/effect/landmark/corpsespawner
 	name = "Unknown"
 	icon_state = "skullmarker"
-	///type of victim death, used for determining what kind of overlays and effects a corpse should have
+	/// Type of victim death, used for determining what kind of overlays and effects a corpse should have
 	var/death_type = COCOONED_DEATH
-	var/mobname = "Unknown"  //Unused now but it'd fuck up maps to remove it now
-	var/corpseuniform = null //Set this to an object path to have the slot filled with said object on the corpse.
+	/// Unused now but it'd fuck up maps to remove it now
+	var/mobname = "Unknown"
+	/// Set this to an object path to have the slot filled with said object on the corpse.
+	var/corpseuniform = null
 	var/corpsesuit = null
 	var/corpseshoes = null
 	var/corpsegloves = null
@@ -33,10 +29,14 @@
 	var/corpsepocket1 = null
 	var/corpsepocket2 = null
 	var/corpseback = null
-	var/corpseid = 0     //Just set to 1 if you want them to have an ID
-	var/corpseidjob = null // Needs to be in quotes, such as "Clown" or "Chef." This just determines what the ID reads as, not their access
-	var/corpseidaccess = null //This is for access. See access.dm for which jobs give what access. Use CAPTAIN if you want it to be all access.
-	var/corpseidicon = null //For setting it to be a gold, silver, centcom etc ID
+	/// Just set to 1 if you want them to have an ID
+	var/corpseid = 0
+	/// Needs to be in quotes, such as "Clown" or "Chef." This just determines what the ID reads as, not their access
+	var/corpseidjob = null
+	/// This is for access. See access.dm for which jobs give what access. Use CAPTAIN if you want it to be all access.
+	var/corpseidaccess = null
+	/// For setting it to be a gold, silver, centcom etc ID
+	var/corpseidicon = null
 
 /obj/effect/landmark/corpsespawner/Initialize(mapload)
 	. = ..()
@@ -76,8 +76,6 @@
 		if(HEADBITE_DEATH) //removed brain
 			victim.remove_organ_slot(ORGAN_SLOT_BRAIN)
 	qdel(src)
-
-
 
 /obj/effect/landmark/corpsespawner/proc/equip_items_to_mob(mob/living/carbon/human/corpse)
 	if(corpseuniform)
@@ -164,7 +162,6 @@
 /obj/effect/landmark/corpsespawner/syndicatecommando/burst
 	death_type = CHESTBURST_DEATH
 
-
 /obj/effect/landmark/corpsespawner/syndicatecommando/regular
 	death_type = REGULAR_DEATH
 
@@ -205,7 +202,6 @@
 
 /obj/effect/landmark/corpsespawner/realpirate/ranged/burst
 	death_type = CHESTBURST_DEATH
-
 
 /obj/effect/landmark/corpsespawner/realpirate/ranged/regular
 	death_type = REGULAR_DEATH
@@ -249,7 +245,7 @@
 /obj/effect/landmark/corpsespawner/chef
 	name = "Chef"
 	corpseuniform = /obj/item/clothing/under/rank/chef
-	corpsesuit = /obj/item/clothing/suit/chef/classic
+	corpsesuit = /obj/item/clothing/suit/storage/chef/classic
 	corpseshoes = /obj/item/clothing/shoes/black
 	corpsehelmet = /obj/item/clothing/head/chefhat
 	corpseback = /obj/item/storage/backpack
