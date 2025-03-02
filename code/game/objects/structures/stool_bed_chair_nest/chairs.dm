@@ -18,7 +18,8 @@
 	icon_state = "chair"
 	buckle_lying = 0
 	max_integrity = 20
-	var/propelled = 0 //Check for fire-extinguisher-driven chairs
+	///Check for fire-extinguisher-driven chairs
+	var/propelled = 0
 
 //directional variants mostly used for random spawners
 /obj/structure/bed/chair/east
@@ -87,42 +88,41 @@
 	desc = "Some say that the TGMC shouldn't spent this much money on reinforced chairs, but the documents from briefing riots prove otherwise."
 	buildstackamount = 2
 
-/obj/structure/bed/chair/reinforced/attackby(obj/item/I, mob/user, params)
+/obj/structure/bed/chair/reinforced/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
+	to_chat(user, span_warning("You can only deconstruct this by welding it down!"))
 
-	if(iswrench(I))
-		to_chat(user, span_warning("You can only deconstruct this by welding it down!"))
+/obj/structure/bed/chair/reinforced/welder_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(user.do_actions)
+		return
+	var/obj/item/tool/weldingtool/WT = I
 
-	else if(iswelder(I))
-		if(user.do_actions)
-			return
-		var/obj/item/tool/weldingtool/WT = I
-
-		if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_METAL)
-			user.visible_message(span_notice("[user] fumbles around figuring out how to weld down \the [src]."),
-			span_notice("You fumble around figuring out how to weld down \the [src]."))
-			var/fumbling_time = 5 SECONDS * (SKILL_ENGINEER_METAL - user.skills.getRating(SKILL_ENGINEER))
-			if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED, extra_checks = CALLBACK(WT, /obj/item/tool/weldingtool/proc/isOn)))
-				return
-
-		if(!WT.remove_fuel(0, user))
+	if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_METAL)
+		user.visible_message(span_notice("[user] fumbles around figuring out how to weld down \the [src]."),
+		span_notice("You fumble around figuring out how to weld down \the [src]."))
+		var/fumbling_time = 5 SECONDS * (SKILL_ENGINEER_METAL - user.skills.getRating(SKILL_ENGINEER))
+		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED, extra_checks = CALLBACK(WT, /obj/item/tool/weldingtool/proc/isOn)))
 			return
 
-		user.visible_message(span_notice("[user] begins welding down \the [src]."),
-		span_notice("You begin welding down \the [src]."))
-		add_overlay(GLOB.welding_sparks)
-		playsound(loc, 'sound/items/welder2.ogg', 25, 1)
-		if(!do_after(user, 5 SECONDS, NONE, src, BUSY_ICON_FRIENDLY))
-			cut_overlay(GLOB.welding_sparks)
-			to_chat(user, span_warning("You need to stand still!"))
-			return
-		user.visible_message(span_notice("[user] welds down \the [src]."),
-		span_notice("You weld down \the [src]."))
+	if(!WT.remove_fuel(0, user))
+		return
+
+	user.visible_message(span_notice("[user] begins welding down \the [src]."),
+	span_notice("You begin welding down \the [src]."))
+	add_overlay(GLOB.welding_sparks)
+	playsound(loc, 'sound/items/welder2.ogg', 25, 1)
+	if(!do_after(user, 5 SECONDS, NONE, src, BUSY_ICON_FRIENDLY))
 		cut_overlay(GLOB.welding_sparks)
-		if(buildstacktype && dropmetal)
-			new buildstacktype(loc, buildstackamount)
-		playsound(loc, 'sound/items/welder2.ogg', 25, 1)
-		qdel(src)
+		to_chat(user, span_warning("You need to stand still!"))
+		return
+	user.visible_message(span_notice("[user] welds down \the [src]."),
+	span_notice("You weld down \the [src]."))
+	cut_overlay(GLOB.welding_sparks)
+	if(buildstacktype && dropmetal)
+		new buildstacktype(loc, buildstackamount)
+	playsound(loc, 'sound/items/welder2.ogg', 25, 1)
+	qdel(src)
 
 /obj/structure/bed/chair/wood
 	buildstacktype = /obj/item/stack/sheet/wood
@@ -395,55 +395,54 @@
 		span_warning("We smash \the [src], shearing the bolts!"))
 		fold_down(1)
 
-/obj/structure/bed/chair/dropship/passenger/attackby(obj/item/I, mob/user, params)
+/obj/structure/bed/chair/dropship/passenger/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
+	switch(chair_state)
+		if(DROPSHIP_CHAIR_UNBUCKLED)
+			user.visible_message(span_warning("[user] begins loosening the bolts on \the [src]."),
+			span_warning("You begin loosening the bolts on \the [src]."))
+			playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
 
-	if(iswrench(I))
-		switch(chair_state)
-			if(DROPSHIP_CHAIR_UNBUCKLED)
-				user.visible_message(span_warning("[user] begins loosening the bolts on \the [src]."),
-				span_warning("You begin loosening the bolts on \the [src]."))
-				playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
-
-				if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD))
-					return
-
-				user.visible_message(span_warning("[user] loosens the bolts on \the [src], folding it into the decking."),
-				span_warning("You loosen the bolts on \the [src], folding it into the decking."))
-				fold_down()
-
-			if(DROPSHIP_CHAIR_FOLDED)
-				user.visible_message(span_warning("[user] begins unfolding \the [src]."),
-				span_warning("You begin unfolding \the [src]."))
-				playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
-
-				if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD))
-					return
-
-				user.visible_message(span_warning("[user] unfolds \the [src] from the floor and tightens the bolts."),
-				span_warning("You unfold \the [src] from the floor and tighten the bolts."))
-				unfold_up()
-
-			if(DROPSHIP_CHAIR_BROKEN)
-				to_chat(user, span_warning("\The [src] appears to be broken and needs welding."))
+			if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD))
 				return
 
-	else if(iswelder(I) && chair_state == DROPSHIP_CHAIR_BROKEN)
-		var/obj/item/tool/weldingtool/C = I
-		if(!C.remove_fuel(0, user))
+			user.visible_message(span_warning("[user] loosens the bolts on \the [src], folding it into the decking."),
+			span_warning("You loosen the bolts on \the [src], folding it into the decking."))
+			fold_down()
+
+		if(DROPSHIP_CHAIR_FOLDED)
+			user.visible_message(span_warning("[user] begins unfolding \the [src]."),
+			span_warning("You begin unfolding \the [src]."))
+			playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+
+			if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD))
+				return
+
+			user.visible_message(span_warning("[user] unfolds \the [src] from the floor and tightens the bolts."),
+			span_warning("You unfold \the [src] from the floor and tighten the bolts."))
+			unfold_up()
+
+		if(DROPSHIP_CHAIR_BROKEN)
+			to_chat(user, span_warning("\The [src] appears to be broken and needs welding."))
 			return
 
-		playsound(loc, 'sound/items/weldingtool_weld.ogg', 25)
-		user.visible_message(span_warning("[user] begins repairing \the [src]."),
-		span_warning("You begin repairing \the [src]."))
-		add_overlay(GLOB.welding_sparks)
-		if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD))
-			cut_overlay(GLOB.welding_sparks)
-			return
-
-		user.visible_message(span_warning("[user] repairs \the [src]."),
-		span_warning("You repair \the [src]."))
-		chair_state = DROPSHIP_CHAIR_FOLDED
+/obj/structure/bed/chair/dropship/passenger/welder_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(chair_state != DROPSHIP_CHAIR_BROKEN)
+		return
+	var/obj/item/tool/weldingtool/C = I
+	if(!C.remove_fuel(0, user))
+		return
+	playsound(loc, 'sound/items/weldingtool_weld.ogg', 25)
+	user.visible_message(span_warning("[user] begins repairing \the [src]."),
+	span_warning("You begin repairing \the [src]."))
+	add_overlay(GLOB.welding_sparks)
+	if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD))
+		cut_overlay(GLOB.welding_sparks)
+		return
+	user.visible_message(span_warning("[user] repairs \the [src]."),
+	span_warning("You repair \the [src]."))
+	chair_state = DROPSHIP_CHAIR_FOLDED
 
 /obj/structure/bed/chair/dropship/doublewide
 	name = "doublewide seat"
@@ -482,6 +481,8 @@
 
 /obj/structure/bed/chair/dropship/doublewide/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(LAZYLEN(buckled_mobs) && chair_state == DROPSHIP_CHAIR_BROKEN)
 		unbuckle_mob(buckled_mobs[1])
 		balloon_alert_to_viewers("This chair is too damaged to stay sitting in")

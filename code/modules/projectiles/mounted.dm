@@ -1,6 +1,5 @@
 //Machine to hold a deployed gun. It aquired nearly all of its variables from the gun itself.
 /obj/machinery/deployable/mounted
-
 	anchored = TRUE
 	resistance_flags = XENO_DAMAGEABLE
 	density = TRUE
@@ -107,8 +106,6 @@
 	if(!CHECK_BITFIELD(gun?.reciever_flags, AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION))
 		return
 	gun?.do_unique_action(gun, user)
-
-
 
 ///This is called when a user tries to operate the gun
 /obj/machinery/deployable/mounted/interact(mob/user)

@@ -419,3 +419,16 @@
 	desc = "A Martian Field Ration, guaranteed to have a taste of Mars in every bite."
 	icon_state = "som_mealpack"
 	storage_type = /datum/storage/box/mre/som
+
+/obj/item/storage/box/holobadge
+	name = "holobadge box"
+	desc = "A box claiming to contain holobadges."
+
+/obj/item/storage/box/holobadge/PopulateContents()
+	. = ..()
+	new /obj/item/clothing/tie/holobadge(src)
+	new /obj/item/clothing/tie/holobadge(src)
+	new /obj/item/clothing/tie/holobadge(src)
+	new /obj/item/clothing/tie/holobadge(src)
+	new /obj/item/clothing/tie/holobadge/cord(src)
+	new /obj/item/clothing/tie/holobadge/cord(src)

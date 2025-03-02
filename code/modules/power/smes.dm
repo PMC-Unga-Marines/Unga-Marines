@@ -1,9 +1,7 @@
-// the SMES
-// stores power
-
 #define SMESMAXCHARGELEVEL 200000
 #define SMESMAXOUTPUT 200000
-#define SMESRATE 0.05			// rate of internal charge to external power
+/// Rate of internal charge to external power
+#define SMESRATE 0.05
 
 /obj/machinery/power/smes
 	name = "power storage unit"
@@ -195,20 +193,11 @@
 
 /obj/machinery/power/smes/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
-	if(isscrewdriver(I))
-		TOGGLE_BITFIELD(machine_stat, PANEL_OPEN)
 
-		if(CHECK_BITFIELD(machine_stat, PANEL_OPEN))
-			to_chat(user, span_notice("You open the maintenance hatch of [src]."))
-			icon_state = "[initial(icon_state)]_o"
-		else
-			to_chat(user, span_notice("You close the maintenance hatch of [src]."))
-			icon_state = "[initial(icon_state)]"
-
-		update_icon()
-
-	else if(iscablecoil(I))
+	if(iscablecoil(I))
 		var/obj/item/stack/cable_coil/C = I
 
 		var/dir = get_dir(user, src)
@@ -252,7 +241,20 @@
 		terminal.connect_to_network()
 		connect_to_network()
 
-	else if(iswirecutter(I) && terminal && CHECK_BITFIELD(machine_stat, PANEL_OPEN))
+/obj/machinery/power/smes/screwdriver_act(mob/living/user, obj/item/I)
+	. = ..()
+	TOGGLE_BITFIELD(machine_stat, PANEL_OPEN)
+	if(CHECK_BITFIELD(machine_stat, PANEL_OPEN))
+		to_chat(user, span_notice("You open the maintenance hatch of [src]."))
+		icon_state = "[initial(icon_state)]_o"
+	else
+		to_chat(user, span_notice("You close the maintenance hatch of [src]."))
+		icon_state = "[initial(icon_state)]"
+	update_icon()
+
+/obj/machinery/power/smes/wirecutter_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(terminal && CHECK_BITFIELD(machine_stat, PANEL_OPEN))
 		terminal.deconstruct(user)
 
 /obj/machinery/power/smes/ui_interact(mob/user, datum/tgui/ui)

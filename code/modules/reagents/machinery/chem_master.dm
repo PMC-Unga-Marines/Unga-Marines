@@ -16,10 +16,11 @@
 	var/obj/item/storage/pill_bottle/loaded_pill_bottle = null
 	var/mode = 0
 	var/condi = FALSE
-	var/useramount = 30 // Last used amount
+	/// Last used amount
+	var/useramount = 30
 	var/pillamount = 16
 	var/pillbottlesprite = "1"
-	var/bottlesprite = "1" //yes, strings
+	var/bottlesprite = "1"
 	var/pillsprite = "1"
 	var/base_state = "mixer"
 	var/autoinjectorsprite = "11"
@@ -58,6 +59,8 @@
 
 /obj/machinery/chem_master/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I,/obj/item/reagent_containers) && I.is_open_container())
 		for(var/datum/reagent/X in I.reagents.reagent_list)
@@ -333,9 +336,7 @@
 			bottlesprite = href_list["bottle_sprite"]
 		else if(href_list["autoinjector_sprite"])
 			autoinjectorsprite = href_list["autoinjector_sprite"]
-
 	updateUsrDialog()
-
 
 /obj/machinery/chem_master/interact(mob/user)
 	. = ..()

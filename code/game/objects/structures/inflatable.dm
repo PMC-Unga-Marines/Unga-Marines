@@ -7,7 +7,6 @@
 	///The type of structure we make upon inflation
 	var/inflatable_type
 
-
 /obj/item/inflatable/attack_self(mob/user)
 	. = ..()
 	balloon_alert(user, "Inflating...")
@@ -19,20 +18,17 @@
 	new inflatable_type(get_turf(user))
 	qdel(src)
 
-
 /obj/item/inflatable/wall
 	name = "inflatable wall"
 	desc = "A folded membrane which rapidly expands into a large cubical shape on activation."
 	icon_state = "folded_wall"
 	inflatable_type = /obj/structure/inflatable/wall
 
-
 /obj/item/inflatable/door
 	name = "inflatable door"
 	desc = "A folded membrane which rapidly expands into a simple door on activation."
 	icon_state = "folded_door"
 	inflatable_type = /obj/structure/inflatable/door
-
 
 /obj/structure/inflatable
 	name = "generic inflatable"
@@ -42,7 +38,6 @@
 	icon = 'icons/obj/inflatable.dmi'
 	max_integrity = 50
 	resistance_flags = XENO_DAMAGEABLE
-
 	///Are we deflated?
 	var/deflated = FALSE
 	///The type of item we get back upon deflation
@@ -63,6 +58,8 @@
 
 /obj/structure/inflatable/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(can_puncture(I))
 		visible_message(span_danger("[user] pierces [src] with [I]!"))
 		deflate(TRUE)
@@ -86,7 +83,6 @@
 		new inflatable_item(get_turf(src))
 	qdel(src)
 
-
 /obj/structure/inflatable/verb/hand_deflate()
 	set name = "Deflate"
 	set category = "Object"
@@ -100,7 +96,6 @@
 		deflate(FALSE)
 	else
 		balloon_alert(usr, "Already deflated.")
-
 
 /obj/structure/inflatable/wall
 	name = "inflatable wall"
@@ -117,12 +112,10 @@
 	deflated = TRUE
 	icon_state = "wall_popped"
 
-
 /obj/structure/inflatable/popped/door
 	name = "popped inflatable door"
 	desc = "This used to be an inflatable door, now it's just a mess of plastic."
 	icon_state = "door_popped"
-
 
 //TODO make this not copypasta. A simple door component maybe.
 /obj/structure/inflatable/door

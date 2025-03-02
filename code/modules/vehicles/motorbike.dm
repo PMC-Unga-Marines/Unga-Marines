@@ -82,6 +82,8 @@
 		playsound(get_turf(src), 'sound/vehicles/carrev.ogg', 100, TRUE)
 
 /obj/vehicle/ridden/motorbike/attackby(obj/item/I, mob/user, params)
+	if(.)
+		return
 	if(istype(I, /obj/item/reagent_containers/jerrycan))
 		var/obj/item/reagent_containers/jerrycan/gascan = I
 		if(gascan.reagents.total_volume == 0)
