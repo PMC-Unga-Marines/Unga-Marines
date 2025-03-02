@@ -6,7 +6,6 @@
 	max_storage_space = 16
 	refill_types = list(/obj/item/storage/pill_bottle)
 	refill_sound = 'sound/items/pills.ogg'
-	storage_flags = BYPASS_CRYO_CHECK
 
 /datum/storage/pill_bottle/New(atom/parent)
 	. = ..()

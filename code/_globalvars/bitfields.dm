@@ -486,7 +486,6 @@ GLOBAL_LIST_INIT(bitfields, list(
 	),
 	"storage_flags" = list(
 		"BYPASS_VENDOR_CHECK" = BYPASS_VENDOR_CHECK,
-		"BYPASS_CRYO_CHECK" = BYPASS_CRYO_CHECK,
 	),
 	"id_flags" = list(
 		"CAN_BUY_LOADOUT" = CAN_BUY_LOADOUT,

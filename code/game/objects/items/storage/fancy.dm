@@ -142,7 +142,6 @@
 
 /obj/item/storage/fancy/cigarettes/Initialize(mapload, ...)
 	. = ..()
-	storage_datum.storage_flags = BYPASS_CRYO_CHECK
 	storage_datum.max_storage_space = 18
 	storage_datum.storage_slots = 18
 	storage_datum.set_holdable(can_hold_list = list(

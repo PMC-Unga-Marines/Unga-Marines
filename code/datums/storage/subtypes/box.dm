@@ -10,13 +10,11 @@
 
 /datum/storage/box/m94
 	max_storage_space = 14
-	storage_flags = BYPASS_CRYO_CHECK
 
 /datum/storage/box/mre
 	storage_slots = 4
 	foldable = 0
 	trash_item = /obj/item/trash/mre
-	storage_flags = BYPASS_CRYO_CHECK
 
 /datum/storage/box/mre/New(atom/parent)
 	. = ..()
