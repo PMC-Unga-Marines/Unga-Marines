@@ -331,7 +331,7 @@
 	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/katana))
 
 /obj/item/storage/holster/blade/katana/full/PopulateContents()
-	var/obj/item/new_item = new /obj/item/weapon/katana(src)
+	new /obj/item/weapon/katana(src)
 
 /obj/item/storage/holster/blade/officer
 	name = "\improper officer sword scabbard"
@@ -504,9 +504,8 @@
 		flare_gun.reload(flare, user)
 		return
 
-/obj/item/storage/holster/flarepouch/full/Initialize(mapload)
-	. = ..()
-	new /obj/item/weapon/gun/grenade_launcher/single_shot/flare/marine(src)
+/obj/item/storage/holster/flarepouch/full/PopulateContents()
+	var/obj/item/weapon/gun/grenade_launcher/single_shot/flare/marine/flare_gun = new /obj/item/weapon/gun/grenade_launcher/single_shot/flare/marine(src)
 	for(var/i in 1 to (storage_datum.storage_slots - flare_gun.w_class))
 		new /obj/item/explosive/grenade/flare(src)
 
