@@ -434,9 +434,9 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	collection_mode = !collection_mode
 	if(collection_mode)
-		to_chat(usr, "[parent.name] now picks up all items in a tile at once.")
+		to_chat(usr, span_notice("\The [parent.name] now picks up all items in a tile at once."))
 	else
-		to_chat(usr, "[parent.name] now picks up one item at a time.")
+		to_chat(usr, span_notice("\The [parent.name] now picks up one item at a time."))
 
 /datum/storage/verb/toggle_draw_mode()
 	set name = "Switch Storage Drawing Method"
@@ -694,22 +694,22 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		return FALSE //Means the item is already in the storage item
 	if(storage_slots != null && length(parent.contents) >= storage_slots)
 		if(warning)
-			to_chat(user, span_notice("[parent.name] is full, make some space."))
+			to_chat(user, span_notice("\The [parent.name] is full, make some space."))
 		return FALSE //Storage item is full
 
 	if(length(can_hold) && !is_type_in_typecache(item_to_insert, typecacheof(can_hold)))
 		if(warning)
-			to_chat(user, span_notice("[parent.name] cannot hold [item_to_insert]."))
+			to_chat(user, span_notice("\The [parent.name] cannot hold [item_to_insert]."))
 		return FALSE
 
 	if(is_type_in_typecache(item_to_insert, typecacheof(cant_hold))) //Check for specific items which this container can't hold.
 		if(warning)
-			to_chat(user, span_notice("[parent.name] cannot hold [item_to_insert]."))
+			to_chat(user, span_notice("\The [parent.name] cannot hold [item_to_insert]."))
 		return FALSE
 
 	if(!is_type_in_typecache(item_to_insert, typecacheof(storage_type_limits)) && item_to_insert.w_class > max_w_class)
 		if(warning)
-			to_chat(user, span_notice("[item_to_insert] is too long for this [parent.name]."))
+			to_chat(user, span_notice("\The [item_to_insert] is too long for this [parent.name]."))
 		return FALSE
 
 	var/sum_storage_cost = item_to_insert.w_class
@@ -718,7 +718,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	if(sum_storage_cost > max_storage_space)
 		if(warning)
-			to_chat(user, span_notice("[parent.name] is full, make some space."))
+			to_chat(user, span_notice("\The [parent.name] is full, make some space."))
 		return FALSE
 
 	if(isitem(parent))
@@ -726,7 +726,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		if(item_to_insert.w_class >= parent_storage.w_class && istype(item_to_insert, /obj/item/storage) && !is_type_in_typecache(item_to_insert.type, typecacheof(storage_type_limits)))
 			if(!istype(src, /obj/item/storage/backpack/holding))	//bohs should be able to hold backpacks again. The override for putting a boh in a boh is in backpack.dm.
 				if(warning)
-					to_chat(user, span_notice("[parent.name] cannot hold [item_to_insert] as it's a storage item of the same size."))
+					to_chat(user, span_notice("\The [parent.name] cannot hold [item_to_insert] as it's a storage item of the same size."))
 				return FALSE //To prevent the stacking of same sized storage items.
 
 	for(var/limited_type in storage_type_limits_max)
@@ -734,7 +734,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 			continue
 		if(storage_type_limits_max[limited_type] == 0)
 			if(warning)
-				to_chat(user, span_warning("[parent.name] can't fit any more of those.") )
+				to_chat(user, span_warning("\The [parent.name] can't fit any more of those.") )
 			return FALSE
 
 	if(istype(item_to_insert, /obj/item/tool/hand_labeler))
@@ -890,7 +890,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		return
 
 	if(!can_be_inserted(refiller.contents[1], user))
-		user.balloon_alert(user, "[parent.name] is full.")
+		user.balloon_alert(user, "\The [parent.name] is full.")
 		return
 
 	user.balloon_alert(user, "Refilling.")
@@ -1009,7 +1009,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		return FALSE //Nor if the limit is not higher than what we have.
 	var/max_amt = round((stacks.max_amount / STACK_WEIGHT_STEPS) * (STACK_WEIGHT_STEPS - weight_diff)) //How much we can fill per weight step times the valid steps.
 	if(max_amt <= 0 || max_amt > stacks.max_amount)
-		stack_trace("[parent.name] tried to max_stack_merging([stacks]) with [max_w_class] max_w_class and [weight_diff] weight_diff, resulting in [max_amt] max_amt.")
+		stack_trace("\The [parent.name] tried to max_stack_merging([stacks]) with [max_w_class] max_w_class and [weight_diff] weight_diff, resulting in [max_amt] max_amt.")
 	return max_amt
 
 ///Called from signal in order to update the color of our storage, it's "fullness" basically
