@@ -1,12 +1,9 @@
-/obj/structure/closet/secure_closet/CMO : /obj/structure/closet/secure_closet/cmo
-/obj/structure/holohoop : /obj/structure/hoop
-/obj/item/storage/box/MRE : /datum/storage/box/mre
-/obj/item/explosive/grenade/chem_grenade/razorburn_small : /obj/item/explosive/grenade/chem_grenade/razorburn_small
-/obj/item/clothing/suit/chef : /obj/item/clothing/suit/storage/chef
-/obj/item/clothing/suit/chef/classic : /obj/item/clothing/suit/storage/chef/classic
-/obj/item/clothing/suit/wizrobe/gentlecoat : /obj/item/clothing/suit/storage/wizrobe/gentlecoat
-/obj/item/clothing/suit/bomber : /obj/item/clothing/suit/storage/bomber
-/obj/item/clothing/suit/security/formal/senior_officer : /obj/item/clothing/suit/storage/security/formal/senior_officer
-/obj/item/clothing/suit/security/formal/senior_officer/tan : /obj/item/clothing/suit/storage/security/formal/senior_officer/tan
-/obj/item/clothing/suit/apron : /obj/item/clothing/suit/storage/apron
-/obj/item/clothing/suit/apron/overalls : /obj/item/clothing/suit/storage/apron/overalls
+/obj/structure/closet/secure_closet/CMO : /obj/structure/closet/secure_closet/cmo{@OLD}
+/obj/structure/holohoop : /obj/structure/hoop{@OLD}
+/obj/item/storage/box/MRE : /datum/storage/box/mre{@OLD}
+/obj/item/explosive/grenade/chem_grenade/razorburn_small : /obj/item/explosive/grenade/chem_grenade/razorburn_small{@OLD}
+/obj/item/clothing/suit/chef@SUBTYPES: /obj/item/clothing/suit/storage/chef@SUBTYPES{@OLD}
+/obj/item/clothing/suit/wizrobe/gentlecoat : /obj/item/clothing/suit/storage/wizrobe/gentlecoat{@OLD}
+/obj/item/clothing/suit/bomber : /obj/item/clothing/suit/storage/bomber{@OLD}
+/obj/item/clothing/suit/security/formal/senior_officer@SUBTYPES : /obj/item/clothing/suit/storage/security/formal/senior_officer@SUBTYPES{@OLD}
+/obj/item/clothing/suit/apron@SUBTYPES : /obj/item/clothing/suit/storage/apron@SUBTYPES{@OLD}

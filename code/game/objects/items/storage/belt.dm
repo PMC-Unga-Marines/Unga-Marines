@@ -683,7 +683,6 @@
 /obj/item/storage/belt/mortar_belt
 	name = "TA-10 mortar belt"
 	desc = "A belt that holds a TA-10 50mm Mortar, rangefinder and a lot of ammo for it."
-	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "kneemortar_holster"
 	item_state = "m4a3_holster"
 	w_class = WEIGHT_CLASS_BULKY
