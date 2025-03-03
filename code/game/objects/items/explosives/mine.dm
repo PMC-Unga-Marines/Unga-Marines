@@ -3,8 +3,6 @@
 #define MINE_LIVING_OR_VEHICLE MINE_LIVING_ONLY|MINE_VEHICLE_ONLY
 
 /**
-Mines
-
 Mines have an invisible "tripwire" atom that explodes when crossed
 Stepping directly on the mine will also blow it up
 */
@@ -102,10 +100,10 @@ Stepping directly on the mine will also blow it up
 	tripwire.linked_mine = src
 
 /// Supports diarming a mine
-/obj/item/explosive/mine/attackby(obj/item/I, mob/user, params)
+/obj/item/explosive/mine/multitool_act(mob/living/user, obj/item/I)
 	. = ..()
 
-	if(!ismultitool(I) || !anchored)
+	if(!anchored)
 		return
 
 	user.visible_message(span_notice("[user] starts disarming [src]."), \

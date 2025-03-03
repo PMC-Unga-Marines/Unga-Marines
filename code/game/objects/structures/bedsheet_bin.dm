@@ -1,9 +1,3 @@
-/*
-CONTAINS:
-BEDSHEETS
-LINEN BINS
-*/
-
 /obj/item/bedsheet
 	name = "bedsheet"
 	desc = "A surprisingly soft linen bedsheet."
@@ -20,14 +14,12 @@ LINEN BINS
 	throw_range = 2
 	w_class = WEIGHT_CLASS_SMALL
 
-
 /obj/item/bedsheet/attack_self(mob/user as mob)
 	user.drop_held_item()
 	if(layer == initial(layer))
 		layer = ABOVE_MOB_LAYER
 	else
 		layer = initial(layer)
-
 
 /obj/item/bedsheet/blue
 	icon_state = "sheetblue"
@@ -83,9 +75,6 @@ LINEN BINS
 	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "cameras"
 
-
-
-
 /obj/structure/bedsheetbin
 	name = "linen bin"
 	desc = "A linen bin. It looks rather cosy."
@@ -96,7 +85,6 @@ LINEN BINS
 	var/list/sheets = list()
 	var/obj/item/hidden = null
 
-
 /obj/structure/bedsheetbin/examine(mob/user)
 	. = ..()
 	if(amount < 1)
@@ -105,7 +93,6 @@ LINEN BINS
 		. += "There is one bed sheet in the bin."
 	else
 		. += "There are [amount] bed sheets in the bin."
-
 
 /obj/structure/bedsheetbin/update_icon_state()
 	. = ..()
@@ -117,9 +104,10 @@ LINEN BINS
 		else
 			icon_state = "linenbin-full"
 
-
 /obj/structure/bedsheetbin/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/bedsheet))
 		if(!user.drop_held_item())
@@ -164,5 +152,3 @@ LINEN BINS
 			hidden.loc = user.loc
 			to_chat(user, span_notice("[hidden] falls out of [B]!"))
 			hidden = null
-
-

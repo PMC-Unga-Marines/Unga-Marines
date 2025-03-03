@@ -85,6 +85,8 @@
 
 /obj/machinery/camera/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/paper) && isliving(user))
 		var/mob/living/U = user

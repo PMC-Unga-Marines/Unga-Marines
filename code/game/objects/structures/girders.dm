@@ -1,3 +1,5 @@
+#define GIRDER_DECONSTRUCTING (new_state < girder_state)
+
 /obj/structure/girder
 	name = "girder"
 	icon_state = "girder-0"
@@ -10,13 +12,13 @@
 	hit_sound = 'sound/effects/metalhit.ogg'
 	max_integrity = 150
 	integrity_failure = 25
-	var/girder_state = GIRDER_NORMAL
-	var/reinforcement = null
-	var/icon_prefix = "girder"
 	smoothing_flags = SMOOTH_BITMASK
 	canSmoothWith = list(SMOOTH_GROUP_GIRDER,SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS,)
 	smoothing_groups = list(SMOOTH_GROUP_GIRDER)
 	base_icon_state = "girder"
+	var/girder_state = GIRDER_NORMAL
+	var/reinforcement = null
+	var/icon_prefix = "girder"
 
 /obj/structure/girder/ex_act(severity, direction)
 	take_damage(severity, BRUTE, BOMB, attack_dir = direction)
@@ -26,8 +28,6 @@
 
 /obj/structure/girder/add_debris_element()
 	AddElement(/datum/element/debris, DEBRIS_SPARKS, -15, 8, 1)
-
-#define GIRDER_DECONSTRUCTING (new_state < girder_state)
 
 /obj/structure/girder/proc/change_state(new_state, mob/user)
 	if(new_state == girder_state)
@@ -54,11 +54,10 @@
 	density = (girder_state >= GIRDER_NORMAL)
 	update_icon()
 
-#undef GIRDER_DECONSTRUCTING
-
-
 /obj/structure/girder/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(istype(I, GIRDER_REINF_METAL) || istype(I, GIRDER_REINF_PLASTEEL))
 		if(user.do_actions)
 			return TRUE //no afterattack
@@ -114,7 +113,6 @@
 				return TRUE
 		return FALSE
 
-
 /obj/structure/girder/welder_act(mob/living/user, obj/item/I)
 	if(user.do_actions)
 		return FALSE
@@ -138,7 +136,6 @@
 			change_state(girder_state + 1, user)
 			return TRUE
 	return FALSE
-
 
 /obj/structure/girder/wrench_act(mob/living/user, obj/item/I)
 	if(user.do_actions)
@@ -209,7 +206,6 @@
 			return TRUE
 	return FALSE
 
-
 /obj/structure/girder/screwdriver_act(mob/living/user, obj/item/I)
 	if(user.do_actions)
 		return FALSE
@@ -257,7 +253,6 @@
 			return TRUE
 	return FALSE
 
-
 /obj/structure/girder/wirecutter_act(mob/living/user, obj/item/I)
 	if(user.do_actions)
 		return FALSE
@@ -285,7 +280,6 @@
 			change_state(girder_state - 1)
 	return FALSE
 
-
 /obj/structure/girder/proc/build_wall()
 	if(!reinforcement)
 		reinforcement = GIRDER_REINF_METAL
@@ -293,14 +287,12 @@
 	source_turf.place_on_top(reinforcement_to_wall(reinforcement))
 	qdel(src)
 
-
 /obj/structure/girder/proc/reinforcement_to_wall(reinforcement)
 	switch(reinforcement)
 		if(GIRDER_REINF_METAL)
 			return /turf/closed/wall
 		if(GIRDER_REINF_PLASTEEL)
 			return /turf/closed/wall/r_wall
-
 
 /obj/structure/girder/examine(mob/user)
 	. = ..()
@@ -325,10 +317,8 @@
 		if(GIRDER_BUILDING2_SECURED)
 			. += "To finish building the wall, secure the outer plate layer by welding. To begin deconstructing it, use a screwdriver."
 
-
 /obj/structure/girder/obj_break()
 	change_state(GIRDER_BROKEN)
-
 
 /obj/structure/girder/deconstruct(disassembled = TRUE)
 	if(disassembled)
@@ -363,3 +353,5 @@
 	girder_state = GIRDER_BUILDING1_WELDED
 	reinforcement = GIRDER_REINF_PLASTEEL
 	max_integrity = 500
+
+#undef GIRDER_DECONSTRUCTING

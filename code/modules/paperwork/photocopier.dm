@@ -17,7 +17,6 @@
 	var/greytoggle = "Greyscale"
 	var/busy = FALSE
 
-
 /obj/machinery/photocopier/interact(mob/user)
 	. = ..()
 	if(.)
@@ -42,7 +41,6 @@
 	var/datum/browser/browser = new(user, "copier")
 	browser.set_content(dat)
 	browser.open()
-
 
 /obj/machinery/photocopier/Topic(href, href_list)
 	. = ..()
@@ -115,13 +113,11 @@
 
 	updateUsrDialog()
 
-
 /obj/machinery/photocopier/proc/do_insertion(obj/item/O, mob/user)
 	O.forceMove(src)
 	to_chat(user, span_notice("You insert [O] into [src]."))
 	flick("bigscanner1", src)
 	updateUsrDialog()
-
 
 /obj/machinery/photocopier/proc/remove_photocopy(obj/item/O, mob/user)
 	if(!issilicon(user)) //surprised this check didn't exist before, putting stuff in AI's hand is bad
@@ -131,9 +127,10 @@
 		O.forceMove(drop_location())
 	to_chat(user, span_notice("You take [O] out of [src]."))
 
-
 /obj/machinery/photocopier/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/paper))
 		if(!copier_empty())
@@ -168,13 +165,10 @@
 		to_chat(user, span_notice("You insert [I] into [src]."))
 		updateUsrDialog()
 
-
 /obj/machinery/photocopier/proc/copier_empty()
 	if(copy || photocopy)
 		return FALSE
-	else
-		return TRUE
-
+	return TRUE
 
 /obj/item/toner
 	name = "toner cartridge"

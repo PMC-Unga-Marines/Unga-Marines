@@ -1,6 +1,3 @@
-/*
-* Morgue
-*/
 /obj/structure/morgue
 	name = "morgue"
 	desc = "Used to keep bodies in untill someone fetches them."
@@ -8,12 +5,12 @@
 	icon_state = "morgue1"
 	dir = EAST
 	density = TRUE
+	anchored = TRUE
+	coverage = 20
 	var/obj/structure/morgue_tray/connected = null
 	var/morgue_type = "morgue"
 	var/tray_path = /obj/structure/morgue_tray
 	var/morgue_open = 0
-	anchored = TRUE
-	coverage = 20
 
 /obj/structure/morgue/Initialize(mapload)
 	. = ..()
@@ -77,9 +74,10 @@
 	playsound(loc, 'sound/items/deconstruct.ogg', 25, 1)
 	update_icon()
 
-
 /obj/structure/morgue/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/tool/pen))
 		var/t = copytext(stripped_input(user, "What would you like the label to be?", name, null), 1, MAX_MESSAGE_LEN)
@@ -94,16 +92,10 @@
 
 		name = "[initial(name)] - '[t]'"
 
-
 /obj/structure/morgue/relaymove(mob/user)
 	if(user.incapacitated(TRUE))
 		return
 	toggle_morgue(user)
-
-
-/*
-* Morgue tray
-*/
 
 /obj/structure/morgue_tray
 	name = "morgue tray"
@@ -112,8 +104,8 @@
 	icon_state = "morguet"
 	density = TRUE
 	layer = OBJ_LAYER
-	var/obj/structure/morgue/linked_morgue = null
 	anchored = TRUE
+	var/obj/structure/morgue/linked_morgue = null
 
 /obj/structure/morgue_tray/Initialize(mapload, obj/structure/morgue/morgue_source)
 	. = ..()
@@ -131,7 +123,6 @@
 	if(linked_morgue)
 		linked_morgue.toggle_morgue(user)
 
-
 /obj/structure/morgue_tray/MouseDrop_T(atom/movable/O, mob/user)
 	. = ..()
 	if (!istype(O) || O.anchored || !isturf(O.loc))
@@ -143,8 +134,6 @@
 	O.forceMove(loc)
 	if (user != O)
 		visible_message(span_warning("[user] stuffs [O] into [src]!"), null, null, 3)
-
-
 
 /*
 * Crematorium
@@ -160,18 +149,16 @@
 	var/cremating = 0
 	var/id = 1
 
-
 /obj/structure/morgue/crematorium/toggle_morgue(mob/user)
-	if (cremating)
+	if(cremating)
 		to_chat(user, span_warning("It's locked."))
 		return
-	..()
-
+	return ..()
 
 /obj/structure/morgue/crematorium/relaymove(mob/user)
-	if(cremating) return
-	..()
-
+	if(cremating)
+		return
+	return ..()
 
 /obj/structure/morgue/crematorium/update_icon()
 	. = ..()
@@ -214,7 +201,6 @@
 		update_icon()
 		playsound(src.loc, 'sound/machines/ding.ogg', 25, 1)
 
-
 /*
 * Crematorium tray
 */
@@ -223,7 +209,6 @@
 	name = "crematorium tray"
 	desc = "Apply body before burning."
 	icon_state = "cremat"
-
 
 /*
 * Crematorium switch
@@ -241,8 +226,6 @@
 	else
 		to_chat(user, span_warning("Access denied."))
 
-
-
 /*
 * Sarcophagus
 */
@@ -253,8 +236,6 @@
 	icon_state = "sarcophagus1"
 	morgue_type = "sarcophagus"
 	tray_path = /obj/structure/morgue_tray/sarcophagus
-
-
 /*
 * Sarcophagus tray
 */

@@ -1,5 +1,4 @@
 // It is a gizmo that flashes a small area
-
 /obj/machinery/flasher
 	name = "Mounted flash"
 	desc = "A wall-mounted flashbulb device."
@@ -11,10 +10,13 @@
 	idle_power_usage = 2
 	active_power_usage = 1500
 	var/id = null
-	var/range = 2 //this is roughly the size of brig cell
+	///this is roughly the size of brig cell
+	var/range = 2
 	var/disable = 0
-	var/last_flash = 0 //Don't want it getting spammed like regular flashes
-	var/strength = 20 SECONDS //How knocked down targets are when flashed.
+	///Don't want it getting spammed like regular flashes
+	var/last_flash = 0
+	///How knocked down targets are when flashed.
+	var/strength = 20 SECONDS
 	var/base_state = "mflash"
 
 /obj/machinery/flasher/cell1
@@ -32,7 +34,6 @@
 	base_state = "pflash"
 	density = TRUE
 
-
 /obj/machinery/flasher/update_icon_state()
 	. = ..()
 	if(!(machine_stat & NOPOWER))
@@ -40,24 +41,21 @@
 	else
 		icon_state = "[base_state]1-p"
 
-
 /obj/machinery/flasher/wirecutter_act(mob/living/user, obj/item/W)
 	disable = !disable
-	if (disable)
+	if(disable)
 		user.visible_message(span_warning(" [user] has disconnected the [src]'s flashbulb!"), span_warning(" You disconnect the [src]'s flashbulb!"))
-	if (!disable)
+	if(!disable)
 		user.visible_message(span_warning(" [user] has connected the [src]'s flashbulb!"), span_warning(" You connect the [src]'s flashbulb!"))
 
 /obj/machinery/flasher/attack_ai()
-	if (anchored)
+	if(anchored)
 		return flash()
-	else
-		return
 
 /obj/machinery/flasher/proc/flash()
-	if (!(powered()))
+	if(!(powered()))
 		return
-	if ((disable) || (last_flash && world.time < last_flash + 150))
+	if((disable) || (last_flash && world.time < last_flash + 150))
 		return
 
 	playsound(loc, 'sound/weapons/flash.ogg', 25, 1)
@@ -66,7 +64,7 @@
 	use_power(active_power_usage)
 
 	for(var/mob/living/L in viewers(src, null))
-		if (get_dist(src, L) > range)
+		if(get_dist(src, L) > range)
 			continue
 
 		if(isxeno(L))
@@ -87,38 +85,37 @@
 
 /obj/machinery/flasher/emp_act(severity)
 	if(machine_stat & (BROKEN|NOPOWER))
-		..(severity)
-		return
+		return ..(severity)
 	if(prob(75/severity))
 		flash()
-	..(severity)
+	return ..(severity)
 
 /obj/machinery/flasher/portable/HasProximity(atom/movable/AM as mob|obj)
-	if ((disable) || (last_flash && world.time < last_flash + 150))
+	if((disable) || (last_flash && world.time < last_flash + 150))
 		return
 
 	if(iscarbon(AM))
 		var/mob/living/carbon/M = AM
-		if ((M.m_intent != MOVE_INTENT_WALK) && (anchored))
+		if((M.m_intent != MOVE_INTENT_WALK) && (anchored))
 			flash()
 
-/obj/machinery/flasher/portable/attackby(obj/item/I, mob/user, params)
+/obj/machinery/flasher/portable/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
-	if(iswrench(I))
-		anchored = !anchored
-
-		if(!anchored)
-			user.show_message(span_warning("[src] is now secured."))
-			overlays += "[base_state]-s"
-		else
-			user.show_message(span_warning(" [src] can now be moved."))
-			overlays.Cut()
+	anchored = !anchored
+	if(!anchored)
+		user.show_message(span_warning("[src] is now secured."))
+		overlays += "[base_state]-s"
+	else
+		user.show_message(span_warning("[src] can now be moved."))
+		overlays.Cut()
 
 /obj/machinery/flasher_button/attack_ai(mob/user as mob)
 	return attack_hand(user)
 
 /obj/machinery/flasher_button/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	return attack_hand(user)
 
 /obj/machinery/flasher_button/attack_hand(mob/living/user)
@@ -147,4 +144,3 @@
 
 	icon_state = "launcher"
 	active = 0
-

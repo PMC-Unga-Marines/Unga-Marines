@@ -11,20 +11,15 @@
 	interaction_flags = INTERACT_MACHINE_TGUI
 	req_one_access = list(ACCESS_MARINE_CMO, ACCESS_MARINE_RESEARCH, ACCESS_MARINE_CHEMISTRY)
 	layer = BELOW_OBJ_LAYER //So beakers reliably appear above it
-
-
 	var/obj/item/cell/cell
 	var/powerefficiency = 0.1
 	var/amount = 30
 	var/recharge_amount = 30
 	var/recharge_counter = 0
 	var/mutable_appearance/beaker_overlay
-
 	///Reagent amounts that are dispenced
 	var/static/list/possible_transfer_amounts = list(1,5,10,15,20,30,40,60,120)
-
 	var/working_state = "dispenser_working"
-
 	var/obj/item/reagent_containers/beaker = null
 	var/hackedcheck = 0
 	var/list/dispensable_reagents = list(
@@ -107,15 +102,14 @@
 	. = ..()
 	replace_beaker(user)
 
-
 /obj/machinery/chem_dispenser/proc/work_animation()
 	if(working_state)
 		flick(working_state,src)
 
 /obj/machinery/chem_dispenser/handle_atom_del(atom/movable/AM)
+	. = ..()
 	if(AM == beaker)
 		beaker = null
-
 
 /obj/machinery/chem_dispenser/multitool_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -177,7 +171,6 @@
 	if(.)
 		return
 
-// RUTGMC edit start - marines can use chem machines once again
 	if(needs_medical_training && ishuman(usr))
 		var/mob/living/carbon/human/user = usr
 		if(user.skills.getRating("medical") < SKILL_MEDICAL_NOVICE)
@@ -186,7 +179,6 @@
 			to_chat(user, span_notice("You start fiddling with \the [src]..."))
 			if(!do_after(user, SKILL_TASK_EASY, IGNORE_HELD_ITEM, src, BUSY_ICON_UNSKILLED))
 				return
-//RUTGMC edit end
 
 	switch(action)
 		if("amount")
@@ -323,6 +315,8 @@
 
 /obj/machinery/chem_dispenser/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(isreagentcontainer(I))
 		if(beaker)
@@ -461,7 +455,6 @@
 
 /obj/machinery/chem_dispenser/soda/update_icon_state()
 	return
-
 
 /obj/machinery/chem_dispenser/beer
 	icon_state = "booze_dispenser"

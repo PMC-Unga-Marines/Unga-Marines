@@ -6,7 +6,8 @@
 	idle_power_usage = 0
 	active_power_usage = 0
 	var/datum/powernet/powernet = null
-	var/machinery_layer = MACHINERY_LAYER_1 //cable layer to which the machine is connected
+	/// Cable layer to which the machine is connected
+	var/machinery_layer = MACHINERY_LAYER_1
 
 /obj/machinery/power/Destroy()
 	disconnect_from_network()
@@ -40,8 +41,7 @@
 /obj/machinery/power/proc/avail()
 	if(powernet)
 		return powernet.avail
-	else
-		return 0
+	return 0
 
 /obj/machinery/power/proc/add_delayedload(amount)
 	if(powernet)
@@ -50,14 +50,12 @@
 /obj/machinery/power/proc/delayed_surplus()
 	if(powernet)
 		return clamp(powernet.newavail - powernet.delayedload, 0, powernet.newavail)
-	else
-		return 0
+	return 0
 
 /obj/machinery/power/proc/newavail()
 	if(powernet)
 		return powernet.newavail
-	else
-		return 0
+	return 0
 
 /obj/machinery/power/proc/disconnect_terminal()
 	return
@@ -132,6 +130,8 @@
 //almost never called, overwritten by all power machines but terminal and generator
 /obj/machinery/power/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(iscablecoil(I))
 		var/obj/item/stack/cable_coil/coil = I
@@ -177,7 +177,6 @@
 		if(PM.connect_to_network())
 			continue
 		PM.disconnect_from_network() //couldn't find a node on its turf so disconnect if already on a powernet
-
 
 //Merge two powernets, the bigger (in cable length term) absorbing the other
 /proc/merge_powernets(datum/powernet/net1, datum/powernet/net2)

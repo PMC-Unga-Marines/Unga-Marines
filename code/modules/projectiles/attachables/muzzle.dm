@@ -228,9 +228,9 @@
 	slot = ATTACHMENT_SLOT_MUZZLE
 	attach_features_flags = NONE
 
-/obj/item/attachable/t500barrel
+/obj/item/attachable/t500_barrel
 	name = "R-500 extended barrel"
-	desc = "Cool barrel for cool revolver"
+	desc = "Cool barrel for a cool revolver."
 	slot = ATTACHMENT_SLOT_MUZZLE
 	delay_mod = -0.4 SECONDS
 	icon = 'icons/obj/items/attachments/attachments_64.dmi'
@@ -245,18 +245,16 @@
 	pixel_shift_x = 0
 	pixel_shift_y = 0
 
-/obj/item/attachable/t500barrelshort
+/obj/item/attachable/t500_barrel/short
 	name = "R-500 compensator"
-	desc = "Cool compensator for cool revolver"
-	slot = ATTACHMENT_SLOT_MUZZLE
+	desc = "Cool compensator for a cool revolver."
 	delay_mod = -0.2 SECONDS
-	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	icon_state = "shortbarrel"
+	attach_shell_speed_mod = 0
 	scatter_mod = -2
 	recoil_mod = -0.5
 	scatter_unwielded_mod = -5
 	recoil_unwielded_mod = -1
+	accuracy_mod = 0
 	accuracy_unwielded_mod = 0.15
 	size_mod = 0.5
-	pixel_shift_x = 0
-	pixel_shift_y = 0

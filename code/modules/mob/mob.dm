@@ -245,26 +245,26 @@
  * set del_on_fail to have it delete W if it fails to equip
  * unset redraw_mob to prevent the mob from being redrawn at the end.
  */
-/mob/proc/equip_to_slot_if_possible(obj/item/W, slot, ignore_delay = TRUE, del_on_fail = FALSE, warning = TRUE, redraw_mob = TRUE, override_nodrop = FALSE)
-	if(!istype(W) || QDELETED(W)) //This qdeleted is to prevent stupid behavior with things that qdel during init, like say stacks
+/mob/proc/equip_to_slot_if_possible(obj/item/item_to_equip, slot, ignore_delay = TRUE, del_on_fail = FALSE, warning = TRUE, redraw_mob = TRUE, override_nodrop = FALSE)
+	if(!istype(item_to_equip) || QDELETED(item_to_equip)) //This qdeleted is to prevent stupid behavior with things that qdel during init, like say stacks
 		return FALSE
-	if(!W.mob_can_equip(src, slot, warning, override_nodrop))
+	if(!item_to_equip.mob_can_equip(src, slot, warning, override_nodrop))
 		if(del_on_fail)
-			qdel(W)
+			qdel(item_to_equip)
 			return FALSE
 		if(warning)
 			to_chat(src, span_warning("You are unable to equip that."))
 		return FALSE
-	if(W.equip_delay_self && !ignore_delay)
-		if(!do_after(src, W.equip_delay_self, NONE, W, BUSY_ICON_FRIENDLY))
-			to_chat(src, "You stop putting on \the [W]")
+	if(item_to_equip.equip_delay_self && !ignore_delay)
+		if(!do_after(src, item_to_equip.equip_delay_self, NONE, item_to_equip, BUSY_ICON_FRIENDLY))
+			to_chat(src, "You stop putting on \the [item_to_equip]")
 			return FALSE
 		//calling the proc again with ignore_delay saves a boatload of copypaste
-		return equip_to_slot_if_possible(W, slot, TRUE, del_on_fail, warning, redraw_mob, override_nodrop)
-	equip_to_slot(W, slot) //This proc should not ever fail.
+		return equip_to_slot_if_possible(item_to_equip, slot, TRUE, del_on_fail, warning, redraw_mob, override_nodrop)
+	equip_to_slot(item_to_equip, slot) //This proc should not ever fail.
 	//This will unwield items -without- triggering lights.
-	if(CHECK_BITFIELD(W.item_flags, TWOHANDED))
-		W.unwield(src)
+	if(CHECK_BITFIELD(item_to_equip.item_flags, TWOHANDED))
+		item_to_equip.unwield(src)
 	return TRUE
 
 /**
@@ -320,6 +320,15 @@
 	if(slot == SLOT_IN_R_POUCH && (!(istype(I, /obj/item/storage/holster) || istype(I, /obj/item/weapon) || istype(I, /obj/item/storage/pouch/pistol))))
 		return FALSE
 
+	//Sends quick equip signal, if our signal is not handled/blocked we continue to the normal behaviour
+	var/return_value = SEND_SIGNAL(I, COMSIG_ITEM_QUICK_EQUIP, src)
+	switch(return_value)
+		if(COMSIG_QUICK_EQUIP_HANDLED)
+			return TRUE
+		if(COMSIG_QUICK_EQUIP_BLOCKED)
+			return FALSE
+
+	//Realistically only would get called on an item that has no storage/storage didnt fail signal
 	//calls on the item to return a suitable item to be equipped
 	var/obj/item/found = I.do_quick_equip(src)
 	if(!found)
@@ -334,7 +343,6 @@
 	. = ..()
 	. += "---"
 	.["Player Panel"] = "?_src_=vars;[HrefToken()];playerpanel=[REF(src)]"
-
 
 /client/verb/changes()
 	set name = "Changelog"
@@ -386,10 +394,8 @@
 			to_chat(src, span_warning("Cannot grab, lacking free hands to do so!"))
 		return FALSE
 
-//RUTGMC EDIT ADDITION BEGIN - Preds
 	if(SEND_SIGNAL(AM, COMSIG_ATTEMPT_MOB_PULL) & COMPONENT_CANCEL_MOB_PULL)
 		return FALSE
-//RUTGMC EDIT ADDITION END
 
 	AM.add_fingerprint(src, "pull")
 
@@ -422,7 +428,6 @@
 
 	if(!suppress_message)
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, TRUE, 7)
-
 
 	hud_used?.pull_icon?.icon_state = "pull"
 
@@ -480,7 +485,6 @@
 	if(L.mob_size <= MOB_SIZE_SMALL) //being on top of a small mob doesn't put you very high.
 		return 0
 
-
 /mob/GenerateTag()
 	tag = "mob_[next_mob_id++]"
 
@@ -512,7 +516,6 @@
 		return FALSE
 	return TRUE
 
-
 /mob/proc/facedir(ndir)
 	if(!canface())
 		return FALSE
@@ -521,7 +524,6 @@
 	if(buckled && !buckled.anchored)
 		buckled.setDir(ndir)
 	return TRUE
-
 
 /proc/is_species(A, species_datum)
 	if(ishuman(A))
@@ -557,7 +559,6 @@
 	stop_pulling()
 	if(buckled)
 		buckled.unbuckle_mob(src)
-
 
 /mob/proc/trainteleport(atom/destination)
 	if(!destination || anchored)
@@ -612,7 +613,6 @@
 		AM.forceMove(destination)
 	return TRUE
 
-
 /mob/proc/set_interaction(atom/movable/AM)
 	if(interactee)
 		if(interactee == AM) //already set
@@ -622,12 +622,10 @@
 	interactee = AM
 	interactee.on_set_interaction(src)
 
-
 /mob/proc/unset_interaction()
 	if(interactee)
 		interactee.on_unset_interaction(src)
 		interactee = null
-
 
 /mob/proc/add_emote_overlay(image/emote_overlay, remove_delay = TYPING_INDICATOR_LIFETIME)
 	emote_overlay.appearance_flags = APPEARANCE_UI_TRANSFORM
@@ -638,12 +636,10 @@
 	if(remove_delay)
 		addtimer(CALLBACK(src, PROC_REF(remove_emote_overlay), emote_overlay, TRUE), remove_delay)
 
-
 /mob/proc/remove_emote_overlay(image/emote_overlay, delete)
 	overlays -= emote_overlay
 	if(delete)
 		qdel(emote_overlay)
-
 
 /mob/proc/spin(spintime, speed)
 	set waitfor = FALSE
@@ -663,7 +659,6 @@
 				D = NORTH
 		setDir(D)
 		spintime -= speed
-
 
 /mob/proc/is_muzzled()
 	return FALSE
@@ -720,7 +715,6 @@
 	if(newname)
 		GLOB.joined_player_list[newname] = TRUE
 
-
 //This will update a mob's name, real_name, mind.name, GLOB.datacore records and id
 /mob/proc/fully_replace_character_name(oldname, newname)
 	if(!newname)
@@ -742,7 +736,6 @@
 
 	return TRUE
 
-
 /mob/proc/update_sight()
 	SEND_SIGNAL(src, COMSIG_MOB_UPDATE_SIGHT)
 	sync_lighting_plane_alpha()
@@ -755,10 +748,8 @@
 	if(L)
 		L.alpha = lighting_alpha
 
-
 /mob/proc/get_photo_description(obj/item/camera/camera)
 	return "a ... thing?"
-
 
 /mob/proc/can_interact_with(datum/D)
 	return (D == src)
@@ -768,7 +759,6 @@
 	if (!client)
 		return
 	client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
-
 
 /mob/proc/update_names_joined_list(new_name, old_name)
 	if(old_name)

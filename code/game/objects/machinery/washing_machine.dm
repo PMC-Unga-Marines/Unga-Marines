@@ -30,11 +30,11 @@
 	if(!isliving(usr)) //ew ew ew usr, but it's the only way to check.
 		return
 
-	if( state != 4 )
+	if(state != 4)
 		to_chat(usr, "The washing machine cannot run in this state.")
 		return
 
-	if( locate(/mob,contents) )
+	if(locate(/mob,contents))
 		state = 8
 	else
 		state = 5
@@ -49,8 +49,7 @@
 		WL.amount = HH.amount
 		qdel(HH)
 
-
-	if( locate(/mob,contents) )
+	if(locate(/mob,contents))
 		state = 7
 		gibs_ready = 1
 	else
@@ -63,17 +62,17 @@
 	set src in usr.loc
 
 	sleep(2 SECONDS)
-	if(state in list(1,3,6) )
+	if(state in list(1,3,6))
 		usr.loc = src.loc
-
 
 /obj/machinery/washing_machine/update_icon_state()
 	. = ..()
 	icon_state = "wm_[state][panel]"
 
-
 /obj/machinery/washing_machine/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/toy/crayon) || istype(I, /obj/item/tool/stamp))
 		if(!(state in list(1, 3, 6)))
@@ -173,6 +172,4 @@
 				O.loc = src.loc
 			crayon = null
 			state = 1
-
-
 	update_icon()

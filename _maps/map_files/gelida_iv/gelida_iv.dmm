@@ -515,11 +515,7 @@
 /turf/open/floor/prison/plate,
 /area/gelida/outdoors/colony_streets/north_street)
 "arF" = (
-/obj/structure/holohoop{
-	dir = 4;
-	id = "lvbasketball";
-	side = "left"
-	},
+/obj/structure/hoop,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
@@ -1922,9 +1918,7 @@
 	},
 /area/gelida/landing_zone_2)
 "bmp" = (
-/obj/structure/holohoop{
-	pixel_y = 27
-	},
+/obj/structure/hoop,
 /obj/item/toy/beach_ball/holoball{
 	pixel_x = 9;
 	pixel_y = -11
@@ -10709,11 +10703,7 @@
 /turf/open/floor/prison/sterilewhite,
 /area/gelida/landing_zone_forecon/UD6_Tornado)
 "hju" = (
-/obj/structure/holohoop{
-	dir = 8;
-	id = "lvbasketball";
-	side = "right"
-	},
+/obj/structure/hoop,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
@@ -19551,7 +19541,7 @@
 /area/gelida/indoors/a_block/executive)
 "nkE" = (
 /obj/structure/table/mainship,
-/obj/item/clothing/suit/chef/classic,
+/obj/item/clothing/suit/storage/chef/classic,
 /turf/open/floor/prison/kitchen,
 /area/gelida/indoors/a_block/kitchen)
 "nkH" = (
@@ -25178,7 +25168,7 @@
 /turf/open/floor/prison/whitegreen/full,
 /area/gelida/indoors/a_block/fitness)
 "qVp" = (
-/obj/structure/holohoop,
+/obj/structure/hoop,
 /turf/open/floor/prison/whitepurple/full{
 	dir = 4
 	},
@@ -26221,9 +26211,7 @@
 	pixel_x = 7;
 	pixel_y = -9
 	},
-/obj/structure/holohoop{
-	dir = 4
-	},
+/obj/structure/hoop,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/north_west_street)
 "rCj" = (

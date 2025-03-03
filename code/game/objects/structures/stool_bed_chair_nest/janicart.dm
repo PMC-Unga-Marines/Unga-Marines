@@ -1,6 +1,3 @@
-
-
-///old style janicart
 /obj/structure/bed/chair/janicart
 	name = "janicart"
 	icon = 'icons/obj/vehicles.dmi'
@@ -11,15 +8,16 @@
 	buildstacktype = null ///can't be disassembled and doesn't drop anything when destroyed
 	buckle_flags = CAN_BUCKLE
 	//copypaste sorry
-	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
+	/// Shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
+	var/amount_per_transfer_from_this = 5
 	var/obj/item/storage/bag/trash/mybag = null
-	var/callme = "pimpin' ride"	//how do people refer to it?
+	/// How do people refer to it?
+	var/callme = "pimpin' ride"
 	var/move_delay = 2
 
 /obj/structure/bed/chair/janicart/Initialize(mapload)
 	. = ..()
 	create_reagents(100, OPENCONTAINER)
-
 
 /obj/structure/bed/chair/janicart/examine(mob/user)
 	. = ..()
@@ -27,9 +25,10 @@
 	if(mybag)
 		. += "\A [mybag] is hanging on the [callme]."
 
-
 /obj/structure/bed/chair/janicart/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/tool/mop))
 		if(reagents.total_volume <= 1)
@@ -57,7 +56,6 @@
 		mybag.loc = get_turf(user)
 		user.put_in_hands(mybag)
 		mybag = null
-
 
 /obj/structure/bed/chair/janicart/relaymove(mob/user, direction)
 	if(world.time <= last_move_time + move_delay)

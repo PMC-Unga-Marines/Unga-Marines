@@ -13,25 +13,27 @@
 	req_one_access = list(ACCESS_MARINE_BRIG, ACCESS_MARINE_ARMORY, ACCESS_MARINE_CAPTAIN, ACCESS_NT_CORPORATE, ACCESS_NT_PMC_GREEN)
 	var/stunforce = 10
 	var/agonyforce = 80
-	var/status = 0		//whether the thing is on or not
+	///whether the thing is on or not
+	var/status = 0
 	var/obj/item/cell/bcell = null
-	var/hitcost = 1000	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
-	var/has_user_lock = TRUE //whether the baton prevents people without correct access from using it.
+	///oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
+	var/hitcost = 1000
+	///whether the baton prevents people without correct access from using it.
+	var/has_user_lock = TRUE
 
 /obj/item/weapon/baton/Initialize(mapload)
 	. = ..()
 	bcell = new/obj/item/cell/high(src)
 	update_icon()
 
-
 /obj/item/weapon/baton/proc/deductcharge(chrgdeductamt)
-	if(bcell)
-		if(bcell.use(chrgdeductamt))
-			return 1
-		else
-			status = 0
-			update_icon()
-			return 0
+	if(!bcell)
+		return
+	if(bcell.use(chrgdeductamt))
+		return TRUE
+	status = 0
+	update_icon()
+	return FALSE
 
 /obj/item/weapon/baton/update_icon_state()
 	. = ..()
@@ -55,11 +57,9 @@
 		return
 	check_user_auth(user)
 
-
 /obj/item/weapon/baton/equipped(mob/user, slot)
-	..()
+	. = ..()
 	check_user_auth(user)
-
 
 //checks if the mob touching the baton has proper access
 /obj/item/weapon/baton/proc/check_user_auth(mob/user)
@@ -81,6 +81,8 @@
 
 /obj/item/weapon/baton/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/cell))
 		if(bcell)
@@ -121,7 +123,6 @@
 			to_chat(user, span_warning("[src] does not have a power source!"))
 		else
 			to_chat(user, span_warning("[src] is out of charge."))
-
 
 /obj/item/weapon/baton/attack(mob/M, mob/user)
 	if(M.status_flags & INCORPOREAL || user.status_flags & INCORPOREAL) //Incorporeal beings cannot attack or be attacked
@@ -178,12 +179,12 @@
 
 	deductcharge(hitcost)
 
-	return 1
+	return TRUE
 
 /obj/item/weapon/baton/emp_act(severity)
 	if(bcell)
 		bcell.emp_act(severity)	//let's not duplicate code everywhere if we don't have to please.
-	..()
+	return ..()
 
 //Makeshift stun baton. Replacement for stun gloves.
 /obj/item/weapon/baton/cattleprod
@@ -199,7 +200,6 @@
 	attack_verb = list("poked")
 	equip_slot_flags = NONE
 	has_user_lock = FALSE
-
 
 /obj/item/weapon/stunprod
 	name = "electrified prodder"
@@ -220,7 +220,6 @@
 	else
 		icon_state = "stunbaton"
 
-
 /obj/item/weapon/stunprod/attack_self(mob/user)
 	if(charges > 0)
 		status = !status
@@ -230,7 +229,6 @@
 	else
 		status = 0
 		to_chat(user, span_warning("\The [src] is out of charge."))
-
 
 /obj/item/weapon/stunprod/attack(mob/M, mob/user)
 	if(user.a_intent == INTENT_HARM)
@@ -253,8 +251,6 @@
 			status = 0
 			update_icon()
 
-
-
 /obj/item/weapon/stunprod/emp_act(severity)
 	switch(severity)
 		if(1)
@@ -265,13 +261,11 @@
 		status = 0
 		update_icon()
 
-
 /obj/item/weapon/stunprod/improved
 	charges = 30
 	name = "improved electrified prodder"
 	desc = "A specialised prod designed for incapacitating xenomorphic lifeforms with. This one seems to be much more effective than its predecessor."
 	color = "#FF6666"
-
 
 /obj/item/weapon/stunprod/improved/attack(mob/M, mob/user)
 	. = ..()
@@ -279,7 +273,6 @@
 		return
 	var/mob/living/L = M
 	L.Paralyze(28 SECONDS)
-
 
 /obj/item/weapon/stunprod/improved/examine(mob/user)
 	. = ..()

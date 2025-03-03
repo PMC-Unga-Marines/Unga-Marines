@@ -5,15 +5,15 @@
 	anchored = FALSE
 	icon_state = "paper_bin1"
 	layer = LOWER_ITEM_LAYER
-	var/amount = 30					//How much paper is in the bin.
-	var/list/papers = list()	//List of papers put in the bin for reference.
-
+	/// How much paper is in the bin.
+	var/amount = 30
+	/// List of papers put in the bin for reference.
+	var/list/papers = list()
 
 /obj/structure/paper_bin/MouseDrop(atom/over_object)
 	if(over_object == usr && ishuman(usr) && !usr.restrained() && !usr.stat && (loc == usr || in_range(src, usr)))
 		if(!usr.get_active_held_item())		//if active hand is empty
 			attack_hand(usr, 1, 1)
-
 
 /obj/structure/paper_bin/attack_hand(mob/living/user)
 	. = ..()
@@ -45,9 +45,10 @@
 	user.put_in_hands(P)
 	to_chat(user, span_notice("You take [P] out of the [src]."))
 
-
 /obj/structure/paper_bin/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/paper))
 		if(!user.transferItemToLoc(I, src))
@@ -57,14 +58,12 @@
 		LAZYADD(papers, I)
 		amount++
 
-
 /obj/structure/paper_bin/examine(mob/user)
 	. = ..()
 	if(amount)
 		. += span_notice("There " + (amount > 1 ? "are [amount] papers" : "is one paper") + " in the bin.")
 	else
 		. += span_notice("There are no papers in the bin.")
-
 
 /obj/structure/paper_bin/update_icon_state()
 	. = ..()

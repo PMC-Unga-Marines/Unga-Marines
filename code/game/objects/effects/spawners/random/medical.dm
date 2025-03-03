@@ -162,7 +162,7 @@
 		/obj/structure/closet/secure_closet/medical1/colony = 20,
 		/obj/structure/closet/secure_closet/chemical/colony = 20,
 		/obj/structure/closet/secure_closet/medical3/colony = 5,
-		/obj/structure/closet/secure_closet/CMO = 1,
+		/obj/structure/closet/secure_closet/cmo = 1,
 	)
 
 

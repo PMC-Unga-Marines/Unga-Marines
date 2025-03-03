@@ -32,6 +32,8 @@
 
 /obj/item/toy/deck/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/toy/handcard))
 		var/obj/item/toy/handcard/H = I
@@ -159,7 +161,6 @@
 
 	deal_at(usr, over)
 
-
 /obj/item/toy/handcard
 	name = "hand of cards"
 	desc = "Some playing cards."
@@ -181,6 +182,8 @@
 
 /obj/item/toy/handcard/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/toy/handcard))
 		var/obj/item/toy/handcard/H = I
@@ -319,8 +322,7 @@
 	update_icon()
 
 /obj/item/toy/handcard/pickup(mob/user as mob)
-	src.update_icon()
-
+	update_icon()
 
 /obj/item/toy/deck/kotahi
 	name = "KOTAHI deck"

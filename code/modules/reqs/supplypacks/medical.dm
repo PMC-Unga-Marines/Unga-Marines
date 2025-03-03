@@ -370,7 +370,7 @@
 
 /datum/supply_packs/medical/t312case
 	name = "R-312 'Albedo' Revolver bundle"
-	contains = list(/obj/item/storage/box/t312case)
+	contains = list(/obj/item/storage/briefcase/t312)
 	cost = 500
 
 /datum/supply_packs/medical/t312

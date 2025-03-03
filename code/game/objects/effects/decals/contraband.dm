@@ -1,12 +1,8 @@
-
-//########################## CONTRABAND ;3333333333333333333 -Agouri ###################################################
-
 /obj/item/contraband
 	name = "contraband item"
 	desc = "You probably shouldn't be holding this."
 	icon = 'icons/obj/contraband.dmi'
 	force = 0
-
 
 /obj/item/contraband/poster
 	name = "rolled-up poster"
@@ -22,8 +18,6 @@
 	else
 		serial_number = given_serial
 	name += " - No. [serial_number]"
-
-//############################## THE ACTUAL DECALS ###########################
 
 /obj/structure/sign/poster
 	name = "poster"
@@ -58,10 +52,12 @@
 	name += " - [design.name]"
 	desc += " [design.desc]"
 	icon_state = design.icon_state // poster[serial_number]
-	..()
+	return ..()
 
 /obj/structure/sign/poster/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(iswirecutter(I))
 		playsound(loc, 'sound/items/wirecutter.ogg', 25, 1)
 		if(ruined)
@@ -70,7 +66,6 @@
 		else
 			to_chat(user, span_notice("You carefully remove the poster from the wall."))
 			roll_and_drop(user.loc)
-
 
 /obj/structure/sign/poster/attack_hand(mob/living/user)
 	. = ..()
@@ -97,7 +92,6 @@
 	P.loc = newloc
 	src.loc = P
 	qdel(src)
-
 
 //separated to reduce code duplication. Moved here for ease of reference and to unclutter r_wall/attackby()
 /turf/closed/wall/proc/place_poster(obj/item/contraband/poster/P, mob/user)
@@ -137,7 +131,7 @@
 
 /datum/poster
 	// Name suffix. Poster - [name]
-	var/name=""
+	var/name = ""
 	// Description suffix
-	var/desc=""
-	var/icon_state=""
+	var/desc = ""
+	var/icon_state = ""

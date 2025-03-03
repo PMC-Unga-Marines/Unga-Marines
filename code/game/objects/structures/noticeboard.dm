@@ -19,6 +19,8 @@
 //attaching papers!!
 /obj/structure/noticeboard/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/paper))
 		if(notices >= 5)
@@ -30,7 +32,6 @@
 		notices++
 		icon_state = "nboard0[notices]"	//update sprite
 		to_chat(user, span_notice("You pin the paper to the noticeboard."))
-
 
 /obj/structure/noticeboard/interact(mob/user)
 	. = ..()
@@ -44,7 +45,6 @@
 	var/datum/browser/popup = new(user, "noticeboard", "<div align='center'>Noticeboard</div>")
 	popup.set_content(dat)
 	popup.open()
-
 
 /obj/structure/noticeboard/Topic(href, href_list)
 	. = ..()

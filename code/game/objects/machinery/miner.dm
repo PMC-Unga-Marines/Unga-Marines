@@ -14,6 +14,7 @@
 #define PLATINUM_CRATE_SELL_AMOUNT 300
 #define PHORON_DROPSHIP_BONUS_AMOUNT 15
 #define PLATINUM_DROPSHIP_BONUS_AMOUNT 30
+
 ///Resource generator that produces a certain material that can be repaired by marines and attacked by xenos, Intended as an objective for marines to play towards to get more req gear
 /obj/machinery/miner
 	name = "\improper Nanotrasen phoron Mining Well"
@@ -46,7 +47,6 @@
 	var/miner_upgrade_type
 	///What faction secured that miner
 	var/faction = FACTION_TERRAGOV
-
 	var/obj/machinery/camera/miner/camera
 
 /obj/machinery/miner/damaged	//mapping and all that shebang
@@ -138,6 +138,8 @@
 
 /obj/machinery/miner/attackby(obj/item/I,mob/user,params)
 	. = ..()
+	if(.)
+		return
 	if(istype(I, /obj/item/minerupgrade))
 		var/obj/item/minerupgrade/upgrade = I
 		if(!(miner_status == MINER_RUNNING))

@@ -8,7 +8,6 @@
 	var/wait = 0
 	var/piping_layer = PIPING_LAYER_DEFAULT
 
-
 /obj/machinery/pipedispenser/interact(mob/user)
 	. = ..()
 	if(.)
@@ -31,7 +30,6 @@
 	var/datum/browser/popup = new(user, "pipedispenser", "<div align='center'>[src]</div>")
 	popup.set_content(dat)
 	popup.open()
-
 
 /obj/machinery/pipedispenser/Topic(href, href_list)
 	. = ..()
@@ -61,43 +59,40 @@
 
 	updateUsrDialog()
 
-
 /obj/machinery/pipedispenser/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/pipe) || istype(I, /obj/item/pipe_meter))
 		to_chat(usr, span_notice("You put [I] back into [src]."))
 		qdel(I)
 
-	else if(iswrench(I))
-		if(anchored)
-			playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
-			to_chat(user, span_notice("You begin to unfasten \the [src] from the floor..."))
-
-			if(!do_after(user, 40, NONE, src, BUSY_ICON_BUILD))
-				return
-
-			user.visible_message("[user] unfastens \the [src].", \
-				span_notice(" You have unfastened \the [src]. Now it can be pulled somewhere else."), \
-				"You hear ratchet.")
-			anchored = FALSE
-			machine_stat |= MAINT
-
-			if(user.interactee == src)
-				usr << browse(null, "window=pipedispenser")
-		else
-			playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
-			to_chat(user, span_notice("You begin to fasten \the [src] to the floor..."))
-
-			if(!do_after(user, 20, NONE, src, BUSY_ICON_BUILD))
-				return
-
-			user.visible_message("[user] fastens \the [src].", \
-				span_notice(" You have fastened \the [src]. Now it can dispense pipes."), \
-				"You hear ratchet.")
-			anchored = TRUE
-			machine_stat &= ~MAINT
-			power_change()
+/obj/machinery/pipedispenser/wrench_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(anchored)
+		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+		to_chat(user, span_notice("You begin to unfasten \the [src] from the floor..."))
+		if(!do_after(user, 40, NONE, src, BUSY_ICON_BUILD))
+			return
+		user.visible_message("[user] unfastens \the [src].", \
+			span_notice(" You have unfastened \the [src]. Now it can be pulled somewhere else."), \
+			"You hear ratchet.")
+		anchored = FALSE
+		machine_stat |= MAINT
+		if(user.interactee == src)
+			usr << browse(null, "window=pipedispenser")
+	else
+		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+		to_chat(user, span_notice("You begin to fasten \the [src] to the floor..."))
+		if(!do_after(user, 20, NONE, src, BUSY_ICON_BUILD))
+			return
+		user.visible_message("[user] fastens \the [src].", \
+			span_notice(" You have fastened \the [src]. Now it can dispense pipes."), \
+			"You hear ratchet.")
+		anchored = TRUE
+		machine_stat &= ~MAINT
+		power_change()
 
 /obj/machinery/pipedispenser/proc/verify_recipe(recipes, path)
 	for(var/category in recipes)
@@ -108,13 +103,11 @@
 				return TRUE
 	return FALSE
 
-
 /obj/machinery/pipedispenser/disposal
 	name = "disposal pipe dispenser"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "pipe_d"
 	desc = "Dispenses pipes that will ultimately be used to move trash around."
-
 
 //Allow you to drag-drop disposal pipes and transit tubes into it
 /obj/machinery/pipedispenser/disposal/MouseDrop_T(obj/structure/disposalconstruct/pipe, mob/user)
@@ -145,7 +138,6 @@
 	var/datum/browser/popup = new(user, "pipedispenser", "<div align='center'>[src]</div>")
 	popup.set_content(dat)
 	popup.open()
-
 
 /obj/machinery/pipedispenser/disposal/Topic(href, href_list)
 	. = ..()

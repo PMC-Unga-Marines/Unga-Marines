@@ -12,9 +12,10 @@
 	var/mode = 0
 	var/printing = null
 
-
 /obj/machinery/computer/marine_card/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/card/id))
 		var/obj/item/card/id/idcard = I
@@ -101,7 +102,6 @@
 		var/list/alljobs = (GLOB.jobs_regular_all - list(SYNTHETIC, SILICON_AI) + "Custom")
 		for(var/job in alljobs)
 			jobs_all += "<a href='?src=[text_ref(src)];choice=assign;assign_target=[job]'>[replacetext(job, " ", "&nbsp")]</a> " //make sure there isn't a line break in the middle of a job
-
 
 		var/body
 		if (authenticated && modify)
@@ -195,7 +195,6 @@
 	var/datum/browser/popup = new(user, "id_com", "<div align='center'>Identification Card Modifier</div>", 800, 650)
 	popup.set_content(dat)
 	popup.open()
-
 
 /obj/machinery/computer/marine_card/Topic(href, href_list)
 	. = ..()
@@ -322,7 +321,7 @@
 				P.info = t1
 				P.name = "paper- 'Crew Manifest'"
 				printing = null
-	if (modify)
+	if(modify)
 		modify.name = "[modify.registered_name]'s ID Card ([modify.assignment])"
 
 	updateUsrDialog()
@@ -331,7 +330,6 @@
 	name = "CentCom Identification Computer"
 	circuit = /obj/item/circuitboard/computer/card/centcom
 	req_access = list(ACCESS_NT_CORPORATE)
-
 
 //This console changes a marine's squad. It's very simple.
 //It also does not: change or increment the squad count (used in the login randomizer), nor does it check for jobs.
@@ -346,12 +344,15 @@
 	req_access = list(ACCESS_MARINE_LOGISTICS)
 	resistance_flags = INDESTRUCTIBLE
 	var/obj/item/card/id/modify = null
-	var/screen = 0 //0: main, 1: squad menu
+	///0: main, 1: squad menu
+	var/screen = 0
 	///Which faction this computer belongs to
 	var/faction = FACTION_TERRAGOV
 
 /obj/machinery/computer/squad_changer/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/card/id))
 		var/obj/item/card/id/idcard = I
@@ -362,7 +363,6 @@
 		user.drop_held_item()
 		idcard.forceMove(src)
 		modify = idcard
-
 
 /obj/machinery/computer/squad_changer/interact(mob/user)
 	. = ..()
@@ -394,8 +394,6 @@
 	var/datum/browser/popup = new(user, "computer", "<div align='center'>Squad Distribution Console</div>", 400, 300)
 	popup.set_content(dat)
 	popup.open()
-
-
 
 /obj/machinery/computer/squad_changer/Topic(href, href_list)
 	. = ..()

@@ -116,6 +116,8 @@
 
 /obj/item/eftpos/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/card))
 		var/obj/item/card/C = I
@@ -159,7 +161,6 @@
 		T.date = GLOB.current_date_string
 		T.time = worldtime2text()
 		linked_account.transaction_log += T
-
 
 /obj/item/eftpos/Topic(href, href_list)
 	. = ..()
@@ -228,16 +229,16 @@
 			if("reset")
 				//reset the access code - requires HoP/captain access
 				var/obj/item/I = usr.get_active_held_item()
-				if (istype(I, /obj/item/card))
+				if(istype(I, /obj/item/card))
 					var/obj/item/card/id/C = I
 					if(ACCESS_MARINE_LOGISTICS in C.access)
 						access_code = 0
 						to_chat(usr, "[icon2html(src, usr)][span_info("Access code reset to 0.")]")
 
-	src.attack_self(usr)
+	attack_self(usr)
 
 /obj/item/eftpos/proc/scan_card(obj/item/card/I)
-	if (istype(I, /obj/item/card/id))
+	if(istype(I, /obj/item/card/id))
 		var/obj/item/card/id/C = I
 		visible_message(span_info("[usr] swipes a card through [src]."))
 		if(transaction_locked && !transaction_paid)

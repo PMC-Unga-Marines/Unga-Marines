@@ -4,7 +4,6 @@
 	icon = 'icons/obj/items/items.dmi'
 	icon_state = "gift1"
 	item_state = "gift1"
-
 	var/list/gift_types = list(
 		/obj/item/storage/wallet,
 		/obj/item/storage/box/snappops,
@@ -43,8 +42,8 @@
 		/obj/item/reagent_containers/food/snacks/grown/ambrosiadeus,
 		/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 		/obj/item/instrument/violin,
-		/obj/item/clothing/tie/horrible)
-
+		/obj/item/clothing/tie/horrible,
+	)
 
 /obj/item/gift/Initialize(mapload, ...)
 	. = ..()
@@ -57,17 +56,12 @@
 	user.put_in_hands(I)
 	qdel(src)
 
-
 /obj/item/gift/marine
 	name = "Present"
 	desc = "One, standard issue TGMC Present"
 	icon = 'icons/obj/items/items.dmi'
 	icon_state = "gift1"
 	item_state = "gift1"
-
-	var/fancy_chance = 0
-	var/fancy_type = 0
-
 	gift_types = list(
 		/obj/item/clothing/tie/horrible,
 		/obj/item/attachable/suppressor,
@@ -80,13 +74,13 @@
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope,
 	)
-
+	var/fancy_chance = 0
+	var/fancy_type = 0
 
 /obj/item/gift/marine/Initialize(mapload, ...)
 	. = ..()
 	fancy_chance = rand(1, 30)
 	fancy_type = rand(1, 20)
-
 
 /obj/item/gift/marine/attack_self(mob/user)
 	if(!prob(fancy_chance))
@@ -123,10 +117,8 @@
 	user.put_in_hands(I)
 	qdel(src)
 
-
 /obj/item/weapon/gun/launcher/rocket/m57a4/xmas
 	gun_features_flags = NONE
-
 
 /obj/item/weapon/gun/launcher/rocket/m57a4/xmas/able_to_fire(mob/living/user)
 	var/turf/current_turf = get_turf(user)
@@ -135,27 +127,19 @@
 		return FALSE
 	return TRUE
 
-
 /obj/item/weapon/gun/rifle/sniper/elite/xmas
 	gun_features_flags = NONE
 
-
 /obj/item/weapon/gun/rifle/sniper/elite/xmas/able_to_fire(mob/living/user)
 	return TRUE
-
 
 /obj/effect/spresent/relaymove(mob/user)
 	if(user.stat != CONSCIOUS)
 		return
 	to_chat(user, span_notice("You can't move."))
 
-
-/obj/effect/spresent/attackby(obj/item/I, mob/user, params)
+/obj/effect/spresent/wirecutter_act(mob/living/user, obj/item/I)
 	. = ..()
-
-	if(!iswirecutter(I))
-		to_chat(user, span_notice("You need wirecutters for that."))
-		return
 
 	to_chat(user, span_notice("You cut open the present."))
 
@@ -164,10 +148,7 @@
 		if(M.client)
 			M.client.eye = M.client.mob
 			M.client.perspective = MOB_PERSPECTIVE
-
 	qdel(src)
-
-
 
 /obj/item/wrapping_paper
 	name = "wrapping paper"
@@ -176,9 +157,10 @@
 	icon_state = "wrap_paper"
 	var/amount = 20
 
-
 /obj/item/wrapping_paper/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	var/a_used = 2 ** (w_class - 1)
 
@@ -217,11 +199,9 @@
 		new /obj/item/trash/c_tube(loc)
 		qdel(src)
 
-
 /obj/item/wrapping_paper/examine(mob/user)
 	. = ..()
 	. += "There is about [amount] square units of paper left!"
-
 
 /obj/item/wrapping_paper/attack(mob/target, mob/user)
 	if(!ishuman(target))

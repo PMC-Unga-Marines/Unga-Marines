@@ -27,7 +27,7 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/item/explosive/grenade/sticky/trailblazer/phosphorus = list(CAT_LEDSUP, "M45 Phosphorus trailblazer grenade", 5, "orange3"),
 	/obj/item/storage/pouch/explosive/razorburn = list(CAT_LEDSUP, "Pack of Razorburn grenades", 11, "orange3"),
 	/obj/item/explosive/grenade/chem_grenade/razorburn_large = list(CAT_LEDSUP, "Razorburn canister", 7, "orange3"),
-	/obj/item/explosive/grenade/chem_grenade/razorburn_smol = list(CAT_LEDSUP, "Razorburn grenade", 3, "orange3"),
+	/obj/item/explosive/grenade/chem_grenade/razorburn_small = list(CAT_LEDSUP, "Razorburn grenade", 3, "orange3"),
 	/obj/item/whistle = list(CAT_LEDSUP, "Whistle", 1, "yellow"),
 	/obj/item/megaphone = list(CAT_LEDSUP, "Megaphone", 1, "yellow"),
 	/obj/item/binoculars/tactical/scout = list(CAT_LEDSUP, "Scout Tactical Binoculars", 5, "yellow"),
@@ -58,7 +58,6 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/item/ammo_magazine/rifle/tx54/smoke = list(CAT_LEDSUP, "GL-54 tactical smoke Magazine for AR-55/GL-54", 1, "orange2"),
 	/obj/item/ammo_magazine/rifle/tx54/smoke/tangle = list(CAT_LEDSUP, "GL-54 Tanglefoot Magazine for AR-55/GL-54", 3, "orange2"),
 	/obj/item/cell/lasgun/lasrifle/recharger = list(CAT_LEDSUP, "Terra Experimental recharger battery", 4, "orange2"),
-	/obj/item/storage/firstaid/adv = list(CAT_LEDSUP, "Advanced firstaid kit", 1, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = list(CAT_LEDSUP, "Injector (Synaptizine)", 2, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = list(CAT_LEDSUP, "Injector (Advanced)", 2, "cyan"),
 ))

@@ -47,7 +47,6 @@
 	var/abandoned = FALSE
 	smoothing_groups = list(SMOOTH_GROUP_AIRLOCK)
 
-
 /obj/machinery/door/airlock/bumpopen(mob/living/user) //Airlocks now zap you when you 'bump' them open when they're electrified. --NeoFite
 	if(issilicon(user))
 		return ..(user)
@@ -333,6 +332,8 @@
 
 /obj/machinery/door/airlock/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/clothing/mask/cigarette) && isElectrified())
 		var/obj/item/clothing/mask/cigarette/L = I
@@ -353,15 +354,15 @@
 				return
 
 			user.visible_message(span_notice("[user] is [welded ? "unwelding":"welding"] the airlock."), \
-							span_notice("You begin [welded ? "unwelding":"welding"] the airlock..."), \
-							span_italics("You hear welding."))
+				span_notice("You begin [welded ? "unwelding":"welding"] the airlock..."), \
+				span_italics("You hear welding."))
 
 			if(!W.use_tool(src, user, 40, volume = 50, extra_checks = CALLBACK(src, PROC_REF(weld_checks))))
 				return
 
 			welded = !welded
 			user.visible_message("[user.name] has [welded? "welded shut":"unwelded"] [src].", \
-								span_notice("You [welded ? "weld the airlock shut":"unweld the airlock"]."))
+				span_notice("You [welded ? "weld the airlock shut":"unweld the airlock"]."))
 			update_icon()
 		else
 			if(obj_integrity >= max_integrity)
@@ -372,8 +373,8 @@
 				return
 
 			user.visible_message(span_notice("[user] is welding the airlock."), \
-							span_notice("You begin repairing the airlock..."), \
-							span_italics("You hear welding."))
+				span_notice("You begin repairing the airlock..."), \
+				span_italics("You hear welding."))
 
 			if(!W.use_tool(src, user, 40, volume = 50, extra_checks = CALLBACK(src, PROC_REF(weld_checks))))
 				return
@@ -381,7 +382,7 @@
 			repair_damage(max_integrity, user)
 			DISABLE_BITFIELD(machine_stat, BROKEN)
 			user.visible_message(span_notice("[user.name] has repaired [src]."), \
-								span_notice("You finish repairing the airlock."))
+				span_notice("You finish repairing the airlock."))
 			update_icon()
 
 	else if(iswirecutter(I))
@@ -465,7 +466,6 @@
 			open(TRUE)
 		else
 			close(TRUE)
-
 	return TRUE
 
 /obj/machinery/door/airlock/screwdriver_act(mob/user, obj/item/I)
@@ -535,7 +535,7 @@
 	return ..()
 
 /obj/machinery/door/airlock/proc/lock(forced = FALSE)
-	if ((operating && !forced) || locked)
+	if((operating && !forced) || locked)
 		return
 
 	locked = TRUE
@@ -543,7 +543,7 @@
 	update_icon()
 
 /obj/machinery/door/airlock/proc/unlock(forced = FALSE)
-	if ((operating && !forced) || !locked)
+	if((operating && !forced) || !locked)
 		return
 
 	if(forced || hasPower()) //only can raise bolts if power's on

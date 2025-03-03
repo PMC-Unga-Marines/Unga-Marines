@@ -17,19 +17,21 @@
 	var/armed = FALSE
 	var/timer = 5
 	var/code = 2
-	var/det_mode = FALSE //FALSE for breach, TRUE for demolition.
-	var/atom/plant_target = null //which atom the detpack is planted on
-	var/target_drag_delay = null //store this for restoration later
-	var/boom = FALSE //confirms whether we actually detted.
+	///FALSE for breach, TRUE for demolition.
+	var/det_mode = FALSE
+	///which atom the detpack is planted on
+	var/atom/plant_target = null
+	///store this for restoration later
+	var/target_drag_delay = null
+	///confirms whether we actually detted.
+	var/boom = FALSE
 	var/detonation_pending
 	var/sound_timer
 	var/datum/radio_frequency/radio_connection
 
-
 /obj/item/detpack/Initialize(mapload)
 	. = ..()
 	set_frequency(frequency)
-
 
 /obj/item/detpack/examine(mob/user)
 	. = ..()
@@ -44,7 +46,6 @@
 
 	if(armed)
 		. += "<b>It is armed!</b>"
-
 
 /obj/item/detpack/Destroy()
 	if(sound_timer)
@@ -68,7 +69,6 @@
 	frequency = new_frequency
 	radio_connection = SSradio.add_object(src, frequency, RADIO_SIGNALER)
 
-
 /obj/item/detpack/update_icon_state()
 	. = ..()
 	icon_state = "detpack_[plant_target ? "set_" : ""]"
@@ -76,7 +76,6 @@
 		icon_state = "[icon_state][armed ? "armed" : "on"]"
 	else
 		icon_state = "[icon_state]off"
-
 
 /obj/item/detpack/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -168,7 +167,6 @@
 		armed = FALSE
 		disarm()
 
-
 /obj/item/detpack/Topic(href, href_list)
 	. = ..()
 	if(.)
@@ -196,8 +194,6 @@
 
 	updateUsrDialog()
 
-
-
 /obj/item/detpack/can_interact(mob/user)
 	. = ..()
 	if(!.)
@@ -209,41 +205,39 @@
 
 	return TRUE
 
-
 /obj/item/detpack/interact(mob/user)
 	. = ..()
 	if(.)
 		return
 
 	var/dat = {"
-<A href='?src=[text_ref(src)];power=1'>Turn [on ? "Off" : "On"]</A><BR>
-<B>Current Detonation Mode:</B> [det_mode ? "Demolition" : "Breach"]<BR>
-<A href='?src=[text_ref(src)];det_mode=1'><B>Set Detonation Mode:</B> [det_mode ? "Breach" : "Demolition"]</A><BR>
-<B>Frequency/Code for Detpack:</B><BR>
-<A href='byond://?src=[text_ref(src)];freq=-10'>-</A>
-<A href='byond://?src=[text_ref(src)];freq=-2'>-</A>
-[format_frequency(src.frequency)]
-<A href='byond://?src=[text_ref(src)];freq=2'>+</A>
-<A href='byond://?src=[text_ref(src)];freq=10'>+</A><BR>
-<B>Signal Code:</B><BR>
-<A href='byond://?src=[text_ref(src)];code=-5'>-</A>
-<A href='byond://?src=[text_ref(src)];code=-1'>-</A> [code]
-<A href='byond://?src=[text_ref(src)];code=1'>+</A>
-<A href='byond://?src=[text_ref(src)];code=5'>+</A><BR>
-<B>Timer (Max 300 seconds, Min 5 seconds):</B><BR>
-<A href='byond://?src=[text_ref(src)];timer=-50'>-</A>
-<A href='byond://?src=[text_ref(src)];timer=-10'>-</A>
-<A href='byond://?src=[text_ref(src)];timer=-5'>-</A>
-<A href='byond://?src=[text_ref(src)];timer=-1'>-</A> [timer]
-<A href='byond://?src=[text_ref(src)];timer=1'>+</A>
-<A href='byond://?src=[text_ref(src)];timer=5'>+</A>
-<A href='byond://?src=[text_ref(src)];timer=10'>+</A>
-<A href='byond://?src=[text_ref(src)];timer=50'>+</A><BR>"}
+		<A href='?src=[text_ref(src)];power=1'>Turn [on ? "Off" : "On"]</A><BR>
+		<B>Current Detonation Mode:</B> [det_mode ? "Demolition" : "Breach"]<BR>
+		<A href='?src=[text_ref(src)];det_mode=1'><B>Set Detonation Mode:</B> [det_mode ? "Breach" : "Demolition"]</A><BR>
+		<B>Frequency/Code for Detpack:</B><BR>
+		<A href='byond://?src=[text_ref(src)];freq=-10'>-</A>
+		<A href='byond://?src=[text_ref(src)];freq=-2'>-</A>
+		[format_frequency(src.frequency)]
+		<A href='byond://?src=[text_ref(src)];freq=2'>+</A>
+		<A href='byond://?src=[text_ref(src)];freq=10'>+</A><BR>
+		<B>Signal Code:</B><BR>
+		<A href='byond://?src=[text_ref(src)];code=-5'>-</A>
+		<A href='byond://?src=[text_ref(src)];code=-1'>-</A> [code]
+		<A href='byond://?src=[text_ref(src)];code=1'>+</A>
+		<A href='byond://?src=[text_ref(src)];code=5'>+</A><BR>
+		<B>Timer (Max 300 seconds, Min 5 seconds):</B><BR>
+		<A href='byond://?src=[text_ref(src)];timer=-50'>-</A>
+		<A href='byond://?src=[text_ref(src)];timer=-10'>-</A>
+		<A href='byond://?src=[text_ref(src)];timer=-5'>-</A>
+		<A href='byond://?src=[text_ref(src)];timer=-1'>-</A> [timer]
+		<A href='byond://?src=[text_ref(src)];timer=1'>+</A>
+		<A href='byond://?src=[text_ref(src)];timer=5'>+</A>
+		<A href='byond://?src=[text_ref(src)];timer=10'>+</A>
+		<A href='byond://?src=[text_ref(src)];timer=50'>+</A><BR>"}
 
 	var/datum/browser/popup = new(user, "detpack")
 	popup.set_content(dat)
 	popup.open()
-
 
 /obj/item/detpack/afterattack(atom/target, mob/user, flag)
 	if(!flag)
@@ -361,7 +355,6 @@
 		cell_explosion(plant_target, 450, 200, EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL)
 	plant_target.plastique_act()
 	qdel(src)
-
 
 /obj/item/detpack/attack(mob/M as mob, mob/user as mob, def_zone)
 	return

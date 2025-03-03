@@ -1,5 +1,3 @@
-//FLOORS-----------------------------------//
-//Snow Floor
 /turf/open/floor/plating/ground/snow
 	name = "snow layer"
 	icon = 'icons/turf/snow2.dmi'
@@ -60,6 +58,8 @@
 //PLACING/REMOVING/BUILDING
 /turf/open/floor/plating/ground/snow/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	//Light Stick
 	if(istype(I, /obj/item/lightstick))
 		var/obj/item/lightstick/L = I
@@ -82,7 +82,6 @@
 		L.set_light(2,1)
 		playsound(user, 'sound/weapons/genhit.ogg', 25, 1)
 
-
 /turf/open/floor/plating/ground/snow/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	if(slayer > 0 && isxeno(arrived))
 		var/mob/living/carbon/xenomorph/xeno = arrived
@@ -91,7 +90,6 @@
 			update_appearance()
 			update_sides()
 	return ..()
-
 
 /turf/open/floor/plating/ground/snow/update_name(updates)
 	. = ..()
@@ -210,5 +208,3 @@
 /turf/open/floor/plating/ground/snow/layer3
 	icon_state = "snow_3"
 	slayer = 3
-
-

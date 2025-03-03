@@ -4,13 +4,11 @@
 	singular_name = "human skin piece"
 	icon_state = "sheet-hide"
 
-
 /obj/item/stack/sheet/animalhide/corgi
 	name = "corgi hide"
 	desc = "The by-product of corgi farming."
 	singular_name = "corgi hide piece"
 	icon_state = "sheet-corgi"
-
 
 /obj/item/stack/sheet/animalhide/cat
 	name = "cat hide"
@@ -18,20 +16,17 @@
 	singular_name = "cat hide piece"
 	icon_state = "sheet-cat"
 
-
 /obj/item/stack/sheet/animalhide/monkey
 	name = "monkey hide"
 	desc = "The by-product of monkey farming."
 	singular_name = "monkey hide piece"
 	icon_state = "sheet-monkey"
 
-
 /obj/item/stack/sheet/animalhide/lizard
 	name = "lizard skin"
 	desc = "Sssssss..."
 	singular_name = "lizard skin piece"
 	icon_state = "sheet-lizard"
-
 
 /obj/item/stack/sheet/animalhide/xeno
 	name = "alien hide"
@@ -52,13 +47,11 @@
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "chitin"
 
-
 /obj/item/xenos_claw
 	name = "alien claw"
 	desc = "The claw of a terrible creature."
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "claw"
-
 
 /obj/item/weed_extract
 	name = "weed extract"
@@ -66,13 +59,11 @@
 	icon = 'icons/mob/alien.dmi'
 	icon_state = "weed_extract"
 
-
 /obj/item/stack/sheet/hairlesshide
 	name = "hairless hide"
 	desc = "This hide was stripped of it's hair, but still needs tanning."
 	singular_name = "hairless hide piece"
 	icon_state = "sheet-hairlesshide"
-
 
 /obj/item/stack/sheet/wetleather
 	name = "wet leather"
@@ -88,10 +79,11 @@
 	singular_name = "leather piece"
 	icon_state = "sheet-leather"
 
-
 //Step one - dehairing.
 /obj/item/stack/sheet/animalhide/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(I.sharp)
 		user.visible_message(span_notice(" \the [user] starts cutting hair off \the [src]"), span_notice(" You start cutting the hair off \the [src]"), "You hear the sound of a knife rubbing against flesh")

@@ -5,7 +5,6 @@
 	max_integrity = 250
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 100, BOMB = 0, BIO = 100, FIRE = 60, ACID = 30)
 	anchored = FALSE
-
 	/// The port we are currently connected to
 	var/obj/machinery/atmospherics/components/unary/portables_connector/connected_port
 	/// The gas tank we are currently holding inside us
@@ -23,6 +22,8 @@
 
 /obj/machinery/portable_atmospherics/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(!istype(I, /obj/item/tank))
 		return
 	holding = I

@@ -37,7 +37,7 @@
 
 ///Creates plating, used for space turfs only
 /obj/item/stack/tile/plasteel/proc/build(turf/space_turf)
-	if (istype(space_turf,/turf/open/space))
+	if(isspaceturf(space_turf))
 		space_turf.ChangeTurf(/turf/open/floor/plating/airless)
 	else
 		space_turf.ChangeTurf(/turf/open/floor/plating)
@@ -94,13 +94,11 @@
 	else if(prob(10))
 		state = LIGHT_TILE_FLICKERING
 
-/obj/item/stack/tile/light/attackby(obj/item/I, mob/user, params)
+/obj/item/stack/tile/light/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
-
-	if(istype(I, /obj/item/tool/crowbar))
-		new /obj/item/stack/sheet/metal(user.loc)
-		amount--
-		new /obj/item/stack/light_w(user.loc)
-		if(amount <= 0)
-			user.temporarilyRemoveItemFromInventory(src)
-			qdel(src)
+	new /obj/item/stack/sheet/metal(user.loc)
+	amount--
+	new /obj/item/stack/light_w(user.loc)
+	if(amount <= 0)
+		user.temporarilyRemoveItemFromInventory(src)
+		qdel(src)

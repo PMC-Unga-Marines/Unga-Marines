@@ -1,5 +1,3 @@
-
-
 // ***********************************************************
 // Foods that are produced from hydroponics ~~~~~~~~~~
 // Data from the seeds carry over to these grown foods
@@ -8,9 +6,9 @@
 //Grown foods
 //Subclass so we can pass on values
 /obj/item/reagent_containers/food/snacks/grown
+	icon = 'icons/obj/items/harvest.dmi'
 	var/plantname
 	var/potency = -1
-	icon = 'icons/obj/items/harvest.dmi'
 
 /obj/item/reagent_containers/food/snacks/grown/Initialize(mapload, newpotency)
 	. = ..()
@@ -36,8 +34,7 @@
 				reagents.add_reagent(rid, max(1, rtotal))
 
 	if(reagents.total_volume > 0)
-		bitesize = 1+round(reagents.total_volume * 0.5, 1)
-
+		bitesize = 1 + round(reagents.total_volume * 0.5, 1)
 
 /obj/item/reagent_containers/food/snacks/grown/corn
 	name = "ear of corn"
@@ -82,6 +79,8 @@
 
 /obj/item/reagent_containers/food/snacks/grown/potato/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(iscablecoil(I))
 		var/obj/item/stack/cable_coil/C = I
@@ -246,6 +245,8 @@
 
 /obj/item/reagent_containers/food/snacks/grown/pumpkin/attackby(obj/item/I, mob/user, param)
 	. = ..()
+	if(.)
+		return
 
 	if(I.sharp == IS_SHARP_ITEM_ACCURATE || I.sharp == IS_SHARP_ITEM_BIG)
 		to_chat(user, span_notice("You carve a face into [src]!"))
@@ -331,7 +332,6 @@
 	src.visible_message(span_notice("The [src.name] has been squashed."),span_moderate("You hear a smack."))
 	qdel(src)
 
-
 /obj/item/reagent_containers/food/snacks/grown/killertomato
 	name = "killer-tomato"
 	desc = "I say to-mah-to, you say tom-mae-to... OH GOD IT'S EATING MY LEGS!!"
@@ -359,7 +359,6 @@
 	for(var/atom/A in get_turf(hit_atom))
 		src.reagents.reaction(A)
 	qdel(src)
-
 
 /obj/item/reagent_containers/food/snacks/grown/bluetomato
 	name = "blue-tomato"
@@ -486,7 +485,7 @@
 	plantname = "glowshroom"
 
 /obj/item/reagent_containers/food/snacks/grown/mushroom/glowshroom/attack_self(mob/user as mob)
-	if(istype(user.loc,/turf/open/space))
+	if(isspaceturf(user.loc))
 		return
 	var/obj/structure/glowshroom/planted = new /obj/structure/glowshroom(user.loc)
 
@@ -496,7 +495,6 @@
 	qdel(src)
 
 	to_chat(user, span_notice("You plant the glowshroom."))
-
 
 // *************************************
 // Complex Grown Object Defines -
@@ -516,21 +514,21 @@
 	if(!.)
 		return
 	var/mob/M = usr
-	var/outer_teleport_radius = potency/10 //Plant potency determines radius of teleport.
-	var/inner_teleport_radius = potency/15
+	var/outer_teleport_radius = potency / 10 //Plant potency determines radius of teleport.
+	var/inner_teleport_radius = potency / 15
 	var/list/turfs = list()
 	var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 	if(inner_teleport_radius < 1) //Wasn't potent enough, it just splats.
-		new/obj/effect/decal/cleanable/blood/oil(src.loc)
-		src.visible_message(span_notice("The [src.name] has been squashed."),span_moderate("You hear a smack."))
+		new/obj/effect/decal/cleanable/blood/oil(loc)
+		visible_message(span_notice("The [name] has been squashed."), span_moderate("You hear a smack."))
 		qdel(src)
 		return
 	for(var/turf/T in orange(M,outer_teleport_radius))
 		if(T in orange(M,inner_teleport_radius)) continue
 		if(istype(T,/turf/open/space)) continue
 		if(T.density) continue
-		if(T.x>world.maxx-outer_teleport_radius || T.x<outer_teleport_radius)	continue
-		if(T.y>world.maxy-outer_teleport_radius || T.y<outer_teleport_radius)	continue
+		if(T.x > world.maxx-outer_teleport_radius || T.x < outer_teleport_radius)	continue
+		if(T.y > world.maxy-outer_teleport_radius || T.y < outer_teleport_radius)	continue
 		turfs += T
 	if(!length(turfs))
 		var/list/turfs_to_pick_from = list()
@@ -556,7 +554,7 @@
 				A.loc = picked//And teleport them to the chosen location.
 				s.set_up(3, 1, A)
 				s.start()
-	new/obj/effect/decal/cleanable/blood/oil(src.loc)
-	src.visible_message(span_notice("The [src.name] has been squashed, causing a distortion in space-time."),span_moderate("You hear a splat and a crackle."))
+	new/obj/effect/decal/cleanable/blood/oil(loc)
+	visible_message(span_notice("The [name] has been squashed, causing a distortion in space-time."), span_moderate("You hear a splat and a crackle."))
 	qdel(src)
 

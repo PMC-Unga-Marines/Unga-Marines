@@ -47,9 +47,10 @@
 	throw_range = 3
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
-
 /obj/item/grown/log/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(I.sharp != IS_SHARP_ITEM_BIG)
 		return
@@ -58,7 +59,6 @@
 	var/obj/item/stack/sheet/wood/NG = new(user.loc, 2)
 	NG.add_to_stacks(user)
 	qdel(src)
-
 
 /obj/item/grown/sunflower // FLOWER POWER!
 	plantname = "sunflowers"
@@ -93,7 +93,6 @@
 	throw_range = 3
 	attack_verb = list("stung")
 	hitsound = ""
-
 	var/potency_divisior = 5
 
 /obj/item/grown/nettle/Initialize(mapload)
@@ -111,8 +110,8 @@
 		else
 			user.take_limb_damage(0, force)
 			UPDATEHEALTH(user)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/item/grown/nettle/proc/lose_leaves(mob/user)
 	if(force > 0)
@@ -135,21 +134,18 @@
 	potency_divisior = 2.5
 
 /obj/item/grown/nettle/death/pickup(mob/living/carbon/human/user as mob)
-
 	if(..() && prob(50))
 		user.Unconscious(10 SECONDS)
 		to_chat(user, span_warning("You are stunned by the deathnettle when you try picking it up!"))
 
 /obj/item/grown/nettle/attack(mob/living/carbon/M as mob, mob/user as mob)
-
-	if(!..()) return
-
+	if(!..())
+		return
 	lose_leaves(user)
 
 /obj/item/grown/nettle/death/attack(mob/living/carbon/M as mob, mob/user as mob)
-
-	if(!..()) return
-
+	if(!..())
+		return
 	if(isliving(M))
 		to_chat(M, span_warning("You are stunned by the powerful acid of the deathnettle!"))
 

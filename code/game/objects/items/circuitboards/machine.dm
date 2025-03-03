@@ -1,5 +1,3 @@
-
-
 //Machine Frame Circuit Boards
 /*Common Parts: Parts List: Ignitor, Timer, Infra-red laser, Infra-red sensor, t_scanner, Capacitor, Valve, sensor unit,
 micro-manipulator, console screen, beaker, Microlaser, matter bin, power cells.
@@ -30,7 +28,6 @@ to destroy them and players will be able to make replacements.
 		/obj/item/reagent_containers/glass/beaker = 2,
 	)
 
-
 /obj/item/circuitboard/machine/circuit_imprinter
 	name = "Circuit board (Circuit Imprinter)"
 	build_path = /obj/structure/prop/mainship/research/circuit_imprinter
@@ -56,11 +53,9 @@ to destroy them and players will be able to make replacements.
 	name = "Circuit Board (SUPERPACMAN-type Generator)"
 	build_path = /obj/machinery/power/port_gen/pacman/super
 
-
 /obj/item/circuitboard/machine/pacman/mrs
 	name = "Circuit Board (MRSPACMAN-type Generator)"
 	build_path = /obj/machinery/power/port_gen/pacman/mrs
-
 
 /obj/item/circuitboard/machine/rdserver
 	name = "Circuit Board (R&D Server)"
@@ -82,17 +77,14 @@ to destroy them and players will be able to make replacements.
 	)
 
 /obj/item/circuitboard/machine/unary_atmos
-
 	var/machine_dir = SOUTH
 	var/init_dirs = SOUTH
 
-/obj/item/circuitboard/machine/unary_atmos/attackby(obj/item/I, mob/user, params)
+/obj/item/circuitboard/machine/unary_atmos/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
-
-	if(isscrewdriver(I))
-		machine_dir = turn(machine_dir, 90)
-		init_dirs = machine_dir
-		user.visible_message(span_notice("[user] adjusts the jumper on the [src]'s port configuration pins."), span_notice(" You adjust the jumper on the port configuration pins. Now set to [dir2text(machine_dir)]."))
+	machine_dir = turn(machine_dir, 90)
+	init_dirs = machine_dir
+	user.visible_message(span_notice("[user] adjusts the jumper on the [src]'s port configuration pins."), span_notice(" You adjust the jumper on the port configuration pins. Now set to [dir2text(machine_dir)]."))
 
 /obj/item/circuitboard/machine/unary_atmos/examine(mob/user)
 	. = ..()
@@ -176,9 +168,6 @@ to destroy them and players will be able to make replacements.
 		/obj/item/stock_parts/micro_laser/high = 2,
 	)
 
-
-
-
 /obj/item/circuitboard/machine/batteryrack
 	name = "Circuit board (Battery rack PSU)"
 	build_path = /obj/machinery/power/smes/batteryrack
@@ -192,8 +181,6 @@ to destroy them and players will be able to make replacements.
 	build_path = /obj/machinery/power/smes/batteryrack/makeshift
 	frame_desc = "Requires 3 power cells."
 	req_components = list(/obj/item/cell = 3)
-
-
 
 	//Board
 /obj/item/circuitboard/machine/smes

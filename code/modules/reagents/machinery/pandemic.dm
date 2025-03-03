@@ -6,7 +6,6 @@
 	anchored = TRUE
 	density = TRUE
 
-
 /obj/machinery/computer/pandemic
 	name = "PanD.E.M.I.C 2200"
 	density = TRUE

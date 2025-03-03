@@ -1,8 +1,3 @@
-//////////////////////////////////////
-// inserted_suit STORAGE UNIT /////////////////
-//////////////////////////////////////
-
-
 /obj/machinery/suit_storage_unit
 	name = "Suit Storage Unit"
 	desc = "An industrial U-Stor-It Storage unit designed to accomodate all kinds of space suits. Its on-board equipment also allows the user to decontaminate the contents through a UV-ray purging cycle. There's a warning label dangling from the control pad, reading \"STRICTLY NO BIOLOGICALS IN THE CONFINES OF THE UNIT\"."
@@ -20,8 +15,6 @@
 	var/starting_tank_type
 	var/isopen = FALSE
 	var/isUV = FALSE
-
-
 
 /obj/machinery/suit_storage_unit/Initialize(mapload)
 	. = ..()
@@ -49,7 +42,6 @@
 	if(inserted_tank)
 		. += image("tank")
 
-
 /obj/machinery/suit_storage_unit/update_icon_state()
 	. = ..()
 	if(isUV)
@@ -62,7 +54,7 @@
 		icon_state += "_off"
 
 /obj/machinery/suit_storage_unit/power_change()
-	..()
+	. = ..()
 	if(machine_stat & NOPOWER)
 		dump_everything()
 		isUV = 0
@@ -110,7 +102,6 @@
 	popup.set_content(dat)
 	popup.open()
 
-
 /obj/machinery/suit_storage_unit/Topic(href, href_list) //I fucking HATE this proc
 	. = ..()
 	if(.)
@@ -137,35 +128,25 @@
 	updateUsrDialog()
 	update_icon()
 
-
-
-
-
 /obj/machinery/suit_storage_unit/proc/dispense_helmet()
 	if(inserted_helmet)
 		inserted_helmet.forceMove(loc)
 		inserted_helmet = null
-
-
 
 /obj/machinery/suit_storage_unit/proc/dispense_suit()
 	if(inserted_suit)
 		inserted_suit.forceMove(loc)
 		inserted_suit = null
 
-
-
 /obj/machinery/suit_storage_unit/proc/dispense_mask()
 	if(inserted_mask)
 		inserted_mask.forceMove(loc)
 		inserted_mask = null
 
-
 /obj/machinery/suit_storage_unit/proc/dispense_tank()
 	if(inserted_tank)
 		inserted_tank.forceMove(loc)
 		inserted_tank = null
-
 
 /obj/machinery/suit_storage_unit/proc/dump_everything()
 	dispense_helmet()
@@ -173,14 +154,12 @@
 	dispense_mask()
 	dispense_tank()
 
-
 /obj/machinery/suit_storage_unit/proc/toggle_open(mob/user as mob)
 	if(isUV)
 		to_chat(user, "<font color='red'>Unable to open unit.</font>")
 		return
 	isopen = !isopen
 	update_icon()
-
 
 /obj/machinery/suit_storage_unit/proc/start_UV(mob/user)
 	set waitfor = 0
@@ -216,11 +195,10 @@
 	update_icon()
 	updateUsrDialog()
 
-
-
-
 /obj/machinery/suit_storage_unit/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(machine_stat & NOPOWER)
 		return
 
@@ -277,7 +255,6 @@
 
 	update_icon()
 	updateUsrDialog()
-
 
 /obj/machinery/suit_storage_unit/carbon_unit
 	starting_suit_type = /obj/item/clothing/suit/space/tgmc

@@ -8,19 +8,9 @@
 	icon_broken = "cabinetdetective_broken"
 	icon_off = "cabinetdetective_broken"
 
-
-/obj/structure/closet/secure_closet/bar/Initialize(mapload)
-	. = ..()
-	new /obj/item/reagent_containers/food/drinks/cans/beer( src )
-	new /obj/item/reagent_containers/food/drinks/cans/beer( src )
-	new /obj/item/reagent_containers/food/drinks/cans/beer( src )
-	new /obj/item/reagent_containers/food/drinks/cans/beer( src )
-	new /obj/item/reagent_containers/food/drinks/cans/beer( src )
-	new /obj/item/reagent_containers/food/drinks/cans/beer( src )
-	new /obj/item/reagent_containers/food/drinks/cans/beer( src )
-	new /obj/item/reagent_containers/food/drinks/cans/beer( src )
-	new /obj/item/reagent_containers/food/drinks/cans/beer( src )
-	new /obj/item/reagent_containers/food/drinks/cans/beer( src )
+/obj/structure/closet/secure_closet/bar/PopulateContents()
+	for(var/i in 1 to 10)
+		new /obj/item/reagent_containers/food/drinks/cans/beer(src)
 
 /obj/structure/closet/secure_closet/bar/update_icon_state()
 	. = ..()
@@ -34,7 +24,6 @@
 		icon_state = icon_locked
 	else
 		icon_state = icon_closed
-
 
 /obj/structure/closet/secure_closet/bar/captain
 	name = "Success Cabinet"

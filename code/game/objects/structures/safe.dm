@@ -1,11 +1,3 @@
-/*
-CONTAINS:
-SAFES
-FLOOR SAFES
-*/
-
-//SAFES
-
 /obj/item/paper/safe_key
 	name = "Secure Safe Combination"
 	var/obj/structure/safe/safe = null
@@ -29,15 +21,22 @@ FLOOR SAFES
 	layer = BELOW_OBJ_LAYER
 	resistance_flags = RESIST_ALL
 	coverage = 25
-	var/spawnkey = 1 //Spawn safe code on top of it?
-	var/open = 0		//is the safe open?
-	var/tumbler_1_pos	//the tumbler position- from 0 to 72
-	var/tumbler_1_open	//the tumbler position to open at- 0 to 72
+	/// Spawn safe code on top of it?
+	var/spawnkey = 1
+	/// Ss the safe open?
+	var/open = 0
+	/// The tumbler position- from 0 to 72
+	var/tumbler_1_pos
+	/// The tumbler position to open at- 0 to 72
+	var/tumbler_1_open
 	var/tumbler_2_pos
 	var/tumbler_2_open
-	var/dial = 0		//where is the dial pointing?
-	var/space = 0		//the combined w_class of everything in the safe
-	var/maxspace = 24	//the maximum combined w_class of stuff in the safe
+	/// Where is the dial pointing?
+	var/dial = 0
+	/// The combined w_class of everything in the safe
+	var/space = 0
+	/// The maximum combined w_class of stuff in the safe
+	var/maxspace = 24
 
 /obj/structure/safe/Initialize(mapload)
 	. = ..()
@@ -59,7 +58,6 @@ FLOOR SAFES
 	if(loc && spawnkey)
 		new /obj/item/paper/safe_key(loc) //Spawn the key on top of the safe.
 
-
 /obj/structure/safe/proc/check_unlocked(mob/user as mob, canhear)
 	if(user && canhear)
 		if(tumbler_1_pos == tumbler_1_open)
@@ -68,9 +66,8 @@ FLOOR SAFES
 			to_chat(user, span_notice("You hear a [pick("tink", "krink", "plink")] from [src]."))
 	if(tumbler_1_pos == tumbler_1_open && tumbler_2_pos == tumbler_2_open)
 		if(user) visible_message("<b>[pick("Spring", "Sprang", "Sproing", "Clunk", "Click")]!</b>")
-		return 1
-	return 0
-
+		return TRUE
+	return FALSE
 
 /obj/structure/safe/proc/decrement()
 	tumbler_1_pos -= 5
@@ -82,18 +79,15 @@ FLOOR SAFES
 	if(tumbler_1_pos > 50)
 		tumbler_1_pos = 0
 
-
 /obj/structure/safe/proc/decrement2()
 	tumbler_2_pos -= 5
 	if(tumbler_2_pos < 0)
 		tumbler_2_pos = 50
 
-
 /obj/structure/safe/proc/increment2()
 	tumbler_2_pos += 5
 	if(tumbler_2_pos > 50)
 		tumbler_2_pos = 0
-
 
 /obj/structure/safe/update_icon_state()
 	. = ..()
@@ -101,7 +95,6 @@ FLOOR SAFES
 		icon_state = "[initial(icon_state)]-open"
 	else
 		icon_state = initial(icon_state)
-
 
 /obj/structure/safe/interact(mob/user)
 	. = ..()
@@ -122,7 +115,6 @@ FLOOR SAFES
 	var/datum/browser/popup = new(user, "safe", "<div align='center'>[src]</div>", 350, 300)
 	popup.set_content(dat)
 	popup.open()
-
 
 /obj/structure/safe/Topic(href, href_list)
 	. = ..()
@@ -175,9 +167,10 @@ FLOOR SAFES
 				space -= P.w_class
 				updateUsrDialog()
 
-
 /obj/structure/safe/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(!open)
 		return
@@ -194,7 +187,6 @@ FLOOR SAFES
 	else
 		to_chat(user, span_notice("[I] won't fit in [src]."))
 
-
 //FLOOR SAFES
 /obj/structure/safe/floor
 	name = "floor safe"
@@ -203,12 +195,10 @@ FLOOR SAFES
 	level = 1	//underfloor
 	layer = UNDERFLOOR_OBJ_LAYER
 
-
 /obj/structure/safe/floor/Initialize(mapload)
 	. = ..()
 	var/turf/T = loc
 	hide(T.intact_tile)
-
 
 /obj/structure/safe/floor/hide(intact)
 	invisibility = intact ? INVISIBILITY_MAXIMUM : 0

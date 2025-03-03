@@ -1,5 +1,3 @@
-
-
 //Empty sandbags
 /obj/item/stack/sandbags_empty
 	name = "empty sandbags"
@@ -19,9 +17,10 @@
 	attack_verb = list("hit", "bludgeoned", "whacked")
 	number_of_extra_variants = 3
 
-
 /obj/item/stack/sandbags_empty/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/tool/shovel))
 		var/obj/item/tool/shovel/ET = I
@@ -51,7 +50,6 @@
 		S.use(1)
 		use(1)
 
-
 //half a max stack
 /obj/item/stack/sandbags_empty/half
 	amount = 25
@@ -79,7 +77,6 @@
 	max_amount = 25
 	attack_verb = list("hit", "bludgeoned", "whacked")
 	merge_type = /obj/item/stack/sandbags
-
 
 /obj/item/stack/sandbags/large_stack
 	amount = 25

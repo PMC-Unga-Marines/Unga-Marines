@@ -19561,7 +19561,7 @@
 	},
 /area/magmoor/civilian/clean)
 "otR" = (
-/obj/structure/closet/secure_closet/CMO,
+/obj/structure/closet/secure_closet/cmo,
 /turf/open/floor/wood,
 /area/magmoor/medical/cmo)
 "oun" = (

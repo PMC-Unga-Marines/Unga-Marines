@@ -198,6 +198,8 @@
 
 /obj/alien/egg/hugger/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(!istype(I, /obj/item/clothing/mask/facehugger))
 		return FALSE

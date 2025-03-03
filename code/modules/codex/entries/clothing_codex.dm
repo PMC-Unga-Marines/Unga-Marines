@@ -1,25 +1,29 @@
-GLOBAL_LIST_INIT(string_part_flags, list("head" = HEAD,
-								"face" = FACE,
-								"eyes" = EYES,
-								"chest" = CHEST,
-								"groin" = GROIN,
-								"legs" = LEGS,
-								"feet" = FEET,
-								"arms" = ARMS,
-								"hands" = HANDS))
+GLOBAL_LIST_INIT(string_part_flags, list(
+	"head" = HEAD,
+	"face" = FACE,
+	"eyes" = EYES,
+	"chest" = CHEST,
+	"groin" = GROIN,
+	"legs" = LEGS,
+	"feet" = FEET,
+	"arms" = ARMS,
+	"hands" = HANDS
+))
 
-GLOBAL_LIST_INIT(string_equip_flags, list("suit slot" = ITEM_SLOT_OCLOTHING,
-									"uniform" = ITEM_SLOT_ICLOTHING,
-									"gloves" = ITEM_SLOT_GLOVES,
-									"eyes" = ITEM_SLOT_EYES,
-									"ears" = ITEM_SLOT_EARS,
-									"mask" = ITEM_SLOT_MASK,
-									"head" = ITEM_SLOT_HEAD,
-									"feet" = ITEM_SLOT_FEET,
-									"ID" = ITEM_SLOT_ID,
-									"belt" = ITEM_SLOT_BELT,
-									"back" = ITEM_SLOT_BACK,
-									"pocket" = ITEM_SLOT_POCKET))
+GLOBAL_LIST_INIT(string_equip_flags, list(
+	"suit slot" = ITEM_SLOT_OCLOTHING,
+	"uniform" = ITEM_SLOT_ICLOTHING,
+	"gloves" = ITEM_SLOT_GLOVES,
+	"eyes" = ITEM_SLOT_EYES,
+	"ears" = ITEM_SLOT_EARS,
+	"mask" = ITEM_SLOT_MASK,
+	"head" = ITEM_SLOT_HEAD,
+	"feet" = ITEM_SLOT_FEET,
+	"ID" = ITEM_SLOT_ID,
+	"belt" = ITEM_SLOT_BELT,
+	"back" = ITEM_SLOT_BACK,
+	"pocket" = ITEM_SLOT_POCKET
+))
 
 /obj/item/clothing/get_antag_info()
 	var/list/entries = SScodex.retrieve_entries_for_string(name)
@@ -106,15 +110,14 @@ GLOBAL_LIST_INIT(string_equip_flags, list("suit slot" = ITEM_SLOT_OCLOTHING,
 			var/obj/B = X
 			armor_strings += "[initial(B.name)]"
 
-
 	. += jointext(armor_strings, "<br>")
 
 /obj/item/armor_module/storage/uniform/get_mechanics_info()
 	. = ..()
-	. += "<br>This item has an internal inventory of [storage.storage_slots] slots."
-	if(length(storage.bypass_w_limit))
+	. += "<br>This item has an internal inventory of [storage_datum.storage_slots] slots."
+	if(length(storage_datum.storage_type_limits))
 		. += "<br><br><U>You can also carry the following special items in this</U>:"
-		for(var/X in storage.bypass_w_limit)
+		for(var/X in storage_datum.storage_type_limits)
 			var/obj/B = X
 			. += "<br>[initial(B.name)]"
 

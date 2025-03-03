@@ -8,9 +8,7 @@
 	icon_broken = "capsecurebroken"
 	icon_off = "capsecureoff"
 
-
 /obj/structure/closet/secure_closet/captains/PopulateContents()
-	. = ..()
 	if(prob(50))
 		new /obj/item/storage/backpack/captain(src)
 	else
@@ -28,7 +26,6 @@
 	new /obj/item/clothing/head/helmet/formalcaptain(src)
 	new /obj/item/clothing/under/captainformal(src)
 
-
 /obj/structure/closet/secure_closet/hop
 	name = "Head of Personnel's Locker"
 	req_access = list(ACCESS_MARINE_BRIDGE)
@@ -39,16 +36,13 @@
 	icon_broken = "hopsecurebroken"
 	icon_off = "hopsecureoff"
 
-
 /obj/structure/closet/secure_closet/hop/PopulateContents()
-	. = ..()
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/suit/armor/vest(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/storage/box/ids(src)
 	new /obj/item/storage/box/ids( src )
 	new /obj/item/flash(src)
-
 
 /obj/structure/closet/secure_closet/hop2
 	name = "Head of Personnel's Attire"
@@ -60,9 +54,7 @@
 	icon_broken = "hopsecurebroken"
 	icon_off = "hopsecureoff"
 
-
 /obj/structure/closet/secure_closet/hop2/PopulateContents()
-	. = ..()
 	new /obj/item/clothing/under/rank/head_of_personnel(src)
 	new /obj/item/clothing/under/dress/dress_hop(src)
 	new /obj/item/clothing/under/dress/dress_hr(src)
@@ -77,7 +69,6 @@
 	new /obj/item/clothing/under/rank/head_of_personnel_whimsy(src)
 	new /obj/item/clothing/head/helmet/hop(src)
 
-
 /obj/structure/closet/secure_closet/hos
 	name = "Head of Security's Locker"
 	req_access = list(ACCESS_MARINE_BRIDGE)
@@ -89,7 +80,6 @@
 	icon_off = "hossecureoff"
 
 /obj/structure/closet/secure_closet/hos/PopulateContents()
-	. = ..()
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
 	else
@@ -112,7 +102,6 @@
 	new /obj/item/weapon/telebaton(src)
 	new /obj/item/clothing/head/beret/sec/hos(src)
 
-
 /obj/structure/closet/secure_closet/warden
 	name = "Warden's Locker"
 	req_access = list(ACCESS_MARINE_BRIG)
@@ -123,9 +112,7 @@
 	icon_broken = "wardensecurebroken"
 	icon_off = "wardensecureoff"
 
-
 /obj/structure/closet/secure_closet/warden/PopulateContents()
-	. = ..()
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
 	else
@@ -145,7 +132,6 @@
 	new /obj/item/storage/box/holobadge(src)
 	new /obj/item/clothing/head/beret/sec/warden(src)
 
-
 /obj/structure/closet/secure_closet/marshal
 	name = "Marshal's Locker"
 	req_access = list(ACCESS_MARINE_BRIG)
@@ -156,15 +142,12 @@
 	icon_broken = "secure_locked_warrant"
 	icon_off = "secure_closed_warrant"
 
-
 /obj/structure/closet/secure_closet/marshal/PopulateContents()
-	. = ..()
 	new /obj/item/clothing/suit/storage/CMB(src)
 	new /obj/item/clothing/under/CM_uniform(src)
 	new /obj/item/storage/backpack/security(src)
 	new /obj/item/storage/belt/security(src)
 	new /obj/item/clothing/shoes/jackboots(src)
-
 
 /obj/structure/closet/secure_closet/security
 	name = "Security Officer's Locker"
@@ -176,9 +159,7 @@
 	icon_broken = "secure_broken_police"
 	icon_off = "secure_closed_police"
 
-
 /obj/structure/closet/secure_closet/security/PopulateContents()
-	. = ..()
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
 	else
@@ -206,16 +187,13 @@
 	icon_opened = "secure_open_police"
 	icon_broken = "secure_broken_police"
 	icon_off = "secoff"
-
 	opened = TRUE
 	locked = FALSE
 	density = FALSE
 
-
 /obj/structure/closet/secure_closet/evidence
 	name = "Secure Evidence Locker"
 	req_access = list(ACCESS_MARINE_BRIG)
-
 
 /obj/structure/closet/secure_closet/detective
 	name = "Detective's Cabinet"
@@ -227,9 +205,7 @@
 	icon_broken = "cabinetdetective_broken"
 	icon_off = "cabinetdetective_broken"
 
-
 /obj/structure/closet/secure_closet/detective/PopulateContents()
-	. = ..()
 	new /obj/item/clothing/under/rank/det(src)
 	new /obj/item/clothing/under/rank/det/grey(src)
 	new /obj/item/clothing/suit/storage/det_suit(src)
@@ -246,31 +222,25 @@
 	new /obj/item/tool/taperoll/police(src)
 	new /obj/item/armor_module/storage/uniform/holster/armpit(src)
 
-
 /obj/structure/closet/secure_closet/detective/update_icon_state()
 	. = ..()
 	if(broken)
 		icon_state = icon_broken
-	else
-		if(!opened)
-			if(locked)
-				icon_state = icon_locked
-			else
-				icon_state = icon_closed
+	else if(!opened)
+		if(locked)
+			icon_state = icon_locked
 		else
-			icon_state = icon_opened
-
+			icon_state = icon_closed
+	else
+		icon_state = icon_opened
 
 /obj/structure/closet/secure_closet/injection
 	name = "Lethal Injections"
 	req_access = list(ACCESS_MARINE_CAPTAIN)
 
-
 /obj/structure/closet/secure_closet/injection/PopulateContents()
-	. = ..()
 	new /obj/item/reagent_containers/syringe/ld50_syringe/choral(src)
 	new /obj/item/reagent_containers/syringe/ld50_syringe/choral(src)
-
 
 /obj/structure/closet/secure_closet/brig
 	name = "Brig Locker"
@@ -289,13 +259,14 @@
 	name = "Cell 2"
 	id = "Cell 2"
 
+/obj/structure/closet/secure_closet/brig/Initialize(mapload, ...)
+	. = ..()
+	GLOB.brig_closets += src
 
 /obj/structure/closet/secure_closet/brig/PopulateContents()
-	. = ..()
 	new /obj/item/clothing/under/rank/prisoner(src)
 	new /obj/item/clothing/shoes/orange(src)
 	new /obj/item/radio/headset(src)
-	GLOB.brig_closets += src
 
 /obj/structure/closet/secure_closet/brig/Destroy()
 	GLOB.brig_closets -= src
@@ -305,9 +276,7 @@
 	name = "Courtroom Locker"
 	req_access = list(ACCESS_MARINE_BRIG)
 
-
 /obj/structure/closet/secure_closet/courtroom/PopulateContents()
-	. = ..()
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/paper/Court (src)
 	new /obj/item/paper/Court (src)
@@ -332,11 +301,10 @@
 	. = ..()
 	if(broken)
 		icon_state = icon_broken
-	else
-		if(!opened)
-			if(locked)
-				icon_state = icon_locked
-			else
-				icon_state = icon_closed
+	else if(!opened)
+		if(locked)
+			icon_state = icon_locked
 		else
-			icon_state = icon_opened
+			icon_state = icon_closed
+	else
+		icon_state = icon_opened

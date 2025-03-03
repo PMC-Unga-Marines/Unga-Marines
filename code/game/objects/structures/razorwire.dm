@@ -112,6 +112,8 @@
 
 /obj/structure/razorwire/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/stack/sheet/metal))
 		if(obj_integrity >= max_integrity)

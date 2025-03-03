@@ -68,16 +68,14 @@
 
 	update_icon()
 
-/obj/item/attachable/flashlight/attackby(obj/item/I, mob/user, params)
+/obj/item/attachable/flashlight/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
-
-	if(istype(I,/obj/item/tool/screwdriver))
-		to_chat(user, span_notice("You modify the rail flashlight back into a normal flashlight."))
-		if(loc == user)
-			user.temporarilyRemoveItemFromInventory(src)
-		var/obj/item/flashlight/F = new(user)
-		user.put_in_hands(F) //This proc tries right, left, then drops it all-in-one.
-		qdel(src) //Delete da old flashlight
+	to_chat(user, span_notice("You modify the rail flashlight back into a normal flashlight."))
+	if(loc == user)
+		user.temporarilyRemoveItemFromInventory(src)
+	var/obj/item/flashlight/F = new(user)
+	user.put_in_hands(F) //This proc tries right, left, then drops it all-in-one.
+	qdel(src) //Delete da old flashlight
 
 /obj/item/attachable/flashlight/under
 	name = "underbarreled flashlight"

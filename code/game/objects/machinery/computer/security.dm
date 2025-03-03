@@ -20,7 +20,8 @@
 	var/tempname = null
 	//Sorting Variables
 	var/sortBy = "name"
-	var/order = 1 // -1 = Descending - 1 = Ascending
+	/// -1 = Descending - 1 = Ascending
+	var/order = 1
 
 /obj/machinery/computer/secure_data/verb/eject_id()
 	set category = "Object"
@@ -41,6 +42,8 @@
 
 /obj/machinery/computer/secure_data/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/card/id) && !scan)
 		if(!user.drop_held_item())
@@ -48,7 +51,6 @@
 		I.forceMove(src)
 		scan = I
 		to_chat(user, "You insert [I].")
-
 
 /obj/machinery/computer/secure_data/interact(mob/user)
 	. = ..()
@@ -63,24 +65,24 @@
 		if (authenticated)
 			switch(screen)
 				if(1.0)
-					dat += {"
-<p style='text-align:center;'>"}
+					dat += {"<p style='text-align:center;'>"}
 					dat += "<A href='?src=[text_ref(src)];choice=Search Records'>Search Records</A><BR>"
 					dat += "<A href='?src=[text_ref(src)];choice=New Record (General)'>New Record</A><BR>"
 					dat += {"
-</p>
-<table style="text-align:center;" cellspacing="0" width="100%">
-<tr>
-<th>Records:</th>
-</tr>
-</table>
-<table style="text-align:center;" border="1" cellspacing="0" width="100%">
-<tr>
-<th><A href='?src=[text_ref(src)];choice=Sorting;sort=name'>Name</A></th>
-<th><A href='?src=[text_ref(src)];choice=Sorting;sort=id'>ID</A></th>
-<th><A href='?src=[text_ref(src)];choice=Sorting;sort=rank'>Rank</A></th>
-<th><A href='?src=[text_ref(src)];choice=Sorting;sort=fingerprint'>Fingerprints</A></th>
-</tr>"}
+						</p>
+						<table style="text-align:center;" cellspacing="0" width="100%">
+						<tr>
+						<th>Records:</th>
+						</tr>
+						</table>
+						<table style="text-align:center;" border="1" cellspacing="0" width="100%">
+						<tr>
+						<th><A href='?src=[text_ref(src)];choice=Sorting;sort=name'>Name</A></th>
+						<th><A href='?src=[text_ref(src)];choice=Sorting;sort=id'>ID</A></th>
+						<th><A href='?src=[text_ref(src)];choice=Sorting;sort=rank'>Rank</A></th>
+						<th><A href='?src=[text_ref(src)];choice=Sorting;sort=fingerprint'>Fingerprints</A></th>
+						</tr>
+					"}
 					if(!isnull(GLOB.datacore.general))
 						for(var/datum/data/record/R in sortRecord(GLOB.datacore.general, sortBy, order))
 							dat += "<tr style='background-color:#FFFFFF;'><td><A href='?src=[text_ref(src)];choice=Browse Record;d_rec=[text_ref(R)]'>[R.fields["name"]]</a></td>"
@@ -103,18 +105,18 @@
 							var/obj/item/photo/P2 = active1.fields["photo_side"]
 							DIRECT_OUTPUT(user, browse_rsc(P2.picture.picture_image, "photo_side"))
 						dat += "<table><tr><td>	\
-						Name: <A href='?src=[text_ref(src)];choice=Edit Field;field=name'>[active1.fields["name"]]</A><BR> \
-						ID: <A href='?src=[text_ref(src)];choice=Edit Field;field=id'>[active1.fields["id"]]</A><BR>\n \
-						Sex: <A href='?src=[text_ref(src)];choice=Edit Field;field=sex'>[active1.fields["sex"]]</A><BR>\n	\
-						Age: <A href='?src=[text_ref(src)];choice=Edit Field;field=age'>[active1.fields["age"]]</A><BR>\n	\
-						Rank: <A href='?src=[text_ref(src)];choice=Edit Field;field=rank'>[active1.fields["rank"]]</A><BR>\n	\
-						Fingerprint: <A href='?src=[text_ref(src)];choice=Edit Field;field=fingerprint'>[active1.fields["fingerprint"]]</A><BR>\n	\
-						Physical Status: [active1.fields["p_stat"]]<BR>\n	\
-						Mental Status: [active1.fields["m_stat"]]<BR></td>	\
-						<td align = center valign = top>Photo:<br> \
-						<table><td align = center><img src=photo_front height=80 width=80 border=4><BR><A href='?src=[text_ref(src)];choice=Edit Field;field=photo front'>Update front photo</A></td> \
-						<td align = center><img src=photo_side height=80 width=80 border=4><BR><A href='?src=[text_ref(src)];choice=Edit Field;field=photo side'>Update side photo</A></td></table> \
-						</td></tr></table>"
+							Name: <A href='?src=[text_ref(src)];choice=Edit Field;field=name'>[active1.fields["name"]]</A><BR> \
+							ID: <A href='?src=[text_ref(src)];choice=Edit Field;field=id'>[active1.fields["id"]]</A><BR>\n \
+							Sex: <A href='?src=[text_ref(src)];choice=Edit Field;field=sex'>[active1.fields["sex"]]</A><BR>\n	\
+							Age: <A href='?src=[text_ref(src)];choice=Edit Field;field=age'>[active1.fields["age"]]</A><BR>\n	\
+							Rank: <A href='?src=[text_ref(src)];choice=Edit Field;field=rank'>[active1.fields["rank"]]</A><BR>\n	\
+							Fingerprint: <A href='?src=[text_ref(src)];choice=Edit Field;field=fingerprint'>[active1.fields["fingerprint"]]</A><BR>\n	\
+							Physical Status: [active1.fields["p_stat"]]<BR>\n	\
+							Mental Status: [active1.fields["m_stat"]]<BR></td>	\
+							<td align = center valign = top>Photo:<br> \
+							<table><td align = center><img src=photo_front height=80 width=80 border=4><BR><A href='?src=[text_ref(src)];choice=Edit Field;field=photo front'>Update front photo</A></td> \
+							<td align = center><img src=photo_side height=80 width=80 border=4><BR><A href='?src=[text_ref(src)];choice=Edit Field;field=photo side'>Update side photo</A></td></table> \
+							</td></tr></table>"
 					else
 						dat += "<B>General Record Lost!</B><BR>"
 				if(4.0)
@@ -122,19 +124,21 @@
 						dat += "ERROR.  String could not be located.<br><br><A href='?src=[text_ref(src)];choice=Return'>Back</A>"
 					else
 						dat += {"
-<table style="text-align:center;" cellspacing="0" width="100%">
-<tr>					"}
+							<table style="text-align:center;" cellspacing="0" width="100%">
+							<tr>
+						"}
 						dat += "<th>Search Results for '[tempname]':</th>"
 						dat += {"
-</tr>
-</table>
-<table style="text-align:center;" border="1" cellspacing="0" width="100%">
-<tr>
-<th>Name</th>
-<th>ID</th>
-<th>Rank</th>
-<th>Fingerprints</th>
-</tr>					"}
+							</tr>
+							</table>
+							<table style="text-align:center;" border="1" cellspacing="0" width="100%">
+							<tr>
+							<th>Name</th>
+							<th>ID</th>
+							<th>Rank</th>
+							<th>Fingerprints</th>
+							</tr>
+						"}
 						for(var/i=1, length(i<=Perp), i += 2)
 							var/datum/data/record/R = Perp[i]
 							dat += "<tr style='background-color:#FFFFFF;'><td><A href='?src=[text_ref(src)];choice=Browse Record;d_rec=[text_ref(R)]'>[R.fields["name"]]</a></td>"
@@ -162,7 +166,7 @@ What a mess.*/
 	if (!( GLOB.datacore.security.Find(active2) ))
 		active2 = null
 	switch(href_list["choice"])
-// SORTING!
+		// SORTING!
 		if("Sorting")
 			// Reverse the order if clicked twice
 			if(sortBy == href_list["sort"])
@@ -174,7 +178,7 @@ What a mess.*/
 			// New sorting order!
 				sortBy = href_list["sort"]
 				order = initial(order)
-//BASIC FUNCTIONS
+		//BASIC FUNCTIONS
 		if("Clear Screen")
 			temp = null
 
@@ -217,7 +221,7 @@ What a mess.*/
 					authenticated = scan.registered_name
 					rank = scan.assignment
 					screen = 1
-//RECORD FUNCTIONS
+		//RECORD FUNCTIONS
 		if("Search Records")
 			var/t1 = input("Search String: (Partial Name or ID or Fingerprints or Rank)", "Secure. records", null, null)  as text
 			if ((!( t1 ) || usr.stat || !( authenticated ) || usr.restrained() || !in_range(src, usr)))
@@ -278,20 +282,20 @@ What a mess.*/
 				P.info += "</TT>"
 				printing = null
 				updateUsrDialog()
-//RECORD DELETE
-		if ("Delete All Records")
+		//RECORD DELETE
+		if("Delete All Records")
 			temp = ""
 			temp += "Are you sure you wish to delete all Security records?<br>"
 			temp += "<a href='?src=[text_ref(src)];choice=Purge All Records'>Yes</a><br>"
 			temp += "<a href='?src=[text_ref(src)];choice=Clear Screen'>No</a>"
 
-		if ("Purge All Records")
+		if("Purge All Records")
 			for(var/datum/data/record/R in GLOB.datacore.security)
 				GLOB.datacore.security -= R
 				qdel(R)
 			temp = "All Security records deleted."
 
-		if ("Add Entry")
+		if("Add Entry")
 			if (!( istype(active2, /datum/data/record) ))
 				return
 			var/a2 = active2
@@ -303,84 +307,84 @@ What a mess.*/
 				counter++
 			active2.fields["com_[counter]"] = "Made by [authenticated] ([rank]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GAME_YEAR]<BR>[t1]"
 
-		if ("Delete Record (ALL)")
-			if (active1)
+		if("Delete Record (ALL)")
+			if(active1)
 				temp = "<h5>Are you sure you wish to delete the record (ALL)?</h5>"
 				temp += "<a href='?src=[text_ref(src)];choice=Delete Record (ALL) Execute'>Yes</a><br>"
 				temp += "<a href='?src=[text_ref(src)];choice=Clear Screen'>No</a>"
 
-		if ("Delete Record (Security)")
-			if (active2)
+		if("Delete Record (Security)")
+			if(active2)
 				temp = "<h5>Are you sure you wish to delete the record (Security Portion Only)?</h5>"
 				temp += "<a href='?src=[text_ref(src)];choice=Delete Record (Security) Execute'>Yes</a><br>"
 				temp += "<a href='?src=[text_ref(src)];choice=Clear Screen'>No</a>"
 
-		if ("Delete Entry")
-			if ((istype(active2, /datum/data/record) && active2.fields["com_[href_list["del_c"]]"]))
+		if("Delete Entry")
+			if((istype(active2, /datum/data/record) && active2.fields["com_[href_list["del_c"]]"]))
 				active2.fields["com_[href_list["del_c"]]"] = "<B>Deleted</B>"
-//RECORD CREATE
-		if ("New Record (Security)")
-			if ((istype(active1, /datum/data/record) && !( istype(active2, /datum/data/record) )))
+		//RECORD CREATE
+		if("New Record (Security)")
+			if((istype(active1, /datum/data/record) && !( istype(active2, /datum/data/record) )))
 				active2 = CreateSecurityRecord(active1.fields["name"], active1.fields["id"])
 				screen = 3
 
-		if ("New Record (General)")
+		if("New Record (General)")
 			active1 = CreateGeneralRecord()
 			active2 = null
 
-//FIELD FUNCTIONS
-		if ("Edit Field")
-			if (is_not_allowed(usr))
+		//FIELD FUNCTIONS
+		if("Edit Field")
+			if(is_not_allowed(usr))
 				return
 			var/a1 = active1
 			var/a2 = active2
 			switch(href_list["field"])
 				if("name")
-					if (istype(active1, /datum/data/record))
+					if(istype(active1, /datum/data/record))
 						var/t1 = reject_bad_name(input(usr, "Please input name:", "Secure. records", active1.fields["name"]) as text|null)
-						if (!t1 || active1 != a1)
+						if(!t1 || active1 != a1)
 							return
 						active1.fields["name"] = t1
 				if("id")
-					if (istype(active2, /datum/data/record))
+					if(istype(active2, /datum/data/record))
 						var/t1 = stripped_input(usr, "Please input id:", "Secure. records", active1.fields["id"])
-						if (!t1 || active1 != a1)
+						if(!t1 || active1 != a1)
 							return
 						active1.fields["id"] = t1
 				if("fingerprint")
-					if (istype(active1, /datum/data/record))
+					if(istype(active1, /datum/data/record))
 						var/t1 = stripped_input(usr, "Please input fingerprint hash:", "Secure. records", active1.fields["fingerprint"])
-						if (!t1 || active1 != a1)
+						if(!t1 || active1 != a1)
 							return
 						active1.fields["fingerprint"] = t1
 				if("sex")
-					if (istype(active1, /datum/data/record))
-						if (active1.fields["sex"] == "Male")
+					if(istype(active1, /datum/data/record))
+						if(active1.fields["sex"] == "Male")
 							active1.fields["sex"] = "Female"
 						else
 							active1.fields["sex"] = "Male"
 				if("age")
-					if (istype(active1, /datum/data/record))
+					if(istype(active1, /datum/data/record))
 						var/t1 = input("Please input age:", "Secure. records", active1.fields["age"], null)  as num
-						if (!t1 || active1 != a1)
+						if(!t1 || active1 != a1)
 							return
 						active1.fields["age"] = t1
 				if("mi_crim")
-					if (istype(active2, /datum/data/record))
+					if(istype(active2, /datum/data/record))
 						var/t1 = stripped_input(usr, "Please input minor disabilities list:", "Secure. records", active2.fields["mi_crim"])
-						if (!t1 || active2 != a2)
+						if(!t1 || active2 != a2)
 							return
 						active2.fields["mi_crim"] = t1
 				if("mi_crim_d")
-					if (istype(active2, /datum/data/record))
+					if(istype(active2, /datum/data/record))
 						var/t1 = stripped_input(usr, "Please summarize minor dis.:", "Secure. records", active2.fields["mi_crim_d"])
-						if (!t1 || active2 != a2)
+						if(!t1 || active2 != a2)
 							return
 						active2.fields["mi_crim_d"] = t1
 				if("ma_crim")
-					if (istype(active2, /datum/data/record))
+					if(istype(active2, /datum/data/record))
 						var/t1 = stripped_input(usr, "Please input major diabilities list:", "Secure. records", active2.fields["ma_crim"])
-						if (!t1 || active2 != a2)
+						if(!t1 || active2 != a2)
 							return
 						active2.fields["ma_crim"] = t1
 				if("ma_crim_d")
@@ -390,15 +394,15 @@ What a mess.*/
 							return
 						active2.fields["ma_crim_d"] = t1
 				if("notes")
-					if (istype(active2, /datum/data/record))
+					if(istype(active2, /datum/data/record))
 						var/t1 = stripped_input("Please summarize notes:", "Secure. records", html_decode(active2.fields["notes"]))
-						if (!t1 || active2 != a2)
+						if(!t1 || active2 != a2)
 							return
 						active2.fields["notes"] = t1
 				if("rank")
 					var/list/L = list( "Head of Personnel", CAPTAIN, "AI" )
 					//This was so silly before the change. Now it actually works without beating your head against the keyboard. /N
-					if ((istype(active1, /datum/data/record) && L.Find(rank)))
+					if((istype(active1, /datum/data/record) && L.Find(rank)))
 						temp = "<h5>Rank:</h5>"
 						temp += "<ul>"
 						for(var/rank in SSjob.name_occupations)
@@ -407,9 +411,9 @@ What a mess.*/
 					else
 						alert(usr, "You do not have the required rank to do this!")
 				if("species")
-					if (istype(active1, /datum/data/record))
+					if(istype(active1, /datum/data/record))
 						var/t1 = stripped_input(usr, "Please enter species:", "General records", active1.fields["species"])
-						if (!t1 || active1 != a1)
+						if(!t1 || active1 != a1)
 							return
 						active1.fields["species"] = t1
 				if("photo front")
@@ -421,39 +425,44 @@ What a mess.*/
 					if(photo)
 						active1.fields["photo_side"] = photo
 
-
-//TEMPORARY MENU FUNCTIONS
+		//TEMPORARY MENU FUNCTIONS
 		else//To properly clear as per clear screen.
 			temp=null
 			switch(href_list["choice"])
-				if ("Change Rank")
-					if (active1)
+				if("Change Rank")
+					if(active1)
 						active1.fields["rank"] = href_list["rank"]
 
-				if ("Delete Record (Security) Execute")
-					if (active2)
+				if("Delete Record (Security) Execute")
+					if(active2)
 						qdel(active2)
 						active2 = null
 
-				if ("Delete Record (ALL) Execute")
-					if (active1)
+				if("Delete Record (ALL) Execute")
+					if(active1)
 						for(var/datum/data/record/R in GLOB.datacore.medical)
-							if ((R.fields["name"] == active1.fields["name"] || R.fields["id"] == active1.fields["id"]))
+							if((R.fields["name"] == active1.fields["name"] || R.fields["id"] == active1.fields["id"]))
 								GLOB.datacore.medical -= R
 								qdel(R)
 						qdel(active1)
 						active1 = null
-					if (active2)
+					if(active2)
 						qdel(active2)
 						active2 = null
 				else
 					temp = "This function does not appear to be working at the moment. Our apologies."
-
 	updateUsrDialog()
 
-
 /obj/machinery/computer/secure_data/proc/is_not_allowed(mob/user)
-	return !src.authenticated || user.stat || user.restrained() || (!in_range(src, user) && (!issilicon(user)))
+	if(!authenticated)
+		return FALSE
+	if(user.stat)
+		return FALSE
+	if(user.restrained())
+		return FALSE
+	if(!in_range(src, user) && (!issilicon(user)))
+		return FALSE
+	return TRUE
 
 /obj/machinery/computer/secure_data/proc/get_photo(mob/user)
 	var/atom/A = user.get_active_held_item()
@@ -463,8 +472,7 @@ What a mess.*/
 
 /obj/machinery/computer/secure_data/emp_act(severity)
 	if(machine_stat & (BROKEN|NOPOWER))
-		..(severity)
-		return
+		return ..(severity)
 
 	for(var/datum/data/record/R in GLOB.datacore.security)
 		if(prob(10/severity))
@@ -486,7 +494,7 @@ What a mess.*/
 			qdel(R)
 			continue
 
-	..(severity)
+	return ..(severity)
 
 /obj/machinery/computer/secure_data/detective_computer
 	icon = 'icons/obj/machines/computer.dmi'

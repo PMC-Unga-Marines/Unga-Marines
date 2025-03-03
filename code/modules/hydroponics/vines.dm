@@ -1,5 +1,3 @@
-
-// SPACE VINES (Note that this code is very similar to Biomass code)
 /obj/effect/plantsegment
 	name = "space vines"
 	desc = "An extremely expansionistic species of vine."
@@ -31,6 +29,8 @@
 
 /obj/effect/plantsegment/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(iswelder(I))
 		var/obj/item/tool/weldingtool/WT = I
@@ -55,7 +55,6 @@
 	else
 		manual_unbuckle(user)
 
-
 /obj/effect/plantsegment/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
@@ -68,7 +67,6 @@
 		return
 
 	manual_unbuckle(user)
-
 
 /obj/effect/plantsegment/proc/manual_unbuckle(mob/user)
 	if(!LAZYLEN(buckled_mobs))
@@ -95,7 +93,6 @@
 			span_warning("You hear shredding and ripping."))
 	unbuckle_mob(prisoner)
 	return TRUE
-
 
 /obj/effect/plantsegment/proc/grow()
 
@@ -155,7 +152,6 @@
 				for(var/rid in seed.chems)
 					var/injecting = clamp(seed.potency * 0.2, 1, 5)
 					victim.reagents.add_reagent(rid, injecting)
-
 
 /obj/effect/plantsegment/proc/update()
 	if(!seed) return
@@ -270,7 +266,6 @@
 		SV.update()
 
 /obj/effect/plant_controller/process()
-
 	// Space vines exterminated. Remove the controller
 	if(!vines)
 		qdel(src)

@@ -54,34 +54,24 @@
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
-
-/obj/item/shard/attackby(obj/item/I, mob/user, params)
+/obj/item/shard/welder_act(mob/living/user, obj/item/tool/weldingtool/WT)
 	. = ..()
 
-	if(iswelder(I))
-		var/obj/item/tool/weldingtool/WT = I
-		if(!source_sheet_type) //can be melted into something
-			return
-
-		if(!WT.remove_fuel(0, user))
-			return
-
-		var/obj/item/stack/sheet/NG = new source_sheet_type(user.loc)
-		for(var/obj/item/stack/sheet/G in user.loc)
-			if(G == NG)
-				continue
-
-			if(!istype(G, source_sheet_type))
-				continue
-
-			if(G.amount >= G.max_amount)
-				continue
-
-			G.attackby(NG, user, params)
-			to_chat(user, "You add the newly-formed glass to the stack. It now contains [NG.amount] sheets.")
-
-		qdel(src)
-
+	if(!source_sheet_type) //can be melted into something
+		return
+	if(!WT.remove_fuel(0, user))
+		return
+	var/obj/item/stack/sheet/NG = new source_sheet_type(user.loc)
+	for(var/obj/item/stack/sheet/G in user.loc)
+		if(G == NG)
+			continue
+		if(!istype(G, source_sheet_type))
+			continue
+		if(G.amount >= G.max_amount)
+			continue
+		G.attackby(NG, user)
+		to_chat(user, "You add the newly-formed glass to the stack. It now contains [NG.amount] sheets.")
+	qdel(src)
 
 /obj/item/shard/proc/on_cross(datum/source, atom/movable/AM, oldloc, oldlocs)
 	SIGNAL_HANDLER

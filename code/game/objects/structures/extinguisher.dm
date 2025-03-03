@@ -30,6 +30,8 @@
 
 /obj/structure/extinguisher_cabinet/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/tool/extinguisher))
 		if(has_extinguisher || !opened)
@@ -39,11 +41,8 @@
 		contents += I
 		has_extinguisher = I
 		to_chat(user, span_notice("You place [I] in [src]."))
-
 	opened = !opened
-
 	update_icon()
-
 
 /obj/structure/extinguisher_cabinet/attack_hand(mob/living/user)
 	. = ..()

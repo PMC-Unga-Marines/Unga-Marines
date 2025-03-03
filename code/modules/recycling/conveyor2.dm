@@ -11,14 +11,20 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 	layer = FIREDOOR_OPEN_LAYER
 	max_integrity = 50
 	resistance_flags = XENO_DAMAGEABLE
-	var/operating = 0	// 1 if running forward, -1 if backwards, 0 if off
-	var/operable = 1	// true if can operate (no broken segments in this belt run)
-	var/forwards		// this is the default (forward) direction, set by the map dir
-	var/backwards		// hopefully self-explanatory
-	var/movedir			// the actual direction to move stuff in
-
-	var/list/affecting	// the list of all items that will be moved this ptick
-	var/id = ""			// the control ID	- must match controller ID
+	/// 1 if running forward, -1 if backwards, 0 if off
+	var/operating = 0
+	/// True if can operate (no broken segments in this belt run)
+	var/operable = 1
+	/// This is the default (forward) direction, set by the map dir
+	var/forwards
+	/// Hopefully self-explanatory
+	var/backwards
+	/// The actual direction to move stuff in
+	var/movedir
+	/// The list of all items that will be moved this ptick
+	var/list/affecting
+	/// The control ID	- must match controller ID
+	var/id = ""
 	/// Inverts the direction the conveyor belt moves when false.
 	var/verted = FALSE
 	/// Is the conveyor's belt flipped? Useful mostly for conveyor belt corners. It makes the belt point in the other direction, rather than just going in reverse.
@@ -38,7 +44,6 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 	. = ..()
 	if(mapload && !(ISDIAGONALDIR(dir)))
 		stack_trace("[src] at [AREACOORD(src)] spawned without using a diagonal dir. Please replace with a normal version.")
-
 
 /obj/machinery/conveyor/auto/update()
 	. = ..()
@@ -230,7 +235,6 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 	if(C)
 		C.set_operable(REVERSE_DIR(dir), id, 0)
 
-
 //set the operable var if ID matches, propagating in the given direction
 
 /obj/machinery/conveyor/proc/set_operable(stepdir, match_id, op)
@@ -256,16 +260,20 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "switch-off"
 
-	var/position = 0			// 0 off, -1 reverse, 1 forward
-	var/last_pos = -1			// last direction setting
-	var/oneway = FALSE			// if the switch only operates the conveyor belts in a single direction.
-	var/invert_icon = FALSE		// If the level points the opposite direction when it's turned on.
-
-	var/id = "" 				// must match conveyor IDs to control them
+	/// 0 off, -1 reverse, 1 forward
+	var/position = 0
+	/// Last direction setting
+	var/last_pos = -1
+	/// If the switch only operates the conveyor belts in a single direction.
+	var/oneway = FALSE
+	/// If the level points the opposite direction when it's turned on.
+	var/invert_icon = FALSE
+	/// Must match conveyor IDs to control them
+	var/id = ""
 
 /obj/machinery/conveyor_switch/Initialize(mapload, newid)
 	. = ..()
-	if (newid)
+	if(newid)
 		id = newid
 	update_icon()
 	LAZYADD(GLOB.conveyors_by_id[id], src)
@@ -346,13 +354,11 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 	update_linked_conveyors()
 	update_linked_switches()
 
-
 /obj/machinery/conveyor_switch/crowbar_act(mob/living/user, obj/item/I)
 	var/obj/item/conveyor_switch_construct/C = new/obj/item/conveyor_switch_construct(src.loc)
 	C.id = id
 	to_chat(user, span_notice("You detach the conveyor switch."))
 	qdel(src)
-
 
 /obj/machinery/conveyor_switch/oneway
 	icon_state = "conveyor_switch_oneway"
@@ -370,7 +376,8 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 	icon = 'icons/obj/recycling.dmi'
 	icon_state = "switch-off"
 	w_class = WEIGHT_CLASS_BULKY
-	var/id = "" //inherited by the switch
+	/// Inherited by the switch
+	var/id = ""
 
 /obj/item/conveyor_switch_construct/Initialize(mapload)
 	. = ..()
@@ -404,7 +411,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 	max_amount = 30
 	singular_name = "conveyor belt"
 	w_class = WEIGHT_CLASS_BULKY
-	///id for linking
+	/// Id for linking
 	var/id = ""
 
 /obj/item/stack/conveyor/Initialize(mapload, new_amount, merge = TRUE, _id)
@@ -423,7 +430,9 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 	use(1)
 
 /obj/item/stack/conveyor/attackby(obj/item/I, mob/user, params)
-	..()
+	. = ..()
+	if(.)
+		return
 	if(istype(I, /obj/item/conveyor_switch_construct))
 		to_chat(user, span_notice("You link the switch to the conveyor belt assembly."))
 		var/obj/item/conveyor_switch_construct/C = I

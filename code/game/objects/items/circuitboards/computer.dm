@@ -1,16 +1,13 @@
 /obj/item/circuitboard/computer
 
-
 /obj/item/circuitboard/computer/card
 	name = "ID Console (Computer Board)"
 	icon_state = "command"
 	build_path = /obj/machinery/computer/marine_card
 
-
 /obj/item/circuitboard/computer/card/centcom
 	name = "CentCom ID Console (Computer Board)"
 	build_path = /obj/item/circuitboard/computer/card/centcom
-
 
 //TODO: Move these into computer/camera.dm
 /obj/item/circuitboard/computer/security
@@ -21,11 +18,11 @@
 	var/locked = 1
 
 /obj/item/circuitboard/computer/security/construct(obj/machinery/computer/security/C)
-	if (..(C))
+	if(..(C))
 		C.network = network
 
 /obj/item/circuitboard/computer/security/decon(obj/machinery/computer/security/C)
-	if (..(C))
+	if(..(C))
 		network = C.network
 
 /obj/item/circuitboard/computer/security/engineering
@@ -156,15 +153,14 @@
 	name = "Circuit board (Telecommunications Server Monitor)"
 	build_path = /obj/machinery/computer/telecomms/server
 
-
-
 /obj/item/circuitboard/computer/area_atmos
 	name = "Circuit board (Area Air Control)"
 	build_path = /obj/machinery/computer/area_atmos
 
-
 /obj/item/circuitboard/computer/security/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/card/id))
 		if(!check_access(I))
@@ -192,4 +188,3 @@
 			return
 
 		network = tempnetwork
-

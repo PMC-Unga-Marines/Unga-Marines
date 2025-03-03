@@ -13,11 +13,6 @@
 	climbable = TRUE
 	climb_delay = 1.5 SECONDS
 	soft_armor = list(MELEE = 0, BULLET = 70, LASER = 70, ENERGY = 70, BOMB = 50, BIO = 100, FIRE = 50, ACID = 0)
-	var/obj/item/stack/sheet/sheet_type = /obj/item/stack/sheet/glass/reinforced
-	var/obj/structure/window/framed/mainship/window_type = /obj/structure/window/framed/mainship
-	var/basestate = "window"
-	var/junction = 0
-	var/reinforced = FALSE
 	coverage = 50
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_WINDOW_FRAME)
@@ -27,6 +22,11 @@
 		SMOOTH_GROUP_WINDOW_FRAME,
 		SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS,
 	)
+	var/obj/item/stack/sheet/sheet_type = /obj/item/stack/sheet/glass/reinforced
+	var/obj/structure/window/framed/mainship/window_type = /obj/structure/window/framed/mainship
+	var/basestate = "window"
+	var/junction = 0
+	var/reinforced = FALSE
 
 /obj/structure/window_frame/Initialize(mapload, from_window_shatter)
 	. = ..()
@@ -64,6 +64,8 @@
 
 /obj/structure/window_frame/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, sheet_type))
 		var/obj/item/stack/sheet/sheet = I
@@ -83,35 +85,31 @@
 		new window_type(loc) //This only works on Theseus windows!
 		qdel(src)
 
-	else if(istype(I, /obj/item/grab))
-		var/obj/item/grab/G = I
-		if(isxeno(user))
-			return
+/obj/structure/window_frame/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
+	. = ..()
+	if(.)
+		return
+	if(!isliving(grab.grabbed_thing))
+		return
+	if(user.do_actions)
+		return
+	if(user.grab_state < GRAB_AGGRESSIVE)
+		to_chat(user, span_warning("You need a better grip to do that!"))
+		return
 
-		if(!isliving(G.grabbed_thing))
-			return
-
-		var/mob/living/M = G.grabbed_thing
-		if(user.grab_state < GRAB_AGGRESSIVE)
-			to_chat(user, span_warning("You need a better grip to do that!"))
-			return
-
-		if(get_dist(src, M) > 1)
-			to_chat(user, span_warning("[M] needs to be next to [src]."))
-			return
-
-		if(user.do_actions)
-			return
-
-		user.visible_message(span_notice("[user] starts pulling [M] onto [src]."),
-		span_notice("You start pulling [M] onto [src]!"))
-		if(!do_after(user, 2 SECONDS, NONE, M, BUSY_ICON_GENERIC))
-			return
-		M.Paralyze(4 SECONDS)
-		user.visible_message(span_warning("[user] pulls [M] onto [src]."),
-		span_notice("You pull [M] onto [src]."))
-		M.forceMove(loc)
-
+	var/mob/living/grabbed_mob = grab.grabbed_thing
+	if(get_dist(src, grabbed_mob) > 1)
+		to_chat(user, span_warning("[grabbed_mob] needs to be next to [src]."))
+		return
+	user.visible_message(span_notice("[user] starts pulling [grabbed_mob] onto [src]."),
+	span_notice("You start pulling [grabbed_mob] onto [src]!"))
+	if(!do_after(user, 2 SECONDS, NONE, grabbed_mob, BUSY_ICON_GENERIC))
+		return
+	grabbed_mob.Paralyze(2 SECONDS)
+	user.visible_message(span_warning("[user] pulls [grabbed_mob] onto [src]."),
+	span_notice("You pull [grabbed_mob] onto [src]."))
+	grabbed_mob.forceMove(loc)
+	return TRUE
 
 /obj/structure/window_frame/mainship
 	icon = 'icons/obj/smooth_objects/ship_window_frame.dmi'

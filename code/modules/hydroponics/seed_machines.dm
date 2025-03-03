@@ -4,7 +4,6 @@
 	icon = 'icons/obj/items/disk.dmi'
 	icon_state = "botanydisk"
 	w_class = WEIGHT_CLASS_TINY
-
 	var/list/genes = list()
 	var/genesource = "unknown"
 
@@ -36,9 +35,10 @@
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
 	interaction_flags = INTERACT_MACHINE_TGUI
-
-	var/obj/item/seeds/seed // Currently loaded seed packet.
-	var/obj/item/disk/botany/loaded_disk //Currently loaded data disk.
+	/// Currently loaded seed packet.
+	var/obj/item/seeds/seed
+	/// Currently loaded data disk.
+	var/obj/item/disk/botany/loaded_disk
 
 	var/open = 0
 	var/active = 0
@@ -49,13 +49,11 @@
 	var/disk_needs_genes = 0
 
 /obj/machinery/botany/process()
-
-	..()
+	. = ..()
 	if(!active) return
 
 	if(world.time > last_action + action_time)
 		finished_task()
-
 
 /obj/machinery/botany/proc/finished_task()
 	active = 0
@@ -75,6 +73,8 @@
 
 /obj/machinery/botany/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/seeds))
 		if(seed)
@@ -89,13 +89,6 @@
 		I.forceMove(src)
 		seed = I
 		to_chat(user, "You load [I] into [src].")
-
-	else if(isscrewdriver(I))
-		open = !open
-		to_chat(user, span_notice("You [open ? "open" : "close"] the maintenance panel."))
-
-	else if(iscrowbar(I) && open)
-		deconstruct()
 
 	else if(istype(I, /obj/item/disk/botany))
 		var/obj/item/disk/botany/B = I
@@ -116,13 +109,25 @@
 		loaded_disk = I
 		to_chat(user, "You load [I] into [src].")
 
+/obj/machinery/botany/screwdriver_act(mob/living/user, obj/item/I)
+	. = ..()
+	open = !open
+	to_chat(user, span_notice("You [open ? "open" : "close"] the maintenance panel."))
+
+/obj/machinery/botany/crowbar_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(open)
+		deconstruct()
+
+
 // Allows for a trait to be extracted from a seed packet, destroying that seed.
 /obj/machinery/botany/extractor
 	name = "lysis-isolation centrifuge"
 	icon_state = "traitcopier"
-
-	var/datum/seed/genetics // Currently scanned seed genetic structure.
-	var/degradation = 0     // Increments with each scan, stops allowing gene mods after a certain point.
+	/// Currently scanned seed genetic structure.
+	var/datum/seed/genetics
+	/// Increments with each scan, stops allowing gene mods after a certain point.
+	var/degradation = 0
 
 /obj/machinery/botany/Topic(href, href_list)
 	. = ..()
@@ -148,7 +153,6 @@
 		loaded_disk.loc = get_turf(src)
 		visible_message("[icon2html(src, viewers(src))] [src] beeps and spits out [loaded_disk].")
 		loaded_disk = null
-
 
 /obj/machinery/botany/extractor/Topic(href, href_list)
 	. = ..()
@@ -202,7 +206,6 @@
 		degradation = 0
 
 	updateUsrDialog()
-
 
 // Fires an extracted trait into another packet of seeds with a chance
 // of destroying it based on the size/complexity of the plasmid.

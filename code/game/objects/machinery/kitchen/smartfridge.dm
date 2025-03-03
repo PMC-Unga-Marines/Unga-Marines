@@ -1,5 +1,3 @@
-/* SmartFridge.  Much todo
-*/
 /obj/machinery/smartfridge
 	name = "\improper SmartFridge"
 	icon = 'icons/obj/machines/vending.dmi'
@@ -12,7 +10,8 @@
 	idle_power_usage = 5
 	active_power_usage = 100
 	interaction_flags = INTERACT_MACHINE_TGUI
-	var/global/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't look things over 1000.
+	/// Sorry but the BYOND infinite loop detector doesn't look things over 1000.
+	var/static/max_n_of_items = 999
 	var/icon_on = "smartfridge"
 	var/icon_off = "smartfridge-off"
 	var/icon_panel = "smartfridge-panel"
@@ -30,16 +29,16 @@
 
 /obj/machinery/smartfridge/proc/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/food/snacks/grown/) || istype(O,/obj/item/seeds/))
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/machinery/smartfridge/process()
 	if(machine_stat & NOPOWER)
 		return
-	if(src.seconds_electrified > 0)
-		src.seconds_electrified--
-	if(src.shoot_inventory && prob(2))
-		src.throw_item()
+	if(seconds_electrified > 0)
+		seconds_electrified--
+	if(shoot_inventory && prob(2))
+		throw_item()
 
 /obj/machinery/smartfridge/update_icon_state()
 	. = ..()
@@ -54,22 +53,10 @@
 
 /obj/machinery/smartfridge/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
-	if(isscrewdriver(I))
-		TOGGLE_BITFIELD(machine_stat, PANEL_OPEN)
-		to_chat(user, "You [CHECK_BITFIELD(machine_stat, PANEL_OPEN) ? "open" : "close"] the maintenance panel.")
-		overlays.Cut()
-		if(CHECK_BITFIELD(machine_stat, PANEL_OPEN))
-			overlays += image(icon, icon_panel)
-		updateUsrDialog()
-
-	else if(ismultitool(I) || iswirecutter(I))
-		if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
-			return
-
-		attack_hand(user)
-
-	else if(machine_stat & NOPOWER)
+	if(machine_stat & NOPOWER)
 		to_chat(user, span_notice("\The [src] is unpowered and useless."))
 		return
 
@@ -99,7 +86,7 @@
 				to_chat(user, span_notice("\The [src] is full."))
 				return TRUE
 
-			P.remove_from_storage(G, src, user)
+			P.storage_datum.remove_from_storage(G, src, user)
 			item_quants[strip_improper(G.name)]++
 			plants_loaded++
 
@@ -116,15 +103,35 @@
 		to_chat(user, span_notice("\The [src] smartly refuses [I]."))
 		return TRUE
 
+/obj/machinery/smartfridge/screwdriver_act(mob/living/user, obj/item/I)
+	. = ..()
+	TOGGLE_BITFIELD(machine_stat, PANEL_OPEN)
+	to_chat(user, "You [CHECK_BITFIELD(machine_stat, PANEL_OPEN) ? "open" : "close"] the maintenance panel.")
+	overlays.Cut()
+	if(CHECK_BITFIELD(machine_stat, PANEL_OPEN))
+		overlays += image(icon, icon_panel)
+	updateUsrDialog()
+
+/obj/machinery/smartfridge/multitool_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
+		return
+
+	attack_hand(user)
+
+/obj/machinery/smartfridge/wirecutter_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
+		return
+
+	attack_hand(user)
 
 /obj/machinery/smartfridge/can_interact(mob/user)
 	. = ..()
 	if(!.)
 		return FALSE
-
 	if(is_secure_fridge && !allowed(usr) && locked != -1)
 		return FALSE
-
 	return TRUE
 
 ///Really simple proc, just moves the object "O" into the hands of mob "M" if able, done so I could modify the proc a little for the organ fridge
@@ -151,8 +158,8 @@
 	.["name"] = name
 	.["isdryer"] = FALSE
 
-
 /obj/machinery/smartfridge/handle_atom_del(atom/A) // Update the UIs in case something inside gets deleted
+	. = ..()
 	SStgui.update_uis(src)
 
 /obj/machinery/smartfridge/ui_act(action, list/params)
@@ -163,7 +170,7 @@
 		if("Release")
 			var/desired = 0
 
-			if (params["amount"])
+			if(params["amount"])
 				desired = text2num(params["amount"])
 			else
 				desired = tgui_input_number(usr, "How many items?", "How many items would you like to take out?", 1)
@@ -176,7 +183,7 @@
 					if(strip_improper(O.name) == params["name"])
 						dispense(O, usr)
 						break
-				if (visible_contents)
+				if(visible_contents)
 					update_icon()
 				return TRUE
 
@@ -186,7 +193,7 @@
 				if(strip_improper(O.name) == params["name"])
 					dispense(O, usr)
 					desired--
-			if (visible_contents)
+			if(visible_contents)
 				update_icon()
 			return TRUE
 	return FALSE
@@ -229,8 +236,8 @@
 
 /obj/machinery/smartfridge/seeds/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/seeds/))
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 //the secure subtype does nothing, I'm only keeping it to avoid conflicts with maps.
 /obj/machinery/smartfridge/secure/medbay
@@ -242,16 +249,14 @@
 	is_secure_fridge = TRUE
 	req_one_access = list(ACCESS_MARINE_CMO, ACCESS_CIVILIAN_MEDICAL)
 
-
 /obj/machinery/smartfridge/secure/medbay/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/glass/))
-		return 1
+		return TRUE
 	if(istype(O,/obj/item/storage/pill_bottle/))
-		return 1
+		return TRUE
 	if(istype(O,/obj/item/reagent_containers/pill/))
-		return 1
-	return 0
-
+		return TRUE
+	return FALSE
 
 /obj/machinery/smartfridge/secure/virology
 	name = "\improper Refrigerated Virus Storage"
@@ -264,9 +269,8 @@
 
 /obj/machinery/smartfridge/secure/virology/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/glass/beaker/vial/))
-		return 1
-	return 0
-
+		return TRUE
+	return FALSE
 
 /obj/machinery/smartfridge/chemistry
 	name = "\improper Smart Chemical Storage"
@@ -275,9 +279,8 @@
 
 /obj/machinery/smartfridge/chemistry/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/storage/pill_bottle) || istype(O,/obj/item/reagent_containers))
-		return 1
-	return 0
-
+		return TRUE
+	return FALSE
 
 /obj/machinery/smartfridge/chemistry/virology
 	name = "\improper Smart Virus Storage"
@@ -290,7 +293,8 @@
 
 /obj/machinery/smartfridge/drinks/accept_check(obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/glass) || istype(O,/obj/item/reagent_containers/food/drinks) || istype(O,/obj/item/reagent_containers/food/condiment))
-		return 1
+		return TRUE
+	return FALSE
 
 /obj/machinery/smartfridge/nopower
 	use_power = NO_POWER_USE

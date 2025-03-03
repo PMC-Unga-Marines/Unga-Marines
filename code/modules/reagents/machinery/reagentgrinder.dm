@@ -1,4 +1,3 @@
-
 /obj/machinery/reagentgrinder
 	name = "\improper All-In-One Grinder"
 	desc = "From BlenderTech. Will It Blend? Let's test it out!"
@@ -57,22 +56,20 @@
 		/obj/item/reagent_containers/food/snacks/grown/poisonberries = list(/datum/reagent/consumable/drink/poisonberryjuice = 0),
 	)
 
-
 	var/list/holdingitems = list()
 
 /obj/machinery/reagentgrinder/Initialize(mapload)
 	. = ..()
 	beaker = new /obj/item/reagent_containers/glass/beaker/large(src)
 
-
 /obj/machinery/reagentgrinder/update_icon_state()
 	. = ..()
 	icon_state = "juicer"+num2text(!isnull(beaker))
 
-
-
 /obj/machinery/reagentgrinder/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/reagent_containers) && I.is_open_container())
 		if(beaker)
@@ -112,7 +109,6 @@
 	updateUsrDialog()
 	return FALSE
 
-
 /obj/machinery/reagentgrinder/interact(mob/user)
 	. = ..()
 	if(.)
@@ -142,12 +138,11 @@
 			if(!anything)
 				beaker_contents += "Nothing<br>"
 
-
 		dat = {"
-	<b>Processing chamber contains:</b><br>
-	[processing_chamber]<br>
-	[beaker_contents]<hr>
-	"}
+			<b>Processing chamber contains:</b><br>
+			[processing_chamber]<br>
+			[beaker_contents]<hr>
+		"}
 		if(is_beaker_ready && !is_chamber_empty && !(machine_stat & (NOPOWER|BROKEN)))
 			dat += "<A href='?src=[text_ref(src)];action=grind'>Grind the reagents</a><BR>"
 			dat += "<A href='?src=[text_ref(src)];action=juice'>Juice the reagents</a><BR><BR>"
@@ -161,7 +156,6 @@
 	var/datum/browser/popup = new(user, "reagentgrinder", "<div align='center'>All-In-One Grinder</div>")
 	popup.set_content(dat)
 	popup.open()
-
 
 /obj/machinery/reagentgrinder/Topic(href, href_list)
 	. = ..()
@@ -199,7 +193,6 @@
 		O.loc = src.loc
 		holdingitems -= O
 	holdingitems = list()
-
 
 /obj/machinery/reagentgrinder/proc/shake_for(duration)
 	var/offset = prob(50) ? -2 : 2
@@ -308,7 +301,6 @@
 			break
 
 		for (var/r_id in allowed)
-
 			var/space = beaker.reagents.maximum_volume - beaker.reagents.total_volume
 			var/amount = allowed[r_id]
 			if(amount <= 0)
@@ -320,7 +312,6 @@
 					if(O.reagents != null && O.reagents.has_reagent(/datum/reagent/consumable/nutriment))
 						beaker.reagents.add_reagent(r_id, min(round(O.reagents.get_reagent_amount(/datum/reagent/consumable/nutriment)*abs(amount)), space))
 						O.reagents.remove_reagent(/datum/reagent/consumable/nutriment, min(O.reagents.get_reagent_amount(/datum/reagent/consumable/nutriment), space))
-
 			else
 				O.reagents.trans_id_to(beaker, r_id, min(amount, space))
 

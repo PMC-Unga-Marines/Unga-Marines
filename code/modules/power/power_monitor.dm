@@ -15,7 +15,7 @@
 	light_range = 1
 	light_power = 0.5
 	light_color = LIGHT_COLOR_EMISSIVE_YELLOW
-	///screen overlay icon
+	/// Screen overlay icon
 	var/screen_overlay = "power"
 
 /obj/machinery/power/monitor/core
@@ -33,7 +33,6 @@
 	if(attached)
 		powernet = attached.powernet
 	update_icon()
-
 
 /obj/machinery/power/monitor/interact(mob/user)
 	. = ..()
@@ -93,7 +92,6 @@
 	else
 		icon_state = initial(icon_state)
 
-
 /obj/machinery/power/monitor/update_overlays()
 	. = ..()
 	if(!screen_overlay)
@@ -106,28 +104,32 @@
 //copied from computer.dm
 /obj/machinery/power/monitor/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
+	return attack_hand(user)
 
-	if(isscrewdriver(I) && circuit)
-		playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
-		if(!do_after(user, 20, NONE, src, BUSY_ICON_BUILD))
-			return
+/obj/machinery/power/monitor/screwdriver_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(!circuit)
+		return
+	playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
+	if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD))
+		return
 
-		var/obj/structure/computerframe/A = new(loc)
-		var/obj/item/circuitboard/computer/M = new circuit(A)
-		A.circuit = M
-		A.anchored = TRUE
-		for(var/obj/C in src)
-			C.forceMove(loc)
-		if(machine_stat & BROKEN)
-			to_chat(user, span_notice("The broken glass falls out."))
-			new /obj/item/shard(loc)
-			A.state = 3
-			A.icon_state = "3"
-		else
-			to_chat(user, span_notice("You disconnect the monitor."))
-			A.state = 4
-			A.icon_state = "4"
-		M.deconstruct(src)
-		qdel(src)
+	var/obj/structure/computerframe/A = new(loc)
+	var/obj/item/circuitboard/computer/M = new circuit(A)
+	A.circuit = M
+	A.anchored = TRUE
+	for(var/obj/C in src)
+		C.forceMove(loc)
+	if(machine_stat & BROKEN)
+		to_chat(user, span_notice("The broken glass falls out."))
+		new /obj/item/shard(loc)
+		A.state = 3
+		A.icon_state = "3"
 	else
-		attack_hand(user)
+		to_chat(user, span_notice("You disconnect the monitor."))
+		A.state = 4
+		A.icon_state = "4"
+	M.deconstruct(src)
+	qdel(src)

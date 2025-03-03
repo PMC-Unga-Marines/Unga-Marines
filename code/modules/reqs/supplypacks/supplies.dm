@@ -12,16 +12,16 @@
 	name = "Emergency Provision Crate"
 	notes = "Contains 10 special TGMC MRE racions."
 	contains = list(
-		/obj/item/storage/box/MRE,
-		/obj/item/storage/box/MRE,
-		/obj/item/storage/box/MRE,
-		/obj/item/storage/box/MRE,
-		/obj/item/storage/box/MRE,
-		/obj/item/storage/box/MRE,
-		/obj/item/storage/box/MRE,
-		/obj/item/storage/box/MRE,
-		/obj/item/storage/box/MRE,
-		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/mre,
+		/obj/item/storage/box/mre,
+		/obj/item/storage/box/mre,
+		/obj/item/storage/box/mre,
+		/obj/item/storage/box/mre,
+		/obj/item/storage/box/mre,
+		/obj/item/storage/box/mre,
+		/obj/item/storage/box/mre,
+		/obj/item/storage/box/mre,
+		/obj/item/storage/box/mre,
 	)
 	containertype = /obj/structure/closet/crate/operations
 	cost = 65

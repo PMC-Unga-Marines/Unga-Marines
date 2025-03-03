@@ -12,12 +12,13 @@
 	throw_speed = 1
 	throw_range = 2
 	w_class = WEIGHT_CLASS_TINY
-	var/access = list()
-	access = ACCESS_MARINE_CAPTAIN
+	var/access = ACCESS_MARINE_CAPTAIN
 	var/worth = 0
 
 /obj/item/spacecash/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(istype(I, /obj/item/spacecash) && !istype(I, /obj/item/spacecash/ewallet))
 		var/obj/item/spacecash/bundle/bundle
 		if(!istype(I, /obj/item/spacecash/bundle))
@@ -72,8 +73,8 @@
 	if(gc_destroyed || loc != oldloc)
 		return
 
-	src.worth -= amount
-	src.update_appearance()
+	worth -= amount
+	update_appearance()
 	if(!worth)
 		usr.temporarilyRemoveItemFromInventory(src)
 	var/obj/item/spacecash/bundle/bundle = new (usr.loc)
@@ -111,7 +112,7 @@
 	var/obj/item/spacecash/bundle/bundle = new (spawnloc)
 	bundle.worth = sum
 	bundle.update_appearance()
-	if (ishuman(human_user) && !human_user.get_active_held_item())
+	if(ishuman(human_user) && !human_user.get_active_held_item())
 		human_user.put_in_hands(bundle)
 
 /obj/item/spacecash/ewallet

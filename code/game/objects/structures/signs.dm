@@ -29,17 +29,18 @@
 	if(severity >= EXPLODE_WEAK)
 		qdel(src)
 
-/obj/structure/sign/attackby(obj/item/I, mob/user, params)	//deconstruction
+/obj/structure/sign/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
 
-	if(isscrewdriver(I) && !istype(src, /obj/structure/sign/double))
-		to_chat(user, "You unfasten the sign with your [I].")
-		var/obj/item/sign/S = new(loc)
-		S.name = name
-		S.desc = desc
-		S.icon_state = icon_state
-		S.sign_state = icon_state
-		qdel(src)
+	if(istype(src, /obj/structure/sign/double))
+		return
+	to_chat(user, "You unfasten the sign with your [I].")
+	var/obj/item/sign/S = new(loc)
+	S.name = name
+	S.desc = desc
+	S.icon_state = icon_state
+	S.sign_state = icon_state
+	qdel(src)
 
 /obj/item/sign
 	name = "sign"
@@ -48,30 +49,31 @@
 	w_class = WEIGHT_CLASS_NORMAL		//big
 	var/sign_state = ""
 
-/obj/item/sign/attackby(obj/item/I, mob/user, params)	//construction
+/obj/item/sign/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
 
-	if(isscrewdriver(I) && isturf(user.loc))
-		var/direction = tgui_input_list(user, "In which direction?", "Select direction.", list("North", "East", "South", "West"))
-		if(!direction)
+	if(!isturf(user.loc))
+		return
+	var/direction = tgui_input_list(user, "In which direction?", "Select direction.", list("North", "East", "South", "West"))
+	if(!direction)
+		return
+	var/obj/structure/sign/S = new(user.loc)
+	switch(direction)
+		if("North")
+			S.pixel_y = 32
+		if("East")
+			S.pixel_x = 32
+		if("South")
+			S.pixel_y = -32
+		if("West")
+			S.pixel_x = -32
+		else
 			return
-		var/obj/structure/sign/S = new(user.loc)
-		switch(direction)
-			if("North")
-				S.pixel_y = 32
-			if("East")
-				S.pixel_x = 32
-			if("South")
-				S.pixel_y = -32
-			if("West")
-				S.pixel_x = -32
-			else
-				return
-		S.name = name
-		S.desc = desc
-		S.icon_state = sign_state
-		to_chat(user, "You fasten \the [S] with your [I].")
-		qdel(src)
+	S.name = name
+	S.desc = desc
+	S.icon_state = sign_state
+	to_chat(user, "You fasten \the [S] with your [I].")
+	qdel(src)
 
 /obj/structure/sign/double/map
 	name = "station map"

@@ -97,27 +97,6 @@
 
 	human.drop_held_item()
 	qdel(src)
-/obj/item/storage/box/crate/sentry
-	name = "\improper ST-571 sentry crate"
-	desc = "A large case containing all you need to set up an automated sentry."
-	icon_state = "sentry_case"
-	w_class = WEIGHT_CLASS_HUGE
-	max_w_class = WEIGHT_CLASS_HUGE
-	storage_slots = 6
-	max_storage_space = 16
-	can_hold = list(
-		/obj/item/weapon/gun/sentry,
-		/obj/item/ammo_magazine/sentry,
-	)
-	bypass_w_limit = list(
-		/obj/item/weapon/gun/sentry,
-		/obj/item/ammo_magazine/sentry,
-	)
-
-/obj/item/storage/box/crate/sentry/Initialize(mapload)
-	. = ..()
-	new /obj/item/weapon/gun/sentry/basic(src)
-	new /obj/item/ammo_magazine/sentry(src)
 
 /obj/item/weapon/gun/sentry/basic
 	name = "\improper Турель TUR-B \"Базис\""

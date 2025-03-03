@@ -8,38 +8,29 @@
 	idle_power_usage = 30
 	active_power_usage = 200
 	power_channel = EQUIP
-
 	var/obj/item/card/id/idscan = null
 	var/authenticated = FALSE
-
 	var/obj/item/paper/message = null
 	var/sendcooldown = FALSE
-
 	var/department = CORPORATE_LIAISON
 	var/selected = "Nanotrasen"
-
 
 /obj/machinery/faxmachine/Initialize(mapload)
 	. = ..()
 	GLOB.faxmachines += src
 
-
 /obj/machinery/faxmachine/Destroy()
 	GLOB.faxmachines -= src
 	return ..()
-
 
 /obj/machinery/faxmachine/deconstruct(disassembled = TRUE)
 	if(idscan)
 		idscan.forceMove(get_turf(src))
 		idscan = null
-
 	return ..()
-
 
 /obj/machinery/faxmachine/process()
 	return FALSE
-
 
 /obj/machinery/faxmachine/interact(mob/user)
 	. = ..()
@@ -86,7 +77,6 @@
 	var/datum/browser/popup = new(user, "fax", "<div align='center'>Fax Machine</div>")
 	popup.set_content(dat)
 	popup.open()
-
 
 /obj/machinery/faxmachine/Topic(href, href_list)
 	. = ..()
@@ -141,9 +131,10 @@
 
 	updateUsrDialog()
 
-
 /obj/machinery/faxmachine/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(istype(I, /obj/item/paper))
 		if(!message)
 			user.transferItemToLoc(I, src)
@@ -160,11 +151,11 @@
 			user.transferItemToLoc(idcard, src)
 			idscan = idcard
 
-	else if(iswrench(I))
-		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
-		anchored = !anchored
-		to_chat(user, span_notice("You [anchored ? "wrench" : "unwrench"] \the [src]."))
-
+/obj/machinery/faxmachine/wrench_act(mob/living/user, obj/item/I)
+	. = ..()
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+	anchored = !anchored
+	to_chat(user, span_notice("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 
 /obj/machinery/faxmachine/cic
 	department = "Combat Information Center"

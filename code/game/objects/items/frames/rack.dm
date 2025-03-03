@@ -9,12 +9,11 @@
 	icon_state = "rack_parts"
 	atom_flags = CONDUCT
 
-/obj/item/frame/rack/attackby(obj/item/I, mob/user, params)
+/obj/item/frame/rack/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
 
-	if(iswrench(I))
-		new /obj/item/stack/sheet/metal(loc)
-		qdel(src)
+	new /obj/item/stack/sheet/metal(loc)
+	qdel(src)
 
 /obj/item/frame/rack/attack_self(mob/user as mob)
 	if(locate(/obj/structure/table) in user.loc || locate(/obj/structure/barricade) in user.loc)

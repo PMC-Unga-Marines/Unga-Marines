@@ -27,14 +27,12 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 6)
 	tastes = list("bun" = 4, "lettuce" = 2, "sludge" = 1)
 
-
 /obj/item/reagent_containers/food/snacks/burger/roburgerbig
 	name = "roburger"
 	desc = "This massive patty looks like poison. Beep."
 	icon_state = "roburger"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 11, /datum/reagent/consumable/nutriment/vitamin = 15)
 	tastes = list("bun" = 4, "lettuce" = 2, "sludge" = 1)
-
 
 /obj/item/reagent_containers/food/snacks/burger/appendix
 	name = "appendix burger"
@@ -49,7 +47,6 @@
 	icon_state = "xburger"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("bun" = 4, "acid" = 4)
-
 
 /obj/item/reagent_containers/food/snacks/burger/human
 	name = "human burger"
@@ -68,7 +65,6 @@
 	desc = "This tastes funny..."
 	icon_state = "clownburger"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 6)
-
 
 /obj/item/reagent_containers/food/snacks/burger/mime
 	name = "mime burger"
@@ -264,14 +260,15 @@
 
 /obj/item/reagent_containers/food/snacks/burger/plain/Initialize(mapload)
 	. = ..()
-	if(prob(1))
-		playsound(src, 'sound/effects/smoke.ogg', 50, TRUE)
-		visible_message(span_warning("Oh, ye gods! [src] is ruined! But what if...?"))
-		name = "steamed ham"
-		desc = pick("Ahh, CMO, welcome. I hope you're prepared for an unforgettable luncheon!",
-		"And you call these steamed hams despite the fact that they are obviously microwaved?",
-		"TGMC Marine Corp? At this time of shift, in this time of year, in this sector of space, localized entirely within your freezer?",
-		"You know, these hamburgers taste quite similar to the ones they have at the Maltese Falcon.")
+	if(prob(99))
+		return
+	playsound(src, 'sound/effects/smoke.ogg', 50, TRUE)
+	visible_message(span_warning("Oh, ye gods! [src] is ruined! But what if...?"))
+	name = "steamed ham"
+	desc = pick("Ahh, CMO, welcome. I hope you're prepared for an unforgettable luncheon!",
+	"And you call these steamed hams despite the fact that they are obviously microwaved?",
+	"TGMC Marine Corp? At this time of shift, in this time of year, in this sector of space, localized entirely within your freezer?",
+	"You know, these hamburgers taste quite similar to the ones they have at the Maltese Falcon.")
 
 /obj/item/reagent_containers/food/snacks/burger/packaged_burger
 	name = "Packaged Cheeseburger"
@@ -294,6 +291,8 @@
 // Human Burger + cheese wedge = cheeseburger
 /obj/item/reagent_containers/food/snacks/burger/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cheesewedge))
 		new /obj/item/reagent_containers/food/snacks/burger/cheese(src)
@@ -301,10 +300,11 @@
 		qdel(I)
 		qdel(src)
 
-
 // Burger + cheese wedge = cheeseburger
 /obj/item/reagent_containers/food/snacks/burger/plain/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/cheesewedge))
 		new /obj/item/reagent_containers/food/snacks/burger/cheese(src)
@@ -330,6 +330,8 @@
 
 /obj/item/reagent_containers/food/snacks/burger/bun/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return 
 	// Bun + meatball = burger
 	if(istype(I, /obj/item/reagent_containers/food/snacks/meatball))
 		new /obj/item/reagent_containers/food/snacks/burger/plain(src)

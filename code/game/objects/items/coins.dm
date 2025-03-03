@@ -1,5 +1,3 @@
-/*****************************Coin********************************/
-
 /obj/item/coin
 	icon = 'icons/obj/items/items.dmi'
 	name = "Coin"
@@ -11,8 +9,8 @@
 
 /obj/item/coin/Initialize(mapload)
 	. = ..()
-	pixel_x = rand(0,16)-8
-	pixel_y = rand(0,8)-8
+	pixel_x = rand(-8, 16)
+	pixel_y = rand(-8, 8)
 
 /obj/item/coin/gold
 	name = "gold coin"
@@ -49,6 +47,8 @@
 
 /obj/item/coin/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/CC = I
@@ -64,17 +64,18 @@
 		string_attached = TRUE
 		to_chat(user, span_notice("You attach a string to the coin."))
 
-	else if(iswirecutter(I))
-		if(!string_attached)
-			return
+/obj/item/coin/wirecutter_act(mob/living/user, obj/item/I)
+	. = ..()
 
-		var/obj/item/stack/cable_coil/CC = new(user.loc)
-		CC.amount = 1
-		CC.update_icon()
-		overlays = list()
-		string_attached = FALSE
-		to_chat(user, span_notice("You detach the string from the coin."))
+	if(!string_attached)
+		return
 
+	var/obj/item/stack/cable_coil/CC = new(user.loc)
+	CC.amount = 1
+	CC.update_icon()
+	overlays = list()
+	string_attached = FALSE
+	to_chat(user, span_notice("You detach the string from the coin."))
 
 /obj/item/coin/attack_self(mob/user as mob)
 	var/result = rand(1, sides)

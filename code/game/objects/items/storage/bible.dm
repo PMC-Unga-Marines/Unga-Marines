@@ -8,7 +8,7 @@
 	)
 	throw_speed = 1
 	throw_range = 5
-	storage_slots = 1
+	storage_type = /datum/storage/bible
 	w_class = WEIGHT_CLASS_NORMAL
 	var/mob/affecting = null
 	var/deity_name = "Christ"
@@ -17,14 +17,9 @@
 	name = "bible"
 	desc = "To be applied to the head repeatedly."
 	icon_state ="bible"
-	storage_slots = 7
-	can_hold = list(
-		/obj/item/reagent_containers/food/drinks/cans,
-		/obj/item/spacecash,
-	)
+	storage_type = /datum/storage/bible/booze
 
-/obj/item/storage/bible/booze/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/bible/booze/PopulateContents()
 	new /obj/item/reagent_containers/food/drinks/cans/beer(src)
 	new /obj/item/reagent_containers/food/drinks/cans/beer(src)
 	new /obj/item/spacecash(src)
@@ -45,5 +40,5 @@
 /obj/item/storage/bible/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
-	if(use_sound)
-		playsound(loc, use_sound, 25, 1, 6)
+	if(storage_datum.use_sound)
+		playsound(loc, storage_datum.use_sound, 25, 1, 6)

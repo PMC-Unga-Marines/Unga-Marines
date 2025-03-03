@@ -51,9 +51,6 @@
 /mob/living/silicon/med_hud_set_status()
 	return
 
-/mob/living/silicon/contents_explosion(severity)
-	return
-
 /mob/living/silicon/emp_act(severity)
 	switch(severity)
 		if(1)
