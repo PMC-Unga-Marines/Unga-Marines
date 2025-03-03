@@ -6691,10 +6691,7 @@
 /area/slumbridge/outside/southeast)
 "fiB" = (
 /obj/structure/coatrack,
-/obj/item/clothing/suit/security/formal/senior_officer/tan{
-	pixel_x = -1;
-	pixel_y = 4
-	},
+/obj/item/clothing/suit/storage/security/formal/senior_officer/tan,
 /obj/item/clothing/tie/medal/silver{
 	pixel_y = 1
 	},
