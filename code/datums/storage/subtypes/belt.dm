@@ -259,6 +259,7 @@
 	use_sound = null
 
 /datum/storage/belt/mortar_belt/New(atom/parent)
+	. = ..()
 	set_holdable(
 		can_hold_list = list(
 			/obj/item/mortar_kit/knee,

@@ -711,13 +711,14 @@
 /obj/item/storage/box/visual/grenade/razorburn_large
 	name = "razorburn canister box"
 	desc = "A secure box holding 10 razorburn canisters. Used for quick flank coverage."
+	spawn_number = 10
 	spawn_type = /obj/item/explosive/grenade/chem_grenade/razorburn_large
 	closed_overlay = "grenade_box_overlay_razorburn_large"
 
 /obj/item/storage/box/visual/grenade/razorburn_large/Initialize(mapload, ...)
 	. = ..()
 	storage_datum.storage_slots = 10
-	storage_datum.max_storage_space = 10
+	storage_datum.max_storage_space = 20
 
 /obj/item/storage/box/visual/grenade/teargas
 	name = "\improper M66 teargas grenade box"
