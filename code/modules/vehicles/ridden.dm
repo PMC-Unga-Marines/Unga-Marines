@@ -13,7 +13,7 @@
 	///List of attachment types that is attached to the object on initialize.
 	var/list/starting_attachments = list()
 	COOLDOWN_DECLARE(message_cooldown)
-	
+
 /obj/vehicle/ridden/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/attachment_handler, attachments_by_slot, attachments_allowed, attachment_offsets, starting_attachments, null, null, null)

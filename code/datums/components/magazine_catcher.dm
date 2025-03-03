@@ -21,6 +21,7 @@
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED_TO_SLOT, PROC_REF(equipped_to_slot))
 	RegisterSignals(parent, list(COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT, COMSIG_ITEM_DROPPED), PROC_REF(removed_from_slot))
 	var/atom/atom_parent = parent
+	storage = atom_parent.storage_datum
 	atom_parent.verbs += /datum/component/magazine_catcher/proc/toggle_auto_catch
 
 /datum/component/magazine_catcher/UnregisterFromParent()
@@ -60,6 +61,6 @@
 	var/datum/component/magazine_catcher/comp = GetComponent(/datum/component/magazine_catcher)
 	comp.auto_catch = !comp.auto_catch
 	if(!comp.auto_catch)
-		to_chat(usr, "Auto catching disabled.")
+		to_chat(usr, span_notice("Auto catching disabled."))
 	else
-		to_chat(usr, "Auto catching enabled.")
+		to_chat(usr, span_notice("Auto catching enabled."))
