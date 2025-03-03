@@ -1,1 +1,0 @@
-/obj/item/storage/box/MRE : /datum/storage/box/mre

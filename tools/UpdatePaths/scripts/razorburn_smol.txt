@@ -1,1 +1,0 @@
-/obj/item/explosive/grenade/chem_grenade/razorburn_small : /obj/item/explosive/grenade/chem_grenade/razorburn_small
