@@ -219,8 +219,7 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 	var/datum/action/item_action/firemode/firemode_action = action
 	if(!istype(firemode_action))
 		if(master_gun)
-			activate(user)
-			return
+			return activate(user)
 		return ..()
 	return do_toggle_firemode(user)
 
@@ -257,11 +256,10 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 
 	if(ishuman(source))
 		to_chat(source, span_notice("[icon2html(src, source)] You switch to <b>[gun_firemode]</b>."))
-		if(source == gun_user)
-			gun_user.update_action_buttons()
 	playsound(src, 'sound/weapons/guns/interact/selector.ogg', 15, 1)
 	SEND_SIGNAL(src, COMSIG_GUN_FIRE_MODE_TOGGLE, gun_firemode)
 	setup_bullet_accuracy()
+	return TRUE
 
 /obj/item/weapon/gun/proc/add_firemode(added_firemode, mob/user)
 	gun_firemode_list += added_firemode

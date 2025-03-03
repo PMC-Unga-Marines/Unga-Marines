@@ -292,7 +292,7 @@
 ///This updates the overlays of the parent and apllies the right ones.
 /datum/component/attachment_handler/proc/update_parent_overlay(datum/source)
 	SIGNAL_HANDLER
-	var/obj/item/parent_obj = parent
+	var/obj/parent_obj = parent
 	for(var/slot in slots) //Cycles through all the slots.
 		var/obj/item/attachment = slots[slot]
 		var/image/overlay = attachable_overlays[slot]

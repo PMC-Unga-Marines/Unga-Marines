@@ -187,7 +187,7 @@
 /obj/item/attachable/shoulder_mount/ui_action_click(mob/living/user, datum/action/item_action/action, obj/item/weapon/gun/G)
 	if(!istype(master_gun.loc, /obj/item/clothing/suit/modular) || master_gun.loc.loc != user)
 		return
-	activate(user)
+	return activate(user)
 
 /obj/item/attachable/shoulder_mount/activate(mob/user, turn_off)
 	. = ..()

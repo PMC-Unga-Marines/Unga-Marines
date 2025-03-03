@@ -313,8 +313,9 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 
 /obj/item/attachable/ui_action_click(mob/living/user, datum/action/item_action/action, obj/item/weapon/gun/G)
 	if(G == user.get_active_held_item() || G == user.get_inactive_held_item() || CHECK_BITFIELD(G.item_flags, IS_DEPLOYED))
-		if(activate(user)) //success
+		if(activate(user))
 			playsound(user, activation_sound, 15, 1)
+			return TRUE
 	else
 		to_chat(user, span_warning("[G] must be in our hands to do this."))
 
@@ -342,7 +343,6 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	var/mob/living/living_user = user
 	if(master_gun == living_user.get_inactive_held_item() || master_gun == living_user.get_active_held_item())
 		new_action.give_action(living_user)
-	attached_to:gunattachment = src
 	activate(user)
 	new_action.set_toggle(TRUE)
 	update_icon()
