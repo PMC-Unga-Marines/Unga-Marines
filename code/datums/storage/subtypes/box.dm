@@ -28,15 +28,37 @@
 /datum/storage/box/mre/som
 	trash_item = /obj/item/trash/mre/som
 
+// Do not assign this to any other than visual boxes, or there will be bloodshed
 /datum/storage/box/visual
 	max_w_class = WEIGHT_CLASS_BULKY
 	storage_slots = 32 // 8 images x 4 items
 	max_storage_space = 64
 	use_to_pickup = TRUE
+	/// Our parent box
+	var/obj/item/storage/box/visual/parent_box
 
 /datum/storage/box/visual/New(atom/parent)
 	. = ..()
+	parent_box = parent
 	set_holdable(list(/obj/item)) //This box should normally be unobtainable so here we go
+
+/datum/storage/box/visual/open(mob/user)
+	if(!parent_box.deployed)
+		user.balloon_alert(user, "deploy first.")
+		return FALSE
+	return ..()
+
+/datum/storage/box/visual/attempt_draw_object(mob/living/user, start_from_left)
+	if(!parent_box.deployed)
+		user.balloon_alert(user, "deploy first.")
+		return FALSE
+	return ..()
+
+/datum/storage/box/visual/can_be_inserted(obj/item/item_to_insert, mob/user, warning)
+	if(!parent_box.deployed)
+		user.balloon_alert(user, "deploy first.")
+		return FALSE
+	return ..()
 
 /datum/storage/box/visual/magazine
 	max_w_class = WEIGHT_CLASS_BULKY
