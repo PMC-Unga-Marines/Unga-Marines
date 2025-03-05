@@ -544,3 +544,6 @@
 	take_damage(damage, BRUTE, MELEE)
 	playsound(src, get_sfx("slam"), 40)
 	return TRUE
+
+/turf/closed/wall/get_dumping_location()
+	return null

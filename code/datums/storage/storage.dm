@@ -391,9 +391,6 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		open(user)
 		return COMPONENT_NO_MOUSEDROP
 
-	if(!istype(over_object, /atom/movable/screen))
-		return //Don't cancel mousedrop
-
 	if(HAS_TRAIT(src, TRAIT_NODROP))
 		return COMPONENT_NO_MOUSEDROP
 
@@ -401,7 +398,10 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(parent.loc != user && parent.loc.loc != user) //loc.loc handles edge case of storage attached to an item attached to another item (modules/boots)
 		return COMPONENT_NO_MOUSEDROP
 
-	if(!user.restrained() && !user.stat)
+	if(user.restrained() || user.stat != CONSCIOUS)
+		return COMPONENT_NO_MOUSEDROP
+
+	if(istype(over_object, /atom/movable/screen/inventory/hand))
 		switch(over_object.name)
 			if("r_hand")
 				INVOKE_ASYNC(src, PROC_REF(put_item_in_r_hand), source, user)
@@ -409,6 +409,21 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 			if("l_hand")
 				INVOKE_ASYNC(src, PROC_REF(put_item_in_l_hand), source, user)
 				return COMPONENT_NO_MOUSEDROP
+
+	if(istype(over_object, /atom/movable/screen))
+		return
+
+	var/atom/dump_loc = over_object.get_dumping_location()
+
+	if(isnull(dump_loc))
+		return
+
+	/// Don't dump *onto* objects in the same storage as ourselves
+	if(over_object.loc == parent.loc && !isnull(parent.loc.storage_datum) && isnull(over_object.storage_datum))
+		return
+
+	INVOKE_ASYNC(src, PROC_REF(dump_content_at), over_object, dump_loc, user)
+	return COMPONENT_NO_MOUSEDROP
 
 ///Removes item_to_put_in_hand from the storage it's currently in, and then places it into our right hand
 /datum/storage/proc/put_item_in_r_hand(obj/item/item_to_put_in_hand, mob/user)
@@ -427,6 +442,54 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	user.temporarilyRemoveItemFromInventory(item_to_put_in_hand)
 	if(!user.put_in_l_hand(item_to_put_in_hand))
 		user.dropItemToGround(item_to_put_in_hand)
+
+/**
+ * Dumps all of our contents at a specific location.
+ *
+ * * atom/dest_object where to dump to
+ * * mob/user the user who is dumping the contents
+ */
+/datum/storage/proc/dump_content_at(atom/dest_object, dump_loc, mob/user)
+	//if(locked)
+	//	user.balloon_alert(user, "closed!")
+	//	return
+
+	if(!user.CanReach(parent) || !user.CanReach(dest_object))
+		return
+
+	// Storage to storage transfer is instant
+	if(dest_object.storage_datum)
+		to_chat(user, span_notice("You dump the contents of [parent] into [dest_object]."))
+
+		if(use_sound)
+			playsound(parent, SFX_RUSTLE, 50, TRUE)
+
+		for(var/obj/item/to_dump in parent.contents)
+			if(!dest_object.storage_datum.can_be_inserted(to_dump, user, FALSE))
+				continue
+			dest_object.storage_datum.handle_item_insertion(to_dump, TRUE, user)
+		parent.update_appearance()
+		return
+
+	// Storage to loc transfer requires a do_after
+	to_chat(user, span_notice("You start dumping out the contents of [parent] onto [dest_object]..."))
+	if(!do_after(user, 2 SECONDS, target = dest_object))
+		return
+
+	remove_all(dump_loc)
+
+/**
+ * Removes everything inside of our storage
+ *
+ * Arguments
+ * * atom/drop_loc - where we're placing the item
+ */
+/datum/storage/proc/remove_all(atom/drop_loc = parent.drop_location())
+	for(var/obj/item/thing in parent.contents)
+		if(!remove_from_storage(thing, drop_loc, silent = TRUE))
+			continue
+		thing.pixel_x += rand(-8, 8)
+		thing.pixel_y += rand(-8, 8)
 
 /datum/storage/verb/toggle_gathering_mode()
 	set name = "Switch Gathering Method"

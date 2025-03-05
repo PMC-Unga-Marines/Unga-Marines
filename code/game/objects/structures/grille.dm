@@ -133,7 +133,8 @@
 		return
 	take_damage(1, BURN, FIRE)
 
-
+/obj/structure/grille/get_dumping_location()
+	return null
 
 //MARINE SHIP GRILLE
 

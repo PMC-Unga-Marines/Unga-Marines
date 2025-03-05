@@ -130,7 +130,7 @@
 		span_notice("You knock on [src]."),
 		span_notice("You hear a knocking sound."))
 		windowknock_cooldown = world.time + 100
-	
+
 /obj/structure/window/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
 	if(!isliving(grab.grabbed_thing))
 		return
@@ -278,6 +278,9 @@
 	. = ..()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
 		take_damage(1 * S.strength, BURN, ACID) // glass doesn't care about acid
+
+/obj/structure/window/get_dumping_location()
+	return null
 
 /obj/structure/window/phoronbasic
 	name = "phoron window"

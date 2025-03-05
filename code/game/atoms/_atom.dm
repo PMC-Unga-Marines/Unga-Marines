@@ -989,3 +989,9 @@ directive is properly returned.
 /// Handles anything that should happen when the Warrior's punch hits any atom.
 /atom/proc/punch_act(mob/living/carbon/xenomorph/xeno, punch_damage, push = TRUE)
 	return TRUE
+
+/*
+ * Return a loc to place objects, or null to stop dumping.
+ */
+/atom/proc/get_dumping_location()
+	return null

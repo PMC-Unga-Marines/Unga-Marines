@@ -6,7 +6,14 @@
 /datum/storage/lockbox/show_to(mob/user)
 	var/obj/item/storage/lockbox/parent_box = parent
 	if(parent_box.locked)
-		to_chat(user, span_warning("Its locked!"))
+		user.balloon_alert(user, "closed!")
+		return
+	return ..()
+
+/datum/storage/lockbox/dump_content_at(atom/dest_object, dump_loc, mob/user)
+	var/obj/item/storage/lockbox/parent_box = parent
+	if(parent_box.locked)
+		user.balloon_alert(user, "closed!")
 		return
 	return ..()
 
@@ -21,6 +28,13 @@
 /datum/storage/secure
 	max_w_class = WEIGHT_CLASS_SMALL
 	max_storage_space = 14
+
+/datum/storage/secure/safe/dump_content_at(atom/dest_object, dump_loc, mob/user)
+	var/obj/item/storage/secure/parent_box = parent
+	if(parent_box.locked)
+		user.balloon_alert(user, "closed!")
+		return
+	return ..()
 
 /datum/storage/secure/safe
 	max_w_class = WEIGHT_CLASS_GIGANTIC

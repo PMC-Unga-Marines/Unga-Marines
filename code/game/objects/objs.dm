@@ -348,3 +348,6 @@
 
 /obj/footstep_override(atom/movable/source, list/footstep_overrides)
 	footstep_overrides[FOOTSTEP_PLATING] = layer
+	
+/obj/get_dumping_location()
+	return get_turf(src)
