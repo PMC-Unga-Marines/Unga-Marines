@@ -643,39 +643,19 @@
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
 	toggle_signal = COMSIG_KB_HELMETMODULE
-	/// Reference to the datum used by the supply drop console
-	var/datum/supply_beacon/beacon_datum
 
-/obj/item/armor_module/module/antenna/Destroy()
-	if(beacon_datum)
-		UnregisterSignal(beacon_datum, COMSIG_QDELETING)
-		QDEL_NULL(beacon_datum)
+/obj/item/armor_module/module/antenna/on_attach(obj/item/attaching_to, mob/user)
+	. = ..()
+	parent.AddComponent(/datum/component/beacon/antenna)
+
+/obj/item/armor_module/module/antenna/on_detach(obj/item/detaching_from, mob/user)
+	var/datum/component/beacon/beacon = parent?.GetComponent(/datum/component/beacon)
+	beacon?.RemoveComponent()
 	return ..()
 
 /obj/item/armor_module/module/antenna/activate(mob/living/user)
-	var/turf/location = get_turf(src)
-	if(beacon_datum)
-		UnregisterSignal(beacon_datum, COMSIG_QDELETING)
-		QDEL_NULL(beacon_datum)
-		user.show_message(span_warning("The [src] beeps and states, \"Your last position is no longer accessible by the supply console"), EMOTE_AUDIBLE, span_notice("The [src] vibrates but you can not hear it!"))
-		return
-	if(!is_ground_level(user.z))
-		to_chat(user, span_warning("You have to be on the planet to use this or it won't transmit."))
-		return FALSE
-	beacon_datum = new /datum/supply_beacon(user.name, user.loc, user.faction, 4 MINUTES)
-	RegisterSignal(beacon_datum, COMSIG_QDELETING, PROC_REF(clean_beacon_datum))
-	user.show_message(span_notice("The [src] beeps and states, \"Your current coordinates were registered by the supply console. LONGITUDE [location.x]. LATITUDE [location.y]. Area ID: [get_area(src)]\""), EMOTE_AUDIBLE, span_notice("The [src] vibrates but you can not hear it!"))
-	addtimer(CALLBACK(src, PROC_REF(update_beacon_location)), 5 SECONDS)
-
-/obj/item/armor_module/module/antenna/proc/update_beacon_location()
-	if(beacon_datum)
-		beacon_datum.drop_location = get_turf(src)
-		addtimer(CALLBACK(src, PROC_REF(update_beacon_location), beacon_datum), 5 SECONDS)
-
-/// Signal handler to nullify beacon datum
-/obj/item/armor_module/module/antenna/proc/clean_beacon_datum()
-	SIGNAL_HANDLER
-	beacon_datum = null
+	var/datum/component/beacon/beacon = parent?.GetComponent(/datum/component/beacon)
+	beacon?.toggle_activation(parent, user)
 
 /obj/item/armor_module/module/night_vision
 	name = "\improper BE-35 night vision kit"

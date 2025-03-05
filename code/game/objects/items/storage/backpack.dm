@@ -851,19 +851,14 @@
 	item_state = "radiopack"
 	///Var for the window pop-up
 	var/datum/supply_ui/requests/supply_interface
-	/// Reference to the datum used by the supply drop console
-	var/datum/supply_beacon/beacon_datum
 
-/obj/item/storage/backpack/marine/radiopack/Destroy()
-	if(beacon_datum)
-		UnregisterSignal(beacon_datum, COMSIG_QDELETING)
-		QDEL_NULL(beacon_datum)
-	return ..()
+/obj/item/storage/backpack/marine/radiopack/Initialize(mapload, ...)
+	. = ..()
+	AddComponent(/datum/component/beacon)
 
 /obj/item/storage/backpack/marine/radiopack/examine(mob/user)
 	. = ..()
 	. += span_notice("Right-Click with empty hand to open requisitions interface.")
-	. += span_notice("Activate in hand to create a supply beacon signal.")
 
 /obj/item/storage/backpack/marine/radiopack/attack_hand_alternate(mob/living/user)
 	if(!allowed(user))
@@ -871,32 +866,3 @@
 	if(!supply_interface)
 		supply_interface = new(src)
 	return supply_interface.interact(user)
-
-/obj/item/storage/backpack/marine/radiopack/attack_self(mob/living/user)
-	if(beacon_datum)
-		UnregisterSignal(beacon_datum, COMSIG_QDELETING)
-		QDEL_NULL(beacon_datum)
-		user.show_message(span_warning("The [src] beeps and states, \"Your last position is no longer accessible by the supply console"), EMOTE_AUDIBLE, span_notice("The [src] vibrates but you can not hear it!"))
-		return
-	if(!is_ground_level(user.z))
-		to_chat(user, span_warning("You have to be on the planet to use this or it won't transmit."))
-		return FALSE
-	var/area/A = get_area(user)
-	if(A && istype(A) && A.ceiling >= CEILING_DEEP_UNDERGROUND)
-		to_chat(user, span_warning("This won't work if you're standing deep underground."))
-		return FALSE
-	var/turf/location = get_turf(src)
-	beacon_datum = new /datum/supply_beacon(user.name, user.loc, user.faction, 4 MINUTES)
-	RegisterSignal(beacon_datum, COMSIG_QDELETING, PROC_REF(clean_beacon_datum))
-	user.show_message(span_notice("The [src] beeps and states, \"Your current coordinates were registered by the supply console. LONGITUDE [location.x]. LATITUDE [location.y]. Area ID: [get_area(src)]\""), EMOTE_AUDIBLE, span_notice("The [src] vibrates but you can not hear it!"))
-	addtimer(CALLBACK(src, PROC_REF(update_beacon_location)), 5 SECONDS)
-
-/obj/item/storage/backpack/marine/radiopack/proc/update_beacon_location()
-	if(beacon_datum)
-		beacon_datum.drop_location = get_turf(src)
-		addtimer(CALLBACK(src, PROC_REF(update_beacon_location), beacon_datum), 5 SECONDS)
-
-/// Signal handler to nullify beacon datum
-/obj/item/storage/backpack/marine/radiopack/proc/clean_beacon_datum()
-	SIGNAL_HANDLER
-	beacon_datum = null
