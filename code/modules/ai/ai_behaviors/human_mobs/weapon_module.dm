@@ -5,7 +5,7 @@
 	///Currently equipped and ready melee weapon - could also be the gun
 	var/obj/item/weapon/melee_weapon
 	///Chat lines when opening fire
-	var/list/start_fire_chat = list("Получи!!", "Вступаю в бой!", "Открыть огонь!", "Веду огонь!", "Враги!", "Разберитесь с ними!", "Убейте их!", "Зажжём!", "Огонь!!", "Застрелите их!", "Стреляю!", "Weapons free!", "Пошёл нахуй!!")
+	var/list/start_fire_chat = list("Получи!!", "Вступаю в бой!", "Открыть огонь!", "Веду огонь!", "Враги!", "Валим их!", "Убейте их!", "Зажжём!", "Огонь!!", "Застрелите их!", "Стреляю!", "Огонь на поражение!", "Иди нахуй!!")
 	///Chat lines when reloading
 	var/list/reloading_chat = list("Перезаряжаюсь!", "Прикройте, перезаряжаюсь!", "Меняю магазин!", "Патроны закончились!")
 	///Chat lines when target goes out of range
@@ -268,39 +268,19 @@
 		var/obj/item/ammo_magazine/handful_mag = new_ammo
 		while(handful_mag.current_rounds)
 			if(!gun.reload(handful_mag, mob_parent))
-				return
-	gun.reload(new_ammo, mob_parent) //skips tac reload but w/e. if we want it, then we need to check for skills...
-	//note: force arg on reload would allow reloading closed chamber weapons, but also bypasses reload delays... funny rapid rockets
+				break
+	else
+		gun.reload(new_ammo, mob_parent)
 
-//TODO: maybe move these
-///Optimal range for AI to fight at, using this weapon
-/obj/item/weapon/proc/get_ai_combat_range()
-	return list(0, 1)
+	if(gun.reciever_flags & AMMO_RECIEVER_TOGGLES_OPEN)
+		gun.unique_action(mob_parent)
 
-/obj/item/weapon/twohanded/spear/get_ai_combat_range()
-	return 2
-
-/obj/item/weapon/gun/get_ai_combat_range()
-	if(ammo_datum_type::ammo_behavior_flags & AMMO_IFF)
-		return list(5, 7)
-	return list(4, 5)
-
-/obj/item/weapon/gun/shotgun/get_ai_combat_range()
-	if(ammo_datum_type == /datum/ammo/bullet/shotgun/buckshot)
-		return 1
-	return list(4, 5)
-
-/obj/item/weapon/gun/smg/get_ai_combat_range()
-	return list(3, 4)
-
-/obj/item/weapon/gun/pistol/get_ai_combat_range()
-	return list(3, 4)
-
-/obj/item/weapon/gun/revolver/get_ai_combat_range()
-	return list(3, 4)
-
-/obj/item/weapon/gun/launcher/get_ai_combat_range()
-	return list(7, 8)
-
-/obj/item/weapon/gun/grenade_launcher/get_ai_combat_range()
-	return list(6, 8)
+///Returns true is a path is clear of friendlies
+/datum/ai_behavior/human/proc/check_path_ff(atom/start, atom/end)
+	var/list/turf_line = get_traversal_line(start, end)
+	turf_line.Cut(1, 2) //don't count our own turf
+	for(var/turf/line_turf AS in turf_line)
+		for(var/mob/line_mob in line_turf) //todo: add checks for vehicles etc
+			if(line_mob.faction == mob_parent.faction)
+				return FALSE
+	return TRUE

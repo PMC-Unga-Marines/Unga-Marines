@@ -81,6 +81,7 @@
 	SIGNAL_HANDLER
 	toggle_active()
 	if(active)
+		RegisterSignals(src, list(COMSIG_ITEM_EQUIPPED_TO_SLOT, COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT, COMSIG_ITEM_UNEQUIPPED), PROC_REF(switch_state))
 		toggle_item_bump_attack(user, TRUE)
 		hitsound = 'sound/weapons/blade1.ogg'
 		force = force_activated
@@ -90,8 +91,8 @@
 		icon_state = "[initial(icon_state)]_[sword_color]"
 		w_class = WEIGHT_CLASS_BULKY
 		playsound(src, 'sound/weapons/saberon.ogg', 25, 1)
-		RegisterSignals(src, list(COMSIG_ITEM_EQUIPPED_TO_SLOT, COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT, COMSIG_ITEM_UNEQUIPPED), PROC_REF(switch_state))
 	else
+		UnregisterSignal(src, list(COMSIG_ITEM_EQUIPPED_TO_SLOT, COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT, COMSIG_ITEM_UNEQUIPPED))
 		toggle_item_bump_attack(user, FALSE)
 		hitsound = initial(hitsound)
 		force = initial(force)
@@ -101,7 +102,7 @@
 		icon_state = "[initial(icon_state)]"
 		w_class = WEIGHT_CLASS_SMALL
 		playsound(src, 'sound/weapons/saberoff.ogg', 25, 1)
-		UnregisterSignal(src, list(COMSIG_ITEM_EQUIPPED_TO_SLOT, COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT, COMSIG_ITEM_UNEQUIPPED))
+		special_attack?.remove_action(user)
 
 /obj/item/weapon/energy/sword/pirate
 	name = "energy cutlass"
