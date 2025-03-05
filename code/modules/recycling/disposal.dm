@@ -360,7 +360,6 @@
 	if(disposal_pressure < SEND_PRESSURE)
 		disposal_pressure += 5
 
-
 //Perform a flush
 /obj/machinery/disposal/proc/flush()
 
@@ -396,12 +395,10 @@
 		mode = 1	//Switch to charging
 	update()
 
-
 //Called when area power changes
 /obj/machinery/disposal/power_change()
-	..()	//Do default setting/reset of stat NOPOWER bit
+	. = ..()	//Do default setting/reset of stat NOPOWER bit
 	update()	//Update icon
-
 
 //Called when holder is expelled from a disposal, should usually only occur if the pipe network is modified
 /obj/machinery/disposal/proc/expel(obj/structure/disposalholder/H)
@@ -425,21 +422,25 @@
 		else
 			visible_message(span_warning("[I] bounces off of [src]'s rim!"))
 		return FALSE
-	else
-		return ..()
+	return ..()
 
 //Virtual disposal object, travels through pipes in lieu of actual items
 //Contents will be items flushed by the disposal, this allows the gas flushed to be tracked
 /obj/structure/disposalholder
 	invisibility = INVISIBILITY_MAXIMUM
-	var/active = 0	//True if the holder is moving, otherwise inactive
 	dir = 0
-	var/count = 2048 //Can travel 2048 steps before going inactive (in case of loops)
-	var/destinationTag = "" //Changes if contains a delivery container
-	var/tomail = 0 //Changes if contains wrapped package
-	var/hasmob = 0 //If it contains a mob
-
-	var/partialTag = "" //Set by a partial tagger the first time round, then put in destinationTag if it goes through again.
+	///True if the holder is moving, otherwise inactive
+	var/active = 0
+	///Can travel 2048 steps before going inactive (in case of loops)
+	var/count = 2048
+	///Changes if contains a delivery container
+	var/destinationTag = ""
+	///Changes if contains wrapped package
+	var/tomail = 0
+	///If it contains a mob
+	var/hasmob = 0
+	///Set by a partial tagger the first time round, then put in destinationTag if it goes through again.
+	var/partialTag = ""
 
 /obj/structure/disposalholder/Destroy()
 	active = 0
