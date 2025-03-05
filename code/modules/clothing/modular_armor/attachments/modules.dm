@@ -604,8 +604,8 @@
 	desc = "Designed for mounting on a modular helmet. The Freyr module is designed with an overlay visor that clarifies the user's vision, allowing them to see clearly even in the harshest of circumstances. This version is enhanced and allows the marine to peer through the visor, akin to binoculars."
 	icon_state = "artemis_head"
 	item_state = "artemis_head_mk2_a"
-	var/eye_protection_mod = 1
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_mk2_xn")
+	var/eye_protection_mod = 1
 
 /obj/item/armor_module/module/binoculars/artemis_mark_two/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
@@ -635,7 +635,7 @@
 
 /obj/item/armor_module/module/antenna
 	name = "Antenna helmet module"
-	desc = "Designed for mounting on a modular Helmet. This module is able to provide a readout of the user's coordinates and connect to the shipside supply console."
+	desc = "Designed for mounting on a modular Helmet. This module is able to provide a readout of the user's coordinates and connect to the shipside supply console and shield against the interference of caves, allowing for normal messaging in shallow caves, and only minor interference when deep."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "antenna_head"
 	item_state = "antenna_head_a"
@@ -647,11 +647,27 @@
 /obj/item/armor_module/module/antenna/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
 	parent.AddComponent(/datum/component/beacon/antenna)
+	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED_TO_SLOT, PROC_REF(on_parent_equip))
+	RegisterSignal(parent, COMSIG_ITEM_UNEQUIPPED, PROC_REF(on_parent_unequip))
 
 /obj/item/armor_module/module/antenna/on_detach(obj/item/detaching_from, mob/user)
 	var/datum/component/beacon/beacon = parent?.GetComponent(/datum/component/beacon)
 	beacon?.RemoveComponent()
+	UnregisterSignal(user, list(COMSIG_ITEM_EQUIPPED_TO_SLOT, COMSIG_ITEM_UNEQUIPPED))
 	return ..()
+
+/obj/item/armor_module/module/antenna/proc/on_parent_equip(datum/source, mob/equipper, slot)
+	SIGNAL_HANDLER
+	RegisterSignal(equipper, COMSIG_CAVE_INTERFERENCE_CHECK, PROC_REF(on_interference_check))
+
+/obj/item/armor_module/module/antenna/proc/on_parent_unequip(datum/source, mob/equipper, slot)
+	SIGNAL_HANDLER
+	UnregisterSignal(equipper, COMSIG_CAVE_INTERFERENCE_CHECK)
+
+/// Handles interacting with caves checking for if anything is reducing (or increasing) interference.
+/obj/item/armor_module/module/antenna/proc/on_interference_check(datum/source, list/inplace_interference)
+	SIGNAL_HANDLER
+	inplace_interference[1] = max(0, inplace_interference[1] - 1)
 
 /obj/item/armor_module/module/antenna/activate(mob/living/user)
 	var/datum/component/beacon/beacon = parent?.GetComponent(/datum/component/beacon)
@@ -666,7 +682,7 @@
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
 	slowdown = 0.1
-	///The goggles this module deploys
+	/// The goggles this module deploys
 	var/obj/item/clothing/glasses/night_vision/mounted/attached_goggles
 
 /obj/item/armor_module/module/night_vision/Initialize(mapload)
@@ -693,11 +709,7 @@
 	RegisterSignal(parent, COMSIG_ITEM_UNEQUIPPED, PROC_REF(undeploy))
 
 /obj/item/armor_module/module/night_vision/on_detach(obj/item/detaching_from, mob/user)
-	UnregisterSignal(parent, COMSIG_ATOM_EXAMINE)
-	UnregisterSignal(parent, COMSIG_CLICK_CTRL_SHIFT)
-	UnregisterSignal(parent, COMSIG_ATOM_ATTACKBY)
-	UnregisterSignal(parent, COMSIG_ITEM_EQUIPPED)
-	UnregisterSignal(parent, COMSIG_ITEM_UNEQUIPPED)
+	UnregisterSignal(parent, list(COMSIG_ATOM_EXAMINE, COMSIG_CLICK_CTRL_SHIFT, COMSIG_ATOM_ATTACKBY, COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNEQUIPPED))
 	return ..()
 
 ///Called when the parent is clicked on with an open hand; to take out the battery

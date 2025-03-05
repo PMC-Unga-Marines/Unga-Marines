@@ -855,6 +855,12 @@
 /obj/item/storage/backpack/marine/radiopack/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/beacon)
+	RegisterSignal(src, COMSIG_ITEM_EQUIPPED_TO_SLOT, PROC_REF(on_equip))
+	RegisterSignal(src, COMSIG_ITEM_UNEQUIPPED, PROC_REF(on_unequip))
+
+/obj/item/storage/backpack/marine/radiopack/Destroy()
+	UnregisterSignal(src, list(COMSIG_ITEM_EQUIPPED_TO_SLOT, COMSIG_ITEM_UNEQUIPPED))
+	return ..()
 
 /obj/item/storage/backpack/marine/radiopack/examine(mob/user)
 	. = ..()
@@ -866,3 +872,16 @@
 	if(!supply_interface)
 		supply_interface = new(src)
 	return supply_interface.interact(user)
+
+/obj/item/storage/backpack/marine/radiopack/proc/on_equip(datum/source, mob/equipper, slot)
+	SIGNAL_HANDLER
+	RegisterSignal(equipper, COMSIG_CAVE_INTERFERENCE_CHECK, PROC_REF(on_interference_check))
+
+/obj/item/storage/backpack/marine/radiopack/proc/on_unequip(datum/source, mob/equipper, slot)
+	SIGNAL_HANDLER
+	UnregisterSignal(equipper, COMSIG_CAVE_INTERFERENCE_CHECK)
+
+/// Handles interacting with caves checking for if anything is reducing (or increasing) interference.
+/obj/item/storage/backpack/marine/radiopack/proc/on_interference_check(datum/source, list/inplace_interference)
+	SIGNAL_HANDLER
+	inplace_interference[1] = max(0, inplace_interference[1] - 1)

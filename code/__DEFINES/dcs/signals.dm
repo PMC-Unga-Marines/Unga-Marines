@@ -1136,3 +1136,6 @@
 #define COMSIG_UPGRADE_CHAMBER_SURVIVAL "upgrade_chamber_survival"
 #define COMSIG_UPGRADE_CHAMBER_ATTACK "upgrade_chamber_attack"
 #define COMSIG_UPGRADE_CHAMBER_UTILITY "upgrade_chamber_utility"
+
+/// Cave comms interference check signal.
+#define COMSIG_CAVE_INTERFERENCE_CHECK "cave_interference_check"
