@@ -365,7 +365,7 @@
 
 /obj/item/clothing/mask/facehugger/throw_impact(atom/hit_atom, speed)
 	if(isopenturf(hit_atom))
-		if((locate(/obj/hitbox) in hit_atom) && !leaping) // Kill the hugger if it's thrown on the hitbox of a vehicle
+		if(((locate(/obj/hitbox) in hit_atom) || (locate(/obj/fire/flamer) in hit_atom)) && !leaping) // Kill the hugger if it's thrown on the hitbox of a vehicle
 			kill_hugger()
 			return
 		var/valid_victim = FALSE
@@ -395,7 +395,6 @@
 		if(!Attach(carbon_victim))
 			go_idle()
 	else
-		//step(src, REVERSE_DIR(dir)) // RUTGMC DELETION
 		if(!issamexenohive(carbon_victim))
 			carbon_victim.adjust_stagger(3 SECONDS)
 			carbon_victim.add_slowdown(3)
