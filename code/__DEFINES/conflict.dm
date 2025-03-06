@@ -251,3 +251,14 @@
 
 //Damage modificator
 #define PRED_MELEE_DAMAGE_MOD 0.5
+
+//Cave comms defines
+/// No impact on comms
+#define CAVE_NO_INTERFERENCE 0
+/// Scrambles outgoing messages, no impact on incoming.
+#define CAVE_MINOR_INTERFERENCE 1
+/// Prevents incoming and outgoing messages.
+#define CAVE_FULL_INTERFERENCE 2
+
+/// Time needed to initially configure an antenna module after equipping
+#define ANTENNA_SYNCING_TIME 30 SECONDS

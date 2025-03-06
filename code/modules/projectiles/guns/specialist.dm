@@ -400,15 +400,15 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	damage_falloff_mult = 0.5
 	movement_acc_penalty_mult = 4
 
-	obj_flags = AUTOBALANCE_CHECK
+	item_flags = AUTOBALANCE_CHECK
 
 /obj/item/weapon/gun/minigun/Initialize(mapload)
 	. = ..()
-	if(obj_flags & AUTOBALANCE_CHECK)
+	if(item_flags & AUTOBALANCE_CHECK)
 		SSmonitor.stats.miniguns_in_use += src
 
 /obj/item/weapon/gun/minigun/Destroy()
-	if(obj_flags & AUTOBALANCE_CHECK)
+	if(item_flags & AUTOBALANCE_CHECK)
 		SSmonitor.stats.miniguns_in_use -= src
 	return ..()
 
@@ -659,15 +659,15 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	recoil = 3
 	scatter = -100
 
-	obj_flags = AUTOBALANCE_CHECK
+	item_flags = AUTOBALANCE_CHECK
 
 /obj/item/weapon/gun/launcher/rocket/sadar/Initialize(mapload, spawn_empty)
 	. = ..()
-	if(obj_flags & AUTOBALANCE_CHECK)
+	if(item_flags & AUTOBALANCE_CHECK)
 		SSmonitor.stats.sadar_in_use += src
 
 /obj/item/weapon/gun/launcher/rocket/sadar/Destroy()
-	if(obj_flags & AUTOBALANCE_CHECK)
+	if(item_flags & AUTOBALANCE_CHECK)
 		SSmonitor.stats.sadar_in_use -= src
 	return ..()
 
