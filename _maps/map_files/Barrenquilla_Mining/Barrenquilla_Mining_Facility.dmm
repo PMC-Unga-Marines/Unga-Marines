@@ -7073,10 +7073,6 @@
 /obj/effect/landmark/start/job/xenomorph,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
-"Hy" = (
-/obj/structure/lattice,
-/turf/closed/mineral/smooth/indestructible,
-/area/template_noop)
 "Hz" = (
 /turf/open/floor/prison,
 /area/barren/security/nuke)
@@ -41522,13 +41518,13 @@ VJ
 VJ
 VJ
 VJ
-Hy
 VJ
 VJ
 VJ
 VJ
-Hy
-Hy
+VJ
+VJ
+VJ
 VJ
 VJ
 VJ
