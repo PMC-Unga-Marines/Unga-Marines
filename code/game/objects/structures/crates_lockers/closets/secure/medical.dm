@@ -10,7 +10,6 @@
 	req_access = list(ACCESS_MARINE_MEDBAY)
 
 /obj/structure/closet/secure_closet/medical1/PopulateContents()
-	. = ..()
 	new /obj/item/storage/box/autoinjectors(src)
 	new /obj/item/storage/box/syringes(src)
 	new /obj/item/reagent_containers/dropper(src)
@@ -40,7 +39,6 @@
 	req_access = list(ACCESS_MARINE_MEDBAY)
 
 /obj/structure/closet/secure_closet/medical2/PopulateContents()
-	. = ..()
 	new /obj/item/tank/anesthetic(src)
 	new /obj/item/tank/anesthetic(src)
 	new /obj/item/tank/anesthetic(src)
@@ -75,7 +73,7 @@
 /obj/structure/closet/secure_closet/medical3/colony
 	req_access = list(ACCESS_CIVILIAN_PUBLIC)
 
-/obj/structure/closet/secure_closet/CMO
+/obj/structure/closet/secure_closet/cmo
 	name = "chief medical officer's locker"
 	req_access = list(ACCESS_MARINE_CMO)
 	icon_state = "cmosecure1"
@@ -85,8 +83,7 @@
 	icon_broken = "cmosecurebroken"
 	icon_off = "cmosecureoff"
 
-/obj/structure/closet/secure_closet/CMO/PopulateContents()
-	. = ..()
+/obj/structure/closet/secure_closet/cmo/PopulateContents()
 	new /obj/item/clothing/suit/radiation(src)
 	new /obj/item/clothing/head/radiation(src)
 	new /obj/item/clothing/shoes/white(src)
@@ -102,20 +99,15 @@
 	new /obj/item/clothing/suit/surgical(src)
 	new /obj/item/storage/box/trampop(src)
 
-
-
 /obj/structure/closet/secure_closet/animal
 	name = "animal control closet"
 	req_access = list(ACCESS_MARINE_MEDBAY)
 
 /obj/structure/closet/secure_closet/animal/PopulateContents()
-	. = ..()
 	new /obj/item/assembly/signaler(src)
 	new /obj/item/electropack(src)
 	new /obj/item/electropack(src)
 	new /obj/item/electropack(src)
-
-
 
 /obj/structure/closet/secure_closet/chemical
 	name = "chemical closet"
@@ -129,10 +121,8 @@
 	req_access = list(ACCESS_MARINE_CHEMISTRY)
 
 /obj/structure/closet/secure_closet/chemical/PopulateContents()
-	. = ..()
 	new /obj/item/storage/box/pillbottles(src)
 	new /obj/item/storage/box/pillbottles(src)
 
 /obj/structure/closet/secure_closet/chemical/colony
 	req_access = list(ACCESS_CIVILIAN_PUBLIC)
-

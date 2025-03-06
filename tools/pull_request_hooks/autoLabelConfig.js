@@ -59,11 +59,11 @@ export const title_labels = {
 	'Do Not Merge' : {
 		keywords: ['[dnm]', '[do not merge]'],
 	},
-	'GBP: No Update' : {
-		keywords: ['[no gbp]'],
-	},
 	'Test Merge Only' : {
 		keywords: ['[tm only]', '[test merge only]'],
+	},
+	'Port': {
+		keywords: ['port'],
 	},
 }
 
@@ -128,9 +128,5 @@ export const changelog_labels = {
 	'Server': {
 		default_text: 'something server ops should know',
 		keywords: ['server'],
-	},
-	'Port': {
-		default_text: 'ported something',
-		keywords: ['port'],
 	},
 }

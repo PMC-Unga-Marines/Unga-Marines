@@ -48,7 +48,6 @@
 	attack_verb = list("smashed", "beaten", "slammed", "struck", "smashed", "battered", "cracked")
 	hitsound = 'sound/weapons/genhit3.ogg'
 
-
 /obj/item/weapon/baseballbat/metal
 	name = "\improper metal baseball bat"
 	desc = "A large metal baseball bat. Compared to its wooden cousin, the metal bat offers a bit more more force. Often carried by thugs and ruffians."
@@ -72,7 +71,6 @@
 	throwforce = 7
 	attack_verb = list("patted", "tapped")
 	attack_speed = 4
-
 
 /obj/item/weapon/butterfly/attack_self(mob/user)
 	active = !active
@@ -102,7 +100,6 @@
 	desc = "A classic switchblade with gold engraving. Just holding it makes you feel like a gangster."
 	icon_state = "switchblade"
 
-
 /obj/item/weapon/wirerod
 	name = "wired rod"
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."
@@ -114,9 +111,10 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 
-
 /obj/item/weapon/wirerod/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/shard))
 		var/obj/item/weapon/twohanded/spear/S = new

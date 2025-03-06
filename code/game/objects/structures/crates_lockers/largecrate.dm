@@ -5,13 +5,13 @@
 	icon_state = "densecrate"
 	density = TRUE
 	anchored = FALSE
-	var/dropmetal = TRUE
 	resistance_flags = XENO_DAMAGEABLE
 	interaction_flags = INTERACT_OBJ_DEFAULT|INTERACT_POWERLOADER_PICKUP_ALLOWED
 	allow_pass_flags = PASSABLE|PASS_WALKOVER|PASS_LOW_STRUCTURE
 	max_integrity = 40
 	soft_armor = list(MELEE = 0, BULLET = 80, LASER = 80, ENERGY = 80, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	hit_sound = 'sound/effects/woodhit.ogg'
+	var/dropmetal = TRUE
 	var/spawn_type
 	var/spawn_amount
 

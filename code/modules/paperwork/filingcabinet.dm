@@ -1,14 +1,3 @@
-/* Filing cabinets!
-* Contains:
-*		Filing Cabinets
-*		Security Record Cabinets
-*		Medical Record Cabinets
-*/
-
-
-/*
-* Filing Cabinets
-*/
 /obj/structure/filingcabinet
 	name = "filing cabinet"
 	desc = "A large cabinet with drawers."
@@ -20,15 +9,12 @@
 	max_integrity = 100
 	soft_armor = list(MELEE = 0, BULLET = 60, LASER = 60, ENERGY = 60, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 
-
 /obj/structure/filingcabinet/chestdrawer
 	name = "chest drawer"
 	icon_state = "chestdrawer"
 
-
 /obj/structure/filingcabinet/filingcabinet	//not changing the path to avoid unecessary map issues, but please don't name stuff like this in the future -Pete
 	icon_state = "tallcabinet"
-
 
 /obj/structure/filingcabinet/Initialize(mapload)
 	. = ..()
@@ -36,9 +22,10 @@
 		if(istype(I, /obj/item/paper) || istype(I, /obj/item/folder) || istype(I, /obj/item/photo) || istype(I, /obj/item/paper_bundle))
 			I.loc = src
 
-
 /obj/structure/filingcabinet/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/paper) || istype(I, /obj/item/folder) || istype(I, /obj/item/photo) || istype(I, /obj/item/paper_bundle))
 		if(!user.transferItemToLoc(I, src))
@@ -49,15 +36,15 @@
 		sleep(0.5 SECONDS)
 		icon_state = initial(icon_state)
 		updateUsrDialog()
-
-	else if(iswrench(I))
-		anchored = !anchored
-		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
-		to_chat(user, span_notice("You [anchored ? "wrench" : "unwrench"] \the [src]."))
-
 	else
 		to_chat(user, span_notice("You can't put [I] in [src]!"))
 
+/obj/structure/filingcabinet/wrench_act(mob/living/user, obj/item/I)
+	. = ..()
+
+	anchored = !anchored
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+	to_chat(user, span_notice("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 
 /obj/structure/filingcabinet/attack_hand(mob/living/user)
 	. = ..()
@@ -74,7 +61,6 @@
 	dat += "</table></center>"
 	user << browse("<html><meta charset='UTF-8'><head><title>[name]</title></head><body>[dat]</body></html>", "window=filingcabinet;size=350x300")
 
-
 /obj/structure/filingcabinet/Topic(href, href_list)
 	. = ..()
 	if(.)
@@ -90,13 +76,11 @@
 			icon_state = "[initial(icon_state)]-open"
 			addtimer(VARSET_CALLBACK(src, icon_state, initial(icon_state)), 5)
 
-
 /*
 * Security Record Cabinets
 */
 /obj/structure/filingcabinet/security
 	var/virgin = 1
-
 
 /obj/structure/filingcabinet/security/proc/populate()
 	if(virgin)

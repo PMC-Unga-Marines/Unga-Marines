@@ -13,7 +13,6 @@
 	w_class = WEIGHT_CLASS_TINY
 	var/obj/item/implant/internal_implant
 
-
 /obj/item/implantcase/Initialize(mapload, internal_implant)
 	. = ..()
 	if(internal_implant)
@@ -31,9 +30,10 @@
 	else
 		icon_state = "implantcase-0"
 
-
 /obj/item/implantcase/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/tool/pen))
 		var/label = stripped_input(user, "What would you like the label to be?", "[name]", null)

@@ -119,12 +119,12 @@
 #define AUTOBALANCE_CHECK (1<<21)
 ///This item is a sentry, so we won't allow to place it nearby other sentries
 #define IS_SENTRY (1<<22)
+///This item is in any storage
+#define IN_STORAGE (1<<23)
 
 //storage_flags
 ///If a storage container can be restocked into a vendor
 #define BYPASS_VENDOR_CHECK (1<<0)
-///Upon being put into cryo, this storage won't store it's contents into the cryo
-#define BYPASS_CRYO_CHECK (1<<1)
 
 //id_flags
 ///If you can get buy a loadout

@@ -23,4 +23,4 @@
 
 /datum/outfit/quick/beginner/post_equip(mob/living/carbon/human/human, visualsOnly)
 	. = ..()
-	human.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BOOT)
+	human.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BOOT)

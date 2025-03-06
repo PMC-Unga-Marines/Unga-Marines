@@ -49,12 +49,13 @@
 
 /obj/machinery/computer/process()
 	if(machine_stat & (NOPOWER|BROKEN|DISABLED))
-		return 0
-	return 1
+		return FALSE
+	return TRUE
 
 /obj/machinery/computer/emp_act(severity)
-	if(prob(20/severity)) set_broken()
-	..()
+	if(prob(20 / severity))
+		set_broken()
+	return ..()
 
 /obj/machinery/computer/ex_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
@@ -70,12 +71,11 @@
 /obj/machinery/computer/bullet_act(obj/projectile/proj)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		visible_message("[proj] ricochets off [src]!")
-		return 0
+		return FALSE
 	else
 		if(prob(round(proj.ammo.damage * 0.5)))
 			set_broken()
-		..()
-		return 1
+		return ..()
 
 /obj/machinery/computer/update_icon()
 	. = ..()
@@ -148,48 +148,37 @@
 	update_icon()
 	playsound(loc, 'sound/items/welder2.ogg', 25, 1)
 
-/obj/machinery/computer/attackby(obj/item/I, mob/user, params)
+/obj/machinery/computer/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
 
-	if(isscrewdriver(I) && circuit)
-		if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_MASTER)
-			user.visible_message(span_notice("[user] fumbles around figuring out how to deconstruct [src]."),
-			span_notice("You fumble around figuring out how to deconstruct [src]."))
-			var/fumbling_time = 50 * ( SKILL_ENGINEER_MASTER - user.skills.getRating(SKILL_ENGINEER) )
-			if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED))
-				return
-
-		playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
-
-		if(!do_after(user, 20, NONE, src, BUSY_ICON_BUILD))
+	if(!circuit)
+		return
+	if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_MASTER)
+		user.visible_message(span_notice("[user] fumbles around figuring out how to deconstruct [src]."),
+		span_notice("You fumble around figuring out how to deconstruct [src]."))
+		var/fumbling_time = 50 * ( SKILL_ENGINEER_MASTER - user.skills.getRating(SKILL_ENGINEER) )
+		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED))
 			return
-
-		var/obj/structure/computerframe/A = new(loc)
-		var/obj/item/circuitboard/computer/M = new circuit(A)
-		A.circuit = M
-		A.anchored = TRUE
-
-		for(var/obj/C in src)
-			C.forceMove(loc)
-
-		if(machine_stat & BROKEN)
-			to_chat(user, span_notice("The broken glass falls out."))
-			new /obj/item/shard(loc)
-			A.state = 3
-			A.icon_state = "3"
-		else
-			to_chat(user, span_notice("You disconnect the monitor."))
-			A.state = 4
-			A.icon_state = "4"
-
-		M.decon(src)
-		qdel(src)
-
-	else if(isxeno(user))
-		return attack_alien(user)
-
+	playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
+	if(!do_after(user, 20, NONE, src, BUSY_ICON_BUILD))
+		return
+	var/obj/structure/computerframe/A = new(loc)
+	var/obj/item/circuitboard/computer/M = new circuit(A)
+	A.circuit = M
+	A.anchored = TRUE
+	for(var/obj/C in src)
+		C.forceMove(loc)
+	if(machine_stat & BROKEN)
+		to_chat(user, span_notice("The broken glass falls out."))
+		new /obj/item/shard(loc)
+		A.state = 3
+		A.icon_state = "3"
 	else
-		return attack_hand(user)
+		to_chat(user, span_notice("You disconnect the monitor."))
+		A.state = 4
+		A.icon_state = "4"
+	M.decon(src)
+	qdel(src)
 
 /obj/machinery/computer/attack_hand(mob/living/user)
 	. = ..()

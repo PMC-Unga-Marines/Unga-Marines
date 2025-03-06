@@ -135,40 +135,34 @@
 	plane = ABOVE_HUD_PLANE
 	icon_state = "backpack_close"
 
-
 /atom/movable/screen/close/Click()
-	if(istype(master, /obj/item/storage))
-		var/obj/item/storage/S = master
-		S.close(usr)
+	var/datum/storage/storage = master
+	storage.hide_from(usr)
 	return TRUE
-
 
 /atom/movable/screen/act_intent
 	name = "intent"
 	icon_state = "help"
 	screen_loc = ui_acti
 
-
 /atom/movable/screen/act_intent/Click(location, control, params)
 	usr.a_intent_change(INTENT_HOTKEY_RIGHT)
-
 
 /atom/movable/screen/act_intent/corner/Click(location, control, params)
 	var/_x = text2num(params2list(params)["icon-x"])
 	var/_y = text2num(params2list(params)["icon-y"])
 
-	if(_x<=16 && _y<=16)
+	if(_x <= 16 && _y <= 16)
 		usr.a_intent_change(INTENT_HARM)
 
-	else if(_x<=16 && _y>=17)
+	else if(_x <= 16 && _y >= 17)
 		usr.a_intent_change(INTENT_HELP)
 
-	else if(_x>=17 && _y<=16)
+	else if(_x >= 17 && _y <= 16)
 		usr.a_intent_change(INTENT_GRAB)
 
-	else if(_x>=17 && _y>=17)
+	else if(_x >= 17 && _y >= 17)
 		usr.a_intent_change(INTENT_DISARM)
-
 
 /atom/movable/screen/mov_intent
 	name = "run/walk toggle"
@@ -176,10 +170,8 @@
 	icon_state = "running"
 	screen_loc = ui_movi
 
-
 /atom/movable/screen/mov_intent/Click()
 	usr.toggle_move_intent()
-
 
 /atom/movable/screen/mov_intent/update_icon_state()
 	. = ..()
@@ -236,13 +228,11 @@
 	else
 		icon_state = "pull0"
 
-
 /atom/movable/screen/resist
 	name = "resist"
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "act_resist"
 	screen_loc = ui_above_intent
-
 
 /atom/movable/screen/resist/Click()
 	if(!isliving(usr))
@@ -251,12 +241,39 @@
 	var/mob/living/L = usr
 	L.resist()
 
-
 /atom/movable/screen/storage
 	name = "storage"
 	icon_state = "block"
 	screen_loc = "7,7 to 10,8"
 
+/atom/movable/screen/storage/Click(location, control, params)
+	if(usr.incapacitated(TRUE))
+		return
+
+	var/list/modifiers = params2list(params)
+
+	if(!master)
+		return
+
+	var/datum/storage/current_storage_datum = master
+	var/obj/item/item_in_hand = usr.get_active_held_item()
+	if(item_in_hand)
+		current_storage_datum.parent.attackby(item_in_hand, usr)
+		return
+
+	// Taking something out of the storage screen (including clicking on item border overlay)
+	var/list/screen_loc_params = splittext(modifiers["screen-loc"], ",")
+	var/list/screen_loc_X = splittext(screen_loc_params[1],":")
+	var/click_x = text2num(screen_loc_X[1]) * 32 + text2num(screen_loc_X[2]) - 144
+
+	for(var/i = 1 to length(current_storage_datum.click_border_start))
+		if(current_storage_datum.click_border_start[i] > click_x || click_x > current_storage_datum.click_border_end[i])
+			continue
+		if(length(current_storage_datum.parent.contents) < i)
+			continue
+		item_in_hand = current_storage_datum.parent.contents[i]
+		item_in_hand.attack_hand(usr)
+		return
 
 /atom/movable/screen/storage/proc/update_fullness(obj/item/storage/S)
 	if(!length(S.contents))
@@ -266,7 +283,9 @@
 	var/total_w = 0
 	for(var/obj/item/I in S)
 		total_w += I.w_class
-	var/fullness = round(10 * max(length(S.contents) / S.storage_slots, total_w / S.max_storage_space))
+	var/storage_slot_fullness = S.storage_datum.storage_slots ? (length(S.contents) / S.storage_datum.storage_slots) : 0
+	var/slotless_fullness = S.storage_datum.max_storage_space ? (total_w / S.storage_datum.max_storage_space) : 0
+	var/fullness = round(10 * max(storage_slot_fullness, slotless_fullness))
 	switch(fullness)
 		if(10)
 			color = "#ff0000"
@@ -274,7 +293,6 @@
 			color = "#ffa500"
 		else
 			color = null
-
 
 /atom/movable/screen/throw_catch
 	name = "throw/catch"
@@ -301,9 +319,9 @@
 	if(isobserver(usr))
 		return
 
-	var/list/PL = params2list(params)
-	var/icon_x = text2num(PL["icon-x"])
-	var/icon_y = text2num(PL["icon-y"])
+	var/list/modifiers = params2list(params)
+	var/icon_x = text2num(modifiers["icon-x"])
+	var/icon_y = text2num(modifiers["icon-y"])
 	var/choice = get_zone_at(icon_x, icon_y)
 	if (!choice)
 		return TRUE
@@ -317,9 +335,9 @@
 	if(isobserver(usr))
 		return
 
-	var/list/PL = params2list(params)
-	var/icon_x = text2num(PL["icon-x"])
-	var/icon_y = text2num(PL["icon-y"])
+	var/list/modifiers = params2list(params)
+	var/icon_x = text2num(modifiers["icon-x"])
+	var/icon_y = text2num(modifiers["icon-y"])
 	var/choice = get_zone_at(icon_x, icon_y)
 
 	if(hovering == choice)

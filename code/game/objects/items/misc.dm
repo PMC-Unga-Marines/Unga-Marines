@@ -168,8 +168,11 @@
 	icon_state = "Koran"
 	deity_name = "Allah"
 	actions_types = list(/datum/action/item_action)
-	max_w_class = 3
-	storage_slots = 1
+
+/obj/item/storage/bible/koran/Initialize(mapload, ...)
+	. = ..()
+	storage_datum.max_w_class = 3
+	storage_datum.storage_slots = 1
 
 /obj/item/storage/bible/koran/attack_self(mob/living/carbon/human/activator)
 	TIMER_COOLDOWN_START(activator, "KoranSpam", 5 SECONDS)
@@ -193,4 +196,3 @@
 			activator.playsound_local(loc, 'sound/hallucinations/im_here1.ogg', 50)
 	else
 		activator.balloon_alert(activator, "This place is not sacred")
-

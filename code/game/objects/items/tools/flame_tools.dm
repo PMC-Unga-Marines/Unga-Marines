@@ -401,7 +401,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	smoketime = 30
 	chem_volume = 60
 	transquantity = 2 // one of each for the whole duration
-	list_reagents = list(/datum/reagent/medicine/ryetalyn = 30, /datum/reagent/water = 30)  //some water so it purges the rye too
+	list_reagents = list(/datum/reagent/medicine/hyronalin = 30, /datum/reagent/water = 30)  //some water so it purges the rye too
 
 /obj/item/clothing/mask/cigarette/emergency
 	name = "Red Comrade"

@@ -35,6 +35,8 @@
 
 /obj/structure/rack/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(user.a_intent != INTENT_HARM)
 		return user.transferItemToLoc(I, loc)

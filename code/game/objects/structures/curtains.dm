@@ -15,7 +15,6 @@
 	layer = OBJ_LAYER
 	opacity = FALSE
 
-
 /obj/structure/curtain/attack_hand(mob/living/user)
 	. = ..()
 	if(.)

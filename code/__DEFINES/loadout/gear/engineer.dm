@@ -35,7 +35,7 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 	/obj/item/minerupgrade/automatic = list(CAT_ENGSUP, "Mining well automation upgrade", 5, "blue"),
 	/obj/item/storage/pouch/explosive/razorburn = list(CAT_ENGSUP, "Pack of Razorburn grenades", 11, "orange3"),
 	/obj/item/explosive/grenade/chem_grenade/razorburn_large = list(CAT_ENGSUP, "Razorburn canister", 7, "orange3"),
-	/obj/item/explosive/grenade/chem_grenade/razorburn_smol = list(CAT_ENGSUP, "Razorburn grenade", 3, "orange3"),
+	/obj/item/explosive/grenade/chem_grenade/razorburn_small = list(CAT_ENGSUP, "Razorburn grenade", 3, "orange3"),
 	/obj/item/mortal_shell/he = list(CAT_ENGSUP, "HE Mortar shell", 1, "orange2"),
 	/obj/item/mortal_shell/incendiary = list(CAT_ENGSUP, "Incendiary Mortar shell", 1, "orange2"),
 	/obj/item/mortal_shell/plasmaloss = list(CAT_ENGSUP, "Tanglefoot Mortar shell", 1, "orange2"),

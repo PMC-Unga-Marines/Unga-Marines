@@ -27,6 +27,8 @@
 
 /obj/item/stack/barbed_wire/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(!istype(I, /obj/item/stack/rods))
 		return
@@ -58,7 +60,6 @@
 	singular_name = "bundle"
 	max_amount = 10
 	merge_type = /obj/item/stack/razorwire
-
 
 //small stack
 /obj/item/stack/razorwire/small_stack

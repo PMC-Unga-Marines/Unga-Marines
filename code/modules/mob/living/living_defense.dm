@@ -1,11 +1,61 @@
+/mob/living/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_MOB_SLAM_DAMAGE, is_sharp = FALSE)
+	if(!isliving(grab.grabbed_thing))
+		return
+	if(grab.grabbed_thing == src)
+		return
+	if(user == src)
+		return
+
+	var/mob/living/grabbed_mob = grab.grabbed_thing
+	step_towards(grabbed_mob, src)
+	user.drop_held_item()
+	var/state = user.grab_state
+
+	if(state >= GRAB_AGGRESSIVE)
+		var/own_stun_chance = 0
+		var/grabbed_stun_chance = 0
+		if(grabbed_mob.mob_size > mob_size)
+			own_stun_chance = 25
+			grabbed_stun_chance = 10
+		else if(grabbed_mob.mob_size < mob_size)
+			own_stun_chance = 0
+			grabbed_stun_chance = 25
+		else
+			own_stun_chance = 25
+			grabbed_stun_chance = 25
+
+		if(prob(own_stun_chance))
+			Paralyze(1 SECONDS)
+		if(prob(grabbed_stun_chance))
+			grabbed_mob.Paralyze(1 SECONDS)
+
+	var/damage = (user.skills.getRating(SKILL_CQC) * CQC_SKILL_DAMAGE_MOD)
+	switch(state)
+		if(GRAB_PASSIVE)
+			damage += base_damage
+			grabbed_mob.visible_message(span_warning("[user] slams [grabbed_mob] against [src]!"))
+			log_combat(user, grabbed_mob, "slammed", "", "against [src]")
+		if(GRAB_AGGRESSIVE)
+			damage += base_damage * 1.5
+			grabbed_mob.visible_message(span_danger("[user] bashes [grabbed_mob] against [src]!"))
+			log_combat(user, grabbed_mob, "bashed", "", "against [src]")
+		if(GRAB_NECK)
+			damage += base_damage * 2
+			grabbed_mob.visible_message(span_danger("<big>[user] crushes [grabbed_mob] against [src]!</big>"))
+			log_combat(user, grabbed_mob, "crushed", "", "against [src]")
+	grabbed_mob.apply_damage(damage, blocked = MELEE, updating_health = TRUE)
+	apply_damage(damage, blocked = MELEE, updating_health = TRUE)
+	playsound(src, get_sfx("slam"), 40)
+	return TRUE
+
 /mob/living/proc/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0)
-	return 0 //only carbon liveforms have this proc
+	return FALSE //only carbon liveforms have this proc
 
 /mob/living/emp_act(severity)
 	var/list/L = GetAllContents()
 	for(var/obj/O in L)
 		O.emp_act(severity)
-	..()
+	return ..()
 
 //this proc handles being hit by a thrown atom
 /mob/living/hitby(atom/movable/AM, speed = 5)
@@ -43,24 +93,23 @@
 
 /mob/living/turf_collision(turf/T, speed)
 	take_overall_damage(speed * 5, BRUTE, MELEE, FALSE, FALSE, TRUE, 0, 2)
-	playsound(src, 'sound/weapons/heavyhit.ogg', 40)
+	playsound(src, get_sfx("slam"), 40)
 
 /mob/living/proc/near_wall(direction,distance=1)
 	var/turf/T = get_step(get_turf(src),direction)
 	var/turf/last_turf = src.loc
 	var/i = 1
 
-	while(i>0 && i<=distance)
+	while(i > 0 && i<=distance)
 		if(T.density) //Turf is a wall!
 			return last_turf
 		i++
 		last_turf = T
 		T = get_step(T,direction)
 
-	return 0
+	return FALSE
 
 // End BS12 momentum-transfer code.
-
 
 //Mobs on Fire
 /mob/living/proc/IgniteMob()
@@ -100,7 +149,6 @@
 	if(istype(G))
 		G.kill_hugger()
 		dropItemToGround(G)
-
 
 /mob/living/proc/ExtinguishMob()
 	if(!on_fire)
@@ -191,7 +239,6 @@
 			span_notice("You extinguish yourself."), null, 5)
 			ExtinguishMob()
 	Paralyze(3 SECONDS)
-
 
 //Mobs on Fire end
 // When they are affected by a queens screech

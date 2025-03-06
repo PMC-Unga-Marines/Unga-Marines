@@ -6,7 +6,6 @@
 	buckle_flags = NONE
 	foldabletype = /obj/item/stool
 
-
 /obj/item/stool
 	name = "stool"
 	desc = "Uh-hoh, bar is heating up."
@@ -38,11 +37,11 @@
 		qdel(src)
 
 /obj/item/stool/attack_self(mob/user as mob)
-	..()
+	. = ..()
 	deploy(user)
 
 /obj/item/stool/attack(mob/M as mob, mob/user as mob)
-	if (prob(25) && istype(M,/mob/living))
+	if(prob(25) && istype(M,/mob/living))
 		user.visible_message(span_warning(" [user] breaks [src] over [M]'s back!"))
 		user.temporarilyRemoveItemFromInventory(src)
 		var/obj/item/stack/sheet/metal/m = new/obj/item/stack/sheet/metal
@@ -54,4 +53,4 @@
 		UPDATEHEALTH(T)
 		qdel(src)
 		return
-	..()
+	return ..()

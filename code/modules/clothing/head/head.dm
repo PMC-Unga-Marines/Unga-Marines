@@ -15,7 +15,7 @@
 	var/anti_hug = 0
 
 /obj/item/clothing/head/update_clothing_icon()
-	if (ismob(loc))
+	if(ismob(loc))
 		var/mob/M = loc
 		M.update_inv_head()
 
@@ -24,15 +24,6 @@
 	if(!greyscale_config)
 		return
 	item_icons = list(slot_head_str = icon)
-
-/obj/item/clothing/head/MouseDrop(over_object, src_location, over_location)
-	if(!attachments_by_slot[ATTACHMENT_SLOT_STORAGE])
-		return ..()
-	if(!istype(attachments_by_slot[ATTACHMENT_SLOT_STORAGE], /obj/item/armor_module/storage))
-		return ..()
-	var/obj/item/armor_module/storage/armor_storage = attachments_by_slot[ATTACHMENT_SLOT_STORAGE]
-	if(armor_storage.storage.handle_mousedrop(usr, over_object))
-		return ..()
 
 /obj/item/clothing/head/examine(mob/user)
 	. = ..()
@@ -126,9 +117,9 @@
 		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',)
 	species_exception = list(/datum/species/robot)
+	item_map_variant_flags = (ITEM_ICE_VARIANT)
 	var/flipped_cap = FALSE
 	var/base_cap_icon
-	item_map_variant_flags = (ITEM_ICE_VARIANT)
 
 /obj/item/clothing/head/tgmccap/verb/fliphat()
 	set name = "Flip hat"

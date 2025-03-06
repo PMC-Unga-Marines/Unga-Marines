@@ -89,7 +89,7 @@
 	dump_contents()
 	return ..()
 
-///USE THIS TO FILL IT, NOT INITIALIZE OR NEW
+///USE THIS TO FILL CONTENTS OF OBJECTS, NOT INITIALIZE OR NEW
 /obj/structure/closet/proc/PopulateContents()
 	return
 
@@ -373,6 +373,7 @@
 	return TRUE
 
 /obj/structure/closet/contents_explosion(severity)
+	. = ..()
 	for(var/i in contents)
 		var/atom/movable/closet_contents = i
 		closet_contents.ex_act(severity)

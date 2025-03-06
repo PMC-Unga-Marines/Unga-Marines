@@ -8,7 +8,6 @@
 	allow_pass_flags = NONE
 	icon = 'icons/obj/doors/mineral_doors.dmi'
 	icon_state = "metal"
-
 	///Are we open or not
 	var/open = FALSE
 	///Are we currently opening/closing
@@ -44,7 +43,6 @@
 /obj/structure/mineral_door/CanAllowThrough(atom/movable/mover, turf/target)
 	if(istype(mover, /obj/effect/beam))
 		return !opacity
-
 	return ..()
 
 /*
@@ -63,7 +61,6 @@
 		if(C.handcuffed)
 			return
 	toggle_state()
-
 
 ///The proc that actually does the door closing. Plays the sound, the animation, etc.
 /obj/structure/mineral_door/proc/toggle_state()
@@ -85,6 +82,8 @@
 
 /obj/structure/mineral_door/attackby(obj/item/attacking_item, mob/living/user)
 	. = ..()
+	if(.)
+		return
 	if(QDELETED(src))
 		return
 
@@ -207,7 +206,7 @@
 	opacity = FALSE
 
 /obj/structure/mineral_door/transparent/toggle_state()
-	..()
+	. = ..()
 	opacity = FALSE
 
 /obj/structure/mineral_door/transparent/phoron
@@ -226,12 +225,10 @@
 			visible_message(span_danger("[src] suddenly combusts!"))
 	return ..()
 
-
 /obj/structure/mineral_door/transparent/phoron/fire_act(burn_level, flame_color)
 	if(burn_level > 30)
 		var/turf/T = get_turf(src)
 		T.ignite(25, 25)
-
 
 /obj/structure/mineral_door/transparent/diamond
 	name = "diamond door"
@@ -239,7 +236,6 @@
 	base_icon_state = "diamond"
 	icon_state = "diamond"
 	max_integrity = 1000
-
 
 /obj/structure/mineral_door/wood
 	name = "wooden door"

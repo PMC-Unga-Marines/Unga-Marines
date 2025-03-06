@@ -31,7 +31,8 @@
 	hard_armor = list(MELEE = 5, BULLET = 5, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	hit_sound = 'sound/effects/grillehit.ogg'
 	destroy_sound = 'sound/effects/glassbr3.ogg'
-	var/cooldown = 0 //shield bash cooldown. based on world.time
+	///shield bash cooldown. based on world.time
+	var/cooldown = 0
 
 /obj/item/weapon/shield/riot/examine(mob/user, distance, infix, suffix)
 	. = ..()
@@ -53,6 +54,8 @@
 
 /obj/item/weapon/shield/riot/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/stack/sheet/metal))
 		var/obj/item/stack/sheet/metal/metal_sheets = I
@@ -79,12 +82,10 @@
 		playsound(user.loc, 'sound/effects/shieldbash.ogg', 25, 1)
 		cooldown = world.time + 2.5 SECONDS
 
-
 /obj/item/weapon/shield/riot/welder_act(mob/living/user, obj/item/I)
 	. = welder_repair_act(user, I, max_integrity * 0.15, 4 SECONDS, integrity_failure / max_integrity, SKILL_ENGINEER_METAL)
 	if(. == BELOW_INTEGRITY_THRESHOLD)
 		balloon_alert(user, "Too damaged. Use metal sheets.")
-
 
 /obj/item/weapon/shield/riot/marine
 	name = "\improper TL-172 defensive shield"
@@ -109,7 +110,6 @@
 		icon_state = initial(icon_state) + "_broken"
 	else
 		icon_state = initial(icon_state)
-
 
 	if(!isliving(loc))
 		return

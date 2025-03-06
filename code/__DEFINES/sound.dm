@@ -106,6 +106,7 @@
 #define SFX_SVD_FIRE "svd_fire"
 #define SFX_FAL_FIRE "fal_fire"
 #define SFX_MP38_FIRE "mp38_fire"
+#define SFX_SLAM "slam"
 #define SFX_ACID_HIT "acid_hit"
 #define SFX_ACID_BOUNCE "acid_bounce"
 #define SFX_ALIEN_CLAW_FLESH "alien_claw_flesh"
