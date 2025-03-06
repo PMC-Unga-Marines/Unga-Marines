@@ -779,6 +779,7 @@
 #include "code\game\atoms\atom_appearance.dm"
 #include "code\game\atoms\atom_examine.dm"
 #include "code\game\atoms\atom_movable.dm"
+#include "code\game\atoms\atom_movable\pass_flags.dm"
 #include "code\game\data_huds\_data_huds.dm"
 #include "code\game\data_huds\atom_hud.dm"
 #include "code\game\data_huds\human.dm"
