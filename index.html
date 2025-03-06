@@ -29,8 +29,8 @@ General Public License version 3.
 
 
 <h3 id="modules">Modules
-<aside>(482 modules,
-    859/7647 macros, 11.2%)</aside></h3>
+<aside>(483 modules,
+    864/7652 macros, 11.3%)</aside></h3>
 <ul class="index-tree modules">
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;__DEFINES">__DEFINES</span><ul class="index-tree">
@@ -244,6 +244,7 @@ SPDX-License-Identifier: MIT</li>
     <li><a href="code/datums/components/_component.html" title="code&#x2F;datums&#x2F;components&#x2F;_component">_component</a></li>
     <li><a href="code/datums/components/admin_popup.html" title="code&#x2F;datums&#x2F;components&#x2F;admin_popup">admin_popup</a></li>
     <li><a href="code/datums/components/ai.html" title="code&#x2F;datums&#x2F;components&#x2F;ai">ai</a></li>
+    <li><a href="code/datums/components/beacon.html" title="code&#x2F;datums&#x2F;components&#x2F;beacon">beacon</a></li>
     <li><a href="code/datums/components/chem_booster.html" title="code&#x2F;datums&#x2F;components&#x2F;chem_booster">chem_booster</a></li>
     <li><a href="code/datums/components/companion.html" title="code&#x2F;datums&#x2F;components&#x2F;companion">companion</a></li>
     <li><a href="code/datums/components/connect_loc_behalf.html" title="code&#x2F;datums&#x2F;components&#x2F;connect_loc_behalf">connect_loc_behalf</a></li>
@@ -748,7 +749,7 @@ For this they have the following mechanics</li>
 
 
 <h3 id="types">Types
-<aside>(1062 detailed/1337 documented/19814 total, 6.7%)</aside></h3>
+<aside>(1062 detailed/1337 documented/19816 total, 6.7%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li class="has-children"><a href="area.html" title="&#x2F;area">area</a><ul class="index-tree">
@@ -948,6 +949,7 @@ do not touch this unless you know what you are doing</li>
     <li><a href="datum/action/ability/xeno_action/zero_form_beam.html" title="&#x2F;datum&#x2F;action&#x2F;ability&#x2F;xeno_action&#x2F;zero_form_beam">zero_form_beam</a></li>
     </ul></li>
     </ul></li>
+    <li><a href="datum/action/antenna.html" title="&#x2F;datum&#x2F;action&#x2F;antenna">antenna</a></li>
     <li><a href="datum/action/bump_attack_toggle.html" title="&#x2F;datum&#x2F;action&#x2F;bump_attack_toggle">bump_attack_toggle</a></li>
     <li><span class="no-substance">chem_booster&#x2F;</span><a href="datum/action/chem_booster/power.html" title="&#x2F;datum&#x2F;action&#x2F;chem_booster&#x2F;power">power</a></li>
     <li><a href="datum/action/control_vehicle.html" title="&#x2F;datum&#x2F;action&#x2F;control_vehicle">control_vehicle</a></li>
@@ -1088,6 +1090,7 @@ their ticket.</li>
     <li><a href="datum/component/automatedfire/autofire.html" title="&#x2F;datum&#x2F;component&#x2F;automatedfire&#x2F;autofire">autofire</a></li>
     <li><a href="datum/component/automatedfire/xeno_turret_autofire.html" title="&#x2F;datum&#x2F;component&#x2F;automatedfire&#x2F;xeno_turret_autofire">xeno_turret_autofire</a></li>
     </ul></li>
+    <li><a href="datum/component/beacon.html" title="&#x2F;datum&#x2F;component&#x2F;beacon">beacon</a> - This component is used to give stuff beacon functionality.</li>
     <li><a href="datum/component/bump_attack.html" title="&#x2F;datum&#x2F;component&#x2F;bump_attack">bump_attack</a></li>
     <li><a href="datum/component/chem_booster.html" title="&#x2F;datum&#x2F;component&#x2F;chem_booster">chem_booster</a> - Chem booster component</li>
     <li><a href="datum/component/companion.html" title="&#x2F;datum&#x2F;component&#x2F;companion">companion</a> - Companion component</li>
@@ -1897,10 +1900,6 @@ If allow_emissive is TRUE, Right clicking the Parent item will toggle the emissi
     <li><a href="obj/item/attachable/scope.html" title="&#x2F;obj&#x2F;item&#x2F;attachable&#x2F;scope">scope</a></li>
     <li><a href="obj/item/attachable/shoulder_mount.html" title="&#x2F;obj&#x2F;item&#x2F;attachable&#x2F;shoulder_mount">shoulder_mount</a></li>
     </ul></li>
-    <li class="has-children"><a href="obj/item/beacon.html" title="&#x2F;obj&#x2F;item&#x2F;beacon">beacon</a><ul class="index-tree">
-    <li><a href="obj/item/beacon/orbital_bombardment_beacon.html" title="&#x2F;obj&#x2F;item&#x2F;beacon&#x2F;orbital_bombardment_beacon">orbital_bombardment_beacon</a></li>
-    <li><a href="obj/item/beacon/supply_beacon.html" title="&#x2F;obj&#x2F;item&#x2F;beacon&#x2F;supply_beacon">supply_beacon</a></li>
-    </ul></li>
     <li><a href="obj/item/belt_harness.html" title="&#x2F;obj&#x2F;item&#x2F;belt_harness">belt_harness</a></li>
     <li><a href="obj/item/big_ammo_box.html" title="&#x2F;obj&#x2F;item&#x2F;big_ammo_box">big_ammo_box</a></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;binoculars">binoculars</span><ul class="index-tree">
@@ -2058,6 +2057,7 @@ All mech equippables are currently childs of this<ul class="index-tree">
     <li><a href="obj/item/minimap_tablet.html" title="&#x2F;obj&#x2F;item&#x2F;minimap_tablet">minimap_tablet</a></li>
     <li><a href="obj/item/mortal_shell.html" title="&#x2F;obj&#x2F;item&#x2F;mortal_shell">mortal_shell</a></li>
     <li><a href="obj/item/mortar_kit.html" title="&#x2F;obj&#x2F;item&#x2F;mortar_kit">mortar_kit</a></li>
+    <li><a href="obj/item/orbital_bombardment_beacon.html" title="&#x2F;obj&#x2F;item&#x2F;orbital_bombardment_beacon">orbital_bombardment_beacon</a></li>
     <li><a href="obj/item/pamphlet.html" title="&#x2F;obj&#x2F;item&#x2F;pamphlet">pamphlet</a></li>
     <li><a href="obj/item/pinpointer.html" title="&#x2F;obj&#x2F;item&#x2F;pinpointer">pinpointer</a></li>
     <li><a href="obj/item/pipe.html" title="&#x2F;obj&#x2F;item&#x2F;pipe">pipe</a></li>
@@ -2592,7 +2592,7 @@ Default override for echo</li>
 </main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/eb6d50b3811eae9b7b549c03ae6d4e798da4d1ea">eb6d50b</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/0d61c21f50a4c08dbeb238889312d48d072496f6">0d61c21</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
