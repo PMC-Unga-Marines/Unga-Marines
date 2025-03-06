@@ -83,7 +83,6 @@
 	reagents.reaction(A, INJECT, min(amount_per_transfer_from_this, reagents.total_volume) / reagents.total_volume)
 	var/trans = reagents.trans_to(A, amount_per_transfer_from_this)
 	to_chat(user, span_notice("[trans] units injected. [reagents.total_volume] units remaining in [src]. ")) // better to not balloon
-
 	return TRUE
 
 /obj/item/reagent_containers/hypospray/afterattack_alternate(atom/A, mob/living/user)
@@ -317,7 +316,7 @@
 /obj/item/reagent_containers/hypospray/advanced/update_overlays()
 	. = ..()
 
-	if(reagents.total_volume)
+	if(reagents?.total_volume)
 		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]10")
 
 		var/percent = round((reagents.total_volume / volume) * 100)
@@ -355,7 +354,9 @@
 		. += span_warning("You're too far away to see [src]'s reagent display!")
 		return
 
+	. += "" // for some weird reason, without this lower lines get in line with item's size line
 	. += display_reagents(user)
+	. += span_warning("<b>Use</b> to inject into yourself. <b>Unique Action</b> to configure injection amount.")
 
 /// The proc display_reagents controls the information utilised in the hypospray menu/. Specifically how much of a chem there is, what percent that entails, and what type of chem it is if that is a known chem.
 /obj/item/reagent_containers/hypospray/advanced/proc/display_reagents(mob/user)
@@ -372,7 +373,6 @@
 			else
 				dat += "\n \t <b>Unknown:</b> [R.volume]|[percent]% <b>Amount per dose:</b> [dose]</br>"
 	return span_notice("[src]'s reagent display shows the following contents: [dat.Join(" ")]")
-
 
 /obj/item/reagent_containers/hypospray/advanced/bicaridine
 	name = "bicaridine hypospray"

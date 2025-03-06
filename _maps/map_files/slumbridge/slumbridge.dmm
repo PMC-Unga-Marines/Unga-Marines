@@ -2636,7 +2636,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/slumbridge/inside/sombase/hangar)
 "bUs" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/open/floor/elevatorshaft,
 /area/slumbridge/console)
 "bUW" = (
@@ -5414,7 +5414,7 @@
 "ebL" = (
 /obj/effect/turf_decal/stripes/white/box,
 /obj/effect/spawner/random/medical/medbelt,
-/obj/structure/closet/secure_closet/CMO,
+/obj/structure/closet/secure_closet/cmo,
 /turf/open/floor/tile/cmo,
 /area/slumbridge/inside/medical/cmo)
 "ebW" = (
@@ -6691,10 +6691,7 @@
 /area/slumbridge/outside/southeast)
 "fiB" = (
 /obj/structure/coatrack,
-/obj/item/clothing/suit/security/formal/senior_officer/tan{
-	pixel_x = -1;
-	pixel_y = 4
-	},
+/obj/item/clothing/suit/storage/security/formal/senior_officer/tan,
 /obj/item/clothing/tie/medal/silver{
 	pixel_y = 1
 	},
@@ -12792,7 +12789,7 @@
 /area/slumbridge/inside/colony/bar)
 "jFz" = (
 /obj/structure/table,
-/obj/item/clothing/suit/chef/classic,
+/obj/item/clothing/suit/storage/chef/classic,
 /obj/effect/spawner/random/food_or_drink/kitchen,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/kitchen,

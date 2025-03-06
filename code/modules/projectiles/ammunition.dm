@@ -89,6 +89,8 @@
 
 /obj/item/ammo_magazine/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(!istype(I, /obj/item/ammo_magazine))
 		if(!CHECK_BITFIELD(magazine_flags, MAGAZINE_WORN) || !istype(I, /obj/item/weapon/gun) || loc != user)
 			return ..()

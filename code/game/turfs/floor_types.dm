@@ -476,21 +476,20 @@
 	burnable_tile = FALSE
 	floor_tile = null
 
-/turf/open/floor/engine/attackby(obj/item/I, mob/user, params)
-	if(iscrowbar(I)) // Prevent generation of infinite 'floor_tile' objs caused by the overridden make_plating() above never clearing the var
-		return
+/turf/open/floor/engine/crowbar_act(mob/living/user, obj/item/I)
+	return
+
+/turf/open/floor/engine/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
+	user.visible_message(span_notice("[user] starts removing [src]'s protective cover."),
+	span_notice("You start removing [src]'s protective cover."))
+	playsound(src, 'sound/items/ratchet.ogg', 25, 1)
+	
+	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
+		return
 
-	if(iswrench(I))
-		user.visible_message(span_notice("[user] starts removing [src]'s protective cover."),
-		span_notice("You start removing [src]'s protective cover."))
-		playsound(src, 'sound/items/ratchet.ogg', 25, 1)
-
-		if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
-			return
-
-		new /obj/item/stack/rods(src, 2)
-		make_plating()
+	new /obj/item/stack/rods(src, 2)
+	make_plating()
 
 /turf/open/floor/engine/nitrogen
 

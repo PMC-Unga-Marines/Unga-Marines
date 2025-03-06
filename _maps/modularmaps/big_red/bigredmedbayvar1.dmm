@@ -537,7 +537,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "ph" = (
-/obj/structure/closet/secure_closet/CMO,
+/obj/structure/closet/secure_closet/cmo,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/medical)
 "pm" = (

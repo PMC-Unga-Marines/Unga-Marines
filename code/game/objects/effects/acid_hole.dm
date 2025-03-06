@@ -114,12 +114,11 @@
 			to_chat(user, span_warning("You release what you're pulling to fit into the tunnel!"))
 		user.forceMove(T)
 
-
-
-
 //Throwing Shiet
 /obj/effect/acid_hole/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	var/mob_dir = get_dir(user, src)
 	var/crawl_dir = dir & mob_dir

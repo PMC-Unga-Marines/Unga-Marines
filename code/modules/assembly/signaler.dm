@@ -5,7 +5,6 @@
 	item_state = "signaler"
 	wires = WIRE_RECEIVE | WIRE_PULSE | WIRE_RADIO_PULSE | WIRE_RADIO_RECEIVE
 	attachable = TRUE
-
 	var/code = DEFAULT_SIGNALER_CODE
 	var/frequency = FREQ_SIGNALER
 	var/delay = 0
@@ -48,15 +47,16 @@
 		return
 
 	var/dat = {"
-<A href='byond://?src=[REF(src)];send=1'>Send Signal</A><BR>
-<B>Frequency/Code</B> for signaler:<BR>
-Frequency:
-[format_frequency(frequency)]
-<A href='byond://?src=[REF(src)];set=freq'>Set</A><BR>
+		<A href='byond://?src=[REF(src)];send=1'>Send Signal</A><BR>
+		<B>Frequency/Code</B> for signaler:<BR>
+		Frequency:
+		[format_frequency(frequency)]
+		<A href='byond://?src=[REF(src)];set=freq'>Set</A><BR>
 
-Code:
-[code]
-<A href='byond://?src=[REF(src)];set=code'>Set</A><BR>"}
+		Code:
+		[code]
+		<A href='byond://?src=[REF(src)];set=code'>Set</A><BR>
+	"}
 
 	var/datum/browser/popup = new(user, "signaler", name)
 	popup.set_content(dat)
@@ -95,6 +95,8 @@ Code:
 
 /obj/item/assembly/signaler/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(issignaler(I))
 		var/obj/item/assembly/signaler/signaler2 = I
 		if(secured && signaler2.secured)

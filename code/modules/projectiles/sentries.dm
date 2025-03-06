@@ -31,7 +31,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	///Time of last damage alert
 	var/last_damage_alert = 0
 	///Radio so that the sentry can scream for help
-	var/obj/item/radio/radio
+	var/obj/item/radio/headset/mainship/radio
 	///Iff signal of the sentry. If the /gun has a set IFF then this will be the same as that. If not the sentry will get its IFF signal from the deployer
 	var/iff_signal = NONE
 	///For minimap icon change if sentry is firing

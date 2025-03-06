@@ -17,7 +17,6 @@
 	else
 		icon_state = "glassbox[occupied]"
 
-
 /obj/structure/displaycase/attack_hand(mob/living/user)
 	. = ..()
 	if(.)

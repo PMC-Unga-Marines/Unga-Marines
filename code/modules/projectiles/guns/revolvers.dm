@@ -90,9 +90,9 @@
 		update_icon()
 	if(!do_after(user, tac_reload_time, IGNORE_USER_LOC_CHANGE, new_magazine) && loc == user)
 		return
-	if(istype(new_magazine.loc, /obj/item/storage))
+	if(new_magazine.item_flags & IN_STORAGE)
 		var/obj/item/storage/S = new_magazine.loc
-		S.remove_from_storage(new_magazine, get_turf(user), user)
+		S.storage_datum.remove_from_storage(new_magazine, get_turf(user), user)
 		if(!SEND_SIGNAL(user, COMSIG_MAGAZINE_DROP, new_magazine))
 			user.put_in_any_hand_if_possible(new_magazine)
 	reload(new_magazine, user)
@@ -529,9 +529,9 @@
 	actions_types = null
 	attachable_allowed = list(
 		/obj/item/attachable/magnetic_harness,
-		/obj/item/attachable/stock/t500stock,
-		/obj/item/attachable/t500barrelshort,
-		/obj/item/attachable/t500barrel,
+		/obj/item/attachable/stock/t500,
+		/obj/item/attachable/t500_barrel/short,
+		/obj/item/attachable/t500_barrel,
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/lace/t500,
 		/obj/item/attachable/reddot,

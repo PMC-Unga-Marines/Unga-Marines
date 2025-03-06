@@ -83,11 +83,12 @@
 	if(is_wired)
 		balloon_alert(xeno_attacker, "Wire slices into us")
 		xeno_attacker.apply_damage(10, blocked = MELEE , sharp = TRUE, updating_health = TRUE)
-
 	return ..()
 
 /obj/structure/barricade/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(get_self_acid())
 		balloon_alert(user, "It's melting!")
@@ -263,6 +264,8 @@
 //Item Attack
 /obj/structure/barricade/snow/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	//Removing the barricades
 	if(!istype(I, /obj/item/tool/shovel) || user.a_intent == INTENT_HARM)
@@ -330,6 +333,8 @@
 
 /obj/structure/barricade/wooden/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(!istype(I, /obj/item/stack/sheet/wood))
 		return
@@ -422,6 +427,8 @@
 
 /obj/structure/barricade/metal/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/stack/sheet/metal) && obj_integrity >= max_integrity * 0.3)
 		return attempt_barricade_upgrade(I, user, params)
@@ -961,6 +968,8 @@
 
 /obj/structure/barricade/sandbags/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/tool/shovel) && user.a_intent != INTENT_HARM)
 		var/obj/item/tool/shovel/ET = I

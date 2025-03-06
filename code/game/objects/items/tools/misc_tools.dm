@@ -10,7 +10,6 @@
 	var/labels_left = 50
 	var/on = FALSE
 
-
 /obj/item/tool/hand_labeler/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity)
 		return
@@ -37,7 +36,6 @@
 	A.name = "[initial(A.name)] ([label])"
 	labels_left--
 
-
 /obj/item/tool/hand_labeler/attack_self(mob/user as mob)
 	on = !on
 	icon_state = "labeler[on]"
@@ -54,20 +52,18 @@
 	else
 		to_chat(user, span_notice("You turn off \the [src]."))
 
-
 /obj/item/tool/hand_labeler/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(istype(I, /obj/item/paper))
 		to_chat(user, span_notice("You insert [I] into [src]."))
 		qdel(I)
 		labels_left = min(labels_left + 5, initial(labels_left))
 
-
 /obj/item/tool/hand_labeler/examine(mob/user)
 	. = ..()
 	. += span_notice("It has [labels_left] out of [initial(labels_left)] labels left.")
-
-
 
 /*
 * Pens
@@ -88,8 +84,6 @@
 	throw_range = 15
 	var/colour = "black"	//what colour the ink is!
 
-
-
 /obj/item/tool/pen/blue
 	desc = "It's a normal blue ink pen."
 	icon_state = "pen_blue"
@@ -105,14 +99,12 @@
 	icon_state = "pen"
 	colour = "white"
 
-
 /obj/item/tool/pen/attack(mob/M as mob, mob/user as mob)
 	if(!ismob(M))
 		return
 	to_chat(user, span_warning("You stab [M] with the pen."))
 //	to_chat(M, span_warning("You feel a tiny prick!"))
 	log_combat(user, M, "stabbed", src)
-
 
 /*
 * Sleepy Pens
@@ -121,11 +113,9 @@
 	desc = "It's a black ink pen with a sharp point and a carefully engraved \"Waffle Co.\""
 	equip_slot_flags = ITEM_SLOT_BELT
 
-
 /obj/item/tool/pen/sleepypen/Initialize(mapload)
 	. = ..()
 	create_reagents(30, OPENCONTAINER, list(/datum/reagent/toxin/chloralhydrate = 22))
-
 
 /obj/item/tool/pen/sleepypen/attack(mob/M as mob, mob/user as mob)
 	if(!(istype(M,/mob)))
@@ -135,14 +125,11 @@
 		reagents.reaction(M, INJECT)
 		if(M.reagents) reagents.trans_to(M, 50) //used to be 150
 
-
-
 /*
 * Parapens
 */
 /obj/item/tool/pen/paralysis
 	equip_slot_flags = ITEM_SLOT_BELT
-
 
 /obj/item/tool/pen/paralysis/attack(mob/living/M as mob, mob/user as mob)
 	if(!(istype(M,/mob)))
@@ -153,13 +140,9 @@
 			reagents.reaction(M, INJECT)
 			if(M.reagents) reagents.trans_to(M, 50)
 
-
-
 /obj/item/tool/pen/paralysis/Initialize(mapload)
 	. = ..()
 	create_reagents(50, OPENCONTAINER, list(/datum/reagent/toxin/huskpowder = 10, /datum/reagent/cryptobiolin = 15))
-
-
 
 
 /obj/item/tool/stamp

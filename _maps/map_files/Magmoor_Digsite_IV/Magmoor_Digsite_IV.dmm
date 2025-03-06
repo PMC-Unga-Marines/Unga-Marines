@@ -14280,7 +14280,7 @@
 /turf/open/floor/plating/ground/concrete/lines,
 /area/magmoor/compound/southwest)
 "ksR" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/closed/mineral/smooth/indestructible,
 /area/storage/testroom)
 "ksX" = (
@@ -14739,6 +14739,10 @@
 /obj/structure/window/framed/colony,
 /turf/open/floor/plating,
 /area/magmoor/mining/garage)
+"kHK" = (
+/obj/docking_port/stationary/crashmode,
+/turf/closed/wall,
+/area/magmoor/hydroponics/south)
 "kIw" = (
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 6
@@ -16738,6 +16742,14 @@
 	},
 /turf/open/floor/tile/dark,
 /area/magmoor/civilian/jani)
+"mgq" = (
+/obj/machinery/conveyor,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/docking_port/stationary/crashmode,
+/turf/open/floor/plating,
+/area/magmoor/cargo/processing/south)
 "mgE" = (
 /obj/machinery/door/poddoor/shutters/mainship{
 	dir = 2;
@@ -19549,7 +19561,7 @@
 	},
 /area/magmoor/civilian/clean)
 "otR" = (
-/obj/structure/closet/secure_closet/CMO,
+/obj/structure/closet/secure_closet/cmo,
 /turf/open/floor/wood,
 /area/magmoor/medical/cmo)
 "oun" = (
@@ -32142,7 +32154,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
-/obj/docking_port/stationary/crashmode,
 /turf/open/floor/mainship,
 /area/magmoor/cargo/processing/south)
 "xwg" = (
@@ -32763,12 +32774,6 @@
 /obj/structure/disposalpipe/segment/corner,
 /turf/open/liquid/lava/autosmoothing,
 /area/magmoor/volcano)
-"xRq" = (
-/obj/docking_port/stationary/crashmode,
-/turf/open/floor/mainship/green{
-	dir = 4
-	},
-/area/magmoor/civilian/rnr)
 "xRt" = (
 /obj/structure/bed/chair/wood/wings,
 /turf/open/floor/wood,
@@ -41644,7 +41649,7 @@ bfP
 xTu
 xTu
 qWv
-fme
+kHK
 vrl
 paQ
 bur
@@ -45381,7 +45386,7 @@ lCK
 lCK
 eYR
 azG
-xRq
+xOp
 dio
 oOH
 xOp
@@ -55363,7 +55368,7 @@ mMN
 vtB
 mMN
 jjW
-qzF
+mgq
 rWh
 mMN
 qzF

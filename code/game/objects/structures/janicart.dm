@@ -10,14 +10,15 @@
 	resistance_flags = XENO_DAMAGEABLE
 	max_integrity = 100
 	//copypaste sorry
-	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
+	///shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
+	var/amount_per_transfer_from_this = 5
 	var/obj/item/storage/bag/trash/mybag
 	var/obj/item/tool/mop/mymop
 	var/obj/item/reagent_containers/spray/myspray
 	var/obj/item/lightreplacer/myreplacer
 	var/obj/item/reagent_containers/glass/bucket/janibucket/mybucket
-	var/signs = 0	//maximum capacity hardcoded below
-
+	///maximum capacity hardcoded below
+	var/signs = 0
 
 /obj/structure/janitorialcart/Initialize(mapload)
 	. = ..()
@@ -31,9 +32,10 @@
 	else
 		. += "It has no bucket."
 
-
 /obj/structure/janitorialcart/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/storage/bag/trash) && !mybag)
 		user.drop_held_item()
@@ -101,10 +103,6 @@
 	else if(mybag)
 		mybag.attackby(I, user, params)
 
-
-
-
-
 /obj/structure/janitorialcart/interact(mob/user)
 	. = ..()
 	if(.)
@@ -125,7 +123,6 @@
 	var/datum/browser/popup = new(user, "janicart", name, 240, 160)
 	popup.set_content(dat)
 	popup.open()
-
 
 /obj/structure/janitorialcart/Topic(href, href_list)
 	if(!in_range(src, usr))
@@ -168,10 +165,8 @@
 			else
 				warning("[src] signs ([signs]) didn't match contents")
 				signs = 0
-
 	update_icon()
 	updateUsrDialog()
-
 
 /obj/structure/janitorialcart/update_overlays()
 	. = ..()

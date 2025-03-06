@@ -5,16 +5,19 @@
 	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "hsg102_crate"
 	w_class = WEIGHT_CLASS_HUGE
-	storage_slots = 7
-	bypass_w_limit = list(
-		/obj/item/weapon/gun/hsg102,
-		/obj/item/ammo_magazine/hsg102,
-	)
 
 /obj/item/storage/box/hsg102/Initialize(mapload)
 	. = ..()
-	new /obj/item/weapon/gun/hsg102(src) //gun itself
-	new /obj/item/ammo_magazine/hsg102(src) //ammo for the gun
+	storage_datum.storage_slots = 7
+	storage_datum.storage_type_limits = list(
+	bypass_w_limit = list(
+		/obj/item/weapon/gun/hsg102,
+		/obj/item/ammo_magazine/hsg102,
+	))
+
+/obj/item/storage/box/hsg102/PopulateContents()
+	new /obj/item/weapon/gun/hsg102(src)
+	new /obj/item/ammo_magazine/hsg102(src)
 
 ///HSG-102, now with full auto. It is not a superclass of deployed guns, however there are a few varients.
 /obj/item/weapon/gun/hsg102
@@ -389,8 +392,6 @@
 	max_integrity = 200
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 20)
 
-
-
 //-------------------------------------------------------
 //MG-27 Medium Machine Gun
 
@@ -442,7 +443,6 @@
 	aim_fire_delay = 0.05 SECONDS
 	aim_speed_modifier = 5
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 0)
-
 
 	scatter = 30 // you're not firing this standing.
 	deployed_scatter_change = -70 // innumerable amount of reduced scatter when deployed,
@@ -504,7 +504,6 @@
 	aim_fire_delay = 2 SECONDS
 	aim_speed_modifier = 3
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 0, ENERGY = 0, BOMB = 50, BIO = 100, FIRE = 0, ACID = 0)
-
 
 	scatter = 16
 	deployed_scatter_change = -16
@@ -574,21 +573,19 @@
 	deployable_item = /obj/machinery/deployable/mounted/moveable/at36
 
 /obj/machinery/deployable/mounted/moveable/at36
-	var/obj/item/storage/internal/ammo_rack/sponson = /obj/item/storage/internal/ammo_rack
 	resistance_flags = XENO_DAMAGEABLE|UNACIDABLE
 	coverage = 85 //has a shield
 	anchor_time = 1 SECONDS
+	///The internal storage of our atgun
+	var/obj/item/storage/atgun_ammo_rack/sponson = /obj/item/storage/atgun_ammo_rack
+
+/obj/item/storage/atgun_ammo_rack
+	storage_type = /datum/storage/internal/ammo_rack
 
 /obj/machinery/deployable/mounted/moveable/at36/Destroy()
 	if(sponson)
 		QDEL_NULL(sponson)
 	return ..()
-
-/obj/item/storage/internal/ammo_rack
-	storage_slots = 10
-	max_storage_space = 40
-	max_w_class = WEIGHT_CLASS_BULKY
-	can_hold = list(/obj/item/ammo_magazine/at36)
 
 /obj/machinery/deployable/mounted/moveable/at36/Initialize(mapload)
 	. = ..()
@@ -600,17 +597,25 @@
 		balloon_alert(user, "Busy manning!")
 		return
 
-	return . = ..()
+	if(!sponson.attackby(I, user, params))
+		return ..()
 
 /obj/machinery/deployable/mounted/moveable/at36/attack_hand_alternate(mob/living/user)
-	return sponson.open(user)
+	if(user.interactee == src)
+		balloon_alert(user, "Busy manning!")
+		return
+	return sponson.attack_hand_alternate(user)
 
-/obj/item/storage/internal/ammo_rack/handle_mousedrop(mob/user, obj/over_object)
-	if(!ishuman(user) || user.lying_angle || user.incapacitated())
+/obj/machinery/deployable/mounted/moveable/at36/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+	if(!ishuman(usr) || usr.lying_angle || usr.incapacitated())
 		return FALSE
 
-	if(over_object == user && Adjacent(user)) //This must come before the screen objects only block
-		open(user)
+	if(usr.interactee == src)
+		balloon_alert(usr, "Busy manning!")
+		return
+
+	if(over == usr && Adjacent(usr)) //This must come before the screen objects only block
+		sponson.storage_datum.open(usr)
 		return FALSE
 
 //AGLS-37, or Automatic Grenade Launching System 37, a fully automatic mounted grenade launcher that fires fragmentation and HE shells, can't be turned.

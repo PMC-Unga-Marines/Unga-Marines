@@ -80,6 +80,8 @@
 
 	GLOB.start_squad_landmarks_list = null
 
+	for(var/obj/machinery/telecomms/relay/preset/telecomms/relay AS in GLOB.ground_telecomms_relay)
+		qdel(relay) // so there's no double intercomms, hacky, but i don't know a better way.
 
 /datum/game_mode/infestation/crash/post_setup()
 	. = ..()

@@ -97,7 +97,7 @@
 		"Пистолеты" = list(
 			/obj/item/weapon/gun/revolver/r44 = 5,
 			/obj/item/ammo_magazine/revolver/r44 = -1,
-			/obj/item/storage/box/t500case = 10,
+			/obj/item/storage/briefcase/t500 = 10,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/ammo_magazine/revolver/t500/slavs = -1,
 			/obj/item/ammo_magazine/revolver/t312 = -1,
@@ -339,7 +339,7 @@
 		"Пистолеты" = list(
 			/obj/item/weapon/gun/revolver/r44 = 5,
 			/obj/item/ammo_magazine/revolver/r44 = -1,
-			/obj/item/storage/box/t500case = 10,
+			/obj/item/storage/briefcase/t500 = 10,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/ammo_magazine/revolver/t500/slavs = -1,
 			/obj/item/ammo_magazine/revolver/t312 = -1,
@@ -576,7 +576,7 @@
 		"Пистолеты" = list(
 			/obj/item/weapon/gun/revolver/r44 = -1,
 			/obj/item/ammo_magazine/revolver/r44 = -1,
-			/obj/item/storage/box/t500case = -1,
+			/obj/item/storage/briefcase/t500 = -1,
 			/obj/item/ammo_magazine/revolver/t500 = -1,
 			/obj/item/ammo_magazine/revolver/t500/slavs = -1,
 			/obj/item/ammo_magazine/revolver/t312 = -1,
@@ -814,7 +814,7 @@
 	products = list(
 		"Surplus Special Equipment" = list(
 			/obj/item/pinpointer = 1,
-			/obj/item/beacon/supply_beacon = 1,
+			/obj/item/supply_beacon = 1,
 			/obj/item/explosive/plastique = 5,
 			/obj/item/fulton_extraction_pack = 2,
 			/obj/item/clothing/suit/storage/marine/boomvest = 20,
@@ -945,7 +945,7 @@
 		/obj/item/reagent_containers/food/snacks/mre_pack/meal4 = -1,
 		/obj/item/reagent_containers/food/snacks/mre_pack/meal5 = -1,
 		/obj/item/reagent_containers/food/snacks/mre_pack/meal6 = -1,
-		/obj/item/storage/box/MRE = -1,
+		/obj/item/storage/box/mre = -1,
 		/obj/item/reagent_containers/food/drinks/flask/marine = -1,
 	)
 //Christmas inventory
@@ -963,7 +963,7 @@
 	faction = FACTION_SOM
 	products = list(
 		/obj/item/reagent_containers/food/snacks/protein_pack/som = -1,
-		/obj/item/storage/box/MRE/som = -1,
+		/obj/item/storage/box/mre/som = -1,
 		/obj/item/reagent_containers/food/drinks/flask/marine = -1,
 	)
 
@@ -1185,6 +1185,7 @@
 		"General" = list(
 			/obj/item/clothing/suit/modular = -1,
 			/obj/item/clothing/suit/modular/rownin = -1,
+			/obj/item/clothing/suit/armor/bulletproof = -1,
 			/obj/item/facepaint/green = -1,
 			/obj/item/facepaint/sniper = -1,
 			/obj/item/facepaint/black = -1,
@@ -1349,6 +1350,8 @@
 			/obj/item/storage/pouch/explosive = -1,
 			/obj/item/storage/pouch/medkit = -1,
 			/obj/item/storage/pouch/medical_injectors = -1,
+			/obj/item/storage/pouch/pressurized_reagent_pouch/empty = -1,
+			/obj/item/storage/pouch/pressurized_reagent_pouch/bktt = -1,
 			/obj/item/storage/pouch/med_lolipops = -1,
 			/obj/item/storage/pouch/construction = -1,
 			/obj/item/storage/pouch/electronics = -1,

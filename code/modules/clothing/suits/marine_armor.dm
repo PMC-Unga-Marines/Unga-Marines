@@ -49,6 +49,10 @@
 	armor_overlays = list("lamp") //Just one for now, can add more later.
 	update_icon()
 
+/obj/item/clothing/suit/storage/marine/turn_light(mob/user, toggle_on)
+	. = ..()
+	user?.update_inv_wear_suit()
+
 /obj/item/clothing/suit/storage/marine/update_overlays()
 	. = ..()
 	if(armor_features_flags & ARMOR_LAMP_OVERLAY)
@@ -80,8 +84,8 @@
 	var/mob/living/carbon/human/H = user
 	if(H.wear_suit != src)
 		return
-	turn_light(user, !light_on)
-	return TRUE
+	if(turn_light(user, !light_on) == CHECKS_PASSED)
+		return TRUE
 
 /obj/item/clothing/suit/storage/marine/item_action_slot_check(mob/user, slot)
 	if(!ishuman(user))
@@ -145,23 +149,23 @@
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 	supporting_limbs = CHEST | GROIN | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_LEFT | LEG_RIGHT | FOOT_LEFT | FOOT_RIGHT | HEAD //B18 effectively stabilizes these.
 	resistance_flags = UNACIDABLE
-	obj_flags = AUTOBALANCE_CHECK
+	item_flags = AUTOBALANCE_CHECK
 
 /obj/item/clothing/suit/storage/marine/specialist/Initialize(mapload, ...)
 	. = ..()
 	AddComponent(/datum/component/suit_autodoc)
 	AddComponent(/datum/component/stun_mitigation, slot_override = SLOT_WEAR_SUIT, shield_cover = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50))
 	AddElement(/datum/element/limb_support, supporting_limbs)
-	if(obj_flags & AUTOBALANCE_CHECK)
+	if(item_flags & AUTOBALANCE_CHECK)
 		SSmonitor.stats.b18_in_use += src
 
 /obj/item/clothing/suit/storage/marine/specialist/Destroy()
-	if(obj_flags & AUTOBALANCE_CHECK)
+	if(item_flags & AUTOBALANCE_CHECK)
 		SSmonitor.stats.b18_in_use -= src
 	return ..()
 
 /obj/item/clothing/suit/storage/marine/specialist/valhalla
-	obj_flags = NONE
+	item_flags = NONE
 
 /obj/item/clothing/suit/storage/marine/B17
 	name = "\improper B17 defensive armor"
@@ -170,20 +174,20 @@
 	soft_armor = list(MELEE = 75, BULLET = 75, LASER = 50, ENERGY = 55, BOMB = 100, BIO = 55, FIRE = 75, ACID = 65)
 	max_heat_protection_temperature = HEAVYARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
-	obj_flags = AUTOBALANCE_CHECK
+	item_flags = AUTOBALANCE_CHECK
 
 /obj/item/clothing/suit/storage/marine/B17/Initialize(mapload, ...)
 	. = ..()
-	if(obj_flags & AUTOBALANCE_CHECK)
+	if(item_flags & AUTOBALANCE_CHECK)
 		SSmonitor.stats.b17_in_use += src
 
 /obj/item/clothing/suit/storage/marine/B17/Destroy()
-	if(obj_flags & AUTOBALANCE_CHECK)
+	if(item_flags & AUTOBALANCE_CHECK)
 		SSmonitor.stats.b17_in_use -= src
 	return ..()
 
 /obj/item/clothing/suit/storage/marine/B17/valhalla
-	obj_flags = NONE
+	item_flags = NONE
 
 ////////////////////////////////
 
@@ -411,8 +415,8 @@
 	var/mob/living/carbon/human/H = user
 	if(H.wear_suit != src) return
 
-	turn_light(user, !light_on)
-	return 1
+	if(turn_light(user, !light_on) == CHECKS_PASSED)
+		return TRUE
 
 /obj/item/clothing/suit/storage/faction/item_action_slot_check(mob/user, slot)
 	if(!ishuman(user)) return FALSE

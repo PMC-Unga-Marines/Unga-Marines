@@ -1,4 +1,3 @@
-
 /obj/vehicle/unmanned
 	name = "UV-L Iguana"
 	desc = "A small remote-controllable vehicle, usually owned by the TGMC and other major armies."
@@ -122,6 +121,8 @@
 
 /obj/vehicle/unmanned/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(istype(I, /obj/item/uav_turret) || istype(I, /obj/item/explosive/plastique))
 		return equip_turret(I, user)
 	if(istype(I, /obj/item/ammo_magazine))
@@ -255,7 +256,6 @@
 	in_chamber = new /obj/projectile(src) //New bullet!
 	in_chamber.generate_bullet(ammo)
 	return TRUE
-
 
 ///Check if we have/create a new bullet and fire it at an atom target
 /obj/vehicle/unmanned/proc/fire_shot(atom/target, mob/user)

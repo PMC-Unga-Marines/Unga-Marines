@@ -130,7 +130,7 @@ EXPLOSIVES
 /datum/assembly_craft/explosives/razornade
 	name = "Razorburn Grenade"
 	input = list(/obj/item/stack/sheet/composite = 5, /obj/item/stack/gun_powder = 1) // 20 + 8 points
-	output = list(/obj/item/explosive/grenade/chem_grenade/razorburn_smol = 1) // 16.6 points from old factory
+	output = list(/obj/item/explosive/grenade/chem_grenade/razorburn_small = 1) // 16.6 points from old factory
 
 //-------------------------------------------------------
 //RL-152

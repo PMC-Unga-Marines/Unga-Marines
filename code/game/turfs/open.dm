@@ -3,14 +3,17 @@
 	plane = FLOOR_PLANE
 	minimap_color = MINIMAP_AREA_COLONY
 	resistance_flags = PROJECTILE_IMMUNE|UNACIDABLE
-	var/allow_construction = TRUE //whether you can build things like barricades on this turf.
-	var/slayer = 0 //snow layer
-	var/wet = 0 //whether the turf is wet (only used by floors).
+	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR)
+	/// Whether you can build things like barricades on this turf.
+	var/allow_construction = TRUE
+	/// Snow layer
+	var/slayer = 0
+	/// Whether the turf is wet (only used by floors).
+	var/wet = 0
 	var/shoefootstep = FOOTSTEP_FLOOR
 	var/barefootstep = FOOTSTEP_HARD
 	var/mediumxenofootstep = FOOTSTEP_HARD
 	var/heavyxenofootstep = FOOTSTEP_GENERIC_HEAVY
-	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR)
 
 /turf/open/examine(mob/user)
 	. = ..()
@@ -34,6 +37,9 @@
 			override_sound = i
 			index = footstep_overrides[i]
 	return override_sound
+
+/turf/open/get_dumping_location()
+	return src
 
 // Beach
 

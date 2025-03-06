@@ -204,6 +204,11 @@ const ItemLine = (props) => {
               Cosmetic
             </Box>
           )}
+          {prod_color === 'synth-storage' && (
+            <Box inline mr="6px" ml="6px" color="magenta">
+              Provides Storage
+            </Box>
+          )}
           {prod_color === 'synth-armor' && (
             <Box inline mr="6px" ml="6px" color="red">
               Provides Armor

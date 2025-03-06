@@ -65,6 +65,8 @@ log transactions
 
 /obj/machinery/atm/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/card))
 		var/obj/item/card/id/idcard = I
@@ -99,7 +101,6 @@ log transactions
 		to_chat(user, span_info("You insert [I] into [src]."))
 		attack_hand(user)
 		qdel(I)
-
 
 /obj/machinery/atm/attack_hand(mob/living/user)
 	. = ..()
@@ -194,7 +195,6 @@ log transactions
 	var/datum/browser/popup = new(user, "atm", "<div align='center'>Nanotrasen Automatic Teller Machine</div>", 550, 650)
 	popup.set_content(dat)
 	popup.open()
-
 
 /obj/machinery/atm/Topic(href, href_list)
 	. = ..()
@@ -422,7 +422,7 @@ log transactions
 
 	src.attack_hand(usr)
 
-//stolen wholesale and then edited a bit from newscasters, which are awesome and by Agouri
+/// Stolen wholesale and then edited a bit from newscasters, which are awesome and by Agouri
 /obj/machinery/atm/proc/scan_user(mob/living/carbon/human/human_user as mob)
 	if(!authenticated_account)
 		if(human_user.wear_id)
@@ -445,7 +445,7 @@ log transactions
 
 					view_screen = NO_SCREEN
 
-// put the currently held id on the ground or in the hand of the user
+/// Put the currently held id on the ground or in the hand of the user
 /obj/machinery/atm/proc/release_held_id(mob/living/carbon/human/human_user as mob)
 	if(!held_card)
 		return

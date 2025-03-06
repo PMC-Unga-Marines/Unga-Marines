@@ -13,21 +13,23 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon_state()
 	. = ..()
-	if(!(reagents.total_volume) && is_drawable())
+	if(!(reagents?.total_volume) && is_drawable())
 		icon_state += "X"
 		name = "expended [name]" //So people can see what have been expended since we have smexy new sprites people aren't used too...
 		DISABLE_BITFIELD(reagents.reagent_flags, DRAWABLE)
-	else if(reagents.total_volume && !CHECK_BITFIELD(reagents.reagent_flags, DRAWABLE)) // refilling it somehow
+	else if(reagents?.total_volume && !CHECK_BITFIELD(reagents.reagent_flags, DRAWABLE)) // refilling it somehow
 		icon_state = initial(icon_state)
 		name = initial(name)
 		ENABLE_BITFIELD(reagents.reagent_flags, DRAWABLE)
 
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	. = ..()
+	. += "" // for some weird reason, without this lower lines get in line with item's size line
 	if(length(reagents.reagent_list))
 		. += span_notice("It is currently loaded.")
 	else
 		. += span_notice("It is spent.")
+	. += span_warning("<b>Use</b> to inject into yourself. <b>Unique Action</b> to configure injection amount.")
 
 /obj/item/reagent_containers/hypospray/autoinjector/fillable
 	desc = "An autoinjector loaded with... something, consult the doctor who gave this to you."

@@ -40,7 +40,6 @@
 	RefreshParts()
 	start_processing()
 
-
 //Maybe this should be moved up to obj/machinery
 /obj/machinery/power/smes/batteryrack/proc/add_parts()
 	component_parts = list()
@@ -48,8 +47,6 @@
 	component_parts += new /obj/item/cell/high
 	component_parts += new /obj/item/cell/high
 	component_parts += new /obj/item/cell/high
-
-
 
 /obj/machinery/power/smes/batteryrack/RefreshParts()
 	capacitors_amount = 0
@@ -67,7 +64,6 @@
 		cells_amount++
 	capacity = C * 40   //Basic cells are such crap. Hyper cells needed to get on normal SMES levels.
 
-
 /obj/machinery/power/smes/batteryrack/update_overlays()
 	. = ..()
 	if(machine_stat & BROKEN)
@@ -82,14 +78,14 @@
 	if(clevel>0)
 		. += image('icons/obj/power.dmi', "gsmes_og[clevel]")
 
-
-
 /obj/machinery/power/smes/batteryrack/chargedisplay()
 	return round(4 * charge/(capacity ? capacity : 5e6))
 
 
 /obj/machinery/power/smes/batteryrack/attackby(obj/item/I, mob/user, params) //these can only be moved by being reconstructed, solves having to remake the powernet.
 	. = ..() //SMES attackby for now handles screwdriver, cable coils and wirecutters, no need to repeat that here
+	if(.)
+		return
 
 	if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
 		return
@@ -129,13 +125,11 @@
 		RefreshParts()
 		to_chat(user, span_notice("You upgrade the [src] with [I]."))
 
-
 //The shitty one that will blow up.
 /obj/machinery/power/smes/batteryrack/makeshift
 	name = "makeshift PSU"
 	desc = "A rack of batteries connected by a mess of wires posing as a PSU."
 	var/overcharge_percent = 0
-
 
 /obj/machinery/power/smes/batteryrack/makeshift/add_parts()
 	component_parts = list()
@@ -143,8 +137,6 @@
 	component_parts += new /obj/item/cell/high
 	component_parts += new /obj/item/cell/high
 	component_parts += new /obj/item/cell/high
-
-
 
 /obj/machinery/power/smes/batteryrack/makeshift/update_icon()
 	. = ..()
@@ -161,7 +153,6 @@
 		var/clevel = chargedisplay()
 		if(clevel>0)
 			. += image('icons/obj/power.dmi', "gsmes_og[clevel]")
-
 
 //This mess of if-elses and magic numbers handles what happens if the engies don't pay attention and let it eat too much charge
 //What happens depends on how much capacity has the ghetto smes and how much it is overcharged.
@@ -211,8 +202,9 @@
 		else //how the hell was this proc called for negative charge
 			charge = 0
 
+/// Rate of internal charge to external power
+#define SMESRATE 0.05
 
-#define SMESRATE 0.05			// rate of internal charge to external power
 /obj/machinery/power/smes/batteryrack/makeshift/process()
 	if(machine_stat & BROKEN)	return
 

@@ -238,7 +238,7 @@
 
 /datum/supply_packs/weapons/t500case
 	name = "R-500 bundle"
-	contains = list(/obj/item/storage/box/t500case)
+	contains = list(/obj/item/storage/briefcase/t500)
 	cost = 50
 
 /datum/supply_packs/weapons/r76case

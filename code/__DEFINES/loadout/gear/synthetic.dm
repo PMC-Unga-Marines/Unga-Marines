@@ -1,8 +1,8 @@
 GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/effect/vendor_bundle/synth = list(CAT_ESS, "Essential synthetic set", 0, "white"),
 	//command stuff
-	/obj/item/beacon/supply_beacon = list(CAT_SYNTH, "Supply beacon", 5, "blue"),
-	/obj/item/beacon/orbital_bombardment_beacon = list(CAT_SYNTH, "Orbital beacon", 5, "blue"),
+	/obj/item/supply_beacon = list(CAT_SYNTH, "Supply beacon", 5, "blue"),
+	/obj/item/orbital_bombardment_beacon = list(CAT_SYNTH, "Orbital beacon", 5, "blue"),
 	/obj/item/fulton_extraction_pack = list(CAT_SYNTH, "Fulton Extraction Pack", 5, "blue"),
 	/obj/item/deployable_camera = list(CAT_SYNTH, "Deployable Overwatch Camera", 1, "blue"),
 	/obj/item/whistle = list(CAT_SYNTH, "Whistle", 1, "yellow"),
@@ -58,5 +58,5 @@ GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/item/tweezers_advanced = list(CAT_SYNTH, "Advanced Tweezers", 8, "yellow"),
 	/obj/effect/vendor_bundle/stretcher = list(CAT_SYNTH, "Medivac Stretcher", 20, "yellow"),
 	/obj/item/deployable_optable = list(CAT_SYNTH, "Deployable Operating Table", 12, "yellow"),
-	/obj/item/storage/box/t312case = list(CAT_MEDSUP, "R-312 'Albedo' Revolver", 25, "red"), // can buy for other, why not
+	/obj/item/storage/briefcase/t312 = list(CAT_MEDSUP, "R-312 'Albedo' Revolver", 25, "red"), // can buy for other, why not
 ))

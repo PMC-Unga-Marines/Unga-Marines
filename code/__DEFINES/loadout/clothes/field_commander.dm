@@ -1,5 +1,5 @@
 GLOBAL_LIST_INIT(commander_clothes_listed_products, list(
-	/obj/item/storage/box/MRE = list(CAT_STD, "TGMC MRE", 0, "white"),
+	/obj/item/storage/box/mre = list(CAT_STD, "TGMC MRE", 0, "white"),
 	/obj/item/facepaint/green = list(CAT_STD, "Green Customisation Kit", 0, "black"),
 	/obj/item/clothing/under/marine = list(CAT_UNI, "TGMC uniform", 0, "black"),
 	/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),

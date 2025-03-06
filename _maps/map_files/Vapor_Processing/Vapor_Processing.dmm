@@ -1152,7 +1152,7 @@
 /turf/open/floor/tile/green/whitegreen,
 /area/lv624/lazarus/medbay)
 "hB" = (
-/obj/structure/closet/secure_closet/CMO,
+/obj/structure/closet/secure_closet/cmo,
 /turf/open/floor/tile/green/whitegreen,
 /area/lv624/lazarus/medbay)
 "hC" = (

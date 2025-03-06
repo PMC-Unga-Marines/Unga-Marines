@@ -109,7 +109,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "cp" = (
-/obj/structure/closet/secure_closet/CMO,
+/obj/structure/closet/secure_closet/cmo,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/medical)
 "ct" = (

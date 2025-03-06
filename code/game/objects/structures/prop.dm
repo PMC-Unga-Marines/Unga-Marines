@@ -3,8 +3,6 @@
 //----- Marine ship machinery file -----//
 // Put any new machines in here before map is released and everything moved to their proper positions.
 
-
-
 //----- Marine ship props -----//
 //Put any props that don't function properly, they could function in the future but for now are for looks. This system could be expanded for other maps too. ~Art
 
@@ -321,8 +319,7 @@
 			fallen_list += D.fallen_names
 			qdel(D)
 		return TRUE
-	else
-		return ..()
+	return ..()
 
 /obj/structure/prop/mainship/ship_memorial/examine(mob/user)
 	. = ..()
@@ -335,14 +332,12 @@
 				faltext += fallen_list[i]
 		. += "[span_notice("To our fallen marines:")] <b>[faltext]</b>."
 
-
 /obj/structure/prop/mainship/particle_cannon
 	name = "\improper 75cm/140 Mark 74 General Atomics railgun"
 	desc = "The Mark 74 Railgun is top of the line for space based weaponry. Capable of firing a round with a diameter of 3/4ths of a meter at 24 kilometers per second. It also is capable of using a variety of round types which can be interchanged at anytime with its newly designed feed system."
 	icon = 'icons/obj/machines/artillery.dmi'
 	icon_state = "1"
 	resistance_flags = UNACIDABLE
-
 
 /obj/structure/prop/mainship/name_stencil
 	name = "\improper The UPP, a UPP-Class Marine Carrier Arsenal Ship"
@@ -362,7 +357,6 @@
 /obj/structure/prop/mainship/name_stencil/Initialize(mapload)
 	. = ..()
 	name = SSmapping.configs[SHIP_MAP].map_name
-
 
 /obj/structure/prop/mainship/hangar_stencil
 	name = "floor"
@@ -399,7 +393,6 @@
 	layer = LADDER_LAYER
 	light_range = 4
 	resistance_flags = RESIST_ALL //no delaminations here
-
 
 /obj/structure/prop/mainship/supermatter/proc/consume(atom/movable/consumed_object) //dust() and destroy living mobs, qdel thrown objects
 	if(isliving(consumed_object))
@@ -524,7 +517,6 @@
 	desc = "A mighty piece of hardware used to send massive amounts of data far away."
 	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "relay"
-
 
 /obj/structure/prop/mainship/suit_storage_prop
 	name = "Suit Storage Unit"

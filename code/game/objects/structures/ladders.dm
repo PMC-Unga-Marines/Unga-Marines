@@ -3,13 +3,16 @@
 	desc = "A sturdy metal ladder."
 	icon = 'icons/obj/structures/structures.dmi'
 	icon_state = "ladder11"
-	var/id = null
-	var/height = 0							//The 'height' of the ladder. higher numbers are considered physically higher
-	var/obj/structure/ladder/down = null	//The ladder below this one
-	var/obj/structure/ladder/up = null		//The ladder above this one
 	anchored = TRUE
 	resistance_flags = RESIST_ALL
 	layer = LADDER_LAYER
+	var/id = null
+	/// The 'height' of the ladder. higher numbers are considered physically higher
+	var/height = 0
+	/// The ladder below this one
+	var/obj/structure/ladder/down = null
+	/// The ladder above this one
+	var/obj/structure/ladder/up = null
 	var/is_watching = 0
 	var/obj/machinery/camera/cam
 
@@ -156,7 +159,7 @@
 	user.unset_interaction() //No usable cam, we stop interacting right away
 
 /obj/structure/ladder/on_unset_interaction(mob/user)
-	..()
+	. = ..()
 	is_watching = 0
 	user.reset_perspective(null)
 
@@ -202,6 +205,8 @@
 //Throwing Shiet
 /obj/structure/ladder/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/explosive/grenade))
 		var/obj/item/explosive/grenade/G = I

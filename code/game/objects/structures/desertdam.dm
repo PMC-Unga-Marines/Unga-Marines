@@ -1,5 +1,3 @@
-
-//OBJ
 /obj/structure/desertdam/decals
 	icon = 'icons/turf/desertdam_map.dmi'
 	density = FALSE

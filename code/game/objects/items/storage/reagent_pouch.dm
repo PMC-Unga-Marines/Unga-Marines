@@ -46,15 +46,10 @@
 /obj/item/storage/pouch/pressurized_reagent_pouch //The actual pouch itself and all its function
 	name = "pressurized reagent pouch"
 	w_class = WEIGHT_CLASS_BULKY
-	max_w_class = WEIGHT_CLASS_BULKY
-	allow_drawing_method = TRUE
 	icon_state = "reagent_pouch"
 	desc = "A very large reagent pouch. It is used to refill custom injectors, and can also store one.\
 	You can Alt-Click to remove the canister in order to refill it."
-	can_hold = list(/obj/item/reagent_containers/hypospray)
-	cant_hold = list(/obj/item/reagent_containers/glass/reagent_canister) //To prevent chat spam when you try to put the container in
 	item_flags = NOBLUDGEON
-	draw_mode = TRUE
 	///The internal container of the pouch. Holds the reagent that you use to refill the connected injector
 	var/obj/item/reagent_containers/glass/reagent_canister/inner
 	///List of chemicals we fill up our pouch with on Initialize()
@@ -64,6 +59,15 @@
 
 /obj/item/storage/pouch/pressurized_reagent_pouch/Initialize(mapload)
 	. = ..()
+	storage_datum.max_w_class = WEIGHT_CLASS_BULKY
+	storage_datum.allow_drawing_method = TRUE
+	//cant_hold_list to prevent chat spam when you try to put the container in
+	storage_datum.set_holdable(
+		can_hold_list = list(/obj/item/reagent_containers/hypospray),
+		cant_hold_list = list(/obj/item/reagent_containers/glass/reagent_canister)
+	)
+	storage_datum.draw_mode = TRUE
+
 	inner = new /obj/item/reagent_containers/glass/reagent_canister
 	new /obj/item/reagent_containers/hypospray/autoinjector/r_pouch(src)
 	for(var/datum/reagent/chem_type AS in chemicals_to_fill)
@@ -81,7 +85,6 @@
 			hypo_to_fill.reagents.add_reagent(chem_type, (chemicals_to_fill[chem_type])/inner.volume*hypo_to_fill.volume)
 		hypo_to_fill.update_icon()
 	update_icon()
-
 
 /obj/item/storage/pouch/pressurized_reagent_pouch/Destroy()
 	if(inner)
@@ -134,7 +137,6 @@
 			return
 		to_chat(user, span_warning("There already is a container inside [src]!"))
 		return
-
 	return ..()
 
 /obj/item/storage/pouch/pressurized_reagent_pouch/attackby_alternate(obj/item/held_item, mob/user, params)

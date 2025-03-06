@@ -7435,7 +7435,7 @@
 /area/prison/residential/central)
 "ayd" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/suit/chef/classic,
+/obj/item/clothing/suit/storage/chef/classic,
 /turf/open/floor/prison/kitchen,
 /area/prison/research)
 "aye" = (
@@ -7785,7 +7785,7 @@
 /area/prison/residential/north)
 "azj" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/suit/chef/classic,
+/obj/item/clothing/suit/storage/chef/classic,
 /obj/item/tool/kitchen/rollingpin,
 /turf/open/floor/prison/kitchen,
 /area/prison/residential/north)
@@ -28170,7 +28170,7 @@
 /area/prison/residential/south)
 "bLO" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/suit/chef/classic,
+/obj/item/clothing/suit/storage/chef/classic,
 /obj/item/tool/kitchen/rollingpin,
 /turf/open/floor/prison/kitchen,
 /area/prison/residential/south)
@@ -30242,7 +30242,7 @@
 /area/prison/security/checkpoint/medsec)
 "bSM" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/suit/chef/classic,
+/obj/item/clothing/suit/storage/chef/classic,
 /obj/item/tool/kitchen/rollingpin,
 /obj/item/pizzabox,
 /turf/open/floor/prison/kitchen,
@@ -40837,7 +40837,7 @@
 /area/prison/hangar/main)
 "etW" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/suit/chef/classic,
+/obj/item/clothing/suit/storage/chef/classic,
 /obj/item/tool/kitchen/rollingpin,
 /turf/open/floor/prison/kitchen,
 /area/prison/residential/central)
@@ -46088,7 +46088,7 @@
 /area/prison/cellblock/mediumsec/west)
 "oYc" = (
 /obj/structure/table,
-/obj/item/clothing/suit/chef/classic,
+/obj/item/clothing/suit/storage/chef/classic,
 /obj/item/reagent_containers/spray,
 /turf/open/floor/prison/kitchen,
 /area/prison/residential/north)
@@ -46442,7 +46442,7 @@
 /turf/open/floor/prison/bright_clean,
 /area/prison/hallway/central)
 "pIl" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/storage/testroom)
 "pIp" = (

@@ -52,7 +52,7 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "q" = (
-/obj/item/beacon/supply_beacon,
+/obj/item/supply_beacon,
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "r" = (

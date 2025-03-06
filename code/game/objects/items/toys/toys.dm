@@ -42,6 +42,8 @@
 
 /obj/item/toy/balloon/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/reagent_containers/glass))
 		if(!I.reagents)
@@ -120,7 +122,6 @@
 /*
 * Crayons
 */
-
 /obj/item/toy/crayon
 	name = "crayon"
 	desc = "A colourful crayon. Please refrain from eating it or putting it in your nose."
@@ -128,11 +129,15 @@
 	icon_state = "crayonred"
 	w_class = WEIGHT_CLASS_TINY
 	attack_verb = list("attacked", "coloured")
-	var/colour = "#FF0000" //RGB
-	var/shadeColour = "#220000" //RGB
-	var/uses = 30 //0 for unlimited uses
+	///RGB
+	var/colour = "#FF0000"
+	///RGB
+	var/shadeColour = "#220000"
+	///0 for unlimited uses
+	var/uses = 30
 	var/instant = 0
-	var/colourName = "red" //for updateIcon purposes
+	///for updateIcon purposes
+	var/colourName = "red"
 
 /*
 * Snap pops
@@ -539,35 +544,37 @@
 	density = TRUE
 	var/side = ""
 	var/id = ""
-
+	
+/obj/structure/hoop/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
+	. = ..()
+	if(.)
+		return
+	if(!isliving(grab.grabbed_thing))
+		return
+	if(user.a_intent == INTENT_HARM)
+		return
+	var/mob/living/grabbed_mob = grab.grabbed_thing
+	if(user.grab_state <= GRAB_AGGRESSIVE)
+		to_chat(user, span_warning("You need a better grip to do that!"))
+		return
+	grabbed_mob.forceMove(loc)
+	grabbed_mob.Paralyze(4 SECONDS)
+	for(var/obj/machinery/scoreboard/X in GLOB.machines)
+		if(X.id == id)
+			X.score(side, 3)// 3 points for dunking a mob
+	visible_message(span_danger("[user] dunks [grabbed_mob] into the [src]!"))
 
 /obj/structure/hoop/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
-	if(istype(I, /obj/item/grab) && get_dist(src, user) <= 1)
-		var/obj/item/grab/G = I
-		if(!isliving(G.grabbed_thing))
-			return
-
-		var/mob/living/L = G.grabbed_thing
-		if(user.grab_state < GRAB_AGGRESSIVE)
-			to_chat(user, span_warning("You need a better grip to do that!"))
-			return
-		L.forceMove(loc)
-		L.Paralyze(10 SECONDS)
-		for(var/obj/machinery/scoreboard/X in GLOB.machines)
-			if(X.id == id)
-				X.score(side, 3)// 3 points for dunking a mob
-				// no break, to update multiple scoreboards
-		visible_message(span_danger("[user] dunks [L] into the [src]!"))
-
-	else if(get_dist(src, user) < 2)
+	if(get_dist(src, user) < 2)
 		user.transferItemToLoc(I, loc)
 		for(var/obj/machinery/scoreboard/X in GLOB.machines)
 			if(X.id == id)
 				X.score(side)
 		visible_message(span_notice("[user] dunks [I] into the [src]!"))
-
 
 /obj/structure/hoop/CanAllowThrough(atom/movable/mover, turf/target)
 	if(istype(mover,/obj/item) && mover.throwing)
@@ -578,9 +585,8 @@
 				if(X.id == id)
 					X.score(side)
 					// no break, to update multiple scoreboards
-			visible_message(span_notice(" Swish! \the [I] lands in \the [src]."), 3)
-		else
-			visible_message(span_warning(" \the [I] bounces off of \the [src]'s rim!"), 3)
+			visible_message(span_notice("Swish! \the [I] lands in \the [src]."), 3)
+			return TRUE
+		visible_message(span_warning("\the [I] bounces off of \the [src]'s rim!"), 3)
 		return FALSE
-	else
-		return ..()
+	return ..()

@@ -6897,7 +6897,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle4)
 "fYF" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/closed/mineral/smooth/indestructible,
 /area/storage/testroom)
 "fYW" = (
@@ -7391,7 +7391,7 @@
 /area/lv624/ground/river1)
 "gxL" = (
 /obj/structure/table,
-/obj/item/clothing/suit/apron,
+/obj/item/clothing/suit/storage/apron,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 5
 	},
@@ -11731,7 +11731,7 @@
 /area/lv624/lazarus/engineering)
 "lmd" = (
 /obj/structure/table,
-/obj/item/clothing/suit/chef/classic,
+/obj/item/clothing/suit/storage/chef/classic,
 /turf/open/floor/freezer,
 /area/lv624/lazarus/kitchen)
 "lmI" = (
@@ -17118,7 +17118,7 @@
 /area/lv624/ground/jungle9)
 "ruj" = (
 /obj/structure/table,
-/obj/item/clothing/suit/apron/overalls,
+/obj/item/clothing/suit/storage/apron/overalls,
 /obj/item/clothing/under/colonist,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 5
@@ -17318,7 +17318,7 @@
 	dir = 1
 	},
 /obj/structure/table,
-/obj/item/clothing/suit/apron,
+/obj/item/clothing/suit/storage/apron,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 5
 	},
@@ -17917,8 +17917,8 @@
 /area/lv624/lazarus/internal_affairs)
 "scP" = (
 /obj/structure/rack,
-/obj/item/storage/box/MRE,
-/obj/item/storage/box/MRE,
+/obj/item/storage/box/mre,
+/obj/item/storage/box/mre,
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage)
 "sdo" = (
@@ -18316,7 +18316,7 @@
 "sDZ" = (
 /obj/structure/table,
 /obj/item/clothing/gloves/botanic_leather,
-/obj/item/clothing/suit/apron,
+/obj/item/clothing/suit/storage/apron,
 /obj/item/clothing/under/colonist,
 /turf/open/floor/tile/green/whitegreen,
 /area/lv624/lazarus/hydroponics/aux)

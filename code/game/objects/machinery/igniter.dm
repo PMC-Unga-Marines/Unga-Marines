@@ -4,16 +4,15 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "igniter1"
 	plane = FLOOR_PLANE
-	var/id = null
-	var/on = TRUE
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 50
+	var/id = null
+	var/on = TRUE
 
 /obj/machinery/igniter/attack_ai(mob/user)
 	return attack_hand(user)
-
 
 /obj/machinery/igniter/attack_hand(mob/living/user)
 	. = ..()
@@ -24,11 +23,9 @@
 	on = !on
 	icon_state = "igniter[on]"
 
-
 /obj/machinery/igniter/Initialize(mapload)
 	. = ..()
 	icon_state = "igniter[on]"
-
 
 /obj/machinery/igniter/update_icon_state()
 	. = ..()
@@ -38,7 +35,6 @@
 		icon_state = "igniter0"
 
 // Wall mounted remote-control igniter.
-
 /obj/machinery/sparker
 	name = "Mounted igniter"
 	desc = "A wall-mounted ignition device."
@@ -47,11 +43,11 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 4
 	active_power_usage = 1000
+	anchored = TRUE
 	var/id = null
 	var/disable = 0
 	var/last_spark = 0
 	var/base_state = "migniter"
-	anchored = TRUE
 
 /obj/machinery/sparker/update_icon_state()
 	. = ..()
@@ -62,52 +58,53 @@
 
 /obj/machinery/sparker/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/detective_scanner))
 		return
 
-	else if(isscrewdriver(I))
-		disable = !disable
-		if(disable)
-			user.visible_message(span_warning(" [user] has disabled the [src]!"), span_warning(" You disable the connection to the [src]."))
-			icon_state = "[base_state]-d"
+/obj/machinery/sparker/screwdriver_act(mob/living/user, obj/item/I)
+	. = ..()
+	disable = !disable
+	if(disable)
+		user.visible_message(span_warning(" [user] has disabled the [src]!"), span_warning(" You disable the connection to the [src]."))
+		icon_state = "[base_state]-d"
+	else
+		user.visible_message(span_warning(" [user] has reconnected the [src]!"), span_warning(" You fix the connection to the [src]."))
+		if(powered())
+			icon_state = "[base_state]"
 		else
-			user.visible_message(span_warning(" [user] has reconnected the [src]!"), span_warning(" You fix the connection to the [src]."))
-			if(powered())
-				icon_state = "[base_state]"
-			else
-				icon_state = "[base_state]-p"
-
+			icon_state = "[base_state]-p"
 
 /obj/machinery/sparker/proc/ignite()
-	if (!(powered()))
+	if(!(powered()))
 		return
 
-	if ((src.disable) || (src.last_spark && world.time < src.last_spark + 50))
+	if((disable) || (last_spark && world.time < last_spark + 50))
 		return
-
 
 	flick("[base_state]-spark", src)
 	var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
 	s.set_up(2, 1, src)
 	s.start()
-	src.last_spark = world.time
+	last_spark = world.time
 	use_power(active_power_usage)
-	return 1
+	return TRUE
 
 /obj/machinery/sparker/emp_act(severity)
 	if(machine_stat & (BROKEN|NOPOWER))
-		..(severity)
-		return
+		return ..(severity)
 	ignite()
-	..(severity)
+	return ..(severity)
 
 /obj/machinery/ignition_switch/attack_ai(mob/user)
 	return attack_hand(user)
 
-
 /obj/machinery/ignition_switch/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	return attack_hand(user)
 
 /obj/machinery/ignition_switch/attack_hand(mob/living/user)
