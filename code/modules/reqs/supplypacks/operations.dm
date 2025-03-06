@@ -11,12 +11,12 @@
 
 /datum/supply_packs/operations/beacons_supply
 	name = "Supply beacon"
-	contains = list(/obj/item/beacon/supply_beacon)
+	contains = list(/obj/item/supply_beacon)
 	cost = 100
 
 /datum/supply_packs/operations/beacons_orbital
 	name = "orbital beacon"
-	contains = list(/obj/item/beacon/orbital_bombardment_beacon)
+	contains = list(/obj/item/orbital_bombardment_beacon)
 	cost = 30
 
 /datum/supply_packs/operations/fulton_extraction_pack

@@ -279,11 +279,10 @@
 
 	// Determine the identity information which will be attached to the signal.
 	var/atom/movable/virtualspeaker/speaker = new(null, talking_movable, src)
-
 	// Construct the signal
 	var/datum/signal/subspace/vocal/signal = new(src, freq, speaker, language, message, spans)
 
-	if (independent && freq >= MIN_ERT_FREQ && freq <= MAX_ERT_FREQ)
+	if(independent && freq >= MIN_ERT_FREQ && freq <= MAX_ERT_FREQ)
 		signal.data["compression"] = 0
 		signal.transmission_method = TRANSMISSION_SUPERSPACE
 		signal.levels = list(0)
@@ -291,11 +290,21 @@
 		return
 
 	var/area/A = get_area(src)
-	var/mob/living/carbon/living = speaker.source
-	if(!isnull(A) && (A.ceiling >= CEILING_UNDERGROUND) && !(A.area_flags & ALWAYS_RADIO) && !istype(living.back, /obj/item/storage/backpack/marine/radiopack))
+	var/radio_disruption = CAVE_NO_INTERFERENCE
+	//var/mob/living/carbon/living = speaker.source
+	if(!isnull(A) && (A.ceiling >= CEILING_UNDERGROUND) && !(A.area_flags & ALWAYS_RADIO))
+		radio_disruption = CAVE_MINOR_INTERFERENCE
 		if(A.ceiling >= CEILING_DEEP_UNDERGROUND)
+			radio_disruption = CAVE_FULL_INTERFERENCE
+	var/list/inplace_interference = list(radio_disruption)
+	SEND_SIGNAL(talking_movable, COMSIG_CAVE_INTERFERENCE_CHECK, inplace_interference)
+	radio_disruption = inplace_interference[1]
+
+	switch(radio_disruption)
+		if(CAVE_MINOR_INTERFERENCE)
+			signal.data["compression"] += rand(20, 40)
+		if(CAVE_FULL_INTERFERENCE)
 			return
-		signal.data["compression"] += rand(20, 40)
 
 	// All non-independent radios make an attempt to use the subspace system first
 	signal.send_to_receivers()
@@ -342,11 +351,24 @@
 		var/turf/position = get_turf(src)
 		if(!position || !(position.z in levels))
 			return FALSE
+		var/radio_disruption = CAVE_NO_INTERFERENCE
 		var/area/A = get_area(src)
-		if(A?.ceiling >= CEILING_DEEP_UNDERGROUND)
-			var/mob/living/carbon/living = usr
-			if(!istype(living.back, /obj/item/storage/backpack/marine/radiopack))
-				return FALSE
+		if(A?.ceiling >= CEILING_UNDERGROUND && !(A.area_flags & ALWAYS_RADIO))
+			radio_disruption = CAVE_MINOR_INTERFERENCE //Unused for this case but may aswell create parity on what the value of the var is.
+			if(A.ceiling >= CEILING_DEEP_UNDERGROUND)
+				radio_disruption = CAVE_FULL_INTERFERENCE
+		var/list/potential_owners = get_nested_locs(src) //Sometimes not equipped, sometimes not even equippable, sometimes in storage, this feels like it's an okay way to do it.
+		var/mob/living/found_owner
+		for(var/mob/living/candidate in potential_owners)
+			found_owner = candidate
+			break
+
+		if(found_owner)
+			var/inplace_interference = list(radio_disruption)
+			SEND_SIGNAL(found_owner, COMSIG_CAVE_INTERFERENCE_CHECK, inplace_interference)
+			radio_disruption = inplace_interference[1]
+		if(radio_disruption == CAVE_FULL_INTERFERENCE)
+			return FALSE
 
 	// allow checks: are we listening on that frequency?
 	if(input_frequency == frequency)

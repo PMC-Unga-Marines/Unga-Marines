@@ -175,8 +175,8 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 	),
 	SQUAD_LEADER = list(
 		/obj/item/explosive/plastique = 1,
-		/obj/item/beacon/supply_beacon = 2,
-		/obj/item/beacon/orbital_bombardment_beacon = 1,
+		/obj/item/supply_beacon = 2,
+		/obj/item/orbital_bombardment_beacon = 1,
 		/obj/item/whistle = 1,
 		/obj/item/binoculars/tactical = 1,
 		/obj/item/pinpointer = 1,
@@ -185,8 +185,8 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 	),
 	FIELD_COMMANDER = list(
 		/obj/item/explosive/plastique = 1,
-		/obj/item/beacon/supply_beacon = 1,
-		/obj/item/beacon/orbital_bombardment_beacon = 1,
+		/obj/item/supply_beacon = 1,
+		/obj/item/orbital_bombardment_beacon = 1,
 		/obj/item/healthanalyzer = 1,
 		/obj/item/roller/medevac = 1,
 		/obj/item/medevac_beacon = 1,
