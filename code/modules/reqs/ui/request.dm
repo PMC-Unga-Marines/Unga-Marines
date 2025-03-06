@@ -1,4 +1,3 @@
-
 /datum/supply_ui/requests
 	tgui_name = "CargoRequest"
 
