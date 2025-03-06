@@ -24,10 +24,12 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	. = ..()
+	. += "" // for some weird reason, without this lower lines get in line with item's size line
 	if(length(reagents.reagent_list))
 		. += span_notice("It is currently loaded.")
 	else
 		. += span_notice("It is spent.")
+	. += span_warning("<b>Use</b> to inject into yourself. <b>Unique Action</b> to configure injection amount.")
 
 /obj/item/reagent_containers/hypospray/autoinjector/fillable
 	desc = "An autoinjector loaded with... something, consult the doctor who gave this to you."

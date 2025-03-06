@@ -78,8 +78,8 @@
 	if(length(linked_mortars))
 		. += span_notice("They are currently linked to [length(linked_mortars)] artillery piece(s).")
 		. += span_notice("They are currently set to [linked_mortars[selected_mortar].name] N°[selected_mortar].")
-		return
-	. += span_notice("They are not linked to any artillery piece(s).")
+	else
+		. += span_notice("They are not linked to any artillery piece(s).")
 	if(ishuman(user))
 		. += ""
 		. += span_danger("Unique action to toggle mode.")
