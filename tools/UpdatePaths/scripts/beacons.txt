@@ -1,0 +1,2 @@
+/obj/item/beacon/supply_beacon : /obj/item/supply_beacon{@OLD}
+/obj/item/beacon/orbital_bombardment_beacon : /obj/item/orbital_bombardment_beacon{@OLD}

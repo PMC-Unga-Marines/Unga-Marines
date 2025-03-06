@@ -784,10 +784,10 @@
 ///BubbleWrap - A box can be folded up to make card
 /obj/item/storage/attack_self(mob/user)
 	//Otherwise we'll try to fold it.
-	if(length(contents) )
-		return
+	if(!ispath(foldable))
+		return ..()
 
-	if(!ispath(foldable) )
+	if(length(contents))
 		return
 
 	// Close any open UI windows first

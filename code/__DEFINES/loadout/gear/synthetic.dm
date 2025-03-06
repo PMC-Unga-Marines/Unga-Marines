@@ -1,8 +1,8 @@
 GLOBAL_LIST_INIT(synthetic_gear_listed_products, list(
 	/obj/effect/vendor_bundle/synth = list(CAT_ESS, "Essential synthetic set", 0, "white"),
 	//command stuff
-	/obj/item/beacon/supply_beacon = list(CAT_SYNTH, "Supply beacon", 5, "blue"),
-	/obj/item/beacon/orbital_bombardment_beacon = list(CAT_SYNTH, "Orbital beacon", 5, "blue"),
+	/obj/item/supply_beacon = list(CAT_SYNTH, "Supply beacon", 5, "blue"),
+	/obj/item/orbital_bombardment_beacon = list(CAT_SYNTH, "Orbital beacon", 5, "blue"),
 	/obj/item/fulton_extraction_pack = list(CAT_SYNTH, "Fulton Extraction Pack", 5, "blue"),
 	/obj/item/deployable_camera = list(CAT_SYNTH, "Deployable Overwatch Camera", 1, "blue"),
 	/obj/item/whistle = list(CAT_SYNTH, "Whistle", 1, "yellow"),
