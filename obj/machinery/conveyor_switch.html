@@ -11,46 +11,82 @@
     <a href="index.html">byond</a> -
     <a href="index.html#modules">Modules</a> -
     <a href="index.html#types">Types</a>
- &mdash; <a href="obj/machinery/conveyor_switch.html#proc">Proc Details</a></header>
+ &mdash; <a href="obj/machinery/conveyor_switch.html#var">Var Details</a> - <a href="obj/machinery/conveyor_switch.html#proc">Proc Details</a></header>
 <main>
 <h1>conveyor_switch <aside>/<a href="obj.html">obj</a>/<a href="obj/machinery.html">machinery</a>/<a href="obj/machinery/conveyor_switch.html">conveyor_switch</a></aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/6f1461a2803383e24a8e6d74187039884dd63fd6/code/modules/recycling/conveyor2.dm#L253">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 253"/></a></h1>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/modules/recycling/conveyor2.dm#L257">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 257"/></a></h1>
 
-<p>the conveyor control switch</p><table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Procs</h2></td></tr>
+<p>the conveyor control switch</p><table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="obj/machinery/conveyor_switch.html#var/id">id</a></th><td>Must match conveyor IDs to control them</td></tr>
+            <tr><th><a href="obj/machinery/conveyor_switch.html#var/invert_icon">invert_icon</a></th><td>If the level points the opposite direction when it's turned on.</td></tr>
+            <tr><th><a href="obj/machinery/conveyor_switch.html#var/last_pos">last_pos</a></th><td>Last direction setting</td></tr>
+            <tr><th><a href="obj/machinery/conveyor_switch.html#var/oneway">oneway</a></th><td>If the switch only operates the conveyor belts in a single direction.</td></tr>
+            <tr><th><a href="obj/machinery/conveyor_switch.html#var/position">position</a></th><td>0 off, -1 reverse, 1 forward</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
             <tr><th><a href="obj/machinery/conveyor_switch.html#proc/interact">interact</a></th><td>Called when a user clicks on this switch with an open hand.</td></tr>
             <tr><th><a href="obj/machinery/conveyor_switch.html#proc/update_linked_conveyors">update_linked_conveyors</a></th><td>Updates all conveyor belts that are linked to this switch, and tells them to start processing.</td></tr>
             <tr><th><a href="obj/machinery/conveyor_switch.html#proc/update_linked_switches">update_linked_switches</a></th><td>Finds any switches with same <code>id</code> as this one, and set their position and icon to match us.</td></tr>
-            <tr><th><a href="obj/machinery/conveyor_switch.html#proc/update_position">update_position</a></th><td>Updates the switch's <code>position</code> and <code>last_pos</code> variable. Useful so that the switch can properly cycle between the forwards, backwards and neutral positions.</td></tr></table><h2 id="proc">Proc Details</h2><h3 id="proc/interact">interact<aside>(/<a href="mob.html">mob</a>/user) 
+            <tr><th><a href="obj/machinery/conveyor_switch.html#proc/update_position">update_position</a></th><td>Updates the switch's <code>position</code> and <code>last_pos</code> variable. Useful so that the switch can properly cycle between the forwards, backwards and neutral positions.</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/id"><aside class="declaration">var </aside>id
+            <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/6f1461a2803383e24a8e6d74187039884dd63fd6/code/modules/recycling/conveyor2.dm#L340">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 340"/></a></aside>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/modules/recycling/conveyor2.dm#L272">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 272"/></a></h3>
+        <p>Must match conveyor IDs to control them</p><h3 id="var/invert_icon"><aside class="declaration">var </aside>invert_icon
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/modules/recycling/conveyor2.dm#L270">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 270"/></a></h3>
+        <p>If the level points the opposite direction when it's turned on.</p><h3 id="var/last_pos"><aside class="declaration">var </aside>last_pos
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/modules/recycling/conveyor2.dm#L266">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 266"/></a></h3>
+        <p>Last direction setting</p><h3 id="var/oneway"><aside class="declaration">var </aside>oneway
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/modules/recycling/conveyor2.dm#L268">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 268"/></a></h3>
+        <p>If the switch only operates the conveyor belts in a single direction.</p><h3 id="var/position"><aside class="declaration">var </aside>position
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/modules/recycling/conveyor2.dm#L264">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 264"/></a></h3>
+        <p>0 off, -1 reverse, 1 forward</p><h2 id="proc">Proc Details</h2><h3 id="proc/interact">interact<aside>(/<a href="mob.html">mob</a>/user) 
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/modules/recycling/conveyor2.dm#L348">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 348"/></a></aside>
         </h3>
         <p>Called when a user clicks on this switch with an open hand.</p><h3 id="proc/update_linked_conveyors"><aside class="declaration">proc </aside>update_linked_conveyors<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/6f1461a2803383e24a8e6d74187039884dd63fd6/code/modules/recycling/conveyor2.dm#L304">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 304"/></a></aside>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/modules/recycling/conveyor2.dm#L312">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 312"/></a></aside>
         </h3>
         <p>Updates all conveyor belts that are linked to this switch, and tells them to start processing.</p><h3 id="proc/update_linked_switches"><aside class="declaration">proc </aside>update_linked_switches<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/6f1461a2803383e24a8e6d74187039884dd63fd6/code/modules/recycling/conveyor2.dm#L316">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 316"/></a></aside>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/modules/recycling/conveyor2.dm#L324">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 324"/></a></aside>
         </h3>
         <p>Finds any switches with same <code>id</code> as this one, and set their position and icon to match us.</p><h3 id="proc/update_position"><aside class="declaration">proc </aside>update_position<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/6f1461a2803383e24a8e6d74187039884dd63fd6/code/modules/recycling/conveyor2.dm#L324">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 324"/></a></aside>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/modules/recycling/conveyor2.dm#L332">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;recycling&#x2F;conveyor2.dm 332"/></a></aside>
         </h3>
         <p>Updates the switch's <code>position</code> and <code>last_pos</code> variable. Useful so that the switch can properly cycle between the forwards, backwards and neutral positions.</p></main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/6f1461a2803383e24a8e6d74187039884dd63fd6">6f1461a</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/558cfa544cb58227c7ecb8f47c5546a0889c18ad">558cfa5</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>

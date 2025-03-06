@@ -16,28 +16,70 @@
 <h1>corpsespawner <aside>/<a href="obj.html">obj</a>/<a href="obj/effect/landmark/corpsespawner.html">effect/landmark/corpsespawner</a></aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/6f1461a2803383e24a8e6d74187039884dd63fd6/code/game/objects/effects/landmarks/corpsespawner.dm#L18">
-        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;landmarks&#x2F;corpsespawner.dm 18"/></a></h1>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/game/objects/effects/landmarks/corpsespawner.dm#L12">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;landmarks&#x2F;corpsespawner.dm 12"/></a></h1>
 
 <p>LANDMARK CORPSE</p><table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
-            <tr><th><a href="obj/effect/landmark/corpsespawner.html#var/death_type">death_type</a></th><td>type of victim death, used for determining what kind of overlays and effects a corpse should have</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="obj/effect/landmark/corpsespawner.html#var/corpseid">corpseid</a></th><td>Just set to 1 if you want them to have an ID</td></tr>
+            <tr><th><a href="obj/effect/landmark/corpsespawner.html#var/corpseidaccess">corpseidaccess</a></th><td>This is for access. See access.dm for which jobs give what access. Use CAPTAIN if you want it to be all access.</td></tr>
+            <tr><th><a href="obj/effect/landmark/corpsespawner.html#var/corpseidicon">corpseidicon</a></th><td>For setting it to be a gold, silver, centcom etc ID</td></tr>
+            <tr><th><a href="obj/effect/landmark/corpsespawner.html#var/corpseidjob">corpseidjob</a></th><td>Needs to be in quotes, such as &quot;Clown&quot; or &quot;Chef.&quot; This just determines what the ID reads as, not their access</td></tr>
+            <tr><th><a href="obj/effect/landmark/corpsespawner.html#var/corpseuniform">corpseuniform</a></th><td>Set this to an object path to have the slot filled with said object on the corpse.</td></tr>
+            <tr><th><a href="obj/effect/landmark/corpsespawner.html#var/death_type">death_type</a></th><td>Type of victim death, used for determining what kind of overlays and effects a corpse should have</td></tr>
+            <tr><th><a href="obj/effect/landmark/corpsespawner.html#var/mobname">mobname</a></th><td>Unused now but it'd fuck up maps to remove it now</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
             <tr><th><a href="obj/effect/landmark/corpsespawner.html#proc/create_mob">create_mob</a></th><td>Create the mob and delete the corpse spawner</td></tr></table>
-    <h2 id="var">Var Details</h2><h3 id="var/death_type"><aside class="declaration">var </aside>death_type
+    <h2 id="var">Var Details</h2><h3 id="var/corpseid"><aside class="declaration">var </aside>corpseid
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/6f1461a2803383e24a8e6d74187039884dd63fd6/code/game/objects/effects/landmarks/corpsespawner.dm#L22">
-        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;landmarks&#x2F;corpsespawner.dm 22"/></a></h3>
-        <p>type of victim death, used for determining what kind of overlays and effects a corpse should have</p><h2 id="proc">Proc Details</h2><h3 id="proc/create_mob"><aside class="declaration">proc </aside>create_mob<aside>() 
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/game/objects/effects/landmarks/corpsespawner.dm#L33">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;landmarks&#x2F;corpsespawner.dm 33"/></a></h3>
+        <p>Just set to 1 if you want them to have an ID</p><h3 id="var/corpseidaccess"><aside class="declaration">var </aside>corpseidaccess
+            <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/6f1461a2803383e24a8e6d74187039884dd63fd6/code/game/objects/effects/landmarks/corpsespawner.dm#L50">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/game/objects/effects/landmarks/corpsespawner.dm#L37">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;landmarks&#x2F;corpsespawner.dm 37"/></a></h3>
+        <p>This is for access. See access.dm for which jobs give what access. Use CAPTAIN if you want it to be all access.</p><h3 id="var/corpseidicon"><aside class="declaration">var </aside>corpseidicon
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/game/objects/effects/landmarks/corpsespawner.dm#L39">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;landmarks&#x2F;corpsespawner.dm 39"/></a></h3>
+        <p>For setting it to be a gold, silver, centcom etc ID</p><h3 id="var/corpseidjob"><aside class="declaration">var </aside>corpseidjob
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/game/objects/effects/landmarks/corpsespawner.dm#L35">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;landmarks&#x2F;corpsespawner.dm 35"/></a></h3>
+        <p>Needs to be in quotes, such as &quot;Clown&quot; or &quot;Chef.&quot; This just determines what the ID reads as, not their access</p><h3 id="var/corpseuniform"><aside class="declaration">var </aside>corpseuniform
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/game/objects/effects/landmarks/corpsespawner.dm#L20">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;landmarks&#x2F;corpsespawner.dm 20"/></a></h3>
+        <p>Set this to an object path to have the slot filled with said object on the corpse.</p><h3 id="var/death_type"><aside class="declaration">var </aside>death_type
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/game/objects/effects/landmarks/corpsespawner.dm#L16">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;landmarks&#x2F;corpsespawner.dm 16"/></a></h3>
+        <p>Type of victim death, used for determining what kind of overlays and effects a corpse should have</p><h3 id="var/mobname"><aside class="declaration">var </aside>mobname
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/game/objects/effects/landmarks/corpsespawner.dm#L18">
+        <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;landmarks&#x2F;corpsespawner.dm 18"/></a></h3>
+        <p>Unused now but it'd fuck up maps to remove it now</p><h2 id="proc">Proc Details</h2><h3 id="proc/create_mob"><aside class="declaration">proc </aside>create_mob<aside>() 
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/558cfa544cb58227c7ecb8f47c5546a0889c18ad/code/game/objects/effects/landmarks/corpsespawner.dm#L50">
         <img src="git.png" width="16" height="16" title="code&#x2F;game&#x2F;objects&#x2F;effects&#x2F;landmarks&#x2F;corpsespawner.dm 50"/></a></aside>
         </h3>
         <p>Create the mob and delete the corpse spawner</p></main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/6f1461a2803383e24a8e6d74187039884dd63fd6">6f1461a</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/558cfa544cb58227c7ecb8f47c5546a0889c18ad">558cfa5</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
