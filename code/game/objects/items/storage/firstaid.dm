@@ -1,4 +1,4 @@
-/obj/item/storage/
+/obj/item/storage/firstaid
 	name = "first-aid kit"
 	desc = "It's an emergency medical kit for those serious boo-boos."
 	icon = 'icons/obj/items/storage/firstaid.dmi'
