@@ -57,7 +57,7 @@
 	name = "general pouch"
 	icon_state = "large_drop"
 
-/obj/item/storage/pouch/general/large/command/Initialize(mapload)
+/obj/item/storage/pouch/general/large/Initialize(mapload)
 	. = ..()
 	storage_datum.storage_slots = null
 	storage_datum.max_storage_space = 6

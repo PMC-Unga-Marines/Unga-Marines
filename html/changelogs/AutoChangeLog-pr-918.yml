@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - bugfix: "Исправил item_flags на садаре, минигане, сг85, б17 и б18"

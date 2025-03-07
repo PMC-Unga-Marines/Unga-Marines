@@ -34,8 +34,6 @@
 		/obj/item/weapon/twohanded,
 		/obj/item/tool/pickaxe/plasmacutter,
 	)
-	var/locate_cooldown = 0 //Cooldown for SL locator
-	var/list/armor_overlays
 	actions_types = list(/datum/action/item_action/toggle/suit_toggle)
 	armor_features_flags = ARMOR_LAMP_OVERLAY
 	item_flags = SYNTH_RESTRICTED|IMPEDE_JETPACK
@@ -43,6 +41,8 @@
 	equip_delay_self = 2 SECONDS
 	unequip_delay_self = 2 SECONDS
 	item_map_variant_flags = (ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_PRISON_VARIANT)
+	var/locate_cooldown = 0 //Cooldown for SL locator
+	var/list/armor_overlays
 
 /obj/item/clothing/suit/storage/marine/Initialize(mapload)
 	. = ..()
@@ -149,7 +149,7 @@
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 	supporting_limbs = CHEST | GROIN | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_LEFT | LEG_RIGHT | FOOT_LEFT | FOOT_RIGHT | HEAD //B18 effectively stabilizes these.
 	resistance_flags = UNACIDABLE
-	item_flags = AUTOBALANCE_CHECK
+	item_flags = SYNTH_RESTRICTED|IMPEDE_JETPACK|AUTOBALANCE_CHECK
 
 /obj/item/clothing/suit/storage/marine/specialist/Initialize(mapload, ...)
 	. = ..()
@@ -174,7 +174,7 @@
 	soft_armor = list(MELEE = 75, BULLET = 75, LASER = 50, ENERGY = 55, BOMB = 100, BIO = 55, FIRE = 75, ACID = 65)
 	max_heat_protection_temperature = HEAVYARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
-	item_flags = AUTOBALANCE_CHECK
+	item_flags = SYNTH_RESTRICTED|IMPEDE_JETPACK|AUTOBALANCE_CHECK
 
 /obj/item/clothing/suit/storage/marine/B17/Initialize(mapload, ...)
 	. = ..()
