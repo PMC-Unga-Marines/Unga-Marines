@@ -3299,7 +3299,7 @@
 /turf/open/floor/tile/dark/brown2,
 /area/icy_caves/outpost/garage)
 "rY" = (
-/obj/structure/nuke_disk_candidate,
+/obj/machinery/computer/intel_computer,
 /turf/open/floor/prison/red{
 	dir = 1
 	},

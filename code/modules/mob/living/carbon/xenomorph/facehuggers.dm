@@ -649,7 +649,7 @@
 //  DAMAGE STUFF
 ///////////////////////////////
 /obj/item/clothing/mask/facehugger/fire_act(burn_level, flame_color)
-	if(leaping) // no dying because of jumping over fire
+	if(leaping || throwing) // no dying because of jumping over fire
 		return
 	kill_hugger()
 
