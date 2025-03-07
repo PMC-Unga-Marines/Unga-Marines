@@ -365,7 +365,7 @@
 
 /obj/item/clothing/mask/facehugger/throw_impact(atom/hit_atom, speed)
 	if(isopenturf(hit_atom))
-		if(((locate(/obj/hitbox) in hit_atom) || (locate(/obj/fire/flamer) in hit_atom)) && !leaping) // Kill the hugger if it's thrown on the hitbox of a vehicle
+		if(locate(/obj/hitbox) in hit_atom && !leaping) // Kill the hugger if it's thrown on the hitbox of a vehicle
 			kill_hugger()
 			return
 		var/valid_victim = FALSE
@@ -648,6 +648,10 @@
 ///////////////////////////////
 //  DAMAGE STUFF
 ///////////////////////////////
+/obj/item/clothing/mask/facehugger/fire_act(burn_level, flame_color)
+	if(leaping) // no dying because of jumping over fire
+		return
+	kill_hugger()
 
 /obj/item/clothing/mask/facehugger/ex_act(severity)
 	kill_hugger()
