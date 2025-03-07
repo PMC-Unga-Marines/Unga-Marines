@@ -400,7 +400,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	damage_falloff_mult = 0.5
 	movement_acc_penalty_mult = 4
 
-	item_flags = AUTOBALANCE_CHECK
+	item_flags = TWOHANDED|AUTOBALANCE_CHECK
 
 /obj/item/weapon/gun/minigun/Initialize(mapload)
 	. = ..()
@@ -416,7 +416,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	starting_attachment_types = list(/obj/item/attachable/magnetic_harness)
 
 /obj/item/weapon/gun/minigun/valhalla
-	obj_flags = NONE
+	item_flags = TWOHANDED
 
 // SG minigun
 
@@ -442,7 +442,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	recoil = 0
 	recoil_unwielded = 4
 
-	obj_flags = NONE
+	item_flags = TWOHANDED
 
 /obj/item/weapon/gun/minigun/smart_minigun/motion_detector
 	starting_attachment_types = list(/obj/item/attachable/motiondetector)
@@ -659,7 +659,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	recoil = 3
 	scatter = -100
 
-	item_flags = AUTOBALANCE_CHECK
+	item_flags = TWOHANDED|AUTOBALANCE_CHECK
 
 /obj/item/weapon/gun/launcher/rocket/sadar/Initialize(mapload, spawn_empty)
 	. = ..()
@@ -678,7 +678,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	gun_user?.record_war_crime()
 
 /obj/item/weapon/gun/launcher/rocket/sadar/valhalla
-	obj_flags = NONE
+	item_flags = TWOHANDED
 
 //-------------------------------------------------------
 //M5 RPG'S MEAN FUCKING COUSIN
