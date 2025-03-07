@@ -317,6 +317,16 @@
 			continue
 		. += length(xenos_by_tier[t])
 
+///returns a list of all caste members, including other strains of this xeno caste
+/datum/hive_status/proc/get_all_caste_members(caste_type)
+	RETURN_TYPE(/list)
+
+	ASSERT(ispath(caste_type, /datum/xeno_caste))
+	. = list()
+	var/list/all_strain_types = get_strain_options(caste_type)
+	for(var/strain_type in all_strain_types)
+		. += xenos_by_typepath[strain_type]
+
 /datum/hive_status/proc/post_add(mob/living/carbon/xenomorph/X)
 	X.color = color
 
@@ -424,11 +434,11 @@
 		LAZYADD(xenos_by_zlevel["[X.z]"], X)
 	RegisterSignal(X, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(xeno_z_changed))
 
-	if(!xenos_by_typepath[X.xeno_caste.get_base_caste_type()])
+	if(!xenos_by_typepath[get_base_caste_type(X.xeno_caste.type)])
 		stack_trace("trying to add an invalid typepath into hivestatus list [X.caste_base_type]")
 		return FALSE
 
-	xenos_by_typepath[X.xeno_caste.get_base_caste_type()] += X
+	xenos_by_typepath[get_base_caste_type(X.xeno_caste.type)] += X
 	update_tier_limits() //Update our tier limits.
 
 	return TRUE
@@ -488,11 +498,11 @@
 		stack_trace("trying to remove a xeno from hivestatus upgrade list, nothing was removed!? removed_xeno = [removed_xeno], tier = [removed_xeno.upgrade]")
 		return FALSE
 
-	if(!xenos_by_typepath[removed_xeno.xeno_caste.get_base_caste_type()])
+	if(!xenos_by_typepath[get_base_caste_type(removed_xeno.xeno_caste.type)])
 		stack_trace("trying to remove an invalid typepath from hivestatus list, removed_xeno = [removed_xeno], caste = [removed_xeno.xeno_caste], base caste type = [removed_xeno.xeno_caste.get_base_caste_type()]")
 		return FALSE
 
-	if(!xenos_by_typepath[removed_xeno.xeno_caste.get_base_caste_type()].Remove(removed_xeno))
+	if(!xenos_by_typepath[get_base_caste_type(removed_xeno.xeno_caste.type)].Remove(removed_xeno))
 		stack_trace("failed to remove a xeno from hive status typepath list, nothing was removed!? removed_xeno = [removed_xeno], caste = [removed_xeno.xeno_caste], base caste type = [removed_xeno.xeno_caste.get_base_caste_type()]")
 		return FALSE
 
