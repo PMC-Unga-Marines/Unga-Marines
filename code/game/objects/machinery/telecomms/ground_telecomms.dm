@@ -42,7 +42,7 @@
 			marker_icon = "comm_tower_off"
 		if(TOWER_BROKEN)
 			marker_icon= "comm_tower_broken"
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, marker_icon))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, marker_icon, MINIMAP_BLIPS_LAYER))
 
 /obj/machinery/telecomms/relay/preset/tower/update_icon()
 	. = ..()
@@ -147,7 +147,7 @@
 			tower_status = on ? TOWER_ON : TOWER_OFF
 			marker_icon = "comm_tower[on ? "_on" : "_off"]"
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, marker_icon))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, marker_icon, MINIMAP_BLIPS_LAYER))
 	update_icon()
 
 /obj/machinery/telecomms/relay/preset/tower/attack_ai(mob/user)

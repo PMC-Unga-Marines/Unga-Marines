@@ -20,11 +20,9 @@
 	tier = XENO_TIER_ZERO
 	upgrade = XENO_UPGRADE_BASETYPE
 
-	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	see_invisible = SEE_INVISIBLE_LIVING
 	invisibility = INVISIBILITY_MAXIMUM
 	sight = SEE_MOBS|SEE_TURFS|SEE_OBJS
-	see_in_dark = 8
 	move_on_shuttle = TRUE
 	initial_language_holder = /datum/language_holder/hivemind
 
@@ -356,7 +354,7 @@
 
 /obj/structure/xeno/hivemindcore/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "hivemindcore[threat_warning ? "_warn" : "_passive"]", VERY_HIGH_FLOAT_LAYER))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "hivemindcore[threat_warning ? "_warn" : "_passive"]", MINIMAP_LABELS_LAYER))
 
 /// Getter for the parent of this hive core
 /obj/structure/xeno/hivemindcore/proc/get_parent()

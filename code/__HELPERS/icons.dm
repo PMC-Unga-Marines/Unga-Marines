@@ -1266,6 +1266,15 @@ GLOBAL_LIST_EMPTY(transformation_animation_objects)
 		GLOB.icon_dimensions[icon_path] = list("width" = my_icon.Width(), "height" = my_icon.Height())
 	return GLOB.icon_dimensions[icon_path]
 
+/// Strips all underlays on a different plane from an appearance.
+/// Returns the stripped appearance.
+/proc/strip_appearance_underlays(mutable_appearance/appearance)
+	var/base_plane = PLANE_TO_TRUE(appearance.plane)
+	for(var/mutable_appearance/underlay as anything in appearance.underlays)
+		if(PLANE_TO_TRUE(underlay.plane) != base_plane)
+			appearance.underlays -= underlay
+	return appearance
+
 /// Checks whether a given icon state exists in a given icon file. If `file` and `state` both exist,
 /// this will return `TRUE` - otherwise, it will return `FALSE`.
 ///

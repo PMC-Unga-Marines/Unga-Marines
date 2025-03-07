@@ -91,7 +91,7 @@
 
 /turf/open/floor/plating/plating_catwalk/proc/update_turf_overlay()
 	var/image/I = image(icon, src, base_icon_state, CATWALK_LAYER)
-	I.plane = FLOOR_PLANE
+	SET_PLANE_EXPLICIT(I, FLOOR_PLANE, src)
 	if(covered)
 		overlays += I
 	else
@@ -134,19 +134,6 @@
 	. = ..()
 	name = "Iron Sand"
 	icon_state = "ironsand[rand(1,15)]"
-
-/turf/open/floor/plating/catwalk
-	icon = 'icons/turf/catwalks.dmi'
-	icon_state = "catwalk0"
-	name = "catwalk"
-	desc = "Cats really don't like these things."
-	shoefootstep = FOOTSTEP_CATWALK
-	barefootstep = FOOTSTEP_CATWALK
-	mediumxenofootstep = FOOTSTEP_CATWALK
-	layer = CATWALK_LAYER
-
-/turf/open/floor/plating/catwalk/ex_act(severity)
-	return
 
 /turf/open/floor/plating/warning
 	icon_state = "warnplate"

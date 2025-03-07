@@ -170,7 +170,7 @@
 			continue
 
 		if(!pipenet_part.pipe_vision_img)
-			pipenet_part.pipe_vision_img = image(pipenet_part, pipenet_part.loc, dir = pipenet_part.dir)
-			pipenet_part.pipe_vision_img.plane = ABOVE_HUD_LAYER
+			pipenet_part.pipe_vision_img = image(src, loc, dir = dir)
+			SET_PLANE_EXPLICIT(pipenet_part.pipe_vision_img, ABOVE_HUD_PLANE, pipenet_part)
 		client.images += pipenet_part.pipe_vision_img
 		pipes_shown += pipenet_part.pipe_vision_img

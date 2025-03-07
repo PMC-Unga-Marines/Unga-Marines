@@ -925,16 +925,16 @@
 	return ..()
 
 /datum/action/ability/xeno_action/xenohide/action_activate()
-	if(xeno_owner.layer != XENO_HIDING_LAYER)
+	if(xeno_owner.layer != BELOW_TABLE_LAYER)
 		RegisterSignals(xeno_owner, list(COMSIG_XENOMORPH_POUNCE, COMSIG_MOB_CRIT, COMSIG_MOB_DEATH), PROC_REF(unhide))
-		xeno_owner.layer = XENO_HIDING_LAYER
+		xeno_owner.layer = BELOW_TABLE_LAYER
 		to_chat(xeno_owner, span_notice("We are now hiding."))
-		button.add_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE))
+		button.add_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, null, FLOAT_PLANE))
 	else
 		UnregisterSignal(xeno_owner, list(COMSIG_XENOMORPH_POUNCE, COMSIG_MOB_CRIT, COMSIG_MOB_DEATH))
 		xeno_owner.layer = MOB_LAYER
 		to_chat(xeno_owner, span_notice("We have stopped hiding."))
-		button.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE))
+		button.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, null, FLOAT_PLANE))
 
 /datum/action/ability/xeno_action/xenohide/proc/unhide()
 	SIGNAL_HANDLER

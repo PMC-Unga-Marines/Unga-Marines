@@ -32,6 +32,7 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 	. = ..()
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ, COMSIG_GLOB_CANTERBURRY_LANDING), PROC_REF(activate_corruption))
 	update_icon()
+	update_minimap_icon()
 
 	if(is_ground_level(z))
 		GLOB.generators_on_ground += 1
@@ -57,16 +58,10 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 //We don't want to cut/update the power overlays every single proc. Just when it actually changes. This should save on CPU cycles. Efficiency!
 /obj/machinery/power/geothermal/update_icon_state()
 	. = ..()
-	SSminimaps.remove_marker(src)
-	if(!corrupted && !is_on)
-		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "generator_off"))
-	if(corrupted)
-		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "generator_corrupt"))
 	switch(buildstate)
 		if(GEOTHERMAL_NO_DAMAGE)
 			if(is_on)
 				desc = "A thermoelectric generator sitting atop a borehole dug deep in the planet's surface. It generates energy by boiling the plasma steam that rises from the well.\nIt is old technology and has a large failure rate, and must be repaired frequently.\nIt is currently on, and beeping randomly amid faint hisses of steam."
-				SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, "generator_on")) //RU TGMC edit - map blips
 				switch(power_gen_percent)
 					if(25)
 						icon_state = "on25"
@@ -107,6 +102,17 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 	if(corrupted)
 		. += image(icon, src, "overlay_corrupted", layer)
 
+/// Updates the minimap icon to whether the generator is running or not
+/obj/machinery/power/geothermal/proc/update_minimap_icon()
+	SSminimaps.remove_marker(src)
+
+	var/marker_state = "generator_on"
+	if(corrupted)
+		marker_state = "generator_corrupt"
+	else if(!is_on)
+		marker_state = "generator_off"
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips.dmi', null, marker_state, MINIMAP_BLIPS_LAYER))
+
 /obj/machinery/power/geothermal/power_change()
 	return
 
@@ -134,6 +140,7 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 		if(power_gen_percent < 100)
 			power_gen_percent++
 			update_icon()
+			update_minimap_icon()
 			switch(power_gen_percent)
 				if(10)
 					visible_message("[icon2html(src, viewers(src))] [span_notice("<b>[src]</b> begins to whirr as it powers up.")]")
@@ -248,19 +255,15 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 		if(!WT.remove_fuel(1, user))
 			to_chat(user, span_warning("You need more welding fuel to complete this task."))
 			return
-		playsound(loc, 'sound/items/weldingtool_weld.ogg', 25)
 		user.visible_message(span_notice("[user] carefully starts burning [src]'s resin off."),
 		span_notice("You carefully start burning [src]'s resin off."))
-		add_overlay(GLOB.welding_sparks)
 
-		if(!do_after(user, 20 SECONDS - (user.skills.getRating(SKILL_ENGINEER) * 3 SECONDS) , NONE, src, BUSY_ICON_BUILD, extra_checks = CALLBACK(WT, TYPE_PROC_REF(/obj/item/tool/weldingtool, isOn))))
-			cut_overlay(GLOB.welding_sparks)
+		if(!I.use_tool(src, user, 20 SECONDS - (user.skills.getRating(SKILL_ENGINEER) * 3 SECONDS), 0, 20), 2, 25, null, BUSY_ICON_BUILD))
 			return FALSE
 
-		playsound(loc, 'sound/items/welder2.ogg', 25, 1)
 		user.visible_message(span_notice("[user] burns [src]'s resin off."),
 		span_notice("You burn [src]'s resin off."))
-		cut_overlay(GLOB.welding_sparks)
+
 		corrupted = 0
 		stop_processing()
 		update_icon()
@@ -276,20 +279,15 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 	if(!WT.remove_fuel(1, user))
 		to_chat(user, span_warning("You need more welding fuel to complete this task."))
 		return
-	playsound(loc, 'sound/items/weldingtool_weld.ogg', 25)
 	user.visible_message(span_notice("[user] starts welding [src]'s internal damage."),
 	span_notice("You start welding [src]'s internal damage."))
-	add_overlay(GLOB.welding_sparks)
 
-	if(!do_after(user, 20 SECONDS - (user.skills.getRating(SKILL_ENGINEER) * 3 SECONDS) , NONE, src, BUSY_ICON_BUILD, extra_checks = CALLBACK(WT, TYPE_PROC_REF(/obj/item/tool/weldingtool, isOn))) || buildstate != GEOTHERMAL_HEAVY_DAMAGE || is_on)
-		cut_overlay(GLOB.welding_sparks)
+	if(!I.use_tool(src, user, 20 SECONDS - (user.skills.getRating(SKILL_ENGINEER) * 3 SECONDS), 2, 25, null, BUSY_ICON_BUILD))
 		return FALSE
 
-	playsound(loc, 'sound/items/welder2.ogg', 25, 1)
-	buildstate = GEOTHERMAL_MEDIUM_DAMAGE
+	buildstate = GENERATOR_MEDIUM_DAMAGE
 	user.visible_message(span_notice("[user] welds [src]'s internal damage."),
 	span_notice("You weld [src]'s internal damage."))
-	cut_overlay(GLOB.welding_sparks)
 	update_icon()
 	record_generator_repairs(user)
 	return TRUE
@@ -350,6 +348,7 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 	cur_tick = 0
 	icon_state = "off"
 	update_icon()
+	update_minimap_icon()
 	start_processing()
 
 /obj/machinery/power/geothermal/bigred //used on big red

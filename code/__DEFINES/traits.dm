@@ -188,6 +188,9 @@
 #define TRAIT_MEDIUM_PAIN_RESIST "medium_pain_resist"
 ///is currently riding an armored vehicle
 #define TRAIT_TANK_DESANT "tank_desant"
+/// Mob has fov applied to it
+#define TRAIT_FOV_APPLIED "fov_applied"
+
 ///Traits for managing AM pass_flags
 #define TRAIT_PASS_LOW_STRUCTURE "pass_low_structure"
 #define TRAIT_PASS_GLASS "pass_glass"

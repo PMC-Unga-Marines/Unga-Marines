@@ -15,7 +15,7 @@
 	. = ..()
 	GLOB.hive_datums[hivenumber].evotowers += src
 	set_light(2, 2, LIGHT_COLOR_GREEN)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "tower"))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "tower", MINIMAP_BLIPS_LAYER))
 
 /obj/structure/xeno/evotower/Destroy()
 	GLOB.hive_datums[hivenumber].evotowers -= src
@@ -39,7 +39,7 @@
 	. = ..()
 	GLOB.hive_datums[hivenumber].psychictowers += src
 	set_light(2, 2, LIGHT_COLOR_GREEN)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "tower"))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "tower", MINIMAP_BLIPS_LAYER))
 
 /obj/structure/xeno/psychictower/Destroy()
 	GLOB.hive_datums[hivenumber].psychictowers -= src
@@ -65,7 +65,7 @@
 
 /obj/structure/xeno/pherotower/Initialize(mapload, _hivenumber)
 	. = ..()
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "phero", ABOVE_FLOAT_LAYER)) // RU TGMC edit - map blips
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "phero", MINIMAP_BLIPS_LAYER))
 	GLOB.hive_datums[hivenumber].pherotowers += src
 
 	//Pheromone towers start off with recovery.

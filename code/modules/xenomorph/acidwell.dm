@@ -84,7 +84,7 @@
 	if(!charges)
 		return
 	. += mutable_appearance(icon, "[charges]", alpha = src.alpha)
-	. += emissive_appearance(icon, "[charges]", alpha = src.alpha)
+	. += emissive_appearance(icon, "[charges]", src, alpha = src.alpha)
 
 /obj/structure/xeno/acidwell/fire_act(burn_level, flame_color)
 	acid_well_fire_interaction()

@@ -12,7 +12,8 @@
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
 	toggleable = TRUE
-	vision_flags = SEE_TURFS
+	vision_flags = SEE_TURFS // todo replace with tgs TRAIT_MESON_VISION
+	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/meson/enggoggles
 	name = "\improper Optical meson ballistic goggles"
