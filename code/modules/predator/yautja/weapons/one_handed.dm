@@ -115,7 +115,7 @@
 	ability_charge_rate = 1
 
 /obj/item/weapon/yautja/scythe/verb/use_unique_action()
-	set category = "Weapons"
+	set category = "IC.Weapons"
 	set name = "Unique Action"
 	set desc = "Activate or deactivate the scythe."
 	set src in usr
@@ -259,7 +259,7 @@
 	unwield(handler) //Otherwise stays wielded even when thrown
 
 /obj/item/weapon/yautja/combistick/verb/use_unique_action()
-	set category = "Weapons"
+	set category = "IC.Weapons"
 	set name = "Unique Action"
 	set desc = "Activate or deactivate the combistick."
 	set src in usr

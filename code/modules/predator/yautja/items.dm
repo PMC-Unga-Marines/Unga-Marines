@@ -842,7 +842,7 @@
 
 /obj/item/hunting_trap/verb/configure_trap()
 	set name = "Configure Hunting Trap"
-	set category = "Object"
+	set category = "IC.Object"
 
 	var/mob/living/carbon/human/H = usr
 	if(!HAS_TRAIT(H, TRAIT_YAUTJA_TECH))

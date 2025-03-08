@@ -52,7 +52,7 @@
 
 /obj/item/reagent_containers/verb/set_APTFT()
 	set name = "Set transfer amount"
-	set category = "Object"
+	set category = "IC.Object"
 	set src in view(1)
 
 	var/N = tgui_input_list(usr, "Amount per transfer from this:", "[src]", possible_transfer_amounts)
