@@ -266,7 +266,7 @@
 			/obj/item/ammo_magazine/rifle/sg153/plasmaloss = -1,
 			/obj/item/ammo_magazine/rifle/sg153/incendiary = -1,
 			/obj/item/weapon/gun/pistol/smart_pistol = -1,
-			/obj/item/ammo_magazine/pistol/standard_pistol/smart_pistol = -1,
+			/obj/item/ammo_magazine/pistol/p14/smart_pistol = -1,
 			/obj/item/weapon/gun/rifle/tx8 = -1,
 			/obj/item/ammo_magazine/rifle/tx8 = -1,
 			/obj/item/ammo_magazine/rifle/tx8/impact = -1,
