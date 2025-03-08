@@ -235,7 +235,7 @@
 	AddComponent(/datum/component/clothing_tint, TINT_5, TRUE)
 
 /obj/item/clothing/glasses/welding/verb/verbtoggle()
-	set category = "Object.Clothing"
+	set category = "IC.Clothing"
 	set name = "Adjust welding goggles"
 	set src in usr
 

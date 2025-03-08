@@ -35,7 +35,7 @@
 	var/catchworking = TRUE
 
 /mob/living/carbon/human/verb/revolvertrick()
-	set category = "Weapons"
+	set category = "IC.Weapons"
 	set name = "Do a revolver trick"
 	set desc = "Show off to all your friends!"
 
@@ -47,7 +47,7 @@
 	gun.revolvertrick()
 
 /obj/item/weapon/gun/revolver/verb/revolvertrick()
-	set category = "Weapons"
+	set category = "IC.Weapons"
 	set name = "Do a revolver trick"
 	set desc = "Show off to all your friends!"
 

@@ -218,7 +218,7 @@
 
 /obj/structure/barricade/verb/rotate()
 	set name = "Rotate Barricade Counter-Clockwise"
-	set category = "Object.Rotate"
+	set category = "IC.Rotate"
 	set src in oview(1)
 
 	if(anchored)
@@ -229,7 +229,7 @@
 
 /obj/structure/barricade/verb/revrotate()
 	set name = "Rotate Barricade Clockwise"
-	set category = "Object.Rotate"
+	set category = "IC.Rotate"
 	set src in oview(1)
 
 	if(anchored)

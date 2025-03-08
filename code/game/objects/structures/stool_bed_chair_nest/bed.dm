@@ -347,7 +347,7 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 /obj/structure/bed/medevac_stretcher/verb/activate_medevac_displacer()
 	set name = "Activate Medevac Displacement Field"
 	set desc = "Teleport the occupant of the stretcher to a linked beacon."
-	set category = "Object"
+	set category = "IC.Object"
 	set src in oview(1)
 
 	activate_medevac_teleport(usr)

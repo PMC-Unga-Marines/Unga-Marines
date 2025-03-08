@@ -24,7 +24,7 @@
 	var/order = 1
 
 /obj/machinery/computer/secure_data/verb/eject_id()
-	set category = "Object"
+	set category = "IC.Object"
 	set name = "Eject ID Card"
 	set src in oview(1)
 

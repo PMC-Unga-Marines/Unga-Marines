@@ -700,7 +700,7 @@
 
 /obj/machinery/autodoc/verb/eject()
 	set name = "Eject Med-Pod"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	set src in oview(1)
 	if(usr.incapacitated())
 		return // nooooooooooo
@@ -807,7 +807,7 @@
 
 /obj/machinery/autodoc/verb/move_inside()
 	set name = "Enter Med-Pod"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	set src in oview(1)
 
 	move_inside_wrapper(usr, usr)

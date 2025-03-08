@@ -57,7 +57,7 @@
 
 /datum/component/magazine_catcher/proc/toggle_auto_catch()
 	set name = "Toggle Auto Catching Magazines/Speed Loaders"
-	set category = "Object"
+	set category = "IC.Object"
 	var/datum/component/magazine_catcher/comp = GetComponent(/datum/component/magazine_catcher)
 	comp.auto_catch = !comp.auto_catch
 	if(!comp.auto_catch)
