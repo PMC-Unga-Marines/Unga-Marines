@@ -8,8 +8,8 @@
 	var/hivenumber = XENO_HIVE_NORMAL
 	///Is the structure currently detecting a threat
 	var/threat_warning
-	///List of turfs we are checking for hostiles in
-	var/list/prox_warning_turfs = list()
+	///proximity monitor for threat detection
+	var/datum/proximity_monitor/proximity_monitor
 	COOLDOWN_DECLARE(proxy_alert_cooldown)
 	COOLDOWN_DECLARE(damage_alert_cooldown)
 
@@ -23,7 +23,7 @@
 	if(xeno_structure_flags & CRITICAL_STRUCTURE)
 		LAZYADDASSOC(GLOB.xeno_critical_structures_by_hive, hivenumber, src)
 	if((xeno_structure_flags & XENO_STRUCT_WARNING_RADIUS))
-		set_proximity_warning()
+		proximity_monitor = new(src, XENO_STRUCTURE_DETECTION_RANGE)
 
 /obj/structure/xeno/Destroy()
 	//prox_warning_turfs = null
@@ -37,6 +37,8 @@
 			stack_trace("[src] not found in the list of critical xeno structures!")
 		else
 			GLOB.xeno_critical_structures_by_hive[hivenumber] -= src
+	if(proximity_monitor)
+		QDEL_NULL(proximity_monitor)
 	return ..()
 
 /obj/structure/xeno/ex_act(severity)
@@ -53,6 +55,35 @@
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
 		return
 	return ..()
+
+///Alerts the Hive when hostiles get too close to this structure
+/obj/structure/xeno/HasProximity(atom/movable/hostile)
+	if(!COOLDOWN_CHECK(src, proxy_alert_cooldown))
+		return
+
+	if(!iscarbon(hostile) && !isvehicle(hostile))
+		return
+
+	if(iscarbon(hostile))
+		var/mob/living/carbon/carbon_triggerer = hostile
+		if(carbon_triggerer.stat == DEAD)
+			return
+		if(isxeno(hostile))
+			var/mob/living/carbon/xenomorph/xeno_triggerer = hostile
+			if(xeno_triggerer.hive == GLOB.hive_datums[hivenumber]) //Trigger proxy alert only for hostile xenos
+				return
+
+	if(isvehicle(hostile))
+		var/obj/vehicle/vehicle_triggerer = hostile
+		if(vehicle_triggerer.trigger_gargoyle == FALSE)
+			return
+
+	threat_warning = TRUE
+	GLOB.hive_datums[hivenumber].xeno_message("Our [name] has detected a nearby hostile [hostile] at [get_area(hostile)] (X: [hostile.x], Y: [hostile.y]).", "xenoannounce", 5, FALSE, hostile, 'sound/voice/alien/help1.ogg', FALSE, null, /atom/movable/screen/arrow/leader_tracker_arrow)
+	COOLDOWN_START(src, proxy_alert_cooldown, XENO_STRUCTURE_DETECTION_COOLDOWN)
+	addtimer(CALLBACK(src, PROC_REF(clear_warning)), XENO_STRUCTURE_DETECTION_COOLDOWN)
+	update_minimap_icon()
+	update_appearance(UPDATE_ICON)
 
 /// Destroy the xeno structure when the weed it was on is destroyed
 /obj/structure/xeno/proc/weed_removed()
@@ -128,7 +159,7 @@
 			var/mob/living/carbon/xenomorph/xeno_triggerer = hostile
 			if(xeno_triggerer.hive == GLOB.hive_datums[hivenumber]) //Trigger proxy alert only for hostile xenos
 				return
-			
+
 	threat_warning = TRUE
 	GLOB.hive_datums[hivenumber].xeno_message("Our [name] has detected a nearby hostile [hostile] at [get_area(hostile)] (X: [hostile.x], Y: [hostile.y]).", "xenoannounce", 5, FALSE, hostile, 'sound/voice/alien/help1.ogg', FALSE, null, /atom/movable/screen/arrow/leader_tracker_arrow)
 	COOLDOWN_START(src, proxy_alert_cooldown, XENO_STRUCTURE_DETECTION_COOLDOWN)
