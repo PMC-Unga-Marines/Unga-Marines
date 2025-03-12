@@ -47,7 +47,7 @@
 			if(!T)
 				return
 			log_admin("Build Mode: [key_name(c)] modified [T] in [AREACOORD(object)] to [objholder]")
-			T.ChangeTurf(objholder)
+			T.change_turf(objholder)
 		else if(!isnull(objholder))
 			var/obj/A = new objholder (get_turf(object))
 			A.setDir(BM.build_dir)

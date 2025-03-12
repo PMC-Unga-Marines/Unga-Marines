@@ -47,7 +47,7 @@
 /turf/open/floor/ceiling_debris_check(size = 1)
 	ceiling_debris(size)
 
-/turf/open/floor/ChangeTurf(path, list/new_baseturfs, flags)
+/turf/open/floor/change_turf(path, list/new_baseturfs, flags)
 	if(!isfloorturf(src))
 		return ..() //fucking turfs switch the fucking src of the fucking running procs
 	if(!ispath(path, /turf/open/floor))

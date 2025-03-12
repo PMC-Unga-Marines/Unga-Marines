@@ -63,7 +63,7 @@
 	QDEL_NULL(bullethole_overlay)
 	return ..()
 
-/turf/closed/wall/ChangeTurf(newtype)
+/turf/closed/wall/change_turf(newtype)
 	if(acided_hole)
 		qdel(acided_hole)
 		acided_hole = null

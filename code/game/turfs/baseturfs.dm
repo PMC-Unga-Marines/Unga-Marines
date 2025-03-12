@@ -10,7 +10,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	if(!length(baseturfs))
 		if(baseturfs == type)
 			return src
-		return ChangeTurf(baseturfs, baseturfs, flags) // The bottom baseturf will never go away
+		return change_turf(baseturfs, baseturfs, flags) // The bottom baseturf will never go away
 
 	var/list/new_baseturfs = baseturfs.Copy()
 	var/turf_type = new_baseturfs[max(1, length(new_baseturfs) - amount + 1)]
@@ -22,7 +22,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	new_baseturfs.len -= min(amount, length(new_baseturfs) - 1) // No removing the very bottom
 	if(length(new_baseturfs) == 1)
 		new_baseturfs = new_baseturfs[1]
-	return ChangeTurf(turf_type, new_baseturfs, flags)
+	return change_turf(turf_type, new_baseturfs, flags)
 
 /// Places the given turf on the bottom of the turf stack.
 /turf/proc/place_on_bottom(turf/bottom_turf)
@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	if(isopenturf(src))
 		new_baseturfs.Add(type)
 
-	return ChangeTurf(added_layer, new_baseturfs, flags)
+	return change_turf(added_layer, new_baseturfs, flags)
 
 /// Places a turf on top - for map loading
 /turf/proc/load_on_top(turf/added_layer, flags)
@@ -62,7 +62,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	if(!isclosedturf(src))
 		old_baseturfs += type
 
-	new_turf = ChangeTurf(added_layer, null, flags)
+	new_turf = change_turf(added_layer, null, flags)
 	new_turf.assemble_baseturfs(initial(added_layer.baseturfs)) // The baseturfs list is created like roundstart
 	if(!length(new_turf.baseturfs))
 		new_turf.baseturfs = list(baseturfs)
