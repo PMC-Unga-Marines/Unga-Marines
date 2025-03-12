@@ -36,6 +36,13 @@
 				continue
 			qdel(thing)
 
+/turf/closed/to_shuttle_move(turf/oldT, move_mode, obj/docking_port/mobile/shuttle)
+	. = move_mode
+	if(!(. & (MOVE_TURF|MOVE_CONTENTS))) // copypaste from the parent proc
+		return
+	// scrape away all the walls we land on, so you can't hide nukes in mineral walls
+	scrape_away()
+
 /// Called on the old turf to move the turf data
 /turf/proc/on_shuttle_move(turf/newT, list/movement_force, move_dir)
 	if(newT == src) // In case of in place shuttle rotation shenanigans.
