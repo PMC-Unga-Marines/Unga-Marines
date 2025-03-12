@@ -1,41 +1,31 @@
-/*
-All ShuttleMove procs go here
-*/
-
-/************************************Base procs************************************/
-
-// Called on every turf in the shuttle region, returns a bitflag for allowed movements of that turf
-// returns the new move_mode (based on the old)
-/turf/proc/fromShuttleMove(turf/newT, move_mode)
+/// Called on every turf in the shuttle region, returns a bitflag for allowed movements of that turf.
+/// Returns the new move_mode (based on the old)
+/turf/proc/from_shuttle_move(turf/newT, move_mode)
 	if(!(move_mode & MOVE_AREA) || !isshuttleturf(src))
 		return move_mode
-
 	return move_mode | MOVE_TURF | MOVE_CONTENTS
 
-// Called from the new turf before anything has been moved
-// Only gets called if fromShuttleMove returns true first
-// returns the new move_mode (based on the old)
-/turf/proc/toShuttleMove(turf/oldT, move_mode, obj/docking_port/mobile/shuttle)
+/// Called from the new turf before anything has been moved.
+/// Only gets called if from_shuttle_move returns true first.
+/// Returns the new move_mode (based on the old)
+/turf/proc/to_shuttle_move(turf/oldT, move_mode, obj/docking_port/mobile/shuttle)
 	. = move_mode
 	if(!(. & (MOVE_TURF|MOVE_CONTENTS)))
 		return
 
-//	var/shuttle_dir = shuttle.dir
 	for(var/atom/thing AS in contents)
 		SEND_SIGNAL(thing, COMSIG_MOVABLE_SHUTTLE_CRUSH, shuttle)
-		if(ismob(thing))
-			if(isliving(thing))
-				var/mob/living/M = thing
-				if(M.status_flags & INCORPOREAL)
-					continue // Ghost things don't splat
-				if(M.buckled)
-					M.buckled.unbuckle_mob(M, TRUE)
-				if(M.pulledby)
-					M.pulledby.stop_pulling()
-				M.stop_pulling()
-				M.visible_message(span_warning("[shuttle] slams into [M]!"))
-				M.gib()
-			continue
+		if(isliving(thing))
+			var/mob/living/M = thing
+			if(M.status_flags & INCORPOREAL)
+				continue // Ghost things don't splat
+			if(M.buckled)
+				M.buckled.unbuckle_mob(M, TRUE)
+			if(M.pulledby)
+				M.pulledby.stop_pulling()
+			M.stop_pulling()
+			M.visible_message(span_warning("[shuttle] slams into [M]!"))
+			M.gib()
 		if(ismovable(thing))
 			var/atom/movable/movable_thing = thing
 			if(movable_thing.atom_flags & SHUTTLE_IMMUNE)
@@ -46,8 +36,8 @@ All ShuttleMove procs go here
 				continue
 			qdel(thing)
 
-// Called on the old turf to move the turf data
-/turf/proc/onShuttleMove(turf/newT, list/movement_force, move_dir)
+/// Called on the old turf to move the turf data
+/turf/proc/on_shuttle_move(turf/newT, list/movement_force, move_dir)
 	if(newT == src) // In case of in place shuttle rotation shenanigans.
 		return
 	//Destination turf changes
@@ -56,11 +46,10 @@ All ShuttleMove procs go here
 	if(!shuttle_depth)
 		CRASH("A turf queued to move via shuttle somehow had no skipover in baseturfs. [src]([type]):[loc]")
 	newT.CopyOnTop(src, 1, shuttle_depth, TRUE)
-
 	return TRUE
 
-// Called on the new turf after everything has been moved
-/turf/proc/afterShuttleMove(turf/oldT, rotation)
+/// Called on the new turf after everything has been moved
+/turf/proc/after_shuttle_move(turf/oldT, rotation)
 	//Dealing with the turf we left behind
 	oldT.TransferComponents(src)
 
@@ -69,23 +58,21 @@ All ShuttleMove procs go here
 		oldT.ScrapeAway(shuttle_depth)
 
 	if(rotation)
-		shuttleRotate(rotation) //see shuttle_rotate.dm
+		shuttle_rotate(rotation) //see shuttle_rotate.dm
 
 	return TRUE
 
-/turf/proc/lateShuttleMove(turf/oldT)
+/turf/proc/late_shuttle_move(turf/oldT)
 	return
 
-/////////////////////////////////////////////////////////////////////////////////////
-
-// Called on every atom in shuttle turf contents before anything has been moved
-// returns the new move_mode (based on the old)
-// WARNING: Do not leave turf contents in beforeShuttleMove or dock() will runtime
-/atom/movable/proc/beforeShuttleMove(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
+/// Called on every atom in shuttle turf contents before anything has been moved.
+/// Returns the new move_mode (based on the old).
+/// WARNING: Do not leave turf contents in before_shuttle_move() or dock() will runtime.
+/atom/movable/proc/before_shuttle_move(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
 	return move_mode
 
-// Called on atoms to move the atom to the new location
-/atom/movable/proc/onShuttleMove(turf/newT, turf/oldT, list/movement_force, move_dir, obj/docking_port/stationary/old_dock, obj/docking_port/mobile/moving_dock)
+/// Called on atoms to move the atom to the new location
+/atom/movable/proc/on_shuttle_move(turf/newT, turf/oldT, list/movement_force, move_dir, obj/docking_port/stationary/old_dock, obj/docking_port/mobile/moving_dock)
 	if(newT == oldT) // In case of in place shuttle rotation shenanigans.
 		return
 
@@ -96,24 +83,21 @@ All ShuttleMove procs go here
 		return
 
 	abstract_move(newT)
-
 	return TRUE
 
-// Called on atoms after everything has been moved
-/atom/movable/proc/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
-
+/// Called on atoms after everything has been moved
+/atom/movable/proc/after_shuttle_move(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	var/turf/newT = get_turf(src)
-	if (newT.z != oldT.z)
+	if(newT.z != oldT.z)
 		on_changed_z_level(oldT, newT)
 
 	if(light)
 		update_light()
 	if(rotation)
-		shuttleRotate(rotation)
-
+		shuttle_rotate(rotation)
 	return TRUE
 
-/atom/movable/proc/lateShuttleMove(turf/oldT, list/movement_force, move_dir)
+/atom/movable/proc/late_shuttle_move(turf/oldT, list/movement_force, move_dir)
 	if(!movement_force || anchored)
 		return
 	var/throw_force = movement_force["THROW"]
@@ -121,21 +105,18 @@ All ShuttleMove procs go here
 		return
 	var/turf/target = get_edge_target_turf(src, move_dir)
 	var/range = throw_force * 10
-	range = CEILING(randfloat(range-(range*0.1), range+(range*0.1)), 10) * 0.1
-	var/speed = range/5
+	range = CEILING(randfloat(range-(range * 0.1), range+(range * 0.1)), 10) * 0.1
+	var/speed = range / 5
 	safe_throw_at(target, range, speed, force = MOVE_FORCE_EXTREMELY_STRONG)
 
-/////////////////////////////////////////////////////////////////////////////////////
-
-// Called on areas before anything has been moved
-// returns the new move_mode (based on the old)
-/area/proc/beforeShuttleMove(list/shuttle_areas)
+/// Called on areas before anything has been moved, returns the new move_mode (based on the old)
+/area/proc/before_shuttle_move(list/shuttle_areas)
 	if(!shuttle_areas[src])
 		return NONE
 	return MOVE_AREA
 
-// Called on areas to move their turf between areas
-/area/proc/onShuttleMove(turf/oldT, turf/newT, area/underlying_old_area)
+/// Called on areas to move their turf between areas
+/area/proc/on_shuttle_move(turf/oldT, turf/newT, area/underlying_old_area)
 	if(newT == oldT) // In case of in place shuttle rotation shenanigans.
 		return TRUE
 
@@ -152,47 +133,30 @@ All ShuttleMove procs go here
 	newT.transfer_area_lighting(old_dest_area, src) //lighting
 	return TRUE
 
-// Called on areas after everything has been moved
-/area/proc/afterShuttleMove(new_parallax_dir)
+/// Called on areas after everything has been moved
+/area/proc/after_shuttle_move(new_parallax_dir)
 	parallax_movedir = new_parallax_dir
 	return TRUE
 
-/area/proc/lateShuttleMove()
+/area/proc/late_shuttle_move()
 	return
 
-/************************************Turf move procs************************************/
-
-/************************************Area move procs************************************/
-
-/************************************Machinery move procs************************************/
-
-/obj/machinery/door/airlock/beforeShuttleMove(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
+/obj/machinery/door/airlock/before_shuttle_move(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
 	. = ..()
 	for(var/obj/machinery/door/airlock/A in range(1, src))  // includes src
-//		A.shuttledocked = FALSE
-//		A.air_tight = TRUE
 		A.close()
 
-///obj/machinery/door/airlock/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
-//	. = ..()
-	//var/current_area = get_area(src)
-	//for(var/obj/machinery/door/airlock/A in orange(1, src))  // does not include src
-		//if(get_area(A) != current_area)  // does not include double-wide airlocks unless actually docked
-			// Cycle linking is only disabled if we are actually adjacent to another airlock
-			//shuttledocked = TRUE
-			//A.shuttledocked = TRUE
-
-/obj/machinery/camera/beforeShuttleMove(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
+/obj/machinery/camera/before_shuttle_move(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
 	. = ..()
 	if(. & MOVE_AREA)
 		. |= MOVE_CONTENTS
 		parent_cameranet.removeCamera(src)
 
-/obj/machinery/camera/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
+/obj/machinery/camera/after_shuttle_move(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
 	parent_cameranet.addCamera(src)
 
-/obj/machinery/atmospherics/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
+/obj/machinery/atmospherics/after_shuttle_move(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
 	if(pipe_vision_img)
 		pipe_vision_img.loc = loc
@@ -213,33 +177,27 @@ All ShuttleMove procs go here
 		update_icon()
 	covered_by_shuttle = FALSE
 
-/obj/machinery/atmospherics/pipe/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
+/obj/machinery/atmospherics/pipe/after_shuttle_move(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
 	var/turf/T = loc
 	hide(T.intact_tile)
 
-/obj/machinery/power/terminal/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
+/obj/machinery/power/terminal/after_shuttle_move(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
 	var/turf/T = loc
 	if(level == 1)
 		hide(T.intact_tile)
 
-/obj/machinery/atmospherics/components/unary/vent_pump/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
+/obj/machinery/atmospherics/components/unary/after_shuttle_move(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
 	invisibility = initial(invisibility)
 
-/obj/machinery/atmospherics/components/unary/vent_scrubber/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
-	. = ..()
-	invisibility = initial(invisibility)
-
-/************************************Mob move procs************************************/
-
-/mob/onShuttleMove(turf/newT, turf/oldT, list/movement_force, move_dir, obj/docking_port/stationary/old_dock, obj/docking_port/mobile/moving_dock)
+/mob/on_shuttle_move(turf/newT, turf/oldT, list/movement_force, move_dir, obj/docking_port/stationary/old_dock, obj/docking_port/mobile/moving_dock)
 	if(!move_on_shuttle)
 		return
-	. = ..()
+	return ..()
 
-/mob/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
+/mob/after_shuttle_move(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	if(!move_on_shuttle)
 		return
 	. = ..()
@@ -249,7 +207,7 @@ All ShuttleMove procs go here
 			shake_force *= 0.25
 		shake_camera(src, shake_force, 1)
 
-/mob/living/lateShuttleMove(turf/oldT, list/movement_force, move_dir)
+/mob/living/late_shuttle_move(turf/oldT, list/movement_force, move_dir)
 	if(buckled)
 		return
 
@@ -259,41 +217,37 @@ All ShuttleMove procs go here
 	if(knockdown)
 		Paralyze(knockdown)
 
-/************************************Structure move procs************************************/
-
-/obj/structure/grille/beforeShuttleMove(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
+/obj/structure/grille/before_shuttle_move(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
 	. = ..()
 	if(. & MOVE_AREA)
 		. |= MOVE_CONTENTS
 
-/obj/structure/lattice/beforeShuttleMove(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
+/obj/structure/lattice/before_shuttle_move(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
 	. = ..()
 	if(. & MOVE_AREA)
 		. |= MOVE_CONTENTS
 
-/obj/structure/disposalpipe/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
+/obj/structure/disposalpipe/after_shuttle_move(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
 	update()
 
-/obj/structure/cable/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
+/obj/structure/cable/after_shuttle_move(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
 	var/turf/T = loc
 	if(level==1)
 		hide(T.intact_tile)
 
-/obj/structure/shuttle/beforeShuttleMove(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
+/obj/structure/shuttle/before_shuttle_move(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
 	. = ..()
 	if(. & MOVE_AREA)
 		. |= MOVE_CONTENTS
 
-/************************************Misc move procs************************************/
-
-/obj/docking_port/mobile/beforeShuttleMove(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
+/obj/docking_port/mobile/before_shuttle_move(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
 	. = ..()
 	if(moving_dock == src)
 		. |= MOVE_CONTENTS
 
-/obj/docking_port/stationary/onShuttleMove(turf/newT, turf/oldT, list/movement_force, move_dir, obj/docking_port/stationary/old_dock, obj/docking_port/mobile/moving_dock)
+/obj/docking_port/stationary/on_shuttle_move(turf/newT, turf/oldT, list/movement_force, move_dir, obj/docking_port/stationary/old_dock, obj/docking_port/mobile/moving_dock)
 	if(!moving_dock.can_move_docking_ports || old_dock == src)
 		return FALSE
-	. = ..()
+	return ..()

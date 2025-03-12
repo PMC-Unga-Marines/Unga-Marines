@@ -286,7 +286,7 @@
 
 // queen calldown
 
-/obj/docking_port/mobile/marine_dropship/afterShuttleMove(turf/oldT, rotation)
+/obj/docking_port/mobile/marine_dropship/after_shuttle_move(turf/oldT, rotation)
 	. = ..()
 	if(hijack_state != HIJACK_STATE_CALLED_DOWN)
 		return
@@ -775,7 +775,7 @@
 	icon_state = "console2"
 	possible_destinations = "lz1;lz2;alamo;normandy"
 
-/obj/machinery/door/poddoor/shutters/transit/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
+/obj/machinery/door/poddoor/shutters/transit/after_shuttle_move(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
 	if(SSmapping.level_has_any_trait(z, list(ZTRAIT_MARINE_MAIN_SHIP, ZTRAIT_GROUND)))
 		open()
@@ -846,7 +846,7 @@
 /obj/structure/dropship_piece/ex_act(severity)
 	return
 
-/obj/structure/dropship_piece/beforeShuttleMove(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
+/obj/structure/dropship_piece/before_shuttle_move(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
 	. = ..()
 	if(. & MOVE_AREA)
 		ENABLE_BITFIELD(., MOVE_CONTENTS)

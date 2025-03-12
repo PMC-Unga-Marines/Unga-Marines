@@ -4,7 +4,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 )))
 
 /// Take off the top layer turf and replace it with the next baseturf down
-/turf/proc/ScrapeAway(amount=1, flags)
+/turf/proc/ScrapeAway(amount = 1, flags)
 	if(!amount)
 		return
 	if(!length(baseturfs))
