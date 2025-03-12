@@ -489,6 +489,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	name = "spatial agent headset"
 	icon_state = "headset_marine_generic"
 	keyslot = /obj/item/encryptionkey/mcom/ai
+	item_flags = DELONDROP
 
 /obj/item/radio/headset/mainship/marine
 	keyslot = /obj/item/encryptionkey/general

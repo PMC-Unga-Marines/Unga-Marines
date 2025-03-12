@@ -69,6 +69,7 @@
 /obj/item/clothing/shoes/marinechief/sa
 	name = "spatial agent's shoes"
 	desc = "Shoes worn by a spatial agent."
+	item_flags = DELONDROP
 
 /obj/item/clothing/shoes/pmc
 	name = "polished shoes"
