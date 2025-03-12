@@ -64,7 +64,7 @@
 
 /datum/storage/internal/motorbike_pack
 	storage_slots = 4
-	max_w_class = WEIGHT_CLASS_SMALL
+	max_w_class = WEIGHT_CLASS_BULKY
 	max_storage_space = 8
 
 /datum/storage/internal/motorbike_pack/on_ctrl_click()

@@ -20,7 +20,7 @@ GLOBAL_LIST_INIT(medic_clothes_listed_products, list(
 	/obj/effect/vendor_bundle/jaeger_gungnir = list(CAT_AMR, "Jaeger Gungnir heavy armor kit", 0, "orange"),
 	/obj/effect/vendor_bundle/jaeger_assault = list(CAT_AMR, "Jaeger Assault heavy armor kit", 0, "orange"),
 	/obj/effect/vendor_bundle/jaeger_eod = list(CAT_AMR, "Jaeger EOD heavy armor kit", 0, "orange"),
-	/obj/item/storage/backpack/marine/corpsman/satchel = list(CAT_BAK, "Satchel", 0, "orange"),
+	/obj/item/storage/backpack/marine/corpsman/satchel = list(CAT_BAK, "Corpsman Satchel", 0, "orange"),
 	/obj/item/storage/backpack/marine/corpsman = list(CAT_BAK, "Corspman Backpack", 0, "black"),
 	/obj/item/armor_module/storage/uniform/brown_vest = list(CAT_WEB, "Tactical brown vest", 0, "orange"),
 	/obj/item/armor_module/storage/uniform/white_vest = list(CAT_WEB, "Corpsman white vest", 0, "black"),
