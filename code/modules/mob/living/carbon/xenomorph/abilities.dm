@@ -379,7 +379,7 @@
 	if(ispath(X.selected_resin, /turf)) // We should change turfs, not spawn them in directly
 		var/list/baseturfs = islist(T.baseturfs) ? T.baseturfs : list(T.baseturfs)
 		baseturfs |= T.type
-		T.ChangeTurf(X.selected_resin, baseturfs)
+		T.change_turf(X.selected_resin, baseturfs)
 		new_resin = T
 	else
 		new_resin = new X.selected_resin(T)
@@ -462,7 +462,7 @@
 	if(ispath(X.selected_resin, /turf)) // We should change turfs, not spawn them in directly
 		var/list/baseturfs = islist(T.baseturfs) ? T.baseturfs : list(T.baseturfs)
 		baseturfs |= T.type
-		T.ChangeTurf(X.selected_resin, baseturfs)
+		T.change_turf(X.selected_resin, baseturfs)
 		new_resin = T
 	else
 		new_resin = new X.selected_resin(T)

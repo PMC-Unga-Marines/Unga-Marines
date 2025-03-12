@@ -484,7 +484,7 @@
 	user.visible_message(span_notice("[user] starts removing [src]'s protective cover."),
 	span_notice("You start removing [src]'s protective cover."))
 	playsound(src, 'sound/items/ratchet.ogg', 25, 1)
-	
+
 	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
 		return
 
@@ -1160,7 +1160,7 @@
 
 /turf/open/floor/mech_bay_recharge_floor/break_tile()
 	if(broken) return
-	ChangeTurf(/turf/open/floor/plating)
+	change_turf(/turf/open/floor/plating)
 	broken = TRUE
 
 /turf/open/floor/mech_bay_recharge_floor/asteroid

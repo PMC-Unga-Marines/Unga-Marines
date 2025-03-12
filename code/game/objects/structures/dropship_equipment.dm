@@ -59,7 +59,7 @@
 
 	loaded_equipment.pixel_x = equipment_offset_x
 	loaded_equipment.pixel_y = equipment_offset_y
-	loaded_equipment.shuttleRotate(dir2angle(dir)) // i dont know why rotation wasnt taken in account when this was made
+	loaded_equipment.shuttle_rotate(dir2angle(dir)) // i dont know why rotation wasnt taken in account when this was made
 
 	loaded_equipment.update_equipment()
 
@@ -264,7 +264,7 @@
 				linked_console.selected_equipment = null
 	update_equipment()
 
-/obj/structure/dropship_equipment/beforeShuttleMove(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
+/obj/structure/dropship_equipment/before_shuttle_move(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
 	. = ..()
 	on_launch()
 

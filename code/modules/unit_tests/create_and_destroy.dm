@@ -60,9 +60,9 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 
 	for(var/type_path in typesof(/atom/movable, /turf) - ignore) //No areas please
 		if(ispath(type_path, /turf))
-			spawn_at.ChangeTurf(type_path)
+			spawn_at.change_turf(type_path)
 			//We change it back to prevent baseturfs stacking and hitting the limit
-			spawn_at.ChangeTurf(original_turf_type, original_baseturfs)
+			spawn_at.change_turf(original_turf_type, original_baseturfs)
 			if(original_baseturf_count != length(spawn_at.baseturfs))
 				Fail("[type_path] changed the amount of baseturfs from [original_baseturf_count] to [length(spawn_at.baseturfs)]; [english_list(original_baseturfs)] to [islist(spawn_at.baseturfs) ? english_list(spawn_at.baseturfs) : spawn_at.baseturfs]")
 				//Warn if it changes again

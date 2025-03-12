@@ -2,12 +2,12 @@
 /turf/closed
 	density = TRUE
 	opacity = TRUE
-
-///Base state, for icon_state updates.
+	baseturfs = /turf/open/floor/plating
+	/// Base state, for icon_state updates.
 	var/walltype
-	///The neighbours
+	/// The neighbours
 	var/junctiontype = NONE
-	///used for plasmacutter deconstruction
+	/// used for plasmacutter deconstruction
 	var/open_turf_type = /turf/open/floor/plating
 
 /turf/closed/Initialize(mapload)
@@ -41,6 +41,7 @@
 	name = "rock"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rock"
+	baseturfs = /turf/open/floor/plating/ground/desertdam/cave/inner_cave_floor
 	open_turf_type = /turf/open/floor/plating/ground/desertdam/cave/inner_cave_floor
 	minimap_color = MINIMAP_BLACK
 	resistance_flags = UNACIDABLE
@@ -100,7 +101,7 @@
 
 	I.cut_apart(user, name, src)
 	// Change targetted turf to a new one to simulate deconstruction.
-	ChangeTurf(open_turf_type)
+	change_turf(open_turf_type)
 	return TRUE
 
 /turf/closed/mineral/smooth
@@ -114,6 +115,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_MINERAL_STRUCTURES)
 
 /turf/closed/mineral/smooth/outdoor
+	baseturfs = /turf/open/floor/plating/ground/mars/random/dirt
 	open_turf_type = /turf/open/floor/plating/ground/mars/random/dirt
 
 /turf/closed/mineral/smooth/indestructible
@@ -176,12 +178,10 @@
 
 /turf/closed/mineral/bigred
 	name = "rock"
-	icon = 'icons/turf/walls.dmi'
 	icon_state = "redrock" //big red does not currently have its own 3/4ths cave tileset, so it uses the old one without smoothing
 
 /turf/closed/mineral/indestructible
 	name = "impenetrable rock"
-	icon = 'icons/turf/walls.dmi'
 	icon_state = "rock_dark"
 	resistance_flags = RESIST_ALL
 
@@ -193,6 +193,7 @@
 	color = "#c9a37b"
 	walltype = "cave"
 	base_icon_state = "cave"
+
 /turf/closed/mineral/smooth/desertdamrockwall/indestructible
 	resistance_flags = RESIST_ALL
 	icon_state = "wall-invincible"
@@ -201,6 +202,7 @@
 	name = "basalt rock"
 	icon = 'icons/turf/lava.dmi'
 	icon_state = "brock"
+	baseturfs = /turf/open/lavaland/basalt
 	open_turf_type = /turf/open/lavaland/basalt
 
 //Ground map dense jungle
@@ -214,6 +216,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_FLORA)
 	base_icon_state = "junglewall"
 	walltype = "junglewall"
+	baseturfs = /turf/open/ground/jungle/clear
 	open_turf_type = /turf/open/ground/jungle/clear
 
 /turf/closed/gm/add_debris_element()
@@ -224,10 +227,9 @@
 	icon_state = "jungletree"
 	desc = "Some thick jungle trees."
 
-	//Not yet
 /turf/closed/gm/ex_act(severity)
 	if(severity >= EXPLODE_DEVASTATE)
-		ChangeTurf(/turf/open/ground/grass)
+		change_turf(/turf/open/ground/grass)
 
 /turf/closed/gm/dense
 	name = "dense jungle wall"
@@ -249,7 +251,6 @@
 	base_icon_state = "pwall"
 	icon_state = "pwall"
 	icon = 'icons/turf/shuttle.dmi'
-
 
 /turf/closed/brock/Initialize(mapload)
 	. = ..()
@@ -275,6 +276,7 @@
 	icon = 'icons/turf/icewall.dmi'
 	icon_state = "Single"
 	desc = "It is very thick."
+	baseturfs = /turf/open/floor/plating/ground/ice
 	open_turf_type = /turf/open/floor/plating/ground/ice
 
 /turf/closed/ice/add_debris_element()
@@ -357,6 +359,7 @@
 	name = "Icy rock"
 	icon = 'icons/turf/rockwall.dmi'
 	resistance_flags = PLASMACUTTER_IMMUNE|UNACIDABLE
+	baseturfs = /turf/open/floor/plating/ground/ice
 	open_turf_type = /turf/open/floor/plating/ground/ice
 
 /turf/closed/ice_rock/add_debris_element()

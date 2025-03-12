@@ -1234,7 +1234,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				for(var/i in 1 to number)
 					if(path in typesof(/turf))
 						var/turf/O = target
-						var/turf/N = O.ChangeTurf(path)
+						var/turf/N = O.change_turf(path)
 						if(N && obj_name)
 							N.name = obj_name
 					else

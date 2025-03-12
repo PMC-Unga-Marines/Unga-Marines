@@ -926,7 +926,7 @@ GLOBAL_LIST_EMPTY(map_model_default)
 		else if(no_changeturf)
 			instance = create_atom(members[index], crds)//first preloader pass
 		else
-			instance = crds.ChangeTurf(members[index], null, CHANGETURF_DEFER_CHANGE)
+			instance = crds.change_turf(members[index], null, CHANGETURF_DEFER_CHANGE)
 
 		if(GLOB.use_preloader && instance)//second preloader pass, for those atoms that don't ..() in New()
 			world.preloader_load(instance)
