@@ -179,7 +179,7 @@
 /turf/closed/wall/do_acid_melt()
 	. = ..()
 	if(acided_hole)
-		ScrapeAway()
+		scrape_away()
 		return
 	new /obj/effect/acid_hole(src)
 
@@ -241,7 +241,7 @@
 		make_girder(TRUE)
 	else
 		make_girder(FALSE)
-	ScrapeAway()
+	scrape_away()
 
 /turf/closed/wall/ex_act(severity, explosion_direction)
 	if(resistance_flags & INDESTRUCTIBLE)

@@ -15,7 +15,7 @@
 	if(left_click)
 		if(isturf(object))
 			var/turf/T = object
-			T.ScrapeAway()
+			T.scrape_away()
 		else if(isatom(object))
 			qdel(object)
 

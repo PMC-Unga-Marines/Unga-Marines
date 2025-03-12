@@ -119,7 +119,7 @@
 	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 
 /turf/closed/wall/resin/dismantle_wall()
-	ScrapeAway()
+	scrape_away()
 
 /turf/closed/wall/resin/ChangeTurf(newtype)
 	. = ..()

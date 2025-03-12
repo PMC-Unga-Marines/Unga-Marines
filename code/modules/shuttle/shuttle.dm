@@ -627,7 +627,7 @@
 		// Here we locate the bottomost shuttle boundary and remove all turfs above it
 		var/shuttle_tile_depth = oldT.depth_to_find_baseturf(/turf/baseturf_skipover/shuttle)
 		if(!isnull(shuttle_tile_depth))
-			oldT.ScrapeAway(shuttle_tile_depth)
+			oldT.scrape_away(shuttle_tile_depth)
 
 	qdel(src, force=TRUE)
 

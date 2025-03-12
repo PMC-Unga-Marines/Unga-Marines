@@ -55,7 +55,7 @@
 
 	var/shuttle_depth = depth_to_find_baseturf(/turf/baseturf_skipover/shuttle)
 	if(shuttle_depth)
-		oldT.ScrapeAway(shuttle_depth)
+		oldT.scrape_away(shuttle_depth)
 
 	if(rotation)
 		shuttle_rotate(rotation) //see shuttle_rotate.dm

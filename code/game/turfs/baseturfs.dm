@@ -4,7 +4,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 )))
 
 /// Take off the top layer turf and replace it with the next baseturf down
-/turf/proc/ScrapeAway(amount = 1, flags)
+/turf/proc/scrape_away(amount = 1, flags)
 	if(!amount)
 		return
 	if(!length(baseturfs))
@@ -96,7 +96,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 /// Tries to find the given type in baseturfs.
 /// If found, returns how deep it is for use in other baseturf procs, or null if it cannot be found.
-/// For example, this number can be passed into ScrapeAway to scrape everything until that point.
+/// For example, this number can be passed into scrape_away to scrape everything until that point.
 /turf/proc/depth_to_find_baseturf(baseturf_type)
 	if(!islist(baseturfs))
 		return baseturfs == baseturf_type ? 1 : null

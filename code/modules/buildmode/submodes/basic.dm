@@ -36,7 +36,7 @@
 		to_chat(c, span_notice("Success."))
 		if(isturf(object))
 			var/turf/T = object
-			T.ScrapeAway()
+			T.scrape_away()
 		else if(isobj(object))
 			qdel(object)
 	else if(istype(object,/turf) && alt_click && left_click)

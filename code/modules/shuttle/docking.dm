@@ -99,7 +99,6 @@
 		hidden_turfs = new_hidden_turfs
 	/****************************************************************************************************************/
 
-//	check_poddoors()
 	new_dock.last_dock_time = world.time
 	setDir(new_dock.dir)
 
@@ -119,7 +118,7 @@
 			return DOCKING_NULL_SOURCE
 
 		var/area/old_area = oldT.loc
-		var/move_mode = old_area.before_shuttle_move(shuttle_areas)											//areas
+		var/move_mode = old_area.before_shuttle_move(shuttle_areas)	//areas
 
 		var/list/old_contents = oldT.contents
 		for(var/k in 1 to length(old_contents))
@@ -127,10 +126,10 @@
 			var/atom/movable/moving_atom = old_contents[k]
 			if(moving_atom.loc != oldT) //fix for multi-tile objects
 				continue
-			move_mode = moving_atom.before_shuttle_move(newT, rotation, move_mode, src)						//atoms
+			move_mode = moving_atom.before_shuttle_move(newT, rotation, move_mode, src)	//atoms
 
-		move_mode = oldT.from_shuttle_move(newT, move_mode)													//turfs
-		move_mode = newT.to_shuttle_move(oldT, move_mode, src)												//turfs
+		move_mode = oldT.from_shuttle_move(newT, move_mode)	//turfs
+		move_mode = newT.to_shuttle_move(oldT, move_mode, src) //turfs
 
 		if(move_mode & MOVE_AREA)
 			areas_to_move[old_area] = TRUE
@@ -210,4 +209,3 @@
 			continue
 		var/turf/oldT = moved_atoms[moved_object]
 		moved_object.late_shuttle_move(oldT, movement_force, movement_direction)
-

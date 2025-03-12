@@ -6,7 +6,7 @@
 /turf/baseturf_skipover/Initialize(mapload)
 	. = ..()
 	stack_trace("[src]([type]) was instanced which should never happen. Changing into the next baseturf down...")
-	ScrapeAway()
+	scrape_away()
 
 /turf/baseturf_skipover/shuttle
 	name = "Shuttle baseturf skipover"

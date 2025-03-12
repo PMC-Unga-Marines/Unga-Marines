@@ -101,7 +101,7 @@
 
 /// Things seem to rely on this actually returning plating. Override it if you have other baseturfs.
 /turf/open/floor/proc/make_plating()
-	return ScrapeAway()
+	return scrape_away()
 
 /turf/open/floor/attackby(obj/item/object, mob/living/user, params)
 	if(!object || !user)

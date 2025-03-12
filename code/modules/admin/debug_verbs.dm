@@ -183,7 +183,7 @@
 
 	if(isturf(A))
 		var/turf/deleting_turf = A
-		deleting_turf.ScrapeAway()
+		deleting_turf.scrape_away()
 		return
 
 	qdel(A)
