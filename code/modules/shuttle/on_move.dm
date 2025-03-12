@@ -45,7 +45,7 @@
 	var/shuttle_depth = depth_to_find_baseturf(/turf/baseturf_skipover/shuttle)
 	if(!shuttle_depth)
 		CRASH("A turf queued to move via shuttle somehow had no skipover in baseturfs. [src]([type]):[loc]")
-	newT.CopyOnTop(src, 1, shuttle_depth, TRUE)
+	newT.copy_on_top(src, 1, shuttle_depth, TRUE)
 	return TRUE
 
 /// Called on the new turf after everything has been moved
