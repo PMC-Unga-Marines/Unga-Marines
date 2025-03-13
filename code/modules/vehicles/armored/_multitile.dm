@@ -29,6 +29,8 @@
 		/obj/item/armored_weapon,
 		/obj/item/armored_weapon/ltaap,
 		/obj/item/armored_weapon/bfg,
+		/obj/item/armored_weapon/tank_autocannon,
+
 		/obj/item/armored_weapon/secondary_weapon,
 		/obj/item/armored_weapon/secondary_flamer,
 		/obj/item/armored_weapon/tow,

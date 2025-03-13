@@ -2110,6 +2110,7 @@
 #include "code\modules\projectiles\ammo_datums\bullet\shotgun.dm"
 #include "code\modules\projectiles\ammo_datums\bullet\sniper.dm"
 #include "code\modules\projectiles\ammo_datums\bullet\submachinegun.dm"
+#include "code\modules\projectiles\ammo_datums\bullet\tank.dm"
 #include "code\modules\projectiles\attachables\_attachable.dm"
 #include "code\modules\projectiles\attachables\flamer.dm"
 #include "code\modules\projectiles\attachables\foldable.dm"

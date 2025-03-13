@@ -363,7 +363,7 @@
 /obj/item/ammo_magazine/rifle/sg153
 	name = "\improper SG-153 magazine (12x7mm Smart Magnum)"
 	desc = "A magazine filled with 12x7mm lethal smart rounds, these will do nothing other than pack a big punch."
-	caliber = CALIBER_12x7
+	caliber = CALIBER_12X7
 	icon_state = "sg153"
 	w_class = WEIGHT_CLASS_SMALL
 	default_ammo = /datum/ammo/bullet/sg153

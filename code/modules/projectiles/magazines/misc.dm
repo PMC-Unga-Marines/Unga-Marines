@@ -380,7 +380,7 @@
 	desc = "A box containing 25 rounds of 12.7mm spotting rifle rounds."
 	icon_state = "smartspottingrifle"
 	default_ammo = /datum/ammo/bullet/sg153
-	caliber = CALIBER_12x7
+	caliber = CALIBER_12X7
 	current_rounds = 25
 	max_rounds = 25
 
