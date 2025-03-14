@@ -188,8 +188,6 @@ SUBSYSTEM_DEF(vote)
 			to_chat(world, "<span style='boltnotice'>Notice:Restart vote will not restart the server automatically because there are active admins on.</span>")
 			message_admins("A restart vote has passed, but there are active admins on with +SERVER, so it has been canceled. If you wish, you may restart the server.")
 
-
-
 /// Register the vote of one player
 /datum/controller/subsystem/vote/proc/submit_vote(vote)
 	if(!mode)
@@ -371,7 +369,6 @@ SUBSYSTEM_DEF(vote)
 		"upper_admin" = check_rights_for(user.client, R_ADMIN),
 		"voting" = list(),
 		"allow_vote_groundmap" = CONFIG_GET(flag/allow_vote_groundmap),
-		"allow_vote_shipmap" = CONFIG_GET(flag/allow_vote_shipmap),
 		"allow_vote_mode" = CONFIG_GET(flag/allow_vote_mode),
 		"allow_vote_restart" = CONFIG_GET(flag/allow_vote_restart),
 		"vote_happening" = vote_happening,
@@ -425,9 +422,6 @@ SUBSYSTEM_DEF(vote)
 		if("toggle_groundmap")
 			if(usr.client.holder && upper_admin)
 				CONFIG_SET(flag/allow_vote_groundmap, !CONFIG_GET(flag/allow_vote_groundmap))
-		if("toggle_shipmap")
-			if(usr.client.holder && upper_admin)
-				CONFIG_SET(flag/allow_vote_shipmap, !CONFIG_GET(flag/allow_vote_shipmap))
 		if("restart")
 			if(CONFIG_GET(flag/allow_vote_restart) || usr.client.holder)
 				initiate_vote("restart",usr.key)
@@ -437,9 +431,6 @@ SUBSYSTEM_DEF(vote)
 		if("groundmap")
 			if(CONFIG_GET(flag/allow_vote_groundmap) || usr.client.holder)
 				initiate_vote("groundmap",usr.key)
-		if("shipmap")
-			if(CONFIG_GET(flag/allow_vote_shipmap) || usr.client.holder)
-				initiate_vote("shipmap",usr.key)
 		if("custom")
 			if(usr.client.holder)
 				initiate_vote("custom",usr.key)
