@@ -175,9 +175,6 @@ SUBSYSTEM_DEF(vote)
 		if("groundmap")
 			var/datum/map_config/VM = config.maplist[GROUND_MAP][.]
 			SSmapping.changemap(VM, GROUND_MAP)
-		if("shipmap")
-			var/datum/map_config/VM = config.maplist[SHIP_MAP][.]
-			SSmapping.changemap(VM, SHIP_MAP)
 	if(restart)
 		var/active_admins = FALSE
 		for(var/client/C in GLOB.admins)
@@ -281,35 +278,6 @@ SUBSYSTEM_DEF(vote)
 							continue
 					if(VM.map_name == SSmapping.configs[GROUND_MAP].map_name) // so the ground map changes guarantilly
 						continue
-					if(VM.config_max_users || VM.config_min_users)
-						var/players = length(GLOB.clients)
-						if(VM.config_max_users && players > VM.config_max_users)
-							continue
-						if(VM.config_min_users && players < VM.config_min_users)
-							continue
-					maps += VM.map_name
-					shuffle_choices = TRUE
-				for(var/valid_map in maps)
-					choices.Add(valid_map)
-			if("shipmap")
-				multiple_vote = TRUE
-				if(!lower_admin && SSmapping.shipmap_voted)
-					to_chat(usr, span_warning("The next ship map has already been selected."))
-					return FALSE
-				var/datum/game_mode/next_gamemode = config.pick_mode(trim(file2text("data/mode.txt")))
-				var/list/maps = list()
-				if(!config.maplist)
-					return
-				for(var/map in config.maplist[SHIP_MAP])
-					var/datum/map_config/VM = config.maplist[SHIP_MAP][map]
-					if(!VM.voteweight)
-						continue
-					if(next_gamemode.whitelist_ship_maps)
-						if(!(VM.map_name in next_gamemode.whitelist_ship_maps))
-							continue
-					else if(next_gamemode.blacklist_ship_maps) //can't blacklist and whitelist for the same map
-						if(VM.map_name in next_gamemode.blacklist_ship_maps)
-							continue
 					if(VM.config_max_users || VM.config_min_users)
 						var/players = length(GLOB.clients)
 						if(VM.config_max_users && players > VM.config_max_users)
