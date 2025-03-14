@@ -33,7 +33,6 @@
 
 	var/squads_max_num = 4
 
-
 /proc/load_map_config(filename, default, delete_after, error_if_missing = TRUE)
 	var/datum/map_config/config = new
 	if(default)
@@ -44,7 +43,6 @@
 	if(delete_after)
 		fdel(filename)
 	return config
-
 
 /proc/load_map_configs(list/maptypes, default, delete_after, error_if_missing = TRUE)
 	var/list/configs = list()

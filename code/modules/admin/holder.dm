@@ -23,7 +23,6 @@
 	///Whether this admin is invisiminning
 	var/invisimined = FALSE
 
-
 /datum/admins/New(datum/admin_rank/R, ckey, protected)
 	if(IsAdminAdvancedProcCall())
 		log_admin("[key_name(usr)] has tried to elevate permissions!")
@@ -49,9 +48,7 @@
 	//only admins with +ADMIN start admined
 	if(protected)
 		GLOB.protected_admins[target] = src
-
 	activate()
-
 
 /datum/admins/Destroy()
 	if(IsAdminAdvancedProcCall())
@@ -59,7 +56,6 @@
 		message_admins("[ADMIN_TPMONTY(usr)] has tried to elevate permissions!")
 		return QDEL_HINT_LETMELIVE
 	return ..()
-
 
 /datum/admins/proc/activate()
 	if(IsAdminAdvancedProcCall())
@@ -71,7 +67,6 @@
 	deadmined = FALSE
 	if(GLOB.directory[target])
 		associate(GLOB.directory[target])	//find the client for a ckey if they are connected and associate them with us
-
 
 /datum/admins/proc/deactivate()
 	if(IsAdminAdvancedProcCall())
@@ -85,7 +80,6 @@
 	if((C = owner) || (C = GLOB.directory[target]))
 		disassociate()
 		add_verb(C, /client/proc/readmin)
-
 
 /datum/admins/proc/associate(client/C)
 	if(IsAdminAdvancedProcCall())
@@ -109,7 +103,6 @@
 	owner.init_verbs()
 	GLOB.admins |= C
 
-
 /datum/admins/proc/disassociate()
 	if(IsAdminAdvancedProcCall())
 		log_admin("[key_name(usr)] has tried to elevate permissions!")
@@ -120,7 +113,6 @@
 		owner.remove_admin_verbs()
 		owner.holder = null
 		owner = null
-
 
 /client/proc/readmin()
 	set name = "Re-Admin"
@@ -144,7 +136,6 @@
 	log_admin("[key_name(usr)] re-adminned themselves.")
 	message_admins("[ADMIN_TPMONTY(usr)] re-adminned themselves.")
 
-
 /client/proc/deadmin()
 	set name = "De-Admin"
 	set category = "Admin"
@@ -158,12 +149,10 @@
 	log_admin("[key_name(usr)] de-adminned themselves.")
 	message_admins("[ADMIN_TPMONTY(usr)] de-adminned themselves.")
 
-
 /proc/GenerateToken()
 	. = ""
 	for(var/I in 1 to 32)
 		. += "[rand(10)]"
-
 
 /proc/RawHrefToken(forceGlobal = FALSE)
 	var/tok = GLOB.href_token
@@ -175,7 +164,6 @@
 		if(holder)
 			tok = holder.href_token
 	return tok
-
 
 /proc/HrefToken(forceGlobal = FALSE)
 	return "admin_token=[RawHrefToken(forceGlobal)]"
@@ -211,7 +199,6 @@
 			to_chat(usr, span_warning("You are not a holder."))
 	return FALSE
 
-
 /proc/check_other_rights(client/other, rights_required, show_msg = TRUE)
 	if(!other)
 		return FALSE
@@ -226,7 +213,6 @@
 		else if(show_msg)
 			to_chat(usr, span_warning("You are not a holder."))
 	return FALSE
-
 
 /proc/check_if_greater_rights_than(client/other)
 	if(!usr?.client)
@@ -243,7 +229,6 @@
 	to_chat(usr, span_warning("They have more or equal rights than you."))
 	return FALSE
 
-
 /datum/admins/proc/check_if_greater_rights_than_holder(datum/admins/other)
 	if(!istype(other))
 		return TRUE
@@ -256,207 +241,215 @@
 			return TRUE
 	return FALSE
 
-
 /world/proc/AVdefault()
 	return list(
-	/client/proc/deadmin
+		/client/proc/deadmin
 	)
+
 GLOBAL_LIST_INIT(admin_verbs_default, world.AVdefault())
 GLOBAL_PROTECT(admin_verbs_default)
 
 /world/proc/AVadmin()
 	return list(
-	/datum/admins/proc/pref_ff_attack_logs,
-	/datum/admins/proc/pref_end_attack_logs,
-	/datum/admins/proc/pref_debug_logs,
-	/datum/admins/proc/admin_ghost,
-	/datum/admins/proc/invisimin,
-	/datum/admins/proc/stealth_mode,
-	/datum/admins/proc/give_mob,
-	/datum/admins/proc/give_mob_panel,
-	/datum/admins/proc/rejuvenate,
-	/datum/admins/proc/rejuvenate_panel,
-	/datum/admins/proc/toggle_sleep,
-	/datum/admins/proc/toggle_sleep_panel,
-	/datum/admins/proc/toggle_sleep_area,
-	/datum/admins/proc/jump,
-	/datum/admins/proc/get_mob,
-	/datum/admins/proc/send_mob,
-	/datum/admins/proc/jump_area,
-	/datum/admins/proc/jump_coord,
-	/datum/admins/proc/jump_mob,
-	/datum/admins/proc/jump_key,
-	/datum/admins/proc/secrets_panel,
-	/datum/admins/proc/remove_from_tank,
-	/datum/admins/proc/game_panel,
-	/datum/admins/proc/mode_panel,
-	/datum/admins/proc/job_slots,
-	/datum/admins/proc/toggle_adminhelp_sound,
-	/datum/admins/proc/toggle_prayers,
-	/datum/admins/proc/check_fingerprints,
-	/client/proc/discord_id_manipulation,
-	/client/proc/cmd_admin_create_predator_report,
-	/client/proc/smite,
-	/client/proc/show_traitor_panel,
-	/client/proc/validate_objectives,
-	/client/proc/private_message_panel,
-	/client/proc/private_message_context,
-	/client/proc/msay,
-	/client/proc/dsay
+		/datum/admins/proc/pref_ff_attack_logs,
+		/datum/admins/proc/pref_end_attack_logs,
+		/datum/admins/proc/pref_debug_logs,
+		/datum/admins/proc/admin_ghost,
+		/datum/admins/proc/invisimin,
+		/datum/admins/proc/stealth_mode,
+		/datum/admins/proc/give_mob,
+		/datum/admins/proc/give_mob_panel,
+		/datum/admins/proc/rejuvenate,
+		/datum/admins/proc/rejuvenate_panel,
+		/datum/admins/proc/toggle_sleep,
+		/datum/admins/proc/toggle_sleep_panel,
+		/datum/admins/proc/toggle_sleep_area,
+		/datum/admins/proc/jump,
+		/datum/admins/proc/get_mob,
+		/datum/admins/proc/send_mob,
+		/datum/admins/proc/jump_area,
+		/datum/admins/proc/jump_coord,
+		/datum/admins/proc/jump_mob,
+		/datum/admins/proc/jump_key,
+		/datum/admins/proc/secrets_panel,
+		/datum/admins/proc/remove_from_tank,
+		/datum/admins/proc/game_panel,
+		/datum/admins/proc/mode_panel,
+		/datum/admins/proc/job_slots,
+		/datum/admins/proc/toggle_adminhelp_sound,
+		/datum/admins/proc/toggle_prayers,
+		/datum/admins/proc/check_fingerprints,
+		/client/proc/discord_id_manipulation,
+		/client/proc/cmd_admin_create_predator_report,
+		/client/proc/smite,
+		/client/proc/show_traitor_panel,
+		/client/proc/validate_objectives,
+		/client/proc/private_message_panel,
+		/client/proc/private_message_context,
+		/client/proc/msay,
+		/client/proc/dsay
 	)
+
 GLOBAL_LIST_INIT(admin_verbs_admin, world.AVadmin())
 GLOBAL_PROTECT(admin_verbs_admin)
 
 /world/proc/AVmentor()
 	return list(
-	/datum/admins/proc/admin_ghost,
-	/datum/admins/proc/subtle_message,
-	/datum/admins/proc/subtle_message_panel,
-	/datum/admins/proc/view_faxes,
-	/datum/admins/proc/toggle_adminhelp_sound,
-	/datum/admins/proc/toggle_prayers,
-	/datum/admins/proc/imaginary_friend,
-	/client/proc/private_message_panel,
-	/client/proc/private_message_context,
-	/client/proc/msay,
-	/client/proc/dsay
+		/datum/admins/proc/admin_ghost,
+		/datum/admins/proc/subtle_message,
+		/datum/admins/proc/subtle_message_panel,
+		/datum/admins/proc/view_faxes,
+		/datum/admins/proc/toggle_adminhelp_sound,
+		/datum/admins/proc/toggle_prayers,
+		/datum/admins/proc/imaginary_friend,
+		/client/proc/private_message_panel,
+		/client/proc/private_message_context,
+		/client/proc/msay,
+		/client/proc/dsay
 	)
+
 GLOBAL_LIST_INIT(admin_verbs_mentor, world.AVmentor())
 GLOBAL_PROTECT(admin_verbs_mentor)
 
 /world/proc/AVban()
 	return list(
-	/datum/admins/proc/ban_panel,
-	/datum/admins/proc/stickybanpanel,
-	/datum/admins/proc/unban_panel,
-	/datum/admins/proc/note_panel,
-	/datum/admins/proc/show_player_panel,
-	/datum/admins/proc/player_panel,
-	/datum/admins/proc/player_panel_extended,
-	/datum/admins/proc/mcdb
+		/datum/admins/proc/ban_panel,
+		/datum/admins/proc/stickybanpanel,
+		/datum/admins/proc/unban_panel,
+		/datum/admins/proc/note_panel,
+		/datum/admins/proc/show_player_panel,
+		/datum/admins/proc/player_panel,
+		/datum/admins/proc/player_panel_extended,
+		/datum/admins/proc/mcdb
 	)
+
 GLOBAL_LIST_INIT(admin_verbs_ban, world.AVban())
 GLOBAL_PROTECT(admin_verbs_ban)
 
 /world/proc/AVasay()
 	return list(
-	/client/proc/asay
+		/client/proc/asay
 	)
+
 GLOBAL_LIST_INIT(admin_verbs_asay, world.AVasay())
 GLOBAL_PROTECT(admin_verbs_asay)
 
 /world/proc/AVdebug()
 	return list(
-	/datum/admins/proc/proccall_advanced,
-	/datum/admins/proc/proccall_atom,
-	/datum/admins/proc/delete_all,
-	/datum/admins/proc/generate_powernets,
-	/datum/admins/proc/debug_mob_lists,
-	/client/proc/debugstatpanel,
-	/datum/admins/proc/delete_atom,
-	/datum/admins/proc/restart_controller,
-	/client/proc/debug_controller,
-	/datum/admins/proc/check_contents,
-	/datum/admins/proc/reestablish_db_connection,
-	/datum/admins/proc/view_runtimes,
-	/datum/admins/proc/profiler,
-	/client/proc/spawn_wave,
-	/client/proc/SDQL2_query,
-	/client/proc/toggle_cdn
+		/datum/admins/proc/proccall_advanced,
+		/datum/admins/proc/proccall_atom,
+		/datum/admins/proc/delete_all,
+		/datum/admins/proc/generate_powernets,
+		/datum/admins/proc/debug_mob_lists,
+		/client/proc/debugstatpanel,
+		/datum/admins/proc/delete_atom,
+		/datum/admins/proc/restart_controller,
+		/client/proc/debug_controller,
+		/datum/admins/proc/check_contents,
+		/datum/admins/proc/reestablish_db_connection,
+		/datum/admins/proc/view_runtimes,
+		/datum/admins/proc/profiler,
+		/client/proc/spawn_wave,
+		/client/proc/SDQL2_query,
+		/client/proc/toggle_cdn
 	)
+
 GLOBAL_LIST_INIT(admin_verbs_debug, world.AVdebug())
 GLOBAL_PROTECT(admin_verbs_debug)
 
 /world/proc/AVruntimes()
 	return list(
-	/datum/admins/proc/view_runtimes,
-	/datum/admins/proc/profiler,
+		/datum/admins/proc/view_runtimes,
+		/datum/admins/proc/profiler,
 	)
+
 GLOBAL_LIST_INIT(admin_verbs_runtimes, world.AVruntimes())
 GLOBAL_PROTECT(admin_verbs_runtimes)
 
 /world/proc/AVvaredit()
 	return list(
-	/client/proc/debug_variables
+		/client/proc/debug_variables
 	)
+
 GLOBAL_LIST_INIT(admin_verbs_varedit, world.AVvaredit())
 GLOBAL_PROTECT(admin_verbs_varedit)
 
 /world/proc/AVfun()
 	return list(
-	/datum/admins/proc/rank_and_equipment,
-	/datum/admins/proc/set_view_range,
-	/datum/admins/proc/emp,
-	/datum/admins/proc/queen_report,
-	/datum/admins/proc/rouny_all,
-	/datum/admins/proc/hive_status,
-	/datum/admins/proc/ai_report,
-	/datum/admins/proc/command_report,
-	/datum/admins/proc/narrate_global,
-	/datum/admins/proc/narage_direct,
-	/datum/admins/proc/subtle_message,
-	/datum/admins/proc/subtle_message_panel,
-	/datum/admins/proc/award_medal,
-	/datum/admins/proc/custom_info,
-	/datum/admins/proc/announce,
-	/datum/admins/proc/force_distress,
-	/datum/admins/proc/object_sound,
-	/datum/admins/proc/drop_bomb,
-	/datum/admins/proc/drop_OB,
-	/datum/admins/proc/change_security_level,
-	/datum/admins/proc/edit_appearance,
-	/datum/admins/proc/offer,
-	/datum/admins/proc/force_dropship,
-	/datum/admins/proc/open_shuttlepanel,
-	/datum/admins/proc/xeno_panel,
-	/datum/admins/proc/view_faxes,
-	/datum/admins/proc/possess,
-	/datum/admins/proc/release,
-	/client/proc/centcom_podlauncher,
-	/datum/admins/proc/play_cinematic,
-	/datum/admins/proc/set_tip,
-	/datum/admins/proc/ghost_interact,
-	/client/proc/force_event,
-	/client/proc/toggle_events,
-	/client/proc/run_weather,
-	/client/proc/cmd_display_del_log,
-	/datum/admins/proc/map_template_load,
-	/datum/admins/proc/map_template_upload,
-	/datum/admins/proc/spatial_agent,
-	/datum/admins/proc/military_policeman,
-	/datum/admins/proc/set_xeno_stat_buffs,
-	/datum/admins/proc/adjust_gravity,
+		/datum/admins/proc/rank_and_equipment,
+		/datum/admins/proc/set_view_range,
+		/datum/admins/proc/emp,
+		/datum/admins/proc/queen_report,
+		/datum/admins/proc/rouny_all,
+		/datum/admins/proc/hive_status,
+		/datum/admins/proc/ai_report,
+		/datum/admins/proc/command_report,
+		/datum/admins/proc/narrate_global,
+		/datum/admins/proc/narage_direct,
+		/datum/admins/proc/subtle_message,
+		/datum/admins/proc/subtle_message_panel,
+		/datum/admins/proc/award_medal,
+		/datum/admins/proc/custom_info,
+		/datum/admins/proc/announce,
+		/datum/admins/proc/force_distress,
+		/datum/admins/proc/object_sound,
+		/datum/admins/proc/drop_bomb,
+		/datum/admins/proc/drop_OB,
+		/datum/admins/proc/change_security_level,
+		/datum/admins/proc/edit_appearance,
+		/datum/admins/proc/offer,
+		/datum/admins/proc/force_dropship,
+		/datum/admins/proc/open_shuttlepanel,
+		/datum/admins/proc/xeno_panel,
+		/datum/admins/proc/view_faxes,
+		/datum/admins/proc/possess,
+		/datum/admins/proc/release,
+		/client/proc/centcom_podlauncher,
+		/datum/admins/proc/play_cinematic,
+		/datum/admins/proc/set_tip,
+		/datum/admins/proc/ghost_interact,
+		/client/proc/force_event,
+		/client/proc/toggle_events,
+		/client/proc/run_weather,
+		/client/proc/cmd_display_del_log,
+		/datum/admins/proc/map_template_load,
+		/datum/admins/proc/map_template_upload,
+		/datum/admins/proc/spatial_agent,
+		/datum/admins/proc/military_policeman,
+		/datum/admins/proc/set_xeno_stat_buffs,
+		/datum/admins/proc/adjust_gravity,
 	)
+
 GLOBAL_LIST_INIT(admin_verbs_fun, world.AVfun())
 GLOBAL_PROTECT(admin_verbs_fun)
 
 /world/proc/AVserver()
 	return list(
-	/datum/admins/proc/restart,
-	/datum/admins/proc/shutdown_server,
-	/datum/admins/proc/toggle_ooc,
-	/datum/admins/proc/toggle_looc,
-	/datum/admins/proc/toggle_deadchat,
-	/datum/admins/proc/toggle_deadooc,
-	/datum/admins/proc/start,
-	/datum/admins/proc/toggle_join,
-	/datum/admins/proc/toggle_respawn,
-	/datum/admins/proc/set_respawn_time,
-	/datum/admins/proc/end_round,
-	/datum/admins/proc/delay_start,
-	/datum/admins/proc/delay_end,
-	/datum/admins/proc/toggle_gun_restrictions,
-	/datum/admins/proc/toggle_synthetic_restrictions,
-	/datum/admins/proc/reload_admins,
-	/datum/admins/proc/change_ground_map,
-	/datum/admins/proc/change_ship_map,
-	/datum/admins/proc/panic_bunker,
-	/datum/admins/proc/mode_check,
-	/datum/admins/proc/toggle_valhalla,
-	/datum/admins/proc/toggle_sdd_possesion,
-	/datum/admins/proc/force_predator_round,
-	/client/proc/toggle_cdn
+		/datum/admins/proc/restart,
+		/datum/admins/proc/shutdown_server,
+		/datum/admins/proc/toggle_ooc,
+		/datum/admins/proc/toggle_looc,
+		/datum/admins/proc/toggle_deadchat,
+		/datum/admins/proc/toggle_deadooc,
+		/datum/admins/proc/start,
+		/datum/admins/proc/toggle_join,
+		/datum/admins/proc/toggle_respawn,
+		/datum/admins/proc/set_respawn_time,
+		/datum/admins/proc/end_round,
+		/datum/admins/proc/delay_start,
+		/datum/admins/proc/delay_end,
+		/datum/admins/proc/toggle_gun_restrictions,
+		/datum/admins/proc/toggle_synthetic_restrictions,
+		/datum/admins/proc/reload_admins,
+		/datum/admins/proc/change_ground_map,
+		/datum/admins/proc/panic_bunker,
+		/datum/admins/proc/mode_check,
+		/datum/admins/proc/toggle_valhalla,
+		/datum/admins/proc/toggle_sdd_possesion,
+		/datum/admins/proc/force_predator_round,
+		/client/proc/toggle_cdn
 	)
+
 GLOBAL_LIST_INIT(admin_verbs_server, world.AVserver())
 GLOBAL_PROTECT(admin_verbs_server)
 
@@ -488,24 +481,25 @@ GLOBAL_PROTECT(admin_verbs_sound)
 
 /world/proc/AVspawn()
 	return list(
-	/datum/admins/proc/spawn_atom,
-	/client/proc/get_togglebuildmode,
-	/client/proc/mass_replace,
-	/client/proc/toggle_admin_tads,
+		/datum/admins/proc/spawn_atom,
+		/client/proc/get_togglebuildmode,
+		/client/proc/mass_replace,
+		/client/proc/toggle_admin_tads,
 	)
+
 GLOBAL_LIST_INIT(admin_verbs_spawn, world.AVspawn())
 GLOBAL_PROTECT(admin_verbs_spawn)
 
 /world/proc/AVlog()
 	return list(
-	/datum/admins/proc/logs_server,
-	/datum/admins/proc/logs_current,
-	/datum/admins/proc/logs_folder,
-	/client/proc/log_viewer_new
+		/datum/admins/proc/logs_server,
+		/datum/admins/proc/logs_current,
+		/datum/admins/proc/logs_folder,
+		/client/proc/log_viewer_new
 	)
+
 GLOBAL_LIST_INIT(admin_verbs_log, world.AVlog())
 GLOBAL_PROTECT(admin_verbs_log)
-
 
 /client/proc/add_admin_verbs()
 	if(holder)
@@ -544,7 +538,6 @@ GLOBAL_PROTECT(admin_verbs_log)
 		if(GLOB.roles_whitelist[ckey] & WHITELIST_YAUTJA_LEADER)
 			verbs += GLOB.clan_verbs
 
-
 /client/proc/remove_admin_verbs()
 	verbs.Remove(
 		GLOB.admin_verbs_default,
@@ -562,11 +555,11 @@ GLOBAL_PROTECT(admin_verbs_log)
 		GLOB.admin_verbs_spawn,
 		GLOB.admin_verbs_log,
 		GLOB.clan_verbs,
-		)
+	)
 
 /world/proc/AVyautja()
 	return list(
-	/client/proc/usr_create_new_clan
+		/client/proc/usr_create_new_clan
 	)
 
 GLOBAL_LIST_INIT(clan_verbs, world.AVyautja())
@@ -583,7 +576,6 @@ GLOBAL_PROTECT(clan_verbs)
 		return FALSE
 	return TRUE
 
-
 /proc/message_admins(msg)
 	msg = "<span class=\"admin\"><span class=\"prefix\">ADMIN LOG:</span> <span class=\"message\">[msg]</span></span>"
 	for(var/client/C in GLOB.admins)
@@ -591,8 +583,6 @@ GLOBAL_PROTECT(clan_verbs)
 			to_chat(C,
 				type = MESSAGE_TYPE_ADMINLOG,
 				html = msg)
-
-
 
 /proc/message_staff(msg)
 	msg = "<span class=\"admin\"><span class=\"prefix\">STAFF LOG:</span> <span class=\"message\">[msg]</span></span>"
@@ -612,7 +602,6 @@ GLOBAL_PROTECT(clan_verbs)
 				type = MESSAGE_TYPE_ATTACKLOG,
 				html = msg)
 
-
 /client/proc/find_stealth_key(txt)
 	if(txt)
 		for(var/P in GLOB.stealthminID)
@@ -620,7 +609,6 @@ GLOBAL_PROTECT(clan_verbs)
 				return P
 	txt = GLOB.stealthminID[ckey]
 	return txt
-
 
 /client/proc/create_stealth_key()
 	var/num = (rand(0,1000))
