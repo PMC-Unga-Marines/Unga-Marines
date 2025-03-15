@@ -150,13 +150,14 @@
 /obj/machinery/miner/welder_act(mob/living/user, obj/item/I)
 	. = ..()
 	var/obj/item/tool/weldingtool/weldingtool = I
-	if((miner_status == MINER_RUNNING) && miner_upgrade_type)
-		if(!weldingtool.remove_fuel(2,user))
+	if(miner_status == MINER_RUNNING && miner_upgrade_type)
+		if(!weldingtool.remove_fuel(2, user))
 			to_chat(user, span_info("You need more welding fuel to complete this task!"))
 			return FALSE
 		to_chat(user, span_info("You begin uninstalling the [miner_upgrade_type] from the miner!"))
 		user.visible_message(span_notice("[user] begins dismantling the [miner_upgrade_type] from the miner."))
-		if(!do_after(user, 30 SECONDS, NONE, src, BUSY_ICON_BUILD))
+		var/fumbling_time = 30 SECONDS - 5 SECONDS * user.skills.getRating(SKILL_ENGINEER)
+		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_BUILD, extra_checks = CALLBACK(weldingtool, /obj/item/tool/weldingtool/proc/isOn)))
 			return FALSE
 		user.visible_message(span_notice("[user] dismantles the [miner_upgrade_type] from the miner!"))
 		var/obj/item/upgrade
@@ -344,9 +345,20 @@
 		playsound(loc, SFX_ALIEN_CLAW_METAL, 25, TRUE)
 		miner_integrity -= 25
 		set_miner_status()
-		if(miner_status == MINER_DESTROYED && xeno_attacker.client)
-			var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[xeno_attacker.ckey]
-			personal_statistics.miner_sabotages_performed++
+		if(miner_status == MINER_DESTROYED)
+			if(miner_upgrade_type)
+				switch(miner_upgrade_type)
+					if(MINER_RESISTANT)
+						max_miner_integrity = initial(max_miner_integrity)
+					if(MINER_OVERCLOCKED)
+						required_ticks = initial(required_ticks)
+				xeno_attacker.visible_message(span_danger("[xeno_attacker] destroys \the [miner_upgrade_type] upgrade in the process!"), \
+				span_danger("We destroy \the [miner_upgrade_type] upgrade in the process!"), null, 5)
+				miner_upgrade_type = null
+				update_icon()
+			if(xeno_attacker.client)
+				var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[xeno_attacker.ckey]
+				personal_statistics.miner_sabotages_performed++
 
 /obj/machinery/miner/proc/set_miner_status()
 	var/health_percent = round((miner_integrity / max_miner_integrity) * 100)
