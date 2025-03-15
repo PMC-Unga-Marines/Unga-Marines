@@ -677,6 +677,13 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define GORGER_OPPOSE_COST 80
 #define GORGER_OPPOSE_HEAL 0.2 // in %
 
+/// This many units of greenblood are always stolen
+#define GORGER_GREENBLOOD_STEAL_FLAT 10
+/// bonus % of current greenblood taken from vali on drain
+#define GORGER_GREENBLOOD_STEAL_PERCENTAGE 25
+/// Amount of blood(plasma) gained per unit of greenblood drained from target.
+#define GORGER_GREENBLOOD_CONVERSION 1.25
+
 //carrier defines
 #define CARRIER_HUGGER_THROW_SPEED 2
 #define CARRIER_HUGGER_THROW_DISTANCE 5
