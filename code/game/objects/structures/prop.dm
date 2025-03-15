@@ -346,6 +346,7 @@
 	density = FALSE
 	plane = FLOOR_PLANE
 	layer = LOWER_RUNE_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	resistance_flags = UNACIDABLE
 
 /obj/structure/prop/mainship/name_stencil/U
@@ -365,7 +366,8 @@
 	icon_state = "dropship1"
 	density = FALSE
 	plane = FLOOR_PLANE
-	layer = ABOVE_NORMAL_TURF_LAYER
+	layer = LOWER_RUNE_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/structure/prop/mainship/hangar_stencil/two
 	icon_state = "dropship2"
