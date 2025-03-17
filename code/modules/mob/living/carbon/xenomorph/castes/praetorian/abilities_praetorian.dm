@@ -50,6 +50,7 @@
 	desc = "Spray a cone of dangerous acid at your target."
 	ability_cost = 300
 	cooldown_duration = 20 SECONDS
+
 /datum/action/ability/activable/xeno/spray_acid/cone/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/X = owner
 	var/turf/target = get_turf(A)
@@ -110,10 +111,10 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	owner.setDir(facing)
 	switch(facing)
 		if(NORTH, SOUTH, EAST, WEST)
-			do_acid_cone_spray(owner.loc, range, facing, CONE_PART_MIDDLE|CONE_PART_LEFT|CONE_PART_RIGHT, owner, TRUE)
+			do_acid_cone_spray(get_step(owner.loc, facing), range, facing, CONE_PART_MIDDLE|CONE_PART_LEFT|CONE_PART_RIGHT, owner, TRUE)
 		if(NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
-			do_acid_cone_spray(owner.loc, range, facing, CONE_PART_MIDDLE_DIAG, owner, TRUE)
-			do_acid_cone_spray(owner.loc, range + 1, facing, CONE_PART_DIAG_LEFT|CONE_PART_DIAG_RIGHT, owner, TRUE)
+			do_acid_cone_spray(get_step(owner.loc, facing), owner.loc, range, facing, CONE_PART_MIDDLE_DIAG, owner, TRUE)
+			do_acid_cone_spray(get_step(owner.loc, facing), range + 1, facing, CONE_PART_DIAG_LEFT|CONE_PART_DIAG_RIGHT, owner, TRUE)
 
 ///Check if it's possible to create a spray, and if yes, check if the spray must continue
 /datum/action/ability/activable/xeno/spray_acid/cone/proc/do_acid_cone_spray(turf/T, distance_left, facing, direction_flag, source_spray, skip_timer = FALSE)
@@ -122,7 +123,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	if(T.density)
 		return
 	var/is_blocked = FALSE
-	for (var/obj/O in T)
+	for(var/obj/O in T)
 		if(!O.CanPass(source_spray, get_turf(source_spray)))
 			is_blocked = TRUE
 			O.acid_spray_act(owner)
@@ -131,10 +132,9 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 		return
 
 	var/mob/living/carbon/xenomorph/praetorian/xeno_owner = owner
-
 	var/obj/effect/xenomorph/spray/spray = new(T, xeno_owner.xeno_caste.acid_spray_duration, xeno_owner.xeno_caste.acid_spray_damage, xeno_owner)
 	var/turf/next_normal_turf = get_step(T, facing)
-	for (var/atom/movable/A AS in T)
+	for(var/atom/movable/A AS in T)
 		A.acid_spray_act(owner)
 		if(((A.density && !(A.allow_pass_flags & PASS_PROJECTILE) && !(A.atom_flags & ON_BORDER)) || !A.Exit(source_spray, facing)) && !isxeno(A))
 			is_blocked = TRUE
@@ -143,7 +143,6 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 			addtimer(CALLBACK(src, PROC_REF(continue_acid_cone_spray), T, next_normal_turf, distance_left, facing, direction_flag, spray), 3)
 			return
 		continue_acid_cone_spray(T, next_normal_turf, distance_left, facing, direction_flag, spray)
-
 
 ///Call the next steps of the cone spray,
 /datum/action/ability/activable/xeno/spray_acid/cone/proc/continue_acid_cone_spray(turf/current_turf, turf/next_normal_turf, distance_left, facing, direction_flag, spray)
