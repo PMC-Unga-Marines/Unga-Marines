@@ -289,7 +289,7 @@
 
 	switch(tgui_alert(usr, "View (in game), Open (in your system's text editor), Download", path, list("View", "Open", "Download"), 0))
 		if("View")
-			DIRECT_OUTPUT(usr, browse("<pre style='word-wrap: break-word;'>[html_encode(file2text(file(path)))]</pre>", list2params(list("window" = "viewfile.[path]"))))
+			usr << browse(HTML_SKELETON("<pre style='word-wrap: break-word;'>[html_encode(file2text(file(path)))]</pre>"), list2params(list("window" = "viewfile.[path]")))
 		if("Open")
 			DIRECT_OUTPUT(usr, run(file(path)))
 		if("Download")
