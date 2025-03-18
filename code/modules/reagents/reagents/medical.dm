@@ -680,7 +680,7 @@
 /datum/reagent/medicine/russian_red/on_mob_life(mob/living/L, metabolism)
 	L.heal_overall_damage(7*effect_str, 7*effect_str)
 	L.adjust_tox_loss(-2.5*effect_str)
-	L.adjustCloneLoss(0.7*effect_str)
+	L.adjust_clone_Loss(0.7*effect_str)
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
 		C.set_painloss(min(C.painloss - 5*effect_str, 150)) //removes a target from deep paincrit instantly
@@ -800,7 +800,7 @@
 	if(!organ)
 		return ..()
 	organ.heal_organ_damage(3 * effect_str)
-	H.adjustCloneLoss(1 * effect_str)
+	H.adjust_clone_Loss(1 * effect_str)
 	return ..()
 
 /datum/reagent/medicine/peridaxon_plus/overdose_process(mob/living/L, metabolism)
@@ -941,7 +941,7 @@
 		target_IB.parent_limb.createwound(CUT, target_IB.damage * 0.5)
 		UnregisterSignal(target_IB, COMSIG_QDELETING)
 		QDEL_NULL(target_IB)
-		L.adjustCloneLoss(5*effect_str)
+		L.adjust_clone_Loss(5*effect_str)
 	return ..()
 
 ///Choose an internal bleeding wound to lock onto and cure after a delay.
@@ -1110,7 +1110,7 @@
 
 /datum/reagent/medicine/cryoxadone/on_mob_life(mob/living/L, metabolism)
 	if(L.bodytemperature < 170)
-		L.adjustCloneLoss(-effect_str)
+		L.adjust_clone_Loss(-effect_str)
 		L.adjust_oxy_loss(-effect_str)
 		L.heal_overall_damage(effect_str,effect_str)
 		L.adjust_tox_loss(-effect_str)
@@ -1126,7 +1126,7 @@
 
 /datum/reagent/medicine/clonexadone/on_mob_life(mob/living/L, metabolism)
 	if(L.bodytemperature < 170)
-		L.adjustCloneLoss(-3*effect_str)
+		L.adjust_clone_Loss(-3*effect_str)
 		L.adjust_oxy_loss(-3*effect_str)
 		L.heal_overall_damage(3*effect_str,3*effect_str)
 		L.adjust_tox_loss(-3*effect_str)
@@ -1146,10 +1146,10 @@
 /datum/reagent/medicine/rezadone/on_mob_life(mob/living/L, metabolism)
 	switch(current_cycle)
 		if(1 to 15)
-			L.adjustCloneLoss(-effect_str)
+			L.adjust_clone_Loss(-effect_str)
 			L.heal_overall_damage(effect_str,effect_str)
 		if(16 to 35)
-			L.adjustCloneLoss(-2*effect_str)
+			L.adjust_clone_Loss(-2*effect_str)
 			L.heal_overall_damage(2*effect_str,effect_str)
 
 			L.status_flags &= ~DISFIGURED
@@ -1416,7 +1416,7 @@
 		if(26 to INFINITY)
 			if(L.stat == UNCONSCIOUS)
 				L.heal_overall_damage(10*effect_str, 10*effect_str)
-				L.adjustCloneLoss(-0.2*effect_str-(0.02*(L.maxHealth - L.health)))
+				L.adjust_clone_Loss(-0.2*effect_str-(0.02*(L.maxHealth - L.health)))
 				holder.remove_reagent(/datum/reagent/medicine/research/somolent, 0.6)
 			if(prob(50) && L.stat != UNCONSCIOUS)
 				L.adjustStaminaLoss((current_cycle*0.75 - 14)*effect_str)
@@ -1518,7 +1518,7 @@
 	holder.remove_reagent(/datum/reagent/medicalnanites, 0.25)
 
 /datum/reagent/medicalnanites/overdose_crit_process(mob/living/L, metabolism)
-	L.adjustCloneLoss(1) //YUM!
+	L.adjust_clone_Loss(1) //YUM!
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/datum/internal_organ/stom = H.get_organ_slot(ORGAN_SLOT_STOMACH)
@@ -1539,7 +1539,7 @@
 	to_chat(L, span_userdanger("You feel jittery and fast! Time to MOVE!"))
 	. = ..()
 	L.add_movespeed_modifier(type, TRUE, 0, NONE, TRUE, -1)
-	L.adjustCloneLoss(10*effect_str)
+	L.adjust_clone_Loss(10*effect_str)
 
 /datum/reagent/medicine/research/stimulon/on_mob_delete(mob/living/L, metabolism)
 	L.remove_movespeed_modifier(type)
@@ -1549,7 +1549,7 @@
 /datum/reagent/medicine/research/stimulon/on_mob_life(mob/living/L, metabolism)
 	L.adjustStaminaLoss(1*effect_str)
 	L.take_limb_damage(randfloat(0.5 * effect_str, 4 * effect_str), 0)
-	L.adjustCloneLoss(rand(0, 5) * effect_str * current_cycle * 0.02)
+	L.adjust_clone_Loss(rand(0, 5) * effect_str * current_cycle * 0.02)
 	if(prob(20))
 		L.emote(pick("twitch","blink_r","shiver"))
 	if(volume < 100) //THERE IS NO "MINIMUM SAFE DOSE" MUAHAHAHA!

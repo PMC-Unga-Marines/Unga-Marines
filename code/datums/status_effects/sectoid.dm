@@ -126,7 +126,7 @@
 				limb_to_fix.add_limb_flags(LIMB_REPAIRED)
 				break
 
-	owner.adjustCloneLoss(-3)
+	owner.adjust_clone_Loss(-3)
 	owner.adjust_oxy_loss(-5)
 	owner.heal_overall_damage(5, 5)
 	owner.adjust_tox_loss(-3)

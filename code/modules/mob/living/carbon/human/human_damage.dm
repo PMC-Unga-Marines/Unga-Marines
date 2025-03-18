@@ -14,7 +14,7 @@
 
 	var/oxy_l = get_oxy_loss()
 	var/tox_l = ((species.species_flags & NO_POISON) ? 0 : get_tox_loss())
-	var/clone_l = getCloneLoss()
+	var/clone_l = get_clone_Loss()
 
 	health = maxHealth - oxy_l - tox_l - clone_l - total_burn - total_brute
 
@@ -142,7 +142,7 @@
 			break
 
 
-/mob/living/carbon/human/getCloneLoss()
+/mob/living/carbon/human/get_clone_Loss()
 	if(species.species_flags & (IS_SYNTHETIC|NO_SCAN))
 		cloneloss = 0
 	return ..()
@@ -153,7 +153,7 @@
 	else
 		..()
 
-/mob/living/carbon/human/adjustCloneLoss(amount)
+/mob/living/carbon/human/adjust_clone_Loss(amount)
 	..()
 
 	if(species.species_flags & (IS_SYNTHETIC|NO_SCAN))

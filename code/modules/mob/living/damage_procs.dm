@@ -37,7 +37,7 @@
 		if(OXY)
 			adjust_oxy_loss(damage)
 		if(CLONE)
-			adjustCloneLoss(damage)
+			adjust_clone_Loss(damage)
 		if(STAMINA)
 			adjustStaminaLoss(damage)
 	if(updating_health)

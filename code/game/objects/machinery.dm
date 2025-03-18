@@ -265,7 +265,7 @@
 		"fireloss" = H.get_fire_loss(),
 		"oxyloss" = H.get_oxy_loss(),
 		"toxloss" = H.get_tox_loss(),
-		"cloneloss" = H.getCloneLoss(),
+		"cloneloss" = H.get_clone_Loss(),
 		"brainloss" = H.get_brain_loss(),
 		"knocked_out" = H.AmountUnconscious(),
 		"bodytemp" = H.bodytemperature,

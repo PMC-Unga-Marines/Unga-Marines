@@ -304,7 +304,7 @@
 	geiger_counter.severity = sound_level ? sound_level : clamp(round(rad_strength * 0.15, 1), 1, 4)
 	geiger_counter.start(src)
 
-	adjustCloneLoss(rad_strength)
+	adjust_clone_Loss(rad_strength)
 	adjustStaminaLoss(rad_strength * 7)
 	adjust_stagger(rad_strength SECONDS * 0.5)
 	add_slowdown(rad_strength * 0.5)

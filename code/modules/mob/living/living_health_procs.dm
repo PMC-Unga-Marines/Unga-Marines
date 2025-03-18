@@ -132,10 +132,10 @@
 	SIGNAL_HANDLER
 	add_stamina_regen_modifier(SKILL_STAMINA, skills.getRating(SKILL_STAMINA) * STAMINA_SKILL_REGEN_MOD)
 
-/mob/living/proc/getCloneLoss()
+/mob/living/proc/get_clone_Loss()
 	return cloneloss
 
-/mob/living/proc/adjustCloneLoss(amount)
+/mob/living/proc/adjust_clone_Loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	cloneloss = clamp(cloneloss+amount,0,maxHealth*2)
