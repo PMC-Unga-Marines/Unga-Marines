@@ -236,7 +236,7 @@
 		if(TOX)
 			victim.adjust_tox_loss(damage)
 		if(OXY)
-			victim.adjustOxyLoss(damage)
+			victim.adjust_oxy_loss(damage)
 		if(CLONE)
 			victim.adjustCloneLoss(damage)
 		if(STAMINA)

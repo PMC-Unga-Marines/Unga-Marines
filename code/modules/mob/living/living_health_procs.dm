@@ -37,10 +37,10 @@
 		updatehealth()
 
 
-/mob/living/proc/getOxyLoss()
+/mob/living/proc/get_oxy_loss()
 	return oxyloss
 
-/mob/living/proc/adjustOxyLoss(amount)
+/mob/living/proc/adjust_oxy_loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	oxyloss = clamp(oxyloss + amount, 0, maxHealth * 2)
@@ -75,7 +75,7 @@
 	var/stamina_loss_adjustment = staminaloss + amount
 	var/health_limit = maxHealth * 2
 	if(stamina_loss_adjustment > health_limit) //If we exceed maxHealth * 2 stamina damage, half of any excess as oxyloss
-		adjustOxyLoss((stamina_loss_adjustment - health_limit) * 0.5)
+		adjust_oxy_loss((stamina_loss_adjustment - health_limit) * 0.5)
 
 	staminaloss = clamp(stamina_loss_adjustment, -max_stamina, health_limit)
 

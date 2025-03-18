@@ -277,7 +277,7 @@
 		H.adjust_brute_loss(-defib_heal_amt)
 		H.adjust_fire_loss(-defib_heal_amt)
 		H.adjust_tox_loss(-defib_heal_amt)
-		H.adjustOxyLoss(-defib_heal_amt)
+		H.adjust_oxy_loss(-defib_heal_amt)
 
 	H.updatehealth() //Make sure health is up to date since it's a purely derived value
 	if(H.health <= H.get_death_threshold())

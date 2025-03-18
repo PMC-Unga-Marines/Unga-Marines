@@ -29,7 +29,7 @@
 	taste_description = "oranges"
 
 /datum/reagent/consumable/drink/orangejuice/on_mob_life(mob/living/L, metabolism)
-	L.adjustOxyLoss(-0.3)
+	L.adjust_oxy_loss(-0.3)
 	return ..()
 
 /datum/reagent/consumable/drink/tomatojuice

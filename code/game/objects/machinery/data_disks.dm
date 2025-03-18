@@ -37,7 +37,7 @@
 	else
 		if(isliving(src.implanted))
 			var/mob/living/L = src.implanted
-			src.healthstring = "[round(L.getOxyLoss())] - [round(L.get_fire_loss())] - [round(L.get_tox_loss())] - [round(L.get_brute_loss())]"
+			src.healthstring = "[round(L.get_oxy_loss())] - [round(L.get_fire_loss())] - [round(L.get_tox_loss())] - [round(L.get_brute_loss())]"
 		if (!src.healthstring)
 			src.healthstring = "ERROR"
 		return src.healthstring

@@ -330,7 +330,7 @@
 	scannable = TRUE
 
 /datum/reagent/medicine/dexalin/on_mob_life(mob/living/L,metabolism)
-	L.adjustOxyLoss(-3*effect_str)
+	L.adjust_oxy_loss(-3*effect_str)
 	holder.remove_reagent("lexorin", effect_str)
 	return ..()
 
@@ -349,7 +349,7 @@
 	scannable = TRUE
 
 /datum/reagent/medicine/dexalinplus/on_mob_life(mob/living/L,metabolism)
-	L.adjustOxyLoss(-L.getOxyLoss())
+	L.adjust_oxy_loss(-L.get_oxy_loss())
 	holder.remove_reagent("lexorin", effect_str)
 	return ..()
 
@@ -381,7 +381,7 @@
 
 /datum/reagent/medicine/tricordrazine/on_mob_life(mob/living/L, metabolism)
 
-	L.adjustOxyLoss(-0.5*effect_str)
+	L.adjust_oxy_loss(-0.5*effect_str)
 	L.adjust_tox_loss(-0.4*effect_str)
 	L.heal_overall_damage(0.8*effect_str, 0.8*effect_str)
 	if(volume > 10)
@@ -1111,7 +1111,7 @@
 /datum/reagent/medicine/cryoxadone/on_mob_life(mob/living/L, metabolism)
 	if(L.bodytemperature < 170)
 		L.adjustCloneLoss(-effect_str)
-		L.adjustOxyLoss(-effect_str)
+		L.adjust_oxy_loss(-effect_str)
 		L.heal_overall_damage(effect_str,effect_str)
 		L.adjust_tox_loss(-effect_str)
 	return ..()
@@ -1127,7 +1127,7 @@
 /datum/reagent/medicine/clonexadone/on_mob_life(mob/living/L, metabolism)
 	if(L.bodytemperature < 170)
 		L.adjustCloneLoss(-3*effect_str)
-		L.adjustOxyLoss(-3*effect_str)
+		L.adjust_oxy_loss(-3*effect_str)
 		L.heal_overall_damage(3*effect_str,3*effect_str)
 		L.adjust_tox_loss(-3*effect_str)
 
@@ -1384,7 +1384,7 @@
 			to_chat(L, span_warning("You feel the poison settle into your body."))
 		if(61 to INFINITY)
 			if(L.stat == UNCONSCIOUS)
-				L.adjustOxyLoss(25*effect_str)
+				L.adjust_oxy_loss(25*effect_str)
 				to_chat(L, span_userdanger("You fade into blackness as your lungs seize up!"))
 			if(prob(5))
 				L.adjustStaminaLoss(1*effect_str)
@@ -1574,7 +1574,7 @@
 	L.adjust_brute_loss(-0.5, 0)
 	L.adjust_fire_loss(-0.5, 0)
 	L.adjust_tox_loss(-0.5, 0)
-	L.adjustOxyLoss(-0.5, 0)
+	L.adjust_oxy_loss(-0.5, 0)
 	if(iscarbon(L))
 		var/mob/living/carbon/C = L
 		C.adjust_nutrition(nutriment_factor*0.5*effect_str)
@@ -1665,7 +1665,7 @@
 
 /datum/reagent/medicine/ifosfamide/on_mob_life(mob/living/L, metabolism)
 
-	L.adjustOxyLoss(-0.5 * effect_str)
+	L.adjust_oxy_loss(-0.5 * effect_str)
 	L.adjust_tox_loss(-0.5 * effect_str)
 	L.heal_overall_damage(4 * effect_str, 4 * effect_str)
 

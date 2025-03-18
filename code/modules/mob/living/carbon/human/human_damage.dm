@@ -12,7 +12,7 @@
 		total_brute	+= O.brute_dam
 		total_burn	+= O.burn_dam
 
-	var/oxy_l = getOxyLoss()
+	var/oxy_l = get_oxy_loss()
 	var/tox_l = ((species.species_flags & NO_POISON) ? 0 : get_tox_loss())
 	var/clone_l = getCloneLoss()
 
@@ -161,7 +161,7 @@
 		return
 
 
-/mob/living/carbon/human/adjustOxyLoss(amount, forced = FALSE)
+/mob/living/carbon/human/adjust_oxy_loss(amount, forced = FALSE)
 	if(species.species_flags & NO_BREATHE && !forced)
 		oxyloss = 0
 		return

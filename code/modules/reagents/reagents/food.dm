@@ -394,7 +394,7 @@
 	L.reagents.add_reagent(/datum/reagent/consumable/sugar,3)
 	L.adjust_brute_loss(-0.25*effect_str)
 	L.adjust_fire_loss(-0.25*effect_str)
-	L.adjustOxyLoss(-0.25*effect_str)
+	L.adjust_oxy_loss(-0.25*effect_str)
 	L.adjust_tox_loss(-0.25*effect_str)
 	return ..()
 

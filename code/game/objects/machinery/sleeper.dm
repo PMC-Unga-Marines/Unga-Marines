@@ -74,7 +74,7 @@
 				var/pulse = patient.handle_pulse()
 				dat += "[pulse == PULSE_NONE || pulse == PULSE_THREADY ? "<font color='#b54646'>" : "<font color='#487553'>"]\t-Pulse, bpm: [patient.get_pulse(GETPULSE_TOOL)]</FONT><BR>"
 			dat += "[occupant.get_brute_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Brute Damage %: [occupant.get_brute_loss()]</FONT><BR>"
-			dat += "[occupant.getOxyLoss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Respiratory Damage %: [occupant.getOxyLoss()]</FONT><BR>"
+			dat += "[occupant.get_oxy_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Respiratory Damage %: [occupant.get_oxy_loss()]</FONT><BR>"
 			dat += "[occupant.get_tox_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Toxin Content %: [occupant.get_tox_loss()]</FONT><BR>"
 			dat += "[occupant.get_fire_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Burn Severity %: [occupant.get_fire_loss()]</FONT><BR>"
 			dat += "<HR>Knocked Out Summary %: [occupant.AmountUnconscious()] ([round(occupant.AmountUnconscious() * 0.1)] seconds left!)<BR>"
@@ -237,7 +237,7 @@
 		return
 
 	//Life support
-	occupant?.adjustOxyLoss(-occupant.getOxyLoss()) // keep them breathing, pretend they get IV dexalinplus
+	occupant?.adjust_oxy_loss(-occupant.get_oxy_loss()) // keep them breathing, pretend they get IV dexalinplus
 
 	if(filtering)
 		for(var/datum/reagent/x in occupant.reagents.reagent_list)
@@ -391,7 +391,7 @@
 		to_chat(user, "[health_ratio > 50 ? "<font color='#487553'> " : "<font color='#b54646'> "]\t Health %: [health_ratio] ([t1])</font>")
 		to_chat(user, "[occupant.bodytemperature > 50 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t -Core Temperature: [occupant.bodytemperature-T0C]&deg;C ([occupant.bodytemperature*1.8-459.67]&deg;F)</FONT><BR>")
 		to_chat(user, "[occupant.get_brute_loss() < 60 ? "<font color='#487553'> " : "<font class='#b54646'> "]\t -Brute Damage %: [occupant.get_brute_loss()]</font>")
-		to_chat(user, "[occupant.getOxyLoss() < 60 ? "<span color='#487553'> " : "<font color='#b54646'> "]\t -Respiratory Damage %: [occupant.getOxyLoss()]</font>")
+		to_chat(user, "[occupant.get_oxy_loss() < 60 ? "<span color='#487553'> " : "<font color='#b54646'> "]\t -Respiratory Damage %: [occupant.get_oxy_loss()]</font>")
 		to_chat(user, "[occupant.get_tox_loss() < 60 ? "<font color='#487553'> " : "<font color='#b54646'> "]\t -Toxin Content %: [occupant.get_tox_loss()]</font>")
 		to_chat(user, "[occupant.get_fire_loss() < 60 ? "<font color='#487553'> " : "<font color='#b54646'> "]\t -Burn Severity %: [occupant.get_fire_loss()]</font>")
 		to_chat(user, span_notice("Expected time till occupant can safely awake: (note: If health is below 20% these times are inaccurate)"))

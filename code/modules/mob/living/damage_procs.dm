@@ -35,7 +35,7 @@
 		if(TOX)
 			adjust_tox_loss(damage)
 		if(OXY)
-			adjustOxyLoss(damage)
+			adjust_oxy_loss(damage)
 		if(CLONE)
 			adjustCloneLoss(damage)
 		if(STAMINA)

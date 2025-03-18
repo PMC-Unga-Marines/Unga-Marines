@@ -73,7 +73,7 @@
 
 	if(pulledby?.grab_state >= GRAB_KILL)
 		Losebreath(1)
-		adjustOxyLoss(4)
+		adjust_oxy_loss(4)
 	else if(losebreath > 10)
 		set_Losebreath(10) //Any single hit is functionally capped - to keep someone suffocating, you need continued losebreath applications.
 	else if(losebreath > 0)
@@ -82,12 +82,12 @@
 	if(health < get_crit_threshold() || losebreath)
 		if(HAS_TRAIT(src, TRAIT_IGNORE_SUFFOCATION)) //Prevent losing health from asphyxiation, but natural recovery can still happen.
 			return
-		adjustOxyLoss(CARBON_CRIT_MAX_OXYLOSS, TRUE)
+		adjust_oxy_loss(CARBON_CRIT_MAX_OXYLOSS, TRUE)
 		if(!oxygen_alert)
 			emote("gasp")
 			oxygen_alert = TRUE
 	else
-		adjustOxyLoss(CARBON_RECOVERY_OXYLOSS, TRUE)
+		adjust_oxy_loss(CARBON_RECOVERY_OXYLOSS, TRUE)
 		if(oxygen_alert)
 			to_chat(src, span_notice("Fresh air fills your lungs; you can breath again!"))
 			oxygen_alert = FALSE

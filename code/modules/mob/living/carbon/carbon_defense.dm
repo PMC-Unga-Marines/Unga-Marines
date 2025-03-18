@@ -18,7 +18,7 @@
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_FOUL) && prob(30))
 		drop_held_item()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_OXYLOSS))
-		adjustOxyLoss(4)
+		adjust_oxy_loss(4)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_SLEEP))
 		adjustDrowsyness(6)
 		if(drowsyness >= 18)
@@ -29,7 +29,7 @@
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_PLASMALOSS))
 		blur_eyes(2)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
-		adjustOxyLoss(4 + S.strength * 2)
+		adjust_oxy_loss(4 + S.strength * 2)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_NEURO))
 		if(!CHECK_BITFIELD(S.smoke_traits, SMOKE_NEURO_LIGHT) && !is_blind(src) && has_eyes()) //Only full neurogas blinds
 			to_chat(src, span_danger("Your eyes sting. You can't see!"))

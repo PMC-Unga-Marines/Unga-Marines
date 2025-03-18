@@ -137,7 +137,7 @@
 	// keep them alive
 	var/updating_health = FALSE
 	occupant.adjust_tox_loss(-0.5) // pretend they get IV dylovene
-	occupant.adjustOxyLoss(-occupant.getOxyLoss()) // keep them breathing, pretend they get IV dexalinplus
+	occupant.adjust_oxy_loss(-occupant.get_oxy_loss()) // keep them breathing, pretend they get IV dexalinplus
 	if(filtering)
 		var/filtered = 0
 		for(var/datum/reagent/x in occupant.reagents.reagent_list)
@@ -1034,7 +1034,7 @@
 	var/pulse = connected.occupant.handle_pulse()
 	dat += "[pulse == PULSE_NONE || pulse == PULSE_THREADY ? "<font color='#b54646'>" : "<font color='#487553'>"]\t-Pulse, bpm: [connected.occupant.get_pulse(GETPULSE_TOOL)]</FONT><BR>"
 	dat += "[connected.occupant.get_brute_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Brute Damage %: [connected.occupant.get_brute_loss()]</FONT><BR>"
-	dat += "[connected.occupant.getOxyLoss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Respiratory Damage %: [connected.occupant.getOxyLoss()]</FONT><BR>"
+	dat += "[connected.occupant.get_oxy_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Respiratory Damage %: [connected.occupant.get_oxy_loss()]</FONT><BR>"
 	dat += "[connected.occupant.get_tox_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Toxin Content %: [connected.occupant.get_tox_loss()]</FONT><BR>"
 	dat += "[connected.occupant.get_fire_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Burn Severity %: [connected.occupant.get_fire_loss()]</FONT><BR>"
 

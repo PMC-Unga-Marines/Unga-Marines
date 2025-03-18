@@ -60,8 +60,8 @@
 				return TRUE
 
 			if(health > get_death_threshold() && health < get_crit_threshold())
-				var/suff = min(getOxyLoss(), 5) //Pre-merge level, less healing, more prevention of dieing.
-				adjustOxyLoss(-suff)
+				var/suff = min(get_oxy_loss(), 5) //Pre-merge level, less healing, more prevention of dieing.
+				adjust_oxy_loss(-suff)
 				updatehealth()
 				visible_message(span_warning(" [human_user] performs CPR on [src]!"),
 					span_boldnotice("You feel a breath of fresh air enter your lungs. It feels good."),

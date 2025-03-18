@@ -39,7 +39,7 @@
 <B>Brute Damage:</B> [src.victim.get_brute_loss()]<BR>
 <B>Toxins Damage:</B> [src.victim.get_tox_loss()]<BR>
 <B>Fire Damage:</B> [src.victim.get_fire_loss()]<BR>
-<B>Suffocation Damage:</B> [src.victim.getOxyLoss()]<BR>
+<B>Suffocation Damage:</B> [src.victim.get_oxy_loss()]<BR>
 <B>Patient Status:</B> [src.victim.stat ? "Non-Responsive" : "Stable"]<BR>
 <B>Heartbeat rate:</B> [victim.get_pulse(GETPULSE_TOOL)]<BR>
 "}
