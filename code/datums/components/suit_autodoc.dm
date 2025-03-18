@@ -253,7 +253,7 @@
 		CRASH("attempting to treat_injuries with no wearer")
 
 	var/burns = inject_chems(burn_chems, wearer, COOLDOWN_CHEM_BURN, wearer.getFireLoss(), damage_threshold, "Burn treatment", "Significant tissue burns detected. Restorative injection")
-	var/brute = inject_chems(brute_chems, wearer, COOLDOWN_CHEM_BRUTE, wearer.getBruteLoss(), damage_threshold, "Trauma treatment", "Significant tissue bruises detected. Restorative injection")
+	var/brute = inject_chems(brute_chems, wearer, COOLDOWN_CHEM_BRUTE, wearer.get_brute_loss(), damage_threshold, "Trauma treatment", "Significant tissue bruises detected. Restorative injection")
 	var/oxy = inject_chems(oxy_chems, wearer, COOLDOWN_CHEM_OXY, wearer.getOxyLoss(), damage_threshold, "Oxygenation treatment", "Low blood oxygen detected. Reoxygenating preparation")
 	var/tox = inject_chems(tox_chems, wearer, COOLDOWN_CHEM_TOX, wearer.getToxLoss(), damage_threshold, "Toxicity treatment", "Significant blood toxicity detected. Chelating agents and curatives")
 	var/pain = inject_chems(pain_chems, wearer, COOLDOWN_CHEM_PAIN, wearer.painloss, pain_threshold, "Painkiller", "User pain at performance impeding levels. Painkillers")

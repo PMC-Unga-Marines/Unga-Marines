@@ -154,11 +154,11 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 		amount -= fire_heal;\
 		xeno.adjustFireLoss(-fire_heal, TRUE, passive); \
 	} \
-	var/brute_loss = xeno.getBruteLoss(); \
+	var/brute_loss = xeno.get_brute_loss(); \
 	if(brute_loss) { \
 		var/brute_heal = min(brute_loss, amount); \
 		amount -= brute_heal; \
-		xeno.adjustBruteLoss(-brute_heal, TRUE, passive); \
+		xeno.adjust_brute_loss(-brute_heal, TRUE, passive); \
 	} \
 } while(FALSE)
 

@@ -20,7 +20,7 @@
 		return
 	if(L.health < H.health_threshold_crit && volume > 14) //If you are in crit, and someone injects at least 15u into you at once, you will heal 30% of your physical damage instantly.
 		to_chat(L, span_userdanger("You feel a rush of energy as stimulants course through your veins!"))
-		L.adjustBruteLoss(-L.getBruteLoss(TRUE) * 0.30)
+		L.adjust_brute_loss(-L.get_brute_loss(TRUE) * 0.30)
 		L.adjustFireLoss(-L.getFireLoss(TRUE) * 0.30)
 		L.jitter(5)
 		TIMER_COOLDOWN_START(L, name, 300 SECONDS)
@@ -536,7 +536,7 @@
 		return
 	if(L.health < H.health_threshold_crit && volume >= 2)
 		to_chat(L, span_userdanger("Heart explosion! Power running in your veins!"))
-		L.adjustBruteLoss(-L.getBruteLoss(TRUE) * 0.40)
+		L.adjust_brute_loss(-L.get_brute_loss(TRUE) * 0.40)
 		L.adjustFireLoss(-L.getFireLoss(TRUE) * 0.20)
 		L.adjustToxLoss(5)
 		L.jitter(5)
@@ -584,7 +584,7 @@
 		return
 	if(L.health < H.health_threshold_crit && volume > 3) //If you are in crit, and someone injects at least 3u into you, you will heal 20% of your physical damage instantly.
 		to_chat(L, span_userdanger("You feel a rush of energy as stimulants course through your veins!"))
-		L.adjustBruteLoss(-L.getBruteLoss(TRUE) * 0.20)
+		L.adjust_brute_loss(-L.get_brute_loss(TRUE) * 0.20)
 		L.adjustFireLoss(-L.getFireLoss(TRUE) * 0.20)
 		L.jitter(10)
 		TIMER_COOLDOWN_START(L, name, 300 SECONDS)
@@ -672,7 +672,7 @@
 		return
 	if(L.health < H.health_threshold_crit && volume > 9) //If you are in crit, and someone injects at least 9u into you, you will heal 20% of your physical damage instantly.
 		to_chat(L, span_userdanger("You feel a rush of energy as stimulants course through your veins!"))
-		L.adjustBruteLoss(-L.getBruteLoss(TRUE) * 0.20)
+		L.adjust_brute_loss(-L.get_brute_loss(TRUE) * 0.20)
 		L.adjustFireLoss(-L.getFireLoss(TRUE) * 0.20)
 		L.jitter(10)
 		TIMER_COOLDOWN_START(L, name, 300 SECONDS)
@@ -1314,7 +1314,7 @@
 	L.adjustStaminaLoss(-30*effect_str)
 	L.AdjustStun(-10 SECONDS)
 	if(prob(5))
-		L.adjustBruteLoss(1200*effect_str) //the big oof. No, it's not kill or gib, I want them to nugget.
+		L.adjust_brute_loss(1200*effect_str) //the big oof. No, it's not kill or gib, I want them to nugget.
 
 /datum/reagent/medicine/lemoline
 	name = "Lemoline"
@@ -1471,7 +1471,7 @@
 			if(volume > 5)
 				L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
 
-			if (volume > 5 && L.getBruteLoss(organic_only = TRUE))
+			if (volume > 5 && L.get_brute_loss(organic_only = TRUE))
 				L.heal_overall_damage(3 * effect_str, 0)
 				L.adjustToxLoss(0.1*effect_str)
 				holder.remove_reagent(/datum/reagent/medicalnanites, 0.5)
@@ -1571,7 +1571,7 @@
 	scannable = TRUE
 
 /datum/reagent/medicine/doctor_delight/on_mob_life(mob/living/L, metabolism)
-	L.adjustBruteLoss(-0.5, 0)
+	L.adjust_brute_loss(-0.5, 0)
 	L.adjustFireLoss(-0.5, 0)
 	L.adjustToxLoss(-0.5, 0)
 	L.adjustOxyLoss(-0.5, 0)
@@ -1599,7 +1599,7 @@
 	if(absorbtion > 0)
 		absorbtion--
 
-	if (volume > 5 && L.getBruteLoss(organic_only = TRUE) && absorbtion <= 0)
+	if (volume > 5 && L.get_brute_loss(organic_only = TRUE) && absorbtion <= 0)
 		L.heal_overall_damage(4*effect_str, 0)
 		holder.remove_reagent(/datum/reagent/medicine/sulfasalazine, 3.5)
 

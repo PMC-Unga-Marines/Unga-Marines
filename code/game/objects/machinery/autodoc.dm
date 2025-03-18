@@ -162,7 +162,7 @@
 			blood_transfer = 0
 			say("Blood transfer complete.")
 	if(heal_brute)
-		if(occupant.getBruteLoss() > 0)
+		if(occupant.get_brute_loss() > 0)
 			occupant.heal_limb_damage(3, 0)
 			updating_health = TRUE
 			if(prob(10))
@@ -278,7 +278,7 @@
 	var/datum/internal_organ/I = M.get_organ_slot(ORGAN_SLOT_EYES)
 	if(I && (M.disabilities & NEARSIGHTED || M.disabilities & BLIND || I.damage > 0))
 		surgery_list += create_autodoc_surgery(null,ORGAN_SURGERY,ADSURGERY_EYES,0,I)
-	if(M.getBruteLoss() > 0)
+	if(M.get_brute_loss() > 0)
 		surgery_list += create_autodoc_surgery(null,EXTERNAL_SURGERY,ADSURGERY_BRUTE)
 	if(M.getFireLoss() > 0)
 		surgery_list += create_autodoc_surgery(null,EXTERNAL_SURGERY,ADSURGERY_BURN)
@@ -1033,7 +1033,7 @@
 	dat += "[health_ratio > 50 ? "<font color='#487553'>" : "<font color='#b54646'>"]\tHealth %: [round(health_ratio)] ([t1])</FONT><BR>"
 	var/pulse = connected.occupant.handle_pulse()
 	dat += "[pulse == PULSE_NONE || pulse == PULSE_THREADY ? "<font color='#b54646'>" : "<font color='#487553'>"]\t-Pulse, bpm: [connected.occupant.get_pulse(GETPULSE_TOOL)]</FONT><BR>"
-	dat += "[connected.occupant.getBruteLoss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Brute Damage %: [connected.occupant.getBruteLoss()]</FONT><BR>"
+	dat += "[connected.occupant.get_brute_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Brute Damage %: [connected.occupant.get_brute_loss()]</FONT><BR>"
 	dat += "[connected.occupant.getOxyLoss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Respiratory Damage %: [connected.occupant.getOxyLoss()]</FONT><BR>"
 	dat += "[connected.occupant.getToxLoss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Toxin Content %: [connected.occupant.getToxLoss()]</FONT><BR>"
 	dat += "[connected.occupant.getFireLoss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Burn Severity %: [connected.occupant.getFireLoss()]</FONT><BR>"

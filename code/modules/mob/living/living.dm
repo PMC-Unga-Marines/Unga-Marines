@@ -94,7 +94,7 @@
 		health = maxHealth
 		stat = CONSCIOUS
 		return
-	health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
+	health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - get_brute_loss() - getCloneLoss()
 	update_stat()
 
 /mob/living/update_stat()

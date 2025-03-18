@@ -29,7 +29,7 @@
 
 	switch(damagetype)
 		if(BRUTE)
-			adjustBruteLoss(damage)
+			adjust_brute_loss(damage)
 		if(BURN)
 			adjustFireLoss(damage)
 		if(TOX)

@@ -77,7 +77,7 @@
 	return brainloss
 
 //These procs fetch a cumulative total damage from all limbs
-/mob/living/carbon/human/getBruteLoss(organic_only=FALSE)
+/mob/living/carbon/human/get_brute_loss(organic_only=FALSE)
 	var/amount = 0
 	for(var/datum/limb/O in limbs)
 		if(!(organic_only && O.limb_status & LIMB_ROBOT))
@@ -92,7 +92,7 @@
 	return amount
 
 
-/mob/living/carbon/human/adjustBruteLoss(amount, updating_health = FALSE)
+/mob/living/carbon/human/adjust_brute_loss(amount, updating_health = FALSE)
 	if(species?.brute_mod && amount > 0)
 		amount = amount*species.brute_mod
 
@@ -112,7 +112,7 @@
 		heal_overall_damage(0, -amount, updating_health = updating_health)
 
 
-/mob/living/carbon/human/proc/adjustBruteLossByPart(amount, organ_name, obj/damage_source = null)
+/mob/living/carbon/human/proc/adjust_brute_lossByPart(amount, organ_name, obj/damage_source = null)
 	if(species?.brute_mod && amount > 0)
 		amount = amount*species.brute_mod
 

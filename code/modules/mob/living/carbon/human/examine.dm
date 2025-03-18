@@ -236,7 +236,7 @@
 			else
 				msg += "[span_deadsay("[t_He] [t_is] completely unresponsive to anything and has fallen asleep, as if affected by Space Sleep Disorder. [t_He] may snap out of it soon.")]\n"
 
-	var/total_brute = getBruteLoss()
+	var/total_brute = get_brute_loss()
 	var/total_burn = getFireLoss()
 	var/total_clone = getCloneLoss()
 	if(total_brute)

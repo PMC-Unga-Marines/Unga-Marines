@@ -134,7 +134,7 @@
 
 				var/damage = rand(round(seed.potency * 0.5),seed.potency)
 				if(!ishuman(victim))
-					victim.adjustBruteLoss(damage)
+					victim.adjust_brute_loss(damage)
 					return
 
 				var/datum/limb/affecting = victim.get_limb(pick("l_foot","r_foot","l_leg","r_leg","l_hand","r_hand","l_arm", "r_arm","head","chest","groin"))
@@ -142,7 +142,7 @@
 				if(affecting)
 					affecting.take_damage_limb(damage, updating_health = TRUE)
 				else
-					victim.adjustBruteLoss(damage, updating_health = TRUE)
+					victim.adjust_brute_loss(damage, updating_health = TRUE)
 
 				victim.UpdateDamageIcon()
 

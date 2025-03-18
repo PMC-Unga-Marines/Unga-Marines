@@ -222,7 +222,7 @@
 			atomsnowflake += {"
 				<br><font size='1'><a href='?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=ckey' id='ckey'>[M.ckey || "No ckey"]</a> / <a href='?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=real_name' id='real_name'>[M.real_name || "No real name"]</a></font>
 				<br><font size='1'>
-					BRUTE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brute' id='brute'>[M.getBruteLoss()]</a>
+					BRUTE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brute' id='brute'>[M.get_brute_loss()]</a>
 					FIRE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=fire' id='fire'>[M.getFireLoss()]</a>
 					TOXIN:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=toxin' id='toxin'>[M.getToxLoss()]</a>
 					OXY:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=oxygen' id='oxygen'>[M.getOxyLoss()]</a>
@@ -1029,8 +1029,8 @@
 		var/newamt
 		switch(Text)
 			if(BRUTE)
-				L.adjustBruteLoss(amount)
-				newamt = L.getBruteLoss()
+				L.adjust_brute_loss(amount)
+				newamt = L.get_brute_loss()
 			if(BURN)
 				L.adjustFireLoss(amount)
 				newamt = L.getFireLoss()

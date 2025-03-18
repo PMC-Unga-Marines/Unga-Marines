@@ -10,7 +10,7 @@
 	if(!loc)
 		return
 
-	..()
+	. = ..()
 
 	if(notransform) //If we're in true stasis don't bother processing life
 		return
@@ -93,7 +93,7 @@
 	if(loc_weeds_type)
 		heal_wounds(XENO_RESTING_HEAL)
 	else if(!endure) //If we're not Enduring we bleed out
-		adjustBruteLoss(XENO_CRIT_DAMAGE)
+		adjust_brute_loss(XENO_CRIT_DAMAGE)
 
 /mob/living/carbon/xenomorph/proc/heal_wounds(multiplier = XENO_RESTING_HEAL, scaling = FALSE)
 	var/amount = 1 + (maxHealth * 0.0375) // 1 damage + 3.75% max health, with scaling power.
@@ -262,7 +262,7 @@
 		health = maxHealth
 		stat = CONSCIOUS
 		return
-	health = maxHealth - getFireLoss() - getBruteLoss() //Xenos can only take brute and fire damage.
+	health = maxHealth - getFireLoss() - get_brute_loss() //Xenos can only take brute and fire damage.
 	med_hud_set_health()
 	update_stat()
 	update_wounds()

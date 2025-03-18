@@ -636,7 +636,7 @@
 		disinfectee.germ_level -= min(volume * 20 * touch_protection, disinfectee.germ_level)
 		for(var/datum/limb/limb AS in disinfectee.limbs)
 			limb.disinfect() //Only removes germs from individual external wounds. Won't help with the limb itself having a high germ level.
-	if(prob(L.getFireLoss() + L.getBruteLoss())) // >Spraying space bleach on open wounds
+	if(prob(L.getFireLoss() + L.get_brute_loss())) // >Spraying space bleach on open wounds
 		if(iscarbon(L))
 			var/mob/living/carbon/C = L
 			if(C.species.species_flags & NO_PAIN)

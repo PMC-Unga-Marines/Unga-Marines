@@ -47,7 +47,7 @@
 	if(!spidermother)
 		return
 	if(get_dist(src, spidermother) > SPIDERLING_WITHER_RANGE)
-		adjustBruteLoss(25)
+		adjust_brute_loss(25)
 
 // ***************************************
 // *********** Spiderling AI Section

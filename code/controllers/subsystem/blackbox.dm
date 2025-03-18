@@ -196,7 +196,7 @@ SUBSYSTEM_DEF(blackbox)
 			"pod" = get_area_name(L, TRUE) || "",
 			"laname" = L.real_name,
 			"lakey" = L.ckey,
-			"brute" = L.getBruteLoss(),
+			"brute" = L.get_brute_loss(),
 			"fire" = L.getFireLoss(),
 			"brain" = L.getBrainLoss(),
 			"oxy" = L.getOxyLoss(),

@@ -392,7 +392,7 @@
 
 /datum/reagent/consumable/honey/on_mob_life(mob/living/L, metabolism)
 	L.reagents.add_reagent(/datum/reagent/consumable/sugar,3)
-	L.adjustBruteLoss(-0.25*effect_str)
+	L.adjust_brute_loss(-0.25*effect_str)
 	L.adjustFireLoss(-0.25*effect_str)
 	L.adjustOxyLoss(-0.25*effect_str)
 	L.adjustToxLoss(-0.25*effect_str)
@@ -407,7 +407,7 @@
 	taste_description = "burning"
 
 /datum/reagent/consumable/larvajelly/on_mob_life(mob/living/L, metabolism)
-	L.adjustBruteLoss(-0.5*effect_str)
+	L.adjust_brute_loss(-0.5*effect_str)
 	L.adjustFireLoss(effect_str)
 	L.adjustToxLoss(effect_str)
 	return ..()
@@ -421,7 +421,7 @@
 	taste_description = "victory"
 
 /datum/reagent/consumable/larvajellyprepared/on_mob_life(mob/living/L, metabolism)
-	L.adjustBruteLoss(-0.5*effect_str)
+	L.adjust_brute_loss(-0.5*effect_str)
 	return ..()
 
 /datum/reagent/consumable/caramel

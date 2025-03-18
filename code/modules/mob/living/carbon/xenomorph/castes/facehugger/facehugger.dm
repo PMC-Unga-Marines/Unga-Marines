@@ -45,7 +45,7 @@
 		return
 	//We lose health if we go off the weed
 	if(!loc_weeds_type && !(lying_angle || resting))
-		adjustBruteLoss(2, TRUE)
+		adjust_brute_loss(2, TRUE)
 		return
 
 //Handles change in density (so people can walk through us)

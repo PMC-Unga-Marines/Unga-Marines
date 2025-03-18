@@ -60,13 +60,13 @@
 /mob/living/carbon/xenomorph/hivemind/updatehealth()
 	if(on_fire)
 		ExtinguishMob()
-	health = maxHealth - getFireLoss() - getBruteLoss() //Xenos can only take brute and fire damage.
+	health = maxHealth - getFireLoss() - get_brute_loss() //Xenos can only take brute and fire damage.
 	if(health <= 0 && !(status_flags & INCORPOREAL))
 		setBruteLoss(0)
 		setFireLoss(-minimum_health)
 		change_form()
 		remove_status_effect(/datum/status_effect/spacefreeze)
-	health = maxHealth - getFireLoss() - getBruteLoss()
+	health = maxHealth - getFireLoss() - get_brute_loss()
 	med_hud_set_health()
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_HIVEMIND_MANIFESTATION))
 		return
@@ -81,7 +81,7 @@
 		return
 	// If manifested and off weeds, lets deal some damage.
 	if(!(status_flags & INCORPOREAL) && !loc_weeds_type)
-		adjustBruteLoss(20 * XENO_RESTING_HEAL, TRUE)
+		adjust_brute_loss(20 * XENO_RESTING_HEAL, TRUE)
 		return
 	// If not manifested
 	if(health < minimum_health + maxHealth)

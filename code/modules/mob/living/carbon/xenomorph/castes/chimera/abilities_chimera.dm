@@ -96,7 +96,7 @@
 				if(H.stat == UNCONSCIOUS) //Apply critdrag damage as if they were quickly pulled the same distance
 					var/critdamage = HUMAN_CRITDRAG_OXYLOSS * get_dist(H.loc, T)
 					if(!H.adjustOxyLoss(critdamage))
-						H.adjustBruteLoss(critdamage)
+						H.adjust_brute_loss(critdamage)
 
 		to_chat(X, span_xenodanger("We bring [pulled_target] with us. We won't be ready to blink again for [cooldown_duration * cooldown_mod * 0.1] seconds due to the strain of doing so."))
 

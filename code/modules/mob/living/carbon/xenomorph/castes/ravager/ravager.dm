@@ -92,7 +92,7 @@
 
 /mob/living/carbon/xenomorph/ravager/proc/drain_slash(datum/source, mob/living/target, damage, list/damage_mod, list/armor_mod)
 	SIGNAL_HANDLER
-	var/brute_damage = getBruteLoss()
+	var/brute_damage = get_brute_loss()
 	var/burn_damage = getFireLoss()
 	if(!brute_damage && !burn_damage)
 		return
@@ -100,7 +100,7 @@
 	var/health_modifier
 	if(brute_damage)
 		health_modifier = -min(brute_damage, health_recovery)
-		adjustBruteLoss(health_modifier, TRUE)
+		adjust_brute_loss(health_modifier, TRUE)
 		health_recovery += health_modifier
 	if(burn_damage)
 		health_modifier = -min(burn_damage, health_recovery)

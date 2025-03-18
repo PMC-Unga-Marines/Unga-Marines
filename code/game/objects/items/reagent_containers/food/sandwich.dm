@@ -161,7 +161,7 @@
 
 	if(H && shard && M == user) //This needs a check for feeding the food to other people, but that could be abusable.
 		to_chat(H, span_warning("You lacerate your mouth on a [shard.name] in the sandwich!"))
-		H.adjustBruteLoss(5) //TODO: Target head if human.
+		H.adjust_brute_loss(5) //TODO: Target head if human.
 	return ..()
 
 /obj/item/reagent_containers/food/snacks/sandwiches/sandwich

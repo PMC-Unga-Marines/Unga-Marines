@@ -261,7 +261,7 @@
 		"stationtime" = worldtime2text(),
 		"stat" = H.stat,
 		"health" = H.health,
-		"bruteloss" = H.getBruteLoss(),
+		"bruteloss" = H.get_brute_loss(),
 		"fireloss" = H.getFireLoss(),
 		"oxyloss" = H.getOxyLoss(),
 		"toxloss" = H.getToxLoss(),

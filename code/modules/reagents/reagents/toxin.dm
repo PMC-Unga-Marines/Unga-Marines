@@ -574,7 +574,7 @@
 	if(tox_loss > DEFILER_TRANSVITOX_CAP) //If toxin levels are already at their cap, cancel out
 		return
 
-	L.setToxLoss(clamp(tox_loss + min(L.getBruteLoss(TRUE) * 0.1 * tox_cap_multiplier, damage * 0.1 * tox_cap_multiplier), tox_loss, DEFILER_TRANSVITOX_CAP)) //Deal bonus tox damage equal to a % of the lesser of the damage taken or the target's brute damage; capped at DEFILER_TRANSVITOX_CAP.
+	L.setToxLoss(clamp(tox_loss + min(L.get_brute_loss(TRUE) * 0.1 * tox_cap_multiplier, damage * 0.1 * tox_cap_multiplier), tox_loss, DEFILER_TRANSVITOX_CAP)) //Deal bonus tox damage equal to a % of the lesser of the damage taken or the target's brute damage; capped at DEFILER_TRANSVITOX_CAP.
 
 /datum/reagent/toxin/xeno_sanguinal //deals brute damage and causes persistant bleeding. Causes additional damage for each other xeno chem in the system
 	name = "Sanguinal"
@@ -745,7 +745,7 @@
 			to_chat(L, span_userdanger("You feel a weird sensation from the nest jelly!"))
 			L.adjustOxyLoss(-L.getOxyLoss())
 			L.adjustOxyLoss(-2*effect_str)
-			L.adjustBruteLoss(-L.getBruteLoss(TRUE) * 0.40)
+			L.adjust_brute_loss(-L.get_brute_loss(TRUE) * 0.40)
 			L.adjustFireLoss(-L.getFireLoss(TRUE) * 0.40)
 			L.adjustToxLoss(-10)
 			TIMER_COOLDOWN_START(L, name, 120 SECONDS)

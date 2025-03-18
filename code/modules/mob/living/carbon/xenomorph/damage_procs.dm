@@ -79,7 +79,7 @@
 
 	switch(damagetype)
 		if(BRUTE)
-			adjustBruteLoss(damage)
+			adjust_brute_loss(damage)
 		if(BURN)
 			adjustFireLoss(damage)
 
@@ -92,7 +92,6 @@
 
 	if(isobj(pulling))
 		stop_pulling()
-
 
 	if(!COOLDOWN_CHECK(src, xeno_health_alert_cooldown))
 		return
@@ -126,7 +125,7 @@
 		adjustOverheal(src, -reduction); \
 	} \
 
-/mob/living/carbon/xenomorph/adjustBruteLoss(amount, updating_health = FALSE, passive = FALSE)
+/mob/living/carbon/xenomorph/adjust_brute_loss(amount, updating_health = FALSE, passive = FALSE)
 	var/list/amount_mod = list()
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_BRUTE_DAMAGE, amount, amount_mod, passive)
 	for(var/i in amount_mod)

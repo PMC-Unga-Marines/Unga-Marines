@@ -132,7 +132,7 @@
 		gib()
 		return
 
-	adjustBruteLoss(severity)
+	adjust_brute_loss(severity)
 	UPDATEHEALTH(src)
 
 /mob/living/silicon/update_transform()

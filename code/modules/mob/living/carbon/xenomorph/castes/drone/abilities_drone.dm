@@ -118,7 +118,7 @@
 	var/datum/action/ability/activable/xeno/essence_link/essence_link_action = owner.actions_by_path[/datum/action/ability/activable/xeno/essence_link]
 	var/heal_multiplier = 1
 	if(essence_link_action.existing_link?.link_target == target)
-		var/remaining_health = round(target.maxHealth - (target.getBruteLoss() + target.getFireLoss()))
+		var/remaining_health = round(target.maxHealth - (target.get_brute_loss() + target.getFireLoss()))
 		var/health_threshold = round(target.maxHealth * 0.1) // 10% of the target's maximum health
 		target.apply_status_effect(STATUS_EFFECT_XENO_SALVE_REGEN)
 		if(essence_link_action.existing_link.stacks > 0 && remaining_health <= health_threshold)
@@ -126,8 +126,8 @@
 	playsound(target, SFX_ALIEN_DROOL, 25)
 	new /obj/effect/temp_visual/telekinesis(get_turf(target))
 	var/heal_amount = (DRONE_BASE_SALVE_HEAL + target.recovery_aura * target.maxHealth * 0.01) * heal_multiplier
-	target.adjustFireLoss(-max(0, heal_amount - target.getBruteLoss()), TRUE)
-	target.adjustBruteLoss(-heal_amount)
+	target.adjustFireLoss(-max(0, heal_amount - target.get_brute_loss()), TRUE)
+	target.adjust_brute_loss(-heal_amount)
 	target.adjust_sunder(-heal_amount * 0.1)
 	if(heal_multiplier > 1) // A signal depends on the above heals, so this has to be done here.
 		playsound(target,'sound/effects/magic.ogg', 75, 1)

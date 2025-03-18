@@ -264,9 +264,9 @@
 		H.updatehealth()
 
 		var/heal_target = H.get_death_threshold() - H.health + 1
-		var/all_loss = H.getBruteLoss() + H.getFireLoss() + H.getToxLoss()
+		var/all_loss = H.get_brute_loss() + H.getFireLoss() + H.getToxLoss()
 		if(all_loss && (heal_target > 0))
-			var/brute_ratio = H.getBruteLoss() / all_loss
+			var/brute_ratio = H.get_brute_loss() / all_loss
 			var/burn_ratio = H.getFireLoss() / all_loss
 			var/tox_ratio = H.getToxLoss() / all_loss
 			if(tox_ratio)
@@ -274,7 +274,7 @@
 			H.heal_overall_damage(brute_ratio*heal_target, burn_ratio*heal_target, TRUE) // explicitly also heals robit parts
 
 	else if(!issynth(H)) // TODO make me a trait :)
-		H.adjustBruteLoss(-defib_heal_amt)
+		H.adjust_brute_loss(-defib_heal_amt)
 		H.adjustFireLoss(-defib_heal_amt)
 		H.adjustToxLoss(-defib_heal_amt)
 		H.adjustOxyLoss(-defib_heal_amt)

@@ -167,13 +167,13 @@ REAGENT SCANNER
 		"dead" = (patient.stat == DEAD || HAS_TRAIT(patient, TRAIT_FAKEDEATH)),
 		"health" = patient.health,
 		"max_health" = patient.maxHealth,
-		"total_brute" = round(patient.getBruteLoss()),
+		"total_brute" = round(patient.get_brute_loss()),
 		"total_burn" = round(patient.getFireLoss()),
 		"toxin" = round(patient.getToxLoss()),
 		"oxy" = round(patient.getOxyLoss()),
 		"clone" = round(patient.getCloneLoss()),
 
-		"revivable" = patient.getBruteLoss() + patient.getFireLoss() + patient.getToxLoss() + patient.getOxyLoss() + patient.getCloneLoss() <= 200,
+		"revivable" = patient.get_brute_loss() + patient.getFireLoss() + patient.getToxLoss() + patient.getOxyLoss() + patient.getCloneLoss() <= 200,
 
 		"blood_type" = patient.blood_type,
 		"blood_amount" = patient.blood_volume,

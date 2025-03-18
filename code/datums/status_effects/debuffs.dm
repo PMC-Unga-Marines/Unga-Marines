@@ -173,7 +173,7 @@
 			healing += BASE_HEAL_RATE
 			break //Only count the first bedsheet
 		if(health_ratio > -0.5)
-			owner.adjustBruteLoss(healing)
+			owner.adjust_brute_loss(healing)
 			owner.adjustFireLoss(healing)
 			owner.adjustToxLoss(healing * 0.5, TRUE, TRUE)
 			owner.adjustStaminaLoss(healing * 100)
@@ -212,7 +212,7 @@
 
 /datum/status_effect/incapacitating/repair_mode/tick()
 	var/sound_to_play
-	if(owner.getBruteLoss())
+	if(owner.get_brute_loss())
 		owner.heal_limb_damage(healing_per_tick, 0, TRUE, TRUE)
 		sound_to_play = 'sound/effects/robotrepair.ogg'
 	else if(owner.getFireLoss())

@@ -40,7 +40,7 @@
 		painloss = 0
 		return
 
-	painloss = (0.75 * getOxyLoss()) + (0.75 * getToxLoss()) + (1.20 * getFireLoss()) + getBruteLoss() + getCloneLoss()
+	painloss = (0.75 * getOxyLoss()) + (0.75 * getToxLoss()) + (1.20 * getFireLoss()) + get_brute_loss() + getCloneLoss()
 	painloss += reagent_shock_modifier
 
 	if(has_status_effect(/datum/status_effect/speech/slurring/drunk))
