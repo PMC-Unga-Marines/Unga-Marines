@@ -174,7 +174,7 @@
 			break //Only count the first bedsheet
 		if(health_ratio > -0.5)
 			owner.adjust_brute_loss(healing)
-			owner.adjustFireLoss(healing)
+			owner.adjust_fire_loss(healing)
 			owner.adjustToxLoss(healing * 0.5, TRUE, TRUE)
 			owner.adjustStaminaLoss(healing * 100)
 			owner.adjustCloneLoss(healing * health_ratio * 0.8)
@@ -215,7 +215,7 @@
 	if(owner.get_brute_loss())
 		owner.heal_limb_damage(healing_per_tick, 0, TRUE, TRUE)
 		sound_to_play = 'sound/effects/robotrepair.ogg'
-	else if(owner.getFireLoss())
+	else if(owner.get_fire_loss())
 		owner.heal_limb_damage(0, healing_per_tick, TRUE, TRUE)
 		sound_to_play = 'sound/effects/robotrepair2.ogg'
 	if(!sound_to_play || last_sound)
@@ -451,7 +451,7 @@
 	to_chat(new_owner, span_danger("The cold vacuum instantly freezes you, maybe this was a bad idea?"))
 
 /datum/status_effect/spacefreeze/tick()
-	owner.adjustFireLoss(40)
+	owner.adjust_fire_loss(40)
 
 /atom/movable/screen/alert/status_effect/spacefreeze
 	name = "Spacefreeze"
@@ -463,7 +463,7 @@
 /datum/status_effect/spacefreeze/light/tick()
 	if(owner.stat == DEAD)
 		return
-	owner.adjustFireLoss(10)
+	owner.adjust_fire_loss(10)
 
 ///irradiated mob
 /datum/status_effect/incapacitating/irradiated
@@ -554,7 +554,7 @@
 	if(HAS_TRAIT(debuff_owner, TRAIT_INTOXICATION_RESISTANT) || (debuff_owner.get_soft_armor(BIO) > 65))
 		stack_decay = 2
 	var/debuff_damage = SENTINEL_INTOXICATED_BASE_DAMAGE + round(stacks * 0.1)
-	debuff_owner.adjustFireLoss(debuff_damage)
+	debuff_owner.adjust_fire_loss(debuff_damage)
 	playsound(debuff_owner.loc, "sound/bullets/acid_impact1.ogg", 4)
 	particle_holder.particles.spawning = 1 + round(stacks * 0.5)
 	if(stacks >= 20)
@@ -755,7 +755,7 @@
 
 	playsound(debuff_owner.loc, "sound/bullets/acid_impact1.ogg", 4)
 
-	debuff_owner.adjustFireLoss(stacks * MICROWAVE_STATUS_DAMAGE_MULT * (debuff_owner.mob_size > MOB_SIZE_HUMAN ? 1 : 0.5)) //this shreds humans otherwise
+	debuff_owner.adjust_fire_loss(stacks * MICROWAVE_STATUS_DAMAGE_MULT * (debuff_owner.mob_size > MOB_SIZE_HUMAN ? 1 : 0.5)) //this shreds humans otherwise
 
 /atom/movable/screen/alert/status_effect/microwave
 	name = "Microwave"

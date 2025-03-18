@@ -84,7 +84,7 @@
 			amount += O.brute_dam
 	return amount
 
-/mob/living/carbon/human/getFireLoss(organic_only=FALSE)
+/mob/living/carbon/human/get_fire_loss(organic_only=FALSE)
 	var/amount = 0
 	for(var/datum/limb/O in limbs)
 		if(!(organic_only && O.limb_status & LIMB_ROBOT))
@@ -102,7 +102,7 @@
 		heal_overall_damage(-amount, 0, updating_health = updating_health)
 
 
-/mob/living/carbon/human/adjustFireLoss(amount, updating_health = FALSE)
+/mob/living/carbon/human/adjust_fire_loss(amount, updating_health = FALSE)
 	if(species?.burn_mod && amount > 0)
 		amount = amount*species.burn_mod
 
@@ -127,7 +127,7 @@
 			break
 
 
-/mob/living/carbon/human/proc/adjustFireLossByPart(amount, organ_name, obj/damage_source = null)
+/mob/living/carbon/human/proc/adjust_fire_lossByPart(amount, organ_name, obj/damage_source = null)
 	if(species?.burn_mod && amount > 0)
 		amount = amount*species.burn_mod
 

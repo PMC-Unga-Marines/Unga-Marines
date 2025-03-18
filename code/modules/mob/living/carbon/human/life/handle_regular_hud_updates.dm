@@ -63,7 +63,7 @@
 
 
 		//Fire and Brute damage overlay
-		var/hurtdamage = get_brute_loss() + getFireLoss() + damageoverlaytemp
+		var/hurtdamage = get_brute_loss() + get_fire_loss() + damageoverlaytemp
 		damageoverlaytemp = 0 // We do this so we can detect if someone hits us or not.
 		if(hurtdamage)
 			var/severity = 0

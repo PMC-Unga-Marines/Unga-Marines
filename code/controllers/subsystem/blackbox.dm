@@ -197,7 +197,7 @@ SUBSYSTEM_DEF(blackbox)
 			"laname" = L.real_name,
 			"lakey" = L.ckey,
 			"brute" = L.get_brute_loss(),
-			"fire" = L.getFireLoss(),
+			"fire" = L.get_fire_loss(),
 			"brain" = L.getBrainLoss(),
 			"oxy" = L.getOxyLoss(),
 			"tox" = L.getToxLoss(),

@@ -51,7 +51,7 @@
 	if(L.stat == DEAD)
 		return
 	if(prob(L.modify_by_armor(100, ACID)))
-		L.adjustFireLoss(7)
+		L.adjust_fire_loss(7)
 		to_chat(L, span_danger("You feel the acid rain melting you away!"))
 	L.clean_mob()
 	if(L.fire_stacks > -20)

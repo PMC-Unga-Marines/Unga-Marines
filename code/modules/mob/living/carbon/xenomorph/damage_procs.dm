@@ -81,7 +81,7 @@
 		if(BRUTE)
 			adjust_brute_loss(damage)
 		if(BURN)
-			adjustFireLoss(damage)
+			adjust_fire_loss(damage)
 
 	last_damage_source = usr
 
@@ -138,7 +138,7 @@
 	if(updating_health)
 		updatehealth()
 
-/mob/living/carbon/xenomorph/adjustFireLoss(amount, updating_health = FALSE, passive = FALSE)
+/mob/living/carbon/xenomorph/adjust_fire_loss(amount, updating_health = FALSE, passive = FALSE)
 	var/list/amount_mod = list()
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_BURN_DAMAGE, amount, amount_mod, passive)
 	for(var/i in amount_mod)

@@ -31,7 +31,7 @@
 		if(BRUTE)
 			adjust_brute_loss(damage)
 		if(BURN)
-			adjustFireLoss(damage)
+			adjust_fire_loss(damage)
 		if(TOX)
 			adjustToxLoss(damage)
 		if(OXY)

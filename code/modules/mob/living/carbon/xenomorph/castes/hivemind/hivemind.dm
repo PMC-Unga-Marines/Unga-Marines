@@ -60,13 +60,13 @@
 /mob/living/carbon/xenomorph/hivemind/updatehealth()
 	if(on_fire)
 		ExtinguishMob()
-	health = maxHealth - getFireLoss() - get_brute_loss() //Xenos can only take brute and fire damage.
+	health = maxHealth - get_fire_loss() - get_brute_loss() //Xenos can only take brute and fire damage.
 	if(health <= 0 && !(status_flags & INCORPOREAL))
 		setBruteLoss(0)
 		setFireLoss(-minimum_health)
 		change_form()
 		remove_status_effect(/datum/status_effect/spacefreeze)
-	health = maxHealth - getFireLoss() - get_brute_loss()
+	health = maxHealth - get_fire_loss() - get_brute_loss()
 	med_hud_set_health()
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_HIVEMIND_MANIFESTATION))
 		return

@@ -393,7 +393,7 @@
 /datum/reagent/consumable/honey/on_mob_life(mob/living/L, metabolism)
 	L.reagents.add_reagent(/datum/reagent/consumable/sugar,3)
 	L.adjust_brute_loss(-0.25*effect_str)
-	L.adjustFireLoss(-0.25*effect_str)
+	L.adjust_fire_loss(-0.25*effect_str)
 	L.adjustOxyLoss(-0.25*effect_str)
 	L.adjustToxLoss(-0.25*effect_str)
 	return ..()
@@ -408,7 +408,7 @@
 
 /datum/reagent/consumable/larvajelly/on_mob_life(mob/living/L, metabolism)
 	L.adjust_brute_loss(-0.5*effect_str)
-	L.adjustFireLoss(effect_str)
+	L.adjust_fire_loss(effect_str)
 	L.adjustToxLoss(effect_str)
 	return ..()
 

@@ -267,8 +267,8 @@
 	X.clear_fullscreen("endure", 0.7 SECONDS)
 	X.remove_filter("ravager_endure_outline")
 	if(X.health < X.get_crit_threshold()) //If we have less health than our death threshold, but more than our Endure death threshold, set our HP to just a hair above insta dying
-		var/total_damage = X.getFireLoss() + X.get_brute_loss()
-		var/burn_percentile_damage = X.getFireLoss() / total_damage
+		var/total_damage = X.get_fire_loss() + X.get_brute_loss()
+		var/burn_percentile_damage = X.get_fire_loss() / total_damage
 		var/brute_percentile_damage = X.get_brute_loss() / total_damage
 		X.setBruteLoss((X.xeno_caste.max_health - X.get_crit_threshold()-1) * brute_percentile_damage)
 		X.setFireLoss((X.xeno_caste.max_health - X.get_crit_threshold()-1) * burn_percentile_damage)
@@ -385,7 +385,7 @@
 	human_target.blood_volume -= 5 // something about 1% // RUTGMC ADDITION END
 	var/mob/living/carbon/xenomorph/x = owner
 	x.adjust_brute_loss(-x.bruteloss * 0.125)
-	x.adjustFireLoss(-x.fireloss * 0.125)
+	x.adjust_fire_loss(-x.fireloss * 0.125)
 	update_button_icon()
 	particle_holder = new(x, /particles/xeno_slash/vampirism)
 	particle_holder.pixel_y = 18

@@ -440,7 +440,7 @@
 		amount += recovery_aura * maxHealth * 0.01
 	var/remainder = max(0, amount - get_brute_loss())
 	adjust_brute_loss(-amount)
-	adjustFireLoss(-remainder, updating_health = TRUE)
+	adjust_fire_loss(-remainder, updating_health = TRUE)
 	adjust_sunder(-amount * 0.1)
 
 // ***************************************

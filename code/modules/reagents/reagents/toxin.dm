@@ -594,13 +594,13 @@
 		L.adjustToxLoss(DEFILER_SANGUINAL_DAMAGE)
 
 	if(L.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_transvitox))
-		L.adjustFireLoss(DEFILER_SANGUINAL_DAMAGE)
+		L.adjust_fire_loss(DEFILER_SANGUINAL_DAMAGE)
 
 	if(L.has_status_effect(STATUS_EFFECT_INTOXICATED))
 		var/datum/status_effect/stacking/intoxicated/debuff = L.has_status_effect(STATUS_EFFECT_INTOXICATED)
 		if(debuff.stacks > 0)
 			debuff.stacks = debuff.stacks + SENTINEL_INTOXICATED_SANGUINAL_INCREASE
-			L.adjustFireLoss(DEFILER_SANGUINAL_DAMAGE)
+			L.adjust_fire_loss(DEFILER_SANGUINAL_DAMAGE)
 
 	L.apply_damage(DEFILER_SANGUINAL_DAMAGE, BRUTE, sharp = TRUE)
 
@@ -746,7 +746,7 @@
 			L.adjustOxyLoss(-L.getOxyLoss())
 			L.adjustOxyLoss(-2*effect_str)
 			L.adjust_brute_loss(-L.get_brute_loss(TRUE) * 0.40)
-			L.adjustFireLoss(-L.getFireLoss(TRUE) * 0.40)
+			L.adjust_fire_loss(-L.get_fire_loss(TRUE) * 0.40)
 			L.adjustToxLoss(-10)
 			TIMER_COOLDOWN_START(L, name, 120 SECONDS)
 		if(L.health <= 0)

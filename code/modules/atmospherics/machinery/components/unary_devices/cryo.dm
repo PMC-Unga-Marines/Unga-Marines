@@ -45,7 +45,7 @@
 		return
 	if(occupant.stat == DEAD)
 		return
-	if(!occupant.get_brute_loss(TRUE) && !occupant.getFireLoss(TRUE) && !occupant.getCloneLoss() && autoeject) //release the patient automatically when brute and burn are handled on non-robotic limbs
+	if(!occupant.get_brute_loss(TRUE) && !occupant.get_fire_loss(TRUE) && !occupant.getCloneLoss() && autoeject) //release the patient automatically when brute and burn are handled on non-robotic limbs
 		go_out(TRUE)
 		return
 	occupant.bodytemperature = 100 //Atmos is long gone, we'll just set temp directly.
@@ -374,7 +374,7 @@
 		data["occupant"]["bruteLoss"] = round(mob_occupant.get_brute_loss(), 1)
 		data["occupant"]["oxyLoss"] = round(mob_occupant.getOxyLoss(), 1)
 		data["occupant"]["toxLoss"] = round(mob_occupant.getToxLoss(), 1)
-		data["occupant"]["fireLoss"] = round(mob_occupant.getFireLoss(), 1)
+		data["occupant"]["fireLoss"] = round(mob_occupant.get_fire_loss(), 1)
 		data["occupant"]["bodyTemperature"] = round(mob_occupant.bodytemperature, 1)
 		if(mob_occupant.bodytemperature < 255)
 			data["occupant"]["temperaturestatus"] = "good"

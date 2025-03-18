@@ -168,12 +168,12 @@ REAGENT SCANNER
 		"health" = patient.health,
 		"max_health" = patient.maxHealth,
 		"total_brute" = round(patient.get_brute_loss()),
-		"total_burn" = round(patient.getFireLoss()),
+		"total_burn" = round(patient.get_fire_loss()),
 		"toxin" = round(patient.getToxLoss()),
 		"oxy" = round(patient.getOxyLoss()),
 		"clone" = round(patient.getCloneLoss()),
 
-		"revivable" = patient.get_brute_loss() + patient.getFireLoss() + patient.getToxLoss() + patient.getOxyLoss() + patient.getCloneLoss() <= 200,
+		"revivable" = patient.get_brute_loss() + patient.get_fire_loss() + patient.getToxLoss() + patient.getOxyLoss() + patient.getCloneLoss() <= 200,
 
 		"blood_type" = patient.blood_type,
 		"blood_amount" = patient.blood_volume,

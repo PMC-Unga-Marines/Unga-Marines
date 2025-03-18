@@ -262,7 +262,7 @@
 		"stat" = H.stat,
 		"health" = H.health,
 		"bruteloss" = H.get_brute_loss(),
-		"fireloss" = H.getFireLoss(),
+		"fireloss" = H.get_fire_loss(),
 		"oxyloss" = H.getOxyLoss(),
 		"toxloss" = H.getToxLoss(),
 		"cloneloss" = H.getCloneLoss(),

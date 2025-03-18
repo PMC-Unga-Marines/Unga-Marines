@@ -169,7 +169,7 @@
 		xeno_target.emote("scream")
 		xeno_owner.apply_status_effect(STATUS_EFFECT_DRAIN_SURGE)
 		new /obj/effect/temp_visual/drain_sting_crit(get_turf(xeno_target))
-	xeno_target.adjustFireLoss(drain_potency / 5)
+	xeno_target.adjust_fire_loss(drain_potency / 5)
 	xeno_target.AdjustKnockdown(max(0.1 SECONDS, debuff.stacks - 10))
 	HEAL_XENO_DAMAGE(xeno_owner, drain_potency, FALSE)
 	xeno_owner.gain_plasma(drain_potency * 3.5)

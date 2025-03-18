@@ -264,10 +264,10 @@
 		H.updatehealth()
 
 		var/heal_target = H.get_death_threshold() - H.health + 1
-		var/all_loss = H.get_brute_loss() + H.getFireLoss() + H.getToxLoss()
+		var/all_loss = H.get_brute_loss() + H.get_fire_loss() + H.getToxLoss()
 		if(all_loss && (heal_target > 0))
 			var/brute_ratio = H.get_brute_loss() / all_loss
-			var/burn_ratio = H.getFireLoss() / all_loss
+			var/burn_ratio = H.get_fire_loss() / all_loss
 			var/tox_ratio = H.getToxLoss() / all_loss
 			if(tox_ratio)
 				H.adjustToxLoss(-(tox_ratio * heal_target))
@@ -275,7 +275,7 @@
 
 	else if(!issynth(H)) // TODO make me a trait :)
 		H.adjust_brute_loss(-defib_heal_amt)
-		H.adjustFireLoss(-defib_heal_amt)
+		H.adjust_fire_loss(-defib_heal_amt)
 		H.adjustToxLoss(-defib_heal_amt)
 		H.adjustOxyLoss(-defib_heal_amt)
 

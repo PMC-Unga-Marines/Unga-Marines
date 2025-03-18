@@ -110,7 +110,7 @@
 	if(stacks < max_stacks && COOLDOWN_CHECK(src, attunement_increase))
 		add_stacks(1)
 
-	var/remaining_health = link_target.maxHealth - (link_target.get_brute_loss() + link_target.getFireLoss())
+	var/remaining_health = link_target.maxHealth - (link_target.get_brute_loss() + link_target.get_fire_loss())
 	if(stacks < 1 || !was_within_range || remaining_health >= link_target.maxHealth)
 		return
 	var/heal_amount = link_target.maxHealth * (DRONE_ESSENCE_LINK_REGEN * stacks)
@@ -122,7 +122,7 @@
 		link_target.balloon_alert(link_target, "No plasma for link")
 		COOLDOWN_START(src, plasma_warning, plasma_warning_cooldown)
 		return
-	link_target.adjustFireLoss(-max(0, heal_amount - link_target.get_brute_loss()), passive = TRUE)
+	link_target.adjust_fire_loss(-max(0, heal_amount - link_target.get_brute_loss()), passive = TRUE)
 	link_target.adjust_brute_loss(-heal_amount, passive = TRUE)
 	link_owner.use_plasma(ability_cost)
 
@@ -165,7 +165,7 @@
 
 	new /obj/effect/temp_visual/healing(get_turf(heal_target))
 	var/heal_amount = clamp(abs(amount) * (DRONE_ESSENCE_LINK_SHARED_HEAL * stacks), 0, heal_target.maxHealth)
-	heal_target.adjustFireLoss(-max(0, heal_amount - heal_target.get_brute_loss()), passive = TRUE)
+	heal_target.adjust_fire_loss(-max(0, heal_amount - heal_target.get_brute_loss()), passive = TRUE)
 	heal_target.adjust_brute_loss(-heal_amount, passive = TRUE)
 	heal_target.adjust_sunder(-heal_amount * 0.1)
 	heal_target.balloon_alert(heal_target, "Shared heal: +[heal_amount]")
@@ -226,7 +226,7 @@
 /datum/status_effect/salve_regen/tick()
 	new /obj/effect/temp_visual/healing(get_turf(buff_owner))
 	var/heal_amount = buff_owner.maxHealth * 0.01
-	buff_owner.adjustFireLoss(-max(0, heal_amount - buff_owner.get_brute_loss()), passive = TRUE)
+	buff_owner.adjust_fire_loss(-max(0, heal_amount - buff_owner.get_brute_loss()), passive = TRUE)
 	buff_owner.adjust_brute_loss(-heal_amount, passive = TRUE)
 	buff_owner.adjust_sunder(-1)
 	return ..()
@@ -492,7 +492,7 @@
 	SIGNAL_HANDLER
 	CALC_DAMAGE_REDUCTION(amount, amount_mod)
 	var/mob/living/carbon/xenomorph/owner_xeno = owner
-	owner_xeno.adjustFireLoss(amount)
+	owner_xeno.adjust_fire_loss(amount)
 	if(owner.health <= minimum_health)
 		owner.remove_status_effect(STATUS_EFFECT_XENO_PSYCHIC_LINK)
 
@@ -801,7 +801,7 @@
 
 	var/burn_amount = min(patient.fireloss, total_heal_amount)
 	if(burn_amount)
-		patient.adjustFireLoss(-burn_amount, updating_health = TRUE)
+		patient.adjust_fire_loss(-burn_amount, updating_health = TRUE)
 
 
 ///Called when the target xeno regains Sunder via heal_wounds in life.dm
@@ -1074,7 +1074,7 @@
 	var/bruteloss_healed = buff_owner.maxHealth * leech_buff_per_chamber * chamber_scaling
 	var/fireloss_healed = clamp(bruteloss_healed - buff_owner.bruteloss, 0, bruteloss_healed)
 	buff_owner.adjust_brute_loss(-bruteloss_healed)
-	buff_owner.adjustFireLoss(-fireloss_healed)
+	buff_owner.adjust_fire_loss(-fireloss_healed)
 	buff_owner.updatehealth()
 
 // ***************************************

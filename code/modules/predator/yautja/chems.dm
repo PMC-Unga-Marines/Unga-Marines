@@ -41,7 +41,7 @@
 	else
 		L.vomit()
 		L.adjustToxLoss(0.1)
-		L.adjustFireLoss(0.1)
+		L.adjust_fire_loss(0.1)
 		L.hallucination += 20
 		L.jitter(8)
 		L.dizzy(8)

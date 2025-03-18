@@ -136,7 +136,7 @@
 
 	var/brute_healing = min(get_brute_loss(), needed_healing)
 	adjust_brute_loss(-brute_healing)
-	adjustFireLoss(-(needed_healing - brute_healing))
+	adjust_fire_loss(-(needed_healing - brute_healing))
 
 	maxHealth = new_max_health
 	updatehealth()

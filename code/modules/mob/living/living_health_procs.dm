@@ -19,7 +19,7 @@
 		updatehealth()
 
 
-/mob/living/proc/getFireLoss(organic_only = FALSE)
+/mob/living/proc/get_fire_loss(organic_only = FALSE)
 	return fireloss
 
 ///We straight up set fireloss/burn damage to a desired amount unless godmode is enabled
@@ -28,7 +28,7 @@
 		return FALSE
 	fireloss = amount
 
-/mob/living/proc/adjustFireLoss(amount, updating_health = FALSE)
+/mob/living/proc/adjust_fire_loss(amount, updating_health = FALSE)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	fireloss = clamp(fireloss + amount, 0, maxHealth * 2)
@@ -195,7 +195,7 @@
 // heal ONE limb, organ gets randomly selected from damaged ones.
 /mob/living/proc/heal_limb_damage(brute, burn, robo_repair = FALSE, updating_health = FALSE)
 	adjust_brute_loss(-brute)
-	adjustFireLoss(-burn)
+	adjust_fire_loss(-burn)
 	if(updating_health)
 		updatehealth()
 
@@ -205,7 +205,7 @@
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	adjust_brute_loss(brute)
-	adjustFireLoss(burn)
+	adjust_fire_loss(burn)
 	if(updating_health)
 		updatehealth()
 
@@ -213,7 +213,7 @@
 // heal MANY limbs, in random order
 /mob/living/proc/heal_overall_damage(brute, burn, robo_repair = FALSE, updating_health = FALSE)
 	adjust_brute_loss(-brute)
-	adjustFireLoss(-burn)
+	adjust_fire_loss(-burn)
 	if(updating_health)
 		updatehealth()
 
@@ -279,7 +279,7 @@
 	set_blindness(0, TRUE)
 	set_blurriness(0, TRUE)
 	set_ear_damage(0, 0)
-	heal_overall_damage(get_brute_loss(), getFireLoss(), robo_repair = TRUE)
+	heal_overall_damage(get_brute_loss(), get_fire_loss(), robo_repair = TRUE)
 	set_slowdown(0)
 
 	// fix all of our organs

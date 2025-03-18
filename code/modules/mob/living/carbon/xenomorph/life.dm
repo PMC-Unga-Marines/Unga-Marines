@@ -262,7 +262,7 @@
 		health = maxHealth
 		stat = CONSCIOUS
 		return
-	health = maxHealth - getFireLoss() - get_brute_loss() //Xenos can only take brute and fire damage.
+	health = maxHealth - get_fire_loss() - get_brute_loss() //Xenos can only take brute and fire damage.
 	med_hud_set_health()
 	update_stat()
 	update_wounds()
