@@ -3,8 +3,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/tail_sweep
 	name = "Tail Sweep"
-	action_icon_state = "tail_sweep"
 	desc = "Hit all adjacent units around you, knocking them away and down."
+	action_icon_state = "tail_sweep"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	ability_cost = 35
 	use_state_flags = ABILITY_USE_CRESTED
 	cooldown_duration = 12 SECONDS
@@ -95,8 +96,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/charge/forward_charge
 	name = "Forward Charge"
-	action_icon_state = "pounce"
 	desc = "Charge up to 4 tiles and knockdown any targets in our way."
+	action_icon_state = "pounce"
+	action_icon = 'icons/Xeno/actions/runner.dmi'
 	cooldown_duration = 10 SECONDS
 	ability_cost = 80
 	use_state_flags = ABILITY_USE_CRESTED|ABILITY_USE_FORTIFIED
@@ -168,8 +170,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/toggle_crest_defense
 	name = "Toggle Crest Defense"
-	action_icon_state = "crest_defense"
 	desc = "Increase your resistance to projectiles at the cost of move speed. Can use abilities while in Crest Defense."
+	action_icon_state = "crest_defense"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED // duh
 	cooldown_duration = 1 SECONDS
 	keybinding_signals = list(
@@ -246,8 +249,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/fortify
 	name = "Fortify"
-	action_icon_state = "fortify"	// TODO
 	desc = "Plant yourself for a large defensive boost."
+	action_icon_state = "fortify"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED // duh
 	cooldown_duration = 1 SECONDS
 	keybinding_signals = list(
@@ -340,8 +344,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/regenerate_skin
 	name = "Regenerate Skin"
-	action_icon_state = "regenerate_skin"
 	desc = "Regenerate your hard exoskeleton skin, restoring some health and removing all sunder."
+	action_icon_state = "regenerate_skin"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED|ABILITY_TARGET_SELF|ABILITY_IGNORE_SELECTED_ABILITY|ABILITY_KEYBIND_USE_ABILITY
 	ability_cost = 80
 	cooldown_duration = 1 MINUTES
@@ -381,8 +386,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/centrifugal_force
 	name = "Centrifugal force"
-	action_icon_state = "centrifugal_force"
 	desc = "Rapidly spin and hit all adjacent humans around you, knocking them away and down. Uses double plasma when crest is active."
+	action_icon_state = "centrifugal_force"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	ability_cost = 15
 	use_state_flags = ABILITY_USE_CRESTED
 	cooldown_duration = 30 SECONDS
@@ -478,8 +484,9 @@
 
 /datum/action/ability/activable/xeno/headbutt
 	name = "Headbutt"
-	action_icon_state = "headbutt"
 	desc = "Headbutts into the designated target"
+	action_icon_state = "headbutt"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	cooldown_duration = 5 SECONDS
 	ability_cost = 35
 	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED // yea
@@ -554,8 +561,9 @@
 
 /datum/action/ability/xeno_action/soak
 	name = "soak"
-	action_icon_state = "soak"
 	desc = "When activated tracks damaged taken for 6 seconds, once the amount of damage reaches 140, the Defender is healed by 75 and the Tail Slam cooldown is reset. If the damage threshold is not reached, nothing happens."
+	action_icon_state = "soak"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	cooldown_duration = 17 SECONDS
 	ability_cost = 35
 	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED // yea

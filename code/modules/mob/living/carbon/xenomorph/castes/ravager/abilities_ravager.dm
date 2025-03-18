@@ -3,8 +3,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/charge
 	name = "Eviscerating Charge"
-	action_icon_state = "pounce"
 	desc = "Charge up to 4 tiles and viciously attack your target."
+	action_icon_state = "pounce"
+	action_icon = 'icons/Xeno/actions/runner.dmi'
 	cooldown_duration = 20 SECONDS
 	ability_cost = 250 //Can't ignore pain/Charge and ravage in the same timeframe, but you can combo one of them. //RU TGMC EDIT
 	keybinding_signals = list(
@@ -91,8 +92,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/ravage
 	name = "Ravage"
-	action_icon_state = "ravage"
 	desc = "Attacks and knockbacks enemies in the direction your facing."
+	action_icon_state = "ravage"
+	action_icon = 'icons/Xeno/actions/ravager.dmi'
 	ability_cost = 200
 	cooldown_duration = 6 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
@@ -194,8 +196,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/endure
 	name = "Endure"
-	action_icon_state = "ignore_pain"
 	desc = "For the next few moments you will not go into crit and become resistant to explosives and immune to stagger and slowdown, but you still die if you take damage exceeding your crit health."
+	action_icon_state = "ignore_pain"
+	action_icon = 'icons/Xeno/actions/ravager.dmi'
 	ability_cost = 200
 	cooldown_duration = 60 SECONDS
 	keybinding_signals = list(
@@ -289,8 +292,6 @@
 	else
 		X.clear_fullscreen("endure", 0.7 SECONDS)
 
-
-
 /datum/action/ability/xeno_action/endure/ai_should_start_consider()
 	return TRUE
 
@@ -323,8 +324,9 @@
 
 /datum/action/ability/xeno_action/vampirism
 	name = "Toggle vampirism"
-	action_icon_state = "neuroclaws_off"
 	desc = "Toggle on to enable boosting on "
+	action_icon_state = "neuroclaws_off"
+	action_icon = 'icons/Xeno/actions/sentinel.dmi'
 	ability_cost = 0 //We're limited by nothing, rip and tear
 	cooldown_duration = 1 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
@@ -395,8 +397,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/immortality
 	name = "Immortality"
-	action_icon_state = "enhancement"
 	desc = "We are too angry to die."
+	action_icon_state = "enhancement"
+	action_icon = 'icons/Xeno/actions/ravager.dmi'
 	ability_cost = 666
 	cooldown_duration = 35 SECONDS
 	keybinding_signals = list(

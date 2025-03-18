@@ -5,11 +5,11 @@
 	name = "Leap"
 	desc = "Leap at your targer stunning and slashing them. Stun duration and damage increases with each stack of hunted prey."
 	action_icon_state = "powerful_pounce"
-
+	action_icon = 'icons/Xeno/actions/predalien.dmi'
 	pounce_range = 5
-
 	var/base_damage = 25
-	var/damage_scale = 10 // How much it scales by every kill
+	/// How much it scales by every kill
+	var/damage_scale = 10
 
 /datum/action/ability/activable/xeno/pounce/predalien/mob_hit(datum/source, mob/living/M)
 	. = ..()
@@ -34,6 +34,7 @@
 	name = "Roar"
 	desc = "Buffs nearby xenomorphs with increased slash damage and movement speed, additionally removes invisibility from any prey nearby. Buff strength and duration increases with each stack of hunted prey."
 	action_icon_state = "rage_screech"
+	action_icon = 'icons/Xeno/actions/predalien.dmi'
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ROAR,
 	)
@@ -83,6 +84,7 @@
 	name = "Smash"
 	desc = "Stun a prey in front of you and paralyzes any prey around the target. Paralyze duration increases with each stack of hunted prey."
 	action_icon_state = "super_stomp"
+	action_icon = 'icons/Xeno/actions/predalien.dmi'
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SMASH,
 	)
@@ -143,6 +145,7 @@
 	name = "Devastate"
 	desc = "Pull out the guts and viscera of your prey dealing brutal damage. Damage increases with each stack of hunted prey."
 	action_icon_state = "butchering"
+	action_icon = 'icons/Xeno/actions/predalien.dmi'
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_DEVASTATE,
 	)

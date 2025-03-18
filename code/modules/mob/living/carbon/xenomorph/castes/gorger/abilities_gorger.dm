@@ -6,8 +6,9 @@
 /////////////////////////////////
 /datum/action/ability/activable/xeno/devour
 	name = "Devour"
-	action_icon_state = "abduct"
 	desc = "Devour your victim to be able to carry it faster."
+	action_icon_state = "abduct"
+	action_icon = 'icons/Xeno/actions/gorger.dmi'
 	use_state_flags = ABILITY_USE_STAGGERED|ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED //can't use while staggered, defender fortified or crest down
 	ability_cost = 0
 	target_flags = ABILITY_MOB_TARGET
@@ -88,8 +89,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/drain
 	name = "Drain"
-	action_icon_state = "drain"
 	desc = "Hold a marine for some time and drain their blood, while healing. You can't attack during this time and can be shot by the marine. When used on a dead human, you heal, or gain overheal, gradually and don't gain blood."
+	action_icon_state = "drain"
+	action_icon = 'icons/Xeno/actions/gorger.dmi'
 	use_state_flags = ABILITY_KEYBIND_USE_ABILITY
 	cooldown_duration = 15 SECONDS
 	ability_cost = 0
@@ -172,8 +174,9 @@
 
 /datum/action/ability/activable/xeno/transfusion
 	name = "Transfusion"
-	action_icon_state = "transfusion"
 	desc = "Restores some of the health of another xenomorph, or overheals, at the cost of blood."
+	action_icon_state = "transfusion"
+	action_icon = 'icons/Xeno/actions/gorger.dmi'
 	//When used on self, drains blood continuosly, slows you down and reduces damage taken, while restoring health over time.
 	cooldown_duration = 2 SECONDS
 	ability_cost = 20
@@ -256,8 +259,9 @@
 #define REJUVENATE_MISCLICK_CD "rejuvenate_misclick"
 /datum/action/ability/activable/xeno/rejuvenate
 	name = "Rejuvenate"
-	action_icon_state = "rejuvenation"
 	desc = "Drains blood continuosly, slows you down and reduces damage taken, while restoring some health over time. Cancel by activating again."
+	action_icon_state = "rejuvenation"
+	action_icon = 'icons/Xeno/actions/gorger.dmi'
 	cooldown_duration = 4 SECONDS
 	ability_cost = GORGER_REJUVENATE_COST
 	target_flags = ABILITY_MOB_TARGET
@@ -296,8 +300,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/psychic_link
 	name = "Psychic Link"
-	action_icon_state = "psychic_link"
 	desc = "Link to a xenomorph and take some damage in their place."
+	action_icon_state = "psychic_link"
+	action_icon = 'icons/Xeno/actions/gorger.dmi'
 	cooldown_duration = 15 SECONDS
 	ability_cost = 0
 	target_flags = ABILITY_MOB_TARGET
@@ -333,14 +338,6 @@
 		if(!silent)
 			to_chat(owner, span_notice("It is beyond our reach, we must be close and our way must be clear."))
 		return FALSE
-	/*if(HAS_TRAIT(owner, TRAIT_PSY_LINKED)) //RUTGMC EDIT REMOVAL BEGIN
-		if(!silent)
-			to_chat(owner, span_notice("You are already linked to a xenomorph."))
-		return FALSE
-	if(HAS_TRAIT(target, TRAIT_PSY_LINKED))
-		if(!silent)
-			to_chat(owner, span_notice("[target] is already linked to a xenomorph."))
-		return FALSE*/ //RUTGMC EDIT REMOVAL END
 	return TRUE
 
 /datum/action/ability/activable/xeno/psychic_link/use_ability(atom/target)
@@ -363,16 +360,10 @@
 	RegisterSignal(psychic_link, COMSIG_XENO_PSYCHIC_LINK_REMOVED, PROC_REF(status_removed))
 	target.balloon_alert(owner_xeno, "link successul")
 	owner_xeno.balloon_alert(target, "linked to [owner_xeno]")
-	//RUTGMC EDIT REMOVAL BEGIN
-	/*if(!owner_xeno.resting)
-		owner_xeno.set_resting(TRUE, TRUE)
-	RegisterSignal(owner_xeno, COMSIG_XENOMORPH_UNREST, PROC_REF(cancel_psychic_link)) */
-	//RUTGMC EDIT REMOVAL END
 	succeed_activate()
 
 ///Removes the status effect on unrest
 /datum/action/ability/activable/xeno/psychic_link/proc/cancel_psychic_link(datum/source)
-	//SIGNAL_HANDLER //RUTGMC EDIT REMOVAL
 	var/mob/living/carbon/xenomorph/owner_xeno = owner
 	owner_xeno.remove_status_effect(STATUS_EFFECT_XENO_PSYCHIC_LINK)
 
@@ -380,7 +371,6 @@
 /datum/action/ability/activable/xeno/psychic_link/proc/status_removed(datum/source)
 	SIGNAL_HANDLER
 	UnregisterSignal(source, COMSIG_XENO_PSYCHIC_LINK_REMOVED)
-	//UnregisterSignal(owner, COMSIG_XENOMORPH_UNREST) //RUTGMC EDIT REMOVAL
 	add_cooldown()
 
 ///Clears up things used for the linking
@@ -388,7 +378,6 @@
 	QDEL_NULL(target_overlay)
 	deltimer(apply_psychic_link_timer)
 	apply_psychic_link_timer = null
-
 
 /datum/action/ability/activable/xeno/psychic_link/ai_should_use(atom/target)
 	return FALSE
@@ -398,8 +387,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/carnage
 	name = "Carnage"
-	action_icon_state = "carnage"
 	desc = "Enter a state of thirst, gaining movement and healing on your next attack, scaling with missing blood. If your blood is below a certain %, you also knockdown your victim and drain some blood, during which you can't move."
+	action_icon_state = "carnage"
+	action_icon = 'icons/Xeno/actions/gorger.dmi'
 	cooldown_duration = 15 SECONDS
 	ability_cost = 0
 	keybinding_signals = list(
@@ -445,9 +435,9 @@
 
 /datum/action/ability/activable/xeno/oppose
 	name = "Oppose"
-	action_icon_state = "stomp" //в будущем обновить бы
-	action_icon = 'icons/Xeno/actions.dmi'
 	desc = "Violently suffuse the ground with stored blood. A marine on your tile is staggered and injured, ajacent marines are staggered, and any nearby xenos are healed, including you."
+	action_icon_state = "stomp"
+	action_icon = 'icons/Xeno/actions/crusher.dmi'
 	cooldown_duration = 30 SECONDS
 	ability_cost = GORGER_OPPOSE_COST
 	keybinding_signals = list(
@@ -509,11 +499,14 @@
 // ***************************************
 // *********** Feast
 // ***************************************
+
 #define FEAST_MISCLICK_CD "feast_misclick"
+
 /datum/action/ability/activable/xeno/feast
 	name = "Feast"
-	action_icon_state = "feast"
 	desc = "Enter a state of rejuvenation. During this time you use a small amount of blood and heal. You can cancel this early."
+	action_icon_state = "feast"
+	action_icon = 'icons/Xeno/actions/gorger.dmi'
 	cooldown_duration = 30 SECONDS
 	ability_cost = 0
 	keybinding_signals = list(

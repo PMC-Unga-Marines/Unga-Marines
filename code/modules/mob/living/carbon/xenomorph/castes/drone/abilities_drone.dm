@@ -11,8 +11,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/essence_link
 	name = "Essence Link"
-	action_icon_state = "healing_infusion"
 	desc = "Link to a xenomorph. This changes some of your abilities, and grants them and you both various bonuses."
+	action_icon_state = "healing_infusion"
+	action_icon = 'icons/Xeno/actions/drone.dmi'
 	cooldown_duration = 5 SECONDS
 	ability_cost = 0
 	target_flags = ABILITY_MOB_TARGET
@@ -85,8 +86,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/psychic_cure/acidic_salve
 	name = "Acidic Salve"
-	action_icon_state = "heal_xeno"
 	desc = "Apply a minor heal to the target. If applied to a linked sister, it will also apply a regenerative buff. Additionally, if that linked sister is near death, the heal's potency is increased"
+	action_icon_state = "heal_xeno"
+	action_icon = 'icons/Xeno/actions/drone.dmi'
 	cooldown_duration = 5 SECONDS
 	ability_cost = 150
 	keybinding_signals = list(
@@ -136,8 +138,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/enhancement
 	name = "Enhancement"
-	action_icon_state = "enhancement"
 	desc = "Apply an enhancement to the linked xeno, increasing their capabilities beyond their limits."
+	action_icon_state = "enhancement"
+	action_icon = 'icons/Xeno/actions/drone.dmi'
 	cooldown_duration = 120 SECONDS
 	ability_cost = 0
 	keybinding_signals = list(

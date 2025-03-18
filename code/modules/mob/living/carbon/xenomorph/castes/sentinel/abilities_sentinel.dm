@@ -36,8 +36,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/toxic_slash
 	name = "Toxic Slash"
-	action_icon_state = "neuroclaws_off"
 	desc = "Imbue your claws with acid for a short duration, inflicting lasting effects on your victims."
+	action_icon_state = "neuroclaws_off"
+	action_icon = 'icons/Xeno/actions/sentinel.dmi'
 	cooldown_duration = 10 SECONDS
 	ability_cost = 100
 	//use_state_flags = ABILITY_USE_BUCKLED
@@ -129,8 +130,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/drain_sting
 	name = "Drain Sting"
-	action_icon_state = "neuro_sting"
 	desc = "Sting your victim, draining them and gaining benefits if they are Intoxicated."
+	action_icon_state = "neuro_sting"
+	action_icon = 'icons/Xeno/actions/sentinel.dmi'
 	cooldown_duration = 25 SECONDS
 	ability_cost = 75
 	target_flags = ABILITY_MOB_TARGET
@@ -198,8 +200,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/toxic_grenade
 	name = "Toxic grenade"
-	action_icon_state = "gas mine"
 	desc = "Throws a lump of compressed acidic gases, which will inflict damage over time and Intoxicate victims."
+	action_icon_state = "gas mine"
+	action_icon = 'icons/Xeno/actions/sentinel.dmi'
 	ability_cost = 200
 	cooldown_duration = 50 SECONDS
 	keybinding_signals = list(
@@ -242,7 +245,6 @@
 //transvitox variant
 /datum/action/ability/activable/xeno/toxic_grenade/transvitox
 	name = "transvitox grenade"
-	action_icon_state = "gas mine"
 	desc = "Throws a lump of compressed neurotoxin, which explodes into a small gas cloud."
 	ability_cost = 200
 	cooldown_duration = 50 SECONDS

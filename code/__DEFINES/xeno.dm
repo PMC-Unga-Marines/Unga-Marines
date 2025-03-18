@@ -60,85 +60,85 @@
 
 //List of weed types
 GLOBAL_LIST_INIT(weed_type_list, typecacheof(list(
-		/obj/alien/weeds/node,
-		/obj/alien/weeds/node/sticky,
-		/obj/alien/weeds/node/resting,
-		)))
+	/obj/alien/weeds/node,
+	/obj/alien/weeds/node/sticky,
+	/obj/alien/weeds/node/resting,
+)))
 
 //List of weeds with probability of spawning
 GLOBAL_LIST_INIT(weed_prob_list, list(
-		/obj/alien/weeds/node = 80,
-		/obj/alien/weeds/node/sticky = 5,
-		/obj/alien/weeds/node/resting = 10,
-		))
+	/obj/alien/weeds/node = 80,
+	/obj/alien/weeds/node/sticky = 5,
+	/obj/alien/weeds/node/resting = 10,
+))
 
 //List of weed images
 GLOBAL_LIST_INIT(weed_images_list, list(
-		WEED = image('icons/Xeno/actions.dmi', icon_state = WEED),
-		STICKY_WEED = image('icons/Xeno/actions.dmi', icon_state = STICKY_WEED),
-		RESTING_WEED = image('icons/Xeno/actions.dmi', icon_state = RESTING_WEED),
-		AUTOMATIC_WEEDING = image('icons/Xeno/actions.dmi', icon_state = AUTOMATIC_WEEDING)
-		))
+	WEED = image('icons/Xeno/actions/construction.dmi', icon_state = WEED),
+	STICKY_WEED = image('icons/Xeno/actions/construction.dmi', icon_state = STICKY_WEED),
+	RESTING_WEED = image('icons/Xeno/actions/construction.dmi', icon_state = RESTING_WEED),
+	AUTOMATIC_WEEDING = image('icons/Xeno/actions/construction.dmi', icon_state = AUTOMATIC_WEEDING)
+))
 
 //List of pheromone images
 GLOBAL_LIST_INIT(pheromone_images_list, list(
-		AURA_XENO_RECOVERY = image('icons/Xeno/actions.dmi', icon_state = AURA_XENO_RECOVERY),
-		AURA_XENO_WARDING = image('icons/Xeno/actions.dmi', icon_state = AURA_XENO_WARDING),
-		AURA_XENO_FRENZY = image('icons/Xeno/actions.dmi', icon_state = AURA_XENO_FRENZY),
-		))
+	AURA_XENO_RECOVERY = image('icons/Xeno/actions/general.dmi', icon_state = AURA_XENO_RECOVERY),
+	AURA_XENO_WARDING = image('icons/Xeno/actions/general.dmi', icon_state = AURA_XENO_WARDING),
+	AURA_XENO_FRENZY = image('icons/Xeno/actions/general.dmi', icon_state = AURA_XENO_FRENZY),
+))
 
 //List of Defiler toxin types available for selection
 GLOBAL_LIST_INIT(defiler_toxin_type_list, list(
-		/datum/reagent/toxin/xeno_ozelomelyn,
-		/datum/reagent/toxin/xeno_hemodile,
-		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/acid,
-		))
+	/datum/reagent/toxin/xeno_ozelomelyn,
+	/datum/reagent/toxin/xeno_hemodile,
+	/datum/reagent/toxin/xeno_transvitox,
+	/datum/reagent/toxin/acid,
+))
 
 //List of toxins improving defile's damage
 GLOBAL_LIST_INIT(defiler_toxins_typecache_list, typecacheof(list(
-		/datum/reagent/toxin/xeno_ozelomelyn,
-		/datum/reagent/toxin/xeno_hemodile,
-		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_sanguinal,
-		/datum/reagent/toxin/acid,
-		/datum/status_effect/stacking/intoxicated,
-		)))
+	/datum/reagent/toxin/xeno_ozelomelyn,
+	/datum/reagent/toxin/xeno_hemodile,
+	/datum/reagent/toxin/xeno_transvitox,
+	/datum/reagent/toxin/xeno_sanguinal,
+	/datum/reagent/toxin/acid,
+	/datum/status_effect/stacking/intoxicated,
+)))
 
 //List of plant types
 GLOBAL_LIST_INIT(plant_type_list, list(
-		/obj/structure/xeno/plant/heal_fruit,
-		/obj/structure/xeno/plant/armor_fruit,
-		/obj/structure/xeno/plant/plasma_fruit,
-		/obj/structure/xeno/plant/stealth_plant
-		))
+	/obj/structure/xeno/plant/heal_fruit,
+	/obj/structure/xeno/plant/armor_fruit,
+	/obj/structure/xeno/plant/plasma_fruit,
+	/obj/structure/xeno/plant/stealth_plant
+))
 
 //List of plant images
 GLOBAL_LIST_INIT(plant_images_list, list(
-		HEAL_PLANT = image('icons/Xeno/plants.dmi', icon_state = "heal_fruit"),
-		ARMOR_PLANT = image('icons/Xeno/plants.dmi', icon_state = "armor_fruit"),
-		PLASMA_PLANT = image('icons/Xeno/plants.dmi', icon_state = "plasma_fruit"),
-		STEALTH_PLANT = image('icons/Xeno/plants.dmi', icon_state = "stealth_plant")
-		))
+	HEAL_PLANT = image('icons/Xeno/plants.dmi', icon_state = "heal_fruit"),
+	ARMOR_PLANT = image('icons/Xeno/plants.dmi', icon_state = "armor_fruit"),
+	PLASMA_PLANT = image('icons/Xeno/plants.dmi', icon_state = "plasma_fruit"),
+	STEALTH_PLANT = image('icons/Xeno/plants.dmi', icon_state = "stealth_plant")
+))
 
 //List of resin structure images
 GLOBAL_LIST_INIT(resin_images_list, list(
-		RESIN_WALL = image('icons/Xeno/actions.dmi', icon_state = RESIN_WALL),
-		RESIN_WALL_BOMB = image('icons/Xeno/actions.dmi', icon_state = RESIN_WALL_BOMB),
-		RESIN_WALL_BULLET = image('icons/Xeno/actions.dmi', icon_state = RESIN_WALL_BULLET),
-		RESIN_WALL_FIRE = image('icons/Xeno/actions.dmi', icon_state = RESIN_WALL_FIRE),
-		RESIN_WALL_MELEE = image('icons/Xeno/actions.dmi', icon_state = RESIN_WALL_MELEE),
-		STICKY_RESIN = image('icons/Xeno/actions.dmi', icon_state = STICKY_RESIN),
-		RESIN_DOOR = image('icons/Xeno/actions.dmi', icon_state = RESIN_DOOR),
-		ALIEN_NEST = image('icons/Xeno/actions.dmi', icon_state = ALIEN_NEST)
-		))
+	RESIN_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL),
+	RESIN_WALL_BOMB = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_BOMB),
+	RESIN_WALL_BULLET = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_BULLET),
+	RESIN_WALL_FIRE = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_FIRE),
+	RESIN_WALL_MELEE = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_MELEE),
+	STICKY_RESIN = image('icons/Xeno/actions/construction.dmi', icon_state = STICKY_RESIN),
+	RESIN_DOOR = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_DOOR),
+	ALIEN_NEST = image('icons/Xeno/actions/construction.dmi', icon_state = ALIEN_NEST)
+))
 
 GLOBAL_LIST_INIT(panther_toxin_type_list, list(
-		/datum/reagent/toxin/xeno_hemodile,
-		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_ozelomelyn,
-		/datum/reagent/toxin/xeno_sanguinal,
-		))
+	/datum/reagent/toxin/xeno_hemodile,
+	/datum/reagent/toxin/xeno_transvitox,
+	/datum/reagent/toxin/xeno_ozelomelyn,
+	/datum/reagent/toxin/xeno_sanguinal,
+))
 
 //xeno upgrade flags
 ///Message the hive when we buy this upgrade

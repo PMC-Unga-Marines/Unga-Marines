@@ -6,11 +6,11 @@
 
 //List of huggie types
 GLOBAL_LIST_INIT(hugger_type_list, list(
-		/obj/item/clothing/mask/facehugger/larval,
-		/obj/item/clothing/mask/facehugger/combat/slash,
-		/obj/item/clothing/mask/facehugger/combat/acid,
-		/obj/item/clothing/mask/facehugger/combat/resin,
-		))
+	/obj/item/clothing/mask/facehugger/larval,
+	/obj/item/clothing/mask/facehugger/combat/slash,
+	/obj/item/clothing/mask/facehugger/combat/acid,
+	/obj/item/clothing/mask/facehugger/combat/resin,
+))
 
 GLOBAL_LIST_INIT(hugger_to_ammo, list(
 	/obj/item/clothing/mask/facehugger/larval = /datum/ammo/xeno/hugger,
@@ -21,19 +21,20 @@ GLOBAL_LIST_INIT(hugger_to_ammo, list(
 
 //List of huggie images
 GLOBAL_LIST_INIT(hugger_images_list,  list(
-		LARVAL_HUGGER = image('icons/Xeno/actions.dmi', icon_state = LARVAL_HUGGER),
-		CLAWED_HUGGER = image('icons/Xeno/actions.dmi', icon_state = CLAWED_HUGGER),
-		ACID_HUGGER = image('icons/Xeno/actions.dmi', icon_state = ACID_HUGGER),
-		RESIN_HUGGER = image('icons/Xeno/actions.dmi', icon_state = RESIN_HUGGER),
-		))
+	LARVAL_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = LARVAL_HUGGER),
+	CLAWED_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = CLAWED_HUGGER),
+	ACID_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = ACID_HUGGER),
+	RESIN_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = RESIN_HUGGER),
+))
 
 // ***************************************
 // *********** Hugger throw
 // ***************************************
 /datum/action/ability/activable/xeno/throw_hugger
 	name = "Use/Throw Facehugger"
-	action_icon_state = "throw_hugger"
 	desc = "Click on a non tile and non mob to bring a facehugger into your hand. Click at a target or tile to throw a facehugger."
+	action_icon_state = "throw_hugger"
+	action_icon = 'icons/Xeno/actions/carrier.dmi'
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_THROW_HUGGER,
 	)
@@ -52,7 +53,6 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 /datum/action/ability/activable/xeno/throw_hugger/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/carrier/caster = owner
-
 	//target a hugger on the ground to store it directly
 	if(istype(A, /obj/item/clothing/mask/facehugger))
 		if(isturf(get_turf(A)) && caster.Adjacent(A))
@@ -108,6 +108,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	name = "Place trap"
 	desc = "Place a hole on weeds that can be filled with a hugger, liquid acid, acid or neurotoxin gas. Activates when a marine steps on it."
 	action_icon_state = "small_trap"
+	action_icon = 'icons/Xeno/actions/construction.dmi'
 	ability_cost = 200
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PLACE_TRAP,
@@ -147,8 +148,9 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 // ***************************************
 /datum/action/ability/xeno_action/spawn_hugger
 	name = "Spawn Facehugger"
-	action_icon_state = "spawn_hugger"
 	desc = "Spawn a facehugger that is stored on your body."
+	action_icon_state = "spawn_hugger"
+	action_icon = 'icons/Xeno/actions/carrier.dmi'
 	ability_cost = 100
 	cooldown_duration = 5 SECONDS
 	keybinding_signals = list(
@@ -189,8 +191,9 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 // Set hugger reserve
 /datum/action/ability/xeno_action/set_hugger_reserve
 	name = "Set Hugger Reserve"
-	action_icon_state = "hugger_set"
 	desc = "Set the number of huggers you want to preserve from the observers' possession."
+	action_icon_state = "hugger_set"
+	action_icon = 'icons/Xeno/actions/carrier.dmi'
 	use_state_flags = ABILITY_USE_LYING
 
 /datum/action/ability/xeno_action/set_hugger_reserve/give_action(mob/living/L)
@@ -213,8 +216,9 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 // ***************************************
 /datum/action/ability/xeno_action/carrier_panic
 	name = "Drop All Facehuggers"
-	action_icon_state = "carrier_panic"
 	desc = "Drop all stored huggers in a fit of panic. Uses all remaining plasma!"
+	action_icon_state = "carrier_panic"
+	action_icon = 'icons/Xeno/actions/carrier.dmi'
 	ability_cost = 10
 	cooldown_duration = 50 SECONDS
 	keybinding_signals = list(
@@ -270,8 +274,9 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 // Choose Hugger Type
 /datum/action/ability/xeno_action/choose_hugger_type
 	name = "Choose Hugger Type"
-	action_icon_state = "facehugger"
 	desc = "Selects which hugger type you will build with the Spawn Hugger ability."
+	action_icon_state = "facehugger"
+	action_icon = 'icons/Xeno/actions/carrier.dmi'
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CHOOSE_HUGGER,
 		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_SWITCH_HUGGER,
@@ -321,8 +326,9 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 /datum/action/ability/xeno_action/build_hugger_turret
 	name = "build hugger turret"
-	action_icon_state = "hugger_turret"
 	desc = "Build a hugger turret"
+	action_icon_state = "hugger_turret"
+	action_icon = 'icons/Xeno/actions/carrier.dmi'
 	ability_cost = 800
 	cooldown_duration = 5 MINUTES
 	keybinding_signals = list(
@@ -375,14 +381,14 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 /datum/action/ability/activable/xeno/call_younger
 	name = "Call of Younger"
-	action_icon_state = "call_younger"
 	desc = "Appeals to the larva inside the Marine. The Marine loses his balance, and larva's progress accelerates."
+	action_icon_state = "call_younger"
+	action_icon = 'icons/Xeno/actions/carrier.dmi'
 	ability_cost = 150
 	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CALL_YOUNGER,
 	)
-
 
 /datum/action/ability/activable/xeno/call_younger/can_use_ability(atom/A, silent, override_flags)
 	. = ..()
@@ -463,8 +469,9 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 /datum/action/ability/xeno_action/build_nest
 	name = "Build nest"
-	action_icon_state = ALIEN_NEST
 	desc = "Build nest for host"
+	action_icon_state = ALIEN_NEST
+	action_icon = 'icons/Xeno/actions/construction.dmi'
 	ability_cost = 200
 	cooldown_duration = 20 SECONDS
 	keybinding_signals = list(

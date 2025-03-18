@@ -13,8 +13,9 @@
 
 /datum/action/ability/activable/xeno/pounce_hugger
 	name = "Pounce"
-	action_icon_state = "pounce"
 	desc = "Leap at your target and knock them down, if you jump close you will hug the target."
+	action_icon_state = "pounce"
+	action_icon = 'icons/Xeno/actions/runner.dmi'
 	ability_cost = 25
 	cooldown_duration = 5 SECONDS
 	keybinding_signals = list(
@@ -23,7 +24,6 @@
 	use_state_flags = ABILITY_USE_BUCKLED
 	///Where do we start the leap from
 	var/start_turf
-
 
 // TODO: merge this ability into runner pounce (can't do it right now - the runner's pounce has too many unnecessary sounds/messages)
 /datum/action/ability/activable/xeno/pounce_hugger/proc/pounce_complete()
@@ -80,7 +80,7 @@
 	if(owner.layer == XENO_HIDING_LAYER) //Xeno is currently hiding, unhide him
 		owner.layer = MOB_LAYER
 		var/datum/action/ability/xeno_action/xenohide/hide_action = owner.actions_by_path[/datum/action/ability/xeno_action/xenohide]
-		hide_action?.button?.cut_overlay(mutable_appearance('icons/Xeno/actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)) // Removes Hide action icon border
+		hide_action?.button?.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)) // Removes Hide action icon border
 	if(owner.buckled)
 		owner.buckled.unbuckle_mob(owner)
 

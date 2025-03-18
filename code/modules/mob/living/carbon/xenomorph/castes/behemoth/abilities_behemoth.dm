@@ -73,7 +73,6 @@
 /obj/effect/temp_visual/behemoth/warning/enhanced
 	color = COLOR_VIVID_RED
 
-
 // ***************************************
 // *********** Roll
 // ***************************************
@@ -118,7 +117,6 @@
 	xeno_owner.update_icons()
 	for(var/mob/living/rider AS in xeno_owner.buckled_mobs)
 		xeno_owner.unbuckle_mob(rider)
-
 
 // ***************************************
 // *********** Landslide
@@ -228,8 +226,9 @@
 
 /datum/action/ability/activable/xeno/landslide
 	name = "Landslide"
-	action_icon_state = "landslide"
 	desc = "Rush forward in the selected direction, damaging enemies caught in a wide path."
+	action_icon_state = "landslide"
+	action_icon = 'icons/Xeno/actions/behemoth.dmi'
 	ability_cost = 3 // This is deducted per step taken during the ability.
 	cooldown_duration = 20 SECONDS
 	target_flags = ABILITY_TURF_TARGET
@@ -585,8 +584,9 @@
 
 /datum/action/ability/activable/xeno/earth_riser
 	name = "Earth Riser"
-	action_icon_state = "earth_riser"
 	desc = "Raise a pillar of earth at the selected location. This solid structure can be used for defense, and it interacts with other abilities for offensive usage. The pillar can be launched by click-dragging it in a direction. Alternate use destroys active pillars, starting with the oldest one."
+	action_icon_state = "earth_riser"
+	action_icon = 'icons/Xeno/actions/behemoth.dmi'
 	ability_cost = 20
 	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
@@ -754,8 +754,6 @@ RU TGMC EDIT */
 			pixel_x += 18
 			pixel_y -= 8
 
-
-
 // ***************************************
 // *********** Seismic Fracture
 // ***************************************
@@ -771,8 +769,9 @@ RU TGMC EDIT */
 
 /datum/action/ability/activable/xeno/seismic_fracture
 	name = "Seismic Fracture"
-	action_icon_state = "seismic_fracture"
 	desc = "Blast the earth around the selected location, inflicting heavy damage in a large radius."
+	action_icon_state = "seismic_fracture"
+	action_icon = 'icons/Xeno/actions/behemoth.dmi'
 	ability_cost = 50
 	cooldown_duration = 20 SECONDS
 	target_flags = ABILITY_TURF_TARGET
@@ -939,7 +938,6 @@ RU TGMC EDIT */
 #define PRIMAL_WRATH_SPEED_BONUS -0.3
 #define PRIMAL_WRATH_DECAY_MULTIPLIER 1.2
 #define PRIMAL_WRATH_ACTIVE_DECAY_DIVISION 40
-//#define PRIMAL_WRATH_GAIN_MULTIPLIER 0.3 //RUTGMC EDIT
 #define PRIMAL_WRATH_LANDSLIDE_CHARGES 3
 
 /particles/primal_wrath
@@ -979,8 +977,9 @@ RU TGMC EDIT */
 
 /datum/action/ability/xeno_action/primal_wrath
 	name = "Primal Wrath"
-	action_icon_state = "primal_wrath"
 	desc = "Unleash your wrath. Enhances your abilities, changing their functionality and allowing them to apply a damage over time debuff."
+	action_icon_state = "primal_wrath"
+	action_icon = 'icons/Xeno/actions/behemoth.dmi'
 	cooldown_duration = 1 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY|ABILITY_IGNORE_SELECTED_ABILITY
 	keybinding_signals = list(
@@ -1187,14 +1186,11 @@ RU TGMC EDIT */
 	if(owner)
 		UnregisterSignal(owner, list(COMSIG_QDELETING, COMSIG_MOB_DEATH, COMSIG_XENOMORPH_EVOLVED, COMSIG_XENOMORPH_DEEVOLVED, COMSIG_XENOMORPH_BRUTE_DAMAGE, COMSIG_XENOMORPH_BURN_DAMAGE))
 
-
 // ***************************************
 // *********** Earth Pillar (also see: Earth Riser)
 // ***************************************
 #define EARTH_PILLAR_SPREAD_RADIUS 2
 #define EARTH_PILLAR_SPREAD_DAMAGE_MULTIPLIER 1.2
-
-
 
 /particles/earth_pillar
 	icon = 'icons/effects/particles/generic_particles.dmi'
@@ -1467,7 +1463,6 @@ RU TGMC EDIT */
 /datum/ammo/xeno/earth_pillar/landslide/on_hit_obj(obj/hit_object, obj/projectile/proj)
 	. = ..()
 	return on_hit_anything(get_turf(hit_object), proj)
-
 
 // ***************************************
 // *********** Global Procs

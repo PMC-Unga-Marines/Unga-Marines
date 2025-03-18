@@ -4,8 +4,9 @@
 
 /datum/action/ability/activable/xeno/scatter_spit/praetorian
 	name = "Scatter Spit"
-	action_icon_state = "scatter_spit"
 	desc = "Spits a spread of acid projectiles that splatter on the ground."
+	action_icon_state = "scatter_spit"
+	action_icon = 'icons/Xeno/actions/defiler.dmi'
 	ability_cost = 280
 	cooldown_duration = 1 SECONDS
 	keybinding_signals = list(
@@ -46,7 +47,6 @@
 
 /datum/action/ability/activable/xeno/spray_acid/cone
 	name = "Spray Acid Cone"
-	action_icon_state = "spray_acid"
 	desc = "Spray a cone of dangerous acid at your target."
 	ability_cost = 300
 	cooldown_duration = 20 SECONDS
@@ -165,8 +165,9 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 // ***************************************
 /datum/action/ability/activable/xeno/charge/dash
 	name = "Dash"
-	action_icon_state = "pounce"
 	desc = "Instantly dash to the selected tile."
+	action_icon_state = "pounce"
+	action_icon = 'icons/Xeno/actions/runner.dmi'
 	ability_cost = 100
 	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
@@ -216,7 +217,6 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 // ***************************************
 /datum/action/ability/activable/xeno/spray_acid/line/short
 	name = "Spray Acid"
-	action_icon_state = "spray_acid"
 	desc = "Spray a short line of dangerous acid at your target."
 	ability_cost = 100
 	cooldown_duration = 10 SECONDS
@@ -402,9 +402,9 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 // ***************************************
 /datum/action/ability/xeno_action/dodge
 	name = "Dodge"
-	action_icon_state = "dodge"
-	action_icon = 'icons/Xeno/actions.dmi'
 	desc = "Gain a speed boost upon activation and the ability to pass through mobs. Enemies automatically receive bump attacks when passed."
+	action_icon_state = "dodge"
+	action_icon = 'icons/Xeno/actions/praetorian.dmi'
 	ability_cost = 100
 	cooldown_duration = 12 SECONDS
 	use_state_flags = ABILITY_USE_BUSY
@@ -464,8 +464,9 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 // ***************************************
 /datum/action/ability/activable/xeno/impale
 	name = "Impale"
-	action_icon_state = "impale"
 	desc = "Impale a marine next to you with your tail for moderate damage. Marked enemies are impaled twice."
+	action_icon_state = "impale"
+	action_icon = 'icons/Xeno/actions/praetorian.dmi'
 	ability_cost = 100
 	cooldown_duration = 8 SECONDS
 	keybinding_signals = list(
@@ -529,8 +530,9 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 // ***************************************
 /datum/action/ability/activable/xeno/tail_trip
 	name = "Tail Trip"
-	action_icon_state = "tail_trip"
 	desc = "Target a marine within two tiles of you to disorient and slows them. Marked enemies receive stronger debuffs and are stunned for a second."
+	action_icon_state = "tail_trip"
+	action_icon = 'icons/Xeno/actions/praetorian.dmi'
 	ability_cost = 50
 	cooldown_duration = 8 SECONDS
 	keybinding_signals = list(
