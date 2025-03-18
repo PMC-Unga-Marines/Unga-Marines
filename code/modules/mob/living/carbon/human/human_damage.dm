@@ -190,13 +190,13 @@
 	else
 		..()
 
-/mob/living/carbon/human/getStaminaLoss()
+/mob/living/carbon/human/get_stamina_loss()
 	if(species.species_flags & NO_STAMINA)
 		staminaloss = 0
 		return staminaloss
 	return ..()
 
-/mob/living/carbon/human/adjustStaminaLoss(amount)
+/mob/living/carbon/human/adjust_stamina_loss(amount)
 	if(species.species_flags & NO_STAMINA)
 		staminaloss = 0
 		return

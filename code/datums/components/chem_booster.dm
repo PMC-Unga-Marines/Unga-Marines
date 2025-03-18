@@ -194,7 +194,7 @@
 	if(vali_necro_timer > 20 SECONDS)
 		return
 	if(connected_weapon)
-		wearer.adjustStaminaLoss(-7 * stamina_regen_amp * ((20 - (vali_necro_timer) * 0.1) * 0.05)) //stamina gain scales inversely with passed time, up to 20 seconds
+		wearer.adjust_stamina_loss(-7 * stamina_regen_amp * ((20 - (vali_necro_timer) * 0.1) * 0.05)) //stamina gain scales inversely with passed time, up to 20 seconds
 	if(vali_necro_timer > 10 SECONDS)
 		to_chat(wearer, span_bold("WARNING: You have [(200 - (vali_necro_timer)) * 0.1] seconds before necrotic tissue forms on your limbs."))
 	if(vali_necro_timer > 15 SECONDS)

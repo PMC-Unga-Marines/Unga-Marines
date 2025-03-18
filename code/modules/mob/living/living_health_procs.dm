@@ -65,10 +65,10 @@
 	toxloss = amount
 
 
-/mob/living/proc/getStaminaLoss()
+/mob/living/proc/get_stamina_loss()
 	return staminaloss
 
-/mob/living/proc/adjustStaminaLoss(amount, update = TRUE, feedback = TRUE)
+/mob/living/proc/adjust_stamina_loss(amount, update = TRUE, feedback = TRUE)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 

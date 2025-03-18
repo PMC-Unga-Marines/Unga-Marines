@@ -39,7 +39,7 @@
 		if(CLONE)
 			adjust_clone_Loss(damage)
 		if(STAMINA)
-			adjustStaminaLoss(damage)
+			adjust_stamina_loss(damage)
 	if(updating_health)
 		updatehealth()
 	return damage
@@ -85,7 +85,7 @@ Arguments
 		if(STAGGER)
 			Stagger(effect)
 		if(AGONY)
-			adjustStaminaLoss(effect)
+			adjust_stamina_loss(effect)
 		if(STUTTER)
 			if(status_flags & CANSTUN) // stun is usually associated with stutter
 				set_timed_status_effect(effect, /datum/status_effect/speech/stutter, only_if_higher = TRUE)

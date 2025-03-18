@@ -62,7 +62,7 @@
 		var/mob/living/carbon/human/H = user
 		if(!H.gloves || H.gloves.siemens_coefficient)
 			to_chat(H, span_danger("You feel a powerful shock course through your body!"))
-			H.adjustStaminaLoss(200)
+			H.adjust_stamina_loss(200)
 			return
 	return ..(user)
 

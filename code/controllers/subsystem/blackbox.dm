@@ -202,7 +202,7 @@ SUBSYSTEM_DEF(blackbox)
 			"oxy" = L.get_oxy_loss(),
 			"tox" = L.get_tox_loss(),
 			"clone" = L.get_clone_Loss(),
-			"stamina" = L.getStaminaLoss(),
+			"stamina" = L.get_stamina_loss(),
 			"x_coord" = L.x,
 			"y_coord" = L.y,
 			"z_coord" = L.z,

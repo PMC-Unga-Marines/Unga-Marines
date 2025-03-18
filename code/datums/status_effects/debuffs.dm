@@ -126,8 +126,8 @@
 	return ..()
 
 /datum/status_effect/incapacitating/unconscious/tick()
-	if(owner.getStaminaLoss())
-		owner.adjustStaminaLoss(-0.3) //reduce stamina loss by 0.3 per tick, 6 per 2 seconds
+	if(owner.get_stamina_loss())
+		owner.adjust_stamina_loss(-0.3) //reduce stamina loss by 0.3 per tick, 6 per 2 seconds
 
 //SLEEPING
 /datum/status_effect/incapacitating/sleeping
@@ -176,7 +176,7 @@
 			owner.adjust_brute_loss(healing)
 			owner.adjust_fire_loss(healing)
 			owner.adjust_tox_loss(healing * 0.5, TRUE, TRUE)
-			owner.adjustStaminaLoss(healing * 100)
+			owner.adjust_stamina_loss(healing * 100)
 			owner.adjust_clone_Loss(healing * health_ratio * 0.8)
 	if(human_owner?.drunkenness)
 		human_owner.drunkenness *= 0.997 //reduce drunkenness by 0.3% per tick, 6% per 2 seconds

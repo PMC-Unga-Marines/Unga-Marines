@@ -111,7 +111,7 @@
 		AdjustStun(-6 SECONDS)
 		if(has_status_effect(STATUS_EFFECT_PARALYZED))
 			if(staminaloss)
-				adjustStaminaLoss(-20, FALSE)
+				adjust_stamina_loss(-20, FALSE)
 		AdjustParalyzed(-6 SECONDS)
 
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, TRUE, 5)

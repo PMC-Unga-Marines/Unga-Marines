@@ -456,8 +456,8 @@
 
 	//Apply stamina damage, then apply any 'excess' stamina damage beyond our maximum as tox and oxy damage
 	var/stamina_loss_limit = L.maxHealth * 2
-	var/applied_damage = clamp(power, 0, (stamina_loss_limit - L.getStaminaLoss()))
-	L.adjustStaminaLoss(applied_damage) //If we're under our stamina_loss limit, apply the difference between our limit and current stamina damage or power, whichever's less
+	var/applied_damage = clamp(power, 0, (stamina_loss_limit - L.get_stamina_loss()))
+	L.adjust_stamina_loss(applied_damage) //If we're under our stamina_loss limit, apply the difference between our limit and current stamina damage or power, whichever's less
 	var/damage_overflow = power - applied_damage
 	if(damage_overflow > 0) //If we exceed maxHealth * 2 stamina damage, apply any excess as toxloss and oxyloss
 		L.adjust_tox_loss(damage_overflow * 0.5)
@@ -588,7 +588,7 @@
 
 /datum/reagent/toxin/xeno_sanguinal/on_mob_life(mob/living/L, metabolism)
 	if(L.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_hemodile))
-		L.adjustStaminaLoss(DEFILER_SANGUINAL_DAMAGE)
+		L.adjust_stamina_loss(DEFILER_SANGUINAL_DAMAGE)
 
 	if(L.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_neurotoxin))
 		L.adjust_tox_loss(DEFILER_SANGUINAL_DAMAGE)
@@ -702,7 +702,7 @@
 			L.jitter(8)
 
 	if(current_cycle > 21)
-		L.adjustStaminaLoss(effect_str)
+		L.adjust_stamina_loss(effect_str)
 		if(iscarbon(L) && prob(min(current_cycle - 10,30)))
 			var/mob/living/carbon/C = L
 			C.emote("me", 1, "coughs up blood!")
@@ -713,7 +713,7 @@
 		if(L.eye_blurry < 30)
 			L.adjust_blurriness(1.3)
 	else
-		L.adjustStaminaLoss(0.5*effect_str)
+		L.adjust_stamina_loss(0.5*effect_str)
 		if(prob(20))
 			L.emote("gasp")
 			L.Losebreath(3)

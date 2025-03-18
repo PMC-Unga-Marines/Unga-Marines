@@ -52,19 +52,19 @@
 /datum/reagent/water/on_mob_life(mob/living/L,metabolism)
 	switch(current_cycle)
 		if(4 to 5) //1 sip, starting at the end
-			L.adjustStaminaLoss(-2*effect_str)
+			L.adjust_stamina_loss(-2*effect_str)
 			L.heal_limb_damage(effect_str, effect_str)
 		if(6 to 10) //sip 2
-			L.adjustStaminaLoss(-0.5*effect_str)
+			L.adjust_stamina_loss(-0.5*effect_str)
 			L.heal_limb_damage(0.1*effect_str, 0.1*effect_str)
 		if(11 to INFINITY) //anything after
-			L.adjustStaminaLoss(-0.15*effect_str)
+			L.adjust_stamina_loss(-0.15*effect_str)
 			L.heal_limb_damage(0.1*effect_str, 0.1*effect_str)
 	return ..()
 
 /datum/reagent/water/overdose_process(mob/living/L, metabolism)
 	if(prob(10))
-		L.adjustStaminaLoss(50*effect_str)
+		L.adjust_stamina_loss(50*effect_str)
 		to_chat(L, span_warning("You cramp up! Too much water!"))
 
 /datum/reagent/water/holywater

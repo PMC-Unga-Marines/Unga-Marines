@@ -228,7 +228,7 @@
 					OXY:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=oxygen' id='oxygen'>[M.get_oxy_loss()]</a>
 					CLONE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=clone' id='clone'>[M.get_clone_Loss()]</a>
 					BRAIN:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brain' id='brain'>[M.get_brain_loss()]</a>
-					STAMINA:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=stamina' id='stamina'>[M.getStaminaLoss()]</a>
+					STAMINA:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=stamina' id='stamina'>[M.get_stamina_loss()]</a>
 				</font>
 			"}
 	else if("name" in D.vars)
@@ -1047,8 +1047,8 @@
 				L.adjust_clone_Loss(amount)
 				newamt = L.get_clone_Loss()
 			if(STAMINA)
-				L.adjustStaminaLoss(amount)
-				newamt = L.getStaminaLoss()
+				L.adjust_stamina_loss(amount)
+				newamt = L.get_stamina_loss()
 
 		if(amount == 0)
 			return
