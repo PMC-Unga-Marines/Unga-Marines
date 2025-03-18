@@ -248,7 +248,7 @@
 	SEND_SIGNAL(victim, COMSIG_HUMAN_DAMAGE_TAKEN, damage)
 
 	if(updating_health)
-		victim.updatehealth()
+		victim.update_health()
 	return damage
 
 /// Handles how the species hugs another mobs.

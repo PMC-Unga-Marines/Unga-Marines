@@ -139,7 +139,7 @@
 	adjust_fire_loss(-(needed_healing - brute_healing))
 
 	maxHealth = new_max_health
-	updatehealth()
+	update_health()
 
 /mob/living/carbon/xenomorph/proc/generate_nicknumber()
 	//We don't have a nicknumber yet, assign one to stick with us

@@ -192,7 +192,7 @@
 			heal_toxin = 0
 			say("Chelation complete.")
 	if(updating_health)
-		occupant.updatehealth()
+		occupant.update_health()
 
 /obj/machinery/autodoc/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	if(!occupant)
@@ -524,7 +524,7 @@
 							break
 						S.limb_ref.robotize()
 						occupant.update_body()
-						occupant.updatehealth()
+						occupant.update_health()
 						occupant.UpdateDamageIcon()
 
 					if(ADSURGERY_NECRO)
@@ -660,7 +660,7 @@
 		L.createwound(CUT, 1)
 		L.clamp_bleeder() //Hemostat function, clamp bleeders
 		L.surgery_open_stage = 2 //Can immediately proceed to other surgery steps
-		target.updatehealth()
+		target.update_health()
 
 /obj/machinery/autodoc/proc/close_incision(mob/living/carbon/human/target, datum/limb/L)
 	if(target && L && 0 < L.surgery_open_stage <= 2)
@@ -670,7 +670,7 @@
 		L.surgery_open_stage = 0
 		L.germ_level = 0
 		L.remove_limb_flags(LIMB_BLEEDING)
-		target.updatehealth()
+		target.update_health()
 
 /obj/machinery/autodoc/proc/open_encased(mob/living/carbon/human/target, datum/limb/L)
 	if(target && L && L.surgery_open_stage >= 2)

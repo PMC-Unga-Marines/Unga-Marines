@@ -15,7 +15,7 @@
 	. = ..()
 	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
 	xenomorph_owner.plasma_stored += pantherplasmaheal
-	HEAL_XENO_DAMAGE(xenomorph_owner, pantherlifesteal, FALSE)
+	xenomorph_owner.heal_xeno_damage(pantherlifesteal, FALSE)
 
 ///////////////////////////////////
 // ***************************************

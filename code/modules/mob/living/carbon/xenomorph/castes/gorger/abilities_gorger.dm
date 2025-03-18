@@ -133,7 +133,7 @@
 		var/overheal_gain = 0
 		while((owner_xeno.health < owner_xeno.maxHealth || owner_xeno.overheal < owner_xeno.xeno_caste.overheal_max) &&do_after(owner_xeno, 2 SECONDS, NONE, target_human, BUSY_ICON_HOSTILE))
 			overheal_gain = owner_xeno.heal_wounds(2.2)
-			adjustOverheal(owner_xeno, overheal_gain)
+			owner_xeno.adjust_overheal(overheal_gain)
 			owner_xeno.adjust_sunder(-2.5)
 		to_chat(owner_xeno, span_notice("We feel fully restored."))
 		return
@@ -154,8 +154,8 @@
 		target_human.apply_damage(damage = 4, damagetype = BRUTE, def_zone = BODY_ZONE_HEAD, blocked = 0, sharp = TRUE, edge = FALSE, updating_health = TRUE)
 
 		var/drain_heal = GORGER_DRAIN_HEAL
-		HEAL_XENO_DAMAGE(owner_xeno, drain_heal, TRUE) // this define shitcoded proc errors if we have a define inside of a define
-		adjustOverheal(owner_xeno, drain_heal)
+		owner_xeno.heal_xeno_damage(drain_heal, TRUE) // this define shitcoded proc errors if we have a define inside of a define
+		owner_xeno.adjust_overheal(drain_heal)
 		owner_xeno.gain_plasma(owner_xeno.xeno_caste.drain_plasma_gain)
 
 	REMOVE_TRAIT(owner_xeno, TRAIT_HANDS_BLOCKED, src)
@@ -230,11 +230,11 @@
 	var/mob/living/carbon/xenomorph/owner_xeno = owner
 	var/mob/living/carbon/xenomorph/target_xeno = target
 	var/heal_amount = target_xeno.maxHealth * GORGER_TRANSFUSION_HEAL
-	HEAL_XENO_DAMAGE(target_xeno, heal_amount, FALSE)
+	target_xeno.heal_xeno_damage(heal_amount, FALSE)
 	if(owner.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.heals++
-	adjustOverheal(target_xeno, heal_amount)
+	target_xeno.adjust_overheal(heal_amount)
 	new /obj/effect/temp_visual/healing(get_turf(target_xeno))
 	if(target_xeno.overheal)
 		target_xeno.balloon_alert(owner_xeno, "Overheal: [target_xeno.overheal]/[target_xeno.xeno_caste.overheal_max]")
@@ -470,8 +470,8 @@
 		if(owner_xeno.issamexenohive(M))  //Xenos in range will be healed and overhealed, including you.
 			var/mob/living/carbon/xenomorph/target_xeno = M
 			var/heal_amount = M.maxHealth * GORGER_OPPOSE_HEAL
-			HEAL_XENO_DAMAGE(target_xeno, heal_amount, FALSE)
-			adjustOverheal(target_xeno, heal_amount)
+			target_xeno.heal_xeno_damage(heal_amount, FALSE)
+			target_xeno.adjust_overheal(heal_amount)
 			new /obj/effect/temp_visual/healing(get_turf(target_xeno))
 			if(owner.client)
 				var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]

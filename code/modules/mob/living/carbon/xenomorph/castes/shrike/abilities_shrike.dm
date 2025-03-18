@@ -324,7 +324,7 @@
 		patient.SetParalyzed(0)
 		patient.set_stagger(0)
 		patient.set_slowdown(0)
-	patient.updatehealth()
+	patient.update_health()
 
 	owner.changeNext_move(CLICK_CD_RANGE)
 

@@ -39,7 +39,7 @@
 	span_notice("You cut off [target]'s [affected.display_name] with \the [tool]."))
 	target.balloon_alert_to_viewers("Success")
 	affected.droplimb(1)
-	target.updatehealth()
+	target.update_health()
 	return ..()
 
 /datum/surgery_step/generic/cut_limb/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)

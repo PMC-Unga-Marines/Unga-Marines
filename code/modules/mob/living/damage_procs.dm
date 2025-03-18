@@ -41,7 +41,7 @@
 		if(STAMINA)
 			adjust_stamina_loss(damage)
 	if(updating_health)
-		updatehealth()
+		update_health()
 	return damage
 
 ///Used to apply multiple types of damage to a mob at the same time
@@ -57,7 +57,7 @@
 	if(clone)
 		apply_damage(clone, CLONE, def_zone, blocked, sharp, edge, FALSE, penetration)
 	if(updating_health)
-		updatehealth()
+		update_health()
 	return TRUE
 
 
@@ -67,7 +67,7 @@ Apply status effect to mob
 Arguments
 	*effect: duration or amount of effect
 	*effecttype which affect to apply
-	*updating_health if we should update health [/mob/living/updatehealth]
+	*updating_health if we should update health [/mob/living/update_health]
 */
 /mob/living/proc/apply_effect(effect = 0, effecttype = STUN, updating_health = FALSE)
 	if(status_flags & GODMODE)
@@ -94,7 +94,7 @@ Arguments
 		if(DROWSY)
 			adjust_drowsyness(effect)
 	if(updating_health)
-		updatehealth()
+		update_health()
 	return TRUE
 
 ///Applies multiple negative effects to a mob
@@ -116,5 +116,5 @@ Arguments
 	if(agony)
 		apply_effect(agony, AGONY)
 	if(updating_health)
-		updatehealth()
+		update_health()
 	return TRUE

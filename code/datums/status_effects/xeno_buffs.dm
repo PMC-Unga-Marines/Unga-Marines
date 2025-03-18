@@ -374,7 +374,7 @@
 	to_chat(owner_xeno, span_notice("We feel our wounds close up."))
 
 	var/amount = owner_xeno.maxHealth * GORGER_REJUVENATE_HEAL
-	HEAL_XENO_DAMAGE(owner_xeno, amount, FALSE)
+	owner_xeno.heal_xeno_damage(amount, FALSE)
 	tick_damage = 0
 
 ///Handles damage received when the status effect is active
@@ -574,8 +574,8 @@
 /datum/status_effect/xeno_carnage/proc/do_carnage_slash(datum/source, mob/living/target, damage)
 	var/mob/living/carbon/xenomorph/owner_xeno = owner
 	var/owner_heal = healing_on_hit
-	HEAL_XENO_DAMAGE(owner_xeno, owner_heal, FALSE)
-	adjustOverheal(owner_xeno, owner_heal * 0.5)
+	owner_xeno.heal_xeno_damage(owner_heal, FALSE)
+	owner_xeno.adjust_overheal(owner_heal * 0.5)
 
 	if(plasma_mod >= HIGN_THRESHOLD)
 		owner_xeno.AdjustImmobilized(KNOCKDOWN_DURATION)
@@ -591,7 +591,7 @@
 			if(target_xeno == owner_xeno)
 				continue
 			var/heal_amount = healing_on_hit
-			HEAL_XENO_DAMAGE(target_xeno, heal_amount, FALSE)
+			target_xeno.heal_xeno_damage(heal_amount, FALSE)
 			new /obj/effect/temp_visual/telekinesis(get_turf(target_xeno))
 			to_chat(target_xeno, span_notice("You feel your wounds being restored by [owner_xeno]'s pheromones."))
 
@@ -639,8 +639,8 @@
 		xeno_owner.remove_status_effect(STATUS_EFFECT_XENO_FEAST)
 
 	var/heal_amount = xeno_owner.maxHealth * 0.08
-	HEAL_XENO_DAMAGE(xeno_owner, heal_amount, FALSE)
-	adjustOverheal(xeno_owner, heal_amount * 0.5)
+	xeno_owner.heal_xeno_damage(heal_amount, FALSE)
+	xeno_owner.adjust_overheal(heal_amount * 0.5)
 	xeno_owner.use_plasma(plasma_drain)
 
 	for(var/mob/living/carbon/xenomorph/target_xeno AS in cheap_get_xenos_near(xeno_owner, 4))
@@ -648,10 +648,9 @@
 			continue
 		if(target_xeno.faction != xeno_owner.faction)
 			continue
-		HEAL_XENO_DAMAGE(target_xeno, heal_amount, FALSE)
-		adjustOverheal(target_xeno, heal_amount * 0.5)
+		target_xeno.heal_xeno_damage(heal_amount, FALSE)
+		target_xeno.adjust_overheal(heal_amount * 0.5)
 		new /obj/effect/temp_visual/healing(get_turf(target_xeno))
-
 
 // ***************************************
 // *********** FRENZY SCREECH
@@ -1025,9 +1024,9 @@
 	chamber_scaling = length(buff_owner.hive.shell_chambers)
 	if(chamber_scaling > 0)
 		var/amount = buff_owner.maxHealth * regen_buff_per_chamber * chamber_scaling * (1 + buff_owner.recovery_aura * 0.05)
-		HEAL_XENO_DAMAGE(buff_owner, amount, FALSE)
+		buff_owner.heal_xeno_damage(amount, FALSE)
 		buff_owner.adjust_sunder(-sunder_regen_per_chamber * chamber_scaling)
-		buff_owner.updatehealth()
+		buff_owner.update_health()
 	return ..()
 
 // ***************************************
@@ -1075,7 +1074,7 @@
 	var/fireloss_healed = clamp(bruteloss_healed - buff_owner.bruteloss, 0, bruteloss_healed)
 	buff_owner.adjust_brute_loss(-bruteloss_healed)
 	buff_owner.adjust_fire_loss(-fireloss_healed)
-	buff_owner.updatehealth()
+	buff_owner.update_health()
 
 // ***************************************
 // *********** Upgrade Chambers Buffs - Attack

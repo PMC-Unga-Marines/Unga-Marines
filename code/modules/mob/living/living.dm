@@ -8,7 +8,7 @@
 
 	handle_organs()
 
-	updatehealth()
+	update_health()
 
 	if(client)
 		var/turf/T = get_turf(src)
@@ -89,7 +89,7 @@
 	if(!client)
 		return FALSE
 
-/mob/living/proc/updatehealth()
+/mob/living/proc/update_health()
 	if(status_flags & GODMODE)
 		health = maxHealth
 		stat = CONSCIOUS
@@ -738,7 +738,7 @@
 		if("eye_blurry")
 			set_blurriness(var_value)
 		if("maxHealth")
-			updatehealth()
+			update_health()
 		if("resize")
 			update_transform()
 		if("lighting_alpha")

@@ -618,7 +618,7 @@
 	span_xenowarning("We feel enraged after taking in oncoming damage! Our tail slam's cooldown is reset and we heal!"))
 
 	var/mob/living/carbon/xenomorph/enraged_mob = owner
-	HEAL_XENO_DAMAGE(enraged_mob, heal_amount, FALSE)
+	enraged_mob.heal_xeno_damage(heal_amount, FALSE)
 	enraged_mob.adjust_sunder(-heal_sunder_amount)
 
 	addtimer(CALLBACK(src, PROC_REF(remove_enrage), owner), 3 SECONDS)

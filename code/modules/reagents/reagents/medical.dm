@@ -445,7 +445,7 @@
 
 /datum/reagent/medicine/adminordrazine/on_mob_life(mob/living/L, metabolism)
 	L.reagents.remove_all_type(/datum/reagent/toxin, 2.5*effect_str, 0, 1)
-	L.setCloneLoss(0)
+	L.set_clone_loss(0)
 	L.set_oxy_loss(0)
 	L.heal_overall_damage(5, 5)
 	L.adjust_tox_loss(-5)

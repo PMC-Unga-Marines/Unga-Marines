@@ -48,7 +48,7 @@
 	target.balloon_alert_to_viewers("Slipped!")
 	affected.createwound(CUT, 60)
 	target.Losebreath(10)
-	target.updatehealth()
+	target.update_health()
 	affected.update_wounds()
 
 
@@ -81,7 +81,7 @@
 	span_warning("Your hand slips, clamping [user]'s trachea shut for a moment with \the [tool]!"))
 	target.balloon_alert_to_viewers("Slipped!")
 	target.Losebreath(10)
-	target.updatehealth()
+	target.update_health()
 
 
 /datum/surgery_step/face/fix_face

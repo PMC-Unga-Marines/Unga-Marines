@@ -7,7 +7,7 @@
 		SSmobs.stop_processing(src)
 		return
 
-	updatehealth()
+	update_health()
 
 	interactee?.check_eye(src)
 
@@ -25,7 +25,7 @@
 			set_stat(CONSCIOUS)
 
 
-/mob/living/silicon/ai/updatehealth()
+/mob/living/silicon/ai/update_health()
 	if(status_flags & GODMODE)
 		return
 

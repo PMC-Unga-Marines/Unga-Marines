@@ -171,7 +171,7 @@
 		new /obj/effect/temp_visual/drain_sting_crit(get_turf(xeno_target))
 	xeno_target.adjust_fire_loss(drain_potency / 5)
 	xeno_target.AdjustKnockdown(max(0.1 SECONDS, debuff.stacks - 10))
-	HEAL_XENO_DAMAGE(xeno_owner, drain_potency, FALSE)
+	xeno_owner.heal_xeno_damage(drain_potency, FALSE)
 	xeno_owner.gain_plasma(drain_potency * 3.5)
 	xeno_owner.do_attack_animation(xeno_target, ATTACK_EFFECT_DRAIN_STING)
 	playsound(owner.loc, 'sound/effects/alien/tail_swipe1.ogg', 30)

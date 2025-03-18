@@ -54,7 +54,7 @@
 	affected.createwound(CUT, 1)
 	affected.clamp_bleeder() //Hemostat function, clamp bleeders
 	affected.surgery_open_stage = 2 //Can immediately proceed to other surgery steps
-	target.updatehealth()
+	target.update_health()
 	return ..()
 
 /datum/surgery_step/generic/incision_manager/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
@@ -151,7 +151,7 @@
 		affected.add_limb_flags(LIMB_BLEEDING)
 
 	affected.createwound(CUT, 1)
-	target.updatehealth()
+	target.update_health()
 	return ..()
 
 /datum/surgery_step/generic/cut_open/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)

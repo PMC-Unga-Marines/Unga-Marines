@@ -114,16 +114,35 @@
 
 	xeno_message("Our sister [name] is badly hurt with <font color='red'>([health]/[maxHealth])</font> health remaining at [AREACOORD_NO_Z(src)]!", "xenoannounce", 5, hivenumber, FALSE, src, 'sound/voice/alien/help1.ogg', TRUE, filter_list, /atom/movable/screen/arrow/silo_damaged_arrow)
 	COOLDOWN_START(src, xeno_health_alert_cooldown, XENO_HEALTH_ALERT_COOLDOWN) //set the cooldown.
-
 	return damage
 
-///Handles overheal for xeno receiving damage
-#define HANDLE_OVERHEAL(amount) \
-	if(overheal && amount > 0) { \
-		var/reduction = min(amount, overheal); \
-		amount -= reduction; \
-		adjustOverheal(src, -reduction); \
-	} \
+/// Handles overheal for xeno receiving damage
+/mob/living/carbon/xenomorph/proc/handle_overheal(amount)
+	if(overheal && amount > 0)
+		var/reduction = min(amount, overheal)
+		amount -= reduction
+		adjust_overheal(-reduction)
+
+/// Adjusts overheal and returns the amount by which it was adjusted
+/mob/living/carbon/xenomorph/proc/adjust_overheal(amount)
+	overheal = max(min(overheal + amount, xeno_caste.overheal_max), 0)
+	if(overheal > 0)
+		add_filter("overheal_vis", 1, outline_filter(4 * (overheal / xeno_caste.overheal_max), "#60ce6f60"))
+	else
+		remove_filter("overheal_vis")
+
+/// Heals a xeno, respecting different types of damage
+/mob/living/carbon/xenomorph/proc/heal_xeno_damage(amount, passive)
+	var/fire_loss = get_fire_loss()
+	if(fire_loss)
+		var/fire_heal = min(fire_loss, amount)
+		amount -= fire_heal
+		adjust_fire_loss(-fire_heal, TRUE, passive)
+	var/brute_loss = get_brute_loss()
+	if(brute_loss)
+		var/brute_heal = min(brute_loss, amount)
+		amount -= brute_heal
+		adjust_brute_loss(-brute_heal, TRUE, passive)
 
 /mob/living/carbon/xenomorph/adjust_brute_loss(amount, updating_health = FALSE, passive = FALSE)
 	var/list/amount_mod = list()
@@ -131,7 +150,7 @@
 	for(var/i in amount_mod)
 		amount -= i
 
-	HANDLE_OVERHEAL(amount)
+	handle_overheal(amount)
 
 	bruteloss = max(bruteloss + amount, 0)
 
@@ -144,14 +163,12 @@
 	for(var/i in amount_mod)
 		amount -= i
 
-	HANDLE_OVERHEAL(amount)
+	handle_overheal(amount)
 
 	fireloss = max(fireloss + amount, 0)
 
 	if(updating_health)
 		update_health()
-
-#undef HANDLE_OVERHEAL
 
 ///Splashes living mob in 1 tile radius with acid, spawns
 /mob/living/carbon/xenomorph/proc/check_blood_splash(damage = 0, damtype = BRUTE, chancemod = 0, sharp = FALSE, edge = FALSE)

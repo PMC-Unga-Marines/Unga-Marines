@@ -1,7 +1,7 @@
 #define MAX_BRAINLOSS 200
 
 //Updates the mob's health from limbs and mob damage variables
-/mob/living/carbon/human/updatehealth()
+/mob/living/carbon/human/update_health()
 	if(status_flags & GODMODE)
 		health = maxHealth
 		set_stat(CONSCIOUS)
@@ -141,25 +141,23 @@
 				O.heal_limb_damage(burn = -amount, robo_repair = (O.limb_status & LIMB_ROBOT))
 			break
 
-
 /mob/living/carbon/human/get_clone_Loss()
 	if(species.species_flags & (IS_SYNTHETIC|NO_SCAN))
 		cloneloss = 0
 	return ..()
 
-/mob/living/carbon/human/setCloneLoss(amount)
+/mob/living/carbon/human/set_clone_loss(amount)
 	if(species.species_flags & (IS_SYNTHETIC|NO_SCAN))
 		cloneloss = 0
-	else
-		..()
+		return
+	return ..()
 
 /mob/living/carbon/human/adjust_clone_Loss(amount)
-	..()
+	. = ..()
 
 	if(species.species_flags & (IS_SYNTHETIC|NO_SCAN))
 		cloneloss = 0
 		return
-
 
 /mob/living/carbon/human/adjust_oxy_loss(amount, forced = FALSE)
 	if(species.species_flags & NO_BREATHE && !forced)
@@ -274,7 +272,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 
 		parts -= picked
 	if(updating_health)
-		updatehealth()
+		update_health()
 	if(update)
 		UpdateDamageIcon()
 
@@ -295,7 +293,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 		apply_damage(damage, damagetype, picked, armortype, sharp, edge, FALSE, penetration)
 
 	if(updating_health)
-		updatehealth()
+		update_health()
 
 ////////////////////////////////////////////
 
@@ -316,7 +314,7 @@ This function restores all limbs.
 			internal_organs_by_name[organ_slot] = IO
 
 	if(updating_health)
-		updatehealth()
+		update_health()
 
 
 /mob/living/carbon/human/proc/HealDamage(zone, brute, burn)

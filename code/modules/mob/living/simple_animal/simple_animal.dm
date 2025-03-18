@@ -75,7 +75,7 @@
 
 	return ..()
 
-/mob/living/simple_animal/updatehealth()
+/mob/living/simple_animal/update_health()
 	. = ..()
 	health = clamp(health, 0, maxHealth)
 
@@ -334,5 +334,5 @@
 		return FALSE
 	bruteloss = round(clamp(bruteloss + amount, 0, maxHealth), 0.1)
 	if(updating_health)
-		updatehealth()
+		update_health()
 	return amount
