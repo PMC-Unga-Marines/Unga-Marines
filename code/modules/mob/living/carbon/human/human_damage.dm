@@ -30,7 +30,7 @@
 	else
 		remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN)
 
-/mob/living/carbon/human/adjustBrainLoss(amount, silent = FALSE)
+/mob/living/carbon/human/adjust_brain_loss(amount, silent = FALSE)
 
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
@@ -61,7 +61,7 @@
 	else
 		brainloss = 0
 
-/mob/living/carbon/human/getBrainLoss()
+/mob/living/carbon/human/get_brain_loss()
 
 	if(status_flags & GODMODE)
 		return FALSE	//godmode

@@ -27,7 +27,7 @@
 		L.adjust_tox_loss(-3)
 		L.adjust_oxy_loss(-3)
 		L.adjustCloneLoss(-3)
-		L.adjustBrainLoss(-3)
+		L.adjust_brain_loss(-3)
 		L.adjustDrowsyness(-10)
 		L.AdjustUnconscious(-40)
 		L.AdjustStun(-40)
@@ -59,5 +59,5 @@
 
 /datum/reagent/thwei/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(2*effect_str, 3*effect_str)
-	L.adjustBrainLoss(1.5*effect_str, TRUE)
+	L.adjust_brain_loss(1.5*effect_str, TRUE)
 

@@ -80,7 +80,7 @@
 /mob/living/silicon/setCloneLoss(amount)
 	return FALSE
 
-/mob/living/silicon/adjustBrainLoss(amount)
+/mob/living/silicon/adjust_brain_loss(amount)
 	return FALSE
 
 /mob/living/silicon/setBrainLoss(amount)

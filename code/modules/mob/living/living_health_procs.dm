@@ -145,10 +145,10 @@
 		return FALSE	//godmode
 	cloneloss = amount
 
-/mob/living/proc/getBrainLoss()
+/mob/living/proc/get_brain_loss()
 	return brainloss
 
-/mob/living/proc/adjustBrainLoss(amount)
+/mob/living/proc/adjust_brain_loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	brainloss = clamp(brainloss+amount,0,maxHealth*2)

@@ -206,7 +206,7 @@
 	L.adjust_tox_loss(2.5*effect_str, TRUE)
 
 /datum/reagent/medicine/hydrocodone/overdose_crit_process(mob/living/L, metabolism)
-	L.adjustBrainLoss(1.5*effect_str, TRUE)
+	L.adjust_brain_loss(1.5*effect_str, TRUE)
 
 /datum/reagent/medicine/leporazine
 	name = "Leporazine"
@@ -392,7 +392,7 @@
 
 /datum/reagent/medicine/tricordrazine/overdose_process(mob/living/L, metabolism)
 	L.jitter(5)
-	L.adjustBrainLoss(effect_str, TRUE)
+	L.adjust_brain_loss(effect_str, TRUE)
 
 /datum/reagent/medicine/tricordrazine/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(3*effect_str, 3*effect_str, 3*effect_str)
@@ -615,7 +615,7 @@
 	L.adjust_tox_loss(2.5*effect_str, TRUE)
 
 /datum/reagent/medicine/neuraline/overdose_crit_process(mob/living/L, metabolism)
-	L.adjustBrainLoss(10*effect_str, TRUE) //if you double inject, you're fucked till surgery. This is the downside of a very strong chem.
+	L.adjust_brain_loss(10*effect_str, TRUE) //if you double inject, you're fucked till surgery. This is the downside of a very strong chem.
 
 /datum/reagent/medicine/hyronalin
 	name = "Hyronalin"
@@ -691,7 +691,7 @@
 
 /datum/reagent/medicine/russian_red/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(effect_str, 2*effect_str, effect_str)
-	L.adjustBrainLoss(2*effect_str, TRUE)
+	L.adjust_brain_loss(2*effect_str, TRUE)
 
 /datum/reagent/medicine/alkysine
 	name = "Alkysine"
@@ -707,7 +707,7 @@
 		var/mob/living/carbon/human/H = L
 		var/datum/internal_organ/brain/B = H.get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(B.damage < 30)
-			L.adjustBrainLoss(-1.5*effect_str)
+			L.adjust_brain_loss(-1.5*effect_str)
 			L.adjust_tox_loss(-1.5 * effect_str)
 	L.adjust_ear_damage(-2 * effect_str, -2 * effect_str)
 	return ..()
@@ -1059,7 +1059,7 @@
 		L.hallucination += 20
 		L.dizzy(60)
 	L.adjust_tox_loss(0.1*effect_str)
-	L.adjustBrainLoss(0.1*effect_str, TRUE)
+	L.adjust_brain_loss(0.1*effect_str, TRUE)
 
 /datum/reagent/medicine/ultrazine/addiction_act_stage4(mob/living/L, metabolism)
 	if(prob(10))
@@ -1072,7 +1072,7 @@
 		L.hallucination += 30
 		L.dizzy(80)
 	L.adjust_tox_loss(0.3*effect_str)
-	L.adjustBrainLoss(0.1*effect_str, TRUE)
+	L.adjust_brain_loss(0.1*effect_str, TRUE)
 	if(prob(15) && ishuman(L))
 		var/mob/living/carbon/human/H = L
 		var/affected_organ = pick(ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_LIVER, ORGAN_SLOT_KIDNEYS, ORGAN_SLOT_STOMACH)

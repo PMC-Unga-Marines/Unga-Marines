@@ -160,7 +160,7 @@
 
 /datum/reagent/toxin/mindbreaker/overdose_crit_process(mob/living/L, metabolism)
 	L.adjust_tox_loss(1)
-	L.adjustBrainLoss(1, TRUE)
+	L.adjust_brain_loss(1, TRUE)
 	L.jitter(5)
 	if(prob(10) && !L.stat)
 		L.Unconscious(10 SECONDS)

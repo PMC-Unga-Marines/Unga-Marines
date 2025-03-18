@@ -179,7 +179,7 @@
 	if(TIMER_COOLDOWN_CHECK(activator, "Koran"))
 		activator.balloon_alert(activator, "Allah has already helped you")
 		if(TIMER_COOLDOWN_CHECK(activator, "KoranSpam"))
-			activator.adjustBrainLoss(1, TRUE)
+			activator.adjust_brain_loss(1, TRUE)
 			return
 		return
 	if(!((activator.religion == "Islam (Shia)") || (activator.religion == "Islam (Sunni)")))

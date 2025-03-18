@@ -198,7 +198,7 @@ SUBSYSTEM_DEF(blackbox)
 			"lakey" = L.ckey,
 			"brute" = L.get_brute_loss(),
 			"fire" = L.get_fire_loss(),
-			"brain" = L.getBrainLoss(),
+			"brain" = L.get_brain_loss(),
 			"oxy" = L.get_oxy_loss(),
 			"tox" = L.get_tox_loss(),
 			"clone" = L.getCloneLoss(),

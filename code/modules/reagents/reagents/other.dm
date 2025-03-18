@@ -203,7 +203,7 @@
 		step(L, pick(GLOB.cardinals))
 	if(prob(5))
 		L.emote(pick("twitch","drool","moan"))
-	L.adjustBrainLoss(1, TRUE)
+	L.adjust_brain_loss(1, TRUE)
 	return ..()
 
 /datum/reagent/sulfur
@@ -527,7 +527,7 @@
 /datum/reagent/impedrezene/on_mob_life(mob/living/L, metabolism)
 	L.jitter(-5)
 	if(prob(80))
-		L.adjustBrainLoss(effect_str, TRUE)
+		L.adjust_brain_loss(effect_str, TRUE)
 	if(prob(50))
 		L.setDrowsyness(max(L.drowsyness, 3))
 	if(prob(10))

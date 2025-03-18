@@ -223,7 +223,7 @@
 
 	msg += "</span>"
 
-	if(getBrainLoss() >= 60)
+	if(get_brain_loss() >= 60)
 		msg += "[t_He] [t_has] a stupid expression on [t_his] face.\n"
 
 	if((!species.has_organ[ORGAN_SLOT_BRAIN] || has_brain()) && stat != DEAD)

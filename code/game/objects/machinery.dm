@@ -172,10 +172,10 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.getBrainLoss() >= 60)
+		if(H.get_brain_loss() >= 60)
 			visible_message(span_warning("[H] stares cluelessly at [src] and drools."))
 			return FALSE
-		if(prob(H.getBrainLoss()))
+		if(prob(H.get_brain_loss()))
 			to_chat(user, span_warning("You momentarily forget how to use [src]."))
 			return FALSE
 
@@ -266,7 +266,7 @@
 		"oxyloss" = H.get_oxy_loss(),
 		"toxloss" = H.get_tox_loss(),
 		"cloneloss" = H.getCloneLoss(),
-		"brainloss" = H.getBrainLoss(),
+		"brainloss" = H.get_brain_loss(),
 		"knocked_out" = H.AmountUnconscious(),
 		"bodytemp" = H.bodytemperature,
 		"inaprovaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/medicine/inaprovaline),

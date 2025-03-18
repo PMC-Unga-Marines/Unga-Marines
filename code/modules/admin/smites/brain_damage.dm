@@ -10,4 +10,4 @@
 		return
 
 	to_chat(target, span_userdanger("Your mind snaps under the strain of existence, you just can't take it anymore."), confidential = TRUE)
-	target.adjustBrainLoss(BRAIN_DAMAGE_DEATH - 1)
+	target.adjust_brain_loss(BRAIN_DAMAGE_DEATH - 1)
