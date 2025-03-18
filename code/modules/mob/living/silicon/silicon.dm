@@ -68,7 +68,7 @@
 /mob/living/silicon/apply_effect(effect = 0, effecttype = STUN, updating_health = FALSE)
 	return FALSE
 
-/mob/living/silicon/adjustToxLoss(amount)
+/mob/living/silicon/adjust_tox_loss(amount)
 	return FALSE
 
 /mob/living/silicon/setToxLoss(amount)

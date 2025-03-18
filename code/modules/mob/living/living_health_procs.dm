@@ -51,10 +51,10 @@
 	oxyloss = amount
 
 
-/mob/living/proc/getToxLoss()
+/mob/living/proc/get_tox_loss()
 	return toxloss
 
-/mob/living/proc/adjustToxLoss(amount)
+/mob/living/proc/adjust_tox_loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	toxloss = clamp(toxloss + amount, 0, maxHealth * 2)

@@ -469,7 +469,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 					COOLDOWN_START(src, next_infection_message, rand(60 SECONDS, 90 SECONDS))
 
 			if (prob(15))	//adjust this to tweak how fast people take toxin damage from infections
-				owner.adjustToxLoss(1)
+				owner.adjust_tox_loss(1)
 //LEVEL II
 	if(germ_level >= INFECTION_LEVEL_TWO && spaceacillin < 3)
 
@@ -481,7 +481,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 					COOLDOWN_START(src, next_infection_message, rand(25 SECONDS, 40 SECONDS))
 
 		if (prob(25))	//adjust this to tweak how fast people take toxin damage from infections
-			owner.adjustToxLoss(1)
+			owner.adjust_tox_loss(1)
 
 		//spread the infection to child and parent organs
 		if (children)
@@ -503,7 +503,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 		germ_level++
 		if (prob(50))	//adjust this to tweak how fast people take toxin damage from infections
-			owner.adjustToxLoss(1)
+			owner.adjust_tox_loss(1)
 		if (prob(1))
 			to_chat(owner, span_notice("You have a high fever!"))
 	//Not technically a germ effect, but derived from it

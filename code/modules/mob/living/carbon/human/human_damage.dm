@@ -13,7 +13,7 @@
 		total_burn	+= O.burn_dam
 
 	var/oxy_l = getOxyLoss()
-	var/tox_l = ((species.species_flags & NO_POISON) ? 0 : getToxLoss())
+	var/tox_l = ((species.species_flags & NO_POISON) ? 0 : get_tox_loss())
 	var/clone_l = getCloneLoss()
 
 	health = maxHealth - oxy_l - tox_l - clone_l - total_burn - total_brute
@@ -173,12 +173,12 @@
 		return
 	return ..()
 
-/mob/living/carbon/human/getToxLoss()
+/mob/living/carbon/human/get_tox_loss()
 	if(species.species_flags & NO_POISON)
 		toxloss = 0
 	return ..()
 
-/mob/living/carbon/human/adjustToxLoss(amount)
+/mob/living/carbon/human/adjust_tox_loss(amount)
 	if(species.species_flags & NO_POISON)
 		toxloss = 0
 	else

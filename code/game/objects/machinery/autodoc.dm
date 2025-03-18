@@ -136,7 +136,7 @@
 
 	// keep them alive
 	var/updating_health = FALSE
-	occupant.adjustToxLoss(-0.5) // pretend they get IV dylovene
+	occupant.adjust_tox_loss(-0.5) // pretend they get IV dylovene
 	occupant.adjustOxyLoss(-occupant.getOxyLoss()) // keep them breathing, pretend they get IV dexalinplus
 	if(filtering)
 		var/filtered = 0
@@ -182,8 +182,8 @@
 			heal_burn = 0
 			say("Skin grafts complete.")
 	if(heal_toxin)
-		if(occupant.getToxLoss() > 0)
-			occupant.adjustToxLoss(-3)
+		if(occupant.get_tox_loss() > 0)
+			occupant.adjust_tox_loss(-3)
 			updating_health = TRUE
 			if(prob(10))
 				visible_message("[src] whirrs and gurgles as it kelates the occupant.")
@@ -282,7 +282,7 @@
 		surgery_list += create_autodoc_surgery(null,EXTERNAL_SURGERY,ADSURGERY_BRUTE)
 	if(M.get_fire_loss() > 0)
 		surgery_list += create_autodoc_surgery(null,EXTERNAL_SURGERY,ADSURGERY_BURN)
-	if(M.getToxLoss() > 0)
+	if(M.get_tox_loss() > 0)
 		surgery_list += create_autodoc_surgery(null,EXTERNAL_SURGERY,ADSURGERY_TOXIN)
 	var/overdose = FALSE
 	for(var/datum/reagent/x in M.reagents.reagent_list)
@@ -1035,7 +1035,7 @@
 	dat += "[pulse == PULSE_NONE || pulse == PULSE_THREADY ? "<font color='#b54646'>" : "<font color='#487553'>"]\t-Pulse, bpm: [connected.occupant.get_pulse(GETPULSE_TOOL)]</FONT><BR>"
 	dat += "[connected.occupant.get_brute_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Brute Damage %: [connected.occupant.get_brute_loss()]</FONT><BR>"
 	dat += "[connected.occupant.getOxyLoss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Respiratory Damage %: [connected.occupant.getOxyLoss()]</FONT><BR>"
-	dat += "[connected.occupant.getToxLoss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Toxin Content %: [connected.occupant.getToxLoss()]</FONT><BR>"
+	dat += "[connected.occupant.get_tox_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Toxin Content %: [connected.occupant.get_tox_loss()]</FONT><BR>"
 	dat += "[connected.occupant.get_fire_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Burn Severity %: [connected.occupant.get_fire_loss()]</FONT><BR>"
 
 	dat += "<hr> Surgery Queue:<br>"

@@ -20,7 +20,7 @@
 			//blood
 			handle_blood()
 
-			if(stat == CONSCIOUS && getToxLoss() >= 45 && nutrition > 20)
+			if(stat == CONSCIOUS && get_tox_loss() >= 45 && nutrition > 20)
 				vomit()
 
 			handle_pain_levels()

@@ -129,7 +129,7 @@
 	owner.adjustCloneLoss(-3)
 	owner.adjustOxyLoss(-5)
 	owner.heal_overall_damage(5, 5)
-	owner.adjustToxLoss(-3)
+	owner.adjust_tox_loss(-3)
 
 /atom/movable/screen/alert/status_effect/reknit_form
 	name = "Reknit form"

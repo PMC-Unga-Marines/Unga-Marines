@@ -129,7 +129,7 @@
 
 /datum/internal_organ/liver/process()
 	//High toxins levels are dangerous if you aren't actively treating them. 100 seconds to hit bruised from this alone
-	if(owner.getToxLoss() >= (80 - 20 * organ_status))
+	if(owner.get_tox_loss() >= (80 - 20 * organ_status))
 		//Healthy liver suffers on its own
 		if(organ_status != ORGAN_BROKEN)
 			take_damage(0.2, TRUE)
@@ -139,7 +139,7 @@
 			O?.take_damage(0.2, TRUE)
 
 	// Heal a bit if needed and we're not busy. This allows recovery from low amounts of toxins.
-	if(!owner.drunkenness && owner.getToxLoss() <= 15 && organ_status == ORGAN_HEALTHY)
+	if(!owner.drunkenness && owner.get_tox_loss() <= 15 && organ_status == ORGAN_HEALTHY)
 		heal_organ_damage(0.04)
 
 	// Do some reagent filtering/processing.
@@ -147,11 +147,11 @@
 		//Liver helps clear out any toxins but with drawbacks if damaged
 		if(istype(potential_toxin, /datum/reagent/consumable/ethanol) || istype(potential_toxin, /datum/reagent/toxin))
 			if(organ_status != ORGAN_HEALTHY)
-				owner.adjustToxLoss(0.3 * organ_status)
+				owner.adjust_tox_loss(0.3 * organ_status)
 			owner.reagents.remove_reagent(potential_toxin.type, potential_toxin.custom_metabolism * filter_rate * 0.1)
 
 	//Heal toxin damage slowly if not damaged. If broken, increase it instead.
-	owner.adjustToxLoss((2 - filter_rate) * 0.1)
+	owner.adjust_tox_loss((2 - filter_rate) * 0.1)
 	if(prob(organ_status)) //Just under once every three minutes while bruised, twice as often while broken.
 		owner.vomit() //No stomach, so the liver can cause vomiting instead. Stagger and slowdown plus feedback that something's wrong.
 

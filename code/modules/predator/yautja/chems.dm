@@ -24,7 +24,7 @@
 		L.hallucination = 0
 		L.dizziness = 0
 		L.adjustStaminaLoss(-15)
-		L.adjustToxLoss(-3)
+		L.adjust_tox_loss(-3)
 		L.adjustOxyLoss(-3)
 		L.adjustCloneLoss(-3)
 		L.adjustBrainLoss(-3)
@@ -40,7 +40,7 @@
 				X.add_limb_flags(LIMB_STABILIZED)
 	else
 		L.vomit()
-		L.adjustToxLoss(0.1)
+		L.adjust_tox_loss(0.1)
 		L.adjust_fire_loss(0.1)
 		L.hallucination += 20
 		L.jitter(8)

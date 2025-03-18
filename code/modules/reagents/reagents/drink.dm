@@ -50,7 +50,7 @@
 	taste_description = "unbearable sourness"
 
 /datum/reagent/consumable/drink/limejuice/on_mob_life(mob/living/L, metabolism)
-	L.adjustToxLoss(-0.2)
+	L.adjust_tox_loss(-0.2)
 	return ..()
 
 /datum/reagent/consumable/drink/carrotjuice
@@ -107,7 +107,7 @@
 	taste_description = "berries"
 
 /datum/reagent/consumable/drink/poisonberryjuice/on_mob_life(mob/living/L, metabolism)
-	L.adjustToxLoss(1)
+	L.adjust_tox_loss(1)
 	return ..()
 
 /datum/reagent/consumable/drink/watermelonjuice
@@ -320,7 +320,7 @@
 	adj_temp = 10
 
 /datum/reagent/consumable/drink/tea/on_mob_life(mob/living/L, metabolism)
-	L.adjustToxLoss(-0.2)
+	L.adjust_tox_loss(-0.2)
 	return ..()
 
 /datum/reagent/consumable/drink/tea/icetea
@@ -478,7 +478,7 @@
 			L.Sleeping(6 SECONDS)
 		if(201 to INFINITY)
 			L.Sleeping(6 SECONDS)
-			L.adjustToxLoss(2)
+			L.adjust_tox_loss(2)
 	return ..()
 
 /datum/reagent/consumable/drink/gargle_blaster
@@ -508,7 +508,7 @@
 			L.set_drugginess(50)
 			L.AdjustConfused(4 SECONDS)
 			L.adjust_timed_status_effect(2 SECONDS, /datum/status_effect/speech/slurring/drunk)
-			L.adjustToxLoss(2)
+			L.adjust_tox_loss(2)
 			L.jitter(5)
 			if(prob(10))
 				L.vomit()
@@ -537,7 +537,7 @@
 			L.set_drugginess(30)
 		if(201 to INFINITY)
 			L.set_drugginess(30)
-			L.adjustToxLoss(2)
+			L.adjust_tox_loss(2)
 	return ..()
 
 /datum/reagent/consumable/drink/hippies_delight
@@ -573,5 +573,5 @@
 			L.set_drugginess(75)
 			if(prob(40))
 				L.emote(pick("twitch","giggle"))
-			L.adjustToxLoss(0.6)
+			L.adjust_tox_loss(0.6)
 	return ..()

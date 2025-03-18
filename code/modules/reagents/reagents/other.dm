@@ -258,7 +258,7 @@
 	taste_description = "acid"
 
 /datum/reagent/fluorine/on_mob_life(mob/living/L, metabolism)
-	L.adjustToxLoss(0.5*effect_str)
+	L.adjust_tox_loss(0.5*effect_str)
 	return ..()
 
 /datum/reagent/fluorine/overdose_process(mob/living/L, metabolism)
@@ -410,7 +410,7 @@
 	new effect_type(T, volume) //It already handles dupes on it own turf.
 
 /datum/reagent/fuel/on_mob_life(mob/living/L)
-	L.adjustToxLoss(1)
+	L.adjust_tox_loss(1)
 	return ..()
 
 /datum/reagent/fuel/reaction_mob(mob/living/L, method = TOUCH, volume, show_message = TRUE, touch_protection = 0)//Splashing people with welding fuel to make them easy to ignite!
@@ -607,9 +607,9 @@
 	var/mob/living/carbon/C = L
 	C.adjust_nutrition(-10)
 	if(prob(20))
-		C.adjustToxLoss(0.1)
+		C.adjust_tox_loss(0.1)
 	else
-		C.adjustToxLoss(1)
+		C.adjust_tox_loss(1)
 	return ..()
 
 /datum/reagent/consumable/lipozine/overdose_process(mob/living/L, metabolism)
@@ -648,7 +648,7 @@
 		L.reagent_shock_modifier -= PAIN_REDUCTION_MEDIUM
 
 /datum/reagent/sterilizine/on_mob_life(mob/living/L, metabolism)
-	L.adjustToxLoss(effect_str)
+	L.adjust_tox_loss(effect_str)
 	return ..()
 
 /datum/reagent/virilyth

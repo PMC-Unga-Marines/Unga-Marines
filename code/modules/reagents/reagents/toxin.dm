@@ -14,7 +14,7 @@
 
 /datum/reagent/toxin/on_mob_life(mob/living/L, metabolism)
 	if(toxpwr)
-		L.adjustToxLoss(toxpwr*0.5*effect_str)
+		L.adjust_tox_loss(toxpwr*0.5*effect_str)
 	return ..()
 
 /datum/reagent/toxin/hptoxin
@@ -153,13 +153,13 @@
 	return ..()
 
 /datum/reagent/toxin/mindbreaker/overdose_process(mob/living/L, metabolism)
-	L.adjustToxLoss(1)
+	L.adjust_tox_loss(1)
 	L.jitter(5)
 	if(prob(10) && !L.stat)
 		L.Unconscious(10 SECONDS)
 
 /datum/reagent/toxin/mindbreaker/overdose_crit_process(mob/living/L, metabolism)
-	L.adjustToxLoss(1)
+	L.adjust_tox_loss(1)
 	L.adjustBrainLoss(1, TRUE)
 	L.jitter(5)
 	if(prob(10) && !L.stat)
@@ -249,7 +249,7 @@
 			L.Sleeping(10 SECONDS)
 		if(61 to INFINITY)
 			L.adjustDrowsyness(2)
-			L.adjustToxLoss((current_cycle/4 - 25)*effect_str)
+			L.adjust_tox_loss((current_cycle/4 - 25)*effect_str)
 	return ..()
 
 /datum/reagent/toxin/chloralhydrate/overdose_process(mob/living/L, metabolism)
@@ -319,7 +319,7 @@
 	taste_description = "plastic"
 
 /datum/reagent/toxin/plasticide/on_mob_life(mob/living/L, metabolism)
-	L.adjustToxLoss(0.2)
+	L.adjust_tox_loss(0.2)
 	return ..()
 
 /datum/reagent/toxin/acid
@@ -460,7 +460,7 @@
 	L.adjustStaminaLoss(applied_damage) //If we're under our stamina_loss limit, apply the difference between our limit and current stamina damage or power, whichever's less
 	var/damage_overflow = power - applied_damage
 	if(damage_overflow > 0) //If we exceed maxHealth * 2 stamina damage, apply any excess as toxloss and oxyloss
-		L.adjustToxLoss(damage_overflow * 0.5)
+		L.adjust_tox_loss(damage_overflow * 0.5)
 		L.adjustOxyLoss(damage_overflow * 0.5)
 		L.Losebreath(2) //So the oxy loss actually means something.
 
@@ -547,11 +547,11 @@
 		if(debuff.stacks > 10)
 			tox_cap_multiplier *= 2
 
-	var/tox_loss = L.getToxLoss()
+	var/tox_loss = L.get_tox_loss()
 	if(tox_loss > DEFILER_TRANSVITOX_CAP) //If toxin levels are already at their cap, cancel out
 		return ..()
 
-	L.adjustToxLoss(tox_cap_multiplier * DEFILER_TRANSVITOX_DAMAGE * (1 + 0.1 * tox_cap_multiplier)) //Apply toxin damage. Deal extra toxin damage equal to 10% * the tox cap multiplier
+	L.adjust_tox_loss(tox_cap_multiplier * DEFILER_TRANSVITOX_DAMAGE * (1 + 0.1 * tox_cap_multiplier)) //Apply toxin damage. Deal extra toxin damage equal to 10% * the tox cap multiplier
 
 	return ..()
 
@@ -570,7 +570,7 @@
 		if(debuff.stacks > 10)
 			tox_cap_multiplier *= 2
 
-	var/tox_loss = L.getToxLoss()
+	var/tox_loss = L.get_tox_loss()
 	if(tox_loss > DEFILER_TRANSVITOX_CAP) //If toxin levels are already at their cap, cancel out
 		return
 
@@ -591,7 +591,7 @@
 		L.adjustStaminaLoss(DEFILER_SANGUINAL_DAMAGE)
 
 	if(L.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_neurotoxin))
-		L.adjustToxLoss(DEFILER_SANGUINAL_DAMAGE)
+		L.adjust_tox_loss(DEFILER_SANGUINAL_DAMAGE)
 
 	if(L.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_transvitox))
 		L.adjust_fire_loss(DEFILER_SANGUINAL_DAMAGE)
@@ -623,8 +623,8 @@
 	purge_rate = 5
 
 /datum/reagent/toxin/xeno_ozelomelyn/on_mob_life(mob/living/L, metabolism)
-	if(L.getToxLoss() < 40) // if our toxloss is below 40, do 0.75 tox damage.
-		L.adjustToxLoss(0.75)
+	if(L.get_tox_loss() < 40) // if our toxloss is below 40, do 0.75 tox damage.
+		L.adjust_tox_loss(0.75)
 		if(prob(15))
 			to_chat(L, span_warning("Your veins feel like water and you can feel a growing itchy feeling in them!") )
 		return ..()
@@ -652,13 +652,13 @@
 	if(prob(5))
 		L.emote("gasp")
 	L.adjustOxyLoss(1.5)
-	L.adjustToxLoss(1.5)
+	L.adjust_tox_loss(1.5)
 
 /datum/reagent/zombium/overdose_crit_process(mob/living/L, metabolism)
 	if(prob(50))
 		L.emote("gasp")
 	L.adjustOxyLoss(5)
-	L.adjustToxLoss(5)
+	L.adjust_tox_loss(5)
 
 ///Signal handler preparing the source to become a zombie
 /datum/reagent/zombium/proc/zombify(mob/living/carbon/human/H)
@@ -747,17 +747,17 @@
 			L.adjustOxyLoss(-2*effect_str)
 			L.adjust_brute_loss(-L.get_brute_loss(TRUE) * 0.40)
 			L.adjust_fire_loss(-L.get_fire_loss(TRUE) * 0.40)
-			L.adjustToxLoss(-10)
+			L.adjust_tox_loss(-10)
 			TIMER_COOLDOWN_START(L, name, 120 SECONDS)
 		if(L.health <= 0)
 			L.adjustOxyLoss(-L.getOxyLoss())
 			L.adjustOxyLoss(-2*effect_str)
 			L.heal_limb_damage(2*effect_str, 2*effect_str)
-			L.adjustToxLoss(-5)
+			L.adjust_tox_loss(-5)
 		if(L.health < 20 && L.health > 0)
 			L.adjustOxyLoss(-2*effect_str)
 			L.heal_limb_damage(0.5, 0.5)
-			L.adjustToxLoss(-2)
+			L.adjust_tox_loss(-2)
 		for(var/datum/limb/X in H.limbs)
 			for(var/datum/wound/internal_bleeding/W in X.wounds)
 				W.damage = max(0, W.damage - (effect_str))
@@ -765,7 +765,7 @@
 		if(L.health < 20)
 			L.adjustOxyLoss(-1*effect_str)
 			L.heal_limb_damage(0.25, 0.25)
-			L.adjustToxLoss(-1)
+			L.adjust_tox_loss(-1)
 	return ..()
 
 /datum/reagent/medicine/xenojelly/on_mob_delete(mob/living/L, metabolism)

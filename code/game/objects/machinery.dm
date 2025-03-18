@@ -264,7 +264,7 @@
 		"bruteloss" = H.get_brute_loss(),
 		"fireloss" = H.get_fire_loss(),
 		"oxyloss" = H.getOxyLoss(),
-		"toxloss" = H.getToxLoss(),
+		"toxloss" = H.get_tox_loss(),
 		"cloneloss" = H.getCloneLoss(),
 		"brainloss" = H.getBrainLoss(),
 		"knocked_out" = H.AmountUnconscious(),

@@ -137,7 +137,7 @@
 			blur_eyes(4)
 
 		if(drunkenness >= 81)
-			adjustToxLoss(0.2)
+			adjust_tox_loss(0.2)
 			if(prob(10) && !stat)
 				to_chat(src, span_warning("Maybe you should lie down for a bit..."))
 				adjustDrowsyness(5)
@@ -149,7 +149,7 @@
 				Sleeping(80 SECONDS)
 
 		if(drunkenness >=101) //Let's be honest, you should be dead by now
-			adjustToxLoss(4)
+			adjust_tox_loss(4)
 
 	switch(drunkenness) //painkilling effects
 		if(51 to 71)

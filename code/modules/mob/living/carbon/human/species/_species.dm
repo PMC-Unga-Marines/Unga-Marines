@@ -234,7 +234,7 @@
 					if(prob(60))
 						victim.emote("pain")
 		if(TOX)
-			victim.adjustToxLoss(damage)
+			victim.adjust_tox_loss(damage)
 		if(OXY)
 			victim.adjustOxyLoss(damage)
 		if(CLONE)

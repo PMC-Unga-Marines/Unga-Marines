@@ -33,7 +33,7 @@
 		if(BURN)
 			adjust_fire_loss(damage)
 		if(TOX)
-			adjustToxLoss(damage)
+			adjust_tox_loss(damage)
 		if(OXY)
 			adjustOxyLoss(damage)
 		if(CLONE)

@@ -175,7 +175,7 @@
 		if(health_ratio > -0.5)
 			owner.adjust_brute_loss(healing)
 			owner.adjust_fire_loss(healing)
-			owner.adjustToxLoss(healing * 0.5, TRUE, TRUE)
+			owner.adjust_tox_loss(healing * 0.5, TRUE, TRUE)
 			owner.adjustStaminaLoss(healing * 100)
 			owner.adjustCloneLoss(healing * health_ratio * 0.8)
 	if(human_owner?.drunkenness)
@@ -491,7 +491,7 @@
 		living_owner.adjustCloneLoss(2)
 		to_chat(living_owner, span_warning("You feel like you're burning from the inside!"))
 	else
-		living_owner.adjustToxLoss(3)
+		living_owner.adjust_tox_loss(3)
 	if(prob(15))
 		living_owner.adjust_Losebreath(5)
 	if(carbon_owner && prob(15))

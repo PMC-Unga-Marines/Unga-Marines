@@ -224,7 +224,7 @@
 				<br><font size='1'>
 					BRUTE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brute' id='brute'>[M.get_brute_loss()]</a>
 					FIRE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=fire' id='fire'>[M.get_fire_loss()]</a>
-					TOXIN:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=toxin' id='toxin'>[M.getToxLoss()]</a>
+					TOXIN:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=toxin' id='toxin'>[M.get_tox_loss()]</a>
 					OXY:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=oxygen' id='oxygen'>[M.getOxyLoss()]</a>
 					CLONE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=clone' id='clone'>[M.getCloneLoss()]</a>
 					BRAIN:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brain' id='brain'>[M.getBrainLoss()]</a>
@@ -1035,8 +1035,8 @@
 				L.adjust_fire_loss(amount)
 				newamt = L.get_fire_loss()
 			if(TOX)
-				L.adjustToxLoss(amount)
-				newamt = L.getToxLoss()
+				L.adjust_tox_loss(amount)
+				newamt = L.get_tox_loss()
 			if(OXY)
 				L.adjustOxyLoss(amount)
 				newamt = L.getOxyLoss()

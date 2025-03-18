@@ -54,8 +54,8 @@
 	//You'll heal slowly just from being in an active pod, but chemicals speed it up.
 	if(occupant.getOxyLoss())
 		occupant.adjustOxyLoss(-1)
-	if (occupant.getToxLoss())
-		occupant.adjustToxLoss(-1)
+	if (occupant.get_tox_loss())
+		occupant.adjust_tox_loss(-1)
 	occupant.heal_overall_damage(1, 1, updating_health = TRUE)
 	var/has_cryo = occupant.reagents.get_reagent_amount(/datum/reagent/medicine/cryoxadone) >= 1
 	var/has_clonexa = occupant.reagents.get_reagent_amount(/datum/reagent/medicine/clonexadone) >= 1
@@ -373,7 +373,7 @@
 		data["occupant"]["minHealth"] = mob_occupant.health_threshold_dead
 		data["occupant"]["bruteLoss"] = round(mob_occupant.get_brute_loss(), 1)
 		data["occupant"]["oxyLoss"] = round(mob_occupant.getOxyLoss(), 1)
-		data["occupant"]["toxLoss"] = round(mob_occupant.getToxLoss(), 1)
+		data["occupant"]["toxLoss"] = round(mob_occupant.get_tox_loss(), 1)
 		data["occupant"]["fireLoss"] = round(mob_occupant.get_fire_loss(), 1)
 		data["occupant"]["bodyTemperature"] = round(mob_occupant.bodytemperature, 1)
 		if(mob_occupant.bodytemperature < 255)

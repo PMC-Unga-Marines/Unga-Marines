@@ -107,6 +107,6 @@
 		balloon_alert(user, "eats the whole crayon")
 		qdel(src)
 
-	M.adjustToxLoss(1) // add a little bit of toxic damage
+	M.adjust_tox_loss(1) // add a little bit of toxic damage
 	if(istype(src, /obj/item/toy/crayon/mime))
 		M.apply_status_effect(/datum/status_effect/mute, 30 SECONDS)
