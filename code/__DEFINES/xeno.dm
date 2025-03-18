@@ -29,18 +29,12 @@
 #define RESIN_WALL_MELEE "meleeproof resin wall"
 
 //Xeno reagents defines
-#define DEFILER_NEUROTOXIN "Neurotoxin"
-#define DEFILER_HEMODILE "Hemodile"
-#define DEFILER_TRANSVITOX "Transvitox"
-#define DEFILER_OZELOMELYN "Ozelomelyn"
-#define DEFILER_ACID "Sulphuric acid"
-#define DEFILER_SANGUINAL "Sanguinal"
-
-//Panther tearing tail reagents
-#define PANTHER_HEMODILE "Hemodile"
-#define PANTHER_TRANSVITOX "Transvitox"
-#define PANTHER_OZELOMELYN "Ozelomelyn"
-#define PANTHER_SANGUINAL "Sanguinal"
+#define REAGENT_NEUROTOXIN "Neurotoxin"
+#define REAGENT_HEMODILE "Hemodile"
+#define REAGENT_TRANSVITOX "Transvitox"
+#define REAGENT_OZELOMELYN "Ozelomelyn"
+#define REAGENT_ACID "Sulphuric acid"
+#define REAGENT_SANGUINAL "Sanguinal"
 
 #define TRAP_HUGGER_LARVAL "hugger larval"
 #define TRAP_HUGGER_ACID "hugger acid"

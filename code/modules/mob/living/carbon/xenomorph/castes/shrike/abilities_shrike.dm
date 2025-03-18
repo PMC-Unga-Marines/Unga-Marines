@@ -182,7 +182,7 @@
 	name = "Unrelenting Force"
 	desc = "Unleashes our raw psychic power, pushing aside anyone who stands in our path."
 	action_icon_state = "screech"
-	action_icon = 'icons/Xeno/actions/shrike.dmi'
+	action_icon = 'icons/Xeno/actions/queen.dmi'
 	cooldown_duration = 20 SECONDS
 	ability_cost = 300
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY

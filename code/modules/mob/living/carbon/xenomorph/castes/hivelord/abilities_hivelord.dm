@@ -10,7 +10,7 @@
 	name = "Recycle"
 	desc = "We deconstruct the body of a fellow fallen xenomorph to avoid marines from harvesting our sisters in arms."
 	action_icon_state = "recycle"
-	action_icon = 'icons/Xeno/actions/hivelord.dmi'
+	action_icon = 'icons/Xeno/actions/drone.dmi'
 	use_state_flags = ABILITY_USE_STAGGERED //can't use while staggered, defender fortified or crest down
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RECYCLE,
@@ -282,8 +282,9 @@
 
 /datum/action/ability/xeno_action/create_jelly
 	name = "Create Resin Jelly"
-	action_icon_state = "resin_jelly"
 	desc = "Create a fireproof jelly."
+	action_icon_state = "resin_jelly"
+	action_icon = 'icons/Xeno/actions/hivelord.dmi'
 	ability_cost = 100
 	cooldown_duration = 20 SECONDS
 	keybinding_signals = list(

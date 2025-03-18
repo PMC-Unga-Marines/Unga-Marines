@@ -3,11 +3,6 @@
 // ***************************************
 
 /datum/action/ability/activable/xeno/scatter_spit/praetorian
-	name = "Scatter Spit"
-	desc = "Spits a spread of acid projectiles that splatter on the ground."
-	action_icon_state = "scatter_spit"
-	action_icon = 'icons/Xeno/actions/defiler.dmi'
-	ability_cost = 280
 	cooldown_duration = 1 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SCATTER_SPIT,

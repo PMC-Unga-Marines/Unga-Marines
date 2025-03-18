@@ -354,7 +354,7 @@
 	name = "Select Reagent"
 	desc = "Selects which reagent to use for reagent slash and noxious gas. Hemodile slows targets down, multiplied by each other xeno-based toxin. Transvitox converts burns to toxin, and causes additional toxin damage when they take brute damage, both effects multiplied by other xeno-based toxins. Ozelomelyn purges all medicines from their system rapidly and causes minor toxin damage. Acid is transparent but causes major burn damage."
 	action_icon_state = "select_reagent0"
-	action_icon = 'icons/Xeno/actions/defiler.dmi'
+	action_icon = 'icons/Xeno/actions/general.dmi'
 	use_state_flags = ABILITY_USE_BUSY|ABILITY_USE_LYING
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SELECT_REAGENT,
@@ -395,10 +395,10 @@
 	// This is cursed, don't copy this code its the WRONG way to do this.
 	// TODO: generate this from GLOB.defiler_toxin_type_list
 	var/static/list/defiler_toxin_images_list = list(
-		DEFILER_HEMODILE = image('icons/Xeno/actions/defiler.dmi', icon_state = DEFILER_HEMODILE),
-		DEFILER_TRANSVITOX = image('icons/Xeno/actions/defiler.dmi', icon_state = DEFILER_TRANSVITOX),
-		DEFILER_OZELOMELYN = image('icons/Xeno/actions/defiler.dmi', icon_state = DEFILER_OZELOMELYN),
-		DEFILER_ACID = image('icons/Xeno/actions/defiler.dmi', icon_state = DEFILER_ACID),
+		REAGENT_HEMODILE = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_HEMODILE),
+		REAGENT_TRANSVITOX = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_TRANSVITOX),
+		REAGENT_OZELOMELYN = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_OZELOMELYN),
+		REAGENT_ACID = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_ACID),
 	)
 	var/toxin_choice = show_radial_menu(owner, owner, defiler_toxin_images_list, radius = 48)
 	if(!toxin_choice)
@@ -611,8 +611,3 @@
 /atom/movable/tentacle_end
 	name = "You can't see this"
 	invisibility = INVISIBILITY_ABSTRACT
-
-#undef DEFILER_NEUROTOXIN
-#undef DEFILER_HEMODILE
-#undef DEFILER_TRANSVITOX
-#undef DEFILER_OZELOMELYN

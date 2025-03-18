@@ -466,9 +466,7 @@
 // *********** Select reagent (panther)
 // ***************************************
 /datum/action/ability/xeno_action/select_reagent/panther
-	name = "Select Reagent"
 	desc = "Selects which reagent to use for tearing tail. Hemodile slows by 25%, increased to 50% with neurotoxin present, and deals 20% of damage received as stamina damage. Transvitox converts brute/burn damage to toxin based on 40% of damage received up to 45 toxin on target, upon reaching which causes a stun. Neurotoxin deals increasing stamina damage the longer it remains in the victim's system and prevents stamina regeneration. Ozelomelyn purges medical chemicals from humans, while also causing slight intoxication. Sanguinal does damage depending on presence and amount of all previously mentioned reagents, also causes light brute damage and bleeding."
-	use_state_flags = ABILITY_USE_BUSY|ABILITY_USE_LYING
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PANTHER_SELECT_REAGENT,
 		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_RADIAL_SELECT_REAGENT,
@@ -498,11 +496,11 @@
 	// This is cursed, don't copy this code its the WRONG way to do this.
 	// TODO: generate this from GLOB.panther_toxin_type_list (or wait while offtgmc reworks the defiler code and then copy it )
 	var/static/list/panther_toxin_images_list = list(
-			PANTHER_HEMODILE = image('icons/Xeno/actions/panther.dmi', icon_state = PANTHER_HEMODILE),
-			PANTHER_TRANSVITOX = image('icons/Xeno/actions/defiler.dmi', icon_state = PANTHER_TRANSVITOX),
-			PANTHER_OZELOMELYN = image('icons/Xeno/actions/defiler.dmi', icon_state = PANTHER_OZELOMELYN),
-			PANTHER_SANGUINAL = image('icons/Xeno/actions/defiler.dmi', icon_state = PANTHER_SANGUINAL),
-			)
+		REAGENT_HEMODILE = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_HEMODILE),
+		REAGENT_TRANSVITOX = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_TRANSVITOX),
+		REAGENT_OZELOMELYN = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_OZELOMELYN),
+		REAGENT_SANGUINAL = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_SANGUINAL),
+	)
 	var/toxin_choice = show_radial_menu(owner, owner, panther_toxin_images_list, radius = 48)
 	if(!toxin_choice)
 		return
@@ -515,8 +513,3 @@
 	xenomorph_owner.balloon_alert(xenomorph_owner, "[toxin_choice]")
 	update_button_icon()
 	return succeed_activate()
-
-#undef PANTHER_HEMODILE
-#undef PANTHER_TRANSVITOX
-#undef PANTHER_OZELOMELYN
-#undef PANTHER_SANGUINAL

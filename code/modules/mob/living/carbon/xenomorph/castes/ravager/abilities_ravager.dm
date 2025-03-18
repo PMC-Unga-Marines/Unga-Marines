@@ -399,7 +399,7 @@
 	name = "Immortality"
 	desc = "We are too angry to die."
 	action_icon_state = "enhancement"
-	action_icon = 'icons/Xeno/actions/ravager.dmi'
+	action_icon = 'icons/Xeno/actions/drone.dmi'
 	ability_cost = 666
 	cooldown_duration = 35 SECONDS
 	keybinding_signals = list(

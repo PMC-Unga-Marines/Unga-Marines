@@ -336,6 +336,7 @@
 /datum/action/ability/activable/xeno/body_swap
 	name = "Body swap"
 	action_icon_state = "bodyswap"
+	action_icon = 'icons/Xeno/actions/chimera.dmi'
 	desc = "Swap places with another alien."
 	use_state_flags = ABILITY_MOB_TARGET
 	cooldown_duration = 20 SECONDS

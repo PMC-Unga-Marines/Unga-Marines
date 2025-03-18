@@ -5,7 +5,7 @@
 	name = "Hive Message" // Also known as Word of Queen.
 	desc = "Announces a message to the hive."
 	action_icon_state = "queen_order"
-	action_icon = 'icons/Xeno/actions/queen.dmi'
+	action_icon = 'icons/Xeno/actions/general.dmi'
 	ability_cost = 50
 	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
