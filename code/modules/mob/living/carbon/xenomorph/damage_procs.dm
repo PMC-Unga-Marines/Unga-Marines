@@ -86,7 +86,7 @@
 	last_damage_source = usr
 
 	if(updating_health)
-		updatehealth()
+		update_health()
 
 	regen_power = -xeno_caste.regen_delay //Remember, this is in deciseconds.
 
@@ -136,7 +136,7 @@
 	bruteloss = max(bruteloss + amount, 0)
 
 	if(updating_health)
-		updatehealth()
+		update_health()
 
 /mob/living/carbon/xenomorph/adjust_fire_loss(amount, updating_health = FALSE, passive = FALSE)
 	var/list/amount_mod = list()
@@ -149,7 +149,7 @@
 	fireloss = max(fireloss + amount, 0)
 
 	if(updating_health)
-		updatehealth()
+		update_health()
 
 #undef HANDLE_OVERHEAL
 

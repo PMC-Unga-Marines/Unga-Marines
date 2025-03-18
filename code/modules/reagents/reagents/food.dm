@@ -305,7 +305,7 @@
 	L.apply_damage(2, TOX)
 	if(prob(60))
 		L.Unconscious(6 SECONDS)
-	L.setDrowsyness(max(L.drowsyness, 30))
+	L.set_drowsyness(max(L.drowsyness, 30))
 
 /datum/reagent/consumable/sprinkles
 	name = "Sprinkles"

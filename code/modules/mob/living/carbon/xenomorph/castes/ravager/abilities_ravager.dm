@@ -270,8 +270,8 @@
 		var/total_damage = X.get_fire_loss() + X.get_brute_loss()
 		var/burn_percentile_damage = X.get_fire_loss() / total_damage
 		var/brute_percentile_damage = X.get_brute_loss() / total_damage
-		X.setBruteLoss((X.xeno_caste.max_health - X.get_crit_threshold()-1) * brute_percentile_damage)
-		X.setFireLoss((X.xeno_caste.max_health - X.get_crit_threshold()-1) * burn_percentile_damage)
+		X.set_brute_loss((X.xeno_caste.max_health - X.get_crit_threshold()-1) * brute_percentile_damage)
+		X.set_fire_loss((X.xeno_caste.max_health - X.get_crit_threshold()-1) * burn_percentile_damage)
 
 	X.soft_armor = X.soft_armor.modifyRating(bomb = -20) //Remove resistances/immunities
 	REMOVE_TRAIT(X, TRAIT_STAGGERIMMUNE, ENDURE_TRAIT)

@@ -20,7 +20,7 @@
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_OXYLOSS))
 		adjust_oxy_loss(4)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_SLEEP))
-		adjustDrowsyness(6)
+		adjust_drowsyness(6)
 		if(drowsyness >= 18)
 			Sleeping(10 SECONDS)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_BLISTERING))

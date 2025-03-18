@@ -93,7 +93,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/kahlua/on_mob_life(mob/living/L, metabolism)
 	L.dizzy(-4)
-	L.adjustDrowsyness(-2)
+	L.adjust_drowsyness(-2)
 	L.AdjustSleeping(-6 SECONDS)
 	L.jitter(5)
 	return ..()
@@ -138,7 +138,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	trait_flags = TACHYCARDIC
 
 /datum/reagent/consumable/ethanol/thirteenloko/on_mob_life(mob/living/L, metabolism)
-	L.adjustDrowsyness(-7)
+	L.adjust_drowsyness(-7)
 	L.AdjustSleeping(-80 SECONDS)
 	L.jitter(5)
 	return ..()

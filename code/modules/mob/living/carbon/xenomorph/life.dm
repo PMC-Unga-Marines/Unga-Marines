@@ -52,7 +52,7 @@
 		handle_critical_health_updates()
 		return
 	if((health >= maxHealth) || on_fire) //can't regenerate.
-		updatehealth() //Update health-related stats, like health itself (using brute and fireloss), health HUD and status.
+		update_health() //Update health-related stats, like health itself (using brute and fireloss), health HUD and status.
 		return
 	var/turf/T = loc
 	if(!istype(T))
@@ -66,7 +66,7 @@
 			heal_wounds(XENO_RESTING_HEAL * ruler_healing_penalty * loc_weeds_type ? initial(loc_weeds_type.resting_buff) : 1, TRUE)
 		else
 			heal_wounds(XENO_STANDING_HEAL * ruler_healing_penalty, TRUE) //Major healing nerf if standing.
-	updatehealth()
+	update_health()
 
 ///Handles sunder modification/recovery during life.dm for xenos
 /mob/living/carbon/xenomorph/proc/handle_living_sunder_updates()
@@ -257,7 +257,7 @@
 		else
 			hud_used.alien_plasma_display.icon_state = "power_display_0"
 
-/mob/living/carbon/xenomorph/updatehealth()
+/mob/living/carbon/xenomorph/update_health()
 	if(status_flags & GODMODE)
 		health = maxHealth
 		stat = CONSCIOUS

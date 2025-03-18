@@ -34,8 +34,8 @@
 	H.set_undefibbable()
 	H.faction = faction
 	H.language_holder = new default_language_holder()
-	H.setOxyLoss(0)
-	H.setToxLoss(0)
+	H.set_oxy_loss(0)
+	H.set_tox_loss(0)
 	H.setCloneLoss(0)
 	H.dropItemToGround(H.r_hand, TRUE)
 	H.dropItemToGround(H.l_hand, TRUE)

@@ -39,7 +39,7 @@
 		L.Unconscious(rand(5, 25))
 
 /datum/reagent/medicine/inaprovaline/overdose_crit_process(mob/living/L, metabolism)
-	L.setDrowsyness(L.drowsyness, 20)
+	L.set_drowsyness(L.drowsyness, 20)
 	if(ishuman(L)) //Critical overdose causes total blackout and heart damage. Too much stimulant
 		var/mob/living/carbon/human/H = L
 		var/datum/internal_organ/heart/E = H.get_organ_slot(ORGAN_SLOT_HEART)
@@ -103,7 +103,7 @@
 	L.heal_overall_damage(0.5*effect_str, 0.5*effect_str)
 	L.adjust_tox_loss(-1.5*effect_str)
 	L.adjust_stamina_loss(-effect_str)
-	L.adjustDrowsyness(-0.5 SECONDS)
+	L.adjust_drowsyness(-0.5 SECONDS)
 	L.AdjustUnconscious(-1 SECONDS)
 	L.AdjustStun(-1 SECONDS)
 	L.AdjustParalyzed(-1 SECONDS)
@@ -446,18 +446,18 @@
 /datum/reagent/medicine/adminordrazine/on_mob_life(mob/living/L, metabolism)
 	L.reagents.remove_all_type(/datum/reagent/toxin, 2.5*effect_str, 0, 1)
 	L.setCloneLoss(0)
-	L.setOxyLoss(0)
+	L.set_oxy_loss(0)
 	L.heal_overall_damage(5, 5)
 	L.adjust_tox_loss(-5)
 	L.hallucination = 0
-	L.setBrainLoss(0)
+	L.set_brain_loss(0)
 	L.set_blurriness(0, TRUE)
 	L.set_blindness(0, TRUE)
 	L.SetStun(0, FALSE)
 	L.SetUnconscious(0)
 	L.SetParalyzed(0)
 	L.dizziness = 0
-	L.setDrowsyness(0)
+	L.set_drowsyness(0)
 	// Remove all speech related status effects
 	for(var/effect in typesof(/datum/status_effect/speech))
 		L.remove_status_effect(effect)
@@ -489,7 +489,7 @@
 
 /datum/reagent/medicine/synaptizine/on_mob_life(mob/living/L, metabolism)
 	L.reagent_shock_modifier += PAIN_REDUCTION_MEDIUM
-	L.adjustDrowsyness(-0.5 SECONDS)
+	L.adjust_drowsyness(-0.5 SECONDS)
 	L.AdjustUnconscious(-2 SECONDS)
 	L.AdjustStun(-2 SECONDS)
 	L.AdjustParalyzed(-2 SECONDS)
@@ -544,7 +544,7 @@
 
 /datum/reagent/medicine/adrenaline/on_mob_life(mob/living/L, metabolism)
 	L.reagent_shock_modifier += PAIN_REDUCTION_MEDIUM
-	L.adjustDrowsyness(-0.5 SECONDS)
+	L.adjust_drowsyness(-0.5 SECONDS)
 	L.AdjustUnconscious(-2 SECONDS)
 	L.AdjustStun(-2 SECONDS)
 	L.AdjustParalyzed(-2 SECONDS)
@@ -591,7 +591,7 @@
 
 /datum/reagent/medicine/neuraline/on_mob_life(mob/living/L)
 	L.reagent_shock_modifier += (2 * PAIN_REDUCTION_VERY_HEAVY)
-	L.adjustDrowsyness(-5)
+	L.adjust_drowsyness(-5)
 	L.dizzy(-5)
 	L.adjust_timed_status_effect(-10 SECONDS, /datum/status_effect/speech/stutter)
 	if(iscarbon(L))
@@ -1197,7 +1197,7 @@
 	switch(current_cycle)
 		if(1 to 9)
 			L.adjust_tox_loss(effect_str)
-			L.adjustDrowsyness(5)
+			L.adjust_drowsyness(5)
 		if(10 to 50)
 			L.adjust_tox_loss(1.25*effect_str)
 			L.Sleeping(10 SECONDS)
@@ -1250,7 +1250,7 @@
 
 /datum/reagent/medicine/ethylredoxrazine/on_mob_life(mob/living/L, metabolism)
 	L.dizzy(-1)
-	L.adjustDrowsyness(-1)
+	L.adjust_drowsyness(-1)
 	L.adjust_timed_status_effect(-2 SECONDS, /datum/status_effect/speech/stutter)
 	L.AdjustConfused(-2 SECONDS)
 	var/mob/living/carbon/C = L

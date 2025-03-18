@@ -92,7 +92,7 @@ Arguments
 		if(EYE_BLUR)
 			blur_eyes(effect)
 		if(DROWSY)
-			adjustDrowsyness(effect)
+			adjust_drowsyness(effect)
 	if(updating_health)
 		updatehealth()
 	return TRUE

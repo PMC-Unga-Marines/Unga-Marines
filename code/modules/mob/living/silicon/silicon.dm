@@ -71,7 +71,7 @@
 /mob/living/silicon/adjust_tox_loss(amount)
 	return FALSE
 
-/mob/living/silicon/setToxLoss(amount)
+/mob/living/silicon/set_tox_loss(amount)
 	return FALSE
 
 /mob/living/silicon/adjust_clone_Loss(amount)
@@ -83,7 +83,7 @@
 /mob/living/silicon/adjust_brain_loss(amount)
 	return FALSE
 
-/mob/living/silicon/setBrainLoss(amount)
+/mob/living/silicon/set_brain_loss(amount)
 	return FALSE
 
 //can't inject synths

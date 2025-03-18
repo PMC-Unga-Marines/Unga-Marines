@@ -57,13 +57,13 @@
 	newlevel = XENO_UPGRADE_BASETYPE
 	return ..()
 
-/mob/living/carbon/xenomorph/hivemind/updatehealth()
+/mob/living/carbon/xenomorph/hivemind/update_health()
 	if(on_fire)
 		ExtinguishMob()
 	health = maxHealth - get_fire_loss() - get_brute_loss() //Xenos can only take brute and fire damage.
 	if(health <= 0 && !(status_flags & INCORPOREAL))
-		setBruteLoss(0)
-		setFireLoss(-minimum_health)
+		set_brute_loss(0)
+		set_fire_loss(-minimum_health)
 		change_form()
 		remove_status_effect(/datum/status_effect/spacefreeze)
 	health = maxHealth - get_fire_loss() - get_brute_loss()
@@ -85,13 +85,13 @@
 		return
 	// If not manifested
 	if(health < minimum_health + maxHealth)
-		setBruteLoss(0)
-		setFireLoss(-minimum_health)
+		set_brute_loss(0)
+		set_fire_loss(-minimum_health)
 	if(health >= maxHealth) //can't regenerate.
-		updatehealth() //Update health-related stats, like health itself (using brute and fireloss), health HUD and status.
+		update_health() //Update health-related stats, like health itself (using brute and fireloss), health HUD and status.
 		return
 	heal_wounds(XENO_RESTING_HEAL)
-	updatehealth()
+	update_health()
 
 /mob/living/carbon/xenomorph/hivemind/Destroy()
 	var/obj/structure/xeno/hivemindcore/hive_core = get_core()

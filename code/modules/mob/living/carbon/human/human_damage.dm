@@ -46,7 +46,7 @@
 	else
 		brainloss = 0
 
-/mob/living/carbon/human/setBrainLoss(amount)
+/mob/living/carbon/human/set_brain_loss(amount)
 
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
@@ -167,7 +167,7 @@
 		return
 	return ..()
 
-/mob/living/carbon/human/setOxyLoss(amount, forced = FALSE)
+/mob/living/carbon/human/set_oxy_loss(amount, forced = FALSE)
 	if(species.species_flags & NO_BREATHE && !forced)
 		oxyloss = 0
 		return
@@ -184,7 +184,7 @@
 	else
 		..()
 
-/mob/living/carbon/human/setToxLoss(amount)
+/mob/living/carbon/human/set_tox_loss(amount)
 	if(species.species_flags & NO_POISON)
 		toxloss = 0
 	else
@@ -202,7 +202,7 @@
 		return
 	return ..()
 
-/mob/living/carbon/human/setStaminaLoss(amount)
+/mob/living/carbon/human/set_stamina_loss(amount)
 	if(species.species_flags & NO_STAMINA)
 		staminaloss = 0
 		return

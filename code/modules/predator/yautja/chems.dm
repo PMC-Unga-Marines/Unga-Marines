@@ -28,7 +28,7 @@
 		L.adjust_oxy_loss(-3)
 		L.adjust_clone_Loss(-3)
 		L.adjust_brain_loss(-3)
-		L.adjustDrowsyness(-10)
+		L.adjust_drowsyness(-10)
 		L.AdjustUnconscious(-40)
 		L.AdjustStun(-40)
 		L.AdjustParalyzed(-40)

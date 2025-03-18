@@ -81,7 +81,7 @@
 		dizzy(-restingpwr)
 
 	if(drowsyness)
-		adjustDrowsyness(-restingpwr)
+		adjust_drowsyness(-restingpwr)
 		blur_eyes(2)
 		if(drowsyness > 18 && prob(5))
 			Sleeping(2 SECONDS)
@@ -140,7 +140,7 @@
 			adjust_tox_loss(0.2)
 			if(prob(10) && !stat)
 				to_chat(src, span_warning("Maybe you should lie down for a bit..."))
-				adjustDrowsyness(5)
+				adjust_drowsyness(5)
 
 		if(drunkenness >= 91)
 			adjust_brain_loss(0.2, TRUE)

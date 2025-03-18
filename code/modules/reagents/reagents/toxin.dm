@@ -164,7 +164,7 @@
 	L.jitter(5)
 	if(prob(10) && !L.stat)
 		L.Unconscious(10 SECONDS)
-	L.setDrowsyness(max(L.drowsyness, 30))
+	L.set_drowsyness(max(L.drowsyness, 30))
 
 //Reagents used for plant fertilizers.
 /datum/reagent/toxin/fertilizer
@@ -223,7 +223,7 @@
 			L.Sleeping(10 SECONDS) //previously knockdown, no good for a soporific.
 			L.drowsyness = max(L.drowsyness, 30)
 		if(81 to INFINITY)
-			L.adjustDrowsyness(2)
+			L.adjust_drowsyness(2)
 	L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
 	return ..()
 
@@ -248,7 +248,7 @@
 		if(1 to 60)
 			L.Sleeping(10 SECONDS)
 		if(61 to INFINITY)
-			L.adjustDrowsyness(2)
+			L.adjust_drowsyness(2)
 			L.adjust_tox_loss((current_cycle/4 - 25)*effect_str)
 	return ..()
 
@@ -574,7 +574,7 @@
 	if(tox_loss > DEFILER_TRANSVITOX_CAP) //If toxin levels are already at their cap, cancel out
 		return
 
-	L.setToxLoss(clamp(tox_loss + min(L.get_brute_loss(TRUE) * 0.1 * tox_cap_multiplier, damage * 0.1 * tox_cap_multiplier), tox_loss, DEFILER_TRANSVITOX_CAP)) //Deal bonus tox damage equal to a % of the lesser of the damage taken or the target's brute damage; capped at DEFILER_TRANSVITOX_CAP.
+	L.set_tox_loss(clamp(tox_loss + min(L.get_brute_loss(TRUE) * 0.1 * tox_cap_multiplier, damage * 0.1 * tox_cap_multiplier), tox_loss, DEFILER_TRANSVITOX_CAP)) //Deal bonus tox damage equal to a % of the lesser of the damage taken or the target's brute damage; capped at DEFILER_TRANSVITOX_CAP.
 
 /datum/reagent/toxin/xeno_sanguinal //deals brute damage and causes persistant bleeding. Causes additional damage for each other xeno chem in the system
 	name = "Sanguinal"
@@ -735,7 +735,7 @@
 
 /datum/reagent/medicine/xenojelly/on_mob_life(mob/living/L, metabolism)
 	var/mob/living/carbon/human/H = L
-	L.adjustDrowsyness(6)
+	L.adjust_drowsyness(6)
 	L.reagent_shock_modifier -= PAIN_REDUCTION_MEDIUM
 	if(CHECK_BITFIELD(L.restrained_flags, RESTRAINED_XENO_NEST))
 		L.reagents.remove_all_type(/datum/reagent/toxin, 3*effect_str, 0, 1)
