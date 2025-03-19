@@ -9988,7 +9988,7 @@
 "fLj" = (
 /obj/machinery/camera/autoname,
 /obj/effect/turf_decal/warning_stripes/cargo,
-/obj/effect/spawner/random/misc/structure/barrel,
+/obj/structure/dropship_equipment/shuttle/tangle_emitter,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "fLD" = (
@@ -10806,14 +10806,12 @@
 /area/mainship/engineering/engine_core)
 "gpR" = (
 /obj/effect/turf_decal/warning_stripes/cargo,
-/obj/structure/largecrate/random/case/small{
-	pixel_x = 4
-	},
+/obj/structure/dropship_equipment/shuttle/tangle_emitter,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "grG" = (
-/obj/structure/dropship_equipment/shuttle/flare_launcher,
 /obj/effect/turf_decal/warning_stripes/cargo,
+/obj/structure/dropship_equipment/shuttle/grenade_launcher,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "grR" = (
@@ -27659,7 +27657,7 @@
 /obj/structure/sign/semiotic/terminal{
 	pixel_x = 32
 	},
-/obj/machinery/computer/camera_advanced/overwatch/military/req,
+/obj/machinery/computer/camera_advanced/overwatch/military,
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
@@ -34622,6 +34620,7 @@
 /obj/effect/turf_decal/siding/metal{
 	dir = 4
 	},
+/obj/structure/dropship_equipment/shuttle/grenade_launcher,
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/aft_hallway)
 "uwm" = (
