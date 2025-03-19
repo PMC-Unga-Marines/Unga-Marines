@@ -120,13 +120,13 @@
 /obj/item/jetpack_marine/proc/change_fuel_indicator()
 	if(fuel_left-fuel_indicator > 0)
 		return
-	if (fuel_left >= FUEL_INDICATOR_FULL)
+	if(fuel_left >= FUEL_INDICATOR_FULL)
 		fuel_indicator = FUEL_INDICATOR_FULL
 		return
-	if (fuel_left >= FUEL_INDICATOR_HALF_FULL)
+	if(fuel_left >= FUEL_INDICATOR_HALF_FULL)
 		fuel_indicator = FUEL_INDICATOR_HALF_FULL
 		return
-	if (fuel_left >= FUEL_USE)
+	if(fuel_left >= FUEL_USE)
 		fuel_indicator = FUEL_USE
 		return
 	fuel_indicator = 0
@@ -150,6 +150,8 @@
 
 /obj/item/jetpack_marine/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(!istype(I, /obj/item/ammo_magazine/flamer_tank))
 		return
 	var/obj/item/ammo_magazine/flamer_tank/FT = I

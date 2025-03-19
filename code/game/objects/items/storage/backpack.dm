@@ -16,31 +16,19 @@
 		)
 	w_class = WEIGHT_CLASS_BULKY
 	equip_slot_flags = ITEM_SLOT_BACK	//ERROOOOO
-	max_w_class = WEIGHT_CLASS_NORMAL
-	storage_slots = null
-	max_storage_space = 24
-	access_delay = 1.5 SECONDS
-
-/obj/item/storage/backpack/should_access_delay(obj/item/item, mob/user, taking_out)
-	if(!taking_out) // Always allow items to be tossed in instantly
-		return FALSE
-	if(ishuman(user))
-		var/mob/living/carbon/human/human_user = user
-		if(human_user.back == src)
-			return TRUE
-	return FALSE
+	storage_type = /datum/storage/backpack
 
 /obj/item/storage/backpack/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
-	if (use_sound)
-		playsound(loc, use_sound, 15, 1, 6)
+	if(storage_datum.use_sound)
+		playsound(loc, storage_datum.use_sound, 15, 1, 6)
 
 /obj/item/storage/backpack/equipped(mob/user, slot)
 	if(slot == SLOT_BACK)
 		mouse_opacity = 2 //so it's easier to click when properly equipped.
-		if(use_sound)
-			playsound(loc, use_sound, 15, 1, 6)
+		if(storage_datum.use_sound)
+			playsound(loc, storage_datum.use_sound, 15, 1, 6)
 	return ..()
 
 /obj/item/storage/backpack/dropped(mob/user)
@@ -59,8 +47,7 @@
 	name = "bag of holding"
 	desc = "A backpack that opens into a localized pocket of Blue Space."
 	icon_state = "holdingpack"
-	max_w_class = WEIGHT_CLASS_BULKY
-	max_storage_space = 28
+	storage_type = /datum/storage/backpack/holding
 
 /obj/item/storage/backpack/holding/proc/failcheck(mob/user)
 	if(prob(reliability))
@@ -91,9 +78,7 @@
 	icon_state = "giftbag0"
 	item_state = "giftbag"
 	w_class = WEIGHT_CLASS_BULKY
-	storage_slots = null
-	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 400 // can store a ton of shit!
+	storage_type = /datum/storage/backpack/santabag
 
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"
@@ -159,9 +144,7 @@
 	name = "leather satchel"
 	desc = "It's a very fancy satchel made with fine leather."
 	icon_state = "satchel"
-	storage_slots = null
-	max_storage_space = 15
-	access_delay = 0
+	storage_type = /datum/storage/backpack/satchel
 
 /obj/item/storage/backpack/satchel/withwallet/PopulateContents()
 	new /obj/item/storage/wallet/random( src )
@@ -272,7 +255,6 @@
 /obj/item/storage/backpack/marine/standard/molle
 	name = "\improper T16 MOLLE Backpack"
 	desc = "The latest backpack developed by Crowford Armory Union on the military order of TGMC. Thanks to the introduction of new MOLLE fastening systems, it turned out to beltbags and backpacks that are not inferior to roominess and portable weight, while also reducing the size of backpacks that have gone to hang from the back on the belt."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	item_icons = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
@@ -284,7 +266,6 @@
 /obj/item/storage/backpack/marine/satchel/molle
 	name = "\improper T13 MOLLE Satchel"
 	desc = "The latest satchel developed by Crowford Armory Union on the military order of TGMC. Thanks to the introduction of new MOLLE fastening systems, it turned out to beltbags and backpacks that are not inferior to roominess and portable weight, while also reducing the size of backpacks that have gone to hang from the back on the belt."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	item_icons = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
@@ -296,7 +277,6 @@
 /obj/item/storage/backpack/marine/standard/scav
 	name = "Scav Backpack"
 	desc = "Pretty swag backpack."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	item_icons = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi')
 	icon_state = "scavpack"
@@ -307,8 +287,8 @@
 	desc = "The standard-issue backpack worn by TGMC corpsmen. You can recharge defibrillators by plugging them in."
 	icon_state = "marinepackm"
 	item_state = "marinepackm"
-	icon = 'icons/obj/items/storage/storage.dmi'
-	var/obj/item/cell/high/cell //Starts with a high capacity energy cell.
+	//. Starts with a high capacity energy cell.
+	var/obj/item/cell/high/cell
 	var/icon_skin
 
 /obj/item/storage/backpack/marine/corpsman/Initialize(mapload, ...)
@@ -383,67 +363,44 @@
 			update_icon()
 	return ..()
 
+/obj/item/storage/backpack/marine/corpsman/satchel
+	name = "\improper TGMC corpsman satchel"
+	desc = "A heavy-duty satchel carried by some TGMC corpsmen. You can recharge defibrillators by plugging them in."
+	icon_state = "marinesatm"
+	item_state = "marinesatm"
+	cell = /obj/item/cell/apc
+	storage_type = /datum/storage/backpack/satchel
+
 /obj/item/storage/backpack/marine/tech
 	name = "\improper TGMC technician backpack"
 	desc = "The standard-issue backpack worn by TGMC technicians. Specially equipped to hold sentry gun and M56D emplacement parts."
 	icon_state = "marinepackt"
 	item_state = "marinepackt"
-	bypass_w_limit = list(
-		/obj/item/weapon/gun/sentry/basic,
-		/obj/item/weapon/gun/sentry/mini,
-		/obj/item/weapon/gun/hsg102,
-		/obj/item/ammo_magazine/hsg102,
-		/obj/item/ammo_magazine/sentry,
-		/obj/item/ammo_magazine/minisentry,
-		/obj/item/mortal_shell,
-		/obj/item/mortar_kit,
-		/obj/item/stack/razorwire,
-		/obj/item/stack/sandbags,
-	)
+	storage_type = /datum/storage/backpack/tech
 
 /obj/item/storage/backpack/marine/satchel
 	name = "\improper TGMC satchel"
 	desc = "A heavy-duty satchel carried by some TGMC soldiers and support personnel."
 	icon_state = "marinesat"
 	item_state = "marinesat"
-	storage_slots = null
-	max_storage_space = 15
-	access_delay = 0
+	storage_type = /datum/storage/backpack/satchel
 
 /obj/item/storage/backpack/marine/satchel/green
 	name = "\improper Green TGMC satchel"
 	icon_state = "marinesat_green"
-
-/obj/item/storage/backpack/marine/corpsman/satchel
-	name = "\improper TGMC corpsman satchel"
-	desc = "A heavy-duty satchel carried by some TGMC corpsmen. You can recharge defibrillators by plugging them in."
-	icon_state = "marinesatm"
-	item_state = "marinesatm"
-	storage_slots = null
-	max_storage_space = 15
-	access_delay = 0
-	cell = /obj/item/cell/apc
 
 /obj/item/storage/backpack/marine/satchel/tech
 	name = "\improper TGMC technician satchel"
 	desc = "A heavy-duty satchel carried by some TGMC technicians. Can hold the ST-580 point defense sentry and ammo."
 	icon_state = "marinesatt"
 	item_state = "marinesatt"
-	bypass_w_limit = list(
-		/obj/item/weapon/gun/sentry/mini,
-		/obj/item/ammo_magazine/hsg102,
-		/obj/item/ammo_magazine/sentry,
-		/obj/item/ammo_magazine/minisentry,
-		/obj/item/mortal_shell,
-		/obj/item/stack/razorwire,
-		/obj/item/stack/sandbags,
-	)
+	storage_type = /datum/storage/backpack/satchel/tech
 
 /obj/item/storage/backpack/marine/smock
 	name = "\improper M3 sniper's smock"
 	desc = "A specially designed smock with pockets for all your sniper needs."
 	icon_state = "smock"
-	access_delay = 0
+	storage_type = /datum/storage/backpack/no_delay
 
 //CLOAKS
 
@@ -734,10 +691,8 @@
 	desc = "A specialized backpack worn by TGMC technicians. It carries a fueltank for quick welder refueling and use,"
 	icon_state = "engineerpack"
 	item_state = "engineerpack"
+	storage_type = /datum/storage/backpack/satchel
 	var/max_fuel = 260
-	storage_slots = null
-	max_storage_space = 15
-	access_delay = 0
 
 /obj/item/storage/backpack/marine/engineerpack/Initialize(mapload, ...)
 	. = ..()
@@ -811,22 +766,19 @@
 	name = "\improper lightweight combat pack"
 	desc = "A small lightweight pack for expeditions and short-range operations."
 	icon_state = "ERT_satchel"
-	access_delay = 0
+	storage_type = /datum/storage/backpack/no_delay
 
 /obj/item/storage/backpack/commando
 	name = "commando bag"
 	desc = "A heavy-duty bag carried by Nanotrasen commandos."
 	icon_state = "commandopack"
-	storage_slots = null
-	max_storage_space = 40
-	access_delay = 0
+	storage_type = /datum/storage/backpack/commando
 
 /obj/item/storage/backpack/captain
 	name = "marine captain backpack"
 	desc = "The contents of this backpack are top secret."
 	icon_state = "marinepack"
-	storage_slots = null
-	max_storage_space = 30
+	storage_type = /datum/storage/backpack/captain
 
 /obj/item/storage/backpack/lightpack/som
 	name = "mining rucksack"
@@ -851,19 +803,20 @@
 	item_state = "radiopack"
 	///Var for the window pop-up
 	var/datum/supply_ui/requests/supply_interface
-	/// Reference to the datum used by the supply drop console
-	var/datum/supply_beacon/beacon_datum
+
+/obj/item/storage/backpack/marine/radiopack/Initialize(mapload, ...)
+	. = ..()
+	AddComponent(/datum/component/beacon)
+	RegisterSignal(src, COMSIG_ITEM_EQUIPPED_TO_SLOT, PROC_REF(on_equip))
+	RegisterSignal(src, COMSIG_ITEM_UNEQUIPPED, PROC_REF(on_unequip))
 
 /obj/item/storage/backpack/marine/radiopack/Destroy()
-	if(beacon_datum)
-		UnregisterSignal(beacon_datum, COMSIG_QDELETING)
-		QDEL_NULL(beacon_datum)
+	UnregisterSignal(src, list(COMSIG_ITEM_EQUIPPED_TO_SLOT, COMSIG_ITEM_UNEQUIPPED))
 	return ..()
 
 /obj/item/storage/backpack/marine/radiopack/examine(mob/user)
 	. = ..()
 	. += span_notice("Right-Click with empty hand to open requisitions interface.")
-	. += span_notice("Activate in hand to create a supply beacon signal.")
 
 /obj/item/storage/backpack/marine/radiopack/attack_hand_alternate(mob/living/user)
 	if(!allowed(user))
@@ -872,27 +825,15 @@
 		supply_interface = new(src)
 	return supply_interface.interact(user)
 
-/obj/item/storage/backpack/marine/radiopack/attack_self(mob/living/user)
-	if(beacon_datum)
-		UnregisterSignal(beacon_datum, COMSIG_QDELETING)
-		QDEL_NULL(beacon_datum)
-		user.show_message(span_warning("The [src] beeps and states, \"Your last position is no longer accessible by the supply console"), EMOTE_AUDIBLE, span_notice("The [src] vibrates but you can not hear it!"))
-		return
-	if(!is_ground_level(user.z))
-		to_chat(user, span_warning("You have to be on the planet to use this or it won't transmit."))
-		return FALSE
-	var/turf/location = get_turf(src)
-	beacon_datum = new /datum/supply_beacon(user.name, user.loc, user.faction, 4 MINUTES)
-	RegisterSignal(beacon_datum, COMSIG_QDELETING, PROC_REF(clean_beacon_datum))
-	user.show_message(span_notice("The [src] beeps and states, \"Your current coordinates were registered by the supply console. LONGITUDE [location.x]. LATITUDE [location.y]. Area ID: [get_area(src)]\""), EMOTE_AUDIBLE, span_notice("The [src] vibrates but you can not hear it!"))
-	addtimer(CALLBACK(src, PROC_REF(update_beacon_location)), 5 SECONDS)
-
-/obj/item/storage/backpack/marine/radiopack/proc/update_beacon_location()
-	if(beacon_datum)
-		beacon_datum.drop_location = get_turf(src)
-		addtimer(CALLBACK(src, PROC_REF(update_beacon_location), beacon_datum), 5 SECONDS)
-
-/// Signal handler to nullify beacon datum
-/obj/item/storage/backpack/marine/radiopack/proc/clean_beacon_datum()
+/obj/item/storage/backpack/marine/radiopack/proc/on_equip(datum/source, mob/equipper, slot)
 	SIGNAL_HANDLER
-	beacon_datum = null
+	RegisterSignal(equipper, COMSIG_CAVE_INTERFERENCE_CHECK, PROC_REF(on_interference_check))
+
+/obj/item/storage/backpack/marine/radiopack/proc/on_unequip(datum/source, mob/equipper, slot)
+	SIGNAL_HANDLER
+	UnregisterSignal(equipper, COMSIG_CAVE_INTERFERENCE_CHECK)
+
+/// Handles interacting with caves checking for if anything is reducing (or increasing) interference.
+/obj/item/storage/backpack/marine/radiopack/proc/on_interference_check(datum/source, list/inplace_interference)
+	SIGNAL_HANDLER
+	inplace_interference[1] = max(0, inplace_interference[1] - 1)

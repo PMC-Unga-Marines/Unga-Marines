@@ -92,15 +92,13 @@
 //Flipping tables, nothing more, nothing less
 /obj/structure/table/MouseDrop(over_object, src_location, over_location)
 	. = ..()
-
 	if(flipped)
 		do_put()
 	else
 		do_flip()
 
 /obj/structure/table/MouseDrop_T(obj/item/I, mob/user)
-
-	if (!istype(I) || user.get_active_held_item() != I)
+	if(!istype(I) || user.get_active_held_item() != I)
 		return ..()
 	user.drop_held_item()
 	if(I.loc != loc)
@@ -125,6 +123,8 @@
 
 /obj/structure/table/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(user.a_intent == INTENT_HARM)
 		return
 	if(!user.transferItemToLoc(I, loc))
@@ -138,36 +138,24 @@
 	I.pixel_y = clamp(text2num(click_params["icon-y"]) - 16, -(world.icon_size * 0.5), world.icon_size * 0.5)
 	return TRUE
 
-/obj/structure/table/grab_interact(obj/item/grab/grab, mob/user, base_damage, is_sharp)
-	if(isxeno(user))
+/obj/structure/table/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
+	. = ..()
+	if(.)
+		playsound(loc, 'sound/weapons/tablehit1.ogg', 25, 1)
 		return
-
+	if(user.a_intent == INTENT_HARM)
+		return
+	if(user.grab_state < GRAB_AGGRESSIVE)
+		return
 	if(!isliving(grab.grabbed_thing))
 		return
 
-	var/mob/living/M = grab.grabbed_thing
-	if(user.a_intent != INTENT_HARM)
-		if(user.grab_state < GRAB_AGGRESSIVE)
-			to_chat(user, span_warning("You need a better grip to do that!"))
-			return
-		M.forceMove(loc)
-		M.Paralyze(10 SECONDS)
-		user.visible_message(span_danger("[user] throws [M] on [src]."),
-		span_danger("You throw [M] on [src]."))
-		playsound(loc, 'sound/weapons/tablehit1.ogg', 50, 1)
-		return
-
-	if(user.grab_state <= GRAB_AGGRESSIVE)
-		to_chat(user, span_warning("You need a better grip to do that!"))
-		return
-
-	if(prob(15))
-		M.Paralyze(10 SECONDS)
-	M.apply_damage(8, BRUTE, "head", blocked = MELEE, updating_health = TRUE)
-	user.visible_message(span_danger("[user] slams [M]'s face against [src]!"),
-	span_danger("You slam [M]'s face against [src]!"))
-	log_combat(user, M, "slammed", "", "against \the [src]")
-	playsound(loc, 'sound/weapons/tablehit1.ogg', 50, 1)
+	var/mob/living/grabbed_mob = grab.grabbed_thing
+	grabbed_mob.forceMove(loc)
+	grabbed_mob.Paralyze(2 SECONDS)
+	user.visible_message(span_danger("[user] throws [grabbed_mob] on [src]."),
+	span_danger("You throw [grabbed_mob] on [src]."))
+	return TRUE
 
 ///Updates connected tables when required
 /obj/structure/table/proc/update_adjacent(location = loc)
@@ -205,7 +193,7 @@
 /obj/structure/table/verb/do_flip()
 	set name = "Flip table"
 	set desc = "Flips a non-reinforced table"
-	set category = "Object"
+	set category = "IC.Object"
 	set src in oview(1)
 
 	if(!can_interact(usr))
@@ -249,7 +237,7 @@
 /obj/structure/table/proc/do_put()
 	set name = "Put table back"
 	set desc = "Puts flipped table back"
-	set category = "Object"
+	set category = "IC.Object"
 	set src in oview(1)
 
 	if(!can_interact(usr))

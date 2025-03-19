@@ -172,6 +172,10 @@
 #define COMSIG_ATOM_ATTACKBY_ALTERNATE "atom_attackby_alternate" //from base of atom/attackby_alternate(): (/obj/item, /mob/living)
 	#define COMPONENT_NO_AFTERATTACK (1<<0)						//Return this in response if you don't want afterattack to be called
 
+///from base of atom/max_stack_merging(): (obj/item/stack/S)
+#define ATOM_MAX_STACK_MERGING "atom_max_stack_merging"
+///from base of atom/recalculate_storage_space(): ()
+#define ATOM_RECALCULATE_STORAGE_SPACE "atom_recalculate_storage_space"
 #define COMSIG_ATOM_CONTENTS_DEL "atom_contents_del"			//from base of atom/handle_atom_del(): (atom/deleted)
 #define COMSIG_ATOM_ENTERED "atom_entered"                      //from base of atom/Entered(): (atom/movable/entering, atom/oldloc, list/atom/oldlocs)
 #define COMSIG_ATOM_EXIT "atom_exit"							//from base of atom/Exit(): (/atom/movable/exiting, direction)
@@ -225,6 +229,8 @@
 #define COMSIG_ATOM_UPDATED_ICON "atom_updated_icon"
 
 #define COMSIG_ATOM_EX_ACT "atom_ex_act"						//from base of atom/ex_act(): (severity, target)
+///from base of atom/contents_explosion(): (severity)
+#define COMSIG_CONTENTS_EX_ACT "contents_ex_act"
 #define COMSIG_ATOM_SET_LIGHT "atom_set_light"					//from base of atom/set_light(): (l_range, l_power, l_color)
 #define COMSIG_ATOM_BULLET_ACT "atom_bullet_act"				//from base of atom/bullet_act(): (/obj/projectile)
 #define COMSIG_ATOM_INITIALIZED_ON "atom_initialized_on"		//called from atom/Initialize() of target: (atom/target)
@@ -292,7 +298,7 @@
 #define COMSIG_MOVABLE_SHUTTLE_CRUSH "movable_shuttle_crush"
 
 // /turf signals
-#define COMSIG_TURF_CHANGE "turf_change"						//from base of turf/ChangeTurf(): (path, list/new_baseturfs, flags, list/transferring_comps)
+#define COMSIG_TURF_CHANGE "turf_change"						//from base of turf/change_turf(): (path, list/new_baseturfs, flags, list/transferring_comps)
 #define COMSIG_TURF_WEED_REMOVED "turf_weed_removed"
 #define COMSIG_TURF_THROW_ENDED_HERE "turf_throw_ended_here"						//From atom/movable/throw_at, sent right after a throw ends
 #define COMSIG_TURF_JUMP_ENDED_HERE "turf_jump_ended_here"      //from datum/element/jump/end_jump(): (jumper)
@@ -376,6 +382,12 @@
 	#define COMPONENT_CLOTHING_BLUR_PROTECTION (1<<1)
 
 #define COMSIG_ITEM_UNDEPLOY "item_undeploy" //from base of /obj/machinery/deployable
+
+///from base of obj/item/quick_equip(): (mob/user)
+#define COMSIG_ITEM_QUICK_EQUIP "item_quick_equip"
+// Return signals for /datum/storage/proc/on_quick_equip_request
+	#define COMSIG_QUICK_EQUIP_HANDLED (1<<0) //Our signal handler took care of quick equip
+	#define COMSIG_QUICK_EQUIP_BLOCKED (1<<1) //Our signal handler blocked the quick equip, but does not want to block the remainder of the proc
 
 ///From /obj/item/proc/pickup(): (/obj/item/picked_up_item)
 #define COMSIG_ITEM_ATTEMPT_PICK_UP "item_attempt_pick_up"
@@ -1136,3 +1148,6 @@
 #define COMSIG_UPGRADE_CHAMBER_SURVIVAL "upgrade_chamber_survival"
 #define COMSIG_UPGRADE_CHAMBER_ATTACK "upgrade_chamber_attack"
 #define COMSIG_UPGRADE_CHAMBER_UTILITY "upgrade_chamber_utility"
+
+/// Cave comms interference check signal.
+#define COMSIG_CAVE_INTERFERENCE_CHECK "cave_interference_check"

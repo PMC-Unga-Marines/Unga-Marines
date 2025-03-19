@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	railings.Cut()
 	return ..()
 
-/obj/docking_port/mobile/supply/afterShuttleMove()
+/obj/docking_port/mobile/supply/after_shuttle_move()
 	. = ..()
 	if(getDockedId() != home_id)
 		return

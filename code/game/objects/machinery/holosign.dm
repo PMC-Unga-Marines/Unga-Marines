@@ -1,4 +1,3 @@
-////////////////////HOLOSIGN///////////////////////////////////////
 /obj/machinery/holosign
 	name = "holosign"
 	desc = "Small wall-mounted holographic projector"
@@ -32,26 +31,26 @@
 	name = "surgery holosign"
 	desc = "Small wall-mounted holographic projector. This one reads SURGERY."
 	on_icon = "surgery"
-////////////////////SWITCH///////////////////////////////////////
 
 /obj/machinery/holosign_switch
 	name = "holosign switch"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "light1"
 	desc = "A remote control switch for holosign."
-	var/id = null
-	var/active = 0
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 4
+	var/id = null
+	var/active = 0
 
 /obj/machinery/holosign_switch/attack_ai(mob/user as mob)
-	return src.attack_hand(user)
-
+	return attack_hand(user)
 
 /obj/machinery/holosign_switch/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/detective_scanner))
 		return
@@ -71,5 +70,5 @@
 		icon_state = "light0"
 
 	for(var/obj/machinery/holosign/M in GLOB.machines)
-		if (M.id == src.id)
+		if(M.id == src.id)
 			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/holosign, toggle))

@@ -59,7 +59,7 @@
 	blood_overlay_type = "armor"
 	armor_protection_flags = CHEST|GROIN
 
-/obj/item/clothing/suit/apron/overalls
+/obj/item/clothing/suit/storage/apron/overalls
 	name = "coveralls"
 	desc = "A set of denim overalls."
 	icon_state = "overalls"
@@ -164,7 +164,7 @@
 //Blue suit jacket toggle
 /obj/item/clothing/suit/suit/verb/toggle()
 	set name = "Toggle Jacket Buttons"
-	set category = "Object.Clothing"
+	set category = "IC.Clothing"
 	set src in usr
 
 	if(!usr.canmove || usr.stat || usr.restrained())
@@ -244,7 +244,7 @@
 	icon_state = "swim_red"
 	siemens_coefficient = 1
 
-/obj/item/clothing/suit/bomber
+/obj/item/clothing/suit/storage/bomber
 	name = "bomber jacket"
 	desc = "A well-worn WW2 leather bomber jacket."
 	icon_state = "bomber"

@@ -66,10 +66,10 @@
 
 /obj/item/card/id/vv_edit_var(var_name, var_value)
 	. = ..()
-	if(.)
-		switch(var_name)
-			if("assignment", "registered_name")
-				update_label()
+	if(!.)
+		return
+	if(var_name == ("assignment" || "registered_name"))
+		update_label()
 
 /obj/item/card/id/proc/update_label(newname, newjob)
 	if(newname || newjob)
@@ -90,7 +90,7 @@
 
 /obj/item/card/id/verb/read()
 	set name = "Read ID Card"
-	set category = "Object.Clothing"
+	set category = "IC.Clothing"
 	set src in usr
 
 	to_chat(usr, "[icon2html(src, usr)] [name]: The current assignment on the card is [assignment].")
@@ -294,6 +294,8 @@
 
 /obj/item/dogtag/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/dogtag))
 		var/obj/item/dogtag/D = I

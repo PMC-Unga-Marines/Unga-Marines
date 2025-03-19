@@ -1,5 +1,3 @@
-
-
 /obj/structure/reagent_dispensers
 	name = "dispenser"
 	desc = "..."
@@ -109,7 +107,6 @@
 	rig = null
 	cut_overlays()
 
-
 /obj/structure/reagent_dispensers/fueltank/wrench_act(mob/living/user, obj/item/I)
 	user.visible_message("[user] wrenches [src]'s faucet [modded ? "closed" : "open"].", \
 	"You wrench [src]'s faucet [modded ? "closed" : "open"]")
@@ -140,9 +137,10 @@
 	explode()
 	return TRUE
 
-
 /obj/structure/reagent_dispensers/fueltank/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(!istype(I, /obj/item/assembly_holder))
 		return
@@ -163,7 +161,6 @@
 	overlay.pixel_x = 1
 	overlay.pixel_y = 6
 	add_overlay(overlay)
-
 
 /obj/structure/reagent_dispensers/fueltank/bullet_act(obj/projectile/proj)
 	if(exploding)
@@ -261,7 +258,6 @@
 	list_reagents = list(/datum/reagent/water = 500)
 	coverage = 20
 
-
 /obj/structure/reagent_dispensers/beerkeg
 	name = "beer keg"
 	desc = "A beer keg"
@@ -269,7 +265,6 @@
 	icon_state = "beertankTEMP"
 	list_reagents = list(/datum/reagent/consumable/ethanol/beer = 1000)
 	coverage = 30
-
 
 /obj/structure/reagent_dispensers/wallmounted
 	icon = 'icons/obj/wallframes.dmi'

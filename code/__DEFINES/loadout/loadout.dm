@@ -151,7 +151,7 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 	SQUAD_ENGINEER = list(
 		/obj/item/weapon/gun/sentry/basic = 1,
 		/obj/item/explosive/plastique = 1,
-		/obj/item/explosive/grenade/chem_grenade/razorburn_smol = 1,
+		/obj/item/explosive/grenade/chem_grenade/razorburn_small = 1,
 		/obj/item/clothing/gloves/marine/insulated = 1,
 		/obj/item/cell/high = 1,
 		/obj/item/lightreplacer = 1,
@@ -167,7 +167,6 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 		/obj/item/roller = 1,
 		/obj/item/tweezers = 1,
 		/obj/item/reagent_containers/hypospray/advanced/oxycodone = 1,
-		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/clothing/glasses/hud/health = 1,
 		/obj/item/tool/surgery/solderingtool = 1,
 	),
@@ -176,8 +175,8 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 	),
 	SQUAD_LEADER = list(
 		/obj/item/explosive/plastique = 1,
-		/obj/item/beacon/supply_beacon = 2,
-		/obj/item/beacon/orbital_bombardment_beacon = 1,
+		/obj/item/supply_beacon = 2,
+		/obj/item/orbital_bombardment_beacon = 1,
 		/obj/item/whistle = 1,
 		/obj/item/binoculars/tactical = 1,
 		/obj/item/pinpointer = 1,
@@ -186,8 +185,8 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 	),
 	FIELD_COMMANDER = list(
 		/obj/item/explosive/plastique = 1,
-		/obj/item/beacon/supply_beacon = 1,
-		/obj/item/beacon/orbital_bombardment_beacon = 1,
+		/obj/item/supply_beacon = 1,
+		/obj/item/orbital_bombardment_beacon = 1,
 		/obj/item/healthanalyzer = 1,
 		/obj/item/roller/medevac = 1,
 		/obj/item/medevac_beacon = 1,
@@ -214,9 +213,13 @@ GLOBAL_LIST_INIT(loadout_role_essential_set, list(
 ))
 
 ///Storage items that will always have their default content
-GLOBAL_LIST_INIT(bypass_storage_content_save, typecacheof(list(
-	/obj/item/storage/box/MRE,
+GLOBAL_LIST_INIT(loadout_instantiate_default_contents, typecacheof(list(
+	/obj/item/storage/box/mre,
 	/obj/item/storage/pill_bottle/packet,
+	/obj/item/storage/pill_bottle,
+	/obj/item/storage/box/m94,
+	/obj/item/storage/fancy/chemrettes,
+	/obj/item/storage/fancy/cigarettes,
 )))
 
 //Defines use for the visualisation of loadouts
@@ -229,6 +232,6 @@ GLOBAL_LIST_INIT(bypass_storage_content_save, typecacheof(list(
 #define MAXIMUM_LOADOUT 50
 
 /// The current loadout version
-#define CURRENT_LOADOUT_VERSION 14
+#define CURRENT_LOADOUT_VERSION 15
 
-GLOBAL_LIST_INIT(accepted_loadout_versions, list(5, 6, 7, 8, 9, 10, 11, 13, 14))
+GLOBAL_LIST_INIT(accepted_loadout_versions, list(5, 6, 7, 8, 9, 10, 11, 13, 14, 15))

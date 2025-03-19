@@ -35,7 +35,7 @@
 	if(toggleable)
 		actions_types = list(/datum/action/item_action/toggle)
 	. = ..()
-	if(active)	//For glasses that spawn active
+	if(toggleable && active)	//For glasses that spawn active
 		active = FALSE
 		activate()
 
@@ -93,27 +93,24 @@
 
 /obj/item/clothing/glasses/eyepatch/attackby(obj/item/I, mob/user, params)
 	. = ..()
-
+	if(.)
+		return
+	var/obj/item/clothing/glasses/eyepatch
 	if(istype(I, /obj/item/clothing/glasses/hud/health))
-		var/obj/item/clothing/glasses/hud/medpatch/P = new
+		eyepatch = new /obj/item/clothing/glasses/hud/medpatch
 		to_chat(user, span_notice("You fasten the medical hud projector to the inside of the eyepatch."))
-		qdel(I)
-		qdel(src)
-		user.put_in_hands(P)
 	else if(istype(I, /obj/item/clothing/glasses/meson))
-		var/obj/item/clothing/glasses/meson/eyepatch/P = new
+		eyepatch = new /obj/item/clothing/glasses/meson/eyepatch
 		to_chat(user, span_notice("You fasten the meson projector to the inside of the eyepatch."))
-		qdel(I)
-		qdel(src)
-		user.put_in_hands(P)
 	if(istype(I, /obj/item/clothing/glasses/night/imager_goggles))
-		var/obj/item/clothing/glasses/night/imager_goggles/eyepatch/P = new
+		eyepatch = new /obj/item/clothing/glasses/night/imager_goggles/eyepatch
 		to_chat(user, span_notice("You fasten the optical scanner to the inside of the eyepatch."))
-		qdel(I)
-		qdel(src)
-		user.put_in_hands(P)
-
-		update_icon()
+	if(!eyepatch)
+		return
+	qdel(I)
+	qdel(src)
+	user.put_in_hands(eyepatch)
+	update_icon()
 
 /obj/item/clothing/glasses/monocle
 	name = "monocle"
@@ -130,13 +127,15 @@
 
 /obj/item/clothing/glasses/regular/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/clothing/glasses/hud/health))
-		var/obj/item/clothing/glasses/hud/medglasses/P = new
+		var/obj/item/clothing/glasses/hud/medglasses/our_glasses = new
 		to_chat(user, span_notice("You fasten the medical hud projector to the inside of the glasses."))
 		qdel(I)
 		qdel(src)
-		user.put_in_hands(P)
+		user.put_in_hands(our_glasses)
 
 		update_icon()
 
@@ -164,20 +163,19 @@
 
 /obj/item/clothing/glasses/mgoggles/attackby(obj/item/our_item, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(istype(our_item, /obj/item/clothing/glasses/night/imager_goggles))
+		var/obj/item/clothing/glasses/night/optgoggles/our_glasses
 		if(prescription)
-			var/obj/item/clothing/glasses/night/optgoggles/prescription/our_glasses = new
+			our_glasses = new /obj/item/clothing/glasses/night/optgoggles/prescription
 			to_chat(user, span_notice("You fasten the optical imaging scanner to the inside of the goggles."))
-			qdel(our_item)
-			qdel(src)
-			user.put_in_hands(our_glasses)
 		else
-			var/obj/item/clothing/glasses/night/optgoggles/our_glasses = new
+			our_glasses = new /obj/item/clothing/glasses/night/optgoggles
 			to_chat(user, span_notice("You fasten the optical imaging scanner to the inside of the goggles."))
-			qdel(our_item)
-			qdel(src)
-			user.put_in_hands(our_glasses)
-
+		qdel(our_item)
+		qdel(src)
+		user.put_in_hands(our_glasses)
 		update_icon(user)
 
 /obj/item/clothing/glasses/mgoggles/prescription
@@ -187,35 +185,30 @@
 
 /obj/item/clothing/glasses/mgoggles/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
+	var/obj/item/clothing/glasses/our_glasses
 	if(istype(I, /obj/item/clothing/glasses/hud/health))
 		if(prescription)
-			var/obj/item/clothing/glasses/hud/medgoggles/prescription/P = new
+			our_glasses = new /obj/item/clothing/glasses/hud/medsunglasses
 			to_chat(user, span_notice("You fasten the medical hud projector to the inside of the goggles."))
-			qdel(I)
-			qdel(src)
-			user.put_in_hands(P)
 		else
-			var/obj/item/clothing/glasses/hud/medgoggles/S = new
+			our_glasses = new /obj/item/clothing/glasses/meson/sunglasses
 			to_chat(user, span_notice("You fasten the medical hud projector to the inside of the goggles."))
-			qdel(I)
-			qdel(src)
-			user.put_in_hands(S)
 	else if(istype(I, /obj/item/clothing/glasses/meson))
 		if(prescription)
-			var/obj/item/clothing/glasses/meson/enggoggles/prescription/P = new
+			our_glasses = new /obj/item/clothing/glasses/night/sunglasses
 			to_chat(user, span_notice("You fasten the optical meson scanner to the inside of the goggles."))
-			qdel(I)
-			qdel(src)
-			user.put_in_hands(P)
 		else
-			var/obj/item/clothing/glasses/meson/enggoggles/S = new
+			our_glasses = new /obj/item/clothing/glasses/night/imager_goggles/sunglasses
 			to_chat(user, span_notice("You fasten the optical meson scanner to the inside of the goggles."))
-			qdel(I)
-			qdel(src)
-			user.put_in_hands(S)
-
-		update_icon()
+	if(!our_glasses)
+		return
+	qdel(I)
+	qdel(src)
+	user.put_in_hands(our_glasses)
+	update_icon()
 
 /obj/item/clothing/glasses/m42_goggles
 	name = "\improper M42 scout sight"
@@ -242,7 +235,7 @@
 	AddComponent(/datum/component/clothing_tint, TINT_5, TRUE)
 
 /obj/item/clothing/glasses/welding/verb/verbtoggle()
-	set category = "Object.Clothing"
+	set category = "IC.Clothing"
 	set name = "Adjust welding goggles"
 	set src in usr
 
@@ -337,33 +330,28 @@
 
 /obj/item/clothing/glasses/sunglasses/fake/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
+	var/obj/item/clothing/glasses/our_glasses
 	if(istype(I, /obj/item/clothing/glasses/hud/health))
-		var/obj/item/clothing/glasses/hud/medsunglasses/P = new
+		our_glasses = new /obj/item/clothing/glasses/hud/medsunglasses
 		to_chat(user, span_notice("You fasten the medical hud projector to the inside of the glasses."))
-		qdel(I)
-		qdel(src)
-		user.put_in_hands(P)
 	else if(istype(I, /obj/item/clothing/glasses/meson))
-		var/obj/item/clothing/glasses/meson/sunglasses/P = new
+		our_glasses = new /obj/item/clothing/glasses/meson/sunglasses
 		to_chat(user, span_notice("You fasten the optical meson scaner to the inside of the glasses."))
-		qdel(I)
-		qdel(src)
-		user.put_in_hands(P)
 	else if(istype(I, /obj/item/clothing/glasses/night/m56_goggles))
-		var/obj/item/clothing/glasses/night/sunglasses/P = new
+		our_glasses = new /obj/item/clothing/glasses/night/sunglasses
 		to_chat(user, span_notice("You fasten the KTLD sight to the inside of the glasses."))
-		qdel(I)
-		qdel(src)
-		user.put_in_hands(P)
 	else if(istype(I, /obj/item/clothing/glasses/night/imager_goggles))
-		var/obj/item/clothing/glasses/night/imager_goggles/sunglasses/P = new
+		our_glasses = new /obj/item/clothing/glasses/night/imager_goggles/sunglasses
 		to_chat(user, span_notice("You fasten the optical imager scaner to the inside of the glasses."))
-		qdel(I)
-		qdel(src)
-		user.put_in_hands(P)
-
-		update_icon()
+	if(!our_glasses)
+		return
+	qdel(I)
+	qdel(src)
+	user.put_in_hands(our_glasses)
+	update_icon()
 
 /obj/item/clothing/glasses/sunglasses/fake/prescription
 	name = "prescription sunglasses"
@@ -405,14 +393,14 @@
 	if(slot == SLOT_GLASSES)
 		var/datum/atom_hud/H = GLOB.huds[hud_type]
 		H.add_hud_to(user)
-	..()
+	return ..()
 
 /obj/item/clothing/glasses/sunglasses/sechud/dropped(mob/living/carbon/human/user)
 	if(istype(user))
 		if(src == user.glasses) //dropped is called before the inventory reference is updated.
 			var/datum/atom_hud/H = GLOB.huds[hud_type]
 			H.remove_hud_from(user)
-	..()
+	return ..()
 
 /obj/item/clothing/glasses/sunglasses/aviator
 	name = "aviator sunglasses"
@@ -435,27 +423,24 @@
 
 /obj/item/clothing/glasses/orange/attackby(obj/item/our_item, mob/user, params)
 	. = ..()
+	if(.)
+		return
+	var/obj/item/clothing/glasses/our_glasses
 	if(istype(our_item, /obj/item/clothing/glasses/hud/health))
-		var/obj/item/clothing/glasses/hud/orange_glasses/our_glasses = new
+		our_glasses = new /obj/item/clothing/glasses/hud/orange_glasses
 		to_chat(user, span_notice("You fasten the medical hud projector to the inside of the glasses."))
-		qdel(our_item)
-		qdel(src)
-		user.put_in_hands(our_glasses)
-		update_icon()
 	else if(istype(our_item, /obj/item/clothing/glasses/night/imager_goggles))
-		var/obj/item/clothing/glasses/night/imager_goggles/orange_glasses/our_glasses = new
+		our_glasses = new /obj/item/clothing/glasses/night/imager_goggles/orange_glasses
 		to_chat(user, span_notice("You fasten the optical imager scaner to the inside of the glasses."))
-		qdel(our_item)
-		qdel(src)
-		user.put_in_hands(our_glasses)
-		update_icon()
 	else if(istype(our_item, /obj/item/clothing/glasses/meson))
-		var/obj/item/clothing/glasses/meson/orange_glasses/our_glasses = new
+		our_glasses = new /obj/item/clothing/glasses/meson/orange_glasses
 		to_chat(user, span_notice("You fasten the optical meson scaner to the inside of the glasses."))
-		qdel(our_item)
-		qdel(src)
-		user.put_in_hands(our_glasses)
-		update_icon()
+	if(!our_glasses)
+		return
+	qdel(our_item)
+	qdel(src)
+	user.put_in_hands(our_glasses)
+	update_icon()
 
 /obj/item/clothing/glasses/meson/orange_glasses
 	name = "Orange glasses"

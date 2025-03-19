@@ -11,15 +11,18 @@
 	allow_pass_flags = PASS_GLASS
 	resistance_flags = XENO_DAMAGEABLE | DROPSHIP_IMMUNE
 	coverage = 20
-	var/dismantle = FALSE //If we're dismantling the window properly no smashy smashy
 	max_integrity = 15
+	/// If we're dismantling the window properly no smashy smashy
+	var/dismantle = FALSE
 	var/state = 2
 	var/reinf = FALSE
 	var/basestate = "window"
 	var/shardtype = /obj/item/shard
 	var/windowknock_cooldown = 0
-	var/static_frame = FALSE //If true, can't move the window
-	var/junction = 0 //Because everything is terrible, I'm making this a window-level var
+	/// If true, can't move the window
+	var/static_frame = FALSE
+	/// Because everything is terrible, I'm making this a window-level var
+	var/junction = 0
 	var/damageable = TRUE
 	var/deconstructable = TRUE
 
@@ -50,7 +53,7 @@
 	atom_flags = DIRLOCK
 
 /obj/structure/window/Initialize(mapload, start_dir, constructed)
-	..()
+	. = ..()
 
 	//player-constructed windows
 	if(constructed)
@@ -128,69 +131,69 @@
 		span_notice("You hear a knocking sound."))
 		windowknock_cooldown = world.time + 100
 
-/obj/structure/window/attackby(obj/item/I, mob/user, params)
-	. = ..()
-
-	if(istype(I, /obj/item/grab) && get_dist(src, user) < 2)
-		if(isxeno(user))
-			return
-		var/obj/item/grab/G = I
-		if(!isliving(G.grabbed_thing))
-			return
-
-		var/mob/living/M = G.grabbed_thing
-		var/state = user.grab_state
-		user.drop_held_item()
-		switch(state)
-			if(GRAB_PASSIVE)
-				M.visible_message(span_warning("[user] slams [M] against \the [src]!"))
-				log_combat(user, M, "slammed", "", "against \the [src]")
-				M.apply_damage(7, blocked = MELEE)
-				UPDATEHEALTH(M)
-				take_damage(10, BRUTE, MELEE)
-			if(GRAB_AGGRESSIVE)
-				M.visible_message(span_danger("[user] bashes [M] against \the [src]!"))
-				log_combat(user, M, "bashed", "", "against \the [src]")
-				if(prob(50))
-					M.Paralyze(2 SECONDS)
-				M.apply_damage(10, blocked = MELEE)
-				UPDATEHEALTH(M)
-				take_damage(25, BRUTE, MELEE)
-			if(GRAB_NECK)
-				M.visible_message(span_danger("<big>[user] crushes [M] against \the [src]!</big>"))
-				log_combat(user, M, "crushed", "", "against \the [src]")
-				M.Paralyze(10 SECONDS)
-				M.apply_damage(20, blocked = MELEE)
-				UPDATEHEALTH(M)
-				take_damage(50, BRUTE, MELEE)
-
-	else if(I.item_flags & NOBLUDGEON)
+/obj/structure/window/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
+	if(!isliving(grab.grabbed_thing))
 		return
 
-	else if(isscrewdriver(I) && deconstructable)
-		dismantle = TRUE
-		if(reinf && state >= 1)
-			state = 3 - state
-			playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
-			to_chat(user, (state == 1 ? span_notice("You have unfastened the window from the frame.") : span_notice("You have fastened the window to the frame.")))
-		else if(reinf && state == 0 && !static_frame)
-			anchored = !anchored
-			update_nearby_icons()
-			playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
-			to_chat(user, (anchored ? span_notice("You have fastened the frame to the floor.") : span_notice("You have unfastened the frame from the floor.")))
-		else if(!reinf && !static_frame)
-			anchored = !anchored
-			update_nearby_icons()
-			playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
-			to_chat(user, (anchored ? span_notice("You have fastened the window to the floor.") : span_notice("You have unfastened the window.")))
-		else if(!reinf || (static_frame && state == 0))
-			deconstruct(TRUE)
+	var/mob/living/grabbed_mob = grab.grabbed_thing
+	var/state = user.grab_state
+	user.drop_held_item()
+	step_towards(grabbed_mob, src)
+	var/damage = (user.skills.getRating(SKILL_CQC) * CQC_SKILL_DAMAGE_MOD)
+	switch(state)
+		if(GRAB_PASSIVE)
+			damage += base_damage
+			grabbed_mob.visible_message(span_warning("[user] slams [grabbed_mob] against \the [src]!"))
+			log_combat(user, grabbed_mob, "slammed", "", "against \the [src]")
+		if(GRAB_AGGRESSIVE)
+			damage += base_damage * 1.5
+			grabbed_mob.visible_message(span_danger("[user] bashes [grabbed_mob] against \the [src]!"))
+			log_combat(user, grabbed_mob, "bashed", "", "against \the [src]")
+			if(prob(50))
+				grabbed_mob.Paralyze(2 SECONDS)
+		if(GRAB_NECK)
+			damage += base_damage * 2
+			grabbed_mob.visible_message(span_danger("<big>[user] crushes [grabbed_mob] against \the [src]!</big>"))
+			log_combat(user, grabbed_mob, "crushed", "", "against \the [src]")
+			grabbed_mob.Paralyze(2 SECONDS)
+	grabbed_mob.apply_damage(damage, blocked = MELEE, updating_health = TRUE)
+	take_damage(damage * 2, BRUTE, MELEE)
+	return TRUE
 
-	else if(iscrowbar(I) && reinf && state <= 1 && deconstructable)
-		dismantle = TRUE
-		state = 1 - state
-		playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
-		to_chat(user, (state ? span_notice("You have pried the window into the frame.") : span_notice("You have pried the window out of the frame.")))
+/obj/structure/window/screwdriver_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(!deconstructable)
+		return
+	dismantle = TRUE
+	if(reinf && state >= 1)
+		state = 3 - state
+		playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
+		to_chat(user, (state == 1 ? span_notice("You have unfastened the window from the frame.") : span_notice("You have fastened the window to the frame.")))
+	else if(reinf && state == 0 && !static_frame)
+		anchored = !anchored
+		update_nearby_icons()
+		playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
+		to_chat(user, (anchored ? span_notice("You have fastened the frame to the floor.") : span_notice("You have unfastened the frame from the floor.")))
+	else if(!reinf && !static_frame)
+		anchored = !anchored
+		update_nearby_icons()
+		playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
+		to_chat(user, (anchored ? span_notice("You have fastened the window to the floor.") : span_notice("You have unfastened the window.")))
+	else if(!reinf || (static_frame && state == 0))
+		deconstruct(TRUE)
+
+/obj/structure/window/crowbar_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(!reinf)
+		return
+	if(state > 1)
+		return
+	if(!deconstructable)
+		return
+	dismantle = TRUE
+	state = 1 - state
+	playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
+	to_chat(user, (state ? span_notice("You have pried the window into the frame.") : span_notice("You have pried the window out of the frame.")))
 
 /obj/structure/window/deconstruct(disassembled = TRUE)
 	if(disassembled)
@@ -208,7 +211,7 @@
 
 /obj/structure/window/verb/rotate()
 	set name = "Rotate Window Counter-Clockwise"
-	set category = "Object.Rotate"
+	set category = "IC.Rotate"
 	set src in oview(1)
 
 	if(static_frame)
@@ -223,7 +226,7 @@
 
 /obj/structure/window/verb/revrotate()
 	set name = "Rotate Window Clockwise"
-	set category = "Object.Rotate"
+	set category = "IC.Rotate"
 	set src in oview(1)
 
 	if(static_frame)
@@ -275,6 +278,9 @@
 	. = ..()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_ACID))
 		take_damage(1 * S.strength, BURN, ACID) // glass doesn't care about acid
+
+/obj/structure/window/get_dumping_location()
+	return null
 
 /obj/structure/window/phoronbasic
 	name = "phoron window"

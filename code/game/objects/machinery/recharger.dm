@@ -8,10 +8,17 @@
 	active_power_usage = 15000	//15 kW
 	var/obj/item/charging = null
 	var/percent_charge_complete = 0
-	var/list/allowed_devices = list(/obj/item/weapon/baton, /obj/item/cell, /obj/item/weapon/gun/energy/taser, /obj/item/defibrillator)
+	var/list/allowed_devices = list(
+		/obj/item/weapon/baton,
+		/obj/item/cell,
+		/obj/item/weapon/gun/energy/taser,
+		/obj/item/defibrillator,
+	)
 
 /obj/machinery/recharger/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(issilicon(user))
 		return
@@ -21,14 +28,6 @@
 		if(istype(I, allowed_type))
 			allowed = TRUE
 			break
-
-	if(iswrench(I))
-		if(charging)
-			to_chat(user, span_warning("Remove [charging] first!"))
-			return
-		anchored = !anchored
-		to_chat(user, "You [anchored ? "attached" : "detached"] the recharger.")
-		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
 
 	if(!allowed)
 		return
@@ -55,6 +54,15 @@
 	start_processing()
 	update_icon()
 
+
+/obj/machinery/recharger/wrench_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(charging)
+		to_chat(user, span_warning("Remove [charging] first!"))
+		return
+	anchored = !anchored
+	to_chat(user, "You [anchored ? "attached" : "detached"] the recharger.")
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
 
 /obj/machinery/recharger/attack_hand(mob/living/user)
 	. = ..()
@@ -128,17 +136,15 @@
 				update_icon()
 			return
 
-
 /obj/machinery/recharger/emp_act(severity)
 	if(machine_stat & (NOPOWER|BROKEN) || !anchored)
-		..(severity)
-		return
+		return ..(severity)
 
 	if(istype(charging, /obj/item/weapon/baton))
 		var/obj/item/weapon/baton/B = charging
 		if(B.bcell)
 			B.bcell.charge = 0
-	..(severity)
+	return ..(severity)
 
 /obj/machinery/recharger/update_overlays()
 	. = ..()

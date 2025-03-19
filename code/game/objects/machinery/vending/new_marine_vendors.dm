@@ -480,7 +480,7 @@
 
 /obj/effect/vendor_bundle/basic
 	gear_to_spawn = list(
-		/obj/item/storage/box/MRE,
+		/obj/item/storage/box/mre,
 		/obj/item/paper/tutorial/medical,
 		/obj/item/paper/tutorial/mechanics,
 	)
@@ -511,7 +511,7 @@
 	gear_to_spawn = list(
 		/obj/item/weapon/gun/sentry/basic,
 		/obj/item/explosive/plastique,
-		/obj/item/explosive/grenade/chem_grenade/razorburn_smol,
+		/obj/item/explosive/grenade/chem_grenade/razorburn_small,
 		/obj/item/clothing/gloves/marine/insulated,
 		/obj/item/cell/high,
 		/obj/item/lightreplacer,
@@ -527,9 +527,9 @@
 /obj/effect/vendor_bundle/leader
 	gear_to_spawn = list(
 		/obj/item/explosive/plastique,
-		/obj/item/beacon/supply_beacon,
-		/obj/item/beacon/supply_beacon,
-		/obj/item/beacon/orbital_bombardment_beacon,
+		/obj/item/supply_beacon,
+		/obj/item/supply_beacon,
+		/obj/item/orbital_bombardment_beacon,
 		/obj/item/whistle,
 		/obj/item/compass,
 		/obj/item/binoculars/tactical,
@@ -540,8 +540,8 @@
 /obj/effect/vendor_bundle/commander
 	gear_to_spawn = list(
 		/obj/item/explosive/plastique,
-		/obj/item/beacon/supply_beacon,
-		/obj/item/beacon/orbital_bombardment_beacon,
+		/obj/item/supply_beacon,
+		/obj/item/orbital_bombardment_beacon,
 		/obj/item/healthanalyzer,
 		/obj/item/roller/medevac,
 		/obj/item/medevac_beacon,

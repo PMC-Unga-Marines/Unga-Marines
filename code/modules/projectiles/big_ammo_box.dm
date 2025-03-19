@@ -32,6 +32,8 @@
 
 /obj/item/big_ammo_box/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/AM = I
@@ -194,6 +196,8 @@
 
 /obj/item/shotgunbox/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(!istype(I, /obj/item/ammo_magazine/handful))
 		return

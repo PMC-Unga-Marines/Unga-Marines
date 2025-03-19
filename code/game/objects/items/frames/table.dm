@@ -18,13 +18,11 @@
 
 /obj/item/frame/table/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	var/turf/table_turf = get_turf(src)
-	if(iswrench(I) && deconstruct_type)
-		new deconstruct_type(table_turf)
-		qdel(src)
-
-	else if(istype(I, /obj/item/stack/rods))
+	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = I
 		if(!R.use(4))
 			to_chat(user, span_warning("You need at least four rods to reinforce [src]."))
@@ -35,7 +33,7 @@
 		user.temporarilyRemoveItemFromInventory(src)
 		qdel(src)
 
-	else if(istype(I, /obj/item/stack/sheet/wood))
+	if(istype(I, /obj/item/stack/sheet/wood))
 		var/obj/item/stack/sheet/wood/S = I
 
 		if(!S.use(2))
@@ -47,6 +45,14 @@
 		to_chat(user, span_notice("You replace the metal parts of [src]."))
 		user.temporarilyRemoveItemFromInventory(src)
 		qdel(src)
+
+/obj/item/frame/table/wrench_act(mob/living/user, obj/item/I)
+	. = ..()
+
+	if(!deconstruct_type)
+		return
+	new deconstruct_type(get_turf(src))
+	qdel(src)
 
 /obj/item/frame/table/attack_self(mob/user)
 	if(locate(/obj/structure/table) in get_turf(user))
@@ -99,6 +105,8 @@
 
 /obj/item/frame/table/wood/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/stack/tile/carpet))
 		var/obj/item/stack/tile/carpet/C = I

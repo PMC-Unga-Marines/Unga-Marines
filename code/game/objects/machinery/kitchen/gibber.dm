@@ -1,4 +1,3 @@
-
 /obj/machinery/gibber
 	name = "Gibber"
 	desc = "The name isn't descriptive enough?"
@@ -10,11 +9,14 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 1000
-	var/operating = 0 //Is it on?
-	var/dirty = 0 // Does it need cleaning?
-	var/gibtime = 40 // Time from starting until meat appears
-	var/mob/living/occupant // Mob who has been put inside
-
+	/// Is it on?
+	var/operating = 0
+	/// Does it need cleaning?
+	var/dirty = 0
+	/// Time from starting until meat appears
+	var/gibtime = 40
+	/// Mob who has been put inside
+	var/mob/living/occupant
 
 /obj/machinery/gibber/Initialize(mapload)
 	. = ..()
@@ -39,7 +41,6 @@
 	if(user.incapacitated(TRUE))
 		return
 	go_out()
-
 
 /obj/machinery/gibber/interact(mob/user)
 	. = ..()
@@ -86,7 +87,7 @@
 	update_icon()
 
 /obj/machinery/gibber/verb/eject()
-	set category = "Object"
+	set category = "IC.Object"
 	set name = "Empty Gibber"
 	set src in oview(1)
 
@@ -108,7 +109,6 @@
 	occupant.loc = loc
 	occupant = null
 	update_icon()
-
 
 ///Gibs the victim, and sets the output
 /obj/machinery/gibber/proc/activate_gibber(mob/user as mob)

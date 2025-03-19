@@ -1,5 +1,3 @@
-/////////////////////////////////////////////////PIZZA////////////////////////////////////////
-
 /obj/item/reagent_containers/food/snacks/pizzapasta
 	icon = 'icons/obj/items/food/pizzaspaghetti.dmi'
 	slices_num = 6
@@ -164,12 +162,21 @@
 	desc = "A box suited for pizzas."
 	icon = 'icons/obj/items/food/pizzaspaghetti.dmi'
 	icon_state = "pizzabox1"
-
-	var/open = 0 // Is the box open?
-	var/ismessy = 0 // Fancy mess on the lid
-	var/obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/pizza // Content pizza
-	var/list/boxes = list() // If the boxes are stacked, they come here
+	/// Is the box open?
+	var/open = 0
+	/// Fancy mess on the lid
+	var/ismessy = 0
+	/// Content pizza
+	var/obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/pizza
+	/// If the boxes are stacked, they come here
+	var/list/boxes = list()
+	/// The name of the pizza visible in description
 	var/boxtag = ""
+
+/obj/item/pizzabox/Initialize(mapload)
+	. = ..()
+	if(pizza)
+		new pizza(src)
 
 /obj/item/pizzabox/update_desc(updates)
 	. = ..()
@@ -223,43 +230,44 @@
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/item/pizzabox/attack_hand(mob/living/user)
-	if( open && pizza )
-		user.put_in_hands( pizza )
+	if(open && pizza)
+		user.put_in_hands(pizza)
 
 		to_chat(user, span_warning("You take the [src.pizza] out of the [src]."))
 		src.pizza = null
 		update_icon()
 		return
 
-	else if( boxes.len > 0 )
-		if( user.get_inactive_held_item() != src )
+	else if(boxes.len > 0)
+		if(user.get_inactive_held_item() != src)
 			return ..()
 
 		var/obj/item/pizzabox/box = boxes[boxes.len]
 		boxes -= box
 
-		user.put_in_hands( box )
+		user.put_in_hands(box)
 		to_chat(user, span_warning("You remove the topmost [src] from your hand."))
 		box.update_icon()
 		update_icon()
-
 	else
 		return ..()
 
 /obj/item/pizzabox/attack_self( mob/user as mob )
 
-	if( boxes.len > 0 )
+	if(boxes.len > 0)
 		return
 
 	open = !open
 
-	if( open && pizza )
+	if(open && pizza)
 		ismessy = 1
 
 	update_icon()
 
 /obj/item/pizzabox/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/pizzabox))
 		var/obj/item/pizzabox/box = I
@@ -309,52 +317,40 @@
 
 		update_icon()
 
-
-/obj/item/pizzabox/margherita/Initialize(mapload)
-	. = ..()
-	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/margherita(src)
+/obj/item/pizzabox/margherita
+	pizza = /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/margherita
 	boxtag = "Margherita Deluxe"
 
-
-/obj/item/pizzabox/mushroom/Initialize(mapload)
-	. = ..()
-	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/mushroompizza(src)
+/obj/item/pizzabox/mushroom
+	pizza = /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/mushroompizza
 	boxtag = "Mushroom Special"
 
-
-/obj/item/pizzabox/meat/Initialize(mapload)
-	. = ..()
-	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/meatpizza(src)
+/obj/item/pizzabox/meat
+	pizza = /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/meatpizza
 	boxtag = "Meatlover's Supreme"
 
-/obj/item/pizzabox/donkpocket/Initialize(mapload)
-	. = ..()
-	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/donkpocket(src)
+/obj/item/pizzabox/donkpocket
+	pizza = /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/donkpocket
 	boxtag = "Bangin' Donk"
 
-/obj/item/pizzabox/ants/Initialize(mapload)
-	. = ..()
-	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/ants(src)
+/obj/item/pizzabox/ants
+	pizza = /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/ants
 	boxtag = "Anthill Deluxe"
 
-/obj/item/pizzabox/dank/Initialize(mapload)
-	. = ..()
-	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/dank(src)
+/obj/item/pizzabox/dank
+	pizza = /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/dank
 	boxtag = "Fresh Herbs"
 
-/obj/item/pizzabox/vegetable/Initialize(mapload)
-	. = ..()
-	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/vegetablepizza(src)
+/obj/item/pizzabox/vegetable
+	pizza = /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/vegetablepizza
 	boxtag = "Gourmet Vegetable"
 
-/obj/item/pizzabox/sassysage/Initialize(mapload)
-	. = ..()
-	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/sassysage(src)
+/obj/item/pizzabox/sassysage
+	pizza = /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/sassysage
 	boxtag = "Sausage Lovers"
 
-/obj/item/pizzabox/pineapple/Initialize(mapload)
-	. = ..()
-	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/pineapple(src)
+/obj/item/pizzabox/pineapple
+	pizza = /obj/item/reagent_containers/food/snacks/sliceable/pizzapasta/pineapple
 	boxtag = "Honolulu Chew"
 
 ///spaghetti prototype used by all subtypes

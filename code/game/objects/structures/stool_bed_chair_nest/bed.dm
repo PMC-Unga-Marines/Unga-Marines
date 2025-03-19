@@ -14,11 +14,15 @@
 	var/dropmetal = TRUE
 	var/buildstacktype = /obj/item/stack/sheet/metal
 	var/buildstackamount = 1
-	var/foldabletype //To fold into an item (e.g. roller bed item)
-	var/buckling_y = 0 //pixel y shift to give to the buckled mob.
+	/// To fold into an item (e.g. roller bed item)
+	var/foldabletype
+	/// Pixel y shift to give to the buckled mob.
+	var/buckling_y = 0
 	var/obj/structure/closet/bodybag/buckled_bodybag
-	var/accepts_bodybag = FALSE //Whether you can buckle bodybags to this bed
-	var/base_bed_icon //Used by beds that change sprite when something is buckled to them
+	/// Whether you can buckle bodybags to this bed
+	var/accepts_bodybag = FALSE
+	/// Used by beds that change sprite when something is buckled to them
+	var/base_bed_icon
 
 /obj/structure/bed/nometal
 	dropmetal = FALSE
@@ -114,7 +118,6 @@
 /obj/structure/bed/roller/CanAllowThrough(atom/movable/mover, turf/target)
 	if(mover == buckled_bodybag)
 		return TRUE
-
 	return ..()
 
 /obj/structure/bed/MouseDrop_T(atom/dropping, mob/user)
@@ -161,17 +164,18 @@
 		new buildstacktype(loc, buildstackamount)
 	qdel(src)
 
-/obj/structure/bed/attackby(obj/item/I, mob/user, params)
+/obj/structure/bed/grab_interact(obj/item/grab/grab, mob/user, base_damage = 5, is_sharp = FALSE)
 	. = ..()
-	if(istype(I, /obj/item/grab) && !LAZYLEN(buckled_mobs) && !buckled_bodybag)
-		var/obj/item/grab/G = I
-		if(!ismob(G.grabbed_thing))
-			return
-
-		var/mob/M = G.grabbed_thing
-		to_chat(user, span_notice("You place [M] on [src]."))
-		M.forceMove(loc)
-		return TRUE
+	if(.)
+		return
+	if(LAZYLEN(buckled_mobs) || buckled_bodybag)
+		return
+	if(!ismob(grab.grabbed_thing))
+		return
+	var/mob/grabbed_mob = grab.grabbed_thing
+	to_chat(user, span_notice("You place [grabbed_mob] on [src]."))
+	grabbed_mob.forceMove(loc)
+	return TRUE
 
 /obj/structure/bed/pre_crush_act(mob/living/carbon/xenomorph/charger, datum/action/ability/xeno_action/ready_charge/charge_datum)
 	. = ..()
@@ -215,8 +219,9 @@
 	desc = "A collapsed roller bed that can be carried around."
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "folded"
-	w_class = WEIGHT_CLASS_SMALL //Fits in a backpack
-	drag_delay = 1 //Pulling something on wheels is easy
+	w_class = WEIGHT_CLASS_SMALL
+	drag_delay = 1
+	/// Pulling something on wheels is easy
 	var/rollertype = /obj/structure/bed/roller
 
 /obj/item/roller/attack_self(mob/user)
@@ -233,6 +238,8 @@
 
 /obj/item/roller/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/roller_holder) && rollertype == /obj/structure/bed/roller)
 		var/obj/item/roller_holder/RH = I
@@ -340,7 +347,7 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 /obj/structure/bed/medevac_stretcher/verb/activate_medevac_displacer()
 	set name = "Activate Medevac Displacement Field"
 	set desc = "Teleport the occupant of the stretcher to a linked beacon."
-	set category = "Object"
+	set category = "IC.Object"
 	set src in oview(1)
 
 	activate_medevac_teleport(usr)
@@ -458,6 +465,8 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 
 /obj/structure/bed/medevac_stretcher/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/medevac_beacon))
 		var/obj/item/medevac_beacon/B = I
@@ -569,6 +578,8 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 
 /obj/item/roller/medevac/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/medevac_beacon))
 		var/obj/item/medevac_beacon/B = I
@@ -686,6 +697,8 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 
 /obj/item/medevac_beacon/attackby(obj/item/I, mob/user, params) //Corpsmen can lock their beacons.
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/card/id))
 		if(!allowed(user))

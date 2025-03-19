@@ -40,7 +40,6 @@
 		if(TOOL_FULTON)
 			return target.fulton_act(user, src)
 
-
 ///Called when the item is in the active hand, and clicked; alternately, there is an 'activate held object' verb or you can hit pagedown.
 /obj/item/proc/attack_self(mob/user)
 	SEND_SIGNAL(src, COMSIG_ITEM_ATTACK_SELF, user)
@@ -59,7 +58,6 @@
 		user.changeNext_move(GRAB_SLAM_DELAY)
 		return TRUE
 	return FALSE
-
 
 /obj/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -81,10 +79,8 @@
 	user.do_attack_animation(O, used_item = src)
 	return O.attacked_by(src, user)
 
-
 /atom/movable/proc/attacked_by(obj/item/I, mob/living/user, def_zone)
 	return FALSE
-
 
 /obj/attacked_by(obj/item/I, mob/living/user, def_zone)
 	user.visible_message(span_warning("[user] hits [src] with [I]!"),
@@ -93,7 +89,6 @@
 	var/power = I.force + round(I.force * MELEE_SKILL_DAM_BUFF * user.skills.getRating(SKILL_MELEE_WEAPONS))
 	take_damage(power, I.damtype, MELEE)
 	return TRUE
-
 
 /obj/attack_powerloader(mob/living/user, obj/item/powerloader_clamp/attached_clamp)
 	. = ..()
@@ -157,9 +152,7 @@
 		user.ff_check(power, src)
 		log_ffattack("[key_name(user)] attacked [key_name(src)] with \the [I] in [AREACOORD(T)] (RAW DMG: [power]).")
 		msg_admin_ff("[ADMIN_TPMONTY(user)] attacked [ADMIN_TPMONTY(src)] with \the [I] in [ADMIN_VERBOSEJMP(T)] (RAW DMG: [power]).")
-
 	return TRUE
-
 
 /mob/living/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
@@ -168,14 +161,12 @@
 	user.changeNext_move(I.attack_speed)
 	return I.attack(src, user)
 
-
 // has_proximity is TRUE if this afterattack was called on something adjacent, in your square, or on your person.
 // Click parameters is the params string from byond Click() code, see that documentation.
 /obj/item/proc/afterattack(atom/target, mob/user, has_proximity, click_parameters)
 	SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK, target, user, has_proximity, click_parameters)
 	SEND_SIGNAL(user, COMSIG_MOB_ITEM_AFTERATTACK, target, user, has_proximity, click_parameters)
 	return
-
 
 /obj/item/proc/attack(mob/living/M, mob/living/user)
 	if(SEND_SIGNAL(M, COMSIG_ITEM_ATTEMPT_ATTACK, user, src) & COMPONENT_ITEM_NO_ATTACK) //Sent by target mob.
@@ -274,9 +265,6 @@
 		return FALSE
 	return FALSE
 
-
-
-
 ///////////////
 ///RIGHT CLICK CODE FROM HERE
 ///
@@ -316,7 +304,6 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_AFTERATTACK_ALTERNATE, target, user, has_proximity, click_parameters)
 	SEND_SIGNAL(user, COMSIG_MOB_ITEM_AFTERATTACK_ALTERNATE, target, user, has_proximity, click_parameters)
 	return
-
 
 /**
  * attack_alternate

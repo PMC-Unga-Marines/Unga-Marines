@@ -4,17 +4,15 @@
 	desc = "A ridable electric car designed for pulling cargo trolleys."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_engine"
+	active_engines = 1
 	var/on = FALSE
 	var/powered = TRUE
 	var/locked = FALSE
 	var/charge_use = 15
-
-
-	var/car_limit = 3		//how many cars an engine can pull before performance degrades
-	active_engines = 1
+	/// How many cars an engine can pull before performance degrades
+	var/car_limit = 3
 	var/obj/item/cell/cell
 	var/obj/item/key/cargo_train/key
-
 
 /obj/vehicle/train/cargo
 	var/open = FALSE
@@ -46,15 +44,14 @@
 /obj/vehicle/train/cargo/engine/Move(atom/newloc, direction, glide_size_override)
 	if(on && cell.charge < charge_use)
 		turn_off()
-
 	if(is_train_head() && !on)
 		return FALSE
-
 	return ..()
-
 
 /obj/vehicle/train/cargo/engine/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/key/cargo_train))
 		if(key)
@@ -64,16 +61,12 @@
 		key = I
 		verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
 
-
 /obj/vehicle/train/cargo/update_icon_state()
 	. = ..()
 	if(open)
 		icon_state = initial(icon_state) + "_open"
 	else
 		icon_state = initial(icon_state)
-
-
-
 
 //-------------------------------------------
 // Train procs
@@ -101,7 +94,6 @@
 	else
 		verbs += /obj/vehicle/train/cargo/engine/verb/stop_engine
 
-
 //-------------------------------------------
 // Interaction procs
 //-------------------------------------------
@@ -124,7 +116,7 @@
 
 /obj/vehicle/train/cargo/engine/verb/start_engine()
 	set name = "Start engine"
-	set category = "Object.Train"
+	set category = "IC.Train"
 	set src in view(1)
 
 	if(!ishuman(usr))
@@ -148,7 +140,7 @@
 
 /obj/vehicle/train/cargo/engine/verb/stop_engine()
 	set name = "Stop engine"
-	set category = "Object.Train"
+	set category = "IC.Train"
 	set src in view(1)
 
 	if(!ishuman(usr))
@@ -164,7 +156,7 @@
 
 /obj/vehicle/train/cargo/engine/verb/remove_key()
 	set name = "Remove key"
-	set category = "Object.Train"
+	set category = "IC.Train"
 	set src in view(1)
 
 	if(!ishuman(usr))
@@ -183,7 +175,6 @@
 
 	verbs -= /obj/vehicle/train/cargo/engine/verb/remove_key
 
-
 //-------------------------------------------------------
 // Stat update procs
 //
@@ -197,7 +188,7 @@
 //-------------------------------------------------------
 /obj/vehicle/train/cargo/engine/update_car(train_length, active_engines)
 	src.train_length = train_length
-	src.active_engines = active_engines															//makes cargo trains 10% slower than running when not overweight
+	src.active_engines = active_engines	//makes cargo trains 10% slower than running when not overweight
 
 /obj/vehicle/train/cargo/trolley/update_car(train_length, active_engines)
 	src.train_length = train_length

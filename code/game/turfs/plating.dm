@@ -100,13 +100,8 @@
 
 /turf/open/floor/plating/plating_catwalk/attackby(obj/item/I, mob/user)
 	. = ..()
-	if(iscrowbar(I))
-		if(covered)
-			var/obj/item/stack/catwalk/R = new(user.loc)
-			R.add_to_stacks(user)
-			covered = FALSE
-			update_turf_overlay()
-			return
+	if(.)
+		return
 	if(istype(I, /obj/item/stack/catwalk))
 		if(!covered)
 			var/obj/item/stack/catwalk/E = I
@@ -114,7 +109,15 @@
 			covered = TRUE
 			update_turf_overlay()
 			return
-	return ..()
+
+/turf/open/floor/plating/plating_catwalk/crowbar_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(!covered)
+		return
+	var/obj/item/stack/catwalk/R = new(user.loc)
+	R.add_to_stacks(user)
+	covered = FALSE
+	update_turf_overlay()
 
 /turf/open/floor/plating/plating_catwalk/prison
 	icon = 'icons/turf/prison.dmi'

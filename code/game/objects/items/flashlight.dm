@@ -57,7 +57,6 @@
 		icon_state = initial(icon_state)
 		item_state = initial(item_state)
 
-
 /obj/item/flashlight/attack_self(mob/user)
 	if(!isturf(user.loc))
 		to_chat(user, "You cannot turn the light on while in [user.loc].")
@@ -66,25 +65,20 @@
 		playsound(get_turf(src), activation_sound, 15, 1)
 	return TRUE
 
-/obj/item/flashlight/attackby(obj/item/I, mob/user, params)
+/obj/item/flashlight/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
-
-	if(istype(I, /obj/item/tool/screwdriver))
-		if(!raillight_compatible) //No fancy messages, just no
-			return
-
-		if(light_on)
-			to_chat(user, span_warning("Turn off [src] first."))
-			return
-
-		if(loc == user)
-			user.dropItemToGround(src) //This part is important to make sure our light sources update, as it calls dropped()
-
-		var/obj/item/attachable/flashlight/F = new(loc)
-		user.put_in_hands(F) //This proc tries right, left, then drops it all-in-one.
-		to_chat(user, span_notice("You modify [src]. It can now be mounted on a weapon."))
-		to_chat(user, span_notice("Use a screwdriver on [F] to change it back."))
-		qdel(src) //Delete da old flashlight
+	if(!raillight_compatible) //No fancy messages, just no
+		return
+	if(light_on)
+		to_chat(user, span_warning("Turn off [src] first."))
+		return
+	if(loc == user)
+		user.dropItemToGround(src) //This part is important to make sure our light sources update, as it calls dropped()
+	var/obj/item/attachable/flashlight/F = new(loc)
+	user.put_in_hands(F) //This proc tries right, left, then drops it all-in-one.
+	to_chat(user, span_notice("You modify [src]. It can now be mounted on a weapon."))
+	to_chat(user, span_notice("Use a screwdriver on [F] to change it back."))
+	qdel(src) //Delete da old flashlight
 
 /obj/item/flashlight/attack(mob/living/M, mob/living/user)
 	if(light_on && user.zone_selected == BODY_ZONE_PRECISE_EYES)
@@ -164,7 +158,7 @@
 
 /obj/item/flashlight/lamp/verb/toggle_light()
 	set name = "Toggle light"
-	set category = "Object"
+	set category = "IC.Object"
 	set src in oview(1)
 
 	if(istype(usr, /mob/living/carbon/xenomorph)) //Sneaky xenos turning off the lights

@@ -202,7 +202,7 @@
 
 /obj/item/ammo_magazine/rocket/recoilless/heam
 	name = "\improper 67mm HEAM shell"
-	desc = "A high explosive-anti mechg shell for the RL-160 recoilless rifle. Fires a penetrating shot designed specifically to penetrate mech armor, but suffers from poor accuracy against other targets. Requires specialized storage to carry."
+	desc = "A high explosive-anti mech shell for the RL-160 recoilless rifle. Fires a penetrating shot designed specifically to penetrate mech armor, but suffers from poor accuracy against other targets. Requires specialized storage to carry."
 	icon_state = "shell_heat"
 	default_ammo = /datum/ammo/rocket/recoilless/heat/mech
 

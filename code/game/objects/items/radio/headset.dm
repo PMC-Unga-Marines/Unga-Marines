@@ -11,7 +11,6 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	RADIO_CHANNEL_DELTA = RADIO_TOKEN_DELTA
 ))
 
-
 /obj/item/radio/headset
 	name = "radio headset"
 	desc = "An updated, modular intercom that fits over the head. Takes encryption keys."
@@ -26,7 +25,6 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 	equip_slot_flags = ITEM_SLOT_EARS
 	var/obj/item/encryptionkey/keyslot2 = null
-
 
 /obj/item/radio/headset/Initialize(mapload)
 	if(keyslot)
@@ -51,51 +49,45 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		QDEL_NULL(keyslot2)
 	return ..()
 
-
 /obj/item/radio/headset/attackby(obj/item/I, mob/user, params)
 	. = ..()
-
-	if(isscrewdriver(I))
-		if(keyslot || keyslot2)
-			for(var/ch_name in channels)
-				SSradio.remove_object(src, GLOB.radiochannels[ch_name])
-				secure_radio_connections[ch_name] = null
-
-			var/turf/T = get_turf(user)
-			if(T)
-				if(keyslot)
-					keyslot.forceMove(T)
-					keyslot = null
-				if(keyslot2)
-					keyslot2.forceMove(T)
-					keyslot2 = null
-
-			recalculateChannels()
-			balloon_alert_to_viewers("pops out keys")
-
-		else
-			balloon_alert(user, "No keys to remove")
-
-	else if(istype(I, /obj/item/encryptionkey))
-		if(keyslot && keyslot2)
-			balloon_alert(user, "Can't, headset is full")
+	if(.)
+		return
+	if(!istype(I, /obj/item/encryptionkey))
+		return
+	if(keyslot && keyslot2)
+		balloon_alert(user, "Can't, headset is full")
+		return
+	if(!keyslot)
+		if(!user.transferItemToLoc(I, src))
 			return
+		keyslot = I
+	else
+		if(!user.transferItemToLoc(I, src))
+			return
+		keyslot2 = I
+		I.forceMove(src)
+		keyslot2 = I
+	recalculateChannels()
 
-		if(!keyslot)
-			if(!user.transferItemToLoc(I, src))
-				return
-			keyslot = I
-
-		else
-			if(!user.transferItemToLoc(I, src))
-				return
-			keyslot2 = I
-
-			I.forceMove(src)
-			keyslot2 = I
-
-		recalculateChannels()
-
+/obj/item/radio/headset/screwdriver_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(!keyslot && !keyslot2)
+		balloon_alert(user, "No keys to remove")
+		return
+	for(var/ch_name in channels)
+		SSradio.remove_object(src, GLOB.radiochannels[ch_name])
+		secure_radio_connections[ch_name] = null
+	var/turf/T = get_turf(user)
+	if(T)
+		if(keyslot)
+			keyslot.forceMove(T)
+			keyslot = null
+		if(keyslot2)
+			keyslot2.forceMove(T)
+			keyslot2 = null
+	recalculateChannels()
+	balloon_alert_to_viewers("pops out keys")
 
 /obj/item/radio/headset/examine(mob/user)
 	. = ..()
@@ -364,7 +356,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/mainship/verb/configure_squadhud()
 	set name = "Configure Headset HUD"
-	set category = "Object.Clothing"
+	set category = "IC.Clothing"
 	set src in usr
 
 	if(!can_interact(usr))
@@ -497,6 +489,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	name = "spatial agent headset"
 	icon_state = "headset_marine_generic"
 	keyslot = /obj/item/encryptionkey/mcom/ai
+	item_flags = DELONDROP
 
 /obj/item/radio/headset/mainship/marine
 	keyslot = /obj/item/encryptionkey/general

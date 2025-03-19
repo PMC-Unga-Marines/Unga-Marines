@@ -1,4 +1,3 @@
-
 /obj/machinery/power/generator
 	name = "thermoelectric generator"
 	desc = "It's a high efficiency thermoelectric generator."
@@ -72,16 +71,12 @@
 		update_icon()
 	add_avail(lastgen)
 
-
-/obj/machinery/power/generator/attackby(obj/item/I, mob/user, params)
+/obj/machinery/power/generator/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
-
-	if(iswrench(I))
-		anchored = !anchored
-		to_chat(user, span_notice("You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor."))
-		use_power = anchored
-		reconnect()
-
+	anchored = !anchored
+	to_chat(user, span_notice("You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor."))
+	use_power = anchored
+	reconnect()
 
 /obj/machinery/power/generator/interact(mob/user)
 	. = ..()
@@ -100,23 +95,22 @@
 	popup.set_content(dat)
 	popup.open()
 
-
 /obj/machinery/power/generator/verb/rotate_clock()
-	set category = "Object.Rotate"
+	set category = "IC.Rotate"
 	set name = "Rotate Generator (Clockwise)"
 	set src in view(1)
 
-	if (usr.stat || usr.restrained()  || anchored)
+	if(usr.stat || usr.restrained()  || anchored)
 		return
 
 	setDir(turn(src.dir, 90))
 
 /obj/machinery/power/generator/verb/rotate_anticlock()
-	set category = "Object.Rotate"
+	set category = "IC.Rotate"
 	set name = "Rotate Generator (Counterclockwise)"
 	set src in view(1)
 
-	if (usr.stat || usr.restrained()  || anchored)
+	if(usr.stat || usr.restrained()  || anchored)
 		return
 
 	setDir(turn(src.dir, -90))

@@ -107,7 +107,6 @@
 		else
 			flick("door_deny", src)
 
-
 /obj/machinery/door/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
@@ -240,6 +239,9 @@
 	else
 		close(TRUE)
 	return list(0.1 SECONDS, 5)
+	
+/obj/machinery/door/get_dumping_location()
+	return null
 
 /obj/machinery/door/morgue
 	icon = 'icons/obj/doors/doormorgue.dmi'

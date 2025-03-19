@@ -1,6 +1,6 @@
 /mob/verb/mode()
 	set name = "Activate Held Object"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	set src = usr
 
 	if(next_move > world.time)
@@ -194,7 +194,7 @@
 
 /mob/verb/cancel_camera()
 	set name = "Cancel Camera View"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	reset_perspective(null)
 	unset_interaction()
 	if(isliving(src))
@@ -235,7 +235,7 @@
 
 /mob/verb/point_to(atom/pointed_atom as mob|obj|turf in view())
 	set name = "Point To"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 
 	if(client && !(pointed_atom in view(client.view, src)))
 		return FALSE

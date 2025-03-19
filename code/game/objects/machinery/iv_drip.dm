@@ -57,7 +57,7 @@
 		current_beam = beam(attached, "iv_tube", 'icons/effects/beam.dmi')
 
 /obj/machinery/iv_drip/MouseDrop(over_object, src_location, over_location)
-	..()
+	. = ..()
 
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
@@ -83,6 +83,8 @@
 
 /obj/machinery/iv_drip/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/reagent_containers))
 		if(beaker)
@@ -168,7 +170,7 @@
 		update_icon()
 
 /obj/machinery/iv_drip/verb/toggle_mode()
-	set category = "Object"
+	set category = "IC.Object"
 	set name = "Toggle Mode"
 	set src in view(1)
 
@@ -192,10 +194,9 @@
 			. += span_notice("Attached is an empty [beaker].")
 	else
 		. += span_notice("No chemicals are attached.")
-
 	. += span_notice("[attached ? attached : "No one"] is attached.")
 
 /obj/machinery/iv_drip/Destroy()
 	attached = null
 	update_beam()
-	. = ..()
+	return ..()

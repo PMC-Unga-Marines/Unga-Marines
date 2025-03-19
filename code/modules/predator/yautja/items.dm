@@ -70,7 +70,8 @@
 	)
 	resistance_flags = UNACIDABLE
 	item_state_slots = list(slot_wear_suit_str = "halfarmor1")
-	var/thrall = FALSE//Used to affect icon generation.
+	/// Used to affect icon generation.
+	var/thrall = FALSE
 
 /obj/item/clothing/suit/armor/yautja/Initialize(mapload, armor_number = rand(1,7), armor_material = "ebony", legacy = "None")
 	. = ..()
@@ -148,7 +149,6 @@
 	icon_state = "fullarmor_[armor_material]"
 	LAZYSET(item_state_slots, slot_wear_suit_str, "fullarmor_[armor_material]")
 
-
 /obj/item/clothing/yautja_cape
 	name = PRED_YAUTJA_CAPE
 	desc = "A battle-worn cape passed down by elder Yautja."
@@ -169,12 +169,12 @@
 
 /obj/item/clothing/yautja_cape/dropped(mob/living/user)
 	add_to_missing_pred_gear(src)
-	..()
+	return ..()
 
 /obj/item/clothing/yautja_cape/pickup(mob/living/user)
 	if(isyautja(user))
 		remove_from_missing_pred_gear(src)
-	..()
+	return ..()
 
 /obj/item/clothing/yautja_cape/Destroy()
 	. = ..()
@@ -229,7 +229,7 @@
 	var/thrall = FALSE//Used to affect icon generation.
 
 /obj/item/clothing/shoes/marine/yautja/New(location, boot_number = rand(1,4), armor_material = "ebony")
-	..()
+	. = ..()
 	if(thrall)
 		return
 	if(boot_number > 4)
@@ -257,10 +257,8 @@
 	attachments_allowed = list(/obj/item/armor_module/storage/boot/yautja_knife)
 	starting_attachments = list(/obj/item/armor_module/storage/boot/yautja_knife)
 
-/obj/item/armor_module/storage/boot/yautja_knife/Initialize(mapload)
-	. = ..()
-	new /obj/item/weapon/yautja/knife(storage)
-
+/obj/item/armor_module/storage/boot/yautja_knife/PopulateContents()
+	new /obj/item/weapon/yautja/knife(src)
 
 /obj/item/clothing/under/chainshirt
 	name = "ancient alien mesh suit"
@@ -332,7 +330,7 @@
 	for(var/mob/living/carbon/xenomorph/hellhound/hellhound as anything in GLOB.hellhound_list)
 		if(!hellhound.stat)
 			to_chat(hellhound, "\[Radio\]: [talking_movable], '<B>[message]</b>'.")
-	..()
+	return ..()
 
 /obj/item/radio/headset/yautja/attackby()
 	return
@@ -356,12 +354,13 @@
 	item_icons = list(
 		slot_belt_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
-
-	can_hold = list()
-	max_w_class = WEIGHT_CLASS_BULKY
 	item_flags = ITEM_PREDATOR
-	storage_slots = 12
-	max_storage_space = 30
+
+/obj/item/storage/belt/yautja/Initialize(mapload, ...)
+	. = ..()
+	storage_datum.max_w_class = WEIGHT_CLASS_BULKY
+	storage_datum.storage_slots = 12
+	storage_datum.max_storage_space = 30
 
 /obj/item/yautja_teleporter
 	name = "relay beacon"
@@ -843,7 +842,7 @@
 
 /obj/item/hunting_trap/verb/configure_trap()
 	set name = "Configure Hunting Trap"
-	set category = "Object"
+	set category = "IC.Object"
 
 	var/mob/living/carbon/human/H = usr
 	if(!HAS_TRAIT(H, TRAIT_YAUTJA_TECH))
@@ -930,12 +929,16 @@
 	desc = "A complex kit of alien tools and medicines."
 	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "medicomp"
-	use_sound = "toolbox"
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = ITEM_PREDATOR
-	storage_slots = 16
-	max_storage_space = 17
-	can_hold = list(
+
+
+/obj/item/storage/medicomp/full/Initialize(mapload, ...)
+	. = ..()
+	storage_datum.use_sound = "toolbox"
+	storage_datum.storage_slots = 16
+	storage_datum.max_storage_space = 17
+	storage_datum.set_holdable(can_hold_list = list(
 		/obj/item/tool/surgery/stabilizer_gel,
 		/obj/item/tool/surgery/healing_gun,
 		/obj/item/tool/surgery/wound_clamp,
@@ -944,10 +947,9 @@
 		/obj/item/tool/surgery/healing_gel,
 		/obj/item/stack/medical/heal_pack/advanced/bruise_pack/predator,
 		/obj/item/stack/medical/heal_pack/ointment/predator,
-	)
+	))
 
-/obj/item/storage/medicomp/full/Initialize(mapload, ...)
-	. = ..()
+/obj/item/storage/medicomp/full/PopulateContents()
 	new /obj/item/tool/surgery/stabilizer_gel(src)
 	new /obj/item/tool/surgery/healing_gun(src)
 	new /obj/item/tool/surgery/wound_clamp(src)
@@ -1084,14 +1086,13 @@
 	icon_state = "utilitybelt_pred"
 	item_state = "utility"
 
-/obj/item/storage/belt/utility/pred/full/Initialize()
-	. = ..()
+/obj/item/storage/belt/utility/pred/full/PopulateContents()
 	new /obj/item/tool/screwdriver/yautja(src)
 	new /obj/item/tool/wrench/yautja(src)
 	new /obj/item/tool/weldingtool/yautja(src)
 	new /obj/item/tool/crowbar/yautja(src)
 	new /obj/item/tool/wirecutters/yautja(src)
-	new /obj/item/stack/cable_coil(src,30,pick("red","orange"))
+	new /obj/item/stack/cable_coil(src, 30, pick("red", "orange"))
 	new /obj/item/tool/multitool/yautja(src)
 
 /// SKULLS

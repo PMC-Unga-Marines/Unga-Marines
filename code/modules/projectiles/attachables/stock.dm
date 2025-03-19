@@ -220,7 +220,7 @@
 	pixel_shift_x = 30
 	pixel_shift_y = 14
 
-/obj/item/attachable/stock/t500stock
+/obj/item/attachable/stock/t500
 	name = "R-500 stock"
 	desc = "Cool stock for cool revolver."
 	attach_features_flags = ATTACH_REMOVABLE

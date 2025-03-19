@@ -1,7 +1,3 @@
-////////////////////////////////////////////////////////////////////////////////
-/// (Mixing) Glass
-////////////////////////////////////////////////////////////////////////////////
-
 /obj/item/reagent_containers/glass
 	name = " "
 	var/base_name = " "
@@ -13,14 +9,11 @@
 	possible_transfer_amounts = list(5,10,15,20,30,60)
 	volume = 60
 	init_reagent_flags = OPENCONTAINER
-
 	var/label_text = ""
-
 
 /obj/item/reagent_containers/glass/Initialize(mapload)
 	. = ..()
 	base_name = name
-
 
 /obj/item/reagent_containers/glass/examine(mob/user)
 	. = ..()
@@ -30,7 +23,7 @@
 
 /obj/item/reagent_containers/glass/verb/attach_lid()
 	set name = "Attach/Detach lid"
-	set category = "Object"
+	set category = "IC.Object"
 	if(is_open_container())
 		to_chat(usr, span_notice("You put the lid on \the [src]."))
 		DISABLE_BITFIELD(reagents.reagent_flags, OPENCONTAINER)
@@ -107,6 +100,8 @@
 
 /obj/item/reagent_containers/glass/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/tool/pen) || istype(I, /obj/item/flashlight/pen))
 		var/tmp_label = stripped_input(user, "Enter a label for [name]", "Label", label_text)
@@ -115,7 +110,7 @@
 			return
 
 		user.visible_message(span_notice("[user] labels [src] as \"[tmp_label]\"."), \
-							span_notice("You label [src] as \"[tmp_label]\"."))
+			span_notice("You label [src] as \"[tmp_label]\"."))
 
 		label_text = tmp_label
 		update_name_label()
@@ -216,29 +211,32 @@
 /obj/item/reagent_containers/glass/beaker/cryoxadone
 	list_reagents = list(/datum/reagent/medicine/cryoxadone = 30)
 
-
 /obj/item/reagent_containers/glass/beaker/cryoxadone/Initialize(mapload)
 	. = ..()
 	update_icon()
 
-
 /obj/item/reagent_containers/glass/beaker/cryomix
-	list_reagents = list(/datum/reagent/medicine/cryoxadone = 10, /datum/reagent/medicine/clonexadone = 10, /datum/reagent/medicine/saline_glucose = 5, /datum/reagent/medicine/tricordrazine = 10, /datum/reagent/medicine/quickclot = 5, /datum/reagent/medicine/dexalinplus = 5, /datum/reagent/medicine/spaceacillin = 5, /datum/reagent/medicine/bihexajuline = 5)
-
+	list_reagents = list(
+		/datum/reagent/medicine/cryoxadone = 10,
+		/datum/reagent/medicine/clonexadone = 10,
+		/datum/reagent/medicine/saline_glucose = 5,
+		/datum/reagent/medicine/tricordrazine = 10,
+		/datum/reagent/medicine/quickclot = 5,
+		/datum/reagent/medicine/dexalinplus = 5,
+		/datum/reagent/medicine/spaceacillin = 5,
+		/datum/reagent/medicine/bihexajuline = 5,
+	)
 
 /obj/item/reagent_containers/glass/beaker/cryomix/Initialize(mapload)
 	. = ..()
 	update_icon()
 
-
 /obj/item/reagent_containers/glass/beaker/sulphuric
 	list_reagents = list(/datum/reagent/toxin/acid = 60)
-
 
 /obj/item/reagent_containers/glass/beaker/sulphuric/Initialize(mapload)
 	. = ..()
 	update_icon()
-
 
 /obj/item/reagent_containers/glass/bucket
 	desc = "It's a bucket."
@@ -257,15 +255,17 @@
 
 /obj/item/reagent_containers/glass/bucket/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
-	if(istype(I, /obj/item/tool/mop))
-		if(reagents.total_volume < 1)
-			to_chat(user, "[src] is out of water!</span>")
-			return
-
-		reagents.trans_to(I, 5)
-		to_chat(user, span_notice("You wet [I] in [src]."))
-		playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
+	if(!istype(I, /obj/item/tool/mop))
+		return
+	if(reagents.total_volume < 1)
+		to_chat(user, "[src] is out of water!</span>")
+		return
+	reagents.trans_to(I, 5)
+	to_chat(user, span_notice("You wet [I] in [src]."))
+	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 
 /obj/item/reagent_containers/glass/bucket/update_overlays()
 	. = ..()
@@ -282,7 +282,6 @@
 /obj/item/reagent_containers/glass/bucket/janibucket/on_reagent_change()
 	update_icon()
 
-
 /obj/item/reagent_containers/glass/bucket/janibucket/update_icon_state()
 	. = ..()
 	if(reagents.total_volume)
@@ -296,4 +295,3 @@
 				icon_state = "janibucket_full"
 	else
 		icon_state = "janibucket"
-

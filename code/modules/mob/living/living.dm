@@ -198,7 +198,7 @@
 			var/mob/living/living_puller = pulledby
 			living_puller.set_pull_offsets(src)
 
-	if(s_active && !(s_active in contents) && !CanReach(s_active))
+	if(s_active && !(s_active.parent in contents) && !CanReach(s_active.parent))
 		s_active.close(src)
 
 
@@ -711,7 +711,7 @@
 //for more info on why this is not atom/pull, see examinate() in mob.dm
 /mob/living/verb/pulled(atom/movable/AM as mob|obj in oview(1))
 	set name = "Pull"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 
 	if(istype(AM) && Adjacent(AM))
 		start_pulling(AM)

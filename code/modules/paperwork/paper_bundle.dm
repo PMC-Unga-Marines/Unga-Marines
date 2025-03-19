@@ -13,13 +13,15 @@
 	throw_speed = 1
 	layer = MOB_LAYER
 	attack_verb = list("bapped")
-	var/amount = 0 //Amount of items clipped to the paper
+	/// Amount of items clipped to the paper
+	var/amount = 0
 	var/page = 1
 	var/screen = 0
 
 /obj/item/paper_bundle/attackby(obj/item/I, mob/user, params)
 	. = ..()
-
+	if(.)
+		return
 
 	if(istype(I, /obj/item/paper))
 		var/obj/item/paper/P = I
@@ -129,7 +131,6 @@
 			+ "</body></html>", "window=[name]")
 		update_icon()
 
-
 /obj/item/paper_bundle/Topic(href, href_list)
 	. = ..()
 	if(.)
@@ -179,7 +180,7 @@
 
 /obj/item/paper_bundle/verb/rename()
 	set name = "Rename bundle"
-	set category = "Object"
+	set category = "IC.Object"
 	set src in usr
 
 	var/n_name = stripped_input(usr, "What would you like to label the bundle?", "Bundle Labelling")
@@ -188,7 +189,7 @@
 
 /obj/item/paper_bundle/verb/remove_all()
 	set name = "Loose bundle"
-	set category = "Object"
+	set category = "IC.Object"
 	set src in usr
 
 	to_chat(usr, span_notice("You loosen the bundle."))
@@ -218,7 +219,6 @@
 		desc = "A single sheet of paper."
 	if(photo)
 		desc += "There is a photo attached to it."
-
 
 /obj/item/paper_bundle/update_overlays()
 	. = ..()

@@ -6,7 +6,8 @@
 	var/frequency
 	var/shockedby = list()
 	var/datum/radio_frequency/radio_connection
-	var/cur_command = null	//the command the door is currently attempting to complete
+	///the command the door is currently attempting to complete
+	var/cur_command = null
 
 /obj/machinery/door/airlock/Initialize(mapload)
 	. = ..()
@@ -18,9 +19,8 @@
 	if(closeOtherId != null)
 		for(var/obj/machinery/door/airlock/A in GLOB.machines)
 			if(A.closeOtherId == src.closeOtherId && A != src)
-				src.closeOther = A
+				closeOther = A
 				break
-
 	update_icon()
 
 /obj/machinery/door/airlock/Destroy()
@@ -36,12 +36,14 @@
 	if(!hasPower())
 		return
 
-	if (!can_radio()) return //no radio
+	if(!can_radio())
+		return //no radio
 
 	if(!signal)
 		return
 
-	if(id_tag != signal.data["tag"] || !signal.data["command"]) return
+	if(id_tag != signal.data["tag"] || !signal.data["command"])
+		return
 
 	cur_command = signal.data["command"]
 	INVOKE_ASYNC(src, PROC_REF(execute_current_command))
@@ -50,11 +52,11 @@
 	if(operating)
 		return
 
-	if (!cur_command)
+	if(!cur_command)
 		return
 
 	do_command(cur_command)
-	if (command_completed(cur_command))
+	if(command_completed(cur_command))
 		cur_command = null
 
 /obj/machinery/door/airlock/proc/do_command(command)
@@ -108,7 +110,7 @@
 		if("secure_close")
 			return (locked && density)
 
-	return 1	//Unknown command. Just assume it's completed.
+	return TRUE	//Unknown command. Just assume it's completed.
 
 /obj/machinery/door/airlock/proc/send_status(bumped = FALSE)
 	if(radio_connection)
@@ -120,7 +122,7 @@
 		signal.data["door_status"] = density?("closed"):("open")
 		signal.data["lock_status"] = locked?("locked"):("unlocked")
 
-		if (bumped)
+		if(bumped)
 			signal.data["bumped_with_access"] = 1
 
 		radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
@@ -135,18 +137,13 @@
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "access_button_standby"
 	name = "access button"
-
 	anchored = TRUE
 	power_channel = ENVIRON
-
 	var/master_tag
 	var/frequency = 1449
 	var/command = "cycle"
-
 	var/datum/radio_frequency/radio_connection
-
 	var/on = 1
-
 
 /obj/machinery/access_button/update_icon_state()
 	. = ..()
@@ -157,6 +154,8 @@
 
 /obj/machinery/access_button/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/card/id))
 		attack_hand(user)
@@ -177,12 +176,10 @@
 		radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
 	flick("access_button_cycle", src)
 
-
 /obj/machinery/access_button/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	frequency = new_frequency
 	radio_connection = SSradio.add_object(src, frequency, RADIO_AIRLOCK)
-
 
 /obj/machinery/access_button/Initialize(mapload)
 	. = ..()

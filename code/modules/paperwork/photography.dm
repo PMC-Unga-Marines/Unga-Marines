@@ -36,12 +36,10 @@
 	if(autogenerate_icon && !picture_icon && picture_image)
 		regenerate_small_icon()
 
-
 /datum/picture/proc/get_small_icon()
 	if(!picture_icon)
 		regenerate_small_icon()
 	return picture_icon
-
 
 /datum/picture/proc/regenerate_small_icon()
 	if(!picture_image)
@@ -51,7 +49,6 @@
 	small_img.Scale(8, 8)
 	ic.Blend(small_img, ICON_OVERLAY, 13, 13)
 	picture_icon = ic
-
 
 /datum/picture/proc/Copy(greyscale = FALSE, cropx = 0, cropy = 0)
 	var/datum/picture/P = new
@@ -74,7 +71,6 @@
 		P.regenerate_small_icon()
 	return P
 
-
 /obj/item/camera_film
 	name = "film cartridge"
 	icon = 'icons/obj/device.dmi'
@@ -82,7 +78,6 @@
 	icon_state = "film"
 	item_state = "electropack"
 	w_class = WEIGHT_CLASS_TINY
-
 
 /obj/item/photo
 	name = "photo"
@@ -95,13 +90,12 @@
 	item_state = "paper"
 	w_class = WEIGHT_CLASS_TINY
 	var/datum/picture/picture
-	var/scribble		//Scribble on the back.
-
+	/// Scribble on the back.
+	var/scribble
 
 /obj/item/photo/Initialize(mapload, datum/picture/P, datum_name = TRUE, datum_desc = TRUE)
 	set_picture(P, datum_name, datum_desc, TRUE)
 	return ..()
-
 
 /obj/item/photo/update_icon_state()
 	. = ..()
@@ -111,10 +105,8 @@
 	if(I)
 		icon = I
 
-
 /obj/item/photo/attack_self(mob/user)
 	user.examinate(src)
-
 
 /obj/item/photo/examine(mob/user)
 	. = ..()
@@ -122,7 +114,6 @@
 		show(user)
 	else
 		. += span_warning("You need to get closer to get a good look at this photo!")
-
 
 /obj/item/photo/proc/set_picture(datum/picture/P, setname, setdesc, name_override = FALSE)
 	if(!istype(P))
@@ -139,7 +130,6 @@
 	if(setdesc && P.picture_desc)
 		desc = P.picture_desc
 
-
 /obj/item/photo/proc/show(mob/user)
 	if(!istype(picture) || !picture.picture_image)
 		to_chat(user, span_warning("[src] seems to be blank..."))
@@ -152,16 +142,14 @@
 		+ "</body></html>", "window=photo_showing;size=480x608")
 	onclose(user, "[name]")
 
-
 /obj/item/photo/verb/rename()
 	set name = "Rename Photo"
-	set category = "Object"
+	set category = "IC.Object"
 	set src in usr
 
 	var/n_name = stripped_input(usr, "What would you like to label the photo?", "Photo Labelling")
 	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == CONSCIOUS && !usr.incapacitated())
 		name = "photo[(n_name ? "- '[n_name]'" : null)]"
-
 
 /obj/item/camera
 	name = "camera"
@@ -185,8 +173,10 @@
 	var/pictures_left = 10
 	var/on = TRUE
 	var/cooldown = 64
-	var/blending = FALSE		//lets not take pictures while the previous is still processing!
-	var/see_ghosts = CAMERA_NO_GHOSTS //for the spoop of it
+	/// Lets not take pictures while the previous is still processing!
+	var/blending = FALSE
+	/// For the spoop of it
+	var/see_ghosts = CAMERA_NO_GHOSTS
 	var/sound/custom_sound
 	var/silent = FALSE
 	var/picture_size_x = 2
@@ -198,26 +188,24 @@
 	var/can_customise = TRUE
 	var/default_picture_name
 
-
 /obj/item/camera/proc/adjust_zoom(mob/user)
 	var/desired_x = input(user, "How high do you want the camera to shoot, between [picture_size_x_min] and [picture_size_x_max]?", "Zoom", picture_size_x) as num
 	var/desired_y = input(user, "How wide do you want the camera to shoot, between [picture_size_y_min] and [picture_size_y_max]?", "Zoom", picture_size_y) as num
 	picture_size_x = min(clamp(desired_x, picture_size_x_min, picture_size_x_max), CAMERA_PICTURE_SIZE_HARD_LIMIT)
 	picture_size_y = min(clamp(desired_y, picture_size_y_min, picture_size_y_max), CAMERA_PICTURE_SIZE_HARD_LIMIT)
 
-
 /obj/item/camera/AltClick(mob/user)
 	if(!can_interact(user))
 		return
 	adjust_zoom(user)
 
-
 /obj/item/camera/attack(mob/living/carbon/human/M, mob/user)
 	return
 
-
 /obj/item/camera/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/camera_film))
 		if(pictures_left)
@@ -229,11 +217,9 @@
 		qdel(I)
 		pictures_left = pictures_max
 
-
 /obj/item/camera/examine(mob/user)
 	. = ..()
 	. += "It has [pictures_left] photos left."
-
 
 /obj/item/camera/proc/can_target(atom/target, mob/user, prox_flag)
 	if(!on || blending || !pictures_left)
@@ -253,7 +239,6 @@
 			return FALSE
 	return TRUE
 
-
 /obj/item/camera/afterattack(atom/target, mob/user, flag)
 	if(!can_target(target, user, flag))
 		return
@@ -264,19 +249,16 @@
 
 	INVOKE_ASYNC(src, PROC_REF(captureimage), target, user, flag, picture_size_x - 1, picture_size_y - 1)
 
-
 /obj/item/camera/proc/cooldown()
 	UNTIL(!blending)
 	icon_state = state_on
 	on = TRUE
-
 
 /obj/item/camera/proc/show_picture(mob/user, datum/picture/selection)
 	var/obj/item/photo/P = new(src, selection)
 	P.show(user)
 	to_chat(user, P.desc)
 	qdel(P)
-
 
 /obj/item/camera/proc/captureimage(atom/target, mob/user, flag, size_x = 1, size_y = 1)
 	if(flash_enabled)
@@ -325,10 +307,8 @@
 	after_picture(user, P, flag)
 	blending = FALSE
 
-
 /obj/item/camera/proc/after_picture(mob/user, datum/picture/picture, has_proximity)
 	printpicture(user, picture)
-
 
 /obj/item/camera/proc/printpicture(mob/user, datum/picture/picture) //Normal camera proc for creating photos
 	var/obj/item/photo/p = new(get_turf(src), picture)
@@ -355,7 +335,6 @@
 
 		p.set_picture(picture, TRUE, TRUE)
 
-
 /obj/effect/appearance_clone/New(loc, atom/A) //Intentionally not Initialize(), to make sure the clone assumes the intended appearance in time for the camera getFlatIcon.
 	if(istype(A))
 		appearance = A.appearance
@@ -366,7 +345,6 @@
 			step_y = AM.step_y
 
 	return ..()
-
 
 /obj/item/camera/proc/camera_get_icon(list/turfs, turf/center, psize_x = 96, psize_y = 96, datum/turf_reservation/clone_area, size_x, size_y, total_x, total_y)
 	var/list/atoms = list()
@@ -443,16 +421,13 @@
 
 	if(wipe_atoms)
 		QDEL_LIST(atoms)
-
 	return res
-
 
 /obj/item/camera/oldcamera
 	name = "Old Camera"
 	desc = "An old, slightly beat-up digital camera, with a cheap photo printer taped on. It's a nice shade of blue."
 	icon_state = "oldcamera"
 	pictures_left = 30
-
 
 #undef CAMERA_NO_GHOSTS
 #undef CAMERA_SEE_GHOSTS_BASIC

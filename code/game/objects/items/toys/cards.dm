@@ -32,6 +32,8 @@
 
 /obj/item/toy/deck/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/toy/handcard))
 		var/obj/item/toy/handcard/H = I
@@ -53,7 +55,7 @@
 
 /obj/item/toy/deck/verb/draw_card()
 
-	set category = "Object.Cards"
+	set category = "IC.Cards"
 	set name = "Draw"
 	set desc = "Draw a card from a deck."
 	set src in view(1)
@@ -95,7 +97,7 @@
 
 /obj/item/toy/deck/verb/deal_card()
 
-	set category = "Object.Cards"
+	set category = "IC.Cards"
 	set name = "Deal"
 	set desc = "Deal a card from a deck."
 	set src in view(1)
@@ -159,7 +161,6 @@
 
 	deal_at(usr, over)
 
-
 /obj/item/toy/handcard
 	name = "hand of cards"
 	desc = "Some playing cards."
@@ -181,6 +182,8 @@
 
 /obj/item/toy/handcard/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/toy/handcard))
 		var/obj/item/toy/handcard/H = I
@@ -195,7 +198,7 @@
 /// Takes a selected card, and puts it down, face-up, in front
 /obj/item/toy/handcard/verb/discard()
 
-	set category = "Object.Cards"
+	set category = "IC.Cards"
 	set name = "Discard"
 	set desc = "Place a card from your hand in front of you."
 
@@ -319,8 +322,7 @@
 	update_icon()
 
 /obj/item/toy/handcard/pickup(mob/user as mob)
-	src.update_icon()
-
+	update_icon()
 
 /obj/item/toy/deck/kotahi
 	name = "KOTAHI deck"
