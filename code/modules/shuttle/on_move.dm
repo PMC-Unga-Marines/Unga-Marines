@@ -38,7 +38,7 @@ All ShuttleMove procs go here
 			continue
 		if(ismovable(thing))
 			var/atom/movable/movable_thing = thing
-			if(movable_thing.flags_atom & SHUTTLE_IMMUNE)
+			if(movable_thing.atom_flags & SHUTTLE_IMMUNE)
 				var/old_dir = movable_thing.dir
 				movable_thing.abstract_move(src)
 				movable_thing.setDir(old_dir)
@@ -52,11 +52,10 @@ All ShuttleMove procs go here
 		return
 	//Destination turf changes
 	//Baseturfs is definitely a list or this proc wouldnt be called
-	var/shuttle_boundary = baseturfs.Find(/turf/baseturf_skipover/shuttle)
-	if(!shuttle_boundary)
+	var/shuttle_depth = depth_to_find_baseturf(/turf/baseturf_skipover/shuttle)
+	if(!shuttle_depth)
 		CRASH("A turf queued to move via shuttle somehow had no skipover in baseturfs. [src]([type]):[loc]")
-	var/depth = length(baseturfs) - shuttle_boundary + 1
-	newT.CopyOnTop(src, 1, depth, TRUE)
+	newT.CopyOnTop(src, 1, shuttle_depth, TRUE)
 
 	return TRUE
 
@@ -64,11 +63,10 @@ All ShuttleMove procs go here
 /turf/proc/afterShuttleMove(turf/oldT, rotation)
 	//Dealing with the turf we left behind
 	oldT.TransferComponents(src)
-	//SSexplosions.wipe_turf(src) // RUTGMC DELETION
 
-	var/shuttle_boundary = baseturfs.Find(/turf/baseturf_skipover/shuttle)
-	if(shuttle_boundary)
-		oldT.ScrapeAway(length(baseturfs) - shuttle_boundary + 1)
+	var/shuttle_depth = depth_to_find_baseturf(/turf/baseturf_skipover/shuttle)
+	if(shuttle_depth)
+		oldT.ScrapeAway(shuttle_depth)
 
 	if(rotation)
 		shuttleRotate(rotation) //see shuttle_rotate.dm
@@ -76,11 +74,7 @@ All ShuttleMove procs go here
 	return TRUE
 
 /turf/proc/lateShuttleMove(turf/oldT)
-//	blocks_air = initial(blocks_air)
-//	air_update_turf(TRUE)
-//	oldT.blocks_air = initial(oldT.blocks_air)
-//	oldT.air_update_turf(TRUE)
-
+	return
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -98,7 +92,7 @@ All ShuttleMove procs go here
 	if(loc != oldT) // This is for multi tile objects
 		return
 
-	if(flags_atom & SHUTTLE_IMMUNE)
+	if(atom_flags & SHUTTLE_IMMUNE)
 		return
 
 	abstract_move(newT)
@@ -147,7 +141,7 @@ All ShuttleMove procs go here
 
 	contents -= oldT
 	underlying_old_area.contents += oldT
-	oldT.change_area(src, underlying_old_area) //lighting
+	oldT.transfer_area_lighting(src, underlying_old_area) //lighting
 	//The old turf has now been given back to the area that turf originaly belonged to
 
 	var/area/old_dest_area = newT.loc
@@ -155,7 +149,7 @@ All ShuttleMove procs go here
 
 	old_dest_area.contents -= newT
 	contents += newT
-	newT.change_area(old_dest_area, src) //lighting
+	newT.transfer_area_lighting(old_dest_area, src) //lighting
 	return TRUE
 
 // Called on areas after everything has been moved

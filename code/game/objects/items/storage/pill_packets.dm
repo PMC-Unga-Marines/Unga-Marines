@@ -1,32 +1,13 @@
 // Pill packets, basically pill bottles you can't put pills back into.
-
 /obj/item/storage/pill_bottle/packet
 	name = "pill packet"
 	desc = "Contains pills. Once you take them out they don't go back in."
 	icon_state = "packet_canister"
-	cant_hold = list(/obj/item/reagent_containers/pill) //Nada. Once you take the pills out. They don't come back in.
-	storage_slots = 8
-	max_w_class = 0
-	max_storage_space = 8
+	storage_type = /datum/storage/pill_bottle/packet
 	greyscale_config = null //So that we get packets and not pill bottles.
 	///Color of the pips on top of the pill packet
 	var/pip_color = "#0066ff" //default color because I like this color
 	///the item left behind when this is used up
-	var/trash_item = /obj/item/trash/pillpacket
-	refill_types = null
-	refill_sound = null
-	flags_storage = BYPASS_VENDOR_CHECK|BYPASS_CRYO_CHECK
-
-/obj/item/storage/pill_bottle/packet/remove_from_storage(obj/item/item, atom/new_location, mob/user)
-	. = ..()
-	if(!.)
-		return
-	if(!length(contents) && !QDELETED(src))
-		var/turf/T = get_turf(src)
-		new trash_item(T)
-		qdel(src)
-		return
-	update_icon()
 
 /obj/item/storage/pill_bottle/packet/update_overlays()
 	. = ..()

@@ -7,8 +7,10 @@
 	layer = ABOVE_OBJ_LAYER
 	dir = NORTH
 	density = TRUE
-	var/base_category //what kind of equipment this base accepts.
-	var/ship_tag //used to associate the base to a dropship.
+	/// what kind of equipment this base accepts.
+	var/base_category
+	/// used to associate the base to a dropship.
+	var/ship_tag
 	/// offset in pixels when equipment is attached
 	var/equipment_offset_x = 0
 	///y offset in pixels when attached
@@ -49,8 +51,8 @@
 	installed_equipment = loaded_equipment
 	loaded_equipment.ship_base = src
 
-	for(var/obj/docking_port/mobile/marine_dropship/S in SSshuttle.dropships)
-		if(S.id == ship_tag)
+	for(var/obj/docking_port/mobile/marine_dropship/S in SSshuttle.dropship_list)
+		if(S.shuttle_id == ship_tag)
 			loaded_equipment.linked_shuttle = S
 			S.equipments += loaded_equipment
 			break
@@ -312,6 +314,8 @@
 
 /obj/structure/dropship_equipment/shuttle/flare_launcher/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(istype(I, /obj/item/explosive/grenade/flare) && stored_amount < max_amount)
 		stored_amount++
 		user.balloon_alert(user, "You insert a flare, remaining flares [stored_amount].")
@@ -405,7 +409,7 @@
 		if(deployed_turret)
 			deployed_turret.setDir(dir)
 			if(linked_shuttle && deployed_turret.camera)
-				if(linked_shuttle.id == SHUTTLE_ALAMO)
+				if(linked_shuttle.shuttle_id == SHUTTLE_ALAMO)
 					deployed_turret.camera.network.Add("dropship1") //accessible via the dropship camera console
 				else
 					deployed_turret.camera.network.Add("dropship2")
@@ -559,7 +563,6 @@
 		bound_height = initial(bound_height)
 		icon_state = initial(icon_state)
 
-
 ///////////////////////////////////// ELECTRONICS /////////////////////////////////////////
 
 /obj/structure/dropship_equipment/electronics
@@ -664,8 +667,6 @@
 		. += ammo_equipped.show_loaded_desc(user)
 		return
 	. += "It's empty."
-
-
 
 /obj/structure/dropship_equipment/cas/weapon/proc/deplete_ammo()
 	if(ammo_equipped)
@@ -822,8 +823,6 @@
 		else
 			icon_state = "laser_beam"
 
-
-
 /obj/structure/dropship_equipment/cas/weapon/launch_bay //This isn't printable, so having it under CAS shouldn't cause issues
 	name = "launch bay"
 	icon_state = "launch_bay"
@@ -838,11 +837,10 @@
 	. = ..()
 	if(ammo_equipped?.ammo_count)
 		icon_state = "launch_bay_loaded"
+	else if(ship_base)
+		icon_state = "launch_bay"
 	else
-		if(ship_base)
-			icon_state = "launch_bay"
-		else
-			icon_state = "launch_bay"
+		icon_state = "launch_bay"
 
 //////////////// OTHER EQUIPMENT /////////////////
 

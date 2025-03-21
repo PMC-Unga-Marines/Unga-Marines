@@ -116,6 +116,8 @@
 #define SKILL_CQC_MP 2 //no risk of accidental weapon discharge upon disarming (MP)
 #define SKILL_CQC_MASTER 5
 
+///Unarmed damage mod from CQC skill
+#define CQC_SKILL_DAMAGE_MOD 5
 ///disarm chance mod from CQC skill
 #define CQC_SKILL_DISARM_MOD 5
 
@@ -133,7 +135,8 @@
 #define SKILL_LEAD_BEGINNER 1 //All non-Standard Marines
 #define SKILL_LEAD_TRAINED 2 //PO, CMO, etc
 #define SKILL_LEAD_EXPERT 3 //SL, SO
-#define SKILL_LEAD_MASTER 4 //XO, CO
+#define SKILL_LEAD_MASTER 4 //XO, FC
+#define SKILL_LEAD_SUPER 5 // implanted FC
 
 //melee_weapons skill
 //buff to melee weapon attack damage

@@ -6,20 +6,21 @@
 	light_range = 1
 	light_power = 0.5
 	light_color = LIGHT_COLOR_BLUE
+	anchored = TRUE
+	use_power = IDLE_POWER_USE
+	idle_power_usage = 2
+	active_power_usage = 6
+	power_channel = ENVIRON
 	var/detecting = 1
 	var/working = 1
 	var/time = 10
 	var/timing = 0
 	var/lockdownbyai = 0
 	var/obj/item/circuitboard/firealarm/electronics = null
-	anchored = TRUE
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 2
-	active_power_usage = 6
-	power_channel = ENVIRON
 	var/last_process = 0
 	var/wiresexposed = 0
-	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
+	/// 2 = complete, 1 = no wires,  0 = circuit gone
+	var/buildstage = 2
 
 /obj/machinery/firealarm/Initialize(mapload, direction, building)
 	. = ..()
@@ -50,7 +51,7 @@
 		return
 
 	var/area/A = get_area(src)
-	if(A.flags_alarm_state & ALARM_WARNING_FIRE)
+	if(A.alarm_state_flags & ALARM_WARNING_FIRE)
 		set_light_color(LIGHT_COLOR_EMISSIVE_ORANGE)
 	else
 		switch(GLOB.marine_main_ship.get_security_level())
@@ -68,7 +69,7 @@
 /obj/machinery/firealarm/update_icon_state()
 	. = ..()
 	var/area/A = get_area(src)
-	icon_state = "fire[!CHECK_BITFIELD(A.flags_alarm_state, ALARM_WARNING_FIRE)]"
+	icon_state = "fire[!CHECK_BITFIELD(A.alarm_state_flags, ALARM_WARNING_FIRE)]"
 
 /obj/machinery/firealarm/update_overlays()
 	. = ..()
@@ -80,7 +81,7 @@
 	. += emissive_appearance(icon, "fire_o[(is_mainship_level(z)) ? GLOB.marine_main_ship.get_security_level() : "green"]")
 	. += mutable_appearance(icon, "fire_o[(is_mainship_level(z)) ? GLOB.marine_main_ship.get_security_level() : "green"]")
 	var/area/A = get_area(src)
-	if(A.flags_alarm_state & ALARM_WARNING_FIRE)
+	if(A.alarm_state_flags & ALARM_WARNING_FIRE)
 		. += mutable_appearance(icon, "fire_o1")
 
 /obj/machinery/firealarm/fire_act(burn_level, flame_color)
@@ -89,34 +90,76 @@
 	alarm()
 
 /obj/machinery/firealarm/emp_act(severity)
-	if(prob(50/severity))
+	if(prob(50 / severity))
 		alarm()
 	return ..()
 
+/obj/machinery/firealarm/screwdriver_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(buildstage != 2)
+		return
+	wiresexposed = !wiresexposed
+	update_icon()
+
+/obj/machinery/firealarm/multitool_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(!wiresexposed)
+		return
+	if(buildstage != 2)
+		return
+	detecting = !detecting
+	if(detecting)
+		user.visible_message(span_warning("[user] has reconnected [src]'s detecting unit!"), span_warning("You have reconnected [src]'s detecting unit."))
+	else
+		user.visible_message(span_warning("[user] has disconnected [src]'s detecting unit!"), span_warning("You have disconnected [src]'s detecting unit."))
+
+/obj/machinery/firealarm/wirecutter_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(!wiresexposed)
+		return
+	if(buildstage != 2)
+		return
+	user.visible_message(span_warning(" [user] has cut the wires inside \the [src]!"), "You have cut the wires inside \the [src].")
+	playsound(loc, 'sound/items/wirecutter.ogg', 25, 1)
+	buildstage = 1
+	update_icon()
+
+/obj/machinery/firealarm/crowbar_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(!wiresexposed)
+		return
+	if(buildstage != 1)
+		return
+	to_chat(user, "You start prying out the circuit!")
+	playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
+	if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD))
+		return
+	new /obj/item/circuitboard/firealarm(loc)
+	electronics = null
+	buildstage = 0
+	update_icon()
+
+/obj/machinery/firealarm/wrench_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(!wiresexposed)
+		return
+	if(buildstage != 0)
+		return
+	to_chat(user, "You remove the fire alarm assembly from the wall!")
+	var/obj/item/frame/fire_alarm/frame = new /obj/item/frame/fire_alarm
+	frame.forceMove(user.loc)
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+	qdel(src)
+
 /obj/machinery/firealarm/attackby(obj/item/I, mob/user, params)
 	. = ..()
-
-	if(isscrewdriver(I) && buildstage == 2)
-		wiresexposed = !wiresexposed
-		update_icon()
+	if(.)
 		return
 
 	if(!wiresexposed)
 		return
 
 	switch(buildstage)
-		if(2)
-			if(ismultitool(I))
-				detecting = !detecting
-				if(detecting)
-					user.visible_message(span_warning(" [user] has reconnected [src]'s detecting unit!"), "You have reconnected [src]'s detecting unit.")
-				else
-					user.visible_message(span_warning(" [user] has disconnected [src]'s detecting unit!"), "You have disconnected [src]'s detecting unit.")
-			else if(iswirecutter(I))
-				user.visible_message(span_warning(" [user] has cut the wires inside \the [src]!"), "You have cut the wires inside \the [src].")
-				playsound(loc, 'sound/items/wirecutter.ogg', 25, 1)
-				buildstage = 1
-				update_icon()
 		if(1)
 			if(iscablecoil(I))
 				var/obj/item/stack/cable_coil/C = I
@@ -127,16 +170,6 @@
 				else
 					to_chat(user, span_warning("You need 5 pieces of cable to do wire \the [src]."))
 					return
-			else if(iscrowbar(I))
-				to_chat(user, "You start prying out the circuit!")
-				playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
-
-				if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD))
-					return
-				new /obj/item/circuitboard/firealarm(loc)
-				electronics = null
-				buildstage = 0
-				update_icon()
 		if(0)
 			if(istype(I, /obj/item/circuitboard/firealarm))
 				to_chat(user, "You insert the circuit!")
@@ -144,13 +177,6 @@
 				qdel(I)
 				buildstage = 1
 				update_icon()
-
-			else if(iswrench(I))
-				to_chat(user, "You remove the fire alarm assembly from the wall!")
-				var/obj/item/frame/fire_alarm/frame = new /obj/item/frame/fire_alarm
-				frame.forceMove(user.loc)
-				playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
-				qdel(src)
 
 /obj/machinery/firealarm/can_interact(mob/user)
 	. = ..()
@@ -171,7 +197,7 @@
 	var/d1
 	var/d2
 
-	if (A.flags_alarm_state & ALARM_WARNING_FIRE)
+	if (A.alarm_state_flags & ALARM_WARNING_FIRE)
 		d1 = "<A href='?src=[text_ref(src)];reset=1'>Reset - Lockdown</A>"
 	else
 		d1 = "<A href='?src=[text_ref(src)];alarm=1'>Alarm - Lockdown</A>"

@@ -14,42 +14,41 @@
 		slot_l_hand_str = 'icons/mob/inhands/equipment/tools_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/tools_right.dmi',
 	)
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 2
 	throw_speed = 3
 	throw_range = 7
-
-	var/is_position_sensitive = FALSE	//set to true if the device has different icons for each position.
-										//This will prevent things such as visible lasers from facing the incorrect direction when transformed by assembly_holder's update_icon()
+	/// Set to true if the device has different icons for each position.
+	/// This will prevent things such as visible lasers from facing the incorrect direction when transformed by assembly_holder's update_icon()
+	var/is_position_sensitive = FALSE
 	var/secured = TRUE
 	var/list/attached_overlays = null
 	var/obj/item/assembly_holder/holder = null
 	var/wire_type = WIRE_RECEIVE | WIRE_PULSE
-	var/attachable = FALSE // can this be attached to wires
+	/// Can this be attached to wires
+	var/attachable = FALSE
 	var/datum/wires/connected = null
-
-	var/next_activate = 0 //When we're next allowed to activate - for spam control
-
+	/// When we're next allowed to activate - for spam control
+	var/next_activate = 0
 
 /obj/item/assembly/proc/on_attach()
 	return
 
-
-/obj/item/assembly/proc/on_detach() //call this when detaching it from a device. handles any special functions that need to be updated ex post facto
+/// Call this when detaching it from a device. handles any special functions that need to be updated ex post facto
+/obj/item/assembly/proc/on_detach()
 	if(!holder)
 		return FALSE
 	forceMove(holder.drop_location())
 	holder = null
 	return TRUE
 
-
-/obj/item/assembly/proc/holder_movement() //Called when the holder is moved
+/// Called when the holder is moved
+/obj/item/assembly/proc/holder_movement()
 	if(!holder)
 		return FALSE
 	setDir(holder.dir)
 	return TRUE
-
 
 /obj/item/assembly/proc/is_secured(mob/user)
 	if(!secured)
@@ -57,8 +56,7 @@
 		return FALSE
 	return TRUE
 
-
-//Called when another assembly acts on this one, var/radio will determine where it came from for wire calcs
+/// Called when another assembly acts on this one, var/radio will determine where it came from for wire calcs
 /obj/item/assembly/proc/pulsed(radio = FALSE)
 	if(wire_type & WIRE_RECEIVE)
 		INVOKE_ASYNC(src, PROC_REF(activate))
@@ -66,8 +64,7 @@
 		INVOKE_ASYNC(src, PROC_REF(activate))
 	return TRUE
 
-
-//Called when this device attempts to act on another device, var/radio determines if it was sent via radio or direct
+/// Called when this device attempts to act on another device, var/radio determines if it was sent via radio or direct
 /obj/item/assembly/proc/pulse(radio = FALSE)
 	if(connected && wire_type)
 		connected.pulse_assembly(src)
@@ -78,23 +75,22 @@
 		holder.process_activation(src, 0, 1)
 	return TRUE
 
-
-// What the device does when turned on
+/// What the device does when turned on
 /obj/item/assembly/proc/activate()
 	if(QDELETED(src) || !secured || (next_activate > world.time))
 		return FALSE
 	next_activate = world.time + 30
 	return TRUE
 
-
 /obj/item/assembly/proc/toggle_secure()
 	secured = !secured
 	update_icon()
 	return secured
 
-
 /obj/item/assembly/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(isassembly(I))
 		var/obj/item/assembly/A = I
 		if(!A.secured && !secured)
@@ -104,16 +100,13 @@
 		else
 			to_chat(user, span_warning("Both devices must be in attachable mode to be attached together."))
 
-
 /obj/item/assembly/screwdriver_act(mob/living/user, obj/item/I)
-	if(..())
-		return TRUE
+	. = ..()
 	if(toggle_secure())
 		to_chat(user, span_notice("\The [src] is ready!"))
 	else
 		to_chat(user, span_notice("\The [src] can now be attached!"))
 	return TRUE
-
 
 /obj/item/assembly/examine(mob/user)
 	. = ..()

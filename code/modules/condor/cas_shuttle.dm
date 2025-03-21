@@ -1,11 +1,11 @@
 /obj/docking_port/stationary/marine_dropship/cas
 	name = "CAS plane hangar pad"
-	id = SHUTTLE_CAS_DOCK
+	shuttle_id = SHUTTLE_CAS_DOCK
 	roundstart_template = /datum/map_template/shuttle/cas
 
 /obj/docking_port/mobile/marine_dropship/casplane
 	name = "Condor Jet"
-	id = SHUTTLE_CAS_DOCK
+	shuttle_id = SHUTTLE_CAS_DOCK
 	width = 11
 	height = 12
 
@@ -59,14 +59,13 @@
 	fuel_left--
 	if((fuel_left <= LOW_FUEL_LANDING_THRESHOLD) && (state == PLANE_STATE_FLYING))
 		to_chat(chair.occupant, span_warning("Out of fuel, landing."))
-		SSshuttle.moveShuttle(id, SHUTTLE_CAS_DOCK, TRUE)
+		SSshuttle.moveShuttle(shuttle_id, SHUTTLE_CAS_DOCK, TRUE)
 		currently_returning = TRUE
 		end_cas_mission(chair.occupant)
 	if (fuel_left <= 0)
 		fuel_left = 0
 		turn_off_engines()
 	#endif
-
 
 /obj/docking_port/mobile/marine_dropship/casplane/on_ignition()
 	. = ..()
@@ -263,7 +262,7 @@
 	if(A.ceiling >= CEILING_UNDERGROUND)
 		to_chat(source, span_warning("That target is too deep underground!"))
 		return
-	if(A.flags_area & OB_CAS_IMMUNE)
+	if(A.area_flags & OB_CAS_IMMUNE)
 		to_chat(source, span_warning("Our payload won't reach this target!"))
 		return
 	if(active_weapon.ammo_equipped?.ammo_count <= 0)

@@ -44,7 +44,7 @@
 	item_state = "alien_lens"
 	darkness_view = 7
 	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
-	flags_item = DELONDROP
+	item_flags = DELONDROP
 
 /obj/item/clothing/glasses/night/sectoid/Initialize(mapload)
 	. = ..()

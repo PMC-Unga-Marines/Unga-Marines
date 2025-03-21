@@ -7,7 +7,7 @@
 	density = TRUE
 	anchored = TRUE
 	coverage = 10
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	allow_pass_flags = PASS_AIR|PASS_PROJECTILE|PASS_GRILLE
 	layer = OBJ_LAYER
 	resistance_flags = XENO_DAMAGEABLE
@@ -133,7 +133,8 @@
 		return
 	take_damage(1, BURN, FIRE)
 
-
+/obj/structure/grille/get_dumping_location()
+	return null
 
 //MARINE SHIP GRILLE
 

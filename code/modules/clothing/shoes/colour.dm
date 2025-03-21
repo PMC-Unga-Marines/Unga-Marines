@@ -3,9 +3,9 @@
 	icon_state = "black"
 	desc = "A pair of black shoes."
 
-	flags_cold_protection = FEET
+	cold_protection_flags = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
-	flags_heat_protection = FEET
+	heat_protection_flags = FEET
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/shoes/brown
@@ -55,29 +55,30 @@
 	var/obj/item/restraints/handcuffs/chained = null
 
 /obj/item/clothing/shoes/orange/proc/attach_cuffs(obj/item/restraints/handcuffs/cuffs, mob/user as mob)
-	if (src.chained) return
+	if(chained)
+		return
 
 	user.drop_held_item()
 	cuffs.loc = src
-	src.chained = cuffs
-	src.slowdown = 15
-	src.icon_state = "orange1"
+	chained = cuffs
+	slowdown = 15
+	icon_state = "orange1"
 
 /obj/item/clothing/shoes/orange/proc/remove_cuffs(mob/user as mob)
-	if (!src.chained) return
+	if(!chained)
+		return
 
-	user.put_in_hands(src.chained)
+	user.put_in_hands(chained)
 
-	src.slowdown = initial(slowdown)
-	src.icon_state = "orange"
-	src.chained = null
+	slowdown = initial(slowdown)
+	icon_state = "orange"
+	chained = null
 
 /obj/item/clothing/shoes/orange/attack_self(mob/user as mob)
-	..()
+	. = ..()
 	remove_cuffs(user)
 
 /obj/item/clothing/shoes/orange/attackby(obj/item/I, mob/user, params)
-	. = ..()
-
 	if(istype(I, /obj/item/restraints/handcuffs))
 		attach_cuffs(I, user)
+	return ..()

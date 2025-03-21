@@ -141,7 +141,7 @@
 		/obj/structure/closet/secure_closet/miner = 50,
 		/obj/structure/closet/secure_closet/scientist = 50,
 		/obj/structure/closet/secure_closet/engineering_electrical = 30,
-		/obj/structure/closet/secure_closet/CMO = 10,
+		/obj/structure/closet/secure_closet/cmo = 10,
 		/obj/structure/closet/secure_closet/RD = 10,
 		/obj/structure/closet/secure_closet/engineering_chief = 10,
 	)

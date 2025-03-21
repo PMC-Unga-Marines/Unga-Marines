@@ -15,9 +15,9 @@
 	name = "Santa's hat"
 	desc = "Ho ho ho. Merrry X-mas!"
 	icon_state = "santahat"
-	flags_inventory = BLOCKSHARPOBJ
-	flags_inv_hide = HIDEEYES
-	flags_armor_protection = HEAD
+	inventory_flags = BLOCKSHARPOBJ
+	inv_hide_flags = HIDEEYES
+	armor_protection_flags = HEAD
 
 /obj/item/clothing/suit/space/santa
 	name = "Santa's suit"

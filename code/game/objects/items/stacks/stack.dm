@@ -201,7 +201,7 @@
 		var/turf/our_turf = get_turf(user)
 		if(!isturf(our_turf))
 			return
-		our_turf.PlaceOnTop(recipe.result_type)
+		our_turf.place_on_top(recipe.result_type)
 	else
 		object = new recipe.result_type(get_turf(user))
 	if(object)
@@ -250,7 +250,7 @@
 				to_chat(user, span_warning("You can't build \the [recipe.title] on top of another!"))
 				return FALSE
 	if(recipe.on_floor)
-		if(!isfloorturf(T) && !isbasalt(T) && !islavacatwalk(T) && !isopengroundturf(T))
+		if(!isfloorturf(T) && !isbasalt(T) && !isopengroundturf(T))
 			to_chat(user, span_warning("\The [recipe.title] must be constructed on the floor!"))
 			return FALSE
 		for(var/obj/AM in T)
@@ -260,7 +260,7 @@
 				continue
 			if(!AM.density)
 				continue
-			if(AM.flags_atom & ON_BORDER && AM.dir != user.dir)
+			if(AM.atom_flags & ON_BORDER && AM.dir != user.dir)
 				if(istype(AM, /obj/structure/window))
 					var/obj/structure/window/W = AM
 					if(!W.is_full_window())

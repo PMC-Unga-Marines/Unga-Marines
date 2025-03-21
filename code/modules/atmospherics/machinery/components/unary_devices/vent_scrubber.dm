@@ -13,7 +13,8 @@
 	welded = FALSE
 	level = 1
 	layer = ATMOS_DEVICE_LAYER
-	flags_atom = SHUTTLE_IMMUNE
+	atom_flags = SHUTTLE_IMMUNE
+	vent_movement = VENTCRAWL_ALLOWED | VENTCRAWL_CAN_SEE | VENTCRAWL_ENTRANCE_ALLOWED
 	var/scrubbing = SCRUBBING //0 = siphoning, 1 = scrubbing
 	var/filter_types = list()///datum/gas/carbon_dioxide)
 	var/volume_rate = 200
@@ -98,7 +99,7 @@
 					cut_overlay(GLOB.welding_sparks)
 					welded = FALSE
 				update_icon()
-				pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
+				pipe_vision_img = image(src, loc, dir = dir)
 				pipe_vision_img.plane = ABOVE_HUD_PLANE
 				cut_overlay(GLOB.welding_sparks)
 				return TRUE
@@ -123,7 +124,7 @@
 	F.visible_message("[F] furiously claws at [src]!", "We manage to clear away the stuff blocking the scrubber.", "You hear loud scraping noises.")
 	welded = FALSE
 	update_icon()
-	pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
+	pipe_vision_img = image(src, loc, dir = dir)
 	pipe_vision_img.plane = ABOVE_HUD_PLANE
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 100, 1)
 
@@ -131,9 +132,6 @@
 	. = ..()
 	if(welded)
 		. += span_notice("It seems welded shut.")
-
-/obj/machinery/atmospherics/components/unary/vent_scrubber/can_crawl_through()
-	return !welded
 
 /obj/machinery/atmospherics/components/unary/vent_scrubber/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
@@ -143,7 +141,7 @@
 	xeno_attacker.visible_message("[xeno_attacker] furiously claws at [src]!", "We manage to clear away the stuff blocking the scrubber.", "You hear loud scraping noises.")
 	welded = FALSE
 	update_icon()
-	pipe_vision_img = image(src, loc, layer = ABOVE_HUD_LAYER, dir = dir)
+	pipe_vision_img = image(src, loc, dir = dir)
 	pipe_vision_img.plane = ABOVE_HUD_PLANE
 	playsound(loc, 'sound/weapons/bladeslice.ogg', 100, 1)
 

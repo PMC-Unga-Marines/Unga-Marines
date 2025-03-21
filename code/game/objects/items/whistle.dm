@@ -3,25 +3,23 @@
 	desc = "A metal pea-whistle. Can be blown while held, or worn in the mouth"
 	icon_state = "whistle"
 	w_class = WEIGHT_CLASS_TINY
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_MASK
-	actions_types = list(/datum/action/item_action) // RUTGMC ADDITION
-
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_MASK
+	actions_types = list(/datum/action/item_action)
 	var/volume = 60
 	var/spamcheck = FALSE
-
 
 /obj/item/whistle/attack_self(mob/user)
 	. = ..()
 	whistle_playsound(user)
 
-
 /obj/item/whistle/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(user.wear_mask == src)
 		whistle_playsound(user)
-
 
 /obj/item/whistle/attack_hand(mob/living/user)
 	. = ..()
@@ -29,7 +27,6 @@
 		return
 	if(user.wear_mask == src)
 		whistle_playsound(user)
-
 
 /obj/item/whistle/proc/whistle_playsound(mob/user as mob)
 	if (spamcheck)
@@ -41,7 +38,6 @@
 	spamcheck = TRUE
 	addtimer(VARSET_CALLBACK(src, spamcheck, FALSE), 3 SECONDS)
 
-
 /obj/item/hailer
 	name = "hailer"
 	desc = "Used by obese officers to save their breath for running."
@@ -49,9 +45,8 @@
 	icon_state = "voice"
 	item_state = "flashbang"	//looks exactly like a flash (and nothing like a flashbang)
 	w_class = WEIGHT_CLASS_TINY
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	var/spamcheck = FALSE
-
 
 /obj/item/hailer/attack_self(mob/user)
 	if(spamcheck)

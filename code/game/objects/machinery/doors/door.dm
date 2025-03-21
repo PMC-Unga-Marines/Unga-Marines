@@ -40,14 +40,14 @@
 	. = ..()
 	if(density)
 		layer = closed_layer
-		update_flags_heat_protection(get_turf(src))
+		update_heat_protection_flags(get_turf(src))
 	else
 		layer = open_layer
 
 	if(width > 1)
 		handle_multidoor()
 	var/turf/current_turf = get_turf(src)
-	current_turf.flags_atom &= ~ AI_BLOCKED
+	current_turf.atom_flags &= ~ AI_BLOCKED
 
 	if(glass)
 		allow_pass_flags |= PASS_GLASS
@@ -106,7 +106,6 @@
 			open()
 		else
 			flick("door_deny", src)
-
 
 /obj/machinery/door/attack_hand(mob/living/user)
 	. = ..()
@@ -228,7 +227,7 @@
 /obj/machinery/door/proc/hasPower()
 	return !CHECK_BITFIELD(machine_stat, NOPOWER)
 
-/obj/machinery/door/proc/update_flags_heat_protection(turf/source)
+/obj/machinery/door/proc/update_heat_protection_flags(turf/source)
 
 /obj/machinery/door/proc/autoclose()
 	if(!density && !operating && !locked && !welded && autoclose)
@@ -240,6 +239,9 @@
 	else
 		close(TRUE)
 	return list(0.1 SECONDS, 5)
+	
+/obj/machinery/door/get_dumping_location()
+	return null
 
 /obj/machinery/door/morgue
 	icon = 'icons/obj/doors/doormorgue.dmi'

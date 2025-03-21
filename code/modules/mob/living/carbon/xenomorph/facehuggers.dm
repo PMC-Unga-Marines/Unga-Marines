@@ -19,10 +19,10 @@
 	item_state = "facehugger"
 	w_class = WEIGHT_CLASS_TINY //Note: can be picked up by aliens unlike most other items of w_class below 4
 	resistance_flags = NONE
-	flags_inventory = COVEREYES|COVERMOUTH
-	flags_armor_protection = FACE|EYES
-	flags_atom = CRITICAL_ATOM
-	flags_item = NOBLUDGEON
+	inventory_flags = COVEREYES|COVERMOUTH
+	armor_protection_flags = FACE|EYES
+	atom_flags = CRITICAL_ATOM
+	item_flags = NOBLUDGEON
 	throw_range = 1
 	worn_layer = FACEHUGGER_LAYER
 	layer = FACEHUGGER_LAYER
@@ -651,13 +651,13 @@
 	kill_hugger()
 
 /obj/item/clothing/mask/facehugger/attackby(obj/item/I, mob/user, params)
-	if(I.flags_item & NOBLUDGEON || attached)
+	if(I.item_flags & NOBLUDGEON || attached)
 		return
 	kill_hugger()
 
 /obj/item/clothing/mask/facehugger/bullet_act(obj/projectile/proj)
 	..()
-	if(proj.ammo.flags_ammo_behavior & AMMO_XENO)
+	if(proj.ammo.ammo_behavior_flags & AMMO_XENO)
 		return FALSE //Xeno spits ignore huggers.
 	if(proj.damage && !(proj.ammo.damage_type in list(OXY, STAMINA)))
 		kill_hugger()
@@ -709,7 +709,7 @@
 /obj/item/clothing/mask/facehugger/combat
 	sterile = TRUE
 	combat_hugger = TRUE
-	flags_equip_slot = NONE
+	equip_slot_flags = NONE
 
 /obj/item/clothing/mask/facehugger/combat/neuro
 	name = "neuro hugger"
@@ -777,13 +777,13 @@
 	if(!combat_hugger_check_target(M))
 		return FALSE
 
-	visible_message(span_danger("[src] explodes into a mess of viscous resin!"))
-	playsound(loc, SFX_ALIEN_RESIN_BUILD, 50, 1)
 	do_attack_animation(M)
 
 	if(have_resin)
+		visible_message(span_danger("[src] explodes into a mess of viscous resin!"))
+		playsound(loc, SFX_ALIEN_RESIN_BUILD, 50, 1)
 		for(var/turf/sticky_tile AS in RANGE_TURFS(1, loc))
-			if(!locate(/obj/effect/xenomorph/spray) in sticky_tile.contents)
+			if(!locate(/obj/alien/resin/sticky) in sticky_tile)
 				new /obj/alien/resin/sticky/thin(sticky_tile)
 		for(var/mob/living/target in range(1, loc))
 			if(isxeno(target)) //Xenos aren't affected by sticky resin
@@ -794,7 +794,9 @@
 		have_resin = FALSE
 	else
 		var/mob/living/victim = M
+		playsound(victim, 'sound/effects/vegetation_hit.ogg', 25, 1)
 		victim.apply_damage(80, STAMINA, BODY_ZONE_HEAD, BIO, updating_health = TRUE) //This should prevent sprinting
+		victim.visible_message(span_danger("[src] hastily claws at [victim]!"), span_danger("[src] hastily claws at you, making you feel weaker!"))
 
 	leaping = FALSE
 	go_idle() //We're a bit slow on the recovery

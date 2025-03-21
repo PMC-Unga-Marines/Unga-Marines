@@ -1,6 +1,5 @@
 //Machine to hold a deployed gun. It aquired nearly all of its variables from the gun itself.
 /obj/machinery/deployable/mounted
-
 	anchored = TRUE
 	resistance_flags = XENO_DAMAGEABLE
 	density = TRUE
@@ -71,7 +70,8 @@
 
 /obj/machinery/deployable/mounted/attackby(obj/item/I, mob/user, params) //This handles reloading the gun, if its in acid cant touch it.
 	. = ..()
-
+	if(.)
+		return TRUE
 	if(!ishuman(user))
 		return
 
@@ -106,8 +106,6 @@
 	if(!CHECK_BITFIELD(gun?.reciever_flags, AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION))
 		return
 	gun?.do_unique_action(gun, user)
-
-
 
 ///This is called when a user tries to operate the gun
 /obj/machinery/deployable/mounted/interact(mob/user)
@@ -236,18 +234,18 @@
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	//we can only fire in a 90 degree cone
 	if((dir & angle) && target.loc != loc && target.loc != operator.loc)
-		if(CHECK_BITFIELD(gun.flags_item, DEPLOYED_ANCHORED_FIRING_ONLY) && !anchored)
+		if(CHECK_BITFIELD(gun.item_flags, DEPLOYED_ANCHORED_FIRING_ONLY) && !anchored)
 			to_chat(operator, "[src] cannot be fired without it being anchored.")
 			return FALSE
 		operator.setDir(dir)
 		gun?.set_target(target)
 		update_appearance()
 		return TRUE
-	if(CHECK_BITFIELD(gun?.flags_item, DEPLOYED_NO_ROTATE))
+	if(CHECK_BITFIELD(gun?.item_flags, DEPLOYED_NO_ROTATE))
 		to_chat(operator, "This one is anchored in place and cannot be rotated.")
 		return FALSE
 
-	if(CHECK_BITFIELD(gun?.flags_item, DEPLOYED_NO_ROTATE_ANCHORED) && anchored)
+	if(CHECK_BITFIELD(gun?.item_flags, DEPLOYED_NO_ROTATE_ANCHORED) && anchored)
 		to_chat(operator, "[src] cannot be rotated while anchored.")
 		return FALSE
 

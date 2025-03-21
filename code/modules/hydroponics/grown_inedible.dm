@@ -40,16 +40,17 @@
 	icon = 'icons/obj/items/harvest.dmi'
 	icon_state = "logs"
 	force = 5
-	flags_atom = NONE
+	atom_flags = NONE
 	throwforce = 5
 	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 3
 	throw_range = 3
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
-
 /obj/item/grown/log/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(I.sharp != IS_SHARP_ITEM_BIG)
 		return
@@ -59,7 +60,6 @@
 	NG.add_to_stacks(user)
 	qdel(src)
 
-
 /obj/item/grown/sunflower // FLOWER POWER!
 	plantname = "sunflowers"
 	name = "sunflower"
@@ -68,7 +68,7 @@
 	icon_state = "sunflower"
 	damtype = BURN
 	force = 0
-	flags_atom = NONE
+	atom_flags = NONE
 	throwforce = 1
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 1
@@ -86,14 +86,13 @@
 	icon_state = "nettle"
 	damtype = BURN
 	force = 15
-	flags_atom = NONE
+	atom_flags = NONE
 	throwforce = 1
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 1
 	throw_range = 3
 	attack_verb = list("stung")
 	hitsound = ""
-
 	var/potency_divisior = 5
 
 /obj/item/grown/nettle/Initialize(mapload)
@@ -111,8 +110,8 @@
 		else
 			user.take_limb_damage(0, force)
 			UPDATEHEALTH(user)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/item/grown/nettle/proc/lose_leaves(mob/user)
 	if(force > 0)
@@ -135,21 +134,18 @@
 	potency_divisior = 2.5
 
 /obj/item/grown/nettle/death/pickup(mob/living/carbon/human/user as mob)
-
 	if(..() && prob(50))
 		user.Unconscious(10 SECONDS)
 		to_chat(user, span_warning("You are stunned by the deathnettle when you try picking it up!"))
 
 /obj/item/grown/nettle/attack(mob/living/carbon/M as mob, mob/user as mob)
-
-	if(!..()) return
-
+	if(!..())
+		return
 	lose_leaves(user)
 
 /obj/item/grown/nettle/death/attack(mob/living/carbon/M as mob, mob/user as mob)
-
-	if(!..()) return
-
+	if(!..())
+		return
 	if(isliving(M))
 		to_chat(M, span_warning("You are stunned by the powerful acid of the deathnettle!"))
 

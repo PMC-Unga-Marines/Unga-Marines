@@ -15,7 +15,7 @@ SUBSYSTEM_DEF(evacuation)
 	var/dest_index = 1
 	var/dest_status = NUKE_EXPLOSION_INACTIVE
 
-	var/flags_scuttle = FLAGS_SDEVAC_TIMELOCK
+	var/scuttle_flags = SDEVAC_TIMELOCK_flags
 	///How many marines were on ship when the dropship crashed
 	var/initial_human_on_ship = 0
 	///How many marines escaped
@@ -69,18 +69,16 @@ SUBSYSTEM_DEF(evacuation)
 			if(world.time < pod_cooldown + EVACUATION_POD_LAUNCH_COOLDOWN)
 				return
 			if(!length(pod_list)) // none left to pick from to evac
-				if(!length(SSshuttle.escape_pods)) // no valid pods left, all have launched/exploded
+				if(!length(SSshuttle.escape_pod_list)) // no valid pods left, all have launched/exploded
 					announce_evac_completion()
 				return
 			var/obj/docking_port/mobile/escape_pod/P = pick_n_take(pod_list)
 			P.launch()
 
-
-
 /datum/controller/subsystem/evacuation/proc/initiate_evacuation(override)
 	if(evac_status != EVACUATION_STATUS_STANDING_BY)
 		return FALSE
-	if(!override && flags_scuttle & (FLAGS_EVACUATION_DENY|FLAGS_SDEVAC_TIMELOCK))
+	if(!override && scuttle_flags & (EVACUATION_DENY_flags|SDEVAC_TIMELOCK_flags))
 		return FALSE
 	GLOB.enter_allowed = FALSE
 	evac_time = world.time
@@ -88,11 +86,10 @@ SUBSYSTEM_DEF(evacuation)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EVACUATION_STARTED)
 	priority_announce("Процесс экстренной эвакуации был запущен. Пожалуйста, проследуйте к спасательным капсулам. Запуск капсул состоится через [EVACUATION_AUTOMATIC_DEPARTURE/600] минут.", title = "Экстренная Эвакуация", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/evacuate.ogg', color_override = "orange")
 	xeno_message("A wave of adrenaline ripples through the hive. The fleshy creatures are trying to escape!")
-	pod_list = SSshuttle.escape_pods.Copy()
+	pod_list = SSshuttle.escape_pod_list.Copy()
 	for(var/obj/docking_port/mobile/escape_pod/pod AS in pod_list)
 		pod.prep_for_launch()
 	return TRUE
-
 
 /datum/controller/subsystem/evacuation/proc/begin_launch()
 	if(evac_status != EVACUATION_STATUS_INITIATING)
@@ -130,7 +127,7 @@ SUBSYSTEM_DEF(evacuation)
 /datum/controller/subsystem/evacuation/proc/enable_self_destruct(override)
 	if(dest_status != NUKE_EXPLOSION_INACTIVE)
 		return FALSE
-	if(!override && flags_scuttle & (FLAGS_SELF_DESTRUCT_DENY|FLAGS_SDEVAC_TIMELOCK))
+	if(!override && scuttle_flags & (SELF_DESTRUCT_DENY_flags|SDEVAC_TIMELOCK_flags))
 		return FALSE
 	dest_status = NUKE_EXPLOSION_ACTIVE
 	dest_master.toggle()

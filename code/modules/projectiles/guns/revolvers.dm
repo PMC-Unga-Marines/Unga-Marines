@@ -2,7 +2,7 @@
 //---------------------------------------------------
 
 /obj/item/weapon/gun/revolver
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_sound = 'sound/weapons/guns/fire/44mag.ogg'
 	reload_sound = 'sound/weapons/guns/interact/revolver_spun.ogg'
@@ -12,7 +12,7 @@
 	hand_reload_sound = 'sound/weapons/guns/interact/revolver_load.ogg'
 	type_of_casings = "bullet"
 	load_method = SINGLE_CASING|SPEEDLOADER //codex
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_SMOKE_PARTICLES
 	aim_speed_modifier = 0.75
 	aim_fire_delay = 0.25 SECONDS
 	wield_delay = 0.2 SECONDS //If you modify your revolver to be two-handed, it will still be fast to aim
@@ -90,9 +90,9 @@
 		update_icon()
 	if(!do_after(user, tac_reload_time, IGNORE_USER_LOC_CHANGE, new_magazine) && loc == user)
 		return
-	if(istype(new_magazine.loc, /obj/item/storage))
+	if(new_magazine.item_flags & IN_STORAGE)
 		var/obj/item/storage/S = new_magazine.loc
-		S.remove_from_storage(new_magazine, get_turf(user), user)
+		S.storage_datum.remove_from_storage(new_magazine, get_turf(user), user)
 		if(!SEND_SIGNAL(user, COMSIG_MAGAZINE_DROP, new_magazine))
 			user.put_in_any_hand_if_possible(new_magazine)
 	reload(new_magazine, user)
@@ -467,7 +467,7 @@
 	fire_animation = "coltrifle_fire"
 	fire_sound = 'sound/weapons/guns/fire/mateba.ogg'
 	gun_skill_category = SKILL_RIFLES
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	caliber = CALIBER_44LS
 	max_chamber_items = 8
@@ -529,9 +529,9 @@
 	actions_types = null
 	attachable_allowed = list(
 		/obj/item/attachable/magnetic_harness,
-		/obj/item/attachable/stock/t500stock,
-		/obj/item/attachable/t500barrelshort,
-		/obj/item/attachable/t500barrel,
+		/obj/item/attachable/stock/t500,
+		/obj/item/attachable/t500_barrel/short,
+		/obj/item/attachable/t500_barrel,
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/lace/t500,
 		/obj/item/attachable/reddot,

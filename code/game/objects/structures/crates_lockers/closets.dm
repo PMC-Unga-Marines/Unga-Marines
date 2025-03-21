@@ -89,7 +89,7 @@
 	dump_contents()
 	return ..()
 
-///USE THIS TO FILL IT, NOT INITIALIZE OR NEW
+///USE THIS TO FILL CONTENTS OF OBJECTS, NOT INITIALIZE OR NEW
 /obj/structure/closet/proc/PopulateContents()
 	return
 
@@ -200,7 +200,7 @@
 /obj/structure/closet/attackby(obj/item/I, mob/user, params)
 	if(user in src)
 		return FALSE
-	if(I.flags_item & ITEM_ABSTRACT)
+	if(I.item_flags & ITEM_ABSTRACT)
 		return FALSE
 	. = ..()
 	if(opened)
@@ -373,6 +373,7 @@
 	return TRUE
 
 /obj/structure/closet/contents_explosion(severity)
+	. = ..()
 	for(var/i in contents)
 		var/atom/movable/closet_contents = i
 		closet_contents.ex_act(severity)
@@ -414,7 +415,7 @@
 		return FALSE
 	if(!CHECK_BITFIELD(destination.closet_flags, CLOSET_ALLOW_DENSE_OBJ) && density)
 		return FALSE
-	if(CHECK_BITFIELD(flags_item, DELONDROP))
+	if(CHECK_BITFIELD(item_flags, DELONDROP))
 		return FALSE
 	var/item_size = CEILING(w_class * 0.5, 1)
 	if(item_size + destination.item_size_counter > destination.storage_capacity)

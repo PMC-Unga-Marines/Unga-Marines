@@ -4,7 +4,7 @@
 /obj/item/clothing/suit/modular/style
 	name = "\improper Drip"
 	desc = "They got that drip, doe."
-	flags_item_map_variant = NONE
+	item_map_variant_flags = NONE
 	allowed_uniform_type = /obj/item/clothing/under
 	icon = 'icons/obj/clothing/suits/marine_suits.dmi'
 	item_icons = list(
@@ -81,7 +81,7 @@
 /obj/item/clothing/head/modular/style
 	name = "\improper Nice Hat"
 	desc = "Nice hat bro. How did you find this?"
-	flags_item_map_variant = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
+	item_map_variant_flags = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
 	attachments_allowed = list(
 		/obj/item/armor_module/armor/badge,
 		/obj/item/armor_module/storage/helmet,
@@ -102,7 +102,7 @@
 
 	visorless_offset_y = 0
 
-	flags_inv_hide = NONE
+	inv_hide_flags = NONE
 
 	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
 	starting_attachments = list(/obj/item/armor_module/storage/helmet)
@@ -190,8 +190,8 @@
 	desc = "A stylish skimask, can be recolored. Makes you feel like an operator just looking at it."
 	icon_state = "ski_inhand"
 	item_state = "ski"
-	flags_inv_hide = HIDEALLHAIR|HIDEEARS
-	flags_item_map_variant = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
+	inv_hide_flags = HIDEALLHAIR|HIDEEARS
+	item_map_variant_flags = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
 	greyscale_config = /datum/greyscale_config/style_hat
 
 
@@ -200,5 +200,5 @@
 	desc = "The CFCC is a prime and readied, yet stylish facemask ready to... cover your face."
 	icon_state = "coof_inhand"
 	item_state = "coof"
-	flags_item_map_variant = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
+	item_map_variant_flags = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
 	greyscale_config = /datum/greyscale_config/style_hat

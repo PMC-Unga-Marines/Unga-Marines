@@ -223,21 +223,21 @@
 	icon_state = "Colony_int"
 	ceiling = CEILING_METAL
 	minimap_color = MINIMAP_AREA_LZ
-	flags_area = MARINE_BASE
+	area_flags = MARINE_BASE
 
 /area/kutjevo/interior/complex/Northwest_Flight_Control
 	name =  "Kutjevo Complex - Northwest Flight Control Room"
 	icon_state = "Colony_int"
 	ceiling = CEILING_METAL
 	minimap_color = MINIMAP_AREA_LZ
-	flags_area = MARINE_BASE
+	area_flags = MARINE_BASE
 
 /area/kutjevo/interior/complex/Northwest_Security_Checkpoint
 	name = "Kutjevo Complex - Northwest Security Checkpoint"
 	icon_state = "Colony_int"
 	ceiling = CEILING_METAL
 	minimap_color = MINIMAP_AREA_SEC
-	flags_area = MARINE_BASE
+	area_flags = MARINE_BASE
 
 //Out buildings + foremans
 /area/kutjevo/interior/power

@@ -96,9 +96,9 @@
 	if(SEND_SIGNAL(owner, COMSIG_LIVING_UPDATE_PLANE_BLUR) & COMPONENT_CANCEL_BLUR)
 		medicine_cap += freyr_medicine_cap
 
-	current_medicine_count += new_medicines //We want to include medicines that were individually both added and removed this tick
-	var/overflow = current_medicine_count - medicine_cap  //This catches any case where a reagent was added with volume below its metabolism
-	current_medicine_count -= removed_medicines //Otherwise, you can microdose infinite chems without kidneys complaining
+	current_medicine_count += new_medicines // We detect reagents over the cap, and add punishment for them later
+	current_medicine_count -= removed_medicines // Microdosing isn't accounted for because of how stomach works
+	var/overflow = current_medicine_count - medicine_cap
 
 	new_medicines = 0
 	removed_medicines = 0

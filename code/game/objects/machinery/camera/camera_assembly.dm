@@ -37,7 +37,6 @@
 
 	qdel(src)
 
-
 /obj/structure/camera_assembly
 	name = "camera assembly"
 	desc = "The basic construction for cameras."
@@ -45,7 +44,6 @@
 	icon_state = "camera_assembly"
 	max_integrity = 150
 	var/state = STATE_WRENCHED
-
 
 /obj/structure/camera_assembly/examine(mob/user)
 	. = ..()
@@ -77,41 +75,36 @@
 		if(WEST)
 			pixel_x = 16
 
-
 /obj/structure/camera_assembly/attackby(obj/item/I, mob/living/user, params)
 	. = ..()
+	if(.)
+		return
 
+	if(state == STATE_WELDED)
+		if(!istype(I, /obj/item/stack/cable_coil))
+			return
+		var/obj/item/stack/cable_coil/C = I
+		if(!C.use(2))
+			to_chat(user, span_warning("You need two lengths of cable to wire a camera!"))
+			return
+		to_chat(user, span_notice("You add wires to [src]."))
+		state = STATE_WIRED
+
+/obj/structure/camera_assembly/welder_act(mob/living/user, obj/item/I)
+	. = ..()
 	switch(state)
 		if(STATE_WRENCHED)
-			if(I.tool_behaviour != TOOL_WELDER)
-				return
-
 			if(!weld(I, user))
 				return
-
 			to_chat(user, span_notice("You weld [src] securely into place."))
 			anchored = TRUE
 			state = STATE_WELDED
-
 		if(STATE_WELDED)
-			if(istype(I, /obj/item/stack/cable_coil))
-				var/obj/item/stack/cable_coil/C = I
-				if(!C.use(2))
-					to_chat(user, span_warning("You need two lengths of cable to wire a camera!"))
-					return
-
-				to_chat(user, span_notice("You add wires to [src]."))
-				state = STATE_WIRED
-
-			else if(I.tool_behaviour == TOOL_WELDER)
-
-				if(!weld(I, user))
-					return
-
-				to_chat(user, span_notice("You unweld [src] from its place."))
-				anchored = TRUE
-				state = STATE_WRENCHED
-
+			if(!weld(I, user))
+				return
+			to_chat(user, span_notice("You unweld [src] from its place."))
+			anchored = TRUE
+			state = STATE_WRENCHED
 
 /obj/structure/camera_assembly/screwdriver_act(mob/user, obj/item/tool)
 	. = ..()
@@ -139,7 +132,6 @@
 	C.network = tempnetwork
 	return TRUE
 
-
 /obj/structure/camera_assembly/wirecutter_act(mob/user, obj/item/I)
 	if(state != STATE_WIRED)
 		return FALSE
@@ -149,7 +141,6 @@
 	to_chat(user, span_notice("You cut the wires from the circuits."))
 	state = STATE_WELDED
 	return TRUE
-
 
 /obj/structure/camera_assembly/wrench_act(mob/user, obj/item/I)
 	if(state != STATE_WRENCHED)
@@ -161,7 +152,6 @@
 	qdel(src)
 	return TRUE
 
-
 /obj/structure/camera_assembly/proc/weld(obj/item/tool/weldingtool/W, mob/living/user)
 	if(!W.tool_start_check(user, amount = 3))
 		return FALSE
@@ -170,12 +160,10 @@
 		return TRUE
 	return FALSE
 
-
 /obj/structure/camera_assembly/deconstruct(disassembled = TRUE)
-	if(!(flags_atom & NODECONSTRUCT))
+	if(!(atom_flags & NODECONSTRUCT))
 		new /obj/item/stack/sheet/metal(loc)
 	return ..()
-
 
 #undef STATE_WRENCHED
 #undef STATE_WELDED

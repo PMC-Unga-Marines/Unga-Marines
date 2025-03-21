@@ -1,4 +1,3 @@
-
 // Light Replacer (LR)
 //
 // ABOUT THE DEVICE
@@ -19,7 +18,6 @@
 // If it's part of a robot module, it will charge when the Robot is inside a Recharge Station.
 
 /obj/item/lightreplacer
-
 	name = "light replacer"
 	desc = "A device to automatically replace lights. Refill with working lightbulbs."
 
@@ -31,8 +29,8 @@
 	)
 	item_state = "electronic"
 
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 
 	w_class = WEIGHT_CLASS_SMALL
 
@@ -52,6 +50,8 @@
 
 /obj/item/lightreplacer/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/stack/sheet/glass))
 		var/obj/item/stack/sheet/glass/G = I
@@ -81,16 +81,13 @@
 		user.drop_held_item()
 		qdel(L)
 
-
 /obj/item/lightreplacer/attack_self(mob/user)
 	to_chat(usr, "It has [uses] lights remaining.")
 
-
 /obj/item/lightreplacer/proc/Use(mob/user)
-
 	playsound(src.loc, 'sound/machines/click.ogg', 25, 1)
 	AddUses(-1)
-	return 1
+	return TRUE
 
 // Negative numbers will subtract
 /obj/item/lightreplacer/proc/AddUses(amount = 1)
@@ -103,51 +100,32 @@
 		charge = 1
 
 /obj/item/lightreplacer/proc/ReplaceLight(obj/machinery/light/target, mob/living/U)
-
-	if(target.status != LIGHT_OK)
-		if(CanUse(U))
-			if(!Use(U)) return
-			to_chat(U, span_notice("You replace the [target.fitting] with the [src]."))
-
-			if(target.status != LIGHT_EMPTY)
-
-				var/obj/item/light_bulb/L1 = new target.light_type(target.loc)
-				L1.status = target.status
-				L1.rigged = target.rigged
-				L1.brightness = target.brightness
-				L1.switchcount = target.switchcount
-				target.switchcount = 0
-				L1.update()
-
-				target.status = LIGHT_EMPTY
-				target.update()
-
-			var/obj/item/light_bulb/L2 = new target.light_type()
-
-			target.status = L2.status
-			target.switchcount = L2.switchcount
-			target.brightness = L2.brightness
-			target.light_on = target.has_power()
-			target.update()
-			qdel(L2)
-
-			if(target.light_on && target.rigged)
-				target.explode()
-			return
-
-		else
-			to_chat(U, failmsg)
-			return
-	else
+	if(target.status == LIGHT_OK)
 		to_chat(U, "There is a working [target.fitting] already inserted.")
 		return
 
-//Can you use it?
-
-/obj/item/lightreplacer/proc/CanUse(mob/living/user)
-	//Not sure what else to check for. Maybe if clumsy?
-	if(uses > 0)
-		return 1
-	else
-		return 0
-
+	if(uses <= 0)
+		to_chat(U, failmsg)
+		return
+	if(!Use(U))
+		return
+	to_chat(U, span_notice("You replace the [target.fitting] with the [src]."))
+	if(target.status != LIGHT_EMPTY)
+		var/obj/item/light_bulb/L1 = new target.light_type(target.loc)
+		L1.status = target.status
+		L1.rigged = target.rigged
+		L1.brightness = target.brightness
+		L1.switchcount = target.switchcount
+		target.switchcount = 0
+		L1.update()
+		target.status = LIGHT_EMPTY
+		target.update()
+	var/obj/item/light_bulb/L2 = new target.light_type()
+	target.status = L2.status
+	target.switchcount = L2.switchcount
+	target.brightness = L2.brightness
+	target.light_on = target.has_power()
+	target.update()
+	qdel(L2)
+	if(target.light_on && target.rigged)
+		target.explode()

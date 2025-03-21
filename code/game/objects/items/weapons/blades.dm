@@ -22,8 +22,8 @@
 	desc = "What are you standing around staring at this for? Get to killing!"
 	icon_state = "claymore"
 	item_state = "claymore"
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	force = 40
 	throwforce = 10
 	sharp = IS_SHARP_ITEM_BIG
@@ -79,7 +79,7 @@
 ///Create an after image
 /datum/action/ability/activable/weapon_skill/sword_lunge/proc/movement_fx()
 	SIGNAL_HANDLER
-	new /obj/effect/temp_visual/xenomorph/afterimage(get_turf(owner), owner)
+	new /obj/effect/temp_visual/after_image(get_turf(owner), owner)
 
 ///Unregisters signals after lunge complete
 /datum/action/ability/activable/weapon_skill/sword_lunge/proc/charge_complete()
@@ -169,7 +169,7 @@
 		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
 		slot_belt_str = 'icons/mob/suit_slot.dmi'
 	)
-	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 
 /obj/item/weapon/claymore/mercsword/machete/Initialize(mapload)
 	. = ..()
@@ -201,8 +201,8 @@
 	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT|ITEM_SLOT_BACK
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	force = 70
 	attack_speed = 8
 	throwforce = 130 //throw_dmg = throwforce * (throw_speed * 0.2)
@@ -286,7 +286,7 @@
 	name = "katana"
 	desc = "A finely made Japanese sword, with a well sharpened blade. The blade has been filed to a molecular edge, and is extremely deadly. Commonly found in the hands of mercenaries and yakuza."
 	icon_state = "katana"
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	force = 50
 	throwforce = 10
 	sharp = IS_SHARP_ITEM_BIG
@@ -345,7 +345,7 @@
 	icon_state = "combat_knife"
 	item_state = "combat_knife"
 	desc = "A standard survival knife of high quality. You can slide this knife into your boots, and can be field-modified to attach to the end of a rifle with cable coil."
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	sharp = IS_SHARP_ITEM_ACCURATE
 	force = 30
 	w_class = WEIGHT_CLASS_SMALL
@@ -403,7 +403,7 @@
 	icon_state = "karambit"
 	item_state = "karambit"
 	desc = "A small high quality knife with a curved blade, good for slashing and hooking. This one has a mottled red finish."
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	sharp = IS_SHARP_ITEM_ACCURATE
 	force = 30
 	w_class = WEIGHT_CLASS_SMALL
@@ -446,7 +446,7 @@
 	desc="A military knife designed to be thrown at the enemy. Much quieter than a firearm, but requires a steady hand to be used effectively."
 	stack_name = "pile"
 	singular_name = "knife"
-	flags_atom = CONDUCT|DIRLOCK
+	atom_flags = CONDUCT|DIRLOCK
 	sharp = IS_SHARP_ITEM_ACCURATE
 	force = 20
 	w_class = WEIGHT_CLASS_TINY
@@ -455,7 +455,7 @@
 	throw_range = 7
 	hitsound = 'sound/weapons/slash.ogg'
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-	flags_equip_slot = ITEM_SLOT_POCKET
+	equip_slot_flags = ITEM_SLOT_POCKET
 
 	max_amount = 5
 	amount = 5

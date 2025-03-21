@@ -316,45 +316,70 @@
 
 /obj/machinery/vending/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(tipped_level)
 		to_chat(user, "Tip it back upright first!")
+		return
 
-	else if(isscrewdriver(I))
-		TOGGLE_BITFIELD(machine_stat, PANEL_OPEN)
-		to_chat(user, "You [CHECK_BITFIELD(machine_stat, PANEL_OPEN) ? "open" : "close"] the maintenance panel.")
-		overlays.Cut()
-		if(CHECK_BITFIELD(machine_stat, PANEL_OPEN))
-			overlays += image(icon, "[initial(icon_state)]-panel")
-
-	else if(ismultitool(I) || iswirecutter(I))
-		if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
-			return
-
-		attack_hand(user)
-
-	else if(iswrench(I))
-		if(!wrenchable)
-			return
-
-		if(!do_after(user, 20, NONE, src, BUSY_ICON_BUILD))
-			return
-
-		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
-		anchored = !anchored
-		if(anchored)
-			user.visible_message("[user] tightens the bolts securing \the [src] to the floor.", "You tighten the bolts securing \the [src] to the floor.")
-			var/turf/current_turf = get_turf(src)
-			if(current_turf && density)
-				current_turf.flags_atom |= AI_BLOCKED
-		else
-			user.visible_message("[user] unfastens the bolts securing \the [src] to the floor.", "You unfasten the bolts securing \the [src] to the floor.")
-			var/turf/current_turf = get_turf(src)
-			if(current_turf && density)
-				current_turf.flags_atom &= ~AI_BLOCKED
-	else if(isitem(I))
+	if(isitem(I))
 		var/obj/item/to_stock = I
 		stock(to_stock, user)
+
+/obj/machinery/vending/screwdriver_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(tipped_level)
+		to_chat(user, span_warning("Tip it back upright first!"))
+		return
+
+	TOGGLE_BITFIELD(machine_stat, PANEL_OPEN)
+	to_chat(user, "You [CHECK_BITFIELD(machine_stat, PANEL_OPEN) ? "open" : "close"] the maintenance panel.")
+	overlays.Cut()
+	if(CHECK_BITFIELD(machine_stat, PANEL_OPEN))
+		overlays += image(icon, "[initial(icon_state)]-panel")
+
+/obj/machinery/vending/multitool_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(tipped_level)
+		to_chat(user, span_warning("Tip it back upright first!"))
+		return
+
+	if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
+		return
+	attack_hand(user)
+
+/obj/machinery/vending/wirecutter_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(tipped_level)
+		to_chat(user, span_warning("Tip it back upright first!"))
+		return
+
+	if(!CHECK_BITFIELD(machine_stat, PANEL_OPEN))
+		return
+	attack_hand(user)
+
+/obj/machinery/vending/wrench_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(tipped_level)
+		to_chat(user, span_warning("Tip it back upright first!"))
+		return
+	if(!wrenchable)
+		return
+	if(!do_after(user, 20, NONE, src, BUSY_ICON_BUILD))
+		return
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+	anchored = !anchored
+	if(anchored)
+		user.visible_message("[user] tightens the bolts securing \the [src] to the floor.", "You tighten the bolts securing \the [src] to the floor.")
+		var/turf/current_turf = get_turf(src)
+		if(current_turf && density)
+			current_turf.atom_flags |= AI_BLOCKED
+	else
+		user.visible_message("[user] unfastens the bolts securing \the [src] to the floor.", "You unfasten the bolts securing \the [src] to the floor.")
+		var/turf/current_turf = get_turf(src)
+		if(current_turf && density)
+			current_turf.atom_flags &= ~AI_BLOCKED
 
 /obj/machinery/vending/can_interact(mob/user)
 	. = ..()
@@ -606,9 +631,9 @@
  */
 /datum/vending_product/proc/attempt_restock(obj/item/item_to_stock, mob/user, show_feedback = TRUE)
 	//More accurate comparison between absolute paths.
-	if(isstorage(item_to_stock)) //Nice try, specialists/engis
-		var/obj/item/storage/storage_to_stock = item_to_stock
-		if(!(storage_to_stock.flags_storage & BYPASS_VENDOR_CHECK)) //If your storage has this flag, it can be restocked
+	if(item_to_stock.storage_datum) //Nice try, specialists/engis
+		var/datum/storage/storage_to_stock = item_to_stock.storage_datum
+		if(!(storage_to_stock.storage_flags & BYPASS_VENDOR_CHECK)) //If your storage has this flag, it can be restocked
 			user?.balloon_alert(user, "Can't restock containers!")
 			return FALSE
 
@@ -647,13 +672,15 @@
 	//Actually restocks the item after our checks
 	if(user)
 		if(item_to_stock.loc == user) //Inside the mob's inventory
-			if(item_to_stock.flags_item & WIELDED)
+			if(item_to_stock.item_flags & WIELDED)
 				item_to_stock.unwield(user)
 			user.temporarilyRemoveItemFromInventory(item_to_stock)
 
-		else if(istype(item_to_stock.loc, /obj/item/storage)) //inside a storage item
+		// Hey I don't think this code does anything, it looks like it wants to restock things that are inside a storage?
+		// Probably should be running a loop over every item inside the storage, but whatever that's not for this PR
+		else if(item_to_stock.item_flags & IN_STORAGE) //inside a storage item
 			var/obj/item/storage/S = item_to_stock.loc
-			S.remove_from_storage(item_to_stock, user.loc, user)
+			S.storage_datum.remove_from_storage(item_to_stock, user.loc, user)
 
 	item_to_stock.removed_from_inventory(user)
 	qdel(item_to_stock)

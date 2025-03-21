@@ -172,6 +172,10 @@
 #define COMSIG_ATOM_ATTACKBY_ALTERNATE "atom_attackby_alternate" //from base of atom/attackby_alternate(): (/obj/item, /mob/living)
 	#define COMPONENT_NO_AFTERATTACK (1<<0)						//Return this in response if you don't want afterattack to be called
 
+///from base of atom/max_stack_merging(): (obj/item/stack/S)
+#define ATOM_MAX_STACK_MERGING "atom_max_stack_merging"
+///from base of atom/recalculate_storage_space(): ()
+#define ATOM_RECALCULATE_STORAGE_SPACE "atom_recalculate_storage_space"
 #define COMSIG_ATOM_CONTENTS_DEL "atom_contents_del"			//from base of atom/handle_atom_del(): (atom/deleted)
 #define COMSIG_ATOM_ENTERED "atom_entered"                      //from base of atom/Entered(): (atom/movable/entering, atom/oldloc, list/atom/oldlocs)
 #define COMSIG_ATOM_EXIT "atom_exit"							//from base of atom/Exit(): (/atom/movable/exiting, direction)
@@ -225,6 +229,8 @@
 #define COMSIG_ATOM_UPDATED_ICON "atom_updated_icon"
 
 #define COMSIG_ATOM_EX_ACT "atom_ex_act"						//from base of atom/ex_act(): (severity, target)
+///from base of atom/contents_explosion(): (severity)
+#define COMSIG_CONTENTS_EX_ACT "contents_ex_act"
 #define COMSIG_ATOM_SET_LIGHT "atom_set_light"					//from base of atom/set_light(): (l_range, l_power, l_color)
 #define COMSIG_ATOM_BULLET_ACT "atom_bullet_act"				//from base of atom/bullet_act(): (/obj/projectile)
 #define COMSIG_ATOM_INITIALIZED_ON "atom_initialized_on"		//called from atom/Initialize() of target: (atom/target)
@@ -300,6 +306,8 @@
 #define COMSIG_TURF_PROJECTILE_MANIPULATED "projectile_manipulated"
 #define COMSIG_TURF_CHECK_COVERED "turf_check_covered" //from /turf/open/liquid/Entered checking if something is covering the turf
 #define COMSIG_TURF_TELEPORT_CHECK "turf_teleport_check" //from /turf/proc/can_teleport_here()
+///from base of /datum/turf_reservation/proc/Release: (datum/turf_reservation/reservation)
+#define COMSIG_TURF_RESERVATION_RELEASED "turf_reservation_released"
 
 // /obj signals
 #define COMSIG_OBJ_SETANCHORED "obj_setanchored"				//called in /obj/structure/setAnchored(): (value)
@@ -374,6 +382,12 @@
 	#define COMPONENT_CLOTHING_BLUR_PROTECTION (1<<1)
 
 #define COMSIG_ITEM_UNDEPLOY "item_undeploy" //from base of /obj/machinery/deployable
+
+///from base of obj/item/quick_equip(): (mob/user)
+#define COMSIG_ITEM_QUICK_EQUIP "item_quick_equip"
+// Return signals for /datum/storage/proc/on_quick_equip_request
+	#define COMSIG_QUICK_EQUIP_HANDLED (1<<0) //Our signal handler took care of quick equip
+	#define COMSIG_QUICK_EQUIP_BLOCKED (1<<1) //Our signal handler blocked the quick equip, but does not want to block the remainder of the proc
 
 ///From /obj/item/proc/pickup(): (/obj/item/picked_up_item)
 #define COMSIG_ITEM_ATTEMPT_PICK_UP "item_attempt_pick_up"
@@ -501,6 +515,10 @@
 #define COMSIG_MOB_PAINLOSS_CHANGED "mob_painloss_changed"
 /// from mob/get_status_tab_items(): (list/items)
 #define COMSIG_MOB_GET_STATUS_TAB_ITEMS "mob_get_status_tab_items"
+///From mob/do_after_coefficent()
+#define MOB_GET_DO_AFTER_COEFFICIENT "mob_get_do_after_coefficient"
+///From get_zone_with_miss_chance
+#define MOB_GET_MISS_CHANCE_MOD "mob_get_miss_chance_mod"
 
 //mob/dead/observer
 #define COMSIG_OBSERVER_CLICKON "observer_clickon"				//from mob/dead/observer/ClickOn(): (atom/A, params)
@@ -540,7 +558,7 @@
 #define COMSIG_LIVING_STATUS_MUTE "living_mute"					//from base of mob/living/Mute()
 	#define COMPONENT_NO_MUTE (1<<0)
 
-#define COMSIG_LIVING_ADD_VENTCRAWL "living_add_ventcrawl"
+#define COMSIG_LIVING_HANDLE_VENTCRAWL "living_handle_ventcrawl"
 #define COMSIG_LIVING_WEEDS_AT_LOC_CREATED "living_weeds_at_loc_created"	///from obj/alien/weeds/Initialize()
 #define COMSIG_LIVING_WEEDS_ADJACENT_REMOVED "living_weeds_adjacent_removed"	///from obj/alien/weeds/Destroy()
 
@@ -966,6 +984,9 @@
 #define COMSIG_WEAPONABILITY_AXESWEEP "weaponability_axesweep"
 #define COMSIG_WEAPONABILITY_SWORDLUNGE "weaponability_swordlunge"
 
+//Implant abilities
+#define COMSIG_IMPLANT_ABILITY_SANDEVISTAN "implant_ability_sandevistan"
+
 // human modules signals for keybindings
 #define COMSIG_KB_VALI_CONFIGURE "keybinding_vali_configure"
 #define COMSIG_KB_VALI_HEAL "keybinding_vali_heal"
@@ -1127,3 +1148,6 @@
 #define COMSIG_UPGRADE_CHAMBER_SURVIVAL "upgrade_chamber_survival"
 #define COMSIG_UPGRADE_CHAMBER_ATTACK "upgrade_chamber_attack"
 #define COMSIG_UPGRADE_CHAMBER_UTILITY "upgrade_chamber_utility"
+
+/// Cave comms interference check signal.
+#define COMSIG_CAVE_INTERFERENCE_CHECK "cave_interference_check"

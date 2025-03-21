@@ -153,6 +153,12 @@
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
 
+/datum/supply_packs/medical/implanter
+	name = "Implanter"
+	notes = "contains an implanter for reinsertion of the implant."
+	contains = list(/obj/item/implanter/implantator/cargo)
+	cost = 90
+
 /datum/supply_packs/medical/defibrillator_gloves
 	name = "Advanced defibrillator medical gloves"
 	notes = "contains advanced defibrillator medical gloves."
@@ -364,7 +370,7 @@
 
 /datum/supply_packs/medical/t312case
 	name = "R-312 'Albedo' Revolver bundle"
-	contains = list(/obj/item/storage/box/t312case)
+	contains = list(/obj/item/storage/briefcase/t312)
 	cost = 500
 
 /datum/supply_packs/medical/t312

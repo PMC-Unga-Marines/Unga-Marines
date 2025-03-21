@@ -16,7 +16,7 @@
 	traits += "----------------------------------------------------------"
 
 	traits += "Caliber: [caliber]"
-	if(flags_gun_features & GUN_WIELDED_FIRING_ONLY)
+	if(gun_features_flags & GUN_WIELDED_FIRING_ONLY)
 		traits += "Can only be fired with a two-handed grip."
 	if(burst_amount > 1)
 		traits += "Can fire in short bursts."

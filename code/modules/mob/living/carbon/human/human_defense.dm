@@ -16,7 +16,7 @@ Contains most of the procs that are called when a mob is attacked by something
 
 	var/list/clothing_items = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes) // What all are we checking?
 	for(var/obj/item/clothing/C in clothing_items)
-		if(istype(C) && (C.flags_armor_protection & def_zone.body_part)) // Is that body part being targeted covered?
+		if(istype(C) && (C.armor_protection_flags & def_zone.body_part)) // Is that body part being targeted covered?
 			siemens_coefficient *= C.siemens_coefficient
 
 	return siemens_coefficient
@@ -24,7 +24,7 @@ Contains most of the procs that are called when a mob is attacked by something
 /mob/living/carbon/human/proc/add_limb_armor(obj/item/armor_item)
 	for(var/i in limbs)
 		var/datum/limb/limb_to_check = i
-		if(!(limb_to_check.body_part & armor_item.flags_armor_protection))
+		if(!(limb_to_check.body_part & armor_item.armor_protection_flags))
 			continue
 		limb_to_check.add_limb_soft_armor(armor_item.soft_armor)
 		limb_to_check.add_limb_hard_armor(armor_item.hard_armor)
@@ -37,7 +37,7 @@ Contains most of the procs that are called when a mob is attacked by something
 /mob/living/carbon/human/proc/remove_limb_armor(obj/item/armor_item)
 	for(var/i in limbs)
 		var/datum/limb/limb_to_check = i
-		if(!(limb_to_check.body_part & armor_item.flags_armor_protection))
+		if(!(limb_to_check.body_part & armor_item.armor_protection_flags))
 			continue
 		limb_to_check.remove_limb_soft_armor(armor_item.soft_armor)
 		limb_to_check.remove_limb_hard_armor(armor_item.hard_armor)
@@ -54,7 +54,7 @@ Contains most of the procs that are called when a mob is attacked by something
 		if(!bp)	continue
 		if(bp && istype(bp ,/obj/item/clothing))
 			var/obj/item/clothing/C = bp
-			if(C.flags_armor_protection & HEAD)
+			if(C.armor_protection_flags & HEAD)
 				return 1
 	return 0
 
@@ -71,13 +71,13 @@ Contains most of the procs that are called when a mob is attacked by something
 	..()
 
 /mob/living/carbon/human/has_smoke_protection()
-	if(istype(wear_mask) && wear_mask.flags_inventory & BLOCKGASEFFECT)
+	if(istype(wear_mask) && wear_mask.inventory_flags & BLOCKGASEFFECT)
 		return TRUE
-	if(istype(glasses) && glasses.flags_inventory & BLOCKGASEFFECT)
+	if(istype(glasses) && glasses.inventory_flags & BLOCKGASEFFECT)
 		return TRUE
 	if(head && istype(head, /obj/item/clothing))
 		var/obj/item/clothing/CH = head
-		if(CH.flags_inventory & BLOCKGASEFFECT)
+		if(CH.inventory_flags & BLOCKGASEFFECT)
 			return TRUE
 	return ..()
 
@@ -210,7 +210,7 @@ Contains most of the procs that are called when a mob is attacked by something
 		hit_report += "(delimbed [affecting.display_name])"
 //RUTGMC edit - item embed disable
 /*
-	else if(I.damtype == BRUTE && !(HAS_TRAIT(I, TRAIT_NODROP) || (I.flags_item & DELONDROP)))
+	else if(I.damtype == BRUTE && !(HAS_TRAIT(I, TRAIT_NODROP) || (I.item_flags & DELONDROP)))
 		if (percentage_penetration && weapon_sharp && prob(I.embedding.embed_chance))
 			user.dropItemToGround(I, TRUE)
 			I.embed_into(src, affecting)
@@ -473,6 +473,8 @@ Contains most of the procs that are called when a mob is attacked by something
 	cut_overlay(GLOB.welding_sparks)
 	return TRUE
 
+#define BLOCK_SOUND_VOLUME 70
+
 /mob/living/carbon/human/proc/check_pred_shields(damage = 0, attack_text = "the attack", combistick = FALSE, backside_attack = FALSE, xenomorph = FALSE)
 	if(skills.getRating("melee_weapons") < SKILL_MELEE_MASTER)
 		return FALSE
@@ -513,12 +515,15 @@ Contains most of the procs that are called when a mob is attacked by something
 
 	var/obj/item/weapon/shield/riot/yautja/shield = back
 	if(backside_attack && istype(shield) && prob(shield.readied_block))
-		if(shield.blocks_on_back)
-			playsound(src, 'sound/items/block_shield.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
-			visible_message(span_danger("<B>The [back] on [src]'s back blocks [attack_text]!</B>"), null, null, 5)
-			return TRUE
+		if(!shield.blocks_on_back)
+			return FALSE
+		playsound(src, 'sound/items/block_shield.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
+		visible_message(span_danger("<B>The [back] on [src]'s back blocks [attack_text]!</B>"), null, null, 5)
+		return TRUE
 
 	return FALSE
+
+#undef BLOCK_SOUND_VOLUME
 
 /mob/living/carbon/human/emote_gored()
 	if(species.species_flags & NO_PAIN)

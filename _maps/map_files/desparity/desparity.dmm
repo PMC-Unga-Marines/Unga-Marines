@@ -5145,7 +5145,7 @@
 /turf/open/floor,
 /area/lv624/lazarus/spaceport)
 "Ay" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/closed/mineral/smooth/indestructible,
 /area/storage/testroom)
 "AC" = (
@@ -8061,7 +8061,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "Pa" = (
-/obj/structure/closet/secure_closet/CMO,
+/obj/structure/closet/secure_closet/cmo,
 /obj/effect/spawner/random/medical/medbelt,
 /turf/open/floor/tile/green,
 /area/lv624/lazarus/medbay)
@@ -8503,7 +8503,7 @@
 "Ru" = (
 /obj/structure/table,
 /obj/item/clothing/head/chefhat,
-/obj/item/clothing/suit/chef/classic,
+/obj/item/clothing/suit/storage/chef/classic,
 /obj/item/tool/kitchen/rollingpin,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/barber,

@@ -25,19 +25,19 @@
 	if(!use(1))
 		return
 	playsound(T, 'sound/weapons/genhit.ogg', 25, 1)
-	T.PlaceOnTop(turf_type)
+	T.place_on_top(turf_type)
 
 /obj/item/stack/tile/plasteel
 	force = 6
 	throwforce = 8
 	throw_speed = 3
 	throw_range = 6
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	turf_type = /turf/open/floor
 
 ///Creates plating, used for space turfs only
 /obj/item/stack/tile/plasteel/proc/build(turf/space_turf)
-	if (istype(space_turf,/turf/open/space))
+	if(isspaceturf(space_turf))
 		space_turf.ChangeTurf(/turf/open/floor/plating/airless)
 	else
 		space_turf.ChangeTurf(/turf/open/floor/plating)
@@ -49,7 +49,7 @@
 	throwforce = 8
 	throw_speed = 3
 	throw_range = 6
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	turf_type = /turf/open/floor/sandstone/runed
 
 /obj/item/stack/tile/grass
@@ -94,13 +94,11 @@
 	else if(prob(10))
 		state = LIGHT_TILE_FLICKERING
 
-/obj/item/stack/tile/light/attackby(obj/item/I, mob/user, params)
+/obj/item/stack/tile/light/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
-
-	if(istype(I, /obj/item/tool/crowbar))
-		new /obj/item/stack/sheet/metal(user.loc)
-		amount--
-		new /obj/item/stack/light_w(user.loc)
-		if(amount <= 0)
-			user.temporarilyRemoveItemFromInventory(src)
-			qdel(src)
+	new /obj/item/stack/sheet/metal(user.loc)
+	amount--
+	new /obj/item/stack/light_w(user.loc)
+	if(amount <= 0)
+		user.temporarilyRemoveItemFromInventory(src)
+		qdel(src)

@@ -822,7 +822,7 @@
 			if(!params["key"])
 				return
 			var/mods = params["key_mods"]
-			var/full_key = params["key"]
+			var/full_key = convert_ru_key_to_en_key(params["key"])
 			var/Altmod = ("ALT" in mods) ? "Alt" : ""
 			var/Ctrlmod = ("CONTROL" in mods) ? "Ctrl" : ""
 			var/Shiftmod = ("SHIFT" in mods) ? "Shift" : ""
@@ -879,7 +879,7 @@
 			emote.spoken_emote = !emote.spoken_emote
 
 		if("reset-keybindings")
-			key_bindings = deepCopyList(GLOB.hotkey_keybinding_list_by_key)
+			key_bindings = deep_copy_list(GLOB.hotkey_keybinding_list_by_key)
 			current_client.set_macros()
 			save_keybinds()
 

@@ -164,7 +164,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 
 /// acts as [/proc/modifyRating] but sets the rating directly rather than modify it
 /datum/skills/proc/setRating(cqc, melee_weapons,\
-firearms, pistols, shotguns, rifles, smgs, heavy_weapons, swordplay, smartgun,\
+firearms, pistols, shotguns, rifles, smgs, heavy_weapons, smartgun,\
 engineer, construction, leadership, medical, surgery, pilot, police, powerloader, large_vehicle, mech_pilot, stamina)
 	return getSkills((isnull(cqc) ? src.cqc : cqc),\
 		(isnull(melee_weapons) ? src.melee_weapons : melee_weapons),\

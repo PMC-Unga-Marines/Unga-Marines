@@ -1,4 +1,3 @@
-
 /datum/action/item_action
 	name = ""
 	/**
@@ -9,7 +8,11 @@
 	/// Defines wheter we overlay the image of the obj we are linked to
 	var/use_obj_appeareance = TRUE
 
-/datum/action/item_action/New(Target, obj/item/holder)
+/datum/action/item_action/New(Target, obj/item/holder, _action_icon, _action_icon_state)
+	if(_action_icon)
+		action_icon = _action_icon
+	if(_action_icon_state)
+		action_icon_state = _action_icon_state
 	. = ..()
 	if(!holder)
 		holder = target
@@ -25,9 +28,10 @@
 	return ..()
 
 /datum/action/item_action/action_activate()
-	if(target)
-		var/obj/item/I = target
-		I.ui_action_click(owner, src, holder_item)
+	if(!target)
+		return FALSE
+	var/obj/item/I = target
+	return I.ui_action_click(owner, src, holder_item)
 
 /datum/action/item_action/can_use_action()
 	if(QDELETED(owner) || owner.incapacitated() || owner.lying_angle)
@@ -57,6 +61,8 @@
 
 /datum/action/item_action/toggle/action_activate()
 	. = ..()
+	if(!.)
+		return
 	set_toggle(!toggled)
 
 /datum/action/item_action/toggle/remove_action(mob/M)
@@ -65,10 +71,6 @@
 
 /datum/action/item_action/toggle/suit_toggle
 	keybinding_signals = list(KEYBINDING_NORMAL = COMSIG_KB_SUITLIGHT)
-
-/datum/action/item_action/toggle/motion_detector/action_activate()
-	. = ..()
-	update_button_icon()
 
 /datum/action/item_action/firemode
 	// just here so players see what key is it bound to
@@ -84,6 +86,11 @@
 	. = ..()
 	holder_gun = holder_item
 
+/datum/action/item_action/firemode/action_activate()
+	. = ..()
+	if(!.)
+		return
+	update_button_icon()
 
 /datum/action/item_action/firemode/update_button_icon()
 	if(holder_gun.gun_firemode == action_firemode)

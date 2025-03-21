@@ -12,7 +12,7 @@
 		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
 	)
 	w_class = WEIGHT_CLASS_BULKY
-	flags_equip_slot = ITEM_SLOT_BACK
+	equip_slot_flags = ITEM_SLOT_BACK
 	obj_flags = CAN_BE_HIT
 	///Time between uses
 	var/cooldown_time = 10 SECONDS
@@ -53,7 +53,7 @@
 	toggle_action.remove_action(user)
 
 /obj/item/jetpack_marine/ui_action_click(mob/user, datum/action/item_action/action, target)
-	use_jetpack(target, user)
+	return use_jetpack(target, user)
 
 ///remove the flame overlay
 /obj/item/jetpack_marine/proc/reset_flame(mob/living/carbon/human/human_user)
@@ -120,13 +120,13 @@
 /obj/item/jetpack_marine/proc/change_fuel_indicator()
 	if(fuel_left-fuel_indicator > 0)
 		return
-	if (fuel_left >= FUEL_INDICATOR_FULL)
+	if(fuel_left >= FUEL_INDICATOR_FULL)
 		fuel_indicator = FUEL_INDICATOR_FULL
 		return
-	if (fuel_left >= FUEL_INDICATOR_HALF_FULL)
+	if(fuel_left >= FUEL_INDICATOR_HALF_FULL)
 		fuel_indicator = FUEL_INDICATOR_HALF_FULL
 		return
-	if (fuel_left >= FUEL_USE)
+	if(fuel_left >= FUEL_USE)
 		fuel_indicator = FUEL_USE
 		return
 	fuel_indicator = 0
@@ -150,6 +150,8 @@
 
 /obj/item/jetpack_marine/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(!istype(I, /obj/item/ammo_magazine/flamer_tank))
 		return
 	var/obj/item/ammo_magazine/flamer_tank/FT = I

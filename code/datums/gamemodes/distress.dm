@@ -2,8 +2,8 @@
 	name = "Distress Signal"
 	config_tag = "Distress Signal"
 	silo_scaling = 2
-	flags_round_type = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_DEAD_GRAB_FORBIDDEN|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD
-	flags_xeno_abilities = ABILITY_NUCLEARWAR //actually ABILITY_DISTRESS
+	round_type_flags = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_DEAD_GRAB_FORBIDDEN|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD
+	xeno_abilities_flags = ABILITY_NUCLEARWAR //actually ABILITY_DISTRESS
 	quickbuild_points_flags = MODE_PERSONAL_QUICKBUILD_POINTS
 	valid_job_types = list(
 		/datum/job/terragov/command/captain = 1,
@@ -93,7 +93,7 @@
 
 ///called by [/proc/update_silo_death_timer] after [DISTRESS_SILO_COLLAPSE] elapses to end the round
 /datum/game_mode/infestation/distress/proc/siloless_hive_collapse()
-	if(!(flags_round_type & MODE_INFESTATION))
+	if(!(round_type_flags & MODE_INFESTATION))
 		return
 	if(round_finished)
 		return

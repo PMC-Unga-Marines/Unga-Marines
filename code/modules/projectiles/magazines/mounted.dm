@@ -5,7 +5,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "hsg102"
-	flags_magazine = NONE
+	magazine_flags = NONE
 	caliber = CALIBER_10X30
 	max_rounds = 300
 	default_ammo = /datum/ammo/bullet/machinegun
@@ -20,11 +20,11 @@
 	name = "HMG-08 drum magazine (10x30mm Caseless)"
 	desc = "A box of 500, 10x28mm caseless tungsten rounds for the HMG-08 mounted heavy machinegun. Is probably not going to fit in your backpack. Put it on your belt or back."
 	w_class = WEIGHT_CLASS_BULKY
-	flags_equip_slot = ITEM_SLOT_BACK|ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "mg08"
 	icon_state_mini = "mag_drum_big_green"
-	flags_magazine = NONE
+	magazine_flags = NONE
 	caliber = CALIBER_10X28
 	max_rounds = 500
 	default_ammo = /datum/ammo/bullet/machinegun
@@ -34,7 +34,7 @@
 	name = "HMG-08 box magazine (10x30mm Caseless)"
 	desc = "A box of 250 10x28mm caseless tungsten rounds for the HMG-08 mounted heavy machinegun."
 	w_class = WEIGHT_CLASS_NORMAL
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	icon_state = "mg08_small"
 	icon_state_mini = "mag_hmg"
 	max_rounds = 250
@@ -47,7 +47,7 @@
 	icon_state = "mg27"
 	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state_mini = "mag_drum_big_armygreen"
-	flags_magazine = NONE
+	magazine_flags = NONE
 	caliber = CALIBER_10X27_CASELESS
 	max_rounds = 150
 	default_ammo = /datum/ammo/bullet/rifle/heavy
@@ -59,7 +59,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "ags"
-	flags_magazine = NONE
+	magazine_flags = NONE
 	caliber = CALIBER_40MM
 	max_rounds = 30
 	default_ammo = /datum/ammo/grenade_container/agls37
@@ -102,7 +102,7 @@
 	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "tat36_shell"
 	item_state = "tat36"
-	flags_magazine = MAGAZINE_REFUND_IN_CHAMBER
+	magazine_flags = MAGAZINE_REFUND_IN_CHAMBER
 	caliber = CALIBER_37MM
 	max_rounds = 1
 	default_ammo = /datum/ammo/rocket/atgun_shell
@@ -142,7 +142,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "minigun"
-	flags_magazine = NONE
+	magazine_flags = NONE
 	caliber = CALIBER_762X51
 	max_rounds = 1000
 	default_ammo = /datum/ammo/bullet/minigun
@@ -155,7 +155,7 @@
 	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "ac_mag"
 	item_state = "ac"
-	flags_magazine = NONE
+	magazine_flags = NONE
 	caliber = CALIBER_20
 	max_rounds = 100
 	default_ammo = /datum/ammo/bullet/auto_cannon
@@ -185,7 +185,7 @@
 	icon_state = "isg_ammo"
 	item_state = "isg_ammo"
 	w_class = WEIGHT_CLASS_BULKY
-	flags_magazine = MAGAZINE_REFUND_IN_CHAMBER
+	magazine_flags = MAGAZINE_REFUND_IN_CHAMBER
 	caliber = CALIBER_15CM
 	max_rounds = 1
 	reload_delay = 8 SECONDS

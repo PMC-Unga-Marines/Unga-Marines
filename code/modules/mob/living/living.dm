@@ -198,7 +198,7 @@
 			var/mob/living/living_puller = pulledby
 			living_puller.set_pull_offsets(src)
 
-	if(s_active && !(s_active in contents) && !CanReach(s_active))
+	if(s_active && !(s_active.parent in contents) && !CanReach(s_active.parent))
 		s_active.close(src)
 
 
@@ -614,19 +614,19 @@
 	return
 
 /mob/living/reset_perspective(atom/A)
-	. = ..()
-	if(!.)
+	if(!..())
 		return
-
 	update_sight()
-	if (stat == DEAD)
-		animate(client, pixel_x = 0, pixel_y = 0)
+	update_fullscreen()
+	update_pipe_vision()
+
+/// Proc used to handle the fullscreen overlay updates, realistically meant for the reset_perspective() proc.
+/mob/living/proc/update_fullscreen()
 	if(client.eye && client.eye != src)
-		var/atom/AT = client.eye
-		AT.get_remote_view_fullscreens(src)
+		var/atom/client_eye = client.eye
+		client_eye.get_remote_view_fullscreens(src)
 	else
 		clear_fullscreen("remote_view", 0)
-	update_pipe_vision()
 
 /mob/living/update_sight()
 	if(SSticker.current_state == GAME_STATE_FINISHED && !is_centcom_level(z)) //Reveal ghosts to remaining survivors
@@ -818,9 +818,9 @@
 ///Swap the active hand
 /mob/living/proc/swap_hand()
 	var/obj/item/wielded_item = get_active_held_item()
-	if(wielded_item && (wielded_item.flags_item & WIELDED)) //this segment checks if the item in your hand is twohanded.
+	if(wielded_item && (wielded_item.item_flags & WIELDED)) //this segment checks if the item in your hand is twohanded.
 		var/obj/item/weapon/twohanded/offhand/offhand = get_inactive_held_item()
-		if(offhand && (offhand.flags_item & WIELDED))
+		if(offhand && (offhand.item_flags & WIELDED))
 			wielded_item.unwield(src) //Get rid of it.
 	hand = !hand
 	SEND_SIGNAL(src, COMSIG_CARBON_SWAPPED_HANDS)
@@ -885,11 +885,11 @@
 /mob/living/carbon/xenomorph/transfer_mob(mob/candidate)
 	. = ..()
 	if(is_ventcrawling)  //If we are in a vent, fetch a fresh vent map
-		add_ventcrawl(loc)
+		handle_ventcrawl(loc)
 		get_up()
 
 ///Sets up the jump component for the mob. Proc args can be altered so different mobs have different 'default' jump settings
-/mob/living/proc/set_jump_component(duration = 0.5 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 16, sound = null, flags = JUMP_SHADOW, flags_pass = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
+/mob/living/proc/set_jump_component(duration = 0.5 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 16, sound = null, flags = JUMP_SHADOW, pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
 	var/gravity = get_gravity()
 	if(gravity < 1) //low grav
 		duration *= 2.5 - gravity
@@ -897,11 +897,11 @@
 		cost *= gravity * 0.5
 		height *= 2 - gravity
 		if(gravity <= 0.75)
-			flags_pass |= PASS_DEFENSIVE_STRUCTURE
+			pass_flags |= PASS_DEFENSIVE_STRUCTURE
 	else if(gravity > 1) //high grav
 		duration *= gravity * 0.5
 		cooldown *= gravity
 		cost *= gravity
 		height *= gravity * 0.5
 
-	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = cost, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = flags_pass)
+	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = cost, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = pass_flags)

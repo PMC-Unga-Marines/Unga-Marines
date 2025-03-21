@@ -51,6 +51,6 @@ GLOBAL_DATUM_INIT(balance, /datum/balance, new())
 	record_feedback()
 
 /datum/balance/proc/record_feedback()
-	var/list/data = deepCopyList(balance_values)
+	var/list/data = deep_copy_list(balance_values)
 	data["timestamp"] = world.time
 	SSblackbox.record_feedback(FEEDBACK_ASSOCIATIVE, "balance", 1, data)

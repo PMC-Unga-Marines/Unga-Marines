@@ -1,6 +1,3 @@
-
-
-
 /obj/item/stack/snow
 	name = "snow pile"
 	desc = "Some snow pile."
@@ -12,9 +9,10 @@
 	throw_range = 1
 	max_amount = 25
 
-
 /obj/item/stack/snow/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(!istype(I, /obj/item/tool/shovel))
 		return
@@ -56,28 +54,29 @@
 /obj/item/stack/snow/afterattack(atom/target, mob/user, proximity)
 	if(!proximity)
 		return
-	if(isopenturf(target))
-		if(user.do_actions)
+	if(!isopenturf(target))
+		return
+	if(user.do_actions)
+		return
+	var/turf/open/T = target
+	if(T.get_dirt_type() == DIRT_TYPE_SNOW)
+		var/turf/open/floor/plating/ground/snow/snowy_turf = T
+		if(snowy_turf.slayer >= 3)
+			to_chat(user, "This ground is already full of snow.")
 			return
-		var/turf/open/T = target
-		if(T.get_dirt_type() == DIRT_TYPE_SNOW)
-			var/turf/open/floor/plating/ground/snow/snowy_turf = T
-			if(snowy_turf.slayer >= 3)
-				to_chat(user, "This ground is already full of snow.")
-				return
-			if(amount < 5)
-				to_chat(user, span_warning("You need 5 piles of snow to cover the ground."))
-				return
-			to_chat(user, "You start putting some snow back on the ground.")
-			if(!do_after(user, 15, IGNORE_HELD_ITEM, target, BUSY_ICON_BUILD))
-				return
-			if(snowy_turf.slayer >= 3)
-				return
-			to_chat(user, "You put a new snow layer on the ground.")
-			snowy_turf.slayer += 1
-			snowy_turf.update_appearance()
-			snowy_turf.update_sides()
-			use(5)
+		if(amount < 5)
+			to_chat(user, span_warning("You need 5 piles of snow to cover the ground."))
+			return
+		to_chat(user, "You start putting some snow back on the ground.")
+		if(!do_after(user, 15, IGNORE_HELD_ITEM, target, BUSY_ICON_BUILD))
+			return
+		if(snowy_turf.slayer >= 3)
+			return
+		to_chat(user, "You put a new snow layer on the ground.")
+		snowy_turf.slayer += 1
+		snowy_turf.update_appearance()
+		snowy_turf.update_sides()
+		use(5)
 
 /obj/item/stack/snow/attack_self(mob/user)
 	var/turf/T = get_turf(user)
@@ -94,15 +93,16 @@
 
 	//Using same safeties as other constructions
 	for(var/obj/O in user.loc) //Objects, we don't care about mobs. Turfs are checked elsewhere
-		if(O.density)
-			if(O.flags_atom & ON_BORDER)
-				if(O.dir == user.dir)
-					to_chat(user, span_warning("There is already \a [O.name] in this direction!"))
-					return
-			else
-				to_chat(user, span_warning("You need a clear, open area to build the sandbag barricade!"))
+		if(!O.density)
+			continue
+		if(O.atom_flags & ON_BORDER)
+			if(O.dir == user.dir)
+				to_chat(user, span_warning("There is already \a [O.name] in this direction!"))
 				return
-
+		else
+			to_chat(user, span_warning("You need a clear, open area to build the sandbag barricade!"))
+			return
+			
 	user.visible_message(span_notice("[user] starts assembling a snow barricade."),
 	span_notice("You start assembling a snow barricade."))
 	if(!do_after(user, 20, NONE, src, BUSY_ICON_BUILD))
@@ -111,7 +111,7 @@
 		return
 	for(var/obj/O in user.loc) //Objects, we don't care about mobs. Turfs are checked elsewhere
 		if(O.density)
-			if(!(O.flags_atom & ON_BORDER) || O.dir == user.dir)
+			if(!(O.atom_flags & ON_BORDER) || O.dir == user.dir)
 				return
 	var/obj/structure/barricade/snow/SB = new(user.loc, user.dir)
 	user.visible_message(span_notice("[user] assembles a snow barricade."),

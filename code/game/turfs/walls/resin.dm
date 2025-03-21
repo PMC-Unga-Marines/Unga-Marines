@@ -16,10 +16,6 @@
 /turf/closed/wall/resin/add_debris_element()
 	AddElement(/datum/element/debris, null, -15, 8, 0.7)
 
-/turf/closed/wall/resin/Initialize(mapload)
-	. = ..()
-	return INITIALIZE_HINT_LATELOAD
-
 /turf/closed/wall/resin/fire_act(burn_level, flame_color)
 	take_damage(burn_level * 1.25, BURN, FIRE)
 
@@ -32,7 +28,7 @@
 		return FALSE
 	if(CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return FALSE
-	if(!I.powered || (I.flags_item & NOBLUDGEON))
+	if(!I.powered || (I.item_flags & NOBLUDGEON))
 		return FALSE
 	var/charge_cost = PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD
 	if(!I.start_cut(user, name, src, charge_cost, no_string = TRUE))
@@ -86,7 +82,7 @@
 		return
 	if(xeno_attacker.a_intent != INTENT_HARM)
 		return
-	if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker))
+	if(CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker))
 		SSresinshaping.decrement_build_counter(xeno_attacker)
 		dismantle_wall()
 		return
@@ -107,7 +103,7 @@
 	return TRUE
 
 /turf/closed/wall/resin/attackby(obj/item/I, mob/living/user, params)
-	if(I.flags_item & NOBLUDGEON || !isliving(user))
+	if(I.item_flags & NOBLUDGEON || !isliving(user))
 		return
 
 	user.changeNext_move(I.attack_speed)
@@ -127,14 +123,15 @@
 
 /turf/closed/wall/resin/ChangeTurf(newtype)
 	. = ..()
-	if(.)
-		var/turf/T
-		for(var/i in GLOB.cardinals)
-			T = get_step(src, i)
-			if(!istype(T))
-				continue
-			for(var/obj/structure/mineral_door/resin/R in T)
-				R.check_resin_support()
+	if(!.)
+		return
+	var/turf/T
+	for(var/i in GLOB.cardinals)
+		T = get_step(src, i)
+		if(!istype(T))
+			continue
+		for(var/obj/structure/mineral_door/resin/R in T)
+			R.check_resin_support()
 
 /**
  * Regenerating walls that start with lower health, but grow to a much higher hp over time

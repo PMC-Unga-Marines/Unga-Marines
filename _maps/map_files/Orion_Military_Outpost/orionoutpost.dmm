@@ -4936,7 +4936,7 @@
 /turf/closed/mineral/smooth/indestructible,
 /area/orion_outpost/ground/underground/caveE)
 "zf" = (
-/obj/machinery/telecomms/relay/preset/telecomms,
+/obj/machinery/telecomms/relay/preset/telecomms/ground,
 /turf/closed/mineral/smooth/indestructible,
 /area/storage/testroom)
 "zh" = (

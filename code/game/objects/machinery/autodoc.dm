@@ -39,12 +39,19 @@
 	light_power = 0.5
 	light_color = LIGHT_COLOR_BLUE
 	dir = EAST
+
+	//It uses power
+	use_power = ACTIVE_POWER_USE
+	idle_power_usage = 15
+	active_power_usage = 120000 // It rebuilds you from nothing...
+
 	var/locked = FALSE
 	var/mob/living/carbon/human/occupant = null
-	var/list/surgery_todo_list = list() //a list of surgeries to do.
-	///var/surgery_t = 0 //Surgery timer in seconds.
+	///a list of surgeries to do.
+	var/list/surgery_todo_list = list()
 	var/surgery = FALSE
-	var/surgery_mod = 1 //What multiple to increase the surgery timer? This is used for any non-WO maps or events that are done.
+	///What multiple to increase the surgery timer? This is used for any non-WO maps or events that are done.
+	var/surgery_mod = 1
 	var/filtering = 0
 	var/blood_transfer = 0
 	var/heal_brute = 0
@@ -56,12 +63,8 @@
 
 	var/obj/machinery/computer/autodoc_console/connected
 
-	//It uses power
-	use_power = ACTIVE_POWER_USE
-	idle_power_usage = 15
-	active_power_usage = 120000 // It rebuilds you from nothing...
-
-	var/stored_metal = 1000 // starts with 500 metal loaded
+	/// starts with 500 metal loaded
+	var/stored_metal = 1000
 	var/stored_metal_max = 2000
 
 /obj/machinery/autodoc/Initialize(mapload)
@@ -259,11 +262,12 @@
 				surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_NECRO)
 			var/skip_embryo_check = FALSE
 			if(length(L.implants))
-				for(var/I in L.implants)
-					if(!is_type_in_list(I,GLOB.known_implants))
-						surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_SHRAPNEL)
-						if(L.body_part == CHEST)
-							skip_embryo_check = TRUE
+				for(var/obj/item/embedded AS in L.implants)
+					if(embedded.is_beneficial_implant())
+						continue
+					surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_SHRAPNEL)
+					if(L.body_part == CHEST)
+						skip_embryo_check = TRUE
 			var/obj/item/alien_embryo/A = locate() in M
 			if(A && L.body_part == CHEST && !skip_embryo_check) //If we're not already doing a shrapnel removal surgery on the chest, add an extraction surgery to remove it
 				surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_SHRAPNEL)
@@ -564,12 +568,13 @@
 										occupant.status_flags &= ~XENO_HOST
 									qdel(A)
 						if(length(S.limb_ref.implants))
-							for(var/obj/item/I in S.limb_ref.implants)
+							for(var/obj/item/embedded AS in S.limb_ref.implants)
 								if(!surgery)
 									break
-								if(!is_type_in_list(I, GLOB.known_implants))
-									sleep(HEMOSTAT_REMOVE_MAX_DURATION*surgery_mod)
-									I.unembed_ourself(TRUE)
+								if(embedded.is_beneficial_implant())
+									continue
+								sleep(HEMOSTAT_REMOVE_MAX_DURATION*surgery_mod)
+								embedded.unembed_ourself(TRUE)
 						if(S.limb_ref.body_part == CHEST || S.limb_ref.body_part == HEAD)
 							close_encased(occupant, S.limb_ref)
 						if(!surgery)
@@ -842,6 +847,8 @@
 
 /obj/machinery/autodoc/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(!ishuman(user))
 		return // no
@@ -861,66 +868,62 @@
 		J.attack(occupant, user)
 		return
 
-	else if(!istype(I, /obj/item/grab))
+/obj/machinery/autodoc/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
+	. = ..()
+	if(.)
+		return
+	if(!ishuman(user))
 		return
 
 	if(machine_stat & (NOPOWER|BROKEN))
-		to_chat(user, span_notice("[src] is non-functional!"))
+		to_chat(user, span_notice("\ [src] is non-functional!"))
 		return
 
-	else if(occupant)
-		to_chat(user, span_notice("[src] is already occupied!"))
+	if(occupant)
+		to_chat(user, span_notice("\ [src] is already occupied!"))
 		return
 
-	if(!istype(I, /obj/item/grab))
-		return
+	var/mob/grabbed_mob
 
-	var/obj/item/grab/G = I
-
-	var/mob/M
-	if(ismob(G.grabbed_thing))
-		M = G.grabbed_thing
-	else if(istype(G.grabbed_thing, /obj/structure/closet/bodybag/cryobag))
-		var/obj/structure/closet/bodybag/cryobag/C = G.grabbed_thing
-		if(!C.bodybag_occupant)
+	if(ismob(grab.grabbed_thing))
+		grabbed_mob = grab.grabbed_thing
+	else if(istype(grab.grabbed_thing,/obj/structure/closet/bodybag/cryobag))
+		var/obj/structure/closet/bodybag/cryobag/cryobag = grab.grabbed_thing
+		if(!cryobag.bodybag_occupant)
 			to_chat(user, span_warning("The stasis bag is empty!"))
 			return
-		M = C.bodybag_occupant
-		C.open()
-		user.start_pulling(M)
+		grabbed_mob = cryobag.bodybag_occupant
+		cryobag.open()
+		user.start_pulling(grabbed_mob)
 
-	if(!M)
+	if(!grabbed_mob)
 		return
 
-	else if(!ishuman(M)) // stop fucking monkeys and xenos being put in. // MONKEEY IS FREE
-		to_chat(user, span_notice("[src] is compatible with humanoid anatomies only!"))
-		return
-
-	else if(M.abiotic())
+	if(grabbed_mob.abiotic())
 		to_chat(user, span_warning("Subject cannot have abiotic items on."))
 		return
 
 	if(user.skills.getRating(SKILL_SURGERY) < SKILL_SURGERY_TRAINED && !event)
-		user.visible_message(span_notice("[user] fumbles around figuring out how to put [M] into [src]."),
-		span_notice("You fumble around figuring out how to put [M] into [src]."))
+		user.visible_message(span_notice("[user] fumbles around figuring out how to put [grabbed_mob] into [src]."),
+		span_notice("You fumble around figuring out how to put [grabbed_mob] into [src]."))
 		var/fumbling_time = max(0 , SKILL_TASK_TOUGH - ( SKILL_TASK_EASY * user.skills.getRating(SKILL_SURGERY) ))// 8 secs non-trained, 5 amateur
-		if(!do_after(user, fumbling_time, NONE, M, BUSY_ICON_UNSKILLED) || QDELETED(src))
+		if(!do_after(user, fumbling_time, NONE, grabbed_mob, BUSY_ICON_UNSKILLED) || QDELETED(src))
 			return
 
-	visible_message("[user] starts putting [M] into [src].", 3)
+	visible_message("[user] starts putting [grabbed_mob] into [src].", 3)
 
-	if(!do_after(user, 10, IGNORE_HELD_ITEM, M, BUSY_ICON_GENERIC) || QDELETED(src))
+	if(!do_after(user, 10, IGNORE_HELD_ITEM, grabbed_mob, BUSY_ICON_GENERIC) || QDELETED(src))
 		return
 
 	if(occupant)
 		to_chat(user, span_notice("[src] is already occupied!"))
 		return
 
-	if(!M || !G)
+	if(!grabbed_mob || !grab)
 		return
 
-	M.forceMove(src)
-	occupant = M
+	grabbed_mob.forceMove(src)
+	occupant = grabbed_mob
 	update_icon()
 	var/implants = list(/obj/item/implant/neurostim)
 	var/mob/living/carbon/human/H = occupant
@@ -1263,8 +1266,8 @@
 				var/datum/limb/L = i
 				var/skip_embryo_check = FALSE
 				var/obj/item/alien_embryo/A = locate() in connected.occupant
-				for(var/I in L.implants)
-					if(is_type_in_list(I, GLOB.known_implants))
+				for(var/obj/item/embedded AS in L.implants)
+					if(embedded.is_beneficial_implant())
 						continue
 					N.fields["autodoc_manual"] += create_autodoc_surgery(L, LIMB_SURGERY,ADSURGERY_SHRAPNEL)
 					needed++

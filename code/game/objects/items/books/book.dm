@@ -1,6 +1,3 @@
-/*
-* Book
-*/
 /obj/item/book
 	name = "book"
 	icon = 'icons/obj/items/books.dmi'
@@ -45,6 +42,8 @@
 
 /obj/item/book/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/tool/pen))
 		if(unique)

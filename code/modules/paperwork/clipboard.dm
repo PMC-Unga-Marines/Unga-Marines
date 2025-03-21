@@ -10,9 +10,11 @@
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
 	throw_range = 10
-	var/obj/item/tool/pen/haspen		//The stored pen.
-	var/obj/item/toppaper	//The topmost piece of paper.
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
+	/// The stored pen.
+	var/obj/item/tool/pen/haspen
+	/// The topmost piece of paper.
+	var/obj/item/toppaper
 
 /obj/item/clipboard/Initialize(mapload)
 	. = ..()
@@ -32,7 +34,6 @@
 				if("l_hand")
 					M.dropItemToGround(src)
 					M.put_in_l_hand(src)
-
 			return
 
 /obj/item/clipboard/update_overlays()
@@ -45,9 +46,10 @@
 		. += "clipboard_pen"
 	. += "clipboard_over"
 
-
 /obj/item/clipboard/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/paper) || istype(I, /obj/item/photo))
 		user.drop_held_item()
@@ -60,7 +62,6 @@
 	else if(istype(toppaper) && istype(I, /obj/item/tool/pen))
 		toppaper.attackby(I, user, params)
 		update_icon()
-
 
 /obj/item/clipboard/interact(mob/user)
 	. = ..()
@@ -88,7 +89,6 @@
 	var/datum/browser/popup = new(user, "clipboard", "<div align='center'>Clipboard</div>")
 	popup.set_content(dat)
 	popup.open()
-
 
 /obj/item/clipboard/Topic(href, href_list)
 	. = ..()
@@ -164,4 +164,3 @@
 		//Update everything
 		attack_self(usr)
 		update_icon()
-

@@ -3,14 +3,17 @@
 	plane = FLOOR_PLANE
 	minimap_color = MINIMAP_AREA_COLONY
 	resistance_flags = PROJECTILE_IMMUNE|UNACIDABLE
-	var/allow_construction = TRUE //whether you can build things like barricades on this turf.
-	var/slayer = 0 //snow layer
-	var/wet = 0 //whether the turf is wet (only used by floors).
+	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR)
+	/// Whether you can build things like barricades on this turf.
+	var/allow_construction = TRUE
+	/// Snow layer
+	var/slayer = 0
+	/// Whether the turf is wet (only used by floors).
+	var/wet = 0
 	var/shoefootstep = FOOTSTEP_FLOOR
 	var/barefootstep = FOOTSTEP_HARD
 	var/mediumxenofootstep = FOOTSTEP_HARD
 	var/heavyxenofootstep = FOOTSTEP_GENERIC_HEAVY
-	smoothing_groups = list(SMOOTH_GROUP_OPEN_FLOOR)
 
 /turf/open/examine(mob/user)
 	. = ..()
@@ -34,6 +37,9 @@
 			override_sound = i
 			index = footstep_overrides[i]
 	return override_sound
+
+/turf/open/get_dumping_location()
+	return src
 
 // Beach
 
@@ -323,42 +329,9 @@
 		SMOOTH_GROUP_WINDOW_FRAME,
 	)
 
-
 /turf/open/lavaland/basalt/glowing
 	icon_state = "basaltglow"
 	light_system = STATIC_LIGHT
 	light_range = 4
 	light_power = 0.75
 	light_color = LIGHT_COLOR_LAVA
-
-/turf/open/lavaland/catwalk
-	name = "catwalk"
-	icon_state = "lavacatwalk"
-	light_system = STATIC_LIGHT
-	light_range = 1.4
-	light_power = 2
-	light_color = LIGHT_COLOR_LAVA
-	shoefootstep = FOOTSTEP_CATWALK
-	barefootstep = FOOTSTEP_CATWALK
-	mediumxenofootstep = FOOTSTEP_CATWALK
-
-/turf/open/lavaland/catwalk/built
-	var/deconstructing = FALSE
-
-/turf/open/lavaland/catwalk/built/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(xeno_attacker.status_flags & INCORPOREAL)
-		return
-	if(xeno_attacker.a_intent != INTENT_HARM)
-		return
-	if(deconstructing)
-		return
-	deconstructing = TRUE
-	if(!do_after(xeno_attacker, 10 SECONDS, NONE, src, BUSY_ICON_BUILD))
-		deconstructing = FALSE
-		return
-	deconstructing = FALSE
-	playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-	var/turf/current_turf = get_turf(src)
-	if(current_turf)
-		current_turf.flags_atom |= AI_BLOCKED
-	ChangeTurf(/turf/open/liquid/lava)

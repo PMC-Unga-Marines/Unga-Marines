@@ -9,8 +9,8 @@
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
-	flags_equip_slot = ITEM_SLOT_HEAD|ITEM_SLOT_EARS
-	flags_item = ITEM_PREDATOR
+	equip_slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_EARS
+	item_flags = ITEM_PREDATOR
 
 /obj/item/clothing/falcon_drone/attack_self(mob/user)
 	..()
@@ -109,7 +109,7 @@
 	desc = "The wreckage of a Yautja drone."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "falcon_drone_destroyed"
-	flags_item = ITEM_PREDATOR
+	item_flags = ITEM_PREDATOR
 
 /obj/item/trash/falcon_drone/emp
 	name = "disabled falcon drone"

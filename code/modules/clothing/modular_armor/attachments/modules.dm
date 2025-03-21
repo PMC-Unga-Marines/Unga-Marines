@@ -21,7 +21,7 @@
 	icon_state = "pt_belt"
 	item_state = "pt_belt_a"
 	slot = ATTACHMENT_SLOT_BELT
-	flags_attach_features = ATTACH_NO_HANDS
+	attach_features_flags = ATTACH_NO_HANDS
 
 /**
  * Shoulder lamp strength module
@@ -90,11 +90,11 @@
 /obj/item/armor_module/module/fire_proof/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
 	parent.max_heat_protection_temperature += FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
-	parent.flags_armor_features |= ARMOR_FIRE_RESISTANT
+	parent.armor_features_flags |= ARMOR_FIRE_RESISTANT
 
 /obj/item/armor_module/module/fire_proof/on_detach(obj/item/detaching_from, mob/user)
 	parent.max_heat_protection_temperature -= FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
-	parent.flags_armor_features &= ~ARMOR_FIRE_RESISTANT
+	parent.armor_features_flags &= ~ARMOR_FIRE_RESISTANT
 	return ..()
 
 /obj/item/armor_module/module/fire_proof/som
@@ -498,7 +498,7 @@
 	icon_state = "welding_head"
 	item_state = "welding_head_a"
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
+	attach_features_flags = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	active = FALSE
 	prefered_slot = SLOT_HEAD
 	toggle_signal = COMSIG_KB_HELMETMODULE
@@ -521,14 +521,14 @@
 
 /obj/item/armor_module/module/welding/activate(mob/living/user)
 	if(active)
-		DISABLE_BITFIELD(parent.flags_inventory, COVEREYES)
-		DISABLE_BITFIELD(parent.flags_inv_hide, HIDEEYES)
-		DISABLE_BITFIELD(parent.flags_armor_protection, EYES)
+		DISABLE_BITFIELD(parent.inventory_flags, COVEREYES)
+		DISABLE_BITFIELD(parent.inv_hide_flags, HIDEEYES)
+		DISABLE_BITFIELD(parent.armor_protection_flags, EYES)
 		parent.eye_protection -= eye_protection_mod // reset to the users base eye
 	else
-		ENABLE_BITFIELD(parent.flags_inventory, COVEREYES)
-		ENABLE_BITFIELD(parent.flags_inv_hide, HIDEEYES)
-		ENABLE_BITFIELD(parent.flags_armor_protection, EYES)
+		ENABLE_BITFIELD(parent.inventory_flags, COVEREYES)
+		ENABLE_BITFIELD(parent.inv_hide_flags, HIDEEYES)
+		ENABLE_BITFIELD(parent.armor_protection_flags, EYES)
 		parent.eye_protection += eye_protection_mod
 
 	active = !active
@@ -545,7 +545,7 @@
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "welding_head_som"
 	item_state = "welding_head_som_a"
-	flags_attach_features = ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
+	attach_features_flags = ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 
 /obj/item/armor_module/module/welding/superior
 	name = "Superior Welding Helmet Module"
@@ -554,7 +554,7 @@
 	icon_state = "welding_head"
 	item_state = "welding_head_a"
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
+	attach_features_flags = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	active = FALSE
 	prefered_slot = SLOT_HEAD
 
@@ -569,10 +569,10 @@
 	icon_state = "binocular_head"
 	item_state = "binocular_head_a"
 	active = FALSE
-	flags_item = DOES_NOT_NEED_HANDS
+	item_flags = DOES_NOT_NEED_HANDS
 	zoom_tile_offset = 11
 	zoom_viewsize = 12
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
+	attach_features_flags = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
 	toggle_signal = COMSIG_KB_HELMETMODULE
@@ -604,8 +604,8 @@
 	desc = "Designed for mounting on a modular helmet. The Freyr module is designed with an overlay visor that clarifies the user's vision, allowing them to see clearly even in the harshest of circumstances. This version is enhanced and allows the marine to peer through the visor, akin to binoculars."
 	icon_state = "artemis_head"
 	item_state = "artemis_head_mk2_a"
-	var/eye_protection_mod = 1
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_mk2_xn")
+	var/eye_protection_mod = 1
 
 /obj/item/armor_module/module/binoculars/artemis_mark_two/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
@@ -626,7 +626,7 @@
 	icon_state = "artemis_head"
 	item_state = "artemis_head_a"
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB
+	attach_features_flags = ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB
 	prefered_slot = SLOT_HEAD
 
 /obj/item/armor_module/module/artemis/on_attach(obj/item/attaching_to, mob/user)
@@ -635,58 +635,54 @@
 
 /obj/item/armor_module/module/antenna
 	name = "Antenna helmet module"
-	desc = "Designed for mounting on a modular Helmet. This module is able to provide a readout of the user's coordinates and connect to the shipside supply console."
+	desc = "Designed for mounting on a modular Helmet. This module is able to provide a readout of the user's coordinates and connect to the shipside supply console and shield against the interference of caves, allowing for normal messaging in shallow caves, and only minor interference when deep."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "antenna_head"
 	item_state = "antenna_head_a"
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
+	attach_features_flags = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
 	toggle_signal = COMSIG_KB_HELMETMODULE
-	/// Reference to the datum used by the supply drop console
-	var/datum/supply_beacon/beacon_datum
 
-/obj/item/armor_module/module/antenna/Destroy()
-	if(beacon_datum)
-		UnregisterSignal(beacon_datum, COMSIG_QDELETING)
-		QDEL_NULL(beacon_datum)
+/obj/item/armor_module/module/antenna/on_attach(obj/item/attaching_to, mob/user)
+	. = ..()
+	parent.AddComponent(/datum/component/beacon/antenna)
+	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED_TO_SLOT, PROC_REF(on_parent_equip))
+	RegisterSignal(parent, COMSIG_ITEM_UNEQUIPPED, PROC_REF(on_parent_unequip))
+
+/obj/item/armor_module/module/antenna/on_detach(obj/item/detaching_from, mob/user)
+	var/datum/component/beacon/beacon = parent?.GetComponent(/datum/component/beacon)
+	beacon?.RemoveComponent()
+	UnregisterSignal(user, list(COMSIG_ITEM_EQUIPPED_TO_SLOT, COMSIG_ITEM_UNEQUIPPED))
 	return ..()
 
-/obj/item/armor_module/module/antenna/activate(mob/living/user)
-	var/turf/location = get_turf(src)
-	if(beacon_datum)
-		UnregisterSignal(beacon_datum, COMSIG_QDELETING)
-		QDEL_NULL(beacon_datum)
-		user.show_message(span_warning("The [src] beeps and states, \"Your last position is no longer accessible by the supply console"), EMOTE_AUDIBLE, span_notice("The [src] vibrates but you can not hear it!"))
-		return
-	if(!is_ground_level(user.z))
-		to_chat(user, span_warning("You have to be on the planet to use this or it won't transmit."))
-		return FALSE
-	beacon_datum = new /datum/supply_beacon(user.name, user.loc, user.faction, 4 MINUTES)
-	RegisterSignal(beacon_datum, COMSIG_QDELETING, PROC_REF(clean_beacon_datum))
-	user.show_message(span_notice("The [src] beeps and states, \"Your current coordinates were registered by the supply console. LONGITUDE [location.x]. LATITUDE [location.y]. Area ID: [get_area(src)]\""), EMOTE_AUDIBLE, span_notice("The [src] vibrates but you can not hear it!"))
-	addtimer(CALLBACK(src, PROC_REF(update_beacon_location)), 5 SECONDS)
-
-/obj/item/armor_module/module/antenna/proc/update_beacon_location()
-	if(beacon_datum)
-		beacon_datum.drop_location = get_turf(src)
-		addtimer(CALLBACK(src, PROC_REF(update_beacon_location), beacon_datum), 5 SECONDS)
-
-/// Signal handler to nullify beacon datum
-/obj/item/armor_module/module/antenna/proc/clean_beacon_datum()
+/obj/item/armor_module/module/antenna/proc/on_parent_equip(datum/source, mob/equipper, slot)
 	SIGNAL_HANDLER
-	beacon_datum = null
+	RegisterSignal(equipper, COMSIG_CAVE_INTERFERENCE_CHECK, PROC_REF(on_interference_check))
+
+/obj/item/armor_module/module/antenna/proc/on_parent_unequip(datum/source, mob/equipper, slot)
+	SIGNAL_HANDLER
+	UnregisterSignal(equipper, COMSIG_CAVE_INTERFERENCE_CHECK)
+
+/// Handles interacting with caves checking for if anything is reducing (or increasing) interference.
+/obj/item/armor_module/module/antenna/proc/on_interference_check(datum/source, list/inplace_interference)
+	SIGNAL_HANDLER
+	inplace_interference[1] = max(0, inplace_interference[1] - 1)
+
+/obj/item/armor_module/module/antenna/activate(mob/living/user)
+	var/datum/component/beacon/beacon = parent?.GetComponent(/datum/component/beacon)
+	beacon?.toggle_activation(parent, user)
 
 /obj/item/armor_module/module/night_vision
 	name = "\improper BE-35 night vision kit"
 	desc = "Installation kit for the BE-35 night vision system. Slightly impedes movement."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "night_vision"
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_NO_HANDS
+	attach_features_flags = ATTACH_REMOVABLE|ATTACH_NO_HANDS
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
 	slowdown = 0.1
-	///The goggles this module deploys
+	/// The goggles this module deploys
 	var/obj/item/clothing/glasses/night_vision/mounted/attached_goggles
 
 /obj/item/armor_module/module/night_vision/Initialize(mapload)
@@ -713,11 +709,7 @@
 	RegisterSignal(parent, COMSIG_ITEM_UNEQUIPPED, PROC_REF(undeploy))
 
 /obj/item/armor_module/module/night_vision/on_detach(obj/item/detaching_from, mob/user)
-	UnregisterSignal(parent, COMSIG_ATOM_EXAMINE)
-	UnregisterSignal(parent, COMSIG_CLICK_CTRL_SHIFT)
-	UnregisterSignal(parent, COMSIG_ATOM_ATTACKBY)
-	UnregisterSignal(parent, COMSIG_ITEM_EQUIPPED)
-	UnregisterSignal(parent, COMSIG_ITEM_UNEQUIPPED)
+	UnregisterSignal(parent, list(COMSIG_ATOM_EXAMINE, COMSIG_CLICK_CTRL_SHIFT, COMSIG_ATOM_ATTACKBY, COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNEQUIPPED))
 	return ..()
 
 ///Called when the parent is clicked on with an open hand; to take out the battery
@@ -777,7 +769,7 @@
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_head_scanner"
 	item_state = "mod_head_scanner_a"
-	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
+	attach_features_flags = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
 	/// Who's using this item

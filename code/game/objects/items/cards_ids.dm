@@ -21,13 +21,13 @@
 	name = "identification card"
 	desc = "A card used to provide ID and determine access to a large array of machinery."
 	icon_state = "id"
-	flags_equip_slot = ITEM_SLOT_ID
+	equip_slot_flags = ITEM_SLOT_ID
 	///The access this id card has
 	var/access = list()
 	/// The name registered_name on the card
 	var/registered_name = "Unknown"
 	///Miscelaneous ID flags
-	var/flags_id = CAN_BUY_LOADOUT
+	var/id_flags = CAN_BUY_LOADOUT
 	///Blood type of the person that has it.
 	var/blood_type = "\[UNSET\]"
 
@@ -66,10 +66,10 @@
 
 /obj/item/card/id/vv_edit_var(var_name, var_value)
 	. = ..()
-	if(.)
-		switch(var_name)
-			if("assignment", "registered_name")
-				update_label()
+	if(!.)
+		return
+	if(var_name == ("assignment" || "registered_name"))
+		update_label()
 
 /obj/item/card/id/proc/update_label(newname, newjob)
 	if(newname || newjob)
@@ -294,6 +294,8 @@
 
 /obj/item/dogtag/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/dogtag))
 		var/obj/item/dogtag/D = I

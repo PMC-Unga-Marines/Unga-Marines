@@ -24,7 +24,8 @@
 	idle_power_usage = 5
 	active_power_usage = 360
 	var/blocked = FALSE
-	var/lockdown = FALSE // When the door has detected a problem, it locks.
+	/// When the door has detected a problem, it locks.
+	var/lockdown = FALSE
 	var/pdiff_alert = FALSE
 	var/pdiff = FALSE
 	var/nextstate = null
@@ -33,9 +34,10 @@
 	var/list/users_to_open = new
 	var/next_process_time = 0
 	var/list/tile_info[4]
-	var/list/dir_alerts[4] // 4 dirs, bitflags
+	/// 4 dirs, bitflags
+	var/list/dir_alerts[4]
 
-	// MUST be in same order as FIREDOOR_ALERT_*
+	/// MUST be in same order as FIREDOOR_ALERT_*
 	var/list/ALERT_STATES=list(
 		"hot",
 		"cold"
@@ -45,7 +47,7 @@
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)
 		if(F != src)
-			flags_atom |= INITIALIZED
+			atom_flags |= INITIALIZED
 			return INITIALIZE_HINT_QDEL
 	var/area/A = get_area(src)
 	ASSERT(istype(A))
@@ -155,8 +157,9 @@
 		return
 
 	var/alarmed = lockdown
-	for(var/area/A in areas_added)		//Checks if there are fire alarms in any areas associated with that firedoor
-		if(A.flags_alarm_state & ALARM_WARNING_FIRE || A.air_doors_activated)
+	//Checks if there are fire alarms in any areas associated with that firedoor
+	for(var/area/A in areas_added)
+		if(A.alarm_state_flags & ALARM_WARNING_FIRE || A.air_doors_activated)
 			alarmed = TRUE
 
 	var/answer = tgui_alert(user, "Would you like to [density ? "open" : "close"] this [src.name]?[ alarmed && density ? "\nNote that by doing so, you acknowledge any damages from opening this\n[src.name] as being your own fault, and you will be held accountable under the law." : ""]",\
@@ -194,7 +197,7 @@
 /obj/machinery/door/firedoor/proc/closing_process()
 	var/alarmed = FALSE
 	for(var/area/A in areas_added) // Just in case a fire alarm is turned off while the firedoor is going through an autoclose cycle
-		if(A.flags_alarm_state & ALARM_WARNING_FIRE || A.air_doors_activated)
+		if(A.alarm_state_flags & ALARM_WARNING_FIRE || A.air_doors_activated)
 			alarmed = TRUE
 	if(alarmed)
 		nextstate = FIREDOOR_CLOSED
@@ -202,34 +205,18 @@
 
 /obj/machinery/door/firedoor/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(operating)
 		return
 
-	else if(iswelder(I))
-		var/obj/item/tool/weldingtool/W = I
-		if(!W.remove_fuel(0, user))
-			return
-
-		balloon_alert_to_viewers("Starts [blocked ? "unwelding" : "welding"]")
-		if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_GENERIC))
-			balloon_alert_to_viewers("Stops welding")
-			return
-
-		blocked = !blocked
-		balloon_alert_to_viewers("[blocked ? "welds" : "unwelds"] the firedoor")
-		user.visible_message(span_danger("\The [user] [blocked ? "welds" : "unwelds"] \the [src] with \a [W]."),\
-		"You [blocked ? "weld" : "unweld"] \the [src] with \the [W].",\
-		"You hear something being welded.")
-		playsound(src, 'sound/items/welder.ogg', 25, 1)
-		update_icon()
-
-	else if(blocked)
+	if(blocked)
 		user.visible_message(span_danger("\The [user] pries at \the [src] with \a [I], but \the [src] is welded in place!"),\
 		"You try to pry \the [src] [density ? "open" : "closed"], but it is welded in place!",\
 		"You hear someone struggle and metal straining.")
 
-	else if(I.pry_capable)
+	else if(I.pry_capable) // fucking shitcode
 		user.visible_message(span_danger("\The [user] starts to force \the [src] [density ? "open" : "closed"] with \a [I]!"),\
 				span_notice("You start forcing \the [src] [density ? "open" : "closed"] with \the [I]!"),\
 				"You hear metal strain.")
@@ -249,6 +236,22 @@
 			open(TRUE)
 		else
 			close()
+
+/obj/machinery/door/firedoor/welder_act(mob/living/user, obj/item/tool/weldingtool/W)
+	. = ..()
+	if(!W.remove_fuel(0, user))
+		return
+	balloon_alert_to_viewers("Starts [blocked ? "unwelding" : "welding"]")
+	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_GENERIC))
+		balloon_alert_to_viewers("Stops welding")
+		return
+	blocked = !blocked
+	balloon_alert_to_viewers("[blocked ? "welds" : "unwelds"] the firedoor")
+	user.visible_message(span_danger("\The [user] [blocked ? "welds" : "unwelds"] \the [src] with \a [W]."),\
+		span_notice("You [blocked ? "weld" : "unweld"] \the [src] with \the [W]."),\
+		span_notice("You hear something being welded."))
+	playsound(src, 'sound/items/welder.ogg', 25, 1)
+	update_icon()
 
 /obj/machinery/door/firedoor/try_to_activate_door(mob/user)
 	return
@@ -285,7 +288,6 @@
 			flick("door_closing", src)
 	playsound(loc, 'sound/machines/emergency_shutter.ogg', 25)
 
-
 /obj/machinery/door/firedoor/update_icon_state()
 	. = ..()
 	if(density)
@@ -317,7 +319,6 @@
 	if(blocked)
 		to_chat(user, span_warning("The firelock is welded shut."))
 		return
-
 	return ..()
 
 /obj/machinery/door/firedoor/mainship
@@ -333,7 +334,7 @@
 
 /obj/machinery/door/firedoor/border_only
 	icon = 'icons/obj/doors/edge_Doorfire.dmi'
-	flags_atom = ON_BORDER
+	atom_flags = ON_BORDER
 	allow_pass_flags = PASS_GLASS
 
 /obj/machinery/door/firedoor/border_only/Initialize(mapload)

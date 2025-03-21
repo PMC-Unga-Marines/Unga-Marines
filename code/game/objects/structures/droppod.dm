@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 	interaction_flags = INTERACT_OBJ_DEFAULT|INTERACT_POWERLOADER_PICKUP_ALLOWED_BYPASS_ANCHOR
 	soft_armor = list(MELEE = 25, BULLET = 80, LASER = 80, ENERGY = 90, BOMB = 70, BIO = 100, FIRE = 0, ACID = 0)
 	max_integrity = 75
-	flags_atom = PREVENT_CONTENTS_EXPLOSION
+	atom_flags = PREVENT_CONTENTS_EXPLOSION
 	coverage = 75
 	buckle_flags = CAN_BUCKLE|BUCKLE_PREVENTS_PULL
 	light_range = 1
@@ -157,7 +157,7 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 			balloon_alert(user, "Hazardous zone")
 		return FALSE
 	var/area/targetarea = get_area(target)
-	if(targetarea.flags_area & NO_DROPPOD) // Thou shall not pass!
+	if(targetarea.area_flags & NO_DROPPOD) // Thou shall not pass!
 		if(user)
 			balloon_alert(user, "Invalid area")
 		return FALSE
@@ -212,7 +212,7 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 	deadchat_broadcast(" has been launched", src, turf_target = target)
 	for(var/mob/living/silicon/ai/AI AS in GLOB.ai_list)
 		to_chat(AI, span_notice("[user ? user : "unknown"] has launched [src] towards [target.loc] at X:[target_x] Y:[target_y]"))
-	reserved_area = SSmapping.RequestBlockReservation(3,3)
+	reserved_area = SSmapping.request_turf_block_reservation(3,3)
 
 	drop_state = DROPPOD_ACTIVE
 	GLOB.droppod_list -= src

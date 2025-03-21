@@ -1,8 +1,3 @@
-/*
-* Paper
-* also scraps of paper
-*/
-
 /obj/item/paper
 	name = "paper"
 	gender = PLURAL
@@ -16,18 +11,25 @@
 	w_class = WEIGHT_CLASS_TINY
 	throw_range = 1
 	throw_speed = 1
-	flags_equip_slot = ITEM_SLOT_HEAD
-	flags_armor_protection = HEAD
+	equip_slot_flags = ITEM_SLOT_HEAD
+	armor_protection_flags = HEAD
 	attack_verb = list("bapped")
 
-	var/info		//What's actually written on the paper.
-	var/info_links	//A different version of the paper which includes html links at fields and EOF
-	var/stamps		//The (text for the) stamps on the paper.
-	var/fields		//Amount of user created fields
+	/// What's actually written on the paper.
+	var/info
+	/// A different version of the paper which includes html links at fields and EOF
+	var/info_links
+	/// The (text for the) stamps on the paper.
+	var/stamps
+	/// Amount of user created fields
+	var/fields
 	var/list/stamped
-	var/ico[0]      //Icons and
-	var/offset_x[0] //offsets stored for later
-	var/offset_y[0] //usage by the photocopier
+	/// Icons stored for later
+	var/ico[0]
+	/// Offsets stored for later
+	var/offset_x[0]
+	/// Used by the photocopier
+	var/offset_y[0]
 	var/rigged = 0
 	var/spam_flag = 0
 
@@ -73,7 +75,6 @@
 	else
 		. += span_notice("It is too far away to read.")
 
-
 /obj/item/paper/verb/rename()
 	set name = "Rename paper"
 	set category = "Object"
@@ -82,8 +83,6 @@
 	var/n_name = stripped_input(usr, "What would you like to label the paper?", "Paper Labelling")
 	if((loc == usr && usr.stat == 0))
 		name = "[(n_name ? "[n_name]" : "paper")]"
-
-
 
 /obj/item/paper/attack_ai(mob/living/silicon/ai/user as mob)
 	var/dist
@@ -98,7 +97,6 @@
 		//Show scrambled paper
 		usr << browse("<html><meta charset='UTF-8'><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[stars(info)][stamps]</BODY></HTML>", "window=[name]")
 		onclose(usr, "[name]")
-
 
 /obj/item/paper/attack(mob/living/carbon/M, mob/living/carbon/user)
 	if(user.zone_selected == "eyes")
@@ -168,7 +166,6 @@
 		addtofield(i, "<font face=\"[deffont]\"><A href='?src=[text_ref(src)];write=[i]'>write</A></font>", 1)
 	info_links = info_links + "<font face=\"[deffont]\"><A href='?src=[text_ref(src)];write=end'>write</A></font>"
 
-
 /obj/item/paper/proc/clearpaper()
 	info = null
 	stamps = null
@@ -176,7 +173,6 @@
 	overlays.Cut()
 	updateinfolinks()
 	update_icon()
-
 
 /obj/item/paper/proc/parsepencode(t, obj/item/tool/pen/P, mob/user as mob, iscrayon = 0)
 	t = parse_pencode(t, P, user, iscrayon) // Wrap the global proc
@@ -190,7 +186,6 @@
 		laststart = i+1
 		fields = min(fields+1, 20)
 	return t
-
 
 /obj/item/paper/proc/openhelp(mob/user as mob)
 	user << browse({"<html><meta charset='UTF-8'><HEAD><TITLE>Pen Help</TITLE></HEAD>
@@ -279,9 +274,10 @@
 
 		update_icon()
 
-
 /obj/item/paper/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/paper) || istype(I, /obj/item/photo))
 		if(istype(I, /obj/item/paper/carbon))
@@ -342,11 +338,9 @@
 	else if(I.heat >= 400)
 		burnpaper(I, user)
 
-
 /*
 * Premade paper
 */
-
 
 /obj/item/paper/commendation
 	name = "Commendation"
@@ -395,8 +389,8 @@ then, for every time you included a field, increment fields. */
 /obj/item/paper/photograph
 	name = "photo"
 	icon_state = "photo"
-	var/photo_id = 0
 	item_state = "paper"
+	var/photo_id = 0
 
 /obj/item/paper/sop
 	name = "paper- 'Standard Operating Procedure'"

@@ -18,7 +18,7 @@
 
 /datum/component/attachment_handler/Initialize(list/slots, list/attachables_allowed, list/attachment_offsets, list/starting_attachments, datum/callback/can_attach, datum/callback/on_attach, datum/callback/on_detach, list/overlays = list())
 	. = ..()
-	if(!isitem(parent))
+	if(!isobj(parent))
 		return COMPONENT_INCOMPATIBLE
 
 	src.slots = slots
@@ -102,7 +102,8 @@
 	var/obj/parent_obj = parent
 	///The gun has another gun attached to it
 	if(isgun(attachment) && isgun(parent) )
-		parent_obj:gunattachment = attachment
+		var/obj/item/weapon/gun/gun_parent = parent
+		gun_parent.gunattachment = attachment
 
 	on_attach?.Invoke(attachment, attacker)
 
@@ -113,7 +114,7 @@
 	SEND_SIGNAL(parent, COMSIG_ATTACHMENT_ATTACHED_TO_ITEM, attachment, attacker)
 
 	update_parent_overlay()
-	if(!CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_APPLY_ON_MOB))
+	if(!CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_APPLY_ON_MOB))
 		return
 
 	if(!ismob(parent_obj.loc))
@@ -131,7 +132,7 @@
 	if(!can_attach(attachment, user, attachment_data))
 		return FALSE
 
-	if(!CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_NO_HANDS))
+	if(!CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_NO_HANDS))
 		var/obj/item/in_hand = user.get_inactive_held_item()
 		if(in_hand != parent)
 			to_chat(user, span_warning("You have to hold [parent] to do that!"))
@@ -169,7 +170,7 @@
 
 	var/slot = attachment_data[SLOT]
 
-	if(!(slot in slots) || (!(attachment.type in attachables_allowed) && !CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_BYPASS_ALLOWED_LIST))) //If theres no slot on parent, or if the attachment type isnt allowed, returns FALSE.
+	if(!(slot in slots) || (!(attachment.type in attachables_allowed) && !CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_BYPASS_ALLOWED_LIST))) //If theres no slot on parent, or if the attachment type isnt allowed, returns FALSE.
 		to_chat(user, span_warning("You cannot attach [attachment] to [parent]!"))
 		return FALSE
 
@@ -178,7 +179,7 @@
 
 	var/list/current_attachment_data = attachment_data_by_slot[slot]
 
-	if(!CHECK_BITFIELD(current_attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_REMOVABLE)) //If the slots attachment is unremovable.
+	if(!CHECK_BITFIELD(current_attachment_data[ATTACH_FEATURES_flags], ATTACH_REMOVABLE)) //If the slots attachment is unremovable.
 		to_chat(user, span_warning("You cannot remove [slots[slot]] from [parent] to make room for [attachment]!"))
 		return FALSE
 
@@ -198,7 +199,7 @@
 		if(!current_attachment)
 			continue
 		var/list/current_attachment_data = attachment_data_by_slot[key]
-		if(!CHECK_BITFIELD(current_attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_REMOVABLE))
+		if(!CHECK_BITFIELD(current_attachment_data[ATTACH_FEATURES_flags], ATTACH_REMOVABLE))
 			continue
 		attachments_to_remove += current_attachment
 
@@ -291,11 +292,11 @@
 ///This updates the overlays of the parent and apllies the right ones.
 /datum/component/attachment_handler/proc/update_parent_overlay(datum/source)
 	SIGNAL_HANDLER
-	var/obj/item/parent_item = parent
+	var/obj/parent_obj = parent
 	for(var/slot in slots) //Cycles through all the slots.
 		var/obj/item/attachment = slots[slot]
 		var/image/overlay = attachable_overlays[slot]
-		parent_item.overlays -= overlay //First removes the existing overlay that occupies the slots overlay.
+		parent_obj.overlays -= overlay //First removes the existing overlay that occupies the slots overlay.
 
 		if(!attachment) //No attachment, no overlay.
 			attachable_overlays[slot] = null
@@ -310,13 +311,13 @@
 			icon_state = attachment.icon_state + "_a"
 		else if(attachment_data[OVERLAY_ICON] == attachment.icon)
 			icon_state = attachment.icon_state + "_a"
-		if(CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_SAME_ICON) || CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_DIFFERENT_MOB_ICON_STATE))
+		if(CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_SAME_ICON) || CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_DIFFERENT_MOB_ICON_STATE))
 			icon_state = attachment.icon_state
 			icon = attachment.icon
-			overlay = image(icon, parent_item, icon_state)
+			overlay = image(icon, parent_obj, icon_state)
 			overlay.overlays += attachment.overlays
 		else
-			overlay = image(icon, parent_item, icon_state)
+			overlay = image(icon, parent_obj, icon_state)
 		var/slot_x = 0 //This and slot_y are for the event that the parent did not have an overlay_offsets. In that case the offsets default to 0
 		var/slot_y = 0
 		for(var/attachment_slot in attachment_offsets)
@@ -334,33 +335,33 @@
 		overlay.pixel_y = slot_y - pixel_shift_y
 
 		attachable_overlays[slot] = overlay
-		parent_item.overlays += overlay
+		parent_obj.overlays += overlay
 
 ///Updates the mob sprite of the attachment.
 /datum/component/attachment_handler/proc/apply_custom(datum/source, mutable_appearance/standing, inhands)
 	SIGNAL_HANDLER
 	if(inhands)
 		return
-	var/obj/item/parent_item = parent
-	if(!ismob(parent_item.loc))
+	var/obj/parent_obj = parent
+	if(!ismob(parent_obj.loc))
 		return
-	var/mob/living/carbon/human/wearer = parent_item.loc
+	var/mob/living/carbon/human/wearer = parent_obj.loc
 	for(var/slot in slots)
 		var/obj/item/attachment = slots[slot]
 		if(!attachment)
 			continue
 		var/list/attachment_data = attachment_data_by_slot[slot]
-		if(!CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_APPLY_ON_MOB))
+		if(!CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_APPLY_ON_MOB))
 			continue
 		if(attachment_data[ATTACHMENT_LAYER])
 			wearer.remove_overlay(attachment_data[ATTACHMENT_LAYER])
 		var/icon = attachment.icon
 		var/icon_state = attachment.icon_state
 		var/suffix = ""
-		if(CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_DIFFERENT_MOB_ICON_STATE))
+		if(CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_DIFFERENT_MOB_ICON_STATE))
 			suffix = "_m"
-		else if(!CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_SAME_ICON))
-			if(CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_SEPERATE_MOB_OVERLAY))
+		else if(!CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_SAME_ICON))
+			if(CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_SEPERATE_MOB_OVERLAY))
 				if(attachment_data[MOB_OVERLAY_ICON] != attachment_data[OVERLAY_ICON])
 					icon = attachment_data[MOB_OVERLAY_ICON]
 				else
@@ -369,7 +370,7 @@
 				icon = attachment_data[OVERLAY_ICON]
 				suffix = attachment.icon == icon ? "_a" : ""
 		var/mutable_appearance/new_overlay = mutable_appearance(icon, icon_state + suffix, -attachment_data[ATTACHMENT_LAYER])
-		if(CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_SAME_ICON))
+		if(CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_SAME_ICON))
 			new_overlay.overlays += attachment.overlays
 		if(attachment_data[MOB_PIXEL_SHIFT_X])
 			new_overlay.pixel_x += attachment_data[MOB_PIXEL_SHIFT_X]
@@ -384,10 +385,10 @@
 ///Handles the removal of attachment overlays when the item is unequipped
 /datum/component/attachment_handler/proc/remove_overlay()
 	SIGNAL_HANDLER
-	var/obj/item/parent_item = parent
-	if(!ismob(parent_item.loc))
+	var/obj/parent_obj = parent
+	if(!ismob(parent_obj.loc))
 		return
-	var/mob/living/carbon/human/wearer = parent_item.loc
+	var/mob/living/carbon/human/wearer = parent_obj.loc
 	for(var/slot in slots)
 		var/obj/item/attachment = slots[slot]
 		if(!attachment)

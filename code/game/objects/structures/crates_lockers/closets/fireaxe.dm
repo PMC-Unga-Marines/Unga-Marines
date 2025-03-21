@@ -31,7 +31,7 @@
 				to_chat(user, "<span class = 'caution'>You disable the locking modules.</span>")
 				update_icon()
 			return
-		else if(!(O.flags_item & NOBLUDGEON) && O.force)
+		else if(!(O.item_flags & NOBLUDGEON) && O.force)
 			var/obj/item/W = O
 			if(smashed || localopened)
 				if(localopened)
@@ -54,7 +54,7 @@
 		return
 	if(istype(O, /obj/item/weapon/twohanded/fireaxe) && localopened)
 		if(!fireaxe)
-			if(O.flags_item & WIELDED)
+			if(O.item_flags & WIELDED)
 				to_chat(user, span_warning("Unwield the axe first."))
 				return
 			fireaxe = O

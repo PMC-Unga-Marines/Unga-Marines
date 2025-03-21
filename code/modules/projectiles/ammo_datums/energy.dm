@@ -6,7 +6,7 @@
 	sound_bounce = SFX_BALLISTIC_BOUNCE
 
 	damage_type = BURN
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_SOUND_PITCH
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_SOUND_PITCH
 	armor_type = ENERGY
 	accuracy = 15 //lasers fly fairly straight
 	bullet_color = COLOR_LASER_RED
@@ -15,7 +15,7 @@
 /datum/ammo/energy/emitter //Damage is determined in emitter.dm
 	name = "emitter bolt"
 	icon_state = "emitter"
-	flags_ammo_behavior = AMMO_ENERGY
+	ammo_behavior_flags = AMMO_ENERGY
 	accurate_range = 10
 	max_range = 10
 	bullet_color = COLOR_VIBRANT_LIME
@@ -28,7 +28,7 @@
 	damage = 10
 	penetration = 100
 	damage_type = STAMINA
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_SKIPS_ALIENS
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_SKIPS_ALIENS
 	max_range = 15
 	accurate_range = 10
 	bullet_color = COLOR_VIVID_YELLOW
@@ -40,7 +40,7 @@
 	icon_state = "tesla"
 	hud_state = "taser"
 	hud_state_empty = "battery_empty"
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_SPECIAL_PROCESS
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_SPECIAL_PROCESS
 	shell_speed = 0.1
 	damage = 20
 	penetration = 20
@@ -50,7 +50,7 @@
 	zap_beam(proj, 4, damage)
 
 /datum/ammo/energy/tesla/focused
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_SPECIAL_PROCESS|AMMO_IFF
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_SPECIAL_PROCESS|AMMO_IFF
 	shell_speed = 0.1
 	damage = 10
 	penetration = 10
@@ -69,7 +69,7 @@
 	icon_state = "laser"
 	hud_state = "laser"
 	armor_type = LASER
-	flags_ammo_behavior = AMMO_ENERGY
+	ammo_behavior_flags = AMMO_ENERGY
 	shell_speed = 4
 	accurate_range = 15
 	damage = 24
@@ -95,7 +95,7 @@
 	hud_state = "laser_heat"
 	damage = 14 //requires mod with -0.15 multiplier should math out to 10
 	penetration = 100 // It's a laser that burns the skin! The fire stacks go threw anyway.
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_INCENDIARY
 
 /datum/ammo/energy/lasgun/M43/blast
 	name = "wide range laser blast"
@@ -152,7 +152,7 @@
 	damage = 45
 	penetration = 0
 	damage_type = STAMINA
-	flags_ammo_behavior = AMMO_ENERGY
+	ammo_behavior_flags = AMMO_ENERGY
 	bullet_color = COLOR_DISABLER_BLUE
 
 /datum/ammo/energy/lasgun/M43/practice/on_hit_mob(mob/living/carbon/C, obj/projectile/P)
@@ -169,7 +169,7 @@
 // TE Lasers //
 
 /datum/ammo/energy/lasgun/marine
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_HITSCAN
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN
 	damage = 17
 	penetration = 10
 	additional_xeno_penetration = 20
@@ -184,7 +184,7 @@
 	damage = 90
 	penetration = 60
 	accurate_range_min = 6
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_HITSCAN|AMMO_SNIPER
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_SNIPER
 	hitscan_effect_icon = "beam_heavy_charge"
 	bullet_color = COLOR_DISABLER_BLUE
 
@@ -308,7 +308,7 @@
 	penetration = 30
 	additional_xeno_penetration = 2.5
 	hitscan_effect_icon = "beam_heavy"
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_MOB
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_MOB
 
 /datum/ammo/energy/lasgun/marine/autolaser/charge/on_hit_turf(turf/T, obj/projectile/proj)
 	if(istype(T, /turf/closed/wall))
@@ -343,7 +343,7 @@
 	damage = 60
 	penetration = 30
 	accurate_range_min = 5
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_HITSCAN|AMMO_SNIPER
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_SNIPER
 	additional_xeno_penetration = 5
 	max_range = 40
 	damage_falloff = 0
@@ -356,7 +356,7 @@
 	damage = 40
 	penetration = 30
 	accurate_range_min = 5
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_HITSCAN|AMMO_SNIPER
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_HITSCAN|AMMO_SNIPER
 	hitscan_effect_icon = "beam_incen"
 	bullet_color = COLOR_RED_LIGHT
 
@@ -388,7 +388,7 @@
 	hud_state = "laser_heat"
 	damage = 100
 	penetration = 30
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_HITSCAN|AMMO_SNIPER
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_SNIPER
 	hitscan_effect_icon = "u_laser_beam"
 	bonus_projectiles_scatter = 0
 	bullet_color = COLOR_DISABLER_BLUE
@@ -440,7 +440,7 @@
 	damage = 20
 	shell_speed = 2.5
 	penetration = 10
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_HITSCAN
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_HITSCAN
 	hitscan_effect_icon = "beam_incen"
 	bullet_color = COLOR_LASER_RED
 
@@ -451,7 +451,7 @@
 	name = "xray heat bolt"
 	hud_state = "laser_xray"
 	icon_state = "u_laser"
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_HITSCAN
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_HITSCAN
 	damage = 20
 	penetration = 5
 	additional_xeno_penetration = 15
@@ -461,14 +461,14 @@
 /datum/ammo/energy/lasgun/marine/xray/piercing
 	name = "xray piercing bolt"
 	icon_state = "xray"
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
 	damage = 25
 	penetration = 100
 	max_range = 10
 	hitscan_effect_icon = "xray_beam"
 
 /datum/ammo/energy/lasgun/marine/heavy_laser
-	flags_ammo_behavior = AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_ENERGY|AMMO_HITSCAN|AMMO_INCENDIARY
+	ammo_behavior_flags = AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_ENERGY|AMMO_HITSCAN|AMMO_INCENDIARY
 	hud_state = "laser_overcharge"
 	damage = 50
 	penetration = 10
@@ -505,7 +505,7 @@
 
 /datum/ammo/energy/xeno/psy_blast
 	name = "psychic blast"
-	flags_ammo_behavior = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_ENERGY|AMMO_HITSCAN|AMMO_SKIPS_ALIENS
+	ammo_behavior_flags = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_ENERGY|AMMO_HITSCAN|AMMO_SKIPS_ALIENS
 	damage = 35
 	penetration = 10
 	sundering = 1
@@ -570,7 +570,7 @@
 
 /datum/ammo/energy/xeno/psy_blast/psy_lance
 	name = "psychic lance"
-	flags_ammo_behavior = AMMO_XENO|AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_MOVABLE
+	ammo_behavior_flags = AMMO_XENO|AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_MOVABLE
 	damage = 60
 	penetration = 50
 	accuracy = 100
@@ -622,7 +622,7 @@
 	max_range = 14
 	penetration = 5
 	shell_speed = 1.5
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_TARGET_TURF
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_TARGET_TURF
 	bullet_color = LIGHT_COLOR_ELECTRIC_GREEN
 	///Fire burn time
 	var/heat = 12
@@ -662,7 +662,7 @@
 	icon_state = "overchargedlaser"
 	hud_state = "laser_heat"
 	hud_state_empty = "battery_empty_flash"
-	flags_ammo_behavior = AMMO_ENERGY|AMMO_SOUND_PITCH
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_SOUND_PITCH
 	bullet_color = COLOR_TAN_ORANGE
 	armor_type = ENERGY
 	max_range = 14

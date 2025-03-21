@@ -113,7 +113,7 @@
 	. = ..()
 	if(.)
 		return
-	if((flags_atom & ON_BORDER) && !(get_dir(loc, target) & dir))
+	if((atom_flags & ON_BORDER) && !(get_dir(loc, target) & dir))
 		return TRUE
 	if((allow_pass_flags & PASS_DEFENSIVE_STRUCTURE) && (mover.pass_flags & PASS_DEFENSIVE_STRUCTURE))
 		return TRUE
@@ -145,7 +145,7 @@
 		return TRUE
 	if((allow_pass_flags & PASS_GLASS) && (mover.pass_flags & PASS_GLASS))
 		return NONE
-	if(!density || !(flags_atom & ON_BORDER) || !(direction & dir) || (mover.status_flags & INCORPOREAL))
+	if(!density || !(atom_flags & ON_BORDER) || !(direction & dir) || (mover.status_flags & INCORPOREAL))
 		return NONE
 
 	knownblockers += src
@@ -154,7 +154,7 @@
 ///Signal handler to check if you can move from one low object to another
 /obj/proc/can_climb_over(datum/source, atom/mover)
 	SIGNAL_HANDLER
-	if(!(flags_atom & ON_BORDER) && density)
+	if(!(atom_flags & ON_BORDER) && density)
 		return TRUE
 
 /obj/proc/updateUsrDialog()
@@ -304,12 +304,36 @@
 	handle_weldingtool_overlay(TRUE)
 	return TRUE
 
+/obj/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
+	if(isxeno(user))
+		return
+	if(user.a_intent != INTENT_HARM)
+		return
+	if(!isliving(grab.grabbed_thing))
+		return
+	if(user.grab_state <= GRAB_AGGRESSIVE)
+		to_chat(user, span_warning("You need a better grip to do that!"))
+		return
+
+	var/mob/living/grabbed_mob = grab.grabbed_thing
+	if(prob(15))
+		grabbed_mob.Paralyze(2 SECONDS)
+		user.drop_held_item()
+	step_towards(grabbed_mob, src)
+	var/damage = base_damage + (user.skills.getRating(SKILL_CQC) * CQC_SKILL_DAMAGE_MOD)
+	grabbed_mob.apply_damage(damage, BRUTE, "head", MELEE, is_sharp, updating_health = TRUE)
+	user.visible_message(span_danger("[user] slams [grabbed_mob]'s face against [src]!"),
+	span_danger("You slam [grabbed_mob]'s face against [src]!"))
+	log_combat(user, grabbed_mob, "slammed", "", "against \the [src]")
+	take_damage(damage, BRUTE, MELEE)
+	return TRUE
+
 /obj/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
 	if(user.do_actions)
 		return FALSE
 	if(!(obj_flags & CAN_BE_HIT) || CHECK_BITFIELD(resistance_flags, PLASMACUTTER_IMMUNE) || CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return FALSE
-	if(!I.powered || (I.flags_item & NOBLUDGEON))
+	if(!I.powered || (I.item_flags & NOBLUDGEON))
 		return FALSE
 	if(user.a_intent == INTENT_HARM) // Attack normally.
 		return FALSE
@@ -324,3 +348,6 @@
 
 /obj/footstep_override(atom/movable/source, list/footstep_overrides)
 	footstep_overrides[FOOTSTEP_PLATING] = layer
+	
+/obj/get_dumping_location()
+	return get_turf(src)

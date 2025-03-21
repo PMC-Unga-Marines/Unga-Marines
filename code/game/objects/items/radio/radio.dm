@@ -8,8 +8,8 @@
 	)
 	item_state = "radio"
 
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	throw_speed = 2
 	throw_range = 9
 	w_class = WEIGHT_CLASS_SMALL
@@ -242,7 +242,6 @@
 	INVOKE_ASYNC(src, PROC_REF(talk_into_impl), talking_movable, message, channel, spans.Copy(), language, message_mods)
 	return ITALICS | REDUCE_RANGE
 
-
 /obj/item/radio/proc/talk_into_impl(atom/movable/talking_movable, message, channel, list/spans, datum/language/language, list/message_mods)
 	if(!on)
 		return // the device has to be on
@@ -280,11 +279,10 @@
 
 	// Determine the identity information which will be attached to the signal.
 	var/atom/movable/virtualspeaker/speaker = new(null, talking_movable, src)
-
 	// Construct the signal
 	var/datum/signal/subspace/vocal/signal = new(src, freq, speaker, language, message, spans)
 
-	if (independent && freq >= MIN_ERT_FREQ && freq <= MAX_ERT_FREQ)
+	if(independent && freq >= MIN_ERT_FREQ && freq <= MAX_ERT_FREQ)
 		signal.data["compression"] = 0
 		signal.transmission_method = TRANSMISSION_SUPERSPACE
 		signal.levels = list(0)
@@ -292,10 +290,21 @@
 		return
 
 	var/area/A = get_area(src)
-	if(!isnull(A) && (A.ceiling >= CEILING_UNDERGROUND) && !(A.flags_area & ALWAYS_RADIO))
+	var/radio_disruption = CAVE_NO_INTERFERENCE
+	//var/mob/living/carbon/living = speaker.source
+	if(!isnull(A) && (A.ceiling >= CEILING_UNDERGROUND) && !(A.area_flags & ALWAYS_RADIO))
+		radio_disruption = CAVE_MINOR_INTERFERENCE
 		if(A.ceiling >= CEILING_DEEP_UNDERGROUND)
+			radio_disruption = CAVE_FULL_INTERFERENCE
+	var/list/inplace_interference = list(radio_disruption)
+	SEND_SIGNAL(talking_movable, COMSIG_CAVE_INTERFERENCE_CHECK, inplace_interference)
+	radio_disruption = inplace_interference[1]
+
+	switch(radio_disruption)
+		if(CAVE_MINOR_INTERFERENCE)
+			signal.data["compression"] += rand(20, 40)
+		if(CAVE_FULL_INTERFERENCE)
 			return
-		signal.data["compression"] += rand(20, 40)
 
 	// All non-independent radios make an attempt to use the subspace system first
 	signal.send_to_receivers()
@@ -308,7 +317,6 @@
 	// was never received, send a mundane broadcast (no headsets).
 	addtimer(CALLBACK(src, PROC_REF(backup_transmission), signal), 20)
 
-
 /obj/item/radio/proc/backup_transmission(datum/signal/subspace/vocal/signal)
 	var/turf/T = get_turf(src)
 	if(signal.data["done"] && (T.z in signal.levels))
@@ -319,7 +327,6 @@
 	signal.transmission_method = TRANSMISSION_RADIO
 	signal.levels = list(T.z)
 	signal.broadcast()
-
 
 /obj/item/radio/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, list/spans, message_mode)
 	. = ..()
@@ -338,15 +345,29 @@
 
 	talk_into(speaker, raw_message, , spans, language = message_language)
 
-
 /// Checks if this radio can receive on the given frequency.
 /obj/item/radio/proc/can_receive(input_frequency, list/levels)
 	if(!(RADIO_NO_Z_LEVEL_RESTRICTION in levels))
 		var/turf/position = get_turf(src)
 		if(!position || !(position.z in levels))
 			return FALSE
+		var/radio_disruption = CAVE_NO_INTERFERENCE
 		var/area/A = get_area(src)
-		if(A?.ceiling >= CEILING_DEEP_UNDERGROUND)
+		if(A?.ceiling >= CEILING_UNDERGROUND && !(A.area_flags & ALWAYS_RADIO))
+			radio_disruption = CAVE_MINOR_INTERFERENCE //Unused for this case but may aswell create parity on what the value of the var is.
+			if(A.ceiling >= CEILING_DEEP_UNDERGROUND)
+				radio_disruption = CAVE_FULL_INTERFERENCE
+		var/list/potential_owners = get_nested_locs(src) //Sometimes not equipped, sometimes not even equippable, sometimes in storage, this feels like it's an okay way to do it.
+		var/mob/living/found_owner
+		for(var/mob/living/candidate in potential_owners)
+			found_owner = candidate
+			break
+
+		if(found_owner)
+			var/inplace_interference = list(radio_disruption)
+			SEND_SIGNAL(found_owner, COMSIG_CAVE_INTERFERENCE_CHECK, inplace_interference)
+			radio_disruption = inplace_interference[1]
+		if(radio_disruption == CAVE_FULL_INTERFERENCE)
 			return FALSE
 
 	// allow checks: are we listening on that frequency?
@@ -359,7 +380,6 @@
 				return TRUE
 	return FALSE
 
-
 /obj/item/radio/examine(mob/user)
 	. = ..()
 	if(frequency && in_range(src, user))
@@ -369,15 +389,15 @@
 	else
 		. += span_notice("It cannot be modified or attached.")
 
-
-/obj/item/radio/attackby(obj/item/I, mob/user, params)
+/obj/item/radio/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
-	if(isscrewdriver(I) && !subspace_transmission)
-		unscrewed = !unscrewed
-		if(unscrewed)
-			to_chat(user, span_notice("The radio can now be attached and modified!"))
-		else
-			to_chat(user, span_notice("The radio can no longer be modified or attached!"))
+	if(subspace_transmission)
+		return
+	unscrewed = !unscrewed
+	if(unscrewed)
+		to_chat(user, span_notice("The radio can now be attached and modified!"))
+	else
+		to_chat(user, span_notice("The radio can no longer be modified or attached!"))
 
 /obj/item/radio/proc/recalculateChannels()
 	channels = list()
@@ -393,7 +413,6 @@
 
 	for(var/ch_name in channels)
 		secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
-
 
 /obj/item/radio/off/Initialize(mapload)
 	. = ..()

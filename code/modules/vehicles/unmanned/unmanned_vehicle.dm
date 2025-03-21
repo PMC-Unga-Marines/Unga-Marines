@@ -1,4 +1,3 @@
-
 /obj/vehicle/unmanned
 	name = "UV-L Iguana"
 	desc = "A small remote-controllable vehicle, usually owned by the TGMC and other major armies."
@@ -12,7 +11,7 @@
 	move_delay = 2.5	//set this to limit the speed of the vehicle
 	max_integrity = 150
 	hud_possible = list(MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD)
-	flags_atom = BUMP_ATTACKABLE
+	atom_flags = BUMP_ATTACKABLE
 	soft_armor = list(MELEE = 25, BULLET = 85, LASER = 50, ENERGY = 100, BOMB = 50, BIO = 100, FIRE = 25, ACID = 25)
 	allow_pass_flags = PASS_AIR|PASS_LOW_STRUCTURE|PASS_THROW
 	/// Needed to keep track of any slowdowns and/or diagonal movement
@@ -122,6 +121,8 @@
 
 /obj/vehicle/unmanned/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(istype(I, /obj/item/uav_turret) || istype(I, /obj/item/explosive/plastique))
 		return equip_turret(I, user)
 	if(istype(I, /obj/item/ammo_magazine))
@@ -255,7 +256,6 @@
 	in_chamber = new /obj/projectile(src) //New bullet!
 	in_chamber.generate_bullet(ammo)
 	return TRUE
-
 
 ///Check if we have/create a new bullet and fire it at an atom target
 /obj/vehicle/unmanned/proc/fire_shot(atom/target, mob/user)

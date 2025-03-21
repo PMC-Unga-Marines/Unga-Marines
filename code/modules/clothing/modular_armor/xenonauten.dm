@@ -36,7 +36,7 @@
 		/obj/item/armor_module/armor/badge,
 	)
 
-	flags_item_map_variant = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
+	item_map_variant_flags = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
 	greyscale_config = /datum/greyscale_config/xenonaut
 	colorable_allowed = PRESET_COLORS_ALLOWED
 	colorable_colors = ARMOR_PALETTES_LIST
@@ -169,7 +169,7 @@
 /obj/item/clothing/suit/modular/xenonauten/pilot
 	name = "\improper TerraGov standard flak jacket"
 	desc = "A flak jacket used by dropship pilots to protect themselves while flying in the cockpit. Excels in protecting the wearer against high-velocity solid projectiles."
-	flags_item = NONE
+	item_flags = NONE
 	soft_armor = MARINE_ARMOR_HEAVY
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 	greyscale_config = /datum/greyscale_config/xenonaut/pilot
@@ -218,7 +218,7 @@
 		/obj/item/armor_module/armor/badge,
 	)
 	starting_attachments = list(/obj/item/armor_module/storage/helmet)
-	flags_item_map_variant = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
+	item_map_variant_flags = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
 
 	greyscale_config = /datum/greyscale_config/xenonaut/helm
 	greyscale_colors = ARMOR_PALETTE_DRAB

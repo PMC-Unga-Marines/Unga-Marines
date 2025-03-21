@@ -2,7 +2,7 @@
 	name = "barbed wire"
 	desc = "A spiky length of wire."
 	icon_state = "barbed_wire"
-	flags_item = NOBLUDGEON
+	item_flags = NOBLUDGEON
 	singular_name = "length"
 	w_class = WEIGHT_CLASS_SMALL
 	force = 0
@@ -27,6 +27,8 @@
 
 /obj/item/stack/barbed_wire/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(!istype(I, /obj/item/stack/rods))
 		return
@@ -58,7 +60,6 @@
 	singular_name = "bundle"
 	max_amount = 10
 	merge_type = /obj/item/stack/razorwire
-
 
 //small stack
 /obj/item/stack/razorwire/small_stack

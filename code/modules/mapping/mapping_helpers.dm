@@ -1,13 +1,12 @@
 //Landmarks and other helpers which speed up the mapping process and reduce the number of unique instances/subtypes of items/turf/ect
-
-
-
 /obj/effect/baseturf_helper //Set the baseturfs of every turf in the /area/ it is placed.
 	name = "baseturf editor"
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = ""
 
+	/// Replacing a specific turf
 	var/list/baseturf_to_replace
+	/// The desired bottom turf
 	var/baseturf
 
 	layer = POINT_LAYER
@@ -33,22 +32,15 @@
 
 	qdel(src)
 
+/// Replaces all the requested baseturfs (usually space/baseturfbottom) with the desired baseturf. Skips if its already there
 /obj/effect/baseturf_helper/proc/replace_baseturf(turf/thing)
-	var/list/baseturf_cache = thing.baseturfs
-	if(length(baseturf_cache))
-		for(var/i in baseturf_cache)
-			if(baseturf_to_replace[i])
-				baseturf_cache -= i
-		if(!length(baseturf_cache))
-			thing.assemble_baseturfs(baseturf)
-		else
-			thing.PlaceOnBottom(null, baseturf)
-	else if(baseturf_to_replace[thing.baseturfs])
-		thing.assemble_baseturfs(baseturf)
-	else
-		thing.PlaceOnBottom(null, baseturf)
+	thing.remove_baseturfs_from_typecache(baseturf_to_replace)
+	if(length(thing.baseturfs))
+		var/turf/tile = thing.baseturfs[1]
+		if(tile == baseturf)
+			return
 
-
+	thing.place_on_bottom(baseturf)
 
 /obj/effect/baseturf_helper/space
 	name = "space baseturf editor"
@@ -137,7 +129,7 @@
 		stack_trace("### MAP WARNING, [src] at [AREACOORD(src)] tried to bolt [airlock] but it's already locked!")
 	airlock.locked = TRUE
 	var/turf/current_turf = get_turf(airlock)
-	current_turf.flags_atom |= AI_BLOCKED
+	current_turf.atom_flags |= AI_BLOCKED
 
 /obj/effect/mapping_helpers/airlock/abandoned
 	name = "airlock abandoned helper"
@@ -156,7 +148,7 @@
 		stack_trace("### MAP WARNING, [src] at [AREACOORD(src)] tried to make [airlock] abandoned but it's already abandoned!")
 	airlock.abandoned = TRUE
 	var/turf/current_turf = get_turf(airlock)
-	current_turf.flags_atom |= AI_BLOCKED
+	current_turf.atom_flags |= AI_BLOCKED
 
 /obj/effect/mapping_helpers/airlock/welded
 	name = "airlock welded helper"
@@ -175,7 +167,7 @@
 		stack_trace("### MAP WARNING, [src] at [AREACOORD(src)] tried to bolt [airlock] but it's already welded!")
 	airlock.welded = TRUE
 	var/turf/current_turf = get_turf(airlock)
-	current_turf.flags_atom |= AI_BLOCKED
+	current_turf.atom_flags |= AI_BLOCKED
 
 /obj/effect/mapping_helpers/broken_apc
 	name = "broken apc helper"
@@ -238,7 +230,7 @@
 /obj/effect/mapping_helpers/area_flag_injector/Initialize(mapload)
 	. = ..()
 	var/area/area = get_area(src)
-	area.flags_area |= flag_type
+	area.area_flags |= flag_type
 
 /obj/effect/mapping_helpers/area_flag_injector/marine_base
 	flag_type = MARINE_BASE
@@ -409,3 +401,93 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	var/datum/disease/D = new disease_type()
 	return list(component_type,D)
 	*/
+
+/obj/effect/mapping_helpers/barricade
+	name = "base barricade helper"
+
+/obj/effect/mapping_helpers/barricade/wired
+	name = "wired barricade helper"
+	icon_state = "barricade_wired"
+
+/obj/effect/mapping_helpers/barricade/wired/Initialize(mapload)
+	. = ..()
+	if(!mapload)
+		log_world("### MAP WARNING, [src] spawned outside of mapload!")
+		return
+	var/obj/structure/barricade/foundbarricade = locate(/obj/structure/barricade) in loc
+	if(!foundbarricade)
+		CRASH("### MAP WARNING, [src] failed to find a barricade at [AREACOORD(src)]")
+	if(foundbarricade.is_wired || !foundbarricade.can_wire)
+		stack_trace("### MAP WARNING, [src] at [AREACOORD(src)] tried to make [foundbarricade] wired but it's already wired!")
+	foundbarricade.wire()
+
+/obj/effect/mapping_helpers/barricade/bomb
+	name = "bomb armor barricade helper"
+	icon_state = "barricade_bomb"
+
+/obj/effect/mapping_helpers/barricade/bomb/Initialize(mapload)
+	. = ..()
+	if(!mapload)
+		log_world("### MAP WARNING, [src] spawned outside of mapload!")
+		return
+	var/obj/structure/barricade/metal/foundbarricade = locate(/obj/structure/barricade/metal) in loc
+	if(!foundbarricade)
+		CRASH("### MAP WARNING, [src] failed to find a barricade at [AREACOORD(src)]")
+	if(foundbarricade.barricade_upgrade_type)
+		stack_trace("### MAP WARNING, [src] at [AREACOORD(src)] tried to upgrade [foundbarricade] but it already has armor!")
+	foundbarricade.soft_armor = soft_armor.modifyRating(bomb = 50)
+	foundbarricade.barricade_upgrade_type = CADE_TYPE_BOMB
+	foundbarricade.update_icon()
+
+/obj/effect/mapping_helpers/barricade/acid
+	name = "acid armor barricade helper"
+	icon_state = "barricade_acid"
+
+/obj/effect/mapping_helpers/barricade/acid/Initialize(mapload)
+	. = ..()
+	if(!mapload)
+		log_world("### MAP WARNING, [src] spawned outside of mapload!")
+		return
+	var/obj/structure/barricade/metal/foundbarricade = locate(/obj/structure/barricade/metal) in loc
+	if(!foundbarricade)
+		CRASH("### MAP WARNING, [src] failed to find a barricade at [AREACOORD(src)]")
+	if(foundbarricade.barricade_upgrade_type)
+		stack_trace("### MAP WARNING, [src] at [AREACOORD(src)] tried to upgrade [foundbarricade] but it already has armor!")
+	foundbarricade.barricade_upgrade_type = CADE_TYPE_ACID
+	foundbarricade.soft_armor = soft_armor.modifyRating(acid = 20)
+	foundbarricade.resistance_flags |= UNACIDABLE
+	foundbarricade.update_icon()
+
+/obj/effect/mapping_helpers/barricade/melee
+	name = "melee armor barricade helper"
+	icon_state = "barricade_melee"
+
+/obj/effect/mapping_helpers/barricade/melee/Initialize(mapload)
+	. = ..()
+	if(!mapload)
+		log_world("### MAP WARNING, [src] spawned outside of mapload!")
+		return
+	var/obj/structure/barricade/metal/foundbarricade = locate(/obj/structure/barricade/metal) in loc
+	if(!foundbarricade)
+		CRASH("### MAP WARNING, [src] failed to find a barricade at [AREACOORD(src)]")
+	if(foundbarricade.barricade_upgrade_type)
+		stack_trace("### MAP WARNING, [src] at [AREACOORD(src)] tried to upgrade [foundbarricade] but it already has armor!")
+	foundbarricade.barricade_upgrade_type = CADE_TYPE_MELEE
+	foundbarricade.soft_armor = soft_armor.modifyRating(melee = 30, bullet = 30, laser = 30, energy = 30)
+	foundbarricade.update_icon()
+
+/obj/effect/mapping_helpers/barricade/closed
+	name = "closed plasteel barricade helper"
+	icon_state = "barricade_closed"
+
+/obj/effect/mapping_helpers/barricade/closed/Initialize(mapload)
+	. = ..()
+	if(!mapload)
+		log_world("### MAP WARNING, [src] spawned outside of mapload!")
+		return
+	var/obj/structure/barricade/plasteel/foundbarricade = locate(/obj/structure/barricade/plasteel) in loc
+	if(!foundbarricade)
+		CRASH("### MAP WARNING, [src] failed to find a plasteel barricade at [AREACOORD(src)]")
+	if(!foundbarricade.closed)
+		stack_trace("### MAP WARNING, [src] at [AREACOORD(src)] tried to open [foundbarricade] but it's already open!")
+	foundbarricade.toggle_open()

@@ -7,7 +7,6 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 5
 	layer = BELOW_OBJ_LAYER
-
 	///Things that are being griddled right now
 	var/list/griddled_objects = list()
 	///Looping sound for the grill
@@ -31,7 +30,7 @@
 
 /obj/machinery/griddle/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
-	if(flags_atom & NODECONSTRUCT)
+	if(atom_flags & NODECONSTRUCT)
 		return
 	if(default_deconstruction_crowbar(I, ignore_panel = TRUE))
 		return
@@ -65,7 +64,6 @@
 	update_icon()
 	update_grill_audio()
 
-
 /obj/machinery/griddle/proc/AddToGrill(obj/item/item_to_grill, mob/user)
 	vis_contents += item_to_grill
 	griddled_objects += item_to_grill
@@ -96,7 +94,7 @@
 		grill_loop.stop()
 
 /obj/machinery/griddle/wrench_act(mob/living/user, obj/item/I)
-	..()
+	. = ..()
 	balloon_alert(user, "You begin [anchored ? "un" : ""]securing...")
 	I.play_tool_sound(src, 50)
 	if(!I.use_tool(src, user, 2 SECONDS))
@@ -107,7 +105,7 @@
 	return TRUE
 
 /obj/machinery/griddle/process(delta_time)
-	..()
+	. = ..()
 	for(var/obj/item/griddled_item AS in griddled_objects)
 		if(SEND_SIGNAL(griddled_item, COMSIG_ITEM_GRILLED, src, delta_time) & COMPONENT_HANDLED_GRILLING)
 			continue

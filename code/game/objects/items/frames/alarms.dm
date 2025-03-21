@@ -8,21 +8,19 @@ Code shamelessly copied from apc_frame
 	desc = "Used for building Fire Alarms"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "fire_bitem"
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 
-/obj/item/frame/fire_alarm/attackby(obj/item/I, mob/user, params)
+/obj/item/frame/fire_alarm/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
-
-	if(iswrench(I))
-		new /obj/item/stack/sheet/metal(loc, 2)
-		qdel(src)
+	new /obj/item/stack/sheet/metal(loc, 2)
+	qdel(src)
 
 /obj/item/frame/fire_alarm/proc/try_build(turf/on_wall, mob/user)
-	if (get_dist(on_wall,user)>1)
+	if(get_dist(on_wall,user)>1)
 		return
 
 	var/ndir = get_dir(on_wall,user)
-	if (!(ndir in GLOB.cardinals))
+	if(!(ndir in GLOB.cardinals))
 		return
 
 	var/turf/loc = get_turf(user)

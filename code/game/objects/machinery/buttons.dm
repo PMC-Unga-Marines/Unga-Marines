@@ -145,7 +145,7 @@
 /obj/machinery/button/door/open_only/landing_zone/Initialize(mapload)
 	. = ..()
 	var/area/area = get_area(src)
-	area.flags_area |= MARINE_BASE
+	area.area_flags |= MARINE_BASE
 
 /obj/machinery/button/door/open_only/landing_zone/attack_hand(mob/living/user)
 	if((machine_stat & (NOPOWER|BROKEN)))
@@ -194,6 +194,8 @@
 
 /obj/machinery/driver_button/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/detective_scanner))
 		return

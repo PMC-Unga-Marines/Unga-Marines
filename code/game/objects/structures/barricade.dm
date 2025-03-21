@@ -4,13 +4,13 @@
 	anchored = TRUE
 	density = TRUE
 	layer = BELOW_OBJ_LAYER
-	flags_atom = ON_BORDER
+	atom_flags = ON_BORDER
 	resistance_flags = XENO_DAMAGEABLE
 	allow_pass_flags = PASS_DEFENSIVE_STRUCTURE|PASSABLE|PASS_WALKOVER
 	climb_delay = 20 //Leaping a barricade is universally much faster than clumsily climbing on a table or rack
 	interaction_flags = INTERACT_CHECK_INCAPACITATED
 	max_integrity = 100
-	flags_barrier = HANDLE_BARRIER_CHANCE
+	barrier_flags = HANDLE_BARRIER_CHANCE
 	///The type of stack the barricade dropped when disassembled if any.
 	var/stack_type
 	///The amount of stack dropped when disassembled at full health
@@ -83,11 +83,12 @@
 	if(is_wired)
 		balloon_alert(xeno_attacker, "Wire slices into us")
 		xeno_attacker.apply_damage(10, blocked = MELEE , sharp = TRUE, updating_health = TRUE)
-
 	return ..()
 
 /obj/structure/barricade/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(get_self_acid())
 		balloon_alert(user, "It's melting!")
@@ -150,18 +151,8 @@
 			new stack_type (loc, stack_amt)
 	return ..()
 
-/obj/structure/barricade/ex_act(severity, direction)
-	if(QDELETED(src))
-		return
-	for(var/obj/structure/barricade/barricade in get_step(src, dir)) //discourage double-stacking barricades by removing health from opposing barricade
-		if(barricade.dir != REVERSE_DIR(dir))
-			continue
-		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, ex_act), severity, direction)
-	take_damage(severity, BRUTE, BOMB, attack_dir = direction)
-	update_icon()
-
 /obj/structure/barricade/on_explosion_destruction(severity, direction)
-	create_shrapnel(get_turf(src), rand(2,5), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
+	create_shrapnel(get_turf(src), rand(2, 5), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
 	if(prob(50)) // no message spam pls
 		return
 	visible_message(span_warning("[src] blows apart in the explosion, sending shards flying!"))
@@ -273,6 +264,8 @@
 //Item Attack
 /obj/structure/barricade/snow/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	//Removing the barricades
 	if(!istype(I, /obj/item/tool/shovel) || user.a_intent == INTENT_HARM)
@@ -340,6 +333,8 @@
 
 /obj/structure/barricade/wooden/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(!istype(I, /obj/item/stack/sheet/wood))
 		return
@@ -432,6 +427,8 @@
 
 /obj/structure/barricade/metal/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/stack/sheet/metal) && obj_integrity >= max_integrity * 0.3)
 		return attempt_barricade_upgrade(I, user, params)
@@ -971,6 +968,8 @@
 
 /obj/structure/barricade/sandbags/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/tool/shovel) && user.a_intent != INTENT_HARM)
 		var/obj/item/tool/shovel/ET = I
@@ -1021,7 +1020,7 @@
 	is_wired = FALSE
 	soft_armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 25, BIO = 100, FIRE = 100, ACID = 30)
 	///Whether this item can be deployed or undeployed
-	var/flags_item = IS_DEPLOYABLE
+	var/item_flags = IS_DEPLOYABLE
 	///What it deploys into. typecast version of internal_item
 	var/obj/item/weapon/shield/riot/marine/deployable/internal_shield
 
@@ -1047,7 +1046,7 @@
 
 ///Dissassembles the device
 /obj/structure/barricade/metal/deployable/proc/disassemble(mob/user)
-	if(CHECK_BITFIELD(internal_shield.flags_item, DEPLOYED_NO_PICKUP))
+	if(CHECK_BITFIELD(internal_shield.item_flags, DEPLOYED_NO_PICKUP))
 		balloon_alert(user, "cannot be disassembled")
 		return
 	SEND_SIGNAL(src, COMSIG_ITEM_UNDEPLOY, user)

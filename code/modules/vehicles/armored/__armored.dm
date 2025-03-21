@@ -8,7 +8,7 @@
 	layer = ABOVE_MOB_LAYER
 	max_drivers = 1
 	move_resist = INFINITY
-	flags_atom = BUMP_ATTACKABLE|PREVENT_CONTENTS_EXPLOSION|CRITICAL_ATOM
+	atom_flags = BUMP_ATTACKABLE|PREVENT_CONTENTS_EXPLOSION|CRITICAL_ATOM
 	allow_pass_flags = PASS_TANK|PASS_AIR|PASS_WALKOVER|PASS_THROW
 	resistance_flags = XENO_DAMAGEABLE|UNACIDABLE|PLASMACUTTER_IMMUNE
 
@@ -16,7 +16,7 @@
 	max_integrity = 600
 	light_range = 10
 	///Tank bitflags
-	var/flags_armored = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_HEADLIGHTS
+	var/armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_HEADLIGHTS
 	///Sound file(s) to play when we drive around
 	var/engine_sound = 'sound/ambience/tank_driving.ogg'
 	///frequency to play the sound with
@@ -76,7 +76,7 @@
 	if(interior)
 		interior = new interior(src, CALLBACK(src, PROC_REF(interior_exit)))
 	. = ..()
-	if(flags_armored & ARMORED_HAS_UNDERLAY)
+	if(armored_flags & ARMORED_HAS_UNDERLAY)
 		underlay = new(icon, icon_state + "_underlay", layer = layer-0.1)
 		add_overlay(underlay)
 	if(damage_icon_path)
@@ -84,14 +84,14 @@
 		damage_overlay.icon = damage_icon_path
 		damage_overlay.layer = layer+0.001
 		vis_contents += damage_overlay
-	if(flags_armored & ARMORED_HAS_PRIMARY_WEAPON)
+	if(armored_flags & ARMORED_HAS_PRIMARY_WEAPON)
 		turret_overlay = new()
 		turret_overlay.icon = turret_icon
 		turret_overlay.base_icon_state = turret_icon_state
 		turret_overlay.icon_state = turret_icon_state
 		turret_overlay.setDir(dir)
 		turret_overlay.layer = layer+0.002
-		if(flags_armored & ARMORED_HAS_MAP_VARIANTS)
+		if(armored_flags & ARMORED_HAS_MAP_VARIANTS)
 			switch(SSmapping.configs[GROUND_MAP].armor_style)
 				if(MAP_ARMOR_STYLE_JUNGLE)
 					turret_overlay.icon_state += "_jungle"
@@ -102,7 +102,7 @@
 				if(MAP_ARMOR_STYLE_DESERT)
 					turret_overlay.icon_state += "_desert"
 		vis_contents += turret_overlay
-	if(flags_armored & ARMORED_HAS_MAP_VARIANTS)
+	if(armored_flags & ARMORED_HAS_MAP_VARIANTS)
 		switch(SSmapping.configs[GROUND_MAP].armor_style)
 			if(MAP_ARMOR_STYLE_JUNGLE)
 				icon_state += "_jungle"
@@ -136,7 +136,7 @@
 	return ..()
 
 /obj/vehicle/sealed/armored/generate_actions()
-	if(flags_armored & ARMORED_HAS_HEADLIGHTS)
+	if(armored_flags & ARMORED_HAS_HEADLIGHTS)
 		initialize_controller_action_type(/datum/action/vehicle/sealed/armored/toggle_lights, VEHICLE_CONTROL_SETTINGS)
 	initialize_controller_action_type(/datum/action/vehicle/sealed/armored/horn, VEHICLE_CONTROL_SETTINGS)
 	if(interior)

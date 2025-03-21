@@ -57,7 +57,7 @@
 				++xcrd
 			--ycrd
 
-/datum/map_template/shuttle/load(turf/T, centered, register=TRUE)
+/datum/map_template/shuttle/load(turf/T, centered, register = TRUE)
 	. = ..()
 	if(!.)
 		return
@@ -65,14 +65,19 @@
 							locate(.[MAP_MAXX], .[MAP_MAXY], .[MAP_MAXZ]))
 	for(var/i in 1 to length(turfs))
 		var/turf/place = turfs[i]
+
+		for(var/obj/docking_port/mobile/port in place)
+			SSatoms.InitializeAtoms(list(port))
+			if(register)
+				port.register()
+
 		if(istype(place, /turf/open/space)) // This assumes all shuttles are loaded in a single spot then moved to their real destination.
 			continue
-		if(length(place.baseturfs) < 2) // Some snowflake shuttle shit
+		if(place.count_baseturfs() < 2) // Some snowflake shuttle shit
 			continue
 		place.baseturfs.Insert(3, /turf/baseturf_skipover/shuttle)
 
 		for(var/obj/docking_port/mobile/port in place)
-			port.calculate_docking_port_information(src)
 			if(register)
 				port.register()
 			if(isnull(port_x_offset))
@@ -99,10 +104,10 @@
 					port.dwidth = port_y_offset - 1
 					port.dheight = width - port_x_offset
 
-//Whatever special stuff you want
-/datum/map_template/shuttle/proc/post_load(obj/docking_port/mobile/M)
+/datum/map_template/shuttle/post_load(obj/docking_port/mobile/M)
 	if(movement_force)
 		M.movement_force = movement_force.Copy()
+	M.linkup()
 
 // Shuttles start here:
 /datum/map_template/shuttle/dropship_one
@@ -169,6 +174,11 @@
 	suffix = "_barge"
 	description = "A cargo barge used for transporting significant forces. The combat modules were sacrificed for the sake of the internal volume."
 	display_name = "Tadpole Barge Model"
+
+/datum/map_template/shuttle/minidropship/_voidraider
+	suffix = "_voidraider"
+	description = "An asymmetric tadpole designed with vehicle transport in mind. Built with a wide umbilical to allow fluid heavy-vehicle movement."
+	display_name = "Tadpole VoidRaider Model"
 
 /datum/map_template/shuttle/escape_pod
 	shuttle_id = SHUTTLE_ESCAPE_POD

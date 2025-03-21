@@ -24,7 +24,7 @@
 /datum/ammo/bullet/rifle/incendiary
 	name = "incendiary rifle bullet"
 	hud_state = "rifle_fire"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
 	incendiary_strength = 1
 	damage_type = BURN
 	damage = 15
@@ -35,7 +35,7 @@
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun"
 	hud_state_empty = "smartgun_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	accurate_range = 20
 	damage = 20
 	penetration = 25
@@ -72,7 +72,7 @@
 /datum/ammo/bullet/rifle/heavy/incendiary
 	name = "incendiaryg heavy rifle bullet"
 	hud_state = "rifle_fire"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
 	incendiary_strength = 1
 	damage_type = BURN
 	damage = 20
@@ -94,7 +94,7 @@
 	hud_state = "rifle_fire"
 	damage_type = BURN
 	shrapnel_chance = 0
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
 	accuracy = -10
 
 /datum/ammo/bullet/rifle/machinegun
@@ -119,7 +119,7 @@
 	hud_state = "hivelo"
 	hud_state_empty = "hivelo_empty"
 	damage_falloff = 0
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	accurate_range = 15
 	damage = 35
 	penetration = 20
@@ -129,7 +129,7 @@
 /datum/ammo/bullet/rifle/tx8/incendiary
 	name = "high velocity incendiary bullet"
 	hud_state = "hivelo_fire"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_PASS_THROUGH_MOB
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_PASS_THROUGH_MOB
 	damage = 25
 	penetration = 20
 	additional_xeno_penetration = 15
@@ -148,7 +148,7 @@
 /datum/ammo/bullet/rifle/mpi_km
 	name = "crude heavy rifle bullet"
 	hud_state = "rifle_crude"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	damage = 30
 	damage_falloff = 3
 	penetration = 15
@@ -157,7 +157,7 @@
 /datum/ammo/bullet/rifle/mpi_km/ap
 	name = "crude heavy rifle bullet"
 	hud_state = "rifle_crude"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	damage = 25
 	penetration = 35
 	additional_xeno_penetration = 27.5
@@ -165,7 +165,7 @@
 /datum/ammo/bullet/rifle/mpi_km/hp
 	name = "crude heavy rifle bullet"
 	hud_state = "rifle_crude"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	damage = 60
 	penetration = 0
 	additional_xeno_penetration = -10
@@ -175,7 +175,7 @@
 	hud_state = "hivelo"
 	hud_state_empty = "hivelo_empty"
 	damage_falloff = 0.5
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	accurate_range = 25
 	accurate_range_min = 6
 	max_range = 40
@@ -194,7 +194,7 @@
 	name = "light marksman bullet"
 	hud_state = "hivelo"
 	hud_state_empty = "hivelo_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	penetration = 15
 	damage = 30
 	additional_xeno_penetration = 10
@@ -217,7 +217,7 @@
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun"
 	hud_state_empty = "smartgun_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	damage = 40
 	max_range = 40
 	penetration = 17.5
@@ -232,7 +232,7 @@
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "spotrifle"
 	hud_state_empty = "smartgun_empty"
-	flags_ammo_behavior = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC
 	damage = 50
 	penetration = 25
 	sundering = 5
@@ -317,7 +317,7 @@
 /datum/ammo/bullet/sg153/incendiary
 	name = "smart incendiary spotting  bullet"
 	hud_state = "spotrifle_incend"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
 	damage_type = BURN
 	damage = 10
 	sundering = 0.5
@@ -326,7 +326,7 @@
 	name = "armor piercing railgun slug"
 	hud_state = "railgun_ap"
 	icon_state = "blue_bullet"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
 	shell_speed = 4
 	max_range = 14
 	damage = 150
@@ -353,7 +353,7 @@
 /datum/ammo/bullet/railgun/smart
 	name = "smart armor piercing railgun slug"
 	hud_state = "railgun_smart"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE|AMMO_IFF
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE|AMMO_IFF
 	damage = 100
 	penetration = 20
 	sundering = 20
@@ -365,7 +365,7 @@
 	name = "high-velocity tungsten slug"
 	hud_state = "railgun_ap"
 	icon_state = "blue_bullet"
-	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOVABLE
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_MOVABLE
 	shell_speed = 5
 	max_range = 31
 	damage = 70

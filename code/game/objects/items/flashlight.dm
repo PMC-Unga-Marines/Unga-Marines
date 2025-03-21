@@ -9,8 +9,8 @@
 	)
 	item_state = "flashlight"
 	w_class = WEIGHT_CLASS_SMALL
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
+	atom_flags = CONDUCT
+	equip_slot_flags = ITEM_SLOT_BELT
 	actions_types = list(/datum/action/item_action)
 	light_range = 5
 	light_power = 3 //luminosity when on
@@ -57,7 +57,6 @@
 		icon_state = initial(icon_state)
 		item_state = initial(item_state)
 
-
 /obj/item/flashlight/attack_self(mob/user)
 	if(!isturf(user.loc))
 		to_chat(user, "You cannot turn the light on while in [user.loc].")
@@ -66,25 +65,20 @@
 		playsound(get_turf(src), activation_sound, 15, 1)
 	return TRUE
 
-/obj/item/flashlight/attackby(obj/item/I, mob/user, params)
+/obj/item/flashlight/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
-
-	if(istype(I, /obj/item/tool/screwdriver))
-		if(!raillight_compatible) //No fancy messages, just no
-			return
-
-		if(light_on)
-			to_chat(user, span_warning("Turn off [src] first."))
-			return
-
-		if(loc == user)
-			user.dropItemToGround(src) //This part is important to make sure our light sources update, as it calls dropped()
-
-		var/obj/item/attachable/flashlight/F = new(loc)
-		user.put_in_hands(F) //This proc tries right, left, then drops it all-in-one.
-		to_chat(user, span_notice("You modify [src]. It can now be mounted on a weapon."))
-		to_chat(user, span_notice("Use a screwdriver on [F] to change it back."))
-		qdel(src) //Delete da old flashlight
+	if(!raillight_compatible) //No fancy messages, just no
+		return
+	if(light_on)
+		to_chat(user, span_warning("Turn off [src] first."))
+		return
+	if(loc == user)
+		user.dropItemToGround(src) //This part is important to make sure our light sources update, as it calls dropped()
+	var/obj/item/attachable/flashlight/F = new(loc)
+	user.put_in_hands(F) //This proc tries right, left, then drops it all-in-one.
+	to_chat(user, span_notice("You modify [src]. It can now be mounted on a weapon."))
+	to_chat(user, span_notice("Use a screwdriver on [F] to change it back."))
+	qdel(src) //Delete da old flashlight
 
 /obj/item/flashlight/attack(mob/living/M, mob/living/user)
 	if(light_on && user.zone_selected == BODY_ZONE_PRECISE_EYES)
@@ -93,8 +87,8 @@
 			return ..()	//just hit them in the head
 
 		var/mob/living/carbon/human/H = M	//mob has protective eyewear
-		if(ishuman(M) && ((H.head && H.head.flags_inventory & COVEREYES) || (H.wear_mask && H.wear_mask.flags_inventory & COVEREYES) || (H.glasses && H.glasses.flags_inventory & COVEREYES)))
-			to_chat(user, span_notice("You're going to need to remove that [(H.head && H.head.flags_inventory & COVEREYES) ? "helmet" : (H.wear_mask && H.wear_mask.flags_inventory & COVEREYES) ? "mask": "glasses"] first."))
+		if(ishuman(M) && ((H.head && H.head.inventory_flags & COVEREYES) || (H.wear_mask && H.wear_mask.inventory_flags & COVEREYES) || (H.glasses && H.glasses.inventory_flags & COVEREYES)))
+			to_chat(user, span_notice("You're going to need to remove that [(H.head && H.head.inventory_flags & COVEREYES) ? "helmet" : (H.wear_mask && H.wear_mask.inventory_flags & COVEREYES) ? "mask": "glasses"] first."))
 			return
 
 		if(M == user)	//they're using it on themselves
@@ -121,7 +115,7 @@
 	desc = "A pen-sized light, used by medical staff."
 	icon_state = "penlight"
 	item_state = ""
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	light_range = 2
 	w_class = WEIGHT_CLASS_TINY
 	raillight_compatible = FALSE

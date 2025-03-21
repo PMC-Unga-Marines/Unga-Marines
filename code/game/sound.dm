@@ -1,4 +1,3 @@
-
 ///Default override for echo
 /sound
 	echo = list(
@@ -297,6 +296,8 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 			soundin = pick('sound/weapons/guns/fire/fal1.ogg', 'sound/weapons/guns/fire/fal2.ogg')
 		if(SFX_MP38_FIRE)
 			soundin = pick('sound/weapons/guns/fire/mp38_1.ogg', 'sound/weapons/guns/fire/mp38_2.ogg')
+		if(SFX_SLAM)
+			soundin = pick('sound/effects/slam1.ogg', 'sound/effects/slam2.ogg', 'sound/effects/slam3.ogg')
 
 		// Xeno
 		if(SFX_ACID_HIT)

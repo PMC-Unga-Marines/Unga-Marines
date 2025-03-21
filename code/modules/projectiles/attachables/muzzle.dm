@@ -14,7 +14,7 @@
 	damage_falloff_mod = 0
 
 /obj/item/attachable/suppressor/unremovable
-	flags_attach_features = NONE
+	attach_features_flags = NONE
 
 /obj/item/attachable/suppressor/unremovable/invisible
 	icon_state = ""
@@ -143,7 +143,7 @@
 	icon_state = "sniperbarrel"
 	desc = "A heavy barrel. CANNOT BE REMOVED."
 	slot = ATTACHMENT_SLOT_MUZZLE
-	flags_attach_features = NONE
+	attach_features_flags = NONE
 	accuracy_mod = 0.15
 	scatter_mod = -3
 
@@ -152,7 +152,7 @@
 	icon_state = "t81barrel"
 	desc = "A heavy barrel. CANNOT BE REMOVED."
 	slot = ATTACHMENT_SLOT_UNDER
-	flags_attach_features = NONE
+	attach_features_flags = NONE
 	pixel_shift_x = 7
 	pixel_shift_y = 14
 	accuracy_mod = 0
@@ -163,7 +163,7 @@
 	icon_state = "smartbarrel"
 	desc = "A heavy rotating barrel. CANNOT BE REMOVED."
 	slot = ATTACHMENT_SLOT_MUZZLE
-	flags_attach_features = NONE
+	attach_features_flags = NONE
 
 /obj/item/attachable/focuslens
 	name = "M43 focused lens"
@@ -209,7 +209,7 @@
 	desc = "The standard barrel on the SX-16. CANNOT BE REMOVED."
 	slot = ATTACHMENT_SLOT_MUZZLE
 	icon_state = "sx16barrel"
-	flags_attach_features = NONE
+	attach_features_flags = NONE
 
 /obj/item/attachable/pulselens
 	name = "M43 pulse lens"
@@ -226,11 +226,11 @@
 	icon_state = "sg29barrel"
 	desc = "A heavy barrel. CANNOT BE REMOVED."
 	slot = ATTACHMENT_SLOT_MUZZLE
-	flags_attach_features = NONE
+	attach_features_flags = NONE
 
-/obj/item/attachable/t500barrel
+/obj/item/attachable/t500_barrel
 	name = "R-500 extended barrel"
-	desc = "Cool barrel for cool revolver"
+	desc = "Cool barrel for a cool revolver."
 	slot = ATTACHMENT_SLOT_MUZZLE
 	delay_mod = -0.4 SECONDS
 	icon = 'icons/obj/items/attachments/attachments_64.dmi'
@@ -245,18 +245,16 @@
 	pixel_shift_x = 0
 	pixel_shift_y = 0
 
-/obj/item/attachable/t500barrelshort
+/obj/item/attachable/t500_barrel/short
 	name = "R-500 compensator"
-	desc = "Cool compensator for cool revolver"
-	slot = ATTACHMENT_SLOT_MUZZLE
+	desc = "Cool compensator for a cool revolver."
 	delay_mod = -0.2 SECONDS
-	icon = 'icons/obj/items/attachments/attachments_64.dmi'
 	icon_state = "shortbarrel"
+	attach_shell_speed_mod = 0
 	scatter_mod = -2
 	recoil_mod = -0.5
 	scatter_unwielded_mod = -5
 	recoil_unwielded_mod = -1
+	accuracy_mod = 0
 	accuracy_unwielded_mod = 0.15
 	size_mod = 0.5
-	pixel_shift_x = 0
-	pixel_shift_y = 0

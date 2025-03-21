@@ -81,13 +81,14 @@
 	log_message("Affected by explosion of severity: [severity].", LOG_MECHA, color="red")
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return
-	if(!(flags_atom & PREVENT_CONTENTS_EXPLOSION))
+	if(!(atom_flags & PREVENT_CONTENTS_EXPLOSION))
 		contents_explosion(severity)
 	if(QDELETED(src))
 		return
 	take_damage(severity * 1.5, BRUTE, BOMB, 0)
 
 /obj/vehicle/sealed/mecha/handle_atom_del(atom/A)
+	. = ..()
 	if(A in occupants) //todo does not work and in wrong file
 		LAZYREMOVE(occupants, A)
 		icon_state = initial(icon_state)+"-open"

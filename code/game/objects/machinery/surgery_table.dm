@@ -4,7 +4,7 @@
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table_deployable"
 	max_integrity = 300
-	flags_item = IS_DEPLOYABLE
+	item_flags = IS_DEPLOYABLE
 	w_class = WEIGHT_CLASS_NORMAL
 	var/deployable_item = /obj/machinery/optable/deployable
 
@@ -21,7 +21,7 @@
 	resistance_flags = UNACIDABLE|XENO_DAMAGEABLE
 	max_integrity = 300
 	///Whether this item can be deployed or undeployed
-	var/flags_item = IS_DEPLOYABLE
+	var/item_flags = IS_DEPLOYABLE
 	///What it deploys into. typecast version of internal_item
 	var/obj/item/deployable_optable/internal_item
 
@@ -53,7 +53,7 @@
 
 ///Dissassembles the device
 /obj/machinery/optable/deployable/proc/disassemble(mob/user)
-	if(CHECK_BITFIELD(internal_item.flags_item, DEPLOYED_NO_PICKUP))
+	if(CHECK_BITFIELD(internal_item.item_flags, DEPLOYED_NO_PICKUP))
 		balloon_alert(user, "cannot be disassembled")
 		return
 	SEND_SIGNAL(src, COMSIG_ITEM_UNDEPLOY, user)

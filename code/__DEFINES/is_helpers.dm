@@ -27,8 +27,6 @@
 
 #define isbasalt(A) (istype(A, /turf/open/lavaland/basalt))
 
-#define islavacatwalk(A) (istype(A, /turf/open/lavaland/catwalk))
-
 #define isfloorturf(A) (istype(A, /turf/open/floor))
 
 #define isclosedturf(A) (istype(A, /turf/closed))
@@ -173,7 +171,9 @@
 
 #define isgrenade(A) (istype(A, /obj/item/explosive/grenade))
 
-#define isstorage(A) (istype(A, /obj/item/storage))
+#define isdatumstorage(A) (istype(A, /datum/storage))
+
+#define isstorageobj(A) (istype(A, /obj/item/storage))
 
 #define isitemstack(A) (istype(A, /obj/item/stack))
 
@@ -269,6 +269,8 @@
 
 #define issentry(A) (istype(A, /obj/machinery/deployable/mounted/sentry))
 
+#define isimplant(A) (istype(A, /obj/item/implant))
+
 //Assemblies
 #define isassembly(O) (istype(O, /obj/item/assembly))
 
@@ -303,7 +305,7 @@
 #define isclientedaghost(living) (isaghost(living) && GLOB.directory[copytext_char(living.ckey, 2)] && living.get_ghost())
 
 // Shuttles
-#define isshuttleturf(T) (length(T.baseturfs) && (/turf/baseturf_skipover/shuttle in T.baseturfs))
+#define isshuttleturf(T) (!isnull(T.depth_to_find_baseturf(/turf/baseturf_skipover/shuttle)))
 #define isdropshiparea(A) (istype(A, /area/shuttle/dropship))
 
 // Xeno hives

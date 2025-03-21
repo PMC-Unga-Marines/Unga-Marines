@@ -19,7 +19,6 @@
 	var/panel_open = FALSE
 	var/light_range_on = 4
 
-
 /obj/vehicle/ridden/powerloader/Initialize(mapload)
 	. = ..()
 	for(var/i in 1 to 2)
@@ -43,15 +42,11 @@
 		return
 	return user_unbuckle_mob(user, user) //clicking the powerloader with its own clamp unbuckles the pilot.
 
-/obj/vehicle/ridden/powerloader/attackby(obj/item/I, mob/user, params)
+/obj/vehicle/ridden/powerloader/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
-
-	if(!isscrewdriver(I))
-		return
 	to_chat(user, span_notice("You screw the panel [panel_open ? "closed" : "open"]."))
 	playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
 	panel_open = !panel_open
-
 
 /obj/vehicle/ridden/powerloader/user_unbuckle_mob(mob/living/buckled_mob, mob/user, silent)
 	if(!LAZYLEN(buckled_mobs) || buckled_mob.buckled != src)
@@ -72,7 +67,6 @@
 	if(.)
 		playsound(loc, 'sound/mecha/powerloader_unbuckle.ogg', 25)
 		set_light(0)
-
 
 /obj/vehicle/ridden/powerloader/post_buckle_mob(mob/buckling_mob)
 	. = ..()
@@ -98,7 +92,6 @@
 	move_delay = initial(move_delay)
 	icon_state = "powerloader_open"
 	buckled_mob.drop_all_held_items() //drop the clamp when unbuckling
-
 
 /obj/vehicle/ridden/powerloader/user_buckle_mob(mob/living/buckling_mob, mob/user, check_loc = FALSE, silent) //check_loc needs to be FALSE here.
 	if(buckling_mob != user)
@@ -138,10 +131,9 @@
 	force = 20
 	// ITEM_ABSTRACT to prevent placing the item on a table/closet.
 	// DELONDROP to prevent giving the clamp to others.
-	flags_item = ITEM_ABSTRACT|DELONDROP
+	item_flags = ITEM_ABSTRACT|DELONDROP
 	var/obj/vehicle/ridden/powerloader/linked_powerloader
 	var/obj/loaded
-
 
 /obj/item/powerloader_clamp/dropped(mob/user)
 	// Don't call ..() so it's not deleted
@@ -151,7 +143,6 @@
 		return
 	forceMove(linked_powerloader)
 	linked_powerloader.unbuckle_mob(user)
-
 
 /obj/item/powerloader_clamp/attack(mob/living/victim, mob/living/user, def_zone)
 	if(victim in linked_powerloader.buckled_mobs)
@@ -166,13 +157,10 @@
 			span_notice("You grab [loaded] with [src]."))
 	return ..()
 
-
 /obj/item/powerloader_clamp/afterattack(atom/target, mob/user, proximity)
 	. = ..()
-
 	if(!proximity)
 		return
-
 	return target.attack_powerloader(user, src)
 
 /obj/item/powerloader_clamp/update_icon_state()

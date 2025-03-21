@@ -67,6 +67,7 @@
 	glasses = /obj/item/clothing/glasses/sunglasses/sa/nodrop
 	back = /obj/item/storage/backpack/marine/satchel
 	ears = /obj/item/radio/headset/mainship/spatial
+	implants = list(/obj/item/implant/sandevistan)
 
 /datum/job/spatial_agent/galaxy_red
 	outfit = /datum/outfit/job/other/spatial_agent/galaxy_red

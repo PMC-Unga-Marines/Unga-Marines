@@ -62,7 +62,7 @@
 		return FALSE
 
 	if(xeno_attacker.a_intent == INTENT_HARM)
-		if(CHECK_BITFIELD(SSticker.mode?.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker) && refundable)
+		if(CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, xeno_attacker) && refundable)
 			SSresinshaping.decrement_build_counter(xeno_attacker)
 		xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 		playsound(src, SFX_ALIEN_RESIN_BREAK, 25)

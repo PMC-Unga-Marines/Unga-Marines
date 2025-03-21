@@ -3,9 +3,9 @@
 	desc = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "gas_alt"
 	item_state = "gas_alt"
-	flags_inventory = COVERMOUTH | COVEREYES | BLOCKGASEFFECT
-	flags_inv_hide = HIDEEARS|HIDEFACE|HIDELOWHAIR
-	flags_cold_protection = HEAD
+	inventory_flags = COVERMOUTH | COVEREYES | BLOCKGASEFFECT
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR
+	cold_protection_flags = HEAD
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
 	w_class = WEIGHT_CLASS_SMALL
 	gas_transfer_coefficient = 0.01
@@ -42,7 +42,7 @@
 	name = "Tactical coifed gas mask"
 	desc = "A face-covering coifed mask that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "gascoif"
-	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDEALLHAIR
 
 /obj/item/clothing/mask/gas/pmc
 	name = "\improper M8 pattern armored balaclava"
@@ -50,8 +50,8 @@
 	icon_state = "pmc_mask"
 	item_state = "helmet"
 	anti_hug = 3
-	flags_inventory = COVERMOUTH|BLOCKGASEFFECT
-	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
+	inventory_flags = COVERMOUTH|BLOCKGASEFFECT
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDEALLHAIR
 	breathy = FALSE
 
 /obj/item/clothing/mask/gas/pmc/damaged
@@ -79,7 +79,7 @@
 	icon_state = "plaguedoctor"
 	item_state = "gas_mask"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 2, ENERGY = 2, BOMB = 0, BIO = 75, FIRE = 2, ACID = 2)
-	flags_armor_protection = HEAD|FACE
+	armor_protection_flags = HEAD|FACE
 
 /obj/item/clothing/mask/gas/swat
 	name = "\improper SWAT mask"
@@ -87,7 +87,7 @@
 	icon_state = "swat"
 	anti_hug = 1
 	siemens_coefficient = 0.7
-	flags_armor_protection = FACE|EYES
+	armor_protection_flags = FACE|EYES
 
 /obj/item/clothing/mask/gas/swat/on_hugger_damage()
 	name = "\improper torn SWAT mask"
@@ -134,7 +134,7 @@
 	desc = "A mask used when acting as a monkey."
 	icon_state = "monkeymask"
 	item_state = "monkeymask"
-	flags_armor_protection = HEAD|FACE|EYES
+	armor_protection_flags = HEAD|FACE|EYES
 	breathy = FALSE
 
 /obj/item/clothing/mask/gas/sexymime
@@ -159,19 +159,19 @@
 	name = "Regular protective gasmask TM-58"
 	desc = "Originally a civilian model, reinforced in front with a sheet of metal. Not very convenient, but extremely reliable. She was once called the 'Face of the Resistance Units.'"
 	icon_state = "separatist"
-	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDEALLHAIR
 
 /obj/item/clothing/mask/gas/veteran
 	name = "Veteran breathing mask"
 	desc = "The reinforced camouflage cut of this mask protects the face well from both splinters and harmful gases. Beautiful handwork, soldier!"
 	icon_state = "veteran"
-	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDEALLHAIR
 
 /obj/item/clothing/mask/gas/fullgas
 	name = "Ancient gas mask"
 	desc = "An ancient face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "fullgas"
-	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDEALLHAIR
 
 /obj/item/clothing/mask/gas/sgmask
 	name = "Military grade gas mask"
@@ -182,5 +182,5 @@
 	name = "Coifed gas mask"
 	desc = "A coifed gas mask, covering most of the user's head, that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "redmask"
-	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDEALLHAIR
 

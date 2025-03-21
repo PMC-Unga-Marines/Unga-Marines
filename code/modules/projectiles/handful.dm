@@ -1,12 +1,12 @@
 /obj/item/ammo_magazine/handful
 	name = "generic handful of bullets or shells"
 	desc = "A handful of rounds to reload on the go."
-	flags_equip_slot = null // It only fits into pockets and such.
+	equip_slot_flags = null // It only fits into pockets and such.
 	w_class = WEIGHT_CLASS_SMALL
 	current_rounds = 1 // So it doesn't get autofilled for no reason.
 	max_rounds = 5 // For shotguns, though this will be determined by the handful type when generated.
-	flags_atom = CONDUCT|DIRLOCK
-	flags_magazine = MAGAZINE_HANDFUL|MAGAZINE_REFILLABLE
+	atom_flags = CONDUCT|DIRLOCK
+	magazine_flags = MAGAZINE_HANDFUL|MAGAZINE_REFILLABLE
 	attack_speed = 3 // should make reloading less painful
 	icon = 'icons/obj/items/ammo/handful.dmi'
 	icon_state_mini = "bullets"

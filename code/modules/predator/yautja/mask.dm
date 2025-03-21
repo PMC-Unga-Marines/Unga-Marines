@@ -19,12 +19,12 @@
 	soft_armor = list(MELEE = 20, BULLET = 25, LASER = 20, ENERGY = 20, BOMB = 25, BIO = 20, FIRE = 20, ACID = 20)
 
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
-	flags_armor_protection = HEAD|FACE|EYES
-	flags_cold_protection = HEAD
-	flags_inventory = COVEREYES|COVERMOUTH|BLOCKGASEFFECT|BLOCKSHARPOBJ
-	flags_inv_hide = HIDEEARS|HIDEEYES|HIDEFACE|HIDELOWHAIR
+	armor_protection_flags = HEAD|FACE|EYES
+	cold_protection_flags = HEAD
+	inventory_flags = COVEREYES|COVERMOUTH|BLOCKGASEFFECT|BLOCKSHARPOBJ
+	inv_hide_flags = HIDEEARS|HIDEEYES|HIDEFACE|HIDELOWHAIR
 	eye_protection = 2
-	flags_item = ITEM_PREDATOR
+	item_flags = ITEM_PREDATOR
 	var/current_goggles = VISION_MODE_OFF
 	resistance_flags = UNACIDABLE
 	unequip_delay_self = 20
@@ -248,9 +248,9 @@
 	icon_state = "pred_mask1_ebony"
 
 	soft_armor = list(MELEE = 10, BULLET = 10, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 0, FIRE = 0, ACID = 0)
-	flags_armor_protection = HEAD|FACE|EYES
-	flags_cold_protection = HEAD
-	flags_inv_hide = HIDEEARS|HIDEEYES|HIDEFACE|HIDELOWHAIR
+	armor_protection_flags = HEAD|FACE|EYES
+	cold_protection_flags = HEAD
+	inv_hide_flags = HIDEEARS|HIDEEYES|HIDEFACE|HIDELOWHAIR
 	resistance_flags = UNACIDABLE
 	item_state_slots = list(slot_wear_mask_str = "pred_mask1_ebony")
 	var/map_random = FALSE

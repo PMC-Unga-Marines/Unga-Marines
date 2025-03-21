@@ -37,8 +37,8 @@
 	w_class = WEIGHT_CLASS_GIGANTIC
 	edge = TRUE
 	sharp = IS_SHARP_ITEM_ACCURATE
-	flags_item = ITEM_PREDATOR
-	flags_equip_slot = NONE
+	item_flags = ITEM_PREDATOR
+	equip_slot_flags = NONE
 	hitsound = 'sound/weapons/wristblades_hit.ogg'
 	attack_speed = 6
 	force = 25

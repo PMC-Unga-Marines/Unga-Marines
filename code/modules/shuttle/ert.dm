@@ -1,14 +1,14 @@
 // small ert shuttles
 /obj/docking_port/stationary/ert
 	name = "ert shuttle"
-	id = SHUTTLE_DISTRESS
+	shuttle_id = SHUTTLE_DISTRESS
 	dir = SOUTH
 	dwidth = 3
 	width = 7
 	height = 13
 
 /obj/docking_port/stationary/ert/target
-	id = "distress_target"
+	shuttle_id = "distress_target"
 
 /obj/docking_port/mobile/ert
 	name = "ert shuttle"
@@ -16,10 +16,6 @@
 	dwidth = 5
 	width = 11
 	height = 21
-	var/list/mob_spawns = list()
-	var/list/item_spawns = list()
-	var/list/shutters = list()
-	var/departing = FALSE
 	ignitionTime = 10 SECONDS
 	prearrivalTime = 10 SECONDS
 	rechargeTime = 3 MINUTES
@@ -27,23 +23,31 @@
 
 	shuttle_flags = GAMEMODE_IMMUNE
 
+	var/list/mob_spawns = list()
+	var/list/item_spawns = list()
+	var/list/shutters = list()
+	var/departing = FALSE
+
 /obj/docking_port/mobile/ert/proc/get_destinations()
 	var/list/docks = list()
-	for(var/obj/docking_port/stationary/S in SSshuttle.stationary)
-		if(istype(S, /obj/docking_port/stationary/ert/target))
-			if(canDock(S) == SHUTTLE_CAN_DOCK) // discards occupied docks
-				docks += S
-	for(var/i in SSshuttle.ert_shuttles)
+	for(var/obj/docking_port/stationary/S in SSshuttle.stationary_docking_ports)
+		if(!istype(S, /obj/docking_port/stationary/ert/target))
+			continue
+		if(canDock(S) != SHUTTLE_CAN_DOCK) // discards occupied docks
+			continue
+		docks += S
+	for(var/i in SSshuttle.ert_shuttle_list)
 		var/obj/docking_port/mobile/ert/E = i
-		if(E.destination in docks)
-			docks -= E.destination // another shuttle already headed there
+		if(!(E.destination in docks))
+			continue
+		docks -= E.destination // another shuttle already headed there
 	return docks
 
 /obj/docking_port/mobile/ert/proc/auto_launch()
 	var/obj/docking_port/stationary/S = pick(get_destinations())
 	if(!S)
 		return FALSE
-	SSshuttle.moveShuttle(id, S.id, TRUE)
+	SSshuttle.moveShuttle(shuttle_id, S.shuttle_id, TRUE)
 	return TRUE
 
 /obj/docking_port/mobile/ert/proc/open_shutters()
@@ -68,11 +72,11 @@
 /obj/docking_port/mobile/ert/Destroy(force)
 	. = ..()
 	if(force)
-		SSshuttle.ert_shuttles -= src
+		SSshuttle.ert_shuttle_list -= src
 
 /obj/docking_port/mobile/ert/register()
 	. = ..()
-	SSshuttle.ert_shuttles += src
+	SSshuttle.ert_shuttle_list += src
 	for(var/t in return_turfs())
 		var/turf/T = t
 		for(var/atom/movable/O in T.GetAllContents())
@@ -95,9 +99,8 @@
 	var/list/valid_destination_ids = list()
 	for(var/i in M.get_destinations())
 		var/obj/docking_port/stationary/ert/target/target_dock = i
-		valid_destination_ids += target_dock.id
+		valid_destination_ids += target_dock.shuttle_id
 	return valid_destination_ids
-
 
 /obj/machinery/computer/shuttle/ert/ui_interact(mob/user)
 	. = ..()
@@ -108,7 +111,7 @@
 	if(M?.mode == SHUTTLE_IDLE)
 		if(is_reserved_level(M.z))
 			for(var/obj/docking_port/stationary/S in M.get_destinations())
-				dat += "<A href='?src=[REF(src)];move=[S.id]'>Send to [S.name]</A><br>"
+				dat += "<A href='?src=[REF(src)];move=[S.shuttle_id]'>Send to [S.name]</A><br>"
 		else
 			dat += "<A href='?src=[REF(src)];depart=1'>Depart.</A><br>"
 

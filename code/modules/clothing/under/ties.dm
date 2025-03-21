@@ -3,12 +3,12 @@
 	desc = "A neosilk clip-on tie."
 	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "bluetie"
-	flags_equip_slot = NONE
+	equip_slot_flags = NONE
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/tie/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/attachment, ATTACHMENT_SLOT_UNIFORM_TIE, 'icons/obj/clothing/ties_overlay.dmi', flags_attach_features = (ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB), mob_overlay_icon = 'icons/mob/ties.dmi')
+	AddElement(/datum/element/attachment, ATTACHMENT_SLOT_UNIFORM_TIE, 'icons/obj/clothing/ties_overlay.dmi', attach_features_flags = (ATTACH_REMOVABLE|ATTACH_APPLY_ON_MOB), mob_overlay_icon = 'icons/mob/ties.dmi')
 
 /obj/item/clothing/tie/blue
 	name = "blue tie"
@@ -54,14 +54,15 @@
 
 				user.visible_message("[user] places [src] against [M]'s [body_part] and listens attentively.", "You place [src] against [M.p_their()] [body_part]. You [sound_strength] [sound].")
 				return
-	return ..(M,user)
+	return ..(M, user)
 
 //Medals
 /obj/item/clothing/tie/medal
 	name = "bronze medal"
 	desc = "A bronze medal."
 	icon_state = "bronze"
-	var/recipient_name //name of the person this is awarded to.
+	/// Name of the person this is awarded to.
+	var/recipient_name
 	var/recipient_rank
 	var/medal_citation
 
@@ -122,12 +123,12 @@
 	name = "holobadge"
 	desc = "This glowing blue badge marks the holder as THE LAW."
 	icon_state = "holobadge"
-	flags_equip_slot = ITEM_SLOT_BELT
+	equip_slot_flags = ITEM_SLOT_BELT
 	var/stored_name = null
 
 /obj/item/clothing/tie/holobadge/cord
 	icon_state = "holobadge-cord"
-	flags_equip_slot = ITEM_SLOT_MASK
+	equip_slot_flags = ITEM_SLOT_MASK
 
 /obj/item/clothing/tie/holobadge/attack_self(mob/user as mob)
 	if(!stored_name)
@@ -138,6 +139,8 @@
 
 /obj/item/clothing/tie/holobadge/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/card/id))
 		var/obj/item/card/id/id_card = I
@@ -153,17 +156,4 @@
 
 /obj/item/clothing/tie/holobadge/attack(mob/living/carbon/human/M, mob/living/user)
 	if(isliving(user))
-		user.visible_message(span_warning(" [user] invades [M]'s personal space, thrusting [src] into [M.p_their()] face insistently."),span_warning(" You invade [M]'s personal space, thrusting [src] into [M.p_their()] face insistently. You are the law."))
-
-/obj/item/storage/box/holobadge
-	name = "holobadge box"
-	desc = "A box claiming to contain holobadges."
-
-/obj/item/storage/box/holobadge/Initialize(mapload, ...)
-	. = ..()
-	new /obj/item/clothing/tie/holobadge(src)
-	new /obj/item/clothing/tie/holobadge(src)
-	new /obj/item/clothing/tie/holobadge(src)
-	new /obj/item/clothing/tie/holobadge(src)
-	new /obj/item/clothing/tie/holobadge/cord(src)
-	new /obj/item/clothing/tie/holobadge/cord(src)
+		user.visible_message(span_warning(" [user] invades [M]'s personal space, thrusting [src] into [M.p_their()] face insistently."), span_warning(" You invade [M]'s personal space, thrusting [src] into [M.p_their()] face insistently. You are the law."))

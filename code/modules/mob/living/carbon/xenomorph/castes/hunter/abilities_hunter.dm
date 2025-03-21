@@ -61,7 +61,7 @@
 	RegisterSignals(owner, list(
 		COMSIG_XENOMORPH_GRAB,
 		COMSIG_LIVING_IGNITED,
-		COMSIG_LIVING_ADD_VENTCRAWL), PROC_REF(cancel_stealth))
+		COMSIG_LIVING_HANDLE_VENTCRAWL), PROC_REF(cancel_stealth))
 
 	RegisterSignal(owner, COMSIG_XENOMORPH_ATTACK_OBJ, PROC_REF(on_obj_attack))
 
@@ -91,7 +91,7 @@
 		COMSIG_XENOMORPH_ATTACK_OBJ,
 		COMSIG_XENOMORPH_THROW_HIT,
 		COMSIG_LIVING_IGNITED,
-		COMSIG_LIVING_ADD_VENTCRAWL,
+		COMSIG_LIVING_HANDLE_VENTCRAWL,
 		SIGNAL_ADDTRAIT(TRAIT_KNOCKEDOUT),
 		SIGNAL_ADDTRAIT(TRAIT_FLOORED),
 		COMSIG_XENOMORPH_ZONE_SELECT,
@@ -320,7 +320,7 @@
 
 /datum/action/ability/activable/xeno/pounce/proc/movement_fx()
 	SIGNAL_HANDLER
-	new /obj/effect/temp_visual/xenomorph/afterimage(get_turf(owner), owner) //Create the after image.
+	new /obj/effect/temp_visual/after_image(get_turf(owner), owner) //Create the after image.
 
 /datum/action/ability/activable/xeno/pounce/proc/object_hit(datum/source, obj/object_target, speed)
 	SIGNAL_HANDLER

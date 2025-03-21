@@ -55,48 +55,6 @@
 	. += emissive_appearance(icon, "apc_charging_[apc_charging]")
 	. += mutable_appearance(icon, "apc_charging_[apc_charging]")
 
-	if(!operating)
-		return
-
-	var/apc_equipment = ""
-	switch(equipment)
-		if(APC_CHANNEL_OFF)
-			apc_equipment = "off"
-		if(APC_CHANNEL_AUTO_OFF)
-			apc_equipment = "auto_off"
-		if(APC_CHANNEL_ON)
-			apc_equipment = "on"
-		if(APC_CHANNEL_AUTO_ON)
-			apc_equipment = "auto_on"
-	. += emissive_appearance(icon, "apc_equipment_[apc_equipment]")
-	. += mutable_appearance(icon, "apc_equipment_[apc_equipment]")
-
-	var/apc_lighting = ""
-	switch(lighting)
-		if(APC_CHANNEL_OFF)
-			apc_lighting = "off"
-		if(APC_CHANNEL_AUTO_OFF)
-			apc_lighting = "auto_off"
-		if(APC_CHANNEL_ON)
-			apc_lighting = "on"
-		if(APC_CHANNEL_AUTO_ON)
-			apc_lighting = "auto_on"
-	. += emissive_appearance(icon, "apc_lighting_[apc_lighting]")
-	. += mutable_appearance(icon, "apc_lighting_[apc_lighting]")
-
-	var/apc_environ = ""
-	switch(environ)
-		if(APC_CHANNEL_OFF)
-			apc_environ = "off"
-		if(APC_CHANNEL_AUTO_OFF)
-			apc_environ = "auto_off"
-		if(APC_CHANNEL_ON)
-			apc_environ = "on"
-		if(APC_CHANNEL_AUTO_ON)
-			apc_environ = "auto_on"
-	. += emissive_appearance(icon, "apc_environ_[apc_environ]")
-	. += mutable_appearance(icon, "apc_environ_[apc_environ]")
-
 /// Checks for what icon updates we will need to handle
 /obj/machinery/power/apc/proc/check_updates()
 	SIGNAL_HANDLER
@@ -129,9 +87,6 @@
 			new_update_overlay |= UPOVERLAY_LOCKED
 
 		new_update_overlay |= (charging << UPOVERLAY_CHARGING_SHIFT)
-		new_update_overlay |= (equipment << UPOVERLAY_EQUIPMENT_SHIFT)
-		new_update_overlay |= (lighting << UPOVERLAY_LIGHTING_SHIFT)
-		new_update_overlay |= (environ << UPOVERLAY_ENVIRON_SHIFT)
 
 	if(new_update_overlay != update_overlay)
 		update_overlay = new_update_overlay

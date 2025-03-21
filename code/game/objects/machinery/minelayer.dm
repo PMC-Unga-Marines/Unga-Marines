@@ -4,7 +4,7 @@
 	icon = 'icons/obj/items/mine.dmi'
 	icon_state = "minelayer"
 	max_integrity = 200
-	flags_item = IS_DEPLOYABLE
+	item_flags = IS_DEPLOYABLE
 	w_class = WEIGHT_CLASS_NORMAL
 	///amount of currently stored mines
 	var/stored_mines = 0
@@ -28,7 +28,6 @@
 	var/cooldown = 0.6 SECONDS
 	///stored iff signal
 	var/iff_signal
-
 
 /obj/machinery/deployable/minelayer/attack_hand(mob/living/user)
 	. = ..()
@@ -65,6 +64,8 @@
 
 /obj/machinery/deployable/minelayer/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 	if(istype(I, /obj/item/explosive/mine) && stored_amount <= max_amount)
 		stored_amount++
 		qdel(I)

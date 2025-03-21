@@ -4,14 +4,15 @@
 	desc = "yummy"
 	icon = 'icons/obj/items/food/food.dmi'
 	icon_state = null
-	center_of_mass = list("x"=15, "y"=15)
+	center_of_mass = list("x" = 15, "y" = 15)
 	var/bitesize = 1
 	var/bitecount = 0
 	var/trash = null
 	var/slice_path
 	var/slices_num
 	var/package = FALSE
-	var/list/tastes // for example list("crisps" = 2, "salt" = 1)
+	/// for example list("crisps" = 2, "salt" = 1)
+	var/list/tastes
 
 /obj/item/reagent_containers/food/snacks/create_reagents(max_vol, new_flags, list/init_reagents, data)
 	if(!length(tastes) || !length(init_reagents))
@@ -141,6 +142,8 @@
 
 /obj/item/reagent_containers/food/snacks/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/tool/kitchen/utensil)) //todo early return
 		var/obj/item/tool/kitchen/utensil/U = I
@@ -169,6 +172,8 @@
 
 /obj/item/reagent_containers/food/snacks/sliceable/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(I.sharp == IS_NOT_SHARP_ITEM)
 		if(I.w_class >= WEIGHT_CLASS_SMALL)
@@ -1137,6 +1142,8 @@
 // Flour + egg = dough
 /obj/item/reagent_containers/food/snacks/flour/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/egg))
 		new /obj/item/reagent_containers/food/snacks/dough(src)
@@ -1147,6 +1154,8 @@
 // Egg + flour = dough
 /obj/item/reagent_containers/food/snacks/egg/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/flour))
 		new /obj/item/reagent_containers/food/snacks/dough(src)
@@ -1178,6 +1187,8 @@
 // Dough + rolling pin = flat dough
 /obj/item/reagent_containers/food/snacks/dough/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/tool/kitchen/rollingpin))
 		new /obj/item/reagent_containers/food/snacks/sliceable/flatdough(src)
@@ -1216,6 +1227,8 @@
 
 /obj/item/reagent_containers/food/snacks/meat/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/tool/kitchen/knife))
 		new /obj/item/reagent_containers/food/snacks/rawcutlet(src)
@@ -1268,6 +1281,8 @@
 
 /obj/item/reagent_containers/food/snacks/rawcutlet/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(istype(I, /obj/item/tool/kitchen/knife))
 		new /obj/item/reagent_containers/food/snacks/rawmeatball(src)
@@ -1540,7 +1555,7 @@
 	icon = 'icons/obj/items/lollipop.dmi'
 	icon_state = "lollipop_stick"
 	item_state = "lollipop_stick"
-	flags_equip_slot = ITEM_SLOT_MASK
+	equip_slot_flags = ITEM_SLOT_MASK
 	w_class = WEIGHT_CLASS_TINY
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/sugar = 4)
 	tastes = list("candy" = 1)

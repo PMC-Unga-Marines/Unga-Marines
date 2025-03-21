@@ -13,7 +13,7 @@
 	name = "research director dress uniform"
 	desc = "Feminine fashion for the style concious RD. Its fabric provides minor protection from biological contaminants."
 	icon_state = "dress_rd"
-	flags_armor_protection = CHEST|GROIN|ARMS
+	armor_protection_flags = CHEST|GROIN|ARMS
 
 /obj/item/clothing/under/rank/scientist
 	desc = "It's made of a special fiber that provides minor protection against small explosions. It has markings that denote the wearer as a scientist."

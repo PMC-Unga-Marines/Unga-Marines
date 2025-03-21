@@ -18,9 +18,9 @@
 	item_state_worn = TRUE
 	item_icons = list(slot_wear_suit_str = 'icons/mob/modular/modular_armor.dmi')
 
-	flags_atom = CONDUCT|DIRLOCK
-	flags_armor_protection = CHEST|GROIN|ARMS|LEGS|FEET|HANDS
-	flags_item = SYNTH_RESTRICTED|IMPEDE_JETPACK
+	atom_flags = CONDUCT|DIRLOCK
+	armor_protection_flags = CHEST|GROIN|ARMS|LEGS|FEET|HANDS
+	item_flags = SYNTH_RESTRICTED|IMPEDE_JETPACK
 	/// What is allowed to be equipped in suit storage
 	allowed = list(
 		/obj/item/weapon/gun,
@@ -35,7 +35,7 @@
 		/obj/item/tool/shovel/etool,
 		/obj/item/weapon/energy/sword,
 	)
-	flags_equip_slot = ITEM_SLOT_OCLOTHING
+	equip_slot_flags = ITEM_SLOT_OCLOTHING
 	w_class = WEIGHT_CLASS_BULKY
 	equip_delay_self = 2 SECONDS
 	unequip_delay_self = 1 SECONDS
@@ -143,7 +143,7 @@
 	var/obj/item/armor_module/storage/storage_module = attachments_by_slot[ATTACHMENT_SLOT_STORAGE]
 	if(!storage_module.show_storage)
 		return standing
-	for(var/obj/item/stored AS in storage_module.storage.contents)
+	for(var/obj/item/stored AS in storage_module.contents)
 		standing.overlays += mutable_appearance(storage_module.show_storage_icon, icon_state = initial(stored.icon_state))
 	return standing
 
@@ -168,8 +168,8 @@
 	var/mob/living/carbon/human/H = user
 	if(H.wear_suit != src)
 		return
-	turn_light(user, !light_on)
-	return TRUE
+	if(turn_light(user, !light_on) == CHECKS_PASSED)
+		return TRUE
 
 /obj/item/clothing/suit/modular/item_action_slot_check(mob/user, slot)
 	if(!light_range) // No light no ability
@@ -289,13 +289,13 @@
 	greyscale_config = /datum/greyscale_config/armor_mk1
 	greyscale_colors = ARMOR_PALETTE_DESERT
 
-	flags_atom = PREVENT_CONTENTS_EXPLOSION|DIRLOCK
-	flags_armor_protection = HEAD
-	flags_armor_features = ARMOR_NO_DECAP
-	flags_inventory = BLOCKSHARPOBJ
-	flags_inv_hide = HIDEEARS|HIDE_EXCESS_HAIR
+	atom_flags = PREVENT_CONTENTS_EXPLOSION|DIRLOCK
+	armor_protection_flags = HEAD
+	armor_features_flags = ARMOR_NO_DECAP
+	inventory_flags = BLOCKSHARPOBJ
+	inv_hide_flags = HIDEEARS|HIDE_EXCESS_HAIR
 	allowed = null
-	flags_equip_slot = ITEM_SLOT_HEAD
+	equip_slot_flags = ITEM_SLOT_HEAD
 	w_class = WEIGHT_CLASS_NORMAL
 
 	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 15, FIRE = 15, ACID = 15)
@@ -339,7 +339,7 @@
 	if(attachments_by_slot[ATTACHMENT_SLOT_STORAGE] && istype(attachments_by_slot[ATTACHMENT_SLOT_STORAGE], /obj/item/armor_module/storage))
 		var/obj/item/armor_module/storage/storage_module = attachments_by_slot[ATTACHMENT_SLOT_STORAGE]
 		if(storage_module.show_storage)
-			for(var/obj/item/stored AS in storage_module.storage.contents)
+			for(var/obj/item/stored AS in storage_module.contents)
 				if(istype(stored, /obj/item/ammo_magazine/handful))
 					standing.overlays += mutable_appearance(storage_module.show_storage_icon, icon_state = stored.icon_state, layer = COLLAR_LAYER)
 				else
@@ -350,11 +350,7 @@
 	standing.pixel_y = visorless_offset_y
 	return standing
 
-/obj/item/clothing/head/modular/on_pocket_insertion()
-	. = ..()
-	update_clothing_icon()
-
-/obj/item/clothing/head/modular/on_pocket_removal()
+/obj/item/clothing/head/modular/update_icon(updates)
 	. = ..()
 	update_clothing_icon()
 
