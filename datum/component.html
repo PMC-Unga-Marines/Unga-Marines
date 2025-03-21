@@ -16,7 +16,7 @@
 <h1>Component <aside>/<a href="datum.html">datum</a>/<a href="datum/component.html">component</a></aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L12">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L12">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 12"/></a></h1>
 
 <p>The component datum</p>
@@ -52,7 +52,7 @@ You probably want to call parent after you do your logic because at the end of t
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L39">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L39">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 39"/></a></h3>
         <p>Only set to true if you are able to properly transfer this component</p>
 <p>At a minimum <a href="datum/component.html#proc/RegisterWithParent" title="/datum/component">RegisterWithParent</a> and <a href="datum/component.html#proc/UnregisterFromParent" title="/datum/component">UnregisterFromParent</a> should be used</p>
@@ -60,14 +60,14 @@ You probably want to call parent after you do your logic because at the end of t
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L18">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L18">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 18"/></a></h3>
         <p>Defines how duplicate existing components are handled when added to a datum</p>
 <p>See <a href="code/__DEFINES/dcs/flags.html#define/COMPONENT_DUPE_ALLOWED" title="COMPONENT_DUPE_ALLOWED">COMPONENT_DUPE_*</a> definitions for available options</p><h3 id="var/dupe_type"><aside class="declaration">var </aside>dupe_type
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L27">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L27">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 27"/></a></h3>
         <p>The type to check for duplication</p>
 <p><code>null</code> means exact match on <code>type</code> (default)</p>
@@ -75,18 +75,18 @@ You probably want to call parent after you do your logic because at the end of t
             <aside>&ndash; /<a href="datum.html">datum</a></aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L30">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L30">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 30"/></a></h3>
         <p>The datum this components belongs to</p><h3 id="var/sources"><aside class="declaration">var </aside>sources
             <aside>&ndash; /list</aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L44">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L44">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 44"/></a></h3>
         <p>A lazy list of the sources for this component</p><h2 id="proc">Proc Details</h2><h3 id="proc/CheckDupeComponent"><aside class="declaration">proc </aside>CheckDupeComponent<aside>(/<a href="datum.html">datum</a>/<a href="datum/component.html">component</a>/C, ...) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L205">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L205">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 205"/></a></aside>
         </h3>
         <p>Called on a component when a component of the same type was added to the same parent with <a href="code/__DEFINES/dcs/flags.html#define/COMPONENT_DUPE_SELECTIVE" title="COMPONENT_DUPE_SELECTIVE">COMPONENT_DUPE_SELECTIVE</a></p>
@@ -95,7 +95,7 @@ You probably want to call parent after you do your logic because at the end of t
 <p>return TRUE if you are absorbing the component, otherwise FALSE if you are fine having it exist as a duplicate component</p><h3 id="proc/Destroy"><aside class="parent"><a title="/datum" href="datum.html#proc/Destroy">&uarr;</a></aside>Destroy<aside>(force) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L76">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L76">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 76"/></a></aside>
         </h3>
         <p>Properly removes the component from <code>parent</code> and cleans up references</p>
@@ -106,7 +106,7 @@ You probably want to call parent after you do your logic because at the end of t
 </ul><h3 id="proc/InheritComponent"><aside class="declaration">proc </aside>InheritComponent<aside>(/<a href="datum.html">datum</a>/<a href="datum/component.html">component</a>/C, i_am_original) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L192">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L192">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 192"/></a></aside>
         </h3>
         <p>Called on a component when a component of the same type was added to the same parent</p>
@@ -114,14 +114,14 @@ You probably want to call parent after you do your logic because at the end of t
 <p><code>C</code>'s type will always be the same of the called component</p><h3 id="proc/Initialize"><aside class="declaration">proc </aside>Initialize<aside>(...) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L66">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L66">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 66"/></a></aside>
         </h3>
         <p>Called during component creation with the same arguments as in new excluding parent.</p>
 <p>Do not call <code>qdel(src)</code> from this function, <code>return COMPONENT_INCOMPATIBLE</code> instead</p><h3 id="proc/New">New<aside>(/list/raw_args) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L52">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L52">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 52"/></a></aside>
         </h3>
         <p>Create a new component.</p>
@@ -132,7 +132,7 @@ You probably want to call parent after you do your logic because at the end of t
 </ul><h3 id="proc/PostTransfer"><aside class="declaration">proc </aside>PostTransfer<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L224">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L224">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 224"/></a></aside>
         </h3>
         <p>Callback Just after a component is transferred</p>
@@ -140,14 +140,14 @@ You probably want to call parent after you do your logic because at the end of t
 <p>Do not call <code>qdel(src)</code> from this function, <code>return COMPONENT_INCOMPATIBLE</code> instead</p><h3 id="proc/PreTransfer"><aside class="declaration">proc </aside>PreTransfer<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L214">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L214">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 214"/></a></aside>
         </h3>
         <p>Callback Just before this component is transferred</p>
 <p>Use this to do any special cleanup you might need to do before being deregged from an object</p><h3 id="proc/RegisterWithParent"><aside class="declaration">proc </aside>RegisterWithParent<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L149">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L149">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 149"/></a></aside>
         </h3>
         <p>Register the component with the parent object</p>
@@ -155,13 +155,13 @@ You probably want to call parent after you do your logic because at the end of t
 <p>Overridable proc that's called when added to a new parent</p><h3 id="proc/RemoveComponent"><aside class="declaration">proc </aside>RemoveComponent<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L433">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L433">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 433"/></a></aside>
         </h3>
         <p>Removes the component from parent, ends up with a null parent</p><h3 id="proc/UnregisterFromParent"><aside class="declaration">proc </aside>UnregisterFromParent<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L160">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L160">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 160"/></a></aside>
         </h3>
         <p>Unregister from our parent object</p>
@@ -169,45 +169,45 @@ You probably want to call parent after you do your logic because at the end of t
 <p>Overridable proc that's called when removed from a parent</p><h3 id="proc/_GetInverseTypeList"><aside class="declaration">proc </aside>_GetInverseTypeList<aside>(our_type) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L230">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L230">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 230"/></a></aside>
         </h3>
         <p>Internal proc to create a list of our type and all parent types</p><h3 id="proc/_JoinParent"><aside class="declaration">proc </aside>_JoinParent<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L86">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L86">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 86"/></a></aside>
         </h3>
         <p>Internal proc to handle behaviour of components when joining a parent</p><h3 id="proc/_RemoveFromParent"><aside class="declaration">proc </aside>_RemoveFromParent<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L124">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L124">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 124"/></a></aside>
         </h3>
         <p>Internal proc to handle behaviour when being removed from a parent</p><h3 id="proc/on_source_add"><aside class="declaration">proc </aside>on_source_add<aside>(source, ...) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L167">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L167">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 167"/></a></aside>
         </h3>
         <p>Called when the component has a new source registered.
 Return COMPONENT_INCOMPATIBLE to signal that the source is incompatible and should not be added</p><h3 id="proc/on_source_remove"><aside class="declaration">proc </aside>on_source_remove<aside>(source) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L177">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L177">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 177"/></a></aside>
         </h3>
         <p>Called when the component has a source removed.
 You probably want to call parent after you do your logic because at the end of this we qdel if we have no sources remaining!</p><h3 id="proc/ui_host"><aside class="parent"><a title="/datum" href="datum.html#proc/ui_host">&uarr;</a></aside>ui_host<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/48f8bcd4d5941499bc7b74b30412c69acb8b81b6/code/datums/components/_component.dm#L491">
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/27ed077e26b1d2274cae0daad014083e7225af5a/code/datums/components/_component.dm#L491">
         <img src="git.png" width="16" height="16" title="code&#x2F;datums&#x2F;components&#x2F;_component.dm 491"/></a></aside>
         </h3>
         <p>Return the object that is the host of any UI's that this component has</p></main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/48f8bcd4d5941499bc7b74b30412c69acb8b81b6">48f8bcd</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/27ed077e26b1d2274cae0daad014083e7225af5a">27ed077</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
