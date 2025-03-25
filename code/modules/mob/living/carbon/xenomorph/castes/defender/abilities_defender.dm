@@ -484,7 +484,7 @@
 
 /datum/action/ability/activable/xeno/headbutt
 	name = "Headbutt"
-	desc = "Headbutts into the designated target"
+	desc = "Headbutts into the designated target."
 	action_icon_state = "headbutt"
 	action_icon = 'icons/Xeno/actions/defender.dmi'
 	cooldown_duration = 5 SECONDS
@@ -521,12 +521,8 @@
 		if(!CHECK_BITFIELD(use_state_flags|override_flags, ABILITY_IGNORE_DEAD_TARGET) && victim.stat == DEAD)
 			return FALSE
 
-/datum/action/ability/activable/xeno/headbutt/use_ability(atom/target)
+/datum/action/ability/activable/xeno/headbutt/use_ability(mob/living/victim)
 	var/mob/living/carbon/xenomorph/defender/xeno_owner = owner
-	var/mob/living/victim = target
-
-	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "headbutts")
-
 	var/headbutt_distance = 1 + (xeno_owner.crest_defense * 2) + (xeno_owner.fortify * 2)
 	var/headbutt_damage = base_damage - (xeno_owner.crest_defense * 10)
 
@@ -559,9 +555,11 @@
 	succeed_activate()
 	add_cooldown()
 
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "headbutts")
+
 /datum/action/ability/xeno_action/soak
 	name = "soak"
-	desc = "When activated tracks damaged taken for 6 seconds, once the amount of damage reaches 140, the Defender is healed by 75 and the Tail Slam cooldown is reset. If the damage threshold is not reached, nothing happens."
+	desc = "When activated tracks damaged taken for 6 seconds, once the amount of damage reaches 140, the Defender is healed by 80. If the damage threshold is not reached, nothing happens."
 	action_icon_state = "soak"
 	action_icon = 'icons/Xeno/actions/defender.dmi'
 	cooldown_duration = 17 SECONDS
@@ -586,7 +584,6 @@
 	addtimer(CALLBACK(src, PROC_REF(stop_accumulating)), 6 SECONDS)
 
 	xeno_owner.balloon_alert(xeno_owner, "begins to tank incoming damage!")
-
 	to_chat(xeno_owner, span_xenonotice("We begin to tank incoming damage!"))
 
 	xeno_owner.add_filter("steelcrest_enraging", 1, list("type" = "outline", "color" = "#421313", "size" = 1))
@@ -600,7 +597,7 @@
 	damage_accumulated += damage
 
 	if(damage_accumulated >= damage_threshold)
-		addtimer(CALLBACK(src, PROC_REF(enraged), owner), 0.1 SECONDS) //CM use timer, so i do
+		INVOKE_ASYNC(src, PROC_REF(enraged), owner)
 		UnregisterSignal(owner, COMSIG_XENOMORPH_TAKING_DAMAGE) // Two Unregistersignal because if the enrage proc doesnt happen, then it needs to stop counting
 
 /datum/action/ability/xeno_action/soak/proc/stop_accumulating()
@@ -610,21 +607,18 @@
 	to_chat(owner, span_xenonotice("We stop taking incoming damage."))
 	owner.remove_filter("steelcrest_enraging")
 
-/datum/action/ability/xeno_action/soak/proc/enraged()
-	owner.remove_filter("steelcrest_enraging")
-	owner.add_filter("steelcrest_enraged", 1, list("type" = "outline", "color" = "#ad1313", "size" = 1))
+/datum/action/ability/xeno_action/soak/proc/enraged(mob/living/carbon/xenomorph/enraged_mob)
+	enraged_mob.remove_filter("steelcrest_enraging")
+	enraged_mob.add_filter("steelcrest_enraged", 1, list("type" = "outline", "color" = "#ad1313", "size" = 1))
 
-	owner.visible_message(span_xenowarning("[owner] gets enraged after being damaged enough!"), \
-	span_xenowarning("We feel enraged after taking in oncoming damage! Our tail slam's cooldown is reset and we heal!"))
+	enraged_mob.visible_message(span_warning("[enraged_mob] gets enraged after being damaged enough!"), \
+	span_warning("We feel enraged after taking in oncoming damage!"))
+	enraged_mob.emote("roar") // reeeeeeeeeee
 
-	var/mob/living/carbon/xenomorph/enraged_mob = owner
 	enraged_mob.heal_xeno_damage(heal_amount, FALSE)
 	enraged_mob.adjust_sunder(-heal_sunder_amount)
 
-	addtimer(CALLBACK(src, PROC_REF(remove_enrage), owner), 3 SECONDS)
-
-/datum/action/ability/xeno_action/soak/proc/remove_enrage()
-	owner.remove_filter("steelcrest_enraged")
+	addtimer(CALLBACK(enraged_mob, TYPE_PROC_REF(/atom, remove_filter), "steelcrest_enraged"), 3 SECONDS)
 
 /datum/action/ability/xeno_action/fortify/steel_crest
 	move_on_fortifed = TRUE
