@@ -52,8 +52,8 @@
 		/datum/action/ability/xeno_action/place_trap,
 		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/activable/xeno/xeno_spit,
-		/datum/action/ability/activable/xeno/spray_acid/line/short,
 		/datum/action/ability/activable/xeno/scatter_spit/praetorian,
+		/datum/action/ability/activable/xeno/spray_acid/line/short,
 		/datum/action/ability/activable/xeno/charge/dash,
 	)
 
@@ -74,8 +74,8 @@
 		/datum/action/ability/xeno_action/place_trap,
 		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/activable/xeno/xeno_spit,
-		/datum/action/ability/activable/xeno/spray_acid/line/short,
 		/datum/action/ability/activable/xeno/scatter_spit/praetorian,
+		/datum/action/ability/activable/xeno/spray_acid/line/short,
 		/datum/action/ability/activable/xeno/spray_acid/cone,
 		/datum/action/ability/activable/xeno/charge/dash,
 	)
