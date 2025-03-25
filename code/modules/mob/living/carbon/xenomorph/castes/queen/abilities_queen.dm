@@ -3,8 +3,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/hive_message
 	name = "Hive Message" // Also known as Word of Queen.
-	action_icon_state = "queen_order"
 	desc = "Announces a message to the hive."
+	action_icon_state = "queen_order"
+	action_icon = 'icons/Xeno/actions/general.dmi'
 	ability_cost = 50
 	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
@@ -56,14 +57,14 @@
 	succeed_activate()
 	add_cooldown()
 
-
 // ***************************************
 // *********** Screech
 // ***************************************
 /datum/action/ability/activable/xeno/screech
 	name = "Screech"
-	action_icon_state = "screech"
 	desc = "A large area knockdown that causes pain and screen-shake."
+	action_icon_state = "screech"
+	action_icon = 'icons/Xeno/actions/queen.dmi'
 	ability_cost = 250
 	cooldown_duration = 90 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
@@ -118,7 +119,6 @@
 	if(frenzy_screech)
 		frenzy_screech.add_cooldown(15 SECONDS)
 
-
 /datum/action/ability/activable/xeno/screech/ai_should_start_consider()
 	return TRUE
 
@@ -135,17 +135,18 @@
 
 /datum/action/ability/activable/xeno/plasma_screech
 	name = "Plasma Screech"
-	action_icon_state = "plasma_screech"
 	desc = "Screech that increases plasma regeneration for nearby xenos."
+	action_icon_state = "plasma_screech"
+	action_icon = 'icons/Xeno/actions/queen.dmi'
 	ability_cost = 300
 	cooldown_duration = 45 SECONDS
-	var/screech_range = 5
-	var/bonus_regen = 0.5
-	var/duration = 20 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PLASMA_SCREECH,
 	)
+	var/screech_range = 5
+	var/bonus_regen = 0.5
+	var/duration = 20 SECONDS
 
 /datum/action/ability/activable/xeno/plasma_screech/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/queen/X = owner
@@ -170,17 +171,18 @@
 
 /datum/action/ability/activable/xeno/frenzy_screech
 	name = "Frenzy Screech"
-	action_icon_state = "frenzy_screech"
 	desc = "Screech that increases damage for nearby xenos."
+	action_icon_state = "frenzy_screech"
+	action_icon = 'icons/Xeno/actions/queen.dmi'
 	ability_cost = 300
 	cooldown_duration = 45 SECONDS
-	var/screech_range = 5
-	var/buff_duration = 20 SECONDS
-	var/buff_damage_modifier = 0.1
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_FRENZY_SCREECH,
 	)
+	var/screech_range = 5
+	var/buff_duration = 20 SECONDS
+	var/buff_damage_modifier = 0.1
 
 /datum/action/ability/activable/xeno/frenzy_screech/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/queen/X = owner
@@ -220,8 +222,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/watch_xeno
 	name = "Watch Xenomorph"
-	action_icon_state = "watch_xeno"
 	desc = "See from the target Xenomorphs vision. Click again the ability to stop observing"
+	action_icon_state = "watch_xeno"
+	action_icon = 'icons/Xeno/actions/queen.dmi'
 	ability_cost = 0
 	use_state_flags = ABILITY_USE_LYING
 	hidden = TRUE
@@ -308,13 +311,13 @@
 // ***************************************
 /datum/action/ability/xeno_action/toggle_queen_zoom
 	name = "Toggle Queen Zoom"
-	action_icon_state = "toggle_queen_zoom"
 	desc = "Zoom out for a larger view around wherever you are looking."
+	action_icon_state = "toggle_queen_zoom"
+	action_icon = 'icons/Xeno/actions/queen.dmi'
 	ability_cost = 0
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_QUEEN_ZOOM,
 	)
-
 
 /datum/action/ability/xeno_action/toggle_queen_zoom/action_activate()
 	var/mob/living/carbon/xenomorph/queen/xeno = owner
@@ -343,18 +346,17 @@
 		span_notice("We stop the effort of expanding our senses."), null, 5)
 	xeno.zoom_out()
 
-
 /datum/action/ability/xeno_action/toggle_queen_zoom/proc/on_movement(datum/source, atom/oldloc, direction, Forced)
 	zoom_xeno_out()
-
 
 // ***************************************
 // *********** Set leader
 // ***************************************
 /datum/action/ability/xeno_action/set_xeno_lead
 	name = "Choose/Follow Xenomorph Leaders"
-	action_icon_state = "xeno_lead"
 	desc = "Make a target Xenomorph a leader."
+	action_icon_state = "xeno_lead"
+	action_icon = 'icons/Xeno/actions/queen.dmi'
 	ability_cost = 200
 	use_state_flags = ABILITY_USE_LYING
 	hidden = TRUE
@@ -399,31 +401,11 @@
 
 	selected_xeno.update_leader_icon(FALSE)
 
-/* RUTGMC DELETION
-/// Promote the passed xeno to a hive leader, should not be called direct
-/datum/action/ability/xeno_action/set_xeno_lead/proc/set_xeno_leader(mob/living/carbon/xenomorph/selected_xeno)
-	var/mob/living/carbon/xenomorph/xeno_ruler = owner
-	if(!(selected_xeno.xeno_caste.can_flags & CASTE_CAN_BE_LEADER))
-		xeno_ruler.balloon_alert(xeno_ruler, "Xeno cannot lead")
-		return
-	xeno_ruler.balloon_alert(xeno_ruler, "Xeno promoted")
-	selected_xeno.balloon_alert(selected_xeno, "Promoted to leader")
-	to_chat(selected_xeno, span_xenoannounce("[xeno_ruler] has selected us as a Hive Leader. The other Xenomorphs must listen to us. We will also act as a beacon for the Queen's pheromones."))
-
-	xeno_ruler.hive.add_leader(selected_xeno)
-	selected_xeno.hud_set_queen_overwatch()
-	selected_xeno.handle_xeno_leader_pheromones(xeno_ruler)
-	notify_ghosts("\ [xeno_ruler] has designated [selected_xeno] as a Hive Leader", source = selected_xeno, action = NOTIFY_ORBIT)
-
-	selected_xeno.update_leader_icon(TRUE)
-*/
-
 // ***************************************
 // *********** Queen Acidic Salve
 // ***************************************
 /datum/action/ability/activable/xeno/psychic_cure/queen_give_heal
 	name = "Heal"
-	action_icon_state = "heal_xeno"
 	desc = "Apply a minor heal to the target."
 	cooldown_duration = 5 SECONDS
 	ability_cost = 150
@@ -456,9 +438,9 @@
 	var/amount = 50
 	if(recovery_aura)
 		amount += recovery_aura * maxHealth * 0.01
-	var/remainder = max(0, amount - getBruteLoss())
-	adjustBruteLoss(-amount)
-	adjustFireLoss(-remainder, updating_health = TRUE)
+	var/remainder = max(0, amount - get_brute_loss())
+	adjust_brute_loss(-amount)
+	adjust_fire_loss(-remainder, updating_health = TRUE)
 	adjust_sunder(-amount * 0.1)
 
 // ***************************************
@@ -466,8 +448,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/queen_give_plasma
 	name = "Give Plasma"
-	action_icon_state = "queen_give_plasma"
 	desc = "Give plasma to a target Xenomorph (you must be overwatching them.)"
+	action_icon_state = "queen_give_plasma"
+	action_icon = 'icons/Xeno/actions/queen.dmi'
 	ability_cost = 150
 	cooldown_duration = 8 SECONDS
 	keybinding_signals = list(
@@ -500,7 +483,6 @@
 		if(!silent)
 			receiver.balloon_alert(owner, "Cannot give plasma, full")
 		return FALSE
-
 
 /datum/action/ability/activable/xeno/queen_give_plasma/give_action(mob/living/L)
 	. = ..()

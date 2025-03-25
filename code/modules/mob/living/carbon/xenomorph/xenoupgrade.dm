@@ -302,6 +302,9 @@
 /mob/living/carbon/xenomorph/defender/primordial
 	upgrade = XENO_UPGRADE_PRIMO
 
+/mob/living/carbon/xenomorph/defender/steel_crest/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
 //---DEFENDER END---//
 //============//
 //----WARRIOR START----//

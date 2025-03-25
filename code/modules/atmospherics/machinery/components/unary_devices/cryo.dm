@@ -45,17 +45,17 @@
 		return
 	if(occupant.stat == DEAD)
 		return
-	if(!occupant.getBruteLoss(TRUE) && !occupant.getFireLoss(TRUE) && !occupant.getCloneLoss() && autoeject) //release the patient automatically when brute and burn are handled on non-robotic limbs
+	if(!occupant.get_brute_loss(TRUE) && !occupant.get_fire_loss(TRUE) && !occupant.get_clone_Loss() && autoeject) //release the patient automatically when brute and burn are handled on non-robotic limbs
 		go_out(TRUE)
 		return
 	occupant.bodytemperature = 100 //Atmos is long gone, we'll just set temp directly.
 	occupant.Sleeping(20 SECONDS)
 
 	//You'll heal slowly just from being in an active pod, but chemicals speed it up.
-	if(occupant.getOxyLoss())
-		occupant.adjustOxyLoss(-1)
-	if (occupant.getToxLoss())
-		occupant.adjustToxLoss(-1)
+	if(occupant.get_oxy_loss())
+		occupant.adjust_oxy_loss(-1)
+	if (occupant.get_tox_loss())
+		occupant.adjust_tox_loss(-1)
 	occupant.heal_overall_damage(1, 1, updating_health = TRUE)
 	var/has_cryo = occupant.reagents.get_reagent_amount(/datum/reagent/medicine/cryoxadone) >= 1
 	var/has_clonexa = occupant.reagents.get_reagent_amount(/datum/reagent/medicine/clonexadone) >= 1
@@ -371,10 +371,10 @@
 		data["occupant"]["health"] = round(mob_occupant.health, 1)
 		data["occupant"]["maxHealth"] = mob_occupant.maxHealth
 		data["occupant"]["minHealth"] = mob_occupant.health_threshold_dead
-		data["occupant"]["bruteLoss"] = round(mob_occupant.getBruteLoss(), 1)
-		data["occupant"]["oxyLoss"] = round(mob_occupant.getOxyLoss(), 1)
-		data["occupant"]["toxLoss"] = round(mob_occupant.getToxLoss(), 1)
-		data["occupant"]["fireLoss"] = round(mob_occupant.getFireLoss(), 1)
+		data["occupant"]["bruteLoss"] = round(mob_occupant.get_brute_loss(), 1)
+		data["occupant"]["oxyLoss"] = round(mob_occupant.get_oxy_loss(), 1)
+		data["occupant"]["toxLoss"] = round(mob_occupant.get_tox_loss(), 1)
+		data["occupant"]["fireLoss"] = round(mob_occupant.get_fire_loss(), 1)
 		data["occupant"]["bodyTemperature"] = round(mob_occupant.bodytemperature, 1)
 		if(mob_occupant.bodytemperature < 255)
 			data["occupant"]["temperaturestatus"] = "good"

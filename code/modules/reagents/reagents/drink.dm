@@ -17,7 +17,7 @@
 	if(adj_dizzy != 0)
 		L.dizzy(adj_dizzy)
 	if(adj_drowsy != 0)
-		L.adjustDrowsyness(adj_drowsy)
+		L.adjust_drowsyness(adj_drowsy)
 	if(adj_sleepy != 0)
 		L.AdjustSleeping(adj_sleepy)
 	return ..()
@@ -29,7 +29,7 @@
 	taste_description = "oranges"
 
 /datum/reagent/consumable/drink/orangejuice/on_mob_life(mob/living/L, metabolism)
-	L.adjustOxyLoss(-0.3)
+	L.adjust_oxy_loss(-0.3)
 	return ..()
 
 /datum/reagent/consumable/drink/tomatojuice
@@ -50,7 +50,7 @@
 	taste_description = "unbearable sourness"
 
 /datum/reagent/consumable/drink/limejuice/on_mob_life(mob/living/L, metabolism)
-	L.adjustToxLoss(-0.2)
+	L.adjust_tox_loss(-0.2)
 	return ..()
 
 /datum/reagent/consumable/drink/carrotjuice
@@ -107,7 +107,7 @@
 	taste_description = "berries"
 
 /datum/reagent/consumable/drink/poisonberryjuice/on_mob_life(mob/living/L, metabolism)
-	L.adjustToxLoss(1)
+	L.adjust_tox_loss(1)
 	return ..()
 
 /datum/reagent/consumable/drink/watermelonjuice
@@ -254,24 +254,24 @@
 /datum/reagent/consumable/drink/atomiccoffee/on_mob_delete(mob/living/L, metabolism)
 	L.remove_movespeed_modifier(type)
 	var/amount = (current_cycle * 0.5) // 15/cup
-	L.adjustStaminaLoss(amount)
+	L.adjust_stamina_loss(amount)
 
 
 /datum/reagent/consumable/drink/atomiccoffee/on_mob_life(mob/living/L, metabolism)
 	switch(current_cycle)
 		if(1 to 10)
-			L.adjustStaminaLoss(-effect_str)
+			L.adjust_stamina_loss(-effect_str)
 		if(11 to 30)
-			L.adjustStaminaLoss(-0.5*effect_str)
+			L.adjust_stamina_loss(-0.5*effect_str)
 		if(11 to 60)
-			L.adjustStaminaLoss(-0.25*effect_str)
+			L.adjust_stamina_loss(-0.25*effect_str)
 			L.jitter(1)
 		if(61 to 150)
-			L.adjustStaminaLoss(0.25*effect_str)
+			L.adjust_stamina_loss(0.25*effect_str)
 			L.apply_damage(5, TOX)
 			L.jitter(2)
 		if(151 to INFINITY)
-			L.adjustStaminaLoss(2.5*effect_str)
+			L.adjust_stamina_loss(2.5*effect_str)
 			L.apply_damage(10, TOX) //You're having a bad day.
 			L.jitter(5)
 	return ..()
@@ -320,7 +320,7 @@
 	adj_temp = 10
 
 /datum/reagent/consumable/drink/tea/on_mob_life(mob/living/L, metabolism)
-	L.adjustToxLoss(-0.2)
+	L.adjust_tox_loss(-0.2)
 	return ..()
 
 /datum/reagent/consumable/drink/tea/icetea
@@ -473,12 +473,12 @@
 	L.adjust_timed_status_effect(2 SECONDS, /datum/status_effect/speech/slurring/drunk)
 	switch(current_cycle)
 		if(40 to 49)
-			L.adjustDrowsyness(2)
+			L.adjust_drowsyness(2)
 		if(51 to 200)
 			L.Sleeping(6 SECONDS)
 		if(201 to INFINITY)
 			L.Sleeping(6 SECONDS)
-			L.adjustToxLoss(2)
+			L.adjust_tox_loss(2)
 	return ..()
 
 /datum/reagent/consumable/drink/gargle_blaster
@@ -508,7 +508,7 @@
 			L.set_drugginess(50)
 			L.AdjustConfused(4 SECONDS)
 			L.adjust_timed_status_effect(2 SECONDS, /datum/status_effect/speech/slurring/drunk)
-			L.adjustToxLoss(2)
+			L.adjust_tox_loss(2)
 			L.jitter(5)
 			if(prob(10))
 				L.vomit()
@@ -537,7 +537,7 @@
 			L.set_drugginess(30)
 		if(201 to INFINITY)
 			L.set_drugginess(30)
-			L.adjustToxLoss(2)
+			L.adjust_tox_loss(2)
 	return ..()
 
 /datum/reagent/consumable/drink/hippies_delight
@@ -573,5 +573,5 @@
 			L.set_drugginess(75)
 			if(prob(40))
 				L.emote(pick("twitch","giggle"))
-			L.adjustToxLoss(0.6)
+			L.adjust_tox_loss(0.6)
 	return ..()

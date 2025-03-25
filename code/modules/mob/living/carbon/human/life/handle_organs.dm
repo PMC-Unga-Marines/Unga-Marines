@@ -17,7 +17,7 @@
 
 	var/leg_tally = 0
 
-	last_dam = getBruteLoss() + getFireLoss() + getToxLoss()
+	last_dam = get_brute_loss() + get_fire_loss() + get_tox_loss()
 
 	for(var/datum/internal_organ/I in internal_organs)
 		I.process()

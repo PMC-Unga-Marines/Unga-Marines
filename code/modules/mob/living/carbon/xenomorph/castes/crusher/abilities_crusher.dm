@@ -3,8 +3,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/stomp
 	name = "Stomp"
-	action_icon_state = "stomp"
 	desc = "Knocks all adjacent targets away and down. Deals extra damage if on the same turf with the target. "
+	action_icon_state = "stomp"
+	action_icon = 'icons/Xeno/actions/crusher.dmi'
 	ability_cost = 100
 	cooldown_duration = 20 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
@@ -60,8 +61,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/cresttoss
 	name = "Crest Toss Away"
-	action_icon_state = "cresttoss_away"
 	desc = "Fling an adjacent target away from you. Shares the cooldown with the Crest Toss Behind!"
+	action_icon_state = "cresttoss_away"
+	action_icon = 'icons/Xeno/actions/crusher.dmi'
 	ability_cost = 75
 	cooldown_duration = 12 SECONDS
 	keybinding_signals = list(
@@ -153,8 +155,8 @@
 
 /datum/action/ability/activable/xeno/cresttoss/behind
 	name = "Crest Toss Behind"
-	action_icon_state = "cresttoss_behind"
 	desc = "Fling an adjacent target behind you. Also works over barricades. Shares the cooldown with the Crest Toss Away!"
+	action_icon_state = "cresttoss_behind"
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CRESTTOSS_BEHIND,
 	)
@@ -180,8 +182,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/advance
 	name = "Rapid Advance"
-	action_icon_state = "crest_defense"
 	desc = "Charges up the crushers charge in place, then unleashes the full bulk of the crusher at the target location. Does not crush in diagonal directions."
+	action_icon_state = "crest_defense"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	ability_cost = 175
 	cooldown_duration = 30 SECONDS
 	keybinding_signals = list(
@@ -202,7 +205,6 @@
 
 	if(get_dist(owner, A) > advance_range)
 		return FALSE
-
 
 /datum/action/ability/activable/xeno/advance/use_ability(atom/A)
 	var/mob/living/carbon/xenomorph/X = owner
@@ -247,8 +249,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/regenerate_skin/crusher
 	name = "Regenerate Armor"
-	action_icon_state = "regenerate_skin"
 	desc = "Regenerate your hard exoskeleton armor, removing all sunder."
+	action_icon_state = "regenerate_skin"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	use_state_flags = ABILITY_TARGET_SELF|ABILITY_IGNORE_SELECTED_ABILITY
 	ability_cost = 400
 	cooldown_duration = 90 SECONDS

@@ -223,7 +223,7 @@
 
 	msg += "</span>"
 
-	if(getBrainLoss() >= 60)
+	if(get_brain_loss() >= 60)
 		msg += "[t_He] [t_has] a stupid expression on [t_his] face.\n"
 
 	if((!species.has_organ[ORGAN_SLOT_BRAIN] || has_brain()) && stat != DEAD)
@@ -236,9 +236,9 @@
 			else
 				msg += "[span_deadsay("[t_He] [t_is] completely unresponsive to anything and has fallen asleep, as if affected by Space Sleep Disorder. [t_He] may snap out of it soon.")]\n"
 
-	var/total_brute = getBruteLoss()
-	var/total_burn = getFireLoss()
-	var/total_clone = getCloneLoss()
+	var/total_brute = get_brute_loss()
+	var/total_burn = get_fire_loss()
+	var/total_clone = get_clone_Loss()
 	if(total_brute)
 		if (total_brute < 25)
 			if(species.species_flags & ROBOTIC_LIMBS)

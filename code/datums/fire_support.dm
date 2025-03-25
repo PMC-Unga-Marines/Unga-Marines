@@ -155,7 +155,7 @@
 	for(var/target in strafed)
 		if(isliving(target))
 			var/mob/living/living_target = target
-			living_target.adjustFireLoss(100)
+			living_target.adjust_fire_loss(100)
 			living_target.adjust_fire_stacks(20)
 			living_target.IgniteMob()
 		else if(ismecha(target))

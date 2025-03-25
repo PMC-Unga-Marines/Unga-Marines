@@ -165,7 +165,7 @@
 	victim.jitter(5)
 	if(prob(10))
 		victim.emote("scream")
-		victim.adjustBrainLoss(5)
+		victim.adjust_brain_loss(5)
 	if(victim.stat != DEAD)
 		return TRUE
 

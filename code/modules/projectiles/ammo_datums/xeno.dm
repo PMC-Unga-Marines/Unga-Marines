@@ -448,7 +448,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 	victim.Paralyze(hit_paralyze_time)
 	victim.blur_eyes(hit_eye_blur)
-	victim.adjustDrowsyness(hit_drowsyness)
+	victim.adjust_drowsyness(hit_drowsyness)
 
 	if(!reagent_transfer_amount || !iscarbon(victim))
 		return

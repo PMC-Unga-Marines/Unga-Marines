@@ -1,97 +1,90 @@
-
 //procs directly related to mob health
-
-
-/mob/living/proc/getBruteLoss(organic_only = FALSE)
+/mob/living/proc/get_brute_loss(organic_only = FALSE)
 	return bruteloss
 
 ///We straight up set bruteloss/brute damage to a desired amount unless godmode is enabled
-/mob/living/proc/setBruteLoss(amount)
+/mob/living/proc/set_brute_loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE
 	bruteloss = amount
 
-/mob/living/proc/adjustBruteLoss(amount, updating_health = FALSE)
+/mob/living/proc/adjust_brute_loss(amount, updating_health = FALSE)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	bruteloss = clamp(bruteloss + amount, 0, maxHealth * 2)
 	if(updating_health)
-		updatehealth()
+		update_health()
 
-
-/mob/living/proc/getFireLoss(organic_only = FALSE)
+/mob/living/proc/get_fire_loss(organic_only = FALSE)
 	return fireloss
 
 ///We straight up set fireloss/burn damage to a desired amount unless godmode is enabled
-/mob/living/proc/setFireLoss(amount)
+/mob/living/proc/set_fire_loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE
 	fireloss = amount
 
-/mob/living/proc/adjustFireLoss(amount, updating_health = FALSE)
+/mob/living/proc/adjust_fire_loss(amount, updating_health = FALSE)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	fireloss = clamp(fireloss + amount, 0, maxHealth * 2)
 
 	if(updating_health)
-		updatehealth()
+		update_health()
 
-
-/mob/living/proc/getOxyLoss()
+/mob/living/proc/get_oxy_loss()
 	return oxyloss
 
-/mob/living/proc/adjustOxyLoss(amount)
+/mob/living/proc/adjust_oxy_loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	oxyloss = clamp(oxyloss + amount, 0, maxHealth * 2)
 
-/mob/living/proc/setOxyLoss(amount)
+/mob/living/proc/set_oxy_loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	oxyloss = amount
 
-
-/mob/living/proc/getToxLoss()
+/mob/living/proc/get_tox_loss()
 	return toxloss
 
-/mob/living/proc/adjustToxLoss(amount)
+/mob/living/proc/adjust_tox_loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	toxloss = clamp(toxloss + amount, 0, maxHealth * 2)
 
-/mob/living/proc/setToxLoss(amount)
+/mob/living/proc/set_tox_loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	toxloss = amount
 
-
-/mob/living/proc/getStaminaLoss()
+/mob/living/proc/get_stamina_loss()
 	return staminaloss
 
-/mob/living/proc/adjustStaminaLoss(amount, update = TRUE, feedback = TRUE)
+/mob/living/proc/adjust_stamina_loss(amount, update = TRUE, feedback = TRUE)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 
 	var/stamina_loss_adjustment = staminaloss + amount
 	var/health_limit = maxHealth * 2
 	if(stamina_loss_adjustment > health_limit) //If we exceed maxHealth * 2 stamina damage, half of any excess as oxyloss
-		adjustOxyLoss((stamina_loss_adjustment - health_limit) * 0.5)
+		adjust_oxy_loss((stamina_loss_adjustment - health_limit) * 0.5)
 
 	staminaloss = clamp(stamina_loss_adjustment, -max_stamina, health_limit)
 
 	if(amount > 0)
 		last_staminaloss_dmg = world.time
 	if(update)
-		updateStamina(feedback)
+		update_stamina(feedback)
 
-/mob/living/proc/setStaminaLoss(amount, update = TRUE, feedback = TRUE)
+/mob/living/proc/set_stamina_loss(amount, update = TRUE, feedback = TRUE)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	staminaloss = amount
 	if(update)
-		updateStamina(feedback)
+		update_stamina(feedback)
 
-/mob/living/proc/updateStamina(feedback = TRUE)
+/mob/living/proc/update_stamina(feedback = TRUE)
 	hud_used?.staminas?.update_icon()
 	if(staminaloss < max(health * 1.5,0) || !(COOLDOWN_CHECK(src, last_stamina_exhaustion))) //If we're on cooldown for stamina exhaustion, don't bother
 		return
@@ -132,37 +125,37 @@
 	SIGNAL_HANDLER
 	add_stamina_regen_modifier(SKILL_STAMINA, skills.getRating(SKILL_STAMINA) * STAMINA_SKILL_REGEN_MOD)
 
-/mob/living/proc/getCloneLoss()
+/mob/living/proc/get_clone_Loss()
 	return cloneloss
 
-/mob/living/proc/adjustCloneLoss(amount)
+/mob/living/proc/adjust_clone_Loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	cloneloss = clamp(cloneloss+amount,0,maxHealth*2)
 
-/mob/living/proc/setCloneLoss(amount)
+/mob/living/proc/set_clone_loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	cloneloss = amount
 
-/mob/living/proc/getBrainLoss()
+/mob/living/proc/get_brain_loss()
 	return brainloss
 
-/mob/living/proc/adjustBrainLoss(amount)
+/mob/living/proc/adjust_brain_loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	brainloss = clamp(brainloss+amount,0,maxHealth*2)
 
-/mob/living/proc/setBrainLoss(amount)
+/mob/living/proc/set_brain_loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	brainloss = amount
 
-/mob/living/proc/getMaxHealth()
+/mob/living/proc/get_max_health()
 	return maxHealth
 
-/mob/living/proc/setMaxHealth(newMaxHealth)
-	maxHealth = newMaxHealth
+/mob/living/proc/set_max_health(new_max_health)
+	maxHealth = new_max_health
 
 /mob/living/proc/Losebreath(amount, forced = FALSE)
 	return
@@ -173,12 +166,12 @@
 /mob/living/proc/set_Losebreath(amount, forced = FALSE)
 	return
 
-/mob/living/proc/adjustDrowsyness(amount)
+/mob/living/proc/adjust_drowsyness(amount)
 	if(status_flags & GODMODE)
 		return FALSE
-	setDrowsyness(max(drowsyness + amount, 0))
+	set_drowsyness(max(drowsyness + amount, 0))
 
-/mob/living/proc/setDrowsyness(amount)
+/mob/living/proc/set_drowsyness(amount)
 	if(status_flags & GODMODE)
 		return FALSE
 	if(drowsyness == amount)
@@ -191,32 +184,28 @@
 		return
 	remove_movespeed_modifier(MOVESPEED_ID_DROWSINESS)
 
-
 // heal ONE limb, organ gets randomly selected from damaged ones.
 /mob/living/proc/heal_limb_damage(brute, burn, robo_repair = FALSE, updating_health = FALSE)
-	adjustBruteLoss(-brute)
-	adjustFireLoss(-burn)
+	adjust_brute_loss(-brute)
+	adjust_fire_loss(-burn)
 	if(updating_health)
-		updatehealth()
-
+		update_health()
 
 // damage ONE limb, organ gets randomly selected from damaged ones.
 /mob/living/proc/take_limb_damage(brute, burn, sharp = FALSE, edge = FALSE, updating_health = FALSE)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
-	adjustBruteLoss(brute)
-	adjustFireLoss(burn)
+	adjust_brute_loss(brute)
+	adjust_fire_loss(burn)
 	if(updating_health)
-		updatehealth()
-
+		update_health()
 
 // heal MANY limbs, in random order
 /mob/living/proc/heal_overall_damage(brute, burn, robo_repair = FALSE, updating_health = FALSE)
-	adjustBruteLoss(-brute)
-	adjustFireLoss(-burn)
+	adjust_brute_loss(-brute)
+	adjust_fire_loss(-burn)
 	if(updating_health)
-		updatehealth()
-
+		update_health()
 
 ///Damages all limbs equally. Overridden by human, otherwise just does apply_damage
 /mob/living/proc/take_overall_damage(damage, damagetype, armortype, sharp = FALSE, edge = FALSE, updating_health = FALSE, penetration, max_limbs)
@@ -230,7 +219,7 @@
 	var/proportion_to_heal = (health_to_heal < (maxHealth - health)) ? (health_to_heal / (maxHealth - health)) : 1
 	for(var/datum/limb/limb AS in limbs)
 		limb.heal_limb_damage(limb.brute_dam * proportion_to_heal, limb.burn_dam * proportion_to_heal, robo_repair = TRUE)
-	updatehealth()
+	update_health()
 
 /mob/living/proc/on_revive()
 	SEND_SIGNAL(src, COMSIG_MOB_REVIVE)
@@ -261,11 +250,11 @@
 			continue
 		embedded.unembed_ourself()
 	// shut down various types of badness
-	setStaminaLoss(-50)
-	setToxLoss(0)
-	setOxyLoss(0)
-	setCloneLoss(0)
-	setBrainLoss(0)
+	set_stamina_loss(-50)
+	set_tox_loss(0)
+	set_oxy_loss(0)
+	set_clone_loss(0)
+	set_brain_loss(0)
 	remove_all_status_effect()
 	ExtinguishMob()
 	fire_stacks = 0
@@ -279,7 +268,7 @@
 	set_blindness(0, TRUE)
 	set_blurriness(0, TRUE)
 	set_ear_damage(0, 0)
-	heal_overall_damage(getBruteLoss(), getFireLoss(), robo_repair = TRUE)
+	heal_overall_damage(get_brute_loss(), get_fire_loss(), robo_repair = TRUE)
 	set_slowdown(0)
 
 	// fix all of our organs
@@ -296,7 +285,7 @@
 
 	// restore us to conciousness
 	set_stat(CONSCIOUS)
-	updatehealth()
+	update_health()
 
 	// make the icons look correct
 	regenerate_icons()
@@ -308,7 +297,6 @@
 
 	SSmobs.start_processing(src)
 	SEND_SIGNAL(src, COMSIG_LIVING_POST_FULLY_HEAL, admin_revive)
-
 
 /mob/living/carbon/revive(admin_revive = FALSE)
 	set_nutrition(400)
@@ -415,4 +403,3 @@
 	overlay_fullscreen_timer(2 SECONDS, 20, "roundstart2", /atom/movable/screen/fullscreen/spawning_in)
 	REMOVE_TRAIT(src, TRAIT_IS_RESURRECTING, REVIVE_TO_CRIT_TRAIT)
 	SSmobs.start_processing(src)
-

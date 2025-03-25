@@ -93,7 +93,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 /datum/reagent/consumable/ethanol/kahlua/on_mob_life(mob/living/L, metabolism)
 	L.dizzy(-4)
-	L.adjustDrowsyness(-2)
+	L.adjust_drowsyness(-2)
 	L.AdjustSleeping(-6 SECONDS)
 	L.jitter(5)
 	return ..()
@@ -138,7 +138,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	trait_flags = TACHYCARDIC
 
 /datum/reagent/consumable/ethanol/thirteenloko/on_mob_life(mob/living/L, metabolism)
-	L.adjustDrowsyness(-7)
+	L.adjust_drowsyness(-7)
 	L.AdjustSleeping(-80 SECONDS)
 	L.jitter(5)
 	return ..()
@@ -265,7 +265,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 			if(prob(10))
 				L.emote(pick("twitch","giggle"))
 			if(prob(30))
-				L.adjustToxLoss(0.5)
+				L.adjust_tox_loss(0.5)
 		if(120 to 199)
 			L.set_timed_status_effect(4 SECONDS, /datum/status_effect/speech/stutter, only_if_higher = TRUE)
 			L.hallucination = max(L.hallucination, 60)
@@ -275,7 +275,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 			if(prob(10))
 				L.emote(pick("twitch","giggle"))
 			if(prob(30))
-				L.adjustToxLoss(1)
+				L.adjust_tox_loss(1)
 			if(prob(5))
 				if(ishuman(L))
 					var/mob/living/carbon/human/H = L
@@ -284,7 +284,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 						E.take_damage(2)
 		if(200 to INFINITY)
 			L.set_timed_status_effect(5 SECONDS, /datum/status_effect/speech/stutter, only_if_higher = TRUE)
-			L.adjustToxLoss(1)
+			L.adjust_tox_loss(1)
 			L.hallucination = max(L.hallucination, 60)
 			L.jitter(4)
 			L.dizzy(4)

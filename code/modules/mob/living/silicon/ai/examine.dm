@@ -7,13 +7,13 @@
 		msg += "[span_deadsay("It appears to be powered-down.")]<br>"
 	else
 		msg += "<span class='warning'>"
-		if(getBruteLoss())
-			if(getBruteLoss() < 30)
+		if(get_brute_loss())
+			if(get_brute_loss() < 30)
 				msg += "It looks slightly dented.<br>"
 			else
 				msg += "<B>It looks severely dented!</B><br>"
-		if(getFireLoss())
-			if(getFireLoss() < 30)
+		if(get_fire_loss())
+			if(get_fire_loss() < 30)
 				msg += "It looks slightly charred.<br>"
 			else
 				msg += "<B>Its casing is melted and heat-warped!</B><br>"

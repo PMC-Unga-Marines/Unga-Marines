@@ -4,8 +4,9 @@
 
 /datum/action/ability/activable/xeno/nightfall
 	name = "Nightfall"
-	action_icon_state = "nightfall"
 	desc = "Shut down electrical lights for 10 seconds and extinguish flares in nearby range."
+	action_icon_state = "nightfall"
+	action_icon = 'icons/Xeno/actions/king.dmi'
 	cooldown_duration = 45 SECONDS
 	ability_cost = 150
 	keybinding_signals = list(
@@ -41,8 +42,9 @@
 #define PETRIFY_WINDUP_TIME 2 SECONDS
 /datum/action/ability/xeno_action/petrify
 	name = "Petrify"
-	action_icon_state = "petrify"
 	desc = "After a windup, petrifies all humans looking at you. While petrified humans are immune to damage, but also can't attack."
+	action_icon_state = "petrify"
+	action_icon = 'icons/Xeno/actions/king.dmi'
 	ability_cost = 100
 	cooldown_duration = 30 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
@@ -132,15 +134,15 @@
 #define OFF_GUARD_RANGE 8
 /datum/action/ability/activable/xeno/off_guard
 	name = "Off-guard"
-	action_icon_state = "off_guard"
 	desc = "Muddles the mind of an enemy, making it harder for them to focus their aim for a while."
+	action_icon_state = "off_guard"
+	action_icon = 'icons/Xeno/actions/king.dmi'
 	ability_cost = 100
 	cooldown_duration = 20 SECONDS
 	target_flags = ABILITY_MOB_TARGET
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_OFFGUARD,
 	)
-
 
 /datum/action/ability/activable/xeno/off_guard/can_use_ability(atom/A, silent = FALSE, override_flags)
 	. = ..()
@@ -188,8 +190,9 @@
 
 /datum/action/ability/activable/xeno/shattering_roar
 	name = "Shattering roar"
-	action_icon_state = "shattering_roar"
 	desc = "Unleash a mighty psychic roar, knocking down any foes in your path and weakening them."
+	action_icon_state = "shattering_roar"
+	action_icon = 'icons/Xeno/actions/king.dmi'
 	ability_cost = 225
 	cooldown_duration = 45 SECONDS
 	target_flags = ABILITY_TURF_TARGET
@@ -298,8 +301,9 @@
 #define ZEROFORM_TICK_RATE 0.3 SECONDS
 /datum/action/ability/xeno_action/zero_form_beam
 	name = "Zero-Form Energy Beam"
-	action_icon_state = "zero_form_beam"
 	desc = "After a windup, concentrates the hives energy into a forward-facing beam that pierces everything, hurting living beings and vehicles."
+	action_icon_state = "zero_form_beam"
+	action_icon = 'icons/Xeno/actions/king.dmi'
 	ability_cost = 25
 	cooldown_duration = 10 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
@@ -463,8 +467,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/psychic_summon
 	name = "Psychic Summon"
-	action_icon_state = "stomp"
 	desc = "Summons all xenos in a hive to the caller's location, uses all plasma to activate."
+	action_icon_state = "stomp"
+	action_icon = 'icons/Xeno/actions/crusher.dmi'
 	ability_cost = 900
 	cooldown_duration = 10 MINUTES
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
@@ -507,10 +512,8 @@
 	var/sisters_teleported = 0
 	for(var/mob/living/carbon/xenomorph/sister AS in allxenos)
 		sister.remove_filter("summonoutline")
-//RUTGMC EDIT ADDITION BEGIN - Preds
 		if(HAS_TRAIT(sister, TRAIT_LEASHED))
 			continue
-//RUTGMC EDIT ADDITION END
 		if(sister.z == owner.z)
 			sister.forceMove(get_turf(X))
 			sisters_teleported ++

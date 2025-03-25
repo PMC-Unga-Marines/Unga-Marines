@@ -266,12 +266,12 @@ RU TGMC EDIT */
 
 	if(body_part == CHEST || body_part == GROIN)
 		if(updating_health)
-			owner.updatehealth()
+			owner.update_health()
 		return update_icon()
 	var/obj/item/clothing/worn_helmet = owner.head
 	if(body_part == HEAD && worn_helmet && (worn_helmet.armor_features_flags & ARMOR_NO_DECAP)) //Early return if the body part is a head but target is wearing decap-protecting headgear.
 		if(updating_health)
-			owner.updatehealth()
+			owner.update_health()
 		return update_icon()
 	if(CONFIG_GET(flag/limbs_can_break) && brute_dam >= max_damage * LIMB_MAX_DAMAGE_SEVER_RATIO)
 		droplimb()
@@ -280,7 +280,7 @@ RU TGMC EDIT */
 		return
 
 	if(updating_health)
-		owner.updatehealth()
+		owner.update_health()
 
 	var/result = update_icon()
 	return result
@@ -296,7 +296,7 @@ RU TGMC EDIT */
 	//Sync the organ's damage with its wounds
 	update_bleeding()
 	if(updating_health)
-		owner.updatehealth()
+		owner.update_health()
 
 	var/result = update_icon()
 	return result
@@ -333,7 +333,7 @@ RU TGMC EDIT */
 		update_icon()
 
 	if(updating_health)
-		owner.updatehealth()
+		owner.update_health()
 
 /datum/limb/head/rejuvenate(updating_health = FALSE)
 	. = ..()
@@ -469,7 +469,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 					COOLDOWN_START(src, next_infection_message, rand(60 SECONDS, 90 SECONDS))
 
 			if (prob(15))	//adjust this to tweak how fast people take toxin damage from infections
-				owner.adjustToxLoss(1)
+				owner.adjust_tox_loss(1)
 //LEVEL II
 	if(germ_level >= INFECTION_LEVEL_TWO && spaceacillin < 3)
 
@@ -481,7 +481,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 					COOLDOWN_START(src, next_infection_message, rand(25 SECONDS, 40 SECONDS))
 
 		if (prob(25))	//adjust this to tweak how fast people take toxin damage from infections
-			owner.adjustToxLoss(1)
+			owner.adjust_tox_loss(1)
 
 		//spread the infection to child and parent organs
 		if (children)
@@ -503,7 +503,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 		germ_level++
 		if (prob(50))	//adjust this to tweak how fast people take toxin damage from infections
-			owner.adjustToxLoss(1)
+			owner.adjust_tox_loss(1)
 		if (prob(1))
 			to_chat(owner, span_notice("You have a high fever!"))
 	//Not technically a germ effect, but derived from it

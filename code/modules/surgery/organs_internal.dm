@@ -59,7 +59,7 @@
 			GLOB.round_statistics.larva_surgically_removed++
 
 	affected.createwound(CUT, rand(0,20), 1)
-	target.updatehealth()
+	target.update_health()
 	affected.update_wounds()
 	return ..()
 
@@ -118,10 +118,10 @@
 	var/dam_amt = 2
 
 	if(istype(tool, /obj/item/tool/surgery/surgical_membrane))
-		target.adjustToxLoss(5)
+		target.adjust_tox_loss(5)
 
 	for(var/datum/internal_organ/I in affected.internal_organs)
 		if(I?.damage > 0)
 			I.take_damage(dam_amt,0)
-	target.updatehealth()
+	target.update_health()
 	affected.update_wounds()

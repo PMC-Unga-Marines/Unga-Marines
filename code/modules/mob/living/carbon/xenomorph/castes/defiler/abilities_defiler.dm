@@ -63,8 +63,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/defile
 	name = "Defile"
-	action_icon_state = "defiler_sting"
 	desc = "Channel to inject an adjacent target with an accelerant that violently reacts with xeno toxins, releasing gas and dealing heavy tox damage in proportion to the amount in their system."
+	action_icon_state = "defiler_sting"
+	action_icon = 'icons/Xeno/actions/defiler.dmi'
 	ability_cost = 100
 	cooldown_duration = 20 SECONDS
 	target_flags = ABILITY_MOB_TARGET
@@ -138,7 +139,7 @@
 
 	defile_power = defile_reagent_amount * defile_strength_multiplier //Total amount of toxin damage we deal
 
-	living_target.setToxLoss(min(200, living_target.getToxLoss() + defile_power)) //Apply the toxin damage; cap toxin damage at lower of 200 or defile power + current tox loss
+	living_target.set_tox_loss(min(200, living_target.get_tox_loss() + defile_power)) //Apply the toxin damage; cap toxin damage at lower of 200 or defile power + current tox loss
 
 	var/datum/effect_system/smoke_spread/xeno/sanguinal/blood_smoke = new(living_target) //Set up Sanguinal smoke
 	blood_smoke.strength = CEILING(clamp(defile_power*DEFILER_SANGUINAL_SMOKE_MULTIPLIER,1,2),1)
@@ -163,8 +164,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/emit_neurogas
 	name = "Emit Noxious Gas"
-	action_icon_state = "emit_neurogas"
 	desc = "Channel for 3 seconds to emit a cloud of noxious smoke, based on selected reagent, that follows the Defiler. You must remain stationary while channeling; moving will cancel the ability but will still cost plasma."
+	action_icon_state = "emit_neurogas"
+	action_icon = 'icons/Xeno/actions/defiler.dmi'
 	ability_cost = 200
 	cooldown_duration = 40 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY|ABILITY_IGNORE_SELECTED_ABILITY
@@ -281,8 +283,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/inject_egg_neurogas
 	name = "Inject Gas"
-	action_icon_state = "inject_egg"
 	desc = "Inject an egg with toxins, killing the larva, but filling it full with gas ready to explode."
+	action_icon_state = "inject_egg"
+	action_icon = 'icons/Xeno/actions/defiler.dmi'
 	ability_cost = 80
 	keybind_flags = null
 	cooldown_duration = 5 SECONDS
@@ -349,8 +352,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/select_reagent
 	name = "Select Reagent"
-	action_icon_state = "select_reagent0"
 	desc = "Selects which reagent to use for reagent slash and noxious gas. Hemodile slows targets down, multiplied by each other xeno-based toxin. Transvitox converts burns to toxin, and causes additional toxin damage when they take brute damage, both effects multiplied by other xeno-based toxins. Ozelomelyn purges all medicines from their system rapidly and causes minor toxin damage. Acid is transparent but causes major burn damage."
+	action_icon_state = "select_reagent0"
+	action_icon = 'icons/Xeno/actions/general.dmi'
 	use_state_flags = ABILITY_USE_BUSY|ABILITY_USE_LYING
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SELECT_REAGENT,
@@ -391,10 +395,10 @@
 	// This is cursed, don't copy this code its the WRONG way to do this.
 	// TODO: generate this from GLOB.defiler_toxin_type_list
 	var/static/list/defiler_toxin_images_list = list(
-		DEFILER_HEMODILE = image('icons/Xeno/actions.dmi', icon_state = DEFILER_HEMODILE),
-		DEFILER_TRANSVITOX = image('icons/Xeno/actions.dmi', icon_state = DEFILER_TRANSVITOX),
-		DEFILER_OZELOMELYN = image('icons/Xeno/actions.dmi', icon_state = DEFILER_OZELOMELYN),
-		DEFILER_ACID = image('icons/Xeno/actions.dmi', icon_state = DEFILER_ACID),
+		REAGENT_HEMODILE = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_HEMODILE),
+		REAGENT_TRANSVITOX = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_TRANSVITOX),
+		REAGENT_OZELOMELYN = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_OZELOMELYN),
+		REAGENT_ACID = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_ACID),
 	)
 	var/toxin_choice = show_radial_menu(owner, owner, defiler_toxin_images_list, radius = 48)
 	if(!toxin_choice)
@@ -414,8 +418,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/reagent_slash
 	name = "Reagent Slash"
-	action_icon_state = "reagent_slash"
 	desc = "For a short duration the next 3 slashes made will inject a small amount of selected toxin."
+	action_icon_state = "reagent_slash"
+	action_icon = 'icons/Xeno/actions/defiler.dmi'
 	cooldown_duration = 6 SECONDS
 	ability_cost = 100
 	keybinding_signals = list(
@@ -524,8 +529,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/tentacle
 	name = "Tentacle"
-	action_icon_state = "tail_attack"
 	desc = "Throw one of your tentacles forward to grab a tallhost or item."
+	action_icon_state = "tail_attack"
+	action_icon = 'icons/Xeno/actions/defiler.dmi'
 	cooldown_duration = 20 SECONDS
 	ability_cost = 175
 	keybinding_signals = list(
@@ -605,8 +611,3 @@
 /atom/movable/tentacle_end
 	name = "You can't see this"
 	invisibility = INVISIBILITY_ABSTRACT
-
-#undef DEFILER_NEUROTOXIN
-#undef DEFILER_HEMODILE
-#undef DEFILER_TRANSVITOX
-#undef DEFILER_OZELOMELYN

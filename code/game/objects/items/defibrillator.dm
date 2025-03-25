@@ -260,26 +260,26 @@
 
 	//At this point, the defibrillator is ready to work
 	if(HAS_TRAIT(H, TRAIT_IMMEDIATE_DEFIB)) // this trait ignores user skill for the heal amount
-		H.setOxyLoss(0)
-		H.updatehealth()
+		H.set_oxy_loss(0)
+		H.update_health()
 
 		var/heal_target = H.get_death_threshold() - H.health + 1
-		var/all_loss = H.getBruteLoss() + H.getFireLoss() + H.getToxLoss()
+		var/all_loss = H.get_brute_loss() + H.get_fire_loss() + H.get_tox_loss()
 		if(all_loss && (heal_target > 0))
-			var/brute_ratio = H.getBruteLoss() / all_loss
-			var/burn_ratio = H.getFireLoss() / all_loss
-			var/tox_ratio = H.getToxLoss() / all_loss
+			var/brute_ratio = H.get_brute_loss() / all_loss
+			var/burn_ratio = H.get_fire_loss() / all_loss
+			var/tox_ratio = H.get_tox_loss() / all_loss
 			if(tox_ratio)
-				H.adjustToxLoss(-(tox_ratio * heal_target))
+				H.adjust_tox_loss(-(tox_ratio * heal_target))
 			H.heal_overall_damage(brute_ratio*heal_target, burn_ratio*heal_target, TRUE) // explicitly also heals robit parts
 
 	else if(!issynth(H)) // TODO make me a trait :)
-		H.adjustBruteLoss(-defib_heal_amt)
-		H.adjustFireLoss(-defib_heal_amt)
-		H.adjustToxLoss(-defib_heal_amt)
-		H.adjustOxyLoss(-defib_heal_amt)
+		H.adjust_brute_loss(-defib_heal_amt)
+		H.adjust_fire_loss(-defib_heal_amt)
+		H.adjust_tox_loss(-defib_heal_amt)
+		H.adjust_oxy_loss(-defib_heal_amt)
 
-	H.updatehealth() //Make sure health is up to date since it's a purely derived value
+	H.update_health() //Make sure health is up to date since it's a purely derived value
 	if(H.health <= H.get_death_threshold())
 		user.visible_message(span_warning("[icon2html(src, viewers(user))] \The [src] buzzes: Defibrillation failed. Vital signs are too weak, repair damage and try again."))
 		playsound(get_turf(src), 'sound/items/defib_failed.ogg', 35, 0)
@@ -296,7 +296,7 @@
 	H.apply_effect(10, EYE_BLUR)
 	H.apply_effect(20 SECONDS, PARALYZE)
 	H.handle_regular_hud_updates()
-	H.updatehealth() //One more time, so it doesn't show the target as dead on HUDs
+	H.update_health() //One more time, so it doesn't show the target as dead on HUDs
 	H.dead_ticks = 0 //We reset the DNR time
 	H.initial_stage = 0
 	REMOVE_TRAIT(H, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
