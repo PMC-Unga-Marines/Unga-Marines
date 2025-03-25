@@ -4,6 +4,7 @@
 /datum/action/ability/activable/xeno/spray_acid/line
 	name = "Spray Acid"
 	desc = "Spray a line of dangerous acid at your target."
+	action_icon_state = "spray_acid_line"
 	ability_cost = 250
 	cooldown_duration = 30 SECONDS
 
