@@ -44,11 +44,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	force = 12
 	wield_delay = 12 //Ends up being 1.6 seconds due to scope
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 12, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
-	var/targetmarker_on = FALSE
-	var/targetmarker_primed = FALSE
-	var/mob/living/carbon/laser_target = null
-	var/image/LT = null
-	var/obj/item/binoculars/tactical/integrated_laze = null
+
 	attachable_allowed = list(
 		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/lasersight,
@@ -69,8 +65,11 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	movement_acc_penalty_mult = 8
 
 	placed_overlay_iconstate = "antimat"
-
-
+	var/targetmarker_on = FALSE
+	var/targetmarker_primed = FALSE
+	var/mob/living/carbon/laser_target = null
+	var/image/LT = null
+	var/obj/item/binoculars/tactical/integrated_laze = null
 
 /obj/item/weapon/gun/rifle/sniper/antimaterial/Initialize(mapload)
 	. = ..()
@@ -298,8 +297,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	wield_delay = 1.8 SECONDS
 	movement_acc_penalty_mult = 6
 
-
-
 //Based off the XM-8. BR-8 rifle
 
 /obj/item/weapon/gun/rifle/tx8
@@ -358,7 +355,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	burst_amount = 1
 	accuracy_mult = 1.2
 	scatter = -3
-	recoil = 2
 
 /obj/item/weapon/gun/rifle/tx8/scout
 	starting_attachment_types = list(
@@ -402,7 +398,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	windup_delay = 0.4 SECONDS
 	windup_sound = 'sound/weapons/guns/fire/tank_minigun_start.ogg'
 	scatter = 5
-	recoil = 2
 	recoil_unwielded = 4
 	damage_falloff_mult = 0.5
 	movement_acc_penalty_mult = 4
@@ -446,7 +441,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 
 	fire_delay = 0.1 SECONDS
 	scatter = -5
-	recoil = 0
 	recoil_unwielded = 4
 
 	item_flags = TWOHANDED
@@ -494,7 +488,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	fire_delay = 0.1 SECONDS
 	burst_amount = 1
 	accuracy_mult = 1
-	recoil = 0
 	accuracy_mult_unwielded = 0.75
 	scatter = -1
 	scatter_unwielded = 2
@@ -582,7 +575,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	unload_sound = 'sound/weapons/guns/interact/launcher_reload.ogg'
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 19, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 	fire_delay = 1 SECONDS
-	recoil = 3
+	recoil = 1
 	scatter = -100
 	placed_overlay_iconstate = "sadar"
 	windup_delay = 0.4 SECONDS
@@ -663,7 +656,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 14, "rail_y" = 21, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 
 	fire_delay = 1 SECONDS
-	recoil = 3
 	scatter = -100
 
 	item_flags = TWOHANDED|AUTOBALANCE_CHECK
@@ -766,7 +758,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	w_class = WEIGHT_CLASS_HUGE
 	force = 15
 	wield_delay = 1 SECONDS
-	recoil = 1
 	wield_penalty = 1.6 SECONDS
 	aim_slowdown = 1
 	general_codex_key = "explosive weapons"
@@ -780,7 +771,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 15, "rail_y" = 19, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 
 	fire_delay = 1 SECONDS
-	recoil = 3
 	scatter = -100
 
 /obj/item/weapon/gun/launcher/rocket/recoillessrifle/low_impact
@@ -816,7 +806,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	unload_sound = 'sound/weapons/guns/interact/launcher_reload.ogg'
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 19, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 	fire_delay = 1 SECONDS
-	recoil = 3
 	scatter = -100
 
 /obj/item/weapon/gun/launcher/rocket/oneuse/Initialize(mapload, spawn_empty)
@@ -884,7 +873,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 19, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 
 	windup_delay = 0.6 SECONDS
-	recoil = 2
 	scatter = -1
 	movement_acc_penalty_mult = 5 //You shouldn't fire this on the move
 
@@ -928,7 +916,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 19, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 
 	windup_delay = 0.6 SECONDS
-	recoil = 2
 	scatter = -1
 	movement_acc_penalty_mult = 5 //You shouldn't fire this on the move
 
@@ -1016,6 +1003,5 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	windup_delay = 0.5 SECONDS
 	burst_amount = 1
 	accuracy_mult = 2
-	recoil = 0
 	scatter = 0
 	movement_acc_penalty_mult = 6
