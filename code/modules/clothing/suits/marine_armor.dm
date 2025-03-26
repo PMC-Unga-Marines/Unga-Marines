@@ -734,6 +734,7 @@
 	slowdown = SLOWDOWN_ARMOR_LIGHT
 	armor_protection_flags = CHEST|GROIN
 	armor_features_flags = NONE
+	item_map_variant_flags = NONE
 
 /obj/item/clothing/suit/storage/marine/specops/support
 	name = "Ballistic vest"

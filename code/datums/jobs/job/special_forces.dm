@@ -204,7 +204,6 @@
 	l_store = /obj/item/storage/pouch/magazine/large
 	back = /obj/item/storage/backpack/lightpack
 
-
 /datum/outfit/job/special_forces/medic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
