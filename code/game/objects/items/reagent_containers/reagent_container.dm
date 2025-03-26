@@ -36,6 +36,10 @@
 	. = ..()
 	change_transfer_amount(user)
 
+/obj/item/reagent_containers/unique_action(mob/user, special_treatment)
+	. = ..()
+	change_transfer_amount(user)
+
 ///Opens a tgui_input_list and changes the transfer_amount of our container based on our selection
 /obj/item/reagent_containers/proc/change_transfer_amount(mob/living/user)
 	if(!possible_transfer_amounts)

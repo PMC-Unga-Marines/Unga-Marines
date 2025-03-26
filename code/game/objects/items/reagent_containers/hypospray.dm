@@ -1,7 +1,3 @@
-////////////////////////////////////////////////////////////////////////////////
-/// HYPOSPRAY
-////////////////////////////////////////////////////////////////////////////////
-
 /obj/item/reagent_containers/hypospray
 	name = "Hypospray"
 	desc = "The hypospray is a sterile, air-needle reusable autoinjector for rapid administration of drugs to patients with customizable dosages."
@@ -15,7 +11,6 @@
 	equip_slot_flags = ITEM_SLOT_BELT
 	item_flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
-	interaction_flags = INTERACT_OBJ_UI
 	var/skilllock = 1
 	var/inject_mode = HYPOSPRAY_INJECT_MODE_INJECT
 	var/core_name = "hypospray"
@@ -178,6 +173,9 @@
 	desc.maptext = MAPTEXT(description_overlay)
 	desc.maptext_width = 16
 	. += desc
+
+/obj/item/reagent_containers/hypospray/unique_action(mob/user, special_treatment)
+	ui_interact(user)
 
 /obj/item/reagent_containers/hypospray/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
