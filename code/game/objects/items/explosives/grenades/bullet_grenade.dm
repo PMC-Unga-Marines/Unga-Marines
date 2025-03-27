@@ -53,10 +53,10 @@
 /obj/item/explosive/grenade/bullet/hefa
 	name = "\improper M25 HEFA grenade"
 	desc = "High explosive fragmentation grenades cause a powerful yet very small explosion combined with a scattering ring of buckshot shrapnel, please throw very, very, VERY far away."
-	icon_state = "grenade_hefa2"
-	item_state = "grenade_hefa2"
+	icon_state = "grenade_hefa"
+	item_state = "grenade_hefa"
 	icon_state_mini = "grenade_hefa"
-	hud_state = "grenade_hefa2"
+	hud_state = "grenade_hefa"
 	rotations = -1
 	fire_sound = null
 	projectile_count = 50

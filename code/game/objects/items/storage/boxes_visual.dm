@@ -746,7 +746,7 @@
 	desc = "A secure box holding 25 M25 high explosive fragmentation grenades. Keep very far away from extreme heat and flame."
 	spawn_number = 25
 	spawn_type = /obj/item/explosive/grenade/bullet/hefa
-	closed_overlay = "grenade_box_overlay_grenade_hefa2"
+	closed_overlay = "grenade_box_overlay_grenade_hefa"
 
 /obj/item/storage/box/visual/grenade/training
 	name = "\improper M07 training grenade box"
