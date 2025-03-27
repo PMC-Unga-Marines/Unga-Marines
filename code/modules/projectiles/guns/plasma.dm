@@ -2,8 +2,8 @@
 	name = "generic plasma weapon"
 	icon = 'icons/obj/items/gun/plasma64.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/inhands/guns/plasma_left_1.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/guns/plasma_right_1.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/plasma_left_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/plasma_right_1.dmi',
 	)
 	default_ammo_type = /obj/item/cell/lasgun/plasma
 	allowed_ammo_types = list(/obj/item/cell/lasgun/plasma)
