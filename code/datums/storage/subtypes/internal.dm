@@ -107,6 +107,8 @@
 		/obj/item/stack/sheet,
 		/obj/item/stack/sandbags,
 		/obj/item/stack/snow,
+		/obj/item/cell/lasgun/volkite/powerpack,
+		/obj/item/cell/lasgun/plasma,
 	))
 
 /datum/storage/internal/white_vest
@@ -243,7 +245,7 @@
 			/obj/item/ammo_magazine/revolver,
 			/obj/item/ammo_magazine/sniper,
 			/obj/item/ammo_magazine/handful,
-			// /obj/item/cell/lasgun/plasma, // we don't have it yet
+			/obj/item/cell/lasgun/plasma,
 		)
 	)
 

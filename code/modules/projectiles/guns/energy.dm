@@ -286,6 +286,8 @@
 	var/fire_delay = 0
 	///Gives guns a burst amount, editable.
 	var/burst_amount = 0
+	///heat amount per shot
+	var/heat_per_fire = 0
 	///The gun firing sound of this mode
 	var/fire_sound = null
 	///What message it sends to the user when you switch to this mode.
@@ -303,6 +305,7 @@
 	///codex description
 	var/description = ""
 
+//TODO this proc should be generic so that you dont have to manually copy paste the default mode onto the item
 /obj/item/weapon/gun/energy/lasgun/lasrifle/unique_action(mob/user)
 	if(!user)
 		CRASH("switch_modes called with no user.")
@@ -339,6 +342,7 @@
 	fire_sound = initial(choice.fire_sound)
 	rounds_per_shot = initial(choice.rounds_per_shot)
 	windup_delay = initial(choice.windup_delay)
+	heat_per_fire = initial(choice.heat_per_fire)
 	SEND_SIGNAL(src, COMSIG_GUN_BURST_SHOTS_TO_FIRE_MODIFIED, burst_amount)
 	SEND_SIGNAL(src, COMSIG_GUN_AUTOFIREDELAY_MODIFIED, fire_delay)
 	SEND_SIGNAL(src, COMSIG_GUN_FIRE_MODE_TOGGLE, initial(choice.fire_mode), user.client)

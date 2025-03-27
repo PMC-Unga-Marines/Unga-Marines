@@ -443,7 +443,7 @@
 /obj/item/ammo_magazine/minigun_wheelchair
 	name = "\improper Mounted MG-100 Vindicator ammo rack"
 	desc = "A case filled to the brim with ammunition. Appears custom made to be slotted into a feeding system."
-	icon = 'icons/obj/items/ammo.dmi'
+	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "minigun"
 	atom_flags = CONDUCT
 	magazine_flags = MAGAZINE_REFILLABLE

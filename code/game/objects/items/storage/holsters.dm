@@ -516,15 +516,7 @@
 	holsterable_allowed = list(
 		/obj/item/weapon/gun/rifle/icc_mg,
 	)
-
-/obj/item/storage/holster/icc_mg/Initialize(mapload, ...)
-	. = ..()
-	storage_datum.storage_slots = 5
-	storage_datum.max_storage_space = 16
-	storage_datum.set_holdable(can_hold_list = list(
-		/obj/item/weapon/gun/rifle/icc_mg,
-		/obj/item/ammo_magazine/icc_mg/packet,
-	))
+	storage_datum = /datum/storage/holster/icc_mg
 
 /obj/item/storage/holster/icc_mg/full/PopulateContents()
 	new /obj/item/weapon/gun/rifle/icc_mg(src)
@@ -572,6 +564,7 @@
 		/obj/item/ammo_magazine/pistol,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
 		/obj/item/cell/lasgun/lasrifle,
+		/obj/item/cell/lasgun/plasma,
 	))
 
 /obj/item/storage/holster/belt/pistol/m4a3/full/PopulateContents()
@@ -622,6 +615,7 @@
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
 		/obj/item/cell/lasgun/lasrifle,
 		/obj/item/cell/lasgun/volkite/small,
+		/obj/item/cell/lasgun/plasma,
 	))
 
 /obj/item/storage/holster/belt/pistol/m4a3/som/serpenta/PopulateContents()

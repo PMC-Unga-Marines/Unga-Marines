@@ -1,19 +1,3 @@
-/particles/firing_smoke
-	icon = 'icons/effects/96x96.dmi'
-	icon_state = "smoke5"
-	width = 500
-	height = 500
-	count = 5
-	spawning = 15
-	lifespan = 0.5 SECONDS
-	fade = 2.4 SECONDS
-	grow = 0.12
-	drift = generator(GEN_CIRCLE, 8, 8)
-	scale = 0.1
-	spin = generator(GEN_NUM, -20, 20)
-	velocity = list(50, 0)
-	friction = generator(GEN_NUM, 0.3, 0.6)
-
 /obj/item/weapon/gun
 	name = "Guns"
 	desc = "Its a gun. It's pretty terrible, though."
@@ -288,6 +272,24 @@
 	var/gun_accuracy_mod = 0
 	///The actual scatter value of the fired projectile
 	var/gun_scatter = 0
+
+/*
+ *  HEAT MECHANIC VARS
+ *
+*/
+	/// heat on this gun. at over 100 heat stops you from firing and goes on cooldown
+	var/heat_amount = 0
+	///heat that we add every successful fire()
+	var/heat_per_fire = 0
+	///heat reduction per second
+	var/cool_amount = 5
+	///tracks overheat timer ref
+	var/overheat_timer
+	///multiplier on cool amount to determine overheat time
+	var/overheat_multiplier = 1.1
+	///image we create to keep track of heat
+	var/image/heat_bar/heat_meter
+
 /*
  *  extra icon and item states or overlays
 */
@@ -297,6 +299,7 @@
 	var/icon_overlay_x_offset = 0
 	///Whether the icon_state overlay is offset in the Y axis
 	var/icon_overlay_y_offset = 0
+
 /*
  *
  *   ATTACHMENT VARS
@@ -465,7 +468,7 @@
 		gun_user.client?.mouse_pointer_icon = initial(gun_user.client.mouse_pointer_icon)
 		SEND_SIGNAL(gun_user, COMSIG_GUN_USER_UNSET, src)
 		gun_user.hud_used?.remove_ammo_hud(src)
-		if(heat_meter)
+		if(heat_meter && gun_user.client)
 			gun_user.client.images -= heat_meter
 			heat_meter = null
 		gun_user = null
@@ -476,11 +479,10 @@
 	if(master_gun?.master_gun) //Prevent gunception
 		return
 	gun_user = user
-	SEND_SIGNAL(gun_user, COMSIG_GUN_USER_SET, src)
 	if(gun_features_flags & GUN_AMMO_COUNTER)
 		gun_user.hud_used?.add_ammo_hud(src, get_ammo_list(), get_display_ammo_count())
 	if(heat_per_fire)
-		heat_meter = new(loc=gun_user)
+		heat_meter = new(loc = gun_user)
 		heat_meter.animate_change(heat_amount * 0.01, 5)
 		gun_user.client.images += heat_meter
 	if(master_gun)
@@ -857,6 +859,21 @@
 		if(inactive_gun.rounds && !(inactive_gun.gun_features_flags & GUN_WIELDED_FIRING_ONLY))
 			inactive_gun.last_fired = max(world.time - fire_delay * (1 - akimbo_additional_delay), inactive_gun.last_fired)
 			gun_user.swap_hand()
+	heat_amount += heat_per_fire
+	if(!(datum_flags & DF_ISPROCESSING))
+		START_PROCESSING(SSprocessing, src)
+	if(!heat_per_fire)
+		return AUTOFIRE_CONTINUE
+	if(heat_amount >= 100)
+		STOP_PROCESSING(SSprocessing, src)
+		var/obj/effect/abstract/particle_holder/overheat_smoke = new(src, /particles/overheat_smoke)
+		playsound(src, 'sound/weapons/guns/interact/gun_overheat.ogg', 25, 1, 5)
+		//overheat gives either you a bonus or penalty depending on gun, by default it is +10% time.
+		var/overheat_time = (heat_amount / cool_amount * overheat_multiplier) SECONDS
+		overheat_timer = addtimer(CALLBACK(src, PROC_REF(complete_overheat), overheat_smoke), overheat_time, TIMER_STOPPABLE)
+		heat_meter.animate_change(0, overheat_time)
+		return NONE
+	heat_meter.animate_change(heat_amount * 0.01, fire_delay)
 	return AUTOFIRE_CONTINUE
 
 ///Actually fires the gun, sets up the projectile and fires it.
@@ -1009,6 +1026,19 @@
 /obj/item/weapon/gun/proc/fire_after_autonomous_windup()
 	windup_checked = WEAPON_WINDUP_CHECKED
 	Fire()
+
+///called by a timer after overheat finishes
+/obj/item/weapon/gun/proc/complete_overheat(overheat_smoke)
+	QDEL_NULL(overheat_smoke)
+	overheat_timer = null
+	heat_amount = 0
+
+/obj/item/weapon/gun/process(delta_time)
+	if(heat_meter)
+		heat_amount = max(0, heat_amount - cool_amount * delta_time)
+		heat_meter.animate_change(heat_amount * 0.01, 5)
+	if(!heat_amount)
+		return PROCESS_KILL
 
 /obj/item/weapon/gun/attack(mob/living/M, mob/living/user, def_zone)
 	if(!CHECK_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK) || !able_to_fire(user) || gun_on_cooldown(user) || CHECK_BITFIELD(M.status_flags, INCORPOREAL)) // If it can't point blank, you can't suicide and such.
@@ -1679,6 +1709,9 @@
 		return FALSE
 	if(CHECK_BITFIELD(gun_features_flags, GUN_IS_ATTACHMENT) && !master_gun && CHECK_BITFIELD(gun_features_flags, GUN_ATTACHMENT_FIRE_ONLY))
 		to_chat(user, span_notice("You cannot fire [src] without it attached to a gun!"))
+		return FALSE
+	if(overheat_timer)
+		balloon_alert(user, "overheat")
 		return FALSE
 	return TRUE
 

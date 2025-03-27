@@ -54,6 +54,9 @@
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/plasma/rifle = -1,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/plasma/cannon = -1,
+			/obj/item/cell/lasgun/plasma = -1,
 		),
 		"Дробовики" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,

@@ -67,7 +67,7 @@
 	gloves = /obj/item/clothing/gloves/marine/officer
 	w_uniform = /obj/item/clothing/under/marine/officer/exec
 	belt = /obj/item/storage/holster/blade/officer/full
-	suit_store = /obj/item/storage/holster/belt/mateba/full
+	suit_store = /obj/item/storage/holster/belt/revolver/mateba/full
 	back = /obj/item/ammo_magazine/minigun_wheelchair
 	shoes = null
 

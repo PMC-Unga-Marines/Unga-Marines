@@ -324,4 +324,4 @@
 
 	bonus_projectiles_amount = 1
 	fire_bonus_projectiles(proj, null, proj.shot_from, new_range, proj.projectile_speed, new_angle, null, get_step(T, dir_to_proj))
-	bonus_projectiles_amount = 0
+	bonus_projectiles_amount = initial(bonus_projectiles_amount)
