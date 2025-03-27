@@ -45,7 +45,7 @@
 		sentry.knock_down()
 
 	for(var/mob/living/carbon/human/H in L)
-		if(H.stat == DEAD)
+		if(H.stat == DEAD || !Adjacent(H))
 			continue
 		H.add_filter("defender_tail_sweep", 2, gauss_blur_filter(1)) //Add cool SFX; motion blur
 		addtimer(CALLBACK(H, TYPE_PROC_REF(/atom, remove_filter), "defender_tail_sweep"), 0.5 SECONDS) //Remove cool SFX
