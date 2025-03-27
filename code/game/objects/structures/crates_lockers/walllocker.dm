@@ -13,6 +13,7 @@
 	wall_mounted = TRUE
 	storage_capacity = 20
 	overlay_welded = "walllockerwelded"
+	layer = ABOVE_OBJ_LAYER
 
 /obj/structure/closet/walllocker/Initialize(mapload, ndir)
 	. = ..()
