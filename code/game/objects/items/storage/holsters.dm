@@ -509,7 +509,7 @@
 	for(var/i in 1 to (storage_datum.storage_slots - flare_gun.w_class))
 		new /obj/item/explosive/grenade/flare(src)
 
-/obj/item/storage/holster/icc_mg/Ini
+/obj/item/storage/holster/icc_mg
 	name = "\improper ML-14 scabbard (10x26mm)"
 	desc = "A backpack holster allowing the storage of any a ML-14 Assault Machinegun, also carries ammo for the other portion of the system."
 	icon_state = "icc_bagmg"
