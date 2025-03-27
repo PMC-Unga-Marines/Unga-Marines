@@ -170,7 +170,7 @@
 		update_icon()
 
 /obj/machinery/iv_drip/verb/toggle_mode()
-	set category = "Object"
+	set category = "IC.Object"
 	set name = "Toggle Mode"
 	set src in view(1)
 

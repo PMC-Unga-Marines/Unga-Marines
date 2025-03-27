@@ -493,7 +493,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 /datum/storage/verb/toggle_gathering_mode()
 	set name = "Switch Gathering Method"
-	set category = "Object"
+	set category = "IC.Object"
 
 	collection_mode = !collection_mode
 	if(collection_mode)
@@ -503,7 +503,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 /datum/storage/verb/toggle_draw_mode()
 	set name = "Switch Storage Drawing Method"
-	set category = "Object"
+	set category = "IC.Object"
 
 	draw_mode = !draw_mode
 	if(draw_mode)
@@ -567,12 +567,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 ///Returns a list of lookers, basically any mob that can see our contents
 /datum/storage/proc/can_see_content()
 	var/list/lookers = list()
-	for(var/i in content_watchers)
-		var/mob/content_watcher_mob = i
-		if(content_watcher_mob.s_active == src && content_watcher_mob.client)
-			lookers |= content_watcher_mob
-		else
+	for(var/mob/content_watcher_mob AS in content_watchers)
+		if(!ismob(content_watcher_mob) || !content_watcher_mob.client || content_watcher_mob.s_active != src)
 			content_watchers -= content_watcher_mob
+			continue
+		lookers |= content_watcher_mob
 	return lookers
 
 ///Opens our storage, closes the storage if we are s_active

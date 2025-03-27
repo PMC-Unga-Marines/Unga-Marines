@@ -23,12 +23,12 @@
 		L.blood_volume += 3
 		L.hallucination = 0
 		L.dizziness = 0
-		L.adjustStaminaLoss(-15)
-		L.adjustToxLoss(-3)
-		L.adjustOxyLoss(-3)
-		L.adjustCloneLoss(-3)
-		L.adjustBrainLoss(-3)
-		L.adjustDrowsyness(-10)
+		L.adjust_stamina_loss(-15)
+		L.adjust_tox_loss(-3)
+		L.adjust_oxy_loss(-3)
+		L.adjust_clone_Loss(-3)
+		L.adjust_brain_loss(-3)
+		L.adjust_drowsyness(-10)
 		L.AdjustUnconscious(-40)
 		L.AdjustStun(-40)
 		L.AdjustParalyzed(-40)
@@ -40,8 +40,8 @@
 				X.add_limb_flags(LIMB_STABILIZED)
 	else
 		L.vomit()
-		L.adjustToxLoss(0.1)
-		L.adjustFireLoss(0.1)
+		L.adjust_tox_loss(0.1)
+		L.adjust_fire_loss(0.1)
 		L.hallucination += 20
 		L.jitter(8)
 		L.dizzy(8)
@@ -59,5 +59,5 @@
 
 /datum/reagent/thwei/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damages(2*effect_str, 3*effect_str)
-	L.adjustBrainLoss(1.5*effect_str, TRUE)
+	L.adjust_brain_loss(1.5*effect_str, TRUE)
 

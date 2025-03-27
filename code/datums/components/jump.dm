@@ -56,7 +56,7 @@
 	if(jumper.incapacitated())
 		return
 
-	if(stamina_cost && (jumper.getStaminaLoss() > -stamina_cost))
+	if(stamina_cost && (jumper.get_stamina_loss() > -stamina_cost))
 		to_chat(jumper, span_warning("Catch your breath!"))
 		return
 
@@ -67,7 +67,7 @@
 	var/original_pass_flags = jumper.pass_flags
 
 	SEND_SIGNAL(jumper, COMSIG_ELEMENT_JUMP_STARTED, jump_height, jump_duration)
-	jumper.adjustStaminaLoss(stamina_cost)
+	jumper.adjust_stamina_loss(stamina_cost)
 	jumper.pass_flags |= jumper_allow_pass_flags
 	ADD_TRAIT(jumper, TRAIT_SILENT_FOOTSTEPS, JUMP_COMPONENT)
 	RegisterSignal(parent, COMSIG_MOB_THROW, PROC_REF(jump_throw))

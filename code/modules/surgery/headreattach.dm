@@ -185,7 +185,7 @@
 	var/obj/item/limb/head/B = tool
 
 	affected.robotize()
-	target.updatehealth()
+	target.update_health()
 	target.update_body()
 	target.UpdateDamageIcon()
 	target.update_hair()

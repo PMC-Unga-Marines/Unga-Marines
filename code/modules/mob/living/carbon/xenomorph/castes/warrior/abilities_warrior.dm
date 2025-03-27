@@ -1,11 +1,14 @@
 // ***************************************
 // *********** Empower
 // ***************************************
-#define WARRIOR_EMPOWER_COMBO_THRESHOLD 2 // After how many abilities should a Warrior get an empowered cast (2 means the 3rd one is empowered).
-#define WARRIOR_EMPOWER_COMBO_FADE_TIME 10 SECONDS // The duration of a combo, after which it will disappear by itself.
+/// After how many abilities should a Warrior get an empowered cast (2 means the 3rd one is empowered).
+#define WARRIOR_EMPOWER_COMBO_THRESHOLD 2
+/// The duration of a combo, after which it will disappear by itself.
+#define WARRIOR_EMPOWER_COMBO_FADE_TIME 10 SECONDS
 
 /datum/action/ability/xeno_action/empower
 	name = "Empower"
+	hidden = TRUE
 	/// Holds the fade-out timer.
 	var/fade_timer
 	/// The amount of abilities we've chained together.
@@ -18,7 +21,6 @@
 		/datum/action/ability/activable/xeno/warrior/punch/jab,
 		/datum/action/ability/activable/xeno/warrior/punch/flurry,
 	)
-	hidden = TRUE
 
 /// Checks if Empower is capped and gives bonuses if so, otherwise increases combo count.
 /datum/action/ability/xeno_action/empower/proc/check_empower(atom/target)
@@ -60,7 +62,6 @@
 	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 25, 0, 1)
 	clear_empower()
 
-
 // ***************************************
 // *********** Agility
 // ***************************************
@@ -70,6 +71,7 @@
 /datum/action/ability/xeno_action/toggle_agility
 	name = "Agility"
 	action_icon_state = "agility_on"
+	action_icon = 'icons/Xeno/actions/warrior.dmi'
 	cooldown_duration = 0.4 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_AGILITY,
@@ -99,7 +101,6 @@
 	xeno_owner.toggle_move_intent(MOVE_INTENT_RUN)
 	if(xeno_owner.agility)
 		owner.drop_all_held_items() // drop items (hugger/jelly)
-
 
 // ***************************************
 // *********** Parent Ability
@@ -191,7 +192,6 @@
 			icon_state = "[initial(icon_state)]_e"
 			pixel_x -= 20
 
-
 // ***************************************
 // *********** Lunge
 // ***************************************
@@ -200,6 +200,7 @@
 /datum/action/ability/activable/xeno/warrior/lunge
 	name = "Lunge"
 	action_icon_state = "lunge"
+	action_icon = 'icons/Xeno/actions/warrior.dmi'
 	ability_cost = 30
 	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
@@ -293,7 +294,6 @@
 		return FALSE
 	return TRUE
 
-
 // ***************************************
 // *********** Fling
 // ***************************************
@@ -304,6 +304,7 @@
 /datum/action/ability/activable/xeno/warrior/fling
 	name = "Fling"
 	action_icon_state = "fling"
+	action_icon = 'icons/Xeno/actions/shrike.dmi'
 	ability_cost = 20
 	cooldown_duration = WARRIOR_FLING_TOSS_COOLDOWN
 	keybinding_signals = list(
@@ -377,7 +378,6 @@
 		return FALSE
 	return TRUE
 
-
 // ***************************************
 // *********** Grapple Toss
 // ***************************************
@@ -390,6 +390,7 @@
 /datum/action/ability/activable/xeno/warrior/grapple_toss
 	name = "Grapple Toss"
 	action_icon_state = "grapple_toss"
+	action_icon = 'icons/Xeno/actions/warrior.dmi'
 	ability_cost = 20
 	cooldown_duration = WARRIOR_FLING_TOSS_COOLDOWN
 	keybinding_signals = list(
@@ -458,17 +459,17 @@
 
 /datum/action/ability/activable/xeno/warrior/punch
 	name = "Punch"
-	action_icon_state = "punch"
 	desc = "Strike a target, inflicting stamina damage, stagger and slowdown. Deals double damage, stagger and slowdown to grappled targets. Deals quadruple damage to structures and machinery."
+	action_icon_state = "punch"
+	action_icon = 'icons/Xeno/actions/warrior.dmi'
 	ability_cost = 15
 	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PUNCH,
 	)
 	target_flags = ABILITY_MOB_TARGET
-// RU TGMC EDIT
 	var/range = 1
-// RU TGMC EDIT
+
 /datum/action/ability/activable/xeno/warrior/punch/on_cooldown_finish()
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	xeno_owner.balloon_alert(xeno_owner, "[initial(name)] ready")
@@ -553,19 +554,19 @@
 // ***************************************
 // *********** Flurry
 // ***************************************
-#define WARRIOR_JAB_DAMAGE_MULTIPLIER 1.3 // RU TGMC EDIT
-#define WARRIOR_JAB_BLIND 1 // RU TGMC EDIT
-#define WARRIOR_JAB_BLUR 1 // RU TGMC EDIT
+#define WARRIOR_JAB_DAMAGE_MULTIPLIER 1.3
+#define WARRIOR_JAB_BLIND 1
+#define WARRIOR_JAB_BLUR 1
 #define WARRIOR_JAB_CONFUSION_DURATION 3 SECONDS
 
 /datum/action/ability/activable/xeno/warrior/punch/flurry
 	name = "Flurry"
-	action_icon_state = "jab" //RU TGMC EDIT
 	desc = "Strike at your target with blinding speed."
+	action_icon_state = "jab"
 	ability_cost = 10
 	cooldown_duration = 7 SECONDS
 	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_FLURRY, //RU TGMC EDIT
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_FLURRY,
 	)
 	/// The amount of charges we currently have. Initial value is assumed to be the maximum.
 	var/current_charges = 3
@@ -628,8 +629,8 @@
 // ***************************************
 /datum/action/ability/activable/xeno/warrior/punch/jab
 	name = "Jab"
-	action_icon_state = "jab"
 	desc = "Precisely strike your target from further away, heavily slowing them."
+	action_icon_state = "jab"
 	ability_cost = 10
 	range = 2
 	keybinding_signals = list(

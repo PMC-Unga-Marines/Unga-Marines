@@ -154,7 +154,7 @@
 	var/turf/T = get_turf(usr)
 
 	if(ispath(chosen, /turf))
-		T.ChangeTurf(chosen)
+		T.change_turf(chosen)
 	else
 		for(var/i in 1 to amount)
 			var/atom/A = new chosen(T)
@@ -183,7 +183,7 @@
 
 	if(isturf(A))
 		var/turf/deleting_turf = A
-		deleting_turf.ScrapeAway()
+		deleting_turf.scrape_away()
 		return
 
 	qdel(A)

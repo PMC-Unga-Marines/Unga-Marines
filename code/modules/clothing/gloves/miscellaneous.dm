@@ -159,7 +159,7 @@
 		return
 
 	var/mob/living/carbon/human/target = M
-	if(!(target.getStaminaLoss() > 10 && (target.stat != UNCONSCIOUS)))
+	if(!(target.get_stamina_loss() > 10 && (target.stat != UNCONSCIOUS)))
 		return
 
 	playsound(loc, 'sound/effects/knockout.ogg', 25, FALSE)

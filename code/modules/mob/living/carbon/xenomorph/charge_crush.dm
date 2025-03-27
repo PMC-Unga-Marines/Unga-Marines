@@ -1,7 +1,8 @@
 /datum/action/ability/xeno_action/ready_charge
 	name = "Toggle Charging"
-	action_icon_state = "ready_charge"
 	desc = "Toggles the movement-based charge on and off."
+	action_icon_state = "ready_charge"
+	action_icon = 'icons/Xeno/actions/crusher.dmi'
 	keybinding_signals = list(KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_CHARGE)
 	action_type = ACTION_TOGGLE
 	use_state_flags = ABILITY_USE_LYING
@@ -313,6 +314,7 @@
 
 /datum/action/ability/xeno_action/ready_charge/bull_charge
 	action_icon_state = "bull_ready_charge"
+	action_icon = 'icons/Xeno/actions/bull.dmi'
 	charge_type = CHARGE_BULL
 	speed_per_step = 0.15
 	steps_for_charge = 5
@@ -356,3 +358,4 @@
 
 /datum/action/ability/xeno_action/ready_charge/queen_charge
 	action_icon_state = "queen_ready_charge"
+	action_icon = 'icons/Xeno/actions/queen.dmi'

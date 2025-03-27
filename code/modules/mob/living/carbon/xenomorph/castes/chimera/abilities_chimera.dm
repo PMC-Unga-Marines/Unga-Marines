@@ -3,8 +3,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/blink
 	name = "Blink"
-	action_icon_state = "blink"
 	desc = "We teleport ourselves a short distance to a location within line of sight."
+	action_icon_state = "blink"
+	action_icon = 'icons/Xeno/actions/chimera.dmi'
 	use_state_flags = ABILITY_TURF_TARGET
 	ability_cost = 50
 	cooldown_duration = 3 SECONDS
@@ -94,8 +95,8 @@
 				var/mob/living/carbon/human/H = pulled_target
 				if(H.stat == UNCONSCIOUS) //Apply critdrag damage as if they were quickly pulled the same distance
 					var/critdamage = HUMAN_CRITDRAG_OXYLOSS * get_dist(H.loc, T)
-					if(!H.adjustOxyLoss(critdamage))
-						H.adjustBruteLoss(critdamage)
+					if(!H.adjust_oxy_loss(critdamage))
+						H.adjust_brute_loss(critdamage)
 
 		to_chat(X, span_xenodanger("We bring [pulled_target] with us. We won't be ready to blink again for [cooldown_duration * cooldown_mod * 0.1] seconds due to the strain of doing so."))
 
@@ -175,8 +176,9 @@
 
 /datum/action/ability/xeno_action/phantom
 	name = "Phantom"
-	action_icon_state = "phantom"
 	desc = "Create a physical clone and hide in shadows."
+	action_icon_state = "phantom"
+	action_icon = 'icons/Xeno/actions/chimera.dmi'
 	cooldown_duration = 30 SECONDS
 	ability_cost = 100
 	use_state_flags = ABILITY_USE_STAGGERED
@@ -251,8 +253,9 @@
 
 /datum/action/ability/activable/xeno/pounce/abduction
 	name = "Abduction"
-	action_icon_state = "abduction"
 	desc = "Abduct the prey."
+	action_icon_state = "abduction"
+	action_icon = 'icons/Xeno/actions/chimera.dmi'
 	cooldown_duration = 20 SECONDS
 	ability_cost = 100
 	use_state_flags = ABILITY_MOB_TARGET
@@ -299,8 +302,9 @@
 
 /datum/action/ability/xeno_action/warp_blast
 	name = "Warp Blast"
-	action_icon_state = "warp_blast"
 	desc = "Create a pure force explosion that damages and knockbacks targets around."
+	action_icon_state = "warp_blast"
+	action_icon = 'icons/Xeno/actions/chimera.dmi'
 	cooldown_duration = 20 SECONDS
 	ability_cost = 100
 	keybinding_signals = list(
@@ -332,6 +336,7 @@
 /datum/action/ability/activable/xeno/body_swap
 	name = "Body swap"
 	action_icon_state = "bodyswap"
+	action_icon = 'icons/Xeno/actions/chimera.dmi'
 	desc = "Swap places with another alien."
 	use_state_flags = ABILITY_MOB_TARGET
 	cooldown_duration = 20 SECONDS
@@ -382,8 +387,9 @@
 
 /datum/action/ability/xeno_action/crippling_strike
 	name = "Toggle crippling strike"
-	action_icon_state = "neuroclaws_off"
 	desc = "Toggle on to enable crippling attacks"
+	action_icon_state = "neuroclaws_off"
+	action_icon = 'icons/Xeno/actions/sentinel.dmi'
 	ability_cost = 0
 	cooldown_duration = 1 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY

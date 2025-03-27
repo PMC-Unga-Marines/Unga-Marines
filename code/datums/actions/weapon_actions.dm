@@ -16,7 +16,7 @@
 	if(!.)
 		return
 	var/mob/living/carbon/carbon_owner = owner
-	if(carbon_owner.getStaminaLoss() > 0) //this specifically lets you use these abilities with no stamina, but not if you have actual stamina loss
+	if(carbon_owner.get_stamina_loss() > 0) //this specifically lets you use these abilities with no stamina, but not if you have actual stamina loss
 		if(!silent)
 			carbon_owner.balloon_alert(owner, "Catch your breath!")
 		return FALSE
@@ -27,4 +27,4 @@
 	ability_cost_override = ability_cost_override? ability_cost_override : ability_cost
 	if(ability_cost_override > 0)
 		var/mob/living/carbon/carbon_owner = owner
-		carbon_owner.adjustStaminaLoss(ability_cost_override)
+		carbon_owner.adjust_stamina_loss(ability_cost_override)

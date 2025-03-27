@@ -64,9 +64,9 @@
 
 /datum/storage/internal/motorbike_pack
 	storage_slots = 4
-	max_w_class = WEIGHT_CLASS_SMALL
+	max_w_class = WEIGHT_CLASS_BULKY
 	max_storage_space = 8
-	
+
 /datum/storage/internal/motorbike_pack/on_ctrl_click()
 	return //We want to be able to grab the bike without pulling something out
 
@@ -376,7 +376,10 @@
 /datum/storage/internal/shoes/boot_knife/New(atom/parent)
 	. = ..()
 	set_holdable(
-		can_hold_list = list(
+		cant_hold_list = list(
+			/obj/item/stack/sheet,
+		),
+		storage_type_limits_list = list(
 			/obj/item/weapon/combat_knife,
 			/obj/item/weapon/gun/pistol/p17,
 			/obj/item/weapon/gun/shotgun/double/derringer,
@@ -385,10 +388,6 @@
 			/obj/item/weapon/yautja/knife,
 			/obj/item/stack/throwing_knife,
 			/obj/item/storage/box/mre,
-			/obj/item/reagent_containers/food/snacks,
-		),
-		cant_hold_list = list(
-			/obj/item/stack/sheet,
 		)
 	)
 

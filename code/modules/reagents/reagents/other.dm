@@ -52,19 +52,19 @@
 /datum/reagent/water/on_mob_life(mob/living/L,metabolism)
 	switch(current_cycle)
 		if(4 to 5) //1 sip, starting at the end
-			L.adjustStaminaLoss(-2*effect_str)
+			L.adjust_stamina_loss(-2*effect_str)
 			L.heal_limb_damage(effect_str, effect_str)
 		if(6 to 10) //sip 2
-			L.adjustStaminaLoss(-0.5*effect_str)
+			L.adjust_stamina_loss(-0.5*effect_str)
 			L.heal_limb_damage(0.1*effect_str, 0.1*effect_str)
 		if(11 to INFINITY) //anything after
-			L.adjustStaminaLoss(-0.15*effect_str)
+			L.adjust_stamina_loss(-0.15*effect_str)
 			L.heal_limb_damage(0.1*effect_str, 0.1*effect_str)
 	return ..()
 
 /datum/reagent/water/overdose_process(mob/living/L, metabolism)
 	if(prob(10))
-		L.adjustStaminaLoss(50*effect_str)
+		L.adjust_stamina_loss(50*effect_str)
 		to_chat(L, span_warning("You cramp up! Too much water!"))
 
 /datum/reagent/water/holywater
@@ -136,18 +136,18 @@
 	if(prob(7))
 		L.emote(pick("twitch","drool","moan","gasp","yawn"))
 	if(prob(2))
-		L.adjustDrowsyness(5)
+		L.adjust_drowsyness(5)
 	return ..()
 
 /datum/reagent/serotrotium/overdose_process(mob/living/L, metabolism)
 	L.apply_damage(0.3, TOX)
-	L.setDrowsyness(max(L.drowsyness, 5))
+	L.set_drowsyness(max(L.drowsyness, 5))
 
 /datum/reagent/serotrotium/overdose_crit_process(mob/living/L, metabolism)
 	L.apply_damage(0.7, TOX)
 	if(prob(10) && !L.stat)
 		L.Sleeping(1 MINUTES)
-	L.setDrowsyness(max(L.drowsyness, 30))
+	L.set_drowsyness(max(L.drowsyness, 30))
 
 /datum/reagent/oxygen
 	name = "Oxygen"
@@ -203,7 +203,7 @@
 		step(L, pick(GLOB.cardinals))
 	if(prob(5))
 		L.emote(pick("twitch","drool","moan"))
-	L.adjustBrainLoss(1, TRUE)
+	L.adjust_brain_loss(1, TRUE)
 	return ..()
 
 /datum/reagent/sulfur
@@ -258,7 +258,7 @@
 	taste_description = "acid"
 
 /datum/reagent/fluorine/on_mob_life(mob/living/L, metabolism)
-	L.adjustToxLoss(0.5*effect_str)
+	L.adjust_tox_loss(0.5*effect_str)
 	return ..()
 
 /datum/reagent/fluorine/overdose_process(mob/living/L, metabolism)
@@ -410,7 +410,7 @@
 	new effect_type(T, volume) //It already handles dupes on it own turf.
 
 /datum/reagent/fuel/on_mob_life(mob/living/L)
-	L.adjustToxLoss(1)
+	L.adjust_tox_loss(1)
 	return ..()
 
 /datum/reagent/fuel/reaction_mob(mob/living/L, method = TOUCH, volume, show_message = TRUE, touch_protection = 0)//Splashing people with welding fuel to make them easy to ignite!
@@ -527,9 +527,9 @@
 /datum/reagent/impedrezene/on_mob_life(mob/living/L, metabolism)
 	L.jitter(-5)
 	if(prob(80))
-		L.adjustBrainLoss(effect_str, TRUE)
+		L.adjust_brain_loss(effect_str, TRUE)
 	if(prob(50))
-		L.setDrowsyness(max(L.drowsyness, 3))
+		L.set_drowsyness(max(L.drowsyness, 3))
 	if(prob(10))
 		L.emote("drool")
 	return ..()
@@ -607,9 +607,9 @@
 	var/mob/living/carbon/C = L
 	C.adjust_nutrition(-10)
 	if(prob(20))
-		C.adjustToxLoss(0.1)
+		C.adjust_tox_loss(0.1)
 	else
-		C.adjustToxLoss(1)
+		C.adjust_tox_loss(1)
 	return ..()
 
 /datum/reagent/consumable/lipozine/overdose_process(mob/living/L, metabolism)
@@ -636,7 +636,7 @@
 		disinfectee.germ_level -= min(volume * 20 * touch_protection, disinfectee.germ_level)
 		for(var/datum/limb/limb AS in disinfectee.limbs)
 			limb.disinfect() //Only removes germs from individual external wounds. Won't help with the limb itself having a high germ level.
-	if(prob(L.getFireLoss() + L.getBruteLoss())) // >Spraying space bleach on open wounds
+	if(prob(L.get_fire_loss() + L.get_brute_loss())) // >Spraying space bleach on open wounds
 		if(iscarbon(L))
 			var/mob/living/carbon/C = L
 			if(C.species.species_flags & NO_PAIN)
@@ -648,7 +648,7 @@
 		L.reagent_shock_modifier -= PAIN_REDUCTION_MEDIUM
 
 /datum/reagent/sterilizine/on_mob_life(mob/living/L, metabolism)
-	L.adjustToxLoss(effect_str)
+	L.adjust_tox_loss(effect_str)
 	return ..()
 
 /datum/reagent/virilyth

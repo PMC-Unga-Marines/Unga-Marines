@@ -80,6 +80,8 @@
 
 	GLOB.start_squad_landmarks_list = null
 
+	GLOB.all_supply_groups -= "Factory" // In ideal world, we just balance factories out
+
 	for(var/obj/machinery/telecomms/relay/preset/telecomms/relay AS in GLOB.ground_telecomms_relay)
 		qdel(relay) // so there's no double intercomms, hacky, but i don't know a better way.
 

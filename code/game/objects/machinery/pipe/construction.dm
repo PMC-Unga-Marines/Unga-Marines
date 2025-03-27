@@ -93,7 +93,7 @@ Buildable meters
 	icon_state = initial(fakeA.pipe_state)
 
 /obj/item/pipe/verb/flip()
-	set category = "Object.Rotate"
+	set category = "IC.Rotate"
 	set name = "Flip Pipe"
 	set src in view(1)
 

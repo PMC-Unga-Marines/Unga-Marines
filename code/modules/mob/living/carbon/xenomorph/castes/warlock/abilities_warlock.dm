@@ -50,8 +50,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/psychic_shield
 	name = "Psychic Shield"
-	action_icon_state = "psy_shield"
 	desc = "Channel a psychic shield at your current location that can reflect most projectiles. Activate again while the shield is active to detonate the shield forcibly, producing knockback. Must remain static to use."
+	action_icon_state = "psy_shield"
+	action_icon = 'icons/Xeno/actions/warlock.dmi'
 	cooldown_duration = 10 SECONDS
 	ability_cost = 200
 	keybinding_signals = list(
@@ -190,7 +191,6 @@
 	GLOB.round_statistics.psy_shield_blasts++
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "psy_shield_blasts")
 
-
 /obj/effect/xeno/shield
 	icon = 'icons/Xeno/96x96.dmi'
 	icon_state = "shield"
@@ -301,8 +301,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/psy_crush
 	name = "Psychic Crush"
-	action_icon_state = "psy_crush"
 	desc = "Channel an expanding AOE crush effect, activating it again pre-maturely crushes enemies over an area. The longer it is channeled, the larger area it will affect, but will consume more plasma."
+	action_icon_state = "psy_crush"
+	action_icon = 'icons/Xeno/actions/warlock.dmi'
 	ability_cost = 40
 	cooldown_duration = 12 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
@@ -532,8 +533,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/psy_blast
 	name = "Psychic Blast"
-	action_icon_state = "psy_blast"
 	desc = "Launch a blast of psychic energy that deals light damage and knocks back enemies in its AOE. Must remain stationary for a few seconds to use."
+	action_icon_state = "psy_blast"
+	action_icon = 'icons/Xeno/actions/warlock.dmi'
 	cooldown_duration = 6 SECONDS
 	ability_cost = 230
 	keybinding_signals = list(
@@ -566,7 +568,6 @@
 		update_button_icon()
 	return ..()
 
-
 /datum/action/ability/activable/xeno/psy_blast/can_use_ability(atom/A, silent = FALSE, override_flags)
 	. = ..()
 	if(!.)
@@ -578,7 +579,6 @@
 	if(selected_ammo.ability_cost > xeno_owner.plasma_stored)
 		if(!silent)
 			owner.balloon_alert(owner, "[selected_ammo.ability_cost - xeno_owner.plasma_stored] more plasma!")
-
 		return FALSE
 
 /datum/action/ability/activable/xeno/psy_blast/use_ability(atom/A)
@@ -646,8 +646,9 @@
 
 /datum/action/ability/xeno_action/toggle_warlock_zoom
 	name = "Toggle Warlock Zoom"
-	action_icon_state = "toggle_queen_zoom"
 	desc = "Zoom out for a larger view around wherever you are looking."
+	action_icon_state = "toggle_queen_zoom"
+	action_icon = 'icons/Xeno/actions/queen.dmi'
 	ability_cost = 0
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_WARLOCK_ZOOM,
@@ -657,8 +658,5 @@
 	var/mob/living/carbon/xenomorph/warlock/X = owner
 	if(X.is_zoomed)
 		X.zoom_out()
-	else
-		if(!do_after(X, 0 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_GENERIC) || X.is_zoomed)
-			return
-		X.zoom_in(0, 9)
-		..()
+		return
+	X.zoom_in(0, 9)

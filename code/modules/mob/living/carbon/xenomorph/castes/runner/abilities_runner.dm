@@ -81,8 +81,9 @@
 
 /datum/action/ability/xeno_action/evasion
 	name = "Evasion"
-	action_icon_state = "evasion_on"
 	desc = "Take evasive action, forcing non-friendly projectiles that would hit you to miss for a short duration so long as you keep moving. Alternate use toggles Auto Evasion off or on."
+	action_icon_state = "evasion_on"
+	action_icon = 'icons/Xeno/actions/runner.dmi'
 	ability_cost = 75
 	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
@@ -266,8 +267,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/snatch
 	name = "Snatch"
-	action_icon_state = "snatch"
 	desc = "Take an item equipped by your target in your mouth, and carry it away."
+	action_icon_state = "snatch"
+	action_icon = 'icons/Xeno/actions/runner.dmi'
 	ability_cost = 75
 	cooldown_duration = 35 SECONDS
 	keybinding_signals = list(
@@ -392,4 +394,3 @@
 	owner.overlays -= stolen_appearance
 	playsound(owner, 'sound/voice/alien/pounce2.ogg', 30, frequency = -1)
 	UnregisterSignal(owner, COMSIG_ATOM_DIR_CHANGE)
-

@@ -32,7 +32,7 @@
 		if("wall")
 			var/list/baseturfs = islist(T.baseturfs) ? T.baseturfs : list(T.baseturfs)
 			baseturfs |= T.type
-			T.ChangeTurf(/turf/closed/wall/resin/regenerating, baseturfs)
+			T.change_turf(/turf/closed/wall/resin/regenerating, baseturfs)
 		if("door")
 			new /obj/structure/mineral_door/resin(T)
 	deconstruct(TRUE)

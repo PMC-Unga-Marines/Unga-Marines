@@ -52,7 +52,7 @@
 
 /obj/machinery/bodyscanner/verb/eject()
 	set src in oview(1)
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	set name = "Eject Body Scanner"
 
 	if (usr.stat != CONSCIOUS)
@@ -80,7 +80,7 @@
 
 /obj/machinery/bodyscanner/verb/move_inside()
 	set src in oview(1)
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	set name = "Enter Body Scanner"
 
 	move_inside_wrapper(usr, usr)

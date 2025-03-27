@@ -3,8 +3,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/charge
 	name = "Eviscerating Charge"
-	action_icon_state = "pounce"
 	desc = "Charge up to 4 tiles and viciously attack your target."
+	action_icon_state = "pounce"
+	action_icon = 'icons/Xeno/actions/runner.dmi'
 	cooldown_duration = 20 SECONDS
 	ability_cost = 250 //Can't ignore pain/Charge and ravage in the same timeframe, but you can combo one of them. //RU TGMC EDIT
 	keybinding_signals = list(
@@ -91,8 +92,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/ravage
 	name = "Ravage"
-	action_icon_state = "ravage"
 	desc = "Attacks and knockbacks enemies in the direction your facing."
+	action_icon_state = "ravage"
+	action_icon = 'icons/Xeno/actions/ravager.dmi'
 	ability_cost = 200
 	cooldown_duration = 6 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
@@ -194,8 +196,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/endure
 	name = "Endure"
-	action_icon_state = "ignore_pain"
 	desc = "For the next few moments you will not go into crit and become resistant to explosives and immune to stagger and slowdown, but you still die if you take damage exceeding your crit health."
+	action_icon_state = "ignore_pain"
+	action_icon = 'icons/Xeno/actions/ravager.dmi'
 	ability_cost = 200
 	cooldown_duration = 60 SECONDS
 	keybinding_signals = list(
@@ -264,11 +267,11 @@
 	X.clear_fullscreen("endure", 0.7 SECONDS)
 	X.remove_filter("ravager_endure_outline")
 	if(X.health < X.get_crit_threshold()) //If we have less health than our death threshold, but more than our Endure death threshold, set our HP to just a hair above insta dying
-		var/total_damage = X.getFireLoss() + X.getBruteLoss()
-		var/burn_percentile_damage = X.getFireLoss() / total_damage
-		var/brute_percentile_damage = X.getBruteLoss() / total_damage
-		X.setBruteLoss((X.xeno_caste.max_health - X.get_crit_threshold()-1) * brute_percentile_damage)
-		X.setFireLoss((X.xeno_caste.max_health - X.get_crit_threshold()-1) * burn_percentile_damage)
+		var/total_damage = X.get_fire_loss() + X.get_brute_loss()
+		var/burn_percentile_damage = X.get_fire_loss() / total_damage
+		var/brute_percentile_damage = X.get_brute_loss() / total_damage
+		X.set_brute_loss((X.xeno_caste.max_health - X.get_crit_threshold()-1) * brute_percentile_damage)
+		X.set_fire_loss((X.xeno_caste.max_health - X.get_crit_threshold()-1) * burn_percentile_damage)
 
 	X.soft_armor = X.soft_armor.modifyRating(bomb = -20) //Remove resistances/immunities
 	REMOVE_TRAIT(X, TRAIT_STAGGERIMMUNE, ENDURE_TRAIT)
@@ -288,8 +291,6 @@
 		X.overlay_fullscreen("endure", /atom/movable/screen/fullscreen/animated/bloodlust)
 	else
 		X.clear_fullscreen("endure", 0.7 SECONDS)
-
-
 
 /datum/action/ability/xeno_action/endure/ai_should_start_consider()
 	return TRUE
@@ -323,8 +324,9 @@
 
 /datum/action/ability/xeno_action/vampirism
 	name = "Toggle vampirism"
-	action_icon_state = "neuroclaws_off"
 	desc = "Toggle on to enable boosting on "
+	action_icon_state = "neuroclaws_off"
+	action_icon = 'icons/Xeno/actions/sentinel.dmi'
 	ability_cost = 0 //We're limited by nothing, rip and tear
 	cooldown_duration = 1 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
@@ -382,8 +384,8 @@
 	var/mob/living/carbon/human/human_target = target // RUTGMC ADDITION START
 	human_target.blood_volume -= 5 // something about 1% // RUTGMC ADDITION END
 	var/mob/living/carbon/xenomorph/x = owner
-	x.adjustBruteLoss(-x.bruteloss * 0.125)
-	x.adjustFireLoss(-x.fireloss * 0.125)
+	x.adjust_brute_loss(-x.bruteloss * 0.125)
+	x.adjust_fire_loss(-x.fireloss * 0.125)
 	update_button_icon()
 	particle_holder = new(x, /particles/xeno_slash/vampirism)
 	particle_holder.pixel_y = 18
@@ -395,8 +397,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/immortality
 	name = "Immortality"
-	action_icon_state = "enhancement"
 	desc = "We are too angry to die."
+	action_icon_state = "enhancement"
+	action_icon = 'icons/Xeno/actions/drone.dmi'
 	ability_cost = 666
 	cooldown_duration = 35 SECONDS
 	keybinding_signals = list(

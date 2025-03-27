@@ -217,7 +217,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 /obj/item/verb/move_to_top()
 	set name = "Move To Top"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	set src in oview(1)
 
 	if(!isturf(loc) || usr.stat || usr.restrained())
@@ -805,7 +805,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 /obj/item/verb/verb_pickup()
 	set src in oview(1)
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	set name = "Pick up"
 
 	if(usr.incapacitated() || !Adjacent(usr))
@@ -830,7 +830,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 
 	var/obj/item/I = get_active_held_item()
 	if(I && !(I.item_flags & ITEM_ABSTRACT))

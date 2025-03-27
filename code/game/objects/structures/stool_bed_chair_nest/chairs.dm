@@ -68,7 +68,7 @@
 
 /obj/structure/bed/chair/verb/rotate()
 	set name = "Rotate Chair"
-	set category = "Object.Rotate"
+	set category = "IC.Rotate"
 	set src in view(0)
 
 	var/mob/living/carbon/user = usr

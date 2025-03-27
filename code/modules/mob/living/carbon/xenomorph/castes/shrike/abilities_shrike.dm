@@ -6,6 +6,7 @@
 /datum/action/ability/xeno_action/call_of_the_burrowed
 	name = "Call of the Burrowed"
 	desc = "Attempts to summon all currently burrowed larva."
+	action_icon = 'icons/Xeno/actions/general.dmi'
 	action_icon_state = "larva_growth"
 	ability_cost = 400
 	cooldown_duration = 2 MINUTES
@@ -13,7 +14,6 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CALL_OF_THE_BURROWED,
 	)
 	use_state_flags = ABILITY_USE_LYING
-
 
 /datum/action/ability/xeno_action/call_of_the_burrowed/action_activate()
 	var/mob/living/carbon/xenomorph/shrike/caller = owner
@@ -40,10 +40,8 @@
 	succeed_activate()
 	add_cooldown()
 
-
 /datum/action/ability/xeno_action/call_of_the_burrowed/proc/calling_larvas_end(mob/living/carbon/xenomorph/shrike/caller)
 	UnregisterSignal(caller.hive, list(COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, COMSIG_HIVE_XENO_MOTHER_CHECK))
-
 
 /datum/action/ability/xeno_action/call_of_the_burrowed/proc/is_burrowed_larva_host(datum/source, list/mothers, list/silos) //Should only register while a viable candidate.
 	SIGNAL_HANDLER
@@ -55,8 +53,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/psychic_grab
 	name = "Psychic Grab"
-	action_icon_state = "grab"
 	desc = "Attracts the target to the owner of the ability."
+	action_icon_state = "grab"
+	action_icon = 'icons/Xeno/actions/shrike.dmi'
 	cooldown_duration = 12 SECONDS
 	ability_cost = 100
 	keybinding_signals = list(
@@ -64,11 +63,9 @@
 	)
 	target_flags = ABILITY_MOB_TARGET
 
-
 /datum/action/ability/activable/xeno/psychic_grab/on_cooldown_finish()
 	to_chat(owner, span_notice("We gather enough mental strength to grab something again."))
 	return ..()
-
 
 /datum/action/ability/activable/xeno/psychic_grab/can_use_ability(atom/target, silent = FALSE, override_flags)
 	. = ..()
@@ -89,7 +86,6 @@
 			return FALSE
 		if(!CHECK_BITFIELD(use_state_flags|override_flags, ABILITY_IGNORE_DEAD_TARGET) && victim.stat == DEAD)
 			return FALSE
-
 
 /datum/action/ability/activable/xeno/psychic_grab/use_ability(atom/target)
 	var/mob/living/victim = target
@@ -115,8 +111,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/psychic_fling
 	name = "Psychic Fling"
-	action_icon_state = "fling"
 	desc = "Sends an enemy or an item flying. A close ranged ability."
+	action_icon_state = "fling"
+	action_icon = 'icons/Xeno/actions/shrike.dmi'
 	cooldown_duration = 12 SECONDS
 	ability_cost = 100
 	keybinding_signals = list(
@@ -124,11 +121,9 @@
 	)
 	target_flags = ABILITY_MOB_TARGET
 
-
 /datum/action/ability/activable/xeno/psychic_fling/on_cooldown_finish()
 	to_chat(owner, span_notice("We gather enough mental strength to fling something again."))
 	return ..()
-
 
 /datum/action/ability/activable/xeno/psychic_fling/can_use_ability(atom/target, silent = FALSE, override_flags)
 	. = ..()
@@ -149,7 +144,6 @@
 			return FALSE
 		if(!CHECK_BITFIELD(use_state_flags|override_flags, ABILITY_IGNORE_DEAD_TARGET) && victim.stat == DEAD)
 			return FALSE
-
 
 /datum/action/ability/activable/xeno/psychic_fling/use_ability(atom/target)
 	var/mob/living/victim = target
@@ -181,14 +175,14 @@
 		T = temp
 	victim.throw_at(T, fling_distance, 1, owner, TRUE)
 
-
 // ***************************************
 // *********** Unrelenting Force
 // ***************************************
 /datum/action/ability/activable/xeno/unrelenting_force
 	name = "Unrelenting Force"
-	action_icon_state = "screech"
 	desc = "Unleashes our raw psychic power, pushing aside anyone who stands in our path."
+	action_icon_state = "screech"
+	action_icon = 'icons/Xeno/actions/queen.dmi'
 	cooldown_duration = 20 SECONDS
 	ability_cost = 300
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
@@ -258,8 +252,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/psychic_cure
 	name = "Psychic Cure"
-	action_icon_state = "heal_xeno"
 	desc = "Heal and remove debuffs from a target."
+	action_icon_state = "heal_xeno"
+	action_icon = 'icons/Xeno/actions/drone.dmi'
 	cooldown_duration = 1 MINUTES
 	ability_cost = 200
 	keybinding_signals = list(
@@ -268,11 +263,9 @@
 	target_flags = ABILITY_MOB_TARGET
 	var/heal_range = SHRIKE_HEAL_RANGE
 
-
 /datum/action/ability/activable/xeno/psychic_cure/on_cooldown_finish()
 	to_chat(owner, span_notice("We gather enough mental strength to cure sisters again."))
 	return ..()
-
 
 /datum/action/ability/activable/xeno/psychic_cure/can_use_ability(atom/target, silent = FALSE, override_flags)
 	. = ..()
@@ -331,7 +324,7 @@
 		patient.SetParalyzed(0)
 		patient.set_stagger(0)
 		patient.set_slowdown(0)
-	patient.updatehealth()
+	patient.update_health()
 
 	owner.changeNext_move(CLICK_CD_RANGE)
 
@@ -340,14 +333,14 @@
 	succeed_activate()
 	add_cooldown()
 
-
 // ***************************************
 // *********** Construct Acid Well
 // ***************************************
 /datum/action/ability/xeno_action/place_acidwell
 	name = "Place acid well"
+	desc = "Place an acid well that can put out fires and destroy sticky grenades."
 	action_icon_state = "place_trap"
-	desc = "Place an acid well that can put out fires."
+	action_icon = 'icons/Xeno/actions/construction.dmi'
 	ability_cost = 200
 	cooldown_duration = 2 MINUTES
 	keybinding_signals = list(
@@ -393,17 +386,19 @@
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "xeno_acid_wells")
 	owner.record_traps_created()
 
-
 // ***************************************
 // *********** Psychic Vortex
 // ***************************************
+
 #define VORTEX_RANGE 4
 #define VORTEX_INITIAL_CHARGE 2 SECONDS
 #define VORTEX_POST_INITIAL_CHARGE 0.5 SECONDS
+
 /datum/action/ability/activable/xeno/psychic_vortex
 	name = "Pyschic vortex"
-	action_icon_state = "vortex"
 	desc = "Channel a sizable vortex of psychic energy, drawing in nearby enemies."
+	action_icon_state = "vortex"
+	action_icon = 'icons/Xeno/actions/shrike.dmi'
 	ability_cost = 600
 	cooldown_duration = 2 MINUTES
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
@@ -439,7 +434,6 @@
 	QDEL_NULL(particle_holder)
 	REMOVE_TRAIT(owner, TRAIT_IMMOBILE, VORTEX_ABILITY_TRAIT)
 	return
-
 
 /**
  * Checks for any non-anchored movable atom, throwing them towards the shrike/owner using the ability.

@@ -174,10 +174,10 @@
 	new_xeno.hive?.update_ruler() // Since ruler wasn't set during initialization, update ruler now.
 	transfer_observers_to(new_xeno)
 
-	if(new_xeno.health - getBruteLoss(src) - getFireLoss(src) > 0) //Cmon, don't kill the new one! Shouldnt be possible though
+	if(new_xeno.health - get_brute_loss(src) - get_fire_loss(src) > 0) //Cmon, don't kill the new one! Shouldnt be possible though
 		new_xeno.bruteloss = bruteloss //Transfers the damage over.
 		new_xeno.fireloss = fireloss //Transfers the damage over.
-		new_xeno.updatehealth()
+		new_xeno.update_health()
 
 	if(xeno_mobhud)
 		var/datum/atom_hud/H = GLOB.huds[DATA_HUD_XENO_STATUS]

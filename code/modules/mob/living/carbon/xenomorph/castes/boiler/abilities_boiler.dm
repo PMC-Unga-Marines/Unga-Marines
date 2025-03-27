@@ -6,20 +6,15 @@
 
 ///List of globs, keyed by icon state. Used for radial selection.
 GLOBAL_LIST_INIT(boiler_glob_list, list(
-//		BOILER_GLOB_NEURO = /datum/ammo/xeno/boiler_gas, RU TGMC EDIT
-		BOILER_GLOB_ACID = /datum/ammo/xeno/boiler_gas/corrosive,
-//		BOILER_GLOB_NEURO_LANCE = /datum/ammo/xeno/boiler_gas/lance, RU TGMC EDIT
-		BOILER_GLOB_ACID_LANCE = /datum/ammo/xeno/boiler_gas/corrosive/lance,
-		))
+	BOILER_GLOB_ACID = /datum/ammo/xeno/boiler_gas/corrosive,
+	BOILER_GLOB_ACID_LANCE = /datum/ammo/xeno/boiler_gas/corrosive/lance,
+))
 
 ///List of glob action button images, used for radial selection.
 GLOBAL_LIST_INIT(boiler_glob_image_list, list(
-//		BOILER_GLOB_NEURO = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_NEURO), RU TGMC EDIT
-		BOILER_GLOB_ACID = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_ACID),
-//		BOILER_GLOB_NEURO_LANCE = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_NEURO_LANCE), RU TGMC EDIT
-		BOILER_GLOB_ACID_LANCE = image('icons/Xeno/actions.dmi', icon_state = BOILER_GLOB_ACID_LANCE),
-		))
-
+	BOILER_GLOB_ACID = image('icons/Xeno/actions/boiler.dmi', icon_state = BOILER_GLOB_ACID),
+	BOILER_GLOB_ACID_LANCE = image('icons/Xeno/actions/boiler.dmi', icon_state = BOILER_GLOB_ACID_LANCE),
+))
 
 // ***************************************
 // *********** Long range sight
@@ -27,8 +22,9 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 
 /datum/action/ability/xeno_action/toggle_long_range
 	name = "Toggle Long Range Sight"
-	action_icon_state = "toggle_long_range"
 	desc = "Activates your weapon sight in the direction you are facing. Must remain stationary to use."
+	action_icon_state = "toggle_long_range"
+	action_icon = 'icons/Xeno/actions/boiler.dmi'
 	ability_cost = 20
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_LONG_RANGE_SIGHT,
@@ -54,8 +50,9 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 
 /datum/action/ability/xeno_action/toggle_bomb
 	name = "Toggle Bombard Type"
-	action_icon_state = "toggle_bomb0"
 	desc = "Switches Boiler Bombard type between available glob types."
+	action_icon_state = "toggle_bomb0"
+	action_icon = 'icons/Xeno/actions/boiler.dmi'
 	use_state_flags = ABILITY_USE_BUSY|ABILITY_USE_LYING
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_BOMB,
@@ -120,7 +117,7 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 /datum/action/ability/xeno_action/create_boiler_bomb
 	name = "Create bomb"
 	action_icon_state = "toggle_bomb0" //to be changed
-	action_icon = 'icons/Xeno/actions_boiler_glob.dmi'
+	action_icon = 'icons/Xeno/actions/boiler.dmi'
 	desc = "Creates a Boiler Bombard of the type currently selected."
 	ability_cost = 200
 	use_state_flags = ABILITY_USE_BUSY|ABILITY_USE_LYING
@@ -164,8 +161,9 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 
 /datum/action/ability/xeno_action/dump_acid
 	name = "Dump Acid"
-	action_icon_state = "dump_acid"
 	desc = "You dump your acid to escape, creating clouds of deadly acid mist behind you, while becoming faster for a short period of time. Unroots you if you are rooted."
+	action_icon_state = "dump_acid"
+	action_icon = 'icons/Xeno/actions/boiler.dmi'
 	ability_cost = 150
 	cooldown_duration = 180 SECONDS
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY |ABILITY_IGNORE_SELECTED_ABILITY
@@ -185,11 +183,6 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 
 	caster.visible_message(span_xenodanger("[caster] emits an acid!"),
 	span_xenodanger("You dump your acid, disabling your offensive abilities to escape!"))
-/*
-	var/datum/action/ability/activable/xeno/bombard/bombard_action = caster.actions_by_path[/datum/action/ability/activable/xeno/bombard]
-	if(HAS_TRAIT_FROM(caster, TRAIT_IMMOBILE, BOILER_ROOTED_TRAIT))
-		bombard_action.set_rooted(FALSE)
-*/
 	dispense_gas()
 
 	var/datum/action/ability/activable/xeno/spray_acid = caster.actions_by_path[/datum/action/ability/activable/xeno/spray_acid/line/boiler]
@@ -244,8 +237,9 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 // ***************************************
 /datum/action/ability/activable/xeno/bombard
 	name = "Bombard"
-	action_icon_state = "bombard"
 	desc = "Launch a glob of acid."
+	action_icon_state = "bombard"
+	action_icon = 'icons/Xeno/actions/boiler.dmi'
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_BOMBARD,
 	)
@@ -375,7 +369,6 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	update_button_icon()
 	add_cooldown()
 	boiler_owner.reset_bombard_pointer()
-
 
 // ***************************************
 // *********** Acid spray

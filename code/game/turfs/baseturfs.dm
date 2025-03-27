@@ -4,13 +4,13 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 )))
 
 /// Take off the top layer turf and replace it with the next baseturf down
-/turf/proc/ScrapeAway(amount=1, flags)
+/turf/proc/scrape_away(amount = 1, flags)
 	if(!amount)
 		return
 	if(!length(baseturfs))
 		if(baseturfs == type)
 			return src
-		return ChangeTurf(baseturfs, baseturfs, flags) // The bottom baseturf will never go away
+		return change_turf(baseturfs, baseturfs, flags) // The bottom baseturf will never go away
 
 	var/list/new_baseturfs = baseturfs.Copy()
 	var/turf_type = new_baseturfs[max(1, length(new_baseturfs) - amount + 1)]
@@ -22,7 +22,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	new_baseturfs.len -= min(amount, length(new_baseturfs) - 1) // No removing the very bottom
 	if(length(new_baseturfs) == 1)
 		new_baseturfs = new_baseturfs[1]
-	return ChangeTurf(turf_type, new_baseturfs, flags)
+	return change_turf(turf_type, new_baseturfs, flags)
 
 /// Places the given turf on the bottom of the turf stack.
 /turf/proc/place_on_bottom(turf/bottom_turf)
@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	if(isopenturf(src))
 		new_baseturfs.Add(type)
 
-	return ChangeTurf(added_layer, new_baseturfs, flags)
+	return change_turf(added_layer, new_baseturfs, flags)
 
 /// Places a turf on top - for map loading
 /turf/proc/load_on_top(turf/added_layer, flags)
@@ -62,7 +62,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	if(!isclosedturf(src))
 		old_baseturfs += type
 
-	new_turf = ChangeTurf(added_layer, null, flags)
+	new_turf = change_turf(added_layer, null, flags)
 	new_turf.assemble_baseturfs(initial(added_layer.baseturfs)) // The baseturfs list is created like roundstart
 	if(!length(new_turf.baseturfs))
 		new_turf.baseturfs = list(baseturfs)
@@ -73,7 +73,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 /// Copy an existing turf and put it on top
 /// Returns the new turf
-/turf/proc/CopyOnTop(turf/copytarget, ignore_bottom=1, depth=INFINITY, copy_air = FALSE)
+/turf/proc/copy_on_top(turf/copytarget, ignore_bottom=1, depth=INFINITY, copy_air = FALSE)
 	var/list/new_baseturfs = list()
 	new_baseturfs += baseturfs
 	new_baseturfs += type
@@ -96,7 +96,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 /// Tries to find the given type in baseturfs.
 /// If found, returns how deep it is for use in other baseturf procs, or null if it cannot be found.
-/// For example, this number can be passed into ScrapeAway to scrape everything until that point.
+/// For example, this number can be passed into scrape_away to scrape everything until that point.
 /turf/proc/depth_to_find_baseturf(baseturf_type)
 	if(!islist(baseturfs))
 		return baseturfs == baseturf_type ? 1 : null

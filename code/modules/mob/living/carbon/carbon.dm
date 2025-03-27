@@ -86,7 +86,7 @@
 		location.add_vomit_floor(src, 1)
 
 	adjust_nutrition(-40)
-	adjustToxLoss(-3)
+	adjust_tox_loss(-3)
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/shaker)
 	if(health < get_crit_threshold())
@@ -111,7 +111,7 @@
 		AdjustStun(-6 SECONDS)
 		if(has_status_effect(STATUS_EFFECT_PARALYZED))
 			if(staminaloss)
-				adjustStaminaLoss(-20, FALSE)
+				adjust_stamina_loss(-20, FALSE)
 		AdjustParalyzed(-6 SECONDS)
 
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, TRUE, 5)

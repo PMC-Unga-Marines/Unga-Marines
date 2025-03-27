@@ -123,7 +123,7 @@
 
 /obj/item/clothing/head/tgmccap/verb/fliphat()
 	set name = "Flip hat"
-	set category = "Object.Clothing"
+	set category = "IC.Clothing"
 	set src in usr
 	if(!isliving(usr))
 		return

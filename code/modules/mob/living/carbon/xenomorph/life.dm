@@ -10,7 +10,7 @@
 	if(!loc)
 		return
 
-	..()
+	. = ..()
 
 	if(notransform) //If we're in true stasis don't bother processing life
 		return
@@ -52,7 +52,7 @@
 		handle_critical_health_updates()
 		return
 	if((health >= maxHealth) || on_fire) //can't regenerate.
-		updatehealth() //Update health-related stats, like health itself (using brute and fireloss), health HUD and status.
+		update_health() //Update health-related stats, like health itself (using brute and fireloss), health HUD and status.
 		return
 	var/turf/T = loc
 	if(!istype(T))
@@ -66,7 +66,7 @@
 			heal_wounds(XENO_RESTING_HEAL * ruler_healing_penalty * loc_weeds_type ? initial(loc_weeds_type.resting_buff) : 1, TRUE)
 		else
 			heal_wounds(XENO_STANDING_HEAL * ruler_healing_penalty, TRUE) //Major healing nerf if standing.
-	updatehealth()
+	update_health()
 
 ///Handles sunder modification/recovery during life.dm for xenos
 /mob/living/carbon/xenomorph/proc/handle_living_sunder_updates()
@@ -93,7 +93,7 @@
 	if(loc_weeds_type)
 		heal_wounds(XENO_RESTING_HEAL)
 	else if(!endure) //If we're not Enduring we bleed out
-		adjustBruteLoss(XENO_CRIT_DAMAGE)
+		adjust_brute_loss(XENO_CRIT_DAMAGE)
 
 /mob/living/carbon/xenomorph/proc/heal_wounds(multiplier = XENO_RESTING_HEAL, scaling = FALSE)
 	var/amount = 1 + (maxHealth * 0.0375) // 1 damage + 3.75% max health, with scaling power.
@@ -112,7 +112,7 @@
 
 	var/list/heal_data = list(amount)
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_HEALTH_REGEN, heal_data)
-	HEAL_XENO_DAMAGE(src, heal_data[1], TRUE)
+	heal_xeno_damage(heal_data[1], TRUE)
 	return heal_data[1]
 
 /mob/living/carbon/xenomorph/proc/handle_living_plasma_updates()
@@ -257,12 +257,12 @@
 		else
 			hud_used.alien_plasma_display.icon_state = "power_display_0"
 
-/mob/living/carbon/xenomorph/updatehealth()
+/mob/living/carbon/xenomorph/update_health()
 	if(status_flags & GODMODE)
 		health = maxHealth
 		stat = CONSCIOUS
 		return
-	health = maxHealth - getFireLoss() - getBruteLoss() //Xenos can only take brute and fire damage.
+	health = maxHealth - get_fire_loss() - get_brute_loss() //Xenos can only take brute and fire damage.
 	med_hud_set_health()
 	update_stat()
 	update_wounds()

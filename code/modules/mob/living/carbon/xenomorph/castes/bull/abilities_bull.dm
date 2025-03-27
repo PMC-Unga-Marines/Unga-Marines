@@ -1,12 +1,4 @@
-/datum/action/ability/xeno_action/proc/acid_puddle(atom/A, atom/OldLoc, Dir, Forced)
-	SIGNAL_HANDLER
-	var/mob/living/carbon/xenomorph/X = owner
-	new/obj/effect/temp_visual/after_image(get_turf(X), X)
-	new /obj/effect/xenomorph/spray(get_turf(X), 5 SECONDS, XENO_ACID_CHARGE_DAMAGE)
-	for(var/obj/O in get_turf(X))
-		O.acid_spray_act(X)
-		playsound(X, SFX_ALIEN_FOOTSTEP_LARGE, 50)
-
+/// Produce after_image and loud footsteps for bull charges
 /datum/action/ability/xeno_action/proc/afterimage(atom/A, atom/OldLoc, Dir, Forced)
 	SIGNAL_HANDLER
 	var/mob/living/carbon/xenomorph/X = owner
@@ -18,8 +10,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/acid_charge
 	name = "Acid Charge"
-	action_icon_state = "bull_charge"
 	desc = "The acid charge, deal small damage to yourself and start leaving acid puddles after your steps."
+	action_icon_state = "bull_charge"
+	action_icon = 'icons/Xeno/actions/bull.dmi'
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ACIDCHARGE,
 	)
@@ -81,13 +74,23 @@
 		COMSIG_LIVING_STATUS_PARALYZE,
 		COMSIG_LIVING_STATUS_STAGGER,))
 
+/datum/action/ability/xeno_action/acid_charge/proc/acid_puddle(atom/A, atom/OldLoc, Dir, Forced)
+	SIGNAL_HANDLER
+	var/mob/living/carbon/xenomorph/X = owner
+	new/obj/effect/temp_visual/after_image(get_turf(X), X)
+	new /obj/effect/xenomorph/spray(get_turf(X), 5 SECONDS, XENO_ACID_CHARGE_DAMAGE)
+	for(var/obj/O in get_turf(X))
+		O.acid_spray_act(X)
+		playsound(X, SFX_ALIEN_FOOTSTEP_LARGE, 50)
+
 // ***************************************
 // *********** Headbutt Charge
 // ***************************************
 /datum/action/ability/xeno_action/headbutt
 	name = "Headbutt Charge"
-	action_icon_state = "bull_headbutt"
 	desc = "The headbutt charge, when it hits a host, stops your charge while push them away."
+	action_icon_state = "bull_headbutt"
+	action_icon = 'icons/Xeno/actions/bull.dmi'
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_BULLHEADBUTT,
 	)
@@ -153,14 +156,15 @@
 // ***************************************
 /datum/action/ability/xeno_action/gore
 	name = "Gore Charge"
-	action_icon_state = "bull_gore"
 	desc = "The gore charge, when it hits a host, stops your charge while dealing a large amount of damage."
+	action_icon_state = "bull_gore"
+	action_icon = 'icons/Xeno/actions/bull.dmi'
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_BULLGORE,
 	)
-	var/turf/last_turf
 	cooldown_duration = 4 SECONDS
 	ability_cost = 40
+	var/turf/last_turf
 	var/charge_duration
 
 /datum/action/ability/xeno_action/gore/can_use_action()
@@ -221,8 +225,9 @@
 
 /datum/action/ability/xeno_action/tolerate
 	name = "Tolerate"
-	action_icon_state = "bull_ready_charge"
 	desc = "For the next few seconds, you will become resistant to slowdown, stagger and stuns."
+	action_icon_state = "bull_ready_charge"
+	action_icon = 'icons/Xeno/actions/bull.dmi'
 	use_state_flags = ABILITY_USE_STAGGERED
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOLERATE,
@@ -251,5 +256,3 @@
 	REMOVE_TRAIT(X, TRAIT_SLOWDOWNIMMUNE, XENO_TRAIT)
 	REMOVE_TRAIT(X, TRAIT_STUNIMMUNE, XENO_TRAIT)
 	X.update_icons()
-
-

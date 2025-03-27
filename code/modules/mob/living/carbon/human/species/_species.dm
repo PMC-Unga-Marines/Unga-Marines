@@ -234,21 +234,21 @@
 					if(prob(60))
 						victim.emote("pain")
 		if(TOX)
-			victim.adjustToxLoss(damage)
+			victim.adjust_tox_loss(damage)
 		if(OXY)
-			victim.adjustOxyLoss(damage)
+			victim.adjust_oxy_loss(damage)
 		if(CLONE)
-			victim.adjustCloneLoss(damage)
+			victim.adjust_clone_Loss(damage)
 		if(STAMINA)
 			if(species_flags & NO_STAMINA)
 				return
-			victim.adjustStaminaLoss(damage)
+			victim.adjust_stamina_loss(damage)
 
 	// Will set our damageoverlay icon to the next level, which will then be set back to the normal level the next mob.Life().
 	SEND_SIGNAL(victim, COMSIG_HUMAN_DAMAGE_TAKEN, damage)
 
 	if(updating_health)
-		victim.updatehealth()
+		victim.update_health()
 	return damage
 
 /// Handles how the species hugs another mobs.

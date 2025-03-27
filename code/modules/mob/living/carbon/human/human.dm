@@ -563,7 +563,7 @@
 
 
 /mob/living/carbon/human/verb/check_pulse()
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	set name = "Check pulse"
 	set desc = "Approximately count somebody's pulse. Requires you to stand still at least 6 seconds."
 	set src in view(1)
@@ -676,7 +676,7 @@
 		AddComponent(/datum/component/stamina_behavior)
 		max_stamina = species.max_stamina
 		max_stamina_buffer = max_stamina
-		setStaminaLoss(-max_stamina)
+		set_stamina_loss(-max_stamina)
 
 	add_movespeed_modifier(MOVESPEED_ID_SPECIES, TRUE, 0, NONE, TRUE, species.slowdown)
 	species.on_species_gain(src, oldspecies) //todo move most of the stuff in this proc to here

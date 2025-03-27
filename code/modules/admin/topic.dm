@@ -62,7 +62,7 @@
 					status = "Unconscious"
 				if(DEAD)
 					status = "Dead"
-			health = "Oxy: [L.getOxyLoss()]  Tox: [L.getToxLoss()]  Fire: [L.getFireLoss()]  Brute: [L.getBruteLoss()]  Clone: [L.getCloneLoss()]  Brain: [L.getBrainLoss()]  Stamina: [L.getStaminaLoss()]"
+			health = "Oxy: [L.get_oxy_loss()]  Tox: [L.get_tox_loss()]  Fire: [L.get_fire_loss()]  Brute: [L.get_brute_loss()]  Clone: [L.get_clone_Loss()]  Brain: [L.get_brain_loss()]  Stamina: [L.get_stamina_loss()]"
 
 		to_chat(usr, {"<span class='notice'><hr><b>Info about [M.real_name]:</b>
 Type: [M.type] | Gender: [M.gender] |[job ? " Job: [job.title]" : ""]
@@ -1234,7 +1234,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				for(var/i in 1 to number)
 					if(path in typesof(/turf))
 						var/turf/O = target
-						var/turf/N = O.ChangeTurf(path)
+						var/turf/N = O.change_turf(path)
 						if(N && obj_name)
 							N.name = obj_name
 					else

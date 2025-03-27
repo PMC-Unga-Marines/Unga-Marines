@@ -69,7 +69,7 @@
 				to_chat(implant_owner, span_alert("You feel your spine tingle."))
 				COOLDOWN_START(src, alertcooldown, 10 SECONDS)
 			implant_owner.hallucination += 2
-			implant_owner.adjustFireLoss(1)
+			implant_owner.adjust_fire_loss(1)
 		if(2.1 SECONDS to 5 SECONDS)
 			if(COOLDOWN_CHECK(src, alertcooldown) || !exerted)
 				to_chat(implant_owner, span_userdanger("Your spine and brain feel like they're burning!"))
@@ -78,10 +78,10 @@
 			implant_owner.set_drugginess(10)
 			implant_owner.hallucination += 10
 			if(time_on > 3.6 SECONDS)
-				implant_owner.adjustCloneLoss(1)
-				implant_owner.adjustFireLoss(1)
+				implant_owner.adjust_clone_Loss(1)
+				implant_owner.adjust_fire_loss(1)
 			else
-				implant_owner.adjustFireLoss(2)
+				implant_owner.adjust_fire_loss(2)
 		if(5.1 SECONDS to INFINITY)//no infinite abuse
 			to_chat(implant_owner, span_userdanger("You feel a slight sense of shame as your brain and spine rip themselves apart from overexertion."))
 			implant_owner.gib()

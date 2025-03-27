@@ -83,7 +83,7 @@
 /obj/item/flashlight/attack(mob/living/M, mob/living/user)
 	if(light_on && user.zone_selected == BODY_ZONE_PRECISE_EYES)
 
-		if((user.getBrainLoss() >= 60) && prob(50))	//too dumb to use flashlight properly
+		if((user.get_brain_loss() >= 60) && prob(50))	//too dumb to use flashlight properly
 			return ..()	//just hit them in the head
 
 		var/mob/living/carbon/human/H = M	//mob has protective eyewear
@@ -158,7 +158,7 @@
 
 /obj/item/flashlight/lamp/verb/toggle_light()
 	set name = "Toggle light"
-	set category = "Object"
+	set category = "IC.Object"
 	set src in oview(1)
 
 	if(istype(usr, /mob/living/carbon/xenomorph)) //Sneaky xenos turning off the lights
