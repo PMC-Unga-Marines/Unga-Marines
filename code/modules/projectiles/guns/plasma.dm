@@ -1,6 +1,10 @@
 /obj/item/weapon/gun/energy/lasgun/lasrifle/plasma
 	name = "generic plasma weapon"
 	icon = 'icons/obj/items/gun/plasma64.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/guns/plasma_left_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/guns/plasma_right_1.dmi',
+	)
 	default_ammo_type = /obj/item/cell/lasgun/plasma
 	allowed_ammo_types = list(/obj/item/cell/lasgun/plasma)
 	heat_per_fire = 5
@@ -130,11 +134,12 @@
 	unload_sound = 'sound/weapons/guns/interact/plasma_unload_2.ogg'
 	reload_sound = 'sound/weapons/guns/interact/plasma_reload_1.ogg'
 	force = 35
-	ammo_datum_type = /datum/ammo/energy/plasma/cannon_standard
+	ammo_datum_type = /datum/ammo/energy/plasma/cannon_heavy
 	gun_firemode = GUN_FIREMODE_AUTOMATIC
-	fire_delay = 2.5 SECONDS
+	fire_delay = 2 SECONDS
 	heat_per_fire = 50
 	rounds_per_shot = 180
+	windup_delay = 0.5 SECONDS
 	mode_list = list(
 		"Standard" = /datum/lasrifle/base/plasma_cannon/cannon_standard,
 		"Shatter" = /datum/lasrifle/base/plasma_cannon/shatter_blast,
@@ -187,7 +192,7 @@
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/plasma/smg
 	name = "\improper PL-51 plasma SMG"
-	desc = "The PL-51 Plasma SMG, ."
+	desc = "The PL-51 Plasma SMG is another experimental addition to the TGMC plasma weapon lineup, speculated by some to be part of a scheme to have AI design and generate weapon schematics and profiles. It shares the same cooling system as other plasma weapons, preventing sustained fire. In contrast to others in it's lineup, it is much lighter, easier to handle and can be fired one handed. Has two fire modes, Standard which is capable of ricochetting off walls and solid objects and Overcharge which is slower firing, but causes a small moderately damaging explosion on contact with a target."
 	icon_state = "plasma_smg"
 	item_state = "plasma_smg"
 	gun_skill_category = SKILL_SMGS
@@ -203,14 +208,14 @@
 
 	accuracy_mult = 1.1
 	accuracy_mult_unwielded = 0.7
-	scatter = 6
-	scatter_unwielded = 12
+	scatter = 9
+	scatter_unwielded = 15
 
 	damage_falloff_mult = 0.75
 
 	gun_firemode = GUN_FIREMODE_AUTOMATIC
 	fire_delay = 0.15 SECONDS
-	heat_per_fire = 3
+	heat_per_fire = 3.3
 	rounds_per_shot = 12
 	mode_list = list(
 		"Standard" = /datum/lasrifle/base/plasma_smg/smg_standard,
@@ -251,7 +256,7 @@
 	icon_state = "plasma_smg"
 	fire_mode = GUN_FIREMODE_AUTOMATIC
 	fire_delay = 0.15 SECONDS
-	heat_per_fire = 3
+	heat_per_fire = 3.3
 	rounds_per_shot = 12
 	radial_icon_state = "plasma_bouncy"
 	message_to_user = "You set the guns's firemode to standard fire."

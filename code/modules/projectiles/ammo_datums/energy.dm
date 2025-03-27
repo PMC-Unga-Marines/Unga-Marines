@@ -570,7 +570,7 @@
 	var/melting_stacks = 2
 
 /datum/ammo/energy/plasma/blast/melting/drop_nade(turf/T)
-	cell_explosion(T, 25, 7.5, color = COLOR_DISABLER_BLUE)
+	cell_explosion(T, 25, 5, color = COLOR_DISABLER_BLUE)
 	for(var/mob/living/living_victim in viewers(3, T)) //normally using viewers wouldn't work due to darkness and smoke both blocking vision. However explosions clear both temporarily so we avoid this issue.
 		var/datum/status_effect/stacking/melting/debuff = living_victim.has_status_effect(STATUS_EFFECT_MELTING)
 		if(debuff)
@@ -601,12 +601,6 @@
 /datum/ammo/energy/plasma/blast/incendiary/drop_nade(turf/T)
 	flame_radius(2, T, burn_duration = 9, colour = "blue")
 	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
-
-/datum/ammo/energy/plasma/cannon_standard
-	damage = 20
-	penetration = 15
-	sundering = 0.75
-	damage_falloff = 0.75
 
 #define PLASMA_CANNON_INNER_STAGGERSTUN_RANGE 3
 #define PLASMA_CANNON_STAGGERSTUN_RANGE 9
@@ -664,24 +658,29 @@
 
 /datum/ammo/energy/plasma/smg_standard
 	icon_state = "plasma_ball_small"
-	damage = 22
+	damage = 14
 	penetration = 10
 	sundering = 0.5
+	damage_falloff = 1.5
+
+/datum/ammo/energy/plasma/smg_standard/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	reflect(target_turf, proj, 5)
 
 /datum/ammo/energy/plasma/smg_standard/one
+	damage = 16
 	bonus_projectiles_type = /datum/ammo/energy/plasma/smg_standard
 
 /datum/ammo/energy/plasma/smg_standard/two
+	damage = 18
 	bonus_projectiles_type = /datum/ammo/energy/plasma/smg_standard/one
 
 /datum/ammo/energy/plasma/smg_standard/three
+	damage = 20
 	bonus_projectiles_type = /datum/ammo/energy/plasma/smg_standard/two
 
 /datum/ammo/energy/plasma/smg_standard/four
+	damage = 22
 	bonus_projectiles_type = /datum/ammo/energy/plasma/smg_standard/three
-
-/datum/ammo/energy/plasma/smg_standard/on_hit_turf(turf/T, obj/projectile/proj)
-	reflect(T, proj, 5)
 
 /datum/ammo/energy/xeno
 	barricade_clear_distance = 0
