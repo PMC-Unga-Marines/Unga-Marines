@@ -64,6 +64,16 @@
 		var/mob/living/carbon/xenomorph/X = M
 		X.use_plasma(0.3 * X.xeno_caste.plasma_max * X.xeno_caste.plasma_regen_limit) //Drains 30% of max plasma on hit
 
+/datum/ammo/energy/lasburster
+	name = "lasburster bolt"
+	flags_ammo_behavior = AMMO_ENERGY|AMMO_HITSCAN
+	hud_state = "laser_overcharge"
+	armor_type = LASER
+	damage = 40
+	penetration = 5
+	max_range = 7
+	hitscan_effect_icon = "beam_heavy"
+
 /datum/ammo/energy/lasgun
 	name = "laser bolt"
 	icon_state = "laser"

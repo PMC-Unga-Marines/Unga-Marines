@@ -51,7 +51,7 @@
 
 /datum/supply_packs/explosives/explosives_cloak
 	name = "M40-2 SCDP grenade box crate"
-	notes = "contains 25 grenades"
+	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/cloak)
 	cost = 310
 

@@ -56,6 +56,7 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/chem_grenade/incendiary,
 		/obj/item/explosive/grenade/chem_grenade/teargas,
 		/obj/item/explosive/grenade/flashbang/stun,
+		/obj/item/explosive/grenade/bullet/laser,
 	)
 	reciever_flags = NONE
 
@@ -184,6 +185,7 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/sticky/trailblazer/phosphorus,
 		/obj/item/explosive/grenade/sticky/cloaker,
 		/obj/item/explosive/grenade/mirage,
+		/obj/item/explosive/grenade/bullet/laser,
 	)
 
 	wield_delay_mod = 0.2 SECONDS
