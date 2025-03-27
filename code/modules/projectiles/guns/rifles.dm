@@ -11,7 +11,7 @@
 	gun_features_flags = GUN_CAN_POINTBLANK||GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	load_method = MAGAZINE //codex
 	aim_slowdown = 0.35
-	wield_delay = 0.6 SECONDS
+	wield_delay = 0.8 SECONDS
 	gun_skill_category = SKILL_RIFLES
 
 	burst_amount = 3
@@ -195,7 +195,7 @@
 	extra_delay = 0.05 SECONDS
 	accuracy_mult = 1.1
 	scatter = -2
-	wield_delay = 0.7 SECONDS
+	wield_delay = 0.9 SECONDS
 	burst_amount = 3
 	aim_slowdown = 0.4
 	damage_falloff_mult = 0.5
@@ -242,7 +242,7 @@
 	wield_sound =    'sound/weapons/guns/dmr/Deploy_Wave_DMR.ogg'
 	caliber = CALIBER_10X27_CASELESS //codex
 	aim_slowdown = 0.75
-	wield_delay = 0.8 SECONDS
+	wield_delay = 1 SECONDS
 	force = 20
 	max_shells = 20 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/dmr37
@@ -359,7 +359,7 @@
 	wield_sound =    'sound/weapons/guns/dmr/Deploy_Wave_DMR.ogg'
 	caliber = CALIBER_10X265_CASELESS //codex
 	aim_slowdown = 0.55
-	wield_delay = 0.7 SECONDS
+	wield_delay = 0.9 SECONDS
 	force = 20
 	max_shells = 36 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/br64
@@ -477,7 +477,7 @@
 	burst_delay = 0.15 SECONDS
 	accuracy_mult = 1.1
 	scatter = -1
-	wield_delay = 0.7 SECONDS
+	wield_delay = 0.9 SECONDS
 	burst_amount = 3
 	aim_slowdown = 0.4
 	damage_mult = 1.05 //Has smaller magazines
@@ -547,7 +547,7 @@
 	unload_sound = 'sound/weapons/guns/interact/m41a_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/m41a_reload.ogg'
 	aim_slowdown = 0.5
-	wield_delay = 1.35 SECONDS
+	wield_delay = 1.55 SECONDS
 	max_shells = 95 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/m41a
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/m41a)
@@ -635,7 +635,7 @@
 	burst_amount = 1
 	fire_delay = 0.25 SECONDS
 	scatter = 0
-	wield_delay = 0.7 SECONDS
+	wield_delay = 0.9 SECONDS
 
 	placed_overlay_iconstate = "ak47"
 
@@ -709,7 +709,7 @@
 	caliber = CALIBER_762X39 //codex
 	muzzleflash_iconstate = "muzzle_flash_medium"
 	max_shells = 100  //codex
-	wield_delay = 1.2 SECONDS
+	wield_delay = 1.4 SECONDS
 	aim_slowdown = 0.95
 	fire_sound = 'sound/weapons/guns/fire/ak47.ogg'
 	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
@@ -795,7 +795,7 @@
 	accuracy_mult = 1
 	scatter = 2
 	recoil = -1
-	wield_delay = 0.9 SECONDS
+	wield_delay = 0.7 SECONDS
 	aim_slowdown = 0.85
 	movement_acc_penalty_mult = 4
 
@@ -858,7 +858,7 @@
 	extra_delay = -0.05 SECONDS
 	burst_delay = 0.15 SECONDS
 	accuracy_mult = 1.1
-	wield_delay = 0.5 SECONDS
+	wield_delay = 0.7 SECONDS
 	damage_mult = 1.2
 
 /obj/item/weapon/gun/rifle/m16/freelancer
@@ -918,7 +918,7 @@
 	fire_delay = 0.15 SECONDS
 	burst_delay = 0.15 SECONDS
 	accuracy_mult = 1.15
-	wield_delay = 0.5 SECONDS
+	wield_delay = 0.7 SECONDS
 	damage_mult = 1.2
 	scatter = 1
 	movement_acc_penalty_mult = 4
@@ -947,7 +947,7 @@
 	max_shells = 120 //codex
 	force = 30
 	aim_slowdown = 0.8
-	wield_delay = 1 SECONDS
+	wield_delay = 1.2 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mg42.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	cocked_sound = 'sound/weapons/guns/machineguns/MG-42/MG42_boltpull.ogg'
@@ -1032,7 +1032,7 @@
 	max_shells = 200 //codex
 	force = 35
 	aim_slowdown = 1.2
-	wield_delay = 1.5 SECONDS
+	wield_delay = 1.7 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mg60.ogg'
 	fire_rattle = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mg60_low.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
@@ -1099,7 +1099,7 @@
 	caliber = CALIBER_10X24_CASELESS //codex
 	max_shells = 200 //codex
 	aim_slowdown = 0.8
-	wield_delay = 2 SECONDS
+	wield_delay = 2.2 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/hmg.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/m41a_unload.ogg'
@@ -1180,7 +1180,7 @@
 		/obj/item/ammo_magazine/rifle/type71/hp,
 	)
 	aim_slowdown = 0.6
-	wield_delay = 0.7 SECONDS
+	wield_delay = 0.9 SECONDS
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,
@@ -1263,7 +1263,7 @@
 	desc = "An much rarer variant of the standard Type 71, this version contains an integrated supressor, a scope, and lots of fine-tuning. Many parts have been replaced, filed down, and improved upon. As a result, this variant is rarely seen outside of elite units."
 	icon_state = "type71"
 	item_state = "type71"
-	wield_delay = 0 //Ends up being .5 seconds due to scope
+	wield_delay = 0.2
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 19,"rail_x" = 10, "rail_y" = 22, "under_x" = 21, "under_y" = 18, "stock_x" = 21, "stock_y" = 18)
 	starting_attachment_types = list(/obj/item/attachable/suppressor/unremovable/invisible, /obj/item/attachable/scope/unremovable)
 
@@ -1357,7 +1357,7 @@
 	max_shells = 300 //codex
 	force = 30
 	aim_slowdown = 0.95
-	wield_delay = 1.3 SECONDS
+	wield_delay = 1.5 SECONDS
 	fire_sound = SFX_GUN_SMARTGUN
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
@@ -1421,7 +1421,7 @@
 	caliber = CALIBER_10X27_CASELESS //codex
 	max_shells = 40 //codex
 	aim_slowdown = 0.55
-	wield_delay = 0.65 SECONDS
+	wield_delay = 0.85 SECONDS
 	fire_sound =  'sound/weapons/guns/fire/t62.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
@@ -1509,7 +1509,7 @@
 	muzzleflash_iconstate = "muzzle_flash_pulse"
 	default_ammo_type = /obj/item/ammo_magazine/rifle/sectoid_rifle
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/sectoid_rifle)
-	wield_delay = 0.4 SECONDS
+	wield_delay = 0.6 SECONDS
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_ENERGY|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
@@ -1610,7 +1610,7 @@
 	recoil = 0
 	recoil_unwielded = 4
 	aim_slowdown = 1
-	wield_delay = 1.3 SECONDS
+	wield_delay = 1.5 SECONDS
 	cock_delay = 0.7 SECONDS
 	movement_acc_penalty_mult = 6
 
@@ -1666,7 +1666,7 @@
 	recoil = 0
 	recoil_unwielded = 4
 	aim_slowdown = 1
-	wield_delay = 1.3 SECONDS
+	wield_delay = 1.5 SECONDS
 	movement_acc_penalty_mult = 6
 
 //-------------------------------------------------------
@@ -1679,7 +1679,7 @@
 	item_state = "tx11"
 	caliber = CALIBER_492X34_CASELESS //codex
 	max_shells = 70 //codex
-	wield_delay = 0.65 SECONDS
+	wield_delay = 0.85 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_ar11.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound = 'sound/weapons/guns/rifles/AR-11/AR11_clipout.ogg'
@@ -1809,7 +1809,7 @@
 	burst_delay = 0.15 SECONDS
 	accuracy_mult = 1.2
 	scatter = -2
-	wield_delay = 0.6 SECONDS
+	wield_delay = 0.8 SECONDS
 	aim_slowdown = 0.5
 	damage_falloff_mult = 0.5
 
@@ -1860,7 +1860,7 @@
 	scatter = 4
 	burst_amount = 4
 	aim_slowdown = 0.3
-	wield_delay = 0.4 SECONDS
+	wield_delay = 0.6 SECONDS
 	damage_falloff_mult = 3
 
 	movement_acc_penalty_mult = 4
@@ -1918,7 +1918,7 @@
 	burst_amount = 1
 	fire_delay = 0.2 SECONDS
 	scatter = 1
-	wield_delay = 0.5 SECONDS
+	wield_delay = 0.7 SECONDS
 	movement_acc_penalty_mult = 4
 
 //-------------------------------------------------------
@@ -1966,7 +1966,7 @@
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
 	attachable_offset = list("muzzle_x" = 31, "muzzle_y" = 17,"rail_x" = 12, "rail_y" = 20, "under_x" = 28, "under_y" = 13, "stock_x" = -1, "stock_y" = 17)
 	aim_slowdown = 0.8
-	wield_delay = 0.8 SECONDS
+	wield_delay = 1 SECONDS
 	burst_amount = 1
 	accuracy_mult = 1.15
 	scatter = -2
@@ -2005,7 +2005,7 @@
 	reload_sound = 'sound/weapons/guns/interact/t18_reload.ogg'
 	caliber = CALIBER_10X24_CASELESS //codex
 	max_shells = 36 //codex
-	wield_delay = 1 SECONDS
+	wield_delay = 1.2 SECONDS
 	default_ammo_type = /obj/item/ammo_magazine/rifle/ar12
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/ar12,
@@ -2136,7 +2136,7 @@
 	recoil = 0
 	recoil_unwielded = 4
 	aim_slowdown = 0.75
-	wield_delay = 1 SECONDS
+	wield_delay = 1.2 SECONDS
 	movement_acc_penalty_mult = 6
 
 //-------------------------------------------------------
@@ -2187,7 +2187,7 @@
 	)
 	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 16,"rail_x" = 23, "rail_y" = 24, "under_x" = 33, "under_y" = 11, "stock_x" = -1, "stock_y" = 17)
 
-	wield_delay = 0.6 SECONDS
+	wield_delay = 0.8 SECONDS
 
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
@@ -2281,7 +2281,7 @@
 	accuracy_mult = 0.75
 	scatter = 12
 	recoil = 1.5
-	wield_delay = 0.4 SECONDS
+	wield_delay = 0.6 SECONDS
 	aim_slowdown = 0.3
 	movement_acc_penalty_mult = 4
 	damage_falloff_mult = 1.4
@@ -2329,7 +2329,7 @@
 	caliber = CALIBER_10X26_CASELESS
 	max_shells = 200
 	force = 35
-	wield_delay = 1.5 SECONDS
+	wield_delay = 1.7 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/v41.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
@@ -2400,7 +2400,7 @@
 	reload_sound = 'sound/weapons/guns/interact/fal_reload.ogg'
 	caliber = CALIBER_10X27_CASELESS //codex
 	aim_slowdown = 0.8
-	wield_delay = 0.85 SECONDS
+	wield_delay = 1.05 SECONDS
 	force = 20
 	max_shells = 20 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/icc_sharpshooter
@@ -2514,7 +2514,7 @@
 	fire_delay = 0.2 SECONDS
 	scatter = 3
 	aim_slowdown = 0.35
-	wield_delay = 0.35 SECONDS
+	wield_delay = 0.55 SECONDS
 	damage_falloff_mult = 2.5
 	movement_acc_penalty_mult = 4
 
@@ -2576,7 +2576,7 @@
 	burst_amount = 1
 	fire_delay = 0.45 SECONDS
 	aim_slowdown = 0.55
-	wield_delay = 0.65 SECONDS
+	wield_delay = 0.85 SECONDS
 	damage_falloff_mult = 2
 	movement_acc_penalty_mult = 6.5
 
@@ -2634,7 +2634,7 @@
 	accuracy_mult = 1.15
 	damage_mult = 0.5
 	aim_slowdown = 0.6
-	wield_delay = 0.55 SECONDS
+	wield_delay = 0.75 SECONDS
 	burst_amount = 1
 	scatter = 8
 	movement_acc_penalty_mult = 2
@@ -2683,7 +2683,7 @@
 	accuracy_mult = 1.15
 	damage_mult = 1.2
 	damage_falloff_mult = 1.5
-	wield_delay = 0.65 SECONDS
+	wield_delay = 0.85 SECONDS
 	aim_slowdown = 0.2
 	scatter = 0
 
@@ -2714,7 +2714,7 @@
 	max_shells = 80 //codex
 	force = 20
 	aim_slowdown = 0.5
-	wield_delay = 0.9 SECONDS
+	wield_delay = 1.1 SECONDS
 	fire_sound = SFX_GUN_SMARTGUN
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound =   'sound/weapons/guns/interact/T42_unload.ogg'
@@ -2771,7 +2771,7 @@
 	max_shells = 200 //codex
 	force = 30
 	aim_slowdown = 0.85
-	wield_delay = 0.75 SECONDS
+	wield_delay = 0.95 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mg60.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
