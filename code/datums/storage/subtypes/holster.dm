@@ -45,7 +45,7 @@
 
 /datum/storage/holster/blade/officer/New(atom/parent)
 	. = ..()
-	set_holdable(can_hold_list = list(/obj/item/weapon/claymore/mercsword/machete/officersword))
+	set_holdable(can_hold_list = list(/obj/item/weapon/claymore/mercsword/officersword))
 
 /datum/storage/holster/backholster
 	max_w_class = WEIGHT_CLASS_NORMAL //normal items

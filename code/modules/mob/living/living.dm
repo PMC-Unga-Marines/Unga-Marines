@@ -8,7 +8,7 @@
 
 	handle_organs()
 
-	updatehealth()
+	update_health()
 
 	if(client)
 		var/turf/T = get_turf(src)
@@ -80,21 +80,21 @@
 	if(world.time < last_staminaloss_dmg + 3 SECONDS)
 		return
 	if(staminaloss > 0)
-		adjustStaminaLoss(-maxHealth * 0.2 * stamina_regen_multiplier, TRUE, FALSE)
+		adjust_stamina_loss(-maxHealth * 0.2 * stamina_regen_multiplier, TRUE, FALSE)
 	else if(staminaloss > -max_stamina_buffer)
-		adjustStaminaLoss(-max_stamina * 0.08 * stamina_regen_multiplier, TRUE, FALSE)
+		adjust_stamina_loss(-max_stamina * 0.08 * stamina_regen_multiplier, TRUE, FALSE)
 
 
 /mob/living/proc/handle_regular_hud_updates()
 	if(!client)
 		return FALSE
 
-/mob/living/proc/updatehealth()
+/mob/living/proc/update_health()
 	if(status_flags & GODMODE)
 		health = maxHealth
 		stat = CONSCIOUS
 		return
-	health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
+	health = maxHealth - get_oxy_loss() - get_tox_loss() - get_fire_loss() - get_brute_loss() - get_clone_Loss()
 	update_stat()
 
 /mob/living/update_stat()
@@ -738,7 +738,7 @@
 		if("eye_blurry")
 			set_blurriness(var_value)
 		if("maxHealth")
-			updatehealth()
+			update_health()
 		if("resize")
 			update_transform()
 		if("lighting_alpha")

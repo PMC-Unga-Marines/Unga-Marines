@@ -342,7 +342,7 @@
 							cached_addictions.Remove(R)
 		addiction_tick++
 	if(!QDELETED(L) && need_mob_update)
-		L.updatehealth()
+		L.update_health()
 	update_total()
 
 /datum/reagents/proc/conditional_update_move(atom/A, running = FALSE)

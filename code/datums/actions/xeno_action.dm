@@ -2,11 +2,11 @@
 /datum/action/ability/xeno_action
 	///If you are going to add an explanation for an ability. don't use stats, give a very brief explanation of how to use it.
 	desc = "This ability can not be found in codex."
-	action_icon = 'icons/Xeno/actions.dmi'
+	action_icon = 'icons/Xeno/actions/_actions.dmi'
 
 /datum/action/ability/xeno_action/New(Target)
 	. = ..()
-	var/mutable_appearance/empowered_appearence = mutable_appearance('icons/Xeno/actions.dmi', "borders_center", ACTION_LAYER_EMPOWERED, FLOAT_PLANE)
+	var/mutable_appearance/empowered_appearence = mutable_appearance('icons/Xeno/actions/_actions.dmi', "borders_center", ACTION_LAYER_EMPOWERED, FLOAT_PLANE)
 	visual_references[VREF_MUTABLE_EMPOWERED_FRAME] = empowered_appearence
 
 /datum/action/ability/xeno_action/give_action(mob/living/L)
@@ -47,7 +47,7 @@
 //activatable
 /datum/action/ability/activable/xeno/New(Target)
 	. = ..()
-	var/mutable_appearance/empowered_appearence = mutable_appearance('icons/Xeno/actions.dmi', "borders_center", ACTION_LAYER_EMPOWERED, FLOAT_PLANE)
+	var/mutable_appearance/empowered_appearence = mutable_appearance('icons/Xeno/actions/_actions.dmi', "borders_center", ACTION_LAYER_EMPOWERED, FLOAT_PLANE)
 	visual_references[VREF_MUTABLE_EMPOWERED_FRAME] = empowered_appearence
 
 /datum/action/ability/activable/xeno/give_action(mob/living/L)
@@ -82,5 +82,4 @@
 		if(!silent)
 			X.balloon_alert(X, "Need [ability_cost - X.plasma_stored] more plasma")
 		return FALSE
-
 	return TRUE

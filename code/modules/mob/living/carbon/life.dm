@@ -41,9 +41,9 @@
 /mob/living/carbon/human/proc/oncritdrag()
 	SIGNAL_HANDLER
 	if(isxeno(pulledby))
-		if(adjustOxyLoss(HUMAN_CRITDRAG_OXYLOSS)) //take oxy damage per tile dragged
+		if(adjust_oxy_loss(HUMAN_CRITDRAG_OXYLOSS)) //take oxy damage per tile dragged
 			return
-		INVOKE_ASYNC(src, PROC_REF(adjustBruteLoss), HUMAN_CRITDRAG_OXYLOSS)
+		INVOKE_ASYNC(src, PROC_REF(adjust_brute_loss), HUMAN_CRITDRAG_OXYLOSS)
 
 /mob/living/carbon/update_stat()
 	. = ..()
@@ -63,7 +63,7 @@
 		death()
 		return
 
-	if(HAS_TRAIT(src, TRAIT_KNOCKEDOUT) || getOxyLoss() > CARBON_KO_OXYLOSS || health < get_crit_threshold())
+	if(HAS_TRAIT(src, TRAIT_KNOCKEDOUT) || get_oxy_loss() > CARBON_KO_OXYLOSS || health < get_crit_threshold())
 		if(stat == UNCONSCIOUS)
 			return
 		set_stat(UNCONSCIOUS)
@@ -81,7 +81,7 @@
 		dizzy(-restingpwr)
 
 	if(drowsyness)
-		adjustDrowsyness(-restingpwr)
+		adjust_drowsyness(-restingpwr)
 		blur_eyes(2)
 		if(drowsyness > 18 && prob(5))
 			Sleeping(2 SECONDS)
@@ -137,19 +137,19 @@
 			blur_eyes(4)
 
 		if(drunkenness >= 81)
-			adjustToxLoss(0.2)
+			adjust_tox_loss(0.2)
 			if(prob(10) && !stat)
 				to_chat(src, span_warning("Maybe you should lie down for a bit..."))
-				adjustDrowsyness(5)
+				adjust_drowsyness(5)
 
 		if(drunkenness >= 91)
-			adjustBrainLoss(0.2, TRUE)
+			adjust_brain_loss(0.2, TRUE)
 			if(prob(15 && !stat))
 				to_chat(src, span_warning("Just a quick nap..."))
 				Sleeping(80 SECONDS)
 
 		if(drunkenness >=101) //Let's be honest, you should be dead by now
-			adjustToxLoss(4)
+			adjust_tox_loss(4)
 
 	switch(drunkenness) //painkilling effects
 		if(51 to 71)

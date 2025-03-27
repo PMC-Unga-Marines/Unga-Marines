@@ -1,16 +1,16 @@
 //List of Hivemind resin structure images
 GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
-		RESIN_WALL = image('icons/Xeno/actions.dmi', icon_state = RESIN_WALL),
-		RESIN_WALL_BOMB = image('icons/Xeno/actions.dmi', icon_state = RESIN_WALL_BOMB),
-		RESIN_WALL_BULLET = image('icons/Xeno/actions.dmi', icon_state = RESIN_WALL_BULLET),
-		RESIN_WALL_FIRE = image('icons/Xeno/actions.dmi', icon_state = RESIN_WALL_FIRE),
-		RESIN_WALL_MELEE = image('icons/Xeno/actions.dmi', icon_state = RESIN_WALL_MELEE),
-		STICKY_RESIN = image('icons/Xeno/actions.dmi', icon_state = STICKY_RESIN),
-		RESIN_DOOR = image('icons/Xeno/actions.dmi', icon_state = RESIN_DOOR),
-		ALIEN_NEST = image('icons/Xeno/actions.dmi', icon_state = ALIEN_NEST),
-		GROWTH_WALL = image('icons/Xeno/actions.dmi', icon_state = GROWTH_WALL),
-		GROWTH_DOOR = image('icons/Xeno/actions.dmi', icon_state = GROWTH_DOOR)
-		))
+	RESIN_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL),
+	RESIN_WALL_BOMB = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_BOMB),
+	RESIN_WALL_BULLET = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_BULLET),
+	RESIN_WALL_FIRE = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_FIRE),
+	RESIN_WALL_MELEE = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_MELEE),
+	STICKY_RESIN = image('icons/Xeno/actions/construction.dmi', icon_state = STICKY_RESIN),
+	RESIN_DOOR = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_DOOR),
+	ALIEN_NEST = image('icons/Xeno/actions/construction.dmi', icon_state = ALIEN_NEST),
+	GROWTH_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = GROWTH_WALL),
+	GROWTH_DOOR = image('icons/Xeno/actions/construction.dmi', icon_state = GROWTH_DOOR)
+))
 
 /datum/action/ability/xeno_action/sow/hivemind
 	cooldown_duration = 70 SECONDS
@@ -26,29 +26,30 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 	return ..()
 
 /datum/action/ability/activable/xeno/secrete_resin/hivemind/can_use_action(silent = FALSE, override_flags, selecting = FALSE)
-	if (owner.status_flags & INCORPOREAL)
+	if(owner.status_flags & INCORPOREAL)
 		return FALSE
 	return ..()
 
 /datum/action/ability/xeno_action/sow/hivemind/can_use_action(silent = FALSE, override_flags, selecting = FALSE)
-	if (owner.status_flags & INCORPOREAL)
+	if(owner.status_flags & INCORPOREAL)
 		return FALSE
 	return ..()
 
 /datum/action/ability/xeno_action/place_acidwell/hivemind/can_use_action(silent = FALSE, override_flags, selecting = FALSE)
-	if (owner.status_flags & INCORPOREAL)
+	if(owner.status_flags & INCORPOREAL)
 		return FALSE
 	return ..()
 
 /datum/action/ability/xeno_action/place_jelly_pod/hivemind/can_use_action(silent = FALSE, override_flags, selecting = FALSE)
-	if (owner.status_flags & INCORPOREAL)
+	if(owner.status_flags & INCORPOREAL)
 		return FALSE
 	return ..()
 
 /datum/action/ability/xeno_action/change_form
 	name = "Change form"
-	action_icon_state = "manifest"
 	desc = "Change from your incorporeal form to your physical on and vice-versa."
+	action_icon_state = "manifest"
+	action_icon = 'icons/Xeno/actions/hivemind.dmi'
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOMORPH_HIVEMIND_CHANGE_FORM,
 	)
@@ -60,8 +61,9 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 
 /datum/action/ability/activable/xeno/command_minions
 	name = "Command minions"
-	action_icon_state = "minion_agressive"
 	desc = "Command all minions, ordering them to converge on this location. Rightclick to change minion behaviour."
+	action_icon_state = "minion_agressive"
+	action_icon = 'icons/Xeno/actions/general.dmi'
 	ability_cost = 100
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RALLY_MINION,
@@ -121,8 +123,9 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 
 /datum/action/ability/xeno_action/teleport
 	name = "Teleport"
-	action_icon_state = "resync"
 	desc = "Pick a location on the map and instantly manifest there if possible."
+	action_icon_state = "resync"
+	action_icon = 'icons/Xeno/actions/hivemind.dmi'
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMISG_XENOMORPH_HIVEMIND_TELEPORT,
 	)
@@ -204,8 +207,9 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 // ***************************************
 /datum/action/ability/xeno_action/psy_gain/hivemind
 	name = "Psy Gain"
-	action_icon_state = "psy_gain"
 	desc = "Gives your hive 100 psy points, if marines are on the ground."
+	action_icon_state = "psy_gain"
+	action_icon = 'icons/Xeno/actions/hivemind.dmi'
 	cooldown_duration = 200 SECONDS
 
 /datum/action/ability/xeno_action/psy_gain/hivemind/action_activate()

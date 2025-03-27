@@ -255,7 +255,6 @@
 /obj/item/storage/backpack/marine/standard/molle
 	name = "\improper T16 MOLLE Backpack"
 	desc = "The latest backpack developed by Crowford Armory Union on the military order of TGMC. Thanks to the introduction of new MOLLE fastening systems, it turned out to beltbags and backpacks that are not inferior to roominess and portable weight, while also reducing the size of backpacks that have gone to hang from the back on the belt."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	item_icons = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
@@ -267,7 +266,6 @@
 /obj/item/storage/backpack/marine/satchel/molle
 	name = "\improper T13 MOLLE Satchel"
 	desc = "The latest satchel developed by Crowford Armory Union on the military order of TGMC. Thanks to the introduction of new MOLLE fastening systems, it turned out to beltbags and backpacks that are not inferior to roominess and portable weight, while also reducing the size of backpacks that have gone to hang from the back on the belt."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	item_icons = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
@@ -279,7 +277,6 @@
 /obj/item/storage/backpack/marine/standard/scav
 	name = "Scav Backpack"
 	desc = "Pretty swag backpack."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	item_icons = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi')
 	icon_state = "scavpack"
@@ -290,8 +287,8 @@
 	desc = "The standard-issue backpack worn by TGMC corpsmen. You can recharge defibrillators by plugging them in."
 	icon_state = "marinepackm"
 	item_state = "marinepackm"
-	icon = 'icons/obj/items/storage/storage.dmi'
-	var/obj/item/cell/high/cell //Starts with a high capacity energy cell.
+	//. Starts with a high capacity energy cell.
+	var/obj/item/cell/high/cell
 	var/icon_skin
 
 /obj/item/storage/backpack/marine/corpsman/Initialize(mapload, ...)
@@ -366,6 +363,14 @@
 			update_icon()
 	return ..()
 
+/obj/item/storage/backpack/marine/corpsman/satchel
+	name = "\improper TGMC corpsman satchel"
+	desc = "A heavy-duty satchel carried by some TGMC corpsmen. You can recharge defibrillators by plugging them in."
+	icon_state = "marinesatm"
+	item_state = "marinesatm"
+	cell = /obj/item/cell/apc
+	storage_type = /datum/storage/backpack/satchel
+
 /obj/item/storage/backpack/marine/tech
 	name = "\improper TGMC technician backpack"
 	desc = "The standard-issue backpack worn by TGMC technicians. Specially equipped to hold sentry gun and M56D emplacement parts."
@@ -383,13 +388,6 @@
 /obj/item/storage/backpack/marine/satchel/green
 	name = "\improper Green TGMC satchel"
 	icon_state = "marinesat_green"
-
-/obj/item/storage/backpack/marine/corpsman/satchel
-	name = "\improper TGMC corpsman satchel"
-	desc = "A heavy-duty satchel carried by some TGMC corpsmen. You can recharge defibrillators by plugging them in."
-	icon_state = "marinesatm"
-	item_state = "marinesatm"
-	cell = /obj/item/cell/apc
 
 /obj/item/storage/backpack/marine/satchel/tech
 	name = "\improper TGMC technician satchel"

@@ -6,12 +6,10 @@
 		return FALSE
 	return TRUE
 
-
 /datum/action/observer_action/crew_manifest
 	name = "Show Crew manifest"
 	action_icon = 'icons/obj/items/books.dmi'
 	action_icon_state = "book"
-
 
 /datum/action/observer_action/crew_manifest/action_activate()
 	if(!can_use_action())
@@ -19,12 +17,10 @@
 	var/mob/dead/observer/O = owner
 	O.view_manifest()
 
-
 /datum/action/observer_action/show_hivestatus
 	name = "Show Hive status"
-	action_icon = 'icons/Xeno/actions.dmi'
+	action_icon = 'icons/Xeno/actions/queen.dmi'
 	action_icon_state = "watch_xeno"
-
 
 /datum/action/observer_action/show_hivestatus/action_activate()
 	if(!can_use_action())
@@ -108,7 +104,7 @@
 
 /datum/action/observer_action/find_facehugger_spawn
 	name = "Spawn as Facehugger"
-	action_icon = 'icons/Xeno/actions.dmi'
+	action_icon = 'icons/Xeno/actions/carrier.dmi'
 	action_icon_state = "hugger_set"
 
 /datum/action/observer_action/find_facehugger_spawn/action_activate()

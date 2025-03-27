@@ -15,7 +15,7 @@
 	. = ..()
 	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
 	xenomorph_owner.plasma_stored += pantherplasmaheal
-	HEAL_XENO_DAMAGE(xenomorph_owner, pantherlifesteal, FALSE)
+	xenomorph_owner.heal_xeno_damage(pantherlifesteal, FALSE)
 
 ///////////////////////////////////
 // ***************************************
@@ -24,15 +24,16 @@
 
 /datum/action/ability/xeno_action/tearingtail
 	name = "Tearing tail"
-	action_icon_state = "tearing_tail"
 	desc = "Hit all nearby enemies around you, poisoning them with selected toxin and healing you for each target hit."
+	action_icon_state = "tearing_tail"
+	action_icon = 'icons/Xeno/actions/panther.dmi'
 	ability_cost = 35
 	cooldown_duration = 10 SECONDS
-	var/tearing_tail_reagent
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TEARING_TAIL,
 	)
+	var/tearing_tail_reagent
 
 /datum/action/ability/xeno_action/tearingtail/action_activate()
 	var/mob/living/carbon/xenomorph/xenomorph_owner = owner
@@ -82,8 +83,9 @@
 
 /datum/action/ability/activable/xeno/adrenalinejump
 	name = "Adrenaline Jump"
-	action_icon_state = "adrenaline_jump"
 	desc = "Jump from some distance to target, knocking them down and pulling them to you, only works if you are at least from 3 to 8 meters away from the target, this ability sends Pounce on cooldown."
+	action_icon_state = "adrenaline_jump"
+	action_icon = 'icons/Xeno/actions/panther.dmi'
 	ability_cost = 10
 	cooldown_duration = 8 SECONDS
 	keybinding_signals = list(
@@ -198,8 +200,9 @@
 
 /datum/action/ability/xeno_action/adrenaline_rush
 	name = "Adrenaline rush"
-	action_icon_state = "adrenaline_rush"
 	desc = "Move faster."
+	action_icon_state = "adrenaline_rush"
+	action_icon = 'icons/Xeno/actions/panther.dmi'
 	ability_cost = 10
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ADRENALINE_RUSH,
@@ -225,7 +228,6 @@
 	rush_on()
 	succeed_activate()
 
-
 /datum/action/ability/xeno_action/adrenaline_rush/proc/rush_on(silent = FALSE)
 	var/mob/living/carbon/xenomorph/walker = owner
 	speed_activated = TRUE
@@ -237,7 +239,6 @@
 	set_toggle(TRUE)
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(rush_on_moved))
 
-
 /datum/action/ability/xeno_action/adrenaline_rush/proc/rush_off(silent = FALSE)
 	var/mob/living/carbon/xenomorph/walker = owner
 	if(!silent)
@@ -248,7 +249,6 @@
 	speed_activated = FALSE
 	set_toggle(FALSE)
 	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
-
 
 /datum/action/ability/xeno_action/adrenaline_rush/proc/rush_on_moved(datum/source, atom/oldloc, direction, Forced = FALSE)
 	SIGNAL_HANDLER
@@ -273,8 +273,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/evasive_maneuvers
 	name = "Toggle evasive maneuvers"
-	action_icon_state = "evasive_maneuvers"
 	desc = "Toggle evasive action, forcing non-friendly projectiles that would hit you to miss."
+	action_icon_state = "evasive_maneuvers"
+	action_icon = 'icons/Xeno/actions/panther.dmi'
 	ability_cost = 35
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_EVASIVE_MANEUVERS,
@@ -311,7 +312,6 @@
 	R.balloon_alert(R, "Begin evasion.")
 	to_chat(R, span_highdanger("We take evasive action, making us impossible to hit with projectiles."))
 	succeed_activate()
-
 
 	RegisterSignals(R, list(COMSIG_LIVING_STATUS_STUN,
 		COMSIG_LIVING_STATUS_KNOCKDOWN,
@@ -400,7 +400,6 @@
 /datum/action/ability/xeno_action/evasive_maneuvers/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We are able to take evasive action again."))
 	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
-
 	return ..()
 
 /datum/action/ability/xeno_action/evasive_maneuvers/process()
@@ -467,10 +466,7 @@
 // *********** Select reagent (panther)
 // ***************************************
 /datum/action/ability/xeno_action/select_reagent/panther
-	name = "Select Reagent"
-	action_icon_state = "select_reagent0"
 	desc = "Selects which reagent to use for tearing tail. Hemodile slows by 25%, increased to 50% with neurotoxin present, and deals 20% of damage received as stamina damage. Transvitox converts brute/burn damage to toxin based on 40% of damage received up to 45 toxin on target, upon reaching which causes a stun. Neurotoxin deals increasing stamina damage the longer it remains in the victim's system and prevents stamina regeneration. Ozelomelyn purges medical chemicals from humans, while also causing slight intoxication. Sanguinal does damage depending on presence and amount of all previously mentioned reagents, also causes light brute damage and bleeding."
-	use_state_flags = ABILITY_USE_BUSY|ABILITY_USE_LYING
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PANTHER_SELECT_REAGENT,
 		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_RADIAL_SELECT_REAGENT,
@@ -500,11 +496,11 @@
 	// This is cursed, don't copy this code its the WRONG way to do this.
 	// TODO: generate this from GLOB.panther_toxin_type_list (or wait while offtgmc reworks the defiler code and then copy it )
 	var/static/list/panther_toxin_images_list = list(
-			PANTHER_HEMODILE = image('icons/Xeno/actions.dmi', icon_state = PANTHER_HEMODILE),
-			PANTHER_TRANSVITOX = image('icons/Xeno/actions.dmi', icon_state = PANTHER_TRANSVITOX),
-			PANTHER_OZELOMELYN = image('icons/Xeno/actions.dmi', icon_state = PANTHER_OZELOMELYN),
-			PANTHER_SANGUINAL = image('icons/Xeno/actions.dmi', icon_state = PANTHER_SANGUINAL),
-			)
+		REAGENT_HEMODILE = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_HEMODILE),
+		REAGENT_TRANSVITOX = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_TRANSVITOX),
+		REAGENT_OZELOMELYN = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_OZELOMELYN),
+		REAGENT_SANGUINAL = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_SANGUINAL),
+	)
 	var/toxin_choice = show_radial_menu(owner, owner, panther_toxin_images_list, radius = 48)
 	if(!toxin_choice)
 		return
@@ -517,8 +513,3 @@
 	xenomorph_owner.balloon_alert(xenomorph_owner, "[toxin_choice]")
 	update_button_icon()
 	return succeed_activate()
-
-#undef PANTHER_HEMODILE
-#undef PANTHER_TRANSVITOX
-#undef PANTHER_OZELOMELYN
-#undef PANTHER_SANGUINAL

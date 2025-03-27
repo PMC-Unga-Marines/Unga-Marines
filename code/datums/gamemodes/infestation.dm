@@ -23,7 +23,7 @@
 		weed_type = pickweight(GLOB.weed_prob_list)
 		new weed_type(T)
 	for(var/turf/T AS in GLOB.xeno_resin_wall_turfs)
-		T.ChangeTurf(/turf/closed/wall/resin/regenerating, T.type)
+		T.change_turf(/turf/closed/wall/resin/regenerating, T.type)
 	for(var/i in GLOB.xeno_resin_door_turfs)
 		new /obj/structure/mineral_door/resin(i)
 	for(var/i in GLOB.xeno_tunnel_spawn_turfs)
@@ -379,6 +379,6 @@
 		var/turf/victim_turf = get_turf(victim) //Sneaky people on lockers.
 		if(QDELETED(victim_turf) || victim_turf.z != z_level)
 			continue
-		victim.adjustFireLoss(victim.maxHealth * 4)
+		victim.adjust_fire_loss(victim.maxHealth * 4)
 		victim.death()
 		CHECK_TICK

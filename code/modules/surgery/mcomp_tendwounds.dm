@@ -5,7 +5,7 @@
 /datum/surgery_step/mcomp_wounds/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected, checks_only)
 	if(target_zone != "chest")
 		return SURGERY_CANNOT_USE
-	if(HAS_TRAIT(user, required_trait) && (target.getBruteLoss() || target.getFireLoss() || depth_op) && affected.surgery_open_stage == depth_op) //Heals brute or burn
+	if(HAS_TRAIT(user, required_trait) && (target.get_brute_loss() || target.get_fire_loss() || depth_op) && affected.surgery_open_stage == depth_op) //Heals brute or burn
 		return SURGERY_CAN_USE
 	return SURGERY_CANNOT_USE
 

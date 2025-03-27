@@ -3,8 +3,8 @@
 // ***************************************
 /datum/action/ability/activable/xeno/spray_acid/line
 	name = "Spray Acid"
-	action_icon_state = "spray_acid"
 	desc = "Spray a line of dangerous acid at your target."
+	action_icon_state = "spray_acid_line"
 	ability_cost = 250
 	cooldown_duration = 30 SECONDS
 
@@ -32,7 +32,6 @@
 
 	GLOB.round_statistics.spitter_acid_sprays++ //Statistics
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "spitter_acid_sprays")
-
 
 /datum/action/ability/activable/xeno/spray_acid/line/proc/spray_turfs(list/turflist)
 	set waitfor = FALSE
@@ -102,8 +101,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/scatter_spit
 	name = "Scatter Spit"
-	action_icon_state = "scatter_spit"
 	desc = "Spits a spread of acid projectiles that splatter on the ground."
+	action_icon_state = "scatter_spit"
+	action_icon = 'icons/Xeno/actions/spitter.dmi'
 	ability_cost = 280
 	cooldown_duration = 5 SECONDS
 	keybinding_signals = list(

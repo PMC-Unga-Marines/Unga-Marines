@@ -67,6 +67,7 @@
 	has_sensor = 0
 	sensor_mode = 0
 	siemens_coefficient = 0
+	item_flags = DELONDROP
 
 /obj/item/clothing/under/owl
 	name = "owl uniform"

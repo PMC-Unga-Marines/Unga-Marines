@@ -1,6 +1,7 @@
 /obj/structure/shuttle
 	name = "shuttle"
 	icon = 'icons/turf/shuttle.dmi'
+	allow_pass_flags = PASS_PROJECTILE|PASS_AIR
 
 /obj/structure/shuttle/add_debris_element()
 	AddElement(/datum/element/debris, DEBRIS_SPARKS, -15, 8, 1)
@@ -22,7 +23,7 @@
 	resistance_flags = RESIST_ALL
 
 /obj/structure/shuttle/engine/heater
-	name = "heater"
+	name = "heater engine"
 	icon_state = "heater"
 
 /obj/structure/shuttle/engine/platform
@@ -30,21 +31,21 @@
 	icon_state = "platform"
 
 /obj/structure/shuttle/engine/propulsion
-	name = "propulsion"
+	name = "propulsion engine"
 	icon_state = "propulsion"
 	opacity = TRUE
 
 /obj/structure/shuttle/engine/propulsion/burst
-	name = "burst"
+	name = "burst propulsion engine"
 
 /obj/structure/shuttle/engine/propulsion/burst/left
-	name = "left"
+	name = "left propulsion engine"
 	icon_state = "burst_l"
 
 /obj/structure/shuttle/engine/propulsion/burst/right
-	name = "right"
+	name = "right propulsion engine"
 	icon_state = "burst_r"
 
 /obj/structure/shuttle/engine/router
-	name = "router"
+	name = "router engine"
 	icon_state = "router"

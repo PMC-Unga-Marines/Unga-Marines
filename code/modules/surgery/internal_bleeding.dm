@@ -47,4 +47,4 @@
 	span_warning("Your hand slips, smearing [tool] in the incision in [target]'s [affected.display_name]!"))
 	target.balloon_alert_to_viewers("Slipped!")
 	affected.take_damage_limb(5, 0)
-	target.updatehealth()
+	target.update_health()

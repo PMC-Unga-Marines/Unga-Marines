@@ -222,13 +222,13 @@
 			atomsnowflake += {"
 				<br><font size='1'><a href='?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=ckey' id='ckey'>[M.ckey || "No ckey"]</a> / <a href='?_src_=vars;[HrefToken()];datumedit=[refid];varnameedit=real_name' id='real_name'>[M.real_name || "No real name"]</a></font>
 				<br><font size='1'>
-					BRUTE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brute' id='brute'>[M.getBruteLoss()]</a>
-					FIRE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=fire' id='fire'>[M.getFireLoss()]</a>
-					TOXIN:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=toxin' id='toxin'>[M.getToxLoss()]</a>
-					OXY:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=oxygen' id='oxygen'>[M.getOxyLoss()]</a>
-					CLONE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=clone' id='clone'>[M.getCloneLoss()]</a>
-					BRAIN:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brain' id='brain'>[M.getBrainLoss()]</a>
-					STAMINA:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=stamina' id='stamina'>[M.getStaminaLoss()]</a>
+					BRUTE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brute' id='brute'>[M.get_brute_loss()]</a>
+					FIRE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=fire' id='fire'>[M.get_fire_loss()]</a>
+					TOXIN:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=toxin' id='toxin'>[M.get_tox_loss()]</a>
+					OXY:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=oxygen' id='oxygen'>[M.get_oxy_loss()]</a>
+					CLONE:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=clone' id='clone'>[M.get_clone_Loss()]</a>
+					BRAIN:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brain' id='brain'>[M.get_brain_loss()]</a>
+					STAMINA:<font size='1'><a href='?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=stamina' id='stamina'>[M.get_stamina_loss()]</a>
 				</font>
 			"}
 	else if("name" in D.vars)
@@ -1029,26 +1029,26 @@
 		var/newamt
 		switch(Text)
 			if(BRUTE)
-				L.adjustBruteLoss(amount)
-				newamt = L.getBruteLoss()
+				L.adjust_brute_loss(amount)
+				newamt = L.get_brute_loss()
 			if(BURN)
-				L.adjustFireLoss(amount)
-				newamt = L.getFireLoss()
+				L.adjust_fire_loss(amount)
+				newamt = L.get_fire_loss()
 			if(TOX)
-				L.adjustToxLoss(amount)
-				newamt = L.getToxLoss()
+				L.adjust_tox_loss(amount)
+				newamt = L.get_tox_loss()
 			if(OXY)
-				L.adjustOxyLoss(amount)
-				newamt = L.getOxyLoss()
+				L.adjust_oxy_loss(amount)
+				newamt = L.get_oxy_loss()
 			if("brain")
-				L.adjustBrainLoss(amount)
-				newamt = L.getBrainLoss()
+				L.adjust_brain_loss(amount)
+				newamt = L.get_brain_loss()
 			if(CLONE)
-				L.adjustCloneLoss(amount)
-				newamt = L.getCloneLoss()
+				L.adjust_clone_Loss(amount)
+				newamt = L.get_clone_Loss()
 			if(STAMINA)
-				L.adjustStaminaLoss(amount)
-				newamt = L.getStaminaLoss()
+				L.adjust_stamina_loss(amount)
+				newamt = L.get_stamina_loss()
 
 		if(amount == 0)
 			return

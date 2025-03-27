@@ -134,12 +134,12 @@
 		var/current_total_damage = maxHealth - health
 		needed_healing = current_total_damage - new_total_damage
 
-	var/brute_healing = min(getBruteLoss(), needed_healing)
-	adjustBruteLoss(-brute_healing)
-	adjustFireLoss(-(needed_healing - brute_healing))
+	var/brute_healing = min(get_brute_loss(), needed_healing)
+	adjust_brute_loss(-brute_healing)
+	adjust_fire_loss(-(needed_healing - brute_healing))
 
 	maxHealth = new_max_health
-	updatehealth()
+	update_health()
 
 /mob/living/carbon/xenomorph/proc/generate_nicknumber()
 	//We don't have a nicknumber yet, assign one to stick with us

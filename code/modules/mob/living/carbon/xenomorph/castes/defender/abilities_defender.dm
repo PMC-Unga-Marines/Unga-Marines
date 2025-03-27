@@ -3,8 +3,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/tail_sweep
 	name = "Tail Sweep"
-	action_icon_state = "tail_sweep"
 	desc = "Hit all adjacent units around you, knocking them away and down."
+	action_icon_state = "tail_sweep"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	ability_cost = 35
 	use_state_flags = ABILITY_USE_CRESTED
 	cooldown_duration = 12 SECONDS
@@ -95,8 +96,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/charge/forward_charge
 	name = "Forward Charge"
-	action_icon_state = "pounce"
 	desc = "Charge up to 4 tiles and knockdown any targets in our way."
+	action_icon_state = "pounce"
+	action_icon = 'icons/Xeno/actions/runner.dmi'
 	cooldown_duration = 10 SECONDS
 	ability_cost = 80
 	use_state_flags = ABILITY_USE_CRESTED|ABILITY_USE_FORTIFIED
@@ -168,8 +170,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/toggle_crest_defense
 	name = "Toggle Crest Defense"
-	action_icon_state = "crest_defense"
 	desc = "Increase your resistance to projectiles at the cost of move speed. Can use abilities while in Crest Defense."
+	action_icon_state = "crest_defense"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED // duh
 	cooldown_duration = 1 SECONDS
 	keybinding_signals = list(
@@ -246,8 +249,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/fortify
 	name = "Fortify"
-	action_icon_state = "fortify"	// TODO
 	desc = "Plant yourself for a large defensive boost."
+	action_icon_state = "fortify"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED // duh
 	cooldown_duration = 1 SECONDS
 	keybinding_signals = list(
@@ -340,8 +344,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/regenerate_skin
 	name = "Regenerate Skin"
-	action_icon_state = "regenerate_skin"
 	desc = "Regenerate your hard exoskeleton skin, restoring some health and removing all sunder."
+	action_icon_state = "regenerate_skin"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED|ABILITY_TARGET_SELF|ABILITY_IGNORE_SELECTED_ABILITY|ABILITY_KEYBIND_USE_ABILITY
 	ability_cost = 80
 	cooldown_duration = 1 MINUTES
@@ -381,8 +386,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/centrifugal_force
 	name = "Centrifugal force"
-	action_icon_state = "centrifugal_force"
 	desc = "Rapidly spin and hit all adjacent humans around you, knocking them away and down. Uses double plasma when crest is active."
+	action_icon_state = "centrifugal_force"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	ability_cost = 15
 	use_state_flags = ABILITY_USE_CRESTED
 	cooldown_duration = 30 SECONDS
@@ -478,8 +484,9 @@
 
 /datum/action/ability/activable/xeno/headbutt
 	name = "Headbutt"
+	desc = "Headbutts into the designated target."
 	action_icon_state = "headbutt"
-	desc = "Headbutts into the designated target"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	cooldown_duration = 5 SECONDS
 	ability_cost = 35
 	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED // yea
@@ -514,12 +521,8 @@
 		if(!CHECK_BITFIELD(use_state_flags|override_flags, ABILITY_IGNORE_DEAD_TARGET) && victim.stat == DEAD)
 			return FALSE
 
-/datum/action/ability/activable/xeno/headbutt/use_ability(atom/target)
+/datum/action/ability/activable/xeno/headbutt/use_ability(mob/living/victim)
 	var/mob/living/carbon/xenomorph/defender/xeno_owner = owner
-	var/mob/living/victim = target
-
-	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "headbutts")
-
 	var/headbutt_distance = 1 + (xeno_owner.crest_defense * 2) + (xeno_owner.fortify * 2)
 	var/headbutt_damage = base_damage - (xeno_owner.crest_defense * 10)
 
@@ -552,10 +555,13 @@
 	succeed_activate()
 	add_cooldown()
 
+	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "headbutts")
+
 /datum/action/ability/xeno_action/soak
 	name = "soak"
+	desc = "When activated tracks damaged taken for 6 seconds, once the amount of damage reaches 140, the Defender is healed by 80. If the damage threshold is not reached, nothing happens."
 	action_icon_state = "soak"
-	desc = "When activated tracks damaged taken for 6 seconds, once the amount of damage reaches 140, the Defender is healed by 75 and the Tail Slam cooldown is reset. If the damage threshold is not reached, nothing happens."
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	cooldown_duration = 17 SECONDS
 	ability_cost = 35
 	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED // yea
@@ -578,7 +584,6 @@
 	addtimer(CALLBACK(src, PROC_REF(stop_accumulating)), 6 SECONDS)
 
 	xeno_owner.balloon_alert(xeno_owner, "begins to tank incoming damage!")
-
 	to_chat(xeno_owner, span_xenonotice("We begin to tank incoming damage!"))
 
 	xeno_owner.add_filter("steelcrest_enraging", 1, list("type" = "outline", "color" = "#421313", "size" = 1))
@@ -592,7 +597,7 @@
 	damage_accumulated += damage
 
 	if(damage_accumulated >= damage_threshold)
-		addtimer(CALLBACK(src, PROC_REF(enraged), owner), 0.1 SECONDS) //CM use timer, so i do
+		INVOKE_ASYNC(src, PROC_REF(enraged), owner)
 		UnregisterSignal(owner, COMSIG_XENOMORPH_TAKING_DAMAGE) // Two Unregistersignal because if the enrage proc doesnt happen, then it needs to stop counting
 
 /datum/action/ability/xeno_action/soak/proc/stop_accumulating()
@@ -602,21 +607,18 @@
 	to_chat(owner, span_xenonotice("We stop taking incoming damage."))
 	owner.remove_filter("steelcrest_enraging")
 
-/datum/action/ability/xeno_action/soak/proc/enraged()
-	owner.remove_filter("steelcrest_enraging")
-	owner.add_filter("steelcrest_enraged", 1, list("type" = "outline", "color" = "#ad1313", "size" = 1))
+/datum/action/ability/xeno_action/soak/proc/enraged(mob/living/carbon/xenomorph/enraged_mob)
+	enraged_mob.remove_filter("steelcrest_enraging")
+	enraged_mob.add_filter("steelcrest_enraged", 1, list("type" = "outline", "color" = "#ad1313", "size" = 1))
 
-	owner.visible_message(span_xenowarning("[owner] gets enraged after being damaged enough!"), \
-	span_xenowarning("We feel enraged after taking in oncoming damage! Our tail slam's cooldown is reset and we heal!"))
+	enraged_mob.visible_message(span_warning("[enraged_mob] gets enraged after being damaged enough!"), \
+	span_warning("We feel enraged after taking in oncoming damage!"))
+	enraged_mob.emote("roar") // reeeeeeeeeee
 
-	var/mob/living/carbon/xenomorph/enraged_mob = owner
-	HEAL_XENO_DAMAGE(enraged_mob, heal_amount, FALSE)
+	enraged_mob.heal_xeno_damage(heal_amount, FALSE)
 	enraged_mob.adjust_sunder(-heal_sunder_amount)
 
-	addtimer(CALLBACK(src, PROC_REF(remove_enrage), owner), 3 SECONDS)
-
-/datum/action/ability/xeno_action/soak/proc/remove_enrage()
-	owner.remove_filter("steelcrest_enraged")
+	addtimer(CALLBACK(enraged_mob, TYPE_PROC_REF(/atom, remove_filter), "steelcrest_enraged"), 3 SECONDS)
 
 /datum/action/ability/xeno_action/fortify/steel_crest
 	move_on_fortifed = TRUE

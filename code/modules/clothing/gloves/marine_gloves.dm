@@ -37,6 +37,7 @@
 	desc = "Gloves worn by a Spatial Agent."
 	siemens_coefficient = 0
 	permeability_coefficient = 0
+	item_flags = DELONDROP
 
 /obj/item/clothing/gloves/marine/techofficer
 	name = "tech officer gloves"

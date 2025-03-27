@@ -628,7 +628,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	for(var/mob/living/carbon/victim in backblast_loc)
 		if(victim.lying_angle || victim.stat == DEAD) //Have to be standing up to get the fun stuff
 			continue
-		victim.adjustBruteLoss(15) //The shockwave hurts, quite a bit. It can knock unarmored targets unconscious in real life
+		victim.adjust_brute_loss(15) //The shockwave hurts, quite a bit. It can knock unarmored targets unconscious in real life
 		victim.Paralyze(6 SECONDS) //For good measure
 		victim.emote("pain")
 		victim.throw_at(get_step(backblast_loc, thrown_dir), 1, 2)

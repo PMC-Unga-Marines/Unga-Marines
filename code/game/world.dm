@@ -271,22 +271,16 @@ GLOBAL_VAR(restart_counter)
 		if(GLOB.round_id)
 			msg += "Round ID [GLOB.round_id] finished"
 
-		var/datum/map_config/next_gound_map
-		var/datum/map_config/next_ship_map
+		var/datum/map_config/next_ground_map
 
 		if(length(SSmapping.next_map_configs)) //To avoid a bad index, let's check if there's actually a list.
-			next_gound_map = SSmapping.next_map_configs[GROUND_MAP]
-			next_ship_map = SSmapping.next_map_configs[SHIP_MAP]
+			next_ground_map = SSmapping.next_map_configs[GROUND_MAP]
 
-		if(!next_gound_map) //The list could hold a single item, so better check each because there's no guarantee both exist.
-			next_gound_map = SSmapping.configs[GROUND_MAP]
-		if(!next_ship_map)
-			next_ship_map = SSmapping.configs[SHIP_MAP]
+		if(!next_ground_map) //The list could hold a single item, so better check each because there's no guarantee both exist.
+			next_ground_map = SSmapping.configs[GROUND_MAP]
 
-		if(next_gound_map)
-			msg += "Next Ground Map: [next_gound_map.map_name]"
-		if(next_ship_map)
-			msg += "Next Ship Map: [next_ship_map.map_name]"
+		if(next_ground_map)
+			msg += "Next Ground Map: [next_ground_map.map_name]"
 
 		if(SSticker.mode)
 			msg += "Game Mode: [SSticker.mode.name]"

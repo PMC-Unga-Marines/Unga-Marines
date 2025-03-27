@@ -5,8 +5,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/stealth
 	name = "Toggle Stealth"
-	action_icon_state = "hunter_invisibility"
 	desc = "Become harder to see, almost invisible if you stand still, and ready a sneak attack. Uses plasma to move."
+	action_icon_state = "hunter_invisibility"
+	action_icon = 'icons/Xeno/actions/hunter.dmi'
 	ability_cost = 10
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_STEALTH,
@@ -218,8 +219,9 @@
 
 /datum/action/ability/activable/xeno/hunter_blink
 	name = "Hunter's Blink"
-	action_icon_state = "blink"
 	desc = "Teleport to the selected target, gaining a short bonus to attack speed."
+	action_icon_state = "blink"
+	action_icon = 'icons/Xeno/actions/chimera.dmi'
 	target_flags = ABILITY_MOB_TARGET
 	use_state_flags = ABILITY_USE_BUCKLED
 	ability_cost = 50
@@ -274,6 +276,7 @@
 	name = "Pounce"
 	desc = "Leap at your target, tackling and disarming them."
 	action_icon_state = "pounce"
+	action_icon = 'icons/Xeno/actions/runner.dmi'
 	ability_cost = 20
 	cooldown_duration = 10 SECONDS
 	keybinding_signals = list(
@@ -299,7 +302,7 @@
 	if(owner.layer != MOB_LAYER)
 		owner.layer = MOB_LAYER
 		var/datum/action/ability/xeno_action/xenohide/hide_action = owner.actions_by_path[/datum/action/ability/xeno_action/xenohide]
-		hide_action?.button?.cut_overlay(mutable_appearance('icons/Xeno/actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)) // Removes Hide action icon border
+		hide_action?.button?.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)) // Removes Hide action icon border
 	if(owner.buckled)
 		owner.buckled.unbuckle_mob(owner)
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(movement_fx))
@@ -392,14 +395,14 @@
 		return FALSE
 	return TRUE
 
-
 // ***************************************
 // *********** Hunter's Mark
 // ***************************************
 /datum/action/ability/activable/xeno/hunter_mark
 	name = "Hunter's Mark"
-	action_icon_state = "hunter_mark"
 	desc = "Psychically mark a creature you have line of sight to, allowing you to sense its direction, distance and location with Psychic Trace."
+	action_icon_state = "hunter_mark"
+	action_icon = 'icons/Xeno/actions/hunter.dmi'
 	ability_cost = 0
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HUNTER_MARK,
@@ -437,12 +440,10 @@
 
 	return TRUE
 
-
 /datum/action/ability/activable/xeno/hunter_mark/on_cooldown_finish()
 	to_chat(owner, span_xenowarning("<b>We are able to impose our psychic mark again.</b>"))
 	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
-
 
 /datum/action/ability/activable/xeno/hunter_mark/use_ability(atom/A)
 
@@ -481,8 +482,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/psychic_trace
 	name = "Psychic Trace"
-	action_icon_state = "toggle_queen_zoom"
 	desc = "Psychically ping the creature you marked, letting you know its direction, distance and location, and general condition."
+	action_icon_state = "toggle_queen_zoom"
+	action_icon = 'icons/Xeno/actions/queen.dmi'
 	ability_cost = 1 //Token amount
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PSYCHIC_TRACE,
@@ -504,7 +506,6 @@
 		if(!silent)
 			to_chat(owner, span_xenowarning("Our target is too far away, and is beyond our senses!"))
 		return FALSE
-
 
 /datum/action/ability/xeno_action/psychic_trace/action_activate()
 	var/mob/living/carbon/xenomorph/X = owner
@@ -550,8 +551,9 @@
 
 /datum/action/ability/xeno_action/mirage
 	name = "Mirage"
-	action_icon_state = "mirror_image"
 	desc = "Create mirror images of ourselves. Reactivate to swap with an illusion."
+	action_icon_state = "mirror_image"
+	action_icon = 'icons/Xeno/actions/hunter.dmi'
 	ability_cost = 50
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_MIRAGE,

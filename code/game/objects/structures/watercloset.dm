@@ -94,7 +94,7 @@
 
 	user.visible_message(span_danger("[user] gives [grabbed_mob] a swirlie!"), span_notice("You give [grabbed_mob] a swirlie!"), "You hear a toilet flushing.")
 	log_combat(user, grabbed_mob, "given a swirlie")
-	grabbed_mob.adjustOxyLoss(5)
+	grabbed_mob.adjust_oxy_loss(5)
 	swirlie = null
 
 /obj/structure/toilet/alternate

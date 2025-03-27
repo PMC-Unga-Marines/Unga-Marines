@@ -8,8 +8,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/recycle
 	name = "Recycle"
-	action_icon_state = "recycle"
 	desc = "We deconstruct the body of a fellow fallen xenomorph to avoid marines from harvesting our sisters in arms."
+	action_icon_state = "recycle"
+	action_icon = 'icons/Xeno/actions/drone.dmi'
 	use_state_flags = ABILITY_USE_STAGGERED //can't use while staggered, defender fortified or crest down
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RECYCLE,
@@ -80,8 +81,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/toggle_speed
 	name = "Resin Walker"
-	action_icon_state = "toggle_speed"
 	desc = "Move faster on resin."
+	action_icon_state = "toggle_speed"
+	action_icon = 'icons/Xeno/actions/hivelord.dmi'
 	ability_cost = 50
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RESIN_WALKER,
@@ -107,7 +109,6 @@
 	resinwalk_on()
 	succeed_activate()
 
-
 /datum/action/ability/xeno_action/toggle_speed/proc/resinwalk_on(silent = FALSE)
 	var/mob/living/carbon/xenomorph/walker = owner
 	speed_activated = TRUE
@@ -119,7 +120,6 @@
 	set_toggle(TRUE)
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(resinwalk_on_moved))
 
-
 /datum/action/ability/xeno_action/toggle_speed/proc/resinwalk_off(silent = FALSE)
 	var/mob/living/carbon/xenomorph/walker = owner
 	if(!silent)
@@ -130,7 +130,6 @@
 	speed_activated = FALSE
 	set_toggle(FALSE)
 	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
-
 
 /datum/action/ability/xeno_action/toggle_speed/proc/resinwalk_on_moved(datum/source, atom/oldloc, direction, Forced = FALSE)
 	SIGNAL_HANDLER
@@ -150,14 +149,14 @@
 	speed_bonus_active = FALSE
 	walker.remove_movespeed_modifier(type)
 
-
 // ***************************************
 // *********** Tunnel
 // ***************************************
 /datum/action/ability/xeno_action/build_tunnel
 	name = "Dig Tunnel"
-	action_icon_state = "build_tunnel"
 	desc = "Create a tunnel entrance. Use again to create the tunnel exit."
+	action_icon_state = "build_tunnel"
+	action_icon = 'icons/Xeno/actions/hivelord.dmi'
 	ability_cost = 200
 	cooldown_duration = 120 SECONDS
 	keybinding_signals = list(
@@ -231,8 +230,6 @@
 	succeed_activate()
 	playsound(T, 'sound/weapons/pierce.ogg', 25, 1)
 
-
-
 // ***************************************
 // *********** plasma transfer
 // ***************************************
@@ -244,8 +241,9 @@
 
 /datum/action/ability/xeno_action/place_jelly_pod
 	name = "Place Resin Jelly pod"
-	action_icon_state = "resin_jelly_pod"
 	desc = "Place down a dispenser that allows xenos to retrieve fireproof jelly."
+	action_icon_state = "resin_jelly_pod"
+	action_icon = 'icons/Xeno/actions/hivelord.dmi'
 	ability_cost = 500
 	cooldown_duration = 1 MINUTES
 	keybinding_signals = list(
@@ -285,8 +283,9 @@
 
 /datum/action/ability/xeno_action/create_jelly
 	name = "Create Resin Jelly"
-	action_icon_state = "resin_jelly"
 	desc = "Create a fireproof jelly."
+	action_icon_state = "resin_jelly"
+	action_icon = 'icons/Xeno/actions/hivelord.dmi'
 	ability_cost = 100
 	cooldown_duration = 20 SECONDS
 	keybinding_signals = list(
@@ -315,8 +314,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/healing_infusion
 	name = "Healing Infusion"
-	action_icon_state = "healing_infusion"
 	desc = "Psychically infuses a friendly xeno with regenerative energies, greatly improving its natural healing. Doesn't work if the target can't naturally heal."
+	action_icon_state = "healing_infusion"
+	action_icon = 'icons/Xeno/actions/hivelord.dmi'
 	cooldown_duration = 12.5 SECONDS
 	ability_cost = 200
 	keybinding_signals = list(
@@ -397,8 +397,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/sow
 	name = "Sow"
-	action_icon_state = "place_trap"
 	desc = "Sow the seeds of an alien plant."
+	action_icon_state = "place_trap"
+	action_icon = 'icons/Xeno/actions/construction.dmi'
 	ability_cost = 200
 	cooldown_duration = 45 SECONDS
 	use_state_flags = ABILITY_USE_LYING
@@ -432,7 +433,7 @@
 /datum/action/ability/xeno_action/sow/update_button_icon()
 	var/mob/living/carbon/xenomorph/X = owner
 	button.overlays.Cut()
-	button.overlays += image('icons/Xeno/actions.dmi', button, initial(X.selected_plant.name))
+	button.overlays += image('icons/Xeno/actions/hivelord.dmi', button, initial(X.selected_plant.name))
 	return ..()
 
 ///Shows a radial menu to pick the plant they wish to put down when they use the ability

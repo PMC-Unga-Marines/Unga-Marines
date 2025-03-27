@@ -34,9 +34,9 @@
 	H.set_undefibbable()
 	H.faction = faction
 	H.language_holder = new default_language_holder()
-	H.setOxyLoss(0)
-	H.setToxLoss(0)
-	H.setCloneLoss(0)
+	H.set_oxy_loss(0)
+	H.set_tox_loss(0)
+	H.set_clone_loss(0)
 	H.dropItemToGround(H.r_hand, TRUE)
 	H.dropItemToGround(H.l_hand, TRUE)
 	if(istype(H.wear_id, /obj/item/card/id))
@@ -84,7 +84,7 @@
 	for(var/organ_slot in has_organ)
 		var/datum/internal_organ/internal_organ = H.get_organ_slot(organ_slot)
 		internal_organ?.heal_organ_damage(1)
-	H.updatehealth()
+	H.update_health()
 
 /datum/species/zombie/handle_death(mob/living/carbon/human/H)
 	SSmobs.stop_processing(H)

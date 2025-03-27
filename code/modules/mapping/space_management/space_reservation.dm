@@ -92,7 +92,7 @@
 		cordon_area.contents += cordon_turf
 		// Its no longer unused, but its also not "used"
 		cordon_turf.turf_flags &= ~UNUSED_RESERVATION_TURF
-		cordon_turf.ChangeTurf(CORDON_TURF_TYPE, CORDON_TURF_TYPE)
+		cordon_turf.change_turf(CORDON_TURF_TYPE, CORDON_TURF_TYPE)
 		SSmapping.unused_turfs["[cordon_turf.z]"] -= cordon_turf
 		// still gets linked to us though
 		SSmapping.used_turfs[cordon_turf] = src
@@ -145,7 +145,7 @@
 		SSmapping.unused_turfs["[T.z]"] -= T
 		SSmapping.used_turfs[T] = src
 		T.turf_flags = (T.turf_flags | RESERVATION_TURF) & ~UNUSED_RESERVATION_TURF
-		T.ChangeTurf(turf_type, turf_type)
+		T.change_turf(turf_type, turf_type)
 
 	return TRUE
 
@@ -230,7 +230,7 @@
 	for(var/turf/T AS in reserved_turfs)
 		if(!(istype(T, turf_type)))
 			continue
-		T.ChangeTurf(new_turf_type, new_turf_type)
+		T.change_turf(new_turf_type, new_turf_type)
 	turf_type = new_turf_type
 
 /datum/turf_reservation/New()

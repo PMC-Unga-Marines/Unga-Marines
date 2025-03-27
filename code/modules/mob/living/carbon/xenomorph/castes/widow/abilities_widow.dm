@@ -1,4 +1,3 @@
-
 // ***************************************
 // *********** Leash Ball
 // ***************************************
@@ -7,7 +6,7 @@
 	name = "Leash Ball"
 	desc = "Spit a huge web ball that snares groups of targets for a brief while."
 	action_icon_state = "leash_ball"
-	action_icon = 'icons/Xeno/actions.dmi'
+	action_icon = 'icons/Xeno/actions/widow.dmi'
 	ability_cost = 75
 	cooldown_duration = 15 SECONDS
 	keybinding_signals = list(
@@ -31,9 +30,9 @@
 
 /obj/structure/xeno/aoe_leash
 	name = "Snaring Web"
-	icon = 'icons/Xeno/Effects.dmi'
-	icon_state = "aoe_leash"
 	desc = "Sticky and icky. Destroy it when you are stuck!"
+	icon_state = "aoe_leash"
+	icon = 'icons/Xeno/Effects.dmi'
 	destroy_sound = 'sound/effects/alien/resin_break1.ogg'
 	max_integrity = 150
 	layer = ABOVE_ALL_MOB_LAYER
@@ -108,6 +107,7 @@
 	name = "Birth Spiderling"
 	desc = "Give birth to a spiderling after a short charge-up. The spiderlings will follow you until death. You can only deploy 5 spiderlings at one time."
 	action_icon_state = "spawn_spiderling"
+	action_icon = 'icons/Xeno/actions/widow.dmi'
 	ability_cost = 80
 	cooldown_duration = 15 SECONDS
 	use_state_flags = ABILITY_USE_LYING|ABILITY_IGNORE_COOLDOWN
@@ -195,7 +195,6 @@
 	spiderlings -= source
 	UnregisterSignal(source, list(COMSIG_MOB_DEATH, COMSIG_QDELETING))
 
-
 // ***************************************
 // *********** Burrow
 // ***************************************
@@ -204,6 +203,7 @@
 	name = "Burrow"
 	desc = "Burrow into the ground, allowing you and your active spiderlings to hide in plain sight. You cannot use abilities, attack nor move while burrowed. Use the ability again to unburrow if you're already burrowed."
 	action_icon_state = "burrow"
+	action_icon = 'icons/Xeno/actions/widow.dmi'
 	ability_cost = 0
 	cooldown_duration = 20 SECONDS
 	keybinding_signals = list(
@@ -274,6 +274,7 @@
 	name = "Attach Spiderlings"
 	desc = "Attach your current spiderlings to you "
 	action_icon_state = "attach_spiderling"
+	action_icon = 'icons/Xeno/actions/widow.dmi'
 	ability_cost = 0
 	cooldown_duration = 0 SECONDS
 	keybinding_signals = list(
@@ -324,7 +325,7 @@
 	name = "Web Spit"
 	desc = "Stun and blind the target with a web projectile"
 	action_icon_state = "web_projectile"
-	action_icon = 'icons/Xeno/actions.dmi'
+	action_icon = 'icons/Xeno/actions/widow.dmi'
 	ability_cost = 100
 	cooldown_duration = 15 SECONDS
 	keybinding_signals = list(
@@ -345,8 +346,9 @@
 
 /datum/action/ability/xeno_action/create_hugger
 	name = "Create Hugger"
-	action_icon_state = "larval hugger"
 	desc = "Create a facehugger."
+	action_icon_state = "larval hugger"
+	action_icon = 'icons/Xeno/actions/carrier.dmi'
 	ability_cost = 60
 	cooldown_duration = 20 SECONDS
 	keybinding_signals = list(
@@ -376,9 +378,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/widow_unleash
 	name = "Unleash Spiderlings"
-	action_icon_state = "unleash"
-	action_icon = 'icons/Xeno/actions.dmi'
 	desc = "Send out your spiderlings to attack nearby humans"
+	action_icon_state = "unleash"
+	action_icon = 'icons/Xeno/actions/widow.dmi'
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_UNLEASH_SPIDERLINGS,
 	)
@@ -394,9 +396,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/widow_recall
 	name = "Recall Spiderlings"
-	action_icon = 'icons/Xeno/actions.dmi'
-	action_icon_state = "recall"
 	desc = "Recall your siderlings to follow you once more"
+	action_icon_state = "recall"
+	action_icon = 'icons/Xeno/actions/widow.dmi'
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RECALL_SPIDERLINGS,
 	)
@@ -429,5 +431,4 @@
 		return
 	if(!ishuman(target))
 		return
-
 	target.apply_status_effect(STATUS_EFFECT_SPIDER_VENOM)

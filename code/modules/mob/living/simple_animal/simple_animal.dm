@@ -75,7 +75,7 @@
 
 	return ..()
 
-/mob/living/simple_animal/updatehealth()
+/mob/living/simple_animal/update_health()
 	. = ..()
 	health = clamp(health, 0, maxHealth)
 
@@ -211,7 +211,7 @@
 		gib()
 		return
 
-	adjustBruteLoss(severity * 0.3)
+	adjust_brute_loss(severity * 0.3)
 	UPDATEHEALTH(src)
 
 /mob/living/simple_animal/get_idcard(hand_first)
@@ -334,5 +334,5 @@
 		return FALSE
 	bruteloss = round(clamp(bruteloss + amount, 0, maxHealth), 0.1)
 	if(updating_health)
-		updatehealth()
+		update_health()
 	return amount

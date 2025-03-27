@@ -300,7 +300,7 @@
 #define COMSIG_MOVABLE_SHUTTLE_CRUSH "movable_shuttle_crush"
 
 // /turf signals
-#define COMSIG_TURF_CHANGE "turf_change"						//from base of turf/ChangeTurf(): (path, list/new_baseturfs, flags, list/transferring_comps)
+#define COMSIG_TURF_CHANGE "turf_change"						//from base of turf/change_turf(): (path, list/new_baseturfs, flags, list/transferring_comps)
 #define COMSIG_TURF_WEED_REMOVED "turf_weed_removed"
 #define COMSIG_TURF_THROW_ENDED_HERE "turf_throw_ended_here"						//From atom/movable/throw_at, sent right after a throw ends
 #define COMSIG_TURF_JUMP_ENDED_HERE "turf_jump_ended_here"      //from datum/element/jump/end_jump(): (jumper)

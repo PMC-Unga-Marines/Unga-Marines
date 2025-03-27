@@ -37,5 +37,5 @@
 	if(tied == SHOES_KNOTTED)
 		our_guy.Paralyze(1 SECONDS)
 		our_guy.Knockdown(2 SECONDS)
-		our_guy.adjustStaminaLoss(10) //smacking into the ground drains energy
+		our_guy.adjust_stamina_loss(10) //smacking into the ground drains energy
 		our_guy.visible_message(span_danger("[our_guy] trips on [our_guy.p_their()] knotted shoelaces and falls! What a klutz!"), span_userdanger("You trip on your knotted shoelaces and smack into the ground!"))

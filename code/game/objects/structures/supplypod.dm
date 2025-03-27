@@ -118,11 +118,11 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 				E.droplimb()
 
 		if(effectGib)
-			L.adjustBruteLoss(5000)
+			L.adjust_brute_loss(5000)
 			L.gib()
 			continue
 
-		L.adjustBruteLoss(damage)
+		L.adjust_brute_loss(damage)
 		UPDATEHEALTH(L)
 
 	if(explosion_power > 0 && explosion_falloff > 0)

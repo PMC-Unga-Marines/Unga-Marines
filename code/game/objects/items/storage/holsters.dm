@@ -339,7 +339,7 @@
 	icon_state = "officer_sheath"
 	equip_slot_flags = ITEM_SLOT_BELT
 	worn_layer = CAPE_LAYER
-	holsterable_allowed = list(/obj/item/weapon/claymore/mercsword/machete/officersword)
+	holsterable_allowed = list(/obj/item/weapon/claymore/mercsword/officersword)
 	storage_type = /datum/storage/holster/blade/officer
 
 /obj/item/storage/holster/blade/officer/full/PopulateContents()

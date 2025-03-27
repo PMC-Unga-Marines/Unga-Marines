@@ -29,4 +29,4 @@
 			continue
 		var/list/baseturfs = islist(T.baseturfs) ? T.baseturfs : list(T.baseturfs)
 		baseturfs |= T.type
-		T.ChangeTurf(collapsed_type, baseturfs)
+		T.change_turf(collapsed_type, baseturfs)
