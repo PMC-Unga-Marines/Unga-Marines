@@ -283,7 +283,7 @@
 //-------------------------------------------------------
 //FK-88 mounted heavy infantry support gun
 
-/obj/item/weapon/gun/heavy_isg
+/obj/item/weapon/gun/fk88
 	name = "\improper FK-88 mounted flak gun"
 	desc = "The FK-88 is a big gun, offically meant to be used against large hostile wildlife or unruly crowds, this cannon will most definitely give a very bad day to anything that gets caught in its line of fire. Takes quite a while to dial in your shots. Uses 15cm shells."
 
@@ -295,7 +295,7 @@
 	reload_sound = 'sound/weapons/guns/interact/tat36_reload.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/launcher_empty.ogg'
 
-	default_ammo_type = /obj/item/ammo_magazine/heavy_isg/he
+	default_ammo_type = /obj/item/ammo_magazine/fk88/he
 	max_shells = 1 //codex
 	caliber = CALIBER_15CM // codex
 
@@ -312,18 +312,18 @@
 	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
 
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/heavy_isg/he,
-		/obj/item/ammo_magazine/heavy_isg/sabot,
+		/obj/item/ammo_magazine/fk88/he,
+		/obj/item/ammo_magazine/fk88/sabot,
 	)
 
 	deploy_time = 6 SECONDS
 	undeploy_time = 3 SECONDS
-	deployable_item = /obj/machinery/deployable/mounted/moveable/isg
+	deployable_item = /obj/machinery/deployable/mounted/moveable/fk88
 
 	max_integrity = 800
 	soft_armor = list(MELEE = 60, BULLET = 60, LASER = 60, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 0)
 
-/obj/machinery/deployable/mounted/moveable/isg
+/obj/machinery/deployable/mounted/moveable/fk88
 	coverage = 90 // Has a shield.
 	anchor_time = 4 SECONDS
 	has_anchored_sprite = TRUE

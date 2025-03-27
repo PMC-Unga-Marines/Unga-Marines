@@ -189,29 +189,29 @@
 	caliber = CALIBER_15CM
 	max_rounds = 1
 	reload_delay = 8 SECONDS
-	default_ammo = /datum/ammo/rocket/heavy_isg
+	default_ammo = /datum/ammo/rocket/fk88
 
-/obj/item/ammo_magazine/heavy_isg/he
+/obj/item/ammo_magazine/fk88/he
 	name = "FK-88 HE shell (155mm Shell)"
 	desc = "A 15cm HE shell for the FK-88 mounted flak gun. Activate in hand to swap between unguided and guided modes."
-	default_ammo = /datum/ammo/rocket/heavy_isg
+	default_ammo = /datum/ammo/rocket/fk88
 	var/guided = TRUE
 
-/obj/item/ammo_magazine/heavy_isg/he/attack_hand_alternate(mob/living/user)
+/obj/item/ammo_magazine/fk88/he/attack_hand_alternate(mob/living/user)
 	if(guided)
-		default_ammo = /datum/ammo/rocket/heavy_isg/unguided
+		default_ammo = /datum/ammo/rocket/fk88/unguided
 		balloon_alert(user, "You swap the shell to unguided form")
 		guided = FALSE
 	else
-		default_ammo = /datum/ammo/rocket/heavy_isg
+		default_ammo = /datum/ammo/rocket/fk88
 		balloon_alert(user, "You swap the shell to guided form")
 		guided = TRUE
 
-/obj/item/ammo_magazine/heavy_isg/sabot
+/obj/item/ammo_magazine/fk88/sabot
 	name = "FK-88 APFDS shell (155mm Shell)"
 	desc = "A 15cm APFDS shell for the FK-88 mounted flak gun containing a large metal dart fired at hypersonic speeds, will pierce through basically anything and onto the other side with ease. Requires a minimum range before it stabilizes to properly hit anything, will rip a clean hole through basically anything."
 	icon_state = "isg_ammo_sabot"
-	default_ammo = /datum/ammo/bullet/heavy_isg_apfds
+	default_ammo = /datum/ammo/bullet/fk88_apfds
 
 ///Default ammo for the ML-91 and its export variants.
 /obj/item/ammo_magazine/kord
