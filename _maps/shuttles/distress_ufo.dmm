@@ -103,6 +103,8 @@
 /turf/open/floor/light,
 /area/shuttle/ert)
 "x" = (
+/obj/effect/mapping_helpers/barricade/closed,
+/obj/structure/barricade/plasteel,
 /turf/open/floor/podhatch/floor,
 /area/shuttle/ert)
 "y" = (
