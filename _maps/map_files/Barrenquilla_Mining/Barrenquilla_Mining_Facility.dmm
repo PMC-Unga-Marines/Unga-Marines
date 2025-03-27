@@ -9494,7 +9494,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
 "Th" = (
-/obj/item/trash/barcardine,
+/obj/item/trash/barcaridine,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 9
 	},
