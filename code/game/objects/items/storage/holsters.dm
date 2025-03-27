@@ -516,7 +516,7 @@
 	holsterable_allowed = list(
 		/obj/item/weapon/gun/rifle/icc_mg,
 	)
-	storage_datum = /datum/storage/holster/icc_mg
+	storage_type = /datum/storage/holster/icc_mg
 
 /obj/item/storage/holster/icc_mg/full/PopulateContents()
 	new /obj/item/weapon/gun/rifle/icc_mg(src)
