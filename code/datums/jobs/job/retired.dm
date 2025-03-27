@@ -20,7 +20,7 @@
 	head = /obj/item/clothing/head/servicecap
 	back = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/marine
-	gloves = /obj/item/clothing/gloves/marine/black
+	gloves = /obj/item/clothing/gloves/marine
 	l_store = /obj/item/storage/pouch/medkit/firstaid
 	r_store = /obj/item/storage/holster/flarepouch/full
 	suit_store = /obj/item/weapon/gun/rifle/m41a/magharness
