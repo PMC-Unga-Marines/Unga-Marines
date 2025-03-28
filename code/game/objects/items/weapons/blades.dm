@@ -196,8 +196,8 @@
 	item_state = "tomahawk_tactic"
 	item_icons = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi',
-		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/weapons/weapon64_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/weapons/weapon64_right.dmi',
 	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32

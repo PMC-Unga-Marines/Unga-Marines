@@ -375,6 +375,7 @@
 /obj/item/weapon/twohanded/spear/tactical
 	name = "M-23 spear"
 	desc = "A tactical spear. Used for 'tactical' combat."
+	icon = 'icons/obj/items/weapons64.dmi'
 	icon_state = "spear"
 	item_state = "spear"
 
