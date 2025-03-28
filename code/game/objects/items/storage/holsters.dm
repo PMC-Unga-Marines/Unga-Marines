@@ -509,6 +509,22 @@
 	for(var/i in 1 to (storage_datum.storage_slots - flare_gun.w_class))
 		new /obj/item/explosive/grenade/flare(src)
 
+/obj/item/storage/holster/icc_mg
+	name = "\improper ML-14 scabbard (10x26mm)"
+	desc = "A backpack holster allowing the storage of any a ML-14 Assault Machinegun, also carries ammo for the other portion of the system."
+	icon_state = "icc_bagmg"
+	holsterable_allowed = list(
+		/obj/item/weapon/gun/rifle/icc_mg,
+	)
+	storage_type = /datum/storage/holster/icc_mg
+
+/obj/item/storage/holster/icc_mg/full/PopulateContents()
+	new /obj/item/weapon/gun/rifle/icc_mg(src)
+	new /obj/item/ammo_magazine/icc_mg/packet(src)
+	new /obj/item/ammo_magazine/icc_mg/packet(src)
+	new /obj/item/ammo_magazine/icc_mg/packet(src)
+	new /obj/item/ammo_magazine/icc_mg/packet(src)
+
 ////////////////////////////// GUN BELTS /////////////////////////////////////
 
 /obj/item/storage/holster/belt
@@ -548,6 +564,7 @@
 		/obj/item/ammo_magazine/pistol,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
 		/obj/item/cell/lasgun/lasrifle,
+		/obj/item/cell/lasgun/plasma,
 	))
 
 /obj/item/storage/holster/belt/pistol/m4a3/full/PopulateContents()
@@ -598,6 +615,7 @@
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
 		/obj/item/cell/lasgun/lasrifle,
 		/obj/item/cell/lasgun/volkite/small,
+		/obj/item/cell/lasgun/plasma,
 	))
 
 /obj/item/storage/holster/belt/pistol/m4a3/som/serpenta/PopulateContents()

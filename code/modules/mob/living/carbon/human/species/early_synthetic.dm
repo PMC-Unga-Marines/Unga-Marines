@@ -37,15 +37,23 @@
 	laughs = list(MALE = SFX_MALE_LAUGH, FEMALE = SFX_FEMALE_LAUGH)
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 
+/datum/species/early_synthetic/handle_unique_behavior(mob/living/carbon/human/H)
+	if(H.health <= -30 && H.stat != DEAD) // Instead of having a critical condition, they overheat and slowly die.
+		H.adjust_fire_loss(rand(18, 28)) // This may need tweaks
+		if(prob(8))
+			to_chat(H, span_alert("<b>Critical damage sustained. Internal temperature regulation systems offline. <u>Immediate repair required.</u></b>"))
+
 /datum/species/early_synthetic/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()
 	var/datum/atom_hud/AH = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED_SYNTH]
 	AH.add_hud_to(H)
+	H.health_threshold_crit = -100 // You overheat below -30 health.
 
 /datum/species/early_synthetic/post_species_loss(mob/living/carbon/human/H)
 	. = ..()
 	var/datum/atom_hud/AH = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED_SYNTH]
 	AH.remove_hud_from(H)
+	H.health_threshold_crit = -50 // You overheat below -30 health.
 
 /mob/living/carbon/human/species/early_synthetic/binarycheck(mob/H)
 	return TRUE

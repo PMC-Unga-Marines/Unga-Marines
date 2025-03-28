@@ -183,13 +183,22 @@
 #define SMOKE_XENO_HEMODILE (1<<12)
 #define SMOKE_XENO_TRANSVITOX (1<<13)
 #define SMOKE_CHEM (1<<14)
-#define SMOKE_EXTINGUISH (1<<15) //Extinguishes fires and mobs that are on fire
-#define SMOKE_NEURO_LIGHT (1<<16) //Effectively a sub-flag of Neuro; precludes higher impact effects
-#define SMOKE_HUGGER_PACIFY (1<<17) //Smoke that pacifies huggers in its area; mainly used for vision blocking smoke
-#define SMOKE_XENO_SANGUINAL (1<<18) //Toxic crimson smoke created by the Defiler's Defile ability.
-#define SMOKE_XENO_OZELOMELYN (1<<19) //Smoke that purges chemicals and does minor capped toxin damage for Defiler.
-#define SMOKE_SATRAPINE (1<<20) //nerve agent that purges painkillers and causes increasing pain
-#define SMOKE_XENO_TOXIC (1<<21) //deals damage to anyone inside it and inflicts the intoxicated debuff, dealing damage over time
+/// Extinguishes fires and mobs that are on fire
+#define SMOKE_EXTINGUISH (1<<15)
+/// Effectively a sub-flag of Neuro; precludes higher impact effects
+#define SMOKE_NEURO_LIGHT (1<<16)
+/// Smoke that pacifies huggers in its area; mainly used for vision blocking smoke
+#define SMOKE_HUGGER_PACIFY (1<<17)
+/// Toxic crimson smoke created by the Defiler's Defile ability.
+#define SMOKE_XENO_SANGUINAL (1<<18)
+/// Smoke that purges chemicals and does minor capped toxin damage for Defiler.
+#define SMOKE_XENO_OZELOMELYN (1<<19)
+/// Nerve agent that purges painkillers and causes increasing pain
+#define SMOKE_SATRAPINE (1<<20)
+/// Deals damage to anyone inside it and inflicts the intoxicated debuff, dealing damage over time
+#define SMOKE_XENO_TOXIC (1<<21)
+/// This smoke removes any smoke has this in its effects_cycle, that removes certain types of smokes.
+#define SMOKE_PURGER (1<<22)
 
 //Incapacitated
 #define INCAPACITATED_IGNORE_RESTRAINED (1<<0)

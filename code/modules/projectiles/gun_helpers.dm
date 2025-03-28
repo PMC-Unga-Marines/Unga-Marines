@@ -89,7 +89,7 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 /obj/item/weapon/gun/attack_self(mob/user)
 	. = ..()
 	//There are only two ways to interact here.
-	if(!CHECK_BITFIELD(item_flags, TWOHANDED))
+	if(!(item_flags & TWOHANDED))
 		return
 	if(item_flags & WIELDED)
 		unwield(user)//Trying to unwield it

@@ -70,20 +70,27 @@
 /obj/item/cell/lasgun/fob_sentry/cell
 	maxcharge = INFINITY
 
+/obj/item/cell/lasgun/plasma
+	name = "\improper WML plasma energy cell"
+	desc = "A plasma containment cell used by the TerraGov Marine Corps for plasma guns. It doesn't seem to have an expiry date on it."
+	icon_state = "plasma"
+	maxcharge = 900
+	icon_state_mini = "mag_plasma"
+	charge_overlay = "plasma"
+
 //volkite
 
 /obj/item/cell/lasgun/volkite
-	name = "\improper volkite energy cell"
+	name = "volkite energy cell"
 	desc = "A specialized high density battery used to power volkite weaponry."
 	icon_state = "volkite"
 	maxcharge = 1440
-	w_class = WEIGHT_CLASS_NORMAL
 	icon_state_mini = "mag_cell"
 	charge_overlay = "volkite"
 	reload_delay = 0
 
 /obj/item/cell/lasgun/volkite/small
-	name = "\improper compact volkite energy cell"
+	name = "compact volkite energy cell"
 	desc = "A specialized compact battery used to power the smallest volkite weaponry."
 	icon_state = "volkite_small"
 	maxcharge = 540
@@ -91,14 +98,12 @@
 	icon_state_mini = "mag_cell"
 
 /obj/item/cell/lasgun/volkite/turret
-	name = "\improper volkite nuclear energy cell"
+	name = "volkite nuclear energy cell"
 	desc = "A nuclear powered battery designed for certain heavy SOM machinery like sentries. Slowly charges over time."
 	icon_state = "volkite_turret"
 	maxcharge = 1800
-	w_class = WEIGHT_CLASS_NORMAL
 	icon_state_mini = "mag_cell"
 	charge_overlay = "volkite_big"
-	reload_delay = 0
 	self_recharge = TRUE
 	charge_amount = 24
 	charge_delay = 2 SECONDS
@@ -125,6 +130,8 @@
 	light_range = 0.1
 	light_power = 0.1
 	light_color = LIGHT_COLOR_ORANGE
+	///The kind of cells we like to accept around here to charge from us.
+	var/cell_type = /obj/item/cell
 
 /obj/item/cell/lasgun/volkite/powerpack/Initialize(mapload)
 	. = ..()
@@ -170,7 +177,7 @@
 		gun.reload(src, user)
 		return
 
-	if(!istype(I, /obj/item/cell))
+	if(!istype(I, cell_type))
 		return
 	if(I != user.r_hand && I != user.l_hand)
 		to_chat(user, span_warning("[I] must be in your hand to do that."))
@@ -196,6 +203,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slowdown = 0
 	maxcharge = 2400
+	cell_type = /obj/item/cell/lasgun/lasrifle
 	self_recharge = FALSE
 
 /obj/item/cell/lasgun/volkite/powerpack/marine_back

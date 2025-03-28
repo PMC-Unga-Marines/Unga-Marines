@@ -452,7 +452,7 @@
 
 /obj/structure/ob_ammo/warhead/plasmaloss/warhead_impact(turf/target, inaccuracy_amt = 0)
 	var/datum/effect_system/smoke_spread/plasmaloss/smoke = new
-	smoke.set_up(smoke_radius - inaccuracy_amt, target, smoke_duration)//Vape nation
+	smoke.set_up(smoke_radius - inaccuracy_amt, target, smoke_duration - (inaccuracy_amt * 2))//Vape nation
 	smoke.start()
 
 /obj/structure/ob_ammo/ob_fuel

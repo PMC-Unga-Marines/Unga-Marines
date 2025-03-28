@@ -26,7 +26,7 @@
 	fire_delay = 5 SECONDS
 	fire_sound = 'sound/weapons/pred_plasmacaster_fire.ogg'
 	message_to_user = "will now fire low power stun bolts"
-	radial_icon_state = "plasma_weak"
+	radial_icon_state = "predator_plasma_weak"
 	muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/stun_heavy_bolts
@@ -35,7 +35,7 @@
 	fire_delay = 7 SECONDS
 	fire_sound = 'sound/weapons/pred_lasercannon.ogg'
 	message_to_user = "will now fire high power stun bolts"
-	radial_icon_state = "plasma_strong"
+	radial_icon_state = "predator_plasma_strong"
 	muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/stun_spheres
@@ -44,7 +44,7 @@
 	fire_delay = 100
 	fire_sound = 'sound/weapons/pulse.ogg'
 	message_to_user = "will now fire plasma immobilizers"
-	radial_icon_state = "laser_sniper_overcharge"
+	radial_icon_state = "predator_laser_sniper_overcharge"
 	muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/lethal_bolts

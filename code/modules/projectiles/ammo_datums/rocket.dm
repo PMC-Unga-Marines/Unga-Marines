@@ -104,37 +104,35 @@
 	proj.proj_max_range = 0 //we don't penetrate past a vehicle
 	proj.damage *= 2.2
 
-/datum/ammo/rocket/heavy_isg
-	name = "15cm round"
+/datum/ammo/rocket/fk88
+	name = "8.8cm round"
 	icon_state = "heavyrr"
 	hud_state = "bigshell_he"
 	hud_state_empty = "shell_empty"
 	ammo_behavior_flags = AMMO_SNIPER|AMMO_TARGET_TURF
-	damage = 50
+	damage = 100
 	penetration = 200
 	max_range = 30
 	shell_speed = 0.75
-	accuracy = 30
 	accurate_range = 21
 	handful_amount = 1
 
-/datum/ammo/rocket/heavy_isg/drop_nade(turf/T)
+/datum/ammo/rocket/fk88/drop_nade(turf/T)
 	cell_explosion(T, 700, 200) // dodge this
 
-/datum/ammo/rocket/heavy_isg/unguided
+/datum/ammo/rocket/fk88/unguided
 	hud_state = "bigshell_he_unguided"
 	ammo_behavior_flags = AMMO_SNIPER
 
-/datum/ammo/bullet/heavy_isg_apfds
-	name = "15cm APFDS round"
+/datum/ammo/bullet/fk88_apfds
+	name = "8.8cm APFDS round"
 	icon_state = "apfds"
 	hud_state = "bigshell_apfds"
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
-	damage = 200
+	damage = 275
 	penetration = 75
 	shell_speed = 7
 	accurate_range = 24
-	accurate_range_min = 6
 	max_range = 35
 
 /datum/ammo/bullet/isg_apfds/on_hit_turf(turf/T, obj/projectile/P)

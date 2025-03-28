@@ -25,7 +25,7 @@
 	X.create_stomp() //Adds the visual effect. Wom wom wom
 
 	for(var/mob/living/M in range(1, get_turf(X)))
-		if(X.issamexenohive(M) || M.stat == DEAD || isnestedhost(M))
+		if(X.issamexenohive(M) || M.stat == DEAD || isnestedhost(M) || !X.Adjacent(M))
 			continue
 		var/damage = X.xeno_caste.stomp_damage
 		if(get_dist(M, X) == 0) //If we're on top of our victim, give him the full impact

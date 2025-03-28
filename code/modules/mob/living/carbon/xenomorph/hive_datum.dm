@@ -1162,7 +1162,7 @@ to_chat will check for valid clients itself already so no need to double check f
 		xeno_candidate.mob.reset_perspective(chosen_silo)
 		var/double_check = tgui_alert(xeno_candidate.mob, "Spawn here?", "Spawn location", list("Yes","Pick another silo","Abort"), timeout = 20 SECONDS)
 		if(double_check == "Pick another silo")
-			return attempt_to_spawn_larva_in_silo(xeno_candidate, possible_silos)
+			return attempt_to_spawn_larva_in_silo(xeno_candidate, possible_silos, larva_already_reserved)
 		else if(double_check != "Yes")
 			xeno_candidate.mob.reset_perspective(null)
 			remove_from_larva_candidate_queue(xeno_candidate)
@@ -1181,7 +1181,6 @@ to_chat will check for valid clients itself already so no need to double check f
 
 	xeno_candidate.mob.reset_perspective(null)
 	return do_spawn_larva(xeno_candidate, chosen_silo.loc, larva_already_reserved)
-
 
 /datum/hive_status/proc/spawn_larva(client/xeno_candidate, mob/living/carbon/xenomorph/mother, larva_already_reserved = FALSE)
 	if(!xeno_candidate?.mob?.mind)
@@ -1292,8 +1291,11 @@ to_chat will check for valid clients itself already so no need to double check f
 	var/list/possible_silos = list()
 	SEND_SIGNAL(src, COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, possible_mothers, possible_silos)
 	if(stored_larva > 0 && !LAZYLEN(candidates) && !XENODEATHTIME_CHECK(waiter.mob) && (length(possible_mothers) || length(possible_silos) || (SSticker.mode?.round_type_flags & MODE_SILO_RESPAWN && SSmonitor.gamestate == SHUTTERS_CLOSED)))
-		attempt_to_spawn_larva(waiter)
-		return
+		xeno_job.occupy_job_positions(1)
+		if(!attempt_to_spawn_larva(waiter, TRUE))
+			xeno_job.free_job_positions(1)
+			return FALSE
+		return TRUE
 	if(LAZYFIND(candidates, waiter))
 		remove_from_larva_candidate_queue(waiter)
 		return FALSE

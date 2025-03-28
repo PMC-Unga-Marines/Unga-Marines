@@ -200,6 +200,7 @@ directive is properly returned.
 
 
 /atom/proc/emp_act(severity)
+	SEND_SIGNAL(src, COMSIG_ATOM_EMP_ACT, severity)
 	return
 
 
@@ -837,11 +838,6 @@ directive is properly returned.
 
 	return TRUE
 
-
-// For special click interactions (take first item out of container, quick-climb, etc.)
-/atom/proc/specialclick(mob/living/carbon/user)
-	return
-
 /atom/proc/prepare_huds()
 	hud_list = new
 	for(var/hud in hud_possible) //Providing huds.
@@ -853,7 +849,7 @@ directive is properly returned.
 				var/image/I = image('icons/mob/hud/human_misc.dmi', src, "")
 				if(hud == HUNTER_CLAN || hud == HUNTER_HUD)
 					I = image('icons/mob/hud/yautja.dmi', src, "")
-				I.appearance_flags = RESET_COLOR|RESET_TRANSFORM
+				I.appearance_flags = RESET_COLOR|RESET_TRANSFORM|KEEP_APART
 				hud_list[hud] = I
 
 /**

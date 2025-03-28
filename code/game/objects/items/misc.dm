@@ -196,3 +196,11 @@
 			activator.playsound_local(loc, 'sound/hallucinations/im_here1.ogg', 50)
 	else
 		activator.balloon_alert(activator, "This place is not sacred")
+		
+/obj/item/rosary
+	name = "Rosary"
+	desc = "A small hematite-beaded silver rosary"
+	icon = 'icons/obj/items/items.dmi'
+	icon_state = "rosary"
+	item_state = "rosary"
+	w_class = WEIGHT_CLASS_TINY

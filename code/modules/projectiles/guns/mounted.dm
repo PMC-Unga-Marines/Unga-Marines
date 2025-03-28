@@ -283,7 +283,7 @@
 //-------------------------------------------------------
 //FK-88 mounted heavy infantry support gun
 
-/obj/item/weapon/gun/heavy_isg
+/obj/item/weapon/gun/fk88
 	name = "\improper FK-88 mounted flak gun"
 	desc = "The FK-88 is a big gun, offically meant to be used against large hostile wildlife or unruly crowds, this cannon will most definitely give a very bad day to anything that gets caught in its line of fire. Takes quite a while to dial in your shots. Uses 15cm shells."
 
@@ -295,7 +295,7 @@
 	reload_sound = 'sound/weapons/guns/interact/tat36_reload.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/launcher_empty.ogg'
 
-	default_ammo_type = /obj/item/ammo_magazine/heavy_isg/he
+	default_ammo_type = /obj/item/ammo_magazine/fk88/he
 	max_shells = 1 //codex
 	caliber = CALIBER_15CM // codex
 
@@ -312,18 +312,18 @@
 	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
 
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/heavy_isg/he,
-		/obj/item/ammo_magazine/heavy_isg/sabot,
+		/obj/item/ammo_magazine/fk88/he,
+		/obj/item/ammo_magazine/fk88/sabot,
 	)
 
 	deploy_time = 6 SECONDS
 	undeploy_time = 3 SECONDS
-	deployable_item = /obj/machinery/deployable/mounted/moveable/isg
+	deployable_item = /obj/machinery/deployable/mounted/moveable/fk88
 
 	max_integrity = 800
 	soft_armor = list(MELEE = 60, BULLET = 60, LASER = 60, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 0)
 
-/obj/machinery/deployable/mounted/moveable/isg
+/obj/machinery/deployable/mounted/moveable/fk88
 	coverage = 90 // Has a shield.
 	anchor_time = 4 SECONDS
 	has_anchored_sprite = TRUE
@@ -407,7 +407,7 @@
 	max_shells = 150 //codex
 	force = 40
 	aim_slowdown = 1.2
-	wield_delay = 2 SECONDS
+	wield_delay = 2.2 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mg27.ogg'
 	fire_rattle = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mg27_low.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
@@ -671,4 +671,41 @@
 	if(istype(in_chamber, /obj/item/ammo_magazine/agls37/incendiary))
 		gun_user?.record_war_crime()
 
+// Non-TGMC HMG
 
+/obj/item/weapon/gun/kord
+	name = "\improper KRD-61ES mounted heavy machinegun"
+	desc = "The KRD-61ES machinegun is the export variant of the ML-91 HMG. It's too heavy to be wielded or operated without the tripod. No extra work required, just deploy it with Ctrl-Click. Can be repaired with a blowtorch once deployed."
+	icon = 'icons/obj/items/gun/kord.dmi'
+	icon_state = "kord"
+
+	fire_sound = 'sound/weapons/guns/fire/hmg2.ogg'
+	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
+
+	w_class = WEIGHT_CLASS_HUGE
+	equip_slot_flags = ITEM_SLOT_BACK
+
+	scatter = 10
+	deployed_scatter_change = -10
+	accuracy_mult = 1.2 //it's got a bipod
+	fire_delay = 0.25 SECONDS
+
+	default_ammo_type = /obj/item/ammo_magazine/kord
+	allowed_ammo_types = list(/obj/item/ammo_magazine/kord)
+
+	item_flags = IS_DEPLOYABLE|TWOHANDED
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	aim_fire_delay = 0.05 SECONDS
+	aim_speed_modifier = 5
+	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102)
+	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102)
+
+	deploy_time = 1.5 SECONDS
+	undeploy_time = 0.5 SECONDS
+	deployable_item = /obj/machinery/deployable/mounted
+
+	max_integrity = 200
+	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 20)
+
+	allowed_ammo_types = list(/obj/item/ammo_magazine/kord)
