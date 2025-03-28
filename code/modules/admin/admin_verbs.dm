@@ -836,7 +836,7 @@
 	else if(AH && AH.marked != usr.client.key)
 		to_chat(usr, span_warning("This ticket has already been marked by [AH.marked], click the mark button to replace them."))
 		return
-	var/msg = input("Message:", "Private message to [key_name(C, FALSE, FALSE)]") as message|null
+	var/msg = tgui_input_text(usr, "Message:", "Private message to [key_name(C, FALSE, FALSE)]", timeout = 0)
 	if(!msg)
 		if(AH)
 			if(AH.tier == TICKET_MENTOR)
@@ -879,14 +879,12 @@
 	else if(istype(whom, /client))
 		recipient = whom
 
-
-
 	if(external)
 		if(!externalreplyamount)	//to prevent people from spamming irc/discord
 			return
 
 		if(!msg)
-			msg = input(src, "Message:", "Private message to Administrator") as message|null
+			msg = tgui_input_text(src, "Message:", "Private message to Administrator", timeout = 0)
 
 		if(!msg)
 			return
@@ -914,7 +912,7 @@
 
 		//get message text, limit it's length.and clean/escape html
 		if(!msg)
-			msg = input("Message:", "Private message to [key_name(recipient, FALSE, FALSE)]") as message|null
+			msg = tgui_input_text(usr, "Message:", "Private message to [key_name(recipient, FALSE, FALSE)]", timeout = 0)
 			msg = trim(msg)
 			if(!msg)
 				return
@@ -1365,8 +1363,8 @@
 	set category = "Admin.Fun"
 	if(!check_rights(R_SPAWN))
 		return
-	var/to_replace = pick_closest_path(input("Pick a movable atom path to be replaced", "Enter path as text") as text)
-	var/to_place = pick_closest_path(input("Pick atom path to replace with", "Enter path as text") as text)
+	var/to_replace = pick_closest_path(tgui_input_text(usr, "Pick a movable atom path to be replaced", "Enter path as text", timeout = 0))
+	var/to_place = pick_closest_path(tgui_input_text(usr, "Pick atom path to replace with", "Enter path as text", timeout = 0))
 	var/current_caller = GLOB.AdminProcCaller
 	var/ckey = usr ? usr.client.ckey : GLOB.AdminProcCaller
 	if(!ckey)

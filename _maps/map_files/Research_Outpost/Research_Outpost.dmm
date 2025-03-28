@@ -2167,7 +2167,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/trash/barcardine,
+/obj/item/trash/barcaridine,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
 /area/outpost/dormitories)
@@ -10201,7 +10201,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north)
 "Sv" = (
-/obj/item/trash/barcardine,
+/obj/item/trash/barcaridine,
 /turf/open/floor/wood,
 /area/outpost/dormitories)
 "Sw" = (

@@ -194,6 +194,11 @@
 	desc = "A marine standard mounted zoom sight scope made for the Terra Experimental laser sniper rifle otherwise known as TE-S abbreviated, allows zoom by activating the attachment. Use F12 if your HUD doesn't come back."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "tes"
+	
+/obj/item/attachable/scope/unremovable/plasma_sniper_scope
+	name = "PL-02 sniper rifle rail scope"
+	desc = "A marine standard mounted zoom sight scope made for the PL-02 plasma sniper rifle, allows zoom by activating the attachment. Use F12 if your HUD doesn't come back."
+	icon_state = "plasma_scope"
 
 /obj/item/attachable/scope/mini
 	name = "mini rail scope"

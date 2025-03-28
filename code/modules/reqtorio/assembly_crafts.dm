@@ -329,9 +329,9 @@ WEAPONS
 /datum/assembly_craft/weapons/heavy_isg_he
 	name = "A 155mm HE shell for the FK-88 mounted flak gun."
 	input = list(/obj/item/stack/sheet/jeweler_steel = 5, /obj/item/stack/gun_powder = 6) // 35 + 48 points
-	output = list(/obj/item/ammo_magazine/heavy_isg/he = 1) // 83 points +-
+	output = list(/obj/item/ammo_magazine/fk88/he = 1) // 83 points +-
 
 /datum/assembly_craft/weapons/heavy_isg_sabot
 	name = "A 155mm APFDS shell for the FK-88 mounted flak gun"
 	input = list(/obj/item/stack/sheet/jeweler_steel = 5, /obj/item/stack/gun_powder = 7) // 35 + 56 points
-	output = list(/obj/item/ammo_magazine/heavy_isg/sabot = 1) // 91 points +-
+	output = list(/obj/item/ammo_magazine/fk88/sabot = 1) // 91 points +-

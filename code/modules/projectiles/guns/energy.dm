@@ -88,7 +88,7 @@
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_ENERGY|GUN_AMMO_COUNTER|GUN_AMMO_COUNT_BY_SHOTS_REMAINING|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_SHOWS_AMMO_REMAINING
 	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_AUTO_EJECT|AMMO_RECIEVER_DO_NOT_EJECT_HANDFULS|AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE
 	aim_slowdown = 0.75
-	wield_delay = 1 SECONDS
+	wield_delay = 1.2 SECONDS
 	gun_skill_category = SKILL_RIFLES
 	muzzle_flash_color = COLOR_LASER_RED
 
@@ -286,6 +286,8 @@
 	var/fire_delay = 0
 	///Gives guns a burst amount, editable.
 	var/burst_amount = 0
+	///heat amount per shot
+	var/heat_per_fire = 0
 	///The gun firing sound of this mode
 	var/fire_sound = null
 	///What message it sends to the user when you switch to this mode.
@@ -303,6 +305,7 @@
 	///codex description
 	var/description = ""
 
+//TODO this proc should be generic so that you dont have to manually copy paste the default mode onto the item
 /obj/item/weapon/gun/energy/lasgun/lasrifle/unique_action(mob/user)
 	if(!user)
 		CRASH("switch_modes called with no user.")
@@ -339,6 +342,7 @@
 	fire_sound = initial(choice.fire_sound)
 	rounds_per_shot = initial(choice.rounds_per_shot)
 	windup_delay = initial(choice.windup_delay)
+	heat_per_fire = initial(choice.heat_per_fire)
 	SEND_SIGNAL(src, COMSIG_GUN_BURST_SHOTS_TO_FIRE_MODIFIED, burst_amount)
 	SEND_SIGNAL(src, COMSIG_GUN_AUTOFIREDELAY_MODIFIED, fire_delay)
 	SEND_SIGNAL(src, COMSIG_GUN_FIRE_MODE_TOGGLE, initial(choice.fire_mode), user.client)
@@ -458,7 +462,7 @@
 	attachable_offset = list("muzzle_x" = 40, "muzzle_y" = 17,"rail_x" = 22, "rail_y" = 21, "under_x" = 29, "under_y" = 10, "stock_x" = 22, "stock_y" = 12)
 
 	aim_slowdown = 0.4
-	wield_delay = 0.5 SECONDS
+	wield_delay = 0.7 SECONDS
 	scatter = 0
 	scatter_unwielded = 10
 	fire_delay = 0.2 SECONDS
@@ -558,7 +562,7 @@
 	attachable_offset = list("muzzle_x" = 23, "muzzle_y" = 22,"rail_x" = 12, "rail_y" = 22, "under_x" = 16, "under_y" = 14, "stock_x" = 22, "stock_y" = 12)
 
 	akimbo_additional_delay = 0.9
-	wield_delay = 0.2 SECONDS
+	wield_delay = 0.4 SECONDS
 	scatter = 2
 	scatter_unwielded = 4
 	fire_delay = 0.15 SECONDS
@@ -650,7 +654,7 @@
 	attachable_offset = list("muzzle_x" = 32, "muzzle_y" = 18,"rail_x" = 17, "rail_y" = 21, "under_x" = 23, "under_y" = 10, "stock_x" = 22, "stock_y" = 12)
 
 	aim_slowdown = 0.2
-	wield_delay = 0.3 SECONDS
+	wield_delay = 0.5 SECONDS
 	scatter = 1
 	scatter_unwielded = 10
 	fire_delay = 1.5 SECONDS
@@ -805,7 +809,7 @@
 	movement_acc_penalty_mult = 6
 	aim_fire_delay = 1 SECONDS
 	aim_slowdown = 0.7
-	wield_delay = 0.7 SECONDS
+	wield_delay = 0.9 SECONDS
 	mode_list = list(
 		"Standard" = /datum/lasrifle/energy_sniper_mode/standard,
 		"Heat" = /datum/lasrifle/energy_sniper_mode/heat,
@@ -920,7 +924,7 @@
 	attachable_offset = list("muzzle_x" = 41, "muzzle_y" = 15,"rail_x" = 22, "rail_y" = 24, "under_x" = 30, "under_y" = 8, "stock_x" = 22, "stock_y" = 12)
 
 	aim_slowdown = 0.7
-	wield_delay = 0.8 SECONDS
+	wield_delay = 1 SECONDS
 	scatter = 1
 	fire_delay = 0.2 SECONDS
 	burst_delay = 0.25 SECONDS
@@ -1027,7 +1031,7 @@
 	attachable_offset = list("muzzle_x" = 40, "muzzle_y" = 19,"rail_x" = 20, "rail_y" = 21, "under_x" = 30, "under_y" = 13, "stock_x" = 22, "stock_y" = 14)
 	ammo_level_icon = "tex"
 	aim_slowdown = 0.4
-	wield_delay = 0.5 SECONDS
+	wield_delay = 0.7 SECONDS
 	scatter = 0
 	scatter_unwielded = 10
 	fire_delay = 0.4 SECONDS
@@ -1088,8 +1092,7 @@
 	recoil_unwielded = 3
 
 	aim_slowdown = 0.35
-	wield_delay = 0.4 SECONDS
-	wield_penalty = 0.2 SECONDS
+	wield_delay = 0.6 SECONDS
 
 	damage_falloff_mult = 0.9
 	fire_delay = 0.2 SECONDS
@@ -1138,7 +1141,7 @@
 	recoil_unwielded = 0
 	movement_acc_penalty_mult = 2
 	aim_slowdown = 0.1
-	wield_delay = 0.2 SECONDS
+	wield_delay = 0.4 SECONDS
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta/custom
 	name = "\improper VX-12c Serpenta"
@@ -1228,7 +1231,7 @@
 	accuracy_mult = 1.1
 	aim_slowdown = 0.65
 	damage_falloff_mult = 0.4
-	wield_delay = 0.7 SECONDS
+	wield_delay = 0.9 SECONDS
 	fire_delay = 0.25 SECONDS
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/caliver/magharness
@@ -1267,7 +1270,7 @@
 	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_DO_NOT_EJECT_HANDFULS|AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE
 	attachable_offset = list("muzzle_x" = 34, "muzzle_y" = 14,"rail_x" = 11, "rail_y" = 29, "under_x" = 23, "under_y" = 10, "stock_x" = 22, "stock_y" = 12)
 	aim_slowdown = 1
-	wield_delay = 1.2 SECONDS
+	wield_delay = 1.4 SECONDS
 	fire_delay = 0.15 SECONDS
 	scatter = 3
 	accuracy_mult_unwielded = 0.4
@@ -1298,7 +1301,7 @@
 	starting_attachment_types = list()
 	slot = ATTACHMENT_SLOT_UNDER
 	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_ATTACHMENT_FIRE_ONLY|GUN_IS_ATTACHMENT|GUN_CAN_POINTBLANK|GUN_ENERGY|GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING
-	wield_delay = 0.5 SECONDS
+	wield_delay = 0.7 SECONDS
 	scatter = 0
 	fire_delay = 2 SECONDS
 	accuracy_mult_unwielded = 0.55

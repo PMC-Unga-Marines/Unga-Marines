@@ -19,7 +19,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 /obj/item/weapon/gun/rifle/sniper
 	aim_slowdown = 1
 	gun_skill_category = SKILL_RIFLES
-	wield_delay = 1 SECONDS
+	wield_delay = 1.2 SECONDS
 
 //Pow! Headshot
 
@@ -42,13 +42,9 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		/obj/item/ammo_magazine/sniper/flak,
 	)
 	force = 12
-	wield_delay = 12 //Ends up being 1.6 seconds due to scope
+	wield_delay = 1.4 SECONDS
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 12, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
-	var/targetmarker_on = FALSE
-	var/targetmarker_primed = FALSE
-	var/mob/living/carbon/laser_target = null
-	var/image/LT = null
-	var/obj/item/binoculars/tactical/integrated_laze = null
+
 	attachable_allowed = list(
 		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/lasersight,
@@ -69,8 +65,11 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	movement_acc_penalty_mult = 8
 
 	placed_overlay_iconstate = "antimat"
-
-
+	var/targetmarker_on = FALSE
+	var/targetmarker_primed = FALSE
+	var/mob/living/carbon/laser_target = null
+	var/image/LT = null
+	var/obj/item/binoculars/tactical/integrated_laze = null
 
 /obj/item/weapon/gun/rifle/sniper/antimaterial/Initialize(mapload)
 	. = ..()
@@ -89,7 +88,18 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	if(!QDELETED(laser_target))
 		target = laser_target
 	return ..()
-
+/*
+ * This override exists due to the fact the mouseup signal calls start_fire()
+ * which tries to get a turf from the clickcatcher, which ends up with the COMSIG_QDELETING signal
+ * getting registered on that turf, which we do not care about if we are lazing.
+ * The issue with this is that the signal gets registered to the turf and then gets overriden
+ * if the gun user ever clicks that turf again (also leaves hanging signals because they dont unregister)
+ * Shouldn't mess with reset_fire
+*/
+/obj/item/weapon/gun/rifle/sniper/antimaterial/set_target(atom/object)
+	if(laser_target)
+		return ..(laser_target)
+	return ..()
 
 /obj/item/weapon/gun/rifle/sniper/antimaterial/do_fire(obj/object_to_fire)
 	if(laser_target)
@@ -132,7 +142,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 
 /obj/item/weapon/gun/rifle/sniper/antimaterial/dropped()
 	laser_off()
-	. = ..()
+	return ..()
 
 /obj/item/weapon/gun/rifle/sniper/antimaterial/process()
 	var/obj/item/attachable/scope = LAZYACCESS(attachments_by_slot, ATTACHMENT_SLOT_RAIL)
@@ -143,11 +153,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	if(!istype(user))
 		laser_off()
 		return
-	if(!laser_target)
-		laser_off(user)
-		playsound(user,'sound/machines/click.ogg', 25, 1)
-		return
-	if(!line_of_sight(user, laser_target, 24))
+	if(laser_target && !line_of_sight(user, laser_target, 24))
 		laser_off()
 		to_chat(user, span_danger("You lose sight of your target!"))
 		playsound(user,'sound/machines/click.ogg', 25, 1)
@@ -288,10 +294,8 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	accuracy_mult = 1
 	scatter = -5
 	recoil = -1
-	wield_delay = 1.8 SECONDS
+	wield_delay = 2 SECONDS
 	movement_acc_penalty_mult = 6
-
-
 
 //Based off the XM-8. BR-8 rifle
 
@@ -351,7 +355,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	burst_amount = 1
 	accuracy_mult = 1.2
 	scatter = -3
-	recoil = 2
 
 /obj/item/weapon/gun/rifle/tx8/scout
 	starting_attachment_types = list(
@@ -381,7 +384,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	allowed_ammo_types = list(/obj/item/ammo_magazine/minigun_powerpack)
 	w_class = WEIGHT_CLASS_HUGE
 	force = 20
-	wield_delay = 12
+	wield_delay = 1.4 SECONDS
 	gun_skill_category = SKILL_FIREARMS
 	aim_slowdown = 0.8
 	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -395,7 +398,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	windup_delay = 0.4 SECONDS
 	windup_sound = 'sound/weapons/guns/fire/tank_minigun_start.ogg'
 	scatter = 5
-	recoil = 2
 	recoil_unwielded = 4
 	damage_falloff_mult = 0.5
 	movement_acc_penalty_mult = 4
@@ -418,6 +420,34 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 /obj/item/weapon/gun/minigun/valhalla
 	item_flags = TWOHANDED
 
+//A minigun that requires only one hand. Meant for use with vehicles
+/obj/item/weapon/gun/minigun/one_handed
+	name = "\improper Modified MG-100 Vindicator Minigun"
+	desc = "A minigun that's been modified to be used one handed. Intended for use mounted on a vehicle."
+
+	max_shells = 1000 //codex
+	reload_sound = 'sound/weapons/guns/interact/working_the_bolt.ogg'
+	default_ammo_type = /obj/item/ammo_magazine/minigun_wheelchair
+	allowed_ammo_types = list(/obj/item/ammo_magazine/minigun_wheelchair)
+	obj_flags = NONE	//Do not affect autobalance
+	item_flags = NONE	//To remove wielding
+	equip_slot_flags = NONE
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	reciever_flags = AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE|AMMO_RECIEVER_MAGAZINES
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	actions_types = list()
+	attachable_allowed = list()
+
+	recoil = 0
+	recoil_unwielded = 0
+
+	windup_delay = 0.7 SECONDS
+	movement_acc_penalty_mult = 0
+
+//So that it displays the minigun on the mob as if always wielded
+/obj/item/weapon/gun/minigun/one_handed/update_item_state()
+	item_state = "[base_gun_icon]_w"
+
 // SG minigun
 
 /obj/item/weapon/gun/minigun/smart_minigun
@@ -429,7 +459,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	max_shells = 2000 //codex
 	caliber = CALIBER_10X26_CASELESS //codex
 	allowed_ammo_types = list(/obj/item/ammo_magazine/minigun_powerpack/smartgun)
-	wield_delay = 1.5 SECONDS
+	wield_delay = 1.7 SECONDS
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
 	gun_skill_category = SKILL_SMARTGUN
 	attachable_allowed = list(/obj/item/attachable/flashlight, /obj/item/attachable/magnetic_harness, /obj/item/attachable/motiondetector)
@@ -439,7 +469,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 
 	fire_delay = 0.1 SECONDS
 	scatter = -5
-	recoil = 0
 	recoil_unwielded = 4
 
 	item_flags = TWOHANDED
@@ -464,8 +493,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	fire_sound = SFX_GUN_FB12 // idk why i called it "fb-12", ah too late now
 	default_ammo_type = /obj/item/ammo_magazine/rifle/pepperball
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/pepperball)
-	force = 30 // two shots weeds as it has no bayonet
-	wield_delay = 0.5 SECONDS // Very fast to put up.
+	wield_delay = 0.7 SECONDS
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 12, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 	attachable_allowed = list(
 		/obj/item/attachable/buildasentry,
@@ -487,7 +515,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	fire_delay = 0.1 SECONDS
 	burst_amount = 1
 	accuracy_mult = 1
-	recoil = 0
 	accuracy_mult_unwielded = 0.75
 	scatter = -1
 	scatter_unwielded = 2
@@ -555,7 +582,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	equip_slot_flags = NONE
 	w_class = WEIGHT_CLASS_HUGE
 	force = 15
-	wield_delay = 12
+	wield_delay = 1.4 SECONDS
 	wield_penalty = 1.6 SECONDS
 	aim_slowdown = 1.75
 	general_codex_key = "explosive weapons"
@@ -575,7 +602,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	unload_sound = 'sound/weapons/guns/interact/launcher_reload.ogg'
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 19, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 	fire_delay = 1 SECONDS
-	recoil = 3
+	recoil = 1
 	scatter = -100
 	placed_overlay_iconstate = "sadar"
 	windup_delay = 0.4 SECONDS
@@ -638,7 +665,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	equip_slot_flags = NONE
 	w_class = WEIGHT_CLASS_HUGE
 	force = 15
-	wield_delay = 12
+	wield_delay = 1.4 SECONDS
 	wield_penalty = 1.6 SECONDS
 	aim_slowdown = 1.75
 	general_codex_key = "explosive weapons"
@@ -656,7 +683,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 14, "rail_y" = 21, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 
 	fire_delay = 1 SECONDS
-	recoil = 3
 	scatter = -100
 
 	item_flags = TWOHANDED|AUTOBALANCE_CHECK
@@ -758,8 +784,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	equip_slot_flags = NONE
 	w_class = WEIGHT_CLASS_HUGE
 	force = 15
-	wield_delay = 1 SECONDS
-	recoil = 1
+	wield_delay = 1.2 SECONDS
 	wield_penalty = 1.6 SECONDS
 	aim_slowdown = 1
 	general_codex_key = "explosive weapons"
@@ -773,7 +798,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 15, "rail_y" = 19, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 
 	fire_delay = 1 SECONDS
-	recoil = 3
 	scatter = -100
 
 /obj/item/weapon/gun/launcher/rocket/recoillessrifle/low_impact
@@ -809,7 +833,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	unload_sound = 'sound/weapons/guns/interact/launcher_reload.ogg'
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 19, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 	fire_delay = 1 SECONDS
-	recoil = 3
 	scatter = -100
 
 /obj/item/weapon/gun/launcher/rocket/oneuse/Initialize(mapload, spawn_empty)
@@ -867,7 +890,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		/obj/item/ammo_magazine/rocket/som/heat,
 		/obj/item/ammo_magazine/rocket/som/thermobaric,
 	)
-	wield_delay = 1 SECONDS
+	wield_delay = 1.2 SECONDS
 	aim_slowdown = 1
 	attachable_allowed = list()
 	reload_sound = 'sound/weapons/guns/interact/rpg_load.ogg'
@@ -877,7 +900,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 19, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 
 	windup_delay = 0.6 SECONDS
-	recoil = 2
 	scatter = -1
 	movement_acc_penalty_mult = 5 //You shouldn't fire this on the move
 
@@ -911,7 +933,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		/obj/item/ammo_magazine/rocket/icc/heat,
 		/obj/item/ammo_magazine/rocket/icc/thermobaric,
 	)
-	wield_delay = 1 SECONDS
+	wield_delay = 1.2 SECONDS
 	aim_slowdown = 1
 	attachable_allowed = list()
 	reload_sound = 'sound/weapons/guns/interact/rpg_load.ogg'
@@ -921,7 +943,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 19, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 
 	windup_delay = 0.6 SECONDS
-	recoil = 2
 	scatter = -1
 	movement_acc_penalty_mult = 5 //You shouldn't fire this on the move
 
@@ -955,7 +976,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		/obj/item/ammo_magazine/railgun/hvap,
 	)
 	force = 40
-	wield_delay = 1 SECONDS //You're not quick drawing this.
+	wield_delay = 1.2 SECONDS
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 31, "rail_y" = 23, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 	attachable_allowed = list(
 		/obj/item/attachable/magnetic_harness,
@@ -995,7 +1016,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		/obj/item/ammo_magazine/rifle/icc_coilgun,
 	)
 	force = 40
-	wield_delay = 1 SECONDS //You're not quick drawing this.
+	wield_delay = 1.2 SECONDS
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 31, "rail_y" = 23, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 	attachable_allowed = list(
 		/obj/item/attachable/magnetic_harness,
@@ -1009,6 +1030,5 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	windup_delay = 0.5 SECONDS
 	burst_amount = 1
 	accuracy_mult = 2
-	recoil = 0
 	scatter = 0
 	movement_acc_penalty_mult = 6

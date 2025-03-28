@@ -17,10 +17,6 @@
 	dir = 10
 	},
 /area/deathmatch)
-"bQ" = (
-/obj/structure/table/wood/gambling,
-/turf/open/floor/wood,
-/area/deathmatch)
 "bZ" = (
 /obj/structure/bed/chair/wood/wings{
 	dir = 8
@@ -37,6 +33,9 @@
 	name = "\improper Civilian Housing"
 	},
 /turf/open/floor/wood,
+/area/deathmatch)
+"dA" = (
+/turf/closed/mineral/smooth/desertdamrockwall/indestructible,
 /area/deathmatch)
 "eN" = (
 /obj/structure/largecrate/random/barrel/blue,
@@ -68,6 +67,11 @@
 "hy" = (
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/misc/plushie/nospawnninetyfive,
+/turf/open/floor/wood,
+/area/deathmatch)
+"ip" = (
+/obj/structure/table/wood/gambling,
+/obj/effect/landmark/weapon_spawn/tier1_weapon_spawn,
 /turf/open/floor/wood,
 /area/deathmatch)
 "iq" = (
@@ -241,11 +245,6 @@
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/deathmatch)
-"xF" = (
-/obj/structure/table/wood/gambling,
-/obj/effect/landmark/weapon_spawn/tier1_weapon_spawn,
-/turf/open/floor/wood,
-/area/deathmatch)
 "Bm" = (
 /obj/structure/table/mainship,
 /obj/machinery/microwave,
@@ -349,6 +348,10 @@
 /area/deathmatch)
 "Jj" = (
 /obj/structure/window/framed/wood,
+/turf/open/floor/wood,
+/area/deathmatch)
+"Jx" = (
+/obj/structure/table/wood/gambling,
 /turf/open/floor/wood,
 /area/deathmatch)
 "Kl" = (
@@ -529,55 +532,55 @@
 /area/deathmatch)
 
 (1,1,1) = {"
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
 "}
 (2,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -622,10 +625,10 @@ WC
 WC
 WC
 WC
-Uv
+dA
 "}
 (3,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -670,10 +673,10 @@ WV
 GH
 WV
 WC
-Uv
+dA
 "}
 (4,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -718,10 +721,10 @@ WV
 NB
 WV
 WC
-Uv
+dA
 "}
 (5,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -766,10 +769,10 @@ GB
 GB
 WV
 WC
-Uv
+dA
 "}
 (6,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -814,10 +817,10 @@ WC
 WC
 WC
 WC
-Uv
+dA
 "}
 (7,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -862,10 +865,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (8,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -910,10 +913,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (9,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -958,10 +961,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (10,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -983,8 +986,8 @@ LT
 LT
 QI
 LT
-xF
-bQ
+ip
+Jx
 LT
 QI
 QI
@@ -1006,10 +1009,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (11,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1054,10 +1057,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (12,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1102,10 +1105,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (13,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1150,10 +1153,10 @@ WC
 WC
 Uv
 Uv
-Uv
+dA
 "}
 (14,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1198,10 +1201,10 @@ WV
 WC
 Uv
 Uv
-Uv
+dA
 "}
 (15,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1246,10 +1249,10 @@ hw
 WC
 Uv
 Uv
-Uv
+dA
 "}
 (16,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1294,10 +1297,10 @@ WV
 WC
 Uv
 Uv
-Uv
+dA
 "}
 (17,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1342,10 +1345,10 @@ WV
 WC
 Uv
 Uv
-Uv
+dA
 "}
 (18,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1390,10 +1393,10 @@ WV
 WC
 Uv
 Uv
-Uv
+dA
 "}
 (19,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1438,10 +1441,10 @@ WV
 WC
 Uv
 Uv
-Uv
+dA
 "}
 (20,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1486,10 +1489,10 @@ WV
 WC
 Uv
 Uv
-Uv
+dA
 "}
 (21,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1534,10 +1537,10 @@ hw
 WC
 Uv
 Uv
-Uv
+dA
 "}
 (22,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1582,10 +1585,10 @@ WV
 WC
 Uv
 Uv
-Uv
+dA
 "}
 (23,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1630,10 +1633,10 @@ WV
 WC
 Uv
 Uv
-Uv
+dA
 "}
 (24,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1678,10 +1681,10 @@ hw
 WC
 Uv
 Uv
-Uv
+dA
 "}
 (25,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1726,10 +1729,10 @@ WC
 WC
 Uv
 Uv
-Uv
+dA
 "}
 (26,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1774,10 +1777,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (27,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -1822,10 +1825,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (28,1,1) = {"
-Uv
+dA
 Uv
 Uv
 mY
@@ -1870,10 +1873,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (29,1,1) = {"
-Uv
+dA
 Uv
 Uv
 mY
@@ -1918,10 +1921,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (30,1,1) = {"
-Uv
+dA
 Uv
 aB
 kv
@@ -1966,10 +1969,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (31,1,1) = {"
-Uv
+dA
 Uv
 mY
 uR
@@ -2014,10 +2017,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (32,1,1) = {"
-Uv
+dA
 Uv
 mY
 uR
@@ -2062,10 +2065,10 @@ WC
 WC
 WC
 WC
-Uv
+dA
 "}
 (33,1,1) = {"
-Uv
+dA
 Uv
 mY
 uR
@@ -2110,10 +2113,10 @@ WV
 sv
 NB
 WC
-Uv
+dA
 "}
 (34,1,1) = {"
-Uv
+dA
 aB
 kv
 rf
@@ -2158,10 +2161,10 @@ WV
 GB
 GB
 WC
-Uv
+dA
 "}
 (35,1,1) = {"
-Uv
+dA
 kv
 uR
 uR
@@ -2206,10 +2209,10 @@ WC
 WC
 WC
 WC
-Uv
+dA
 "}
 (36,1,1) = {"
-Uv
+dA
 uR
 uR
 uR
@@ -2254,10 +2257,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (37,1,1) = {"
-Uv
+dA
 uR
 uR
 Gx
@@ -2302,10 +2305,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (38,1,1) = {"
-Uv
+dA
 uR
 uR
 vb
@@ -2350,10 +2353,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (39,1,1) = {"
-Uv
+dA
 bP
 Vo
 Yq
@@ -2398,10 +2401,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (40,1,1) = {"
-Uv
+dA
 mY
 uR
 uR
@@ -2446,10 +2449,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (41,1,1) = {"
-Uv
+dA
 Uv
 bP
 uR
@@ -2494,10 +2497,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (42,1,1) = {"
-Uv
+dA
 Uv
 Uv
 bP
@@ -2542,10 +2545,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (43,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -2590,10 +2593,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (44,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -2638,10 +2641,10 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (45,1,1) = {"
-Uv
+dA
 Uv
 Uv
 Uv
@@ -2686,53 +2689,53 @@ Uv
 Uv
 Uv
 Uv
-Uv
+dA
 "}
 (46,1,1) = {"
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
-Uv
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
+dA
 "}

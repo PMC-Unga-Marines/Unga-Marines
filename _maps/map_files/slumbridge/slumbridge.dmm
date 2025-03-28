@@ -862,7 +862,7 @@
 /turf/open/floor/tile/white,
 /area/slumbridge/inside/pmcdome/dorms)
 "aLp" = (
-/obj/item/trash/barcardine,
+/obj/item/trash/barcaridine,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /turf/open/floor/tile/green/whitegreen{
@@ -7792,7 +7792,7 @@
 /area/slumbridge/inside/pmcdome)
 "fYc" = (
 /obj/structure/table,
-/obj/item/trash/barcardine,
+/obj/item/trash/barcaridine,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 1
 	},
@@ -16424,7 +16424,7 @@
 "mkr" = (
 /obj/structure/table/wood/gambling,
 /obj/item/toy/dice/d20,
-/obj/item/trash/barcardine,
+/obj/item/trash/barcaridine,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},

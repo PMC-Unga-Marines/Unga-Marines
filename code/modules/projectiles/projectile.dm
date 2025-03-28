@@ -614,7 +614,6 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		return !(ammo.ammo_behavior_flags & AMMO_PASS_THROUGH_TURF)
 
 	for(var/atom/movable/thing_to_hit in turf_to_scan)
-
 		if(!PROJECTILE_HIT_CHECK(thing_to_hit, src, cardinal_move, FALSE, hit_atoms))
 			continue
 

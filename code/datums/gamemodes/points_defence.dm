@@ -231,7 +231,7 @@
 	if(isobserver(source) || !isxeno(source))
 		items +="Marine victory points: [marine_victory_point]"
 
-/datum/game_mode/infestation/distress/points_defence/proc/start_hunt()
+/datum/game_mode/infestation/distress/points_defence/start_hunt()
 	//marine announce
 	for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 		if(human.faction == FACTION_TERRAGOV)
@@ -239,7 +239,7 @@
 			human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "Xeno den has been added to the Normandy destonation, destroy them to the end", /atom/movable/screen/text/screen_text/picture/potrait)
 	round_stage = INFESTATION_MARINE_DEN_RUSH
 
-/datum/game_mode/infestation/distress/points_defence/proc/can_hunt()
+/datum/game_mode/infestation/distress/points_defence/can_hunt()
 	return can_hunt && round_stage != INFESTATION_MARINE_DEN_RUSH
 
 #undef XENO_DEN_LEVEL_PATH

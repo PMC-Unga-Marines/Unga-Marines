@@ -1,0 +1,2 @@
+/obj/item/reagent_containers/food/snacks/wrapped/barcardine : /obj/item/reagent_containers/food/snacks/wrapped/barcaridine{@OLD}
+/obj/item/trash/barcardine : /obj/item/trash/barcaridine{@OLD}

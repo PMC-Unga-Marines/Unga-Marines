@@ -115,7 +115,6 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CREATE_SPIDERLING,
 	)
 	var/current_charges = 5
-
 	/// List of all our spiderlings
 	var/list/mob/living/carbon/xenomorph/spiderling/spiderlings = list()
 
