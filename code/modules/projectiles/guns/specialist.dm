@@ -311,7 +311,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 /obj/item/weapon/gun/rifle/tx8
 	name = "\improper BR-8 scout rifle"
 	desc ="The BR-8 is a light specialized scout rifle, mostly used by light infantry and scouts. It's designed to be useable at all ranges by being very adaptable to different situations due to the ability to use different ammo types. Has IFF.  Takes specialized overpressured 10x28mm rounds."
-	icon = 'icons/obj/items/gun/marksman.dmi'
+	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "tx8"
 	item_state = "tx8"
 	item_icons = list(
@@ -988,6 +988,10 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	icon = 'icons/obj/items/gun/special64.dmi'
 	icon_state = "railgun"
 	item_state = "railgun"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
+	)
 	max_shells = 3 //codex
 	caliber = CALIBER_RAILGUN
 	fire_sound = 'sound/weapons/guns/fire/railgun.ogg'
@@ -1030,6 +1034,10 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	icon = 'icons/obj/items/gun/special64.dmi'
 	icon_state = "ml120"
 	item_state = "ml120"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
+	)
 	max_shells = 5 //codex
 	caliber = CALIBER_RAILGUN
 	fire_sound = 'sound/weapons/guns/fire/railgun.ogg'

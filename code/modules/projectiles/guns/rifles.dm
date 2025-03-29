@@ -220,8 +220,8 @@
 	icon_state = "t37"
 	item_state = "t37"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_64.dmi',
 	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
@@ -537,6 +537,10 @@
 	icon = 'icons/obj/items/gun/machinegun64.dmi'
 	icon_state = "m41a"
 	item_state = "m41a"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
+	)
 	fire_sound = SFX_GUN_PULSE
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/m41a_unload.ogg'

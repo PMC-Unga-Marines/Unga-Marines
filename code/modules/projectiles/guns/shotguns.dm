@@ -613,7 +613,12 @@
 	name = "\improper R-2395 Derringer"
 	desc = "The R-2395 Derringer has been a classic for centuries. This latest iteration combines plasma propulsion powder with the classic design to make an assasination weapon that will leave little to chance."
 	icon_state = "derringer"
+	icon = 'icons/obj/items/gun/pistol.dmi'
 	item_state = "tp17"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
+	)
 	gun_skill_category = SKILL_PISTOLS
 	w_class = WEIGHT_CLASS_TINY
 	caliber = CALIBER_41RIM //codex

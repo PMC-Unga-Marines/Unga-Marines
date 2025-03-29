@@ -119,6 +119,7 @@
 	name = "PTR-41/1785 body"
 	desc = "A stock for a PTR-41/1785 A-MR."
 	icon_state = "ptrs_stock"
+	icon = 'icons/obj/items/gun/marksman64.dmi'
 	pixel_shift_x = 15
 	pixel_shift_y = 0
 

@@ -358,6 +358,11 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "mg08"
+	item_state = "mg08"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
+	)
 
 	fire_sound = 'sound/weapons/guns/fire/mg08.ogg'
 	reload_sound = 'sound/weapons/guns/machineguns/HMG-08/HMG-08_jam.ogg'

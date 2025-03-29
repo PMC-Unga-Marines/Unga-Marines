@@ -177,7 +177,6 @@
 	scatter_unwielded = 12
 	recoil_unwielded = 0
 
-
 //-------------------------------------------------------
 //A generic 357 revolver. With a twist.
 
@@ -185,7 +184,7 @@
 	name = "\improper FFA 'Rebota' revolver"
 	desc = "A lean .357 made by Falffearmeria. A timeless design, from antiquity to the future. This one is well known for it's strange ammo, which ricochets off walls constantly. Which went from being a defect to a feature."
 	icon_state = "rebota"
-	item_state = "sw357"
+	item_state = "rebota"
 	caliber = CALIBER_357 //codex
 	max_chamber_items = 6 //codex
 	fire_sound = 'sound/weapons/guns/fire/revolver.ogg'
@@ -294,7 +293,7 @@
 	name = "\improper 'Judge' revolver"
 	desc = "An incredibly uncommon revolver utilizing a oversized chamber to be able to both fire 45 Long at the cost of firing speed. Normal rounds have no falloff, and next to no scatter. Due to the short barrel, buckshot out of it has high spread."
 	icon_state = "judge"
-	item_state = "m44"
+	item_state = "judge"
 	fire_animation = "judge_fire"
 	caliber = CALIBER_45L //codex
 	max_chamber_items = 5 //codex
@@ -453,12 +452,12 @@
 /obj/item/weapon/gun/revolver/r44/coltrifle
 	name = "\improper M1855 Revolving Rifle"
 	desc = "A revolver and carbine hybrid, designed and manufactured a long time ago by Crowford Armory Union. Popular back then, but completely obsolete today. Still used by some antiquity lovers."
-	icon = 'icons/obj/items/gun/rifle64.dmi'
+	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "coltrifle"
 	item_state = "coltrifle"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/inhands/gun/rifle_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/gun/rifle_righthand_1.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 	)
