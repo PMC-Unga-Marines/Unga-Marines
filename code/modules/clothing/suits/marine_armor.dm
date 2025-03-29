@@ -9,8 +9,8 @@
 	item_state = "armor"
 	item_icons = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/marine_armor.dmi',
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
 	atom_flags = CONDUCT
 	armor_protection_flags = CHEST|GROIN|ARMS|LEGS|HANDS|FEET
@@ -235,8 +235,8 @@
 	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
 	item_icons = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
 	armor_features_flags = ARMOR_LAMP_OVERLAY
 
@@ -309,8 +309,8 @@
 	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
 	item_icons = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
 	icon_state = "guardarmor"
 	soft_armor = list(MELEE = 75, BULLET = 65, LASER = 60, ENERGY = 60, BOMB = 50, BIO = 0, FIRE = 60, ACID = 60)
@@ -357,8 +357,8 @@
 	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
 	item_icons = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
 	atom_flags = CONDUCT
 	armor_protection_flags = CHEST|GROIN|ARMS|LEGS|FEET|HANDS
@@ -663,8 +663,8 @@
 	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
 	item_icons = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
 	icon_state = "som_armor"
 	item_state = "som_armor"
@@ -697,8 +697,8 @@
 	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
 	item_icons = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
 	icon_state = "icc"
 	slowdown = SLOWDOWN_ARMOR_MEDIUM

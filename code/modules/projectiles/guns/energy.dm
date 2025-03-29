@@ -1,8 +1,9 @@
-
-//-------------------------------------------------------
-//ENERGY GUNS/ETC
-
 /obj/item/weapon/gun/energy
+	icon = 'icons/obj/items/gun/energy.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/energy_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/energy_righthand_1.dmi',
+	)
 	attachable_allowed = list()
 	rounds_per_shot = 10 //100 shots.
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_AMMO_COUNT_BY_SHOTS_REMAINING|GUN_NO_PITCH_SHIFT_NEAR_EMPTY
@@ -242,7 +243,7 @@
 /obj/item/weapon/gun/energy/lasgun/lasrifle
 	name = "\improper LR-73 lasrifle MK2"
 	desc = "A multifunctional laser based rifle with an integrated mode selector. Ideal for any situation. Uses power cells instead of ballistic magazines."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/energy64.dmi'
 	icon_state = "tx73"
 	item_state = "tx73"
 	max_shots = 50 //codex stuff
@@ -364,7 +365,7 @@
 	desc = "A Terra Experimental energy rifle that fires balls of elecricity that shock all those near them, it is meant to drain the plasma of unidentified creatures from within, limiting their abilities. As with all TE Laser weapons, they use a lightweight alloy combined without the need for bullets any longer decreases their weight and aiming speed quite some vs their ballistic counterparts. Uses standard Terra Experimental (TE) power cells."
 	icon_state = "tesla"
 	item_state = "tesla"
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/energy64.dmi'
 	reload_sound = 'sound/weapons/guns/interact/standard_laser_rifle_reload.ogg'
 	fire_sound = 'sound/weapons/guns/fire/tesla.ogg'
 	ammo_datum_type = /datum/ammo/energy/tesla
@@ -434,10 +435,6 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	turret_flags = TURRET_INACCURATE
 	ammo_level_icon = "te"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-	)
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
@@ -542,10 +539,6 @@
 	rounds_per_shot = 20
 	gun_firemode = GUN_FIREMODE_AUTOMATIC
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-	)
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
@@ -626,10 +619,6 @@
 	gun_firemode = GUN_FIREMODE_SEMIAUTO
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
 	ammo_level_icon = "te"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-	)
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
@@ -753,7 +742,7 @@
 	reload_sound = 'sound/weapons/guns/interact/standard_laser_sniper_reload.ogg'
 	fire_sound = 'sound/weapons/guns/fire/Laser Sniper Standard.ogg'
 	windup_sound = 'sound/weapons/guns/fire/Laser Sniper Overcharge Charge.ogg'
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/energy64.dmi'
 	icon_state = "tes"
 	item_state = "tes"
 	w_class = WEIGHT_CLASS_BULKY
@@ -769,8 +758,8 @@
 	icon_overlay_x_offset = -1
 	icon_overlay_y_offset = -3
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/gun/energy_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/energy_righthand_64.dmi',
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 	)
@@ -897,10 +886,6 @@
 	gun_firemode = GUN_FIREMODE_AUTOMATIC
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	ammo_level_icon = "te"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-	)
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
@@ -1197,14 +1182,14 @@
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/caliver
 	name = "\improper VX-33 Caliver"
 	desc = "Volkite weapons are the pride of Martian weapons manufacturing, their construction being a tightly guarded secret. Infamous for its ability to deflagrate organic targets with its tremendous thermal energy, explosively burning flesh in a fiery blast that can be deadly to anyone unfortunate enough to be nearby. The caliver is the primary rifle of the volkite family, and effective at most ranges and situations. Drag click the powerpack to the gun to use that instead of magazines."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/energy64.dmi'
 	icon_state = "caliver"
 	item_state = "caliver"
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/gun/energy_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/energy_righthand_64.dmi',
 	)
 	fire_sound = 'sound/weapons/guns/fire/volkite_3.ogg'
 	max_shots = 40
@@ -1254,8 +1239,8 @@
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/gun/energy_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/energy_righthand_64.dmi',
 	)
 	ammo_level_icon = null
 	max_shots = 120

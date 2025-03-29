@@ -1,14 +1,14 @@
 /obj/item/weapon/gun
 	name = "Guns"
 	desc = "Its a gun. It's pretty terrible, though."
-	icon = 'icons/obj/items/gun/gun.dmi'
+	icon = 'icons/obj/items/gun/special.dmi'
 	icon_state = ""
 	item_state = "gun"
 	item_state_worn = TRUE
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
+		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
+	)
 	max_integrity = 250
 	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 5

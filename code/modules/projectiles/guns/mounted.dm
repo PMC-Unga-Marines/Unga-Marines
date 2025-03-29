@@ -400,7 +400,11 @@
 	desc = "The MG-27 is the SG-29s aging IFF-less cousin, made for rapid accurate machinegun fire in a short amount of time, you could use it while standing, not a great idea. Use the tripod for actual combat. It uses 10x27mm boxes."
 	equip_slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
-	icon = 'icons/obj/items/gun/mg27.dmi'
+	icon = 'icons/obj/items/gun/machinegun64.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
+	)
 	icon_state = "t27"
 	item_state = "t27"
 	caliber = CALIBER_10X27_CASELESS // codex
@@ -463,12 +467,12 @@
 	name = "\improper PTR-41/1785 anti-mech gun"
 	desc = "The PTR-41/1785 is a bottom shelf solution modernized for dealing with armor, while one could use it while standing it is obviously not a great idea. It is recommended to be used while the bipod is deployed. It uses 14.5mm high velocity rounds that will certainly leave a hole in whatever unfortunate soul is hit by it."
 	w_class = WEIGHT_CLASS_BULKY
-	icon = 'icons/obj/items/gun/clf_heavyrifle.dmi'
+	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "ptrs"
 	item_state = "ptrs"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_64.dmi',
 	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
@@ -676,9 +680,12 @@
 /obj/item/weapon/gun/kord
 	name = "\improper KRD-61ES mounted heavy machinegun"
 	desc = "The KRD-61ES machinegun is the export variant of the ML-91 HMG. It's too heavy to be wielded or operated without the tripod. No extra work required, just deploy it with Ctrl-Click. Can be repaired with a blowtorch once deployed."
-	icon = 'icons/obj/items/gun/kord.dmi'
+	icon = 'icons/obj/items/gun/machinegun64.dmi'
 	icon_state = "kord"
-
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
+	)
 	fire_sound = 'sound/weapons/guns/fire/hmg2.ogg'
 	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
 

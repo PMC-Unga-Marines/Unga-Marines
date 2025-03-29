@@ -1,11 +1,9 @@
-/*
-This file contains:
-The Grenade Launchers
-*/
-
-//GRENADE LAUNCHERS
-
 /obj/item/weapon/gun/grenade_launcher
+	icon = 'icons/obj/items/gun/special.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
+	)
 	w_class = WEIGHT_CLASS_BULKY
 	gun_skill_category = SKILL_FIREARMS
 	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -114,7 +112,7 @@ The Grenade Launchers
 /obj/item/weapon/gun/grenade_launcher/multinade_launcher
 	name = "\improper GL-70 grenade launcher"
 	desc = "The GL-70 is the standard grenade launcher used by the TerraGov Marine Corps for area denial and big explosions."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/special64.dmi'
 	icon_state = "t70"
 	item_state = "t70"
 	fire_animation = "t70_fire"

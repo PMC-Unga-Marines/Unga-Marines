@@ -118,7 +118,6 @@
 /obj/item/attachable/stock/clf_heavyrifle
 	name = "PTR-41/1785 body"
 	desc = "A stock for a PTR-41/1785 A-MR."
-	icon = 'icons/obj/items/gun/clf_heavyrifle.dmi'
 	icon_state = "ptrs_stock"
 	pixel_shift_x = 15
 	pixel_shift_y = 0

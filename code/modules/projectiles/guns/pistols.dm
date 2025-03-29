@@ -1,8 +1,9 @@
-//Base pistol for inheritance/
-//--------------------------------------------------
-
 /obj/item/weapon/gun/pistol
-	icon_state = "" //Defaults to revolver pistol when there's no sprite.
+	icon = 'icons/obj/items/gun/pistol.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
+	)
 	fire_sound = 'sound/weapons/guns/fire/pistol.ogg'
 	unload_sound = 'sound/weapons/guns/interact/pistol_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/pistol_reload.ogg'
@@ -53,10 +54,6 @@
 	max_shells = 21 //codex
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_p14.ogg'
 	reload_sound = 'sound/weapons/guns/interact/tp14_reload.ogg'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-	)
 	default_ammo_type = /obj/item/ammo_magazine/pistol/p14
 	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/p14)
 
@@ -86,10 +83,6 @@
 	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/plasma_pistol)
 	type_of_casings = null
 	attachable_offset = list("muzzle_x" = 29, "muzzle_y" = 20,"rail_x" = 13, "rail_y" = 23, "under_x" = 19, "under_y" = 13, "stock_x" = 21, "stock_y" = 17)
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-	)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/flashlight,
@@ -186,10 +179,6 @@
 	unload_sound = 'sound/weapons/guns/interact/colt_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/colt_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/colt_cocked.ogg'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-	)
 	default_ammo_type = /obj/item/ammo_magazine/pistol/p23
 	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/p23)
 	attachable_allowed = list(
@@ -672,7 +661,7 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 	desc = "The PL-5 is a true and tested ICCAF handgun, used for a very long time with minimal changes to the core design, best used at close quarters with its higher than usual magazine size for its caliber. It is chambered in .45 ACP."
 	icon_state = "pl5"
 	item_state = "pl5"
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/pistol64.dmi'
 	caliber = CALIBER_45ACP //codex
 	max_shells = 18 //codex
 	fire_sound = 'sound/weapons/guns/fire/colt.ogg'
@@ -714,7 +703,6 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 	fire_delay = 0.3 SECONDS
 	burst_delay = 0.2 SECONDS
 	burst_amount = 2
-
 
 /obj/item/weapon/gun/pistol/knife
 	name = "\improper M6 'Eclipse Raider' ballistic knife"
@@ -761,7 +749,7 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 /obj/item/weapon/gun/pistol/smart_pistol
 	name = "\improper SP-13 smart pistol"
 	desc = "The SP-13 is a IFF-capable sidearm used by the TerraGov Marine Corps. A cutting-edge miniaturization technology allows mounting of a KTLD IFF system on the pistol, albeit at high manufactoring cost and the usual specialized training required to use such a pistol. Unique design feature high-capacity mag on top of the barrel, with integrated sight."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/pistol64.dmi'
 	icon_state = "sp13"
 	item_state = "sp13"
 	caliber = CALIBER_9X19 //codex
