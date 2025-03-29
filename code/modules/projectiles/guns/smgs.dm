@@ -1,4 +1,9 @@
 /obj/item/weapon/gun/smg
+	icon = 'icons/obj/items/gun/submachinegun.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/submachinegun_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/submachinegun_righthand_1.dmi',
+	)
 	fire_sound = 'sound/weapons/guns/fire/smg_light.ogg'
 	unload_sound = 'sound/weapons/guns/interact/smg_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/smg_reload.ogg'
@@ -113,9 +118,9 @@
 	icon_state = "t90"
 	item_state = "t90"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
+		slot_l_hand_str = 'icons/mob/inhands/gun/submachinegun_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/submachinegun_righthand_64.dmi',
+	)
 	caliber = CALIBER_10X20_CASELESS //codex
 	max_shells = 50 //codex
 	equip_slot_flags = ITEM_SLOT_BACK
@@ -173,7 +178,7 @@
 /obj/item/weapon/gun/smg/m25
 	name = "\improper SMG-25 submachinegun"
 	desc = "The RivArms SMG-25 submachinegun, an update to a classic design. A light firearm capable of effective one-handed use that is ideal for close to medium range engagements. Uses 10x20mm rounds in a high capacity magazine."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/submachinegun64.dmi'
 	icon_state = "m25"
 	item_state = "m25"
 	caliber = CALIBER_10X20_CASELESS //codex
@@ -307,7 +312,7 @@
 /obj/item/weapon/gun/smg/skorpion
 	name = "\improper CZ-81 submachinegun"
 	desc = "A robust, 20th century firearm that's a combination of pistol and submachinegun. Fires .32ACP caliber rounds from a 20 round magazine."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/submachinegun64.dmi'
 	icon_state = "skorpion"
 	item_state = "skorpion"
 	caliber = CALIBER_32ACP //codex
@@ -348,7 +353,7 @@
 /obj/item/weapon/gun/smg/ppsh
 	name = "\improper PPSh-17b submachinegun"
 	desc = "The PPSh-17b or \"Papasha\" is replica of a 20th century USSR model submachinegun that many terrorist organizations had copied all over the years. Despite its small-hitting firepower, its reliablity, extreme longevity and high firepower rate proves useful for the hands of the user."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/submachinegun64.dmi'
 	icon_state = "ppsh"
 	item_state = "ppsh"
 	caliber = CALIBER_762X25 //codex
@@ -440,7 +445,7 @@
 	name = "\improper V-21 submachinegun"
 	desc = "The V-21 is the principal submachinegun used by the Sons of Mars, designed to be used effectively one or two handed with  a variable rate of fire. When fired at full speed it's performance is severely degraded unless used properly wielded, while the lower rate of fire can still be effectively used one handed when necessary. It uses 10x20mm caseless rounds."
 	icon_state = "v21"
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/submachinegun64.dmi'
 	item_state = "v21"
 	caliber = CALIBER_10X20_CASELESS
 	max_shells = 50
@@ -538,12 +543,12 @@
 /obj/item/weapon/gun/smg/icc_machinepistol
 	name = "\improper PL-38 machinepistol"
 	desc = "The PL-38 is a machinepistol used by rearline ICCAF personnel, it presents solid performance at longer ranges in a compact package, although suffers due to a slow rate of fire for its class. It uses 10x20mm caseless rounds."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/submachinegun64.dmi'
 	icon_state = "pl38"
 	item_state = "pl38"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/gun/submachinegun_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/submachinegun_righthand_64.dmi',
 	)
 
 	inhand_x_dimension = 64
@@ -606,12 +611,12 @@
 /obj/item/weapon/gun/smg/icc_pdw
 	name = "\improper L-40 personal defense weapon"
 	desc = "The L-40 is the primer ICCAF submachinegun, generally termed as a 'PDW' due to its armor-piercing high velocity round, while it has adequate ranged performance, it is mostly tuned for at close quarters combat. It uses 4.6mm high velocity caseless rounds."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/submachinegun64.dmi'
 	icon_state = "l40"
 	item_state = "l40"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/gun/submachinegun_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/submachinegun_righthand_64.dmi',
 	)
 
 	inhand_x_dimension = 64
@@ -678,12 +683,12 @@
 	name = "\improper Vector storm submachinegun"
 	desc = "The Vector is the TerraGov Marine Corps depelopment to increase assault capability of marines. Lightweight and simple to use. It features delayed blowback system, heavily reducing recoil even with its high ROF. A highly-customizable platform, it is reliable and versatile. Ideal weapon for quick assaults. Uses extended .45 ACP HP magazines"
 	fire_sound = 'sound/weapons/guns/fire/tp23.ogg'
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/submachinegun64.dmi'
 	icon_state = "v45"
 	item_state = "v45"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/gun/submachinegun_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/submachinegun_righthand_1.dmi',
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 	)
 	caliber = CALIBER_45ACP //codex

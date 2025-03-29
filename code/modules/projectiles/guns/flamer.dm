@@ -1,10 +1,13 @@
 #define FLAMER_WATER 200
 
-//FLAMETHROWER
-
 /obj/item/weapon/gun/flamer
 	name = "flamer"
 	desc = "flame go froosh"
+	icon = 'icons/obj/items/gun/special.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
+	)
 	equip_slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	force = 15
@@ -297,15 +300,15 @@
 /obj/item/weapon/gun/flamer/som
 	name = "\improper V-62 incinerator"
 	desc = "The V-62 is a deadly weapon employed in close quarter combat, favoured as much for the terror it inspires as the actual damage it inflicts. It has good range for a flamer, but lacks the integrated extinguisher of its TGMC equivalent."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/special64.dmi'
 	icon_state = "v62"
 	item_state = "v62"
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_SHOWS_LOADED
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_64.dmi',
 	)
 	lit_overlay_icon_state = "v62_lit"
 	lit_overlay_offset_x = 0
@@ -362,6 +365,11 @@
 	desc = "A weapon-mounted refillable flamethrower attachment.\nIt is designed for short bursts."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "flamethrower"
+
+	item_icons = list( // for whatever fucking reason we can't set it null
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
 
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_IS_ATTACHMENT|GUN_ATTACHMENT_FIRE_ONLY
 	flamer_features_flags = FLAMER_NO_LIT_OVERLAY
@@ -508,6 +516,11 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 	desc = "For the quenching of unfortunate mistakes."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "hydrocannon"
+
+	item_icons = list( // for whatever fucking reason we can't set it null
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
 
 	fire_delay = 1.2 SECONDS
 	fire_sound = 'sound/effects/extinguish.ogg'

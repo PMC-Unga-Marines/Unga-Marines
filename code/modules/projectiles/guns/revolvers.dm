@@ -1,7 +1,9 @@
-//Generic parent object.
-//---------------------------------------------------
-
 /obj/item/weapon/gun/revolver
+	icon = 'icons/obj/items/gun/pistol.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
+	)
 	equip_slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_sound = 'sound/weapons/guns/fire/44mag.ogg'
@@ -116,10 +118,6 @@
 	default_ammo_type = /obj/item/ammo_magazine/revolver/r44
 	allowed_ammo_types = list(/obj/item/ammo_magazine/revolver/r44)
 	force = 8
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-	)
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/reddot,
@@ -179,7 +177,6 @@
 	scatter_unwielded = 12
 	recoil_unwielded = 0
 
-
 //-------------------------------------------------------
 //A generic 357 revolver. With a twist.
 
@@ -187,7 +184,7 @@
 	name = "\improper FFA 'Rebota' revolver"
 	desc = "A lean .357 made by Falffearmeria. A timeless design, from antiquity to the future. This one is well known for it's strange ammo, which ricochets off walls constantly. Which went from being a defect to a feature."
 	icon_state = "rebota"
-	item_state = "sw357"
+	item_state = "rebota"
 	caliber = CALIBER_357 //codex
 	max_chamber_items = 6 //codex
 	fire_sound = 'sound/weapons/guns/fire/revolver.ogg'
@@ -296,7 +293,7 @@
 	name = "\improper 'Judge' revolver"
 	desc = "An incredibly uncommon revolver utilizing a oversized chamber to be able to both fire 45 Long at the cost of firing speed. Normal rounds have no falloff, and next to no scatter. Due to the short barrel, buckshot out of it has high spread."
 	icon_state = "judge"
-	item_state = "m44"
+	item_state = "judge"
 	fire_animation = "judge_fire"
 	caliber = CALIBER_45L //codex
 	max_chamber_items = 5 //codex
@@ -331,7 +328,7 @@
 /obj/item/weapon/gun/revolver/standard_magnum
 	name = "\improper R-76 KC magnum"
 	desc = "The R-76 magnum is an absolute beast of a handgun used by the TGMC, rumors say it was created as a money laundering scheme by some general due to the sheer inpracticality of this firearm. Hits hard, recommended to be used with its stock attachment. Chambered in 12.7mm."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/pistol64.dmi'
 	icon_state = "t76"
 	item_state = "t76"
 	fire_animation = "t76_fire"
@@ -455,12 +452,12 @@
 /obj/item/weapon/gun/revolver/r44/coltrifle
 	name = "\improper M1855 Revolving Rifle"
 	desc = "A revolver and carbine hybrid, designed and manufactured a long time ago by Crowford Armory Union. Popular back then, but completely obsolete today. Still used by some antiquity lovers."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "coltrifle"
 	item_state = "coltrifle"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 	)
@@ -510,12 +507,12 @@
 /obj/item/weapon/gun/revolver/t500
 	name = "\improper R-500 'Nigredo' revolver"
 	desc = "The R-500 'Nigredo' revolver, chambered in .500 Nigro Express. Hard to use, but hits as hard as it’s kicks your hand. This handgun made by BMSS, designed to be deadly, unholy force to stop everything what moves, so in exchange for it, revolver lacking recoil control and have tight cocking system. Because of its specific, handcanon niche, was produced in small numbers. Black & Metzer special attachments system can turn extremely powerful handgun to fullscale rifle, making it a weapon to surpass Metal Gear."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/pistol64.dmi'
 	icon_state = "t500"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
+		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
+	)
 	item_state = "t500"
 	caliber =  CALIBER_500 //codex
 	max_chamber_items = 5 //codex
@@ -569,13 +566,13 @@
 /obj/item/weapon/gun/revolver/t312
 	name = "R-312 'Albedo' Revolver"
 	desc = "Futuristic style revolver with railgun system, using to fire EMB (experimental medical bullets). Just first make sure that you chambered EMB, but not .500 White Express."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/pistol64.dmi'
 	icon_state = "t312"
 	item_state = "t312"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
+		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
+	)
 	caliber =  CALIBER_500_EMB
 	max_chamber_items = 5 //codex
 	default_ammo_type = /datum/ammo/bullet/revolver/t312
