@@ -103,6 +103,10 @@
 	name = "\improper Турель TUR-B \"Базис\""
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Не имеет каких-либо модификаций. Ведёт эффективный и точный огонь."
 	icon_state = "sentry"
+	item_icons = list( // for whatever fucking reason we can't set it null
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
 
 	turret_range = 8
 	deploy_time = 5 SECONDS

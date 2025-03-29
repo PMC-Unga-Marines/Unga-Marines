@@ -144,6 +144,12 @@
 	desc = "A weapon-mounted, reloadable, two-shot grenade launcher."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "grenade"
+
+	item_icons = list( // for whatever fucking reason we can't set it null
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
+
 	max_shells = 2 //codex
 	max_chamber_items = 1
 	fire_delay = 1 SECONDS
@@ -203,6 +209,12 @@
 	name = "\improper BR-64 underslung grenade launcher"
 	desc = "A weapon-mounted, reloadable, two-shot grenade launcher designed to fit the BR-64."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
+
+	item_icons = list( // for whatever fucking reason we can't set it null
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
+
 	icon_state = "t64_grenade"
 	pixel_shift_x = 21
 	pixel_shift_y = 15

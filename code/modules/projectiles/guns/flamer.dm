@@ -366,6 +366,11 @@
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "flamethrower"
 
+	item_icons = list( // for whatever fucking reason we can't set it null
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
+
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_IS_ATTACHMENT|GUN_ATTACHMENT_FIRE_ONLY
 	flamer_features_flags = FLAMER_NO_LIT_OVERLAY
 	w_class = WEIGHT_CLASS_BULKY
@@ -511,6 +516,11 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 	desc = "For the quenching of unfortunate mistakes."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "hydrocannon"
+
+	item_icons = list( // for whatever fucking reason we can't set it null
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
 
 	fire_delay = 1.2 SECONDS
 	fire_sound = 'sound/effects/extinguish.ogg'

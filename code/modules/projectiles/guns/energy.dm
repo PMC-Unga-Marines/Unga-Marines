@@ -1274,6 +1274,12 @@
 	fire_sound = 'sound/weapons/guns/fire/Laser Rifle Standard.ogg'
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "p_beam"
+
+	item_icons = list( // for whatever fucking reason we can't set it null
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
+
 	max_shots = 4
 	ammo_datum_type = /datum/ammo/energy/lasgun/marine/pistol/heat/pocket
 	rounds_per_shot = 150
