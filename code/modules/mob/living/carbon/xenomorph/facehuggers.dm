@@ -27,6 +27,7 @@
 	worn_layer = FACEHUGGER_LAYER
 	layer = FACEHUGGER_LAYER
 	pass_flags = PASS_XENO
+	strip_delay = 2 SECONDS
 	///Whether the hugger is dead, active or inactive
 	var/stat = CONSCIOUS
 	///"Freezes" the hugger in for example, eggs

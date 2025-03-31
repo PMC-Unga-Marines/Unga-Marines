@@ -540,7 +540,7 @@
 
 	M.visible_message(span_danger("[src] tries to remove [M]'s [I.name]."), \
 		span_userdanger("[src] tries to remove [M]'s [I.name]."), null, 5)
-	if(!do_after(src, HUMAN_STRIP_DELAY, NONE, M, display_icon))
+	if(!do_after(src, I.strip_delay, NONE, M, display_icon))
 		return
 	if(!Adjacent(M)|| !I || I != M.get_item_by_slot(slot_to_process))
 		return
