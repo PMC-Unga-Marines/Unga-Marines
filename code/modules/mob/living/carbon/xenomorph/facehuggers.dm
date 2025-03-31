@@ -133,7 +133,7 @@
 /obj/item/clothing/mask/facehugger/attack_hand(mob/living/user)
 	if(isxeno(user))
 		var/mob/living/carbon/xenomorph/X = user
-		if(X.agility || X.fortify)
+		if(X.xeno_flags & XENO_AGILITY || X.fortify)
 			return FALSE
 		if(X.xeno_caste.can_flags & CASTE_CAN_HOLD_FACEHUGGERS)
 			deltimer(jumptimer)

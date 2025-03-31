@@ -19,10 +19,10 @@
 		SSmobs.stop_processing(src)
 		return
 	if(stat == UNCONSCIOUS)
-		if(is_zoomed)
+		if(xeno_flags & XENO_ZOOMED)
 			zoom_out()
 	else
-		if(is_zoomed)
+		if(xeno_flags & XENO_ZOOMED)
 			if(!can_walk_zoomed)
 				if(loc != zoom_turf)
 					zoom_out()

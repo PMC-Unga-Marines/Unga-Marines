@@ -70,7 +70,7 @@
 	start_acid_spray_cone(target, xeno_owner.xeno_caste.acid_spray_range)
 	add_cooldown()
 
-	var/datum/action/ability/activable/xeno/spray = X.actions_by_path[/datum/action/ability/activable/xeno/spray_acid/line/short]
+	var/datum/action/ability/activable/xeno/spray = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/spray_acid/line/short]
 	if(spray)
 		spray.add_cooldown(10 SECONDS)
 

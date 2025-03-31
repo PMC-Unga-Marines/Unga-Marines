@@ -286,7 +286,7 @@
 /mob/living/carbon/xenomorph/Destroy()
 	if(mind)
 		mind.name = name //Grabs the name when the xeno is getting deleted, to reference through hive status later.
-	if(is_zoomed)
+	if(xeno_flags & XENO_ZOOMED)
 		zoom_out()
 
 	remove_inherent_verbs()
@@ -434,7 +434,7 @@
 
 
 /mob/living/carbon/xenomorph/Moved(atom/old_loc, movement_dir)
-	if(is_zoomed)
+	if(xeno_flags & XENO_ZOOMED)
 		if(!can_walk_zoomed)
 			zoom_out()
 	handle_weeds_on_movement()

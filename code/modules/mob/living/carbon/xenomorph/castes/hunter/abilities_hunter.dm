@@ -29,7 +29,7 @@
 		return FALSE
 	if(xeno_owner.on_fire)
 		if(!silent)
-			owner.balloon_alert(stealthy_beno, "Cannot enter Stealth!")
+			owner.balloon_alert(xeno_owner, "Cannot enter Stealth!")
 		return FALSE
 	return TRUE
 

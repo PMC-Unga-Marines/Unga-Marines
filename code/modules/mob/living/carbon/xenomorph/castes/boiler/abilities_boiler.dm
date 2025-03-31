@@ -31,14 +31,14 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	)
 
 /datum/action/ability/xeno_action/toggle_long_range/action_activate()
-	if(xeno_owner.is_zoomed)
+	if(xeno_owner.xeno_flags & XENO_ZOOMED)
 		xeno_owner.zoom_out()
 		xeno_owner.visible_message(span_notice("[xeno_owner] stops looking off into the distance."), \
 		span_notice("We stop looking off into the distance."), null, 5)
 	else
 		xeno_owner.visible_message(span_notice("[xeno_owner] starts looking off into the distance."), \
 			span_notice("We start focusing your sight to look off into the distance."), null, 5)
-		if(!do_after(xeno_owner, 1 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_GENERIC) || xeno_owner.is_zoomed)
+		if(!do_after(xeno_owner, 1 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_GENERIC) || xeno_owner.xeno_flags & XENO_ZOOMED)
 			return
 		xeno_owner.zoom_in(11)
 		return ..()
@@ -125,7 +125,7 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	desc = "Creates a Boiler Bombard of the type currently selected. Reduces bombard cooldown by [BOILER_BOMBARD_COOLDOWN_REDUCTION] seconds for each stored. Begins to emit light when surpassing [BOILER_LUMINOSITY_THRESHOLD] globs stored."
 
 /datum/action/ability/xeno_action/create_boiler_bomb/action_activate()
-	if(xeno_owner.is_zoomed)
+	if(xeno_owner.xeno_flags & XENO_ZOOMED)
 		xeno_owner.balloon_alert(xeno_owner,"Can't while zoomed in!")
 		return
 
@@ -136,7 +136,6 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	succeed_activate()
 	xeno_owner.corrosive_ammo++
 	to_chat(xeno_owner, span_notice("We prepare a corrosive acid globule."))
-	xeno_owner.update_boiler_glow()
 	update_button_icon()
 
 /datum/action/ability/xeno_action/create_boiler_bomb/update_button_icon()
@@ -241,8 +240,6 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 
 /datum/action/ability/activable/xeno/bombard/on_cooldown_finish()
 	to_chat(xeno_owner, span_notice("We feel your toxin glands swell. We are able to bombard an area again."))
-	if(xeno_owner.selected_ability == src)
-		xeno_owner.set_bombard_pointer()
 	return ..()
 
 /// Signal proc for clicking at a distance
@@ -269,7 +266,7 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 
 	if(get_dist(T, S) <= 5) //Magic number
 		if(!silent)
-			boiler_owner.balloon_alert(boiler_owner, "Too close!")
+			xeno_owner.balloon_alert(xeno_owner, "Too close!")
 		return FALSE
 
 /datum/action/ability/activable/xeno/bombard/on_selection()
@@ -347,10 +344,6 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	xeno_owner.update_ammo_glow()
 	update_button_icon()
 	add_cooldown()
-
-/datum/action/ability/activable/xeno/bombard/clean_action()
-	xeno_owner.reset_bombard_pointer()
-	return ..()
 
 // ***************************************
 // *********** Acid spray

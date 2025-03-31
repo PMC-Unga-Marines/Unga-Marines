@@ -211,7 +211,7 @@
 	evasion_duration = 0
 	xeno_owner.balloon_alert(xeno_owner, "Evasion ended")
 	xeno_owner.playsound_local(xeno_owner, 'sound/voice/alien/hiss8.ogg', 50)
-	xeno_owner.hud_set_evasion(evasion_duration)
+	hud_set_evasion(evasion_duration)
 
 ///Deactivates processing on qdel of owner, because if we don't we enter a fucking infinite runtime loop
 /datum/action/ability/xeno_action/evasion/proc/qdel_deactivate(datum/source)

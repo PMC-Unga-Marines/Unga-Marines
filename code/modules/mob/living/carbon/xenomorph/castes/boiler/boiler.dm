@@ -30,7 +30,7 @@
 // ***************************************
 /mob/living/carbon/xenomorph/boiler/gib()
 	visible_message(span_danger("[src] begins to bulge grotesquely, and explodes in a cloud of corrosive gas!"))
-	var/datum/effect_system/smoke_spread/xeno/smoke = new /datum/effect_system/smoke_spread/xeno/acid/opaque(src)
+	var/datum/effect_system/smoke_spread/xeno/smoke = new /datum/effect_system/smoke_spread/xeno/acid(src)
 	smoke.set_up(2, get_turf(src))
 	smoke.start()
 	return ..()

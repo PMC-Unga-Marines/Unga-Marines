@@ -179,10 +179,10 @@
 		new_xeno.fireloss = fireloss //Transfers the damage over.
 		new_xeno.update_health()
 
-	if(xeno_mobhud)
+	if(xeno_flags & XENO_MOBHUD)
 		var/datum/atom_hud/H = GLOB.huds[DATA_HUD_XENO_STATUS]
 		H.add_hud_to(new_xeno) //keep our mobhud choice
-		new_xeno.xeno_mobhud = TRUE
+		ENABLE_BITFIELD(new_xeno.xeno_flags, XENO_MOBHUD)
 
 	if(lighting_alpha != new_xeno.lighting_alpha)
 		new_xeno.toggle_nightvision(lighting_alpha)
@@ -200,7 +200,7 @@
 	GLOB.round_statistics.total_xenos_created-- //so an evolved xeno doesn't count as two.
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", -1, "total_xenos_created")
 
-	if(queen_chosen_lead && (new_xeno.xeno_caste.can_flags & CASTE_CAN_BE_LEADER)) // xeno leader is removed by Destroy()
+	if(xeno_flags & XENO_LEADER && new_xeno.xeno_caste.can_flags & CASTE_CAN_BE_LEADER) // xeno leader is removed by Destroy()
 		hive.add_leader(new_xeno)
 		new_xeno.hud_set_queen_overwatch()
 		if(hive.living_xeno_queen)
@@ -270,7 +270,7 @@
 		balloon_alert(src, "We must be at full plasma to evolve")
 		return FALSE
 
-	if (agility || fortify || crest_defense || status_flags & INCORPOREAL)
+	if(xeno_flags & XENO_AGILITY || fortify || crest_defense || status_flags & INCORPOREAL)
 		balloon_alert(src, "We cannot evolve while in this stance")
 		return FALSE
 

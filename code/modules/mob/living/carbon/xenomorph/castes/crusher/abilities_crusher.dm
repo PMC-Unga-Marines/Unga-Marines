@@ -150,7 +150,7 @@
 	add_cooldown()
 	addtimer(CALLBACK(xeno_owner, TYPE_PROC_REF(/mob, update_icons)), 3)
 
-	var/datum/action/ability/xeno_action/toss = X.actions_by_path[ability_for_cooldown]
+	var/datum/action/ability/xeno_action/toss = xeno_owner.actions_by_path[ability_for_cooldown]
 	if(toss)
 		toss.add_cooldown()
 

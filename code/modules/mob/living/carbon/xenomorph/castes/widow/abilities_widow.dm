@@ -16,7 +16,7 @@
 /datum/action/ability/activable/xeno/leash_ball/use_ability(atom/A)
 	var/turf/target = get_turf(A)
 	xeno_owner.face_atom(target)
-	if(!do_after(xeno_owner, 0.5 SECONDS, IGNORE_LOC_CHANGE, xeno_ownerX, BUSY_ICON_DANGER))
+	if(!do_after(xeno_owner, 0.5 SECONDS, IGNORE_LOC_CHANGE, xeno_owner, BUSY_ICON_DANGER))
 		return fail_activate()
 	var/datum/ammo/xeno/leash_ball = GLOB.ammo_list[/datum/ammo/xeno/leash_ball]
 	leash_ball.hivenumber = xeno_owner.hivenumber
@@ -117,10 +117,9 @@
 	/// List of all our spiderlings
 	var/list/mob/living/carbon/xenomorph/spiderling/spiderlings = list()
 
-/datum/action/ability/xeno_action/create_spiderling/give_action(mob/living/carbon/xenomorph/Xmob/living/L)
+/datum/action/ability/xeno_action/create_spiderling/give_action(mob/living/L)
 	. = ..()
-	var/ = L
-	var/max_spiderlings = X?.xeno_caste.max_spiderlings ? X.xeno_caste.max_spiderlings : 5
+	var/max_spiderlings = xeno_owner?.xeno_caste.max_spiderlings ? xeno_owner.xeno_caste.max_spiderlings : 5
 	desc = "Give birth to a spiderling after a short charge-up. The spiderlings will follow you until death. You can only deploy [max_spiderlings] spiderlings at one time."
 
 	var/mutable_appearance/counter_maptext = mutable_appearance(icon = null, icon_state = null, layer = ACTION_LAYER_MAPTEXT)

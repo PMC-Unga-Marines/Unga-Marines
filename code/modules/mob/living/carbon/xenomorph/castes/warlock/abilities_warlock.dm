@@ -639,8 +639,7 @@
 	)
 
 /datum/action/ability/xeno_action/toggle_warlock_zoom/action_activate()
-	var/mob/living/carbon/xenomorph/warlock/X = owner
-	if(X.is_zoomed)
-		X.zoom_out()
+	if(xeno_owner.xeno_flags & XENO_ZOOMED)
+		xeno_owner.zoom_out()
 		return
-	X.zoom_in(0, 9)
+	xeno_owner.zoom_in(0, 9)

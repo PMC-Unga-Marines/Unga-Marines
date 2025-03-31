@@ -37,10 +37,10 @@
 
 	var/sound/queen_sound = sound(SFX_QUEEN, channel = CHANNEL_ANNOUNCEMENTS)
 	var/sound/king_sound = sound('sound/voice/alien/xenos_roaring.ogg', channel = CHANNEL_ANNOUNCEMENTS)
-	for(var/mob/living/carbon/xenomorph/X AS in xeno_owner.hive.get_all_xenos())
-		to_chat(X, assemble_alert(
+	for(var/mob/living/carbon/xenomorph/xeno AS in xeno_owner.hive.get_all_xenos())
+		to_chat(xeno, assemble_alert(
 			title = "Приказ Улью",
-			subtitle = "Приказ [Q.name]",
+			subtitle = "Приказ [xeno_owner.name]",
 			message = input,
 			color_override = "purple"
 		))
@@ -318,10 +318,10 @@
 /datum/action/ability/xeno_action/toggle_queen_zoom/action_activate()
 	if(xeno_owner.do_actions)
 		return
-	if(xeno_owner.is_zoomed)
+	if(xeno_owner.xeno_flags & XENO_ZOOMED)
 		zoom_xeno_out(xeno_owner.observed_xeno ? FALSE : TRUE)
 		return
-	if(!do_after(xeno_owner, 1 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_GENERIC) || xeno_owner.is_zoomed)
+	if(!do_after(xeno_owner, 1 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_GENERIC) || xeno_owner.xeno_flags & XENO_ZOOMED)
 		return
 	zoom_xeno_in(xeno_owner.observed_xeno ? FALSE : TRUE) //No need for feedback message if our eye is elsewhere.
 
@@ -371,7 +371,7 @@
 
 /// Check if there is an empty slot and promote the passed xeno to a hive leader
 /datum/action/ability/xeno_action/set_xeno_lead/proc/select_xeno_leader(mob/living/carbon/xenomorph/selected_xeno)
-	if(selected_xeno.queen_chosen_lead)
+	if(selected_xeno.xeno_flags & XENO_LEADER)
 		unset_xeno_leader(selected_xeno)
 		return
 

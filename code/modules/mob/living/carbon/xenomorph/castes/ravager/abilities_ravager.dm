@@ -257,11 +257,11 @@
 	xeno_owner.clear_fullscreen("endure", 0.7 SECONDS)
 	xeno_owner.remove_filter("ravager_endure_outline")
 	if(xeno_owner.health < xeno_owner.get_crit_threshold()) //If we have less health than our death threshold, but more than our Endure death threshold, set our HP to just a hair above insta dying
-		var/total_damage = xeno_owner.getFireLoss() + xeno_owner.getBruteLoss()
-		var/burn_percentile_damage = xeno_owner.getFireLoss() / total_damage
-		var/brute_percentile_damage = xeno_owner.getBruteLoss() / total_damage
-		xeno_owner.setBruteLoss((xeno_owner.xeno_caste.max_health - xeno_owner.get_crit_threshold()-1) * brute_percentile_damage)
-		xeno_owner.setFireLoss((xeno_owner.xeno_caste.max_health - xeno_owner.get_crit_threshold()-1) * burn_percentile_damage)
+		var/total_damage = xeno_owner.get_fire_loss() + xeno_owner.get_brute_loss()
+		var/burn_percentile_damage = xeno_owner.get_fire_loss() / total_damage
+		var/brute_percentile_damage = xeno_owner.get_brute_loss() / total_damage
+		xeno_owner.set_brute_loss((xeno_owner.xeno_caste.max_health - xeno_owner.get_crit_threshold() - 1) * brute_percentile_damage)
+		xeno_owner.set_fire_loss((xeno_owner.xeno_caste.max_health - xeno_owner.get_crit_threshold() - 1) * burn_percentile_damage)
 
 	xeno_owner.do_jitter_animation(1000)
 	xeno_owner.endure = FALSE
@@ -275,8 +275,8 @@
 		xeno_owner.set_fire_loss((xeno_owner.xeno_caste.max_health - xeno_owner.get_crit_threshold()-1) * burn_percentile_damage)
 
 	xeno_owner.soft_armor = xeno_owner.soft_armor.modifyRating(bomb = -20) //Remove resistances/immunities
-	REMOVE_TRAIT(X, TRAIT_STAGGERIMMUNE, ENDURE_TRAIT)
-	REMOVE_TRAIT(X, TRAIT_SLOWDOWNIMMUNE, ENDURE_TRAIT)
+	REMOVE_TRAIT(xeno_owner, TRAIT_STAGGERIMMUNE, ENDURE_TRAIT)
+	REMOVE_TRAIT(xeno_owner, TRAIT_SLOWDOWNIMMUNE, ENDURE_TRAIT)
 	endure_threshold = initial(endure_threshold) //Reset the endure vars to their initial states
 	endure_duration = initial(endure_duration)
 	endure_warning_duration = initial(endure_warning_duration)

@@ -180,7 +180,7 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 	)
 
 /datum/action/ability/activable/xeno/secrete_resin/hivemind/action_activate()
-	if(X.selected_ability != src)
+	if(xeno_owner.selected_ability != src)
 		return ..()
 	var/resin_choice = show_radial_menu(owner, owner, GLOB.hivemind_resin_images_list, radius = 48)
 	if(!resin_choice)

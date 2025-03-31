@@ -95,7 +95,7 @@
 	xeno_owner.add_movespeed_modifier(MOVESPEED_ID_WARRIOR_AGILITY, TRUE, 0, NONE, TRUE, WARRIOR_AGILITY_SPEED_MODIFIER)
 	xeno_owner.soft_armor = xeno_owner.soft_armor.modifyAllRatings(-WARRIOR_AGILITY_ARMOR_MODIFIER)
 	xeno_owner.toggle_move_intent(MOVE_INTENT_RUN)
-	if(xeno_owner.agility)
+	if(xeno_owner.xeno_flags & XENO_AGILITY)
 		owner.drop_all_held_items() // drop items (hugger/jelly)
 
 // ***************************************

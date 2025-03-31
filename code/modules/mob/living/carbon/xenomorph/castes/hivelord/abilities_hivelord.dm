@@ -209,9 +209,7 @@
 
 	to_chat(xeno_owner, span_xenonotice("We now have <b>[LAZYLEN(xeno_owner.tunnels)] of [HIVELORD_TUNNEL_SET_LIMIT]</b> tunnels."))
 
-	var/msg = stripped_input(X, "Give your tunnel a descriptive name:", "Tunnel Name")
 	newt.tunnel_desc = "[get_area(newt)] (X: [newt.x], Y: [newt.y])"
-	newt.name += " [msg]"
 
 	xeno_message("[xeno_owner.name] has built a new tunnel at [newt.tunnel_desc]!", "xenoannounce", 5, xeno_owner.hivenumber)
 
