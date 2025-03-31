@@ -699,7 +699,7 @@
 		to_chat(devolver, span_xenonotice("Cannot deevolve, [target] is ventcrawling."))
 		return
 
-	if(target.xeno_flags & XENO_AGILITY || target.fortify || target.crest_defense || target.status_flags & INCORPOREAL) // RUTGMC ADDITION, deevolve deletion prevention
+	if(target.xeno_flags & XENO_AGILITY || target.fortify || target.crest_defense || target.status_flags & INCORPOREAL)
 		to_chat(devolver, span_xenonotice("Cannot deevolve, while [target] is in this stance."))
 		return FALSE
 

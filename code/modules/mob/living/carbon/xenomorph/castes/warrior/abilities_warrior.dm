@@ -85,6 +85,7 @@
 	GLOB.round_statistics.warrior_agility_toggles++
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "warrior_agility_toggles")
 	ability_active = !ability_active
+	TOGGLE_BITFIELD(xeno_owner.xeno_flags, XENO_AGILITY)
 	set_toggle(ability_active ? TRUE : FALSE)
 	xeno_owner.update_icons()
 	add_cooldown()
