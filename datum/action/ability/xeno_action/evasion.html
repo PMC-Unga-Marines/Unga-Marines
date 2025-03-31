@@ -16,8 +16,8 @@
 <h1>evasion <aside>/<a href="datum.html">datum</a>/<a href="datum/action.html">action</a>/<a href="datum/action/ability.html">ability</a>/<a href="datum/action/ability/xeno_action.html">xeno_action</a>/<a href="datum/action/ability/xeno_action/evasion.html">evasion</a></aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/946320000a03c6bf6cccd19a6c26bc4b981cd817/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L82">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 82"/></a></h1>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0513fc51502578b2479ddaba74070417221827a3/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L81">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 81"/></a></h1>
 
 <table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
             <tr><th><a href="datum/action/ability/xeno_action/evasion.html#var/auto_evasion">auto_evasion</a></th><td>Whether auto evasion is on or off.</td></tr>
@@ -32,79 +32,86 @@ Checks if evasion is active, and if the debuff inflicted any stacks, disabling E
             <tr><th><a href="datum/action/ability/xeno_action/evasion.html#proc/evasion_flamer_hit">evasion_flamer_hit</a></th><td>Called when the owner is hit by a flamethrower projectile.
 Reduces evasion stacks based on the damage received.</td></tr>
             <tr><th><a href="datum/action/ability/xeno_action/evasion.html#proc/evasion_throw_dodge">evasion_throw_dodge</a></th><td>Determines whether or not a thrown projectile is dodged while the Evasion ability is active</td></tr>
+            <tr><th><a href="datum/action/ability/xeno_action/evasion.html#proc/hud_set_evasion">hud_set_evasion</a></th><td>Sets the evasion duration hud</td></tr>
             <tr><th><a href="datum/action/ability/xeno_action/evasion.html#proc/qdel_deactivate">qdel_deactivate</a></th><td>Deactivates processing on qdel of owner, because if we don't we enter a fucking infinite runtime loop</td></tr></table>
     <h2 id="var">Var Details</h2><h3 id="var/auto_evasion"><aside class="declaration">var </aside>auto_evasion
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/946320000a03c6bf6cccd19a6c26bc4b981cd817/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L94">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 94"/></a></h3>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0513fc51502578b2479ddaba74070417221827a3/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L93">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 93"/></a></h3>
         <p>Whether auto evasion is on or off.</p><h3 id="var/evade_active"><aside class="declaration">var </aside>evade_active
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/946320000a03c6bf6cccd19a6c26bc4b981cd817/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L96">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 96"/></a></h3>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0513fc51502578b2479ddaba74070417221827a3/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L95">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 95"/></a></h3>
         <p>Whether evasion is currently active</p><h3 id="var/evasion_duration"><aside class="declaration">var </aside>evasion_duration
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/946320000a03c6bf6cccd19a6c26bc4b981cd817/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L98">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 98"/></a></h3>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0513fc51502578b2479ddaba74070417221827a3/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L97">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 97"/></a></h3>
         <p>How long our Evasion will last.</p><h3 id="var/evasion_stacks"><aside class="declaration">var </aside>evasion_stacks
             <aside>&ndash; </aside>
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/946320000a03c6bf6cccd19a6c26bc4b981cd817/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L100">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 100"/></a></h3>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0513fc51502578b2479ddaba74070417221827a3/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L99">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 99"/></a></h3>
         <p>Current amount of Evasion stacks.</p><h2 id="proc">Proc Details</h2><h3 id="proc/evasion_deactivate"><aside class="declaration">proc </aside>evasion_deactivate<aside>() 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/946320000a03c6bf6cccd19a6c26bc4b981cd817/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L182">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 182"/></a></aside>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0513fc51502578b2479ddaba74070417221827a3/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L194">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 194"/></a></aside>
         </h3>
         <p>Deactivates Evasion, clearing signals, vars, etc.</p><h3 id="proc/evasion_debuff_check"><aside class="declaration">proc </aside>evasion_debuff_check<aside>(/<a href="datum.html">datum</a>/source, amount) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/946320000a03c6bf6cccd19a6c26bc4b981cd817/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L175">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 175"/></a></aside>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0513fc51502578b2479ddaba74070417221827a3/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L187">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 187"/></a></aside>
         </h3>
         <p>Called after getting hit with an Evasion disabling debuff.
 Checks if evasion is active, and if the debuff inflicted any stacks, disabling Evasion if so.</p><h3 id="proc/evasion_dodge"><aside class="declaration">proc </aside>evasion_dodge<aside>(/<a href="datum.html">datum</a>/source, /<a href="obj.html">obj</a>/<a href="obj/projectile.html">projectile</a>/proj, cardinal_move, uncrossing) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/946320000a03c6bf6cccd19a6c26bc4b981cd817/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L227">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 227"/></a></aside>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0513fc51502578b2479ddaba74070417221827a3/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L237">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 237"/></a></aside>
         </h3>
         <p>This is where the dodgy magic happens</p><h3 id="proc/evasion_dodge_fx"><aside class="declaration">proc </aside>evasion_dodge_fx<aside>(/<a href="atom.html">atom</a>/<a href="atom/movable.html">movable</a>/proj) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/946320000a03c6bf6cccd19a6c26bc4b981cd817/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L246">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 246"/></a></aside>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0513fc51502578b2479ddaba74070417221827a3/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L255">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 255"/></a></aside>
         </h3>
         <p>Handles dodge effects and visuals for the Evasion ability.</p><h3 id="proc/evasion_flamer_hit"><aside class="declaration">proc </aside>evasion_flamer_hit<aside>(/<a href="datum.html">datum</a>/source, /<a href="obj.html">obj</a>/<a href="obj/projectile.html">projectile</a>/proj) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/946320000a03c6bf6cccd19a6c26bc4b981cd817/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L160">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 160"/></a></aside>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0513fc51502578b2479ddaba74070417221827a3/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L172">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 172"/></a></aside>
         </h3>
         <p>Called when the owner is hit by a flamethrower projectile.
 Reduces evasion stacks based on the damage received.</p><h3 id="proc/evasion_throw_dodge"><aside class="declaration">proc </aside>evasion_throw_dodge<aside>(/<a href="datum.html">datum</a>/source, /<a href="atom.html">atom</a>/<a href="atom/movable.html">movable</a>/proj) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/946320000a03c6bf6cccd19a6c26bc4b981cd817/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L213">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 213"/></a></aside>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0513fc51502578b2479ddaba74070417221827a3/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L224">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 224"/></a></aside>
         </h3>
-        <p>Determines whether or not a thrown projectile is dodged while the Evasion ability is active</p><h3 id="proc/qdel_deactivate"><aside class="declaration">proc </aside>qdel_deactivate<aside>(/<a href="datum.html">datum</a>/source) 
+        <p>Determines whether or not a thrown projectile is dodged while the Evasion ability is active</p><h3 id="proc/hud_set_evasion"><aside class="declaration">proc </aside>hud_set_evasion<aside>(duration) 
         
     
-            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/946320000a03c6bf6cccd19a6c26bc4b981cd817/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L206">
-        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 206"/></a></aside>
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0513fc51502578b2479ddaba74070417221827a3/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L154">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 154"/></a></aside>
+        </h3>
+        <p>Sets the evasion duration hud</p><h3 id="proc/qdel_deactivate"><aside class="declaration">proc </aside>qdel_deactivate<aside>(/<a href="datum.html">datum</a>/source) 
+        
+    
+            <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/blob/0513fc51502578b2479ddaba74070417221827a3/code/modules/mob/living/carbon/xenomorph/castes/runner/abilities_runner.dm#L217">
+        <img src="git.png" width="16" height="16" title="code&#x2F;modules&#x2F;mob&#x2F;living&#x2F;carbon&#x2F;xenomorph&#x2F;castes&#x2F;runner&#x2F;abilities_runner.dm 217"/></a></aside>
         </h3>
         <p>Deactivates processing on qdel of owner, because if we don't we enter a fucking infinite runtime loop</p></main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/946320000a03c6bf6cccd19a6c26bc4b981cd817">9463200</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/0513fc51502578b2479ddaba74070417221827a3">0513fc5</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
