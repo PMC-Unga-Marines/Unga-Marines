@@ -409,15 +409,13 @@
 	return ..()
 
 /datum/action/ability/xeno_action/immortality/action_activate()
-	var/mob/living/carbon/xenomorph/ravager/X = owner
-
-	X.emote("roar")
-	X.visible_message(span_danger("[X]'s skin begins to glow!"), \
+	xeno_owner.emote("roar")
+	xeno_owner.visible_message(span_danger("[xeno_owner]'s skin begins to glow!"), \
 	span_xenowarning("We are too angry to die!"))
 
-	X.add_filter("ravager_immortality_outline", 4, outline_filter(0.5, COLOR_TRANSPARENT_SHADOW))
+	xeno_owner.add_filter("ravager_immortality_outline", 4, outline_filter(0.5, COLOR_TRANSPARENT_SHADOW))
 
-	ENABLE_BITFIELD(X.status_flags, GODMODE)
+	ENABLE_BITFIELD(xeno_owner.status_flags, GODMODE)
 
 	addtimer(CALLBACK(src, PROC_REF(immortality_deactivate)), RAVAGER_IMMORTALITY_DURATION, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_OVERRIDE)
 
@@ -427,13 +425,12 @@
 /datum/action/ability/xeno_action/immortality/proc/immortality_deactivate()
 	if(QDELETED(owner))
 		return
-	var/mob/living/carbon/xenomorph/X = owner
 
-	DISABLE_BITFIELD(X.status_flags, GODMODE)
+	DISABLE_BITFIELD(xeno_owner.status_flags, GODMODE)
 
-	X.do_jitter_animation(500)
+	xeno_owner.do_jitter_animation(500)
 
-	X.remove_filter("ravager_immortality_outline")
+	xeno_owner.remove_filter("ravager_immortality_outline")
 
 	to_chat(owner,span_highdanger("We are now mortal again."))
 	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50, 0, 1)

@@ -435,16 +435,15 @@
 
 /datum/action/ability/activable/xeno/oppose/use_ability(atom/A)
 	. = ..()
-	var/mob/living/carbon/xenomorph/owner_xeno = owner
 	add_cooldown()
 	succeed_activate()
 
-	playsound(owner_xeno.loc, 'sound/effects/bang.ogg', 25, 0)
-	owner_xeno.visible_message(span_xenodanger("[owner_xeno] smashes her fists into the ground!"), \
+	playsound(xeno_owner.loc, 'sound/effects/bang.ogg', 25, 0)
+	xeno_owner.visible_message(span_xenodanger("[xeno_owner] smashes her fists into the ground!"), \
 	span_xenodanger("We smash our fists into the ground!"))
 
-	owner_xeno.create_stomp() //Adds the visual effects. Wom wom wom
-	new /obj/effect/temp_visual/oppose_shatter(get_turf(owner_xeno)) //shatter displays stagger range
+	xeno_owner.create_stomp() //Adds the visual effects. Wom wom wom
+	new /obj/effect/temp_visual/oppose_shatter(get_turf(xeno_owner)) //shatter displays stagger range
 
 	var/obj/effect/abstract/particle_holder/aoe_particles = new(owner.loc, /particles/oppose_aoe) //particles display heal range
 	aoe_particles.particles.position = generator(GEN_SQUARE, 0, 16 + 3*32, LINEAR_RAND)
@@ -454,8 +453,8 @@
 	for(var/mob/living/M in oppose_range)
 		if(M.stat == DEAD)
 			continue
-		var/distance = get_dist(M, owner_xeno)
-		if(owner_xeno.issamexenohive(M))  //Xenos in range will be healed and overhealed, including you.
+		var/distance = get_dist(M, xeno_owner)
+		if(xeno_owner.issamexenohive(M))  //Xenos in range will be healed and overhealed, including you.
 			var/mob/living/carbon/xenomorph/target_xeno = M
 			var/heal_amount = M.maxHealth * GORGER_OPPOSE_HEAL
 			target_xeno.heal_xeno_damage(heal_amount, FALSE)
@@ -466,7 +465,7 @@
 				personal_statistics.heals++
 		else if(distance == 0) //if we're right on top of them, they take actual damage
 			M.take_overall_damage(20, BRUTE, MELEE, updating_health = TRUE, max_limbs = 3)
-			to_chat(M, span_highdanger("[owner_xeno] slams her fists into you, crushing you to the ground!"))
+			to_chat(M, span_highdanger("[xeno_owner] slams her fists into you, crushing you to the ground!"))
 			M.adjust_stagger(2 SECONDS)
 			M.adjust_slowdown(3)
 			shake_camera(M, 3, 3)

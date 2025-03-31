@@ -165,17 +165,16 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	var/obj/effect/abstract/particle_holder/particle_holder
 
 /datum/action/ability/xeno_action/dump_acid/action_activate()
-	var/mob/living/carbon/xenomorph/boiler/caster = owner
 	toggle_particles(TRUE)
 
 	add_cooldown()
 	succeed_activate()
 
-	caster.visible_message(span_xenodanger("[caster] emits an acid!"),
+	xeno_owner.visible_message(span_xenodanger("[xeno_owner] emits an acid!"),
 	span_xenodanger("You dump your acid, disabling your offensive abilities to escape!"))
 	dispense_gas()
 
-	var/datum/action/ability/activable/xeno/spray_acid = caster.actions_by_path[/datum/action/ability/activable/xeno/spray_acid/line/boiler]
+	var/datum/action/ability/activable/xeno/spray_acid = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/spray_acid/line/boiler]
 	if(spray_acid)
 		spray_acid.add_cooldown()
 
@@ -189,18 +188,17 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 		owner.remove_movespeed_modifier(MOVESPEED_ID_BOILER_DUMP)
 		return
 
-	var/mob/living/carbon/xenomorph/boiler/caster = owner
 	var/smoke_range = 1
 	var/datum/effect_system/smoke_spread/xeno/gas
 	gas = new /datum/effect_system/smoke_spread/xeno/acid/light
 
 	owner.add_movespeed_modifier(MOVESPEED_ID_BOILER_DUMP, TRUE, 0, NONE, TRUE, BOILER_DUMP_SPEED)
-	if(caster.has_status_effect(STATUS_EFFECT_STUN) || caster.has_status_effect(STATUS_EFFECT_PARALYZED))
-		to_chat(caster, span_xenohighdanger("We try to emit acid but are disabled!"))
+	if(xeno_owner.has_status_effect(STATUS_EFFECT_STUN) || xeno_owner.has_status_effect(STATUS_EFFECT_PARALYZED))
+		to_chat(xeno_owner, span_xenohighdanger("We try to emit acid but are disabled!"))
 		owner.remove_movespeed_modifier(MOVESPEED_ID_BOILER_DUMP)
 		toggle_particles(FALSE)
 		return
-	var/turf/T = get_turf(caster)
+	var/turf/T = get_turf(xeno_owner)
 	playsound(T, 'sound/effects/smoke.ogg', 25)
 	if(time_left > 1)
 		gas.set_up(smoke_range, T)
@@ -270,32 +268,27 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 		return FALSE
 
 /datum/action/ability/activable/xeno/bombard/on_selection()
-	var/mob/living/carbon/xenomorph/boiler/boiler_owner = owner
-	var/current_ammo = boiler_owner.corrosive_ammo
+	var/current_ammo = xeno_owner.corrosive_ammo
 	if(current_ammo <= 0)
-		to_chat(boiler_owner, span_notice("We have nothing prepared to fire."))
+		to_chat(xeno_owner, span_notice("We have nothing prepared to fire."))
 		return FALSE
 
-	boiler_owner.visible_message(span_notice("\The [boiler_owner] begins digging their claws into the ground."), \
+	xeno_owner.visible_message(span_notice("\The [xeno_owner] begins digging their claws into the ground."), \
 	span_notice("We begin digging ourselves into place."), null, 5)
-	if(!do_after(boiler_owner, 3 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_HOSTILE))
+	if(!do_after(xeno_owner, 3 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_HOSTILE))
 		on_deselection()
-		boiler_owner.selected_ability = null
-		boiler_owner.update_action_button_icons()
-		boiler_owner.reset_bombard_pointer()
+		xeno_owner.selected_ability = null
+		xeno_owner.update_action_button_icons()
 		return FALSE
 
-	boiler_owner.visible_message(span_notice("\The [boiler_owner] digs itself into the ground!"), \
+	xeno_owner.visible_message(span_notice("\The [xeno_owner] digs itself into the ground!"), \
 		span_notice("We dig ourselves into place! If we move, we must wait again to fire."), null, 5)
-	boiler_owner.set_bombard_pointer()
-	RegisterSignal(boiler_owner, COMSIG_MOB_ATTACK_RANGED, TYPE_PROC_REF(/datum/action/ability/activable/xeno/bombard, on_ranged_attack))
+	RegisterSignal(xeno_owner, COMSIG_MOB_ATTACK_RANGED, TYPE_PROC_REF(/datum/action/ability/activable/xeno/bombard, on_ranged_attack))
 
 /datum/action/ability/activable/xeno/bombard/on_deselection()
-	var/mob/living/carbon/xenomorph/boiler/boiler_owner = owner
-	if(boiler_owner.selected_ability == src)
-		boiler_owner.reset_bombard_pointer()
-		to_chat(boiler_owner, span_notice("We relax our stance."))
-	UnregisterSignal(boiler_owner, COMSIG_MOB_ATTACK_RANGED)
+	if(xeno_owner.selected_ability == src)
+		to_chat(xeno_owner, span_notice("We relax our stance."))
+	UnregisterSignal(xeno_owner, COMSIG_MOB_ATTACK_RANGED)
 
 /mob/living/carbon/xenomorph/boiler/Moved(atom/OldLoc, Dir)
 	. = ..()

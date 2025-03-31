@@ -145,23 +145,21 @@
 	var/duration = 20 SECONDS
 
 /datum/action/ability/activable/xeno/plasma_screech/use_ability(atom/A)
-	var/mob/living/carbon/xenomorph/queen/X = owner
-
-	for(var/mob/living/carbon/xenomorph/affected_xeno in cheap_get_xenos_near(X, screech_range))
+	for(var/mob/living/carbon/xenomorph/affected_xeno in cheap_get_xenos_near(xeno_owner, screech_range))
 		if(!(affected_xeno.xeno_caste.can_flags & CASTE_CAN_BE_GIVEN_PLASMA))
 			continue
 		affected_xeno.apply_status_effect(/datum/status_effect/plasma_surge, affected_xeno.xeno_caste.plasma_max / 3, bonus_regen, duration)
 
-	playsound(X.loc, 'sound/voice/alien/queen/screech_plasma.ogg', 75, 0)
-	X.visible_message(span_xenohighdanger("\The [X] emits an ear-splitting guttural roar!"))
+	playsound(xeno_owner.loc, 'sound/voice/alien/queen/screech_plasma.ogg', 75, 0)
+	xeno_owner.visible_message(span_xenohighdanger("\The [xeno_owner] emits an ear-splitting guttural roar!"))
 
 	succeed_activate()
 	add_cooldown()
 
-	var/datum/action/ability/xeno_action/screech = X.actions_by_path[/datum/action/ability/activable/xeno/screech]
+	var/datum/action/ability/xeno_action/screech = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/screech]
 	if(screech)
 		screech.add_cooldown(10 SECONDS)
-	var/datum/action/ability/xeno_action/frenzy_screech = X.actions_by_path[/datum/action/ability/activable/xeno/frenzy_screech]
+	var/datum/action/ability/xeno_action/frenzy_screech = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/frenzy_screech]
 	if(frenzy_screech)
 		frenzy_screech.add_cooldown(5 SECONDS)
 
@@ -181,35 +179,32 @@
 	var/buff_damage_modifier = 0.1
 
 /datum/action/ability/activable/xeno/frenzy_screech/use_ability(atom/A)
-	var/mob/living/carbon/xenomorph/queen/X = owner
-
-	for(var/mob/living/carbon/xenomorph/affected_xeno in cheap_get_xenos_near(X, screech_range))
+	for(var/mob/living/carbon/xenomorph/affected_xeno in cheap_get_xenos_near(xeno_owner, screech_range))
 		affected_xeno.apply_status_effect(/datum/status_effect/frenzy_screech, buff_duration, buff_damage_modifier)
 
-	playsound(X.loc, 'sound/voice/alien/queen/screech_frenzy.ogg', 75, 0)
-	X.visible_message(span_xenohighdanger("\The [X] emits an ear-splitting guttural roar!"))
+	playsound(xeno_owner.loc, 'sound/voice/alien/queen/screech_frenzy.ogg', 75, 0)
+	xeno_owner.visible_message(span_xenohighdanger("\The [xeno_owner] emits an ear-splitting guttural roar!"))
 
 	succeed_activate()
 	add_cooldown()
 
-	var/datum/action/ability/xeno_action/screech = X.actions_by_path[/datum/action/ability/activable/xeno/screech]
+	var/datum/action/ability/xeno_action/screech = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/screech]
 	if(screech)
 		screech.add_cooldown(10 SECONDS)
-	var/datum/action/ability/xeno_action/plasma_screech = X.actions_by_path[/datum/action/ability/activable/xeno/plasma_screech]
+	var/datum/action/ability/xeno_action/plasma_screech = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/plasma_screech]
 	if(plasma_screech)
 		plasma_screech.add_cooldown(5 SECONDS)
 
 /// Promote the passed xeno to a hive leader, should not be called direct
 /datum/action/ability/xeno_action/set_xeno_lead/proc/set_xeno_leader(mob/living/carbon/xenomorph/selected_xeno)
-	var/mob/living/carbon/xenomorph/xeno_ruler = owner
-	xeno_ruler.balloon_alert(xeno_ruler, "Xeno promoted")
+	xeno_owner.balloon_alert(xeno_owner, "Xeno promoted")
 	selected_xeno.balloon_alert(selected_xeno, "Promoted to leader")
-	to_chat(selected_xeno, span_xenoannounce("[xeno_ruler] has selected us as a Hive Leader. The other Xenomorphs must listen to us. We will also act as a beacon for the Queen's pheromones."))
+	to_chat(selected_xeno, span_xenoannounce("[xeno_owner] has selected us as a Hive Leader. The other Xenomorphs must listen to us. We will also act as a beacon for the Queen's pheromones."))
 
-	xeno_ruler.hive.add_leader(selected_xeno)
+	xeno_owner.hive.add_leader(selected_xeno)
 	selected_xeno.hud_set_queen_overwatch()
-	selected_xeno.handle_xeno_leader_pheromones(xeno_ruler)
-	notify_ghosts("\ [xeno_ruler] has designated [selected_xeno] as a Hive Leader", source = selected_xeno, action = NOTIFY_ORBIT)
+	selected_xeno.handle_xeno_leader_pheromones(xeno_owner)
+	notify_ghosts("\ [xeno_owner] has designated [selected_xeno] as a Hive Leader", source = selected_xeno, action = NOTIFY_ORBIT)
 
 	selected_xeno.update_leader_icon(TRUE)
 
@@ -241,35 +236,33 @@
 	if(!can_use_action()) // Check for action now done here as action_activate pipeline has been bypassed with signal activation.
 		return
 
-	var/mob/living/carbon/xenomorph/watcher = owner
-	var/mob/living/carbon/xenomorph/old_xeno = watcher.observed_xeno
+	var/mob/living/carbon/xenomorph/old_xeno = xeno_owner.observed_xeno
 	if(old_xeno == target)
 		stop_overwatch(TRUE)
 		return
 	if(old_xeno)
 		stop_overwatch(FALSE)
-	watcher.observed_xeno = target
-	if(isxenoqueen(watcher)) // Only queen needs the eye shown.
+	xeno_owner.observed_xeno = target
+	if(isxenoqueen(xeno_owner)) // Only queen needs the eye shown.
 		target.hud_set_queen_overwatch()
-	watcher.reset_perspective()
+	xeno_owner.reset_perspective()
 	RegisterSignal(target, COMSIG_HIVE_XENO_DEATH, PROC_REF(on_xeno_death))
 	RegisterSignals(target, list(COMSIG_XENOMORPH_EVOLVED, COMSIG_XENOMORPH_DEEVOLVED), PROC_REF(on_xeno_evolution))
-	RegisterSignal(watcher, COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
-	RegisterSignal(watcher, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(on_damage_taken))
+	RegisterSignal(xeno_owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
+	RegisterSignal(xeno_owner, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(on_damage_taken))
 	overwatch_active = TRUE
 	set_toggle(TRUE)
 
 /datum/action/ability/xeno_action/watch_xeno/proc/stop_overwatch(do_reset_perspective = TRUE)
-	var/mob/living/carbon/xenomorph/watcher = owner
-	var/mob/living/carbon/xenomorph/observed = watcher.observed_xeno
-	watcher.observed_xeno = null
+	var/mob/living/carbon/xenomorph/observed = xeno_owner.observed_xeno
+	xeno_owner.observed_xeno = null
 	if(!QDELETED(observed))
 		UnregisterSignal(observed, list(COMSIG_HIVE_XENO_DEATH, COMSIG_XENOMORPH_EVOLVED, COMSIG_XENOMORPH_DEEVOLVED))
-		if(isxenoqueen(watcher)) // Only queen has to reset the eye overlay.
+		if(isxenoqueen(xeno_owner)) // Only queen has to reset the eye overlay.
 			observed.hud_set_queen_overwatch()
 	if(do_reset_perspective)
-		watcher.reset_perspective()
-	UnregisterSignal(watcher, list(COMSIG_MOVABLE_MOVED, COMSIG_XENOMORPH_TAKING_DAMAGE))
+		xeno_owner.reset_perspective()
+	UnregisterSignal(xeno_owner, list(COMSIG_MOVABLE_MOVED, COMSIG_XENOMORPH_TAKING_DAMAGE))
 	overwatch_active = FALSE
 	set_toggle(FALSE)
 

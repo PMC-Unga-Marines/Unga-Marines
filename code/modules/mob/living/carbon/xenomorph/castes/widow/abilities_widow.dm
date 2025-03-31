@@ -164,9 +164,8 @@
 	if(current_charges <= 0)
 		return fail_activate()
 
-	var/mob/living/carbon/xenomorph/X = owner
-	if(length(spiderlings) >= X.xeno_caste.max_spiderlings)
-		X.balloon_alert(X, "Max Spiderlings")
+	if(length(spiderlings) >= xeno_owner.xeno_caste.max_spiderlings)
+		xeno_owner.balloon_alert(xeno_owner, "Max Spiderlings")
 		return fail_activate()
 
 	if(!do_after(owner, 0.5 SECONDS, IGNORE_LOC_CHANGE, owner, BUSY_ICON_DANGER))
@@ -328,14 +327,13 @@
 	)
 
 /datum/action/ability/activable/xeno/web_spit/use_ability(atom/target)
-	var/mob/living/carbon/xenomorph/X = owner
 	var/datum/ammo/xeno/web_projectile/web = GLOB.ammo_list[/datum/ammo/xeno/web_projectile]
-	var/obj/projectile/newspit = new /obj/projectile(get_turf(X))
+	var/obj/projectile/newspit = new /obj/projectile(get_turf(xeno_owner))
 
 	newspit.generate_bullet(web)
-	newspit.def_zone = X.get_limbzone_target()
+	newspit.def_zone = xeno_owner.get_limbzone_target()
 
-	newspit.fire_at(target, X, X, newspit.ammo.max_range)
+	newspit.fire_at(target, xeno_owner, xeno_owner, newspit.ammo.max_range)
 	succeed_activate()
 	add_cooldown()
 

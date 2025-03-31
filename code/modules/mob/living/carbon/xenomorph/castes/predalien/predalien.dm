@@ -22,8 +22,7 @@
 		/datum/xenomorph_skin/predalien,
 	)
 
-	var/max_bonus_life_kills = 10
-	var/butcher_time = 6 SECONDS
+	max_bonus_life_kills = 10
 
 /mob/living/carbon/xenomorph/predalien/Initialize(mapload, mob/living/carbon/xenomorph/oldxeno, h_number)
 	. = ..()

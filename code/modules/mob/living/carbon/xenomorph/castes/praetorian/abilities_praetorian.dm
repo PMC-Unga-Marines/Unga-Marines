@@ -1,7 +1,3 @@
-// ***************************************
-// *********** Scatterspit
-// ***************************************
-
 /datum/action/ability/activable/xeno/scatter_spit/praetorian
 	cooldown_duration = 1 SECONDS
 	keybinding_signals = list(
@@ -9,21 +5,19 @@
 	)
 
 /datum/action/ability/activable/xeno/scatter_spit/praetorian/use_ability(atom/target)
-	var/mob/living/carbon/xenomorph/X = owner
-
-	if(!do_after(X, 0.5 SECONDS, NONE, target, BUSY_ICON_DANGER))
+	if(!do_after(xeno_owner, 0.5 SECONDS, NONE, target, BUSY_ICON_DANGER))
 		return fail_activate()
 
 	//Shoot at the thing
-	playsound(X.loc, 'sound/effects/blobattack.ogg', 50, 1)
+	playsound(xeno_owner.loc, 'sound/effects/blobattack.ogg', 50, 1)
 
 	var/datum/ammo/xeno/acid/heavy/scatter/praetorian/scatter_spit = GLOB.ammo_list[/datum/ammo/xeno/acid/heavy/scatter/praetorian]
 
-	var/obj/projectile/newspit = new /obj/projectile(get_turf(X))
-	newspit.generate_bullet(scatter_spit, scatter_spit.damage * SPIT_UPGRADE_BONUS(X))
-	newspit.def_zone = X.get_limbzone_target()
+	var/obj/projectile/newspit = new /obj/projectile(get_turf(xeno_owner))
+	newspit.generate_bullet(scatter_spit, scatter_spit.damage * SPIT_UPGRADE_BONUS(xeno_owner))
+	newspit.def_zone = xeno_owner.get_limbzone_target()
 
-	newspit.fire_at(target, X, X, newspit.ammo.max_range)
+	newspit.fire_at(target, xeno_owner, xeno_owner, newspit.ammo.max_range)
 
 	succeed_activate()
 	add_cooldown()
@@ -177,7 +171,6 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 /datum/action/ability/activable/xeno/charge/dash/use_ability(atom/A)
 	if(!A)
 		return
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	RegisterSignal(xeno_owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(charge_complete))
 	RegisterSignal(xeno_owner, COMSIG_XENOMORPH_LEAP_BUMP, PROC_REF(mob_hit))
 
@@ -202,7 +195,6 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 
 /datum/action/ability/activable/xeno/charge/dash/charge_complete()
 	. = ..()
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	xeno_owner.pass_flags = initial(xeno_owner.pass_flags)
 
 // ***************************************
@@ -218,15 +210,14 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	)
 
 /datum/action/ability/activable/xeno/spray_acid/line/short/use_ability(atom/A)
-	var/mob/living/carbon/xenomorph/X = owner
 	var/turf/target = get_turf(A)
 
 	if(!istype(target)) //Something went horribly wrong. Clicked off edge of map probably
 		return
 
-	X.face_atom(target) //Face target so we don't look stupid
+	xeno_owner.face_atom(target) //Face target so we don't look stupid
 
-	if(X.do_actions)
+	if(xeno_owner.do_actions)
 		return
 
 	if(!can_use_ability(A, TRUE, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
@@ -234,15 +225,15 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 
 	succeed_activate()
 
-	playsound(X.loc, 'sound/effects/refill.ogg', 50, 1)
-	var/turflist = getline(X, target)
+	playsound(xeno_owner.loc, 'sound/effects/refill.ogg', 50, 1)
+	var/turflist = getline(xeno_owner, target)
 	spray_turfs(turflist)
 	add_cooldown()
 
 	GLOB.round_statistics.spitter_acid_sprays++ //Statistics
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "spitter_acid_sprays")
 
-	var/datum/action/ability/activable/xeno/spray = X.actions_by_path[/datum/action/ability/activable/xeno/spray_acid/cone]
+	var/datum/action/ability/activable/xeno/spray = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/spray_acid/cone]
 	if(spray)
 		spray.add_cooldown(10 SECONDS)
 
@@ -255,8 +246,8 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	var/turf/prev_turf
 	var/distance = 0
 
-	for(var/X in turflist)
-		var/turf/T = X
+	for(var/xeno_owner in turflist)
+		var/turf/T = xeno_owner
 
 		if(!prev_turf && length(turflist) > 1)
 			prev_turf = get_turf(owner)
@@ -307,9 +298,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 /datum/action/ability/activable/xeno/spray_acid/line/short/acid_splat_turf(turf/T)
 	. = locate(/obj/effect/xenomorph/spray) in T
 	if(!.)
-		var/mob/living/carbon/xenomorph/X = owner
-
-		. = new /obj/effect/xenomorph/spray(T, 3 SECONDS, X.xeno_caste.acid_spray_damage, owner)
+		. = new /obj/effect/xenomorph/spray(T, 3 SECONDS, xeno_owner.xeno_caste.acid_spray_damage, owner)
 
 		for(var/i in T)
 			var/atom/A = i

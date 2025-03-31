@@ -857,7 +857,6 @@ RU TGMC EDIT */
 /datum/action/ability/activable/xeno/seismic_fracture/proc/do_attack(list/turf/turfs_to_attack, enhanced, instant)
 	if(!length(turfs_to_attack))
 		return
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	var/damage = (xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier) * SEISMIC_FRACTURE_DAMAGE_MULTIPLIER
 	for(var/turf/target_turf AS in turfs_to_attack)
 		if(isclosedturf(target_turf))
@@ -903,7 +902,6 @@ RU TGMC EDIT */
 
 /// Living mobs that were previously caught in the attack's radius are subject to a landing effect. Their invincibility is removed, and they receive a reduced amount of damage.
 /datum/action/ability/activable/xeno/seismic_fracture/proc/living_landing(mob/living/affected_living)
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	affected_living.layer = initial(affected_living.layer)
 	var/landing_damage = (xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier) * 0.5
 	affected_living.apply_damage(landing_damage, BRUTE, blocked = MELEE)

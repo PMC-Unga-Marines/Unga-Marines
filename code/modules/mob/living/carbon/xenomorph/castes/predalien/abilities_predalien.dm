@@ -13,14 +13,12 @@
 
 /datum/action/ability/activable/xeno/pounce/predalien/mob_hit(datum/source, mob/living/M)
 	. = ..()
-	var/mob/living/carbon/xenomorph/predalien/xeno = owner
 	if(ishuman(target) || isdroid(target))
-		M.apply_damage(base_damage + damage_scale * min(xeno.life_kills_total, xeno.max_bonus_life_kills), BRUTE, "chest", MELEE, FALSE, FALSE, TRUE, 20)
+		M.apply_damage(base_damage + damage_scale * min(xeno_owner.life_kills_total, xeno_owner.max_bonus_life_kills), BRUTE, "chest", MELEE, FALSE, FALSE, TRUE, 20)
 
 ///Triggers the effect of a successful pounce on the target.
 /datum/action/ability/activable/xeno/pounce/predalien/trigger_pounce_effect(mob/living/living_target)
 	playsound(get_turf(living_target), 'sound/voice/alien/predalien/pounce.ogg', 25, TRUE)
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	xeno_owner.set_throwing(FALSE)
 	xeno_owner.Immobilize(XENO_POUNCE_STANDBY_DURATION)
 	xeno_owner.forceMove(get_turf(living_target))
@@ -46,13 +44,11 @@
 	var/bonus_speed_scale = 0.05
 
 /datum/action/ability/activable/xeno/predalien_roar/use_ability(atom/target)
-	var/mob/living/carbon/xenomorph/predalien/xeno = owner
+	playsound(xeno_owner.loc, pick(predalien_roar), 75, 0)
+	xeno_owner.visible_message(span_xenohighdanger("[xeno_owner] emits a guttural roar!"))
+	xeno_owner.create_shriekwave(color = "#FF0000")
 
-	playsound(xeno.loc, pick(predalien_roar), 75, 0)
-	xeno.visible_message(span_xenohighdanger("[xeno] emits a guttural roar!"))
-	xeno.create_shriekwave(color = "#FF0000")
-
-	for(var/mob/living/carbon/carbon in view(7, xeno))
+	for(var/mob/living/carbon/carbon in view(7, xeno_owner))
 		if(ishuman(carbon) || isdroid(carbon))
 			var/mob/living/carbon/human/human = carbon
 			human.disable_special_items()
@@ -67,9 +63,16 @@
 			var/mob/living/carbon/xenomorph/xeno_target = carbon
 			if(xeno_target.stat == DEAD)
 				continue
-			new /datum/status_effect/xeno_buff(list(xeno_target, xeno, 0.25 SECONDS * min(xeno.life_kills_total, xeno.max_bonus_life_kills) + 3 SECONDS, bonus_damage_scale * min(xeno.life_kills_total, xeno.max_bonus_life_kills), (bonus_speed_scale * min(xeno.life_kills_total, xeno.max_bonus_life_kills))))
+			new /datum/status_effect/xeno_buff(list(
+				xeno_target,
+				xeno_owner,
+				0.25 SECONDS * min(xeno_owner.life_kills_total,
+				xeno_owner.max_bonus_life_kills) + 3 SECONDS,
+				bonus_damage_scale * min(xeno_owner.life_kills_total, xeno_owner.max_bonus_life_kills),
+				(bonus_speed_scale * min(xeno_owner.life_kills_total, xeno_owner.max_bonus_life_kills))
+			))
 
-	for(var/mob/M in view(xeno))
+	for(var/mob/M in view(xeno_owner))
 		if(M && M.client)
 			shake_camera(M, 10, 1)
 
@@ -115,22 +118,20 @@
 	return TRUE
 
 /datum/action/ability/activable/xeno/smash/use_ability(atom/target)
-	var/mob/living/carbon/xenomorph/predalien/xeno = owner
+	playsound(xeno_owner.loc, pick(smash_sounds), 50, 0)
+	xeno_owner.visible_message(span_xenohighdanger("[xeno_owner] smashes into the ground!"))
 
-	playsound(xeno.loc, pick(smash_sounds), 50, 0)
-	xeno.visible_message(span_xenohighdanger("[xeno] smashes into the ground!"))
-
-	xeno.create_stomp()
+	xeno_owner.create_stomp()
 
 	var/mob/living/carbon/carbon = target
 	carbon.Immobilize(freeze_duration)
 	carbon.apply_effect(0.5, WEAKEN)
 
-	for(var/mob/living/carbon/human/human in oview(round(min(xeno.life_kills_total, xeno.max_bonus_life_kills) * 0.5 + 2), xeno))
+	for(var/mob/living/carbon/human/human in oview(round(min(xeno_owner.life_kills_total, xeno_owner.max_bonus_life_kills) * 0.5 + 2), xeno_owner))
 		if(human.stat != DEAD)
 			human.Immobilize(freeze_duration)
 
-	for(var/mob/M in view(xeno))
+	for(var/mob/M in view(xeno_owner))
 		if(M && M.client)
 			shake_camera(M, 0.2 SECONDS, 1)
 
@@ -178,38 +179,36 @@
 	return TRUE
 
 /datum/action/ability/activable/xeno/devastate/use_ability(atom/target)
-	var/mob/living/carbon/xenomorph/predalien/xeno = owner
 	var/mob/living/carbon/carbon = target
 
 	carbon.Immobilize(30 SECONDS)
-	xeno.anchored = TRUE
-	xeno.Immobilize(30 SECONDS)
+	xeno_owner.anchored = TRUE
+	xeno_owner.Immobilize(30 SECONDS)
 
-	if(do_after(xeno, activation_delay, NONE, carbon, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
-		xeno.visible_message(span_xenohighdanger("[xeno] rips open the guts of [carbon]!"), span_xenohighdanger("You rip open the guts of [carbon]!"))
+	if(do_after(xeno_owner, activation_delay, NONE, carbon, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
+		xeno_owner.visible_message(span_xenohighdanger("[xeno_owner] rips open the guts of [carbon]!"), span_xenohighdanger("You rip open the guts of [carbon]!"))
 		carbon.spawn_gibs()
 		playsound(get_turf(carbon), 'sound/effects/gibbed.ogg', 75, 1)
 		carbon.apply_effect(0.5, WEAKEN)
-		carbon.apply_damage(base_damage + damage_scale * min(xeno.life_kills_total, xeno.max_bonus_life_kills), BRUTE, "chest", MELEE, FALSE, FALSE, TRUE, 20)
+		carbon.apply_damage(base_damage + damage_scale * min(xeno_owner.life_kills_total, xeno_owner.max_bonus_life_kills), BRUTE, "chest", MELEE, FALSE, FALSE, TRUE, 20)
 
-		xeno.do_attack_animation(carbon, ATTACK_EFFECT_CLAW)
+		xeno_owner.do_attack_animation(carbon, ATTACK_EFFECT_CLAW)
 		INVOKE_ASYNC(src, PROC_REF(ability_spin))
-		xeno.do_attack_animation(carbon, ATTACK_EFFECT_BITE)
+		xeno_owner.do_attack_animation(carbon, ATTACK_EFFECT_BITE)
 
-	playsound(xeno, 'sound/voice/alien/predalien/growl.ogg', 75, 0)
+	playsound(xeno_owner, 'sound/voice/alien/predalien/growl.ogg', 75, 0)
 
-	xeno.anchored = FALSE
-	xeno.SetImmobilized(0)
+	xeno_owner.anchored = FALSE
+	xeno_owner.SetImmobilized(0)
 
 	carbon.SetImmobilized(0)
 
-	xeno.visible_message(span_xenodanger("[xeno] rapidly slices into [carbon]!"))
+	xeno_owner.visible_message(span_xenodanger("[xeno_owner] rapidly slices into [carbon]!"))
 
 	add_cooldown()
 	succeed_activate()
 
 /datum/action/ability/activable/xeno/devastate/proc/ability_spin()
-	var/mob/living/carbon/xenomorph/predalien/xeno = owner
 	for(var/x in 1 to 4)
 		sleep(1)
-		xeno.setDir(turn(xeno.dir, 90))
+		xeno_owner.setDir(turn(xeno_owner.dir, 90))

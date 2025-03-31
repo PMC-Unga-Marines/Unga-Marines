@@ -133,6 +133,8 @@
 	var/huggers_max = 0
 	///delay between the throw hugger ability activation for carriers
 	var/hugger_delay = 0
+	///The number of huggers the carrier reserves against observer possession.
+	var/huggers_reserved = 0
 
 	// *** Defender Abilities *** //
 	///modifying amount to the crest defense ability for defenders. Positive integers only.

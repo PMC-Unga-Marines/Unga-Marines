@@ -193,16 +193,14 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 /datum/action/ability/xeno_action/set_hugger_reserve/give_action(mob/living/L)
 	. = ..()
-	var/mob/living/carbon/xenomorph/carrier/caster = owner
-	caster.huggers_reserved = caster.xeno_caste.huggers_max
+	xeno_owner.xeno_caste.huggers_reserved = xeno_owner.xeno_caste.huggers_max
 
 /datum/action/ability/xeno_action/set_hugger_reserve/action_activate()
-	var/mob/living/carbon/xenomorph/carrier/caster = owner
-	var/number = tgui_input_number(usr, "How many facehuggers would you like to keep safe from Observers wanting to join as facehuggers?", "How many to reserve?", caster.huggers_reserved, caster.xeno_caste.huggers_max)
+	var/number = tgui_input_number(usr, "How many facehuggers would you like to keep safe from Observers wanting to join as facehuggers?", "How many to reserve?", xeno_owner.xeno_caste.huggers_reserved, xeno_owner.xeno_caste.huggers_max)
 	if(!isnull(number))
-		caster.huggers_reserved = number
-	to_chat(caster, span_notice("You reserved [caster.huggers_reserved] facehuggers for yourself."))
-	caster.balloon_alert(caster, "Reserved [caster.huggers_reserved] facehuggers")
+		xeno_owner.xeno_caste.huggers_reserved = number
+	to_chat(xeno_owner, span_notice("You reserved [xeno_owner.xeno_caste.huggers_reserved] facehuggers for yourself."))
+	xeno_owner.balloon_alert(xeno_owner, "Reserved [xeno_owner.xeno_caste.huggers_reserved] facehuggers")
 
 	return succeed_activate()
 
@@ -465,27 +463,25 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 
 /datum/action/ability/xeno_action/build_nest/can_use_action(silent, override_flags)
 	. = ..()
-	var/turf/T = get_turf(owner)
+	var/turf/T = get_turf(xeno_owner)
 	var/mob/living/carbon/xenomorph/blocker = locate() in T
-	if(blocker && blocker != owner && blocker.stat != DEAD)
+	if(blocker && blocker != xeno_owner && blocker.stat != DEAD)
 		if(!silent)
-			to_chat(owner, span_xenowarning("You cannot build with [blocker] in the way!"))
+			to_chat(xeno_owner, span_xenowarning("You cannot build with [blocker] in the way!"))
 		return FALSE
 
 	if(!T.is_weedable())
 		return FALSE
 
-	var/mob/living/carbon/xenomorph/owner_xeno = owner
-	if(!owner_xeno.loc_weeds_type)
+	if(!xeno_owner.loc_weeds_type)
 		if(!silent)
-			to_chat(owner, span_xenowarning("No weeds here!"))
+			to_chat(xeno_owner, span_xenowarning("No weeds here!"))
 		return FALSE
 
-	if(!T.check_alien_construction(owner, silent, /obj/structure/bed/nest) || !T.check_disallow_alien_fortification(owner))
+	if(!T.check_alien_construction(xeno_owner, silent, /obj/structure/bed/nest) || !T.check_disallow_alien_fortification(xeno_owner))
 		return FALSE
 
 /datum/action/ability/xeno_action/build_nest/action_activate()
-
 	var/turf/T = get_turf(owner)
 	for(var/obj/structure/bed/nest/nest in range(2, T))
 		owner.balloon_alert(owner, "Another nest too close!")

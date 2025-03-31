@@ -633,7 +633,6 @@
 	)
 
 /datum/action/ability/activable/xeno/warrior/punch/jab/use_ability(atom/A)
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	var/jab_damage = xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier
 	var/datum/action/ability/xeno_action/empower/empower_action = xeno_owner.actions_by_path[/datum/action/ability/xeno_action/empower]
 	if(!A.punch_act(xeno_owner, jab_damage))
@@ -651,7 +650,6 @@
 	add_cooldown()
 
 /datum/action/ability/activable/xeno/warrior/punch/jab/on_cooldown_finish()
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	xeno_owner.balloon_alert(xeno_owner, "Jab ready")
 	owner.playsound_local(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()

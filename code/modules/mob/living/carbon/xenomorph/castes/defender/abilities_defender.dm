@@ -79,11 +79,11 @@
 /datum/action/ability/xeno_action/tail_sweep/ai_should_use(atom/target)
 	if(!iscarbon(target))
 		return FALSE
-	if(get_dist(target, owner) > 1)
+	if(get_dist(target, xeno_owner) > 1)
 		return FALSE
 	if(!can_use_action(override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
 		return FALSE
-	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
+	if(target.get_xeno_hivenumber() == xeno_owner.get_xeno_hivenumber())
 		return FALSE
 	return TRUE
 
@@ -484,7 +484,6 @@
 		return FALSE
 	if(!ishuman(target))
 		return FALSE
-	var/mob/living/carbon/xenomorph/defender/xeno_owner = owner
 	var/max_dist = 2 - (xeno_owner.crest_defense)
 	if(!line_of_sight(owner, target, max_dist))
 		if(!silent)
@@ -498,7 +497,6 @@
 			return FALSE
 
 /datum/action/ability/activable/xeno/headbutt/use_ability(mob/living/victim)
-	var/mob/living/carbon/xenomorph/defender/xeno_owner = owner
 	var/headbutt_distance = 1 + (xeno_owner.crest_defense * 2) + (xeno_owner.fortify * 2)
 	var/headbutt_damage = base_damage - (xeno_owner.crest_defense * 10)
 
@@ -554,8 +552,6 @@
 	var/damage_accumulated = 0
 
 /datum/action/ability/xeno_action/soak/action_activate(atom/target)
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
-
 	RegisterSignal(xeno_owner, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(damage_accumulate))
 	addtimer(CALLBACK(src, PROC_REF(stop_accumulating)), 6 SECONDS)
 
