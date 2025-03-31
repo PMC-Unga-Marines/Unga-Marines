@@ -410,8 +410,8 @@
 	RegisterSignal(L, COMSIG_XENOMORPH_POSTATTACK_LIVING, PROC_REF(on_slash))
 
 /datum/action/ability/xeno_action/crippling_strike/remove_action(mob/living/L)
-	. = ..()
 	xeno_owner.vampirism = FALSE
+	. = ..()
 	stacks = 0
 	QDEL_NULL(particle_holder)
 	STOP_PROCESSING(SSprocessing, src)
