@@ -137,6 +137,7 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	xeno_owner.corrosive_ammo++
 	to_chat(xeno_owner, span_notice("We prepare a corrosive acid globule."))
 	update_button_icon()
+	xeno_owner.update_ammo_glow()
 
 /datum/action/ability/xeno_action/create_boiler_bomb/update_button_icon()
 	action_icon_state = "bomb_count_[xeno_owner.corrosive_ammo]"
@@ -238,6 +239,8 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 
 /datum/action/ability/activable/xeno/bombard/on_cooldown_finish()
 	to_chat(xeno_owner, span_notice("We feel your toxin glands swell. We are able to bombard an area again."))
+	if(xeno_owner.selected_ability == src)
+		xeno_owner.set_bombard_pointer()
 	return ..()
 
 /// Signal proc for clicking at a distance
@@ -299,11 +302,11 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 		selected_ability = null
 		update_action_button_icons()
 
-/mob/living/carbon/xenomorph/boiler/proc/set_bombard_pointer()
+/mob/living/carbon/xenomorph/proc/set_bombard_pointer()
 	if(client)
 		client.mouse_pointer_icon = 'icons/mecha/mecha_mouse.dmi'
 
-/mob/living/carbon/xenomorph/boiler/proc/reset_bombard_pointer()
+/mob/living/carbon/xenomorph/proc/reset_bombard_pointer()
 	if(client)
 		client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
 
@@ -337,6 +340,10 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	xeno_owner.update_ammo_glow()
 	update_button_icon()
 	add_cooldown()
+
+/datum/action/ability/activable/xeno/bombard/clean_action()
+	xeno_owner.reset_bombard_pointer()
+	return ..()
 
 // ***************************************
 // *********** Acid spray
