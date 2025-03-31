@@ -57,7 +57,7 @@
 /obj/structure/sensor_tower_infestation/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 
 	//only t4 and liders can cap tower
-	if(!(CHECK_BITFIELD(X.xeno_caste.can_flags, CASTE_CAN_CORRUPT_GENERATOR) || X.queen_chosen_lead))
+	if(!(CHECK_BITFIELD(X.xeno_caste.can_flags, CASTE_CAN_CORRUPT_GENERATOR) || X.xeno_flags & XENO_LEADER))
 		return
 
 	if(X.status_flags & INCORPOREAL)

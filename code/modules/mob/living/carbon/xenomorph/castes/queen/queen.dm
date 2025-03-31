@@ -20,8 +20,6 @@
 	upgrade = XENO_UPGRADE_NORMAL
 	bubble_icon = "alienroyal"
 	footstep_type = FOOTSTEP_XENO_STOMPY
-
-	var/breathing_counter = 0
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/hijack,
 	)

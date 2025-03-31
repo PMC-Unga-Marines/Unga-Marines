@@ -160,8 +160,8 @@
 			"location" = get_xeno_location(xeno),
 			"health" = round(health * 100, 1),
 			"plasma" = round((xeno.plasma_stored / (caste.plasma_max * plasma_multi)) * 100, 1),
-			"can_be_leader" = CHECK_BITFIELD(initial(caste.can_flags), CASTE_CAN_BE_LEADER), //RUTGMC ADDITION
-			"is_leader" = xeno.queen_chosen_lead,
+			"can_be_leader" = CHECK_BITFIELD(initial(caste.can_flags), CASTE_CAN_BE_LEADER),
+			"is_leader" = xeno.xeno_flags & XENO_LEADER,
 			"is_ssd" = !xeno.client,
 			"index" = GLOB.hive_ui_caste_index[caste.base_caste_type_path ? caste.base_caste_type_path : caste.caste_type_path],
 		))
@@ -565,7 +565,7 @@
 	if(!hive.remove_xeno(src))
 		CRASH("failed to remove xeno from a hive")
 
-	if(queen_chosen_lead || (src in hive.xeno_leader_list))
+	if(xeno_flags & XENO_LEADER || (src in hive.xeno_leader_list))
 		hive.remove_leader(src)
 
 	SSdirection.stop_tracking(hive.hivenumber, src)
@@ -634,12 +634,12 @@
 // ***************************************
 /datum/hive_status/proc/add_leader(mob/living/carbon/xenomorph/X)
 	xeno_leader_list += X
-	X.queen_chosen_lead = TRUE
+	ENABLE_BITFIELD(X.xeno_flags, XENO_LEADER)
 	X.give_rally_abilities()
 
 /datum/hive_status/proc/remove_leader(mob/living/carbon/xenomorph/X)
 	xeno_leader_list -= X
-	X.queen_chosen_lead = FALSE
+	DISABLE_BITFIELD(X.xeno_flags, XENO_LEADER)
 
 	if(!isxenoshrike(X) && !isxenoqueen(X) && !isxenohivemind(X)) //These innately have the Rally Hive ability
 		X.remove_rally_hive_ability()
@@ -699,7 +699,7 @@
 		to_chat(devolver, span_xenonotice("Cannot deevolve, [target] is ventcrawling."))
 		return
 
-	if(target.agility || target.fortify || target.crest_defense || target.status_flags & INCORPOREAL) // RUTGMC ADDITION, deevolve deletion prevention
+	if(target.xeno_flags & XENO_AGILITY || target.fortify || target.crest_defense || target.status_flags & INCORPOREAL)
 		to_chat(devolver, span_xenonotice("Cannot deevolve, while [target] is in this stance."))
 		return FALSE
 

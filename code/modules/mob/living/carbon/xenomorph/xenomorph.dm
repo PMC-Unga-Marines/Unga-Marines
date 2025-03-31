@@ -286,7 +286,7 @@
 /mob/living/carbon/xenomorph/Destroy()
 	if(mind)
 		mind.name = name //Grabs the name when the xeno is getting deleted, to reference through hive status later.
-	if(is_zoomed)
+	if(xeno_flags & XENO_ZOOMED)
 		zoom_out()
 
 	remove_inherent_verbs()
@@ -434,7 +434,7 @@
 
 
 /mob/living/carbon/xenomorph/Moved(atom/old_loc, movement_dir)
-	if(is_zoomed)
+	if(xeno_flags & XENO_ZOOMED)
 		if(!can_walk_zoomed)
 			zoom_out()
 	handle_weeds_on_movement()
@@ -472,6 +472,20 @@
 	GLOB.offered_mob_list -= src
 	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno)
 	a_intent = INTENT_HARM
+
+///Checks for nearby intact weeds
+/mob/living/carbon/xenomorph/proc/check_weeds(turf/T, strict_turf_check = FALSE)
+	SHOULD_BE_PURE(TRUE)
+	if(isnull(T))
+		return FALSE
+	. = TRUE
+	if(locate(/obj/fire/flamer) in T)
+		return FALSE
+	for(var/obj/alien/weeds/W in range(strict_turf_check ? 0 : 1, T ? T : get_turf(src)))
+		if(QDESTROYING(W))
+			continue
+		return
+	return FALSE
 
 /// Handles logic for weeds nearby the xeno getting removed
 /mob/living/carbon/xenomorph/proc/handle_weeds_adjacent_removed(datum/source)
@@ -557,3 +571,69 @@ Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change
 		else if(move_force > target.move_resist)
 			return SWAPPING
 	return NO_SWAP
+
+/mob/living/carbon/xenomorph/grabbed_self_attack(mob/living/user)
+	. = ..()
+	if(!can_mount(user))
+		return NONE
+	INVOKE_ASYNC(src, PROC_REF(carry_target), pulling, FALSE)
+	return COMSIG_GRAB_SUCCESSFUL_SELF_ATTACK
+
+/**
+ * Checks if user can mount src
+ *
+ * Arguments:
+ * * user - The mob trying to mount
+ * * target_mounting - Is the target initiating the mounting process?
+ */
+/mob/living/carbon/xenomorph/proc/can_mount(mob/living/user, target_mounting = FALSE)
+	return FALSE
+
+/**
+ * Handles the target trying to ride src
+ *
+ * Arguments:
+ * * target - The mob being put on the back
+ * * target_mounting - Is the target initiating the mounting process?
+ */
+/mob/living/carbon/xenomorph/proc/carry_target(mob/living/carbon/target, target_mounting = FALSE)
+	if(incapacitated(restrained_flags = RESTRAINED_NECKGRAB))
+		if(target_mounting)
+			to_chat(target, span_xenowarning("You cannot mount [src]!"))
+			return
+		to_chat(src, span_xenowarning("[target] cannot mount you!"))
+		return
+	visible_message(span_notice("[target_mounting ? "[target] starts to mount on [src]" : "[src] starts hoisting [target] onto [p_their()] back..."]"),
+	span_notice("[target_mounting ? "[target] starts to mount on your back" : "You start to lift [target] onto your back..."]"))
+	if(!do_after(target_mounting ? target : src, 5 SECONDS, NONE, target_mounting ? src : target, target_display = BUSY_ICON_HOSTILE))
+		visible_message(span_warning("[target_mounting ? "[target] fails to mount on [src]" : "[src] fails to carry [target]!"]"))
+		return
+	//Second check to make sure they're still valid to be carried
+	if(incapacitated(restrained_flags = RESTRAINED_NECKGRAB))
+		return
+	buckle_mob(target, TRUE, TRUE, 90, 1, 1)
+
+/mob/living/carbon/xenomorph/MouseDrop_T(atom/dropping, mob/user)
+	. = ..()
+	if(isxeno(user))
+		var/mob/living/carbon/xenomorph/xeno_user = user
+		if(!(xeno_user.xeno_caste.can_flags & CASTE_CAN_RIDE_CRUSHER))
+			return
+	if(!can_mount(user, TRUE))
+		return
+	INVOKE_ASYNC(src, PROC_REF(carry_target), user, TRUE)
+
+///updates the xenos glow, based on its base glow/color, and its ammo reserves. More green ammo = more green glow; more yellow = more yellow.
+/mob/living/carbon/xenomorph/proc/update_ammo_glow()
+	var/current_ammo = corrosive_ammo
+	var/ammo_glow = BOILER_LUMINOSITY_AMMO * current_ammo
+	var/glow = CEILING(BOILER_LUMINOSITY_BASE + ammo_glow, 1)
+	var/color = BOILER_LUMINOSITY_BASE_COLOR
+	if(current_ammo)
+		color = BlendRGB(color, BOILER_LUMINOSITY_AMMO_CORROSIVE_COLOR, (ammo_glow * 2) / glow)
+	if(!light_on && glow >= BOILER_LUMINOSITY_THRESHOLD)
+		set_light_on(TRUE)
+	else if(glow < BOILER_LUMINOSITY_THRESHOLD && !fire_luminosity)
+		set_light_range_power_color(0, 0)
+		set_light_on(FALSE)
+	set_light_range_power_color(glow, 4, color)
