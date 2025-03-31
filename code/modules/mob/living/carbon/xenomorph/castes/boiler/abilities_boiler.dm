@@ -282,14 +282,17 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 		on_deselection()
 		xeno_owner.selected_ability = null
 		xeno_owner.update_action_button_icons()
+		xeno_owner.reset_bombard_pointer()
 		return FALSE
 
 	xeno_owner.visible_message(span_notice("\The [xeno_owner] digs itself into the ground!"), \
 		span_notice("We dig ourselves into place! If we move, we must wait again to fire."), null, 5)
+	xeno_owner.set_bombard_pointer()
 	RegisterSignal(xeno_owner, COMSIG_MOB_ATTACK_RANGED, TYPE_PROC_REF(/datum/action/ability/activable/xeno/bombard, on_ranged_attack))
 
 /datum/action/ability/activable/xeno/bombard/on_deselection()
 	if(xeno_owner.selected_ability == src)
+		xeno_owner.reset_bombard_pointer()
 		to_chat(xeno_owner, span_notice("We relax our stance."))
 	UnregisterSignal(xeno_owner, COMSIG_MOB_ATTACK_RANGED)
 

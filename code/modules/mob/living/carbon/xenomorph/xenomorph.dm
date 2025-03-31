@@ -630,8 +630,7 @@ Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change
 	var/glow = CEILING(BOILER_LUMINOSITY_BASE + ammo_glow, 1)
 	var/color = BOILER_LUMINOSITY_BASE_COLOR
 	if(current_ammo)
-		var/ammo_color = BlendRGB(BOILER_LUMINOSITY_AMMO_CORROSIVE_COLOR, BOILER_LUMINOSITY_AMMO_NEUROTOXIN_COLOR, current_ammo)
-		color = BlendRGB(color, ammo_color, (ammo_glow * 2) / glow)
+		color = BlendRGB(color, BOILER_LUMINOSITY_AMMO_CORROSIVE_COLOR, (ammo_glow * 2) / glow)
 	if(!light_on && glow >= BOILER_LUMINOSITY_THRESHOLD)
 		set_light_on(TRUE)
 	else if(glow < BOILER_LUMINOSITY_THRESHOLD && !fire_luminosity)
