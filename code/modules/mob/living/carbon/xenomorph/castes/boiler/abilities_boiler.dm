@@ -291,8 +291,7 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	RegisterSignal(xeno_owner, COMSIG_MOB_ATTACK_RANGED, TYPE_PROC_REF(/datum/action/ability/activable/xeno/bombard, on_ranged_attack))
 
 /datum/action/ability/activable/xeno/bombard/on_deselection()
-	if(owner.selected_ability == src)
-		var/mob/living/carbon/xenomorph/xeno_owner = owner
+	if(xeno_owner?.selected_ability == src)
 		xeno_owner.reset_bombard_pointer()
 		to_chat(xeno_owner, span_notice("We relax our stance."))
 	UnregisterSignal(owner, COMSIG_MOB_ATTACK_RANGED)
