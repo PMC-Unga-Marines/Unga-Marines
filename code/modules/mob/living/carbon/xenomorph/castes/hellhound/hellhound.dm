@@ -52,8 +52,6 @@
 	layer = MOB_LAYER
 	pull_speed = -0.5
 
-	mob_size = MOB_SIZE_XENO
-
 	hivenumber = XENO_HIVE_YAUTJA
 
 /mob/living/carbon/xenomorph/hellhound/Initialize(mapload, mob/living/carbon/xenomorph/oldXeno, h_number)
