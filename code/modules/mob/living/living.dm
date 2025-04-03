@@ -201,19 +201,18 @@
 	if(s_active && !(s_active.parent in contents) && !CanReach(s_active.parent))
 		s_active.close(src)
 
-
-/mob/living/Moved(oldLoc, dir)
+/mob/living/Moved(atom/old_loc, movement_dir, forced = FALSE, list/old_locs)
 	. = ..()
-	update_camera_location(oldLoc)
-
+	update_camera_location(old_loc)
 
 /mob/living/forceMove(atom/destination)
 	. = ..()
 	//Only bother updating the camera if we actually managed to move
-	if(.)
-		update_camera_location(destination)
-		if(client)
-			reset_perspective()
+	if(!.)
+		return
+	update_camera_location(destination)
+	if(client)
+		reset_perspective()
 
 ///Updates the mob's registered_z
 /mob/living/proc/update_z(new_z) // 1+ to register, null to unregister

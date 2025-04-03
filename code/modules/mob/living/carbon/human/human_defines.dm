@@ -112,20 +112,17 @@
 	var/protection_aura = 0
 	var/marksman_aura = 0
 
-	var/datum/squad/assigned_squad //the squad assigned to
-
-	var/cloaking = FALSE
+	/// The squad human is assigned to
+	var/datum/squad/assigned_squad
 
 	var/image/SL_directional = null
 
 	var/damageoverlaytemp = 0
-
-	var/specset //Simple way to track which set has the player taken
+	
+	/// Simple way to track which set has the player taken
+	var/specset
 
 	var/static/list/can_ride_typecache = typecacheof(list(/mob/living/carbon/human, /mob/living/simple_animal/parrot))
-
-	///Amount of deciseconds gained from the braindeath timer, usually by CPR.
-	var/revive_grace_time = 0
 
 	COOLDOWN_DECLARE(xeno_push_delay)
 

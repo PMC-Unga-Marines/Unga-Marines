@@ -15,11 +15,10 @@
 		to_chat(src,"<b>[span_deadsay("<p style='font-size:1.5em'>[species.special_death_message]</p>")]</b>")
 	return ..()
 
-/mob/living/carbon/Moved(oldLoc, dir)
+/mob/living/carbon/Moved(atom/old_loc, movement_dir, forced = FALSE, list/old_locs)
 	. = ..()
 	if(nutrition && stat != DEAD)
 		adjust_nutrition(-HUNGER_FACTOR * 0.1 * ((m_intent == MOVE_INTENT_RUN) ? 2 : 1))
-
 
 /mob/living/carbon/relaymove(mob/user, direction)
 	if(user.incapacitated(TRUE))
@@ -27,7 +26,6 @@
 	if(!chestburst && (status_flags & XENO_HOST) && isxenolarva(user))
 		var/mob/living/carbon/xenomorph/larva/L = user
 		L.initiate_burst(src)
-
 
 /mob/living/carbon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0, def_zone = null)
 	if(status_flags & GODMODE)
