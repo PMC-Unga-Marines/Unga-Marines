@@ -133,6 +133,8 @@
 	var/huggers_max = 0
 	///delay between the throw hugger ability activation for carriers
 	var/hugger_delay = 0
+	///The number of huggers the carrier reserves against observer possession.
+	var/huggers_reserved = 0
 
 	// *** Defender Abilities *** //
 	///modifying amount to the crest defense ability for defenders. Positive integers only.
@@ -297,7 +299,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///Hive datum we belong to
 	var/datum/hive_status/hive
 	///Xeno mob specific flags
-	var/xeno_flags = NONE //TODO: There are loads of vars below that should be flags
+	var/xeno_flags = NONE
 	///State tracking of hive status toggles
 	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
 
@@ -353,14 +355,11 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///Stored upgrade effects, so we reapply them on evolve
 	var/list/upgrades_holder = list()
 
-	var/is_zoomed = FALSE
 	var/zoom_turf = null
 	var/can_walk_zoomed = FALSE
 
 	///Type of weeds the xeno is standing on, null when not on weeds
 	var/obj/alien/weeds/loc_weeds_type
-	///Bonus or pen to time in between attacks. + makes slashes slower.
-	var/attack_delay = 0
 	///This will track their "tier" to restrict/limit evolutions
 	var/tier = XENO_TIER_ONE
 	///which resin structure to build when we secrete resin
@@ -382,10 +381,6 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 
 	///Multiplicative melee damage modifier; referenced by attack_alien.dm, most notably attack_alien_harm
 	var/xeno_melee_damage_modifier = 1
-	///whether the xeno mobhud is activated or not.
-	var/xeno_mobhud = FALSE
-	///whether the xeno has been selected by the queen as a leader.
-	var/queen_chosen_lead = FALSE
 
 	//Charge vars
 	///Will the mob charge when moving ? You need the charge verb to change this
@@ -396,10 +391,6 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 
 	// Gorger vars
 	var/overheal = 0
-
-	// Warrior vars
-	///0 - upright, 1 - all fours
-	var/agility = 0
 
 	// Defender vars
 	var/fortify = 0
@@ -435,8 +426,16 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	/// The type of footstep this xeno has.
 	var/footstep_type = FOOTSTEP_XENO_MEDIUM
 
-	var/interference = 0 // Stagger for predator weapons. Prevents hivemind usage, queen overwatching, etc.
-	var/talk_sound = SFX_ALIEN_TALK  // sound when talking
+	/// Stagger for predator weapons. Prevents hivemind usage, queen overwatching, etc.
+	var/interference = 0
+	/// sound when talking
+	var/talk_sound = SFX_ALIEN_TALK
+	//list of active tunnels
+	var/list/tunnels = list()
+	///Number of huggers the xeno is currently carrying
+	var/huggers = 0
+	///Boiler acid ammo
+	var/corrosive_ammo = 0
 
 	COOLDOWN_DECLARE(xeno_health_alert_cooldown)
 

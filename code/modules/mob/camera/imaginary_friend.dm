@@ -24,12 +24,13 @@
 	var/datum/action/innate/imaginary_join/join
 	var/datum/action/innate/imaginary_hide/hide
 
-	var/list/outfit_choices = list(/datum/job/spatial_agent,
-									/datum/job/spatial_agent/galaxy_red,
-									/datum/job/spatial_agent/galaxy_blue,
-									/datum/job/spatial_agent/xeno_suit,
-									/datum/job/spatial_agent/marine_officer,
-									)
+	var/list/outfit_choices = list(
+		/datum/job/spatial_agent,
+		/datum/job/spatial_agent/galaxy_red,
+		/datum/job/spatial_agent/galaxy_blue,
+		/datum/job/spatial_agent/xeno_suit,
+		/datum/job/spatial_agent/marine_officer,
+	)
 
 /mob/camera/imaginary_friend/Login()
 	. = ..()

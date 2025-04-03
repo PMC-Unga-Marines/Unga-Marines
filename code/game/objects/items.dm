@@ -213,7 +213,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	return
 
 /obj/item/proc/update_item_state(mob/user)
-	item_state = "[initial(icon_state)][item_flags & WIELDED ? "_w" : ""]"
+	item_state = "[initial(item_state)][item_flags & WIELDED ? "_w" : ""]"
 
 /obj/item/verb/move_to_top()
 	set name = "Move To Top"

@@ -12,33 +12,33 @@
 	keybinding_signals = list(KEYBINDING_NORMAL = COMSIG_XENOABILITY_STOMP)
 
 /datum/action/ability/activable/xeno/stomp/use_ability(atom/A)
-	var/mob/living/carbon/xenomorph/X = owner
 	succeed_activate()
 	add_cooldown()
 
 	GLOB.round_statistics.crusher_stomps++
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "crusher_stomps")
 
-	playsound(X.loc, 'sound/effects/bang.ogg', 25, 0)
-	X.visible_message(span_xenodanger("[X] smashes into the ground!"), \
+	playsound(xeno_owner.loc, 'sound/effects/bang.ogg', 25, 0)
+	xeno_owner.visible_message(span_xenodanger("[xeno_owner] smashes into the ground!"), \
 	span_xenodanger("We smash into the ground!"))
-	X.create_stomp() //Adds the visual effect. Wom wom wom
+	xeno_owner.create_stomp() //Adds the visual effect. Wom wom wom
 
-	for(var/mob/living/M in range(1, get_turf(X)))
-		if(X.issamexenohive(M) || M.stat == DEAD || isnestedhost(M) || !X.Adjacent(M))
+	for(var/mob/living/M in range(1, get_turf(xeno_owner)))
+		if(xeno_owner.issamexenohive(M) || M.stat == DEAD || isnestedhost(M) || !xeno_owner.Adjacent(M))
 			continue
-		var/damage = X.xeno_caste.stomp_damage
-		if(get_dist(M, X) == 0) //If we're on top of our victim, give him the full impact
+		var/distance = get_dist(M, xeno_owner)
+		var/damage = xeno_owner.xeno_caste.stomp_damage
+		if(distance == 0) //If we're on top of our victim, give him the full impact
 			GLOB.round_statistics.crusher_stomp_victims++
 			SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "crusher_stomp_victims")
 			M.take_overall_damage(damage, BRUTE, MELEE, updating_health = TRUE, penetration = 100, max_limbs = 3)
 			M.Paralyze(3 SECONDS)
-			to_chat(M, span_highdanger("You are stomped on by [X]!"))
+			to_chat(M, span_userdanger("You are stomped on by [xeno_owner]!"))
 			shake_camera(M, 3, 3)
 		else
-			step_away(M, X, 1) //Knock away
+			step_away(M, xeno_owner, 1) //Knock away
 			shake_camera(M, 2, 2)
-			to_chat(M, span_highdanger("You reel from the shockwave of [X]'s stomp!"))
+			to_chat(M, span_userdanger("You reel from the shockwave of [xeno_owner]'s stomp!"))
 			M.take_overall_damage(damage * 0.5, BRUTE, MELEE, updating_health = TRUE, max_limbs = 3)
 			M.Paralyze(0.5 SECONDS)
 
@@ -48,11 +48,11 @@
 /datum/action/ability/activable/xeno/stomp/ai_should_use(atom/target)
 	if(!iscarbon(target))
 		return FALSE
-	if(get_dist(target, owner) > 1)
+	if(get_dist(target, xeno_owner) > 1)
 		return FALSE
 	if(!can_use_ability(target, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
 		return FALSE
-	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
+	if(target.get_xeno_hivenumber() == xeno_owner.get_xeno_hivenumber())
 		return FALSE
 	return TRUE
 
@@ -74,9 +74,8 @@
 	var/ability_for_cooldown = /datum/action/ability/activable/xeno/cresttoss/behind
 
 /datum/action/ability/activable/xeno/cresttoss/on_cooldown_finish()
-	var/mob/living/carbon/xenomorph/X = owner
-	to_chat(X, span_xenowarning("<b>We can now crest toss again.</b>"))
-	playsound(X, 'sound/effects/alien/newlarva.ogg', 50, 0, 1)
+	to_chat(xeno_owner, span_xenowarning("<b>We can now crest toss again.</b>"))
+	playsound(xeno_owner, 'sound/effects/alien/newlarva.ogg', 50, 0, 1)
 	return ..()
 
 /datum/action/ability/activable/xeno/cresttoss/can_use_ability(atom/A, silent = FALSE, override_flags)
@@ -94,19 +93,21 @@
 			return FALSE
 
 /datum/action/ability/activable/xeno/cresttoss/use_ability(atom/movable/A)
-	var/mob/living/carbon/xenomorph/X = owner
-	var/toss_distance = X.xeno_caste.crest_toss_distance
+	var/toss_distance = xeno_owner.xeno_caste.crest_toss_distance
 	var/toss_direction
-	var/turf/throw_origin = get_turf(X)
+	var/turf/throw_origin = get_turf(xeno_owner)
 	var/turf/target_turf = throw_origin //throw distance is measured from the xeno itself
 	var/big_mob_message
 
-	X.face_atom(A) //Face towards the target so we don't look silly
+	xeno_owner.face_atom(A) //Face towards the target so we don't look silly
 
-	if(!X.issamexenohive(A)) //xenos should be able to fling xenos into xeno passable areas!
+	if(!xeno_owner.issamexenohive(A)) //xenos should be able to fling xenos into xeno passable areas!
 		for(var/obj/effect/forcefield/fog/fog in throw_origin)
-			A.balloon_alert(X, "Cannot, fog")
+			A.balloon_alert(xeno_owner, "Cannot, fog")
 			return fail_activate()
+	if(isarmoredvehicle(A))
+		A.balloon_alert(xeno_owner, "Too heavy!")
+		return fail_activate()
 	if(isliving(A))
 		var/mob/living/L = A
 		if(L.mob_size >= MOB_SIZE_BIG) //Penalize toss distance for big creatures
@@ -117,9 +118,9 @@
 		big_mob_message = ", struggling mightily to heft its bulk"
 
 	if(!tossing_away)
-		toss_direction = get_dir(A, X)
+		toss_direction = get_dir(A, xeno_owner)
 	else
-		toss_direction = get_dir(X, A)
+		toss_direction = get_dir(xeno_owner, A)
 
 	var/turf/temp
 	for(var/x in 1 to toss_distance)
@@ -128,18 +129,18 @@
 			break
 		target_turf = temp
 
-	X.icon_state = "Crusher Charging" //Momentarily lower the crest for visual effect
+	xeno_owner.icon_state = "Crusher Charging"  //Momentarily lower the crest for visual effect
 
-	X.visible_message(span_xenowarning("\The [X] flings [A] away with its crest[big_mob_message]!"), \
+	xeno_owner.visible_message(span_xenowarning("\The [xeno_owner] flings [A] away with its crest[big_mob_message]!"), \
 	span_xenowarning("We fling [A] away with our crest[big_mob_message]!"))
 
 	succeed_activate()
 
 	A.forceMove(throw_origin)
-	A.throw_at(target_turf, toss_distance, 1, X, TRUE, TRUE)
+	A.throw_at(target_turf, toss_distance, 1, xeno_owner, TRUE, TRUE)
 
 	//Handle the damage
-	if(!X.issamexenohive(A) && isliving(A)) //Friendly xenos don't take damage.
+	if(!xeno_owner.issamexenohive(A) && isliving(A)) //Friendly xenos don't take damage.
 		var/damage = toss_distance * 6
 		var/mob/living/L = A
 		L.take_overall_damage(damage, BRUTE, MELEE, updating_health = TRUE)
@@ -147,9 +148,9 @@
 		playsound(A, pick('sound/weapons/alien_claw_block.ogg','sound/weapons/alien_bite2.ogg'), 50, 1)
 
 	add_cooldown()
-	addtimer(CALLBACK(X, TYPE_PROC_REF(/mob, update_icons)), 3)
+	addtimer(CALLBACK(xeno_owner, TYPE_PROC_REF(/mob, update_icons)), 3)
 
-	var/datum/action/ability/xeno_action/toss = X.actions_by_path[ability_for_cooldown]
+	var/datum/action/ability/xeno_action/toss = xeno_owner.actions_by_path[ability_for_cooldown]
 	if(toss)
 		toss.add_cooldown()
 
@@ -169,11 +170,11 @@
 /datum/action/ability/activable/xeno/cresttoss/ai_should_use(atom/target)
 	if(!iscarbon(target))
 		return FALSE
-	if(get_dist(target, owner) > 1)
+	if(get_dist(target, xeno_owner) > 1)
 		return FALSE
 	if(!can_use_ability(target, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
 		return FALSE
-	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
+	if(target.get_xeno_hivenumber() == xeno_owner.get_xeno_hivenumber())
 		return FALSE
 	return TRUE
 
@@ -207,28 +208,27 @@
 		return FALSE
 
 /datum/action/ability/activable/xeno/advance/use_ability(atom/A)
-	var/mob/living/carbon/xenomorph/X = owner
-	X.face_atom(A)
-	X.set_canmove(FALSE)
-	if(!do_after(X, 1 SECONDS, NONE, X, BUSY_ICON_DANGER) || (QDELETED(A)) || X.z != A.z)
-		if(!X.stat)
-			X.set_canmove(TRUE)
+	xeno_owner.face_atom(A)
+	xeno_owner.set_canmove(FALSE)
+	if(!do_after(xeno_owner, 1 SECONDS, NONE, xeno_owner, BUSY_ICON_DANGER) || (QDELETED(A)) || xeno_owner.z != A.z)
+		if(!xeno_owner.stat)
+			xeno_owner.set_canmove(TRUE)
 		return fail_activate()
-	X.set_canmove(TRUE)
+	xeno_owner.set_canmove(TRUE)
 
-	var/datum/action/ability/xeno_action/ready_charge/charge = X.actions_by_path[/datum/action/ability/xeno_action/ready_charge]
-	var/aimdir = get_dir(X, A)
+	var/datum/action/ability/xeno_action/ready_charge/charge = xeno_owner.actions_by_path[/datum/action/ability/xeno_action/ready_charge]
+	var/aimdir = get_dir(xeno_owner, A)
 	if(charge)
 		charge.charge_on(FALSE)
 		charge.do_stop_momentum(FALSE) //Reset charge so next_move_limit check_momentum() does not cuck us and 0 out steps_taken
 		charge.do_start_crushing()
 		charge.valid_steps_taken = charge.max_steps_buildup - 1
 		charge.charge_dir = aimdir //Set dir so check_momentum() does not cuck us
-	for(var/i=0 to max(get_dist(X, A), advance_range))
+	for(var/i=0 to max(get_dist(xeno_owner, A), advance_range))
 		if(i % 2)
-			new /obj/effect/temp_visual/after_image(get_turf(X), X)
-		X.Move(get_step(X, aimdir), aimdir)
-		aimdir = get_dir(X, A)
+			new /obj/effect/temp_visual/after_image(get_turf(xeno_owner), xeno_owner)
+		xeno_owner.Move(get_step(xeno_owner, aimdir), aimdir)
+		aimdir = get_dir(xeno_owner, A)
 	succeed_activate()
 	add_cooldown()
 
@@ -240,7 +240,7 @@
 		return FALSE
 	if(!can_use_ability(target, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
 		return FALSE
-	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
+	if(target.get_xeno_hivenumber() == xeno_owner.get_xeno_hivenumber())
 		return FALSE
 	return TRUE
 
@@ -261,25 +261,22 @@
 	)
 
 /datum/action/ability/xeno_action/regenerate_skin/crusher/on_cooldown_finish()
-	var/mob/living/carbon/xenomorph/X = owner
-	to_chat(X, span_notice("We feel we are ready to shred our armor and grow another."))
+	to_chat(xeno_owner, span_notice("We feel we are ready to shred our armor and grow another."))
 	return ..()
 
 /datum/action/ability/xeno_action/regenerate_skin/crusher/action_activate()
-	var/mob/living/carbon/xenomorph/crusher/X = owner
-
 	if(!can_use_action(TRUE))
 		return fail_activate()
 
-	if(X.on_fire)
-		to_chat(X, span_xenowarning("We can't use that while on fire."))
+	if(xeno_owner.on_fire)
+		to_chat(xeno_owner, span_xenowarning("We can't use that while on fire."))
 		return fail_activate()
 
-	X.emote("roar")
-	X.visible_message(span_warning("The armor on \the [X] shreds and a new layer can be seen in it's place!"),
+	xeno_owner.emote("roar")
+	xeno_owner.visible_message(span_warning("The armor on \the [xeno_owner] shreds and a new layer can be seen in it's place!"),
 		span_notice("We shed our armor, showing the fresh new layer underneath!"))
 
-	X.do_jitter_animation(1000)
-	X.adjust_sunder(-50)
+	xeno_owner.do_jitter_animation(1000)
+	xeno_owner.adjust_sunder(-50)
 	add_cooldown()
 	return succeed_activate()

@@ -140,11 +140,10 @@
 		if(!isxenocarrier(potential_xeno))
 			continue
 
-		var/mob/living/carbon/xenomorph/carrier/selected_carrier = potential_xeno
-		if(selected_carrier.huggers_reserved >= selected_carrier.huggers)
+		if(potential_xeno.xeno_caste.huggers_reserved >= potential_xeno.huggers)
 			continue
 
-		name = selected_carrier.name
+		name = potential_xeno.name
 		spawn_point[name] = potential_xeno
 
 	for(var/obj/alien/egg/hugger/potential_egg AS in GLOB.xeno_egg_hugger)

@@ -1,11 +1,9 @@
-/*
-This file contains:
-The Grenade Launchers
-*/
-
-//GRENADE LAUNCHERS
-
 /obj/item/weapon/gun/grenade_launcher
+	icon = 'icons/obj/items/gun/special.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
+	)
 	w_class = WEIGHT_CLASS_BULKY
 	gun_skill_category = SKILL_FIREARMS
 	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -114,7 +112,7 @@ The Grenade Launchers
 /obj/item/weapon/gun/grenade_launcher/multinade_launcher
 	name = "\improper GL-70 grenade launcher"
 	desc = "The GL-70 is the standard grenade launcher used by the TerraGov Marine Corps for area denial and big explosions."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/special64.dmi'
 	icon_state = "t70"
 	item_state = "t70"
 	fire_animation = "t70_fire"
@@ -146,6 +144,12 @@ The Grenade Launchers
 	desc = "A weapon-mounted, reloadable, two-shot grenade launcher."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "grenade"
+
+	item_icons = list( // for whatever fucking reason we can't set it null
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
+
 	max_shells = 2 //codex
 	max_chamber_items = 1
 	fire_delay = 1 SECONDS
@@ -205,6 +209,12 @@ The Grenade Launchers
 	name = "\improper BR-64 underslung grenade launcher"
 	desc = "A weapon-mounted, reloadable, two-shot grenade launcher designed to fit the BR-64."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
+
+	item_icons = list( // for whatever fucking reason we can't set it null
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
+
 	icon_state = "t64_grenade"
 	pixel_shift_x = 21
 	pixel_shift_y = 15
