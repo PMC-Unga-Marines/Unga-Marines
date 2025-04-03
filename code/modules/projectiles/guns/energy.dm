@@ -1115,8 +1115,8 @@
 	default_ammo_type = /obj/item/cell/lasgun/volkite/small
 	allowed_ammo_types = list(/obj/item/cell/lasgun/volkite/small)
 	fire_sound = 'sound/weapons/guns/fire/volkite_3.ogg'
-	gun_firemode = GUN_FIREMODE_SEMIAUTO
-	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
+	gun_firemode = GUN_FIREMODE_AUTOMATIC
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	fire_delay = 0.35 SECONDS
 	scatter = -1
 	scatter_unwielded = 5
