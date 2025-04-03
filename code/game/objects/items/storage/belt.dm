@@ -260,7 +260,7 @@
 	new /obj/item/storage/pill_bottle/spaceacillin(src)
 	new /obj/item/storage/pill_bottle/alkysine(src)
 	new /obj/item/storage/pill_bottle/imidazoline(src)
-	new /obj/item/storage/pill_bottle/quickclot(src)
+	new /obj/item/storage/pill_bottle/isotonic(src)
 	new /obj/item/storage/pill_bottle/hypervene(src)
 	new /obj/item/defibrillator(src)
 	new /obj/item/tool/research/excavation_tool(src)
