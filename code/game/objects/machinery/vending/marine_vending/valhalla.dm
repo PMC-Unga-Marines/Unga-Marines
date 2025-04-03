@@ -30,7 +30,6 @@
 			/obj/item/storage/holster/belt/revolver/mateba/full = -1,
 			/obj/item/ammo_magazine/revolver/mateba = -1,
 			/obj/item/ammo_magazine/packet/mateba = -1,
-			/obj/item/ammo_magazine/rifle/sr127/flak = -1,
 			/obj/item/ammo_magazine/flamer_tank/backtank/X = -1,
 			/obj/item/ammo_magazine/flamer_tank/backtank/G = -1,
 			/obj/item/weapon/twohanded/rocketsledge = -1,
@@ -291,6 +290,7 @@
 			/obj/item/ammo_magazine/rifle/sr81 = -1,
 			/obj/item/weapon/gun/rifle/sniper/antimaterial = -1,
 			/obj/item/ammo_magazine/sniper = -1,
+			/obj/item/ammo_magazine/sniper/incendiary = -1,
 		),
 	)
 
