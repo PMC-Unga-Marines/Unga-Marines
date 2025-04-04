@@ -162,7 +162,7 @@
 /obj/structure/largecrate/supply/weapons/fk88
 	name = "\improper FK-88 mounted flak gun (x1)"
 	desc = "A supply crate containing a FK-88 mounted flak gun. Ammo sold separately."
-	supplies = list(/obj/item/weapon/gun/heavy_isg = 1)
+	supplies = list(/obj/item/weapon/gun/fk88 = 1)
 
 /obj/structure/largecrate/supply/ammo
 	name = "ammunition case"
