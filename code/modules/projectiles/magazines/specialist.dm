@@ -56,7 +56,7 @@
 
 /obj/item/ammo_magazine/rifle/tx8
 	name = "\improper high velocity magazine (10x28mm)"
-	desc = "A magazine of overpressuered high velocity rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds."
+	desc = "A magazine of overpressured high velocity rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds."
 	icon_state = "tx8"
 	caliber = CALIBER_10X28_CASELESS
 	default_ammo = /datum/ammo/bullet/rifle/tx8
@@ -66,7 +66,7 @@
 
 /obj/item/ammo_magazine/rifle/tx8/incendiary
 	name = "\improper high velocity incendiary magazine (10x28mm)"
-	desc = "A magazine of overpressuered high velocity incendiary rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds."
+	desc = "A magazine of overpressured high velocity incendiary rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds."
 	caliber = CALIBER_10X28_CASELESS
 	default_ammo = /datum/ammo/bullet/rifle/tx8/incendiary
 	icon_state_mini = "mag_rifle_big_red"
@@ -75,7 +75,7 @@
 
 /obj/item/ammo_magazine/rifle/tx8/impact
 	name = "\improper high velocity impact magazine (10x28mm)"
-	desc = "A magazine of overpressuered high velocity impact rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds."
+	desc = "A magazine of overpressured high velocity impact rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds."
 	default_ammo = /datum/ammo/bullet/rifle/tx8/impact
 	icon_state_mini = "mag_rifle_big_blue"
 	bonus_overlay = "tx8_impact"
