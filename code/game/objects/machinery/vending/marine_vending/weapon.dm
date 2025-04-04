@@ -642,18 +642,8 @@
 			/obj/item/mortal_shell/knee = 40,
 		),
 		"Тяжёлое вооружение" = list(
-			/obj/structure/closet/crate/mortar_ammo/mortar_kit = -1,
-			/obj/structure/closet/crate/mortar_ammo/howitzer_kit = -1,
-			/obj/structure/largecrate/supply/weapons/at36 = -1,
 			/obj/item/storage/box/crate/sentry = -1,
 			/obj/item/sentry_upgrade_kit = -1,
-			/obj/item/storage/holster/backholster/rpg/full = -1,
-			/obj/item/ammo_magazine/rocket/recoilless = -1,
-			/obj/item/ammo_magazine/rocket/recoilless/light = -1,
-			/obj/item/ammo_magazine/rocket/recoilless/heat = -1,
-			/obj/item/ammo_magazine/rocket/recoilless/cloak = -1,
-			/obj/item/ammo_magazine/rocket/recoilless/smoke = -1,
-			/obj/item/ammo_magazine/rocket/recoilless/plasmaloss = -1,
 		),
 		"Модули" = list(
 			/obj/item/attachable/bayonet = -1,
