@@ -337,7 +337,7 @@ SUBSYSTEM_DEF(persistence)
 	name = "Wall and Armor Shredder Weapons"
 	description = "Flak gun and Railgun for roundstart vendors."
 	item_list = list(
-		/obj/structure/largecrate/supply/weapons/standard_flakgun = 1,
+		/obj/structure/largecrate/supply/weapons/atr22 = 1,
 		/obj/item/weapon/gun/rifle/railgun/unloaded = 2,
 		/obj/item/ammo_magazine/railgun = 12,
 		/obj/item/ammo_magazine/railgun/smart = 6,
