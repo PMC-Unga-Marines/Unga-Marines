@@ -204,17 +204,8 @@
 		if(stat != DEAD)
 			var/amount = round(100 - sunder, 5)
 			hud_used.alien_sunder_display.icon_state = "sunder[amount]"
-			switch(amount)
-				if(80 to 100)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn0")
-				if(60 to 80)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn1")
-				if(40 to 60)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn2")
-				if(20 to 40)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn3")
-				if(0 to 20)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn4")
+			var/warn_amount = clamp(round(amount * 0.05, 1), 1, 5)
+			hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn[warn_amount]")
 		else
 			hud_used.alien_sunder_display.icon_state = "sunder0"
 
