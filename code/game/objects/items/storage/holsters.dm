@@ -510,8 +510,8 @@
 		new /obj/item/explosive/grenade/flare(src)
 
 /obj/item/storage/holster/icc_mg
-	name = "\improper ML-14 scabbard (10x26mm)"
-	desc = "A backpack holster allowing the storage of any a ML-14 Assault Machinegun, also carries ammo for the other portion of the system."
+	name = "\improper ML-41 scabbard (10x26mm)"
+	desc = "A backpack holster allowing the storage of any a ML-41 Assault Machinegun, also carries ammo for the other portion of the system."
 	icon_state = "icc_bagmg"
 	holsterable_allowed = list(
 		/obj/item/weapon/gun/rifle/icc_mg,

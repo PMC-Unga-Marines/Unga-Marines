@@ -180,12 +180,12 @@
 	cost = 1000
 
 /datum/supply_packs/stationary/fk88_he
-	name = "FK-88 HE Shell"
+	name = "FK-88 Flak HE Shell"
 	contains = list(/obj/item/ammo_magazine/fk88/he)
 	cost = 50
 
 /datum/supply_packs/stationary/fk88_sabot
-	name = "FK-88 APFDS Shell"
+	name = "FK-88 Flak APFDS Shell"
 	contains = list(/obj/item/ammo_magazine/fk88/sabot)
 	cost = 60
 

@@ -33,8 +33,7 @@
 	recoil = 2
 	recoil_unwielded = 4
 	movement_acc_penalty_mult = 2
-	lower_akimbo_accuracy = 3
-	upper_akimbo_accuracy = 5
+	akimbo_scatter_mod = 8
 
 	placed_overlay_iconstate = "shotgun"
 
@@ -344,6 +343,7 @@
 	icon = 'icons/obj/items/gun/shotgun64.dmi'
 	icon_state = "trenchgun"
 	item_state = "trenchgun"
+	cock_animation = "trenchgun_pump"
 	fire_sound = 'sound/weapons/guns/fire/trenchgun.ogg'
 	reload_sound = 'sound/weapons/guns/interact/shotgun_cmb_insert.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/trenchgun_pump.ogg'

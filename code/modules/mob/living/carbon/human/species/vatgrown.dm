@@ -1,6 +1,5 @@
 /datum/species/human/vatgrown
 	name = "Vat-Grown Human"
-	name_plural = "Vat-Grown Humans"
 	icobase = 'icons/mob/human_races/r_vatgrown.dmi'
 	brute_mod = 1.05
 	burn_mod = 1.05
@@ -20,7 +19,6 @@
 
 /datum/species/human/vatgrown/early
 	name = "Early Vat-Grown Human"
-	name_plural = "Early Vat-Grown Humans"
 	brute_mod = 1.3
 	burn_mod = 1.3
 	slowdown = 0.3

@@ -14,6 +14,8 @@
 	max_integrity = 15
 	/// If we're dismantling the window properly no smashy smashy
 	var/dismantle = FALSE
+	///Optimization for dynamic explosion block values, for things whose explosion block is dependent on certain conditions.
+	var/real_explosion_block = 0
 	var/state = 2
 	var/reinf = FALSE
 	var/basestate = "window"

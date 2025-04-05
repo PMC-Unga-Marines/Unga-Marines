@@ -309,7 +309,7 @@
 /obj/docking_port/stationary/proc/on_crash()
 	return
 
-//returns first-found touching shuttleport
+///returns first-found touching shuttleport
 /obj/docking_port/stationary/get_docked()
 	. = locate(/obj/docking_port/mobile) in loc
 

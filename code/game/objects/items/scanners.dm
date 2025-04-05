@@ -447,7 +447,6 @@ REAGENT SCANNER
 	throw_range = 20
 
 	var/details = FALSE
-	var/recent_fail = TRUE
 
 /obj/item/mass_spectrometer/Initialize(mapload)
 	. = ..()
@@ -462,9 +461,6 @@ REAGENT SCANNER
 /obj/item/mass_spectrometer/attack_self(mob/user as mob)
 	if (user.stat)
 		return
-	if (crit_fail)
-		to_chat(user, span_warning("This device has critically failed and is no longer functional!"))
-		return
 	if(!reagents.total_volume)
 		return
 	var/list/blood_traces
@@ -478,16 +474,7 @@ REAGENT SCANNER
 			break
 	var/dat = "Trace Chemicals Found: "
 	for(var/R in blood_traces)
-		if(prob(reliability))
-			dat += "\n\t[R][details ? " ([blood_traces[R]] units)" : "" ]"
-			recent_fail = FALSE
-		else if(recent_fail)
-			crit_fail = TRUE
-			reagents.clear_reagents()
-			to_chat(user, span_warning("Device malfunction occured. Please consult manual for manufacturer contact and warranty."))
-			return
-		else
-			recent_fail = TRUE
+		dat += "\n\t[R][details ? " ([blood_traces[R]] units)" : "" ]"
 	to_chat(user, "[dat]")
 	reagents.clear_reagents()
 
@@ -512,7 +499,6 @@ REAGENT SCANNER
 	throw_range = 20
 
 	var/details = FALSE
-	var/recent_fail = FALSE
 
 /obj/item/reagent_scanner/adv
 	name = "advanced reagent scanner"
@@ -526,22 +512,11 @@ REAGENT SCANNER
 		return
 	if(!istype(O))
 		return
-	if (crit_fail)
-		to_chat(user, span_warning("This device has critically failed and is no longer functional!"))
-		return
 	if(!O.reagents || !length(O.reagents.reagent_list))
 		to_chat(user, span_notice("No chemical agents found in [O]"))
 		return
 	var/dat = ""
 	var/one_percent = O.reagents.total_volume * 0.01
 	for (var/datum/reagent/R in O.reagents.reagent_list)
-		if(prob(reliability))
-			dat += "\n \t [span_notice(" [R.name][details ? ": [R.volume / one_percent]%" : ""]")]"
-			recent_fail = FALSE
-		else if(recent_fail)
-			crit_fail = TRUE
-			to_chat(user, span_warning("Device malfunction occured. Please consult manual for manufacturer contact and warranty."))
-			return
-		else
-			recent_fail = TRUE
+		dat += "\n \t [span_notice(" [R.name][details ? ": [R.volume / one_percent]%" : ""]")]"
 	to_chat(user, span_notice("Chemicals found: [dat]"))

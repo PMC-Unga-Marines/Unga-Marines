@@ -52,7 +52,6 @@ There are several things that need to be remembered:
 		update_body()	//Handles updating your mob's icon to reflect their gender/race/complexion etc
 		update_hair()	//Handles updating your hair overlay (used to be update_face, but mouth and
 																			...eyes were merged into update_body)
-		update_targeted() // Updates the target overlay when someone points a gun at you
 
 >	If you need to update all overlays you can use regenerate_icons(). it works exactly like update_clothing used to.
 
@@ -275,8 +274,8 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		stand_icon.Blend(eyes, ICON_OVERLAY)
 
 		//Mouth	(lipstick!)
-		if(lip_style && (species?.species_flags & HAS_LIPS))	//skeletons are allowed to wear lipstick no matter what you think, agouri.
-			stand_icon.Blend(new/icon('icons/mob/human_face.dmi', "camo_[lip_style]_s"), ICON_OVERLAY)
+		if(makeup_style && (species?.species_flags & HAS_LIPS))	//skeletons are allowed to wear lipstick no matter what you think, agouri.
+			stand_icon.Blend(new/icon('icons/mob/human_face.dmi', "camo_[makeup_style]_s"), ICON_OVERLAY)
 
 
 	if(species.species_flags & HAS_UNDERWEAR)
@@ -345,19 +344,6 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 	overlays_standing[HAIR_LAYER] = hair_final
 	apply_overlay(HAIR_LAYER)
-
-//Call when target overlay should be added/removed
-/mob/living/carbon/human/update_targeted()
-	remove_overlay(TARGETED_LAYER)
-	var/image/I
-	if(holo_card_color)
-		if(I)
-			I.overlays += image("icon" = 'icons/effects/Targeted.dmi', "icon_state" = "holo_card_[holo_card_color]")
-		else
-			I = image("icon" = 'icons/effects/Targeted.dmi', "icon_state" = "holo_card_[holo_card_color]", "layer" =-TARGETED_LAYER)
-	if(I)
-		overlays_standing[TARGETED_LAYER] = I
-	apply_overlay(TARGETED_LAYER)
 
 /* --------------------------------------- */
 //For legacy support.
@@ -639,8 +625,8 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	eyes_l.Blend(rgb(r_eyes, g_eyes, b_eyes), ICON_ADD)
 	face_lying.Blend(eyes_l, ICON_OVERLAY)
 
-	if(lip_style)
-		face_lying.Blend(new/icon('icons/mob/human_face.dmi', "lips_[lip_style]_l"), ICON_OVERLAY)
+	if(makeup_style)
+		face_lying.Blend(new/icon('icons/mob/human_face.dmi', "lips_[makeup_style]_l"), ICON_OVERLAY)
 
 	var/image/face_lying_image = new /image(icon = face_lying)
 	return face_lying_image

@@ -3,8 +3,6 @@
 #define XENO_STANDING_HEAL 0.2
 #define XENO_CRIT_DAMAGE 5
 
-#define XENO_HUD_ICON_BUCKETS 16  // should equal the number of icons you use to represent health / plasma (from 0 -> X)
-
 /mob/living/carbon/xenomorph/Life()
 
 	if(!loc)
@@ -51,8 +49,7 @@
 	if(health < 0)
 		handle_critical_health_updates()
 		return
-	if((health >= maxHealth) || on_fire) //can't regenerate.
-		update_health() //Update health-related stats, like health itself (using brute and fireloss), health HUD and status.
+	if(health >= maxHealth || on_fire) //can't regenerate.
 		return
 	var/turf/T = loc
 	if(!istype(T))
@@ -147,6 +144,8 @@
 
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_PLASMA_REGEN, plasma_mod)
 
+	plasma_mod[1] = clamp(plasma_mod[1], 0, xeno_caste.plasma_max * xeno_caste.plasma_regen_limit - plasma_stored)
+
 	gain_plasma(plasma_mod[1])
 
 /mob/living/carbon/xenomorph/can_receive_aura(aura_type, atom/source, datum/aura_bearer/bearer)
@@ -184,8 +183,6 @@
 	if(!client)
 		return FALSE
 
-	handle_regular_health_hud_updates()
-
 	// Evolve Hud
 	if(hud_used && hud_used.alien_evolve_display)
 		hud_used.alien_evolve_display.overlays.Cut()
@@ -207,55 +204,16 @@
 	if(hud_used && hud_used.alien_sunder_display)
 		hud_used.alien_sunder_display.overlays.Cut()
 		if(stat != DEAD)
-			var/amount = round( 100 - sunder , 5)
+			var/amount = round(100 - sunder, 5)
 			hud_used.alien_sunder_display.icon_state = "sunder[amount]"
-			switch(amount)
-				if(80 to 100)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn0")
-				if(60 to 80)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn1")
-				if(40 to 60)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn2")
-				if(20 to 40)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn3")
-				if(0 to 20)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn4")
+			var/warn_amount = clamp(round(amount * 0.05, 1), 1, 5)
+			hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn[warn_amount]")
 		else
 			hud_used.alien_sunder_display.icon_state = "sunder0"
 
 	interactee?.check_eye(src)
 
 	return TRUE
-
-/mob/living/carbon/xenomorph/proc/handle_regular_health_hud_updates()
-	if(!client)
-		return FALSE
-
-	// Sanity checks
-	if(!maxHealth)
-		stack_trace("[src] called handle_regular_health_hud_updates() while having [maxHealth] maxHealth.")
-		return
-	if(!xeno_caste.plasma_max)
-		stack_trace("[src] called handle_regular_health_hud_updates() while having [xeno_caste.plasma_max] xeno_caste.plasma_max.")
-		return
-
-	// Health Hud
-	if(hud_used && hud_used.healths)
-		if(stat != DEAD)
-			var/amount = round(health * 100 / maxHealth, 5)
-			if(health < 0)
-				amount = 0 //We dont want crit sprite only at 0 health
-			hud_used.healths.icon_state = "health[amount]"
-		else
-			hud_used.healths.icon_state = "health_dead"
-
-	// Plasma Hud
-	if(hud_used && hud_used.alien_plasma_display)
-		if(stat != DEAD)
-			var/amount = round(plasma_stored * 100 / xeno_caste.plasma_max, 5)
-			hud_used.alien_plasma_display.icon_state = "power_display_[amount]"
-		else
-			hud_used.alien_plasma_display.icon_state = "power_display_0"
 
 /mob/living/carbon/xenomorph/update_health()
 	if(status_flags & GODMODE)
@@ -266,7 +224,6 @@
 	med_hud_set_health()
 	update_stat()
 	update_wounds()
-	handle_regular_health_hud_updates()
 
 /mob/living/carbon/xenomorph/handle_slowdown()
 	if(slowdown)

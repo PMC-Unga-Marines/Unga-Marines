@@ -27,7 +27,6 @@
 		else
 			icon_state = "nightvision0"
 
-
 /atom/movable/screen/alien/queen_locator
 	icon_state = "trackoff"
 	name = "queen locator (click for hive status)"
@@ -173,3 +172,10 @@
 			H.r_hand.screen_loc = null
 		if(H.l_hand)
 			H.l_hand.screen_loc = null
+
+/mob/living/carbon/xenomorph/create_mob_hud()
+	. = ..()
+	//Some parts require hud_used to already be set
+	med_hud_set_health()
+	hud_set_plasma()
+	hud_update_primo()

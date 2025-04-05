@@ -1,6 +1,5 @@
 /datum/species/human
 	name = "Human"
-	name_plural = "Humans"
 	unarmed_type = /datum/unarmed_attack/punch
 	species_flags = HAS_SKIN_TONE|HAS_LIPS|HAS_UNDERWEAR
 	count_human = TRUE

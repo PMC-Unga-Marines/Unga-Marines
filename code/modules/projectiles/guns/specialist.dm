@@ -48,7 +48,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	force = 12
 	wield_delay = 1.4 SECONDS
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 12, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
-
 	attachable_allowed = list(
 		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/lasersight,
@@ -72,12 +71,10 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	var/targetmarker_on = FALSE
 	var/targetmarker_primed = FALSE
 	var/mob/living/carbon/laser_target = null
-	var/image/LT = null
 	var/obj/item/binoculars/tactical/integrated_laze = null
 
 /obj/item/weapon/gun/rifle/sniper/antimaterial/Initialize(mapload)
 	. = ..()
-	LT = image("icon" = 'icons/obj/items/projectiles.dmi',"icon_state" = "sniper_laser", "layer" =-LASER_LAYER)
 	integrated_laze = new(src)
 
 /obj/item/weapon/gun/rifle/sniper/antimaterial/do_fire(obj/object_to_fire)
@@ -123,7 +120,7 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	return FALSE
 
 /mob/living/carbon/apply_laser()
-	overlays_standing[LASER_LAYER] = image("icon" = 'icons/obj/items/projectiles.dmi',"icon_state" = "sniper_laser", "layer" =-LASER_LAYER)
+	overlays_standing[LASER_LAYER] = image('icons/obj/items/projectiles.dmi', icon_state = "sniper_laser", layer =-LASER_LAYER)
 	apply_overlay(LASER_LAYER)
 	return TRUE
 

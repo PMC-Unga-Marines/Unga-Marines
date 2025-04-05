@@ -29,7 +29,7 @@
 	burst_amount = 3
 	recoil_unwielded = 0.5
 	akimbo_additional_delay = 0.2
-	movement_acc_penalty_mult = 3
+	akimbo_scatter_mod = 8
 
 	wield_sound =    'sound/weapons/guns/smgs/Deploy_Wave_SMGS.ogg'
 	silenced_sound = 'sound/weapons/guns/smgs/SMG-90/SMG90_SIL.ogg'
@@ -86,8 +86,10 @@
 	aim_slowdown = 0.15
 	movement_acc_penalty_mult = 2
 
-	upper_akimbo_accuracy = 5
-	lower_akimbo_accuracy = 3
+	akimbo_scatter_mod = 24
+	burst_amount = 5
+	burst_delay = 0.1 SECONDS
+	akimbo_additional_delay = 20 // Literally do not even bother to try
 
 	burst_amount = 1
 	autoburst_delay = 0.1 SECONDS
@@ -158,8 +160,6 @@
 	scatter_unwielded = 8
 	aim_slowdown = 0.2
 	burst_amount = 0
-	upper_akimbo_accuracy = 4
-	lower_akimbo_accuracy = 2
 
 	placed_overlay_iconstate = "t90"
 
@@ -224,8 +224,6 @@
 	aim_slowdown = 0.15
 	burst_amount = 3
 	akimbo_additional_delay = 0.4
-	upper_akimbo_accuracy = 5
-	lower_akimbo_accuracy = 3
 	damage_falloff_mult = 0.9
 
 /obj/item/weapon/gun/smg/m25/holstered
@@ -499,8 +497,6 @@
 	burst_scatter_mult = 15
 
 	akimbo_additional_delay = 0.7
-	upper_akimbo_accuracy = 5
-	lower_akimbo_accuracy = 3
 
 /obj/item/weapon/gun/smg/som/scout
 	starting_attachment_types = list(
@@ -598,9 +594,6 @@
 	scatter_unwielded = 5
 	aim_slowdown = 0.2
 	wield_delay = 0.55 SECONDS
-
-	upper_akimbo_accuracy = 5
-	lower_akimbo_accuracy = 3
 
 /obj/item/weapon/gun/smg/icc_machinepistol/medic
 	starting_attachment_types = list(/obj/item/attachable/foldable/icc_machinepistol, /obj/item/attachable/magnetic_harness, /obj/item/attachable/verticalgrip, /obj/item/attachable/extended_barrel)
@@ -746,8 +739,7 @@
 	scatter_unwielded = 6 // Not exactly small weapon, and recoil blowback is only for vertical recoil
 
 	movement_acc_penalty_mult = 0.1
-	upper_akimbo_accuracy = 5
-	lower_akimbo_accuracy = 5
+	akimbo_scatter_mod = 10
 
 /obj/item/weapon/gun/smg/vector/beginner
 	starting_attachment_types = list(/obj/item/attachable/compensator, /obj/item/attachable/magnetic_harness, /obj/item/attachable/lasersight)

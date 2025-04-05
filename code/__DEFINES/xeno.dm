@@ -165,6 +165,9 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 /// Failed to other blockers such as egg, power plant , coocon , traps
 #define ERROR_CONSTRUCT 8
 
+///Number of icon states to show health and plasma on the side UI buttons
+#define XENO_HUD_ICON_BUCKETS 16
+
 #define PRIMAL_WRATH_GAIN_MULTIPLIER 0.5
 
 GLOBAL_LIST_INIT(xeno_survival_upgrades, list(

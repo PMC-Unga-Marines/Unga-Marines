@@ -193,9 +193,13 @@
 
 /obj/item/ammo_magazine/fk88/he
 	name = "FK-88 HE shell (155mm Shell)"
-	desc = "A 15cm HE shell for the FK-88 mounted flak gun. Activate in hand to swap between unguided and guided modes."
+	desc = "A 15cm HE shell for the FK-88 mounted flak gun."
 	default_ammo = /datum/ammo/rocket/fk88
 	var/guided = TRUE
+
+/obj/item/ammo_magazine/fk88/he/examine(mob/user)
+	. = ..()
+	. += span_warning("Activate in hand to swap between unguided and guided modes")
 
 /obj/item/ammo_magazine/fk88/he/attack_hand_alternate(mob/living/user)
 	if(guided)

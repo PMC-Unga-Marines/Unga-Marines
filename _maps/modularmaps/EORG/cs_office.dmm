@@ -2229,7 +2229,7 @@
 /turf/open/floor/stairs,
 /area/deathmatch)
 "ZD" = (
-/turf/closed/brock,
+/turf/closed/mineral/smooth/basalt,
 /area/deathmatch)
 "ZF" = (
 /obj/structure/table,

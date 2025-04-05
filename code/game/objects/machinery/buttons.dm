@@ -321,11 +321,16 @@
 	///The mob created by the spawner
 	var/mob/living/carbon/human/linked
 	///What spawner landmark is linked with this spawner (this has to be matching with the landmark)
-	var/link
+	var/spawn_link
 
 /obj/machinery/button/valhalla/Destroy()
 	linked = null
 	return ..()
+
+/obj/machinery/button/valhalla/proc/turf_check(mob/living/user)
+	if(!get_turf(GLOB.valhalla_button_spawn_landmark[spawn_link]))
+		to_chat(user, span_warning("An error occured, yell at the coders."))
+		CRASH("Valhalla button linked with an improper landmark: button ID: [spawn_link].")
 
 /obj/machinery/button/valhalla/marine_button
 	name = "Xeno spawner"
@@ -335,10 +340,8 @@
 	if(!xeno_wanted)
 		return
 	QDEL_NULL(linked)
-	if(!get_turf(GLOB.valhalla_button_spawn_landmark[link]))
-		to_chat(user, span_warning("An error occured, yell at the coders."))
-		CRASH("Valhalla button linked with an improper landmark: button ID: [link].")
-	linked = new xeno_wanted(get_turf(GLOB.valhalla_button_spawn_landmark[link]))
+	turf_check(user)
+	linked = new xeno_wanted(get_turf(GLOB.valhalla_button_spawn_landmark[spawn_link]))
 
 /obj/machinery/button/valhalla/xeno_button
 	name = "Marine spawner"
@@ -362,10 +365,8 @@
 		return
 
 	QDEL_NULL(linked)
-	if(!get_turf(GLOB.valhalla_button_spawn_landmark[link]))
-		to_chat(xeno_attacker, span_warning("An error occured, yell at the coders."))
-		CRASH("Valhalla button linked with an improper landmark: button ID: [link].")
-	linked = new /mob/living/carbon/human(get_turf(GLOB.valhalla_button_spawn_landmark[link]))
+	turf_check(xeno_attacker)
+	linked = new /mob/living/carbon/human(get_turf(GLOB.valhalla_button_spawn_landmark[spawn_link]))
 	if(selected_outfit == "Naked" || !selected_outfit)
 		return
 	linked.equipOutfit(job_outfits[selected_outfit], FALSE)
@@ -387,10 +388,8 @@
 		return
 
 	QDEL_NULL(linked)
-	if(!get_turf(GLOB.valhalla_button_spawn_landmark[link]))
-		to_chat(user, span_warning("An error occured, yell at the coders."))
-		CRASH("Valhalla button linked with an improper landmark: button ID: [link].")
-	linked = new /mob/living/carbon/human(get_turf(GLOB.valhalla_button_spawn_landmark[link]))
+	turf_check(user)
+	linked = new /mob/living/carbon/human(get_turf(GLOB.valhalla_button_spawn_landmark[spawn_link]))
 	if(selected_outfit == "Naked" || !selected_outfit)
 		return
 	linked.equipOutfit(job_outfits[selected_outfit], FALSE)
@@ -407,10 +406,8 @@
 		return
 
 	QDEL_NULL(linked)
-	if(!get_turf(GLOB.valhalla_button_spawn_landmark[link]))
-		to_chat(xeno_attacker, span_warning("An error occured, yell at the coders."))
-		CRASH("Valhalla button linked with an improper landmark: button ID: [link].")
-	linked = new selected_vehicle(get_turf(GLOB.valhalla_button_spawn_landmark[link]))
+	turf_check(xeno_attacker)
+	linked = new selected_vehicle(get_turf(GLOB.valhalla_button_spawn_landmark[spawn_link]))
 
 /obj/machinery/button/valhalla/vehicle_button/attack_hand(mob/living/user)
 	var/list/spawnable_vehicles = list(/obj/vehicle/sealed/armored/multitile,
@@ -421,9 +418,7 @@
 		return
 
 	QDEL_NULL(linked)
-	if(!get_turf(GLOB.valhalla_button_spawn_landmark[link]))
-		to_chat(user, span_warning("An error occured, yell at the coders."))
-		CRASH("Valhalla button linked with an improper landmark: button ID: [link].")
-	linked = new selected_vehicle(get_turf(GLOB.valhalla_button_spawn_landmark[link]))
+	turf_check(user)
+	linked = new selected_vehicle(get_turf(GLOB.valhalla_button_spawn_landmark[spawn_link]))
 
 #undef DOOR_FLAG_OPEN_ONLY

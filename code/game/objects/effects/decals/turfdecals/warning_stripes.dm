@@ -33,6 +33,9 @@
 /obj/effect/turf_decal/warning_stripes/marine
 	icon_state = "marine"
 
+/obj/effect/turf_decal/warning_stripes/tank
+	icon_state = "tank"
+
 /obj/effect/turf_decal/warning_stripes/stripedsquare
 	icon_state = "stripe_square"
 

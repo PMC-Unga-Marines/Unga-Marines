@@ -227,7 +227,7 @@
 	exploding = TRUE
 
 	cell_explosion(loc, reagents.total_volume * 0.4, reagents.total_volume * 0.2)
-	flame_radius(round(reagents.total_volume * 0.005), loc, 46, 40, 31, 30, colour = FLAME_COLOR_BLUE )
+	flame_radius(round(reagents.total_volume * 0.005), loc, 40, 46, 31, 30, colour = FLAME_COLOR_BLUE )
 	qdel(src)
 
 /obj/structure/reagent_dispensers/fueltank/gfuel

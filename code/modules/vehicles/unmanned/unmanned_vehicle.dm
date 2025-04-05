@@ -83,7 +83,7 @@
 	robogibs(src)
 	return ..()
 
-/obj/vehicle/unmanned/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
+/obj/vehicle/unmanned/take_damage(damage_amount, damage_type, damage_flag = null, effects, attack_dir, armour_penetration)
 	. = ..()
 	hud_set_machine_health()
 

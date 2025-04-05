@@ -730,10 +730,10 @@
 	icon_state_mini = "mag_rifle_big_yellow"
 	bonus_overlay = "t25_ext"
 
-//ML-14 Assault Machiengun
+//ML-41 Assault Machinegun
 /obj/item/ammo_magazine/icc_mg
-	name = "\improper ML-14 GPMG box magazine (10x25mm)"
-	desc = "A belt box for the ML-14 assault machinegun."
+	name = "\improper ML-41 GPMG box magazine (10x26mm)"
+	desc = "A belt box for the ML-41 assault machinegun."
 	icon_state = "minimi"
 	icon_state_mini = "mag_gpmg"
 	caliber = CALIBER_10X26_CASELESS
@@ -744,8 +744,8 @@
 
 // This is a 'belt'.
 /obj/item/ammo_magazine/icc_mg/belt
-	name = "\improper ML-14 GPMG buttpack magazine (10x25mm)"
-	desc = "A buttpack for the ML-14 which carries the ammo inside."
+	name = "\improper ML-41 GPMG buttpack magazine (10x26mm)"
+	desc = "A buttpack for the ML-41 which carries the ammo inside."
 	icon_state = "minimi_belt"
 	equip_slot_flags = ITEM_SLOT_BELT
 	magazine_flags = MAGAZINE_WORN

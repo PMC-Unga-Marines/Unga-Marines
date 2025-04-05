@@ -1,9 +1,7 @@
 /datum/species/skeleton
 	name = "Skeleton"
-	name_plural = "skeletons"
 	icobase = 'icons/mob/human_races/r_skeleton.dmi'
 	unarmed_type = /datum/unarmed_attack/punch
-	speech_verb_override = "rattles"
 	count_human = TRUE
 
 	species_flags = NO_BREATHE|NO_SCAN|NO_BLOOD|NO_POISON|NO_CHEM_METABOLIZATION|DETACHABLE_HEAD // Where we're going, we don't NEED underwear.

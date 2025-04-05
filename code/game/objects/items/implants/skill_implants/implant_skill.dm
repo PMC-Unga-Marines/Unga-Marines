@@ -44,13 +44,13 @@
 	name = "engineering implants system"
 	desc = "Working with welding has become much easier! Update engineering skills!"
 	engineer = 1
-	max_skills = list(SKILL_ENGINEER = SKILL_ENGINEER_MASTER)
+	max_skills = list(SKILL_ENGINEER = SKILL_ENGINEER_EXPERT)
 
 /obj/item/implant/skill/codex/construct
 	name = "construct implants system"
 	desc = "Working with welding has become much easier! Update construct skills!"
 	construction = 1
-	max_skills = list(SKILL_CONSTRUCTION = SKILL_CONSTRUCTION_MASTER)
+	max_skills = list(SKILL_CONSTRUCTION = SKILL_CONSTRUCTION_EXPERT)
 
 /obj/item/implant/skill/oper_system/leadership
 	name = "command protocols 'Graiyor' codex"

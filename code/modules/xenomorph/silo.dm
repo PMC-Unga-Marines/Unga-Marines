@@ -100,7 +100,7 @@
 		if(80 to 100)
 			. += span_info("It appears in good shape, pulsating healthily.")
 
-/obj/structure/xeno/silo/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
+/obj/structure/xeno/silo/take_damage(damage_amount, damage_type, damage_flag = null, sound_effect, attack_dir, armour_penetration)
 	. = ..()
 
 	//We took damage, so it's time to start regenerating if we're not already processing

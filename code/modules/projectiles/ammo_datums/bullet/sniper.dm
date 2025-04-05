@@ -118,7 +118,7 @@
 	staggerstun(M, P, knockback = 4, slowdown = 1.5, stagger = 2 SECONDS, max_range = 17)
 
 /datum/ammo/bullet/sniper/auto
-	name = "high caliber rifle bullet"
+	name = "low velocity high caliber rifle bullet"
 	hud_state = "sniper_auto"
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER
 	damage = 50

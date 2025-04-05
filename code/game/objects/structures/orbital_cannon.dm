@@ -218,6 +218,8 @@
 	if(inaccurate_fuel > 0)
 		fuel_warning = "Уровень топлива боеголовки: некорректный.<br>Возможно смещение области поражения."
 
+	GLOB.round_statistics.obs_fired++
+	SSblackbox.record_feedback("tally", "round_statistics", 1, "obs_fired")
 	priority_announce(
 		message = "Немедленно покиньте зону поражения!<br><br>Тип боеголовки: [tray.warhead.warhead_kind_rus].<br>[fuel_warning]<br>Цель: [get_area(T)].",
 		title = "Обнаружена команда на запуск орбитальной бомбардировки!",
@@ -408,7 +410,7 @@
 	warhead_kind_rus = "зажигательный"
 	icon_state = "ob_warhead_2"
 	var/flame_range_num
-	var/flame_intensity = 36
+	var/flame_intensity = 46
 	var/flame_duration = 40
 	var/flame_colour = "blue"
 	var/smoke_radius = 17

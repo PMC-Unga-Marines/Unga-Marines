@@ -3,7 +3,7 @@
 /obj/structure/xeno/turret
 	name = "acid turret"
 	desc = "A menacing looking construct of resin, it seems to be alive. It fires acid against intruders."
-	icon = 'icons/Xeno/acidturret.dmi'
+	icon = 'icons/Xeno/acid_turret.dmi'
 	icon_state = "acid_turret"
 	base_icon_state = "acid_turret"
 	obj_integrity = 600
