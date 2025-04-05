@@ -58,6 +58,8 @@
 #define COOLDOWN_MOUNTED_GUN_ROTATE "mounted_gun_rotate"
 #define COOLDOWN_STAMINA "adrenaline_add_stamina"
 #define COOLDOWN_CRIT "adrenaline_heal_crit"
+#define COOLDOWN_WHISTLE_BLOW "cooldown_whistle_blow"
+#define COOLDOWN_WHISTLE_WARCRY "cooldown_whistle_warcry"
 
 //Mecha cooldowns
 #define COOLDOWN_MECHA "mecha"
