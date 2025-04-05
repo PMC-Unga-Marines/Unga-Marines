@@ -639,11 +639,6 @@
 "htK" = (
 /turf/template_noop,
 /area/space)
-"huz" = (
-/obj/structure/girder,
-/obj/structure/girder,
-/turf/open/floor/plating/ground/mars/random,
-/area/centcom/valhalla)
 "hGe" = (
 /obj/machinery/door/poddoor/shutters/mainship/thunderdome/two,
 /turf/open/floor/plating,
@@ -7501,7 +7496,7 @@ htK
 htK
 htK
 fWu
-huz
+aLR
 bbR
 bbR
 bbR
