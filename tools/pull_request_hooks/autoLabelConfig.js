@@ -58,9 +58,11 @@ export const title_labels = {
 	},
 	'Do Not Merge' : {
 		keywords: ['[dnm]', '[do not merge]'],
+		add_only: true,
 	},
 	'Test Merge Only' : {
 		keywords: ['[tm only]', '[test merge only]'],
+		add_only: true,
 	},
 	'Port': {
 		keywords: ['port'],
