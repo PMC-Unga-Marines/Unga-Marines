@@ -277,7 +277,7 @@
 			var/datum/status_effect/stacking/intoxicated/debuff = has_status_effect(STATUS_EFFECT_INTOXICATED)
 			debuff.add_stacks(SENTINEL_TOXIC_GRENADE_STACKS_PER)
 		apply_status_effect(STATUS_EFFECT_INTOXICATED, SENTINEL_TOXIC_GRENADE_STACKS_PER)
-		adjust_fire_loss(SENTINEL_TOXIC_GRENADE_GAS_DAMAGE * protection)
+		adjust_fire_loss(SENTINEL_TOXIC_GRENADE_GAS_DAMAGE * bio_protection)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_CHEM))
 		S.reagents?.reaction(src, TOUCH, S.fraction)
 
