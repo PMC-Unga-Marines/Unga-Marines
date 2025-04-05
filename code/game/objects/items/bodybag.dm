@@ -326,7 +326,7 @@
 		return
 	var/timer = 0 // variable for DNR timer check
 	timer = (TIME_BEFORE_DNR-(occupant.dead_ticks))*2 //Time to DNR left in seconds
-	if(!occupant.mind && !occupant.get_ghost(TRUE) || occupant.dead_ticks > TIME_BEFORE_DNR || occupant.suiciding) //We couldn't find a suitable ghost or patient has passed their DNR timer or suicided, this means the person is not returning
+	if(!occupant.mind && !occupant.get_ghost(TRUE) || occupant.dead_ticks > TIME_BEFORE_DNR)//We couldn't find a suitable ghost or patient has passed their DNR timer or suicided, this means the person is not returning
 		. += span_scanner("Patient is DNR")
 	else if(!occupant.mind && occupant.get_ghost(TRUE)) // Ghost is available but outside of the body
 		. += span_scanner("Defib patient to check departed status")
