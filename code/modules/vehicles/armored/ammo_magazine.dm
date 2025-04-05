@@ -42,16 +42,6 @@
 	max_rounds = 150
 	loading_sound = 'sound/weapons/guns/interact/working_the_bolt.ogg'
 
-/obj/item/ammo_magazine/tank/flamer
-	name = "Flamer Magazine"
-	desc = "A secondary armament flamethrower magazine"
-	caliber = CALIBER_FUEL_THICK
-	icon_state = "flametank_large"
-	icon = 'icons/obj/items/ammo/flamer.dmi'
-	w_class = WEIGHT_CLASS_GIGANTIC
-	default_ammo = /datum/ammo/flamethrower/tank_flamer
-	max_rounds = 120
-
 /obj/item/ammo_magazine/tank/secondary_cupola
 	name = "HSG-102 Cupola Magazine"
 	desc = "A secondary armament MG magazine"

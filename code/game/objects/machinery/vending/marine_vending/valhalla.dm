@@ -106,16 +106,6 @@
 			/obj/item/clothing/head/helmet/marine/riot = -1,
 			/obj/item/clothing/suit/storage/marine/boomvest = -1,
 		),
-		"Assault Vehicle" = list(
-			/obj/item/armored_weapon = -1,
-			/obj/item/armored_weapon/ltaap = -1,
-			/obj/item/armored_weapon/secondary_weapon = -1,
-			/obj/item/ammo_magazine/tank/ltb_cannon = -1,
-			/obj/item/ammo_magazine/tank/ltb_cannon/apfds = -1,
-			/obj/item/ammo_magazine/tank/ltaap_chaingun = -1,
-			/obj/item/ammo_magazine/tank/secondary_cupola = -1,
-			/obj/item/ammo_magazine/tank/flamer = -1,
-		),
 		"Implants" = list(
 			/obj/item/implanter/sandevistan = -1,
 			/obj/item/implanter/suicide_dust = -1,
@@ -363,5 +353,26 @@
 			/obj/item/mecha_parts/mecha_equipment/melee_core = -1,
 			/obj/item/mecha_parts/mecha_equipment/ability/dash = -1,
 			/obj/item/mecha_parts/mecha_equipment/ability/smoke/cloak_smoke = -1,
+		),
+	)
+
+/obj/machinery/vending/tank_vendor
+	name = "\improper Tank equipment vendor"
+	desc = "An automated rack hooked up to a colossal storage of items."
+	icon_state = "requisitionop"
+	resistance_flags = INDESTRUCTIBLE
+	use_power = NO_POWER_USE
+	wrenchable = FALSE
+	products = list(
+		"Assault Vehicle" = list(
+			/obj/item/armored_weapon = -1,
+			/obj/item/armored_weapon/ltaap = -1,
+			/obj/item/armored_weapon/secondary_weapon = -1,
+			/obj/item/ammo_magazine/tank/ltb_cannon = -1,
+			/obj/item/ammo_magazine/tank/ltb_cannon/apfds = -1,
+			/obj/item/ammo_magazine/tank/ltaap_chaingun = -1,
+			/obj/item/ammo_magazine/tank/secondary_cupola = -1,
+			/obj/item/ammo_magazine/tank/secondary_flamer_tank = -1,
+			/obj/item/pamphlet/tank_crew = -1,
 		),
 	)

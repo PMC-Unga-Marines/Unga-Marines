@@ -482,23 +482,23 @@
 
 /obj/effect/landmark/valhalla
 	icon = 'icons/effects/landmarks_static.dmi'
-	///What do we spawn? (xeno or marine)
-	var/spawns
-	///Where do we spawn?
-	var/where
+	///Link with the button that spawns stuff on us
+	var/spawn_link
 
 /obj/effect/landmark/valhalla/Initialize(mapload)
 	. = ..()
-	GLOB.valhalla_button_spawn_landmark["[spawns][where]"] = src
+	GLOB.valhalla_button_spawn_landmark[spawn_link] = src
 
 /obj/effect/landmark/valhalla/xeno_spawn_landmark
 	name = "Valhalla xeno spawn"
 	icon_state = "xeno_spawn_valhalla"
-	spawns = "xeno"
 
 /obj/effect/landmark/valhalla/marine_spawner_landmark
 	name = "Marine spawner landmark"
-	spawns = "marine"
+
+/obj/effect/landmark/valhalla/vehicle_spawner_landmark
+	name = "Vehicle spawner landmark"
+	icon_state = "x4"
 
 /obj/effect/landmark/eord_roomba
 	name = "EORD roomba spawn point"

@@ -53,15 +53,30 @@
 /obj/effect/turf_decal/tile/metal/medical,
 /turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
-"avM" = (
-/obj/structure/barricade/wooden,
-/turf/open/floor/plating/ground/mars/random,
+"azj" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 6
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/centcom/valhalla)
+"aBM" = (
+/obj/machinery/button/valhalla/marine_button{
+	spawn_link = "xenotanksouth";
+	name = "South xeno spawner"
+	},
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "aDr" = (
 /obj/effect/landmark/thunderdome/observe,
 /obj/structure/bed/chair/sofa,
 /turf/open/floor/tile/red/redblue/full,
 /area/tdome/tdomeobserve)
+"aEr" = (
+/obj/effect/landmark/valhalla/xeno_spawn_landmark{
+	spawn_link = "xenofar1"
+	},
+/turf/open/floor/plating/ground/mars/random,
+/area/centcom/valhalla)
 "aJX" = (
 /obj/machinery/vending/cigarette,
 /turf/open/floor/tile/red/redblue/full,
@@ -74,17 +89,6 @@
 /turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 1
 	},
-/area/centcom/valhalla)
-"aRf" = (
-/obj/structure/barricade/wooden,
-/obj/item/explosive/grenade/flare/on,
-/turf/open/floor/plating/ground/mars/random,
-/area/centcom/valhalla)
-"aSD" = (
-/obj/effect/landmark/valhalla/xeno_spawn_landmark{
-	where = "far1"
-	},
-/turf/open/floor/plating/ground/mars/random,
 /area/centcom/valhalla)
 "bbO" = (
 /obj/machinery/vending/weapon/valhalla,
@@ -232,6 +236,11 @@
 	},
 /turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
+"cjT" = (
+/turf/open/floor/plating/ground/mars/cavetodirt{
+	dir = 5
+	},
+/area/centcom/valhalla)
 "cnE" = (
 /obj/machinery/vending/engivend/nopower/valhalla,
 /turf/open/floor/iron/dark/textured,
@@ -273,6 +282,17 @@
 	dir = 1
 	},
 /area/centcom/valhalla)
+"dhS" = (
+/obj/effect/turf_decal/warning_stripes/thick,
+/turf/open/floor/plating/mainship/reinforced,
+/area/centcom/valhalla)
+"dij" = (
+/obj/effect/turf_decal/sandedge{
+	dir = 8
+	},
+/obj/effect/turf_decal/sandytile,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "dlQ" = (
 /obj/item/target/alien,
 /turf/open/floor/plating/ground/mars/random,
@@ -284,9 +304,14 @@
 	dir = 5
 	},
 /area/tdome/tdomeobserve)
-"dyS" = (
-/obj/effect/turf_decal/tile/metal/medical,
-/turf/open/floor/mainship/rubber,
+"dxo" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 8
+	},
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 8
+	},
+/turf/open/floor/plating/mainship/reinforced,
 /area/centcom/valhalla)
 "dAJ" = (
 /obj/effect/turf_decal/sandytile,
@@ -329,6 +354,12 @@
 "ecT" = (
 /turf/open/floor/plating/mainship/reinforced,
 /area/centcom/valhalla)
+"ekc" = (
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 8
+	},
+/turf/closed/wall/mainship/gray/outer,
+/area/centcom/valhalla)
 "epz" = (
 /obj/machinery/vending/uniform_supply/valhalla,
 /turf/open/floor/mainship/metal/full,
@@ -357,6 +388,11 @@
 /obj/item/stack/sheet/metal/small_stack,
 /turf/open/floor/plating/ground/mars/random,
 /area/centcom/valhalla)
+"eJn" = (
+/obj/effect/turf_decal/loading_area,
+/obj/effect/turf_decal/warning_stripes/tank,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "eLQ" = (
 /obj/effect/landmark/thunderdome/admin,
 /obj/structure/bed/chair/sofa{
@@ -368,14 +404,14 @@
 /obj/structure/bed/stool,
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
-"eSM" = (
-/obj/structure/closet/secure_closet/medical2{
-	req_access = null
-	},
-/obj/effect/turf_decal/tile/metal/medical{
-	dir = 6
-	},
-/turf/open/floor/mainship/rubber,
+"eYQ" = (
+/obj/machinery/door/airlock/hatch,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"eZp" = (
+/obj/effect/turf_decal/sandedge,
+/obj/effect/turf_decal/sandytile,
+/turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "fdy" = (
 /obj/item/explosive/grenade/flare/on,
@@ -425,6 +461,11 @@
 /obj/machinery/vending/MarineMed/valhalla,
 /turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
+"fxO" = (
+/obj/effect/turf_decal/loading_area,
+/obj/effect/turf_decal/warning_stripes/mech,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "fJi" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 8
@@ -458,6 +499,15 @@
 /obj/machinery/vending/weapon/valhalla,
 /turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
+"fVA" = (
+/obj/machinery/button/valhalla/vehicle_button{
+	spawn_link = "vehiclemarinecenter";
+	name = "Center Vehicle Spawner"
+	},
+/obj/effect/turf_decal/loading_area,
+/obj/effect/turf_decal/warning_stripes/tank,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "fWu" = (
 /turf/closed/mineral/smooth/indestructible,
 /area/centcom/valhalla)
@@ -469,6 +519,18 @@
 	},
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"goE" = (
+/obj/machinery/computer/mech_builder,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"gqY" = (
+/obj/effect/landmark/valhalla/xeno_spawn_landmark{
+	spawn_link = "xenoclose1"
+	},
+/obj/effect/turf_decal/sandytile,
+/obj/effect/turf_decal/sandedge,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "gxT" = (
 /obj/item/camera,
 /obj/structure/table,
@@ -488,14 +550,6 @@
 "gzY" = (
 /turf/open/floor/mainship/metal/gray,
 /area/centcom/valhalla)
-"gAO" = (
-/obj/effect/landmark/valhalla/xeno_spawn_landmark{
-	where = "close2"
-	},
-/turf/open/floor/plating/ground/mars/dirttosand{
-	dir = 1
-	},
-/area/centcom/valhalla)
 "gBi" = (
 /obj/effect/landmark/thunderdome/two,
 /turf/open/floor/plating,
@@ -507,7 +561,7 @@
 /area/centcom/valhalla)
 "gEX" = (
 /obj/machinery/button/valhalla/xeno_button{
-	link = "marineright"
+	spawn_link = "marineright"
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
@@ -533,9 +587,18 @@
 	},
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
+"hcB" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 6
+	},
+/obj/machinery/button/valhalla/marine_button{
+	spawn_link = "xenoclose1"
+	},
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "hda" = (
 /obj/machinery/button/valhalla/xeno_button{
-	link = "marinetop"
+	spawn_link = "marinetop"
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
@@ -545,7 +608,7 @@
 /area/centcom/valhalla)
 "heB" = (
 /obj/machinery/button/valhalla/xeno_button{
-	link = "marineleft"
+	spawn_link = "marineleft"
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
@@ -576,6 +639,11 @@
 "htK" = (
 /turf/template_noop,
 /area/space)
+"huz" = (
+/obj/structure/girder,
+/obj/structure/girder,
+/turf/open/floor/plating/ground/mars/random,
+/area/centcom/valhalla)
 "hGe" = (
 /obj/machinery/door/poddoor/shutters/mainship/thunderdome/two,
 /turf/open/floor/plating,
@@ -584,6 +652,20 @@
 /obj/machinery/vending/marineFood/valhalla,
 /obj/effect/turf_decal/stripes/white/line,
 /turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"hGV" = (
+/obj/effect/turf_decal/sandytile,
+/obj/effect/turf_decal/sandedge{
+	dir = 8
+	},
+/obj/effect/turf_decal/sandedge,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"hMq" = (
+/obj/effect/turf_decal/tile/metal/corner/medical{
+	dir = 4
+	},
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "hUu" = (
 /turf/open/floor/wood,
@@ -602,6 +684,14 @@
 "iot" = (
 /obj/machinery/vending/boozeomat/nopower,
 /turf/open/floor/mainship/metal/gray,
+/area/centcom/valhalla)
+"irE" = (
+/obj/effect/landmark/valhalla/xeno_spawn_landmark{
+	spawn_link = "xenoclose2"
+	},
+/turf/open/floor/plating/ground/mars/dirttosand{
+	dir = 1
+	},
 /area/centcom/valhalla)
 "itM" = (
 /turf/open/floor/carpet/side{
@@ -638,6 +728,12 @@
 	},
 /turf/open/floor/tile/red/redblue/full,
 /area/tdome/tdomeobserve)
+"jpz" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 4
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/centcom/valhalla)
 "jrF" = (
 /obj/structure/table,
 /obj/item/stack/medical/heal_pack/gauze,
@@ -663,11 +759,8 @@
 /obj/machinery/quick_vendor/beginner,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
-"jvR" = (
-/obj/effect/turf_decal/warning_stripes/thick,
-/obj/machinery/button/valhalla/marine_button{
-	link = "xenoclose2"
-	},
+"jwl" = (
+/obj/machinery/vending/mech_vendor,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "jxT" = (
@@ -677,6 +770,14 @@
 	dir = 1
 	},
 /turf/open/floor/mainship/rubber,
+/area/centcom/valhalla)
+"jyn" = (
+/obj/effect/turf_decal/sandedge{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/mars/cavetodirt{
+	dir = 4
+	},
 /area/centcom/valhalla)
 "jJC" = (
 /obj/structure/window/framed/mainship/gray/toughened/hull,
@@ -693,11 +794,24 @@
 	},
 /turf/closed/mineral/smooth,
 /area/centcom/valhalla/xenocave)
+"jXO" = (
+/obj/effect/landmark/valhalla/vehicle_spawner_landmark{
+	spawn_link = "vehiclexenocave"
+	},
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/centcom/valhalla/xenocave)
 "kaA" = (
 /obj/machinery/computer/security/telescreen,
 /obj/structure/table,
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"kaS" = (
+/obj/effect/turf_decal/sandytile,
+/obj/effect/turf_decal/sandedge{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "keG" = (
 /obj/structure/table,
 /turf/open/floor/tile/red/yellowfull,
@@ -706,6 +820,10 @@
 /obj/machinery/door/airlock/mainship/marine/general/corps{
 	dir = 3
 	},
+/turf/open/floor/mainship/metal/full,
+/area/centcom/valhalla)
+"kiN" = (
+/obj/structure/window/framed/mainship/gray/toughened/hull,
 /turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
 "kjb" = (
@@ -727,6 +845,12 @@
 /obj/structure/bed/chair/wood/wings,
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
+"kmG" = (
+/obj/machinery/button/valhalla/vehicle_button{
+	spawn_link = "vehiclexenocave"
+	},
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/centcom/valhalla/xenocave)
 "knm" = (
 /obj/structure/table/black,
 /obj/item/stack/sheet/mineral/phoron/medium_stack,
@@ -741,7 +865,7 @@
 /area/centcom/valhalla)
 "knX" = (
 /obj/effect/landmark/valhalla/marine_spawner_landmark{
-	where = "top"
+	spawn_link = "top"
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
@@ -751,6 +875,29 @@
 	},
 /turf/open/floor,
 /area/tdome)
+"kwp" = (
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "tele_ground1";
+	teleport_x = 180;
+	teleport_x_offset = 200;
+	teleport_y = 50;
+	teleport_y_offset = 80;
+	teleport_z = 1;
+	teleport_z_offset = 1
+	},
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "tele_ground1";
+	teleport_x = 180;
+	teleport_x_offset = 200;
+	teleport_y = 50;
+	teleport_y_offset = 80;
+	teleport_z = 1;
+	teleport_z_offset = 1
+	},
+/turf/template_noop,
+/area/space)
 "kxE" = (
 /obj/machinery/vending/boozeomat,
 /turf/open/floor/wood,
@@ -769,6 +916,10 @@
 /obj/machinery/vending/valhalla_req,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"kLS" = (
+/obj/machinery/vending/tank_vendor,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "kMT" = (
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
@@ -776,6 +927,12 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
+"kSw" = (
+/obj/item/stack/sheet/metal/small_stack,
+/turf/open/floor/plating/ground/mars/dirttosand{
+	dir = 1
+	},
+/area/centcom/valhalla)
 "kSB" = (
 /obj/machinery/vending/MarineMed/valhalla,
 /obj/effect/turf_decal/stripes/white/line,
@@ -788,12 +945,29 @@
 /obj/effect/turf_decal/warning_stripes/synth,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"kXA" = (
+/turf/open/floor/plating/ground/mars/dirttosand,
+/area/centcom/valhalla)
 "ldg" = (
 /obj/structure/sign/double/barsign/carp{
 	dir = 1
 	},
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
+"led" = (
+/obj/machinery/button/valhalla/marine_button{
+	spawn_link = "xenotanknorth";
+	name = "North xeno spawner"
+	},
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"lhu" = (
+/obj/effect/turf_decal/warning_stripes/thick,
+/obj/machinery/button/valhalla/marine_button{
+	spawn_link = "xenoclose2"
+	},
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "llp" = (
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 9
@@ -901,6 +1075,10 @@
 	},
 /turf/open/floor,
 /area/tdome)
+"mKu" = (
+/obj/machinery/door/airlock/mainship/medical/glass/free_access,
+/turf/open/floor/mainship/rubber,
+/area/centcom/valhalla)
 "mLF" = (
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 5
@@ -916,6 +1094,9 @@
 /obj/machinery/marine_selector/clothes/smartgun/valhalla,
 /turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
+"mOK" = (
+/turf/open/floor/plating/ground/mars/cavetodirt,
+/area/centcom/valhalla)
 "mPJ" = (
 /obj/machinery/marine_selector/clothes/leader/valhalla,
 /turf/open/floor/mainship/metal/full,
@@ -927,6 +1108,12 @@
 "mQe" = (
 /turf/open/ai_visible,
 /area/ai_multicam_room)
+"mUt" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 5
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/centcom/valhalla)
 "nbQ" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/mechanical,
@@ -952,6 +1139,22 @@
 /obj/machinery/camera/autoname/thunderdome/hidden,
 /turf/open/floor/plating,
 /area/tdome/tdome2)
+"nhm" = (
+/obj/effect/turf_decal/loading_area{
+	dir = 4
+	},
+/obj/effect/turf_decal/warning_stripes/tank{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"noo" = (
+/obj/machinery/vending/medical/valhalla,
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 4
+	},
+/turf/open/floor/mainship/rubber,
+/area/centcom/valhalla)
 "noL" = (
 /obj/effect/turf_decal/tile/metal/medical,
 /obj/machinery/vending/medical/valhalla,
@@ -964,15 +1167,6 @@
 	},
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 4
-	},
-/turf/open/floor/iron/dark/textured,
-/area/centcom/valhalla)
-"nvt" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 6
-	},
-/obj/machinery/button/valhalla/marine_button{
-	link = "xenoclose1"
 	},
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
@@ -993,6 +1187,13 @@
 /obj/item/storage/box/handcuffs,
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"nBa" = (
+/obj/effect/turf_decal/tile/metal/medical{
+	dir = 4
+	},
+/obj/machinery/vending/MarineMed/valhalla,
+/turf/open/floor/mainship/rubber,
+/area/centcom/valhalla)
 "nCB" = (
 /obj/machinery/chem_dispenser/valhalla,
 /obj/effect/turf_decal/tile/metal/medical{
@@ -1029,6 +1230,18 @@
 	dir = 4
 	},
 /area/tdome)
+"nSi" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 9
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/centcom/valhalla)
+"oco" = (
+/obj/effect/landmark/valhalla/vehicle_spawner_landmark{
+	spawn_link = "vehiclemarineupper"
+	},
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "okD" = (
 /obj/machinery/vending/weapon/valhalla,
 /obj/effect/turf_decal/warning_stripes/thick{
@@ -1045,17 +1258,16 @@
 	},
 /turf/open/floor,
 /area/tdome)
+"otL" = (
+/obj/machinery/button/valhalla/vehicle_button{
+	spawn_link = "vehiclemarineupper";
+	name = "North Vehicle Spawner"
+	},
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "oHd" = (
 /turf/open/floor,
 /area/tdome)
-"oHK" = (
-/obj/effect/landmark/valhalla/xeno_spawn_landmark{
-	where = "close1"
-	},
-/obj/effect/turf_decal/sandytile,
-/obj/effect/turf_decal/sandedge,
-/turf/open/floor/iron/dark/textured,
-/area/centcom/valhalla)
 "oJr" = (
 /obj/machinery/vending/weapon/valhalla,
 /turf/open/floor/mainship/metal/full,
@@ -1063,6 +1275,10 @@
 "oKa" = (
 /obj/machinery/vending/medical/valhalla,
 /obj/effect/turf_decal/stripes/white/line,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"oLj" = (
+/obj/structure/table/black,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "oNJ" = (
@@ -1091,6 +1307,11 @@
 	},
 /obj/item/storage/fancy/cigar,
 /turf/open/floor/mainship/metal/full,
+/area/centcom/valhalla)
+"oRK" = (
+/turf/open/floor/plating/ground/mars/cavetodirt{
+	dir = 4
+	},
 /area/centcom/valhalla)
 "oXf" = (
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -1142,6 +1363,11 @@
 	dir = 8
 	},
 /area/tdome)
+"pEM" = (
+/turf/open/floor/plating/ground/mars/dirttosand{
+	dir = 4
+	},
+/area/centcom/valhalla)
 "pLH" = (
 /obj/machinery/chem_master/nopower/valhalla,
 /obj/effect/turf_decal/tile/metal/medical{
@@ -1232,6 +1458,12 @@
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
+"qTa" = (
+/obj/effect/landmark/valhalla/xeno_spawn_landmark{
+	spawn_link = "xenotankmid"
+	},
+/turf/open/floor/plating/ground/mars/random,
+/area/centcom/valhalla)
 "qUt" = (
 /obj/machinery/gibber,
 /turf/open/floor/tile/white,
@@ -1242,6 +1474,11 @@
 	},
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"qVf" = (
+/turf/open/floor/plating/ground/mars/cavetodirt{
+	dir = 6
+	},
+/area/centcom/valhalla)
 "qXz" = (
 /obj/structure/table/mainship,
 /turf/open/floor/tile/red/yellowfull,
@@ -1309,6 +1546,12 @@
 /obj/effect/turf_decal/loading_area,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
+"rYT" = (
+/obj/effect/landmark/valhalla/vehicle_spawner_landmark{
+	spawn_link = "vehiclemarinecenter"
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/centcom/valhalla)
 "sji" = (
 /obj/machinery/chem_dispenser/beer{
 	dir = 4;
@@ -1328,6 +1571,17 @@
 	},
 /turf/closed/wall/mainship,
 /area/tdome)
+"sCk" = (
+/obj/effect/turf_decal/sandytile,
+/obj/effect/turf_decal/sandytile,
+/obj/effect/turf_decal/sandedge{
+	dir = 8
+	},
+/obj/effect/turf_decal/sandedge{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "sCM" = (
 /obj/machinery/loadout_vendor/valhalla,
 /turf/open/floor/iron/dark/textured,
@@ -1346,6 +1600,28 @@
 "sJF" = (
 /obj/effect/turf_decal/warning_stripes/marine,
 /obj/effect/turf_decal/loading_area,
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"sOp" = (
+/obj/effect/landmark/valhalla/xeno_spawn_landmark{
+	spawn_link = "xenotanksouth"
+	},
+/turf/open/floor/plating/ground/mars/random,
+/area/centcom/valhalla)
+"sVj" = (
+/obj/machinery/button/valhalla/marine_button{
+	spawn_link = "xenofar1"
+	},
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 10
+	},
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
+"sVw" = (
+/obj/effect/turf_decal/sandedge{
+	dir = 1
+	},
+/obj/effect/turf_decal/sandytile,
 /turf/open/floor/iron/dark/textured,
 /area/centcom/valhalla)
 "sWX" = (
@@ -1461,6 +1737,10 @@
 "tGL" = (
 /turf/open/floor/podhatch/floor,
 /area/tdome)
+"tQL" = (
+/obj/machinery/vending/mech_vendor,
+/turf/open/floor/plating/mainship/reinforced,
+/area/centcom/valhalla)
 "tSq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/start/job/fallen,
@@ -1495,13 +1775,6 @@
 /obj/structure/disposaloutlet,
 /turf/open/floor/tile/red/redblue/full,
 /area/tdome/tdomeobserve)
-"ufQ" = (
-/obj/effect/turf_decal/tile/metal/medical{
-	dir = 10
-	},
-/obj/machinery/vending/medical/valhalla,
-/turf/open/floor/mainship/rubber,
-/area/centcom/valhalla)
 "uut" = (
 /obj/machinery/marine_selector/gear/engi/valhalla,
 /turf/open/floor/mainship/metal/full,
@@ -1510,6 +1783,13 @@
 /obj/effect/landmark/thunderdome/one,
 /turf/open/floor/plating,
 /area/tdome/tdome1)
+"uxX" = (
+/obj/machinery/button/valhalla/marine_button{
+	spawn_link = "xenotankmid";
+	name = "Middle xeno spawner"
+	},
+/turf/open/floor/iron/dark/textured,
+/area/centcom/valhalla)
 "uzq" = (
 /obj/machinery/computer/pod{
 	id = "thunderdomegen";
@@ -1517,6 +1797,17 @@
 	},
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"uEK" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 10
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/centcom/valhalla)
+"uHq" = (
+/turf/open/floor/plating/ground/mars/dirttosand{
+	dir = 5
+	},
+/area/centcom/valhalla)
 "uOI" = (
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/centcom/valhalla)
@@ -1528,6 +1819,17 @@
 /obj/structure/reagent_dispensers/beerkeg,
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"uYA" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 1
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/centcom/valhalla)
+"vdn" = (
+/turf/open/floor/plating/ground/mars/dirttosand{
+	dir = 6
+	},
+/area/centcom/valhalla)
 "vef" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor,
@@ -1550,6 +1852,12 @@
 	},
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"vqq" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 8
+	},
+/turf/open/floor/plating/mainship/reinforced,
+/area/centcom/valhalla)
 "vtX" = (
 /obj/machinery/marine_selector/clothes/synth/valhalla,
 /obj/effect/turf_decal/warning_stripes/thick,
@@ -1627,9 +1935,12 @@
 	},
 /turf/open/floor/tile/red/yellowfull,
 /area/tdome/tdomeadmin)
+"wLr" = (
+/turf/open/floor/mainship/rubber,
+/area/centcom/valhalla)
 "wPz" = (
 /obj/effect/landmark/valhalla/marine_spawner_landmark{
-	where = "right"
+	spawn_link = "right"
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
@@ -1669,6 +1980,12 @@
 	},
 /turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
+"xkR" = (
+/obj/effect/landmark/valhalla/xeno_spawn_landmark{
+	spawn_link = "xenotanknorth"
+	},
+/turf/open/floor/plating/ground/mars/random,
+/area/centcom/valhalla)
 "xpm" = (
 /obj/item/target/alien,
 /obj/effect/turf_decal/sandytile,
@@ -1677,20 +1994,26 @@
 /area/centcom/valhalla)
 "xte" = (
 /obj/effect/landmark/valhalla/marine_spawner_landmark{
-	where = "left"
+	spawn_link = "left"
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
 "xtI" = (
 /turf/open/floor/plating,
 /area/tdome)
-"xzt" = (
-/obj/structure/window/framed/mainship/gray/toughened/hull,
-/obj/effect/turf_decal/tile/metal/medical{
-	dir = 5
+"xIC" = (
+/obj/effect/step_trigger/teleporter/random{
+	affect_ghosts = 1;
+	name = "tele_ground1";
+	teleport_x = 180;
+	teleport_x_offset = 200;
+	teleport_y = 50;
+	teleport_y_offset = 80;
+	teleport_z = 1;
+	teleport_z_offset = 1
 	},
-/turf/open/floor/iron/dark/textured,
-/area/centcom/valhalla)
+/turf/template_noop,
+/area/space)
 "xJj" = (
 /turf/closed/wall,
 /area/centcom/valhalla)
@@ -1705,17 +2028,15 @@
 	dir = 1
 	},
 /area/centcom/valhalla)
-"xVT" = (
-/obj/machinery/button/valhalla/marine_button{
-	link = "xenofar1"
-	},
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 10
-	},
-/turf/open/floor/iron/dark/textured,
-/area/centcom/valhalla)
 "xWF" = (
 /turf/open/floor/glass/reinforced,
+/area/centcom/valhalla)
+"xYe" = (
+/obj/structure/closet/secure_closet/medical2{
+	req_access = null
+	},
+/obj/effect/turf_decal/tile/metal/medical,
+/turf/open/floor/mainship/rubber,
 /area/centcom/valhalla)
 "yeN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1811,15 +2132,15 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
 htK
 htK
 htK
@@ -1949,15 +2270,15 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+llp
+pwk
+pwk
+pwk
+pwk
+pwk
+bCd
+bgz
 htK
 htK
 htK
@@ -2087,15 +2408,15 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+xOF
+jWH
+gzY
+wLr
+jWH
+gzY
+bqF
+bgz
 htK
 htK
 htK
@@ -2225,15 +2546,15 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+xOF
+tiQ
+gzY
+wLr
+tiQ
+gzY
+ath
+bgz
 htK
 htK
 htK
@@ -2363,15 +2684,15 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+xOF
+qhT
+prY
+wLr
+qhT
+prY
+nIK
+bgz
 htK
 htK
 htK
@@ -2493,23 +2814,23 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+mLF
+bog
+bog
+hMq
+wLr
+wLr
+xYe
+bgz
 htK
 htK
 htK
@@ -2631,23 +2952,23 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+hGQ
+uOI
+fTr
+gzS
+qYs
+gzS
+jvi
+bgz
+jJC
+wkQ
+bgz
+mLF
+bog
+nBa
+noo
+bgz
 htK
 htK
 htK
@@ -2769,23 +3090,23 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+sZz
+uOI
+lPX
+lPX
+lPX
+lPX
+lPX
+uOI
+dFm
+xWF
+ekc
+mKu
+jJC
+jJC
+bgz
+bgz
 htK
 htK
 htK
@@ -2907,23 +3228,23 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+wZg
+uOI
+ntU
+foh
+uOI
+ntU
+foh
+uOI
+dFm
+xWF
+dFm
+llp
+nCB
+cpH
+pZi
+bgz
 htK
 htK
 htK
@@ -3045,23 +3366,23 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+pik
+uOI
+lPX
+lPX
+lPX
+lPX
+lPX
+uOI
+dFm
+xWF
+dFm
+xOF
+gzY
+vEv
+qlP
+bgz
 htK
 htK
 htK
@@ -3183,23 +3504,23 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+bka
+uOI
+lYp
+okD
+uOI
+bbO
+nKg
+uOI
+dFm
+xWF
+dFm
+xOF
+iot
+gzY
+noL
+bgz
 htK
 htK
 htK
@@ -3321,23 +3642,23 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+kSB
+uOI
+lPX
+lPX
+lPX
+lPX
+lPX
+uOI
+dFm
+wqU
+dFm
+xOF
+gCD
+gzY
+jxT
+bgz
 htK
 htK
 htK
@@ -3459,23 +3780,23 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+oKa
+uOI
+mGD
+pga
+etk
+tAC
+mcN
+uOI
+dFm
+xWF
+rBJ
+xOF
+gMl
+gzY
+xeF
+bgz
 htK
 htK
 htK
@@ -3597,23 +3918,23 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+bgz
+vtX
+kUY
+dFm
+tSq
+dFm
+xOF
+knm
+gzY
+fvw
+bgz
 htK
 htK
 htK
@@ -3729,29 +4050,29 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+sFR
+fWu
+fWu
+fWu
+bjQ
 bgz
 bgz
+bfK
+dFm
+dFm
+xWF
+dFm
+xOF
+gzY
+iZc
+qlP
 bgz
-bgz
-bgz
-bgz
-htK
-htK
-htK
-htK
 htK
 htK
 htK
@@ -3867,29 +4188,29 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+fWu
+fmR
+bbR
+lKz
+bbR
+bbR
+eGk
+bbR
+aMq
+veZ
+dAJ
+pfh
+wfL
+sVj
+dFm
+dFm
+wqU
+dFm
+mLF
+ble
+pLH
+cdt
 bgz
-llp
-pwk
-pwk
-bCd
-bgz
-htK
-htK
-htK
-htK
 htK
 htK
 htK
@@ -4005,29 +4326,29 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+fWu
+bbR
+lKz
+aEr
+bbR
+bbR
+bbR
+dlQ
+aMq
+xUc
+dAJ
+pfh
+rCR
+hdk
+dFm
+dFm
+xWF
+dFm
+lEp
 bgz
-xOF
-jWH
-gzY
-bqF
 bgz
-htK
-htK
-htK
-htK
+bgz
+bgz
 htK
 htK
 htK
@@ -4143,30 +4464,30 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+fWu
+bbR
+dlQ
+bbR
+bbR
+bbR
+bbR
+bbR
+aMq
+dhA
+dAJ
+pfh
+rCR
+sWX
+dFm
+dFm
+wqU
+rVD
+lFj
 bgz
-xOF
-tiQ
-gzY
-ath
 bgz
-htK
-htK
-htK
-htK
-htK
+bgz
+bgz
+bgz
 htK
 htK
 htK
@@ -4281,30 +4602,30 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+fWu
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+irE
+xUc
+dAJ
+pfh
+rCR
+hdk
+dFm
+tzf
+ndm
+dFm
+tuZ
 bgz
-xOF
-qhT
-prY
-nIK
+ecT
+nwK
+tQL
 bgz
-htK
-htK
-htK
-htK
-htK
 htK
 htK
 htK
@@ -4419,30 +4740,30 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
+fWu
+aLR
+bbR
+bbR
+dlQ
+bbR
+bbR
+lKz
+aMq
+xUc
+xpm
+pfh
+rCR
+lhu
+tzf
+dFm
+wqU
+dFm
+bnV
+kJx
+ecT
+ecT
+ecT
 bgz
-bgz
-bgz
-bgz
-bgz
-bgz
-bgz
-bgz
-bgz
-mLF
-bog
-bog
-eSM
-bgz
-htK
-htK
-htK
-htK
-htK
 htK
 htK
 htK
@@ -4557,30 +4878,30 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
+fWu
+xJj
+aLR
+bbR
+bbR
+bbR
+bbR
+bbR
+aMq
+xUc
+dAJ
+pfh
+rCR
+sWX
+tzf
+dFm
+xWF
+tzf
+bPK
 bgz
-hGQ
-uOI
-fTr
-gzS
-qYs
-gzS
-jvi
+ecT
+nwK
+tQL
 bgz
-xzt
-wkQ
-jJC
-jJC
-bgz
-htK
-htK
-htK
-htK
-htK
 htK
 htK
 htK
@@ -4695,30 +5016,30 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
+fWu
+fmR
+fmR
+fmR
+bbR
+bbR
+bbR
+bbR
+aMq
+oNZ
+gqY
+pfh
+rCR
+hdk
+tzf
+dFm
+tSq
+sJF
+lFj
 bgz
-sZz
-uOI
-lPX
-lPX
-lPX
-lPX
-lPX
-uOI
-pwk
-pwk
-pwk
-ufQ
 bgz
 bgz
 bgz
 bgz
-htK
-htK
 htK
 htK
 htK
@@ -4833,29 +5154,29 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-bgz
-wZg
-uOI
-ntU
-foh
-uOI
-ntU
-foh
-uOI
+fWu
+fWu
+fWu
+fWu
+fmR
+fmR
+bbR
+bbR
+fdy
+xUc
+dAJ
+pfh
+pUr
+hcB
+tzf
 dFm
 xWF
 dFm
-dyS
-nCB
-cpH
-pZi
+cbS
 bgz
-htK
+bgz
+bgz
+bgz
 htK
 htK
 htK
@@ -4971,29 +5292,29 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
+fmR
+fmR
+fmR
+fWu
+fWu
+fWu
+jtw
+fWu
+fWu
 bgz
-pik
-uOI
-lPX
-lPX
-lPX
-lPX
-lPX
-uOI
-dFm
-xWF
-dFm
-dyS
-gzY
-vEv
-qlP
+jJC
+jJC
+jJC
 bgz
-htK
+hYu
+tzf
+wqU
+dFm
+bgz
+ppm
+mHP
+ijc
+bgz
 htK
 htK
 htK
@@ -5114,24 +5435,24 @@ htK
 htK
 htK
 htK
+htK
+htK
+htK
+htK
 bgz
-bka
-uOI
-lYp
-okD
-uOI
-bbO
-nKg
-uOI
+uut
+yeN
+mqB
+jJC
+cnE
 dFm
 xWF
-dFm
-dyS
-iot
-gzY
-noL
-bgz
-htK
+bZV
+jJC
+mHP
+mHP
+epz
+dJw
 htK
 htK
 htK
@@ -5252,24 +5573,24 @@ htK
 htK
 htK
 htK
+htK
+htK
+htK
+htK
 bgz
-kSB
-uOI
-lPX
-lPX
-lPX
-lPX
-lPX
-uOI
+vSl
+mHP
+mHP
+iNh
+iDZ
 dFm
 wqU
-dFm
-dyS
-gCD
-gzY
-jxT
+kjb
+kmz
+mHP
+mHP
+oJr
 bgz
-htK
 htK
 htK
 htK
@@ -5390,24 +5711,24 @@ htK
 htK
 htK
 htK
+htK
+htK
+htK
+htK
 bgz
-oKa
-uOI
-mGD
-pga
-etk
-tAC
-mcN
-uOI
+uut
+mHP
+yeN
+jJC
+gzk
 dFm
 xWF
-rBJ
-dyS
-gMl
-gzY
-xeF
+tzf
+jJC
+oQC
+mHP
+cre
 bgz
-htK
 htK
 htK
 htK
@@ -5528,24 +5849,24 @@ htK
 htK
 htK
 htK
-bgz
-bgz
-bgz
-bgz
-bgz
-bgz
-bgz
-vtX
-kUY
-dFm
-tSq
-dFm
-dyS
-knm
-gzY
-fvw
-bgz
 htK
+htK
+htK
+htK
+bgz
+bgz
+jJC
+jJC
+bgz
+sCM
+dFm
+wqU
+dFm
+bgz
+jJC
+jJC
+bgz
+bgz
 htK
 htK
 htK
@@ -5660,30 +5981,30 @@ htK
 htK
 htK
 htK
-fWu
-fWu
-fWu
-fWu
-fWu
-fWu
-sFR
-fWu
-fWu
-fWu
-bjQ
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
 bgz
-bgz
-bfK
-dFm
+bqN
+mHP
+kIe
+jJC
+hkP
 dFm
 xWF
 dFm
-dyS
-gzY
-iZc
-qlP
+jJC
+mPJ
+mHP
+oJr
 bgz
-htK
 htK
 htK
 htK
@@ -5798,30 +6119,30 @@ htK
 htK
 htK
 htK
-fWu
-fmR
-bbR
-aRf
-avM
-bbR
-eGk
-bbR
-aMq
-veZ
-dAJ
-pfh
-wfL
-xVT
-dFm
-dFm
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+bgz
+vSl
+yeN
+yeN
+khV
+rFk
+tzf
 wqU
 dFm
-dyS
-ble
-pLH
-cdt
+jJC
+vSl
+mHP
+mPJ
 bgz
-htK
 htK
 htK
 htK
@@ -5936,30 +6257,30 @@ htK
 htK
 htK
 htK
-fWu
-bbR
-lKz
-aSD
-bbR
-bbR
-bbR
-dlQ
-aMq
-xUc
-dAJ
-pfh
-rCR
-hdk
-dFm
-dFm
-xWF
-dFm
-lEp
-bgz
-bgz
-bgz
-bgz
 htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+bgz
+bqN
+mHP
+mHP
+jJC
+mzH
+dFm
+gJS
+aoa
+frZ
+mHP
+mHP
+mPT
+bgz
 htK
 htK
 htK
@@ -6037,24 +6358,24 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
 htK
 htK
 htK
@@ -6074,30 +6395,30 @@ htK
 htK
 htK
 htK
-fWu
-bbR
-dlQ
-bbR
-bbR
-bbR
-bbR
-bbR
-aMq
-dhA
-dAJ
-pfh
-rCR
-sWX
-dFm
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+bgz
+bgz
+jJC
+jJC
+jJC
+kKa
 dFm
 wqU
-rVD
-lFj
+dFm
 bgz
 bgz
 bgz
 bgz
-htK
+bgz
 htK
 htK
 htK
@@ -6175,24 +6496,24 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+xIC
+boC
+boC
+boC
+boC
+boC
+boC
+boC
+boC
+boC
+boC
+boC
+boC
+boC
+boC
+boC
+boC
+xIC
 htK
 htK
 htK
@@ -6212,29 +6533,29 @@ htK
 htK
 htK
 htK
-fWu
-bbR
-bbR
-bbR
-bbR
-bbR
-bbR
-bbR
-gAO
-xUc
-dAJ
-pfh
-rCR
-hdk
-dFm
-tzf
-ndm
-dFm
-tuZ
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
 bgz
-ecT
-nwK
+mNv
+mHP
+mHP
+tFi
+eCH
+dFm
+xWF
+dFm
 bgz
+htK
+htK
+htK
 htK
 htK
 htK
@@ -6313,24 +6634,24 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+xIC
+boC
+fog
+fog
+fog
+fog
+fog
+fog
+fog
+fog
+fog
+fog
+fog
+fog
+fog
+fog
+boC
+xIC
 htK
 htK
 htK
@@ -6350,29 +6671,29 @@ htK
 htK
 htK
 htK
-fWu
-aLR
-bbR
-bbR
-dlQ
-bbR
-bbR
-lKz
-aMq
-xUc
-xpm
-pfh
-rCR
-jvR
-tzf
-dFm
-wqU
-dFm
-bnV
-kJx
-ecT
-ecT
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
 bgz
+rhC
+mHP
+yeN
+jJC
+sCM
+dFm
+xWF
+dFm
+bgz
+htK
+htK
+htK
 htK
 htK
 htK
@@ -6451,24 +6772,24 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+xIC
+boC
+fog
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+fog
+boC
+xIC
 htK
 htK
 htK
@@ -6488,29 +6809,29 @@ htK
 htK
 htK
 htK
-fWu
-xJj
-aLR
-bbR
-bbR
-bbR
-bbR
-bbR
-aMq
-xUc
-dAJ
-pfh
-rCR
-sWX
-tzf
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+htK
+bgz
+mNv
+vSl
+fUN
+kiN
+hYu
 dFm
-xWF
-tzf
-bPK
+nhm
+dFm
 bgz
-ecT
-nwK
-bgz
+htK
+htK
+htK
 htK
 htK
 htK
@@ -6589,24 +6910,24 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+xIC
+boC
+fog
+oXf
+kOY
+oXf
+oXf
+kOY
+oXf
+oXf
+kOY
+oXf
+oXf
+kOY
+oXf
+fog
+boC
+xIC
 htK
 htK
 htK
@@ -6619,6 +6940,7 @@ akg
 akg
 akg
 aew
+htK
 htK
 htK
 htK
@@ -6627,35 +6949,34 @@ htK
 htK
 htK
 fWu
-fmR
-fmR
-fmR
-bbR
-bbR
-bbR
-bbR
-aMq
-oNZ
-oHK
-pfh
-rCR
-hdk
-tzf
-dFm
-tSq
-sJF
-lFj
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
 bgz
 bgz
 bgz
 bgz
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+bgz
+bgz
+bgz
+eYQ
+bgz
+bgz
+bgz
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
 htK
 htK
 htK
@@ -6727,24 +7048,24 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+xIC
+boC
+fog
+oXf
+oXf
+oXf
+oXf
+oXf
+jXO
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+fog
+boC
+xIC
 htK
 htK
 htK
@@ -6764,36 +7085,36 @@ htK
 htK
 htK
 htK
-fWu
-fWu
-fWu
+htK
 fWu
 fmR
-fmR
+xJj
+aLR
 bbR
 bbR
-fdy
+aMq
 xUc
-dAJ
-pfh
-pUr
-nvt
-tzf
+eZp
 dFm
-xWF
 dFm
-cbS
-bgz
-bgz
-bgz
-bgz
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+dFm
+dFm
+dFm
+dFm
+dFm
+dFm
+dFm
+dFm
+dFm
+sVw
+mOK
+kXA
+bbR
+bbR
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -6865,24 +7186,24 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+xIC
+boC
+fog
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+fog
+boC
+xIC
 htK
 htK
 htK
@@ -6902,36 +7223,36 @@ htK
 htK
 htK
 htK
+htK
+fWu
 fmR
 fmR
-fmR
-fWu
-fWu
-fWu
-jtw
-fWu
-fWu
-bgz
-jJC
-jJC
-jJC
-bgz
-hYu
-tzf
-wqU
+eGk
+bbR
+bbR
+aMq
+xUc
+eZp
 dFm
-bgz
-ppm
-mHP
-ijc
-bgz
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+dFm
+dFm
+nSi
+vqq
+dxo
+vqq
+uEK
+dFm
+dFm
+dFm
+sVw
+mOK
+kXA
+bbR
+bbR
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -7003,24 +7324,24 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+xIC
+boC
+fog
+oXf
+kOY
+oXf
+oXf
+kOY
+oXf
+oXf
+kOY
+oXf
+oXf
+kOY
+oXf
+fog
+boC
+xIC
 htK
 htK
 htK
@@ -7041,35 +7362,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-bgz
-uut
-yeN
-mqB
-jJC
-cnE
+fWu
+fmR
+bbR
+bbR
+bbR
+bbR
+aMq
+xUc
+eZp
 dFm
-xWF
-bZV
-jJC
-mHP
-mHP
-epz
-dJw
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+dFm
+dFm
+uYA
+ecT
+ecT
+ecT
+dhS
+dFm
+dFm
+dFm
+sVw
+mOK
+kXA
+bbR
+bbR
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -7141,24 +7462,24 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+xIC
+boC
+fog
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+oXf
+fog
+boC
+xIC
 htK
 htK
 htK
@@ -7179,35 +7500,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-bgz
-vSl
-mHP
-mHP
-iNh
-iDZ
+fWu
+huz
+bbR
+bbR
+bbR
+bbR
+aMq
+xUc
+eZp
 dFm
-wqU
-kjb
-kmz
-mHP
-mHP
-oJr
-bgz
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+dFm
+dFm
+uYA
+ecT
+rYT
+ecT
+dhS
+dFm
+dFm
+dFm
+sVw
+mOK
+kXA
+bbR
+lKz
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -7279,6 +7600,24 @@ htK
 htK
 htK
 htK
+xIC
+boC
+fog
+fog
+fog
+fog
+fog
+fog
+fog
+fog
+kmG
+oXf
+fog
+fog
+fog
+fog
+boC
+xIC
 htK
 htK
 htK
@@ -7299,53 +7638,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-bgz
-uut
-mHP
-yeN
-jJC
-gzk
+fWu
+bbR
+bbR
+bbR
+lKz
+bbR
+aMq
+xUc
+eZp
 dFm
-xWF
-tzf
-jJC
-oQC
-mHP
-cre
-bgz
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+dFm
+dFm
+uYA
+ecT
+ecT
+ecT
+dhS
+dFm
+dFm
+dFm
+sVw
+mOK
+kXA
+bbR
+bbR
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -7417,6 +7738,24 @@ htK
 htK
 htK
 htK
+xIC
+boC
+boC
+boC
+boC
+boC
+boC
+boC
+boC
+fog
+pqO
+pqO
+fog
+boC
+boC
+boC
+boC
+xIC
 htK
 htK
 htK
@@ -7437,53 +7776,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-bgz
-bgz
-jJC
-jJC
-bgz
-sCM
+fWu
+bbR
+bbR
+bbR
+bbR
+bbR
+aMq
+xUc
+eZp
 dFm
-wqU
 dFm
-bgz
-jJC
-jJC
-bgz
-bgz
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+dFm
+mUt
+jpz
+jpz
+jpz
+azj
+dFm
+dFm
+dFm
+sVw
+mOK
+kXA
+bbR
+bbR
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -7555,6 +7876,24 @@ htK
 htK
 htK
 htK
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+boC
+fog
+oXf
+oXf
+fog
+boC
+xIC
+xIC
+xIC
+xIC
 htK
 htK
 htK
@@ -7575,53 +7914,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-bgz
-bqN
-mHP
-kIe
-jJC
-hkP
+fWu
+bbR
+bbR
+dlQ
+bbR
+bbR
+aMq
+xUc
+eZp
 dFm
-xWF
 dFm
-jJC
-mPJ
-mHP
-oJr
-bgz
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+dFm
+oLj
+otL
+oLj
+fVA
+kLS
+fxO
+goE
+dFm
+sVw
+mOK
+kXA
+bbR
+bbR
+dlQ
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -7694,6 +8015,20 @@ htK
 htK
 htK
 htK
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+boC
+fog
+kOY
+oXf
+fog
+boC
+xIC
 htK
 htK
 htK
@@ -7717,49 +8052,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-bgz
-vSl
-yeN
-yeN
-khV
-rFk
-tzf
-wqU
+fWu
+bbR
+bbR
+xkR
+bbR
+bbR
+aMq
+xUc
+eZp
 dFm
-jJC
-vSl
-mHP
-mPJ
-bgz
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+dFm
+dFm
+oLj
+dFm
+dFm
+dFm
+cnE
+dFm
+jwl
+dFm
+sVw
+mOK
+kXA
+bbR
+bbR
+sOp
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -7830,10 +8151,9 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
+xIC
+xIC
+xIC
 boC
 boC
 boC
@@ -7841,8 +8161,12 @@ boC
 boC
 boC
 boC
+fog
+oXf
+oXf
+fog
 boC
-boC
+xIC
 htK
 htK
 htK
@@ -7866,38 +8190,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-bgz
-bqN
-mHP
-mHP
-jJC
-mzH
+fWu
+bbR
+bbR
+bbR
+bbR
+bbR
+aMq
+xUc
+eZp
 dFm
-gJS
-aoa
-frZ
-mHP
-mHP
-mPT
-bgz
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+dFm
+dFm
+oLj
+aBM
+dFm
+dFm
+oLj
+dFm
+oLj
+dFm
+sVw
+mOK
+kXA
+bbR
+bbR
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -7968,8 +8289,8 @@ htK
 htK
 htK
 htK
-htK
-htK
+xIC
+xIC
 boC
 boC
 boC
@@ -7983,6 +8304,8 @@ fog
 boC
 boC
 boC
+xIC
+xIC
 htK
 htK
 htK
@@ -8005,37 +8328,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-bgz
-bgz
-jJC
-jJC
-jJC
-kKa
+fWu
+bbR
+bbR
+bbR
+bbR
+bbR
+kSw
+xUc
+eZp
 dFm
-wqU
+oco
 dFm
-bgz
-bgz
-bgz
-bgz
-bgz
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+oLj
+uxX
+dFm
+dFm
+gzk
+dFm
+jwl
+dFm
+sVw
+mOK
+kXA
+bbR
+bbR
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -8099,14 +8420,14 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
 boC
 boC
 fog
@@ -8122,6 +8443,8 @@ fog
 fog
 boC
 boC
+xIC
+xIC
 htK
 htK
 htK
@@ -8143,37 +8466,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-bgz
-mNv
-mHP
-mHP
-tFi
-eCH
+fWu
+bbR
+bbR
+bbR
+bbR
+bbR
+aMq
+xUc
+eZp
 dFm
-xWF
 dFm
-bgz
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+dFm
+oLj
+led
+dFm
+eJn
+kLS
+fxO
+goE
+dFm
+sVw
+mOK
+kXA
+bbR
+bbR
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -8237,7 +8558,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 boC
@@ -8261,6 +8582,8 @@ fog
 fog
 boC
 boC
+xIC
+xIC
 htK
 htK
 htK
@@ -8281,37 +8604,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-bgz
-rhC
-mHP
-yeN
-jJC
-sCM
+fWu
+bbR
+bbR
+bbR
+bbR
+bbR
+aMq
+xUc
+dAJ
 dFm
 dFm
 dFm
-bgz
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+dFm
+dFm
+dFm
+dFm
+dFm
+dFm
+dFm
+dFm
+sVw
+mOK
+kXA
+bbR
+bbR
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -8374,8 +8695,8 @@ htK
 htK
 htK
 htK
-htK
-htK
+xIC
+xIC
 boC
 boC
 boC
@@ -8400,6 +8721,7 @@ fog
 fog
 boC
 boC
+xIC
 htK
 htK
 htK
@@ -8420,36 +8742,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-bgz
-mNv
-vSl
-fUN
-bgz
-bgz
-bgz
-bgz
-bgz
-bgz
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+fWu
+bbR
+bbR
+bbR
+bbR
+bbR
+aMq
+xUc
+hGV
+kaS
+dij
+dij
+dij
+dij
+dij
+dij
+dij
+dij
+dij
+kaS
+sCk
+mOK
+kXA
+bbR
+bbR
+bbR
+lKz
+bbR
+fWu
 htK
 htK
 htK
@@ -8511,8 +8832,8 @@ htK
 htK
 htK
 htK
-htK
-htK
+xIC
+xIC
 boC
 boC
 fog
@@ -8538,6 +8859,7 @@ oXf
 fog
 fog
 boC
+xIC
 htK
 htK
 htK
@@ -8558,36 +8880,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-bgz
-bgz
-bgz
-bgz
-bgz
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+fWu
+bbR
+bbR
+bbR
+bbR
+lKz
+aMq
+cjT
+oRK
+oRK
+oRK
+oRK
+oRK
+oRK
+oRK
+oRK
+oRK
+oRK
+oRK
+oRK
+jyn
+qVf
+kXA
+bbR
+bbR
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -8649,7 +8970,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 boC
@@ -8676,6 +8997,7 @@ oXf
 oXf
 fog
 boC
+xIC
 htK
 htK
 htK
@@ -8696,36 +9018,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+fWu
+bbR
+bbR
+bbR
+bbR
+bbR
+uHq
+pEM
+pEM
+pEM
+pEM
+pEM
+pEM
+pEM
+pEM
+pEM
+pEM
+pEM
+pEM
+pEM
+pEM
+pEM
+vdn
+bbR
+bbR
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -8787,7 +9108,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 fog
@@ -8814,6 +9135,7 @@ kOY
 oXf
 fog
 boC
+xIC
 htK
 htK
 htK
@@ -8834,36 +9156,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+fWu
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+lKz
+bbR
+bbR
+qTa
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -8924,8 +9245,8 @@ htK
 htK
 htK
 htK
-htK
-htK
+xIC
+xIC
 boC
 tqo
 fog
@@ -8952,6 +9273,7 @@ oXf
 oXf
 fog
 boC
+xIC
 htK
 htK
 htK
@@ -8972,36 +9294,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+fWu
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+dlQ
+bbR
+bbR
+bbR
+bbR
+bbR
+lKz
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -9062,7 +9383,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 fog
@@ -9090,6 +9411,7 @@ oXf
 fog
 fog
 boC
+xIC
 htK
 htK
 htK
@@ -9110,36 +9432,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+fWu
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+bbR
+fWu
 htK
 htK
 htK
@@ -9200,7 +9521,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 fog
@@ -9228,6 +9549,7 @@ fog
 fog
 boC
 boC
+xIC
 htK
 htK
 htK
@@ -9248,36 +9570,35 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
+fWu
 htK
 htK
 htK
@@ -9338,7 +9659,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 fog
@@ -9365,8 +9686,8 @@ fog
 boC
 boC
 boC
-htK
-htK
+xIC
+xIC
 htK
 htK
 htK
@@ -9476,7 +9797,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 fog
@@ -9503,8 +9824,8 @@ boC
 boC
 boC
 boC
-htK
-htK
+xIC
+xIC
 htK
 htK
 htK
@@ -9614,7 +9935,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 fog
@@ -9641,8 +9962,8 @@ boC
 boC
 boC
 boC
-htK
-htK
+xIC
+xIC
 htK
 htK
 htK
@@ -9752,7 +10073,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 fog
@@ -9780,7 +10101,7 @@ boC
 boC
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -9890,7 +10211,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 tqo
@@ -9918,7 +10239,7 @@ boC
 boC
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -10028,7 +10349,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -10056,7 +10377,7 @@ boC
 boC
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -10166,7 +10487,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -10194,7 +10515,7 @@ fog
 fog
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -10304,7 +10625,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -10332,7 +10653,7 @@ oXf
 fog
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -10442,7 +10763,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -10470,8 +10791,8 @@ oXf
 fog
 boC
 boC
-htK
-htK
+xIC
+xIC
 htK
 htK
 htK
@@ -10580,7 +10901,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -10609,7 +10930,7 @@ fog
 boC
 jWX
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -10718,7 +11039,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -10747,7 +11068,7 @@ fog
 boC
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -10856,7 +11177,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -10885,7 +11206,7 @@ fog
 boC
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -10994,7 +11315,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -11023,7 +11344,7 @@ fog
 boC
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -11132,7 +11453,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -11161,7 +11482,7 @@ fog
 boC
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -11270,7 +11591,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -11299,7 +11620,7 @@ fog
 boC
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -11408,7 +11729,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 tqo
@@ -11437,7 +11758,7 @@ fog
 boC
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -11546,7 +11867,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 fog
@@ -11575,7 +11896,7 @@ fog
 boC
 jWX
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -11684,7 +12005,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 fog
@@ -11711,9 +12032,9 @@ oXf
 oXf
 fog
 boC
-htK
-htK
-htK
+xIC
+xIC
+xIC
 htK
 htK
 htK
@@ -11822,7 +12143,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 fog
@@ -11849,7 +12170,7 @@ kOY
 oXf
 fog
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -11960,7 +12281,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 fog
@@ -11987,7 +12308,7 @@ oXf
 oXf
 fog
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -12098,7 +12419,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 fog
@@ -12125,7 +12446,7 @@ oXf
 oXf
 fog
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -12236,7 +12557,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 tqo
@@ -12263,7 +12584,7 @@ kOY
 oXf
 fog
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -12374,7 +12695,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -12401,7 +12722,7 @@ fog
 fog
 fog
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -12512,7 +12833,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -12539,7 +12860,7 @@ boC
 boC
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -12650,7 +12971,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -12674,10 +12995,10 @@ boC
 boC
 boC
 boC
-htK
-htK
-htK
-htK
+xIC
+xIC
+xIC
+xIC
 htK
 htK
 htK
@@ -12788,7 +13109,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -12809,10 +13130,10 @@ pqO
 fog
 fog
 boC
-htK
-htK
-htK
-htK
+xIC
+xIC
+xIC
+xIC
 htK
 htK
 htK
@@ -12926,7 +13247,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -12949,8 +13270,8 @@ boC
 boC
 boC
 boC
-htK
-htK
+xIC
+xIC
 htK
 htK
 htK
@@ -13064,7 +13385,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -13088,8 +13409,8 @@ fog
 boC
 boC
 boC
-htK
-htK
+xIC
+xIC
 htK
 htK
 htK
@@ -13202,7 +13523,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -13227,7 +13548,7 @@ fog
 fog
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -13340,7 +13661,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 oXf
@@ -13365,7 +13686,7 @@ kOY
 fog
 fog
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -13478,7 +13799,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 fog
 fog
@@ -13503,7 +13824,7 @@ oXf
 oXf
 fog
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -13616,7 +13937,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 tqo
@@ -13641,7 +13962,7 @@ oXf
 oXf
 fog
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -13754,7 +14075,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 boC
@@ -13779,7 +14100,7 @@ kOY
 oXf
 fog
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -13892,9 +14213,9 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
+xIC
+xIC
+xIC
 boC
 boC
 boC
@@ -13917,7 +14238,7 @@ oXf
 oXf
 fog
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -14032,8 +14353,8 @@ htK
 htK
 htK
 htK
-htK
-htK
+xIC
+kwp
 boC
 boC
 boC
@@ -14055,7 +14376,7 @@ kOY
 oXf
 fog
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -14171,7 +14492,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 boC
@@ -14193,7 +14514,7 @@ oXf
 oXf
 fog
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -14309,7 +14630,7 @@ htK
 htK
 htK
 htK
-htK
+xIC
 boC
 boC
 boC
@@ -14331,7 +14652,7 @@ kOY
 fog
 fog
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -14447,13 +14768,13 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
 boC
 boC
 boC
@@ -14469,7 +14790,7 @@ fog
 fog
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -14591,8 +14912,8 @@ htK
 htK
 htK
 htK
-htK
-htK
+xIC
+xIC
 boC
 boC
 boC
@@ -14607,7 +14928,7 @@ boC
 boC
 boC
 boC
-htK
+xIC
 htK
 htK
 htK
@@ -14730,22 +15051,22 @@ htK
 htK
 htK
 htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
-htK
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
+xIC
 htK
 htK
 htK
