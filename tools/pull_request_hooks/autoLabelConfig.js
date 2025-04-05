@@ -55,6 +55,7 @@ export const title_labels = {
 	},
 	'April Fools' : {
 		keywords: ['[april fools]'],
+		add_only: true,
 	},
 	'Do Not Merge' : {
 		keywords: ['[dnm]', '[do not merge]'],
