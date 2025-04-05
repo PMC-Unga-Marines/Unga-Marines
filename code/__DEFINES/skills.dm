@@ -53,8 +53,8 @@
 #define SKILL_CONSTRUCTION_METAL 1
 #define SKILL_CONSTRUCTION_PLASTEEL 2
 #define SKILL_CONSTRUCTION_ADVANCED 3
-#define SKILL_CONSTRUCTION_MASTER 4
-#define SKILL_CONSTRUCTION_INHUMAN 5
+#define SKILL_CONSTRUCTION_EXPERT 4
+#define SKILL_CONSTRUCTION_MASTER 5
 
 ///Engineer skill; higher levels means faster engine repair and more integrity repair off welding
 #define SKILL_ENGINEER "engineer"
@@ -63,8 +63,8 @@
 #define SKILL_ENGINEER_METAL 1
 #define SKILL_ENGINEER_PLASTEEL 2
 #define SKILL_ENGINEER_ENGI 3
-#define SKILL_ENGINEER_MASTER 4
-#define SKILL_ENGINEER_INHUMAN 5
+#define SKILL_ENGINEER_EXPERT 4
+#define SKILL_ENGINEER_MASTER 5
 
 ///Medical skill; higher levels means faster syringe use and better defibrillation
 #define SKILL_MEDICAL "medical"

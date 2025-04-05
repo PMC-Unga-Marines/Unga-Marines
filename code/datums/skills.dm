@@ -248,8 +248,8 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	firearms = SKILL_FIREARMS_DEFAULT
 	medical = SKILL_MEDICAL_EXPERT
 	surgery = SKILL_SURGERY_EXPERT
-	construction = SKILL_CONSTRUCTION_MASTER
-	engineer = SKILL_ENGINEER_MASTER
+	construction = SKILL_CONSTRUCTION_EXPERT
+	engineer = SKILL_ENGINEER_EXPERT
 	powerloader = SKILL_POWERLOADER_MASTER
 	police = SKILL_POLICE_FLASH
 
@@ -276,8 +276,8 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 
 /datum/skills/civilian/survivor/atmos
 	name = "Survivor Atmos Tech"
-	engineer = SKILL_ENGINEER_MASTER
-	construction = SKILL_CONSTRUCTION_MASTER
+	engineer = SKILL_ENGINEER_EXPERT
+	construction = SKILL_CONSTRUCTION_EXPERT
 
 /datum/skills/civilian/survivor/marshal
 	name = "Survivor Marshal"
@@ -331,8 +331,8 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 
 /datum/skills/ai
 	name = "AI"
-	engineer = SKILL_ENGINEER_MASTER
-	construction = SKILL_CONSTRUCTION_MASTER
+	engineer = SKILL_ENGINEER_EXPERT
+	construction = SKILL_CONSTRUCTION_EXPERT
 	firearms = SKILL_FIREARMS_UNTRAINED
 	medical = SKILL_MEDICAL_EXPERT
 	leadership = SKILL_LEAD_MASTER
@@ -343,8 +343,8 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 
 /datum/skills/synthetic
 	name = SYNTHETIC
-	engineer = SKILL_ENGINEER_MASTER
-	construction = SKILL_CONSTRUCTION_MASTER
+	engineer = SKILL_ENGINEER_EXPERT
+	construction = SKILL_CONSTRUCTION_EXPERT
 	firearms = SKILL_FIREARMS_UNTRAINED
 	medical = SKILL_MEDICAL_EXPERT
 	cqc = SKILL_CQC_MASTER
@@ -357,8 +357,8 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 
 /datum/skills/early_synthetic
 	name = "Early Synthetic"
-	engineer = SKILL_ENGINEER_INHUMAN
-	construction = SKILL_CONSTRUCTION_INHUMAN
+	engineer = SKILL_ENGINEER_MASTER
+	construction = SKILL_CONSTRUCTION_MASTER
 	firearms = SKILL_FIREARMS_UNTRAINED
 	medical = SKILL_MEDICAL_COMPETENT
 	cqc = SKILL_CQC_MASTER
@@ -448,8 +448,8 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 
 /datum/skills/st
 	name = SHIP_TECH
-	engineer = SKILL_ENGINEER_MASTER
-	construction = SKILL_CONSTRUCTION_MASTER
+	engineer = SKILL_ENGINEER_EXPERT
+	construction = SKILL_CONSTRUCTION_EXPERT
 	powerloader = SKILL_POWERLOADER_MASTER
 
 /datum/skills/pmc
@@ -613,8 +613,8 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 
 /datum/skills/spatial_agent
 	name = "Spatial Agent"
-	engineer = SKILL_ENGINEER_MASTER
-	construction = SKILL_CONSTRUCTION_MASTER
+	engineer = SKILL_ENGINEER_EXPERT
+	construction = SKILL_CONSTRUCTION_EXPERT
 	firearms = SKILL_FIREARMS_TRAINED
 	smartgun = SKILL_SMART_TRAINED
 	medical = SKILL_MEDICAL_MASTER
@@ -776,7 +776,7 @@ engineer, construction, leadership, medical, surgery, pilot, police, powerloader
 	name = "Yautja Warrior"
 
 	engineer = SKILL_ENGINEER_ENGI
-	construction = SKILL_CONSTRUCTION_MASTER
+	construction = SKILL_CONSTRUCTION_EXPERT
 	firearms = SKILL_FIREARMS_TRAINED
 	medical = SKILL_MEDICAL_MASTER
 	cqc = SKILL_CQC_MASTER
