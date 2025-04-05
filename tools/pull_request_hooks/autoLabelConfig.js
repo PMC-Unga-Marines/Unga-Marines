@@ -64,6 +64,7 @@ export const title_labels = {
 	},
 	'Port': {
 		keywords: ['port'],
+		add_only: true,
 	},
 }
 
