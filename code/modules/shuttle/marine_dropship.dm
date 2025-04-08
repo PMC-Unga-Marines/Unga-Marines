@@ -543,8 +543,8 @@
 	data["ship_status"] = shuttle.getStatusText()
 	data["automatic_cycle_on"] = shuttle.automatic_cycle_on
 	data["time_between_cycle"] = shuttle.time_between_cycle
-	.["can_hunt"] = SSticker.mode.can_hunt()
-	.["show_hunt"] = show_hunt
+	data["can_hunt"] = SSticker.mode.can_hunt()
+	data["show_hunt"] = show_hunt
 
 	var/datum/game_mode/infestation/infestation_mode = SSticker.mode
 	data["shuttle_hijacked"] = (infestation_mode.round_stage == INFESTATION_MARINE_CRASHING) //If we hijacked, our capture button greys out

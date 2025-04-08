@@ -10,7 +10,7 @@ import {
 import { Window } from '../layouts';
 
 export const MarineDropship = (props) => {
-  const { act, data } = useBackend();
+  const { data } = useBackend();
 
   return (
     <>
