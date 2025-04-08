@@ -90,6 +90,12 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 	input = list(/obj/item/stack/sheet/plasteel = 5, /obj/item/stack/sheet/glass/glass = 3) // 40 + 6
 	output = list(/obj/structure/droppod = 1) //40 points
 
+/datum/assembly_craft/engineering/deployable_floodlight
+	name = "Deployable floodlight"
+	craft_time = 20 SECONDS
+	input = list(/obj/item/stack/sheet/plasteel = 3, /obj/item/stack/sheet/glass/glass = 3) // 24 + 6
+	output = list(/obj/item/deployable_floodlight = 1) //30 points
+
 /*******************************************************************************
 CLOTHING
 *******************************************************************************/
@@ -188,6 +194,23 @@ EXPLOSIVES
 	input = list(/obj/item/stack/sheet/jeweler_steel = 5, /obj/item/stack/gun_powder = 3) // 20 + 16 points
 	output = list(/obj/item/ammo_magazine/rocket/recoilless/plasmaloss = 1) // 20 points from old factory
 
+/datum/assembly_craft/explosives/c4
+	name = "Plastic explosive"
+	input = list(/obj/item/stack/sheet/composite = 4, /obj/item/stack/gun_powder = 2) // 16 + 16 points
+	output = list(/obj/item/deployable_floodlight = 1) //30 points
+
+/datum/assembly_craft/explosives/detpack
+	name = "Detonation pack"
+	craft_time = 12 SECONDS
+	input = list(/obj/item/stack/sheet/composite = 4, /obj/item/stack/gun_powder = 3) // 16 + 24 points
+	output = list(/obj/item/deployable_floodlight = 1) //40 points
+
+/datum/assembly_craft/explosives/genghis
+	name = "EX-62 Genghis incendiary charge"
+	craft_time = 18 SECONDS
+	input = list(/obj/item/stack/sheet/composite = 4, /obj/item/stack/gun_powder = 6) // 16 + 48 points
+	output = list(/obj/item/deployable_floodlight = 1) //60 points
+
 /*******************************************************************************
 WEAPONS
 *******************************************************************************/
@@ -216,8 +239,13 @@ WEAPONS
 	input = list(/obj/item/stack/sheet/mineral/platinum = 1, /obj/item/stack/gun_powder = 2) // 12 + 16 points
 	output = list(/obj/item/ammo_magazine/rifle/sr81 = 1) // 13.3 points from old factory
 
+/datum/assembly_craft/weapons/sr127_flak_magazine
+	name = "SR-127 Flak Magazine"
+	input = list(/obj/item/stack/sheet/mineral/platinum = 1, /obj/item/stack/gun_powder = 1) // 12 + 8 points
+	output = list(/obj/item/ammo_magazine/rifle/sr127/flak = 1)
+
 /datum/assembly_craft/weapons/scout_rifle_magazine
-	name = "SR-81 automatic sniper rifle magazine"
+	name = "BR-8 scout rifle magazine"
 	input = list(/obj/item/stack/sheet/plasteel = 1, /obj/item/stack/gun_powder = 1) // 8 + 16 points
 	output = list(/obj/item/ammo_magazine/rifle/tx8 = 1) // 10 points from old factory
 
@@ -227,9 +255,19 @@ WEAPONS
 	output = list(/obj/item/ammo_magazine/revolver/mateba = 1) // 10 points from old factory
 
 /datum/assembly_craft/weapons/railgun_magazine
-	name = "Railgun magazine"
+	name = "Railgun canister (Armor Piercing Discarding Sabot)"
 	input = list(/obj/item/stack/sheet/mineral/silver = 1, /obj/item/stack/gun_powder = 1) // 8 + 8 points
 	output = list(/obj/item/ammo_magazine/railgun = 1) // 10 points from old factory
+
+/datum/assembly_craft/weapons/railgun_hvap_magazine
+	name = "Railgun canister (High Velocity Armor Piericing)"
+	input = list(/obj/item/stack/sheet/mineral/silver = 1, /obj/item/stack/gun_powder = 1) // 8 + 8 points
+	output = list(/obj/item/ammo_magazine/railgun/hvap = 1) // 10 points from old factory
+
+/datum/assembly_craft/weapons/railgun_smart_magazine
+	name = "Railgun canister (Smart Armor Piericing)"
+	input = list(/obj/item/stack/sheet/mineral/silver = 1, /obj/item/stack/gun_powder = 1) // 8 + 8 points
+	output = list(/obj/item/ammo_magazine/railgun/smart = 1) // 10 points from old factory
 
 /datum/assembly_craft/weapons/minigun_powerpack
 	name = "MG-100 Vindicator powerpack"
