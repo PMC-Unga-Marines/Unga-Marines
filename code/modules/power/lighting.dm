@@ -523,7 +523,7 @@
 	name = "floor light fixture"
 	desc = "A small lighting fixture."
 	base_state = "floortube"
-	icon_state = "floortube1"
+	icon_state = "floortube_1"
 	brightness = 6
 	layer = BELOW_TABLE_LAYER
 	plane = FLOOR_PLANE
@@ -533,7 +533,7 @@
 
 /obj/machinery/light/red
 	base_state = "tubered"
-	icon_state = "tubered1"
+	icon_state = "tubered_1"
 	light_color = LIGHT_COLOR_FLARE
 	brightness = 3
 	bulb_power = 0.5
@@ -542,7 +542,7 @@
 // the smaller bulb light fixture
 
 /obj/machinery/light/small
-	icon_state = "bulb1"
+	icon_state = "bulb_1"
 	base_state = "bulb"
 	fitting = "bulb"
 	brightness = 4
@@ -721,7 +721,7 @@
 	return ..()
 
 /obj/machinery/landinglight/proc/turn_on()
-	icon_state = "landingstripe1"
+	icon_state = "landingstripe_1"
 	set_light(2, 2, LIGHT_COLOR_RED)
 
 /obj/machinery/landinglight/proc/turn_off()
