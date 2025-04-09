@@ -86,7 +86,7 @@
 		. += span_danger("Ctrl + Click when using to target something.")
 		. += span_danger("Shift + Click to get coordinates.")
 		. += span_danger("Alt + Click to change selected linked artillery.")
-		if(changeable && mode != MODE_ORBITAL) // we don't want the range-finders to have this message, so it doesn't confuse anyone
+		if(changeable && mode == MODE_ORBITAL) // we don't want the range-finders to have this message, so it doesn't confuse anyone
 			. += span_danger("Ctrl + Shift + Click to fire OB when lasing in OB mode.")
 
 /obj/item/binoculars/tactical/Destroy()
