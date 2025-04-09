@@ -30,7 +30,7 @@ General Public License version 3.
 
 <h3 id="modules">Modules
 <aside>(490 modules,
-    898/7686 macros, 11.7%)</aside></h3>
+    932/7687 macros, 12.1%)</aside></h3>
 <ul class="index-tree modules">
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;__DEFINES">__DEFINES</span><ul class="index-tree">
@@ -762,7 +762,7 @@ For this they have the following mechanics</li>
 
 
 <h3 id="types">Types
-<aside>(1121 detailed/1395 documented/20008 total, 7%)</aside></h3>
+<aside>(1128 detailed/1403 documented/20048 total, 7%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li class="has-children"><a href="area.html" title="&#x2F;area">area</a><ul class="index-tree">
@@ -1309,6 +1309,7 @@ Example uses include the use of emissives and similar<ul class="index-tree">
     <li><a href="datum/holocall.html" title="&#x2F;datum&#x2F;holocall">holocall</a></li>
     <li><a href="datum/http_request.html" title="&#x2F;datum&#x2F;http_request">http_request</a></li>
     <li><a href="datum/hud.html" title="&#x2F;datum&#x2F;hud">hud</a></li>
+    <li><a href="datum/hud_data.html" title="&#x2F;datum&#x2F;hud_data">hud_data</a></li>
     <li><a href="datum/hud_displays.html" title="&#x2F;datum&#x2F;hud_displays">hud_displays</a> - Holder datum for a zlevels data, concerning the overlays and the drawn level itself
 The individual image trackers have a raw and a normal list
 raw lists just store the images, while the normal ones are assoc list of [tracked_atom] = image
@@ -1613,6 +1614,7 @@ delegate the speech to the proper channel.</li>
 the timer.</li>
     <li><a href="datum/turf_reservation.html" title="&#x2F;datum&#x2F;turf_reservation">turf_reservation</a></li>
     <li><a href="datum/ui_state.html" title="&#x2F;datum&#x2F;ui_state">ui_state</a></li>
+    <li><a href="datum/unarmed_attack.html" title="&#x2F;datum&#x2F;unarmed_attack">unarmed_attack</a></li>
     <li class="has-children"><a href="datum/unit_test.html" title="&#x2F;datum&#x2F;unit_test">unit_test</a><ul class="index-tree">
     <li><a href="datum/unit_test/binary_insert.html" title="&#x2F;datum&#x2F;unit_test&#x2F;binary_insert">binary_insert</a></li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;unit_test&#x2F;chat_filter_sanity">chat_filter_sanity</span> - Tests the sanity of the chat filter, ensuring it properly blocks words and gives the reason</li>
@@ -1956,6 +1958,7 @@ If allow_emissive is TRUE, Right clicking the Parent item will toggle the emissi
     <li><a href="obj/item/clothing/glasses/welding.html" title="&#x2F;obj&#x2F;item&#x2F;clothing&#x2F;glasses&#x2F;welding">welding</a></li>
     </ul></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;clothing&#x2F;gloves">gloves</span><ul class="index-tree">
+    <li><a href="obj/item/clothing/gloves/defibrillator.html" title="&#x2F;obj&#x2F;item&#x2F;clothing&#x2F;gloves&#x2F;defibrillator">defibrillator</a></li>
     <li><a href="obj/item/clothing/gloves/heldgloves.html" title="&#x2F;obj&#x2F;item&#x2F;clothing&#x2F;gloves&#x2F;heldgloves">heldgloves</a></li>
     <li class="has-children"><a href="obj/item/clothing/gloves/yautja.html" title="&#x2F;obj&#x2F;item&#x2F;clothing&#x2F;gloves&#x2F;yautja">yautja</a><ul class="index-tree">
     <li><a href="obj/item/clothing/gloves/yautja/hunter.html" title="&#x2F;obj&#x2F;item&#x2F;clothing&#x2F;gloves&#x2F;yautja&#x2F;hunter">hunter</a></li>
@@ -1999,14 +2002,18 @@ If allow_emissive is TRUE, Right clicking the Parent item will toggle the emissi
     </ul></li>
     </ul></li>
     <li><a href="obj/item/conveyor_switch_construct.html" title="&#x2F;obj&#x2F;item&#x2F;conveyor_switch_construct">conveyor_switch_construct</a></li>
-    <li><a href="obj/item/defibrillator.html" title="&#x2F;obj&#x2F;item&#x2F;defibrillator">defibrillator</a></li>
+    <li class="has-children"><a href="obj/item/defibrillator.html" title="&#x2F;obj&#x2F;item&#x2F;defibrillator">defibrillator</a><ul class="index-tree">
+    <li><a href="obj/item/defibrillator/internal.html" title="&#x2F;obj&#x2F;item&#x2F;defibrillator&#x2F;internal">internal</a></li>
+    </ul></li>
     <li><a href="obj/item/deployable_vehicle.html" title="&#x2F;obj&#x2F;item&#x2F;deployable_vehicle">deployable_vehicle</a></li>
     <li><a href="obj/item/detpack.html" title="&#x2F;obj&#x2F;item&#x2F;detpack">detpack</a></li>
     <li><a href="obj/item/encryptionkey.html" title="&#x2F;obj&#x2F;item&#x2F;encryptionkey">encryptionkey</a></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;explosive">explosive</span><ul class="index-tree">
     <li class="has-children"><a href="obj/item/explosive/grenade.html" title="&#x2F;obj&#x2F;item&#x2F;explosive&#x2F;grenade">grenade</a><ul class="index-tree">
     <li><a href="obj/item/explosive/grenade/bullet.html" title="&#x2F;obj&#x2F;item&#x2F;explosive&#x2F;grenade&#x2F;bullet">bullet</a> - bullet grenade: shoots bullets out from itself in a ring</li>
-    <li><span class="no-substance">flare&#x2F;</span><a href="obj/item/explosive/grenade/flare/strongerflare.html" title="&#x2F;obj&#x2F;item&#x2F;explosive&#x2F;grenade&#x2F;flare&#x2F;strongerflare">strongerflare</a> - Flares that the tadpole flare launcher launches</li>
+    <li class="has-children"><a href="obj/item/explosive/grenade/flare.html" title="&#x2F;obj&#x2F;item&#x2F;explosive&#x2F;grenade&#x2F;flare">flare</a><ul class="index-tree">
+    <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;explosive&#x2F;grenade&#x2F;flare&#x2F;strongerflare">strongerflare</span> - Flares that the tadpole flare launcher launches</li>
+    </ul></li>
     <li><a href="obj/item/explosive/grenade/flashbang.html" title="&#x2F;obj&#x2F;item&#x2F;explosive&#x2F;grenade&#x2F;flashbang">flashbang</a></li>
     <li><a href="obj/item/explosive/grenade/mirage.html" title="&#x2F;obj&#x2F;item&#x2F;explosive&#x2F;grenade&#x2F;mirage">mirage</a></li>
     <li><a href="obj/item/explosive/grenade/rad.html" title="&#x2F;obj&#x2F;item&#x2F;explosive&#x2F;grenade&#x2F;rad">rad</a> - RAD GRENADE - TOTALLY RAD MAN</li>
@@ -2025,6 +2032,7 @@ Stepping directly on the mine will also blow it up<ul class="index-tree">
     </ul></li>
     <li><a href="obj/item/explosive/plastique.html" title="&#x2F;obj&#x2F;item&#x2F;explosive&#x2F;plastique">plastique</a></li>
     </ul></li>
+    <li><a href="obj/item/facepaint.html" title="&#x2F;obj&#x2F;item&#x2F;facepaint">facepaint</a></li>
     <li class="has-children"><a href="obj/item/flashlight.html" title="&#x2F;obj&#x2F;item&#x2F;flashlight">flashlight</a><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;flashlight&#x2F;combat">combat</span> - Marine Gear</li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;flashlight&#x2F;lantern">lantern</span> - Lantern</li>
@@ -2167,7 +2175,10 @@ It isn't required for a product of research to be subtype of these</li>
 However, this is no longer a hard requirement, since storage is a /datum now
 Just make sure to pass whatever arguments you need to create_storage() which is an /atom level proc
 (This means that any atom can have storage :D )<ul class="index-tree">
-    <li><span class="no-substance">backpack&#x2F;marine&#x2F;</span><a href="obj/item/storage/backpack/marine/radiopack.html" title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;backpack&#x2F;marine&#x2F;radiopack">radiopack</a></li>
+    <li class="has-children"><span class="no-substance">backpack&#x2F;</span><span title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;backpack&#x2F;marine">marine</span><ul class="index-tree">
+    <li><a href="obj/item/storage/backpack/marine/radiopack.html" title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;backpack&#x2F;marine&#x2F;radiopack">radiopack</a></li>
+    <li><span class="no-substance">satchel&#x2F;</span><a href="obj/item/storage/backpack/marine/satchel/scout_cloak.html" title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;backpack&#x2F;marine&#x2F;satchel&#x2F;scout_cloak">scout_cloak</a></li>
+    </ul></li>
     <li><span class="no-substance">bag&#x2F;</span><a href="obj/item/storage/bag/sheetsnatcher.html" title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;bag&#x2F;sheetsnatcher">sheetsnatcher</a></li>
     <li class="has-children"><span title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;box">box</span><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;storage&#x2F;box&#x2F;explosive_mines">explosive_mines</span> - MARINES BOXES</li>
@@ -2280,6 +2291,7 @@ While perhaps reagents created by udder component COULD be managed in the mob, i
     </ul></li>
     <li><a href="obj/item/weapon/zombie_claw.html" title="&#x2F;obj&#x2F;item&#x2F;weapon&#x2F;zombie_claw">zombie_claw</a></li>
     </ul></li>
+    <li><a href="obj/item/whistle.html" title="&#x2F;obj&#x2F;item&#x2F;whistle">whistle</a></li>
     <li><a href="obj/item/xeno_iff_tag.html" title="&#x2F;obj&#x2F;item&#x2F;xeno_iff_tag">xeno_iff_tag</a></li>
     </ul></li>
     <li class="has-children"><a href="obj/machinery.html" title="&#x2F;obj&#x2F;machinery">machinery</a><ul class="index-tree">
@@ -2671,7 +2683,7 @@ Default override for echo</li>
 </main>
 <footer>
     tgmc.dme
-    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/fd8e3661408b23ff0c1afc89717edc8d87134928">fd8e366</a>
+    <a href="https://github.com/PMC-Unga-Marines/Unga-Marines/tree/ac18f8d186fcce058eb11fe3022488b77080bc49">ac18f8d</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
 </body>
 </html>
