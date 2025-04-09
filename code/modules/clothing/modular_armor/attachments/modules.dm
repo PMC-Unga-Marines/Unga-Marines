@@ -219,11 +219,10 @@
 	desc = "Designed for mounting on modular SOM armor. This module appears to be designed to protect the user from the effects of radiological attacks, although also provides improved resistance against other environmental threats such as acid and gas. Pairing this with a Mithridatius helmet module and mask will make the user impervious to gas clouds. Will impact mobility."
 	icon_state = "mithridatius"
 	item_state = "mithridatius_a"
-	//soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 25, FIRE = 0, ACID = 20)
 
 /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet
 	name = "Mark 2 Mimir Environmental Helmet System"
-	desc = "Designed for mounting on a modular helmet. Provides good resistance to xeno gas clouds."
+	desc = "Designed for mounting on a modular helmet. Provides good resistance to xeno gas clouds. This newer model provides great resistance to acid, biological, and even radiological attacks."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mimir_head"
 	item_state = "mimir_head_a"

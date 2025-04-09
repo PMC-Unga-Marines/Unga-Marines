@@ -481,8 +481,7 @@
 
 	fire_delay = 0.25 SECONDS
 	aim_fire_delay = 0.25 SECONDS
-	upper_akimbo_accuracy = 6
-	lower_akimbo_accuracy = 3
+	akimbo_scatter_mod = 8
 	akimbo_additional_delay = 1
 	aim_slowdown = 0.3
 

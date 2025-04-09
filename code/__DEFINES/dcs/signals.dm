@@ -62,6 +62,9 @@
 #define COMSIG_GLOB_CAS_LASER_CREATED "!cas_laser_sent"
 #define COMSIG_GLOB_RAILGUN_LASER_CREATED "!railgun_laser_sent"
 
+//Sent when a supply beacon is activated
+#define COMSIG_GLOB_SUPPLY_BEACON_CREATED "!supply_beacon_created"
+
 //Signals for shuttle
 #define COMSIG_GLOB_SHUTTLE_TAKEOFF "!shuttle_take_off"
 
@@ -740,6 +743,8 @@
 #define COMSIG_MECHABILITY_TOGGLE_ZOOM "mechability_toggle_zoom"
 #define COMSIG_MECHABILITY_SKYFALL "mechability_skyfall"
 #define COMSIG_MECHABILITY_STRIKE "mechability_strike"
+#define COMSIG_MECHABILITY_RELOAD "mechability_reload"
+#define COMSIG_MECHABILITY_TOGGLE_ACTUATORS "mechability_toggle_actuators"
 
 #define COMSIG_ACTION_EXCLUSIVE_TOGGLE "action_exclusive_toggle"
 // xeno abilities for keybindings

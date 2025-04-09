@@ -10,7 +10,7 @@ import {
 import { Window } from '../layouts';
 
 export const MarineDropship = (props) => {
-  const { act, data } = useBackend();
+  const { data } = useBackend();
 
   return (
     <>
@@ -170,7 +170,10 @@ const CorruptedOperation = (props) => {
           </Button>
         </Box>
         <Box mt={1}>
-          <Button onClick={() => act('abduct')}>
+          <Button
+            onClick={() => act('abduct')}
+            disabled={data.shuttle_hijacked}
+          >
             Capture the {data.ship_name}
           </Button>
         </Box>

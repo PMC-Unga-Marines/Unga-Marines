@@ -124,9 +124,10 @@
 /// the standard tube light fixture
 /obj/machinery/light
 	name = "light fixture"
-	icon = 'icons/obj/lighting.dmi'
-	icon_state = "tube1"
 	desc = "A lighting fixture."
+	icon = 'icons/obj/lighting.dmi'
+	icon_state = "tube_1"
+	base_icon_state = "tube"
 	anchored = TRUE
 	layer = FLY_LAYER
 	use_power = ACTIVE_POWER_USE
@@ -219,7 +220,7 @@
 	. = ..()
 	switch(status)		// set icon_states
 		if(LIGHT_OK)
-			icon_state = "[base_state][light_on]"
+			icon_state = "[base_state]_[light_on]"
 		if(LIGHT_EMPTY)
 			icon_state = "[base_state]-empty"
 		if(LIGHT_BURNED)
@@ -522,7 +523,7 @@
 	name = "floor light fixture"
 	desc = "A small lighting fixture."
 	base_state = "floortube"
-	icon_state = "floortube1"
+	icon_state = "floortube_1"
 	brightness = 6
 	layer = BELOW_TABLE_LAYER
 	plane = FLOOR_PLANE
@@ -532,7 +533,7 @@
 
 /obj/machinery/light/red
 	base_state = "tubered"
-	icon_state = "tubered1"
+	icon_state = "tubered_1"
 	light_color = LIGHT_COLOR_FLARE
 	brightness = 3
 	bulb_power = 0.5
@@ -541,7 +542,7 @@
 // the smaller bulb light fixture
 
 /obj/machinery/light/small
-	icon_state = "bulb1"
+	icon_state = "bulb_1"
 	base_state = "bulb"
 	fitting = "bulb"
 	brightness = 4
@@ -631,13 +632,6 @@
 	light_tile.update_icon()
 	to_chat(user, span_notice("You replace the light bulb."))
 
-/obj/item/light_bulb/bulb/fire
-	name = "fire bulb"
-	desc = "A replacement fire bulb."
-	icon_state = "fbulb"
-	base_state = "fbulb"
-	item_state = "egg4"
-	brightness = 5
 
 // update the icon state and description of the light
 
@@ -727,7 +721,7 @@
 	return ..()
 
 /obj/machinery/landinglight/proc/turn_on()
-	icon_state = "landingstripe1"
+	icon_state = "landingstripe_1"
 	set_light(2, 2, LIGHT_COLOR_RED)
 
 /obj/machinery/landinglight/proc/turn_off()

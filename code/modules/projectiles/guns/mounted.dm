@@ -49,14 +49,8 @@
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOMATIC)
 
-	attachable_allowed = list(
-		/obj/item/attachable/scope/unremovable/hsg102,
-	)
-
-	starting_attachment_types = list(
-		/obj/item/attachable/scope/unremovable/hsg102,
-	)
-
+	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102)
+	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102)
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/hsg102,
 	)
@@ -124,7 +118,6 @@
 	aim_fire_delay = 0.05 SECONDS
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102)
-
 	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102)
 
 	allowed_ammo_types = list(/obj/item/ammo_magazine/heavy_minigun)
@@ -146,9 +139,7 @@
 	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
-
-	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102/nest,)
-
+	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 20)
 
 //-------------------------------------------------------
@@ -206,8 +197,8 @@
 
 	w_class = WEIGHT_CLASS_HUGE
 	equip_slot_flags = ITEM_SLOT_BACK
-	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "heavylaser"
+	icon_state = "heavylaser_deployed"
 
 	fire_sound = 'sound/weapons/guns/fire/tank_flamethrower.ogg'
 	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
@@ -224,7 +215,6 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
-
 	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
 
 	allowed_ammo_types = list(/obj/item/cell/lasgun/heavy_laser)
@@ -631,7 +621,7 @@
 
 /obj/item/weapon/gun/agls37
 	name = "\improper AGLS-37 Kauser automatic grenade launcher"
-	desc = "The AGLS-37 automatic grenade launching IFF capable system, it's too heavy to be wielded or operated without the tripod. On the back, it reads: \"The Explosions and Fragmentation from this weapon ARE NOT friendly fire capable. Kauser is not obligated to buy you new body parts for you or your friends if you lose them.\"\nCan be deployed with Crtl-Click. It CANNOT be turned once deployed, due to a lack of swivels, pick it up to move your cone of fire. Can be repaired with a blowtorch once deployed."
+	desc = "The AGLS-37 automatic grenade launching IFF capable system, it's too heavy to be wielded or operated without the tripod. On the back, it reads: \"The Explosions and Fragmentation from this weapon ARE NOT friendly fire capable. Kauser is not obligated to buy you new body parts for you or your friends if you lose them.\"\nCan be deployed with Crtl-Click. Can be repaired with a blowtorch once deployed."
 	w_class = WEIGHT_CLASS_HUGE
 	equip_slot_flags = ITEM_SLOT_BACK
 	caliber = CALIBER_40MM

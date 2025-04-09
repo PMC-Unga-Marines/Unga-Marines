@@ -167,7 +167,7 @@
 
 			var/randn = rand(1, 100) + skills.getRating(SKILL_CQC) * CQC_SKILL_DISARM_MOD - human_user.skills.getRating(SKILL_CQC) * CQC_SKILL_DISARM_MOD
 
-			if (randn <= 25)
+			if(randn <= 25)
 				apply_effect(modify_by_armor(6 SECONDS, MELEE, def_zone = target_zone), WEAKEN)
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 				visible_message(span_danger("[human_user] has pushed [src]!"), null, null, 5)
@@ -199,7 +199,6 @@
 	if(src == M)
 		if(holo_card_color) //if we have a triage holocard printed on us, we remove it.
 			holo_card_color = null
-			update_targeted()
 			visible_message(span_notice("[src] removes the holo card on [p_them()]self."),
 				span_notice("You remove the holo card on yourself."), null, 3)
 			return

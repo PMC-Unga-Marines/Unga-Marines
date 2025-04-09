@@ -150,7 +150,7 @@
 		/obj/item/ammo_magazine/at36/he = 3,
 	)
 
-/obj/structure/largecrate/supply/weapons/standard_flakgun
+/obj/structure/largecrate/supply/weapons/atr22
 	name = "\improper ATR-22 flak gun and ammo chest (x1, x6)"
 	desc = "A supply crate containing a ATR-22 and a full set of ammo to load into the sponson."
 	supplies = list(
@@ -158,6 +158,11 @@
 		/obj/item/ammo_magazine/atr22 = 3,
 		/obj/item/ammo_magazine/atr22/flak = 3,
 	)
+
+/obj/structure/largecrate/supply/weapons/fk88
+	name = "\improper FK-88 mounted flak gun (x1)"
+	desc = "A supply crate containing a FK-88 mounted flak gun. Ammo sold separately."
+	supplies = list(/obj/item/weapon/gun/fk88 = 1)
 
 /obj/structure/largecrate/supply/ammo
 	name = "ammunition case"

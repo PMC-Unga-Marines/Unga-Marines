@@ -45,6 +45,10 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	var/time_between_round = 0
 	///What factions are used in this gamemode, typically TGMC and xenos
 	var/list/factions = list(FACTION_TERRAGOV, FACTION_XENO)
+	///Increases the amount of xenos needed to evolve to tier three by the value.
+	var/tier_three_penalty = 0
+	///List of castes we dont want to be evolvable depending on gamemode.
+	var/list/restricted_castes
 
 	var/list/predators = list()
 
@@ -400,6 +404,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.howitzer_shells_fired] howitzer shells were fired."
 	if(GLOB.round_statistics.rocket_shells_fired)
 		parts += "[GLOB.round_statistics.rocket_shells_fired] rocket artillery shells were fired."
+	if(GLOB.round_statistics.obs_fired)
+		parts += "[GLOB.round_statistics.obs_fired] orbital bombardements were fired."
 	if(GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV])
 		parts += "[GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV]] people were killed, among which [GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV]] were revived and [GLOB.round_statistics.total_human_respawns] respawned. For a [(GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV] / max(GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV], 1)) * 100]% revival rate and a [(GLOB.round_statistics.total_human_respawns / max(GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV], 1)) * 100]% respawn rate."
 	if(SSevacuation.human_escaped)
@@ -1009,6 +1015,10 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			items += "Xeno respawn timer: READY"
 		else
 			items += "Xeno respawn timer: [(status_value / 60) % 60]:[add_leading(num2text(status_value % 60), 2, "0")]"
+
+/// Adjusts the inputted jobworth list.
+/datum/game_mode/proc/get_adjusted_jobworth_list(list/jobworth_list)
+	return jobworth_list
 
 /// called to check for updates that might require starting/stopping the siloless collapse timer
 /datum/game_mode/proc/update_silo_death_timer(datum/hive_status/silo_owner)

@@ -1,4 +1,4 @@
-/obj/proc/take_damage(damage_amount, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, attack_dir, armour_penetration = 0)
+/obj/proc/take_damage(damage_amount, damage_type = BRUTE, damage_flag = null, effects = TRUE, attack_dir, armour_penetration = 0)
 	if(QDELETED(src))
 		CRASH("[src] taking damage after deletion")
 	if(!damage_amount)

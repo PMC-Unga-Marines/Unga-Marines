@@ -156,7 +156,7 @@
 		user.reset_perspective(src)
 		active_nightvision = TRUE
 
-/obj/item/attachable/scope/onunzoom(mob/living/user)
+/obj/item/attachable/scope/on_unzoomed(mob/living/user)
 	if(zoom_allow_movement)
 		user.remove_movespeed_modifier(MOVESPEED_ID_SCOPE_SLOWDOWN)
 		UnregisterSignal(user, list(COMSIG_CARBON_SWAPPED_HANDS, COMSIG_MOB_FACE_DIR))
@@ -194,7 +194,7 @@
 	desc = "A marine standard mounted zoom sight scope made for the Terra Experimental laser sniper rifle otherwise known as TE-S abbreviated, allows zoom by activating the attachment. Use F12 if your HUD doesn't come back."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "tes"
-	
+
 /obj/item/attachable/scope/unremovable/plasma_sniper_scope
 	name = "PL-02 sniper rifle rail scope"
 	desc = "A marine standard mounted zoom sight scope made for the PL-02 plasma sniper rifle, allows zoom by activating the attachment. Use F12 if your HUD doesn't come back."

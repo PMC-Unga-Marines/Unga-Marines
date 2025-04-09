@@ -14,6 +14,13 @@
 			/obj/item/ammo_magazine/railgun/hvap = -1,
 			/obj/item/ammo_magazine/packet/scout_rifle = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/xray = -1,
+			/obj/item/weapon/gun/launcher/rocket/recoillessrifle = -1,
+			/obj/item/ammo_magazine/rocket/recoilless = -1,
+			/obj/item/ammo_magazine/rocket/recoilless/light = -1,
+			/obj/item/ammo_magazine/rocket/recoilless/heat = -1,
+			/obj/item/ammo_magazine/rocket/recoilless/cloak = -1,
+			/obj/item/ammo_magazine/rocket/recoilless/smoke = -1,
+			/obj/item/ammo_magazine/rocket/recoilless/plasmaloss = -1,
 			/obj/item/weapon/gun/launcher/rocket/m57a4/t57 = -1,
 			/obj/item/ammo_magazine/rocket/m57a4 = -1,
 			/obj/item/weapon/gun/launcher/rocket/sadar/valhalla = -1,
@@ -30,7 +37,6 @@
 			/obj/item/storage/holster/belt/revolver/mateba/full = -1,
 			/obj/item/ammo_magazine/revolver/mateba = -1,
 			/obj/item/ammo_magazine/packet/mateba = -1,
-			/obj/item/ammo_magazine/rifle/sr127/flak = -1,
 			/obj/item/ammo_magazine/flamer_tank/backtank/X = -1,
 			/obj/item/ammo_magazine/flamer_tank/backtank/G = -1,
 			/obj/item/weapon/twohanded/rocketsledge = -1,
@@ -47,7 +53,13 @@
 			/obj/item/ammo_magazine/rifle/famas = -1,
 		),
 		"Mounted" = list(
-			/obj/item/weapon/gun/atr22 = -1,
+			/obj/structure/largecrate/supply/weapons/at36 = -1,
+			/obj/item/ammo_magazine/at36 = -1,
+			/obj/item/ammo_magazine/at36/apcr = -1,
+			/obj/item/ammo_magazine/at36/he = -1,
+			/obj/item/ammo_magazine/at36/beehive = -1,
+			/obj/item/ammo_magazine/at36/incend = -1,
+			/obj/structure/largecrate/supply/weapons/atr22 = -1,
 			/obj/item/ammo_magazine/atr22 = -1,
 			/obj/item/ammo_magazine/atr22/flak = -1,
 			/obj/item/weapon/gun/standard_minigun = -1,
@@ -59,12 +71,15 @@
 			/obj/item/ammo_magazine/agls37/flare = -1,
 			/obj/item/ammo_magazine/agls37/cloak = -1,
 			/obj/item/ammo_magazine/agls37/tanglefoot = -1,
-			/obj/item/weapon/gun/fk88 = -1,
+			/obj/structure/largecrate/supply/weapons/fk88 = -1,
 			/obj/item/ammo_magazine/fk88/he = -1,
 			/obj/item/ammo_magazine/fk88/sabot = -1,
 		),
 		"Equipment" = list(
 			/obj/item/clothing/glasses/hud/xenohud = -1,
+			/obj/item/clothing/glasses/night_vision = -1,
+			/obj/item/armor_module/module/night_vision = -1,
+			/obj/item/cell/night_vision_battery = -1,
 			/obj/item/clothing/mask/gas/swat = -1,
 			/obj/item/clothing/head/helmet/riot = -1,
 			/obj/item/clothing/suit/storage/marine/specialist/valhalla = -1,
@@ -90,16 +105,6 @@
 			/obj/item/clothing/suit/storage/marine/riot = -1,
 			/obj/item/clothing/head/helmet/marine/riot = -1,
 			/obj/item/clothing/suit/storage/marine/boomvest = -1,
-		),
-		"Assault Vehicle" = list(
-			/obj/item/armored_weapon = -1,
-			/obj/item/armored_weapon/ltaap = -1,
-			/obj/item/armored_weapon/secondary_weapon = -1,
-			/obj/item/ammo_magazine/tank/ltb_cannon = -1,
-			/obj/item/ammo_magazine/tank/ltb_cannon/apfds = -1,
-			/obj/item/ammo_magazine/tank/ltaap_chaingun = -1,
-			/obj/item/ammo_magazine/tank/secondary_cupola = -1,
-			/obj/item/ammo_magazine/tank/flamer = -1,
 		),
 		"Implants" = list(
 			/obj/item/implanter/sandevistan = -1,
@@ -291,6 +296,7 @@
 			/obj/item/ammo_magazine/rifle/sr81 = -1,
 			/obj/item/weapon/gun/rifle/sniper/antimaterial = -1,
 			/obj/item/ammo_magazine/sniper = -1,
+			/obj/item/ammo_magazine/sniper/incendiary = -1,
 		),
 	)
 
@@ -347,5 +353,26 @@
 			/obj/item/mecha_parts/mecha_equipment/melee_core = -1,
 			/obj/item/mecha_parts/mecha_equipment/ability/dash = -1,
 			/obj/item/mecha_parts/mecha_equipment/ability/smoke/cloak_smoke = -1,
+		),
+	)
+
+/obj/machinery/vending/tank_vendor
+	name = "\improper Tank equipment vendor"
+	desc = "An automated rack hooked up to a colossal storage of items."
+	icon_state = "requisitionop"
+	resistance_flags = INDESTRUCTIBLE
+	use_power = NO_POWER_USE
+	wrenchable = FALSE
+	products = list(
+		"Assault Vehicle" = list(
+			/obj/item/armored_weapon = -1,
+			/obj/item/armored_weapon/ltaap = -1,
+			/obj/item/armored_weapon/secondary_weapon = -1,
+			/obj/item/ammo_magazine/tank/ltb_cannon = -1,
+			/obj/item/ammo_magazine/tank/ltb_cannon/apfds = -1,
+			/obj/item/ammo_magazine/tank/ltaap_chaingun = -1,
+			/obj/item/ammo_magazine/tank/secondary_cupola = -1,
+			/obj/item/ammo_magazine/tank/secondary_flamer_tank = -1,
+			/obj/item/pamphlet/tank_crew = -1,
 		),
 	)

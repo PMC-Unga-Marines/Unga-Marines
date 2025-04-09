@@ -23,6 +23,7 @@
 	name = "poster"
 	desc = "A large piece of space-resistant printed paper. "
 	icon = 'icons/obj/contraband.dmi'
+	base_icon = 'icons/obj/contraband.dmi'
 	icon_state = "poster_map"
 	anchored = TRUE
 	var/serial_number	//Will hold the value of src.loc if nobody initialises it

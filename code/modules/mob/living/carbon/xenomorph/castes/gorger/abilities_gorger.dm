@@ -140,7 +140,7 @@
 		target_human.Immobilize(GORGER_DRAIN_DELAY)
 		if(!do_after(xeno_owner, GORGER_DRAIN_DELAY, IGNORE_HELD_ITEM, target_human))
 			break
-		target_human.blood_volume = max(target_human.blood_volume - 15, 0)
+		target_human.adjust_blood_volume(-15)
 
 		xeno_owner.do_attack_animation(target_human, ATTACK_EFFECT_REDSTAB)
 		xeno_owner.visible_message(target_human, span_danger("[xeno_owner] stabs its tail into [target_human]!"))

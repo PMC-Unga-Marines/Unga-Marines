@@ -168,6 +168,7 @@
 /turf/open/floor/plating/ground/mars/random/cave
 	name = "cave"
 	icon_state = "mars_cave"
+	smoothing_groups = list(SMOOTH_GROUP_SAND)
 
 /turf/open/floor/plating/ground/mars/random/cave/darker
 	color = "#948a7c"
@@ -241,6 +242,9 @@
 	. = ..()
 	setDir(pick(NORTH,SOUTH,EAST,WEST,NORTHEAST,NORTHWEST,SOUTHEAST,SOUTHWEST))
 
+/turf/open/floor/plating/ground/ice/get_dirt_type()
+	return NO_DIRT
+
 // Colony tiles
 /turf/open/floor/plating/ground/concrete
 	name = "concrete"
@@ -250,6 +254,9 @@
 	barefootstep = FOOTSTEP_CONCRETE
 	shoefootstep = FOOTSTEP_CONCRETE
 	minimap_color = MINIMAP_AREA_COLONY
+
+/turf/open/floor/plating/ground/concrete/get_dirt_type()
+	return NO_DIRT
 
 /turf/open/floor/plating/ground/concrete/lines
 	icon_state = "concrete_lines"
@@ -293,6 +300,9 @@
 	barefootstep = FOOTSTEP_CONCRETE
 	mediumxenofootstep = FOOTSTEP_CONCRETE
 	smoothing_groups = list(SMOOTH_GROUP_ASPHALT)
+
+/turf/open/floor/plating/ground/desertdam/asphalt/get_dirt_type()
+	return NO_DIRT
 
 /turf/open/floor/plating/ground/desertdam/asphalt/cement
 	name = "concrete"
@@ -348,7 +358,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/autosmooth/alt
 	icon = 'icons/turf/floors/asphalt-sunbleached.dmi'
 	base_icon_state = "asphalt-sunbleached"
-
+	
 //CAVE
 /turf/open/floor/plating/ground/desertdam/cave
 	name = "cave"

@@ -490,7 +490,8 @@
 	opacity = FALSE
 
 /obj/machinery/computer/shuttle/marine_dropship/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	if(!(xeno_attacker.xeno_caste.caste_flags & CASTE_IS_INTELLIGENT))
+	var/datum/game_mode/infestation/infestation_mode = SSticker.mode //Minor QOL, any xeno can check the console after a leader hijacks
+	if(!(xeno_attacker.xeno_caste.caste_flags & CASTE_IS_INTELLIGENT) && (infestation_mode.round_stage != INFESTATION_MARINE_CRASHING))
 		return
 	#ifndef TESTING
 	if(SSticker.round_start_time + SHUTTLE_HIJACK_LOCK > world.time)
@@ -498,13 +499,13 @@
 		return
 	#endif
 	var/obj/docking_port/mobile/marine_dropship/shuttle = SSshuttle.getShuttle(shuttleId)
-	if(shuttle.hijack_state != HIJACK_STATE_CALLED_DOWN) //Process of corrupting the controls
-		to_chat(xeno_attacker, span_xenowarning("We corrupt the bird's controls, unlocking the doors[(shuttle.mode != SHUTTLE_IGNITING) ? "and preventing it from flying." : ", but we are unable to prevent it from flying as it is already taking off!"]"))
+	if(shuttle.hijack_state != HIJACK_STATE_CALLED_DOWN && shuttle.hijack_state != HIJACK_STATE_CRASHING) //Process of corrupting the controls
+		to_chat(xeno_attacker, span_xenowarning("We corrupt the bird's controls, unlocking the doors and preventing it from flying."))
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_DROPSHIP_CONTROLS_CORRUPTED, src)
-		if(shuttle.mode != SHUTTLE_IGNITING)
-			shuttle.set_hijack_state(HIJACK_STATE_CALLED_DOWN)
-			shuttle.do_start_hijack_timer()
-	interact(xeno_attacker)
+		shuttle.set_idle()
+		shuttle.set_hijack_state(HIJACK_STATE_CALLED_DOWN)
+		shuttle.do_start_hijack_timer()
+	interact(xeno_attacker) //Open the UI
 
 /obj/machinery/computer/shuttle/marine_dropship/ui_state(mob/user)
 	return GLOB.alamo_state
@@ -542,8 +543,11 @@
 	data["ship_status"] = shuttle.getStatusText()
 	data["automatic_cycle_on"] = shuttle.automatic_cycle_on
 	data["time_between_cycle"] = shuttle.time_between_cycle
-	.["can_hunt"] = SSticker.mode.can_hunt()
-	.["show_hunt"] = show_hunt
+	data["can_hunt"] = SSticker.mode.can_hunt()
+	data["show_hunt"] = show_hunt
+
+	var/datum/game_mode/infestation/infestation_mode = SSticker.mode
+	data["shuttle_hijacked"] = (infestation_mode.round_stage == INFESTATION_MARINE_CRASHING) //If we hijacked, our capture button greys out
 
 	var/locked = 0
 	var/reardoor = 0
@@ -668,6 +672,10 @@
 				return
 			do_hijack(shuttle, CT, xeno)
 		if("abduct")
+			var/datum/game_mode/infestation/infestation_mode = SSticker.mode
+			if(infestation_mode.round_stage == INFESTATION_MARINE_CRASHING)
+				message_admins("[usr] tried to capture the shuttle after it was already hijacked, possible use of exploits.")
+				return
 			var/groundside_humans = length(GLOB.humans_by_zlevel["[z]"])
 			if(groundside_humans > 5)
 				to_chat(usr, span_xenowarning("Еще осталась добыча, на которую можно охотиться!"))
@@ -675,12 +683,12 @@
 			var/confirm = tgui_alert(usr, "Хотите захватить металлическую птицу?\n ЭТО ЗАВЕРШИТ РАУНД", "Захватить птицу?", list( "Да", "Нет"))
 			if(confirm != "Да")
 				return
+			groundside_humans = length(GLOB.humans_by_zlevel["[z]"])
 			if(groundside_humans > 5)
 				to_chat(usr, span_xenowarning("Еще осталась добыча, на которую можно охотиться!"))
 				return
 
 			priority_announce("Нормандия захвачена! Потеряв главный путь к земле, морпехи вынуждены отступить.", title = "Нормандия Захвачена", color_override = "orange")
-			var/datum/game_mode/infestation/infestation_mode = SSticker.mode
 			infestation_mode.round_stage = INFESTATION_DROPSHIP_CAPTURED_XENOS
 			return
 

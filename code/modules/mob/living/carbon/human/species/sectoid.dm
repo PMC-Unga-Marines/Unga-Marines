@@ -1,10 +1,8 @@
 /datum/species/sectoid
 	name = "Sectoid"
-	name_plural = "Sectoids"
 	icobase = 'icons/mob/human_races/r_sectoid.dmi'
 	default_language_holder = /datum/language_holder/sectoid
 	eyes = "blank_eyes"
-	speech_verb_override = "transmits"
 	count_human = TRUE
 	total_health = 80
 
