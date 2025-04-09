@@ -661,7 +661,7 @@
 /proc/delayed_detonate_bomb_napalm(turf/impact)
 	impact.ceiling_debris_check(3)
 	cell_explosion(impact, 250, 90)
-	flame_radius(5, impact, 60, 30)
+	flame_radius(5, impact, 30, 60)
 
 /datum/admins/proc/drop_OB()
 	set category = "Admin.Fun"

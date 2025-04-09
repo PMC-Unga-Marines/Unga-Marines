@@ -1,6 +1,5 @@
 /datum/species/yautja
 	name = "Yautja"
-	name_plural = "Yautja"
 	brute_mod = 0.28 //Beefy!
 	burn_mod = 0.45
 	reagent_tag = IS_YAUTJA
@@ -27,14 +26,11 @@
 	max_stamina = 250
 	blood_color = "#20d450"
 	flesh_color = "#907E4A"
-	speech_sounds = list('sound/voice/predator/click1.ogg', 'sound/voice/predator/click2.ogg')
-	speech_chance = 100
 	death_message = "clicks in agony and falls still, motionless and completely lifeless..."
 
 	brute_damage_icon_state = "pred_brute"
 	burn_damage_icon_state = "pred_burn"
 
-	darksight = 5
 	slowdown = -0.5
 	total_health = 175 //more health than regular humans
 

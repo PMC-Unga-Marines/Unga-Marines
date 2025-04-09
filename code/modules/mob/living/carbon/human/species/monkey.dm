@@ -2,20 +2,17 @@
 //im not about to cram in that refactor with a carbon -> species refactor though
 /datum/species/monkey
 	name = "Monkey"
-	name_plural = "Monkeys"
 	icobase = 'icons/mob/human_races/r_monkey.dmi'
 	species_flags = HAS_NO_HAIR|NO_STAMINA|DETACHABLE_HEAD
 	inherent_traits = list(TRAIT_CAN_VENTCRAWL)
 	reagent_tag = IS_MONKEY
 	eyes = "blank_eyes"
-	speech_verb_override = "chimpers"
 	unarmed_type = /datum/unarmed_attack/bite/strong
 	secondary_unarmed_type = /datum/unarmed_attack/punch/strong
 	joinable_roundstart = FALSE
 	death_message = "lets out a faint chimper as it collapses and stops moving..."
 	dusted_anim = "dust-m"
 	gibbed_anim = "gibbed-m"
-	is_sentient = FALSE
 
 /datum/species/monkey/handle_unique_behavior(mob/living/carbon/human/H)
 	if(H.client || H.stat != CONSCIOUS)
@@ -52,22 +49,18 @@
 /datum/species/monkey/tajara
 	name = "Farwa"
 	icobase = 'icons/mob/human_races/r_farwa.dmi'
-	speech_verb_override = "mews"
 
 /datum/species/monkey/skrell
 	name = "Naera"
 	icobase = 'icons/mob/human_races/r_naera.dmi'
-	speech_verb_override = "squiks"
 
 /datum/species/monkey/unathi
 	name = "Stok"
 	icobase = 'icons/mob/human_races/r_stok.dmi'
-	speech_verb_override = "hisses"
 
 /datum/species/monkey/yiren
 	name = "Yiren"
 	icobase = 'icons/mob/human_races/r_yiren.dmi'
-	speech_verb_override = "grumbles"
 	cold_level_1 = ICE_COLONY_TEMPERATURE - 20
 	cold_level_2 = ICE_COLONY_TEMPERATURE - 40
 	cold_level_3 = ICE_COLONY_TEMPERATURE - 80

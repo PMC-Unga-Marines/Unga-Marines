@@ -86,6 +86,8 @@
 	if(QDELETED(src))
 		return
 	take_damage(severity * 1.5, BRUTE, BOMB, 0)
+	for(var/mob/living/living_occupant AS in occupants)
+		living_occupant.Stagger(severity * 0.1)
 
 /obj/vehicle/sealed/mecha/handle_atom_del(atom/A)
 	. = ..()

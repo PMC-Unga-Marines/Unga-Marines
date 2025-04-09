@@ -1,7 +1,6 @@
 //It really should be just a subtype of synthetic
 /datum/species/early_synthetic // Worse at medical, better at engineering. Tougher in general than later synthetics.
 	name = "Early Synthetic"
-	name_plural = "Early Synthetics"
 	icobase = 'icons/mob/human_races/r_synthetic.dmi'
 	hud_type = /datum/hud_data/robotic
 	default_language_holder = /datum/language_holder/synthetic
@@ -21,7 +20,7 @@
 
 	body_temperature = 350
 
-	species_flags = NO_BREATHE|NO_SCAN|NO_BLOOD|NO_POISON|NO_PAIN|IS_SYNTHETIC|NO_CHEM_METABOLIZATION|NO_STAMINA|DETACHABLE_HEAD|HAS_UNDERWEAR|ROBOTIC_LIMBS|GREYSCALE_BLOOD
+	species_flags = NO_BREATHE|NO_BLOOD|NO_POISON|NO_PAIN|IS_SYNTHETIC|NO_CHEM_METABOLIZATION|NO_STAMINA|DETACHABLE_HEAD|HAS_UNDERWEAR|ROBOTIC_LIMBS|GREYSCALE_BLOOD
 
 	blood_color = "#EEEEEE"
 	hair_color = "#000000"
@@ -39,9 +38,11 @@
 
 /datum/species/early_synthetic/handle_unique_behavior(mob/living/carbon/human/H)
 	if(H.health <= -30 && H.stat != DEAD) // Instead of having a critical condition, they overheat and slowly die.
-		H.adjust_fire_loss(rand(18, 28)) // This may need tweaks
-		if(prob(8))
-			to_chat(H, span_alert("<b>Critical damage sustained. Internal temperature regulation systems offline. <u>Immediate repair required.</u></b>"))
+		H.apply_effect(4 SECONDS, STUTTER) // Added flavor
+		H.adjust_fire_loss(rand(7, 19)) // Melting even more!!!
+		if(prob(12))
+			H.visible_message(span_boldwarning("[H] shudders violently and shoots out sparks!"), span_warning("Critical damage sustained. Internal temperature regulation systems offline. Shutdown imminent. <b>Estimated integrity: [round(H.health)]%.</b>"))
+			do_sparks(4, TRUE, H)
 
 /datum/species/early_synthetic/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()

@@ -52,7 +52,7 @@
 	activate(user)
 
 	balloon_alert_to_viewers("primes grenade")
-	if(initial(dangerous) && ishumanbasic(user))
+	if(dangerous && ishumanbasic(user))
 		var/nade_sound = user.gender == FEMALE ? SFX_FEMALE_FRAGOUT : SFX_MALE_FRAGOUT
 
 		for(var/mob/living/carbon/human/H in hearers(6,user))
@@ -88,9 +88,10 @@
 
 /obj/item/explosive/grenade/update_overlays()
 	. = ..()
+	if(!dangerous)
+		return
 	if(active && overlay_type)
 		. += image('icons/effects/danger.dmi', icon_state = "danger_[overlay_type]")
-
 
 /obj/item/explosive/grenade/proc/prime()
 	cell_explosion(loc, power = src.power, falloff = src.falloff)

@@ -816,7 +816,7 @@
 	src.visible_message(span_warning("[src] launches [throw_item.name] at [target]!"))
 	. = TRUE
 
-/obj/machinery/vending/take_damage(damage_amount, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, attack_dir, armour_penetration = 0)
+/obj/machinery/vending/take_damage(damage_amount, damage_type = BRUTE, damage_flag = null, effects = TRUE, attack_dir, armour_penetration = 0)
 	if(density && damage_amount >= knockdown_threshold)
 		tip_over()
 	return ..()

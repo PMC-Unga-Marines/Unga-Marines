@@ -1,6 +1,5 @@
 /datum/species/synthetic
 	name = "Synthetic"
-	name_plural = "Synthetics"
 
 	hud_type = /datum/hud_data/robotic
 	default_language_holder = /datum/language_holder/synthetic
@@ -21,7 +20,7 @@
 
 	body_temperature = 350
 
-	species_flags = NO_BREATHE|NO_SCAN|NO_BLOOD|NO_POISON|NO_PAIN|IS_SYNTHETIC|NO_CHEM_METABOLIZATION|NO_STAMINA|DETACHABLE_HEAD|HAS_LIPS|HAS_UNDERWEAR|HAS_SKIN_COLOR|ROBOTIC_LIMBS|GREYSCALE_BLOOD
+	species_flags = NO_BREATHE|NO_BLOOD|NO_POISON|NO_PAIN|IS_SYNTHETIC|NO_CHEM_METABOLIZATION|NO_STAMINA|DETACHABLE_HEAD|HAS_LIPS|HAS_UNDERWEAR|HAS_SKIN_COLOR|ROBOTIC_LIMBS|GREYSCALE_BLOOD
 
 	blood_color = "#EEEEEE"
 
@@ -39,9 +38,11 @@
 
 /datum/species/synthetic/handle_unique_behavior(mob/living/carbon/human/H)
 	if(H.health <= -30 && H.stat != DEAD) // Instead of having a critical condition, they overheat and slowly die.
-		H.adjust_fire_loss(rand(14, 24)) // This may need tweaks
-		if(prob(8))
-			to_chat(H, span_alert("<b>Critical damage sustained. Internal temperature regulation systems offline. <u>Immediate repair required.</u></b>"))
+		H.apply_effect(4 SECONDS, STUTTER) // Added flavor
+		H.adjust_fire_loss(rand(5, 16)) // Melting!!!
+		if(prob(12))
+			H.visible_message(span_boldwarning("[H] shudders violently and shoots out sparks!"), span_warning("Critical damage sustained. Internal temperature regulation systems offline. Shutdown imminent. <b>Estimated integrity: [round(H.health)]%.</b>"))
+			do_sparks(4, TRUE, H)
 
 /datum/species/synthetic/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()

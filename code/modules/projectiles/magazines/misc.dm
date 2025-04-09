@@ -118,7 +118,7 @@
 
 /obj/item/ammo_magazine/packet/scout_rifle
 	name = "Box of A19 high velocity bullets"
-	desc = "A box containing 150 rounds of A19 overpressuered high velocity."
+	desc = "A box containing 150 rounds of A19 overpressured high velocity."
 	icon_state = "box_tx8"
 	default_ammo = /datum/ammo/bullet/rifle/tx8
 	caliber = CALIBER_10X28_CASELESS
@@ -192,7 +192,7 @@
 	max_rounds = 42
 
 /obj/item/ammo_magazine/packet/acp
-	name = "box of .45 ACP"
+	name = "box of pistol .45 ACP"
 	icon_state = "box_.45acp"
 	default_ammo = /datum/ammo/bullet/smg/acp
 	w_class = WEIGHT_CLASS_NORMAL
@@ -201,12 +201,12 @@
 	max_rounds = 160
 
 /obj/item/ammo_magazine/packet/acp/ap
-	name = "box of .45 ACP(AP)"
+	name = "box of pistol .45 ACP(AP)"
 	icon_state = "box_.45acp_ap"
 	default_ammo = /datum/ammo/bullet/smg/acp/ap
 
 /obj/item/ammo_magazine/packet/acp/hp
-	name = "box of .45 ACP(HP)"
+	name = "box of pistol .45 ACP(HP)"
 	icon_state = "box_.45acp_hp"
 	default_ammo = /datum/ammo/bullet/smg/acp/hp
 

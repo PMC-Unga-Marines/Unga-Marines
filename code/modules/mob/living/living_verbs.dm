@@ -6,8 +6,8 @@
 
 ///Handles trying to toggle resting state
 /mob/living/proc/toggle_resting()
-	set name = "Rest"
-	set category = "IC"
+	if(incapacitated(TRUE))
+		return
 
 	if(!resting)
 		if(is_ventcrawling)

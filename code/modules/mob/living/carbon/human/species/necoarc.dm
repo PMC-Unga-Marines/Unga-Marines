@@ -1,10 +1,8 @@
 /datum/species/necoarc
 	name = "Neco Arc"
-	name_plural = "Neco Arc"
 	icobase = 'icons/mob/human_races/r_NecoArc.dmi'
 	default_language_holder = /datum/language_holder/sectoid
 	eyes = "blank_eyes"
-	speech_verb_override = "transmits"
 	count_human = TRUE
 	total_health = 80
 
