@@ -65,7 +65,7 @@
 	user.update_sight()
 	user.client.click_intercept = src
 
-/obj/item/binoculars/fire_support/onunzoom(mob/living/user)
+/obj/item/binoculars/fire_support/on_unzoom(mob/living/user)
 	. = ..()
 
 	unset_target()
@@ -76,7 +76,6 @@
 	user.client.click_intercept = null
 	user.reset_perspective(user)
 	user.update_sight()
-
 
 /obj/item/binoculars/fire_support/update_remote_sight(mob/living/user)
 	user.see_in_dark = 32 // Should include the offset from zoom and client viewport
@@ -196,7 +195,6 @@
 	var/turf/target_turf = get_turf(A)
 	to_chat(user, span_notice("COORDINATES: LONGITUDE [target_turf.x]. LATITUDE [target_turf.y]."))
 	playsound(src, 'sound/effects/binoctarget.ogg', 35)
-
 
 /obj/item/binoculars/fire_support/campaign
 	faction = FACTION_TERRAGOV

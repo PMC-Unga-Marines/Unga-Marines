@@ -859,7 +859,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 		zoom = FALSE
 		UnregisterSignal(user, COMSIG_ITEM_ZOOM)
-		onunzoom(user)
+		on_unzoom(user)
 		TIMER_COOLDOWN_START(user, COOLDOWN_ZOOM, 2 SECONDS)
 		SEND_SIGNAL(user, COMSIG_ITEM_UNZOOM)
 
@@ -946,16 +946,14 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	RegisterSignal(user, COMSIG_MOB_FACE_DIR, PROC_REF(change_zoom_offset))
 	RegisterSignals(src, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_DROPPED), PROC_REF(zoom_item_turnoff))
 
-
 ///called when zoom is deactivated.
-/obj/item/proc/onunzoom(mob/living/user)
+/obj/item/proc/on_unzoom(mob/living/user)
 	if(zoom_allow_movement)
 		UnregisterSignal(user, list(COMSIG_CARBON_SWAPPED_HANDS, COMSIG_MOB_FACE_DIR))
 	else
 		UnregisterSignal(user, list(COMSIG_MOVABLE_MOVED, COMSIG_CARBON_SWAPPED_HANDS, COMSIG_MOB_FACE_DIR))
 
 	UnregisterSignal(src, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_DROPPED))
-
 
 /obj/item/proc/eyecheck(mob/user)
 	if(!ishuman(user))

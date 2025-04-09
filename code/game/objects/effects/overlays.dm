@@ -346,8 +346,8 @@
 	name = "prediction matrix"
 	icon = 'icons/effects/lases.dmi'
 	icon_state = "nothing"
-	var/icon_state_on = "nothing"
 	hud_possible = list(SQUAD_HUD_TERRAGOV)
+	var/icon_state_on = "nothing"
 
 /obj/effect/overlay/blinking_laser/marine/Initialize(mapload)
 	. = ..()
