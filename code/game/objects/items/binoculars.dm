@@ -248,8 +248,8 @@
 			laser = CS
 			playsound(src, 'sound/effects/binoctarget.ogg', 35)
 			while(laser)
-				QDEL_NULL(laser)
 				if(!do_after(user, 5 SECONDS, NONE, laser, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
+					QDEL_NULL(laser)
 					break
 		if(MODE_RANGE_FINDER)
 			if(!length(linked_mortars))
@@ -275,14 +275,14 @@
 				var/obj/effect/overlay/temp/laser_target/RGL = new (TU, 0, laz_name, S)
 				laser = RGL
 				playsound(src, 'sound/effects/binoctarget.ogg', 35)
-				QDEL_NULL(laser)
 				if(!do_after(user, 2 SECONDS, NONE, user, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
+					QDEL_NULL(laser)
 					return
 				to_chat(user, span_notice("TARGET ACQUIRED. RAILGUN IS FIRING. DON'T MOVE."))
 				while(laser)
 					GLOB.marine_main_ship?.rail_gun?.fire_rail_gun(TU,user)
-					QDEL_NULL(laser)
 					if(!do_after(user, 3 SECONDS, NONE, laser, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
+						QDEL_NULL(laser)
 						break
 		if(MODE_ORBITAL)
 			to_chat(user, span_notice("ACQUIRING TARGET. ORBITAL CANNON TRIANGULATING. DON'T MOVE."))
@@ -292,16 +292,16 @@
 				var/obj/effect/overlay/temp/laser_target/ob/OBL = new (TU, 0, laz_name, S)
 				laser = OBL
 				playsound(src, 'sound/effects/binoctarget.ogg', 35)
-				QDEL_NULL(laser)
 				if(!do_after(user, 15 SECONDS, NONE, user, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
+					QDEL_NULL(laser)
 					return
 				to_chat(user, span_notice("TARGET ACQUIRED. ORBITAL CANNON IS READY TO FIRE."))
 				// Wait for that ALT click to fire
 				current_turf = TU
 				ob_fired = FALSE // Reset the fired state
 				while(laser && !ob_fired)
-					QDEL_NULL(laser)
 					if(!do_after(user, 5 SECONDS, NONE, laser, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
+						QDEL_NULL(laser)
 						break
 				current_turf = null
 
