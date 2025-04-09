@@ -52,7 +52,7 @@
 		"maidcafe",
 		"thelightbulb",
 		"thesyndicat",
-		"error"
+		"error",
 	))
 
 /obj/structure/sign/double/barsign/carp
