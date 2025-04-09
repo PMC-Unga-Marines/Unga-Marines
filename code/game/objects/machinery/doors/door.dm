@@ -17,24 +17,30 @@
 	var/open_layer = DOOR_OPEN_LAYER
 	var/closed_layer = DOOR_CLOSED_LAYER
 	var/id
-	///How many seconds remain until the door is no longer electrified. -1 if it is permanently electrified until someone fixes it.
+	/// How many seconds remain until the door is no longer electrified. -1 if it is permanently electrified until someone fixes it.
 	var/secondsElectrified = 0
 	var/visible = TRUE
 	var/operating = FALSE
 	var/autoclose = FALSE
 	var/glass = FALSE
+	/// Unrestricted sides. A bitflag for which direction (if any) can open the door with no access
+	var/unres_sides = NONE
 	var/normalspeed = TRUE
 	var/locked = FALSE
 	var/welded = FALSE
-	/// stops people welding the door if true
+	/// Stops people welding the door if true
 	var/not_weldable = FALSE
 	///How many seconds does it take to open it? Use only if you have long door opening animations
 	var/openspeed = 1 SECONDS
 	var/list/fillers
-	//used for determining emergency access
+	/// Used for determining emergency access
 	var/emergency = FALSE
-	///Multi-tile doors
+	/// Multi-tile doors
 	var/width = 1
+	/// Bool for determining linked state
+	var/cyclelinkeddir = FALSE
+	/// What airlock we are linked with
+	var/obj/machinery/door/airlock/cycle_linked_airlock
 
 /obj/machinery/door/Initialize(mapload)
 	. = ..()
@@ -102,10 +108,17 @@
 		user = null
 
 	if(density)
-		if(allowed(user) || emergency)
+		if(allowed(user) || emergency || unrestricted_side(user))
+			if(cycle_linked_airlock)
+				if(!emergency && !cycle_linked_airlock.emergency && allowed(user))
+					cycle_linked_airlock.close()
 			open()
 		else
 			flick("door_deny", src)
+
+///Allows for specific sides of airlocks to be unrestricted (IE, can exit maint freely, but need access to enter)
+/obj/machinery/door/proc/unrestricted_side(mob/opener)
+	return get_dir(src, opener) & unres_sides
 
 /obj/machinery/door/attack_hand(mob/living/user)
 	. = ..()
@@ -239,7 +252,7 @@
 	else
 		close(TRUE)
 	return list(0.1 SECONDS, 5)
-	
+
 /obj/machinery/door/get_dumping_location()
 	return null
 
