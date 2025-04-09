@@ -115,7 +115,7 @@
 	user.update_sight()
 	user.client.click_intercept = src
 
-/obj/item/binoculars/tactical/on_unzoom(mob/living/user)
+/obj/item/binoculars/tactical/on_unzoomed(mob/living/user)
 	. = ..()
 
 	QDEL_NULL(laser)
@@ -248,7 +248,7 @@
 			laser = CS
 			playsound(src, 'sound/effects/binoctarget.ogg', 35)
 			while(laser)
-					QDEL_NULL(laser)
+				QDEL_NULL(laser)
 				if(!do_after(user, 5 SECONDS, NONE, laser, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
 					break
 		if(MODE_RANGE_FINDER)
@@ -275,13 +275,13 @@
 				var/obj/effect/overlay/temp/laser_target/RGL = new (TU, 0, laz_name, S)
 				laser = RGL
 				playsound(src, 'sound/effects/binoctarget.ogg', 35)
-					QDEL_NULL(laser)
+				QDEL_NULL(laser)
 				if(!do_after(user, 2 SECONDS, NONE, user, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
 					return
 				to_chat(user, span_notice("TARGET ACQUIRED. RAILGUN IS FIRING. DON'T MOVE."))
 				while(laser)
 					GLOB.marine_main_ship?.rail_gun?.fire_rail_gun(TU,user)
-						QDEL_NULL(laser)
+					QDEL_NULL(laser)
 					if(!do_after(user, 3 SECONDS, NONE, laser, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
 						break
 		if(MODE_ORBITAL)
@@ -292,7 +292,7 @@
 				var/obj/effect/overlay/temp/laser_target/ob/OBL = new (TU, 0, laz_name, S)
 				laser = OBL
 				playsound(src, 'sound/effects/binoctarget.ogg', 35)
-					QDEL_NULL(laser)
+				QDEL_NULL(laser)
 				if(!do_after(user, 15 SECONDS, NONE, user, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
 					return
 				to_chat(user, span_notice("TARGET ACQUIRED. ORBITAL CANNON IS READY TO FIRE."))
@@ -300,7 +300,7 @@
 				current_turf = TU
 				ob_fired = FALSE // Reset the fired state
 				while(laser && !ob_fired)
-						QDEL_NULL(laser)
+					QDEL_NULL(laser)
 					if(!do_after(user, 5 SECONDS, NONE, laser, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
 						break
 				current_turf = null
@@ -323,8 +323,8 @@
 	ob_fired = TRUE
 	var/x_offset = rand(-2,2) //Little bit of randomness.
 	var/y_offset = rand(-2,2)
-	var/turf/target = locate(current_turf.x + x_offset,current_turf.y + y_offset,current_turf.z)
-	GLOB.marine_main_ship?.orbital_cannon?.fire_ob_cannon(target, user)
+	var/turf/target_turf = locate(current_turf.x + x_offset,current_turf.y + y_offset,current_turf.z)
+	GLOB.marine_main_ship?.orbital_cannon?.fire_ob_cannon(target_turf, user)
 	var/warhead_type = GLOB.marine_main_ship.orbital_cannon.tray.warhead.name
 	for(var/mob/living/silicon/ai/AI AS in GLOB.ai_list)
 		to_chat(AI, span_warning("NOTICE - Orbital bombardment triggered by ground operator. Warhead type: [warhead_type]. Target: [AREACOORD_NO_Z(current_turf)]"))

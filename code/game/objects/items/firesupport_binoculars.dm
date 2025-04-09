@@ -65,7 +65,7 @@
 	user.update_sight()
 	user.client.click_intercept = src
 
-/obj/item/binoculars/fire_support/on_unzoom(mob/living/user)
+/obj/item/binoculars/fire_support/on_unzoomed(mob/living/user)
 	. = ..()
 
 	unset_target()

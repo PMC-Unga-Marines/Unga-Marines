@@ -156,7 +156,7 @@
 		user.reset_perspective(src)
 		active_nightvision = TRUE
 
-/obj/item/attachable/scope/on_unzoom(mob/living/user)
+/obj/item/attachable/scope/on_unzoomed(mob/living/user)
 	if(zoom_allow_movement)
 		user.remove_movespeed_modifier(MOVESPEED_ID_SCOPE_SLOWDOWN)
 		UnregisterSignal(user, list(COMSIG_CARBON_SWAPPED_HANDS, COMSIG_MOB_FACE_DIR))
