@@ -395,9 +395,13 @@
 /obj/item/weapon/gun/shotgun/pump/bolt
 	name = "\improper Mosin Nagant rifle"
 	desc = "A mosin nagant rifle, even just looking at it you can feel the cosmoline already. Commonly known by its slang, \"Moist Nugget\", by downbrained colonists and outlaws."
-	icon = 'icons/obj/items/gun/shotgun64.dmi'
+	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "mosin"
 	item_state = "mosin"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
+	)
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mosin.ogg'
 	fire_rattle = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mosin_low.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/sniper_empty.ogg'
