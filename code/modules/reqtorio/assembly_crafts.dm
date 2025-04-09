@@ -249,6 +249,16 @@ WEAPONS
 	input = list(/obj/item/stack/sheet/plasteel = 1, /obj/item/stack/gun_powder = 1) // 8 + 16 points
 	output = list(/obj/item/ammo_magazine/rifle/tx8 = 1) // 10 points from old factory
 
+/datum/assembly_craft/weapons/scout_rifle_incendiary_magazine
+	name = "BR-8 scout rifle incendiary magazine"
+	input = list(/obj/item/stack/sheet/plasteel = 2, /obj/item/stack/gun_powder = 2) // 8 + 16 points
+	output = list(/obj/item/ammo_magazine/rifle/tx8/incendiary = 1) // 10 points from old factory
+
+/datum/assembly_craft/weapons/scout_rifle_impact_magazine
+	name = "BR-8 scout rifle impact magazine"
+	input = list(/obj/item/stack/sheet/plasteel = 2, /obj/item/stack/gun_powder = 2) // 8 + 16 points
+	output = list(/obj/item/ammo_magazine/rifle/tx8/impact = 1) // 10 points from old factory
+
 /datum/assembly_craft/weapons/mateba_speedloader
 	name = "Mateba autorevolver speedloader"
 	input = list(/obj/item/stack/sheet/plasteel = 1, /obj/item/stack/gun_powder = 1) // 8 + 8 points
