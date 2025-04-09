@@ -199,7 +199,7 @@
 
 /obj/item/ammo_magazine/fk88/he/examine(mob/user)
 	. = ..()
-	. += span_warning("Activate in hand to swap between unguided and guided modes")
+	. += span_warning("Right-click with other hand to swap between unguided and guided modes")
 
 /obj/item/ammo_magazine/fk88/he/attack_hand_alternate(mob/living/user)
 	if(guided)
