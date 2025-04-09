@@ -125,28 +125,7 @@
 		SEND_SIGNAL(src, COMSIG_LIVING_IGNITED, fire_stacks)
 		return TRUE
 
-/mob/living/carbon/human/IgniteMob()
-	. = ..()
-	if(on_fire == TRUE)
-		if(!stat && !(species.species_flags & NO_PAIN))
-			emote("scream")
-
-/mob/living/carbon/xenomorph/IgniteMob()
-	if(xeno_caste.caste_flags & CASTE_FIRE_IMMUNE)
-		return
-	. = ..()
-	if(!.)
-		return
-	update_fire()
-	var/obj/item/clothing/mask/facehugger/F = get_active_held_item()
-	var/obj/item/clothing/mask/facehugger/G = get_inactive_held_item()
-	if(istype(F))
-		F.kill_hugger()
-		dropItemToGround(F)
-	if(istype(G))
-		G.kill_hugger()
-		dropItemToGround(G)
-
+///Puts out any fire on the mob
 /mob/living/proc/ExtinguishMob()
 	if(!on_fire)
 		return FALSE
@@ -156,20 +135,25 @@
 	update_fire()
 	UnregisterSignal(src, COMSIG_LIVING_DO_RESIST)
 
+///Updates fire visuals
 /mob/living/proc/update_fire()
 	return
 
-/mob/living/proc/adjust_fire_stacks(add_fire_stacks) //Adjusting the amount of fire_stacks we have on person
+///Adjusting the amount of fire_stacks we have on person
+/mob/living/proc/adjust_fire_stacks(add_fire_stacks)
 	if(QDELETED(src))
 		return
-	if(status_flags & GODMODE) //Invulnerable mobs don't get fire stacks
-		return
 	if(add_fire_stacks > 0)	//Fire stack increases are affected by armor, end result rounded up.
+		if(status_flags & GODMODE)
+			return
 		add_fire_stacks = CEILING(modify_by_armor(add_fire_stacks, FIRE), 1)
 	fire_stacks = clamp(fire_stacks + add_fire_stacks, -20, 20)
 	if(on_fire && fire_stacks <= 0)
 		ExtinguishMob()
+		return
+	update_fire()
 
+///Update fire stacks on life tick
 /mob/living/proc/handle_fire()
 	if(fire_stacks < 0)
 		fire_stacks++ //If we've doused ourselves in water to avoid fire, dry off slowly
@@ -198,14 +182,15 @@
 	if(!burn_level)
 		return
 	if(status_flags & (INCORPOREAL|GODMODE)) //Ignore incorporeal/invul targets
-		return
+		return FALSE
 	if(hard_armor.getRating(FIRE) >= 100)
 		to_chat(src, span_warning("You are untouched by the flames."))
-		return
+		return FALSE
 
 	if(pass_flags & PASS_FIRE) //Pass fire allow to cross fire without being ignited
-		return
+		return FALSE
 
+	. = TRUE
 	//TODO: Make firetypes, colour types are terrible
 	if(flame_color == FLAME_COLOR_LIME)
 		if(has_status_effect(STATUS_EFFECT_MELTING))
@@ -218,8 +203,11 @@
 	to_chat(src, span_warning("You are burned!"))
 
 	adjust_fire_stacks(burn_level)
+	if(on_fire || !fire_stacks)
+		return
 	IgniteMob()
 
+///Try and remove fire from ourselves
 /mob/living/proc/resist_fire(datum/source)
 	SIGNAL_HANDLER
 	fire_stacks = max(fire_stacks - rand(3, 6), 0)

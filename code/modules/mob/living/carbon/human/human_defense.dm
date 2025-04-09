@@ -337,11 +337,24 @@ Contains most of the procs that are called when a mob is attacked by something
 
 	return TRUE
 
+/mob/living/carbon/human/IgniteMob()
+	. = ..()
+	if(!.)
+		return
+	if(!stat && !(species.species_flags & NO_PAIN))
+		emote("scream")
+
+/mob/living/carbon/human/fire_act(burn_level)
+	. = ..()
+	if(!.)
+		return
+	if(stat || (species.species_flags & NO_PAIN))
+		return
+	emote("scream")
 
 /mob/living/carbon/human/resist_fire(datum/source)
 	spin(30, 1.5)
 	return ..()
-
 
 /mob/living/carbon/human/proc/bloody_hands(mob/living/source, amount = 2)
 	if (istype(gloves))
