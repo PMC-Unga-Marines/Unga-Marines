@@ -171,7 +171,7 @@
 	set name = "Toggle Laser Mode"
 	if(!user && isliving(loc))
 		user = loc
-	if (laser)
+	if(laser)
 		to_chat(user, span_warning("You can't switch mode while targeting"))
 		return
 	if(!changeable)
@@ -199,11 +199,10 @@
 
 /obj/item/binoculars/tactical/proc/acquire_target(atom/target, mob/living/carbon/human/user)
 	set waitfor = 0
-
-	if(laser)
 	if(user.do_actions)
 		balloon_alert_to_viewers("Busy")
 		return
+	if(laser)
 		to_chat(user, span_warning("You're already targeting something."))
 		return
 
@@ -231,12 +230,13 @@
 	if(!is_outside)
 		to_chat(user, span_warning("DEPTH WARNING: Target too deep for ordnance."))
 		return
-	if(user.do_actions)
+	if(!can_see_target(target, user))
+		balloon_alert_to_viewers("No clear view")
 		return
 	playsound(src, 'sound/effects/nightvision.ogg', 35)
 	if(mode != MODE_RANGE_FINDER)
 		to_chat(user, span_notice("INITIATING LASER TARGETING. Stand still."))
-		if(!do_after(user, max(1.5 SECONDS, target_acquisition_delay - (2.5 SECONDS * user.skills.getRating(SKILL_LEADERSHIP))), NONE, TU, BUSY_ICON_GENERIC) || world.time < laser_cooldown || laser)
+		if(!do_after(user, max(1.5 SECONDS, target_acquisition_delay - (2.5 SECONDS * user.skills.getRating(SKILL_LEADERSHIP))), NONE, TU, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)) || world.time < laser_cooldown || laser)
 			return
 	if(targ_area.area_flags & OB_CAS_IMMUNE)
 		to_chat(user, span_warning("Our payload won't reach this target!"))
@@ -248,8 +248,8 @@
 			laser = CS
 			playsound(src, 'sound/effects/binoctarget.ogg', 35)
 			while(laser)
-				if(!do_after(user, 5 SECONDS, NONE, laser, BUSY_ICON_GENERIC))
 					QDEL_NULL(laser)
+				if(!do_after(user, 5 SECONDS, NONE, laser, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
 					break
 		if(MODE_RANGE_FINDER)
 			if(!length(linked_mortars))
@@ -275,14 +275,14 @@
 				var/obj/effect/overlay/temp/laser_target/RGL = new (TU, 0, laz_name, S)
 				laser = RGL
 				playsound(src, 'sound/effects/binoctarget.ogg', 35)
-				if(!do_after(user, 2 SECONDS, NONE, user, BUSY_ICON_GENERIC))
 					QDEL_NULL(laser)
+				if(!do_after(user, 2 SECONDS, NONE, user, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
 					return
 				to_chat(user, span_notice("TARGET ACQUIRED. RAILGUN IS FIRING. DON'T MOVE."))
 				while(laser)
 					GLOB.marine_main_ship?.rail_gun?.fire_rail_gun(TU,user)
-					if(!do_after(user, 3 SECONDS, NONE, laser, BUSY_ICON_GENERIC))
 						QDEL_NULL(laser)
+					if(!do_after(user, 3 SECONDS, NONE, laser, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
 						break
 		if(MODE_ORBITAL)
 			to_chat(user, span_notice("ACQUIRING TARGET. ORBITAL CANNON TRIANGULATING. DON'T MOVE."))
@@ -292,20 +292,30 @@
 				var/obj/effect/overlay/temp/laser_target/ob/OBL = new (TU, 0, laz_name, S)
 				laser = OBL
 				playsound(src, 'sound/effects/binoctarget.ogg', 35)
-				if(!do_after(user, 15 SECONDS, NONE, user, BUSY_ICON_GENERIC))
 					QDEL_NULL(laser)
+				if(!do_after(user, 15 SECONDS, NONE, user, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
 					return
 				to_chat(user, span_notice("TARGET ACQUIRED. ORBITAL CANNON IS READY TO FIRE."))
 				// Wait for that ALT click to fire
 				current_turf = TU
 				ob_fired = FALSE // Reset the fired state
 				while(laser && !ob_fired)
-					if(!do_after(user, 5 SECONDS, NONE, laser, BUSY_ICON_GENERIC))
 						QDEL_NULL(laser)
+					if(!do_after(user, 5 SECONDS, NONE, laser, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
 						break
 				current_turf = null
 
-/obj/item/binoculars/tactical/proc/try_fire_ob(atom/A, mob/living/carbon/human/user)
+///Checks if we can draw LOS to the target
+/obj/item/binoculars/tactical/proc/can_see_target(atom/target, mob/living/user)
+	if(QDELETED(target))
+		return FALSE
+	if(target.z != user.z)
+		return FALSE
+	if(!(user in viewers(zoom_tile_offset + zoom_viewsize + 1, target)))
+		return FALSE
+	return TRUE
+
+/obj/item/binoculars/tactical/proc/try_fire_ob(atom/target, mob/living/carbon/human/user)
 	if(mode != MODE_ORBITAL)
 		return
 	if(target != laser || !current_turf)
