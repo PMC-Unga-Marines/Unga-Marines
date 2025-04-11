@@ -344,6 +344,7 @@
 /mob/camera/aiEye/remote/shuttle_docker
 	visible_icon = FALSE
 	use_static = FALSE
+	atom_flags = PREVENT_CONTENTS_EXPLOSION|SHUTTLE_IMMUNE // tadpole seems to destroy the camera on landing and causes immense runtimes
 	var/list/placement_images = list()
 	var/list/placed_images = list()
 	/// If it is possible to have night vision, if false the user will get turf vision
