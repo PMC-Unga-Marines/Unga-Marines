@@ -850,6 +850,7 @@
 	opacity = FALSE
 
 /turf/closed/shuttle/dropship2/rearcorner/tadpole
+	name = "\improper Tadpole"
 	icon_state = "shuttle_rearcorner"
 	resistance_flags = NONE
 
@@ -857,8 +858,19 @@
 	icon_state = "shuttle_rearcorner_alt"
 
 /turf/closed/shuttle/dropship2/rearcorner/alt/tadpole
+	name = "\improper Tadpole"
 	icon_state = "shuttle_rearcorner_alt"
 	resistance_flags = NONE
+
+/turf/closed/shuttle/dropship2/cornersalt/tadpole
+	name = "\improper Tadpole"
+	icon_state = "tadpole_interior_corner"
+	icon = 'icons/turf/tadpole.dmi'
+	resistance_flags = NONE
+	opacity = FALSE
+
+/turf/closed/shuttle/dropship2/cornersalt/tadpole/alt
+	icon_state = "tadpole_interior_corner_alt"
 
 /turf/closed/shuttle/dropship2/transparent
 	opacity = FALSE

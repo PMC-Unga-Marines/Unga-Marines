@@ -10,10 +10,6 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "b" = (
-/obj/structure/dropship_piece/two/weapon/leftleft{
-	dir = 1;
-	pixel_y = 32
-	},
 /obj/structure/dropship_piece/tadpole/engine{
 	dir = 1;
 	pixel_x = -23
@@ -21,21 +17,25 @@
 /obj/effect/attach_point/weapon/minidropship{
 	equipment_offset_y = 25
 	},
+/obj/structure/dropship_piece/tadpole/weapon/leftleft{
+	pixel_y = 32;
+	dir = 1
+	},
 /turf/closed/shuttle/dropship2/rearcorner/alt/tadpole{
 	dir = 1
 	},
 /area/shuttle/minidropship)
 "c" = (
-/obj/structure/dropship_piece/two/weapon/rightright{
-	dir = 1;
-	pixel_y = 32
-	},
 /obj/effect/attach_point/weapon/minidropship{
 	equipment_offset_y = 25
 	},
 /obj/structure/dropship_piece/tadpole/engine{
 	dir = 1;
 	pixel_x = 23
+	},
+/obj/structure/dropship_piece/tadpole/weapon/rightright{
+	pixel_y = 32;
+	dir = 1
 	},
 /turf/closed/shuttle/dropship2/rearcorner/tadpole{
 	dir = 1
@@ -112,10 +112,9 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "A" = (
-/obj/structure/dropship_piece/glassone/tadpole{
+/turf/closed/shuttle/dropship2/cornersalt/tadpole/alt{
 	dir = 1
 	},
-/turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "B" = (
 /obj/structure/dropship_piece/tadpole/engine{
@@ -166,10 +165,9 @@
 /turf/template_noop,
 /area/shuttle/minidropship)
 "N" = (
-/obj/structure/dropship_piece/glasstwo/tadpole{
+/turf/closed/shuttle/dropship2/cornersalt/tadpole{
 	dir = 1
 	},
-/turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "O" = (
 /obj/structure/barricade/plasteel{

@@ -8,7 +8,7 @@
 	/// Action of placing the shuttle custom landing zone
 	var/datum/action/innate/shuttledocker_place/place_action = new
 	/// The id of the shuttle linked to this console
-	var/shuttleId = ""
+	var/shuttle_id = ""
 	/// The id of the custom docking port placed by this console
 	var/shuttlePortId = ""
 	/// The name of the custom docking port placed by this console
@@ -48,7 +48,7 @@
 		connect_to_shuttle(SSshuttle.get_containing_shuttle(src))
 
 		for(var/obj/docking_port/stationary/S AS in SSshuttle.stationary_docking_ports)
-			if(S.shuttle_id == shuttleId)
+			if(S.shuttle_id == shuttle_id)
 				jumpto_ports[S.shuttle_id] = TRUE
 
 	for(var/V in SSshuttle.stationary_docking_ports)
@@ -73,7 +73,7 @@
 	if(jammed)
 		to_chat(user, span_warning("You can only see static on the console."))
 		return
-	if(!shuttle_port && !SSshuttle.getShuttle(shuttleId))
+	if(!shuttle_port && !SSshuttle.getShuttle(shuttle_id))
 		to_chat(user,span_warning("Warning: Shuttle connection severed!"))
 		return
 	return ..()
@@ -81,7 +81,7 @@
 /obj/machinery/computer/camera_advanced/shuttle_docker/interact(mob/user)
 	if(!allowed(user))
 		return
-	..()
+	return ..()
 
 ///Change the fly state of the shuttle, called when a new shuttle port is reached
 /obj/machinery/computer/camera_advanced/shuttle_docker/proc/shuttle_arrived()
@@ -90,7 +90,7 @@
 /obj/machinery/computer/camera_advanced/shuttle_docker/give_actions(mob/living/user)
 	if(length(jumpto_ports))
 		jump_action = new /datum/action/innate/camera_jump/shuttle_docker
-	..()
+	. = ..()
 	if(rotate_action)
 		rotate_action.target = user
 		rotate_action.give_action(user)
@@ -102,7 +102,7 @@
 		actions += place_action
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/CreateEye()
-	shuttle_port = SSshuttle.getShuttle(shuttleId)
+	shuttle_port = SSshuttle.getShuttle(shuttle_id)
 	if(QDELETED(shuttle_port))
 		shuttle_port = null
 		return
@@ -336,7 +336,7 @@
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(port)
-		shuttleId = port.shuttle_id
+		shuttle_id = port.shuttle_id
 		shuttlePortId = "[port.shuttle_id]_custom"
 	if(dock)
 		jumpto_ports[dock.shuttle_id] = TRUE
@@ -363,13 +363,13 @@
 		setLoc(T)
 
 /mob/camera/aiEye/remote/shuttle_docker/setLoc(T)
-	..()
+	. = ..()
 	var/obj/machinery/computer/camera_advanced/shuttle_docker/console = origin
 	console?.checkLandingSpot()
 
 /mob/camera/aiEye/remote/shuttle_docker/update_remote_sight(mob/living/user)
 	var/obj/machinery/computer/camera_advanced/shuttle_docker/console = origin
-	if(nvg_vision_possible && console.nvg_vision_mode)
+	if(nvg_vision_possible && console?.nvg_vision_mode)
 		user.see_in_dark = 6
 		user.sight = 0
 		user.lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE

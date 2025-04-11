@@ -21,7 +21,7 @@
 	density = FALSE
 	interaction_flags = INTERACT_OBJ_UI
 	resistance_flags = RESIST_ALL
-	shuttleId = SHUTTLE_TADPOLE
+	shuttle_id = SHUTTLE_TADPOLE
 	lock_override = CAMERA_LOCK_GROUND
 	shuttlePortId = "minidropship_custom"
 	view_range = "26x26"
@@ -49,7 +49,7 @@
 	var/datum/action/minimap/marine/external/tadmap
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/Initialize(mapload)
-	..()
+	. = ..()
 	start_processing()
 	set_light(3,3, LIGHT_COLOR_RED)
 	land_action = new
@@ -66,7 +66,7 @@
 	tadmap.override_locator(eyeobj)
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/LateInitialize()
-	shuttle_port = SSshuttle.getShuttle(shuttleId)
+	shuttle_port = SSshuttle.getShuttle(shuttle_id)
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/give_actions(mob/living/user)
 	if(!user)
@@ -118,7 +118,7 @@
 
 ///The action of taking off and sending the shuttle to the atmosphere
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/take_off()
-	shuttle_port = SSshuttle.getShuttle(shuttleId)
+	shuttle_port = SSshuttle.getShuttle(shuttle_id)
 	#ifndef TESTING
 	if(!(shuttle_port.shuttle_flags & GAMEMODE_IMMUNE) && world.time < SSticker.round_start_time + SSticker.mode.deploy_time_lock)
 		to_chat(ui_user, span_warning("The mothership is too far away from the theatre of operation, we cannot take off."))
@@ -138,11 +138,11 @@
 		shuttle_port.callTime = SHUTTLE_TAKEOFF_SHIP_CALLTIME
 		next_fly_state = SHUTTLE_IN_SPACE
 		destination_fly_state = SHUTTLE_IN_ATMOSPHERE
-	SSshuttle.moveShuttleToTransit(shuttleId, TRUE)
+	SSshuttle.moveShuttleToTransit(shuttle_id, TRUE)
 
 ///The action of sending the shuttle back to its shuttle port on main ship
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/return_to_ship()
-	shuttle_port = SSshuttle.getShuttle(shuttleId)
+	shuttle_port = SSshuttle.getShuttle(shuttle_id)
 	shuttle_port.shuttle_computer = src
 	to_transit = TRUE
 	next_fly_state = SHUTTLE_IN_SPACE
@@ -151,7 +151,7 @@
 		return
 	open_prompt = FALSE
 	clean_ui_user()
-	SSshuttle.moveShuttle(shuttleId, origin_port_id, TRUE)
+	SSshuttle.moveShuttle(shuttle_id, origin_port_id, TRUE)
 
 /// Toggle the vision between small nightvision and turf vision
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/toggle_nvg()
@@ -192,7 +192,7 @@
 		shuttle_port.callTime = SHUTTLE_LANDING_CALLTIME
 		next_fly_state = SHUTTLE_ON_GROUND
 		shuttle_port.set_mode(SHUTTLE_CALL)
-		SSshuttle.moveShuttleToDock(shuttleId, last_valid_ground_port, TRUE)
+		SSshuttle.moveShuttleToDock(shuttle_id, last_valid_ground_port, TRUE)
 		return
 
 	if(next_fly_state == SHUTTLE_IN_ATMOSPHERE)
@@ -232,7 +232,7 @@
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/ui_data(mob/user)
 	. = list()
 	if(!shuttle_port)
-		shuttle_port = SSshuttle.getShuttle(shuttleId)
+		shuttle_port = SSshuttle.getShuttle(shuttle_id)
 	.["fly_state"] = fly_state
 	.["take_off_locked"] = ( !(fly_state == SHUTTLE_ON_GROUND || fly_state == SHUTTLE_ON_SHIP) || shuttle_port?.mode != SHUTTLE_IDLE)
 	.["return_to_ship_locked"] = (fly_state != SHUTTLE_IN_ATMOSPHERE || shuttle_port?.mode != SHUTTLE_IDLE)
@@ -287,4 +287,4 @@
 	SStgui.close_user_uis(C, origin)
 	origin.shuttle_port.set_mode(SHUTTLE_CALL)
 	origin.last_valid_ground_port = origin.my_port
-	SSshuttle.moveShuttleToDock(origin.shuttleId, origin.my_port, TRUE)
+	SSshuttle.moveShuttleToDock(origin.shuttle_id, origin.my_port, TRUE)
