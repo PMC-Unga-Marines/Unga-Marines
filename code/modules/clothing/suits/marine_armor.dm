@@ -28,7 +28,7 @@
 		/obj/item/instrument,
 		/obj/item/storage/belt/sparepouch,
 		/obj/item/storage/holster/blade,
-		/obj/item/weapon/claymore/harvester,
+		/obj/item/weapon/sword/harvester,
 		/obj/item/storage/holster/belt,
 		/obj/item/storage/belt/knifepouch,
 		/obj/item/weapon/twohanded,
@@ -131,7 +131,7 @@
 		/obj/item/weapon/gun,
 		/obj/item/storage/belt/sparepouch,
 		/obj/item/storage/holster/blade,
-		/obj/item/weapon/claymore/harvester,
+		/obj/item/weapon/sword/harvester,
 		/obj/item/storage/holster/belt,
 		/obj/item/storage/belt/knifepouch,
 		/obj/item/weapon/twohanded,
@@ -257,7 +257,7 @@
 		/obj/item/tool/lighter,
 		/obj/item/explosive/grenade,
 		/obj/item/storage/bible,
-		/obj/item/weapon/claymore/mercsword/machete,
+		/obj/item/weapon/sword/machete,
 		/obj/item/weapon/combat_knife,
 	)
 	item_map_variant_flags = NONE
@@ -611,7 +611,7 @@
 		/obj/item/tool/lighter,
 		/obj/item/explosive/grenade,
 		/obj/item/storage/bible,
-		/obj/item/weapon/claymore/mercsword/machete,
+		/obj/item/weapon/sword/machete,
 		/obj/item/weapon/combat_knife,
 	)
 
@@ -632,7 +632,7 @@
 		/obj/item/tool/lighter,
 		/obj/item/explosive/grenade,
 		/obj/item/storage/bible,
-		/obj/item/weapon/claymore/mercsword/machete,
+		/obj/item/weapon/sword/machete,
 		/obj/item/weapon/combat_knife,
 	)
 
@@ -653,7 +653,7 @@
 		/obj/item/tool/lighter,
 		/obj/item/explosive/grenade,
 		/obj/item/storage/bible,
-		/obj/item/weapon/claymore/mercsword/machete,
+		/obj/item/weapon/sword/machete,
 		/obj/item/weapon/combat_knife,
 	)
 

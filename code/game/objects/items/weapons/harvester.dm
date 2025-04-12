@@ -1,5 +1,5 @@
 //Vali Sword
-/obj/item/weapon/claymore/harvester
+/obj/item/weapon/sword/harvester
 	name = "\improper HP-S Harvester blade"
 	desc = "TerraGov Marine Corps' experimental High Point-Singularity 'Harvester' blade. An advanced weapon that trades sheer force for the ability to apply a variety of debilitating effects when loaded with certain reagents. Activate after loading to prime a single use of an effect. It also harvests substances from alien lifeforms it strikes when connected to the Vali system."
 	icon = 'icons/obj/items/vali.dmi'
@@ -13,15 +13,15 @@
 	attack_speed = 12
 	w_class = WEIGHT_CLASS_BULKY
 
-/obj/item/weapon/claymore/harvester/Initialize(mapload)
+/obj/item/weapon/sword/harvester/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/harvester)
 
-/obj/item/weapon/claymore/harvester/equipped(mob/user, slot)
+/obj/item/weapon/sword/harvester/equipped(mob/user, slot)
 	. = ..()
 	toggle_item_bump_attack(user, TRUE)
 
-/obj/item/weapon/claymore/harvester/dropped(mob/user)
+/obj/item/weapon/sword/harvester/dropped(mob/user)
 	. = ..()
 	toggle_item_bump_attack(user, FALSE)
 
@@ -88,7 +88,7 @@
 	toggle_item_bump_attack(user, FALSE)
 
 //Vali rapier
-/obj/item/weapon/claymore/mercsword/officersword/valirapier
+/obj/item/weapon/sword/officer/valirapier
 	name = "\improper HP-C Harvester rapier"
 	desc = "Extremely expensive looking blade, with a golden handle and engravings, unexpectedly effective in combat, despite its ceremonial looks, compacted with a vali module."
 	icon = 'icons/obj/items/vali.dmi'
@@ -101,7 +101,7 @@
 	force = 60
 	attack_speed = 5
 
-/obj/item/weapon/claymore/mercsword/officersword/valirapier/Initialize(mapload)
+/obj/item/weapon/sword/officer/valirapier/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/harvester)
 	RemoveElement(/datum/element/strappable)

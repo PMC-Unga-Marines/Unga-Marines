@@ -291,15 +291,15 @@
 	icon_state = "machete_holster"
 	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	holsterable_allowed = list(
-		/obj/item/weapon/claymore/mercsword/machete,
+		/obj/item/weapon/sword/machete,
 	)
 
 /obj/item/storage/holster/blade/machete/Initialize(mapload)
 	. = ..()
-	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/claymore/mercsword/machete))
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/sword/machete))
 
 /obj/item/storage/holster/blade/machete/full/PopulateContents()
-	new /obj/item/weapon/claymore/mercsword/machete(src)
+	new /obj/item/weapon/sword/machete(src)
 
 /obj/item/storage/holster/blade/harvester
 	name = "H5 Pattern M2132 harvester scabbard"
@@ -307,15 +307,15 @@
 	icon_state = "harvester_holster"
 	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	holsterable_allowed = list(
-		/obj/item/weapon/claymore/harvester,
+		/obj/item/weapon/sword/harvester,
 	)
 
 /obj/item/storage/holster/blade/harvester/Initialize(mapload)
 	. = ..()
-	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/claymore/harvester))
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/sword/harvester))
 
 /obj/item/storage/holster/blade/harvester/full/PopulateContents()
-	new /obj/item/weapon/claymore/harvester(src)
+	new /obj/item/weapon/sword/harvester(src)
 
 /obj/item/storage/holster/blade/katana
 	name = "\improper katana scabbard"
@@ -324,14 +324,14 @@
 	force = 12
 	attack_verb = list("bludgeoned", "struck", "cracked")
 	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
-	holsterable_allowed = list(/obj/item/weapon/katana)
+	holsterable_allowed = list(/obj/item/weapon/sword/katana)
 
 /obj/item/storage/holster/blade/katana/Initialize(mapload)
 	. = ..()
-	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/katana))
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/sword/katana))
 
 /obj/item/storage/holster/blade/katana/full/PopulateContents()
-	new /obj/item/weapon/katana(src)
+	new /obj/item/weapon/sword/katana(src)
 
 /obj/item/storage/holster/blade/officer
 	name = "\improper officer sword scabbard"
@@ -339,11 +339,11 @@
 	icon_state = "officer_sheath"
 	equip_slot_flags = ITEM_SLOT_BELT
 	worn_layer = CAPE_LAYER
-	holsterable_allowed = list(/obj/item/weapon/claymore/mercsword/officersword)
+	holsterable_allowed = list(/obj/item/weapon/sword/officer)
 	storage_type = /datum/storage/holster/blade/officer
 
 /obj/item/storage/holster/blade/officer/full/PopulateContents()
-	new /obj/item/weapon/claymore/mercsword/officersword(src)
+	new /obj/item/weapon/sword/officer(src)
 
 /obj/item/storage/holster/blade/officer/valirapier
 	name = "\improper HP-C vali rapier sheath"
@@ -353,14 +353,14 @@
 		slot_belt_str = 'icons/mob/belt.dmi',
 	)
 	icon_state = "rapier_holster"
-	holsterable_allowed = list(/obj/item/weapon/claymore/mercsword/officersword/valirapier)
+	holsterable_allowed = list(/obj/item/weapon/sword/officer/valirapier)
 
 /obj/item/storage/holster/blade/officer/valirapier/Initialize(mapload, ...)
 	. = ..()
-	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/claymore/mercsword/officersword/valirapier))
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/sword/officer/valirapier))
 
 /obj/item/storage/holster/blade/officer/valirapier/full/PopulateContents()
-	new /obj/item/weapon/claymore/mercsword/officersword/valirapier(src)
+	new /obj/item/weapon/sword/officer/valirapier(src)
 
 /obj/item/storage/holster/blade/officer/sabre
 	name = "\improper officer sabre sheath"
@@ -370,14 +370,14 @@
 		slot_belt_str = 'icons/mob/belt.dmi',
 	)
 	icon_state = "saber_holster"
-	holsterable_allowed = list(/obj/item/weapon/claymore/mercsword/officersword/sabre)
+	holsterable_allowed = list(/obj/item/weapon/sword/officer/sabre)
 
 /obj/item/storage/holster/blade/officer/sabre/Initialize(mapload, ...)
 	. = ..()
-	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/claymore/mercsword/officersword/sabre))
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/sword/officer/sabre))
 
 /obj/item/storage/holster/blade/officer/sabre/full/PopulateContents()
-	new /obj/item/weapon/claymore/mercsword/officersword/sabre(src)
+	new /obj/item/weapon/sword/officer/sabre(src)
 
 // Tactical Tomahawk Holster
 
@@ -393,14 +393,14 @@
 		slot_s_store_str = 'icons/mob/suit_slot.dmi'
 	)
 	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
-	holsterable_allowed = list(/obj/item/weapon/claymore/tomahawk)
+	holsterable_allowed = list(/obj/item/weapon/sword/tomahawk)
 
 /obj/item/storage/holster/blade/tomahawk/Initialize(mapload, ...)
 	. = ..()
-	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/claymore/tomahawk))
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/sword/tomahawk))
 
 /obj/item/storage/holster/blade/tomahawk/full/PopulateContents()
-	new /obj/item/weapon/claymore/tomahawk(src)
+	new /obj/item/weapon/sword/tomahawk(src)
 
 /obj/item/storage/holster/blade/tomahawk/classic
 	name = "\improper Tactical H17 Tomahawk scabbard"
@@ -410,7 +410,7 @@
 	item_state = "tomahawk_classic_holster"
 
 /obj/item/storage/holster/blade/tomahawk/classic/full/PopulateContents()
-	new /obj/item/weapon/claymore/tomahawk/classic(src)
+	new /obj/item/weapon/sword/tomahawk/classic(src)
 
 //guns
 

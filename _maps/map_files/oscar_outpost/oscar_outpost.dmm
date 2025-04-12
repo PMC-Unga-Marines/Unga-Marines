@@ -1556,7 +1556,7 @@
 /area/oscar_outpost/base)
 "kq" = (
 /obj/structure/table/wood,
-/obj/item/weapon/claymore/mercsword/captain,
+/obj/item/weapon/sword/captain,
 /turf/open/floor/wood,
 /area/oscar_outpost/base)
 "kt" = (

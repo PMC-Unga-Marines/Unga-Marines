@@ -680,7 +680,7 @@
 	user.reset_perspective(null)
 
 
-/obj/item/weapon/claymore/mercsword/ceremonial
+/obj/item/weapon/sword/ceremonial
 	name = "Ceremonial Sword"
 	desc = "A fancy ceremonial sword passed down from generation to generation. Despite this, it has been very well cared for, and is in top condition."
 	icon_state = "officer_sword"
@@ -1209,7 +1209,7 @@
 	usesound = list('sound/items/welder.ogg', 'sound/items/welder2.ogg')
 	max_fuel = 150	//The max amount of fuel the welder can hold
 
-/obj/item/weapon/claymore/mercsword/machete/arnold
+/obj/item/weapon/sword/machete/arnold
 	anchored = TRUE
 	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "arnold-machete"

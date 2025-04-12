@@ -5486,7 +5486,7 @@
 /area/whiskey_outpost/outside/west)
 "Ew" = (
 /obj/structure/table/wood,
-/obj/item/weapon/claymore/mercsword/captain,
+/obj/item/weapon/sword/captain,
 /turf/open/floor/wood,
 /area/whiskey_outpost)
 "ED" = (

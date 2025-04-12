@@ -127,7 +127,7 @@
 	allowed = list(
 		/obj/item/instrument,
 		/obj/item/storage/holster/blade,
-		/obj/item/weapon/claymore,
+		/obj/item/weapon/sword,
 		/obj/item/weapon/twohanded,
 	)
 
