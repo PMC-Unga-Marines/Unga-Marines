@@ -3,7 +3,7 @@
 	desc = "Presents!"
 	icon = 'icons/obj/items/items.dmi'
 	icon_state = "gift1"
-	item_state = "gift1"
+	worn_icon_state = "gift1"
 	var/list/gift_types = list(
 		/obj/item/storage/wallet,
 		/obj/item/storage/box/snappops,
@@ -61,7 +61,7 @@
 	desc = "One, standard issue TGMC Present"
 	icon = 'icons/obj/items/items.dmi'
 	icon_state = "gift1"
-	item_state = "gift1"
+	worn_icon_state = "gift1"
 	gift_types = list(
 		/obj/item/clothing/tie/horrible,
 		/obj/item/attachable/suppressor,

@@ -4,7 +4,7 @@
 	w_class = WEIGHT_CLASS_HUGE
 	icon = 'icons/obj/items/ammo/box.dmi'
 	icon_state = "big_ammo_box"
-	item_state = "big_ammo_box"
+	worn_icon_state = "big_ammo_box"
 	equip_slot_flags = ITEM_SLOT_BACK
 	base_icon_state = "big_ammo_box"
 	///Ammunition type
@@ -127,7 +127,7 @@
 	desc = "A large, deployable ammo box."
 	icon = 'icons/obj/items/ammo/box.dmi'
 	icon_state = "ammoboxslug"
-	item_state = "ammoboxslug"
+	worn_icon_state = "ammoboxslug"
 	base_icon_state = "ammoboxslug"
 	w_class = WEIGHT_CLASS_HUGE
 	equip_slot_flags = ITEM_SLOT_BACK
@@ -223,14 +223,14 @@
 /obj/item/shotgunbox/buckshot
 	name = "Buckshot Ammo Box"
 	icon_state = "ammoboxbuckshot"
-	item_state = "ammoboxbuckshot"
+	worn_icon_state = "ammoboxbuckshot"
 	base_icon_state = "ammoboxbuckshot"
 	ammo_type = /datum/ammo/bullet/shotgun/buckshot
 
 /obj/item/shotgunbox/flechette
 	name = "Flechette Ammo Box"
 	icon_state = "ammoboxflechette"
-	item_state = "ammoboxflechette"
+	worn_icon_state = "ammoboxflechette"
 	base_icon_state = "ammoboxflechette"
 	ammo_type = /datum/ammo/bullet/shotgun/flechette
 
@@ -238,20 +238,20 @@
 	name = "big ammo box (14.5mm API)"
 	caliber = CALIBER_14X5
 	icon_state = "ammobox_145"
-	item_state = "ammobox_145"
+	worn_icon_state = "ammobox_145"
 	base_icon_state = "ammobox_145"
 	ammo_type = /datum/ammo/bullet/sniper/clf_heavyrifle
 
 /obj/item/shotgunbox/tracker
 	name = "Tracking Ammo Box"
 	icon_state = "ammoboxtracking"
-	item_state = "ammoboxtracking"
+	worn_icon_state = "ammoboxtracking"
 	base_icon_state = "ammoboxtracking"
 	ammo_type = /datum/ammo/bullet/shotgun/tracker
 
 /obj/item/shotgunbox/blank
 	name = "blank ammo box"
 	icon_state = "ammoboxblank"
-	item_state = "ammoboxblank"
+	worn_icon_state = "ammoboxblank"
 	base_icon_state = "ammoboxblank"
 	ammo_type = /datum/ammo/bullet/shotgun/blank

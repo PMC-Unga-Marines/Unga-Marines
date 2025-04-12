@@ -3,9 +3,9 @@
 	desc = "Its a gun. It's pretty terrible, though."
 	icon = 'icons/obj/items/gun/special.dmi'
 	icon_state = ""
-	item_state = "gun"
-	item_state_worn = TRUE
-	item_icons = list(
+	worn_icon_state = "gun"
+	worn_icon_state_worn = TRUE
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
 	)
@@ -512,7 +512,7 @@
 
 /obj/item/weapon/gun/update_icon(updates=ALL)
 	. = ..()
-	update_item_state()
+	update_worn_icon_state()
 
 /obj/item/weapon/gun/update_icon_state()
 	. = ..()
@@ -549,18 +549,18 @@
 	attachment_overlays[ATTACHMENT_SLOT_MAGAZINE] = overlay
 	. += overlay
 
-/obj/item/weapon/gun/update_item_state()
-	var/current_state = item_state
-	var/real_icon = current_skin ? current_skin : initial(item_state)
+/obj/item/weapon/gun/update_worn_icon_state()
+	var/current_state = worn_icon_state
+	var/real_icon = current_skin ? current_skin : initial(worn_icon_state)
 	if(gun_features_flags & GUN_SHOWS_AMMO_REMAINING) //shows different ammo levels
 		var/remaining_rounds = (rounds <= 0) ? 0 : CEILING((rounds / max((length(chamber_items) ? max_rounds : max_shells ? max_shells : 1), 1)) * 100, 25)
-		item_state = "[real_icon]_[remaining_rounds][item_flags & WIELDED ? "_w" : ""]"
+		worn_icon_state = "[real_icon]_[remaining_rounds][item_flags & WIELDED ? "_w" : ""]"
 	else if(gun_features_flags & GUN_SHOWS_LOADED) //shows loaded or unloaded
-		item_state = "[real_icon]_[rounds ? 100 : 0][item_flags & WIELDED ? "_w" : ""]"
+		worn_icon_state = "[real_icon]_[rounds ? 100 : 0][item_flags & WIELDED ? "_w" : ""]"
 	else
-		item_state = "[current_skin ? current_skin : base_gun_icon][item_flags & WIELDED ? "_w" : ""]"
+		worn_icon_state = "[current_skin ? current_skin : base_gun_icon][item_flags & WIELDED ? "_w" : ""]"
 
-	if(current_state != item_state && ishuman(gun_user))
+	if(current_state != worn_icon_state && ishuman(gun_user))
 		var/mob/living/carbon/human/human_user = gun_user
 		if(src == human_user.l_hand)
 			human_user.update_inv_l_hand()

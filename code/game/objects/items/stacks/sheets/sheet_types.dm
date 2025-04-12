@@ -76,7 +76,7 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 	desc = "Sheets made out of metal. It has been dubbed Metal Sheets."
 	singular_name = "metal sheet"
 	icon_state = "sheet-metal"
-	item_state = "sheet-metal"
+	worn_icon_state = "sheet-metal"
 	item_flags = NOBLUDGEON
 	throwforce = 14
 	atom_flags = CONDUCT
@@ -130,7 +130,7 @@ GLOBAL_LIST_INIT(plasteel_recipes, list ( \
 	singular_name = "plasteel sheet"
 	desc = "This sheet is an alloy of iron and phoron."
 	icon_state = "sheet-plasteel"
-	item_state = "sheet-plasteel"
+	worn_icon_state = "sheet-plasteel"
 	item_flags = NOBLUDGEON
 	throwforce = 15
 	atom_flags = CONDUCT
@@ -202,7 +202,7 @@ GLOBAL_LIST_INIT(wood_radial_images, list(
 	desc = "One can only guess that this is a bunch of wood."
 	singular_name = "wood plank"
 	icon_state = "sheet-wood"
-	item_state = "sheet-wood"
+	worn_icon_state = "sheet-wood"
 	merge_type = /obj/item/stack/sheet/wood
 	number_of_extra_variants = 3
 

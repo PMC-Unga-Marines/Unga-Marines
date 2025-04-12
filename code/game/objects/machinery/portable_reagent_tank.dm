@@ -120,8 +120,8 @@
 	desc = "A large vessel for transporting chemicals. Has a cabinet for storing chemical supplies."
 	icon = 'icons/obj/items/chemistry.dmi'
 	icon_state = "dispenser"
-	item_state_worn = TRUE
-	item_state = "reagent_dispenser"
+	worn_icon_state_worn = TRUE
+	worn_icon_state = "reagent_dispenser"
 	equip_slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_HUGE
 	storage_type = /datum/storage/reagent_tank

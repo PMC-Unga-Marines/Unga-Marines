@@ -21,7 +21,7 @@
 	name = "box"
 	desc = "It's just an ordinary box."
 	icon_state = "box"
-	item_state = "syringe_kit"
+	worn_icon_state = "syringe_kit"
 	storage_type = /datum/storage/box
 	w_class = WEIGHT_CLASS_BULKY //Changed becuase of in-game abuse
 	var/obj/item/spawn_type
@@ -211,7 +211,7 @@
 	desc = "A small box of 'Space-Proof' premium matches."
 	icon = 'icons/obj/items/cigarettes.dmi'
 	icon_state = "matchbox"
-	item_state = "zippo"
+	worn_icon_state = "zippo"
 	w_class = WEIGHT_CLASS_TINY
 	equip_slot_flags = ITEM_SLOT_BELT
 	spawn_type = /obj/item/tool/match
@@ -251,7 +251,7 @@
 	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "light"
 	desc = "This box is shaped on the inside so that only light tubes and bulbs fit."
-	item_state = "syringe_kit"
+	worn_icon_state = "syringe_kit"
 	storage_type = /datum/storage/box/lights
 	spawn_type = /obj/item/light_bulb/bulb
 	spawn_number = 21

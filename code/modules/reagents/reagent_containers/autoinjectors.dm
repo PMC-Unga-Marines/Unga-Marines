@@ -2,7 +2,7 @@
 	name = "generic autoinjector"
 	desc = "An autoinjector containing... table salt? <i>\"For any client assistance, please contact the coderbus\" is written on the back.</i>"
 	icon_state = "autoinjector"
-	item_state = "hypo"
+	worn_icon_state = "hypo"
 	w_class = WEIGHT_CLASS_TINY
 	skilllock = 0
 	init_reagent_flags = DRAWABLE
@@ -358,7 +358,7 @@
 	desc = "A strange glowing crystal with a spike at one end."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "crystal"
-	item_state = ""
+	worn_icon_state = ""
 	amount_per_transfer_from_this = REAGENTS_OVERDOSE
 	volume = REAGENTS_OVERDOSE
 	list_reagents = list(/datum/reagent/thwei = REAGENTS_OVERDOSE)

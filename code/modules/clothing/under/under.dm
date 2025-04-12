@@ -1,6 +1,6 @@
 /obj/item/clothing/under
 	icon = 'icons/obj/clothing/uniforms/uniforms.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/clothing/uniforms_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/clothing/uniforms_right.dmi',
 	)

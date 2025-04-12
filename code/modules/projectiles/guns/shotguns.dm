@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/shotgun
 	icon = 'icons/obj/items/gun/shotgun.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/shotgun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/shotgun_righthand_1.dmi',
 	)
@@ -46,7 +46,7 @@
 	desc = "The Nanotrasen SH-221 Shotgun, a quick-firing semi-automatic shotgun based on the centuries old Benelli M4 shotgun. Only issued to the TGMC in small numbers."
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon_state = "mk221"
-	item_state = "mk221"
+	worn_icon_state = "mk221"
 	fire_sound = 'sound/weapons/guns/fire/shotgun_automatic.ogg'
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
@@ -82,7 +82,7 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon = 'icons/obj/items/gun/shotgun64.dmi'
 	icon_state = "t39"
-	item_state = "t39"
+	worn_icon_state = "t39"
 	fire_sound = 		'sound/weapons/guns/shotgun/SH-39/SH39.ogg'
 	hand_reload_sound = 'sound/weapons/guns/shotgun/SH-35/SH35_shell.ogg'
 	cocked_sound = 		'sound/weapons/guns/shotgun/SH-39/SH39_pump.ogg'
@@ -131,7 +131,7 @@
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "masterkey"
 
-	item_icons = list( // for whatever fucking reason we can't set it null
+	worn_icon_lists = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
@@ -160,7 +160,7 @@
 	desc = "A double barreled over and under shotgun of archaic, but sturdy design. Uses 12 gauge shells, but can only hold 2 at a time."
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon_state = "dshotgun"
-	item_state = "dshotgun"
+	worn_icon_state = "dshotgun"
 	max_chamber_items = 2 //codex
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_sh34.ogg'
@@ -191,7 +191,7 @@
 	name = "sawn-off shotgun"
 	desc = "A double barreled shotgun whose barrel has been artificially shortened to reduce range for further CQC potiential."
 	icon_state = "sshotgun"
-	item_state = "sshotgun"
+	worn_icon_state = "sshotgun"
 	equip_slot_flags = ITEM_SLOT_BELT
 	attachable_allowed = list()
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
@@ -212,7 +212,7 @@
 	desc = "A double barreled shotgun of archaic, but sturdy design used by the TGMC. Due to reports of barrel bursting, the abiility to fire both barrels has been disabled. Uses 12 gauge shells, but can only hold 2 at a time."
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon_state = "ts34"
-	item_state = "ts34"
+	worn_icon_state = "ts34"
 	max_chamber_items = 2 //codex
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_sh34.ogg'
@@ -249,7 +249,7 @@
 	desc = "A classic design, using the outdated shotgun frame. The V10 combines close-range firepower with long term reliability.\n<b>Requires a pump, which is the Unique Action key.</b>"
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon_state = "v10"
-	item_state = "v10"
+	worn_icon_state = "v10"
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
 	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/shotgun_pump.ogg'
@@ -297,7 +297,7 @@
 	desc = "A nine-round pump action shotgun. A shotgun used for hunting, home defence and police work, many versions of it exist and are used by just about anyone."
 	icon = 'icons/obj/items/gun/shotgun64.dmi'
 	icon_state = "pal12"
-	item_state = "pal12"
+	worn_icon_state = "pal12"
 	fire_sound = 'sound/weapons/guns/fire/shotgun_cmb.ogg'
 	reload_sound = 'sound/weapons/guns/interact/shotgun_cmb_insert.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/shotgun_cmb_pump.ogg'
@@ -342,7 +342,7 @@
 	desc = "A six-round pump action shotgun. A shotgun used for hunting, home defence and police work, many versions of it exist and are used by just about anyone."
 	icon = 'icons/obj/items/gun/shotgun64.dmi'
 	icon_state = "trenchgun"
-	item_state = "trenchgun"
+	worn_icon_state = "trenchgun"
 	cock_animation = "trenchgun_pump"
 	fire_sound = 'sound/weapons/guns/fire/trenchgun.ogg'
 	reload_sound = 'sound/weapons/guns/interact/shotgun_cmb_insert.ogg'
@@ -397,8 +397,8 @@
 	desc = "A mosin nagant rifle, even just looking at it you can feel the cosmoline already. Commonly known by its slang, \"Moist Nugget\", by downbrained colonists and outlaws."
 	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "mosin"
-	item_state = "mosin"
-	item_icons = list(
+	worn_icon_state = "mosin"
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
 	)
@@ -468,9 +468,9 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "martini"
-	item_state = "martini"
+	worn_icon_state = "martini"
 	shell_eject_animation = "martini_flick"
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
 	)
@@ -524,10 +524,10 @@
 	desc = "A breech-loading rifle with room for a single round of 19mm ball."
 	icon = 'icons/obj/items/gun/special64.dmi'
 	icon_state = "musket"
-	item_state = "musket"
+	worn_icon_state = "musket"
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_64.dmi',
 	)
@@ -574,8 +574,8 @@
 	desc = "Shorter-barrelled version of the musket with room for a single round of 19mm ball."
 	icon = 'icons/obj/items/gun/special64.dmi'
 	icon_state = "musketoon"
-	item_state = "musketoon"
-	item_icons = list(
+	worn_icon_state = "musketoon"
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
 	)
@@ -624,8 +624,8 @@
 	desc = "The R-2395 Derringer has been a classic for centuries. This latest iteration combines plasma propulsion powder with the classic design to make an assasination weapon that will leave little to chance."
 	icon_state = "derringer"
 	icon = 'icons/obj/items/gun/pistol.dmi'
-	item_state = "tp17"
-	item_icons = list(
+	worn_icon_state = "tp17"
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
 	)
@@ -665,7 +665,7 @@
 	name = "lever action rifle"
 	desc = "A .44 magnum lever action rifle with side loading port. It has a low fire rate, but it packs quite a punch in hunting."
 	icon_state = "mares_leg"
-	item_state = "mares_leg"
+	worn_icon_state = "mares_leg"
 	fire_sound = 'sound/weapons/guns/fire/leveraction.ogg'//I like how this one sounds.
 	dry_fire_sound = 'sound/weapons/guns/fire/sniper_empty.ogg'
 	reload_sound = 'sound/weapons/guns/interact/mosin_reload.ogg'
@@ -706,12 +706,12 @@
 	desc = "The gun that won the west or so they say. But space is a very different kind of frontier all together, chambered for .45-70 Governemnt."
 	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "leicrepeater"
-	item_state = "leicrepeater"
+	worn_icon_state = "leicrepeater"
 	unique_reskin = list(
 		"Raven repeater" = "raven_repeater",
 		"Red" = "leicrepeater_red",
 	)
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
 	)
@@ -761,7 +761,7 @@
 	name = "\improper MBX lever action shotgun"
 	desc = "A .410 bore lever action shotgun that fires nearly as fast as you can operate the lever. Renowed due to its devastating and extremely reliable design."
 	icon_state = "mbx900"
-	item_state = "mbx900"
+	worn_icon_state = "mbx900"
 	fire_sound = 'sound/weapons/guns/fire/shotgun_light.ogg'//I like how this one sounds.
 	dry_fire_sound = 'sound/weapons/guns/fire/sniper_empty.ogg'
 	reload_sound = 'sound/weapons/guns/interact/mosin_reload.ogg'
@@ -807,7 +807,7 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon = 'icons/obj/items/gun/shotgun64.dmi'
 	icon_state = "t35"
-	item_state = "t35"
+	worn_icon_state = "t35"
 	cock_animation = "t35_pump"
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
 	fire_sound = 		'sound/weapons/guns/shotgun/SH-35/SH35.ogg'
@@ -876,7 +876,7 @@
 	desc = "The ZX-76 Assault Shotgun, a incredibly rare, double barreled semi-automatic combat shotgun with a twin shot mode. Possibly the unrivaled master of CQC. Has a 9 round internal magazine."
 	icon = 'icons/obj/items/gun/shotgun64.dmi'
 	icon_state = "zx-76"
-	item_state = "zx-76"
+	worn_icon_state = "zx-76"
 	equip_slot_flags = ITEM_SLOT_BACK
 	max_chamber_items = 9 //codex
 	caliber = CALIBER_12G //codex
@@ -923,7 +923,7 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon_state = "v51"
 	icon = 'icons/obj/items/gun/shotgun64.dmi'
-	item_state = "v51"
+	worn_icon_state = "v51"
 	fire_sound = SFX_SHOTGUN_SOM
 	dry_fire_sound = 'sound/weapons/guns/fire/v51_empty.ogg'
 	reload_sound = 'sound/weapons/guns/interact/v51_load.ogg'
@@ -992,7 +992,7 @@
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "va61"
 
-	item_icons = list( // for whatever fucking reason we can't set it null
+	worn_icon_lists = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
@@ -1021,8 +1021,8 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon = 'icons/obj/items/gun/shotgun64.dmi'
 	icon_state = "shq6"
-	item_state = "shq6"
-	item_icons = list(
+	worn_icon_state = "shq6"
+	worn_icon_lists = list(
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/gun/shotgun_lefthand_1.dmi',

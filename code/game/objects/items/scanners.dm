@@ -19,11 +19,11 @@ REAGENT SCANNER
 	atom_flags = CONDUCT
 	equip_slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/engineering_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/engineering_right.dmi',
 	)
-	item_state = "electronic"
+	worn_icon_state = "electronic"
 
 
 /obj/item/t_scanner/attack_self(mob/user)
@@ -67,11 +67,11 @@ REAGENT SCANNER
 	name = "\improper HF2 health analyzer"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "health"
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/medical_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/medical_right.dmi',
 	)
-	item_state = "healthanalyzer"
+	worn_icon_state = "healthanalyzer"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject. The front panel is able to provide the basic readout of the subject's status."
 	atom_flags = CONDUCT
 	equip_slot_flags = ITEM_SLOT_BELT
@@ -312,7 +312,7 @@ REAGENT SCANNER
 	name = "\improper YMX scanner"
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "scanner"
-	item_state = "analyzer"
+	worn_icon_state = "analyzer"
 	desc = "An alien design hand-held body scanner able to distinguish vital signs of the subject. The front panel is able to provide the basic readout of the subject's status."
 	alien = TRUE
 
@@ -325,11 +325,11 @@ REAGENT SCANNER
 	name = "\improper HF2 Medical Gloves"
 	desc = "Advanced medical gloves, these include a built-in analyzer to quickly scan patients."
 	icon_state = "medscan_gloves"
-	item_state = "medscan_gloves"
+	worn_icon_state = "medscan_gloves"
 	equip_slot_flags = ITEM_SLOT_GLOVES
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/clothing/gloves.dmi'
-	item_state_worn = TRUE
+	worn_icon_state_worn = TRUE
 	siemens_coefficient = 0.50
 	blood_sprite_state = "bloodyhands"
 	armor_protection_flags = HANDS
@@ -388,7 +388,7 @@ REAGENT SCANNER
 	name = "analyzer"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "atmos"
-	item_state = "analyzer"
+	worn_icon_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = CONDUCT
 	equip_slot_flags = ITEM_SLOT_BELT
@@ -438,7 +438,7 @@ REAGENT SCANNER
 	name = "mass-spectrometer"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "spectrometer"
-	item_state = "analyzer"
+	worn_icon_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = CONDUCT
 	equip_slot_flags = ITEM_SLOT_BELT
@@ -490,7 +490,7 @@ REAGENT SCANNER
 	desc = "A hand-held reagent scanner which identifies chemical agents."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "spectrometer"
-	item_state = "analyzer"
+	worn_icon_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = CONDUCT
 	equip_slot_flags = ITEM_SLOT_BELT

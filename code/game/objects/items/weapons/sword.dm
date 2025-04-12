@@ -2,7 +2,7 @@
 	name = "claymore"
 	desc = "What are you standing around staring at this for? Get to killing!"
 	icon_state = "claymore"
-	item_state = "claymore"
+	worn_icon_state = "claymore"
 	atom_flags = CONDUCT
 	equip_slot_flags = ITEM_SLOT_BELT
 	force = 40
@@ -94,19 +94,19 @@
 	name = "combat sword"
 	desc = "A dusty sword commonly seen in historical museums. Where you got this is a mystery, for sure. Only a mercenary would be nuts enough to carry one of these. Sharpened to deal massive damage."
 	icon_state = "mercsword"
-	item_state = "machete"
+	worn_icon_state = "machete"
 	force = 39
 
 /obj/item/weapon/sword/captain
 	name = "Ceremonial Sword"
 	desc = "A fancy ceremonial sword passed down from generation to generation. Despite this, it has been very well cared for, and is in top condition."
 	icon_state = "mercsword"
-	item_state = "machete"
+	worn_icon_state = "machete"
 	force = 55
 
 /obj/item/weapon/sword/officer
 	icon_state = "officer_sword"
-	item_state = "officer_sword"
+	worn_icon_state = "officer_sword"
 	force = 80
 	attack_speed = 5
 	sharp = IS_SHARP_ITEM_ACCURATE
@@ -122,12 +122,12 @@
 	name = "\improper ceremonial officer sabre"
 	desc = "Gold plated, smoked dark wood handle, your name on it, what else do you need?"
 	icon = 'icons/obj/items/weapons.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/melee_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
 	)
 	icon_state = "saber"
-	item_state = "saber"
+	worn_icon_state = "saber"
 
 /obj/item/weapon/sword/machete
 	name = "\improper M2132 machete"
@@ -138,7 +138,7 @@
 	force = 90
 	penetration = 15
 	icon = 'icons/obj/items/weapons.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/weapons/melee_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
@@ -160,8 +160,8 @@
 	desc = "A specialist tactical weapon, ancient and beloved by many. Issued to TGMC by CAU."
 	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "tomahawk_tactic"
-	item_state = "tomahawk_tactic"
-	item_icons = list(
+	worn_icon_state = "tomahawk_tactic"
+	worn_icon_lists = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/weapons/weapon64_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/weapon64_right.dmi',
@@ -221,13 +221,13 @@
 	name = "Tomahawk H17"
 	desc = "A specialist tactical weapon, very ancient and beloved by many. Issued to Delta by CAU."
 	icon_state = "tomahawk_classic"
-	item_state = "tomahawk_classic"
+	worn_icon_state = "tomahawk_classic"
 
 /obj/item/weapon/sword/commissar
 	name = "\improper commissars sword"
 	desc = "The pride of an imperial commissar, held high as they charge into battle."
 	icon_state = "comsword"
-	item_state = "comsword"
+	worn_icon_state = "comsword"
 	force = 80
 	attack_speed = 10
 	w_class = WEIGHT_CLASS_BULKY

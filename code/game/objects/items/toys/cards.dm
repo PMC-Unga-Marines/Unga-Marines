@@ -383,7 +383,7 @@
 	desc = "An ancient copy of an Ace of Hearts from a deck of playing cards."
 	icon = 'icons/obj/items/items.dmi'
 	icon_state = "ace_of_hearts"
-	item_state = "ace_of_hearts"
+	worn_icon_state = "ace_of_hearts"
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/card/ace/spades
@@ -391,5 +391,5 @@
 	desc = "An ancient copy of an Ace of Spades from a deck of playing cards."
 	icon = 'icons/obj/items/items.dmi'
 	icon_state = "ace_of_spades"
-	item_state = "ace_of_spades"
+	worn_icon_state = "ace_of_spades"
 	w_class = WEIGHT_CLASS_TINY

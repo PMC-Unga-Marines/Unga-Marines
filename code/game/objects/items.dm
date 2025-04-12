@@ -19,7 +19,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	/// If you don't want to use icon_state for onmob inhand/belt/back/ear/suitstorage/glove sprite.
 	/// e.g. most headsets have different icon_state but they all use the same sprite when shown on the mob's ears.
 	/// also useful for items with many icon_state values when you don't want to make an inhand sprite for each value.
-	var/item_state = null
+	var/worn_icon_state = null
 	/// The icon state used to represent this image in "icons/obj/items/items_mini.dmi" Used in /obj/item/storage/box/visual to display tiny items in the box
 	var/icon_state_mini = "item"
 	/// Byond tick delay between left click attacks
@@ -99,14 +99,14 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	/// Species-specific sprites, concept stolen from Paradise//vg/. Ex: sprite_sheets = list("Combat Robot" = 'icons/mob/species/robot/backpack.dmi') If index term exists and icon_override is not set, this sprite sheet will be used.
 	var/list/sprite_sheets = null
 	//** These specify item/icon overrides for _slots_
-	/// >Lazylist< that overrides the default item_state for particular slots.
-	var/list/item_state_slots
+	/// >Lazylist< that overrides the default worn_icon_state for particular slots.
+	var/list/worn_worn_icon_state_slots
 	/// >LazyList< Used to specify the icon file to be used when the item is worn in a certain slot. icon_override or sprite_sheets are set they will take precendence over this, assuming they apply to the slot in question.
-	var/list/item_icons
+	var/list/worn_icon_lists
 	/// Specific layer for on-mob icon.
 	var/worn_layer
-	/// Tells if the item shall use item_state for non-inhands, needed due to some items using item_state only for inhands and not worn.
-	var/item_state_worn = FALSE
+	/// Tells if the item shall use worn_icon_state for non-inhands, needed due to some items using worn_icon_state only for inhands and not worn.
+	var/worn_icon_state_worn = FALSE
 	/// Overrides the icon file which the item will be used to render on mob, if its in hands it will add _l or _r to the state depending if its on left or right hand.
 	var/icon_override = null
 	/// Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
@@ -212,8 +212,8 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 /obj/item/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
 	return
 
-/obj/item/proc/update_item_state(mob/user)
-	item_state = "[initial(item_state)][item_flags & WIELDED ? "_w" : ""]"
+/obj/item/proc/update_worn_icon_state(mob/user)
+	worn_icon_state = "[initial(worn_icon_state)][item_flags & WIELDED ? "_w" : ""]"
 
 /obj/item/verb/move_to_top()
 	set name = "Move To Top"
@@ -284,7 +284,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	. = ..()
 	if(current_variant)
 		icon_state = initial(icon_state) + "_[current_variant]"
-		item_state = initial(item_state) + "_[current_variant]"
+		worn_icon_state = initial(worn_icon_state) + "_[current_variant]"
 
 // Due to storage type consolidation this should get used more now.
 // I have cleaned it up a little, but it could probably use more.  -Sayu
@@ -696,7 +696,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 					current_variant = JUNGLE_VARIANT
 				else
 					icon_state = "m_[icon_state]"
-					item_state = "m_[item_state]"
+					worn_icon_state = "m_[worn_icon_state]"
 		if(MAP_ARMOR_STYLE_ICE)
 			if(item_map_variant_flags & ITEM_ICE_VARIANT)
 				if(colorable_allowed & PRESET_COLORS_ALLOWED)
@@ -705,7 +705,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 					current_variant = SNOW_VARIANT
 				else
 					icon_state = "s_[icon_state]"
-					item_state = "s_[item_state]"
+					worn_icon_state = "s_[worn_icon_state]"
 		if(MAP_ARMOR_STYLE_PRISON)
 			if(item_map_variant_flags & ITEM_PRISON_VARIANT)
 				if(colorable_allowed & PRESET_COLORS_ALLOWED)
@@ -714,7 +714,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 					current_variant = PRISON_VARIANT
 				else
 					icon_state = "k_[icon_state]"
-					item_state = "k_[item_state]"
+					worn_icon_state = "k_[worn_icon_state]"
 		if(MAP_ARMOR_STYLE_DESERT)
 			if(item_map_variant_flags & ITEM_DESERT_VARIANT)
 				if(colorable_allowed & PRESET_COLORS_ALLOWED)
@@ -823,7 +823,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 /obj/item/proc/ui_action_click(mob/user, datum/action/item_action/action)
 	return attack_self(user)
 
-/obj/item/proc/toggle_item_state(mob/user)
+/obj/item/proc/toggle_worn_icon_state(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_ITEM_TOGGLE_ACTION, user)
 
@@ -1086,7 +1086,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				var/mob/living/M = atm
 				M.ExtinguishMob()
 				for(var/obj/item/clothing/mask/cigarette/C in M.contents)
-					if(C.item_state != C.icon_on)
+					if(C.worn_icon_state != C.icon_on)
 						continue
 					C.die()
 		if(W.loc == my_target)
@@ -1233,7 +1233,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return icon
 
 	//3: slot-specific sprite sheets
-	icon = LAZYACCESS(item_icons, slot_name)
+	icon = LAZYACCESS(worn_icon_lists, slot_name)
 	if(ispath(icon, /datum/greyscale_config))
 		return SSgreyscale.GetColoredIconByType(icon, greyscale_colors)
 	if(icon)
@@ -1250,14 +1250,14 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/get_worn_icon_state(slot_name, inhands)
 
 	//1: slot-specific sprite sheets
-	. = LAZYACCESS(item_state_slots, slot_name)
+	. = LAZYACCESS(worn_worn_icon_state_slots, slot_name)
 	if(.)
 		return
 
-	//2: item_state variable, some items use it for worn sprite, others for inhands.
-	if(inhands || item_state_worn)
-		if(item_state)
-			return item_state
+	//2: worn_icon_state variable, some items use it for worn sprite, others for inhands.
+	if(inhands || worn_icon_state_worn)
+		if(worn_icon_state)
+			return worn_icon_state
 
 	//3: icon_state variable
 	if(icon_state)

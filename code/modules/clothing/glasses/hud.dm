@@ -71,7 +71,7 @@
 	name = "\improper HealthMate ballistic goggles"
 	desc = "Standard issue TGMC goggles. This pair has been fitted with an internal HealthMate HUD projector."
 	icon_state = "medgoggles"
-	item_state = "medgoggles"
+	worn_icon_state = "medgoggles"
 	deactive_state = "deactivated_mgoggles"
 	toggleable = TRUE
 	hud_type = DATA_HUD_MEDICAL_ADVANCED
@@ -110,7 +110,7 @@
 	name = "\improper HealthMate regulation prescription glasses"
 	desc = "Standard issue TGMC Regulation Prescription Glasses. This pair has been fitted with an internal HealthMate HUD projector."
 	icon_state = "medglasses"
-	item_state = "medglasses"
+	worn_icon_state = "medglasses"
 	deactive_state = "deactivated_medglasses"
 	species_exception = list(/datum/species/robot)
 	sprite_sheets = list(
@@ -127,7 +127,7 @@
 	name = "\improper HealthMate sunglasses"
 	desc = "A pair of designer sunglasses. This pair has been fitted with an internal HealthMate HUD projector."
 	icon_state = "medsunglasses"
-	item_state = "medsunglasses"
+	worn_icon_state = "medsunglasses"
 	deactive_state = "deactivated_sunglasses"
 	species_exception = list(/datum/species/robot)
 	sprite_sheets = list(
@@ -174,7 +174,7 @@
 	name = "spatial agent's sunglasses"
 	desc = "Glasses worn by a spatial agent."
 	icon_state = "sun"
-	item_state = "sunglasses"
+	worn_icon_state = "sunglasses"
 	eye_protection = 2
 	darkness_view = 8
 	hud_type = list(DATA_HUD_MEDICAL_OBSERVER, DATA_HUD_XENO_STATUS, DATA_HUD_SECURITY_ADVANCED, DATA_HUD_SQUAD_TERRAGOV, DATA_HUD_ORDER)

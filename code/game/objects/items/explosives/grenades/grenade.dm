@@ -4,11 +4,11 @@
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/items/grenade.dmi'
 	icon_state = "grenade"
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/grenades_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/grenades_right.dmi',
 	)
-	item_state = "grenade"
+	worn_icon_state = "grenade"
 	throw_speed = 3
 	throw_range = 7
 	atom_flags = CONDUCT
@@ -120,7 +120,7 @@
 	name = "\improper V-40 rad grenade"
 	desc = "Rad grenades release an extremely potent but short lived burst of radiation, debilitating organic life and frying electronics in a moderate radius. After the initial detonation, the radioactive effects linger for a time. Handle with extreme care."
 	icon_state = "grenade_rad" //placeholder
-	item_state = "grenade_rad" //placeholder
+	worn_icon_state = "grenade_rad" //placeholder
 	icon_state_mini = "grenade_red" //placeholder
 	det_time = 40 //default
 	arm_sound = 'sound/weapons/armbomb.ogg' //placeholder

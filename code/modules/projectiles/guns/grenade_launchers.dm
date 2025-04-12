@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/grenade_launcher
 	icon = 'icons/obj/items/gun/special.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
 	)
@@ -114,7 +114,7 @@
 	desc = "The GL-70 is the standard grenade launcher used by the TerraGov Marine Corps for area denial and big explosions."
 	icon = 'icons/obj/items/gun/special64.dmi'
 	icon_state = "t70"
-	item_state = "t70"
+	worn_icon_state = "t70"
 	fire_animation = "t70_fire"
 	equip_slot_flags = ITEM_SLOT_BACK
 	max_shells = 6 //codex
@@ -145,7 +145,7 @@
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "grenade"
 
-	item_icons = list( // for whatever fucking reason we can't set it null
+	worn_icon_lists = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
@@ -210,7 +210,7 @@
 	desc = "A weapon-mounted, reloadable, two-shot grenade launcher designed to fit the BR-64."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 
-	item_icons = list( // for whatever fucking reason we can't set it null
+	worn_icon_lists = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
@@ -231,7 +231,7 @@
 	name = "\improper GL-81 grenade launcher"
 	desc = "A lightweight, single-shot grenade launcher used by the TerraGov Marine Corps for area denial and big explosions."
 	icon_state = "m81"
-	item_state = "m81"
+	worn_icon_state = "m81"
 	w_class = WEIGHT_CLASS_NORMAL
 	max_shells = 1 //codex
 	equip_slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
@@ -287,7 +287,7 @@
 	name = "flare gun"
 	desc = "A gun that fires flares. Replace with flares. Simple! Equipped with long range irons."
 	icon_state = "flaregun"
-	item_state = "gun"
+	worn_icon_state = "gun"
 	fire_sound = 'sound/weapons/guns/fire/flare.ogg'
 	fire_sound = 'sound/weapons/guns/fire/flare.ogg'
 	w_class = WEIGHT_CLASS_SMALL

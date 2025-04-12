@@ -52,7 +52,7 @@
 		icon_state = initial(icon_state) + "_full"
 	else
 		icon_state = initial(icon_state)
-	item_state = icon_state
+	worn_icon_state = icon_state
 
 /obj/item/storage/holster/update_icon()
 	. = ..()
@@ -93,7 +93,7 @@
 /obj/item/storage/holster/backholster
 	name = "backpack holster"
 	desc = "You wear this on your back and put items into it. Usually one special item too."
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
 	)
@@ -348,7 +348,7 @@
 /obj/item/storage/holster/blade/officer/valirapier
 	name = "\improper HP-C vali rapier sheath"
 	desc = "An exquisite ceremonial sheath for an even more expensive rapier."
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
 		slot_belt_str = 'icons/mob/belt.dmi',
 	)
@@ -365,7 +365,7 @@
 /obj/item/storage/holster/blade/officer/sabre
 	name = "\improper officer sabre sheath"
 	desc = "An exquisite ceremonial sheath of a high ranking command personel."
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
 		slot_belt_str = 'icons/mob/belt.dmi',
 	)
@@ -386,8 +386,8 @@
 	desc = "A large leather scabbard used to carry a H23 tomahawk. It can be strapped to the back, waist or armor."
 	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "tomahawk_holster"
-	item_state = "tomahawk_holster"
-	item_icons = list(
+	worn_icon_state = "tomahawk_holster"
+	worn_icon_lists = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_belt_str = 'icons/mob/clothing/belt.dmi',
 		slot_s_store_str = 'icons/mob/suit_slot.dmi'
@@ -407,7 +407,7 @@
 	desc = "A large leather scabbard used to carry a H17 tomahawk. It can be strapped to the back, waist or armor."
 	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "tomahawk_classic_holster"
-	item_state = "tomahawk_classic_holster"
+	worn_icon_state = "tomahawk_classic_holster"
 
 /obj/item/storage/holster/blade/tomahawk/classic/full/PopulateContents()
 	new /obj/item/weapon/sword/tomahawk/classic(src)
@@ -772,11 +772,11 @@
 	name = "TGMC RL-152 bag"
 	icon = 'icons/obj/items/storage/storage.dmi'
 	desc = "This backpack can hold 4 40mm shells, in addition to a SADAR launcher."
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi'
 	)
 	icon_state = "marine_sadar"
-	item_state = "marine_sadar"
+	worn_icon_state = "marine_sadar"
 	w_class = WEIGHT_CLASS_HUGE
 	storage_type = /datum/storage/holster/backholster/sadar
 	holsterable_allowed = list(/obj/item/weapon/gun/launcher/rocket/sadar)
@@ -792,11 +792,11 @@
 	name = "TGMC RL-57 bag"
 	icon = 'icons/obj/items/storage/storage.dmi'
 	desc = "This backpack can hold 2 rocket arrays, in addition to a thermobaric launcher."
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi'
 	)
 	icon_state = "marine_quad"
-	item_state = "marine_quad"
+	worn_icon_state = "marine_quad"
 	w_class = WEIGHT_CLASS_HUGE
 	storage_type = /datum/storage/holster/backholster/rlquad
 	holsterable_allowed = list(/obj/item/weapon/gun/launcher/rocket/m57a4/t57)

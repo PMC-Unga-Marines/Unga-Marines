@@ -2,7 +2,7 @@
 	name = "first-aid kit"
 	desc = "It's an emergency medical kit for those serious boo-boos."
 	icon = 'icons/obj/items/storage/firstaid.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/medkits_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/medkits_right.dmi',
 	)
@@ -39,7 +39,7 @@
 	desc = "It's an emergency medical kit for when the toxins lab <i>-spontaneously-</i> burns down."
 	icon_state = "firefirstaid"
 	base_icon_state = "firefirstaid"
-	item_state = "firefirstaid"
+	worn_icon_state = "firefirstaid"
 
 /obj/item/storage/firstaid/fire/PopulateContents()
 	. = ..()
@@ -53,7 +53,7 @@
 /obj/item/storage/firstaid/regular
 	icon_state = "firstaid"
 	base_icon_state = "firstaid"
-	item_state = "firstaid"
+	worn_icon_state = "firstaid"
 
 /obj/item/storage/firstaid/regular/PopulateContents()
 	. = ..()
@@ -69,7 +69,7 @@
 	desc = "Used to treat when you have a high amount of toxins in your body."
 	icon_state = "antitoxfirstaid"
 	base_icon_state = "antitoxfirstaid"
-	item_state = "antitoxfirstaid"
+	worn_icon_state = "antitoxfirstaid"
 
 /obj/item/storage/firstaid/toxin/PopulateContents()
 	. = ..()
@@ -83,7 +83,7 @@
 	desc = "A box full of oxygen goodies."
 	icon_state = "o2firstaid"
 	base_icon_state = "o2firstaid"
-	item_state = "o2firstaid"
+	worn_icon_state = "o2firstaid"
 
 /obj/item/storage/firstaid/o2/PopulateContents()
 	. = ..()
@@ -99,7 +99,7 @@
 	desc = "Contains advanced medical treatments."
 	icon_state = "advfirstaid"
 	base_icon_state = "advfirstaid"
-	item_state = "advfirstaid"
+	worn_icon_state = "advfirstaid"
 
 /obj/item/storage/firstaid/adv/PopulateContents()
 	. = ..()
@@ -115,7 +115,7 @@
 	desc = "Contains treatment for radiation exposure"
 	icon_state = "purplefirstaid"
 	base_icon_state = "purplefirstaid"
-	item_state = "purplefirstaid"
+	worn_icon_state = "purplefirstaid"
 
 /obj/item/storage/firstaid/rad/PopulateContents()
 	. = ..()
@@ -227,11 +227,11 @@
 	desc = "It's an airtight container for storing medication."
 	icon_state = "pill_canister"
 	icon = 'icons/obj/items/chemistry.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/medical_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/medical_right.dmi',
 	)
-	item_state = "contsolid"
+	worn_icon_state = "contsolid"
 	w_class = WEIGHT_CLASS_SMALL
 	storage_type = /datum/storage/pill_bottle
 	greyscale_config = /datum/greyscale_config/pillbottle

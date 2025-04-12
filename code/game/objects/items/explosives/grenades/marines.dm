@@ -2,7 +2,7 @@
 	name = "M07 training grenade"
 	desc = "A harmless reusable version of the M40 HEDP, used for training. Capable of being loaded in the any grenade launcher, or thrown by hand."
 	icon_state = "training_grenade"
-	item_state = "training_grenade"
+	worn_icon_state = "training_grenade"
 	hud_state = "grenade_dummy"
 	dangerous = FALSE
 	icon_state_mini = "grenade_white"
@@ -21,7 +21,7 @@
 /obj/item/explosive/grenade/pmc
 	desc = "A fragmentation grenade produced for private security firms. It explodes 3 seconds after the pin has been pulled."
 	icon_state = "grenade_pmc"
-	item_state = "grenade_pmc"
+	worn_icon_state = "grenade_pmc"
 	hud_state = "grenade_frag"
 	icon_state_mini = "grenade_red_white"
 	power = 125
@@ -35,7 +35,7 @@
 	name = "\improper M15 fragmentation grenade"
 	desc = "An outdated TGMC fragmentation grenade. With decades of service in the TGMC, the old M15 Fragmentation Grenade is slowly being replaced with the slightly safer M40 HEDP. It is set to detonate in 4 seconds."
 	icon_state = "grenade_ex"
-	item_state = "grenade_ex"
+	worn_icon_state = "grenade_ex"
 	hud_state = "grenade_frag"
 	icon_state_mini = "grenade_yellow"
 	power = 125
@@ -49,7 +49,7 @@
 	name = "\improper Webley Mk15 stick grenade"
 	desc = "A fragmentation grenade produced in the colonies, most commonly using old designs and schematics. It explodes 3 seconds after the pin has been pulled."
 	icon_state = "grenade_stick"
-	item_state = "grenade_stick"
+	worn_icon_state = "grenade_stick"
 	hud_state = "grenade_frag"
 	force = 10
 	w_class = WEIGHT_CLASS_SMALL
@@ -59,7 +59,7 @@
 	name = "\improper Type 5 shrapnel grenade"
 	desc = "A fragmentation grenade found within the ranks of the USL. Designed to explode into shrapnel and rupture the bodies of opponents. It explodes 3 seconds after the pin has been pulled."
 	icon_state = "grenade_upp"
-	item_state = "grenade_upp"
+	worn_icon_state = "grenade_upp"
 	hud_state = "greande_frag"
 	throw_speed = 2
 	throw_range = 6
@@ -68,13 +68,13 @@
 	name = "\improper S30 HE grenade"
 	desc = "A reliable high explosive grenade utilised by SOM forces. Designed for hand or grenade launcher use."
 	icon_state = "grenade_som"
-	item_state = "grenade_som"
+	worn_icon_state = "grenade_som"
 
 /obj/item/explosive/grenade/sectoid
 	name = "alien bomb"
 	desc = "An odd, squishy, organ-like grenade. It will explode 3 seconds after squeezing it."
 	icon_state = "alien_grenade"
-	item_state = "alien_grenade"
+	worn_icon_state = "alien_grenade"
 	hud_state = "grenade_frag"
 	power = 150
 	falloff = 25
@@ -84,7 +84,7 @@
 	name = "\improper M40 adhesive charge grenade"
 	desc = "Designed for use against various fast moving drones, this grenade will adhere to its target before detonating. It's fuse is set to 5 seconds."
 	icon_state = "grenade_sticky"
-	item_state = "grenade_sticky"
+	worn_icon_state = "grenade_sticky"
 	det_time = 5 SECONDS
 	icon_state_mini = "grenade_sticky"
 	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
@@ -146,7 +146,7 @@
 	name = "\improper M45 Trailblazer grenade"
 	desc = "Capsule based grenade that sticks to sufficiently hard surfaces, causing a trail of air combustable gel to form. It is set to detonate in 5 seconds."
 	icon_state = "grenade_sticky_fire"
-	item_state = "grenade_sticky_fire"
+	worn_icon_state = "grenade_sticky_fire"
 	det_time = 5 SECONDS
 	self_sticky = TRUE
 	icon_state_mini = "grenade_trailblazer"
@@ -184,7 +184,7 @@
 	name = "\improper M45 Phosphorus trailblazer grenade"
 	desc = "Capsule based grenade that sticks to sufficiently hard surfaces, causing a trail of air combustable gel to form. But with phosphorus. It is set to detonate in 5 seconds."
 	icon_state = "grenade_sticky_phosphorus"
-	item_state = "grenade_sticky_phosphorus"
+	worn_icon_state = "grenade_sticky_phosphorus"
 	icon_state_mini = "grenade_trailblazer_phosphorus"
 	fire_level = 45
 	burn_level = 45
@@ -208,7 +208,7 @@
 	name = "\improper M45 Cloaker grenade"
 	desc = "Capsule based grenade that sticks to sufficiently hard surfaces, causing a trail of air combustable gel to form. This one creates cloaking smoke! It is set to detonate in 5 seconds."
 	icon_state = "grenade_sticky_cloak"
-	item_state = "grenade_sticky_cloak"
+	worn_icon_state = "grenade_sticky_cloak"
 	det_time = 5 SECONDS
 	self_sticky = TRUE
 	overlay_type = "green"
@@ -248,7 +248,7 @@
 	name = "\improper M40 HIDP incendiary grenade"
 	desc = "The M40 HIDP is a small, but deceptively strong incendiary grenade. It is set to detonate in 4 seconds."
 	icon_state = "grenade_fire"
-	item_state = "grenade_fire"
+	worn_icon_state = "grenade_fire"
 	det_time = 4 SECONDS
 	hud_state = "grenade_fire"
 	icon_state_mini = "grenade_orange"
@@ -273,14 +273,14 @@
 	name = "\improper S30-I incendiary grenade"
 	desc = "A reliable incendiary grenade utilised by SOM forces. Based off the S30 platform shared by most SOM grenades. Designed for hand or grenade launcher use."
 	icon_state = "grenade_fire_som"
-	item_state = "grenade_fire_som"
+	worn_icon_state = "grenade_fire_som"
 	overlay_type = "orange"
 
 /obj/item/explosive/grenade/incendiary/molotov
 	name = "improvised firebomb"
 	desc = "A potent, improvised firebomb, coupled with a pinch of gunpowder. Cheap, very effective, and deadly in confined spaces. Commonly found in the hands of rebels and terrorists. It can be difficult to predict how many seconds you have before it goes off, so be careful. Chances are, it might explode in your face."
 	icon_state = "molotov"
-	item_state = "molotov"
+	worn_icon_state = "molotov"
 	arm_sound = 'sound/items/welder2.ogg'
 
 /obj/item/explosive/grenade/incendiary/molotov/Initialize(mapload)
@@ -305,7 +305,7 @@
 	desc = "A small tiny smart grenade, it is about to blow up in your face, unless you found it inert. Otherwise a pretty normal grenade, other than it is somehow in a primeable state."
 	w_class = WEIGHT_CLASS_SMALL
 	icon_state = "ags_grenade"
-	item_state = "ags_grenade"
+	worn_icon_state = "ags_grenade"
 	det_time = 1 SECONDS
 	power = 80
 	falloff = 20
@@ -315,7 +315,7 @@
 	name = "\improper M40 HSDP smoke grenade"
 	desc = "The M40 HSDP is a small, but powerful smoke grenade. Based off the same platform as the M40 HEDP. It is set to detonate in 2 seconds."
 	icon_state = "grenade_smoke"
-	item_state = "grenade_smoke"
+	worn_icon_state = "grenade_smoke"
 	det_time = 2 SECONDS
 	hud_state = "grenade_smoke"
 	dangerous = FALSE
@@ -340,7 +340,7 @@
 	name = "\improper S30-S smoke grenade"
 	desc = "The S30-S is a small, but powerful smoke grenade. Based off the S30 platform shared by most SOM grenades. It is set to detonate in 2 seconds."
 	icon_state = "grenade_smoke_som"
-	item_state = "grenade_smoke_som"
+	worn_icon_state = "grenade_smoke_som"
 	overlay_type = "cyan"
 
 ///chemical grenades
@@ -350,7 +350,7 @@
 	name = "\improper M40-N Neurotoxin smoke grenade"
 	desc = "A smoke grenade containing a concentrated neurotoxin developed by Nanotrasen, supposedly derived from xenomorphs. Banned in some sectors as a chemical weapon, but classed as a less lethal riot control tool by the TGMC."
 	icon_state = "grenade_neuro"
-	item_state = "grenade_neuro"
+	worn_icon_state = "grenade_neuro"
 	hud_state = "grenade_neuro"
 	det_time = 4 SECONDS
 	dangerous = TRUE
@@ -362,7 +362,7 @@
 	name = "\improper M40-A Acid smoke grenade"
 	desc = "A grenade set to release a cloud of extremely acidic smoke developed by Nanotrasen, supposedly derived from xenomorphs. Has a shiny acid resistant shell. Its use is considered a warcrime under several treaties, none of which Terra Gov is a signatory to."
 	icon_state = "grenade_acid"
-	item_state = "grenade_acid"
+	worn_icon_state = "grenade_acid"
 	hud_state = "grenade_acid"
 	det_time = 4 SECONDS
 	dangerous = TRUE
@@ -374,7 +374,7 @@
 	name = "satrapine smoke grenade"
 	desc = "A smoke grenade containing a nerve agent that can debilitate victims with severe pain, while purging common painkillers. Employed heavily by the SOM."
 	icon_state = "grenade_nerve"
-	item_state = "grenade_nerve"
+	worn_icon_state = "grenade_nerve"
 	hud_state = "grenade_nerve"
 	det_time = 4 SECONDS
 	dangerous = TRUE
@@ -391,7 +391,7 @@
 	name = "\improper M40-2 SCDP smoke grenade"
 	desc = "A sophisticated version of the M40 HSDP with a slighty improved smoke screen payload. It's set to detonate in 2 seconds."
 	icon_state = "grenade_cloak"
-	item_state = "grenade_cloak"
+	worn_icon_state = "grenade_cloak"
 	hud_state = "grenade_hide"
 	icon_state_mini = "grenade_green"
 	smoketype = /datum/effect_system/smoke_spread/tactical
@@ -408,7 +408,7 @@
 	name = "\improper M40-T smoke grenade"
 	desc = "The M40-T is a small, but powerful Tanglefoot grenade, designed to remove plasma with minimal side effects. Based off the same platform as the M40 HEDP. It is set to detonate in 6 seconds."
 	icon_state = "grenade_pgas"
-	item_state = "grenade_pgas"
+	worn_icon_state = "grenade_pgas"
 	hud_state = "grenade_drain"
 	dangerous = TRUE
 	det_time = 6 SECONDS
@@ -420,7 +420,7 @@
 	name = "\improper M45-T Tanglefoot grenade"
 	desc = "Capsule based grenade that sticks to sufficiently hard surfaces, causing a trail of air combustable gel to form. This one creates tanglefoot smoke! It is set to detonate in 5 seconds."
 	icon_state = "grenade_sticky_pgas"
-	item_state = "grenade_sticky_pgas"
+	worn_icon_state = "grenade_sticky_pgas"
 	det_time = 5 SECONDS
 	self_sticky = TRUE
 	overlay_type = "purple"
@@ -431,7 +431,7 @@
 	name = "\improper M40-AG smoke grenade"
 	desc = "A gas grenade originally designed to remove any contaminants in the air for the purpose of cleaning, now repurposed to remove hostile gases."
 	icon_state = "grenade_agas"
-	item_state = "grenade_agas"
+	worn_icon_state = "grenade_agas"
 	hud_state = "grenade_antigas"
 	det_time = 3 SECONDS
 	icon_state_mini = "grenade_antigas"
@@ -450,7 +450,7 @@
 	name = "\improper M40 HPDP grenade"
 	desc = "The M40 HPDP is a small, but powerful phosphorus grenade. It is set to detonate in 2 seconds."
 	icon_state = "grenade_phos"
-	item_state = "grenade_phos"
+	worn_icon_state = "grenade_phos"
 	det_time = 2 SECONDS
 	hud_state = "grenade_hide"
 	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
@@ -483,14 +483,14 @@
 	name = "\improper Type 8 WP grenade"
 	desc = "A deadly gas grenade found within the ranks of the USL. Designed to spill white phosphorus on the target. It explodes 2 seconds after the pin has been pulled."
 	icon_state = "grenade_upp_wp"
-	item_state = "grenade_upp_wp"
+	worn_icon_state = "grenade_upp_wp"
 	arm_sound = 'sound/weapons/armbombpin_1.ogg'
 
 /obj/item/explosive/grenade/impact
 	name = "\improper M40 IMDP grenade"
 	desc = "A high explosive contact detonation munition utilizing the standard DP canister chassis. Has a focused blast specialized for door breaching and combating emplacements and light armoured vehicles. WARNING: Handthrowing does not result in sufficient force to trigger impact detonators."
 	icon_state = "grenade_impact"
-	item_state = "grenade_impact"
+	worn_icon_state = "grenade_impact"
 	hud_state = "grenade_frag"
 	det_time = 4 SECONDS
 	dangerous = TRUE
@@ -513,7 +513,7 @@
 	name = "\improper M40 FLDP grenade"
 	desc = "A TGMC standard issue flare utilizing the standard DP canister chassis. Capable of being loaded in any grenade launcher, or thrown by hand."
 	icon_state = "flare_grenade"
-	item_state = "flare_grenade"
+	worn_icon_state = "flare_grenade"
 	det_time = 0
 	throwforce = 1
 	dangerous = FALSE
@@ -592,13 +592,13 @@
 /obj/item/explosive/grenade/flare/update_icon_state()
 	if(active && fuel > 0)
 		icon_state = "[initial(icon_state)]_active"
-		item_state = "[initial(item_state)]_active"
+		worn_icon_state = "[initial(worn_icon_state)]_active"
 	else if(!fuel)
 		icon_state = "[initial(icon_state)]_empty"
-		item_state = "[initial(item_state)]_empty"
+		worn_icon_state = "[initial(worn_icon_state)]_empty"
 	else
 		icon_state = initial(icon_state)
-		item_state = initial(item_state)
+		worn_icon_state = initial(worn_icon_state)
 
 
 ///Shuts the flare off
@@ -634,13 +634,13 @@
 	name = "flare"
 	desc = "A NT standard emergency flare. There are instructions on the side, it reads 'pull cord, make light'."
 	icon_state = "flare"
-	item_state = "flare"
+	worn_icon_state = "flare"
 
 /obj/item/explosive/grenade/flare/cas
 	name = "\improper M50 CFDP signal flare"
 	desc = "A TGMC signal flare utilizing the standard DP canister chassis. Capable of being loaded in any grenade launcher, or thrown by hand. When activated, provides a target for CAS pilots."
 	icon_state = "cas_flare_grenade"
-	item_state = "cas_flare_grenade"
+	worn_icon_state = "cas_flare_grenade"
 	hud_state = "grenade_frag"
 	lower_fuel_limit = 25
 	upper_fuel_limit = 30
