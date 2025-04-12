@@ -99,6 +99,7 @@
 		/obj/item/defibrillator,
 		/obj/item/roller,
 		/obj/item/tool/research,
+		/obj/item/tool/soap,
 		/obj/item/tool/surgery/solderingtool,
 		/obj/item/tweezers,
 		/obj/item/tweezers_advanced,
