@@ -459,6 +459,9 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	shoes = /obj/item/clothing/shoes/marine/full
 	gloves = /obj/item/clothing/gloves/marine
 
+/datum/outfit/job/command/mech_pilot/fallen
+	ears = null
+
 //apc/jeep driver
 /datum/job/terragov/command/transport_crewman
 	title = TRANSPORT_CREWMAN
