@@ -89,7 +89,7 @@
 			faction_receiver.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u> ПРИКАЗ [uppertext(faction_title)]:</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order)
 			to_chat(faction_receiver, assemble_alert(
 				title = "Сообщение от [faction_title]",
-				subtitle = "Отправлено [human_owner.get_paygrade(0) ? human_owner.get_paygrade(0) : human_owner.job.title] [human_owner.real_name",
+				subtitle = "Отправлено [human_owner.get_paygrade(0) ? human_owner.get_paygrade(0) : human_owner.job.title] [human_owner.real_name]",
 				message = text
 			))
 			SEND_SOUND(faction_receiver, S)
