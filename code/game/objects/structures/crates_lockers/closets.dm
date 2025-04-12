@@ -410,6 +410,9 @@
 		return FALSE
 	return TRUE
 
+/obj/structure/closet_insertion_allowed(obj/structure/closet/destination)
+	return FALSE
+
 /obj/item/closet_insertion_allowed(obj/structure/closet/destination)
 	if(anchored)
 		return FALSE
@@ -423,15 +426,8 @@
 	destination.item_size_counter += item_size
 	return TRUE
 
-/obj/structure/bed/closet_insertion_allowed(obj/structure/closet/destination)
-	if(length(buckled_mobs))
-		return FALSE
-
-/obj/structure/closet/closet_insertion_allowed(obj/structure/closet/destination)
-	return FALSE
-
 /mob/living/proc/on_closet_dump(obj/structure/closet/origin)
-	SetStun(origin.closet_stun_delay)//Action delay when going out of a closet
+	SetStun(origin.closet_stun_delay)
 	if(!lying_angle && has_status_effect(STATUS_EFFECT_STUN))
 		balloon_alert_to_viewers("Gets out of [origin]", ignored_mobs = src)
 		balloon_alert(src, "You struggle to get your bearings")
