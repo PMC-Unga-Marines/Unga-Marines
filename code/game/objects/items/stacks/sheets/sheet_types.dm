@@ -132,9 +132,9 @@ GLOBAL_LIST_INIT(plasteel_radial_images, list(
 		if("recipes")
 			return TRUE
 		if("plasteel barricade")
-			create_object(user, new/datum/stack_recipe("folding plasteel barricade", /obj/structure/barricade/metal/plasteel, 4, time = 5 SECONDS, check_direction = TRUE, on_solid_ground = TRUE, skill_req = SKILL_CONSTRUCTION_PLASTEEL), 1)
+			create_object(user, new/datum/stack_recipe("folding plasteel barricade", /obj/structure/barricade/metal/plasteel, 4, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_PLASTEEL), 1)
 		if("folding plasteel barricade")
-			create_object(user, new/datum/stack_recipe("folding plasteel barricade", /obj/structure/barricade/plasteel, 6, time = 10 SECONDS, check_direction = TRUE, on_solid_ground = TRUE, skill_req = SKILL_CONSTRUCTION_PLASTEEL), 1)
+			create_object(user, new/datum/stack_recipe("folding plasteel barricade", /obj/structure/barricade/plasteel, 6, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_PLASTEEL), 1)
 
 	return FALSE
 
