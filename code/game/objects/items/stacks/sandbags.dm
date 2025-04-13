@@ -1,4 +1,3 @@
-//Empty sandbags
 /obj/item/stack/sandbags_empty
 	name = "empty sandbags"
 	desc = "Some empty sandbags, best to fill them up with an entrenching tool if you want to use them."

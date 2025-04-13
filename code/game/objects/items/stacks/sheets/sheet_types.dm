@@ -1,15 +1,3 @@
-/* Diffrent misc types of sheets
-* Contains:
-*		Metal
-*		Plasteel
-*		Wood
-*		Cloth
-*		Cardboard
-*/
-
-/*
-* Metal
-*/
 GLOBAL_LIST_INIT(metal_recipes, list ( \
 	new/datum/stack_recipe("metal barricade", /obj/structure/barricade/metal, 4, time = 6 SECONDS, crafting_flags = CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
 	new/datum/stack_recipe("metal folding barricade", /obj/structure/barricade/plasteel/metal, 6, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
