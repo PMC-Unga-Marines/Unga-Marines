@@ -51,10 +51,10 @@ GLOBAL_LIST_INIT(sandstone_recipes, list ( \
 	icon_state = "sheet-runedsandstone"
 
 GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
-	new/datum/stack_recipe("brazier frame", /obj/structure/prop/brazier/frame, req_amount = 5, time = 3 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, skill_req = SKILL_CONSTRUCTION_EXPERT), \
+	new/datum/stack_recipe("brazier frame", /obj/structure/prop/brazier/frame, req_amount = 5, time = 3 SECONDS, crafting_flags = CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_EXPERT), \
 	new/datum/stack_recipe("torch frame", /obj/item/frame/torch_frame, req_amount = 3, time = 2 SECONDS, skill_req = SKILL_CONSTRUCTION_EXPERT), \
 	new/datum/stack_recipe("sandstone floor tile", /obj/item/stack/tile/plasteel/sandstone/runed, req_amount = 1, res_amount = 4, time = 2 SECONDS), \
-	new/datum/stack_recipe("sandstone wall", /turf/closed/wall/mineral/sandstone/runed, req_amount = 15, time = 10 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE, skill_req = SKILL_CONSTRUCTION_EXPERT),
+	new/datum/stack_recipe("sandstone wall", /turf/closed/wall/mineral/sandstone/runed, req_amount = 15, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_EXPERT),
 ))
 
 /obj/item/stack/sheet/mineral/sandstone/runed/get_main_recipes()
