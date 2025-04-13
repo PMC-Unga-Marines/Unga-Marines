@@ -277,7 +277,6 @@
 	title = "SOM Veteran"
 	paygrade = "SOM_S1"
 	skills_type = /datum/skills/som_veteran
-	job_traits = list(TRAIT_AXE_EXPERT, TRAIT_SWORD_EXPERT)
 	outfit = /datum/outfit/job/som/ert/veteran/charger
 	multiple_outfits = TRUE
 	outfits = list(
@@ -529,7 +528,6 @@
 	title = "SOM Leader"
 	paygrade = "SOM_S4"
 	skills_type = /datum/skills/som_veteran/sl
-	job_traits = list(TRAIT_AXE_EXPERT, TRAIT_SWORD_EXPERT)
 	outfit = /datum/outfit/job/som/ert/leader/charger
 	multiple_outfits = TRUE
 	outfits = list(
@@ -659,7 +657,6 @@
 	title = "SOM Breacher"
 	paygrade = "SOM_S2"
 	skills_type = /datum/skills/som_veteran
-	job_traits = list(TRAIT_AXE_EXPERT, TRAIT_SWORD_EXPERT)
 	outfit = /datum/outfit/job/som/ert/veteran/breacher_melee
 	multiple_outfits = TRUE
 	outfits = list(
@@ -785,7 +782,6 @@
 	title = "SOM Breacher Medic"
 	paygrade = "SOM_E5"
 	skills_type = /datum/skills/som_veteran/medic
-	job_traits = list(TRAIT_AXE_EXPERT, TRAIT_SWORD_EXPERT)
 	outfit = /datum/outfit/job/som/ert/medic/breacher
 	multiple_outfits = FALSE
 

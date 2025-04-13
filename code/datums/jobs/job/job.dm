@@ -289,8 +289,6 @@ GLOBAL_PROTECT(exp_specialmap)
 		player = client
 	job = assigned_role
 	set_skills(getSkillsType(job.return_skills_type(player?.prefs)))
-	if(islist(job.job_traits))
-		add_traits(job.job_traits, INNATE_TRAIT)
 	faction = job.faction
 	job.announce(src)
 	GLOB.round_statistics.total_humans_created[faction]++
