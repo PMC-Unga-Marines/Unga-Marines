@@ -143,6 +143,7 @@
 #include "code\__DEFINES\xeno.dm"
 #include "code\__DEFINES\dcs\flags.dm"
 #include "code\__DEFINES\dcs\helpers.dm"
+#include "code\__DEFINES\dcs\signals_keybindings.dm"
 #include "code\__DEFINES\dcs\signals.dm"
 #include "code\__DEFINES\dcs\signals\signals_mind.dm"
 #include "code\__DEFINES\dcs\signals\signals_reagent.dm"
