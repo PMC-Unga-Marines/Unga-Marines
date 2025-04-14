@@ -85,7 +85,6 @@
 	icon_state = "shutter0"
 	density = FALSE
 	opacity = FALSE
-	layer = PODDOOR_OPEN_LAYER
 
 /obj/machinery/door/poddoor/shutters/opened/medbay
 	name = "Medbay Lockdown Shutters"
@@ -123,11 +122,13 @@
 	id = "ghhjmugggggtgggbg" // do not have any button or thing have an ID assigned to this, it is a very bad idea.
 	smoothing_groups = list(SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS)
 
+
 /obj/machinery/door/poddoor/shutters/mainship/open
 	density = FALSE
 	opacity = FALSE
 	layer = PODDOOR_OPEN_LAYER
 	icon_state = "shutter0"
+
 
 /obj/machinery/door/poddoor/shutters/mainship/selfdestruct
 	name = "Self Destruct Lockdown"
@@ -163,6 +164,7 @@
 /obj/machinery/door/poddoor/shutters/transit/open
 	density = FALSE
 	opacity = FALSE
+	resistance_flags = RESIST_ALL|DROPSHIP_IMMUNE
 	layer = PODDOOR_OPEN_LAYER
 	icon_state = "shutter0"
 
@@ -174,6 +176,7 @@
 	density = FALSE
 	opacity = FALSE
 	resistance_flags = RESIST_ALL|DROPSHIP_IMMUNE
+	icon_state = "shutter0"
 	open_layer = PODDOOR_CLOSED_LAYER
 	closed_layer = PODDOOR_CLOSED_LAYER
 
@@ -181,6 +184,7 @@
 	name = "pressure shutters"
 	density = FALSE
 	opacity = FALSE
+	icon_state = "shutter0"
 	open_layer = PODDOOR_CLOSED_LAYER
 	closed_layer = PODDOOR_CLOSED_LAYER
 
@@ -195,6 +199,7 @@
 
 /obj/machinery/door/poddoor/shutters/mainship/req
 	name = "\improper Requisitions Shutters"
+	icon_state = "shutter1"
 
 /obj/machinery/door/poddoor/shutters/mainship/req/ro
 	name = "\improper RO Line"
@@ -210,6 +215,7 @@
 /obj/machinery/door/poddoor/shutters/mainship/containment
 	name = "\improper Containment Cell"
 	id = "containmentcell"
+	icon_state = "shutter1"
 
 /obj/machinery/door/poddoor/shutters/mainship/containment/cell1
 	name = "\improper Containment Cell 1"
@@ -222,6 +228,7 @@
 /obj/machinery/door/poddoor/shutters/mainship/brigarmory
 	name = "\improper Brig Armory Shutters"
 	id = "brig_armory"
+	icon_state = "shutter1"
 
 /obj/machinery/door/poddoor/shutters/mainship/cic
 	name = "\improper CIC Shutters"
@@ -229,10 +236,12 @@
 /obj/machinery/door/poddoor/shutters/mainship/cic/armory
 	name = "\improper Armory Shutters"
 	id = "cic_armory"
+	icon_state = "shutter1"
 
 /obj/machinery/door/poddoor/shutters/mainship/engineering/armory
 	name = "\improper Engineering Armory Shutters"
 	id = "engi_armory"
+	icon_state = "shutter1"
 
 /obj/machinery/door/poddoor/shutters/mainship/corporate
 	name = "\improper Privacy Shutters"

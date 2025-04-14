@@ -193,6 +193,7 @@
 		return FALSE
 	operating = TRUE
 	do_animate("opening")
+	icon_state = "door0"
 	set_opacity(FALSE)
 	for(var/t in fillers)
 		var/obj/effect/opacifier/O = t
@@ -203,7 +204,7 @@
 /obj/machinery/door/proc/finish_open()
 	layer = open_layer
 	density = FALSE
-	update_appearance(UPDATE_ICON_STATE)
+	update_icon()
 
 	if(operating)
 		operating = FALSE
@@ -218,13 +219,14 @@
 	if(operating)
 		return FALSE
 	operating = TRUE
+
 	density = TRUE
 	layer = closed_layer
 	do_animate("closing")
 	addtimer(CALLBACK(src, PROC_REF(finish_close)), openspeed)
 
 /obj/machinery/door/proc/finish_close()
-	update_appearance(UPDATE_ICON_STATE)
+	update_icon()
 	if(visible && !glass)
 		set_opacity(TRUE)	//caaaaarn!
 		for(var/t in fillers)
