@@ -1,6 +1,6 @@
 #define TRAIT_CALLBACK_ADD(target, trait, source) CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(___TraitAdd), ##target, ##trait, ##source)
 #define TRAIT_CALLBACK_REMOVE(target, trait, source) CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(___TraitRemove), ##target, ##trait, ##source)
-
+/* DOESN'T WORK FOR SOME REASON, UNCOMMENT AND FIX IF NEEDED
 ///DO NOT USE ___TraitAdd OR ___TraitRemove as a replacement for ADD_TRAIT / REMOVE_TRAIT defines. To be used explicitly for callback.
 /proc/___TraitAdd(target, trait, source)
 	if(!target || !trait || !source)
@@ -42,3 +42,4 @@
 	ASSERT(islist(list_of_traits), "Invalid arguments passed to remove_traits! Invoked on [src] with [list_of_traits], source being [source].")
 	for(var/trait in list_of_traits)
 		REMOVE_TRAIT(src, trait, source)
+*/
