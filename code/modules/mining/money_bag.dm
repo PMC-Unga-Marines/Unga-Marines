@@ -1,7 +1,7 @@
 /obj/item/moneybag
-	icon = 'icons/obj/items/storage/storage.dmi'
+	icon = 'icons/obj/items/storage/bag.dmi'
 	name = "Money bag"
-	icon_state = "moneybag"
+	icon_state = "money"
 	force = 10
 	throwforce = 2
 	w_class = WEIGHT_CLASS_BULKY

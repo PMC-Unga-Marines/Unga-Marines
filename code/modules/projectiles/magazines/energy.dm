@@ -111,7 +111,7 @@
 /obj/item/cell/lasgun/volkite/powerpack
 	name = "\improper M-70 powerpack"
 	desc = "A heavy reinforced backpack with an array of ultradensity energy cells, linked to a miniature radioisotope thermoelectric generator for continuous power generation. Used to power the largest man portable volkite weaponry. Click drag cells to the powerpack to recharge."
-	icon = 'icons/obj/items/storage/storage.dmi'
+	icon = 'icons/obj/items/ammo/powerpack.dmi'
 	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
@@ -194,7 +194,6 @@
 /obj/item/cell/lasgun/volkite/powerpack/marine
 	name = "\improper TE powerpack"
 	desc = "A recently developed mass produced side pouch which charges any TE technological achievement."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "lasgun_pouch"
 	charge_overlay = "lasgun_cell"
 	atom_flags = CONDUCT
@@ -209,7 +208,6 @@
 /obj/item/cell/lasgun/volkite/powerpack/marine_back
 	name = "\improper TE powerback"
 	desc = "A heavy reinforced backpack with an array of ultradensity energy cells. Click drag cells to the powerpack to recharge."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "pp_100"
 	maxcharge = 2400
 	base_icon_state = "pp"

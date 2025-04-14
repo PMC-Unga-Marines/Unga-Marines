@@ -1,6 +1,7 @@
 /obj/item/storage/holster
 	name = "holster"
 	desc = "Holds stuff, and sometimes goes swoosh."
+	icon = 'icons/obj/items/storage/holster.dmi'
 	icon_state = "backpack"
 	w_class = WEIGHT_CLASS_BULKY
 	storage_type = /datum/storage/holster
@@ -93,6 +94,7 @@
 /obj/item/storage/holster/backholster
 	name = "backpack holster"
 	desc = "You wear this on your back and put items into it. Usually one special item too."
+	icon = 'icons/obj/items/storage/backholster.dmi'
 	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
@@ -384,7 +386,6 @@
 /obj/item/storage/holster/blade/tomahawk
 	name = "\improper Tactical H23 Tomahawk scabbard"
 	desc = "A large leather scabbard used to carry a H23 tomahawk. It can be strapped to the back, waist or armor."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "tomahawk_holster"
 	worn_icon_state = "tomahawk_holster"
 	worn_icon_lists = list(
@@ -405,7 +406,6 @@
 /obj/item/storage/holster/blade/tomahawk/classic
 	name = "\improper Tactical H17 Tomahawk scabbard"
 	desc = "A large leather scabbard used to carry a H17 tomahawk. It can be strapped to the back, waist or armor."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "tomahawk_classic_holster"
 	worn_icon_state = "tomahawk_classic_holster"
 
@@ -770,7 +770,6 @@
 ///RL SADAR bag
 /obj/item/storage/holster/backholster/rlsadar
 	name = "TGMC RL-152 bag"
-	icon = 'icons/obj/items/storage/storage.dmi'
 	desc = "This backpack can hold 4 40mm shells, in addition to a SADAR launcher."
 	worn_icon_lists = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi'
@@ -790,7 +789,6 @@
 ///RL Quad bag
 /obj/item/storage/holster/backholster/rlquad
 	name = "TGMC RL-57 bag"
-	icon = 'icons/obj/items/storage/storage.dmi'
 	desc = "This backpack can hold 2 rocket arrays, in addition to a thermobaric launcher."
 	worn_icon_lists = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi'

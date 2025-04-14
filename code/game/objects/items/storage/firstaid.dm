@@ -548,8 +548,8 @@
 /obj/item/storage/ai2
 	name = "\"АИ-2\" first aid kit"
 	desc = "It's an individual medical kit with rare and useful reagents."
-	icon = 'icons/obj/items/storage/firstaidkit.dmi'
-	icon_state = "firstaidkit"
+	icon = 'icons/obj/items/storage/firstaid.dmi'
+	icon_state = "ai2"
 	w_class = WEIGHT_CLASS_NORMAL
 	storage_type = /datum/storage/ai2
 	var/is_open = FALSE
@@ -568,14 +568,14 @@
 	cut_overlays()
 
 	var/list/types_and_overlays = list(
-		/obj/item/storage/pill_bottle/penal/meralyne = "firstaidkit_meralyne_open",
-		/obj/item/storage/pill_bottle/penal/dermaline = "firstaidkit_dermaline_open",
-		/obj/item/storage/pill_bottle/penal/hyronalin = "firstaidkit_hyronalin_open",
-		/obj/item/storage/pill_bottle/penal/dexalin = "firstaidkit_dexalin_open",
-		/obj/item/reagent_containers/hypospray/autoinjector/pen/tramadol = "firstaidkit_tramadol_open",
-		/obj/item/reagent_containers/hypospray/autoinjector/pen/neuraline = "firstaidkit_neuraline_open",
-		/obj/item/reagent_containers/hypospray/autoinjector/pen/inaprovaline = "firstaidkit_inaprovaline_open",
-		/obj/item/reagent_containers/hypospray/autoinjector/pen/hypervene = "firstaidkit_hypervene_open",
+		/obj/item/storage/pill_bottle/penal/meralyne = "ai2_meralyne_open",
+		/obj/item/storage/pill_bottle/penal/dermaline = "ai2_dermaline_open",
+		/obj/item/storage/pill_bottle/penal/hyronalin = "ai2_hyronalin_open",
+		/obj/item/storage/pill_bottle/penal/dexalin = "ai2_dexalin_open",
+		/obj/item/reagent_containers/hypospray/autoinjector/pen/tramadol = "ai2_tramadol_open",
+		/obj/item/reagent_containers/hypospray/autoinjector/pen/neuraline = "ai2_neuraline_open",
+		/obj/item/reagent_containers/hypospray/autoinjector/pen/inaprovaline = "ai2_inaprovaline_open",
+		/obj/item/reagent_containers/hypospray/autoinjector/pen/hypervene = "ai2_hypervene_open",
 	)
 
 	if(!is_open)
@@ -591,7 +591,7 @@
 	update_icon()
 
 /obj/item/storage/pill_bottle/penal
-	icon = 'icons/obj/items/storage/firstaidkit.dmi'
+	icon = 'icons/obj/items/storage/firstaid.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	greyscale_config = null
 	greyscale_colors = null
@@ -625,7 +625,7 @@
 	pill_type_to_fill = /obj/item/reagent_containers/pill/dexalin
 
 /obj/item/reagent_containers/hypospray/autoinjector/pen
-	icon = 'icons/obj/items/storage/firstaidkit.dmi'
+	icon = 'icons/obj/items/storage/firstaid.dmi'
 	volume = 30
 	init_reagent_flags = null
 

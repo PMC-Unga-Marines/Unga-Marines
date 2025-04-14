@@ -3,6 +3,7 @@
 	desc = "A locked box."
 	icon_state = "lockbox+l"
 	worn_icon_state = "syringe_kit"
+	icon = 'icons/obj/items/storage/briefcase.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	req_access = list(ACCESS_MARINE_CAPTAIN)
 	storage_type = /datum/storage/lockbox

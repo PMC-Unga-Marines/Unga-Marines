@@ -927,11 +927,9 @@
 /obj/item/storage/medicomp
 	name = "medicomp"
 	desc = "A complex kit of alien tools and medicines."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "medicomp"
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = ITEM_PREDATOR
-
 
 /obj/item/storage/medicomp/full/Initialize(mapload, ...)
 	. = ..()

@@ -2,6 +2,7 @@
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
 	icon_state = "backpack"
+	icon = 'icons/obj/items/storage/backpack.dmi'
 	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
@@ -413,7 +414,6 @@
 
 /obj/item/storage/backpack/marine/satchel/officer_cloak_red/alt
 	name = "Senior Officer Cloak"
-	icon = 'icons/obj/items/storage/storage.dmi'
 	worn_icon_lists = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi')
 	icon_state = "officer_cloak_red_alt"
@@ -425,7 +425,6 @@
 	worn_icon_state = "commander_cloak_red" //with thanks to Baystation12
 
 /obj/item/storage/backpack/marine/satchel/captain_cloak_red/white
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "white_com"
 	worn_icon_lists = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi')

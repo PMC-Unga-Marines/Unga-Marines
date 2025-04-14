@@ -20,6 +20,7 @@
 /obj/item/storage/box
 	name = "box"
 	desc = "It's just an ordinary box."
+	icon = 'icons/obj/items/storage/box.dmi'
 	icon_state = "box"
 	worn_icon_state = "syringe_kit"
 	storage_type = /datum/storage/box
@@ -248,7 +249,6 @@
 
 /obj/item/storage/box/lights
 	name = "box of replacement bulbs"
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "light"
 	desc = "This box is shaped on the inside so that only light tubes and bulbs fit."
 	worn_icon_state = "syringe_kit"
