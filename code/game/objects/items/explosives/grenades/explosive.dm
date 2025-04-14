@@ -54,8 +54,8 @@
 	name = "\improper XM93 HEAP Grenade"
 	desc = "InterTech's experimental High Explosive Anti Personnel grenade. Good for clearing out rooms and such."
 	icon_state = "grenade_vsd"
-	power = 75
-	falloff = 15
+	power = 100
+	falloff = 20
 
 /obj/item/explosive/grenade/sectoid
 	name = "alien bomb"

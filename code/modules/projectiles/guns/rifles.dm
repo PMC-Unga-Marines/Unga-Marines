@@ -2862,6 +2862,10 @@
 	icon = 'icons/obj/items/gun/machinegun64.dmi'
 	icon_state = "l26"
 	worn_icon_state = "l26"
+	worn_icon_lists = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_64.dmi',
+	)
 	fire_animation = "l26_fire"
 	caliber = CALIBER_556X45 //codex
 	muzzleflash_iconstate = "muzzle_flash_medium"
