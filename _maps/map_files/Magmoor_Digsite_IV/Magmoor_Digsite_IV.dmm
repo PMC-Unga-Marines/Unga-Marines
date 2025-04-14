@@ -669,7 +669,7 @@
 	dir = 9
 	},
 /obj/machinery/door_control{
-	id = sssss;
+	id = "req_sec_storage1";
 	name = "Requesition Secure Storage";
 	pixel_y = 24
 	},
