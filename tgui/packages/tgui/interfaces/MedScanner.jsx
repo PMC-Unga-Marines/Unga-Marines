@@ -193,15 +193,12 @@ export const MedScanner = (props) => {
           </LabeledList>
         </Section>
         {has_unknown_chemicals ? (
-          <NoticeBox warning>Unknown reagents detected.</NoticeBox>
+          <Tooltip content="There are unknown reagents detected inside the patient. Proceed with caution.">
+            <NoticeBox warning>Unknown reagents detected.</NoticeBox>
+          </Tooltip>
         ) : null}
         {has_chemicals ? (
           <Section title="Chemical Contents">
-            {has_unknown_chemicals ? (
-              <Tooltip content="There are unknown reagents detected inside the patient. Proceed with caution.">
-                <NoticeBox warning>Unknown reagents detected.</NoticeBox>
-              </Tooltip>
-            ) : null}
             <LabeledList>
               {chemicals.map((chemical) => (
                 <LabeledList.Item key={chemical.name}>
@@ -239,11 +236,24 @@ export const MedScanner = (props) => {
             <LabeledList>
               {stomach_chemicals.map((chemical) => (
                 <LabeledList.Item key={chemical.name}>
-                  <Box>
-                    inline
-                    color={chemical.dangerous ? 'red' : 'white'}
-                    bold={chemical.dangerous}
-                  </Box>
+                  <Tooltip
+                    content={
+                      chemical.description +
+                      (chemical.od
+                        ? ' (OVERDOSING)'
+                        : chemical.od_threshold > 0 && !chemical.dangerous
+                          ? ' (OD: ' + chemical.od_threshold + 'u)'
+                          : '')
+                    }
+                  >
+                    <Box
+                      inline
+                      color={chemical.dangerous ? 'red' : 'white'}
+                      bold={chemical.dangerous}
+                    >
+                      {chemical.amount + 'u ' + chemical.name}
+                    </Box>
+                  </Tooltip>
                 </LabeledList.Item>
               ))}
             </LabeledList>

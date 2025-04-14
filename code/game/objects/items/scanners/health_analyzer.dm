@@ -145,10 +145,12 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 			var/reagent_overdosed = FALSE
 			if(reagent.overdose_threshold && reagent.volume > reagent.overdose_threshold)
 				reagent_overdosed = TRUE
-			stomach_chemicals_lists["[reagent.name]"] = list(
+			stomach_chemicals_lists["[reagent.name]"] = list( // copypaste
 				"name" = reagent.name,
+				"description" = reagent.description,
 				"amount" = round(reagent.volume, 0.1),
 				"od" = reagent_overdosed,
+				"od_threshold" = reagent.overdose_threshold,
 				"dangerous" = reagent_overdosed || istype(reagent, /datum/reagent/toxin)
 			)
 		data["stomach_chemicals_lists"] = stomach_chemicals_lists
@@ -552,7 +554,15 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 		data["advice"] = advice
 	else
 		data["advice"] = null
+	var/ssd = null
+	if(patient.has_brain() && patient.stat != DEAD)
+		if(!patient.key)
+			ssd = "No soul detected." // Catatonic- NPC, or ghosted
+		else if(!patient.client)
+			ssd = "Space Sleep Disorder detected." // SSD
+	data["ssd"] = ssd
 
+	return data
 
 /obj/item/healthanalyzer/alien
 	name = "\improper YMX scanner"
