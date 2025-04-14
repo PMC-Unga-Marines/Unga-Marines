@@ -667,7 +667,7 @@
 /obj/item/weapon/gun/pistol/xmdivider
 	name = "\improper XM104 'Divider' Revolver"
 	desc = "Intertech's one of a kind revolver. Fires custom incendiary .357 rounds, has firemode switch of single action and burst fire. Kicks like a fucking mule. You remember High Command saying: 'Don't let this get into enemy hands'."
-	icon = 'icons/obj/items/guns/pistols64.dmi'
+	icon = 'icons/obj/items/gun/pistol64.dmi'
 	icon_state = "xm104"
 	worn_icon_state = "xm104"
 	fire_animation = "xm104_fire"

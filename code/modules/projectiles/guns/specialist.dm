@@ -980,12 +980,12 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 /obj/item/weapon/gun/launcher/rocket/vsd
 	name = "\improper C153 shoulder launcher"
 	desc = "An Anti-personnel Rocket Launcher made by Crash Core. Used mainly by V.S.D specialists, it can fire three specialized rounds. High Explosive, Incendiary Explosive, and a Chemical Capped High Explosive."
-	icon = 'icons/obj/items/guns/special64.dmi'
+	icon = 'icons/obj/items/gun/special64.dmi'
 	icon_state = "c153"
 	worn_icon_state = "c153"
-	worn_icon_list = list(
-		slot_l_hand_str = 'icons/mob/inhands/guns/special_left_64.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/guns/special_right_64.dmi',
+	worn_icon_lists = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_64.dmi',
 	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32

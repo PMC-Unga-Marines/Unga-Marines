@@ -759,7 +759,7 @@
 	name = "Crasher multi-threat light ballistic armor"
 	desc = "The Vyacheslav Security Detail's main body armor. Protects the user from most bullet calibers."
 	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
-	worn_icon_list = list(
+	worn_icon_lists = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
 	)
 	icon_state = "vsd_main_larmor"

@@ -624,10 +624,10 @@
 /obj/item/clothing/head/vsd
 	name = "\improper armored baseball cap"
 	desc = "Baseball caps worn by V.S.D. GIs for the 'Call of Duty' feel."
-	worn_icon_list = list(
+	worn_icon_lists = list(
 		slot_head_str = 'icons/mob/clothing/headwear/ert_headwear.dmi',
-		slot_l_hand_str = 'icons/mob/inhands/items/items_left.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/items/items_right.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
 	icon = 'icons/obj/clothing/headwear/ert_headwear.dmi'
 	icon_state = "vsd_cap"
@@ -642,8 +642,8 @@
 	icon_state = "beretred"
 	worn_icon_state = "vsd_cap"
 	icon = 'icons/obj/clothing/headwear/marine_hats.dmi'
-	worn_icon_list = list(
+	worn_icon_lists = list(
 		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi',
-		slot_l_hand_str = 'icons/mob/inhands/items/items_left.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/items/items_right.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)

@@ -502,7 +502,7 @@
 	icon = 'icons/obj/clothing/headwear/ert_headwear.dmi'
 	icon_state = "vsd_main"
 	worn_icon_state = "vsd_main"
-	worn_icon_list =  list(
+	worn_icon_lists =  list(
 		slot_head_str = 'icons/mob/clothing/headwear/ert_headwear.dmi',
 	)
 	soft_armor = list(MELEE = 50, BULLET = 60, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, FIRE = 20, ACID = 30)

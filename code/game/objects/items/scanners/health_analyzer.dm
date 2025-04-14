@@ -254,7 +254,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 	else if(issynth(patient))
 		if(patient.health >= patient.get_death_threshold())
 			revivable_patient = TRUE
-	else if(patient.health + patient.getOxyLoss() + (DEFIBRILLATOR_HEALING_TIMES_SKILL(user.skills.getRating(SKILL_MEDICAL))) >= patient.get_death_threshold())
+	else if(patient.health + patient.get_oxy_loss() + (DEFIBRILLATOR_HEALING_TIMES_SKILL(user.skills.getRating(SKILL_MEDICAL))) >= patient.get_death_threshold())
 		revivable_patient = TRUE
 
 	if(HAS_TRAIT(patient, TRAIT_UNDEFIBBABLE))
@@ -345,7 +345,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 					"icon" = "bolt",
 					"color" = "yellow"
 					))
-		if(patient.getBruteLoss() > 5)
+		if(patient.get_brute_loss() > 5)
 			if(organic_patient)
 				advice += list(list(
 					"advice" = "Use trauma kits kits or sutures to repair the burned areas.",
@@ -360,7 +360,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 					"icon" = "tools",
 					"color" = "red"
 				))
-		if(patient.getFireLoss() > 5)
+		if(patient.get_fire_loss() > 5)
 			if(organic_patient)
 				advice += list(list(
 					"advice" = "Use burn kits or sutures to repair the burned areas.",
@@ -375,7 +375,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 					"icon" = "plug",
 					"color" = "orange"
 				))
-		if(patient.getCloneLoss() > 5)
+		if(patient.get_clone_Loss() > 5)
 			advice += list(list(
 				"advice" = organic_patient ? "Patient should sleep or seek cryo treatment - cellular damage." : "Patient should seek a robotic cradle - integrity damage.",
 				"tooltip" = "[organic_patient ? "Cellular damage" : "Integrity damage"] is sustained from psychic draining, special chemicals and special weapons. It can only be healed through the aforementioned methods.",
@@ -442,7 +442,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 						advice += temp_advice
 				else
 					advice += temp_advice
-			if(patient.getBruteLoss(organic_only = TRUE) > 30 && !chemicals_lists["Medical nanites"])
+			if(patient.get_brute_loss(organic_only = TRUE) > 30 && !chemicals_lists["Medical nanites"])
 				temp_advice = list(list(
 					"advice" = "Administer a single dose of bicaridine to reduce physical trauma.",
 					"tooltip" = "Significant physical trauma detected. Bicaridine reduces brute damage.",
@@ -454,7 +454,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 						advice += temp_advice
 				else
 					advice += temp_advice
-			if(patient.getFireLoss(organic_only = TRUE) > 30 && !chemicals_lists["Medical nanites"])
+			if(patient.get_fire_loss(organic_only = TRUE) > 30 && !chemicals_lists["Medical nanites"])
 				temp_advice = list(list(
 					"advice" = "Administer a single dose of kelotane to reduce burns.",
 					"tooltip" = "Significant tissue burns detected. Kelotane reduces burn damage.",
@@ -466,7 +466,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 						advice += temp_advice
 				else
 					advice += temp_advice
-			if(patient.getToxLoss() > 15)
+			if(patient.get_tox_loss() > 15)
 				temp_advice = list(list(
 					"advice" = "Administer a single dose of dylovene.",
 					"tooltip" = "Significant blood toxins detected. Dylovene will reduce toxin damage, or their liver will filter it out on its own. Damaged livers will take even more damage while clearing blood toxins.",
@@ -478,7 +478,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 						advice += temp_advice
 				else
 					advice += temp_advice
-			if(patient.getOxyLoss() > 30)
+			if(patient.get_oxy_loss() > 30)
 				temp_advice = list(list(
 					"advice" = "Administer a single dose of dexalin plus to re-oxygenate patient's blood.",
 					"tooltip" = "If you don't have Dexalin or Dexalin Plus, CPR or treating their other symptoms and waiting for their bloodstream to re-oxygenate will work.",
@@ -518,7 +518,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 				else
 					advice += temp_advice
 			var/has_pain = FALSE
-			if(patient.traumatic_shock > 50)
+			if(patient.painloss > 50)
 				has_pain = TRUE
 
 			if(has_pain && !chemicals_lists["Paracetamol"] && !chemicals_lists["Medical nanites"])
@@ -553,59 +553,6 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 	else
 		data["advice"] = null
 
-			if(!limb.brute_dam && !limb.burn_dam && !CHECK_BITFIELD(limb.limb_status, LIMB_DESTROYED) && !CHECK_BITFIELD(limb.limb_status, LIMB_BROKEN) && !CHECK_BITFIELD(limb.limb_status, LIMB_BLEEDING) && !CHECK_BITFIELD(limb.limb_status, LIMB_NECROTIZED) && !implant && !infected )
-				continue
-			var/list/current_list = list(
-				"name" = limb.display_name,
-				"brute" = round(limb.brute_dam),
-				"burn" = round(limb.burn_dam),
-				"bandaged" = limb.is_bandaged(),
-				"salved" = limb.is_salved(),
-				"missing" = CHECK_BITFIELD(limb.limb_status, LIMB_DESTROYED),
-				"limb_status" = null,
-				"bleeding" = CHECK_BITFIELD(limb.limb_status, LIMB_BLEEDING),
-				"open_incision" = limb.surgery_open_stage,
-				"necrotized" = necrotized,
-				"internal_bleeding_limb" = internal_bleeding_limb,
-				"infected" = infected,
-				"implant" = implant
-			)
-			var/limb_status = ""
-			if(CHECK_BITFIELD(limb.limb_status, LIMB_BROKEN) && !CHECK_BITFIELD(limb.limb_status, LIMB_STABILIZED) && !CHECK_BITFIELD(limb.limb_status, LIMB_SPLINTED))
-				limb_status = "Fracture"
-			else if(CHECK_BITFIELD(limb.limb_status, LIMB_STABILIZED))
-				limb_status = "Stabilized"
-			else if(CHECK_BITFIELD(limb.limb_status, LIMB_SPLINTED))
-				limb_status = "Splinted"
-			current_list["limb_status"] = limb_status
-			limb_data_lists["[limb.name]"] = current_list
-		data["limb_data_lists"] = limb_data_lists
-		data["limbs_damaged"] = length(limb_data_lists)
-		data["internal_bleeding"] = internal_bleeding
-		data["infection"] = infection_message
-		data["body_temperature"] = "[round(human_patient.bodytemperature*1.8-459.67, 0.1)] degrees F ([round(human_patient.bodytemperature-T0C, 0.1)] degrees C)"
-		data["pulse"] = "[human_patient.get_pulse(GETPULSE_TOOL)] bpm"
-		data["implants"] = unknown_implants
-		var/damaged_organs = list()
-		for(var/datum/internal_organ/organ AS in human_patient.internal_organs)
-			if(organ.organ_status == ORGAN_HEALTHY)
-				continue
-			var/current_organ = list(
-				"name" = organ.name,
-				"status" = organ.organ_status == ORGAN_BRUISED ? "Bruised" : "Broken",
-				"damage" = organ.damage
-			)
-			damaged_organs += list(current_organ)
-		data["damaged_organs"] = damaged_organs
-	var/ssd = null
-	if(patient.has_brain() && patient.stat != DEAD)
-		if(!patient.key)
-			ssd = "No soul detected." // Catatonic- NPC, or ghosted
-		else if(!patient.client)
-			ssd = "Space Sleep Disorder detected." // SSD
-	data["ssd"] = ssd
-
-	return data
 
 /obj/item/healthanalyzer/alien
 	name = "\improper YMX scanner"

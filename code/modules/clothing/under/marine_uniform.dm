@@ -634,7 +634,7 @@
 	icon = 'icons/mob/clothing/uniforms/ert_uniforms.dmi'
 	icon_state = "vsd_uniform_main"
 	worn_icon_state = "vsd_uniform_main"
-	worn_icon_list = list(
+	worn_icon_lists = list(
 		slot_w_uniform_str = 'icons/mob/clothing/uniforms/ert_uniforms.dmi',
 	)
 	has_sensor = FALSE

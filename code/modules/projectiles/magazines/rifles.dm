@@ -774,7 +774,7 @@
 /obj/item/ammo_magazine/rifle/vsd_rifle
 	name = "\improper C550 magazine (10x27mm)"
 	desc = "A 10x27mm rifle magazine."
-	caliber = CALIBER_10x27_CASELESS
+	caliber = CALIBER_10X27_CASELESS
 	icon_state = "c550"
 	icon_state_mini = "mag_rifle_big"
 	w_class = WEIGHT_CLASS_NORMAL

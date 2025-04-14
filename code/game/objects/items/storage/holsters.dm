@@ -633,11 +633,11 @@
 	for(var/i in 1 to 6)
 		new /obj/item/cell/lasgun/volkite/small(src)
 
-/obj/item/storage/holster/belt/pistol/stand
+/obj/item/storage/holster/belt/pistol/standard
 	name = "\improper M276 pattern M4A3 holster rig"
 	desc = "The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version has a holster assembly that allows one to carry the M4A3 comfortably secure. It also contains side pouches that can store 9mm or .45 magazines."
 
-/obj/item/storage/holster/belt/pistol/stand/Initialize(mapload, ...)
+/obj/item/storage/holster/belt/pistol/standard/Initialize(mapload, ...)
 	. = ..()
 	storage_datum.set_holdable(can_hold_list = list(
 		/obj/item/weapon/gun/pistol,

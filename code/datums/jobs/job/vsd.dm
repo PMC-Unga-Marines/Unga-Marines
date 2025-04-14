@@ -34,7 +34,7 @@
 	r_store = /obj/item/storage/pouch/medical_injectors/firstaid
 	l_store = /obj/item/storage/pouch/magazine
 	back = /obj/item/storage/backpack/lightpack/vsd
-	belt = /obj/item/storage/holster/belt/pistol/standard_pistol
+	belt = /obj/item/storage/holster/belt/pistol/standard
 
 /datum/outfit/job/vsd/standard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -43,7 +43,7 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
 
 	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
@@ -174,8 +174,8 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_BACKPACK)
@@ -216,7 +216,7 @@
 /datum/outfit/job/vsd/engineer/vsd_rifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/vsd_rifle, SLOT_IN_BACKPACK)
 
@@ -367,7 +367,7 @@
 	gloves = /obj/item/clothing/gloves/marine/veteran/pmc
 	r_store = /obj/item/storage/pouch/medical_injectors/firstaid
 	back = /obj/item/storage/backpack/lightpack/vsd
-	belt = /obj/item/storage/holster/belt/pistol/standard_pistol
+	belt = /obj/item/storage/holster/belt/pistol/standard
 
 /datum/outfit/job/vsd/spec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -423,7 +423,7 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/he, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rocket/vsd/he, SLOT_IN_BACKPACK)
@@ -443,7 +443,7 @@
 /datum/outfit/job/vsd/spec/gunslinger
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd
 	head = /obj/item/clothing/head/helmet/marine/vsd/secondary
-	belt = /obj/item/storage/holster/belt/korovin
+	belt = /obj/item/storage/holster/belt/pistol/korovin
 	w_uniform = /obj/item/clothing/under/vsd/shirt/webbing
 
 /datum/outfit/job/vsd/spec/gunslinger/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -453,7 +453,7 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_ACCESSORY)
 
 	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
@@ -496,7 +496,7 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BACKPACK)
@@ -583,7 +583,7 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
 
 	H.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
@@ -631,7 +631,7 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_BACKPACK)
@@ -695,7 +695,7 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
+	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
 
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/vsd, SLOT_IN_SUIT)
@@ -714,7 +714,7 @@
 	mask = /obj/item/clothing/mask/gas/vsd
 	glasses = /obj/item/clothing/glasses/hud/health
 	suit_store = /obj/item/weapon/gun/rifle/vsd_rifle/standard
-	belt = /obj/item/storage/holster/belt/pistol/standard_pistol
+	belt = /obj/item/storage/holster/belt/pistol/standard
 
 /datum/outfit/job/vsd/leader/one/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -743,7 +743,7 @@
 	mask = /obj/item/clothing/mask/gas/vsd
 	glasses = /obj/item/clothing/glasses/night/vsd
 	suit_store = /obj/item/weapon/gun/rifle/vsd_lmg/juggernaut
-	belt = /obj/item/storage/holster/belt/korovin
+	belt = /obj/item/storage/holster/belt/pistol/korovin
 
 /datum/outfit/job/vsd/leader/two/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -773,7 +773,7 @@
 	mask = /obj/item/clothing/mask/gas/vsd
 	glasses = /obj/item/clothing/glasses/night/vsd
 	suit_store = /obj/item/weapon/gun/rifle/vsd_lmg/juggernaut
-	belt = /obj/item/storage/holster/belt/pistol/standard_pistol
+	belt = /obj/item/storage/holster/belt/pistol/standard
 
 /datum/outfit/job/vsd/leader/two/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()

@@ -2859,7 +2859,7 @@
 /obj/item/weapon/gun/rifle/vsd_lmg
 	name = "\improper L26 support machine gun"
 	desc = "The Syndicate's main all purpose machine gun, chambered in 5.56. It's design seems... outdated yet still reliable. Fires rapidly with devasting kicks, at a cost of movement speed."
-	icon = 'icons/obj/items/guns/machineguns64.dmi'
+	icon = 'icons/obj/items/gun/machinegun64.dmi'
 	icon_state = "l26"
 	worn_icon_state = "l26"
 	fire_animation = "l26_fire"
@@ -2919,7 +2919,7 @@
 /obj/item/weapon/gun/rifle/vsd_rifle
 	name = "\improper C550 combat rifle"
 	desc = "Crash Core's first ever rifle. With designs reminiscent of the Sauer series, this gun is the perfect choice for CQC. Chambered in 10x27mm. Packs a kick to anyone standing infront of you. "
-	icon = 'icons/obj/items/guns/rifles64.dmi'
+	icon = 'icons/obj/items/gun/rifle64.dmi'
 	icon_state = "c550"
 	worn_icon_state = "c550"
 	fire_sound = 'sound/weapons/guns/fire/DMR.ogg'
