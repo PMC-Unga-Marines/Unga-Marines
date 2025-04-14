@@ -6649,7 +6649,6 @@
 "evk" = (
 /obj/item/reagent_containers/jerrycan{
 	desc = "A jerry can. In space! Or maybe a colony.";
-	item_state = "caution";
 	name = "fuel can";
 	pixel_x = 4;
 	pixel_y = 16
@@ -12416,7 +12415,6 @@
 /obj/structure/rack/nometal,
 /obj/effect/spawner/random/misc/earmuffs,
 /obj/item/clothing/ears/earmuffs{
-	item_state = "earmuffs2";
 	pixel_y = -4
 	},
 /turf/open/floor/plating/ground/snow/layer2,
@@ -31355,7 +31353,6 @@
 /obj/structure/table/reinforced/prison,
 /obj/item/reagent_containers/jerrycan{
 	desc = "A jerry can. In space! Or maybe a colony.";
-	item_state = "caution";
 	name = "fuel can";
 	pixel_y = 10
 	},
@@ -31364,7 +31361,6 @@
 	},
 /obj/item/reagent_containers/jerrycan{
 	desc = "A jerry can. In space! Or maybe a colony.";
-	item_state = "caution";
 	name = "fuel can";
 	pixel_x = 2;
 	pixel_y = 3
