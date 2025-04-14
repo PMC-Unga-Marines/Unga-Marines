@@ -294,6 +294,7 @@
 	bound_width = 32
 	bound_height = 96
 	resistance_flags = UNACIDABLE
+	allow_pass_flags = PASSABLE|PASS_LOW_STRUCTURE
 
 /obj/structure/prop/mainship/missile_tube/south
 	icon_state = "missiletubesouth"
