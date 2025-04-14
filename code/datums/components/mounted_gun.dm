@@ -43,7 +43,7 @@
 		to_chat(buckling_mob, span_warning("Could not equip weapon! Click [parent] with a free hand to equip."))
 		return
 
-/obj/item/vehicle_module/mounted_gun/Destroy()
+/datum/component/vehicle_mounted_weapon/Destroy()
 	if(mounted_gun)
 		QDEL_NULL(mounted_gun)
 	return ..()
