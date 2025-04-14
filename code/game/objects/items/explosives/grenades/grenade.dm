@@ -32,7 +32,6 @@
 	var/falloff = 30
 	var/overlay_type = "red"
 
-
 /obj/item/explosive/grenade/Initialize(mapload)
 	. = ..()
 	det_time = rand(det_time - 1 SECONDS, det_time + 1 SECONDS)
@@ -107,38 +106,3 @@
 /obj/item/explosive/grenade/throw_at(target, range, speed, thrower, spin, flying, targetted_throw)
 	. = ..()
 	playsound(thrower, G_throw_sound, 25, 1, 6)
-
-////RAD GRENADE - TOTALLY RAD MAN
-/obj/item/explosive/grenade/rad
-	name = "\improper V-40 rad grenade"
-	desc = "Rad grenades release an extremely potent but short lived burst of radiation, debilitating organic life and frying electronics in a moderate radius. After the initial detonation, the radioactive effects linger for a time. Handle with extreme care."
-	icon_state = "grenade_rad" //placeholder
-	worn_icon_state = "grenade_rad" //placeholder
-	icon_state_mini = "grenade_red" //placeholder
-	det_time = 40 //default
-	arm_sound = 'sound/weapons/armbomb.ogg' //placeholder
-	hud_state = "grenade_he" //placeholder
-	///The range for the grenade's full effect
-	var/inner_range = 4
-	///The range range for the grenade's weak effect
-	var/outer_range = 7
-	///The potency of the grenade
-	var/rad_strength = 20
-
-/obj/item/explosive/grenade/rad/prime()
-	var/turf/impact_turf = get_turf(src)
-
-	playsound(impact_turf, 'sound/effects/portal_opening.ogg', 50, 1)
-	for(var/mob/living/victim in hearers(outer_range, src))
-		var/strength
-		var/sound_level
-		if(get_dist(victim, impact_turf) <= inner_range)
-			strength = rad_strength
-			sound_level = 3
-		else
-			strength = rad_strength * 0.6
-			sound_level = 2
-
-		strength = victim.modify_by_armor(strength, BIO, 25)
-		victim.apply_radiation(strength, sound_level)
-	qdel(src)

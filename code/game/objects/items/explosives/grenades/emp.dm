@@ -4,8 +4,6 @@
 	icon_state = "emp"
 	worn_icon_state = "emp"
 
-
 /obj/item/explosive/grenade/emp/prime()
 	empulse(src, 0, 2, 5)
 	qdel(src)
-
