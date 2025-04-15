@@ -167,6 +167,7 @@
 
 	alarm_played = TRUE
 	playsound_z(z, 'sound/effects/shutters_alarm.ogg', 15) // woop woop, shutters opening.
+	log_game("[key_name(user)] has opened the LZ Containment Shutters.")
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom/movable, update_icon)), 1.5 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(pulsed)), 185)
 
@@ -345,8 +346,6 @@
 
 /obj/machinery/button/valhalla/xeno_button
 	name = "Marine spawner"
-	///The list of outfits we can equip on the humans we're spawning
-	var/outfit_list = list()
 
 /obj/machinery/button/valhalla/xeno_button/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	var/list/job_outfits = list()

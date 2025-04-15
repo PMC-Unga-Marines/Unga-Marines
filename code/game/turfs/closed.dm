@@ -208,6 +208,20 @@
 	resistance_flags = RESIST_ALL
 	icon_state = "wall-invincible"
 
+//new wall for lava maps
+/turf/closed/mineral/smooth/lavawall
+	icon = 'icons/turf/walls/lava_wall.dmi'
+	icon_state = "lava_wall-0"
+	walltype = "lava_wall"
+	base_icon_state = "lava_wall"
+
+/turf/closed/mineral/smooth/lavawall/indestructible
+	resistance_flags = RESIST_ALL
+	icon_state = "wall-invincible"
+
+/turf/closed/mineral/smooth/lavawall/outdoor
+	open_turf_type = /turf/open/floor/plating/ground/mars/random/dirt
+
 //Ground map dense jungle
 /turf/closed/gm
 	icon = 'icons/turf/walls/jungle.dmi'
@@ -850,6 +864,7 @@
 	opacity = FALSE
 
 /turf/closed/shuttle/dropship2/rearcorner/tadpole
+	name = "\improper Tadpole"
 	icon_state = "shuttle_rearcorner"
 	resistance_flags = NONE
 
@@ -857,8 +872,19 @@
 	icon_state = "shuttle_rearcorner_alt"
 
 /turf/closed/shuttle/dropship2/rearcorner/alt/tadpole
+	name = "\improper Tadpole"
 	icon_state = "shuttle_rearcorner_alt"
 	resistance_flags = NONE
+
+/turf/closed/shuttle/dropship2/cornersalt/tadpole
+	name = "\improper Tadpole"
+	icon_state = "tadpole_interior_corner"
+	icon = 'icons/turf/tadpole.dmi'
+	resistance_flags = NONE
+	opacity = FALSE
+
+/turf/closed/shuttle/dropship2/cornersalt/tadpole/alt
+	icon_state = "tadpole_interior_corner_alt"
 
 /turf/closed/shuttle/dropship2/transparent
 	opacity = FALSE

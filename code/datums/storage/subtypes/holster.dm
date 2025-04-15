@@ -45,7 +45,7 @@
 
 /datum/storage/holster/blade/officer/New(atom/parent)
 	. = ..()
-	set_holdable(can_hold_list = list(/obj/item/weapon/claymore/mercsword/officersword))
+	set_holdable(can_hold_list = list(/obj/item/weapon/sword/officer))
 
 /datum/storage/holster/backholster
 	max_w_class = WEIGHT_CLASS_NORMAL //normal items
@@ -248,6 +248,8 @@
 		/obj/item/weapon/gun/pistol/c99,
 		/obj/item/ammo_magazine/pistol/c99,
 		/obj/item/ammo_magazine/pistol/c99t,
+		/obj/item/weapon/gun/pistol/xmdivider,
+		/obj/item/ammo_magazine/pistol/xmdivider,
 	))
 
 /datum/storage/holster/belt/ts34

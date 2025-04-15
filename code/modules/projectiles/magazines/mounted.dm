@@ -101,7 +101,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "tat36_shell"
-	item_state = "tat36"
+	worn_icon_state = "tat36"
 	magazine_flags = MAGAZINE_REFUND_IN_CHAMBER
 	caliber = CALIBER_37MM
 	max_rounds = 1
@@ -112,28 +112,28 @@
 	name = "AT-36 APCR shell (37mm Shell)"
 	desc = "A 37mm tungsten shell for light anti tank guns made to penetrate through just about everything, but it won't leave a big hole."
 	icon_state = "tat36_shell_apcr"
-	item_state = "tat36_apcr"
+	worn_icon_state = "tat36_apcr"
 	default_ammo = /datum/ammo/rocket/atgun_shell/apcr
 
 /obj/item/ammo_magazine/at36/he
 	name = "AT-36 HE (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns made to destroy fortifications, the high amount of payload gives it a slow speed. But it leaves quite a hole."
 	icon_state = "tat36_shell_he"
-	item_state = "tat36_he"
+	worn_icon_state = "tat36_he"
 	default_ammo = /datum/ammo/rocket/atgun_shell/he
 
 /obj/item/ammo_magazine/at36/beehive
 	name = "AT-36 Beehive (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns made to mince infantry, the light payload gives it moderate speed. Turns anyone into swiss cheese."
 	icon_state = "tat36_shell_beehive"
-	item_state = "tat36_beehive"
+	worn_icon_state = "tat36_beehive"
 	default_ammo = /datum/ammo/rocket/atgun_shell/beehive
 
 /obj/item/ammo_magazine/at36/incend
 	name = "AT-36 Napalm (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns made to set the battlefield ablaze, the light payload gives it a moderate speed. Will cook any target flambé."
 	icon_state = "tat36_shell_incend"
-	item_state = "tat36_incend"
+	worn_icon_state = "tat36_incend"
 	default_ammo = /datum/ammo/rocket/atgun_shell/beehive/incend
 
 /obj/item/ammo_magazine/heavy_minigun
@@ -154,7 +154,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "ac_mag"
-	item_state = "ac"
+	worn_icon_state = "ac"
 	magazine_flags = NONE
 	caliber = CALIBER_20
 	max_rounds = 100
@@ -165,7 +165,7 @@
 	name = "autocannon smart-detonating magazine(20mm)"
 	desc = "A box of 80 smart-detonating 20mm rounds for the ATR-22 mounted autocannon. Will detonate upon hitting a target."
 	icon_state = "ac_mag_flak"
-	item_state = "ac_flak"
+	worn_icon_state = "ac_flak"
 	default_ammo = /datum/ammo/bullet/auto_cannon/flak
 
 /obj/item/cell/lasgun/heavy_laser
@@ -183,7 +183,7 @@
 	desc = "A 15cm shell for the FK-88 mounted flak gun. How did you even get this?"
 	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "isg_ammo"
-	item_state = "isg_ammo"
+	worn_icon_state = "isg_ammo"
 	w_class = WEIGHT_CLASS_BULKY
 	magazine_flags = MAGAZINE_REFUND_IN_CHAMBER
 	caliber = CALIBER_15CM

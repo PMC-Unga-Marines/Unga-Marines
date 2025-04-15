@@ -26,7 +26,8 @@
 	. = ..()
 	equip_delay_self = parent.equip_delay_self
 	strip_delay = parent.strip_delay
-	storage_datum.register_storage_signals(attaching_to) //XANTODO calls 0.register_storage_signals()
+
+	storage_datum.register_storage_signals(attaching_to)
 
 /obj/item/armor_module/storage/on_detach(obj/item/detaching_from, mob/user)
 	equip_delay_self = initial(equip_delay_self)
@@ -44,7 +45,7 @@
 /* Pockets */
 /obj/item/armor_module/storage/pocket
 	icon_state = ""
-	item_state = ""
+	worn_icon_state = ""
 	attach_features_flags = ATTACH_APPLY_ON_MOB
 	storage_type = /datum/storage/internal/pocket
 
@@ -63,7 +64,7 @@
 	desc = "Designed for mounting on SOM combat armor. Certainly not as specialised as any other storage modules, but definitely able to hold some larger things, like pistols or magazines."
 	icon = 'icons/mob/modular/som_armor_modules.dmi'
 	icon_state = "mod_general_bag_som"
-	item_state = "mod_general_bag_som_a"
+	worn_icon_state = "mod_general_bag_som_a"
 
 /obj/item/armor_module/storage/ammo_mag
 	name = "Magazine Storage module"
@@ -101,7 +102,7 @@
 	desc = "Designed for mounting on SOM combat armor. Can hold about as much as a tool pouch, and sometimes small spools of things like barbed wire, or an entrenching tool."
 	icon = 'icons/mob/modular/som_armor_modules.dmi'
 	icon_state = "mod_engineer_bag_som"
-	item_state = "mod_engineer_bag_som_a"
+	worn_icon_state = "mod_engineer_bag_som_a"
 
 /obj/item/armor_module/storage/medical
 	name = "Medical Storage module"
@@ -121,7 +122,7 @@
 	desc = "Designed for mounting on SOM combat armor. Can hold a substantial variety of medical supplies and apparatus, but cannot hold as much as a medkit could."
 	icon = 'icons/mob/modular/som_armor_modules.dmi'
 	icon_state = "mod_medic_bag_som"
-	item_state = "mod_medic_bag_som_a"
+	worn_icon_state = "mod_medic_bag_som_a"
 
 /obj/item/armor_module/storage/injector
 	name = "Injector Storage module"

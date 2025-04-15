@@ -23,7 +23,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	desc = "It's an attachment. You should never see this."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = null
-	item_state = null
+	worn_icon_state = null
 
 	///Determines the amount of pixels to move the icon state for the overlay. in the x direction
 	var/pixel_shift_x = 16

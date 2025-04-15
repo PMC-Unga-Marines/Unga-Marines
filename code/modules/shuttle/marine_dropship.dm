@@ -505,6 +505,7 @@
 		shuttle.set_idle()
 		shuttle.set_hijack_state(HIJACK_STATE_CALLED_DOWN)
 		shuttle.do_start_hijack_timer()
+		shuttle.unlock_all()
 	interact(xeno_attacker) //Open the UI
 
 /obj/machinery/computer/shuttle/marine_dropship/ui_state(mob/user)
@@ -547,7 +548,8 @@
 	data["show_hunt"] = show_hunt
 
 	var/datum/game_mode/infestation/infestation_mode = SSticker.mode
-	data["shuttle_hijacked"] = (infestation_mode.round_stage == INFESTATION_MARINE_CRASHING) //If we hijacked, our capture button greys out
+	if(istype(infestation_mode))
+		data["shuttle_hijacked"] = (infestation_mode.round_stage == INFESTATION_MARINE_CRASHING) //If we hijacked, our capture button greys out
 
 	var/locked = 0
 	var/reardoor = 0
@@ -943,12 +945,20 @@
 /obj/structure/dropship_piece/tadpole/rearright
 	icon_state = "blue_rear_rc"
 
+/obj/structure/dropship_piece/tadpole/weapon/rightright
+	icon = 'icons/turf/tadpole.dmi'
+	icon_state = "blue_weapon_rr"
+
+/obj/structure/dropship_piece/tadpole/weapon/leftleft
+	icon = 'icons/turf/tadpole.dmi'
+	icon_state = "blue_weapon_ll"
+
 /obj/structure/dropship_piece/glassone
 	icon = 'icons/turf/dropship2.dmi'
 	icon_state = "shuttle_glass1"
 
 /obj/structure/dropship_piece/glassone/tadpole
-	icon_state = "shuttle_glass1"
+	icon = 'icons/turf/tadpole.dmi'
 	resistance_flags = NONE
 	opacity = FALSE
 	allow_pass_flags = PASS_GLASS
@@ -958,14 +968,13 @@
 	icon_state = "shuttle_glass2"
 
 /obj/structure/dropship_piece/glasstwo/tadpole
-	icon = 'icons/turf/dropship2.dmi'
-	icon_state = "shuttle_glass2"
+	icon = 'icons/turf/tadpole.dmi'
 	resistance_flags = NONE
 	opacity = FALSE
 	allow_pass_flags = PASS_GLASS
 
 /obj/structure/dropship_piece/singlewindow/tadpole
-	icon = 'icons/turf/dropship2.dmi'
+	icon = 'icons/turf/tadpole.dmi'
 	icon_state = "shuttle_single_window"
 	allow_pass_flags = PASS_GLASS
 	resistance_flags = NONE
@@ -980,9 +989,11 @@
 	allow_pass_flags = NONE
 
 /obj/structure/dropship_piece/tadpole/cockpit/left
+	icon = 'icons/turf/tadpole.dmi'
 	icon_state = "blue_cockpit_fl"
 
 /obj/structure/dropship_piece/tadpole/cockpit/right
+	icon = 'icons/turf/tadpole.dmi'
 	icon_state = "blue_cockpit_fr"
 
 /obj/structure/dropship_piece/tadpole/cockpit/window
@@ -996,6 +1007,7 @@
 
 /obj/structure/dropship_piece/tadpole/tadpole_nose
 	icon_state = "blue_front"
+	icon = 'icons/turf/tadpole.dmi'
 	opacity = FALSE
 	density = FALSE
 

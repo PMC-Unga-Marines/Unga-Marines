@@ -2,7 +2,7 @@
 	name = "\improper 80mm mortar shell"
 	desc = "An unlabeled 80mm mortar shell, probably a casing."
 	icon = 'icons/obj/items/ammo/stationary.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/ammo_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/ammo_right.dmi',
 	)

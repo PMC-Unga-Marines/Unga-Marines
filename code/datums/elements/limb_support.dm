@@ -51,7 +51,7 @@
 			if(limb.body_part == CHEST || limb.body_part == GROIN || limb.body_part == HEAD)
 				playsound(worn_suit, 'sound/voice/b18/fracture.ogg', 15, 0, 1)
 			else
-				playsound(worn_suit, 'sound/voice/b18/light_fracture.ogg', 15, 0, 1)
+				playsound(worn_suit, 'sound/voice/b18/minor_fracture.ogg', 15, 0, 1)
 			limb.limb_status |= LIMB_STABILIZED
 			to_chat(injured_mob, span_notice("<b>You feel [worn_suit] constrict about your [limb.display_name], stabilizing it.</b>"))
 			playsound(worn_suit, 'sound/machines/hydraulics_1.ogg', 15, 0, 1)

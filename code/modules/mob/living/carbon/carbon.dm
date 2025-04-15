@@ -20,13 +20,6 @@
 	if(nutrition && stat != DEAD)
 		adjust_nutrition(-HUNGER_FACTOR * 0.1 * ((m_intent == MOVE_INTENT_RUN) ? 2 : 1))
 
-/mob/living/carbon/relaymove(mob/user, direction)
-	if(user.incapacitated(TRUE))
-		return
-	if(!chestburst && (status_flags & XENO_HOST) && isxenolarva(user))
-		var/mob/living/carbon/xenomorph/larva/L = user
-		L.initiate_burst(src)
-
 /mob/living/carbon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0, def_zone = null)
 	if(status_flags & GODMODE)
 		return
@@ -397,7 +390,7 @@
 	ex_act(500)
 
 ///Sets up the jump component for the mob. Proc args can be altered so different mobs have different 'default' jump settings
-/mob/living/carbon/set_jump_component(duration = 0.5 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 16, sound = null, flags = JUMP_SHADOW, pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
+/mob/living/carbon/set_jump_component(duration = 0.5 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 16, sound = null, flags = JUMP_SHADOW, jump_pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
 	var/gravity = get_gravity()
 	if(gravity < 1) //low grav
 		duration *= 2.5 - gravity

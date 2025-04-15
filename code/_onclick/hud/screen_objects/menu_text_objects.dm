@@ -35,7 +35,7 @@
 	. = ..()
 	if(!(atom_flags & INITIALIZED)) //yes this can happen, fuck me
 		return
-	color = COLOR_RUTGMC_RED
+	color = COLOR_LOBBY_RED
 	var/mob/new_player/player = usr
 	player.playsound_local(player, 'sound/effects/menu_click.ogg', 50)
 

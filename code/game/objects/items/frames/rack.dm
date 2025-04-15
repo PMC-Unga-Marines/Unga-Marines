@@ -2,7 +2,7 @@
 	name = "rack parts"
 	desc = "A kit for a storage rack with multiple metal shelves. Relatively cheap, useful for mass storage. Some assembly required."
 	icon = 'icons/obj/items/items.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/engineering_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/engineering_right.dmi',
 	)

@@ -16,10 +16,12 @@
 	var/slot
 	/// Will peri affect this organ? Thus ignores eyes, ears and brain
 	var/peri_effect = FALSE
+	///The effects when this limb is damaged. Used by health analyzers.
+	var/damage_description
 
 //This is used in the create_organs() which transfers human datums to organs
 /datum/internal_organ/New(mob/living/carbon/carbon_mob)
-	..()
+	. = ..()
 	if(!istype(carbon_mob))
 		return
 

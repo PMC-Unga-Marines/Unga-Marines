@@ -14457,7 +14457,7 @@
 /area/prison/command/secretary_office)
 "aTP" = (
 /obj/structure/rack,
-/obj/item/weapon/katana/replica,
+/obj/item/weapon/sword/katana/replica,
 /turf/open/floor/wood,
 /area/prison/command/office)
 "aTQ" = (
@@ -42014,14 +42014,6 @@
 	},
 /turf/open/floor/prison,
 /area/prison/hangar/main)
-"gSs" = (
-/obj/effect/attach_point/weapon/dropship1{
-	dir = 8
-	},
-/turf/open/floor/plating/icefloor/warnplate{
-	dir = 8
-	},
-/area/prison/hangar/civilian)
 "gTa" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/wood/broken,
@@ -44537,10 +44529,6 @@
 	dir = 4
 	},
 /area/prison/hangar/civilian)
-"lXn" = (
-/obj/effect/attach_point/weapon/dropship1,
-/turf/open/floor/plating,
-/area/prison/hangar/civilian)
 "lXO" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -45749,10 +45737,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/carpet,
 /area/prison/command/secretary_office)
-"ogM" = (
-/obj/effect/attach_point/electronics/dropship1,
-/turf/open/floor/plating,
-/area/prison/hangar/civilian)
 "oho" = (
 /obj/effect/spawner/random/engineering/structure/tank/fuelweighted,
 /turf/open/floor/plating,
@@ -48192,10 +48176,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/prison/maintenance/staff_research)
-"sLV" = (
-/obj/effect/attach_point/electronics/dropship1,
-/turf/open/floor/plating,
-/area/prison/hangar/main)
 "sMp" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/prison_unmeltable,
@@ -49519,10 +49499,6 @@
 /obj/effect/spawner/random/weaponry/shiv,
 /turf/open/floor/prison/kitchen,
 /area/prison/cellblock/maxsec/south)
-"vAB" = (
-/obj/effect/attach_point/weapon/dropship1,
-/turf/open/floor/plating,
-/area/prison/hangar/main)
 "vBj" = (
 /obj/structure/table/reinforced,
 /obj/machinery/computer/secure_data,
@@ -50380,14 +50356,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/prison/bright_clean,
 /area/prison/hallway/central)
-"xgV" = (
-/obj/effect/attach_point/weapon/dropship1{
-	dir = 8
-	},
-/turf/open/floor/plating/icefloor/warnplate{
-	dir = 8
-	},
-/area/prison/hangar/main)
 "xhv" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/misc/paperbin{
@@ -52866,7 +52834,7 @@ bcJ
 bcJ
 bcJ
 bcJ
-gSs
+bcJ
 bcJ
 bcJ
 szH
@@ -53119,7 +53087,7 @@ qWN
 sqF
 qhf
 fRl
-lXn
+qhf
 qhf
 qhf
 qhf
@@ -53376,7 +53344,7 @@ qWN
 sqF
 qhf
 qhf
-ogM
+qhf
 qhf
 qhf
 qhf
@@ -54918,7 +54886,7 @@ qWN
 sqF
 qhf
 qhf
-ogM
+qhf
 qhf
 qhf
 qhf
@@ -55175,7 +55143,7 @@ qWN
 sqF
 qhf
 fRl
-lXn
+qhf
 qhf
 qhf
 qhf
@@ -110690,7 +110658,7 @@ uHL
 uHL
 uHL
 uHL
-xgV
+uHL
 uHL
 uHL
 ndS
@@ -110943,7 +110911,7 @@ baF
 wwv
 nTj
 lPJ
-vAB
+nTj
 nTj
 nTj
 nTj
@@ -111200,7 +111168,7 @@ baF
 wwv
 nTj
 nTj
-sLV
+nTj
 nTj
 nTj
 nTj
@@ -112742,7 +112710,7 @@ baF
 wwv
 nTj
 nTj
-sLV
+nTj
 nTj
 nTj
 nTj
@@ -112999,7 +112967,7 @@ baF
 wwv
 nTj
 lPJ
-vAB
+nTj
 nTj
 nTj
 nTj

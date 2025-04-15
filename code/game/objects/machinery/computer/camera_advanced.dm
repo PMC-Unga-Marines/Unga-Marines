@@ -250,7 +250,6 @@
 		return
 	set_glide_size(16)
 
-
 /mob/camera/aiEye/remote/Destroy()
 	if(origin && eye_user)
 		origin.remove_eye_control(eye_user,src)
@@ -258,10 +257,8 @@
 	eye_user = null
 	return ..()
 
-
 /mob/camera/aiEye/remote/GetViewerClient()
 	return eye_user?.client
-
 
 /mob/camera/aiEye/remote/setLoc(atom/target)
 	if(!eye_user)

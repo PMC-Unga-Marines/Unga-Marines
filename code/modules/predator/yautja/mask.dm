@@ -9,12 +9,12 @@
 	desc = "A beautifully designed metallic face mask, both ornate and functional."
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_wear_mask_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	icon_state = "pred_mask1_ebony"
-	item_state = "helmet"
-	item_state_slots = list(slot_wear_mask_str = "pred_mask1_ebony")
+	worn_icon_state = "helmet"
+	worn_worn_icon_state_slots = list(slot_wear_mask_str = "pred_mask1_ebony")
 
 	soft_armor = list(MELEE = 20, BULLET = 25, LASER = 20, ENERGY = 20, BOMB = 25, BIO = 20, FIRE = 20, ACID = 20)
 
@@ -51,26 +51,26 @@
 		switch(legacy)
 			if("Dragon")
 				icon_state = "pred_mask_elder_tr"
-				LAZYSET(item_state_slots, slot_wear_mask_str, "pred_mask_elder_tr")
+				LAZYSET(worn_worn_icon_state_slots, slot_wear_mask_str, "pred_mask_elder_tr")
 				return
 			if("Swamp")
 				icon_state = "pred_mask_elder_joshuu"
-				LAZYSET(item_state_slots, slot_wear_mask_str, "pred_mask_elder_joshuu")
+				LAZYSET(worn_worn_icon_state_slots, slot_wear_mask_str, "pred_mask_elder_joshuu")
 				return
 			if("Enforcer")
 				icon_state = "pred_mask_elder_feweh"
-				LAZYSET(item_state_slots, slot_wear_mask_str, "pred_mask_elder_feweh")
+				LAZYSET(worn_worn_icon_state_slots, slot_wear_mask_str, "pred_mask_elder_feweh")
 				return
 			if("Collector")
 				icon_state = "pred_mask_elder_n"
-				LAZYSET(item_state_slots, slot_wear_mask_str, "pred_mask_elder_n")
+				LAZYSET(worn_worn_icon_state_slots, slot_wear_mask_str, "pred_mask_elder_n")
 				return
 
 	if(mask_number > 12)
 		mask_number = 1
 
 	icon_state = "pred_mask[mask_number]_[armor_material]"
-	LAZYSET(item_state_slots, slot_wear_mask_str, "pred_mask[mask_number]_[armor_material]")
+	LAZYSET(worn_worn_icon_state_slots, slot_wear_mask_str, "pred_mask[mask_number]_[armor_material]")
 
 /obj/item/clothing/glasses/welding/Initialize()
 	AddComponent(/datum/component/clothing_tint, TINT_NONE, FALSE)
@@ -176,12 +176,12 @@
 	name = "alien mask"
 	desc = "A simplistic metallic face mask with advanced capabilities."
 	icon_state = "thrall_mask"
-	item_state = "thrall_mask"
+	worn_icon_state = "thrall_mask"
 	icon = 'icons/obj/hunter/thrall_gear.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_wear_mask_str = 'icons/mob/hunter/thrall_gear.dmi'
 	)
-	item_state_slots = list(slot_wear_mask_str = "thrall_mask")
+	worn_worn_icon_state_slots = list(slot_wear_mask_str = "thrall_mask")
 	thrall = TRUE
 
 /obj/item/clothing/mask/gas/yautja/thrall/togglesight()
@@ -242,7 +242,7 @@
 	desc = "A beautifully designed face mask, ornate but non-functional and made entirely of stone."
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_wear_mask_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	icon_state = "pred_mask1_ebony"
@@ -252,7 +252,7 @@
 	cold_protection_flags = HEAD
 	inv_hide_flags = HIDEEARS|HIDEEYES|HIDEFACE|HIDELOWHAIR
 	resistance_flags = UNACIDABLE
-	item_state_slots = list(slot_wear_mask_str = "pred_mask1_ebony")
+	worn_worn_icon_state_slots = list(slot_wear_mask_str = "pred_mask1_ebony")
 	var/map_random = FALSE
 
 /obj/item/clothing/mask/yautja_flavor/Initialize(mapload, ...)
@@ -264,7 +264,7 @@
 	var/mask_number = rand(1,11)
 	if(mask_number in possible_masks)
 		icon_state = "pred_mask[mask_number]_ebony"
-		LAZYSET(item_state_slots, slot_wear_mask_str, "pred_mask[mask_number]_ebony")
+		LAZYSET(worn_worn_icon_state_slots, slot_wear_mask_str, "pred_mask[mask_number]_ebony")
 
 /obj/item/clothing/mask/yautja_flavor/map_random
 	map_random = TRUE

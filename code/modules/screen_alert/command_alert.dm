@@ -77,8 +77,8 @@
 		for(var/mob/living/carbon/human/marine AS in human_owner.assigned_squad.marines_list | GLOB.observer_list)
 			marine.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>ПРИКАЗ ОТРЯДУ:</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order)
 			to_chat(marine, assemble_alert(
-				title = "Приказ отряду [human_owner.assigned_squad.name]",
-				subtitle = "Отправлен [human_owner.real_name]",
+				title = "Сообщение [human_owner.assigned_squad.name] Отряду",
+				subtitle = "Отправлено [human_owner.get_paygrade(0) ? human_owner.get_paygrade(0) : human_owner.job.title] [human_owner.real_name]",
 				message = text,
 				color_override = override_color
 			))
@@ -89,7 +89,7 @@
 			faction_receiver.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u> ПРИКАЗ [uppertext(faction_title)]:</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order)
 			to_chat(faction_receiver, assemble_alert(
 				title = "Сообщение от [faction_title]",
-				subtitle = "Отправлен [human_owner.job.title] [human_owner.real_name]",
+				subtitle = "Отправлено [human_owner.get_paygrade(0) ? human_owner.get_paygrade(0) : human_owner.job.title] [human_owner.real_name]",
 				message = text
 			))
 			SEND_SOUND(faction_receiver, S)

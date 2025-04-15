@@ -3,7 +3,7 @@
 	desc = "A pair of binoculars."
 	icon = 'icons/obj/items/binoculars.dmi'
 	icon_state = "binoculars"
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/binoculars_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/binoculars_right.dmi',
 	)
@@ -19,6 +19,9 @@
 /obj/item/binoculars/attack_self(mob/user)
 	if(user.interactee && istype(user.interactee, /obj/machinery/deployable))
 		to_chat(user, span_warning("You can't use this right now!"))
+		return
+	if(!zoom && !(user.client.eye == user) && !(user.client.eye == user.loc))
+		to_chat(user, span_warning("You're looking through something else right now."))
 		return
 	zoom(user)
 
@@ -244,6 +247,7 @@
 	switch(mode)
 		if(MODE_CAS)
 			to_chat(user, span_notice("TARGET ACQUIRED. LASER TARGETING IS ONLINE. DON'T MOVE."))
+			log_game("[key_name(user)] has begun lasing a CAS mission at [AREACOORD(TU)].")
 			var/obj/effect/overlay/temp/laser_target/cas/CS = new (TU, 0, laz_name, S)
 			laser = CS
 			playsound(src, 'sound/effects/binoctarget.ogg', 35)
@@ -258,6 +262,7 @@
 			check_mortar_index() // incase varedit screws something up
 			target_atom = TU
 			to_chat(user, span_notice("COORDINATES TARGETED BY ARTILLERY [selected_mortar]: LONGITUDE [target_atom.x]. LATITUDE [target_atom.y]."))
+			log_game("[key_name(user)] has lased a mortar mission at [AREACOORD(TU)].")
 			playsound(src, 'sound/effects/binoctarget.ogg', 35)
 			var/obj/machinery/deployable/mortar/mortar = linked_mortars[selected_mortar]
 			mortar.recieve_target(TU,user)
@@ -279,6 +284,7 @@
 					QDEL_NULL(laser)
 					return
 				to_chat(user, span_notice("TARGET ACQUIRED. RAILGUN IS FIRING. DON'T MOVE."))
+				log_game("[key_name(user)] has lased a railgun mission at [AREACOORD(TU)].")
 				while(laser)
 					GLOB.marine_main_ship?.rail_gun?.fire_rail_gun(TU,user)
 					if(!do_after(user, 3 SECONDS, NONE, laser, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_see_target), target, user)))
@@ -286,6 +292,7 @@
 						break
 		if(MODE_ORBITAL)
 			to_chat(user, span_notice("ACQUIRING TARGET. ORBITAL CANNON TRIANGULATING. DON'T MOVE."))
+			log_game("[key_name(user)] has begun to laze an Orbital Bombardment mission at [AREACOORD(TU)].")
 			if(!targ_area)
 				to_chat(user, "[icon2html(src, user)] [span_warning("No target detected!")]")
 			else

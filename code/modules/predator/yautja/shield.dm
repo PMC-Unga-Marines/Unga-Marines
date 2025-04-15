@@ -3,12 +3,12 @@
 	desc = "A large tribal shield made of a strange metal alloy. The face of the shield bears three skulls, two human, one alien."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "shield"
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi',
 		slot_back_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
-	item_state = "shield"
+	worn_icon_state = "shield"
 	item_flags = ITEM_PREDATOR
 	equip_slot_flags = ITEM_SLOT_BACK
 	resistance_flags = UNACIDABLE
@@ -54,7 +54,7 @@
 	user.visible_message(span_blue("\The [user] raises \the [src]."))
 	shield_readied = TRUE
 	icon_state = "[base_icon_state]_ready"
-	item_state = "[base_icon_state]_ready"
+	worn_icon_state = "[base_icon_state]_ready"
 	user.shield_slowdown = max(readied_slowdown, user.shield_slowdown)
 
 	if(user.r_hand == src)
@@ -66,7 +66,7 @@
 	user.visible_message(span_blue("\The [user] lowers \the [src]."))
 	shield_readied = FALSE
 	icon_state = base_icon_state
-	item_state = base_icon_state
+	worn_icon_state = base_icon_state
 
 	var/mob/living/carbon/human/H = user
 	var/set_shield_slowdown = 0

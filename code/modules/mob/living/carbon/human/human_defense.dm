@@ -60,15 +60,9 @@ Contains most of the procs that are called when a mob is attacked by something
 
 
 /mob/living/carbon/human/emp_act(severity)
-	for(var/obj/O in src)
-		if(!O)
-			continue
-		O.emp_act(severity)
+	. = ..()
 	for(var/datum/limb/O in limbs)
-		if(O.limb_status & LIMB_DESTROYED)
-			continue
 		O.emp_act(severity)
-	..()
 
 /mob/living/carbon/human/has_smoke_protection()
 	if(istype(wear_mask) && wear_mask.inventory_flags & BLOCKGASEFFECT)
@@ -337,11 +331,24 @@ Contains most of the procs that are called when a mob is attacked by something
 
 	return TRUE
 
+/mob/living/carbon/human/IgniteMob()
+	. = ..()
+	if(!.)
+		return
+	if(!stat && !(species.species_flags & NO_PAIN))
+		emote("scream")
+
+/mob/living/carbon/human/fire_act(burn_level)
+	. = ..()
+	if(!.)
+		return
+	if(stat || (species.species_flags & NO_PAIN))
+		return
+	emote("scream")
 
 /mob/living/carbon/human/resist_fire(datum/source)
 	spin(30, 1.5)
 	return ..()
-
 
 /mob/living/carbon/human/proc/bloody_hands(mob/living/source, amount = 2)
 	if (istype(gloves))
@@ -416,7 +423,7 @@ Contains most of the procs that are called when a mob is attacked by something
 	remove_organ_slot(ORGAN_SLOT_HEART)
 	var/obj/item/organ/heart/heart = new
 	user.put_in_hands(heart)
-	chestburst = 2
+	chestburst = CARBON_CHEST_BURSTED
 	update_burst()
 
 /mob/living/carbon/human/ExtinguishMob()

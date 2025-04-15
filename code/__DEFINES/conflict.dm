@@ -258,6 +258,13 @@
 //Explosion damage multipliers for different objects
 #define RESIN_EXPLOSIVE_MULTIPLIER 0.85
 
+// What kind of function to use for Explosions falling off.
+#define EXPLOSION_FALLOFF_SHAPE_LINEAR 1
+#define EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL 2
+#define EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL_HALF 3
+
+#define EXPLOSION_MAX_POWER 5000
+
 //Damage modificator
 #define PRED_MELEE_DAMAGE_MOD 0.5
 

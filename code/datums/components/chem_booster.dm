@@ -379,7 +379,7 @@
 	if(resource_storage_current >= resource_storage_max)
 		return
 	var/obj/item/vali_weapon = wearer.get_held_item()
-	if(vali_weapon.type == /obj/item/weapon/claymore/mercsword/officersword/valirapier)
+	if(vali_weapon.type == /obj/item/weapon/sword/officer/valirapier)
 		update_resource(20)
 	else
 		update_resource(round(20 * connected_weapon.attack_speed / 11))

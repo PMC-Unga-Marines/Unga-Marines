@@ -1,5 +1,5 @@
 /obj/item/weapon/twohanded
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/twohanded_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/twohanded_right.dmi',
 	)
@@ -52,7 +52,7 @@
 	toggle_wielded(user, TRUE)
 	SEND_SIGNAL(src, COMSIG_ITEM_WIELD, user)
 	name = "[name] (Wielded)"
-	update_item_state()
+	update_worn_icon_state()
 	user.update_inv_l_hand()
 	user.update_inv_r_hand()
 	return TRUE
@@ -69,7 +69,7 @@
 		name = copytext(name, 1, sf)
 	else
 		name = "[initial(name)]"
-	update_item_state()
+	update_worn_icon_state()
 	remove_offhand(user)
 	return TRUE
 
@@ -171,7 +171,7 @@
 	name = "fire axe"
 	desc = "Truly, the weapon of a madman. Who would think to fight fire with an axe?"
 	icon_state = "fireaxe"
-	item_state = "fireaxe"
+	worn_icon_state = "fireaxe"
 	force = 20
 	sharp = IS_SHARP_ITEM_BIG
 	edge = TRUE
@@ -201,13 +201,13 @@
 	desc = "A SOM boarding axe, effective at breaching doors as well as skulls. When wielded it can be used to block as well as attack."
 	icon = 'icons/obj/items/weapons64.dmi'
 	icon_state = "som_axe"
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/weapon64_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/weapon64_right.dmi',
 	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
-	item_state = "som_axe"
+	worn_icon_state = "som_axe"
 	force = 40
 	force_wielded = 80
 	penetration = 35
@@ -274,14 +274,13 @@
 		if(!ishuman(victim))
 			var/obj/obj_victim = victim
 			obj_victim.take_damage(damage, BRUTE, MELEE, TRUE, TRUE, get_dir(obj_victim, carbon_owner), penetration, carbon_owner)
-			if(!obj_victim.anchored && obj_victim.move_resist < MOVE_FORCE_VERY_STRONG)
-				obj_victim.knockback(owner, 1, 2)
+			obj_victim.knockback(owner, 1, 2, knockback_force = MOVE_FORCE_VERY_STRONG)
 			continue
 		var/mob/living/carbon/human/human_victim = victim
 		if(human_victim.lying_angle)
 			continue
 		human_victim.apply_damage(damage, BRUTE, BODY_ZONE_CHEST, MELEE, TRUE, TRUE, TRUE, penetration)
-		human_victim.knockback(owner, 1, 2)
+		human_victim.knockback(owner, 1, 2, knockback_force = MOVE_FORCE_VERY_STRONG)
 		human_victim.adjust_stagger(1 SECONDS)
 		playsound(human_victim, "sound/weapons/wristblades_hit.ogg", 25, 0, 5)
 		shake_camera(human_victim, 2, 1)
@@ -312,7 +311,7 @@
 	name = "double-bladed energy sword"
 	desc = "Handle with care."
 	icon_state = "dualsaber"
-	item_state = "dualsaber"
+	worn_icon_state = "dualsaber"
 	force = 3
 	throwforce = 5
 	throw_speed = 1
@@ -335,7 +334,7 @@
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
 	icon_state = "spearglass"
-	item_state = "spearglass"
+	worn_icon_state = "spearglass"
 	force = 40
 	w_class = WEIGHT_CLASS_BULKY
 	equip_slot_flags = ITEM_SLOT_BACK
@@ -376,7 +375,7 @@
 	name = "M-23 spear"
 	desc = "A tactical spear. Used for 'tactical' combat."
 	icon_state = "spear"
-	item_state = "spear"
+	worn_icon_state = "spear"
 
 /obj/item/weapon/twohanded/spear/tactical/Initialize(mapload)
 	. = ..()
@@ -423,7 +422,7 @@
 /obj/item/weapon/twohanded/glaive
 	name = "war glaive"
 	icon_state = "glaive"
-	item_state = "glaive"
+	worn_icon_state = "glaive"
 	desc = "A huge, powerful blade on a metallic pole. Mysterious writing is carved into the weapon."
 	force = 28
 	w_class = WEIGHT_CLASS_BULKY
@@ -449,7 +448,7 @@
 	name = "rocket sledge"
 	desc = "Fitted with a rocket booster at the head, the rocket sledge would deliver a tremendously powerful impact, easily crushing your enemies. Uses fuel to power itself. Press AltClick to tighten your grip. Press Spacebar to change modes."
 	icon_state = "rocketsledge"
-	item_state = "rocketsledge"
+	worn_icon_state = "rocketsledge"
 	force = 30
 	w_class = WEIGHT_CLASS_BULKY
 	equip_slot_flags = ITEM_SLOT_BACK

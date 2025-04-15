@@ -74,3 +74,8 @@
 
 #define EMBED_LIMB_DAMAGE 5 //Damage to deal to victim's limbs.
 
+#define EMP_NONE 0
+#define EMP_DEVASTATE 1
+#define EMP_HEAVY 2
+#define EMP_LIGHT 3
+#define EMP_WEAK 4

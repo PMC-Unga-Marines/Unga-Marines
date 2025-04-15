@@ -6,8 +6,8 @@
 	desc = "A standard TerraGov Marine Corps M3 Pattern Chestplate. Protects the chest from ballistic rounds, bladed objects and accidents. It has a small leather pouch strapped to it for limited storage."
 	icon = 'icons/obj/clothing/suits/marine_armor.dmi'
 	icon_state = ""
-	item_state = "armor"
-	item_icons = list(
+	worn_icon_state = "armor"
+	worn_icon_lists = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/marine_armor.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
@@ -28,7 +28,7 @@
 		/obj/item/instrument,
 		/obj/item/storage/belt/sparepouch,
 		/obj/item/storage/holster/blade,
-		/obj/item/weapon/claymore/harvester,
+		/obj/item/weapon/sword/harvester,
 		/obj/item/storage/holster/belt,
 		/obj/item/storage/belt/knifepouch,
 		/obj/item/weapon/twohanded,
@@ -70,7 +70,7 @@
 	for(var/i in armor_overlays)
 		new_overlay = armor_overlays[i]
 		if(new_overlay)
-			new_overlay = mutable_appearance(item_icons[slot_wear_suit_str], new_overlay.icon_state)
+			new_overlay = mutable_appearance(worn_icon_lists[slot_wear_suit_str], new_overlay.icon_state)
 			standing.overlays += new_overlay
 
 /obj/item/clothing/suit/storage/marine/attack_self(mob/user)
@@ -98,7 +98,7 @@
 	name = "\improper PAS-13 pattern mech pilot armor"
 	desc = "A somewhat sparsely armored but robust armored vest, still in use despite the rise of exoskeleton armor due to ease of use and manufacturing. While the suit is a bit more encumbering to wear with the mech pilot uniform, it offers the them a degree of protection that they otherwise do not enjoy outside their mech."
 	icon_state = "mech_pilot_suit"
-	item_state = "mech_pilot_suit"
+	worn_icon_state = "mech_pilot_suit"
 	slowdown = SLOWDOWN_ARMOR_LIGHT
 	soft_armor = list(MELEE = 45, BULLET = 55, LASER = 55, ENERGY = 20, BOMB = 45, BIO = 30, FIRE = 25, ACID = 35)
 	item_map_variant_flags = NONE
@@ -107,7 +107,7 @@
 	name = "\improper PAS-73 pattern tanker armor"
 	desc = "A somewhat sparsely armored but robust armored vest. Used by tankers, mostly to absorb bumps in the road as they drive over enemies."
 	icon_state = "assault_crewman_suit"
-	item_state = "assault_crewman_suit"
+	worn_icon_state = "assault_crewman_suit"
 	slowdown = SLOWDOWN_ARMOR_LIGHT
 	soft_armor = list(MELEE = 45, BULLET = 55, LASER = 55, ENERGY = 20, BOMB = 45, BIO = 30, FIRE = 25, ACID = 35)
 	item_map_variant_flags = NONE
@@ -116,7 +116,7 @@
 	name = "\improper PAS-74 pattern transport armor"
 	desc = "A somewhat sparsely armored but robust armored vest. Used by transport crewmen so that they can pretend that they may survice when their vehicle is overrun."
 	icon_state = "transport_crewman_suit"
-	item_state = "transport_crewman_suit"
+	worn_icon_state = "transport_crewman_suit"
 	slowdown = SLOWDOWN_ARMOR_LIGHT
 	soft_armor = list(MELEE = 45, BULLET = 55, LASER = 55, ENERGY = 20, BOMB = 45, BIO = 30, FIRE = 25, ACID = 35)
 	item_map_variant_flags = NONE
@@ -131,7 +131,7 @@
 		/obj/item/weapon/gun,
 		/obj/item/storage/belt/sparepouch,
 		/obj/item/storage/holster/blade,
-		/obj/item/weapon/claymore/harvester,
+		/obj/item/weapon/sword/harvester,
 		/obj/item/storage/holster/belt,
 		/obj/item/storage/belt/knifepouch,
 		/obj/item/weapon/twohanded,
@@ -233,7 +233,7 @@
 
 /obj/item/clothing/suit/storage/marine/veteran
 	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
@@ -257,7 +257,7 @@
 		/obj/item/tool/lighter,
 		/obj/item/explosive/grenade,
 		/obj/item/storage/bible,
-		/obj/item/weapon/claymore/mercsword/machete,
+		/obj/item/weapon/sword/machete,
 		/obj/item/weapon/combat_knife,
 	)
 	item_map_variant_flags = NONE
@@ -307,7 +307,7 @@
 	name = "\improper Imperial Guard flak armour"
 	desc = "A cheap, mass produced armour worn by the Imperial Guard, which are also cheap and mass produced. You can make out what appears to be <i>Cadia stands</i> carved into the armour."
 	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
@@ -348,14 +348,14 @@
 	name = "\improper commissar coat"
 	desc = "A armored coat worn by commissars of the Imperial Army."
 	icon_state = "commissar_coat"
-	item_state = "commissar_coat"
+	worn_icon_state = "commissar_coat"
 	soft_armor = list(MELEE = 75, BULLET = 60, LASER = 55, ENERGY = 40, BOMB = 45, BIO = 15, FIRE = 40, ACID = 40)
 
 /*===========================U.S.L================================*/
 
 /obj/item/clothing/suit/storage/faction
 	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
@@ -611,7 +611,7 @@
 		/obj/item/tool/lighter,
 		/obj/item/explosive/grenade,
 		/obj/item/storage/bible,
-		/obj/item/weapon/claymore/mercsword/machete,
+		/obj/item/weapon/sword/machete,
 		/obj/item/weapon/combat_knife,
 	)
 
@@ -632,7 +632,7 @@
 		/obj/item/tool/lighter,
 		/obj/item/explosive/grenade,
 		/obj/item/storage/bible,
-		/obj/item/weapon/claymore/mercsword/machete,
+		/obj/item/weapon/sword/machete,
 		/obj/item/weapon/combat_knife,
 	)
 
@@ -653,7 +653,7 @@
 		/obj/item/tool/lighter,
 		/obj/item/explosive/grenade,
 		/obj/item/storage/bible,
-		/obj/item/weapon/claymore/mercsword/machete,
+		/obj/item/weapon/sword/machete,
 		/obj/item/weapon/combat_knife,
 	)
 
@@ -661,13 +661,13 @@
 	name = "\improper S12 hauberk"
 	desc = "A heavily modified piece of mining equipment remade for general purpose combat use. It's light but practically gives no armor."
 	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
 	icon_state = "som_armor"
-	item_state = "som_armor"
+	worn_icon_state = "som_armor"
 	slowdown = SLOWDOWN_ARMOR_LIGHT
 	armor_protection_flags = CHEST|GROIN|ARMS|LEGS|HANDS|FEET
 	soft_armor = list(MELEE = 50, BULLET = 55, LASER = 55, ENERGY = 55, BOMB = 55, BIO = 55, FIRE = 55, ACID = 55)
@@ -677,7 +677,7 @@
 	name = "\improper S12 combat Hauberk"
 	desc = "A heavily modified piece of mining equipment remade for general purpose combat use. Seems to have been modifed much further than other pieces like it. Heavier but tougher because of it."
 	icon_state = "som_armor_veteran"
-	item_state = "som_armor_veteran"
+	worn_icon_state = "som_armor_veteran"
 	slowdown = SLOWDOWN_ARMOR_HEAVY
 	armor_protection_flags = CHEST|GROIN|ARMS|LEGS|HANDS|FEET
 	soft_armor = list(MELEE = 65, BULLET = 70, LASER = 70, ENERGY = 55, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
@@ -686,7 +686,7 @@
 	name = "\improper S13 leader hauberk"
 	desc = "A heavily modified modified piece of mining equipment remade for general purpose combat use. Modified extensively than other pieces like it but heavier because of it."
 	icon_state = "som_armor_leader"
-	item_state = "som_armor_leader"
+	worn_icon_state = "som_armor_leader"
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 	armor_protection_flags = CHEST|GROIN|ARMS|LEGS|HANDS|FEET
 	soft_armor = list(MELEE = 55, BULLET = 50, LASER = 40, ENERGY = 55, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
@@ -695,7 +695,7 @@
 	name = "\improper Modelle/16 combat armor"
 	desc = "A piece of ICC body armor, worn durning boarding actions by personnel in close quarters, as most ICC personnel serve dual purpose roles as ad-hoc marines, due to personnel shortages. Protects well from most sources, particularly explosions."
 	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
@@ -726,7 +726,7 @@
 	name = "Ballistic vest"
 	desc = "Civilian type armor, made to combat both melee and projectiles."
 	icon = 'icons/mob/clothing/suits/ert_suits.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
 	)
 	icon_state = "specops_vest"
@@ -752,3 +752,79 @@
 	icon_state = "specops_vest_leader"
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 40, ENERGY = 35, BOMB = 30, BIO = 5, FIRE = 25, ACID = 30)
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
+
+//===========================V.S.D================================
+
+/obj/item/clothing/suit/storage/marine/vsd
+	name = "Crasher multi-threat light ballistic armor"
+	desc = "The Vyacheslav Security Detail's main body armor. Protects the user from most bullet calibers."
+	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
+	worn_icon_lists = list(
+		slot_wear_suit_str = 'icons/mob/clothing/suits/ert_suits.dmi',
+	)
+	icon_state = "vsd_main_larmor"
+	worn_icon_state = "vsd_main_larmor"
+	slowdown = SLOWDOWN_ARMOR_LIGHT
+	soft_armor = list(MELEE = 35, BULLET = 50, LASER = 20, ENERGY = 15, BOMB = 30, BIO = 10, FIRE = 25, ACID = 30)
+	item_map_variant_flags = NONE
+	armor_features_flags = NONE
+
+/obj/item/clothing/suit/storage/marine/vsd/desert
+	name = "Crasher multi-threat light ballistic armor"
+	icon_state = "vsd_main_larmor_d"
+	worn_icon_state = "vsd_main_larmor_d"
+
+/obj/item/clothing/suit/storage/marine/vsd/secondary
+	name = "Crasher multi-threat light ballistic armor"
+	icon_state = "vsd_secondary_larmor"
+	worn_icon_state = "vsd_secondary_larmor"
+
+
+/obj/item/clothing/suit/storage/marine/vsd/marmor
+	name = "Crasher multi-threat medium-set ballistic armor"
+	desc = "The Vyacheslav Security Detail's uncommon use body armor, used usually by engineers. Protects the user from most bullet calibers."
+	slowdown = SLOWDOWN_ARMOR_MEDIUM
+	icon_state = "vsd_marmor"
+	worn_icon_state = "vsd_marmor"
+	soft_armor = list(MELEE = 40, BULLET = 70, LASER = 20, ENERGY = 15, BOMB = 40, BIO = 10, FIRE = 25, ACID = 30)
+
+/obj/item/clothing/suit/storage/marine/vsd/marmor/desert
+	name = "Crasher multi-threat medium-set ballistic armor"
+	icon_state = "vsd_marmor_d"
+	worn_icon_state = "vsd_marmor_d"
+
+/obj/item/clothing/suit/storage/marine/vsd/marmor/upp
+	name = "Crasher multi-threat medium-set ballistic armor"
+	icon_state = "vsd_marmor_upp"
+	worn_icon_state = "vsd_marmor_upp"
+
+/obj/item/clothing/suit/storage/marine/vsd/harmor
+	name = "Crasher multi-threat heavy-set ballistic armor"
+	desc = "The Vyacheslav Security Detail's leader set of armor, rarely given to the grunts. Protects the user from most bullet calibers."
+	slowdown = SLOWDOWN_ARMOR_HEAVY
+	icon_state = "vsd_harmor"
+	worn_icon_state = "vsd_harmor"
+	soft_armor = list(MELEE = 45, BULLET = 75, LASER = 20, ENERGY = 15, BOMB = 45, BIO = 10, FIRE = 25, ACID = 30)
+
+/obj/item/clothing/suit/storage/marine/vsd/harmor/upp
+	name = "Crasher multi-threat heavy-set ballistic armor"
+	icon_state = "vsd_harmor_upp"
+	worn_icon_state = "vsd_harmor_upp"
+
+/obj/item/clothing/suit/storage/marine/vsd/juggernaut
+	name = "Crasher multi-threat 'Juggernaut' set ballistic armor"
+	desc = "The Vyacheslav Security Detail's juggernaut set, given to the best and trusted veterans. Protects the user from almost all bullet calibers."
+	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
+	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
+	icon_state = "vsd_juggernaut_one"
+	worn_icon_state = "vsd_juggernaut_one"
+	soft_armor = list(MELEE = 50, BULLET = 90, LASER = 20, ENERGY = 15, BOMB = 50, BIO = 10, FIRE = 25, ACID = 30)
+
+/obj/item/clothing/suit/storage/marine/vsd/eod
+	name = "Crasher multi-threat 'Syndicate' set ballistic armor"
+	desc = "The Vyacheslav Security Detail's syndicate given set. Protects the user from almost all bullet calibers. A sticker on the inside reads 'EXPERIMENTAL: courtesy of the Syndicate'."
+	icon = 'icons/obj/clothing/suits/ert_suits.dmi'
+	slowdown = SLOWDOWN_ARMOR_VERY_HEAVY
+	icon_state = "vsd_juggernaut_two"
+	worn_icon_state = "vsd_juggernaut_two"
+	soft_armor = list(MELEE = 50, BULLET = 75, LASER = 20, ENERGY = 15, BOMB = 100, BIO = 10, FIRE = 25, ACID = 30)

@@ -98,14 +98,23 @@
 
 /obj/vehicle/sealed/mecha/emp_act(severity)
 	. = ..()
-	if(get_charge())
-		use_power((cell.charge/3)/(severity*2))
-		take_damage(30 / severity, BURN, ENERGY, 1)
+	playsound(src, 'sound/magic/lightningshock.ogg', 50, FALSE)
+	use_power((cell.maxcharge * 0.2) / (severity))
+	take_damage(400 / severity, BURN, ENERGY)
+
+	for(var/mob/living/living_occupant AS in occupants)
+		living_occupant.Stagger((6 - severity) SECONDS)
+
 	log_message("EMP detected", LOG_MECHA, color="red")
 
+	var/disable_time = (4 - severity) SECONDS
+	if(!disable_time)
+		return
 	if(!equipment_disabled && LAZYLEN(occupants)) //prevent spamming this message with back-to-back EMPs
 		to_chat(occupants, span_warning("Error -- Connection to equipment control unit has been lost."))
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/vehicle/sealed/mecha, restore_equipment)), 3 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+	mech_emped = TRUE
+	update_appearance(UPDATE_OVERLAYS)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/vehicle/sealed/mecha, restore_equipment)), disable_time, TIMER_UNIQUE | TIMER_OVERRIDE)
 	equipment_disabled = TRUE
 	set_mouse_pointer()
 
@@ -166,7 +175,7 @@
 		try_damage_component(., user.zone_selected)
 
 /obj/vehicle/sealed/mecha/wrench_act(mob/living/user, obj/item/I)
-	..()
+	. = ..()
 	. = TRUE
 	if(construction_state == MECHA_SECURE_BOLTS)
 		construction_state = MECHA_LOOSE_BOLTS
@@ -177,7 +186,7 @@
 		to_chat(user, span_notice("You tighten the securing bolts."))
 
 /obj/vehicle/sealed/mecha/crowbar_act(mob/living/user, obj/item/I)
-	..()
+	. = ..()
 	. = TRUE
 	if(construction_state == MECHA_LOOSE_BOLTS)
 		construction_state = MECHA_OPEN_HATCH
@@ -208,7 +217,7 @@
 			visual_effect_icon = ATTACK_EFFECT_MECHFIRE
 		else if(damtype == TOX)
 			visual_effect_icon = ATTACK_EFFECT_MECHTOXIN
-	..()
+	return ..()
 
 /obj/vehicle/sealed/mecha/proc/ammo_resupply(obj/item/mecha_ammo/reload_box, mob/user,fail_chat_override = FALSE)
 	if(!reload_box.rounds)
@@ -254,3 +263,9 @@
 		else
 			to_chat(user, span_notice("None of the equipment on this exosuit can use this ammo!"))
 	return FALSE
+
+/obj/vehicle/sealed/mecha/projectile_hit(obj/projectile/proj, cardinal_move, uncrossing)
+	for(var/mob/living/carbon/human/crew AS in occupants)
+		if(crew.wear_id?.iff_signal & proj.iff_signal)
+			return FALSE
+	return ..()

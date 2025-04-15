@@ -88,7 +88,7 @@
 	root.add_desant(new_desant)
 
 ///signal handler when someone jumping lands on us
-/obj/hitbox/proc/on_jump_landed(datum/source, atom/lander)
+/obj/hitbox/proc/on_jump_landed(datum/source, atom/movable/lander)
 	SIGNAL_HANDLER
 	add_desant(lander)
 
@@ -112,7 +112,7 @@
 	UnregisterSignal(AM, COMSIG_QDELETING)
 	var/obj/hitbox/new_hitbox = locate(/obj/hitbox) in AM.loc //walking onto another vehicle
 	if(!new_hitbox)
-		REMOVE_TRAIT(AM, TRAIT_TANK_DESANT, VEHICLE_TRAIT)
+		AM.remove_traits(list(TRAIT_TANK_DESANT, TRAIT_NOSUBMERGE), VEHICLE_TRAIT)
 		return
 	LAZYSET(new_hitbox.tank_desants, AM, AM.layer)
 	new_hitbox.RegisterSignal(AM, COMSIG_QDELETING, PROC_REF(on_desant_del))

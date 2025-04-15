@@ -53,9 +53,9 @@
 	return TRUE
 
 /obj/machinery/computer/emp_act(severity)
+	. = ..()
 	if(prob(20 / severity))
 		set_broken()
-	return ..()
 
 /obj/machinery/computer/ex_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))

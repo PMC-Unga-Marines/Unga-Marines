@@ -310,6 +310,7 @@
 		/obj/item/circuitboard,
 		/obj/item/lightreplacer,
 		/obj/item/tool/surgery/solderingtool,
+		/obj/item/minerupgrade,
 	))
 
 /datum/storage/internal/medical

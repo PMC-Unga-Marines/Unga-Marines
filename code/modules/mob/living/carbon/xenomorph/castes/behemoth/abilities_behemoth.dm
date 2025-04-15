@@ -232,6 +232,7 @@
 	target_flags = ABILITY_TURF_TARGET
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_LANDSLIDE,
+		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_CANCEL_LANDSLIDE,
 	)
 	/// Whether this ability is currently active or not.
 	var/ability_active = FALSE
@@ -239,6 +240,10 @@
 	var/current_charges = 1
 	/// The maximum amount of charges we can have.
 	var/maximum_charges = 1
+
+/datum/action/ability/activable/xeno/landslide/alternate_action_activate()
+	if(can_use_ability(null, FALSE, ABILITY_IGNORE_SELECTED_ABILITY))
+		INVOKE_ASYNC(src, PROC_REF(use_ability))
 
 /datum/action/ability/activable/xeno/landslide/give_action(mob/living/L)
 	. = ..()
@@ -1510,11 +1515,11 @@ RU TGMC EDIT */
 					addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(behemoth_area_attack), xeno_owner, spread_turfs, enhanced), wind_up_duration)
 					continue
 				if(isvehicle(affected_atom) || ishitbox(affected_atom))
-					var/obj/vehicle/veh_victim = affected_atom
+					var/obj/obj_victim = affected_atom
 					var/damage_add = 0
-					if(ismecha(veh_victim))
+					if(ismecha(obj_victim))
 						damage_add = 9.5
-					veh_victim.take_damage(attack_damage * (AREA_ATTACK_DAMAGE_VEHICLE_MODIFIER + damage_add), MELEE)
+					obj_victim.take_damage(attack_damage * (AREA_ATTACK_DAMAGE_VEHICLE_MODIFIER + damage_add), MELEE)
 					continue
 				if(istype(affected_atom, /obj/structure/reagent_dispensers/fueltank))
 					var/obj/structure/reagent_dispensers/fueltank/affected_tank = affected_atom

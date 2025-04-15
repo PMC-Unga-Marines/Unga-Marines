@@ -2,6 +2,7 @@
 	name = "heart"
 	slot = ORGAN_SLOT_HEART
 	peri_effect = TRUE
+	damage_description = "Bruised hearts cause reduced constitution, suffocation and pain. Broken hearts prevent revival until repaired."
 
 /datum/internal_organ/heart/process()
 	if(organ_status == ORGAN_BRUISED && prob(5))
@@ -21,6 +22,7 @@
 	name = "lungs"
 	slot = ORGAN_SLOT_LUNGS
 	peri_effect = TRUE
+	damage_description = "Bruised lungs cause suffocation, slowdown and slower endurance regeneration. Broken lungs significantly worsen these effects."
 
 /datum/internal_organ/lungs/process()
 	if((organ_status == ORGAN_BRUISED && prob(5)) || (organ_status == ORGAN_BROKEN && prob(20)))
@@ -45,6 +47,7 @@
 	slot = ORGAN_SLOT_KIDNEYS
 	parent_limb = BODY_ZONE_PRECISE_GROIN
 	peri_effect = TRUE
+	damage_description = "Bruised and broken kidneys reduce the amount of reagents a person can have in their system before they feel drawbacks."
 	///Tracks the number of reagent/medicine datums we currently have
 	var/current_medicine_count = 0
 	///How many drugs we can take before they overwhelm us. Decreases with damage
@@ -122,6 +125,7 @@
 	name = "liver"
 	slot = ORGAN_SLOT_LIVER
 	peri_effect = TRUE
+	damage_description = "Damaged livers slowly increase toxin damage instead of healing it, take damage when processing toxins, become less effective at processing toxins, and deal toxin damage when processing toxins."
 	///lower value, higher resistance.
 	var/alcohol_tolerance = 0.005
 	///How fast we clean out toxins/toxloss. Adjusts based on organ damage.
@@ -171,6 +175,7 @@
 	name = "stomach"
 	slot = ORGAN_SLOT_STOMACH
 	peri_effect = TRUE
+	damage_description = "Eating with a bruised stomach has increased chance of getting sepsis upon ingestion. Owner is likely to puke during the stomach processing its contents."
 	///The rate that the stomach will transfer reagents to the body
 	var/metabolism_efficiency = 0.05 // the lowest we should go is 0.025
 	/// Our reagents
@@ -196,11 +201,14 @@
 		// the stomach manages how fast they are feed in a drip style
 		reagents.trans_to(body, amount)
 
-	//If the stomach is not damage exit out
+	//If the stomach isn't damaged exit out
 	if(damage < min_bruised_damage)
 		return
 
-	if(prob(0.0125 * damage) || damage > min_broken_damage && prob(0.05 * damage))
+	var/prob_mod = 0.0125
+	if(damage >= min_broken_damage)
+		prob_mod = 0.05
+	if(prob(prob_mod * damage))
 		body.vomit()
 		to_chat(body, span_warning("Your stomach reels in pain as you're incapable of holding down it's contents!"))
 		return
@@ -209,6 +217,7 @@
 	name = "eyeballs"
 	slot = ORGAN_SLOT_EYES
 	parent_limb = BODY_ZONE_HEAD
+	damage_description = "Bruised eyes cause blurry vision. Broken eyes cause blindness."
 	///stores which stage of the eye surgery the eye is at
 	var/eye_surgery_stage = 0
 
@@ -221,6 +230,7 @@
 /datum/internal_organ/brain
 	name = "brain"
 	parent_limb = BODY_ZONE_HEAD
+	damage_description = "Brain damage reduces the patient's skills."
 	var/mob/living/brain/brainmob = null
 
 /datum/internal_organ/brain/set_organ_status()

@@ -208,7 +208,9 @@
 		if(stat == DEAD)
 			msg += "[span_deadsay("[t_He] [t_is] limp and unresponsive; there are no signs of life")]"
 			if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
-				msg += "[span_deadsay(" and [t_he] won't be coming back...")]\n"
+				msg += "[span_deadsay(" and [t_he] [t_has] degraded beyond revival...")]\n"
+			else if(!mind && !get_ghost(FALSE))
+				msg += "[span_deadsay(" and [t_his] soul has departed, [t_he] might come back later...")]\n"
 			else
 				msg += "[span_deadsay("...")]\n"
 		if(ishuman(user) && !user.stat && Adjacent(user))
@@ -492,7 +494,7 @@
 					if (display_foot_right)
 						msg += "[span_warning("[t_He] [t_has] blood pooling around [t_his] <b>right boot!</b>")]\n"
 
-	if(chestburst == 2)
+	if(chestburst == CARBON_CHEST_BURSTED)
 		if(isxeno(user))
 			msg += "[span_xenowarning("A larva escaped from [t_him]!")]\n"
 		else
@@ -508,7 +510,7 @@
 	if(hasHUD(user,"medical"))
 		msg += EXAMINE_SECTION_BREAK
 		var/cardcolor = holo_card_color
-		if(!cardcolor) 
+		if(!cardcolor)
 			cardcolor = "none"
 		msg += "[span_deptradio("Triage holo card:")] <a href='?src=[text_ref(src)];medholocard=1'>\[[cardcolor]\]</a> | "
 

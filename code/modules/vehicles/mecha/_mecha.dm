@@ -154,8 +154,10 @@
 	var/atom/movable/screen/mech_view/ui_view
 	/// boolean: Can someone use the mech without skill? Used for shitspawn
 	var/skill_locked = TRUE
-	/// boolean: are light on?
+	/// boolean: are lights on?
 	var/lights_on = FALSE
+	/// boolean: is mech suffering from emp?
+	var/mech_emped = FALSE
 
 /obj/item/radio/mech //this has to go somewhere
 	subspace_transmission = TRUE
@@ -237,6 +239,11 @@
 	icon_state = get_mecha_occupancy_state()
 	return ..()
 
+/obj/vehicle/sealed/mecha/update_overlays()
+	. = ..()
+	if(mech_emped)
+		. += image('icons/effects/effects.dmi', src, "shieldsparkles")
+
 /obj/vehicle/sealed/mecha/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
 	. = ..()
 	for(var/mob/living/future_pancake in loc)
@@ -312,7 +319,9 @@
 	return "[base_icon_state]-open"
 
 /obj/vehicle/sealed/mecha/proc/restore_equipment()
+	mech_emped = FALSE
 	equipment_disabled = FALSE
+	update_appearance(UPDATE_OVERLAYS)
 	for(var/mob/mob_occupant AS in occupants)
 		SEND_SOUND(mob_occupant, sound('sound/items/timer.ogg', volume=50))
 		to_chat(mob_occupant, span_notice("Equipment control unit has been rebooted successfully."))

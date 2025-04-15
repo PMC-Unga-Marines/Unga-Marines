@@ -90,9 +90,9 @@
 	alarm()
 
 /obj/machinery/firealarm/emp_act(severity)
+	. = ..()
 	if(prob(50 / severity))
 		alarm()
-	return ..()
 
 /obj/machinery/firealarm/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()

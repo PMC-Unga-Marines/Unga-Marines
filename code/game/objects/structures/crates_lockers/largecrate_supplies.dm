@@ -212,6 +212,7 @@
 		/obj/item/shotgunbox/buckshot = 1,
 		/obj/item/shotgunbox/flechette = 1,
 		/obj/item/shotgunbox/tracker = 1,
+		/obj/item/shotgunbox/blank = -1,
 		/obj/item/storage/box/visual/magazine/compact/p14/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/p23/full = 1,
 		/obj/item/storage/box/visual/magazine/compact/r44/full = 1,

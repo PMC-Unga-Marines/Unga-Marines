@@ -269,6 +269,8 @@
 
 #define issentry(A) (istype(A, /obj/machinery/deployable/mounted/sentry))
 
+#define is_reagent_container(O) (istype(O, /obj/item/reagent_containers))
+
 #define isimplant(A) (istype(A, /obj/item/implant))
 
 //Assemblies

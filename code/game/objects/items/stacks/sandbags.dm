@@ -1,11 +1,10 @@
-//Empty sandbags
 /obj/item/stack/sandbags_empty
 	name = "empty sandbags"
 	desc = "Some empty sandbags, best to fill them up with an entrenching tool if you want to use them."
 	singular_name = "sandbag"
 	icon_state = "sandbag_stack"
-	item_state = "sandbag_stack"
-	item_icons = list(
+	worn_icon_state = "sandbag_stack"
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/items/stacks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items/stacks_right.dmi',
 	)
@@ -64,8 +63,8 @@
 	desc = "Some bags filled with sand. For now, just cumbersome, but soon to be used for fortifications."
 	singular_name = "sandbag"
 	icon_state = "sandbag_pile"
-	item_state = "sandbag_pile"
-	item_icons = list(
+	worn_icon_state = "sandbag_pile"
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/items/stacks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items/stacks_right.dmi',
 	)
@@ -84,4 +83,4 @@
 /obj/item/stack/sandbags/attack_self(mob/living/user)
 	. = ..()
 	var/building_time = LERP(2 SECONDS, 1 SECONDS, user.skills.getPercent(SKILL_CONSTRUCTION, SKILL_ENGINEER_EXPERT))
-	create_object(user, new/datum/stack_recipe("sandbag barricade", /obj/structure/barricade/sandbags, 5, time = building_time, max_per_turf = STACK_RECIPE_ONE_DIRECTIONAL_PER_TILE, on_floor = TRUE), 1)
+	create_object(user, new/datum/stack_recipe("sandbag barricade", /obj/structure/barricade/sandbags, 5, time = building_time, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND), 1)

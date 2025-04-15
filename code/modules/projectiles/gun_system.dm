@@ -3,9 +3,9 @@
 	desc = "Its a gun. It's pretty terrible, though."
 	icon = 'icons/obj/items/gun/special.dmi'
 	icon_state = ""
-	item_state = "gun"
-	item_state_worn = TRUE
-	item_icons = list(
+	worn_icon_state = "gun"
+	worn_icon_state_worn = TRUE
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
 	)
@@ -423,6 +423,7 @@
 		lit_flashlight.turn_light(user, toggle_on, cooldown, sparks, forced, light_again)
 
 /obj/item/weapon/gun/emp_act(severity)
+	. = ..()
 	for(var/obj/O in contents)
 		O.emp_act(severity)
 
@@ -512,7 +513,7 @@
 
 /obj/item/weapon/gun/update_icon(updates=ALL)
 	. = ..()
-	update_item_state()
+	update_worn_icon_state()
 
 /obj/item/weapon/gun/update_icon_state()
 	. = ..()
@@ -549,18 +550,18 @@
 	attachment_overlays[ATTACHMENT_SLOT_MAGAZINE] = overlay
 	. += overlay
 
-/obj/item/weapon/gun/update_item_state()
-	var/current_state = item_state
-	var/real_icon = current_skin ? current_skin : initial(item_state)
+/obj/item/weapon/gun/update_worn_icon_state()
+	var/current_state = worn_icon_state
+	var/real_icon = current_skin ? current_skin : initial(worn_icon_state)
 	if(gun_features_flags & GUN_SHOWS_AMMO_REMAINING) //shows different ammo levels
 		var/remaining_rounds = (rounds <= 0) ? 0 : CEILING((rounds / max((length(chamber_items) ? max_rounds : max_shells ? max_shells : 1), 1)) * 100, 25)
-		item_state = "[real_icon]_[remaining_rounds][item_flags & WIELDED ? "_w" : ""]"
+		worn_icon_state = "[real_icon]_[remaining_rounds][item_flags & WIELDED ? "_w" : ""]"
 	else if(gun_features_flags & GUN_SHOWS_LOADED) //shows loaded or unloaded
-		item_state = "[real_icon]_[rounds ? 100 : 0][item_flags & WIELDED ? "_w" : ""]"
+		worn_icon_state = "[real_icon]_[rounds ? 100 : 0][item_flags & WIELDED ? "_w" : ""]"
 	else
-		item_state = "[current_skin ? current_skin : base_gun_icon][item_flags & WIELDED ? "_w" : ""]"
+		worn_icon_state = "[current_skin ? current_skin : base_gun_icon][item_flags & WIELDED ? "_w" : ""]"
 
-	if(current_state != item_state && ishuman(gun_user))
+	if(current_state != worn_icon_state && ishuman(gun_user))
 		var/mob/living/carbon/human/human_user = gun_user
 		if(src == human_user.l_hand)
 			human_user.update_inv_l_hand()
@@ -1086,8 +1087,10 @@
 	playsound(user, actual_sound, sound_volume, 1)
 	simulate_recoil(2, Get_Angle(user, M))
 	var/obj/item/weapon/gun/revolver/current_revolver = src
-	log_combat(user, null, "committed suicide with [src].")
-	message_admins("[ADMIN_TPMONTY(user)] committed suicide with [src].")
+	var/admin_msg = "committed suicide with [src] (Dmg:[projectile_to_fire.damage], Dmg type: [projectile_to_fire.ammo.damage_type])"
+	log_combat(user, null, admin_msg)
+	if(projectile_to_fire.damage)
+		message_admins("[ADMIN_TPMONTY(user)] " + admin_msg)
 	if(istype(current_revolver) && current_revolver.russian_roulette) //If it's a revolver set to Russian Roulette.
 		user.apply_damage(projectile_to_fire.damage * 3, projectile_to_fire.ammo.damage_type, "head", 0, TRUE)
 		user.apply_damage(200, OXY) //In case someone tried to defib them. Won't work.
@@ -1097,17 +1100,20 @@
 		ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
 		return
 
-	switch(projectile_to_fire.ammo.damage_type)
-		if(STAMINA)
-			to_chat(user, span_notice("Ow..."))
-			user.apply_damage(200, STAMINA)
-		else
-			user.apply_damage(projectile_to_fire.damage * 2.5, projectile_to_fire.ammo.damage_type, "head", 0, TRUE)
-			user.apply_damage(200, OXY)
-			if(ishuman(user) && user == M)
-				var/mob/living/carbon/human/HM = user
-				HM.set_undefibbable(TRUE) //can't be defibbed back from self inflicted gunshot to head
-			user.death()
+	if(!projectile_to_fire.damage)
+		ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
+		return // suicide with a blank?
+
+	if(projectile_to_fire.ammo.damage_type == STAMINA)
+		to_chat(user, span_notice("Ow..."))
+		user.apply_damage(200, STAMINA)
+	else
+		user.apply_damage(projectile_to_fire.damage * 2.5, projectile_to_fire.ammo.damage_type, "head", 0, TRUE)
+		user.apply_damage(200, OXY)
+		if(ishuman(user) && user == M)
+			var/mob/living/carbon/human/HM = user
+			HM.set_undefibbable(TRUE) //can't be defibbed back from self inflicted gunshot to head
+		user.death()
 
 	user.log_message("commited suicide with [src]", LOG_ATTACK, "red") //Apply the attack log.
 	last_fired = world.time
@@ -1741,12 +1747,12 @@
 	//Guns with low ammo have their firing sound
 	var/firing_sndfreq = CHECK_BITFIELD(gun_features_flags, GUN_NO_PITCH_SHIFT_NEAR_EMPTY) ? FALSE : ((max(rounds, 1) / (max_rounds ? max_rounds : max_shells ? max_shells : 1)) > 0.25) ? FALSE : 55000
 	if(HAS_TRAIT(src, TRAIT_GUN_SILENCED))
-		playsound(user, fire_sound, 25, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
+		playsound(user, fire_sound, GUN_FIRE_SOUND_VOLUME/2, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
 		return
 	if(firing_sndfreq && fire_rattle)
-		playsound(user, fire_rattle, 60, FALSE)
+		playsound(user, fire_rattle, GUN_FIRE_SOUND_VOLUME, FALSE)
 		return
-	playsound(user, fire_sound, 60, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
+	playsound(user, fire_sound, GUN_FIRE_SOUND_VOLUME, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
 
 /obj/item/weapon/gun/proc/apply_gun_modifiers(obj/projectile/projectile_to_fire, atom/target, firer)
 	projectile_to_fire.shot_from = src

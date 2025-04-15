@@ -39,6 +39,7 @@
 	hud_update_primo()
 
 	update_icons()
+	hud_update_rank()
 
 	death_cry()
 

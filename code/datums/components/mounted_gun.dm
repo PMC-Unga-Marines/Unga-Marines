@@ -37,16 +37,22 @@
 /datum/component/vehicle_mounted_weapon/proc/on_buckle(datum/source, mob/living/buckling_mob, force = FALSE, check_loc = TRUE, lying_buckle = FALSE, hands_needed = 0, target_hands_needed = 0, silent)
 	SIGNAL_HANDLER
 	var/obj/vehicle/parent_vehicle = source
-	if(!parent_vehicle.is_equipment_controller(buckling_mob))	
+	if(!parent_vehicle.is_equipment_controller(buckling_mob))
 		return
 	if(!buckling_mob.put_in_active_hand(mounted_gun) && !buckling_mob.put_in_inactive_hand(mounted_gun))
 		to_chat(buckling_mob, span_warning("Could not equip weapon! Click [parent] with a free hand to equip."))
 		return
 
+/datum/component/vehicle_mounted_weapon/Destroy()
+	if(mounted_gun)
+		QDEL_NULL(mounted_gun)
+	return ..()
+
 ///Behaviour on unbuckle. Force drops the gun from the unbuckled mob's hands.
 /datum/component/vehicle_mounted_weapon/proc/on_unbuckle(datum/source, mob/living/unbuckled_mob, force = FALSE)
 	SIGNAL_HANDLER
-	unbuckled_mob.dropItemToGround(mounted_gun, TRUE)
+	if(mounted_gun.loc == unbuckled_mob)
+		unbuckled_mob.dropItemToGround(mounted_gun, TRUE)
 
 ///Behaviour on mouse drop. If the user has clickdragged the chair to themselves they will unload it.
 /datum/component/vehicle_mounted_weapon/proc/on_mousedrop(datum/source, atom/over, mob/user)
