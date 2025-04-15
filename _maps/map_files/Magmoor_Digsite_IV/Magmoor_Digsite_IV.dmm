@@ -765,15 +765,11 @@
 /turf/open/floor/wood,
 /area/magmoor/civilian/jani)
 "azG" = (
+/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/mainship/green/corner{
 	dir = 8
 	},
 /area/magmoor/civilian/rnr)
-"azT" = (
-/obj/structure/curtain/medical,
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/mainship/sterile/dark,
-/area/magmoor/medical/patient)
 "azV" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 6
@@ -31850,6 +31846,7 @@
 /obj/effect/decal/cleanable/cobweb{
 	dir = 1
 	},
+/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/mainship/orange{
 	dir = 10
 	},
@@ -31860,7 +31857,6 @@
 /area/magmoor/engi/storage)
 "wOe" = (
 /obj/effect/landmark/xeno_silo_spawn,
-/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/northwest)
 "wOk" = (
@@ -67414,7 +67410,7 @@ hRp
 rQE
 byE
 mzi
-azT
+bYT
 jiB
 jgH
 veg
