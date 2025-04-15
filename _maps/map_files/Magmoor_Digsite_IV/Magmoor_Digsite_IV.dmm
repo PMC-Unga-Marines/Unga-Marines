@@ -13128,11 +13128,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/mainship/cargo,
 /area/magmoor/engi)
-"jwx" = (
-/obj/structure/closet/crate/secure,
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/mainship/floor,
-/area/magmoor/mining/storage)
 "jxd" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -20095,6 +20090,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
+/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/plating_catwalk,
 /area/magmoor/mining/storage)
 "oBL" = (
@@ -24059,7 +24055,6 @@
 /area/magmoor/civilian/gambling)
 "roF" = (
 /obj/effect/landmark/sensor_tower_infestation_ground,
-/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/tile/red/full,
 /area/magmoor/security/infocenter)
 "roT" = (
@@ -24533,7 +24528,6 @@
 /area/magmoor/landing/two)
 "rHG" = (
 /obj/effect/landmark/sensor_tower_infestation_ground,
-/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/mainship/mono,
 /area/magmoor/mining)
 "rHK" = (
@@ -29455,6 +29449,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/landmark/start/job/survivor,
+/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/freezer,
 /area/magmoor/cargo/freezer)
 "vcB" = (
@@ -29467,7 +29462,6 @@
 /obj/effect/landmark/corpsespawner/colonist,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/ai_node,
-/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/freezer,
 /area/magmoor/cargo/freezer)
 "vcR" = (
@@ -31638,6 +31632,12 @@
 	dir = 6
 	},
 /area/magmoor/engi/storage)
+"wGo" = (
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/tile/red/redtaupe{
+	dir = 4
+	},
+/area/magmoor/security/infocenter)
 "wGr" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/floor,
@@ -31773,6 +31773,7 @@
 /area/magmoor/civilian/dorms)
 "wJX" = (
 /obj/effect/ai_node,
+/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/mainship/emerald{
 	dir = 1
 	},
@@ -40371,7 +40372,7 @@ mOt
 wOk
 mCp
 bhF
-bhF
+wGo
 tRG
 mlA
 aap
@@ -46382,7 +46383,7 @@ pao
 gip
 aAK
 aeu
-jwx
+xJC
 dgj
 hAL
 ubN
