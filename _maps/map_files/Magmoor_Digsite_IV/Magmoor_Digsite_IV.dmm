@@ -129,7 +129,6 @@
 /area/magmoor/civilian/jani)
 "aeu" = (
 /obj/structure/nuke_disk_candidate,
-/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/mainship/cargo,
 /area/magmoor/mining/storage)
 "aeE" = (
@@ -10959,6 +10958,10 @@
 	},
 /turf/closed/wall/r_wall,
 /area/magmoor/engi/thermal)
+"hUi" = (
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/mainship/mono,
+/area/magmoor/engi/power)
 "hVl" = (
 /obj/effect/spawner/random/misc/plant,
 /turf/open/floor/wood,
@@ -13134,6 +13137,11 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/mainship/cargo,
 /area/magmoor/engi)
+"jwx" = (
+/obj/structure/closet/crate/secure,
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/mainship/floor,
+/area/magmoor/mining/storage)
 "jxd" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -19144,10 +19152,6 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/mono,
 /area/magmoor/civilian/basket)
-"nSE" = (
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/liquid/lava/autosmoothing,
-/area/magmoor/cave/northeast)
 "nSX" = (
 /obj/machinery/door/airlock/maintenance,
 /turf/open/floor/plating,
@@ -22825,11 +22829,6 @@
 	dir = 1
 	},
 /area/magmoor/compound/north)
-"qpC" = (
-/obj/structure/window/framed/colony/reinforced,
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/plating,
-/area/magmoor/engi/power)
 "qpN" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber{
 	dir = 1;
@@ -32224,6 +32223,10 @@
 	dir = 4
 	},
 /area/magmoor/research/containment)
+"wZm" = (
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/lavaland/basalt/dirt/autosmoothing,
+/area/magmoor/compound/northeast)
 "wZv" = (
 /obj/machinery/reagentgrinder,
 /obj/item/stack/sheet/mineral/phoron,
@@ -46398,7 +46401,7 @@ pao
 gip
 aAK
 aeu
-xJC
+jwx
 dgj
 hAL
 ubN
@@ -53860,8 +53863,8 @@ fLV
 wEA
 fmq
 qPY
-qpC
-cdc
+nAP
+hUi
 fmq
 cal
 laS
@@ -72771,8 +72774,8 @@ lwH
 tYF
 xXw
 xXw
-nSE
-tUU
+xXw
+wZm
 tUU
 fJO
 fJO
