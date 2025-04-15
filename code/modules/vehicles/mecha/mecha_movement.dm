@@ -73,3 +73,6 @@
 	. = step(src, direction, dir)
 	if(strafe)
 		setDir(olddir)
+		
+/obj/vehicle/sealed/mecha/set_submerge_level(turf/new_loc, turf/old_loc, submerge_icon = 'icons/turf/alpha_128.dmi', submerge_icon_state = "liquid_alpha", duration = move_delay)
+	return ..()

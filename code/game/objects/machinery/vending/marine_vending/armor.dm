@@ -2,8 +2,8 @@
 	name = "\improper Surplus Armor Equipment Vendor"
 	desc = "An automated equipment rack hooked up to a colossal storage of armor and accessories. Nanotrasen designed a new vendor that utilizes bluespace technology to send surplus equipment from outer colonies' sweatshops to your hands! Be grateful."
 	icon_state = "surplus_armor"
-	icon_vend = "surplus-vend"
-	icon_deny = "surplus_armor-deny"
+	icon_vend = "surplus_armor_vend"
+	icon_deny = "surplus_armor_deny"
 	isshared = TRUE
 	wrenchable = FALSE
 	product_ads = "You are out of uniform, marine! Where is your armor? Don't have any? You expect me to believe that, maggot?;Why wear heavy armor and unable to chase the enemy when you can go light and zoom by your peers?;Thank your armor later when you didn't die!;I remember PAS, do you remember PAS?;Time to paint the rainbow!;So many selections to choose from!"

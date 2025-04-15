@@ -4,7 +4,7 @@
 	name = "flamer"
 	desc = "flame go froosh"
 	icon = 'icons/obj/items/gun/special.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
 	)
@@ -161,7 +161,7 @@
 	return TRUE
 
 /obj/item/weapon/gun/flamer/do_fire(obj/projectile/projectile_to_fire)
-	playsound(loc, fire_sound, 50, 1)
+	playsound(loc, fire_sound, GUN_FIRE_SOUND_VOLUME, 1)
 	var/obj/item/attachable/flamer_nozzle/nozzle = attachments_by_slot[ATTACHMENT_SLOT_FLAMER_NOZZLE]
 	var/burn_type = nozzle.stream_type
 	var/old_turfs = list(get_turf(src))
@@ -295,18 +295,21 @@
 	name = "\improper FL-240 incinerator unit"
 	desc = "The FL-240 has proven to be one of the most effective weapons at clearing out soft-targets. This is a weapon to be feared and respected as it is quite deadly."
 	icon_state = "m240"
-	item_state = "m240"
+	worn_icon_state = "m240"
+
+/obj/item/weapon/gun/flamer/big_flamer/vsd
+	starting_attachment_types = list(/obj/item/attachable/motiondetector, /obj/item/attachable/flamer_nozzle/wide,)
 
 /obj/item/weapon/gun/flamer/som
 	name = "\improper V-62 incinerator"
 	desc = "The V-62 is a deadly weapon employed in close quarter combat, favoured as much for the terror it inspires as the actual damage it inflicts. It has good range for a flamer, but lacks the integrated extinguisher of its TGMC equivalent."
 	icon = 'icons/obj/items/gun/special64.dmi'
 	icon_state = "v62"
-	item_state = "v62"
+	worn_icon_state = "v62"
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_SHOWS_LOADED
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_64.dmi',
 	)
@@ -366,7 +369,7 @@
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "flamethrower"
 
-	item_icons = list( // for whatever fucking reason we can't set it null
+	worn_icon_lists = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
@@ -411,7 +414,7 @@
 	desc = "The FL-84 flamethrower is the current standard issue flamethrower of the TGMC, and is used for area control and urban combat. Use unique action to use hydro cannon"
 	default_ammo_type = /obj/item/ammo_magazine/flamer_tank/large
 	icon_state = "tl84"
-	item_state = "tl84"
+	worn_icon_state = "tl84"
 	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_WIELDED_STABLE_FIRING_ONLY
 	attachable_offset = list("rail_x" = 10, "rail_y" = 23, "stock_x" = 16, "stock_y" = 13, "flamer_nozzle_x" = 33, "flamer_nozzle_y" = 20, "under_x" = 24, "under_y" = 15)
 	attachable_allowed = list(
@@ -517,7 +520,7 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "hydrocannon"
 
-	item_icons = list( // for whatever fucking reason we can't set it null
+	worn_icon_lists = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)

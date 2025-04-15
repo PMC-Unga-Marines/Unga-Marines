@@ -99,6 +99,12 @@
 
 	ui_interact(user)
 
+/obj/machinery/deployable/mortar/disassemble(mob/user)
+	for(var/obj/loaded_item in chamber_items)
+		chamber_items -= loaded_item
+		loaded_item.forceMove(get_turf(src))
+	return ..()
+
 /obj/machinery/deployable/mortar/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -255,7 +261,7 @@
 
 	record_shell_fired()
 
-	playsound(loc, fire_sound, 70, 0)
+	playsound(loc, fire_sound, GUN_FIRE_SOUND_VOLUME, 0)
 	flick(icon_state + "_fire", src)
 	var/obj/projectile/shell = new /obj/projectile(loc)
 	var/datum/ammo/ammo = GLOB.ammo_list[arty_shell.ammo_type]

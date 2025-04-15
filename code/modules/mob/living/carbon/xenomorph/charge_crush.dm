@@ -273,7 +273,10 @@
 			return precrush2signal(crushed_obj.post_crush_act(xeno_owner, src))
 		playsound(crushed_obj.loc, "punch", 25, 1)
 		var/crushed_behavior = crushed_obj.crushed_special_behavior()
-		crushed_obj.take_damage(precrush, BRUTE, MELEE)
+		var/obj_damage_mult = 1
+		if(isarmoredvehicle(crushed) || ishitbox(crushed))
+			obj_damage_mult = 5
+		crushed_obj.take_damage(precrush * obj_damage_mult, BRUTE, MELEE)
 		if(QDELETED(crushed_obj))
 			xeno_owner.visible_message(span_danger("[xeno_owner] crushes [preserved_name]!"),
 			span_xenodanger("We crush [preserved_name]!"))

@@ -335,6 +335,8 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 //How long it takes for a human to become undefibbable
 #define TIME_BEFORE_DNR 150 //In life ticks, multiply by 2 to have seconds
 
+///Default living `maxHealth`
+#define LIVING_DEFAULT_MAX_HEALTH 100
 
 //species_flags
 #define NO_BLOOD (1<<0)
@@ -608,7 +610,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define RAVAGER_RAGE_MIN_HEALTH_THRESHOLD				0.75 //The maximum % of HP we can have to trigger Rage
 #define RAVAGER_RAGE_STAGGERSTUN_IMMUNE_THRESHOLD		0.5
 #define RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH			2 SECONDS //The amount of time each slash during Rage increases Endure's duration
-#define RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH			40 //Base amount of healing from slash during Rage
+#define RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH			20 //Base amount of healing from slash during Rage
 #define RAVAGER_IMMORTALITY_DURATION					5 SECONDS
 
 //crusher defines
@@ -906,3 +908,8 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define WARRIOR_PUNCH_GRAPPLED_PARALYZE 0.5 SECONDS
 #define WARRIOR_PUNCH_KNOCKBACK_DISTANCE 1
 #define WARRIOR_PUNCH_KNOCKBACK_SPEED 1
+
+//chest burst defines
+#define CARBON_NO_CHEST_BURST 0
+#define CARBON_IS_CHEST_BURSTING 1
+#define CARBON_CHEST_BURSTED 2

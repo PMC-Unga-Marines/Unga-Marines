@@ -28,7 +28,7 @@
 	desc = "This box is able to hold a wide variety of supplies."
 	icon = 'icons/obj/items/storage/storage_boxes.dmi'
 	icon_state = "mag_box"
-	item_state = "mag_box"
+	worn_icon_state = "mag_box"
 	w_class = WEIGHT_CLASS_HUGE
 	slowdown = 0.4 // Big unhandly box
 	storage_type = /datum/storage/box/visual

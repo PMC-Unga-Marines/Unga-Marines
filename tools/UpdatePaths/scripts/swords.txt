@@ -1,0 +1,6 @@
+/obj/item/weapon/claymore/mercsword/officersword : /obj/item/weapon/sword/officer {@OLD}
+/obj/item/weapon/claymore/mercsword/machete/officersword : /obj/item/weapon/sword/officer {@OLD}
+/obj/item/weapon/claymore/mercsword/commissar_sword : /obj/item/weapon/sword/commissar {@OLD}
+/obj/item/weapon/katana/@SUBTYPES : /obj/item/weapon/sword/katana/@SUBTYPES {@OLD}
+/obj/item/weapon/claymore/mercsword/@SUBTYPES : /obj/item/weapon/sword/@SUBTYPES {@OLD}
+/obj/item/weapon/claymore/@SUBTYPES : /obj/item/weapon/sword/@SUBTYPES {@OLD}

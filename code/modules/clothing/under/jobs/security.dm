@@ -2,20 +2,20 @@
 	name = "security suit"
 	desc = "A formal security suit for officers complete with Nanotrasen belt buckle."
 	icon_state = "wardenred"
-	item_state = "r_suit"
+	worn_icon_state = "r_suit"
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/under/rank/warden/white
 	name = "white security suit"
 	desc = "A formal relic of years past before Nanotrasen decided it was cheaper to dye the suits red instead of washing out the blood."
 	icon_state = "wardenwhite"
-	item_state = "wardenwhite"
+	worn_icon_state = "wardenwhite"
 
 /obj/item/clothing/under/rank/security
 	name = "security officer's jumpsuit"
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for robust protection."
 	icon_state = "securityred"
-	item_state = "r_suit"
+	worn_icon_state = "r_suit"
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/under/rank/dispatch
@@ -30,7 +30,7 @@
 	name = "security officer's uniform"
 	desc = "It's made of a slightly sturdier material, to allow for robust protection."
 	icon_state = "redshirt2"
-	item_state = "r_suit"
+	worn_icon_state = "r_suit"
 	siemens_coefficient = 0.9
 	adjustment_variants = list()
 
@@ -45,7 +45,7 @@
 	name = "hard-worn suit"
 	desc = "Someone who wears this means business."
 	icon_state = "detective"
-	item_state = "det"
+	worn_icon_state = "det"
 	siemens_coefficient = 0.9
 	adjustment_variants = list()
 
@@ -53,7 +53,7 @@
 	name = "noir suit"
 	desc = "A hard-boiled private investigator's grey suit, complete with tie clip."
 	icon_state = "greydet"
-	item_state = "greydet"
+	worn_icon_state = "greydet"
 	adjustment_variants = list()
 
 /*
@@ -63,14 +63,14 @@
 	desc = "It's a jumpsuit worn by those few with the dedication to achieve the position of \"Head of Security\". It has additional armor to protect the wearer."
 	name = "head of security's jumpsuit"
 	icon_state = "hosred"
-	item_state = "r_suit"
+	worn_icon_state = "r_suit"
 	siemens_coefficient = 0.8
 
 /obj/item/clothing/under/rank/head_of_security/alt
 	name = "head of security's turtleneck"
 	desc = "A stylish alternative to the normal head of security jumpsuit, complete with tactical pants."
 	icon_state = "hosalt"
-	item_state = "hosalt"
+	worn_icon_state = "hosalt"
 
 /obj/item/clothing/under/rank/head_of_security/corp
 	icon_state = "hos_corporate"
@@ -81,6 +81,6 @@
 	desc = "You never asked for anything that stylish."
 	name = "head of security's jumpsuit"
 	icon_state = "jensen"
-	item_state = "jensen"
+	worn_icon_state = "jensen"
 	siemens_coefficient = 0.6
 	adjustment_variants = list()

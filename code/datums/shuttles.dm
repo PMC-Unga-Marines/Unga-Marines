@@ -178,7 +178,7 @@
 /datum/map_template/shuttle/minidropship/_voidraider
 	suffix = "_voidraider"
 	description = "An asymmetric tadpole designed with vehicle transport in mind. Built with a wide umbilical to allow fluid heavy-vehicle movement."
-	display_name = "Tadpole VoidRaider Model"
+	display_name = "Tadpole Void Raider Model"
 
 /datum/map_template/shuttle/escape_pod
 	shuttle_id = SHUTTLE_ESCAPE_POD

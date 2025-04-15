@@ -17,6 +17,8 @@
 	canSmoothWith = list(SMOOTH_GROUP_FENCE)
 	/// Cut fences can be passed through
 	var/cut = FALSE
+	///Chance for the fence to break on /init
+	var/chance_to_break = 80 //Defaults to 80%
 
 /obj/structure/fence/ex_act(severity)
 	take_damage(severity * 0.5, BRUTE, BOMB)
@@ -116,7 +118,7 @@
 /obj/structure/fence/Initialize(mapload, start_dir)
 	. = ..()
 
-	if(prob(80))
+	if(prob(chance_to_break))
 		obj_integrity = 0
 		deconstruct(FALSE)
 
@@ -130,3 +132,6 @@
 
 /obj/structure/fence/fire_act(burn_level, flame_color)
 	take_damage(burn_level, BURN, FIRE)
+
+/obj/structure/fence/broken
+	chance_to_break = 100

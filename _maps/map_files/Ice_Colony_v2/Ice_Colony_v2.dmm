@@ -14656,7 +14656,7 @@
 "bKg" = (
 /obj/structure/safe,
 /obj/item/reagent_containers/food/drinks/bottle/absinthe,
-/obj/item/weapon/katana,
+/obj/item/weapon/sword/katana,
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
@@ -22108,14 +22108,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump,
 /turf/open/floor/tile/white,
 /area/ice_colony/underground/medical/hallway/garbledradio)
-"iDS" = (
-/obj/effect/attach_point/weapon/dropship1{
-	dir = 8
-	},
-/turf/open/floor/plating/icefloor/warnplate{
-	dir = 8
-	},
-/area/ice_colony/exterior/surface/landing_pad2)
 "iEz" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -28928,10 +28920,6 @@
 	},
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/crew/bball/garbledradio)
-"rUI" = (
-/obj/effect/attach_point/electronics/dropship1,
-/turf/open/floor/plating,
-/area/ice_colony/exterior/surface/landing_pad2)
 "rVU" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/ice,
@@ -30488,10 +30476,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/freezer,
 /area/ice_colony/surface/bar/bar)
-"tQj" = (
-/obj/effect/attach_point/weapon/dropship1,
-/turf/open/floor/plating,
-/area/ice_colony/exterior/surface/landing_pad2)
 "tQt" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -36714,7 +36698,7 @@ cTP
 cTP
 cTP
 cTP
-iDS
+cTP
 cTP
 cTP
 acU
@@ -36922,7 +36906,7 @@ aay
 dWh
 afd
 tkL
-tQj
+afd
 afd
 afd
 afd
@@ -37134,7 +37118,7 @@ aay
 dWh
 afd
 afd
-rUI
+afd
 afd
 afd
 afd
@@ -38406,7 +38390,7 @@ aay
 dWh
 afd
 afd
-rUI
+afd
 afd
 afd
 afd
@@ -38618,7 +38602,7 @@ aay
 dWh
 afd
 tkL
-tQj
+afd
 afd
 afd
 afd

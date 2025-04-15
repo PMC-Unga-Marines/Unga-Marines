@@ -14,6 +14,7 @@
 	light_system = MOVABLE_LIGHT
 	light_pixel_x = 32
 	light_pixel_y= 32
+	appearance_flags = PIXEL_SCALE
 	pixel_x = -56
 	pixel_y = -48
 	max_integrity = 700

@@ -75,6 +75,12 @@
 /mob/living/carbon/xenomorph/queen/generate_name()
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
 	var/prefix = (hive.prefix || xeno_caste.upgrade_name) ? "[hive.prefix][xeno_caste.upgrade_name] " : ""
+	if(!client?.prefs.show_xeno_rank || !client)
+		name = prefix + "Queen ([nicknumber])"
+		real_name = name
+		if(mind)
+			mind.name = name
+		return
 	switch(playtime_mins)
 		if(0 to 300)
 			name = prefix + "Young Queen ([nicknumber])"

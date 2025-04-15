@@ -5,7 +5,7 @@
 /obj/item/stack/medical
 	name = "medical pack"
 	singular_name = "medical pack"
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/medical_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/medical_right.dmi',
 	)
@@ -293,12 +293,12 @@
 	name = "combat trauma kit"
 	singular_name = "combat trauma kit"
 	desc = "An expensive huge kit for prolonged combat conditions. Has more space and better medicine compared to a regular one."
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/medical_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/medical_right.dmi',
 	)
 	icon_state = "brute_advanced"
-	item_state = "brute_advanced"
+	worn_icon_state = "brute_advanced"
 	amount = 140
 	max_amount = 140
 	w_class = WEIGHT_CLASS_NORMAL
@@ -318,12 +318,12 @@
 	singular_name = "combat burn kit"
 	desc = "An expensive huge kit for prolonged combat conditions. Has more space and better medicine compared to a regular one."
 	icon = 'icons/obj/stack_objects.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/medical_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/medical_right.dmi',
 	)
 	icon_state = "burn_advanced"
-	item_state = "burn_advanced"
+	worn_icon_state = "burn_advanced"
 	w_class = WEIGHT_CLASS_NORMAL
 	amount = 140
 	max_amount = 140

@@ -1,6 +1,7 @@
 /obj/item/storage/holster
 	name = "holster"
 	desc = "Holds stuff, and sometimes goes swoosh."
+	icon = 'icons/obj/items/storage/holster.dmi'
 	icon_state = "backpack"
 	w_class = WEIGHT_CLASS_BULKY
 	storage_type = /datum/storage/holster
@@ -52,7 +53,7 @@
 		icon_state = initial(icon_state) + "_full"
 	else
 		icon_state = initial(icon_state)
-	item_state = icon_state
+	worn_icon_state = icon_state
 
 /obj/item/storage/holster/update_icon()
 	. = ..()
@@ -93,7 +94,8 @@
 /obj/item/storage/holster/backholster
 	name = "backpack holster"
 	desc = "You wear this on your back and put items into it. Usually one special item too."
-	item_icons = list(
+	icon = 'icons/obj/items/storage/backholster.dmi'
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
 	)
@@ -291,15 +293,15 @@
 	icon_state = "machete_holster"
 	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	holsterable_allowed = list(
-		/obj/item/weapon/claymore/mercsword/machete,
+		/obj/item/weapon/sword/machete,
 	)
 
 /obj/item/storage/holster/blade/machete/Initialize(mapload)
 	. = ..()
-	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/claymore/mercsword/machete))
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/sword/machete))
 
 /obj/item/storage/holster/blade/machete/full/PopulateContents()
-	new /obj/item/weapon/claymore/mercsword/machete(src)
+	new /obj/item/weapon/sword/machete(src)
 
 /obj/item/storage/holster/blade/harvester
 	name = "H5 Pattern M2132 harvester scabbard"
@@ -307,15 +309,15 @@
 	icon_state = "harvester_holster"
 	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	holsterable_allowed = list(
-		/obj/item/weapon/claymore/harvester,
+		/obj/item/weapon/sword/harvester,
 	)
 
 /obj/item/storage/holster/blade/harvester/Initialize(mapload)
 	. = ..()
-	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/claymore/harvester))
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/sword/harvester))
 
 /obj/item/storage/holster/blade/harvester/full/PopulateContents()
-	new /obj/item/weapon/claymore/harvester(src)
+	new /obj/item/weapon/sword/harvester(src)
 
 /obj/item/storage/holster/blade/katana
 	name = "\improper katana scabbard"
@@ -324,14 +326,14 @@
 	force = 12
 	attack_verb = list("bludgeoned", "struck", "cracked")
 	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
-	holsterable_allowed = list(/obj/item/weapon/katana)
+	holsterable_allowed = list(/obj/item/weapon/sword/katana)
 
 /obj/item/storage/holster/blade/katana/Initialize(mapload)
 	. = ..()
-	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/katana))
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/sword/katana))
 
 /obj/item/storage/holster/blade/katana/full/PopulateContents()
-	new /obj/item/weapon/katana(src)
+	new /obj/item/weapon/sword/katana(src)
 
 /obj/item/storage/holster/blade/officer
 	name = "\improper officer sword scabbard"
@@ -339,78 +341,76 @@
 	icon_state = "officer_sheath"
 	equip_slot_flags = ITEM_SLOT_BELT
 	worn_layer = CAPE_LAYER
-	holsterable_allowed = list(/obj/item/weapon/claymore/mercsword/officersword)
+	holsterable_allowed = list(/obj/item/weapon/sword/officer)
 	storage_type = /datum/storage/holster/blade/officer
 
 /obj/item/storage/holster/blade/officer/full/PopulateContents()
-	new /obj/item/weapon/claymore/mercsword/officersword(src)
+	new /obj/item/weapon/sword/officer(src)
 
 /obj/item/storage/holster/blade/officer/valirapier
 	name = "\improper HP-C vali rapier sheath"
 	desc = "An exquisite ceremonial sheath for an even more expensive rapier."
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
 		slot_belt_str = 'icons/mob/belt.dmi',
 	)
 	icon_state = "rapier_holster"
-	holsterable_allowed = list(/obj/item/weapon/claymore/mercsword/officersword/valirapier)
+	holsterable_allowed = list(/obj/item/weapon/sword/officer/valirapier)
 
 /obj/item/storage/holster/blade/officer/valirapier/Initialize(mapload, ...)
 	. = ..()
-	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/claymore/mercsword/officersword/valirapier))
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/sword/officer/valirapier))
 
 /obj/item/storage/holster/blade/officer/valirapier/full/PopulateContents()
-	new /obj/item/weapon/claymore/mercsword/officersword/valirapier(src)
+	new /obj/item/weapon/sword/officer/valirapier(src)
 
 /obj/item/storage/holster/blade/officer/sabre
 	name = "\improper officer sabre sheath"
 	desc = "An exquisite ceremonial sheath of a high ranking command personel."
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
 		slot_belt_str = 'icons/mob/belt.dmi',
 	)
 	icon_state = "saber_holster"
-	holsterable_allowed = list(/obj/item/weapon/claymore/mercsword/officersword/sabre)
+	holsterable_allowed = list(/obj/item/weapon/sword/officer/sabre)
 
 /obj/item/storage/holster/blade/officer/sabre/Initialize(mapload, ...)
 	. = ..()
-	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/claymore/mercsword/officersword/sabre))
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/sword/officer/sabre))
 
 /obj/item/storage/holster/blade/officer/sabre/full/PopulateContents()
-	new /obj/item/weapon/claymore/mercsword/officersword/sabre(src)
+	new /obj/item/weapon/sword/officer/sabre(src)
 
 // Tactical Tomahawk Holster
 
 /obj/item/storage/holster/blade/tomahawk
 	name = "\improper Tactical H23 Tomahawk scabbard"
 	desc = "A large leather scabbard used to carry a H23 tomahawk. It can be strapped to the back, waist or armor."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "tomahawk_holster"
-	item_state = "tomahawk_holster"
-	item_icons = list(
+	worn_icon_state = "tomahawk_holster"
+	worn_icon_lists = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_belt_str = 'icons/mob/clothing/belt.dmi',
 		slot_s_store_str = 'icons/mob/suit_slot.dmi'
 	)
 	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
-	holsterable_allowed = list(/obj/item/weapon/claymore/tomahawk)
+	holsterable_allowed = list(/obj/item/weapon/sword/tomahawk)
 
 /obj/item/storage/holster/blade/tomahawk/Initialize(mapload, ...)
 	. = ..()
-	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/claymore/tomahawk))
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/sword/tomahawk))
 
 /obj/item/storage/holster/blade/tomahawk/full/PopulateContents()
-	new /obj/item/weapon/claymore/tomahawk(src)
+	new /obj/item/weapon/sword/tomahawk(src)
 
 /obj/item/storage/holster/blade/tomahawk/classic
 	name = "\improper Tactical H17 Tomahawk scabbard"
 	desc = "A large leather scabbard used to carry a H17 tomahawk. It can be strapped to the back, waist or armor."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "tomahawk_classic_holster"
-	item_state = "tomahawk_classic_holster"
+	worn_icon_state = "tomahawk_classic_holster"
 
 /obj/item/storage/holster/blade/tomahawk/classic/full/PopulateContents()
-	new /obj/item/weapon/claymore/tomahawk/classic(src)
+	new /obj/item/weapon/sword/tomahawk/classic(src)
 
 //guns
 
@@ -513,6 +513,7 @@
 	name = "\improper ML-41 scabbard (10x26mm)"
 	desc = "A backpack holster allowing the storage of any a ML-41 Assault Machinegun, also carries ammo for the other portion of the system."
 	icon_state = "icc_bagmg"
+	icon = 'icons/obj/items/storage/backholster.dmi'
 	holsterable_allowed = list(
 		/obj/item/weapon/gun/rifle/icc_mg,
 	)
@@ -530,7 +531,6 @@
 /obj/item/storage/holster/belt
 	name = "pistol belt"
 	desc = "A belt-holster assembly that allows one to hold a pistol and two magazines."
-	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "m4a3_holster"
 	equip_slot_flags = ITEM_SLOT_BELT
 	item_flags = HAS_UNDERLAY
@@ -633,11 +633,11 @@
 	for(var/i in 1 to 6)
 		new /obj/item/cell/lasgun/volkite/small(src)
 
-/obj/item/storage/holster/belt/pistol/stand
+/obj/item/storage/holster/belt/pistol/standard
 	name = "\improper M276 pattern M4A3 holster rig"
 	desc = "The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version has a holster assembly that allows one to carry the M4A3 comfortably secure. It also contains side pouches that can store 9mm or .45 magazines."
 
-/obj/item/storage/holster/belt/pistol/stand/Initialize(mapload, ...)
+/obj/item/storage/holster/belt/pistol/standard/Initialize(mapload, ...)
 	. = ..()
 	storage_datum.set_holdable(can_hold_list = list(
 		/obj/item/weapon/gun/pistol,
@@ -770,13 +770,12 @@
 ///RL SADAR bag
 /obj/item/storage/holster/backholster/rlsadar
 	name = "TGMC RL-152 bag"
-	icon = 'icons/obj/items/storage/storage.dmi'
 	desc = "This backpack can hold 4 40mm shells, in addition to a SADAR launcher."
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi'
 	)
 	icon_state = "marine_sadar"
-	item_state = "marine_sadar"
+	worn_icon_state = "marine_sadar"
 	w_class = WEIGHT_CLASS_HUGE
 	storage_type = /datum/storage/holster/backholster/sadar
 	holsterable_allowed = list(/obj/item/weapon/gun/launcher/rocket/sadar)
@@ -790,13 +789,12 @@
 ///RL Quad bag
 /obj/item/storage/holster/backholster/rlquad
 	name = "TGMC RL-57 bag"
-	icon = 'icons/obj/items/storage/storage.dmi'
 	desc = "This backpack can hold 2 rocket arrays, in addition to a thermobaric launcher."
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi'
 	)
 	icon_state = "marine_quad"
-	item_state = "marine_quad"
+	worn_icon_state = "marine_quad"
 	w_class = WEIGHT_CLASS_HUGE
 	storage_type = /datum/storage/holster/backholster/rlquad
 	holsterable_allowed = list(/obj/item/weapon/gun/launcher/rocket/m57a4/t57)

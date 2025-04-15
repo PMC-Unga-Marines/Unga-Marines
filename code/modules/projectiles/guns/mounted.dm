@@ -348,8 +348,8 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "mg08"
-	item_state = "mg08"
-	item_icons = list(
+	worn_icon_state = "mg08"
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
 	)
@@ -396,12 +396,12 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	icon = 'icons/obj/items/gun/machinegun64.dmi'
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
 	)
 	icon_state = "t27"
-	item_state = "t27"
+	worn_icon_state = "t27"
 	caliber = CALIBER_10X27_CASELESS // codex
 	max_shells = 150 //codex
 	force = 40
@@ -464,8 +464,8 @@
 	w_class = WEIGHT_CLASS_BULKY
 	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "ptrs"
-	item_state = "ptrs"
-	item_icons = list(
+	worn_icon_state = "ptrs"
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_64.dmi',
 	)
@@ -537,7 +537,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	icon = 'icons/obj/artillery/at36.dmi'
 	icon_state = "tat36"
-	item_state = "tat36"
+	worn_icon_state = "tat36"
 	caliber = CALIBER_37MM // codex
 	max_shells = 1 //codex
 	fire_sound = 'sound/weapons/guns/fire/tat36.ogg'
@@ -677,7 +677,7 @@
 	desc = "The KRD-61ES machinegun is the export variant of the ML-91 HMG. It's too heavy to be wielded or operated without the tripod. No extra work required, just deploy it with Ctrl-Click. Can be repaired with a blowtorch once deployed."
 	icon = 'icons/obj/items/gun/machinegun64.dmi'
 	icon_state = "kord"
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
 	)

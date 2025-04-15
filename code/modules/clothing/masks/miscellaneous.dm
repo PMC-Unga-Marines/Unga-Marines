@@ -2,7 +2,7 @@
 	name = "muzzle"
 	desc = "To stop that awful noise."
 	icon_state = "muzzle"
-	item_state = "muzzle"
+	worn_icon_state = "muzzle"
 	inventory_flags = COVERMOUTH
 	armor_protection_flags = NONE
 	w_class = WEIGHT_CLASS_SMALL
@@ -12,7 +12,7 @@
 	name = "sterile mask"
 	desc = "A sterile mask designed to help prevent the spread of diseases."
 	icon_state = "sterile"
-	item_state = "sterile"
+	worn_icon_state = "sterile"
 	w_class = WEIGHT_CLASS_SMALL
 	inventory_flags = COVERMOUTH
 	armor_protection_flags = NONE
@@ -38,18 +38,18 @@
 	name = "balaclava"
 	desc = "LOADSAMONEY"
 	icon_state = "balaclava"
-	item_state = "balaclava"
+	worn_icon_state = "balaclava"
 	inv_hide_flags = HIDEFACE|HIDEALLHAIR
 	armor_protection_flags = FACE
 	w_class = WEIGHT_CLASS_SMALL
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_wear_mask_str = 'icons/mob/clothing/mask.dmi')
 
 /obj/item/clothing/mask/luchador
 	name = "Luchador Mask"
 	desc = "Worn by robust fighters, flying high to defeat their foes!"
 	icon_state = "luchag"
-	item_state = "luchag"
+	worn_icon_state = "luchag"
 	inv_hide_flags = HIDEFACE|HIDEALLHAIR
 	cold_protection_flags = HEAD
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
@@ -62,10 +62,10 @@
 	name = "Tecnicos Mask"
 	desc = "Worn by robust fighters who uphold justice and fight honorably."
 	icon_state = "luchador"
-	item_state = "luchador"
+	worn_icon_state = "luchador"
 
 /obj/item/clothing/mask/luchador/rudos
 	name = "Rudos Mask"
 	desc = "Worn by robust fighters who are willing to do anything to win."
 	icon_state = "luchar"
-	item_state = "luchar"
+	worn_icon_state = "luchar"

@@ -177,8 +177,38 @@ directive is properly returned.
 	SHOULD_CALL_PARENT(TRUE)
 	return !density
 
+/**
+ * Ensure a list of atoms/reagents exists inside this atom
+ *
+ * Goes throught he list of passed in parts, if they're reagents, adds them to our reagent holder
+ * creating the reagent holder if it exists.
+ *
+ * If the part is a moveable atom and the  previous location of the item was a mob/living,
+ * it calls the inventory handler transferItemToLoc for that mob/living and transfers the part
+ * to this atom
+ *
+ * Otherwise it simply forceMoves the atom into this atom
+ */
+/atom/proc/CheckParts(list/parts_list, datum/crafting_recipe/current_recipe)
+	SEND_SIGNAL(src, COMSIG_ATOM_CHECKPARTS, parts_list, current_recipe)
+	if(!parts_list)
+		return
+	for(var/part in parts_list)
+		if(istype(part, /datum/reagent))
+			if(!reagents)
+				reagents = new()
+			reagents.reagent_list.Add(part)
+		else if(ismovable(part))
+			var/atom/movable/object = part
+			if(isliving(object.loc))
+				var/mob/living/living = object.loc
+				living.transferItemToLoc(object, src)
+			else
+				object.forceMove(src)
+			SEND_SIGNAL(object, COMSIG_ATOM_USED_IN_CRAFT, src)
+	parts_list.Cut()
 
-// Convenience proc for reagents handling.
+/// Convenience proc for reagents handling.
 /atom/proc/is_open_container()
 	return is_refillable() && is_drainable()
 
@@ -210,17 +240,17 @@ directive is properly returned.
 	return TRUE
 
 
-/*
-*	atom/proc/search_contents_for(path,list/filter_path=null)
-* Recursevly searches all atom contens (including contents contents and so on).
-*
-* ARGS: path - search atom contents for atoms of this type
-*	   list/filter_path - if set, contents of atoms not of types in this list are excluded from search.
-*
-* RETURNS: list of found atoms
-*/
-
-/atom/proc/search_contents_for(path,list/filter_path=null)
+/**
+ * atom/proc/search_contents_for(path,list/filter_path=null)
+ * Recursevly searches all atom contens (including contents contents and so on).
+ *
+ * ARGS:
+ * path - search atom contents for atoms of this type
+ * list/filter_path - if set, contents of atoms not of types in this list are excluded from search.
+ *
+ * RETURNS: list of found atoms
+ */
+/atom/proc/search_contents_for(path, list/filter_path = null)
 	var/list/found = list()
 	for(var/atom/A in src)
 		if(istype(A, path))
@@ -613,14 +643,9 @@ directive is properly returned.
 		update_light()
 	if(loc)
 		SEND_SIGNAL(loc, COMSIG_ATOM_INITIALIZED_ON, src) //required since spawning something doesn't call Move hence it doesn't call Entered.
-		if(isturf(loc))
-			if(opacity)
-				var/turf/T = loc
-				T.directional_opacity = ALL_CARDINALS // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
-
-			if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
-				QUEUE_SMOOTH(src)
-				QUEUE_SMOOTH_NEIGHBORS(src)
+		if(isturf(loc) && (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK)))
+			QUEUE_SMOOTH(src)
+			QUEUE_SMOOTH_NEIGHBORS(src)
 
 	if(length(smoothing_groups))
 		sortTim(smoothing_groups) //In case it's not properly ordered, let's avoid duplicate entries with the same values.
@@ -651,6 +676,24 @@ directive is properly returned.
 	SEND_SIGNAL(src, COMSIG_ATOM_DIR_CHANGE, dir, newdir)
 	dir = newdir
 
+/**
+ * Wash this atom
+ *
+ * This will clean it off any temporary stuff like blood. Override this in your item to add custom cleaning behavior.
+ * Returns true if any washing was necessary and thus performed
+ */
+/atom/proc/wash()
+	SHOULD_CALL_PARENT(TRUE)
+	if(SEND_SIGNAL(src, COMSIG_COMPONENT_CLEAN_ACT) & COMPONENT_CLEANED)
+		return TRUE
+
+	// Basically "if has washable coloration"
+	if(length(atom_colours) >= WASHABLE_COLOUR_PRIORITY && atom_colours[WASHABLE_COLOUR_PRIORITY])
+		remove_atom_colour(WASHABLE_COLOUR_PRIORITY)
+		return TRUE
+	if(clean_blood())
+		return TRUE
+	return FALSE
 
 /atom/vv_get_dropdown()
 	. = ..()
@@ -716,7 +759,7 @@ directive is properly returned.
 	return TRUE
 
 /atom/proc/screwdriver_act(mob/living/user, obj/item/I)
-	SEND_SIGNAL(src, COMSIG_ATOM_SCREWDRIVER_ACT, user, I)
+	return FALSE
 
 /atom/proc/wrench_act(mob/living/user, obj/item/I)
 	return FALSE

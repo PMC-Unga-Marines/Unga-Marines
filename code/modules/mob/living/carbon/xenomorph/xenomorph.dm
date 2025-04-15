@@ -153,6 +153,13 @@
 /mob/living/carbon/xenomorph/proc/generate_name()
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
 	var/rank_name
+	var/prefix = (hive.prefix || xeno_caste.upgrade_name) ? "[hive.prefix][xeno_caste.upgrade_name] " : ""
+	if(!client?.prefs.show_xeno_rank || !client)
+		name = prefix + "[xeno_caste.display_name] ([nicknumber])"
+		real_name = name
+		if(mind)
+			mind.name = name
+		return
 	switch(playtime_mins)
 		if(0 to 300)
 			rank_name = "Young"
@@ -166,7 +173,6 @@
 			rank_name = "Primal"
 		else
 			rank_name = "Young"
-	var/prefix = (hive.prefix || xeno_caste.upgrade_name) ? "[hive.prefix][xeno_caste.upgrade_name] " : ""
 	name = prefix + "[rank_name ? "[rank_name] " : ""][xeno_caste.display_name] ([nicknumber])"
 
 	real_name = name
@@ -360,10 +366,8 @@
 	pulledby.stop_pulling()
 	. = 1
 
-
-
 /mob/living/carbon/xenomorph/prepare_huds()
-	..()
+	. = ..()
 	//updating all the mob's hud images
 	med_hud_set_health()
 	hud_set_plasma()
@@ -529,20 +533,19 @@ Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change
 	else
 		COOLDOWN_START(src, xeno_unresting_cooldown, XENO_UNRESTING_COOLDOWN)
 
-/mob/living/carbon/xenomorph/set_jump_component(duration = 0.5 SECONDS, cooldown = 2 SECONDS, cost = 0, height = 16, sound = null, flags = JUMP_SHADOW, pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
+/mob/living/carbon/xenomorph/set_jump_component(duration = 0.5 SECONDS, cooldown = 2 SECONDS, cost = 0, height = 16, sound = null, flags = JUMP_SHADOW, jump_pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
 	var/gravity = get_gravity()
 	if(gravity < 1) //low grav
 		duration *= 2.5 - gravity
 		cooldown *= 2 - gravity
 		height *= 2 - gravity
 		if(gravity <= 0.75)
-			pass_flags |= PASS_DEFENSIVE_STRUCTURE
+			jump_pass_flags |= PASS_DEFENSIVE_STRUCTURE
 	else if(gravity > 1) //high grav
 		duration *= gravity * 0.5
 		cooldown *= gravity
 		height *= gravity * 0.5
-
-	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = 0, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = pass_flags)
+	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = 0, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = jump_pass_flags)
 
 /mob/living/carbon/xenomorph/send_speech(message_raw, message_range = 7, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode,)
 	. = ..()

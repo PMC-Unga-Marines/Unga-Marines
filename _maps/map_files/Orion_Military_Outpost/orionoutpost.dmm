@@ -1,4 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ab" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/misc/structure/table_parts,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "ac" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
@@ -23,6 +28,10 @@
 	dir = 4
 	},
 /area/orion_outpost/surface/landing_pad_external)
+"al" = (
+/obj/item/clothing/under/marine,
+/turf/open/floor/plating/ground/desertdam/asphalt,
+/area/orion_outpost/ground/outposts)
 "ao" = (
 /obj/structure/flora/tree/joshua,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -85,7 +94,7 @@
 /turf/closed/shuttle/dropship_regular/top_corner/alt{
 	dir = 1
 	},
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "aB" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/mono,
@@ -134,10 +143,6 @@
 /obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/orion_outpost/ground/outpostsw)
-"aK" = (
-/obj/effect/attach_point/electronics/dropship1,
-/turf/open/floor/plating,
-/area/orion_outpost/surface/landing_pad)
 "aM" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -148,12 +153,9 @@
 	dir = 1
 	},
 /area/orion_outpost/ground/outpostcent)
-"aQ" = (
-/obj/structure/flora/grass/tallgrass/tallgrasscorner{
-	color = "#7a8c54"
-	},
-/turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/ground/outpostse)
+"aP" = (
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/river/riverside_north)
 "aR" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -216,8 +218,8 @@
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/canteen)
 "bc" = (
-/obj/structure/desertdam/decals/road{
-	dir = 8
+/obj/machinery/door/airlock/multi_tile/mainship/blackgeneric{
+	dir = 2
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outposts)
@@ -275,6 +277,9 @@
 	dir = 1
 	},
 /area/orion_outpost/ground/outpostcent)
+"bo" = (
+/turf/closed/wall/mainship/gray,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "bp" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/cargo/arrow{
@@ -427,7 +432,7 @@
 "bV" = (
 /obj/effect/landmark/weed_node,
 /obj/structure/platform{
-	dir = 5
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/orion_outpost/surface/building/tadpolepad)
@@ -473,7 +478,7 @@
 /area/orion_outpost/surface/building/vehicledepot)
 "ce" = (
 /turf/closed/shuttle/dropship_regular/top_corner/alt,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "cg" = (
 /obj/structure/flora/ausbushes/reedbush,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -487,6 +492,12 @@
 	dir = 1
 	},
 /area/orion_outpost/surface/building/prep)
+"cj" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/command)
 "cl" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/item/ammo_casing/bullet,
@@ -503,6 +514,10 @@
 /obj/structure/bed/bunkbed,
 /turf/open/floor/wood,
 /area/orion_outpost/surface/building/dorms)
+"co" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/surface/building/canteen)
 "cp" = (
 /obj/structure/cable,
 /obj/machinery/light{
@@ -524,7 +539,7 @@
 	dir = 8
 	},
 /turf/open/floor/mainship/wylogo/wy3,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "ct" = (
 /obj/effect/landmark/start/job/survivor,
 /turf/open/floor/mainship/mono,
@@ -585,10 +600,13 @@
 	dir = 9
 	},
 /area/orion_outpost/surface/building/cargo)
+"cM" = (
+/obj/effect/landmark/excavation_site_spawner,
+/obj/machinery/grill,
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/outpostcent)
 "cN" = (
-/obj/structure/prop/vehicle/crawler/crawler_red{
-	dir = 4
-	},
+/obj/structure/prop/vehicle/crawler/crawler_red/destructible,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostw)
 "cO" = (
@@ -603,7 +621,9 @@
 	},
 /area/orion_outpost/surface/building/engineering)
 "cQ" = (
-/obj/structure/prop/vehicle/truck,
+/obj/structure/prop/vehicle/truck/destructible{
+	dir = 8
+	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostcent)
 "cR" = (
@@ -663,11 +683,15 @@
 /obj/machinery/status_display,
 /turf/closed/wall/mainship/gray,
 /area/orion_outpost/surface/building/tadpolepad)
+"de" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/underground/caveS)
 "df" = (
 /turf/closed/shuttle/dropship_regular/interior_wall{
 	dir = 1
 	},
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "dg" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/green/corner{
@@ -711,6 +735,15 @@
 /obj/structure/shuttle/engine/propulsion/burst/right,
 /turf/open/shuttle/dropship/three,
 /area/orion_outpost/surface/building/tadpolepad)
+"dq" = (
+/obj/effect/turf_decal/riverdecal,
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outpostse)
+"dr" = (
+/obj/item/paper,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "dt" = (
 /obj/machinery/light,
 /turf/open/floor/mainship/mono,
@@ -809,10 +842,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/administration)
-"dO" = (
-/obj/item/stack/rods,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/surface/building/crashedufo)
 "dP" = (
 /obj/structure/cargo_container/horizontal{
 	dir = 1
@@ -831,6 +860,11 @@
 "dS" = (
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostnw)
+"dT" = (
+/obj/effect/landmark/weed_node,
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "dU" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/blue,
@@ -906,12 +940,21 @@
 	dir = 4
 	},
 /area/orion_outpost/surface/building/cargo)
+"ej" = (
+/obj/effect/landmark/weed_node,
+/turf/closed/wall/mainship/gray,
+/area/orion_outpost/ground/outposte)
 "el" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
 	},
 /turf/open/floor/plating/dmg1,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
+"em" = (
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 6
+	},
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "en" = (
 /obj/structure/table/mainship,
 /turf/open/floor/mainship/red{
@@ -977,6 +1020,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outposts)
+"eA" = (
+/obj/machinery/photocopier,
+/turf/open/floor/mainship/blue,
+/area/orion_outpost/surface/building/command)
 "eC" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -1078,6 +1125,10 @@
 /obj/item/reagent_containers/food/snacks/mre_pack/meal2,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/canteen)
+"eS" = (
+/obj/structure/filingcabinet,
+/turf/open/floor/mainship/blue,
+/area/orion_outpost/surface/building/administration)
 "eT" = (
 /obj/structure/table/mainship,
 /obj/machinery/computer3,
@@ -1085,6 +1136,12 @@
 	dir = 4
 	},
 /area/orion_outpost/surface/building/atc)
+"eV" = (
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 1
+	},
+/area/orion_outpost/ground/outposte)
 "eW" = (
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/surface/landing_pad2_external)
@@ -1118,6 +1175,13 @@
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostsw)
+"fe" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/surface/building/canteen)
 "ff" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
@@ -1156,6 +1220,10 @@
 /obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/atc)
+"fo" = (
+/obj/structure/window/framed/mainship/gray,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "fp" = (
 /obj/structure/sink{
 	dir = 8
@@ -1200,18 +1268,6 @@
 /obj/structure/prop/mainship/mission_planning_system,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
-"fy" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/structure/platform{
-	dir = 1
-	},
-/turf/open/floor/plating/ground/concrete/lines{
-	dir = 1
-	},
-/area/orion_outpost/ground/outposts)
 "fz" = (
 /turf/open/floor/plating/ground/concrete/edge{
 	dir = 1
@@ -1263,6 +1319,10 @@
 	dir = 1
 	},
 /area/orion_outpost/surface/building/brig)
+"fK" = (
+/obj/item/bedsheet/brown,
+/turf/open/floor/plating/ground/desertdam/asphalt,
+/area/orion_outpost/ground/outposts)
 "fL" = (
 /turf/open/floor/plating/icefloor/warnplate{
 	dir = 4
@@ -1281,7 +1341,9 @@
 	},
 /area/orion_outpost/ground/outpostw)
 "fQ" = (
-/obj/structure/prop/vehicle/truck,
+/obj/structure/prop/vehicle/truck/destructible{
+	dir = 8
+	},
 /turf/open/floor/plating/ground/concrete/lines,
 /area/orion_outpost/ground/outposts)
 "fR" = (
@@ -1325,14 +1387,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
-"gd" = (
-/obj/structure/window{
-	dir = 4
+"ge" = (
+/obj/effect/spawner/random/misc/structure/supplycrate/normalweighted,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 5
 	},
-/turf/open/floor/mainship/blue{
-	dir = 8
-	},
-/area/orion_outpost/surface/building/command)
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "gf" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 9
@@ -1377,12 +1437,23 @@
 /obj/structure/cargo_container/hd,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
+"gr" = (
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 9
+	},
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "gs" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/canteen)
+"gu" = (
+/obj/machinery/door/airlock/mainship/generic{
+	dir = 2
+	},
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/surface/building/command)
 "gw" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -1442,19 +1513,27 @@
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outposte)
+"gI" = (
+/turf/open/floor/mech_bay_recharge_floor,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "gJ" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/green{
 	dir = 1
 	},
 /area/orion_outpost/surface/building/prep)
+"gK" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic/noglass{
+	dir = 2
+	},
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "gL" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
 	color = "#7a8c54";
 	dir = 1
 	},
-/obj/effect/landmark/weed_node,
-/turf/open/ground/grass/weedable/patch/grassyellow,
+/turf/closed/mineral/smooth,
 /area/orion_outpost/ground/outpostse)
 "gM" = (
 /turf/open/floor/plating/ground/concrete/lines,
@@ -1464,10 +1543,10 @@
 /turf/open/floor/mainship/orange{
 	dir = 4
 	},
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "gO" = (
 /obj/machinery/gibber,
-/turf/open/floor/freezer,
+/turf/open/floor/mainship/sterile/dark,
 /area/orion_outpost/surface/building/canteen)
 "gP" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -1484,15 +1563,24 @@
 /obj/item/mortal_shell/howitzer/incendiary,
 /turf/open/floor/mainship/black/full,
 /area/orion_outpost/surface/building/ammodepot)
+"gS" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "gT" = (
 /turf/closed/shuttle/dropship_regular/interior_wall,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "gU" = (
 /obj/machinery/landinglight/lz2{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/surface/landing_pad2_external)
+"gV" = (
+/obj/effect/landmark/weed_node,
+/obj/machinery/light,
+/turf/open/floor/mainship/blue,
+/area/orion_outpost/surface/building/administration)
 "gX" = (
 /obj/structure/platform{
 	dir = 10
@@ -1503,6 +1591,14 @@
 /obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/administration)
+"gZ" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/mainship/blue{
+	dir = 9
+	},
+/area/orion_outpost/surface/building/command)
 "hf" = (
 /obj/effect/spawner/random/misc/structure/supplycrate/normalweighted,
 /turf/open/floor/plating/ground/concrete,
@@ -1512,6 +1608,15 @@
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outposts)
+"hj" = (
+/obj/item/newspaper,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
+"hk" = (
+/obj/structure/cable,
+/obj/item/clothing/under/marine,
+/turf/open/floor/plating/ground/desertdam/asphalt,
 /area/orion_outpost/ground/outposts)
 "hl" = (
 /obj/structure/table/mainship,
@@ -1523,7 +1628,7 @@
 "hm" = (
 /obj/structure/bed/chair/dropship/passenger,
 /turf/open/floor/podhatch/floor,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "hn" = (
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 4
@@ -1551,6 +1656,9 @@
 	dir = 4
 	},
 /area/orion_outpost/surface/building/command)
+"ht" = (
+/turf/closed/wall/mainship/gray,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "hu" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete,
@@ -1574,12 +1682,6 @@
 /obj/effect/landmark/corpsespawner/bridgeofficer,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/command)
-"hx" = (
-/obj/structure/desertdam/decals/road/line{
-	dir = 1
-	},
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/ground/outposts)
 "hz" = (
 /obj/structure/barricade/metal,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -1650,7 +1752,8 @@
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,
-/turf/open/floor/freezer,
+/obj/effect/ai_node,
+/turf/open/floor/mainship/sterile/dark,
 /area/orion_outpost/surface/building/canteen)
 "hT" = (
 /obj/structure/cable,
@@ -1669,6 +1772,9 @@
 /obj/structure/cable,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outpostcent)
+"hW" = (
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "hX" = (
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outposts)
@@ -1681,11 +1787,22 @@
 /area/orion_outpost/surface/building/monitor)
 "ia" = (
 /turf/open/shuttle/brig,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "ic" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/dorms)
+"id" = (
+/obj/structure/cable,
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/command)
+"ie" = (
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/plating/scorched,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "ig" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -1752,13 +1869,6 @@
 /obj/structure/bed/chair/office/dark,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
-"it" = (
-/obj/structure/desertdam/decals/road{
-	dir = 8
-	},
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/ground/outposts)
 "iu" = (
 /obj/machinery/power/port_gen/pacman,
 /turf/open/floor/mainship/orange{
@@ -1873,6 +1983,10 @@
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostsw)
+"iW" = (
+/obj/structure/bedsheetbin,
+/turf/open/floor/plating/ground/desertdam/asphalt,
+/area/orion_outpost/ground/outposts)
 "iX" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
@@ -1940,8 +2054,8 @@
 /obj/structure/stairs/seamless/platform_vert{
 	dir = 4
 	},
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/ground/outpostcent)
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outposte)
 "jl" = (
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -1961,6 +2075,9 @@
 	},
 /turf/open/floor/mainship/orange/full,
 /area/orion_outpost/surface/building/cargo)
+"jp" = (
+/turf/closed/mineral/smooth,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "jq" = (
 /obj/structure/sink,
 /obj/effect/landmark/weed_node,
@@ -1981,6 +2098,10 @@
 	dir = 4
 	},
 /area/orion_outpost/surface/building/command)
+"ju" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/surface/building/canteen)
 "jv" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -2059,6 +2180,10 @@
 /obj/machinery/computer3,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/brig)
+"jL" = (
+/obj/effect/landmark/weed_node,
+/turf/closed/mineral/smooth,
+/area/orion_outpost/ground/outposte)
 "jM" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
@@ -2118,7 +2243,7 @@
 	dir = 10
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "jX" = (
 /obj/structure/toilet{
 	dir = 4
@@ -2136,13 +2261,15 @@
 "jZ" = (
 /turf/open/floor/plating/ground/concrete/lines,
 /area/orion_outpost/surface/building/cargo)
-"kb" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostse)
 "kc" = (
 /turf/open/floor/mainship/blue,
 /area/orion_outpost/surface/building/command)
+"kd" = (
+/obj/structure/closet/walllocker/hydrant/extinguisher,
+/turf/open/floor/mainship/blue{
+	dir = 1
+	},
+/area/orion_outpost/surface/building/administration)
 "ke" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -2214,6 +2341,10 @@
 /obj/structure/platform,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/vehicledepot)
+"kw" = (
+/obj/structure/girder/displaced,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/ground/outposts)
 "ky" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -2254,7 +2385,7 @@
 "kF" = (
 /obj/effect/turf_decal/riverdecal,
 /obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
+/turf/closed/mineral/smooth,
 /area/orion_outpost/ground/outposte)
 "kH" = (
 /obj/machinery/atmospherics/components/unary/cryo_cell,
@@ -2268,6 +2399,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outposte)
+"kJ" = (
+/obj/structure/closet/crate/science,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "kK" = (
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/prep)
@@ -2280,7 +2415,7 @@
 	dir = 2
 	},
 /turf/open/shuttle/dropship/floor,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "kO" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
 	color = "#7a8c54";
@@ -2288,6 +2423,10 @@
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostw)
+"kP" = (
+/obj/effect/turf_decal/riverdecal,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/river/riverside_north)
 "kQ" = (
 /obj/structure/table/mainship,
 /obj/structure/platform,
@@ -2322,7 +2461,9 @@
 	},
 /area/orion_outpost/surface/building/ammodepot)
 "kX" = (
-/obj/structure/prop/vehicle/truck,
+/obj/structure/prop/vehicle/truck/destructible{
+	dir = 8
+	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostw)
 "kY" = (
@@ -2349,14 +2490,16 @@
 	},
 /area/orion_outpost/ground/outpostw)
 "le" = (
-/obj/structure/prop/vehicle/truck,
+/obj/structure/prop/vehicle/truck/destructible{
+	dir = 8
+	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outposte)
 "lf" = (
 /turf/open/floor/mainship/orange{
 	dir = 4
 	},
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "lh" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -2482,6 +2625,14 @@
 "lJ" = (
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/breakroom)
+"lK" = (
+/obj/structure/flora/ausbushes/reedbush,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outposte)
+"lL" = (
+/obj/effect/ai_node,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "lM" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/landmark/weed_node,
@@ -2529,10 +2680,6 @@
 "lW" = (
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outpostnw)
-"lX" = (
-/obj/structure/bed/chair,
-/turf/open/floor/mainship/mono,
-/area/orion_outpost/surface/building/bunker)
 "lY" = (
 /obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass,
 /obj/structure/cable,
@@ -2549,6 +2696,9 @@
 /obj/structure/cable,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostw)
+"mc" = (
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/river/riverside_south)
 "md" = (
 /obj/machinery/iv_drip,
 /obj/structure/sink{
@@ -2608,6 +2758,10 @@
 	dir = 1
 	},
 /area/orion_outpost/ground/outpostcent)
+"mr" = (
+/obj/item/stack/rods,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outposts)
 "ms" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
 	dir = 4
@@ -2672,6 +2826,10 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/vehicledepot)
+"mH" = (
+/obj/effect/landmark/weed_node,
+/turf/closed/wall/mainship/gray,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "mI" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 1
@@ -2680,8 +2838,15 @@
 /area/orion_outpost/surface/building/nebuilding)
 "mJ" = (
 /obj/structure/stairs/seamless/platform_vert,
-/turf/open/floor/plating/ground/concrete,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outpostcent)
+"mK" = (
+/obj/structure/flora/grass/tallgrass/tallgrasscorner{
+	color = "#7a8c54";
+	dir = 10
+	},
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "mL" = (
 /obj/structure/closet/crate/trashcart,
 /turf/open/floor/mainship/orange,
@@ -2692,7 +2857,9 @@
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/command)
 "mN" = (
-/obj/structure/prop/vehicle/truck/truckcargo,
+/obj/structure/prop/vehicle/truck/truckcargo/destructible{
+	dir = 8
+	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostnw)
 "mO" = (
@@ -2729,7 +2896,7 @@
 /area/orion_outpost/ground/outpostsw)
 "mW" = (
 /turf/closed/shuttle/dropship_regular/backwall,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "mX" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -2840,7 +3007,9 @@
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
 "np" = (
-/obj/structure/prop/vehicle/van,
+/obj/structure/prop/vehicle/van/destructible{
+	dir = 8
+	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostsw)
 "nq" = (
@@ -2970,7 +3139,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostnw)
 "nT" = (
-/obj/structure/prop/vehicle/crawler/crawler_red,
+/obj/structure/prop/vehicle/crawler/crawler_red/destructible,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostse)
 "nU" = (
@@ -3028,6 +3197,9 @@
 	dir = 5
 	},
 /area/orion_outpost/surface/building/vehicledepot)
+"oi" = (
+/turf/open/floor/plating/ground/concrete,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "oj" = (
 /obj/structure/bed/chair/office/dark,
 /turf/open/floor/mainship/red{
@@ -3046,9 +3218,13 @@
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/command)
 "on" = (
-/obj/structure/prop/vehicle/crawler/crawler_cargo,
+/obj/structure/prop/vehicle/crawler/crawler_cargo/destructible,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostse)
+"op" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/mineral/smooth,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "or" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating/ground/concrete/lines,
@@ -3113,9 +3289,17 @@
 	dir = 4
 	},
 /turf/open/floor/mainship/blue{
-	dir = 6
+	dir = 4
 	},
 /area/orion_outpost/surface/building/command)
+"oD" = (
+/obj/item/reagent_containers/jerrycan,
+/turf/open/floor/plating/scorched,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
+"oE" = (
+/obj/machinery/grill,
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/outpostcent)
 "oG" = (
 /turf/open/floor/mainship/terragov/north{
 	dir = 4
@@ -3141,6 +3325,9 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/bunker)
+"oK" = (
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "oO" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/concrete,
@@ -3298,12 +3485,15 @@
 /area/orion_outpost/ground/outpostcent)
 "py" = (
 /obj/structure/table/mainship,
+/obj/item/newspaper,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/command)
-"pz" = (
-/obj/structure/desertdam/decals/road/edge/long,
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/ground/outposts)
+"pA" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 8
+	},
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "pB" = (
 /obj/item/mortal_shell/howitzer/incendiary,
 /turf/open/floor/mainship/black{
@@ -3364,7 +3554,7 @@
 /area/orion_outpost/surface/building/canteen)
 "pK" = (
 /obj/effect/ai_node,
-/obj/structure/stairs/seamless{
+/obj/structure/platform{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -3378,6 +3568,12 @@
 "pN" = (
 /turf/closed/wall/mainship/gray,
 /area/orion_outpost/surface/building/administration)
+"pO" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/command)
 "pP" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete/lines{
@@ -3388,6 +3584,9 @@
 /obj/structure/table/mainship,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/prep)
+"pR" = (
+/turf/open/floor/plating/ground/desertdam/asphalt,
+/area/orion_outpost/ground/underground/caveS)
 "pS" = (
 /obj/structure/closet/secure_closet/medical3,
 /turf/open/floor/mainship/sterile/dark,
@@ -3465,7 +3664,7 @@
 /area/orion_outpost/surface/building/prep)
 "qi" = (
 /turf/closed/shuttle/dropship_regular/top_corner,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "qj" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -3478,7 +3677,7 @@
 	},
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/ground/outposte)
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "ql" = (
 /obj/item/tool/wrench,
 /obj/effect/ai_node,
@@ -3503,12 +3702,17 @@
 /obj/structure/platform,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
+"qs" = (
+/obj/machinery/shower,
+/obj/structure/curtain/open/shower,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/ground/outposts)
 "qu" = (
 /obj/structure/bed/chair/dropship/passenger{
 	dir = 4
 	},
 /turf/open/floor/mainship/wylogo,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "qv" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
@@ -3533,6 +3737,12 @@
 /obj/structure/prop/brokenvendor/brokenuniformvendor/specialist,
 /turf/open/floor/mainship/green,
 /area/orion_outpost/surface/building/prep)
+"qz" = (
+/obj/structure/table/mainship,
+/obj/item/newspaper,
+/obj/item/newspaper,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/administration)
 "qA" = (
 /obj/effect/landmark/weed_node,
 /obj/structure/desertdam/decals/road/line{
@@ -3604,6 +3814,13 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveE)
+"qQ" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/obj/structure/curtain/open/shower,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/ground/outposts)
 "qR" = (
 /obj/effect/turf_decal/riverdecal,
 /obj/effect/ai_node,
@@ -3678,11 +3895,17 @@
 	dir = 9
 	},
 /area/orion_outpost/surface/building/command)
+"rl" = (
+/obj/effect/landmark/weed_node,
+/obj/item/trash/cigbutt,
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "rm" = (
 /obj/structure/stairs/seamless/platform_vert{
 	dir = 1
 	},
-/turf/open/floor/plating/ground/concrete,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outpostcent)
 "ro" = (
 /obj/structure/flora/tree/joshua,
@@ -3694,6 +3917,10 @@
 	},
 /turf/closed/mineral/smooth,
 /area/orion_outpost/ground/outpostnw)
+"rq" = (
+/obj/machinery/processor,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/surface/building/canteen)
 "rr" = (
 /obj/structure/prop/mainship/hangar_stencil/two,
 /turf/open/floor/plating/ground/concrete,
@@ -3740,6 +3967,10 @@
 	dir = 1
 	},
 /area/orion_outpost/ground/outpostcent)
+"rz" = (
+/obj/effect/turf_decal/riverdecal,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/river/riverside_south)
 "rA" = (
 /obj/structure/prop/brokenvendor/brokenmarinemedvendor,
 /turf/open/floor/mainship/mono,
@@ -3752,6 +3983,10 @@
 /obj/structure/flora/pottedplant/twentytwo,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/dorms)
+"rD" = (
+/obj/structure/girder/displaced,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "rE" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -3788,6 +4023,9 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostse)
+"rL" = (
+/turf/open/floor/freezer,
+/area/orion_outpost/surface/building/canteen)
 "rM" = (
 /obj/structure/cable,
 /obj/effect/landmark/corpsespawner/marine,
@@ -3855,6 +4093,10 @@
 /obj/structure/cryofeed,
 /turf/open/liquid/water/river,
 /area/orion_outpost/ground/river/riverside_south)
+"sb" = (
+/obj/structure/reagent_dispensers/beerkeg,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "sc" = (
 /turf/open/floor/mainship/cargo/arrow{
 	dir = 4
@@ -3886,6 +4128,12 @@
 /obj/structure/cable,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/orion_outpost/ground/outposts)
+"si" = (
+/obj/machinery/door/airlock/multi_tile/mainship/blackgeneric{
+	dir = 2
+	},
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/bunker)
 "sj" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -3929,6 +4177,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outposte)
+"sq" = (
+/obj/structure/inflatable/popped,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "ss" = (
 /turf/open/floor/mainship/blue{
 	dir = 8
@@ -3941,6 +4193,10 @@
 "su" = (
 /turf/open/floor/plating/ground/concrete/lines,
 /area/orion_outpost/ground/outpostsw)
+"sv" = (
+/obj/machinery/optable,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "sw" = (
 /obj/structure/barricade/plasteel,
 /turf/open/floor/plating/ground/concrete/lines{
@@ -3961,7 +4217,7 @@
 	dir = 9
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/ground/outposte)
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "sA" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/blue{
@@ -4064,7 +4320,7 @@
 "sT" = (
 /obj/structure/bed/chair/dropship/passenger,
 /turf/open/floor/plating/dmg1,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "sU" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
 	color = "#7a8c54";
@@ -4078,12 +4334,13 @@
 /turf/closed/mineral/smooth,
 /area/orion_outpost/surface/building/atc)
 "sW" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
 /obj/effect/landmark/corpsespawner/marine,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/bunker)
+"sY" = (
+/obj/structure/sink,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/surface/building/canteen)
 "sZ" = (
 /obj/structure/cable,
 /obj/structure/desertdam/decals/road/line{
@@ -4118,6 +4375,11 @@
 "te" = (
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/orion_outpost/ground/outpostse)
+"tf" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/effect/ai_node,
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/underground/caveS)
 "tg" = (
 /turf/open/floor/mainship/red{
 	dir = 1
@@ -4174,6 +4436,10 @@
 	dir = 4
 	},
 /area/orion_outpost/surface/building/ammodepot)
+"tw" = (
+/obj/effect/spawner/random/misc/structure/supplycrate/normalweighted,
+/turf/open/floor/plating/ground/concrete,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "tx" = (
 /obj/structure/closet/secure_closet/engineering_welding,
 /turf/open/floor/mainship/orange{
@@ -4188,6 +4454,15 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/bunker)
+"tB" = (
+/obj/machinery/washing_machine,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outpostse)
+"tC" = (
+/obj/item/alienjar,
+/obj/structure/table/reinforced,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "tD" = (
 /obj/structure/flora/grass/tallgrass{
 	color = "#7a8c54"
@@ -4202,6 +4477,10 @@
 	dir = 4
 	},
 /area/orion_outpost/ground/outpostw)
+"tF" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/underground/caveS)
 "tG" = (
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -4232,10 +4511,6 @@
 	dir = 6
 	},
 /area/orion_outpost/surface/building/engineering)
-"tP" = (
-/obj/effect/ai_node,
-/turf/open/floor/freezer,
-/area/orion_outpost/surface/building/canteen)
 "tS" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -4273,6 +4548,10 @@
 	dir = 1
 	},
 /area/orion_outpost/surface/building/prep)
+"tZ" = (
+/obj/effect/spawner/random/misc/structure/random_piano,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "ua" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
@@ -4307,7 +4586,7 @@
 /turf/open/floor/mainship/orange{
 	dir = 6
 	},
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "ui" = (
 /turf/open/floor/mainship/blue{
 	dir = 4
@@ -4337,15 +4616,26 @@
 "un" = (
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostsw)
+"uo" = (
+/obj/effect/landmark/corpsespawner/pmc,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "up" = (
 /obj/structure/closet/crate/science,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
+"ur" = (
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/surface/building/canteen)
 "uv" = (
 /obj/structure/prop/mainship/mission_planning_system,
 /obj/structure/platform,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/vehicledepot)
+"uw" = (
+/obj/item/newspaper,
+/turf/open/floor/plating/scorched,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "ux" = (
 /obj/structure/bed/chair,
 /obj/machinery/light{
@@ -4361,6 +4651,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
+"uA" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "uB" = (
 /obj/structure/nuke_disk_candidate,
 /turf/open/floor/mainship/mono,
@@ -4374,9 +4668,14 @@
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/prep)
+"uF" = (
+/obj/machinery/washing_machine,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/bunker)
 "uG" = (
 /obj/effect/landmark/corpsespawner/marine,
 /obj/effect/ai_node,
+/obj/effect/spawner/random/weaponry/gun/rifles,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/bunker)
 "uI" = (
@@ -4406,6 +4705,11 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostw)
+"uO" = (
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 10
+	},
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "uQ" = (
 /obj/structure/flora/grass/tallgrass{
 	color = "#7a8c54"
@@ -4440,6 +4744,12 @@
 /obj/structure/flora/tree/joshua,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostw)
+"uZ" = (
+/obj/structure/closet/secure_closet/medical3,
+/turf/open/floor/mainship/sterile/corner{
+	dir = 8
+	},
+/area/orion_outpost/surface/building/medbay)
 "va" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -4447,15 +4757,6 @@
 	dir = 8
 	},
 /area/orion_outpost/ground/outpostnw)
-"vb" = (
-/obj/structure/desertdam/decals/road/edge/long{
-	dir = 1
-	},
-/obj/structure/platform{
-	dir = 5
-	},
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/ground/outposts)
 "vc" = (
 /obj/structure/flora/tree/joshua,
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -4498,7 +4799,7 @@
 /turf/open/floor/mainship/orange{
 	dir = 4
 	},
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "vl" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
@@ -4521,6 +4822,12 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/vehicledepot)
+"vp" = (
+/obj/structure/closet/secure_closet/medical3,
+/turf/open/floor/mainship/sterile/corner{
+	dir = 1
+	},
+/area/orion_outpost/surface/building/medbay)
 "vq" = (
 /obj/structure/prop/mainship/sensor_computer2,
 /turf/open/floor/mainship/mono,
@@ -4624,9 +4931,6 @@
 	dir = 4
 	},
 /area/orion_outpost/surface/landing_pad_2)
-"vM" = (
-/turf/open/floor/mainship/blue/corner,
-/area/orion_outpost/surface/building/administration)
 "vP" = (
 /obj/machinery/optable,
 /turf/open/floor/mainship/sterile/side{
@@ -4642,7 +4946,7 @@
 "vS" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/orange,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "vT" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -4712,11 +5016,11 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostw)
 "wk" = (
-/obj/structure/prop/vehicle/crane,
+/obj/structure/prop/vehicle/crane/destructible,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outposte)
 "wl" = (
-/obj/machinery/vending/cola,
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/command)
 "wm" = (
@@ -4728,6 +5032,11 @@
 	dir = 4
 	},
 /area/orion_outpost/surface/building/armory)
+"wn" = (
+/obj/item/bedsheet/brown,
+/obj/structure/bedsheetbin,
+/turf/open/floor/plating/ground/desertdam/asphalt,
+/area/orion_outpost/ground/outposts)
 "wo" = (
 /obj/structure/flora/tree/joshua,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -4747,13 +5056,13 @@
 "wr" = (
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/atc)
+"ws" = (
+/obj/item/stack/rods,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/underground/caveS)
 "wt" = (
 /turf/closed/mineral/smooth,
 /area/orion_outpost/ground/outpostsw)
-"wu" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/dmg1,
-/area/orion_outpost/surface/building/crashedufo)
 "wv" = (
 /turf/open/floor/mainship/blue/corner{
 	dir = 8
@@ -4764,6 +5073,19 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/orange,
 /area/orion_outpost/surface/building/cargo)
+"wy" = (
+/obj/structure/largecrate/random/case/double,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 1
+	},
+/area/orion_outpost/ground/underground/caveN/garbledradio)
+"wz" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/misc/earmuffs,
+/obj/effect/spawner/random/misc/earmuffs,
+/obj/effect/spawner/random/misc/earmuffs,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "wA" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -4823,7 +5145,7 @@
 	},
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "wR" = (
 /obj/structure/flora/grass/tallgrass{
 	color = "#7a8c54"
@@ -4846,12 +5168,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/canteen)
-"wU" = (
-/obj/structure/filingcabinet,
-/turf/open/floor/mainship/blue{
-	dir = 4
-	},
-/area/orion_outpost/surface/building/administration)
 "wV" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
 	color = "#7a8c54";
@@ -4876,7 +5192,7 @@
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "xa" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -5109,6 +5425,10 @@
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostcent)
+"yh" = (
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/concrete/lines,
+/area/orion_outpost/ground/outpostcent)
 "yi" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -5187,7 +5507,9 @@
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outpostw)
 "yy" = (
-/obj/structure/prop/vehicle/truck,
+/obj/structure/prop/vehicle/truck/destructible{
+	dir = 8
+	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostsw)
 "yz" = (
@@ -5203,6 +5525,10 @@
 /obj/structure/window/framed/mainship/gray,
 /turf/open/floor/mainship/sterile/white,
 /area/orion_outpost/surface/building/dorms)
+"yD" = (
+/obj/machinery/griddle,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/surface/building/canteen)
 "yE" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -5217,7 +5543,7 @@
 /area/orion_outpost/surface/building/monitor)
 "yH" = (
 /turf/open/floor/mainship/floor,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "yI" = (
 /obj/machinery/power/smes/buildable{
 	capacity = 1e+006;
@@ -5231,6 +5557,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/orion_outpost/surface/building/barracks)
+"yM" = (
+/obj/item/trash/cigbutt,
+/turf/open/floor/plating/scorched,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "yO" = (
 /obj/effect/turf_decal/riverdecal,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -5284,6 +5614,12 @@
 	},
 /turf/open/floor/plating/ground/concrete/lines,
 /area/orion_outpost/surface/landing_pad_external)
+"yY" = (
+/obj/effect/ai_node,
+/turf/open/floor/mainship/blue{
+	dir = 8
+	},
+/area/orion_outpost/surface/building/command)
 "yZ" = (
 /turf/open/floor/plating/ground/concrete/lines,
 /area/orion_outpost/ground/outposts)
@@ -5330,6 +5666,10 @@
 /obj/item/ammo_casing/bullet,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outposte)
+"zl" = (
+/obj/effect/landmark/weed_node,
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/underground/caveS)
 "zm" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -5360,7 +5700,7 @@
 "zw" = (
 /obj/item/stack/rods,
 /turf/open/floor/plating/dmg1,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "zx" = (
 /obj/structure/reagent_dispensers/fueltank/barrel,
 /turf/open/floor/plating/ground/concrete/lines{
@@ -5451,16 +5791,15 @@
 	dir = 10
 	},
 /area/orion_outpost/surface/building/cargo)
+"zU" = (
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/ground/outposts)
 "zV" = (
 /obj/structure/stairs/seamless/platform_vert{
 	dir = 8
 	},
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/tadpolepad)
-"zW" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
-/turf/open/floor/freezer,
-/area/orion_outpost/surface/building/canteen)
 "zX" = (
 /obj/machinery/door/airlock/mainship/generic,
 /turf/open/floor/mainship/mono,
@@ -5501,7 +5840,7 @@
 "Af" = (
 /obj/item/stack/sheet/metal,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "Ag" = (
 /obj/structure/prop/brokenvendor/brokenweaponsrack,
 /turf/open/floor/mainship/green,
@@ -5530,16 +5869,22 @@
 	dir = 8
 	},
 /area/orion_outpost/ground/outpostw)
-"An" = (
-/obj/effect/landmark/xeno_silo_spawn,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostse)
 "Ap" = (
 /obj/structure/stairs/seamless/platform_vert{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/surface/building/vehicledepot)
+"Aq" = (
+/obj/effect/turf_decal/riverdecal,
+/obj/structure/girder/displaced,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outpostse)
+"Ar" = (
+/obj/effect/landmark/weed_node,
+/obj/item/clothing/under/marine,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/bunker)
 "As" = (
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 1
@@ -5571,6 +5916,12 @@
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostnw)
+"Ay" = (
+/obj/machinery/photocopier,
+/turf/open/floor/mainship/blue{
+	dir = 1
+	},
+/area/orion_outpost/surface/building/administration)
 "Az" = (
 /obj/structure/flora/grass/tallgrass{
 	color = "#7a8c54"
@@ -5654,19 +6005,17 @@
 	},
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/ground/outpostse)
-"AU" = (
-/obj/structure/desertdam/decals/road{
-	dir = 1
-	},
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/ground/outposts)
+/area/orion_outpost/ground/underground/caveS)
 "AW" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/orange{
 	dir = 8
 	},
 /area/orion_outpost/surface/building/cargo)
+"AX" = (
+/obj/structure/rack,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "AZ" = (
 /obj/effect/landmark/corpsespawner/pmc,
 /obj/effect/decal/cleanable/blood,
@@ -5783,6 +6132,12 @@
 /obj/effect/spawner/random/weaponry/gun/rifles,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/engineering)
+"BC" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/misc/book,
+/obj/effect/spawner/random/misc/book,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "BD" = (
 /obj/structure/cable,
 /turf/open/floor/plating/ground/concrete,
@@ -5805,6 +6160,11 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/orion_outpost/ground/underground/caveS)
+"BJ" = (
+/obj/effect/landmark/corpsespawner/security,
+/obj/item/stack/rods,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/bunker)
 "BK" = (
 /obj/structure/table/mainship,
 /obj/machinery/computer/emails{
@@ -5829,7 +6189,7 @@
 /area/orion_outpost/surface/building/tadpolepad)
 "BN" = (
 /turf/open/floor/podhatch/floor,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "BO" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/closed/mineral/smooth,
@@ -5858,13 +6218,17 @@
 /obj/structure/stairs/seamless/platform_vert{
 	dir = 8
 	},
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/ground/outpostcent)
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outposte)
 "BV" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/monitor)
+"BW" = (
+/obj/structure/powerloader_wreckage,
+/turf/open/floor/mech_bay_recharge_floor,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "BX" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/landmark/weed_node,
@@ -5875,6 +6239,10 @@
 /obj/machinery/power/apc/drained,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/breakroom)
+"BZ" = (
+/obj/structure/nuke_disk_candidate,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/administration)
 "Ca" = (
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 1
@@ -5944,6 +6312,10 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
+"Cn" = (
+/obj/effect/spawner/random/misc/structure/supplycrate/normalweighted,
+/turf/open/floor/plating/ground/concrete/lines,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "Co" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
 	color = "#7a8c54"
@@ -5970,7 +6342,7 @@
 "Cr" = (
 /obj/structure/shuttle/engine/propulsion/burst/right,
 /turf/open/shuttle/dropship/three,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "Cu" = (
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 8
@@ -6039,7 +6411,7 @@
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostnw)
 "CH" = (
-/obj/structure/prop/vehicle/van{
+/obj/structure/prop/vehicle/van/destructible{
 	dir = 8
 	},
 /obj/structure/platform{
@@ -6068,7 +6440,10 @@
 /obj/structure/window{
 	dir = 4
 	},
-/obj/structure/nuke_disk_candidate,
+/obj/structure/table/mainship,
+/obj/machinery/computer/emails{
+	density = 0
+	},
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/administration)
 "CO" = (
@@ -6124,7 +6499,7 @@
 "Db" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/dmg1,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "Dc" = (
 /obj/structure/prop/mainship/mission_planning_system,
 /turf/open/floor/mainship/mono,
@@ -6139,7 +6514,7 @@
 /turf/closed/shuttle/dropship_regular/backhatch{
 	dir = 1
 	},
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "Dh" = (
 /obj/structure/table/mainship,
 /turf/open/floor/mainship/blue,
@@ -6203,6 +6578,11 @@
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outposts)
+"Dv" = (
+/obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/scorched,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "Dw" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -6284,9 +6664,7 @@
 	},
 /area/orion_outpost/surface/building/medbay)
 "DQ" = (
-/obj/structure/prop/vehicle/crawler/crawler_fuel{
-	dir = 4
-	},
+/obj/structure/prop/vehicle/crawler/crawler_fuel/destructible,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostcent)
 "DR" = (
@@ -6304,6 +6682,11 @@
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/surface/landing_pad_external)
+"DT" = (
+/obj/effect/turf_decal/riverdecal,
+/obj/item/stack/rods,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outpostse)
 "DU" = (
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outposts)
@@ -6322,19 +6705,15 @@
 /obj/structure/window/framed/mainship/gray,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/administration)
-"DY" = (
-/obj/machinery/photocopier,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/open/floor/mainship/blue{
-	dir = 5
-	},
-/area/orion_outpost/surface/building/administration)
 "DZ" = (
 /obj/structure/prop/mainship/sensor_computer1,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/atc)
+"Ea" = (
+/obj/structure/rack,
+/obj/item/cell/high,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "Ec" = (
 /obj/effect/spawner/random/misc/structure/supplycrate/normalweighted,
 /turf/open/floor/plating/ground/concrete/lines{
@@ -6444,7 +6823,7 @@
 "EA" = (
 /obj/effect/landmark/weed_node,
 /turf/open/shuttle/brig,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "EB" = (
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostcent)
@@ -6475,7 +6854,7 @@
 "EH" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "EI" = (
 /obj/machinery/light,
 /obj/effect/ai_node,
@@ -6569,6 +6948,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/administration)
+"EZ" = (
+/obj/item/trash/used_stasis_bag,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "Fa" = (
 /turf/open/liquid/water/river,
 /area/orion_outpost/ground/river/riverside_central)
@@ -6668,7 +7051,7 @@
 /area/orion_outpost/surface/building/cargo)
 "FD" = (
 /turf/closed/wall/mainship/outer/reinforced,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "FE" = (
 /obj/item/ammo_casing/bullet,
 /turf/open/floor/plating/ground/concrete/lines{
@@ -6683,6 +7066,15 @@
 /obj/effect/ai_node,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outposts)
+"FG" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/photocopier,
+/turf/open/floor/mainship/blue{
+	dir = 1
+	},
+/area/orion_outpost/surface/building/administration)
 "FI" = (
 /turf/open/floor/plating/ground/concrete/lines,
 /area/orion_outpost/ground/outpostw)
@@ -6696,14 +7088,6 @@
 	dir = 5
 	},
 /area/orion_outpost/surface/building/administration)
-"FL" = (
-/obj/effect/attach_point/weapon/dropship1{
-	dir = 8
-	},
-/turf/open/floor/plating/icefloor/warnplate{
-	dir = 8
-	},
-/area/orion_outpost/surface/landing_pad)
 "FM" = (
 /obj/machinery/power/monitor{
 	name = "Main Power Grid Monitoring"
@@ -6731,6 +7115,17 @@
 /obj/item/ammo_casing/bullet,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/orion_outpost/ground/outpostsw)
+"FT" = (
+/obj/effect/ai_node,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
+"FW" = (
+/obj/structure/flora/grass/tallgrass/tallgrasscorner{
+	color = "#7a8c54";
+	dir = 1
+	},
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "FY" = (
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/dorms)
@@ -6744,6 +7139,10 @@
 	dir = 8
 	},
 /area/orion_outpost/ground/outpostcent)
+"Gc" = (
+/obj/structure/window/framed/mainship/gray,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/surface/building/canteen)
 "Gd" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -6764,6 +7163,13 @@
 /obj/structure/closet/secure_closet/personal,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/dorms)
+"Gk" = (
+/obj/structure/flora/grass/tallgrass/tallgrasscorner{
+	color = "#7a8c54";
+	dir = 9
+	},
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/underground/caveS)
 "Gl" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -6800,14 +7206,8 @@
 "Gs" = (
 /turf/closed/mineral/smooth,
 /area/orion_outpost/surface/landing_pad_external)
-"Gu" = (
-/obj/structure/platform{
-	dir = 9
-	},
-/turf/open/floor/plating,
-/area/orion_outpost/surface/building/tadpolepad)
 "Gw" = (
-/obj/structure/prop/vehicle/crawler/crawler_fuel,
+/obj/structure/prop/vehicle/crawler/crawler_fuel/destructible,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outposts)
 "Gx" = (
@@ -6873,6 +7273,10 @@
 /obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/bunker)
+"GK" = (
+/obj/structure/bedsheetbin,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/ground/outposts)
 "GL" = (
 /obj/machinery/power/apc/drained,
 /obj/structure/cable,
@@ -6924,6 +7328,13 @@
 	dir = 8
 	},
 /area/orion_outpost/surface/building/prep)
+"GX" = (
+/obj/structure/flora/grass/tallgrass/tallgrasscorner{
+	color = "#7a8c54";
+	dir = 5
+	},
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/underground/caveS)
 "GY" = (
 /obj/machinery/light{
 	dir = 1
@@ -6939,6 +7350,12 @@
 	dir = 4
 	},
 /area/orion_outpost/surface/building/ammodepot)
+"Ha" = (
+/obj/structure/flora/pottedplant/one,
+/turf/open/floor/mainship/blue{
+	dir = 8
+	},
+/area/orion_outpost/surface/building/command)
 "Hb" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
 	color = "#7a8c54";
@@ -6999,7 +7416,11 @@
 	dir = 8
 	},
 /turf/open/floor/plating/dmg1,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
+"Hp" = (
+/obj/effect/landmark/weed_node,
+/turf/closed/mineral/smooth,
+/area/orion_outpost/ground/underground/caveE/garbledradio)
 "Hr" = (
 /obj/machinery/light,
 /turf/open/floor/mainship/orange{
@@ -7012,6 +7433,12 @@
 	dir = 4
 	},
 /area/orion_outpost/ground/outpostnw)
+"Hu" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "Hv" = (
 /turf/open/floor/mainship/orange{
 	dir = 6
@@ -7023,7 +7450,7 @@
 	dir = 8
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "Hx" = (
 /obj/machinery/light{
 	dir = 8
@@ -7042,7 +7469,7 @@
 "Hz" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/ground/outposte)
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "HB" = (
 /obj/docking_port/mobile/marine_dropship/minidropship,
 /obj/structure/bed/chair/dropship/pilot{
@@ -7051,7 +7478,7 @@
 /turf/open/floor/mainship/orange{
 	dir = 1
 	},
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "HC" = (
 /obj/structure/table/mainship,
 /obj/machinery/computer/emails{
@@ -7068,24 +7495,16 @@
 /obj/machinery/vending/security,
 /turf/open/floor/mainship/red,
 /area/orion_outpost/surface/building/monitor)
-"HG" = (
-/obj/effect/attach_point/weapon/dropship1{
-	dir = 8
-	},
-/turf/open/floor/plating/icefloor/warnplate{
-	dir = 8
-	},
-/area/orion_outpost/surface/landing_pad_2)
 "HH" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/blue{
 	dir = 4
 	},
 /area/orion_outpost/surface/building/command)
-"HJ" = (
-/obj/effect/ai_node,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/surface/building/crashedufo)
+"HK" = (
+/obj/item/paper,
+/turf/open/floor/plating/scorched,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "HL" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/blue{
@@ -7110,12 +7529,12 @@
 	dir = 8
 	},
 /area/orion_outpost/surface/building/tadpolepad)
-"HU" = (
-/obj/structure/platform{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/orion_outpost/surface/building/tadpolepad)
+"HT" = (
+/obj/structure/rack,
+/obj/item/tool/crowbar,
+/obj/item/tool/crowbar,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "HV" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/mono,
@@ -7123,7 +7542,7 @@
 "HW" = (
 /obj/effect/ai_node,
 /turf/open/shuttle/brig,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "HX" = (
 /obj/machinery/light,
 /obj/effect/landmark/weed_node,
@@ -7136,6 +7555,10 @@
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/orion_outpost/ground/outpostcent)
+"HZ" = (
+/obj/machinery/door/airlock/mainship/generic/glass,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "Ia" = (
 /turf/open/floor/mainship/orange{
 	dir = 8
@@ -7148,6 +7571,10 @@
 	dir = 10
 	},
 /area/orion_outpost/surface/building/atc)
+"Ic" = (
+/obj/effect/landmark/weed_node,
+/turf/closed/mineral/smooth,
+/area/orion_outpost/ground/underground/caveS)
 "Id" = (
 /turf/open/floor/mainship/blue{
 	dir = 9
@@ -7268,6 +7695,10 @@
 	dir = 1
 	},
 /area/orion_outpost/surface/building/administration)
+"IG" = (
+/obj/effect/landmark/weed_node,
+/turf/closed/mineral/smooth,
+/area/orion_outpost/ground/outpostcent)
 "IH" = (
 /turf/open/floor/plating/icefloor/warnplate{
 	dir = 1
@@ -7296,6 +7727,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/wood,
 /area/orion_outpost/surface/building/barracks)
+"IN" = (
+/obj/machinery/flasher/portable,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "IO" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/ai_node,
@@ -7314,6 +7749,16 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outpostse)
+"IS" = (
+/obj/machinery/photocopier,
+/turf/open/floor/mainship/blue{
+	dir = 10
+	},
+/area/orion_outpost/surface/building/command)
+"IT" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/surface/building/canteen)
 "IU" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/orange{
@@ -7402,12 +7847,13 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/surface/building/vehicledepot)
 "Jk" = (
+/obj/effect/ai_node,
 /turf/open/floor/mainship/wylogo/wy2,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "Jl" = (
 /obj/structure/shuttle/engine/propulsion/burst/left,
 /turf/open/shuttle/dropship/three,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "Jn" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -7418,6 +7864,10 @@
 /obj/machinery/vending/coffee,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/canteen)
+"Jq" = (
+/obj/item/tool/lighter/zippo,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "Js" = (
 /obj/machinery/vending/cola,
 /obj/machinery/light{
@@ -7431,10 +7881,6 @@
 /obj/structure/window/framed/mainship/gray,
 /turf/open/floor/wood,
 /area/orion_outpost/surface/building/barracks)
-"Ju" = (
-/obj/effect/attach_point/electronics/dropship1,
-/turf/open/floor/plating,
-/area/orion_outpost/surface/landing_pad_2)
 "Jv" = (
 /obj/structure/desertdam/decals/road/line{
 	dir = 1
@@ -7479,7 +7925,7 @@
 /turf/open/floor/mainship/orange{
 	dir = 10
 	},
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "JE" = (
 /obj/structure/filingcabinet,
 /turf/open/floor/mainship/blue,
@@ -7510,6 +7956,9 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostcent)
+"JJ" = (
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "JL" = (
 /turf/open/floor/mainship/orange{
 	dir = 10
@@ -7552,6 +8001,10 @@
 	dir = 1
 	},
 /area/orion_outpost/ground/outpostse)
+"JS" = (
+/obj/machinery/miner/damaged,
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/outpostcent)
 "JT" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
@@ -7573,10 +8026,6 @@
 "JX" = (
 /turf/open/floor/mainship/orange,
 /area/orion_outpost/surface/building/tadpolepad)
-"JY" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/mineral/smooth,
-/area/orion_outpost/ground/outpostse)
 "Ka" = (
 /obj/structure/closet/cabinet,
 /turf/open/floor/wood,
@@ -7586,7 +8035,12 @@
 /turf/open/floor/mainship/orange{
 	dir = 8
 	},
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
+"Kd" = (
+/obj/structure/table/mainship,
+/obj/item/clipboard,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/command)
 "Ke" = (
 /turf/closed/wall/mainship/gray,
 /area/orion_outpost/ground/outpostsw)
@@ -7632,12 +8086,12 @@
 	dir = 4
 	},
 /turf/open/floor/podhatch/floor,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "Kn" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "Ko" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete,
@@ -7705,6 +8159,10 @@
 	dir = 1
 	},
 /area/orion_outpost/surface/building/cargo)
+"KC" = (
+/obj/item/trash/cigbutt,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "KE" = (
 /obj/effect/landmark/corpsespawner/marine/corpsman,
 /obj/effect/decal/cleanable/blood,
@@ -7719,11 +8177,15 @@
 /turf/open/floor/mainship/orange{
 	dir = 8
 	},
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "KH" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/command)
+"KI" = (
+/obj/structure/inflatable/popped/door,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "KJ" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
@@ -7736,6 +8198,10 @@
 /obj/structure/cable,
 /turf/open/floor/plating/ground/concrete/lines,
 /area/orion_outpost/ground/outpostcent)
+"KM" = (
+/obj/structure/curtain/open/shower,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/ground/outposts)
 "KN" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
@@ -7752,7 +8218,7 @@
 "KP" = (
 /obj/effect/ai_node,
 /turf/open/floor/podhatch/floor,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "KQ" = (
 /obj/machinery/light,
 /obj/effect/landmark/weed_node,
@@ -7773,6 +8239,10 @@
 /turf/open/floor/mainship/orange{
 	dir = 9
 	},
+/area/orion_outpost/ground/underground/caveS)
+"KV" = (
+/obj/effect/decal/cleanable/blood/gibs/xeno/core,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outpostse)
 "KW" = (
 /obj/structure/bed/chair/sofa/corsat/verticalsouth,
@@ -7885,6 +8355,10 @@
 	dir = 6
 	},
 /area/orion_outpost/surface/building/vehicledepot)
+"Lu" = (
+/obj/effect/turf_decal/riverdecal,
+/turf/closed/wall/mainship/gray,
+/area/orion_outpost/surface/building/nebuilding)
 "Lv" = (
 /obj/structure/desertdam/decals/road{
 	dir = 4
@@ -7899,6 +8373,7 @@
 /area/orion_outpost/surface/building/vehicledepot)
 "Lx" = (
 /obj/structure/cable,
+/obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 1
 	},
@@ -7931,10 +8406,8 @@
 	},
 /area/orion_outpost/surface/building/command)
 "LE" = (
-/obj/structure/desertdam/decals/road{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/concrete,
+/obj/effect/ai_node,
+/turf/open/floor/mainship/sterile/dark,
 /area/orion_outpost/ground/outposts)
 "LF" = (
 /obj/structure/prop/mainship/sensor_computer3,
@@ -7947,6 +8420,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostw)
+"LH" = (
+/obj/effect/spawner/random/decal/blood,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/bunker)
 "LI" = (
 /obj/machinery/door/poddoor/mainship/open,
 /turf/open/floor/plating/ground/concrete/lines{
@@ -7985,7 +8462,7 @@
 "LQ" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "LR" = (
 /obj/structure/window/framed/mainship/gray,
 /turf/open/floor/mainship/mono,
@@ -8005,10 +8482,6 @@
 "LV" = (
 /turf/closed/mineral/smooth,
 /area/orion_outpost/ground/outpostn)
-"LW" = (
-/obj/machinery/miner/damaged,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostcent)
 "LY" = (
 /obj/structure/platform{
 	dir = 9
@@ -8045,9 +8518,17 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outpostw)
+"Mi" = (
+/obj/machinery/computer3/laptop,
+/obj/structure/table/mainship,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "Mj" = (
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/outposte)
+"Mk" = (
+/turf/closed/wall/mainship/gray,
 /area/orion_outpost/ground/outposte)
 "Ml" = (
 /turf/open/floor/plating/ground/concrete/lines{
@@ -8085,6 +8566,19 @@
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostw)
+"Mt" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outpostcent)
+"Mu" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/open/floor/mainship/blue{
+	dir = 8
+	},
+/area/orion_outpost/surface/building/command)
 "Mv" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
@@ -8124,14 +8618,25 @@
 /obj/effect/spawner/random/weaponry/gun/rifles,
 /turf/open/floor/mainship/sterile/dark,
 /area/orion_outpost/surface/building/medbay)
-"MG" = (
-/obj/machinery/door/airlock/mainship/generic,
+"MF" = (
+/obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass{
+	dir = 2
+	},
 /turf/open/floor/freezer,
+/area/orion_outpost/surface/building/canteen)
+"MG" = (
+/obj/structure/table/reinforced,
+/obj/item/trash/tray,
+/turf/open/floor/mainship/sterile/dark,
 /area/orion_outpost/surface/building/canteen)
 "MH" = (
 /obj/structure/flora/tree/joshua,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outpostnw)
+"MI" = (
+/obj/structure/flora/pottedplant/nine,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/nebuilding)
 "MJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -8181,6 +8686,10 @@
 	dir = 1
 	},
 /area/orion_outpost/surface/building/vehicledepot)
+"MS" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "MT" = (
 /obj/effect/ai_node,
 /obj/structure/platform,
@@ -8204,7 +8713,8 @@
 /area/orion_outpost/surface/building/medbay)
 "MY" = (
 /obj/effect/ai_node,
-/turf/open/liquid/water/river,
+/obj/effect/turf_decal/riverdecal,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/river/riverside_south)
 "MZ" = (
 /obj/machinery/button/door/open_only/landing_zone/lz2,
@@ -8214,11 +8724,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/command)
-"Nb" = (
-/obj/structure/desertdam/decals/road/edge/long,
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/ground/outposts)
 "Nc" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/blue{
@@ -8335,7 +8840,7 @@
 /turf/open/floor/bcircuit,
 /area/orion_outpost/surface/building/engineering)
 "NA" = (
-/obj/structure/prop/vehicle/crane/cranecargo,
+/obj/structure/prop/vehicle/crane/cranecargo/destructible,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
 "NB" = (
@@ -8355,6 +8860,12 @@
 	dir = 10
 	},
 /area/orion_outpost/surface/building/tadpolepad)
+"NE" = (
+/obj/structure/flora/grass/tallgrass{
+	color = "#7a8c54"
+	},
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "NF" = (
 /obj/machinery/light{
 	dir = 4
@@ -8383,6 +8894,11 @@
 /obj/machinery/door/airlock/multi_tile/mainship/blackgeneric,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/atc)
+"NM" = (
+/turf/open/floor/mainship/blue/corner{
+	dir = 1
+	},
+/area/orion_outpost/surface/building/command)
 "NN" = (
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/surface/landing_pad_external)
@@ -8397,8 +8913,8 @@
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outposts)
 "NQ" = (
-/obj/structure/closet/secure_closet/freezer,
-/turf/open/floor/freezer,
+/obj/structure/closet/secure_closet/freezer/fridge,
+/turf/open/floor/mainship/sterile/dark,
 /area/orion_outpost/surface/building/canteen)
 "NR" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
@@ -8420,15 +8936,6 @@
 	dir = 8
 	},
 /area/orion_outpost/surface/building/engineering)
-"NU" = (
-/obj/structure/desertdam/decals/road{
-	dir = 4
-	},
-/obj/structure/platform{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/ground/outposts)
 "NV" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -8452,6 +8959,10 @@
 /obj/item/ammo_magazine/tank/ltb_cannon,
 /turf/open/floor/mainship/black/full,
 /area/orion_outpost/surface/building/ammodepot)
+"NZ" = (
+/obj/structure/flora/pottedplant/nineteen,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/nebuilding)
 "Oa" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/ground/grass/weedable/patch/grassyellow,
@@ -8478,6 +8989,10 @@
 	dir = 4
 	},
 /area/orion_outpost/surface/building/vehicledepot)
+"Of" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "Og" = (
 /obj/structure/prop/brokenvendor/brokenweaponsrack,
 /turf/open/floor/mainship/red{
@@ -8552,6 +9067,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/sterile/dark,
 /area/orion_outpost/surface/building/medbay)
+"Ov" = (
+/obj/item/trash/used_stasis_bag,
+/turf/open/floor/plating/scorched,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "Ox" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/mono,
@@ -8561,11 +9080,7 @@
 	dir = 8
 	},
 /turf/open/floor/podhatch/floor,
-/area/orion_outpost/surface/building/crashedufo)
-"Oz" = (
-/obj/structure/window/framed/mainship/gray,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/surface/building/vehicledepot)
+/area/orion_outpost/ground/underground/caveS)
 "OA" = (
 /obj/structure/desertdam/decals/road{
 	dir = 4
@@ -8651,6 +9166,12 @@
 	dir = 9
 	},
 /area/orion_outpost/surface/landing_pad)
+"OU" = (
+/obj/machinery/door/airlock/multi_tile/mainship/blackgeneric/glass{
+	dir = 2
+	},
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/breakroom)
 "OV" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
 	color = "#7a8c54";
@@ -8668,12 +9189,18 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
+"OY" = (
+/obj/item/weapon/brick,
+/obj/effect/decal/cleanable/blood/gibs/xeno,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outpostse)
 "OZ" = (
 /obj/structure/platform_decoration{
 	dir = 4
 	},
-/turf/open/liquid/water/river,
-/area/orion_outpost/ground/river/riverside_south)
+/obj/effect/turf_decal/riverdecal,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outpostse)
 "Pa" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/red,
@@ -8683,6 +9210,10 @@
 	dir = 1
 	},
 /area/orion_outpost/surface/building/cargo)
+"Pc" = (
+/obj/effect/landmark/weed_node,
+/turf/closed/mineral/smooth,
+/area/orion_outpost/ground/outpostse)
 "Pe" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
@@ -8785,6 +9316,12 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/orion_outpost/ground/outpostse)
+"PA" = (
+/obj/structure/table/mainship,
+/obj/item/newspaper,
+/obj/item/newspaper,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/command)
 "PB" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
@@ -8792,7 +9329,7 @@
 "PD" = (
 /obj/structure/window/framed/colony,
 /turf/open/floor/mainship_hull,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "PE" = (
 /obj/structure/prop/brokenvendor/engivend,
 /turf/open/floor/mainship/red{
@@ -8819,6 +9356,9 @@
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/surface/landing_pad_external)
+"PI" = (
+/turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/underground/caveS)
 "PJ" = (
 /obj/structure/cable,
 /turf/open/floor/plating/ground/concrete,
@@ -8863,6 +9403,10 @@
 /obj/machinery/power/apc/drained,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/surface/landing_pad_external)
+"PV" = (
+/obj/effect/ai_node,
+/turf/open/liquid/water/river,
+/area/orion_outpost/ground/river/riverside_north)
 "PX" = (
 /obj/structure/table/mainship,
 /obj/machinery/light{
@@ -8894,12 +9438,15 @@
 "Qc" = (
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/orion_outpost/ground/outpostsw)
-"Qe" = (
+"Qd" = (
+/obj/structure/barricade/metal,
+/obj/item/stack/rods,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/bunker)
+"Qg" = (
 /obj/effect/landmark/weed_node,
-/turf/open/floor/mainship/sterile/corner{
-	dir = 8
-	},
-/area/orion_outpost/surface/building/medbay)
+/turf/closed/mineral/smooth,
+/area/orion_outpost/ground/outposts)
 "Qh" = (
 /turf/open/floor/mainship/blue{
 	dir = 8
@@ -8986,6 +9533,10 @@
 "Qw" = (
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
+"Qx" = (
+/obj/effect/ai_node,
+/turf/open/floor/mainship/orange,
+/area/orion_outpost/surface/building/cargo)
 "Qy" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
@@ -9025,6 +9576,11 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/administration)
+"QK" = (
+/obj/effect/turf_decal/riverdecal,
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/mars/random/cave/darker,
+/area/orion_outpost/ground/outposte)
 "QN" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -9049,6 +9605,12 @@
 "QU" = (
 /turf/closed/mineral/smooth/indestructible,
 /area/orion_outpost/ground/outposts)
+"QV" = (
+/obj/structure/largecrate/random/barrel/blue,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 8
+	},
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "QW" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/orange{
@@ -9084,7 +9646,7 @@
 	dir = 6
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "Re" = (
 /obj/structure/closet/secure_closet/guncabinet/riot_control,
 /turf/open/floor/mainship/red{
@@ -9122,7 +9684,7 @@
 /turf/open/floor/mainship/orange{
 	dir = 8
 	},
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "Rl" = (
 /obj/machinery/door/airlock/mainship/generic,
 /obj/effect/ai_node,
@@ -9136,6 +9698,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 9
 	},
+/obj/effect/ai_node,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/orion_outpost/ground/outpostcent)
 "Rn" = (
@@ -9280,12 +9843,6 @@
 /obj/machinery/power/apc/drained,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/nebuilding)
-"Sb" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/open/floor/mainship/mono,
-/area/orion_outpost/surface/building/breakroom)
 "Sd" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -9296,7 +9853,7 @@
 "Se" = (
 /obj/effect/landmark/corpsespawner/scientist,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "Sf" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 6
@@ -9307,6 +9864,9 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/orion_outpost/ground/outpostcent)
+"Sh" = (
+/turf/open/floor/plating/scorched,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "Si" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -9340,14 +9900,22 @@
 /obj/structure/cable,
 /turf/open/floor/plating/ground/concrete/lines,
 /area/orion_outpost/ground/outpostsw)
+"So" = (
+/obj/effect/ai_node,
+/turf/open/floor/plating/ground/desertdam/asphalt,
+/area/orion_outpost/ground/outpostcent)
 "Sp" = (
-/obj/structure/prop/vehicle/crawler,
+/obj/structure/prop/vehicle/crawler/destructible,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outposte)
 "Sq" = (
 /obj/effect/landmark/corpsespawner/marine,
 /turf/open/floor/plating/ground/concrete/lines,
 /area/orion_outpost/ground/outposte)
+"Sr" = (
+/obj/structure/girder/displaced,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "Ss" = (
 /obj/effect/turf_decal/riverdecal,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -9452,6 +10020,17 @@
 "SO" = (
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/ammodepot)
+"SP" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/administration)
+"SQ" = (
+/obj/structure/cable,
+/obj/item/bedsheet/brown,
+/turf/open/floor/plating/ground/desertdam/asphalt,
+/area/orion_outpost/ground/outposts)
 "SR" = (
 /obj/item/ammo_casing/bullet,
 /turf/open/floor/mainship/mono,
@@ -9463,7 +10042,9 @@
 	},
 /area/orion_outpost/surface/building/engineering)
 "ST" = (
-/obj/structure/prop/vehicle/truck/truckcargo,
+/obj/structure/prop/vehicle/truck/truckcargo/destructible{
+	dir = 8
+	},
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostw)
 "SU" = (
@@ -9531,6 +10112,17 @@
 	dir = 8
 	},
 /area/orion_outpost/ground/outpostnw)
+"Tj" = (
+/obj/structure/rack,
+/obj/effect/spawner/random/misc/clipboard,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
+"Tk" = (
+/obj/machinery/door/airlock/multi_tile/mainship/comdoor/free_access{
+	dir = 2
+	},
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/command)
 "Tl" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
 /turf/open/floor/mainship/orange{
@@ -9542,7 +10134,11 @@
 /area/orion_outpost/ground/outpostse)
 "To" = (
 /turf/closed/shuttle/dropship_regular/interior_corner,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
+"Tp" = (
+/obj/effect/landmark/weed_node,
+/turf/closed/mineral/smooth,
+/area/orion_outpost/ground/outpostnw)
 "Tq" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
@@ -9563,9 +10159,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostsw)
 "Tt" = (
-/obj/structure/prop/vehicle/crawler{
-	dir = 4
-	},
+/obj/structure/prop/vehicle/crawler/destructible,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostsw)
 "Tu" = (
@@ -9573,7 +10167,7 @@
 	color = "#7a8c54"
 	},
 /turf/open/ground/grass/weedable/patch/grassyellow,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "Tv" = (
 /obj/machinery/door/airlock/multi_tile/mainship/comdoor/free_access,
 /turf/open/floor/mainship/mono,
@@ -9602,6 +10196,12 @@
 	dir = 9
 	},
 /area/orion_outpost/surface/building/cargo)
+"TA" = (
+/obj/structure/sink{
+	dir = 4
+	},
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/surface/building/command)
 "TC" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 6
@@ -9651,14 +10251,6 @@
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveE/garbledradio)
-"TN" = (
-/obj/structure/window{
-	dir = 4
-	},
-/turf/open/floor/mainship/blue{
-	dir = 10
-	},
-/area/orion_outpost/surface/building/command)
 "TP" = (
 /obj/structure/cable,
 /obj/effect/landmark/corpsespawner/marine,
@@ -9671,6 +10263,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outposts)
+"TR" = (
+/obj/effect/landmark/weed_node,
+/turf/closed/wall/mainship/gray,
+/area/orion_outpost/surface/building/command)
 "TT" = (
 /obj/structure/table/mainship,
 /obj/item/storage/surgical_tray,
@@ -9686,11 +10282,7 @@
 /obj/effect/landmark/corpsespawner/scientist,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostse)
-"TW" = (
-/obj/effect/attach_point/weapon/dropship1,
-/turf/open/floor/plating,
-/area/orion_outpost/surface/landing_pad)
+/area/orion_outpost/ground/underground/caveS)
 "TX" = (
 /obj/structure/flora/grass/tallgrass/tallgrasscorner{
 	color = "#7a8c54";
@@ -9699,6 +10291,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostnw)
+"TY" = (
+/obj/item/clothing/under/marine,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/bunker)
 "TZ" = (
 /obj/structure/table/mainship,
 /obj/machinery/microwave,
@@ -9824,7 +10420,7 @@
 /obj/item/stack/rods,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/desertdam/asphalt,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "UH" = (
 /obj/structure/filingcabinet,
 /turf/open/floor/mainship/blue{
@@ -9885,6 +10481,21 @@
 "UZ" = (
 /obj/effect/ai_node,
 /turf/open/floor/mainship/terragov/north,
+/area/orion_outpost/surface/building/command)
+"Va" = (
+/obj/structure/rack,
+/obj/item/cell/high/empty,
+/obj/item/cell/high/empty,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
+"Vb" = (
+/obj/structure/toilet{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/mainship/sterile/dark,
 /area/orion_outpost/surface/building/command)
 "Vc" = (
 /turf/open/floor/plating/ground/concrete/lines{
@@ -10048,7 +10659,7 @@
 /turf/closed/shuttle/dropship_regular/interior_corner{
 	dir = 1
 	},
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "VJ" = (
 /obj/structure/cable,
 /obj/effect/landmark/corpsespawner/security,
@@ -10075,6 +10686,11 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/administration)
+"VP" = (
+/obj/item/stack/rods,
+/obj/structure/curtain/open/shower,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/ground/outposts)
 "VQ" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/mainship/terragov/north{
@@ -10083,12 +10699,12 @@
 /area/orion_outpost/surface/building/command)
 "VR" = (
 /turf/open/floor/plating/dmg1,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "VS" = (
 /turf/open/floor/mainship/orange{
 	dir = 5
 	},
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "VT" = (
 /obj/machinery/vending/coffee,
 /turf/open/floor/mainship/mono,
@@ -10097,9 +10713,6 @@
 /obj/effect/landmark/start/job/survivor,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/administration)
-"VV" = (
-/turf/open/floor/plating/dmg1,
-/area/orion_outpost/surface/building/crashedufo)
 "VW" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
@@ -10107,7 +10720,14 @@
 /area/orion_outpost/ground/outpostn)
 "VX" = (
 /turf/closed/shuttle/dropship_regular/backhatch,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
+"VY" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/effect/ai_node,
+/turf/open/floor/mainship/orange/full,
+/area/orion_outpost/surface/building/cargo)
 "VZ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/effect/decal/cleanable/blood,
@@ -10151,6 +10771,10 @@
 	dir = 10
 	},
 /area/orion_outpost/surface/building/tadpolepad)
+"Wk" = (
+/obj/effect/landmark/weed_node,
+/turf/closed/mineral/smooth,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "Wl" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 1
@@ -10250,10 +10874,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outpostcent)
-"WH" = (
-/obj/effect/attach_point/weapon/dropship1,
-/turf/open/floor/plating,
-/area/orion_outpost/surface/landing_pad_2)
 "WI" = (
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
@@ -10311,6 +10931,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/ammodepot)
+"WX" = (
+/obj/effect/landmark/weed_node,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/ground/outposts)
 "WY" = (
 /obj/structure/rack,
 /obj/structure/platform,
@@ -10378,10 +11002,21 @@
 	},
 /turf/closed/wall/mainship/gray,
 /area/orion_outpost/surface/building/bunker)
+"Xq" = (
+/obj/effect/landmark/weed_node,
+/turf/closed/mineral/smooth,
+/area/orion_outpost/ground/outpostsw)
 "Xr" = (
 /obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveE/garbledradio)
+"Xs" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/effect/ai_node,
+/turf/open/floor/mainship/sterile/dark,
+/area/orion_outpost/surface/building/canteen)
 "Xt" = (
 /obj/machinery/light{
 	dir = 4
@@ -10438,12 +11073,16 @@
 /obj/structure/window{
 	dir = 4
 	},
-/turf/open/floor/mainship/blue,
+/turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/command)
+"XE" = (
+/obj/machinery/washing_machine,
+/obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/spawner/random/decal/blood,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/bunker)
 "XF" = (
-/obj/structure/prop/vehicle/crane{
-	dir = 4
-	},
+/obj/structure/prop/vehicle/crane/destructible,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/tadpolepad)
 "XI" = (
@@ -10501,6 +11140,10 @@
 	dir = 4
 	},
 /area/orion_outpost/surface/building/administration)
+"XW" = (
+/obj/structure/table/mainship,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/surface/building/administration)
 "XX" = (
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 5
@@ -10549,12 +11192,17 @@
 /obj/machinery/computer3,
 /obj/structure/table/mainship,
 /turf/open/floor/mainship/mono,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "Yh" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostw)
+"Yi" = (
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 4
+	},
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "Yk" = (
 /obj/machinery/power/apc/drained,
 /obj/structure/cable,
@@ -10566,6 +11214,11 @@
 	dir = 4
 	},
 /area/orion_outpost/ground/outpostw)
+"Ym" = (
+/obj/structure/rack,
+/obj/structure/reagent_dispensers/beerkeg,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveN/garbledradio)
 "Yn" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
@@ -10718,7 +11371,7 @@
 /area/orion_outpost/ground/outposte)
 "YV" = (
 /turf/closed/shuttle/dropship_regular/cockpit_window,
-/area/orion_outpost/surface/building/crashedufo)
+/area/orion_outpost/ground/underground/caveS)
 "YX" = (
 /turf/closed/mineral/smooth/indestructible,
 /area/orion_outpost/ground/outpostsw)
@@ -10732,12 +11385,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/surface/building/cargo)
-"Za" = (
-/obj/structure/desertdam/decals/road/edge/long{
-	dir = 1
-	},
-/turf/open/floor/plating/ground/concrete,
-/area/orion_outpost/ground/outposts)
 "Zb" = (
 /obj/effect/landmark/start/job/survivor,
 /turf/open/floor/mainship/mono,
@@ -10762,6 +11409,10 @@
 	dir = 1
 	},
 /area/orion_outpost/surface/building/cargo)
+"Zf" = (
+/obj/item/ammo_casing/bullet,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "Zg" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/concrete,
@@ -10872,7 +11523,7 @@
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostsw)
 "ZC" = (
-/obj/structure/prop/vehicle/crawler/crawler_blue,
+/obj/structure/prop/vehicle/crawler/crawler_blue/destructible,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostnw)
 "ZD" = (
@@ -10891,6 +11542,10 @@
 "ZF" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/ground/grass/weedable/patch/grassyellow,
+/area/orion_outpost/ground/outposte)
+"ZG" = (
+/obj/effect/turf_decal/riverdecal,
+/turf/closed/mineral/smooth,
 /area/orion_outpost/ground/outposte)
 "ZH" = (
 /obj/machinery/door/airlock/mainship/security,
@@ -10927,7 +11582,7 @@
 	dir = 5
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/orion_outpost/ground/outpostse)
+/area/orion_outpost/ground/underground/caveS)
 "ZR" = (
 /obj/structure/cable,
 /turf/open/floor/plating/ground/concrete/lines{
@@ -10953,6 +11608,11 @@
 	dir = 5
 	},
 /area/orion_outpost/surface/building/command)
+"ZV" = (
+/obj/effect/landmark/weed_node,
+/obj/effect/landmark/corpsespawner/scientist,
+/turf/open/floor/mainship/mono,
+/area/orion_outpost/ground/underground/caveS/garbledradio)
 "ZW" = (
 /obj/effect/landmark/corpsespawner/marine,
 /obj/effect/decal/cleanable/blood,
@@ -11566,8 +12226,8 @@ YQ
 YQ
 YQ
 Mh
-YQ
-ve
+Mf
+wt
 wt
 wt
 wt
@@ -11698,10 +12358,10 @@ JC
 YQ
 Dx
 YQ
-YQ
-ve
-ve
-ve
+Mf
+wt
+wt
+wt
 wt
 wt
 wt
@@ -11831,9 +12491,9 @@ RA
 YQ
 YQ
 YQ
-ve
-JW
-ve
+wt
+Xq
+wt
 wt
 wt
 wt
@@ -11963,9 +12623,9 @@ JC
 wA
 YQ
 YQ
-ve
-ve
-ve
+wt
+wt
+wt
 wt
 wt
 wt
@@ -12231,9 +12891,9 @@ iP
 un
 ve
 ve
-ve
-ve
-ve
+wt
+wt
+wt
 ve
 ve
 ve
@@ -12363,9 +13023,9 @@ un
 un
 un
 ve
-ve
-ve
-ve
+wt
+wt
+wt
 ve
 ve
 ve
@@ -12568,7 +13228,7 @@ Gx
 Gx
 Gx
 Gx
-HG
+Gx
 Gx
 Gx
 Kz
@@ -12696,7 +13356,7 @@ EJ
 IH
 ft
 rS
-WH
+ft
 ft
 ft
 ft
@@ -12828,7 +13488,7 @@ EJ
 IH
 ft
 ft
-Ju
+ft
 ft
 ft
 ft
@@ -13285,8 +13945,8 @@ Ub
 Ba
 mV
 ve
-ve
-ve
+wt
+wt
 ve
 ve
 ve
@@ -13415,11 +14075,11 @@ pN
 qm
 Ub
 Ba
-ve
-ve
-ve
-ve
-ve
+wt
+wt
+wt
+wt
+wt
 ve
 ve
 JW
@@ -13547,11 +14207,11 @@ pN
 qm
 Ub
 Ba
-ve
-JW
-ve
-ve
-ve
+wt
+Xq
+wt
+wt
+wt
 ve
 ve
 ve
@@ -13620,7 +14280,7 @@ EJ
 IH
 ft
 ft
-Ju
+ft
 ft
 ft
 ft
@@ -13679,12 +14339,12 @@ pN
 qm
 LG
 Ba
-ve
-ve
-ve
-ve
-ve
-ve
+wt
+wt
+wt
+wt
+wt
+wt
 ve
 ve
 ve
@@ -13752,7 +14412,7 @@ EJ
 IH
 ft
 rS
-WH
+ft
 ft
 ft
 ft
@@ -13813,10 +14473,10 @@ Ub
 Ba
 ng
 ng
-Rj
 ng
-JW
-ve
+ng
+Xq
+wt
 ve
 ve
 ve
@@ -13946,9 +14606,9 @@ Ba
 ng
 Rj
 Rj
-Rj
-ve
-ve
+ng
+wt
+wt
 ve
 ve
 JW
@@ -14079,7 +14739,7 @@ Rj
 JT
 tA
 ng
-ve
+wt
 ve
 ve
 ve
@@ -14101,7 +14761,7 @@ bl
 bl
 bl
 bl
-FL
+bl
 bl
 bl
 ET
@@ -14229,7 +14889,7 @@ fj
 GQ
 gg
 SA
-TW
+gg
 gg
 gg
 gg
@@ -14361,7 +15021,7 @@ fj
 GQ
 gg
 gg
-aK
+gg
 gg
 gg
 gg
@@ -15139,8 +15799,8 @@ un
 ve
 JW
 ve
-wt
-wt
+ve
+ve
 wt
 wt
 wt
@@ -15153,7 +15813,7 @@ fj
 GQ
 gg
 gg
-aK
+gg
 gg
 gg
 gg
@@ -15272,8 +15932,8 @@ ve
 ve
 ve
 ve
-wt
-wt
+ve
+ve
 wt
 wt
 xH
@@ -15285,7 +15945,7 @@ fj
 GQ
 gg
 SA
-TW
+gg
 gg
 gg
 gg
@@ -15401,8 +16061,8 @@ Rj
 ng
 zq
 ve
-ve
-ve
+wt
+wt
 ve
 ve
 ve
@@ -15533,9 +16193,9 @@ iV
 Sx
 Kx
 un
-ve
-ve
-ve
+wt
+wt
+wt
 JW
 ve
 ve
@@ -15907,7 +16567,7 @@ yT
 pj
 AO
 jw
-pN
+DX
 Pw
 Hc
 Hc
@@ -16041,9 +16701,9 @@ AO
 pj
 DX
 mo
-vM
-Nc
-wU
+Hc
+SP
+Hc
 kh
 pN
 HL
@@ -16172,10 +16832,10 @@ pj
 AO
 pj
 pN
-DY
-DD
 pN
-pN
+Hc
+qz
+Hc
 pN
 pN
 kt
@@ -16304,11 +16964,11 @@ jw
 AO
 pj
 pN
-pN
-DX
-pN
-rt
-rt
+Ay
+vt
+BZ
+Hc
+eS
 pN
 pN
 DX
@@ -16321,7 +16981,7 @@ pj
 bO
 ve
 iP
-wt
+ve
 wt
 wt
 wt
@@ -16435,13 +17095,13 @@ bf
 pj
 AO
 rt
-rt
-rt
-rt
-rt
-rt
-ev
-rt
+pN
+FG
+Hc
+XW
+zY
+gV
+pN
 rt
 rt
 ev
@@ -16453,8 +17113,8 @@ pj
 zZ
 ve
 ve
-wt
-wt
+ve
+ve
 wt
 wt
 TU
@@ -16567,13 +17227,13 @@ bf
 pj
 AO
 ev
-rt
-rt
-ev
-rt
-rt
-rt
-rt
+pN
+kd
+HV
+Hc
+Hc
+OM
+pN
 rt
 rt
 rt
@@ -16582,12 +17242,12 @@ rt
 rt
 Vo
 pj
-zZ
+gP
 ve
 ve
+bA
 ve
-wt
-wt
+ve
 wt
 TU
 sL
@@ -16699,13 +17359,13 @@ bf
 hu
 AO
 rt
-rt
-rt
-rt
-rt
-ev
-rt
-rt
+pN
+Sv
+ui
+ui
+Nc
+DD
+pN
 ev
 rt
 rt
@@ -16718,8 +17378,8 @@ zZ
 rt
 rt
 ve
-wt
-wt
+ve
+ve
 wt
 TU
 QZ
@@ -16833,24 +17493,24 @@ AO
 rt
 vG
 vG
-Yw
+lJ
+OU
 vG
 vG
 vG
-vG
-rt
-rt
-rt
+Tc
+Tc
+Tc
 rt
 EB
 EB
 Vo
 pj
 zZ
-rt
+Tc
 rt
 ve
-wt
+ve
 wt
 wt
 TU
@@ -16918,10 +17578,10 @@ lW
 lW
 lW
 lW
-lW
-lW
-lW
-xa
+ap
+ap
+ap
+Tp
 lW
 lW
 lW
@@ -16966,23 +17626,23 @@ dF
 vG
 BY
 rR
-Sb
+lJ
 vG
 jX
 vG
-rt
-rt
-rt
+Tc
+Tc
+Tc
 EB
 EB
 sD
 Vo
 pj
 zZ
-rt
-ev
+Tc
+IG
 ve
-wt
+ve
 wt
 wt
 TU
@@ -17050,10 +17710,10 @@ xa
 lW
 lW
 xa
-lW
-lW
-lW
-lW
+ap
+ap
+ap
+ap
 lW
 lW
 xa
@@ -17102,8 +17762,8 @@ jM
 vG
 jy
 vG
-rt
-rt
+Tc
+Tc
 WG
 sD
 db
@@ -17111,8 +17771,8 @@ tV
 Vo
 rU
 zZ
-rt
-rt
+Tc
+Tc
 jY
 rt
 ve
@@ -17182,10 +17842,10 @@ lW
 lW
 lW
 lW
-lW
-lW
-lW
-lW
+ap
+ap
+ap
+ap
 lW
 ap
 ap
@@ -17243,9 +17903,9 @@ bG
 Vo
 pj
 zZ
-ev
-EB
-EB
+IG
+Tc
+tr
 EB
 un
 ve
@@ -17314,9 +17974,9 @@ lW
 lW
 lW
 lW
-lW
-lW
-xa
+ap
+ap
+Tp
 ap
 ap
 ap
@@ -17375,10 +18035,10 @@ sD
 Vo
 pj
 zZ
-EB
+Tc
 sD
-tr
 EB
+tr
 WV
 EB
 un
@@ -17599,8 +18259,8 @@ IC
 pW
 pW
 pW
-Nw
-Nw
+pW
+pW
 pW
 ev
 rt
@@ -17731,10 +18391,10 @@ my
 Ia
 nP
 pW
-lW
-lW
+ap
+ap
+Tc
 rt
-dF
 rt
 Ro
 OP
@@ -17863,9 +18523,9 @@ Qw
 gk
 jG
 pW
-lW
-lW
-rt
+ap
+ap
+Tc
 rt
 rt
 li
@@ -17994,12 +18654,12 @@ Qw
 qE
 Qw
 Jw
-Nw
-xa
-lW
-rt
-rt
-rt
+pW
+Tp
+ap
+Tc
+Tc
+Tc
 li
 OP
 dZ
@@ -18035,8 +18695,8 @@ oR
 lH
 oR
 Rt
-EB
-It
+oE
+cM
 wO
 wO
 WV
@@ -18126,12 +18786,12 @@ Qw
 Qw
 Qw
 Jw
-Nw
-lW
-lW
-rt
-rt
-rt
+pW
+ap
+ap
+Tc
+Tc
+Tc
 li
 OP
 dZ
@@ -18166,13 +18826,13 @@ Tc
 Tc
 Tc
 Tc
+Fm
+Fm
+Fm
+rL
+MF
+Fm
 rt
-jY
-rt
-wO
-wO
-EB
-EB
 YK
 Fn
 Fn
@@ -18251,19 +18911,19 @@ sM
 tz
 Wc
 Wc
-jo
+VY
 Wc
 Wc
 Wc
 Wc
 tz
-Wc
+LA
 pW
-Xy
-XB
-rt
-ev
-rt
+LV
+LV
+Tc
+IG
+Tc
 li
 ew
 dZ
@@ -18298,13 +18958,13 @@ Tc
 Tc
 Tc
 Tc
+Fm
+ju
+ju
+ur
+ur
+Fm
 rt
-rt
-ev
-wO
-wO
-rt
-EB
 kY
 Fn
 Vt
@@ -18394,9 +19054,9 @@ pW
 Xy
 dA
 sD
-dF
-rt
-Oz
+Tc
+Tc
+li
 OP
 dZ
 dZ
@@ -18430,13 +19090,13 @@ Tc
 Tc
 Tc
 Tc
+Fm
+ur
+fe
+ur
+ur
+Fm
 rt
-rt
-rt
-wO
-wO
-rt
-EB
 Qp
 sC
 ba
@@ -18521,14 +19181,14 @@ ja
 dP
 ja
 da
-Jw
-pW
-ro
+Qx
+Hj
+Xy
 Qs
 tV
 rt
-rt
-Oz
+dF
+li
 OP
 dZ
 dZ
@@ -18562,13 +19222,13 @@ Fm
 Fm
 Tc
 Tc
-Tc
+Fm
+sY
+IT
+yD
+co
+Gc
 rt
-rt
-wO
-Sg
-rt
-jY
 GI
 Fn
 Fn
@@ -18618,7 +19278,7 @@ DU
 DU
 DU
 GI
-DU
+GI
 DU
 lq
 lq
@@ -18654,8 +19314,8 @@ Qw
 Qw
 Qw
 Jw
-pW
-Xy
+Hj
+ro
 hQ
 Nv
 jY
@@ -18694,12 +19354,12 @@ Yx
 Fm
 Tc
 Tc
-Tc
-Tc
-rt
-wO
-wO
-rt
+Fm
+sY
+MG
+yD
+ur
+Gc
 rt
 DU
 Fn
@@ -18744,7 +19404,7 @@ pQ
 kK
 Ag
 QB
-DU
+lq
 DU
 DU
 DU
@@ -18827,11 +19487,11 @@ Fm
 Tc
 Tc
 Fm
-Fm
-Fm
+sY
+IT
 MG
+ur
 Fm
-rt
 rt
 DU
 sC
@@ -18876,8 +19536,8 @@ kK
 mP
 xY
 QB
-DU
-DU
+lq
+lq
 ub
 DU
 vT
@@ -18959,11 +19619,11 @@ Fm
 Fm
 Fm
 Fm
-zW
+ur
 hS
-tP
+ur
+Xs
 Fm
-rt
 rt
 GI
 Fn
@@ -19008,9 +19668,9 @@ Rg
 Wt
 QB
 QB
-GI
-DU
-DU
+Qg
+lq
+lq
 DU
 Qp
 Du
@@ -19053,7 +19713,7 @@ NI
 pW
 Xy
 dA
-EB
+JS
 EB
 sD
 rt
@@ -19092,10 +19752,10 @@ dJ
 ac
 Fm
 NQ
-tP
+ur
 gO
+rq
 Fm
-Tc
 rt
 DU
 DU
@@ -19139,11 +19799,11 @@ iX
 jg
 QB
 QB
-DU
-DU
-DU
-DU
-DU
+lq
+lq
+lq
+lq
+lq
 kY
 qJ
 mz
@@ -19186,7 +19846,7 @@ pW
 Xy
 Xy
 WG
-tr
+EB
 rt
 ev
 rt
@@ -19227,8 +19887,8 @@ Fm
 zX
 Fm
 Fm
-Tc
-Tc
+Fm
+rt
 Yt
 DU
 DU
@@ -19271,11 +19931,11 @@ DJ
 kK
 Mw
 QB
-DU
-DU
-DU
-GI
-DU
+lq
+lq
+lq
+Qg
+lq
 DU
 DU
 DU
@@ -19317,7 +19977,7 @@ jG
 pW
 Xy
 Xy
-LW
+rt
 rt
 qR
 dc
@@ -19333,7 +19993,7 @@ EB
 EB
 jI
 jP
-jY
+Mt
 EB
 Tc
 Tc
@@ -19451,16 +20111,16 @@ Xy
 Xy
 rt
 rt
-Su
-Su
+rt
+rt
 rt
 rt
 rt
 rt
 jY
-ev
-rt
-rt
+dc
+dc
+dc
 jY
 rt
 Vr
@@ -19576,15 +20236,15 @@ Qw
 Qw
 sc
 qE
-Uw
+GE
 Jw
 Nw
 Xy
 wE
+dF
 rt
-Su
-Su
-Su
+dF
+rt
 dc
 dc
 nW
@@ -19595,8 +20255,8 @@ rt
 ev
 rt
 rt
-rt
-rt
+dc
+dc
 rt
 rt
 dc
@@ -19714,21 +20374,21 @@ Nw
 Xy
 Xy
 rt
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
 rt
 rt
 rt
 rt
 rt
 rt
+Su
+Su
 rt
+rt
+rt
+rt
+dc
+dc
+dc
 rt
 nW
 dc
@@ -19836,7 +20496,7 @@ qE
 sy
 hf
 zB
-Qw
+qE
 im
 ag
 ml
@@ -19848,12 +20508,12 @@ to
 to
 fa
 fa
+fa
+rt
 Su
 Su
 Su
-Su
-Su
-Su
+Fl
 dc
 nW
 dc
@@ -19862,15 +20522,15 @@ rt
 cg
 rt
 rt
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
+rt
+rt
+rt
+rt
+rt
+ev
+rt
+rt
+rt
 Tc
 ry
 kp
@@ -19939,7 +20599,7 @@ DU
 DU
 DU
 DU
-DU
+GI
 DU
 lq
 QU
@@ -19972,40 +20632,40 @@ qE
 Cp
 Ve
 fu
-Uw
+GE
 Jw
 fa
 ff
 TC
 fW
 VE
+NZ
 fa
+rt
 Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
+Fl
+Fl
+Fl
+Fl
+lO
+lO
 rt
 rt
 ev
 rt
+dF
+ev
 rt
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
+dc
+dc
+dc
+dc
+dc
+rt
+dF
 mJ
 ry
-kp
+Jy
 AO
 Fm
 lz
@@ -20111,30 +20771,30 @@ KJ
 pg
 mO
 VE
+MI
 fa
 Su
 Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
+Fl
+Fl
+Fl
+lO
+lO
+lO
+Tc
+Tc
+Tc
+Tc
+dc
 rt
+dc
 rt
+dc
+dc
+Su
+Su
+dc
 rt
-rt
-rt
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
 rm
 ry
 ot
@@ -20244,30 +20904,30 @@ Pg
 kq
 mp
 fa
-Ss
+Lu
 Fl
 Su
 Su
-Su
-Su
-Su
-Su
-Su
-Su
+Fl
+Fl
+lO
+lO
+lO
+lO
+Tc
+Tc
+dc
+dc
+Tc
 rt
 rt
 rt
 rt
+kP
 Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
+dc
+rt
+rt
 bn
 Jy
 KL
@@ -20329,7 +20989,7 @@ Wt
 QB
 lq
 lq
-DU
+GI
 DU
 DU
 DU
@@ -20381,25 +21041,25 @@ cy
 Ss
 yt
 yt
-Su
-Su
-Su
-Su
-Su
+Fl
+Fl
+Fl
+lO
+lO
+Tc
+IG
 rt
-ev
+dF
+Tc
+Tc
+vH
+vH
 rt
-Su
-Su
-Su
+rt
 dc
 dc
-Su
-Su
-Su
-Su
-Su
-Su
+dc
+dc
 bn
 kp
 AO
@@ -20410,7 +21070,7 @@ Jp
 VK
 dJ
 dJ
-wO
+So
 wO
 wO
 Sg
@@ -20436,7 +21096,7 @@ sh
 MC
 in
 in
-in
+al
 MC
 in
 in
@@ -20514,24 +21174,24 @@ Fl
 Fl
 Ss
 Ss
-Su
-Su
-Su
-Su
 Fl
 Fl
 Fl
-Su
-Su
+lO
+lO
+Fl
+aR
+rt
+Tc
+vH
+IG
+Tc
 dc
-ev
+dc
 rt
 dc
 dc
-Su
-Su
-Su
-Su
+dc
 bn
 kp
 AO
@@ -20567,10 +21227,10 @@ in
 sh
 sh
 sh
+SQ
 sh
-sh
-sh
-sh
+hk
+SQ
 sh
 sh
 sh
@@ -20632,7 +21292,7 @@ Qw
 Qw
 bp
 Qw
-Qw
+qE
 DW
 VE
 VE
@@ -20643,38 +21303,38 @@ fa
 Fl
 Fl
 cy
-Fl
-Fl
-Fl
-cy
-Fl
-Su
-Fl
-Fl
-Fl
-Fl
-Su
-Su
-rt
+Mk
+Mk
+Mk
+ej
+Ss
+Ss
+Ss
+Ss
+Ss
+Ss
+Tc
+Tc
+Tc
 Tc
 Tc
 vH
+rt
 dc
-Su
-Su
-Su
-Su
+rt
+dF
+rt
 bn
 ot
 nZ
-Fa
-Fa
+Fl
+aR
 rt
 rt
 rt
 rt
 rt
-rt
+dF
 Gq
 Az
 Tc
@@ -20697,16 +21357,16 @@ Qu
 Qu
 jB
 in
-in
+fK
 in
 sN
-in
-in
+iW
+wn
 sN
 in
 MC
 in
-in
+sN
 in
 in
 xl
@@ -20773,35 +21433,35 @@ kq
 mp
 mD
 mD
-mD
 Op
 Op
 mD
-mD
+vp
+uZ
 mD
 Fl
 cy
 Fl
-Fl
+Ss
 cy
-Fl
-Su
-Su
-Su
+cy
 rt
+Tc
+Tc
+Tc
 Tc
 Tc
 Tc
 rt
 dc
-Su
-Su
+ev
+rt
 bn
 kp
 nZ
-Fa
-Fa
-dc
+Fl
+Ss
+rt
 dc
 rt
 ev
@@ -20814,7 +21474,7 @@ Tc
 Tc
 rt
 DU
-DU
+ub
 DU
 Jd
 Jt
@@ -20831,16 +21491,16 @@ in
 in
 ng
 ng
-Rj
-ng
+LH
+si
 ng
 hX
 wJ
-pz
+Or
+hX
 bc
-bc
-bc
-bc
+Or
+Or
 fR
 hX
 bt
@@ -20908,31 +21568,31 @@ vQ
 lF
 Os
 lF
-lF
-Qe
+rX
+Oh
 mD
-Op
+mD
 mD
 mD
 mD
 Fl
 Ss
-Su
-Su
-Su
-Su
+rt
+Tc
+Tc
+Tc
+Tc
+Tc
+IG
+Tc
 rt
 rt
-ev
 rt
-rt
-Su
-Su
 bn
 kp
 nZ
-Fa
-Fa
+Fl
+Ss
 Fa
 dc
 dc
@@ -20962,17 +21622,17 @@ Jd
 in
 in
 ng
-Dc
+uF
 tA
-Rj
+TY
 ng
 hX
 hX
-AU
-qb
-hX
-hX
-hx
+Or
+WX
+zU
+GK
+Or
 MJ
 hX
 fQ
@@ -21049,27 +21709,27 @@ TT
 Op
 Fl
 Ss
-Su
-Su
-Su
-Su
-dc
-dc
-dc
 rt
-Su
-Su
-Su
+rt
+rt
+Tc
+vH
+vH
+vH
+Tc
+rt
+rt
+rt
 CH
 kp
 nZ
+Ss
+Fl
 Fa
 Fa
-Fa
-Fa
-Fa
-Fa
-cg
+Fl
+Ss
+lK
 rt
 nW
 dc
@@ -21094,17 +21754,17 @@ Jd
 Ee
 in
 ng
-Rj
+uF
 uG
-Rj
+LH
 ng
 hX
 hX
-AU
-hX
-hX
-hX
-hx
+Or
+qs
+zU
+qQ
+Or
 MJ
 hX
 yZ
@@ -21122,7 +21782,7 @@ nj
 In
 Xi
 OQ
-Qp
+cb
 Hb
 os
 vT
@@ -21182,30 +21842,30 @@ mD
 Fl
 cy
 Fl
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
+dc
+dc
+rt
+rt
+rt
+rt
+rt
+rt
+rt
+rt
 bn
 ot
 AO
 BU
+Ss
 Fa
 Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
+Fl
+Fl
+ZG
+Fl
+Fl
+Fl
+Fl
 rt
 dc
 nW
@@ -21226,17 +21886,17 @@ SL
 Qu
 in
 Rj
-tA
-js
-GJ
+Ar
+Rj
+BJ
 Rj
 hX
 hX
-Za
+Or
+qs
 LE
-LE
-LE
-LE
+qQ
+Or
 MJ
 hX
 yZ
@@ -21312,37 +21972,37 @@ mD
 mD
 mD
 vc
+aR
+Ss
+Su
+PV
+Fl
+Ss
 Fl
 Fl
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
+QK
+Ss
+aR
 Su
 bn
 kp
-AO
+yh
 jk
+QK
 Fa
 Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-rt
-rt
-rt
+Fl
+ZG
+ZG
+ZG
+Ss
+cy
+QK
+Ss
+dc
+dc
 DU
-DU
+ub
 kA
 Jt
 Ud
@@ -21358,17 +22018,17 @@ Ud
 QT
 in
 Rj
-lX
-es
 Rj
+AK
 Rj
+Qd
 qb
-hX
-Nb
-bc
-bc
-it
-bc
+qb
+Or
+qs
+WX
+qQ
+Or
 MJ
 hX
 yZ
@@ -21392,28 +22052,28 @@ DU
 DU
 DU
 GI
-DU
+GI
 DU
 QU
 "}
 (80,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-Fl
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+cr
+cr
 pW
 Nw
 Nw
@@ -21449,33 +22109,33 @@ Fl
 Ss
 Su
 Su
-Su
-Su
-Su
-Su
+aP
+Fl
+Ss
+Fl
 Su
 Su
 Su
 bn
 Jy
 nZ
+Fl
+Fl
+Fl
 Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
+lO
+ZG
+ZG
+ZG
+Ss
+Fl
+Fl
+Fl
 rt
-rt
-ev
+dc
+yO
+yO
 DU
-DU
-Fa
 Jd
 Zl
 Pf
@@ -21491,16 +22151,16 @@ sg
 in
 ng
 GJ
-lZ
+LH
 tA
 ng
 hX
 hX
-AU
-hX
-hX
-hX
-hx
+Or
+VP
+zU
+KM
+Or
 MJ
 hX
 jR
@@ -21529,23 +22189,23 @@ DU
 QU
 "}
 (81,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-Fl
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+cr
+cr
 pW
 fx
 Qw
@@ -21579,35 +22239,35 @@ lo
 Mj
 Fl
 Ss
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
-Su
+aP
+kP
+aP
+cy
+Fl
+Ss
+aP
+kP
+kP
 Iw
 wN
 ea
 Fl
 Fl
 Ss
+lO
+lO
+lO
+lO
+lO
 Ss
 Ss
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-rt
-rt
+Fl
+Fl
+Tc
+Tc
+yO
+yO
 DU
-DU
-Fa
 Jd
 Zl
 CD
@@ -21624,15 +22284,15 @@ MC
 ng
 Rj
 sW
-Rj
+XE
 ng
 hX
 hX
-AU
-hX
-hX
-hX
-hx
+Or
+qs
+mr
+kw
+Or
 MJ
 hX
 eX
@@ -21661,23 +22321,23 @@ DU
 QU
 "}
 (82,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-cy
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+cr
+iI
 pW
 Ns
 WI
@@ -21711,45 +22371,45 @@ Xd
 ZF
 Fl
 Ss
-Su
-Su
-Su
-Su
-Su
-Su
+aP
+aP
+aP
+Fl
+Fl
+Fl
 yt
 Ss
-Su
+aP
 Iw
 wN
 ea
 Lk
 Lk
 ZF
+lO
+jL
 Fl
-cy
-Fl
-Ss
-Ss
+ZG
+ZG
 yt
 Fl
-Fa
+Ss
 Fl
-Fl
-Fl
+lO
+lO
+yO
+yO
 DU
-DU
-Fa
 Jd
-Jt
 Jd
-Jt
 Jd
-Jt
 Jd
-Jt
 Jd
-Jt
+Jd
+Jd
+Jd
+Jd
+Jd
 Jd
 YP
 xn
@@ -21760,11 +22420,11 @@ uI
 uI
 jA
 pY
-vb
-NU
-NU
-NU
-NU
+Or
+Or
+in
+DU
+Or
 ig
 wJ
 eX
@@ -21787,29 +22447,29 @@ Pq
 Pq
 Pq
 Pq
-Pq
-Pq
-Pq
+mc
+rz
+mc
 QU
 "}
 (83,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-Fl
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+cr
+cr
 pW
 Ad
 WI
@@ -21848,7 +22508,7 @@ Ss
 Fl
 Fl
 Ss
-Ss
+Fl
 Ss
 cy
 YU
@@ -21858,46 +22518,46 @@ ea
 Mj
 OV
 lo
-Fl
+lO
 YU
 Fl
 Fl
-Fl
-Fl
+lO
+lO
 Fl
 cy
-Fl
-Fl
-Fl
-Fl
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Pq
-Pq
-Pq
-Pq
-Pq
+lO
+lO
+lO
+lO
+be
+be
+Tm
+UU
+UU
+UU
+UU
+UU
+UU
+UU
+UU
+be
+Tm
+Tm
+be
+Tm
+Tm
+Tm
+tB
+Tm
 OZ
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-fy
+be
+Tm
+Aq
+be
+IJ
+be
+xl
 hX
 MT
 Pq
@@ -21920,28 +22580,28 @@ Rw
 pD
 Pq
 MY
-Pq
-Pq
+mc
+rz
 QU
 "}
 (84,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-Fl
-Fl
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+cr
+cr
+cr
 pW
 pW
 sm
@@ -21978,8 +22638,8 @@ fa
 Fl
 cy
 Ss
-Ss
-Ss
+Fl
+Fl
 Fl
 Fl
 Fl
@@ -21990,46 +22650,46 @@ ea
 OV
 wR
 Xd
-Fl
+Lk
 Lk
 Lk
 BX
-Lk
+lO
+lO
 Fl
 Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-fy
+lO
+lO
+lO
+lO
+be
+be
+be
+UU
+UU
+UU
+UU
+UU
+UU
+UU
+Tm
+be
+be
+Tm
+Tm
+KV
+OY
+be
+be
+be
+Tm
+Tm
+Tm
+be
+DT
+be
+be
+xl
 hX
 eX
 Pq
@@ -22051,29 +22711,29 @@ sa
 sa
 pD
 Pq
-Pq
-Pq
-Pq
+rz
+rz
+mc
 QU
 "}
 (85,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-cy
-Fl
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+cr
+iI
+cr
 pW
 Qw
 Qw
@@ -22133,35 +22793,35 @@ Fl
 Fl
 Fl
 kF
-Fl
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-Pq
-fy
+lO
+cR
+be
+Tm
+Tm
+be
+be
+UU
+UU
+UU
+UU
+be
+Tm
+Tm
+cR
+be
+Tm
+be
+be
+Tm
+Tm
+Tm
+cR
+Tm
+Tm
+be
+be
+Tm
+xl
 qb
 eX
 Pq
@@ -22183,29 +22843,29 @@ Pq
 Pq
 Pq
 Pq
-Pq
-Pq
-Pq
+mc
+rz
+rz
 QU
 "}
 (86,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-Fl
-Fl
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+cr
+cr
+cr
 pW
 Li
 Qj
@@ -22268,33 +22928,33 @@ Fl
 Tm
 Tm
 be
-AQ
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Fa
-Tm
-be
 be
 Tm
+Tm
+Tm
+Tm
+zo
+be
+Tm
+Tm
+be
+Tm
+dq
+Tm
+Tm
+Tm
+be
+Tm
 AQ
 be
-be
-Pq
-Pq
-Pq
+dq
+Tm
+Tm
+zo
 be
 AQ
 JR
-Nk
+Cw
 DI
 Pq
 Pq
@@ -22315,29 +22975,29 @@ Pq
 Pq
 Pq
 Pq
-Pq
-Pq
-Pq
+mc
+rz
+mc
 zL
 "}
 (87,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-Fl
-Fl
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+cr
+cr
+cr
 pW
 Bb
 Qj
@@ -22404,12 +23064,12 @@ be
 be
 be
 Tm
-Tm
+cR
 be
 be
 be
 Tm
-Gu
+nk
 nk
 nk
 Fs
@@ -22421,7 +23081,7 @@ cR
 Tm
 Tm
 cR
-Tm
+cR
 Tm
 Tm
 be
@@ -22432,7 +23092,7 @@ Tm
 be
 AQ
 be
-Tm
+cR
 Tm
 Xi
 JU
@@ -22453,23 +23113,23 @@ Tm
 zL
 "}
 (88,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-cy
-Fl
-Fl
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+iI
+cr
+cr
 pW
 pW
 pW
@@ -22486,13 +23146,13 @@ fa
 fa
 fa
 fa
-Fl
-cy
-lO
-lO
-lO
-lO
-lO
+cr
+iI
+jp
+jp
+jp
+jp
+jp
 eY
 ic
 FY
@@ -22538,10 +23198,10 @@ IQ
 nG
 Yb
 Pi
-Rd
-YM
 Yb
-HU
+Yb
+Yb
+Nn
 gn
 rQ
 QY
@@ -22581,50 +23241,50 @@ YM
 Oa
 Yb
 Tm
-Tm
+cR
 zL
 "}
 (89,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-YU
-ZF
-ef
-wR
-Xd
-Lk
-ZF
-Lk
-YU
-Fl
-Fl
-Fl
-lO
-lO
-lO
-lO
-lO
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+uA
+MS
+mK
+NE
+FW
+hW
+MS
+hW
+uA
+cr
+cr
+cr
+jp
+jp
+jp
+jp
+jp
 eY
 vn
 Al
@@ -22635,7 +23295,7 @@ oW
 FY
 rT
 XT
-jV
+eV
 pE
 pE
 pE
@@ -22670,10 +23330,10 @@ Tm
 Oa
 Yb
 Yb
-aQ
+UU
 gL
 Oa
-HU
+Nn
 Iq
 Iq
 Ab
@@ -22717,46 +23377,46 @@ cR
 zL
 "}
 (90,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-Fl
-Fl
-Fl
-cy
-Fl
-Fl
-Fl
-cy
-Fl
-Lk
-Lk
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+cr
+cr
+cr
+cr
+iI
+iI
+cr
+cr
+iI
+cr
+hW
+hW
 qk
 sz
-Lk
-Lk
-Lk
-cy
-Fl
-Fl
-Fl
-Fl
-lO
-lO
-lO
-lO
+hW
+hW
+hW
+iI
+cr
+cr
+cr
+cr
+jp
+jp
+jp
+jp
 eY
 FY
 FY
@@ -22801,11 +23461,11 @@ Tm
 Tm
 cR
 Tm
+UU
+UU
+UU
 Yb
-aQ
-Tu
-YM
-HU
+Nn
 Iq
 iS
 pw
@@ -22849,46 +23509,46 @@ IQ
 zL
 "}
 (91,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-ZF
-Lk
-Lk
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+iI
+MS
+hW
+hW
 Hz
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-lO
-lO
-lO
-lO
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+jp
+jp
+jp
+jp
 eY
 eY
 Zs
@@ -22914,29 +23574,29 @@ ea
 Nm
 Nm
 Nm
-UH
+Nm
 XQ
-JE
+Nm
 Nm
 lj
 lj
 Nm
-lO
-lO
-lO
-lO
-UU
-UU
-UU
-UU
-cR
-Tm
+Nm
+Nm
+Nm
+Nm
+Nm
+Nm
+Nm
+Nm
+TR
+Nm
 Yb
 Yb
 Oa
-jW
-Hw
-dx
+UU
+UU
+Yb
 Je
 Iq
 Iq
@@ -22981,46 +23641,46 @@ Tm
 zL
 "}
 (92,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-cy
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-cy
-Fl
-Fl
-Fl
-YU
-Fl
-Fl
-Fl
-Fl
-cy
-Fl
-Fl
-Fl
-lO
-lO
-lO
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+iI
+cr
+cr
+cr
+cr
+cr
+cr
+iI
+cr
+iI
+cr
+uA
+cr
+cr
+cr
+cr
+iI
+cr
+cr
+cr
+jp
+jp
+jp
 eY
 cn
 NS
@@ -23051,25 +23711,25 @@ XQ
 LP
 ss
 dY
+IS
+Nm
+gZ
 fb
 Nm
-lO
-lO
-lO
-lO
+Ha
+ss
+Mu
+ss
+ss
+Ha
+Nm
+Tm
+Tm
+Tm
 UU
-UU
-UU
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
 IQ
 Yb
-HU
+Nn
 gn
 rQ
 Xu
@@ -23113,46 +23773,46 @@ Tm
 zL
 "}
 (93,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-Fl
-Fl
-aR
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-cy
-Fl
-aR
-Fl
-Fl
-Fl
-Fl
-Fl
-cy
-lO
-lO
-lO
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+jp
+cr
+cr
+Aj
+cr
+cr
+cr
+cr
+Aj
+cr
+iI
+cr
+Aj
+cr
+cr
+cr
+cr
+cr
+dT
+jp
+jp
+jp
 eY
 ip
 Hi
@@ -23178,23 +23838,23 @@ Sq
 lj
 YY
 XQ
-XQ
+cj
 AC
 Nm
-py
 XQ
-Bv
+XQ
+eA
 Nm
-lO
-lO
-lO
-lO
-UU
-Tm
-Tm
-Tm
-cR
-Tm
+xm
+kc
+Tv
+XQ
+XQ
+XQ
+XQ
+XQ
+AC
+Tv
 Tm
 tG
 Tm
@@ -23245,46 +23905,46 @@ Tm
 zL
 "}
 (94,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-cy
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+jp
+cr
+cr
+cr
+cr
+bo
+bo
+bo
+HZ
+bo
+bo
+cr
+cr
+iI
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
 eY
 eY
 eY
@@ -23309,24 +23969,24 @@ fE
 ea
 Nm
 xm
-py
+Kd
 py
 XQ
 Nm
-XQ
+pO
 AC
+LP
+yY
+NM
 kc
-Nm
-Nm
-Nm
-lO
-lO
-UU
-zo
-Tm
-Tm
-Tm
-Tm
+XQ
+BE
+BE
+Xm
+BE
+BE
+BE
+XQ
 Tm
 Tm
 zo
@@ -23371,52 +24031,52 @@ Io
 Xi
 cR
 Tm
-Tm
+cR
 Tm
 UU
 zL
 "}
 (95,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-Fl
-Fl
-cy
-Fl
-Fl
-Fl
-Fl
-cy
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-lO
-lO
-lO
-Fl
-Fl
-Fl
-Fl
-Fl
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+jp
+jp
+jp
+jp
+jp
+jp
+bo
+Va
+sb
+oK
+AX
+bo
+cr
+cr
+cr
+jp
+jp
+jp
+cr
+cr
+cr
+cr
+cr
 eY
 Ys
 Vy
@@ -23441,24 +24101,24 @@ sp
 ea
 Tv
 KH
-py
-py
+PA
+Kd
 XQ
 XQ
 RT
 RT
 KH
-gd
-TN
+RT
+RT
+Bv
 Nm
-lO
-lO
-UU
-Tm
-Tm
-cR
-UU
-UU
+Nm
+Nm
+pO
+XQ
+TR
+Nm
+Nm
 xD
 Tm
 Tm
@@ -23486,12 +24146,12 @@ uC
 Nk
 cT
 nT
-Nk
+Cw
 KK
 cR
 Tm
 Tm
-Tm
+zo
 Xi
 GY
 Ja
@@ -23509,46 +24169,46 @@ UU
 zL
 "}
 (96,1,1) = {"
-gi
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Fl
-cy
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-cy
-Fl
-Fl
-Fl
-lO
-lO
-lO
-lO
-Fl
-Fl
-Fl
-Fl
+LZ
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+PS
+jp
+jp
+Wk
+jp
+jp
+jp
+jp
+jp
+bo
+Ea
+Of
+oK
+HT
+bo
+cr
+cr
+cr
+jp
+jp
+jp
+jp
+cr
+cr
+cr
+cr
 eY
 eY
 eY
@@ -23573,7 +24233,7 @@ Ft
 TK
 yS
 yS
-yS
+id
 yj
 BE
 Nm
@@ -23582,24 +24242,24 @@ pq
 XQ
 Au
 XD
+kc
 Nm
-lO
-lO
-Tm
-Tm
-Tm
-Tm
-UU
-UU
-UU
-UU
-UU
-UU
+Vb
+Nm
+XQ
+XQ
+Nm
+Vb
+Nm
+mR
+mR
+mR
+mR
 Tm
 Tm
 cR
 Tm
-UU
+mR
 TD
 uB
 Xl
@@ -23620,8 +24280,8 @@ cT
 Nk
 Nk
 hP
-Tm
-Tm
+UU
+UU
 cR
 Tm
 Xi
@@ -23657,41 +24317,41 @@ PS
 PS
 PS
 PS
+jp
+jp
+jp
+jp
+jp
+jp
+jp
+bo
+Ym
+oK
+oK
+tZ
+bo
+cr
+cr
+cr
+jp
+jp
+jp
+jp
+Aj
+iI
+cr
+cr
+iI
 cr
 cr
 cr
 cr
 cr
 cr
-cr
-PS
-cr
-cr
-PS
-PS
-PS
 Fl
+aR
 Fl
-Fl
-lO
-lO
-lO
-lO
-Fl
-cy
-Fl
-Fl
-cy
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
+aR
 Fl
 lO
 lO
@@ -23714,24 +24374,24 @@ jt
 HH
 hs
 oC
+PY
 Nm
-lO
-lO
+TA
+gu
+XQ
+XQ
+gu
+TA
+Nm
+mR
+mR
+mR
+mR
+mR
 Tm
 Tm
-Tm
-Tm
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-Tm
-Tm
-UU
-UU
+mR
+mR
 TD
 TD
 TD
@@ -23752,8 +24412,8 @@ ZM
 ZM
 bv
 Yo
-Tm
-Tm
+UU
+UU
 Tm
 Tm
 Xi
@@ -23789,6 +24449,27 @@ PS
 PS
 PS
 PS
+jp
+jp
+jp
+jp
+jp
+jp
+jp
+bo
+bo
+Hu
+Of
+bo
+bo
+cr
+cr
+iI
+jp
+jp
+jp
+jp
+jp
 cr
 cr
 cr
@@ -23796,30 +24477,9 @@ cr
 cr
 cr
 cr
-PS
-PS
-PS
-PS
-PS
-PS
-Fl
-Fl
-cy
-lO
-lO
-lO
-lO
-lO
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-cy
-Fl
-Fl
+iI
+cr
+cr
 Fl
 Fl
 Fl
@@ -23844,31 +24504,31 @@ Nm
 Nm
 Nm
 Nm
-lj
 Nm
 Nm
-lO
-lO
-Tm
-cR
-Tm
-Tm
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-Tm
-Tm
+Nm
+Nm
+Nm
+Nm
+AC
+Tk
+Nm
+Nm
+Nm
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+zi
+zi
 TD
 TD
 TD
@@ -23883,9 +24543,9 @@ Tm
 Tm
 Tm
 AZ
-cR
-Tm
-Tm
+Pc
+UU
+UU
 Tm
 cR
 Tm
@@ -23920,43 +24580,43 @@ PS
 PS
 PS
 PS
-cr
-cr
+jp
+jp
 iI
 cr
 st
 cr
 cr
-PS
-PS
-PS
-PS
-PS
-PS
-PS
-PS
+jp
+bo
+gI
+oK
+oK
+BW
+bo
+cr
+cr
+cr
+cr
+cr
+jp
+jp
+jp
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+iI
 Fl
 Fl
 Fl
 Fl
 lO
-lO
-lO
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-cy
-Fl
-Fl
-Fl
-Fl
-Fl
 lO
 lO
 lO
@@ -23976,31 +24636,31 @@ zQ
 UP
 fb
 Nm
-Fl
-lO
-lO
-lO
-lO
-Tm
-Tm
-Tm
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-zo
-Tm
+mR
+mR
+mR
+mR
+mR
+zi
+zi
+zi
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+Qz
+zi
 Tm
 Tm
 te
@@ -24015,16 +24675,16 @@ zo
 Vz
 Vz
 zo
+UU
+UU
+UU
+UU
 Tm
 Tm
 Tm
 Tm
 Tm
-Tm
-zo
-Tm
-Tm
-Tm
+cR
 Tm
 Tm
 mR
@@ -24059,37 +24719,37 @@ cr
 cr
 cr
 iI
-PS
-PS
-PS
-PS
-PS
-PS
-PS
-PS
-Fl
-Fl
+jp
+bo
+bo
+oK
+oK
+bo
+bo
+cr
+cr
+cr
+cr
+cr
+jp
+jp
+jp
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
 Fl
 Fl
 lO
 lO
 lO
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
+lO
 lO
 lO
 lO
@@ -24108,33 +24768,33 @@ vq
 Zd
 Bv
 Nm
-cy
-Fl
-Fl
-Fl
-Fl
-Tm
-Tm
-Tm
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-Tm
-cR
-Tm
-Tm
-cR
-Tm
-Tm
+Ic
+mR
+mR
+mR
+zi
+zi
+zi
+zi
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+Ic
+mR
+zi
+aM
+zi
+zi
 te
 Pz
 te
@@ -24147,10 +24807,10 @@ Tm
 Tm
 Tm
 Tm
-Tm
-Tm
-Tm
-Tm
+UU
+UU
+UU
+UU
 Tm
 cR
 Tm
@@ -24191,37 +24851,37 @@ cr
 cr
 cr
 cr
-PS
-PS
-PS
-PS
-PS
-PS
-PS
-PS
+jp
+bo
+BC
+oK
+lL
+Tj
+bo
+cr
+Aj
+iI
+cr
+cr
+cr
+Aj
+cr
+cr
+iI
+cr
+cr
+cr
+cr
+iI
+cr
+cr
+cr
+Fl
 aR
-cy
 Fl
-Fl
-Fl
-aR
-Fl
-Fl
-cy
-Fl
-Fl
-Fl
-Fl
-cy
-Fl
-Fl
-Fl
-Fl
-aR
-Fl
-Fl
-Fl
-Fl
+lO
+lO
+lO
 lO
 lO
 lO
@@ -24240,36 +24900,36 @@ rj
 mA
 eI
 lj
-Fl
-Fl
-Fl
-Fl
-Fl
-Tm
-zo
-cR
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-UU
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-te
+zi
+zi
+mR
+mR
+zi
+zi
+Qz
+aM
+zi
+zi
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+zi
+zi
+zi
+pR
 aA
-VV
-VV
+VR
+VR
 gT
 VX
 Tm
@@ -24281,7 +24941,7 @@ vk
 gN
 FD
 Jl
-cR
+Pc
 Tm
 Tm
 Tm
@@ -24323,26 +24983,26 @@ Um
 Um
 Um
 Um
-sl
+op
+bo
+ab
+oK
+oK
+Tj
+bo
 PS
-PS
-PS
-PS
-PS
-PS
-PS
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+cr
+jp
 sx
 sx
 sx
@@ -24350,12 +25010,12 @@ sx
 sx
 Fl
 Fl
-aR
+Fl
 cy
 Fl
-Fl
-Fl
-Fl
+lO
+lO
+lO
 Fl
 Fl
 Fl
@@ -24372,32 +25032,32 @@ VQ
 YG
 UZ
 lj
-Fl
-Fl
-Fl
-cy
-Fl
-zo
-Tm
-IQ
-Yb
-Yb
-Oa
+zi
+zi
+zi
+aM
+zi
+Qz
+zi
+de
+PI
+PI
+tf
 jW
 Tu
 Tu
 Tu
-YM
-Oa
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-cR
-Tm
-Tm
+GX
+mR
+mR
+mR
+zi
+zi
+mR
+mR
+aM
+zi
+zi
 aA
 To
 el
@@ -24405,18 +25065,18 @@ Km
 el
 qi
 VX
-Tm
-Tm
+zi
+zi
 PD
 PD
 KU
 qu
 Rk
 JD
-Tm
-Tm
-Tm
-Tm
+zi
+zi
+zi
+zi
 zi
 mR
 mR
@@ -24455,25 +25115,25 @@ cr
 cr
 cr
 cr
-sl
-PS
-PS
-PS
-PS
-PS
-PS
+op
+bo
+ab
+oK
+Of
+wz
+bo
 PS
 MN
 MN
-Fl
-Fl
-cy
-Fl
-Fl
-Fl
-Fl
-Fl
-Fl
+cr
+cr
+iI
+cr
+cr
+cr
+cr
+cr
+jp
 sx
 sx
 sx
@@ -24481,7 +25141,7 @@ sx
 sx
 sx
 Fl
-Fl
+aR
 Fl
 aR
 Fl
@@ -24504,51 +25164,51 @@ iw
 oG
 ay
 lj
-Fl
-Fl
-Fl
-Fl
-Fl
-Tm
-Tm
-Tm
-Tm
-Tm
-Yb
-nG
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+PI
+zl
 jW
 Hw
 Hw
-dx
-Yb
-Tm
-Tm
-cR
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
+Gk
+mR
+mR
+mR
+aM
+zi
+zi
+mR
+zi
+zi
+zi
 mW
 sT
 BN
 ia
-wu
+Db
 el
 Dg
-Tm
-cR
+zi
+aM
 PD
 Yg
 HB
 Jk
 yH
 vS
-Tm
-Tm
-Tm
-Tm
+zi
+zi
+Qz
+zi
 mR
 mR
 mR
@@ -24587,13 +25247,13 @@ iI
 cr
 cr
 cr
-sl
-PS
-PS
-PS
-PS
-PS
-PS
+op
+bo
+BC
+oK
+oK
+AX
+bo
 PS
 WR
 MN
@@ -24601,8 +25261,8 @@ MN
 MN
 MN
 MN
-MN
-WR
+SV
+Hp
 sx
 sx
 sx
@@ -24636,32 +25296,32 @@ vq
 Dm
 iv
 Nm
-Fl
-cy
-Fl
-Fl
-Fl
-Tm
-Tm
-Tm
-cR
-IQ
-Yb
-Yb
-Yb
-Oa
-nG
-Tm
-IQ
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
+zi
+aM
+zi
+zi
+zi
+zi
+zi
+mR
+mR
+mR
+PI
+PI
+PI
+tF
+zl
+zi
+de
+mR
+mR
+mR
+zi
+zi
+zi
+zi
+zi
+zi
 YV
 hm
 ia
@@ -24669,18 +25329,18 @@ HW
 ia
 KP
 kN
-Tm
-Tm
+zi
+zi
 PD
 PD
 VS
 cs
 lf
 uh
-Tm
-Tm
-Tm
-Tm
+zi
+aM
+zi
+zi
 mR
 mR
 mR
@@ -24719,13 +25379,13 @@ cr
 cr
 cU
 cr
-sl
-PS
-PS
-PS
-PS
-PS
-PS
+op
+bo
+bo
+Hu
+oK
+bo
+bo
 PS
 PS
 PS
@@ -24733,8 +25393,8 @@ MN
 MN
 MN
 MN
-MN
-MN
+SV
+SV
 sx
 sx
 sx
@@ -24758,7 +25418,7 @@ Fl
 Fl
 Fl
 Fl
-Fl
+lO
 Nm
 ZU
 yn
@@ -24768,50 +25428,50 @@ zR
 lN
 PY
 Nm
-Fl
-Fl
-Fl
-Fl
-Fl
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Yb
-Yb
-Yb
+mR
+mR
+mR
+zi
+zi
+zi
+zi
+mR
+mR
+mR
+zi
+PI
+PI
+PI
 Rd
 ZQ
-Tm
-Tm
-Tm
-Tm
-Tm
-cR
-Tm
-Tm
-Tm
-Tm
+zi
+zi
+mR
+mR
+mR
+aM
+zi
+zi
+zi
+zi
 mW
 sT
 BN
 EA
 BN
 Hn
-VV
+VR
 Af
-Tm
-cR
+zi
+aM
 FD
 KF
 Kb
 FD
 Cr
-Tm
-Tm
-cR
+zi
+zi
+aM
 mR
 mR
 mR
@@ -24851,13 +25511,13 @@ cr
 cr
 cr
 Aj
-sl
-PS
-PS
-PS
-PS
-PS
-PS
+op
+bo
+gr
+QV
+pA
+uO
+bo
 PS
 PS
 PS
@@ -24865,7 +25525,7 @@ MN
 MN
 MN
 MN
-MN
+SV
 sx
 sx
 sx
@@ -24890,66 +25550,66 @@ Fl
 Fl
 Fl
 Fl
-cy
-Nm
-Nm
-lj
-lj
+jL
 Nm
 Nm
 Nm
 Nm
 Nm
-Fl
-Fl
-Fl
-Fl
-Fl
+Nm
+Nm
+Nm
+Nm
+mR
+mR
+mR
+zi
+zi
 wZ
-Tm
-cR
-Tm
-Tm
-zo
-kb
+zi
+Ic
+mR
+zi
+zi
+Wh
 Kn
 LQ
 AT
 wP
-kb
-kb
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
+Wh
+Wh
+zi
+mR
+mR
+zi
+zi
+zi
+zi
+zi
 ce
 VI
 Hn
 Oy
 Hn
-VV
-dO
+VR
+ws
 VR
 Se
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-GN
-GN
-GN
-GN
-mR
-mR
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+ht
+fo
+ht
+ht
+ht
+ht
+ht
+ht
 mR
 mR
 mR
@@ -24983,13 +25643,13 @@ cr
 cr
 cr
 iI
-yi
-PS
-PS
-PS
-PS
-PS
-PS
+Um
+bo
+wy
+tw
+oi
+Cn
+bo
 PS
 PS
 PS
@@ -24997,7 +25657,7 @@ MN
 WR
 MN
 MN
-MN
+SV
 sx
 sx
 sx
@@ -25022,66 +25682,66 @@ cy
 Fl
 Fl
 aR
+lO
+lO
+lO
 Fl
-aR
 Fl
-Fl
-Fl
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-lO
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-kb
-IQ
-Tm
-Tm
-An
-Tm
-kb
-cR
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-cR
-Tm
+sx
+sx
+sx
+sx
+sx
+sx
+sx
+mR
+mR
+mR
+zi
+zi
+zi
+zi
+zi
+zi
+Wh
+de
+zi
+zi
+Bj
+zi
+Wh
+aM
+zi
+zi
+zi
+zi
+zi
+zi
+aM
+zi
 ce
 df
 df
-VV
-HJ
+VR
+Qz
 zw
 EH
 EH
-Tm
+zi
 TV
-Tm
-zo
-Tm
-Tm
-Tm
-GN
-GN
-GN
-GN
-Gd
-GN
-mR
-mR
+zi
+Qz
+zi
+zi
+zi
+JJ
+JJ
+JJ
+JJ
+JJ
+FT
+JJ
+ht
 mR
 mR
 mR
@@ -25116,12 +25776,12 @@ cr
 cr
 cr
 Um
-cr
-cr
-cr
-PS
-PS
-PS
+bo
+ge
+Yi
+Yi
+em
+bo
 PS
 PS
 PS
@@ -25154,11 +25814,11 @@ Fl
 Fl
 Fl
 MN
-WR
+SV
+SV
+SV
 MN
 MN
-MN
-MN
 sx
 sx
 sx
@@ -25169,51 +25829,51 @@ sx
 sx
 sx
 sx
-UU
-UU
-UU
-UU
-UU
-zo
-kb
-cR
-Tm
-Tm
-Tm
-cR
-kb
-Tm
-Tm
-Tm
-Tm
-Tm
-zo
-Tm
-Tm
-Tm
-Tm
-Tm
-te
+Qz
+zi
+zi
+zi
+zi
+Qz
+Wh
+aM
+zi
+zi
+zi
+aM
+Wh
+zi
+zi
+zi
+zi
+zi
+Qz
+zi
+zi
+zi
+zi
+zi
+pR
 UG
-te
-Tm
+pR
+zi
 Db
-Tm
+zi
 EH
 up
-Tm
-cR
-Tm
-Tm
-Tm
-GN
-GN
-GN
-GN
-DN
-GN
-mR
-mR
+zi
+aM
+zi
+zi
+zi
+sq
+uo
+Sh
+Ov
+ZV
+JJ
+dr
+ht
 mR
 mR
 mR
@@ -25248,12 +25908,12 @@ cr
 cr
 cr
 Um
-cr
-cr
-cr
-PS
-PS
-PS
+bo
+bo
+oK
+gK
+bo
+bo
 PS
 PS
 PS
@@ -25284,13 +25944,14 @@ cF
 xS
 sx
 sx
-sx
+Fg
 MN
-MN
-MN
+SV
+SV
 MN
 WR
 MN
+Fg
 sx
 sx
 sx
@@ -25301,51 +25962,50 @@ sx
 sx
 sx
 sx
-sx
-UU
-UU
-UU
-UU
-Tm
-kb
-Tm
-Tm
-Tm
-Tm
-Tm
-JY
-UU
-UU
-UU
-UU
-UU
-UU
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-wf
-Tm
-IJ
+mR
+mR
+mR
+zi
+zi
+Wh
+zi
+zi
+zi
+zi
+zi
+Wh
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+AR
+zi
+ws
 Af
-Tm
-Tm
-Tm
-GN
-GN
-DN
-GN
-DN
-GN
-GN
-GN
-GN
-mR
-mR
+zi
+zi
+zi
+zi
+zi
+aM
+ht
+gS
+Sh
+Sh
+oD
+Jq
+JJ
+ht
 mR
 mR
 mR
@@ -25416,13 +26076,14 @@ sx
 sx
 sx
 sx
-sx
+Fg
+MN
+MN
+SV
 MN
 MN
 MN
-MN
-MN
-MN
+Fg
 sx
 sx
 sx
@@ -25433,51 +26094,50 @@ sx
 sx
 sx
 sx
-sx
-UU
-UU
-UU
-UU
-UU
-JY
-UU
-Tm
-Tm
-Tm
-Tm
-JY
-UU
-UU
-UU
-UU
-UU
-UU
-Tm
-Tm
-cR
-Tm
-Tm
-cR
-Tm
-Tm
-cR
-Tm
-Tm
-Tm
-cR
-Tm
-Tm
 mR
 mR
 mR
-GN
-GN
-GN
-GN
-GN
-GN
-GN
 mR
+mR
+BH
+mR
+zi
+zi
+zi
+zi
+BH
+mR
+mR
+mR
+mR
+zi
+zi
+zi
+zi
+Ic
+mR
+mR
+aM
+zi
+zi
+aM
+zi
+zi
+zi
+aM
+zi
+zi
+ht
+fo
+fo
+ht
+ht
+ht
+ht
+ht
+dr
+Sh
+ht
 mR
 mR
 mR
@@ -25515,7 +26175,7 @@ iI
 cr
 cr
 cr
-cr
+Aj
 cr
 Aj
 cr
@@ -25548,7 +26208,7 @@ sx
 sx
 sx
 sx
-sx
+Fg
 MN
 MN
 WR
@@ -25566,50 +26226,50 @@ sx
 sx
 sx
 sx
-UU
-UU
-UU
-UU
-UU
-JY
-JY
-JY
-JY
-JY
-JY
-JY
-UU
-UU
-UU
-UU
-UU
-UU
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
-Tm
 mR
 mR
 mR
 mR
-GN
-GN
-GN
-GN
-GN
-GN
-GN
+mR
+BH
+BH
+BH
+BH
+BH
+BH
+BH
+mR
+mR
+mR
+mR
+zi
+zi
+zi
+mR
+mR
+mR
+mR
+mR
+mR
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+zi
+ht
+tC
+tC
+ht
+kJ
+EZ
+ht
+Mi
+yM
+HK
+ht
 mR
 mR
 mR
@@ -25715,6 +26375,8 @@ mR
 mR
 mR
 mR
+zi
+zi
 mR
 mR
 mR
@@ -25729,19 +26391,17 @@ mR
 mR
 mR
 mR
-mR
-mR
-mR
-mR
-mR
-mR
-GN
-DN
-GN
-GN
-aH
-GN
-GN
+ht
+JJ
+Sh
+Sh
+EZ
+rl
+KI
+Sh
+Sh
+Sh
+ht
 mR
 mR
 mR
@@ -25813,9 +26473,9 @@ sx
 sx
 sx
 sx
-sx
-sx
 gG
+Fg
+Fg
 MN
 Px
 MN
@@ -25863,17 +26523,17 @@ mR
 mR
 mR
 mR
-mR
-mR
-mR
-mR
-mR
-GN
-GN
-Gd
-GN
-GN
-DN
+ht
+Zf
+KC
+ie
+gS
+uo
+KI
+Sh
+Dv
+uw
+mH
 mR
 mR
 mR
@@ -25995,17 +26655,17 @@ mR
 mR
 mR
 mR
-mR
-mR
-mR
-mR
-mR
-GN
-GN
-GN
-GN
-GN
-mR
+ht
+sv
+IN
+sv
+IN
+sv
+ht
+JJ
+Sh
+hj
+ht
 mR
 mR
 mR
@@ -26110,10 +26770,10 @@ Wh
 Wh
 Wh
 Wh
-Wh
-Wh
-Wh
-Wh
+BH
+BH
+BH
+BH
 Wh
 BH
 BH
@@ -26127,17 +26787,17 @@ mR
 mR
 mR
 mR
-mR
-mR
-mR
+ht
+ht
+ht
+ht
+ht
+ht
+ht
 GN
-GN
-GN
-GN
-mx
-GN
-GN
-mR
+JJ
+ht
+ht
 mR
 mR
 mR
@@ -26265,10 +26925,10 @@ GN
 GN
 GN
 GN
-GN
-GN
-GN
-GN
+Sr
+JJ
+Sh
+rD
 mR
 mR
 mR
@@ -26399,9 +27059,9 @@ GN
 mR
 GN
 DN
+JJ
 GN
-GN
-GN
+rD
 mR
 mR
 mR
@@ -26531,7 +27191,7 @@ mR
 mR
 mR
 GN
-GN
+mx
 GN
 GN
 mR
@@ -27188,7 +27848,7 @@ mR
 GN
 GN
 GN
-GN
+aH
 GN
 GN
 GN
@@ -27455,7 +28115,7 @@ GN
 GN
 GN
 GN
-GN
+Gd
 mR
 mR
 mR

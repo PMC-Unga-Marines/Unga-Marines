@@ -59,7 +59,7 @@
 /obj/item/weapon/gun/energy/yautja
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = null
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_back_str = 'icons/mob/hunter/pred_gear.dmi',
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi',
@@ -123,7 +123,7 @@
 	desc = "A compact Yautja device in the shape of a crescent. It can rapidly fire damaging spikes and automatically recharges."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "spikelauncher"
-	item_state = "spikelauncher"
+	worn_icon_state = "spikelauncher"
 	resistance_flags = UNACIDABLE
 	fire_sound = 'sound/effects/woodhit.ogg' // TODO: Decent THWOK noise.
 	ammo_datum_type = /datum/ammo/energy/yautja/alloy_spike
@@ -186,7 +186,7 @@
 	name = "plasma rifle"
 	desc = "A long-barreled heavy plasma weapon. Intended for combat, not hunting. Has an integrated battery that allows for a functionally unlimited amount of shots to be discharged. Equipped with an internal gyroscopic stabilizer allowing its operator to fire the weapon one-handed if desired"
 	icon_state = "plasmarifle"
-	item_state = "plasmarifle"
+	worn_icon_state = "plasmarifle"
 	resistance_flags = UNACIDABLE
 	fire_sound = 'sound/weapons/pred_plasma_shot.ogg'
 	ammo_datum_type = /datum/ammo/energy/yautja/rifle/bolt
@@ -256,7 +256,7 @@
 	name = "plasma pistol"
 	desc = "A plasma pistol capable of rapid fire. It has an integrated battery. Can be used to set fires, either to braziers or on people."
 	icon_state = "plasmapistol"
-	item_state = "plasmapistol"
+	worn_icon_state = "plasmapistol"
 
 	resistance_flags = UNACIDABLE
 	fire_sound = 'sound/weapons/pulse3.ogg'
@@ -325,8 +325,8 @@
 	desc = "A powerful, shoulder-mounted energy weapon."
 	icon_state = "plasma_ebony"
 	var/initial_icon_state = "plasma"
-	var/base_item_state = "plasma_wear"
-	item_state_slots = list(
+	var/base_worn_icon_state = "plasma_wear"
+	worn_worn_icon_state_slots = list(
 		slot_back_str = "plasma_wear_off",
 		slot_s_store_str = "plasma_wear_off"
 	)
@@ -370,9 +370,9 @@
 
 /obj/item/weapon/gun/energy/yautja/plasma_caster/Initialize(mapload, spawn_empty, caster_material = "ebony")
 	icon_state = "[initial_icon_state]_[caster_material]"
-	item_state = "[initial_icon_state]_[caster_material]"
-	item_state_slots[slot_back_str] = "[base_item_state]_off_[caster_material]"
-	item_state_slots[slot_s_store_str] = "[base_item_state]_off_[caster_material]"
+	worn_icon_state = "[initial_icon_state]_[caster_material]"
+	worn_worn_icon_state_slots[slot_back_str] = "[base_worn_icon_state]_off_[caster_material]"
+	worn_worn_icon_state_slots[slot_s_store_str] = "[base_worn_icon_state]_off_[caster_material]"
 	. = ..()
 	source = loc
 	if(!istype(source))

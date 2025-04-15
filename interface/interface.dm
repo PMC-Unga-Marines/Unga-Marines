@@ -77,9 +77,9 @@
 	var/choice = tgui_alert(src, "Do you want to view the ground or the ship?", "Webmap", list("Ship", "Ground"), 0)
 	switch(choice)
 		if("Ship")
-			map_url = SSmapping.configs[SHIP_MAP].map_file
+			map_url = replacetext(lowertext(SSmapping.configs[SHIP_MAP].map_name)," ", "")
 		if("Ground")
-			map_url = SSmapping.configs[GROUND_MAP].map_file
+			map_url = replacetext(lowertext(SSmapping.configs[GROUND_MAP].map_name)," ", "")
 
 	if(!map_url)
 		to_chat(src, span_warning("Mapping subsystem hasn't finished loading yet, try again later."))

@@ -3,7 +3,7 @@
 	desc = "An agile drone used by Yautja to survey the hunting grounds."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "falcon_drone"
-	item_icons = list(
+	worn_icon_lists = list(
 		slot_ear_str = 'icons/mob/hunter/pred_gear.dmi',
 		slot_head_str = 'icons/mob/hunter/pred_gear.dmi',
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',

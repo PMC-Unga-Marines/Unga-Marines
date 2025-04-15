@@ -132,10 +132,6 @@
 	if (polyhexanide >= MIN_ANTIBIOTICS)
 		germ_level -= polyhexanide_curve[infection_level]
 
-
-
-
-
 /****************************************************
 			DAMAGE PROCS
 ****************************************************/
@@ -143,16 +139,7 @@
 /datum/limb/proc/emp_act(severity)
 	if(!(limb_status & LIMB_ROBOT))	//meatbags do not care about EMP
 		return
-	var/probability = 30
-	var/damage = 15
-	if(severity == 2)
-		probability = 1
-		damage = 3
-	if(prob(probability))
-		droplimb()
-	else
-		take_damage_limb(damage, 0, TRUE, TRUE)
-
+	take_damage_limb(0, (5 - severity) * 7, blocked = soft_armor.energy, updating_health = TRUE)
 
 /datum/limb/proc/take_damage_limb(brute, burn, sharp, edge, blocked = 0, updating_health = FALSE, list/forbidden_limbs = list())
 	if(owner.status_flags & GODMODE)

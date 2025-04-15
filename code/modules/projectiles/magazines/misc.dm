@@ -176,6 +176,7 @@
 
 /obj/item/ammo_magazine/packet/magnum
 	name = "packet of .44 magnum"
+	desc = "A packet containing 49 rounds of .44 magnum."
 	icon_state = "box_44mag" //Maybe change this
 	default_ammo = /datum/ammo/bullet/revolver/r44
 	caliber = CALIBER_44
@@ -185,6 +186,7 @@
 
 /obj/item/ammo_magazine/packet/mateba
 	name = "packet of .454 casull"
+	desc = "A packet containing 42 rounds of .454 casull."
 	icon_state = "box_454"
 	default_ammo = /datum/ammo/bullet/revolver/highimpact
 	caliber = CALIBER_454
@@ -193,6 +195,7 @@
 
 /obj/item/ammo_magazine/packet/acp
 	name = "box of pistol .45 ACP"
+	desc = "A packet containing 50 rounds of pistol .45 ACP."
 	icon_state = "box_.45acp"
 	default_ammo = /datum/ammo/bullet/smg/acp
 	w_class = WEIGHT_CLASS_NORMAL

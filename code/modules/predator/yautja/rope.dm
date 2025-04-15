@@ -4,7 +4,7 @@
 	desc = "This unassuming rope seems to be covered in markings depicting strange humanoid forms."
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "brutepack"
-	item_state = "coil"
+	worn_icon_state = "coil"
 	force = 2
 	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")

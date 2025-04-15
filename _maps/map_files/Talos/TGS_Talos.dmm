@@ -23767,7 +23767,7 @@
 /obj/machinery/door/window{
 	dir = 8
 	},
-/obj/item/weapon/claymore/mercsword/captain,
+/obj/item/weapon/sword/captain,
 /obj/effect/turf_decal/woodsiding{
 	dir = 5
 	},
@@ -35816,7 +35816,7 @@
 "vha" = (
 /obj/structure/table/mainship,
 /obj/effect/turf_decal/tile/transparent/dark_blue/diagonal_centre,
-/obj/item/weapon/claymore/tomahawk/classic,
+/obj/item/weapon/sword/tomahawk/classic,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "vhK" = (

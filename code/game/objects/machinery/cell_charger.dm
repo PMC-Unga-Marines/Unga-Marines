@@ -91,11 +91,9 @@
 		stop_processing()
 
 /obj/machinery/cell_charger/emp_act(severity)
-	if(machine_stat & (BROKEN|NOPOWER))
-		return
+	. = ..()
 	if(charging)
 		charging.emp_act(severity)
-	return ..(severity)
 
 /obj/machinery/cell_charger/process()
 	//to_chat(world, "ccpt [charging] [stat]")

@@ -16,6 +16,7 @@
 #define FACTION_PIRATE "Pirate"
 #define FACTION_SPECFORCE "Special Forces"
 #define FACTION_YAUTJA "Yautja"
+#define FACTION_VSD "Vyacheslav Security Detail"
 
 //Alignement are currently only used by req.
 ///Mob with a neutral alignement cannot be sold by anyone
@@ -46,6 +47,7 @@ GLOBAL_LIST_INIT(faction_to_alignement, list(
 	FACTION_HOSTILE = ALIGNEMENT_HOSTILE,
 	FACTION_PIRATE = ALIGNEMENT_HOSTILE,
 	FACTION_YAUTJA = ALIGNEMENT_HOSTILE,
+	FACTION_VSD = ALIGNEMENT_HOSTILE,
 ))
 
 ///Iff signals for factions
@@ -60,6 +62,7 @@ GLOBAL_LIST_INIT(faction_to_alignement, list(
 #define USL_IFF (1<<8)
 #define PIRATE_IFF (1<<9)
 #define YAUTJA_IFF (1<<10)
+#define VSD_IFF (1<<11)
 
 ///Iff for each faction that is able to use iff
 GLOBAL_LIST_INIT(faction_to_iff, list(
@@ -78,6 +81,7 @@ GLOBAL_LIST_INIT(faction_to_iff, list(
 	FACTION_USL = USL_IFF,
 	FACTION_PIRATE = PIRATE_IFF,
 	FACTION_YAUTJA = YAUTJA_IFF,
+	FACTION_VSD = VSD_IFF,
 ))
 
 ///Acronyms for each faction, or the shortest name possible
