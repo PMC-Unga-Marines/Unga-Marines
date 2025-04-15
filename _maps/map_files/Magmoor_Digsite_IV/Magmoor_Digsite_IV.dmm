@@ -3390,6 +3390,15 @@
 	},
 /turf/open/floor/plating/mainship,
 /area/magmoor/engi/storage)
+"coe" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/plating/ground/concrete/lines{
+	dir = 8
+	},
+/area/magmoor/cave/north)
 "cpd" = (
 /obj/structure/rack,
 /obj/item/weapon/combat_knife,
@@ -6963,6 +6972,10 @@
 /obj/machinery/light,
 /turf/open/floor/tile/blue/taupeblue,
 /area/magmoor/civilian/dorms)
+"ePd" = (
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/mainship/sterile/dark,
+/area/magmoor/research/containment)
 "ePt" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/plating/ground/concrete,
@@ -10039,6 +10052,11 @@
 	dir = 8
 	},
 /area/magmoor/compound/east)
+"hhy" = (
+/obj/structure/cable,
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/mainship/floor,
+/area/magmoor/research)
 "hhA" = (
 /obj/machinery/smartfridge/chemistry,
 /turf/open/floor/plating,
@@ -14833,6 +14851,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
+/obj/effect/landmark/excavation_site_spawner,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
 /area/magmoor/research/rnd/lobby)
@@ -24452,6 +24471,11 @@
 	},
 /turf/open/floor/mainship/sterile,
 /area/magmoor/medical/lobby)
+"rEp" = (
+/obj/effect/ai_node,
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/magmoor/cave/northeast)
 "rEw" = (
 /obj/machinery/mining/brace/active{
 	dir = 8
@@ -26411,6 +26435,7 @@
 	},
 /area/magmoor/compound/northwest)
 "sYM" = (
+/obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/mainship/sterile/purple/corner,
 /area/magmoor/research/rnd)
 "sYW" = (
@@ -26901,6 +26926,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/concrete,
 /area/magmoor/compound/northeast)
+"tqG" = (
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/magmoor/cave/northeast)
 "tqO" = (
 /obj/effect/decal/cleanable/blood/writing,
 /obj/effect/decal/cleanable/blood/drip,
@@ -32173,6 +32202,10 @@
 	dir = 4
 	},
 /area/magmoor/research/containment)
+"wZm" = (
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/lavaland/basalt/dirt/autosmoothing,
+/area/magmoor/compound/northeast)
 "wZv" = (
 /obj/machinery/reagentgrinder,
 /obj/item/stack/sheet/mineral/phoron,
@@ -34104,6 +34137,10 @@
 	dir = 4
 	},
 /area/magmoor/research/rnd)
+"yjH" = (
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/cult,
+/area/magmoor/cave/northeast)
 "ykk" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -58674,7 +58711,7 @@ kcd
 uUg
 lxN
 kcd
-kxx
+wke
 kcd
 kcd
 kcd
@@ -58924,7 +58961,7 @@ kcd
 kcd
 kcd
 kcd
-kcd
+qUy
 vRc
 ymj
 ymj
@@ -61450,7 +61487,7 @@ kcd
 sBd
 sBd
 kcd
-kcd
+qUy
 kcd
 kcd
 iXx
@@ -63116,7 +63153,7 @@ kcd
 szx
 kcd
 kcd
-kcd
+qUy
 kcd
 rnV
 hrd
@@ -63365,7 +63402,7 @@ kcd
 odY
 bFh
 xij
-xij
+coe
 xij
 xij
 wBX
@@ -63792,7 +63829,7 @@ kcd
 sBd
 sBd
 kcd
-iXx
+eeE
 pUu
 pUu
 kcd
@@ -66629,7 +66666,7 @@ kcd
 kcd
 iXx
 kcd
-kcd
+qUy
 iXx
 kcd
 kcd
@@ -67298,7 +67335,7 @@ daO
 vOq
 uiY
 wqL
-laA
+hhy
 laA
 amD
 djH
@@ -69166,7 +69203,7 @@ hFZ
 hFZ
 hFZ
 hFZ
-hFZ
+ePd
 hFZ
 hFZ
 siQ
@@ -69178,7 +69215,7 @@ aWn
 aWn
 kuh
 kcd
-kcd
+qUy
 kcd
 tVo
 tVo
@@ -69851,7 +69888,7 @@ lwH
 lwH
 bZr
 lwH
-lwH
+tqG
 bZr
 lwH
 xaR
@@ -71067,7 +71104,7 @@ lwH
 lwH
 lwH
 lwH
-lwH
+tqG
 lwH
 lwH
 lwH
@@ -71473,7 +71510,7 @@ tVo
 tVo
 tVo
 xaR
-lwH
+tqG
 lwH
 lwH
 lwH
@@ -71985,7 +72022,7 @@ lwH
 lwH
 lwH
 lwH
-lwH
+tqG
 lwH
 lwH
 tVo
@@ -72650,7 +72687,7 @@ tik
 lwH
 tIF
 vTR
-vTR
+yjH
 vTR
 vTR
 vTR
@@ -72716,7 +72753,7 @@ tYF
 xXw
 xXw
 xXw
-tUU
+wZm
 tUU
 fJO
 fJO
@@ -73128,7 +73165,7 @@ tVo
 tVo
 lwH
 lwH
-lwH
+tqG
 lwH
 lwH
 lwH
@@ -73607,7 +73644,7 @@ tVo
 bZr
 lwH
 lwH
-bZr
+rEp
 lwH
 lwH
 tVo
@@ -75453,7 +75490,7 @@ tVo
 lwH
 lwH
 lwH
-bZr
+rEp
 lwH
 lwH
 bZr
@@ -75957,7 +75994,7 @@ tVo
 tVo
 tVo
 lwH
-lwH
+tqG
 lwH
 xaR
 lwH
@@ -76408,7 +76445,7 @@ lwH
 lwH
 lwH
 lwH
-lwH
+tqG
 lwH
 lwH
 tVo
@@ -76605,7 +76642,7 @@ tVo
 xaR
 lwH
 lwH
-lwH
+tqG
 rEV
 rEV
 lwH
@@ -76671,7 +76708,7 @@ tVo
 lwH
 lwH
 lwH
-lwH
+tqG
 lwH
 tVo
 tVo
@@ -78018,7 +78055,7 @@ lwH
 xaR
 lwH
 bZr
-lwH
+tqG
 uOD
 rEV
 lwH
@@ -78943,7 +78980,7 @@ tVo
 tVo
 tVo
 tVo
-lwH
+tqG
 rEV
 tVo
 tVo
