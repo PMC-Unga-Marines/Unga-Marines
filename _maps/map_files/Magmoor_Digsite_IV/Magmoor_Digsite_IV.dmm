@@ -16891,6 +16891,10 @@
 /obj/machinery/atmospherics/components/unary/vent_pump,
 /turf/open/floor/mainship/tcomms,
 /area/magmoor/research/serverroom)
+"meh" = (
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/liquid/lava/autosmoothing/catwalk,
+/area/magmoor/cave/north)
 "meB" = (
 /turf/open/floor/tile/dark/blue2{
 	dir = 9
@@ -17106,6 +17110,10 @@
 	dir = 1
 	},
 /area/magmoor/security/infocenter)
+"mou" = (
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/magmoor/cave/west)
 "mow" = (
 /obj/machinery/computer/arcade,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -18227,6 +18235,10 @@
 	},
 /turf/open/floor/mainship/blue,
 /area/magmoor/command/conference)
+"nfE" = (
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/cult,
+/area/magmoor/cave/north)
 "nfS" = (
 /turf/open/liquid/lava/autosmoothing/catwalk,
 /area/magmoor/compound/southeast)
@@ -36163,7 +36175,7 @@ tVo
 tVo
 aZd
 aZd
-aZd
+mou
 aZd
 aZd
 fVB
@@ -37109,7 +37121,7 @@ tVo
 aZd
 aZd
 aZd
-aZd
+mou
 aZd
 aZd
 aZd
@@ -43528,7 +43540,7 @@ kcd
 kcd
 kcd
 kcd
-kcd
+qUy
 iXx
 kcd
 kcd
@@ -45168,7 +45180,7 @@ tVo
 kcd
 cFc
 kcd
-kcd
+qUy
 jOZ
 jkR
 jkR
@@ -46788,7 +46800,7 @@ tVo
 kcd
 kcd
 kcd
-kcd
+qUy
 kcd
 kcd
 kcd
@@ -47042,7 +47054,7 @@ jkR
 cFc
 kcd
 kcd
-kxx
+wke
 kcd
 kcd
 kcd
@@ -50773,7 +50785,7 @@ aux
 lxN
 lxN
 lxN
-lxN
+nfE
 lxN
 jkR
 jkR
@@ -51715,7 +51727,7 @@ tVo
 kxx
 kcd
 kcd
-kcd
+qUy
 kcd
 kcd
 kcd
@@ -52151,7 +52163,7 @@ tVo
 tVo
 kcd
 hDy
-kcd
+qUy
 kcd
 lxN
 lxN
@@ -54266,7 +54278,7 @@ tVo
 tVo
 kcd
 kcd
-kcd
+qUy
 kcd
 kcd
 kcd
@@ -54953,7 +54965,7 @@ ghf
 rQK
 lxN
 lxN
-lxN
+nfE
 rQK
 lxN
 kcd
@@ -54979,7 +54991,7 @@ ike
 kcd
 kcd
 izT
-uTC
+meh
 vtT
 aWO
 kSy
@@ -57508,7 +57520,7 @@ tVo
 tVo
 kcd
 kcd
-iXx
+eeE
 kcd
 kcd
 kxx
