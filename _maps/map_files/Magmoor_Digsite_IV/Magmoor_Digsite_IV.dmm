@@ -16891,10 +16891,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump,
 /turf/open/floor/mainship/tcomms,
 /area/magmoor/research/serverroom)
-"meh" = (
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/liquid/lava/autosmoothing/catwalk,
-/area/magmoor/cave/north)
 "meB" = (
 /turf/open/floor/tile/dark/blue2{
 	dir = 9
@@ -46821,7 +46817,7 @@ rQK
 cFc
 kcd
 kcd
-iXx
+eeE
 kcd
 kcd
 kcd
@@ -47054,7 +47050,7 @@ jkR
 cFc
 kcd
 kcd
-wke
+kxx
 kcd
 kcd
 kcd
@@ -54989,9 +54985,9 @@ iXx
 kcd
 ike
 kcd
-kcd
+qUy
 izT
-meh
+uTC
 vtT
 aWO
 kSy
@@ -57287,7 +57283,7 @@ tVo
 tVo
 kcd
 kcd
-kcd
+qUy
 kcd
 kcd
 kcd
@@ -57520,7 +57516,7 @@ tVo
 tVo
 kcd
 kcd
-eeE
+iXx
 kcd
 kcd
 kxx
