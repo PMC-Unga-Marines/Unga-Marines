@@ -1329,11 +1329,6 @@
 	},
 /turf/open/floor/plating/ground/concrete,
 /area/magmoor/compound/north)
-"aUA" = (
-/obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/magmoor/cave/northeast)
 "aUL" = (
 /obj/structure/table/mainship,
 /obj/structure/bedsheetbin,
@@ -1619,6 +1614,7 @@
 /area/magmoor/command/conference)
 "bdh" = (
 /obj/machinery/light,
+/obj/effect/landmark/weed_node,
 /turf/open/floor/mainship/orange{
 	dir = 6
 	},
@@ -6515,11 +6511,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/red/redtaupe,
 /area/magmoor/security/lobby)
-"eAr" = (
-/obj/structure/table/mainship,
-/obj/effect/landmark/weed_node,
-/turf/open/floor/mainship/mono,
-/area/magmoor/mining)
 "eAF" = (
 /obj/structure/bed/chair/office/light{
 	dir = 8
@@ -13257,12 +13248,6 @@
 /obj/structure/fence,
 /turf/open/floor/plating/ground/mars/dirttosand,
 /area/magmoor/compound)
-"jAP" = (
-/obj/effect/landmark/weed_node,
-/obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/magmoor/cave/northeast)
 "jAU" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -15928,11 +15913,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/magmoor/civilian/cryostasis)
-"ltV" = (
-/obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/magmoor/cave/northwest)
 "luh" = (
 /obj/machinery/power/apc/drained{
 	dir = 8
@@ -16974,6 +16954,13 @@
 	},
 /turf/open/floor/mainship/stripesquare,
 /area/magmoor/cargo/storage/secure/south)
+"mgG" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/obj/effect/landmark/weed_node,
+/turf/open/floor/mainship/emerald,
+/area/magmoor/mining)
 "mgT" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -30008,11 +29995,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/purple,
 /area/magmoor/civilian/jani)
-"vBp" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/magmoor/cave/north)
 "vBC" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/concrete/edge,
@@ -33406,11 +33388,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/red/corner,
 /area/magmoor/security/arrivals/south)
-"xKw" = (
-/obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/cult,
-/area/magmoor/cave/northeast)
 "xKK" = (
 /obj/structure/table/reinforced,
 /turf/open/floor/mainship/mono,
@@ -34163,6 +34140,10 @@
 	dir = 4
 	},
 /area/magmoor/research/rnd)
+"yjH" = (
+/obj/effect/landmark/excavation_site_spawner,
+/turf/open/floor/cult,
+/area/magmoor/cave/northeast)
 "ykk" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -41466,7 +41447,7 @@ efw
 efw
 sUk
 evv
-ltV
+sUk
 sUk
 qDf
 efw
@@ -41700,7 +41681,7 @@ efw
 efw
 sUk
 sUk
-efw
+aic
 efw
 efw
 sUk
@@ -44969,7 +44950,7 @@ tVo
 tVo
 cFc
 cFc
-vBp
+cFc
 cFc
 cFc
 lRD
@@ -45202,7 +45183,7 @@ tVo
 kcd
 cFc
 kcd
-kcd
+qUy
 jOZ
 jkR
 jkR
@@ -48507,8 +48488,8 @@ pPl
 pAJ
 uZb
 vEv
-eAr
-sle
+aGx
+mgG
 tMF
 kcd
 kcd
@@ -71811,7 +71792,7 @@ lwH
 lwH
 lwH
 rEV
-aUA
+rEV
 lwH
 lwH
 tVo
@@ -72044,7 +72025,7 @@ lwH
 lwH
 lwH
 lwH
-lwH
+tqG
 lwH
 lwH
 tVo
@@ -72476,7 +72457,7 @@ tik
 lwH
 tIF
 tIF
-xKw
+ttt
 tIF
 ttt
 tIF
@@ -72709,7 +72690,7 @@ tik
 lwH
 tIF
 vTR
-vTR
+yjH
 vTR
 vTR
 vTR
@@ -78077,8 +78058,8 @@ lwH
 xaR
 lwH
 bZr
-lwH
-jAP
+tqG
+uOD
 rEV
 lwH
 rEV
