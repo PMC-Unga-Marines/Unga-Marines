@@ -513,6 +513,7 @@
 	name = "\improper ML-41 scabbard (10x26mm)"
 	desc = "A backpack holster allowing the storage of any a ML-41 Assault Machinegun, also carries ammo for the other portion of the system."
 	icon_state = "icc_bagmg"
+	icon = 'icons/obj/items/storage/backholster.dmi'
 	holsterable_allowed = list(
 		/obj/item/weapon/gun/rifle/icc_mg,
 	)
@@ -530,7 +531,6 @@
 /obj/item/storage/holster/belt
 	name = "pistol belt"
 	desc = "A belt-holster assembly that allows one to hold a pistol and two magazines."
-	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "m4a3_holster"
 	equip_slot_flags = ITEM_SLOT_BELT
 	item_flags = HAS_UNDERLAY

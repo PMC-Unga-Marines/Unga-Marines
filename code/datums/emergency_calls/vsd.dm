@@ -46,7 +46,6 @@
 		to_chat(H, "<p style='font-size:1.5em'>[span_notice("You are trained specially in several different skills. You are the gunner, frontliner, EXPLOSION! of your group. Welcome Specialist, protect your group at all costs. Hoorah!")]</p>")
 		return
 
-
 	var/datum/job/J = SSjob.GetJobType(/datum/job/vsd/standard)
 	H.apply_assigned_role_to_spawn(J)
 	to_chat(H, "<p style='font-size:1.5em'><span class='notice'>You are a trained Vyacheslav operative. You are no disposable. You are trained in every way possible to counter TGMC's weaponries. We will not accept any casualties here. Good luck grunt, Hoorah!</notice></p>")
