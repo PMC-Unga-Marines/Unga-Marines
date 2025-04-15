@@ -578,7 +578,7 @@
 /obj/structure/window/framed/colony
 	name = "window"
 	icon = 'icons/obj/smooth_objects/col_window.dmi'
-	icon_state = "col_window-0"
+	icon_state = "col_window0"
 	base_icon_state = "col_window"
 	window_frame = /obj/structure/window_frame/colony
 
