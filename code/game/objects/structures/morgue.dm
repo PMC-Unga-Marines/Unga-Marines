@@ -7,6 +7,7 @@
 	density = TRUE
 	anchored = TRUE
 	coverage = 20
+	max_integrity = 250
 	var/obj/structure/morgue_tray/connected = null
 	var/morgue_type = "morgue"
 	var/tray_path = /obj/structure/morgue_tray

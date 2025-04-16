@@ -11,10 +11,6 @@
 	layer = ABOVE_TURF_LAYER
 	allow_pass_flags = PASSABLE|PASS_DEFENSIVE_STRUCTURE
 
-/obj/structure/rock/ex_act(severity)
-	if(prob(severity * 0.3))
-		qdel(src)
-
 /obj/structure/rock/add_debris_element()
 	AddElement(/datum/element/debris, DEBRIS_ROCK, -10, 5, 1)
 

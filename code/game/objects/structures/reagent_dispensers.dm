@@ -45,10 +45,10 @@
 
 	create_reagents(tank_volume, AMOUNT_VISIBLE|DRAINABLE, list_reagents)
 
-/obj/structure/reagent_dispensers/ex_act(severity)
-	if(prob(severity * 0.25))
+/obj/structure/reagent_dispensers/obj_destruction(damage_amount, damage_type, damage_flag)
+	. = ..()
+	if(damage_amount)
 		new /obj/effect/particle_effect/water(loc)
-		qdel(src)
 
 //Dispensers
 /obj/structure/reagent_dispensers/watertank

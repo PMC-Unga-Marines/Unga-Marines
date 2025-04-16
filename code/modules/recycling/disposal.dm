@@ -301,11 +301,6 @@
 				L.Stun(4 SECONDS)
 	update()
 
-//Pipe affected by explosion
-/obj/machinery/disposal/ex_act(severity)
-	if(prob(severity * 0.25))
-		qdel(src)
-
 //Update the icon & overlays to reflect mode & status
 /obj/machinery/disposal/proc/update()
 	overlays.Cut()
