@@ -86,8 +86,8 @@
 	penetration = 20
 	additional_xeno_penetration = 2.5
 
-/datum/ammo/bullet/rifle/repeater/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, max_range = 3, slowdown = 2, stagger = 1 SECONDS)
+/datum/ammo/bullet/rifle/repeater/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, max_range = 3, slowdown = 2, stagger = 1 SECONDS)
 
 /datum/ammo/bullet/rifle/incendiary
 	name = "incendiary rifle bullet"
@@ -111,8 +111,8 @@
 	penetration = 12.5
 	additional_xeno_penetration = 12.5
 
-/datum/ammo/bullet/rifle/som_machinegun/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, max_range = 20, slowdown = 0.5)
+/datum/ammo/bullet/rifle/som_machinegun/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, max_range = 20, slowdown = 0.5)
 
 /datum/ammo/bullet/rifle/tx8
 	name = "A19 high velocity bullet"
@@ -142,8 +142,8 @@
 	penetration = 10
 	additional_xeno_penetration = 45
 
-/datum/ammo/bullet/rifle/tx8/impact/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, max_range = 14, slowdown = 1, knockback = 1)
+/datum/ammo/bullet/rifle/tx8/impact/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, max_range = 14, slowdown = 1, knockback = 1)
 
 /datum/ammo/bullet/rifle/mpi_km
 	name = "crude heavy rifle bullet"
@@ -246,8 +246,8 @@
 	damage = 10
 	sundering = 0.5
 
-/datum/ammo/bullet/sg153/highimpact/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, stagger = 1 SECONDS, slowdown = 1, max_range = 12)
+/datum/ammo/bullet/sg153/highimpact/on_hit_mob(mob/target_mob,obj/projectile/proj)
+	staggerstun(target_mob, proj, stagger = 1 SECONDS, slowdown = 1, max_range = 12)
 
 /datum/ammo/bullet/sg153/heavyrubber
 	name = "smart heavy-rubber spotting bullet"
@@ -255,8 +255,8 @@
 	damage = 10
 	sundering = 0.5
 
-/datum/ammo/bullet/sg153/heavyrubber/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, slowdown = 3, max_range = 12)
+/datum/ammo/bullet/sg153/heavyrubber/on_hit_mob(mob/target_mob,obj/projectile/proj)
+	staggerstun(target_mob, proj, slowdown = 3, max_range = 12)
 
 /datum/ammo/bullet/sg153/plasmaloss
 	name = "smart tanglefoot spotting bullet"
@@ -273,25 +273,25 @@
 	S.set_up(0, victim, 3)
 	S.start()
 
-/datum/ammo/bullet/sg153/plasmaloss/on_hit_obj(obj/O, obj/projectile/P)
-	var/turf/T = get_turf(O)
-	drop_tg_smoke(T.density ? P.loc : T)
+/datum/ammo/bullet/sg153/plasmaloss/on_hit_obj(obj/target_object, obj/projectile/proj)
+	var/turf/target_turf = get_turf(target_object)
+	drop_tg_smoke(target_turf.density ? proj.loc : target_turf)
 
-/datum/ammo/bullet/sg153/plasmaloss/on_hit_turf(turf/T, obj/projectile/P)
-	drop_tg_smoke(T.density ? P.loc : T)
+/datum/ammo/bullet/sg153/plasmaloss/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_tg_smoke(target_turf.density ? proj.loc : target_turf)
 
-/datum/ammo/bullet/sg153/plasmaloss/do_at_max_range(turf/T, obj/projectile/P)
-	drop_tg_smoke(T.density ? P.loc : T)
+/datum/ammo/bullet/sg153/plasmaloss/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_tg_smoke(target_turf.density ? proj.loc : target_turf)
 
 /datum/ammo/bullet/sg153/plasmaloss/set_smoke()
 	smoke_system = new /datum/effect_system/smoke_spread/plasmaloss()
 
-/datum/ammo/bullet/sg153/plasmaloss/proc/drop_tg_smoke(turf/T)
-	if(T.density)
+/datum/ammo/bullet/sg153/plasmaloss/proc/drop_tg_smoke(turf/target_turf)
+	if(target_turf.density)
 		return
 
 	set_smoke()
-	smoke_system.set_up(0, T, 3)
+	smoke_system.set_up(0, target_turf, 3)
 	smoke_system.start()
 	smoke_system = null
 
@@ -301,8 +301,8 @@
 	damage = 10
 	sundering = 0.5
 
-/datum/ammo/bullet/sg153/tungsten/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, weaken = 2 SECONDS, stagger = 0.5 SECONDS, knockback = 1, max_range = 12)
+/datum/ammo/bullet/sg153/tungsten/on_hit_mob(mob/target_mob,obj/projectile/proj)
+	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 0.5 SECONDS, knockback = 1, max_range = 12)
 
 /datum/ammo/bullet/sg153/flak
 	name = "smart flak spotting bullet"
@@ -335,8 +335,8 @@
 	bullet_color = COLOR_PULSE_BLUE
 	on_pierce_multiplier = 0.85
 
-/datum/ammo/bullet/railgun/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, weaken = 2 SECONDS, stagger = 4 SECONDS, slowdown = 2, knockback = 2)
+/datum/ammo/bullet/railgun/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 4 SECONDS, slowdown = 2, knockback = 2)
 
 /datum/ammo/bullet/railgun/hvap
 	name = "high velocity railgun slug"
@@ -347,8 +347,8 @@
 	penetration = 30
 	sundering = 50
 
-/datum/ammo/bullet/railgun/hvap/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, stagger = 2 SECONDS, knockback = 3)
+/datum/ammo/bullet/railgun/hvap/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, stagger = 2 SECONDS, knockback = 3)
 
 /datum/ammo/bullet/railgun/smart
 	name = "smart armor piercing railgun slug"
@@ -358,8 +358,8 @@
 	penetration = 20
 	sundering = 20
 
-/datum/ammo/bullet/railgun/smart/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, stagger = 3 SECONDS, slowdown = 3)
+/datum/ammo/bullet/railgun/smart/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, stagger = 3 SECONDS, slowdown = 3)
 
 /datum/ammo/bullet/coilgun
 	name = "high-velocity tungsten slug"
@@ -374,5 +374,5 @@
 	bullet_color = COLOR_PULSE_BLUE
 	on_pierce_multiplier = 0.85
 
-/datum/ammo/bullet/coilgun/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, weaken = 0.2 SECONDS, slowdown = 1, knockback = 3)
+/datum/ammo/bullet/coilgun/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, weaken = 0.2 SECONDS, slowdown = 1, knockback = 3)

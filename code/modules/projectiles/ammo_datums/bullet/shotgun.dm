@@ -14,8 +14,8 @@
 	penetration = 20
 	additional_xeno_penetration = 20
 
-/datum/ammo/bullet/shotgun/slug/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 1, slowdown = 2)
+/datum/ammo/bullet/shotgun/slug/on_hit_mob(mob/target_mob,obj/projectile/proj)
+	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 1, slowdown = 2)
 
 /datum/ammo/bullet/shotgun/beanbag
 	name = "beanbag slug"
@@ -28,8 +28,8 @@
 	shrapnel_chance = 0
 	accuracy = 5
 
-/datum/ammo/bullet/shotgun/beanbag/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, weaken = 2 SECONDS, stagger = 4 SECONDS, knockback = 1, slowdown = 2, hard_size_threshold = 1)
+/datum/ammo/bullet/shotgun/beanbag/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 4 SECONDS, knockback = 1, slowdown = 2, hard_size_threshold = 1)
 
 /datum/ammo/bullet/shotgun/incendiary
 	name = "incendiary slug"
@@ -42,8 +42,8 @@
 	penetration = 15
 	bullet_color = COLOR_TAN_ORANGE
 
-/datum/ammo/bullet/shotgun/incendiary/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, weaken = 1 SECONDS, knockback = 1, slowdown = 1)
+/datum/ammo/bullet/shotgun/incendiary/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, weaken = 1 SECONDS, knockback = 1, slowdown = 1)
 
 /datum/ammo/bullet/shotgun/flechette
 	name = "shotgun flechette shell"
@@ -64,11 +64,11 @@
 	///shatter effection duration when hitting mobs
 	var/shatter_duration = 8 SECONDS
 
-/datum/ammo/bullet/shotgun/flechette/on_hit_mob(mob/M, obj/projectile/proj)
-	if(!isliving(M))
+/datum/ammo/bullet/shotgun/flechette/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(!isliving(target_mob))
 		return
 
-	var/mob/living/living_victim = M
+	var/mob/living/living_victim = target_mob
 	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
 
 /datum/ammo/bullet/shotgun/flechette/flechette_spread
@@ -76,7 +76,7 @@
 	damage = 35
 	additional_xeno_penetration = 30
 
-/datum/ammo/bullet/shotgun/flechette/flechette_spread/on_hit_mob(mob/M, obj/projectile/proj)
+/datum/ammo/bullet/shotgun/flechette/flechette_spread/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	return
 
 /datum/ammo/bullet/shotgun/buckshot
@@ -94,8 +94,8 @@
 	damage = 40
 	damage_falloff = 4
 
-/datum/ammo/bullet/shotgun/buckshot/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
+/datum/ammo/bullet/shotgun/buckshot/on_hit_mob(mob/target_mob,obj/projectile/proj)
+	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
 
 /datum/ammo/bullet/hefa_buckshot
 	name = "hefa fragment"
@@ -138,20 +138,20 @@
 	damage_falloff = 0.5
 	penetration = 0
 
-/datum/ammo/bullet/shotgun/frag/drop_nade(turf/T)
-	cell_explosion(T, 15, 10)
+/datum/ammo/bullet/shotgun/frag/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 15, 10)
 
-/datum/ammo/bullet/shotgun/frag/on_hit_mob(mob/M, obj/projectile/P)
-	drop_nade(get_turf(M))
+/datum/ammo/bullet/shotgun/frag/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	drop_nade(get_turf(target_mob))
 
-/datum/ammo/bullet/shotgun/frag/on_hit_obj(obj/O, obj/projectile/P)
-	drop_nade(O.density ? P.loc : O.loc)
+/datum/ammo/bullet/shotgun/frag/on_hit_obj(obj/target_object, obj/projectile/proj)
+	drop_nade(target_object.density ? proj.loc : target_object.loc)
 
-/datum/ammo/bullet/shotgun/frag/on_hit_turf(turf/T, obj/projectile/P)
-	drop_nade(T.density ? P.loc : T)
+/datum/ammo/bullet/shotgun/frag/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? proj.loc : target_turf)
 
-/datum/ammo/bullet/shotgun/frag/do_at_max_range(turf/T, obj/projectile/P)
-	drop_nade(T.density ? P.loc : T)
+/datum/ammo/bullet/shotgun/frag/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? proj.loc : target_turf)
 
 /datum/ammo/bullet/shotgun/frag/frag_spread
 	name = "additional frag shell"
@@ -201,8 +201,8 @@
 	damage = 40
 	penetration = 20
 
-/datum/ammo/bullet/shotgun/sx16_slug/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, slowdown = 1, knockback = 1)
+/datum/ammo/bullet/shotgun/sx16_slug/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, slowdown = 1, knockback = 1)
 
 /datum/ammo/bullet/shotgun/sh15_flechette
 	name = "shotgun flechette shell"
@@ -233,8 +233,8 @@
 	penetration = 30
 	additional_xeno_penetration = 5
 
-/datum/ammo/bullet/shotgun/sh15_slug/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, slowdown = 2, knockback = 1)
+/datum/ammo/bullet/shotgun/sh15_slug/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, slowdown = 2, knockback = 1)
 
 /datum/ammo/bullet/shotgun/mbx900_buckshot
 	name = "light shotgun buckshot shell" // If .410 is the smallest shotgun shell, then...
@@ -317,8 +317,8 @@
 	damage = 40
 	damage_falloff = 4
 
-/datum/ammo/bullet/shotgun/buckshot/shq6/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, knockback = 1, slowdown = 1, max_range = 3)
+/datum/ammo/bullet/shotgun/buckshot/shq6/on_hit_mob(mob/target_mob,obj/projectile/proj)
+	staggerstun(target_mob, proj, knockback = 1, slowdown = 1, max_range = 3)
 
 /datum/ammo/bullet/shotgun/slug/shq6
 	name = "shotgun slug"
@@ -332,8 +332,8 @@
 	additional_xeno_penetration = 10
 	damage_falloff = 3
 
-/datum/ammo/bullet/shotgun/slug/shq6/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, slowdown = 2, max_range = 5)
+/datum/ammo/bullet/shotgun/slug/shq6/on_hit_mob(mob/target_mob,obj/projectile/proj)
+	staggerstun(target_mob, proj, slowdown = 2, max_range = 5)
 
 /datum/ammo/bullet/shotgun/incendiary/shq6
 	name = "incendiary slug"
@@ -346,8 +346,8 @@
 	penetration = 15
 	bullet_color = COLOR_TAN_ORANGE
 
-/datum/ammo/bullet/shotgun/incendiary/shq6/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, knockback = 1)
+/datum/ammo/bullet/shotgun/incendiary/shq6/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, knockback = 1)
 
 /datum/ammo/bullet/shotgun/flechette/shq6
 	name = "shotgun flechette shell"

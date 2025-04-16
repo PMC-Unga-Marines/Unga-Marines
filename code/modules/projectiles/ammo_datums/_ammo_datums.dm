@@ -90,27 +90,27 @@
 	///Embeding shrapnel type
 	var/shrapnel_type = /obj/item/shard/shrapnel
 
-/datum/ammo/proc/do_at_max_range(turf/T, obj/projectile/proj)
+/datum/ammo/proc/do_at_max_range(turf/target_turf, obj/projectile/proj)
 	return
 
 ///Does it do something special when shield blocked? Ie. a flare or grenade that still blows up.
-/datum/ammo/proc/on_shield_block(mob/M, obj/projectile/proj)
+/datum/ammo/proc/on_shield_block(mob/target_mob, obj/projectile/proj)
 	return
 
 ///Special effects when hitting dense turfs.
-/datum/ammo/proc/on_hit_turf(turf/T, obj/projectile/proj)
+/datum/ammo/proc/on_hit_turf(turf/target_turf, obj/projectile/proj)
 	return
 
 ///Special effects when hitting mobs.
-/datum/ammo/proc/on_hit_mob(mob/M, obj/projectile/proj)
+/datum/ammo/proc/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	return
 
 ///Special effects when hitting objects.
-/datum/ammo/proc/on_hit_obj(obj/O, obj/projectile/proj)
+/datum/ammo/proc/on_hit_obj(obj/target_object, obj/projectile/proj)
 	return
 
 ///Special effects for leaving a turf. Only called if the projectile has AMMO_LEAVE_TURF enabled
-/datum/ammo/proc/on_leave_turf(turf/T, obj/projectile/proj)
+/datum/ammo/proc/on_leave_turf(turf/target_turf, obj/projectile/proj)
 	return
 
 ///Handles CC application on the victim
@@ -279,15 +279,15 @@
 			new_angle -= 360
 		new_proj.fire_at(target, shooter, loc_override ? loc_override : main_proj.loc, range, speed, new_angle, TRUE)
 
-/datum/ammo/proc/drop_flame(turf/T)
-	if(!istype(T))
+/datum/ammo/proc/drop_flame(turf/target_turf)
+	if(!istype(target_turf))
 		return
-	T.ignite(20, 20)
+	target_turf.ignite(20, 20)
 
 /datum/ammo/proc/set_smoke()
 	return
 
-/datum/ammo/proc/drop_nade(turf/T)
+/datum/ammo/proc/drop_nade(turf/target_turf)
 	return
 
 ///called on projectile process() when AMMO_SPECIAL_PROCESS flag is active
@@ -295,7 +295,7 @@
 	CRASH("ammo_process called with unimplemented process!")
 
 ///bounces the projectile by creating a new projectile and calculating an angle of reflection
-/datum/ammo/proc/reflect(turf/T, obj/projectile/proj, scatter_variance)
+/datum/ammo/proc/reflect(turf/target_turf, obj/projectile/proj, scatter_variance)
 	if(!bonus_projectiles_type) //while fire_bonus_projectiles does not require this var, it can cause infinite recursion in some cases, leading to death tiles
 		return
 
@@ -303,16 +303,16 @@
 	if(new_range <= 0)
 		return
 
-	var/dir_to_proj = get_dir(T, proj)
+	var/dir_to_proj = get_dir(target_turf, proj)
 	if(ISDIAGONALDIR(dir_to_proj))
 		var/list/cardinals = list(turn(dir_to_proj, 45), turn(dir_to_proj, -45))
 		for(var/direction in cardinals)
-			var/turf/turf_to_check = get_step(T, direction)
+			var/turf/turf_to_check = get_step(target_turf, direction)
 			if(turf_to_check.density)
 				cardinals -= direction
 		dir_to_proj = pick(cardinals)
 
-	var/perpendicular_angle = Get_Angle(T, get_step(T, dir_to_proj))
+	var/perpendicular_angle = Get_Angle(target_turf, get_step(target_turf, dir_to_proj))
 	var/new_angle = (perpendicular_angle + (perpendicular_angle - proj.dir_angle - 180) + rand(-scatter_variance, scatter_variance))
 
 	if(new_angle < -360)
@@ -323,5 +323,5 @@
 		new_angle -= 360
 
 	bonus_projectiles_amount = 1
-	fire_bonus_projectiles(proj, null, proj.shot_from, new_range, proj.projectile_speed, new_angle, null, get_step(T, dir_to_proj))
+	fire_bonus_projectiles(proj, null, proj.shot_from, new_range, proj.projectile_speed, new_angle, null, get_step(target_turf, dir_to_proj))
 	bonus_projectiles_amount = initial(bonus_projectiles_amount)

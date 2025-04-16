@@ -48,11 +48,11 @@
 	///shatter effection duration when hitting mobs
 	var/shatter_duration = 8 SECONDS
 
-/datum/ammo/bullet/sniper/svd/on_hit_mob(mob/M, obj/projectile/proj)
-	if(!isliving(M))
+/datum/ammo/bullet/sniper/svd/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(!isliving(target_mob))
 		return
 
-	var/mob/living/living_victim = M
+	var/mob/living/living_victim = target_mob
 	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
 
 /datum/ammo/bullet/sniper/martini
@@ -67,19 +67,19 @@
 	sundering = 0
 	accurate_range_min = 0
 
-/datum/ammo/bullet/sniper/martini/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, weaken = 0.5 SECONDS, stagger = 1 SECONDS, knockback = 2, slowdown = 0.5, max_range = 12)
+/datum/ammo/bullet/sniper/martini/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, weaken = 0.5 SECONDS, stagger = 1 SECONDS, knockback = 2, slowdown = 0.5, max_range = 12)
 
 /datum/ammo/bullet/sniper/martini/white
 	handful_icon_state = "crude heavy sniper bullet white"
 	///shatter effection duration when hitting mobs
 	var/shatter_duration = 8 SECONDS
 
-/datum/ammo/bullet/sniper/martini/white/on_hit_mob(mob/M, obj/projectile/proj)
-	if(!isliving(M))
+/datum/ammo/bullet/sniper/martini/white/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(!isliving(target_mob))
 		return
 
-	var/mob/living/living_victim = M
+	var/mob/living/living_victim = target_mob
 	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
 
 /datum/ammo/bullet/sniper/elite
@@ -101,8 +101,8 @@
 	additional_xeno_penetration = 0
 	damage_falloff = 0.25
 
-/datum/ammo/bullet/sniper/pfc/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, slowdown = 1, max_range = 17)
+/datum/ammo/bullet/sniper/pfc/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, slowdown = 1, max_range = 17)
 
 /datum/ammo/bullet/sniper/pfc/flak
 	name = "high caliber flak rifle bullet"
@@ -114,8 +114,8 @@
 	sundering = 10
 	damage_falloff = 0.25
 
-/datum/ammo/bullet/sniper/pfc/flak/on_hit_mob(mob/M, obj/projectile/P)
-	staggerstun(M, P, knockback = 4, slowdown = 1.5, stagger = 2 SECONDS, max_range = 17)
+/datum/ammo/bullet/sniper/pfc/flak/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, knockback = 4, slowdown = 1.5, stagger = 2 SECONDS, max_range = 17)
 
 /datum/ammo/bullet/sniper/auto
 	name = "low velocity high caliber rifle bullet"
@@ -150,12 +150,12 @@
 	accurate_range_min = 2
 	var/shatter_duration = 5 SECONDS
 
-/datum/ammo/bullet/sniper/musket/on_hit_mob(mob/M, obj/projectile/proj)
-	if(!isliving(M))
+/datum/ammo/bullet/sniper/musket/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(!isliving(target_mob))
 		return
 
-	var/mob/living/living_victim = M
+	var/mob/living/living_victim = target_mob
 	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
 
-/datum/ammo/bullet/sniper/musket/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, slowdown = 1, knockback = 1)
+/datum/ammo/bullet/sniper/musket/on_hit_mob(mob/target_mob,obj/projectile/proj)
+	staggerstun(target_mob, proj, slowdown = 1, knockback = 1)

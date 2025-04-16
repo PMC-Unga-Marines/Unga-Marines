@@ -48,19 +48,19 @@
 	///Bonus flat damage to walls, balanced around resin walls.
 	var/autocannon_wall_bonus = 20
 
-/datum/ammo/bullet/auto_cannon/on_hit_turf(turf/T, obj/projectile/P)
-	P.proj_max_range -= 20
+/datum/ammo/bullet/auto_cannon/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	proj.proj_max_range -= 20
 
-	if(istype(T, /turf/closed/wall))
-		var/turf/closed/wall/wall_victim = T
-		wall_victim.take_damage(autocannon_wall_bonus, P.damtype, P.armor_type)
+	if(istype(target_turf, /turf/closed/wall))
+		var/turf/closed/wall/wall_victim = target_turf
+		wall_victim.take_damage(autocannon_wall_bonus, proj.damtype, proj.armor_type)
 
-/datum/ammo/bullet/auto_cannon/on_hit_mob(mob/M, obj/projectile/P)
-	P.proj_max_range -= 5
-	staggerstun(M, P, max_range = 20, slowdown = 1)
+/datum/ammo/bullet/auto_cannon/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	proj.proj_max_range -= 5
+	staggerstun(target_mob, proj, max_range = 20, slowdown = 1)
 
-/datum/ammo/bullet/auto_cannon/on_hit_obj(obj/O, obj/projectile/P)
-	P.proj_max_range -= 5
+/datum/ammo/bullet/auto_cannon/on_hit_obj(obj/target_object, obj/projectile/proj)
+	proj.proj_max_range -= 5
 
 /datum/ammo/bullet/auto_cannon/flak
 	name = "autocannon smart-detonating bullet"
@@ -76,8 +76,8 @@
 /datum/ammo/bullet/auto_cannon/flak/on_hit_mob(mob/victim, obj/projectile/proj)
 	airburst(victim, proj)
 
-/datum/ammo/bullet/auto_cannon/do_at_max_range(turf/T, obj/projectile/proj)
-	airburst(T, proj)
+/datum/ammo/bullet/auto_cannon/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	airburst(target_turf, proj)
 
 /datum/ammo/bullet/cupola
 	name = "cupola bullet"
@@ -102,9 +102,9 @@
 	damage_falloff = 0.1
 	var/shatter_duration = 3 SECONDS
 
-/datum/ammo/bullet/smart_minigun/on_hit_mob(mob/M, obj/projectile/proj)
-	if(!isliving(M))
+/datum/ammo/bullet/smart_minigun/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(!isliving(target_mob))
 		return
 
-	var/mob/living/living_victim = M
+	var/mob/living/living_victim = target_mob
 	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)

@@ -49,8 +49,8 @@
 	damage = 75
 	damage_falloff = 4
 
-/datum/ammo/bullet/shotgun/mech/on_hit_mob(mob/M, obj/projectile/proj)
-	staggerstun(M, proj, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
+/datum/ammo/bullet/shotgun/mech/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
 
 /datum/ammo/tx54/mech
 	name = "30mm fragmentation grenade"
@@ -63,8 +63,8 @@
 	damage = 15
 	penetration = 10
 
-/datum/ammo/bullet/tx54_spread/mech/on_hit_mob(mob/M, obj/projectile/proj)
-	staggerstun(M, proj, max_range = 3, slowdown = 0.2)
+/datum/ammo/bullet/tx54_spread/mech/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, max_range = 3, slowdown = 0.2)
 
 /datum/ammo/energy/lasgun/marine/mech
 	name = "superheated laser bolt"
@@ -127,10 +127,10 @@
 	sundering = 0
 	damage_falloff = 0.3
 
-/datum/ammo/flamethrower/mech_flamer/drop_flame(turf/T)
-	if(!istype(T))
+/datum/ammo/flamethrower/mech_flamer/drop_flame(turf/target_turf)
+	if(!istype(target_turf))
 		return
-	flame_radius(1, T)
+	flame_radius(1, target_turf)
 
 /datum/ammo/rocket/mech
 	name = "large high-explosive rocket"
@@ -138,5 +138,5 @@
 	penetration = 50
 	max_range = 30
 
-/datum/ammo/rocket/mech/drop_nade(turf/T)
-	cell_explosion(T, 120, 24)
+/datum/ammo/rocket/mech/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 120, 24)
