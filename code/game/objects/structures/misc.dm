@@ -345,10 +345,6 @@
 
 	return ..()
 
-/obj/structure/plasticflaps/ex_act(severity)
-	if(prob(severity * 0.25))
-		qdel(src)
-
 /obj/structure/plasticflaps/mining //A specific type for mining that doesn't allow airflow because of them damn crates
 	name = "\improper Airtight plastic flaps"
 	desc = "Heavy duty, airtight, plastic flaps."
