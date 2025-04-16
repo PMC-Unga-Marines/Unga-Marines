@@ -47,7 +47,8 @@
 
 /obj/structure/reagent_dispensers/obj_destruction(damage_amount, damage_type, damage_flag)
 	. = ..()
-	new /obj/effect/particle_effect/water(loc)
+	if(damage_amount)
+		new /obj/effect/particle_effect/water(loc)
 
 //Dispensers
 /obj/structure/reagent_dispensers/watertank
