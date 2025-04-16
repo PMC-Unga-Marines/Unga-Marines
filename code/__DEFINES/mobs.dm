@@ -2,7 +2,8 @@
 #define AI_CAMERA_LUMINOSITY 6
 
 // Overlay Indexes
-#define PRED_LASER_LAYER 29
+#define PRED_LASER_LAYER 30
+#define BODYPARTS_LAYER 29
 #define WOUND_LAYER 28
 #define MOTH_WINGS_LAYER 27
 #define DAMAGE_LAYER 26
@@ -32,7 +33,7 @@
 #define FIRE_LAYER 2 //If you're on fire
 #define LASER_LAYER 1 //For sniper targeting laser
 
-#define TOTAL_LAYERS 29
+#define TOTAL_LAYERS 30
 
 #define MOTH_WINGS_BEHIND_LAYER 1
 

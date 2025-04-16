@@ -590,7 +590,7 @@
 	enraged_mob.heal_xeno_damage(heal_amount, FALSE)
 	enraged_mob.adjust_sunder(-heal_sunder_amount)
 
-	addtimer(CALLBACK(enraged_mob, TYPE_PROC_REF(/atom, remove_filter), "steelcrest_enraged"), 3 SECONDS)
+	addtimer(CALLBACK(enraged_mob, TYPE_PROC_REF(/datum, remove_filter), "steelcrest_enraged"), 3 SECONDS)
 
 /datum/action/ability/xeno_action/fortify/steel_crest
 	move_on_fortifed = TRUE
