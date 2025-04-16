@@ -11,10 +11,6 @@
 	if(icon_variants)
 		icon_state = "[initial(icon_state)]_[rand(1, icon_variants)]"
 
-/obj/structure/flora/ex_act(severity)
-	if(prob(severity * 0.25))
-		qdel(src)
-
 /obj/structure/flora/fire_act(burn_level, flame_color)
 	take_damage(burn_level, BURN, FIRE)
 
