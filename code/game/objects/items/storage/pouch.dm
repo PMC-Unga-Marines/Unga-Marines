@@ -601,6 +601,7 @@
 	name = "medical injector pouch"
 	desc = "A specialized medical pouch that can only hold auto-injectors."
 	icon_state = "firstaid_injector"
+	
 /obj/item/storage/pouch/medical_injectors/Initialize(mapload, ...)
 	. = ..()
 	storage_datum.sprite_slots = 5

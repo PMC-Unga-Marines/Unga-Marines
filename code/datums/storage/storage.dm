@@ -131,7 +131,6 @@
 	///Image that get's underlayed under the sprite of the holster
 	var/image/holstered_item_underlay
 
-
 /datum/storage/New(atom/parent)
 	. = ..()
 	if(!istype(parent))
