@@ -182,12 +182,15 @@
 	if(I != user.r_hand && I != user.l_hand)
 		to_chat(user, span_warning("[I] must be in your hand to do that."))
 		return
-	var/obj/item/cell/D = I
-	var/charge_difference = D.maxcharge - D.charge
+	var/obj/item/cell/our_cell = I
+	if(!our_cell.rechargable)
+		balloon_alert(user, "Not rechargeable")
+		return
+	var/charge_difference = our_cell.maxcharge - our_cell.charge
 	if(charge_difference) //If the cell has less than max charge, recharge it.
 		var/charge_used = use_charge(user, charge_difference) //consume an appropriate amount of charge
-		D.charge += charge_used //Recharge the cell battery with the lower of the difference between its present and max cap, or the remaining charge
-		D.update_icon()
+		our_cell.charge += charge_used //Recharge the cell battery with the lower of the difference between its present and max cap, or the remaining charge
+		our_cell.update_icon()
 	else
 		to_chat(user, span_warning("This cell is already at maximum charge!"))
 
