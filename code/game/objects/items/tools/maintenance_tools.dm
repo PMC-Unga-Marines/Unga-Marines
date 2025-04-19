@@ -485,7 +485,11 @@
 
 	if(!istype(I, /obj/item/cell))
 		return
-	if(I.w_class > WEIGHT_CLASS_NORMAL)
+	var/obj/item/cell/our_cell = I
+	if(!our_cell.rechargable)
+		balloon_alert(user, "Not rechargeable")
+		return
+	if(our_cell.w_class > WEIGHT_CLASS_NORMAL)
 		balloon_alert(user, "Too large")
 		return
 	if(!user.drop_held_item())
@@ -496,8 +500,8 @@
 		user.put_in_hands(cell)
 		cell = null
 
-	I.forceMove(src)
-	cell = I
+	our_cell.forceMove(src)
+	cell = our_cell
 	cell.update_icon()
 	balloon_alert(user, "Charge Remaining: [cell.charge]/[cell.maxcharge]")
 	playsound(user, 'sound/weapons/guns/interact/rifle_reload.ogg', 20, 1, 5)

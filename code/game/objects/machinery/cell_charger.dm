@@ -43,7 +43,8 @@
 		return
 
 	if(istype(I, /obj/item/cell) && anchored)
-		if(istype(I, /obj/item/cell/night_vision_battery))
+		var/obj/item/cell/our_cell = I
+		if(!our_cell.rechargable)
 			balloon_alert(user, "Not rechargeable")
 			return
 
@@ -59,22 +60,23 @@
 			to_chat(user, span_warning("The [name] blinks red as you try to insert the cell!"))
 			return
 
-		if(user.transferItemToLoc(I, src))
-			charging = I
+		if(user.transferItemToLoc(our_cell, src))
+			charging = our_cell
 			user.visible_message("[user] inserts a cell into the charger.", "You insert a cell into the charger.")
 			chargelevel = -1
 			start_processing()
 
 		updateicon()
 
-	else if(iswrench(I))
-		if(charging)
-			to_chat(user, span_warning("Remove the cell first!"))
-			return
+/obj/machinery/cell_charger/wrench_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(charging)
+		to_chat(user, span_warning("Remove the cell first!"))
+		return
 
-		anchored = !anchored
-		to_chat(user, "You [anchored ? "attach" : "detach"] the cell charger [anchored ? "to" : "from"] the ground")
-		playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+	anchored = !anchored
+	to_chat(user, "You [anchored ? "attach" : "detach"] the cell charger [anchored ? "to" : "from"] the ground")
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
 
 /obj/machinery/cell_charger/attack_hand(mob/living/user)
 	. = ..()
