@@ -120,8 +120,8 @@
 	icon_state = "t90"
 	worn_icon_state = "t90"
 	worn_icon_lists = list(
-		slot_l_hand_str = 'icons/mob/inhands/gun/submachinegun_lefthand_64.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/gun/submachinegun_righthand_64.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/gun/submachinegun_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/submachinegun_righthand_1.dmi',
 	)
 	caliber = CALIBER_10X20_CASELESS //codex
 	max_shells = 50 //codex
