@@ -11,8 +11,8 @@
 	)
 	has_sensor = 2
 	adjustment_variants = list(
-		"Rolled Sleeves" = "_d",
-		"No Sleeves" = "_h",
+		"Rolled Sleeves" = "_h",
+		"No Sleeves" = "_d",
 		"No Top" = "_r",
 	)
 
@@ -40,7 +40,7 @@
 	desc = "A standard issued TGMC turtleneck colored blue."
 	icon_state = "delta_merc"
 	adjustment_variants = list(
-		"Rolled Sleeves" = "_d",
+		"Rolled Sleeves" = "_h",
 	)
 
 /obj/item/clothing/under/marine/squad/neck/delta
