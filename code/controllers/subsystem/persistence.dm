@@ -348,7 +348,8 @@ SUBSYSTEM_DEF(persistence)
 	description = "RR and MLRS for roundstart vendors."
 	item_list = list(
 		/obj/structure/largecrate/supply/weapons/fk88 = 1,
-		/obj/item/ammo_magazine/fk88/he = 8,
+		/obj/item/ammo_magazine/fk88/he = 4,
+		/obj/item/ammo_magazine/fk88/he/unguided = 4,
 		/obj/item/ammo_magazine/fk88/sabot = 5,
 		/obj/item/storage/holster/backholster/rpg/full = 2,
 		/obj/item/ammo_magazine/rocket/recoilless = 4,

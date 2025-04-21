@@ -395,6 +395,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
  */
 /obj/item/proc/equipped(mob/user, slot)
 	SHOULD_CALL_PARENT(TRUE) // no exceptions
+	item_flags |= IN_INVENTORY // if it's located after the signal is sent, it doesn't update stuff like verbs for storages
 	SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, slot)
 
 	var/equipped_to_slot = equip_slot_flags & slotdefine2slotbit(slot)
@@ -406,8 +407,6 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	for(var/datum/action/A AS in actions)
 		if(item_action_slot_check(user, slot)) //some items only give their actions buttons when in a specific slot.
 			A.give_action(user)
-
-	item_flags |= IN_INVENTORY
 
 	if(!equipped_to_slot)
 		return

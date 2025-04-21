@@ -2,6 +2,9 @@
 #define DROPSHIP_POINT_RATE 18 * (GLOB.current_orbit/3)
 #define SUPPLY_POINT_RATE 20 * (GLOB.current_orbit/3)
 
+/// How much points we charge for fast delivery
+#define FAST_DELIVERY_COST 150
+
 SUBSYSTEM_DEF(points)
 	name = "Points"
 
@@ -117,16 +120,27 @@ SUBSYSTEM_DEF(points)
 	personal_supply_points[user.ckey] -= cost
 	ckey_shopping_cart.Cut()
 
-/datum/controller/subsystem/points/proc/fast_delivery(datum/supply_order/SO, mob/living/user)
-	//select beacon
-	var/datum/supply_beacon/supply_beacon = GLOB.supply_beacon[tgui_input_list(user, "Select the beacon to send supplies", "Beacon choice", GLOB.supply_beacon)]
+/datum/controller/subsystem/points/proc/fast_delivery(datum/supply_order/our_order, mob/living/user)
+	var/list/beacon_list = GLOB.supply_beacon.Copy()
+	for(var/beacon_name in beacon_list)
+		var/datum/supply_beacon/beacon = beacon_list[beacon_name]
+		if(!is_ground_level(beacon.drop_location.z))
+			beacon_list -= beacon_name
+			continue // does this continue even does something?
+	var/datum/supply_beacon/supply_beacon = beacon_list[tgui_input_list(user, "Select the beacon to send supplies", "Beacon choice", beacon_list)]
 	if(!istype(supply_beacon))
-		to_chat(user, span_warning("Beacon not selected"))
+		to_chat(user, span_warning("Beacon was not selected"))
 		return
 
 	if(!fast_delivery_is_active)
 		to_chat(user, span_warning("Fast delivery is not ready"))
 		return FALSE
+
+	if(FAST_DELIVERY_COST > supply_points[our_order.faction])
+		to_chat(user, span_warning("Cargo does not have enough points for fast delivery."))
+		return
+
+	supply_points[user.faction] -= FAST_DELIVERY_COST
 
 	//Same checks as for supply console
 	if(!supply_beacon)
@@ -140,7 +154,7 @@ SUBSYSTEM_DEF(points)
 		return
 
 	//Just in case
-	if(!length_char(SSpoints.shoppinglist[SO.faction]))
+	if(!length_char(SSpoints.shoppinglist[our_order.faction]))
 		return
 
 	//Finally create the supply box
@@ -148,24 +162,24 @@ SUBSYSTEM_DEF(points)
 	var/turf/TC = locate(supply_beacon.drop_location.x, supply_beacon.drop_location.y, supply_beacon.drop_location.z)
 
 	//spawn crate and clear shoping list
-	delivery_to_turf(SO, TC)
+	delivery_to_turf(our_order, TC)
 
 	//effects
 	supply_beacon.drop_location.visible_message(span_boldnotice("A supply drop appears suddendly!"))
 	playsound(supply_beacon.drop_location,'sound/effects/tadpolehovering.ogg', 30, TRUE)
 
-/datum/controller/subsystem/points/proc/delivery_to_turf(datum/supply_order/SO, turf/TC)
-	var/datum/supply_packs/firstpack = SO.pack[1]
+/datum/controller/subsystem/points/proc/delivery_to_turf(datum/supply_order/our_order, turf/TC)
+	var/datum/supply_packs/firstpack = our_order.pack[1]
 
 	var/obj/structure/crate_type = firstpack.containertype || firstpack.contains[1]
 
 	var/obj/structure/A = new crate_type(null)
 	if(firstpack.containertype)
-		A.name = "Order #[SO.id] for [SO.orderer]"
+		A.name = "Order #[our_order.id] for [our_order.orderer]"
 
 	var/list/contains = list()
 	//spawn the stuff, finish generating the manifest while you're at it
-	for(var/P in SO.pack)
+	for(var/P in our_order.pack)
 		var/datum/supply_packs/SP = P
 		// yes i know
 		if(SP.access)
@@ -186,8 +200,8 @@ SUBSYSTEM_DEF(points)
 			break
 		new typepath(A)
 
-	SSpoints.shoppinglist[SO.faction] -= "[SO.id]"
-	SSpoints.shopping_history += SO
+	SSpoints.shoppinglist[our_order.faction] -= "[our_order.id]"
+	SSpoints.shopping_history += our_order
 
 	//animate delivery
 

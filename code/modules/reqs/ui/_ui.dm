@@ -216,7 +216,13 @@
 				.["elevator_dir"] = "up"
 	else
 		.["elevator"] = "MISSING!"
-	.["beacon"] = length(GLOB.supply_beacon) ? TRUE : FALSE
+	var/list/beacon_list = GLOB.supply_beacon.Copy()
+	for(var/beacon_name in beacon_list)
+		var/datum/supply_beacon/beacon = beacon_list[beacon_name]
+		if(!is_ground_level(beacon.drop_location.z))
+			beacon_list -= beacon_name
+			continue // does this continue even does something?
+	.["beacon"] = length(beacon_list) ? TRUE : FALSE
 
 /datum/supply_ui/proc/get_shopping_cart(mob/user)
 	return SSpoints.shopping_cart

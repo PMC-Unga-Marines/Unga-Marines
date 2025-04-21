@@ -100,7 +100,7 @@
 	desc = "A 37mm shell for light anti tank guns. Will penetrate walls and fortifications, before hitting a target and exploding, has less payload and punch than usual rounds."
 	w_class = WEIGHT_CLASS_BULKY
 	icon = 'icons/obj/items/ammo/stationary.dmi'
-	icon_state = "tat36_shell"
+	icon_state = "at36"
 	worn_icon_state = "tat36"
 	magazine_flags = MAGAZINE_REFUND_IN_CHAMBER
 	caliber = CALIBER_37MM
@@ -111,28 +111,28 @@
 /obj/item/ammo_magazine/at36/apcr
 	name = "AT-36 APCR shell (37mm Shell)"
 	desc = "A 37mm tungsten shell for light anti tank guns made to penetrate through just about everything, but it won't leave a big hole."
-	icon_state = "tat36_shell_apcr"
+	icon_state = "at36_apcr"
 	worn_icon_state = "tat36_apcr"
 	default_ammo = /datum/ammo/rocket/atgun_shell/apcr
 
 /obj/item/ammo_magazine/at36/he
 	name = "AT-36 HE (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns made to destroy fortifications, the high amount of payload gives it a slow speed. But it leaves quite a hole."
-	icon_state = "tat36_shell_he"
+	icon_state = "at36_he"
 	worn_icon_state = "tat36_he"
 	default_ammo = /datum/ammo/rocket/atgun_shell/he
 
 /obj/item/ammo_magazine/at36/beehive
 	name = "AT-36 Beehive (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns made to mince infantry, the light payload gives it moderate speed. Turns anyone into swiss cheese."
-	icon_state = "tat36_shell_beehive"
+	icon_state = "at36_beehive"
 	worn_icon_state = "tat36_beehive"
 	default_ammo = /datum/ammo/rocket/atgun_shell/beehive
 
 /obj/item/ammo_magazine/at36/incend
 	name = "AT-36 Napalm (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns made to set the battlefield ablaze, the light payload gives it a moderate speed. Will cook any target flambé."
-	icon_state = "tat36_shell_incend"
+	icon_state = "at36_incend"
 	worn_icon_state = "tat36_incend"
 	default_ammo = /datum/ammo/rocket/atgun_shell/beehive/incend
 
@@ -178,12 +178,11 @@
 	icon_state = "hl"
 	charge_overlay = null
 
-/obj/item/ammo_magazine/heavy_isg
+/obj/item/ammo_magazine/fk88
 	name = "FK-88 shell (155mm Shell)"
 	desc = "A 15cm shell for the FK-88 mounted flak gun. How did you even get this?"
 	icon = 'icons/obj/items/ammo/stationary.dmi'
-	icon_state = "isg_ammo"
-	worn_icon_state = "isg_ammo"
+	icon_state = "fk88_he"
 	w_class = WEIGHT_CLASS_BULKY
 	magazine_flags = MAGAZINE_REFUND_IN_CHAMBER
 	caliber = CALIBER_15CM
@@ -195,26 +194,16 @@
 	name = "FK-88 HE shell (155mm Shell)"
 	desc = "A 15cm HE shell for the FK-88 mounted flak gun."
 	default_ammo = /datum/ammo/rocket/fk88
-	var/guided = TRUE
 
-/obj/item/ammo_magazine/fk88/he/examine(mob/user)
-	. = ..()
-	. += span_warning("Right-click with other hand to swap between unguided and guided modes")
-
-/obj/item/ammo_magazine/fk88/he/attack_hand_alternate(mob/living/user)
-	if(guided)
-		default_ammo = /datum/ammo/rocket/fk88/unguided
-		balloon_alert(user, "You swap the shell to unguided form")
-		guided = FALSE
-	else
-		default_ammo = /datum/ammo/rocket/fk88
-		balloon_alert(user, "You swap the shell to guided form")
-		guided = TRUE
+/obj/item/ammo_magazine/fk88/he/unguided
+	name = "FK-88 unguided HE shell (155mm Shell)"
+	desc = "A 15cm unguided HE shell for the FK-88 mounted flak gun."
+	default_ammo = /datum/ammo/rocket/fk88/unguided
 
 /obj/item/ammo_magazine/fk88/sabot
 	name = "FK-88 APFDS shell (155mm Shell)"
 	desc = "A 15cm APFDS shell for the FK-88 mounted flak gun containing a large metal dart fired at hypersonic speeds, will pierce through basically anything and onto the other side with ease. Requires a minimum range before it stabilizes to properly hit anything, will rip a clean hole through basically anything."
-	icon_state = "isg_ammo_sabot"
+	icon_state = "fk88_sabot"
 	default_ammo = /datum/ammo/bullet/fk88_apfds
 
 ///Default ammo for the ML-91 and its export variants.
