@@ -118,8 +118,13 @@ SUBSYSTEM_DEF(points)
 	ckey_shopping_cart.Cut()
 
 /datum/controller/subsystem/points/proc/fast_delivery(datum/supply_order/SO, mob/living/user)
-	//select beacon
-	var/datum/supply_beacon/supply_beacon = GLOB.supply_beacon[tgui_input_list(user, "Select the beacon to send supplies", "Beacon choice", GLOB.supply_beacon)]
+	var/list/beacon_list = GLOB.supply_beacon.Copy()
+	for(var/beacon_name in beacon_list)
+		var/datum/supply_beacon/beacon = beacon_list[beacon_name]
+		if(!is_ground_level(beacon.drop_location.z))
+			beacon_list -= beacon_name
+			continue // does this continue even does something?
+	var/datum/supply_beacon/supply_beacon = beacon_list[tgui_input_list(user, "Select the beacon to send supplies", "Beacon choice", beacon_list)]
 	if(!istype(supply_beacon))
 		to_chat(user, span_warning("Beacon not selected"))
 		return
