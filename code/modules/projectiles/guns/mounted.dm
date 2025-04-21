@@ -303,6 +303,7 @@
 
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/fk88/he,
+		/obj/item/ammo_magazine/fk88/he/unguided,
 		/obj/item/ammo_magazine/fk88/sabot,
 	)
 

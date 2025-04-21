@@ -379,12 +379,17 @@ WEAPONS
 	input = list(/obj/item/stack/sheet/jeweler_steel = 1, /obj/item/stack/gun_powder = 1)
 	output = list(/obj/item/ammo_magazine/tank/tank_glauncher = 1)
 
-/datum/assembly_craft/weapons/heavy_isg_he
+/datum/assembly_craft/weapons/fk88_he
 	name = "FK-88 HE shell (155mm Shell)"
 	input = list(/obj/item/stack/sheet/jeweler_steel = 3, /obj/item/stack/gun_powder = 4) // 21 + 32 points
 	output = list(/obj/item/ammo_magazine/fk88/he = 1) // 53 points +-
 
-/datum/assembly_craft/weapons/heavy_isg_sabot
+/datum/assembly_craft/weapons/fk88_he_unguided
+	name = "FK-88 unguided HE shell (155mm Shell)"
+	input = list(/obj/item/stack/sheet/jeweler_steel = 3, /obj/item/stack/gun_powder = 4) // 21 + 32 points
+	output = list(/obj/item/ammo_magazine/fk88/he/unguided = 1) // 53 points +-
+
+/datum/assembly_craft/weapons/fk88_sabot
 	name = "FK-88 APFDS shell (155mm Shell)"
 	input = list(/obj/item/stack/sheet/jeweler_steel = 3, /obj/item/stack/gun_powder = 5) // 21 + 40 points
 	output = list(/obj/item/ammo_magazine/fk88/sabot = 1) // 61 points +-
