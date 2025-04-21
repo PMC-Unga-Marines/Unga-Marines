@@ -30,6 +30,8 @@ GLOBAL_LIST_INIT(all_supply_groups, list(
 	var/group
 	///Randomly picks X of items out of the contains list instead of using all.
 	var/randomised_num_contained = 0
+	/// Is this item restricted from buying on crash?
+	var/crash_restricted = FALSE
 
 /datum/supply_packs/proc/generate(atom/movable/location)
 	for(var/i in contains)
