@@ -67,10 +67,12 @@ SUBSYSTEM_DEF(points)
 	return SS_INIT_SUCCESS
 
 /// Prepare the global supply pack list at the gamemode start
-/datum/controller/subsystem/points/proc/prepare_supply_packs_list()
+/datum/controller/subsystem/points/proc/prepare_supply_packs_list(is_mode_crash = FALSE)
 	for(var/pack in subtypesof(/datum/supply_packs))
 		var/datum/supply_packs/P = pack
 		if(!initial(P.cost))
+			continue
+		if(is_mode_crash && P.crash_restricted)
 			continue
 		P = new pack()
 		if(!P.contains)

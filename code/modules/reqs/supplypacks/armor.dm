@@ -33,6 +33,7 @@
 		/obj/item/clothing/gloves/marine/specialist,
 	)
 	cost = B18_PRICE
+	crash_restricted = TRUE
 
 /datum/supply_packs/armor/b17
 	name = "B17 Armor Set"
@@ -41,6 +42,7 @@
 		/obj/item/clothing/head/helmet/marine/grenadier,
 	)
 	cost = B17_PRICE
+	crash_restricted = TRUE
 
 /datum/supply_packs/armor/scout_cloak
 	name = "Scout Cloak"
