@@ -195,20 +195,24 @@
 	var/bonus_projectile_quantity = 15
 
 /datum/ammo/ags_shrapnel/on_hit_mob(mob/target_mob, obj/projectile/proj)
-	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, target_mob) )
+	var/turf/det_turf = get_turf(target_mob)
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, target_mob), det_turf)
 
 /datum/ammo/ags_shrapnel/on_hit_obj(obj/target_object, obj/projectile/proj)
-	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, target_object) )
+	var/turf/det_turf = get_turf(target_object)
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, target_object), det_turf)
 
 /datum/ammo/ags_shrapnel/on_hit_turf(turf/target_turf, obj/projectile/proj)
-	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, target_turf) )
+	var/turf/det_turf = get_turf(target_turf)
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, target_turf), det_turf)
 
 /datum/ammo/ags_shrapnel/do_at_max_range(turf/target_turf, obj/projectile/proj)
-	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, get_turf(proj)) )
+	var/turf/det_turf = get_turf(target_turf)
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, target_turf), det_turf)
 
 /datum/ammo/ags_shrapnel/incendiary
 	name = "white phosphorous grenade"

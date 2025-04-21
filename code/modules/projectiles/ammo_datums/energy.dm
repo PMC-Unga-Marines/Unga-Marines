@@ -88,10 +88,10 @@
 	accuracy_var_low = 3
 	accuracy_var_high = 3
 
-/datum/ammo/energy/lasgun/M43
+/datum/ammo/energy/lasgun/m43
 	icon_state = "laser2"
 
-/datum/ammo/energy/lasgun/M43/overcharge
+/datum/ammo/energy/lasgun/m43/overcharge
 	name = "overcharged laser bolt"
 	icon_state = "overchargedlaser"
 	hud_state = "laser_sniper"
@@ -99,7 +99,7 @@
 	max_range = 40
 	penetration = 50
 
-/datum/ammo/energy/lasgun/M43/heat
+/datum/ammo/energy/lasgun/m43/heat
 	name = "microwave heat bolt"
 	icon_state = "microwavelaser"
 	hud_state = "laser_heat"
@@ -107,11 +107,11 @@
 	penetration = 100 // It's a laser that burns the skin! The fire stacks go threw anyway.
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_INCENDIARY
 
-/datum/ammo/energy/lasgun/M43/blast
+/datum/ammo/energy/lasgun/m43/blast
 	name = "wide range laser blast"
 	icon_state = "heavylaser2"
 	hud_state = "laser_spread"
-	bonus_projectiles_type = /datum/ammo/energy/lasgun/M43/spread
+	bonus_projectiles_type = /datum/ammo/energy/lasgun/m43/spread
 	bonus_projectiles_amount = 2
 	bonus_projectiles_scatter = 10
 	accuracy_var_low = 9
@@ -122,7 +122,7 @@
 	damage_falloff = 10
 	penetration = 0
 
-/datum/ammo/energy/lasgun/M43/spread
+/datum/ammo/energy/lasgun/m43/spread
 	name = "additional laser blast"
 	icon_state = "laser2"
 	shell_speed = 2
@@ -134,7 +134,7 @@
 	damage_falloff = 10
 	penetration = 0
 
-/datum/ammo/energy/lasgun/M43/disabler
+/datum/ammo/energy/lasgun/m43/disabler
 	name = "disabler bolt"
 	icon_state = "disablershot"
 	hud_state = "laser_disabler"
@@ -143,7 +143,7 @@
 	damage_type = STAMINA
 	bullet_color = COLOR_DISABLER_BLUE
 
-/datum/ammo/energy/lasgun/M43/disabler/on_hit_mob(mob/target_mob,obj/projectile/proj)
+/datum/ammo/energy/lasgun/m43/disabler/on_hit_mob(mob/target_mob,obj/projectile/proj)
 	staggerstun(target_mob, proj, stagger = 1 SECONDS, slowdown = 0.75)
 
 /datum/ammo/energy/lasgun/pulsebolt
@@ -155,7 +155,7 @@
 	penetration = 100
 	bullet_color = COLOR_PULSE_BLUE
 
-/datum/ammo/energy/lasgun/M43/practice
+/datum/ammo/energy/lasgun/m43/practice
 	name = "practice laser bolt"
 	icon_state = "disablershot"
 	hud_state = "laser_disabler"
@@ -165,16 +165,11 @@
 	ammo_behavior_flags = AMMO_ENERGY
 	bullet_color = COLOR_DISABLER_BLUE
 
-/datum/ammo/energy/lasgun/M43/practice/on_hit_mob(mob/living/carbon/C, obj/projectile/proj)
-	if(!istype(C) || C.stat == DEAD || C.issamexenohive(proj.firer) )
+/datum/ammo/energy/lasgun/m43/practice/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(ishuman(target_mob))
 		return
-
-	if(isnestedhost(C))
-		return
-
-	staggerstun(C, proj, stagger = 2 SECONDS, slowdown = 1) //Staggers and slows down briefly
-
-	return ..()
+	var/mob/living/carbon/human/human_victim = target_mob
+	staggerstun(human_victim, proj, stagger = 2 SECONDS, slowdown = 1) //Staggers and slows down briefly
 
 // TE Lasers //
 

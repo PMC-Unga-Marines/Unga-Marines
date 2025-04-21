@@ -125,7 +125,7 @@
 	else
 		playsound(user, 'sound/weapons/emitter2.ogg', 5, 0, 2)
 		charge_cost = ENERGY_STANDARD_AMMO_COST
-		ammo_datum_type = /datum/ammo/energy/lasgun/M43
+		ammo_datum_type = /datum/ammo/energy/lasgun/m43
 		fire_delay -= 7
 		fire_sound = 'sound/weapons/guns/fire/laser.ogg'
 		to_chat(user, "[icon2html(src, user)] You [overcharge? "<B>disable</b>" : "<B>enable</b>" ] [src]'s overcharge mode.")
@@ -146,7 +146,7 @@
 	worn_icon_state = "m43"
 	max_shots = 50 //codex stuff
 	load_method = CELL //codex stuff
-	ammo_datum_type = /datum/ammo/energy/lasgun/M43
+	ammo_datum_type = /datum/ammo/energy/lasgun/m43
 	rounds_per_shot = ENERGY_STANDARD_AMMO_COST
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
@@ -227,7 +227,7 @@
 	name = "\improper M43-P Sunfury Lasgun MK1"
 	desc = "An accurate, recoilless laser based battle rifle, based on the outdated M43 design. Only accepts practice power cells and it doesn't have a charge selector. Uses power cells instead of ballistic magazines."
 	force = 8 //Well, it's not complicted compared to the original.
-	ammo_datum_type = /datum/ammo/energy/lasgun/M43/practice
+	ammo_datum_type = /datum/ammo/energy/lasgun/m43/practice
 	attachable_allowed = list(/obj/item/attachable/stock/lasgun/practice)
 	starting_attachment_types = list(/obj/item/attachable/stock/lasgun/practice)
 	muzzle_flash_color = COLOR_DISABLER_BLUE

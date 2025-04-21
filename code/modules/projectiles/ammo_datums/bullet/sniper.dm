@@ -32,9 +32,9 @@
 	sundering = 15
 	airburst_multiplier = 0.5
 
-/datum/ammo/bullet/sniper/flak/on_hit_mob(mob/victim, obj/projectile/proj)
-	staggerstun(victim, proj,  max_range = 30, slowdown = 2)
-	airburst(victim, proj)
+/datum/ammo/bullet/sniper/flak/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj,  max_range = 30)
+	airburst(target_mob, proj)
 
 /datum/ammo/bullet/sniper/svd
 	name = "crude sniper bullet"

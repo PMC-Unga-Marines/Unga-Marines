@@ -145,13 +145,13 @@
 	drop_nade(get_turf(target_mob))
 
 /datum/ammo/bullet/shotgun/frag/on_hit_obj(obj/target_object, obj/projectile/proj)
-	drop_nade(target_object.density ? proj.loc : target_object.loc)
+	drop_nade(target_object.density ? get_step_towards(target_object, proj) : target_object)
 
 /datum/ammo/bullet/shotgun/frag/on_hit_turf(turf/target_turf, obj/projectile/proj)
-	drop_nade(target_turf.density ? proj.loc : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
 
 /datum/ammo/bullet/shotgun/frag/do_at_max_range(turf/target_turf, obj/projectile/proj)
-	drop_nade(target_turf.density ? proj.loc : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
 
 /datum/ammo/bullet/shotgun/frag/frag_spread
 	name = "additional frag shell"

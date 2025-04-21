@@ -172,7 +172,7 @@
 	icon_state = "focus"
 	pixel_shift_x = 17
 	pixel_shift_y = 13
-	ammo_mod = /datum/ammo/energy/lasgun/M43/overcharge
+	ammo_mod = /datum/ammo/energy/lasgun/m43/overcharge
 	damage_mod = -0.15
 
 /obj/item/attachable/widelens
@@ -182,7 +182,7 @@
 	icon_state = "wide"
 	pixel_shift_x = 18
 	pixel_shift_y = 15
-	ammo_mod = /datum/ammo/energy/lasgun/M43/blast
+	ammo_mod = /datum/ammo/energy/lasgun/m43/blast
 	damage_mod = -0.15
 
 /obj/item/attachable/heatlens
@@ -192,7 +192,7 @@
 	icon_state = "heat"
 	pixel_shift_x = 18
 	pixel_shift_y = 16
-	ammo_mod = /datum/ammo/energy/lasgun/M43/heat
+	ammo_mod = /datum/ammo/energy/lasgun/m43/heat
 	damage_mod = -0.15
 
 /obj/item/attachable/efflens

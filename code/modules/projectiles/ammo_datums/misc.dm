@@ -107,21 +107,25 @@
 	projectile_greyscale_colors = COLOR_AMMO_AIRBURST
 
 /datum/ammo/tx54/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	var/turf/det_turf = get_turf(target_mob)
 	staggerstun(target_mob, proj, slowdown = 0.5, knockback = 1)
-	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 4, 3, Get_Angle(proj.firer, target_mob) )
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 4, 3, Get_Angle(proj.firer, target_mob), loc_override = det_turf)
 
-/datum/ammo/tx54/on_hit_obj(obj/target_object, obj/projectile/proj)
-	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 4, 3, Get_Angle(proj.firer, target_object) )
+/datum/ammo/tx54/on_hit_obj(obj/target_obj, obj/projectile/proj)
+	var/turf/det_turf = target_obj.allow_pass_flags & PASS_PROJECTILE ? get_step_towards(target_obj, proj) : target_obj
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 4, 3, Get_Angle(proj.firer, target_obj), det_turf)
 
 /datum/ammo/tx54/on_hit_turf(turf/target_turf, obj/projectile/proj)
-	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 4, 3, Get_Angle(proj.firer, target_turf) )
+	var/turf/det_turf = target_turf.density ? get_step_towards(target_turf, proj) : target_turf
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 4, 3, Get_Angle(proj.firer, target_turf), det_turf)
 
 /datum/ammo/tx54/do_at_max_range(turf/target_turf, obj/projectile/proj)
-	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 4, 3, Get_Angle(proj.firer, get_turf(proj)) )
+	var/turf/det_turf = target_turf.density ? get_step_towards(target_turf, proj) : target_turf
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 4, 3, Get_Angle(proj.starting_turf, get_turf(proj)), det_turf)
 
 /datum/ammo/tx54/incendiary
 	name = "20mm incendiary grenade"
@@ -304,9 +308,9 @@
 	var/turf/det_turf = target_turf.density ? get_step_towards(target_turf, proj) : target_turf
 	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
 	var/datum/effect_system/smoke_spread/smoke = new
-	smoke.set_up(0, get_turf(proj), 1)
+	smoke.set_up(0, det_turf, 1)
 	smoke.start()
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(proj.firer, det_turf) )
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(proj.firer, det_turf), det_turf)
 
 //piercing scatter shot
 /datum/ammo/bullet/micro_rail/airburst
@@ -477,13 +481,13 @@
 	drop_nade(get_turf(proj))
 
 /datum/ammo/smoke_burst/on_hit_obj(obj/target_object, obj/projectile/proj)
-	drop_nade(get_turf(proj))
+	drop_nade(target_object.allow_pass_flags & PASS_PROJECTILE ? get_step_towards(target_object, proj) : get_turf(target_object))
 
 /datum/ammo/smoke_burst/on_hit_turf(turf/target_turf, obj/projectile/proj)
-	drop_nade(target_turf.density ? proj.loc : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
 
 /datum/ammo/smoke_burst/do_at_max_range(turf/target_turf, obj/projectile/proj)
-	drop_nade(target_turf.density ? proj.loc : target_turf)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
 
 /datum/ammo/smoke_burst/tank
 	smokeradius = 2
