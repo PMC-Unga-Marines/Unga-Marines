@@ -27,6 +27,7 @@
 	tier_three_penalty = 1
 	restricted_castes = list(/datum/xeno_caste/ravager, /datum/xeno_caste/hivemind)
 
+	bioscan_interval = 0
 	// Round end conditions
 	var/shuttle_landed = FALSE
 	var/marines_evac = CRASH_EVAC_NONE
@@ -41,7 +42,6 @@
 	var/larva_check_interval = 2 MINUTES
 	///Last time larva balance was checked
 	var/last_larva_check
-	bioscan_interval = 0
 
 /datum/game_mode/infestation/crash/pre_setup()
 	. = ..()

@@ -90,7 +90,7 @@
 	notes = "Contains 15 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/phosphorus)
 	cost = 700
-	
+
 /datum/supply_packs/explosives/explosives_hefa
 	name = "M25 HEFA grenade box crate"
 	notes = "Contains 25 grenades"
@@ -173,6 +173,7 @@
 	name = "AI artillery targeting module"
 	contains = list(/obj/item/ai_target_beacon)
 	cost = 50
+	crash_restricted = TRUE
 
 /datum/supply_packs/explosives/knee_mortar
 	name = "T-10K Knee Mortar"
