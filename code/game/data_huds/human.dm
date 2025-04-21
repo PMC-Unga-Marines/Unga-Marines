@@ -39,49 +39,19 @@
 /mob/living/carbon/human/proc/set_status_hud()
 	var/image/status_hud = hud_list[STATUS_HUD]
 	status_hud.icon_state = ""
-	if(species.species_flags & IS_SYNTHETIC)
-		if(stat != DEAD)
-			status_hud.icon_state = "synth"
-			switch(round(health * 100 / maxHealth)) // special health HUD icons for damaged synthetics
-				if(-29 to 4) // close to overheating: should appear when health is less than 5
-					status_hud.icon_state = "synthsoftcrit"
-				if(-INFINITY to -30) // dying
-					status_hud.icon_state = "synthhardcrit"
-		else if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
-			status_hud.icon_state = "synth_dnr"
-			return TRUE
-		else if(!mind)
-			var/mob/dead/observer/ghost = get_ghost(TRUE)
-			if(!ghost)
-				return TRUE
-			if(!ghost.client) // DC'd ghost detected
-				status_hud.overlays += "dead_noclient"
-		if(!client && !get_ghost(TRUE)) // Nobody home, no ghost, must have disconnected while in their body
-			status_hud.overlays += "dead_noclient"
-		status_hud.icon_state = "synth_dead"
-		return TRUE
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
-		if(species.species_flags & ROBOTIC_LIMBS) //Robot check
-			status_hud.icon_state = "dead_robot"
-		else
-			status_hud.icon_state = "dead"
+		status_hud.icon_state = "dead"
 		return TRUE
 	switch(stat)
 		if(DEAD)
 			if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
 				hud_list[HEART_STATUS_HUD].icon_state = "still_heart"
-				if(species.species_flags & ROBOTIC_LIMBS)
-					status_hud.icon_state = "dead_robot"
-				else
-					status_hud.icon_state = "dead"
+				status_hud.icon_state = "dead"
 				return TRUE
 			if(!mind)
 				var/mob/dead/observer/ghost = get_ghost(TRUE)
 				if(!ghost) // No ghost detected. DNR player or NPC
-					if(species.species_flags & ROBOTIC_LIMBS)
-						status_hud.icon_state = "dead_robot"
-					else
-						status_hud.icon_state = "dead_dnr"
+					status_hud.icon_state = "dead_dnr"
 					return TRUE
 				if(!ghost.client) // DC'd ghost detected
 					status_hud.overlays += "dead_noclient"
@@ -98,10 +68,7 @@
 			if(initial_stage != stage)
 				initial_stage = stage
 				SEND_SIGNAL(src, COMSIG_HUMAN_DEATH_STAGE_CHANGE) // this is used to slightly increase performance of minimap revivable icons
-			if(species.species_flags & ROBOTIC_LIMBS)
-				status_hud.icon_state = "dead_defibable_robot"
-			else
-				status_hud.icon_state = "dead_defibable[stage]"
+			status_hud.icon_state = "dead_defibable[stage]"
 			return TRUE
 		if(UNCONSCIOUS)
 			if(!client) //Nobody home.
@@ -127,13 +94,109 @@
 			if(slowdown)
 				status_hud.icon_state = "slowdown"
 				return TRUE
-			if(species.species_flags & ROBOTIC_LIMBS)
-				status_hud.icon_state = "robot"
-				return TRUE
 			else
 				status_hud.icon_state = "healthy"
 				return TRUE
 	return FALSE
+
+/mob/living/carbon/human/species/robot/set_status_hud()
+	var/image/status_hud = hud_list[STATUS_HUD]
+	status_hud.icon_state = ""
+	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
+		status_hud.icon_state = "dead_robot"
+		return TRUE
+	switch(stat)
+		if(DEAD)
+			if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
+				hud_list[HEART_STATUS_HUD].icon_state = "still_heart"
+				status_hud.icon_state = "dead_robot"
+				return TRUE
+			if(!mind)
+				var/mob/dead/observer/ghost = get_ghost(TRUE)
+				if(!ghost) // No ghost detected. DNR player or NPC
+					status_hud.icon_state = "dead_robot"
+					return TRUE
+				if(!ghost.client) // DC'd ghost detected
+					status_hud.overlays += "dead_noclient"
+			if(!client && !get_ghost(TRUE)) // Nobody home, no ghost, must have disconnected while in their body
+				status_hud.overlays += "dead_noclient"
+			status_hud.icon_state = "dead_defibable_robot"
+			return TRUE
+		if(UNCONSCIOUS)
+			if(!client) //Nobody home.
+				status_hud.icon_state = "afk"
+				return TRUE
+			if(has_status_effect(STATUS_EFFECT_UNCONSCIOUS)) //Should hopefully get out of it soon.
+				status_hud.icon_state = "knockout"
+				return TRUE
+			status_hud.icon_state = "sleep" //Regular sleep, else.
+			return TRUE
+		if(CONSCIOUS)
+			if(!key) //Nobody home. Shouldn't affect aghosting.
+				status_hud.icon_state = "afk"
+				return TRUE
+			if(has_status_effect(STATUS_EFFECT_PARALYZED)) //I've fallen and I can't get up.
+				status_hud.icon_state = "knockdown"
+				return TRUE
+			if(has_status_effect(STATUS_EFFECT_STUN))
+				status_hud.icon_state = "stun"
+				return TRUE
+			if(has_status_effect(STATUS_EFFECT_STAGGER))
+				return TRUE
+			if(slowdown)
+				status_hud.icon_state = "slowdown"
+				return TRUE
+			status_hud.icon_state = "robot"
+			return TRUE
+	return FALSE
+
+/mob/living/carbon/human/species/synthetic/set_status_hud()
+	var/image/status_hud = hud_list[STATUS_HUD]
+	status_hud.icon_state = ""
+	if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
+		status_hud.icon_state = "synth_dnr"
+		return TRUE
+	if(stat != DEAD)
+		status_hud.icon_state = "synth"
+		switch(round(health * 100 / maxHealth)) // special health HUD icons for damaged synthetics
+			if(-29 to 4) // close to overheating: should appear when health is less than 5
+				status_hud.icon_state = "synthsoftcrit"
+			if(-INFINITY to -30) // dying
+				status_hud.icon_state = "synthhardcrit"
+	else
+		status_hud.icon_state = "synth_dead"
+	if(!mind)
+		var/mob/dead/observer/ghost = get_ghost(TRUE)
+		if(!ghost)
+			return TRUE
+		if(!ghost.client) // DC'd ghost detected
+			status_hud.overlays += "dead_noclient"
+	if(!client && !get_ghost(TRUE)) // Nobody home, no ghost, must have disconnected while in their body
+		status_hud.overlays += "dead_noclient"
+
+/mob/living/carbon/human/species/early_synthetic/set_status_hud() //copypaste
+	var/image/status_hud = hud_list[STATUS_HUD]
+	status_hud.icon_state = ""
+	if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
+		status_hud.icon_state = "synth_dnr"
+		return TRUE
+	if(stat != DEAD)
+		status_hud.icon_state = "synth"
+		switch(round(health * 100 / maxHealth)) // special health HUD icons for damaged synthetics
+			if(-29 to 4) // close to overheating: should appear when health is less than 5
+				status_hud.icon_state = "synthsoftcrit"
+			if(-INFINITY to -30) // dying
+				status_hud.icon_state = "synthhardcrit"
+	else
+		status_hud.icon_state = "synth_dead"
+	if(!mind)
+		var/mob/dead/observer/ghost = get_ghost(TRUE)
+		if(!ghost)
+			return TRUE
+		if(!ghost.client) // DC'd ghost detected
+			status_hud.overlays += "dead_noclient"
+	if(!client && !get_ghost(TRUE)) // Nobody home, no ghost, must have disconnected while in their body
+		status_hud.overlays += "dead_noclient"
 
 //Set state of the xeno embryo and other strange stuff
 /mob/living/carbon/human/proc/set_infection_hud()

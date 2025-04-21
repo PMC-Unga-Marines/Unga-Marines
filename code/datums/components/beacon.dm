@@ -186,7 +186,7 @@
 ///Updates the icon state of the object to an active state, if it has one
 /datum/component/beacon/proc/on_update_icon_state(atom/source, updates)
 	SIGNAL_HANDLER
-	if(active)
+	if(active && active_icon_state)
 		source.icon = icon(source.icon, active_icon_state)
 	else
 		source.icon = initial(source.icon)
