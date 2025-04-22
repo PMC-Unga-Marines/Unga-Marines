@@ -163,7 +163,7 @@
 	cost = 150
 
 /datum/supply_packs/weapons/back_fuel_tank_x
-	name = "Type X back fuel tank"
+	name = "X-fuel backpack"
 	contains = list(/obj/item/ammo_magazine/flamer_tank/backtank/X)
 	cost = 600
 
