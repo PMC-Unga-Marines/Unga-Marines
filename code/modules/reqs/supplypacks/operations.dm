@@ -47,6 +47,14 @@
 	)
 	cost = 300
 
+/datum/supply_packs/operations/bincoulars_rangefinder
+	name = "Rangefinding Binoculars"
+	contains = list(
+		/obj/item/binoculars/tactical/range,
+		/obj/item/encryptionkey/cas,
+	)
+	cost = 150
+
 /datum/supply_packs/operations/pinpointer
 	name = "Xeno structure tracker crate"
 	contains = list(/obj/item/pinpointer)
