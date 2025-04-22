@@ -291,6 +291,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/saline_glucose = 45,
 	)
+	description_overlay = "Is"
 
 /obj/item/reagent_containers/hypospray/autoinjector/roulettium
 	name = "roulettium autoinjector"
