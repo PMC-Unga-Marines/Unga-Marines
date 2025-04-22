@@ -114,6 +114,9 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	sentry_alert(SENTRY_ALERT_DESTROYED)
 	return ..()
 
+/obj/machinery/deployable/mounted/sentry/welder_act(mob/living/user, obj/item/I)
+	return welder_repair_act(user, I, 50, 5 SECONDS)
+
 /obj/machinery/deployable/mounted/sentry/AltClick(mob/user)
 	if(!match_iff(user))
 		to_chat(user, span_notice("Доступ запрещён."))
