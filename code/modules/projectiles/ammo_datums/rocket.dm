@@ -583,8 +583,8 @@
 	bullet_color = LIGHT_COLOR_TUNGSTEN
 	barricade_clear_distance = 4
 
-/datum/ammo/rocket/coilgun/drop_nade(turf/T)
-	explosion(T, 0, 3, 5)
+/datum/ammo/rocket/coilgun/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 150, 30)
 
 /datum/ammo/rocket/coilgun/holder //only used for tankside effect checks
 	ammo_behavior_flags = AMMO_ENERGY
@@ -595,8 +595,8 @@
 	penetration = 25
 	sundering = 5
 
-/datum/ammo/rocket/coilgun/low/drop_nade(turf/T)
-	explosion(T, 0, 2, 3, 4)
+/datum/ammo/rocket/coilgun/low/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 120, 30)
 
 /datum/ammo/rocket/coilgun/high
 	damage_falloff = 0
