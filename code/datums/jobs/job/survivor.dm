@@ -370,7 +370,7 @@ Good luck, but do not expect to survive."})
 	shoes = /obj/item/clothing/shoes/black
 	back = /obj/item/storage/backpack/satchel/som
 	l_hand = /obj/item/weapon/twohanded/sledgehammer
-	r_store = /obj/item/reagent_containers/cup/glass/flask
+	r_store = /obj/item/reagent_containers/food/drinks/flask
 	r_hand = /obj/item/clothing/suit/space/rig/mining
 	ears = /obj/item/radio/headset/survivor
 
@@ -423,7 +423,7 @@ Good luck, but do not expect to survive."})
 	wear_suit = /obj/item/clothing/suit/storage/CMB
 	shoes = /obj/item/clothing/shoes/jackboots
 	back = /obj/item/storage/backpack/satchel/sec
-	suit_store = /obj/item/storage/holster/belt/m44/full
+	suit_store = /obj/item/storage/holster/belt/revolver/m44/full
 	belt = /obj/item/storage/belt/sparepouch
 	gloves = /obj/item/clothing/gloves/ruggedgloves
 	l_store = /obj/item/flashlight/combat
