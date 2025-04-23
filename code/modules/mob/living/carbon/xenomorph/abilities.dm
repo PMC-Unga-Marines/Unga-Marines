@@ -321,11 +321,8 @@
 		end_resin_drag()
 		return
 
-	if(SSticker.mode?.round_type_flags & MODE_PERSONAL_QUICKBUILD_POINTS && !SSresinshaping.get_building_points(owner))
+	if(!SSresinshaping.get_building_points(owner))
 		owner.balloon_alert(owner, "You have used all your quick-build points! Wait until the marines have landed!")
-		return
-	if(SSticker.mode?.round_type_flags & MODE_GENERAL_QUICKBUILD_POINTS && !SSresinshaping.quickbuild_points_by_hive[owner.get_xeno_hivenumber()])
-		owner.balloon_alert(owner, "The hive has ran out of quickbuilding points! Wait until more sisters awaken or the marines land!")
 		return
 
 	switch(is_valid_for_resin_structure(T, xeno_owner.selected_resin == /obj/structure/mineral_door/resin, xeno_owner.selected_resin))

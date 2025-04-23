@@ -34,6 +34,10 @@
 		new /obj/structure/xeno/resin_jelly_pod(i, XENO_HIVE_NORMAL)
 	for(var/i in GLOB.xeno_turret_turfs)
 		new /obj/structure/xeno/turret(i, XENO_HIVE_NORMAL)
+	if(round_type_flags & MODE_HAS_EXCAVATION)
+		for(var/i in 1 to MAX_EXCAVATIONS)
+			var/obj/effect/landmark/excavation_site_spawner/site_spawner = pick_n_take(GLOB.excavation_site_spawners)
+			site_spawner.spawn_excavation_site()
 
 /datum/game_mode/infestation/process()
 	if(round_finished)

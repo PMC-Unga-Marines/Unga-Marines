@@ -59,7 +59,6 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	var/pred_additional_max = 0
 	var/pred_leader_count = 0 //How many Leader preds are active
 	var/pred_leader_max = 1 //How many Leader preds are permitted. Currently fixed to 1. May add admin verb to adjust this later.
-	var/quickbuild_points_flags = NONE
 
 //Distress call variables.
 	var/list/datum/emergency_call/all_calls = list() //initialized at round start and stores the datums.

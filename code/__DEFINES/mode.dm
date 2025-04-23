@@ -49,6 +49,7 @@
 #define MODE_SILO_NO_LARVA (1<<13)
 #define MODE_TELETOWER (1<<14)
 #define MODE_XENO_DEN (1<<15)
+#define MODE_HAS_EXCAVATION (1<<16)
 
 #define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
 #define MODE_INFESTATION_M_MAJOR "Marine Major Victory"
@@ -144,9 +145,6 @@
 #define SENSOR_CAP_ADDITION_TIME_BONUS 3 MINUTES //additional time granted by capturing a sensor tower
 #define SENSOR_CAP_TIMER_PAUSED "paused"
 
-#define MODE_GENERAL_QUICKBUILD_POINTS (1<<1)
-#define MODE_PERSONAL_QUICKBUILD_POINTS (1<<2)
-
 #define MAX_FACEHUGGERS 5
 
 //Time (after shutters open) before siloless timer can start
@@ -191,3 +189,5 @@
 
 #define MODE_SHIPSIDE_SD (1<<16)
 #define MODE_PREDATOR (1<<17)
+
+#define MAX_EXCAVATIONS 10
