@@ -496,7 +496,7 @@
 		var/catch_chance = 50
 		if(hugged.dir == REVERSE_DIR(dir))
 			catch_chance += 20
-		catch_chance -= hugged.shock_stage * 0.3
+		catch_chance -= hugged.painloss * 0.3
 		if(hugged.get_inactive_held_item())
 			catch_chance  -= 25
 

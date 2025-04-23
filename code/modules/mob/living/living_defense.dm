@@ -129,6 +129,16 @@
 /mob/living/proc/update_fire()
 	return
 
+///Puts out any fire on the mob
+/mob/living/proc/ExtinguishMob()
+	if(!on_fire)
+		return FALSE
+	on_fire = FALSE
+	adjust_bodytemperature(-80, 300)
+	fire_stacks = 0
+	update_fire()
+	UnregisterSignal(src, COMSIG_LIVING_DO_RESIST)
+
 ///Adjusting the amount of fire_stacks we have on person
 /mob/living/proc/adjust_fire_stacks(add_fire_stacks)
 	if(QDELETED(src))

@@ -451,7 +451,7 @@
 					isxeno(living_target) ? span_xenodanger("We are hit by the bomblet blast!") : span_highdanger("you are hit by the bomblet blast!"))
 				living_target.apply_damages(explosion_damage * 0.5, explosion_damage * 0.5, 0, 0, 0, blocked = BOMB, updating_health = TRUE)
 				staggerstun(living_target, proj, stagger = stagger_amount, slowdown = slow_amount)
-				living_victim.do_jitter_animation(500)
+				living_target.do_jitter_animation(500)
 			else if(isobj(target))
 				var/obj/obj_victim = target
 				obj_victim.take_damage(explosion_damage, BRUTE, BOMB)
