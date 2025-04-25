@@ -30,7 +30,7 @@
 	. = ..()
 	if(!length(contents))
 		return
-	
+
 	for(var/obj/item/thing in src)
 		var/image/item_image = image("icon" = thing.icon, "icon_state" = thing.icon_state, "layer" = layer+0.01)
 		item_image.pixel_x = rand(-10, 10)

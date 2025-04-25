@@ -102,7 +102,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	/// >Lazylist< that overrides the default worn_icon_state for particular slots.
 	var/list/worn_worn_icon_state_slots
 	/// >LazyList< Used to specify the icon file to be used when the item is worn in a certain slot. icon_override or sprite_sheets are set they will take precendence over this, assuming they apply to the slot in question.
-	var/list/worn_icon_lists
+	var/list/worn_icon_list
 	/// Specific layer for on-mob icon.
 	var/worn_layer
 	/// Tells if the item shall use worn_icon_state for non-inhands, needed due to some items using worn_icon_state only for inhands and not worn.
@@ -1233,7 +1233,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return icon
 
 	//3: slot-specific sprite sheets
-	icon = LAZYACCESS(worn_icon_lists, slot_name)
+	icon = LAZYACCESS(worn_icon_list, slot_name)
 	if(ispath(icon, /datum/greyscale_config))
 		return SSgreyscale.GetColoredIconByType(icon, greyscale_colors)
 	if(icon)

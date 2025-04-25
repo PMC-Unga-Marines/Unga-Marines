@@ -5,7 +5,7 @@
 	icon_state = ""
 	worn_icon_state = "gun"
 	worn_icon_state_worn = TRUE
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
 	)

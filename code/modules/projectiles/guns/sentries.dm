@@ -103,7 +103,7 @@
 	name = "\improper Турель TUR-B \"Базис\""
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Не имеет каких-либо модификаций. Ведёт эффективный и точный огонь."
 	icon_state = "sentry"
-	worn_icon_lists = list( // for whatever fucking reason we can't set it null
+	worn_icon_list = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)

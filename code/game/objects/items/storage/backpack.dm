@@ -3,7 +3,7 @@
 	desc = "You wear this on your back and put items into it."
 	icon_state = "backpack"
 	icon = 'icons/obj/items/storage/backpack.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
 	)
@@ -239,7 +239,7 @@
 /obj/item/storage/backpack/marine/standard/molle
 	name = "\improper T16 MOLLE Backpack"
 	desc = "The latest backpack developed by Crowford Armory Union on the military order of TGMC. Thanks to the introduction of new MOLLE fastening systems, it turned out to beltbags and backpacks that are not inferior to roominess and portable weight, while also reducing the size of backpacks that have gone to hang from the back on the belt."
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
@@ -250,7 +250,7 @@
 /obj/item/storage/backpack/marine/satchel/molle
 	name = "\improper T13 MOLLE Satchel"
 	desc = "The latest satchel developed by Crowford Armory Union on the military order of TGMC. Thanks to the introduction of new MOLLE fastening systems, it turned out to beltbags and backpacks that are not inferior to roominess and portable weight, while also reducing the size of backpacks that have gone to hang from the back on the belt."
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
@@ -261,7 +261,7 @@
 /obj/item/storage/backpack/marine/standard/scav
 	name = "Scav Backpack"
 	desc = "Pretty swag backpack."
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi')
 	icon_state = "scavpack"
 	worn_icon_state = "scavpack"
@@ -414,7 +414,7 @@
 
 /obj/item/storage/backpack/marine/satchel/officer_cloak_red/alt
 	name = "Senior Officer Cloak"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi')
 	icon_state = "officer_cloak_red_alt"
 
@@ -426,7 +426,7 @@
 
 /obj/item/storage/backpack/marine/satchel/captain_cloak_red/white
 	icon_state = "white_com"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi')
 
 // Scout Cloak

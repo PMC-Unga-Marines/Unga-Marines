@@ -5,7 +5,7 @@
 	icon = 'icons/obj/hunter/thrall_gear.dmi'
 	icon_state = "chest1_cloth"
 	worn_icon_state = "chest1_cloth"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_wear_suit_str = 'icons/mob/hunter/thrall_gear.dmi'
 	)
 	thrall = TRUE
@@ -29,7 +29,7 @@
 
 	icon = 'icons/obj/hunter/thrall_gear.dmi'
 	icon_state = "greaves1_cloth"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_shoes_str = 'icons/mob/hunter/thrall_gear.dmi'
 	)
 	thrall = TRUE

@@ -9,7 +9,7 @@
 	desc = "A beautifully designed metallic face mask, both ornate and functional."
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_wear_mask_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	icon_state = "pred_mask1_ebony"
@@ -178,7 +178,7 @@
 	icon_state = "thrall_mask"
 	worn_icon_state = "thrall_mask"
 	icon = 'icons/obj/hunter/thrall_gear.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_wear_mask_str = 'icons/mob/hunter/thrall_gear.dmi'
 	)
 	worn_worn_icon_state_slots = list(slot_wear_mask_str = "thrall_mask")
@@ -242,7 +242,7 @@
 	desc = "A beautifully designed face mask, ornate but non-functional and made entirely of stone."
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_wear_mask_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	icon_state = "pred_mask1_ebony"

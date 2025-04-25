@@ -5,7 +5,7 @@
 	desc = "A strange piece of alien technology. It has many jagged, whirring blades and bizarre writing."
 	item_flags = ITEM_PREDATOR
 	icon = 'icons/obj/hunter/pred_gear.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/hunter/pred_gear.dmi',
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'

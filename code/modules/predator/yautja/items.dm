@@ -26,7 +26,7 @@
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "halfarmor1_ebony"
 	worn_icon_state = "armor"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_wear_suit_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 
@@ -154,7 +154,7 @@
 	desc = "A battle-worn cape passed down by elder Yautja."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "fullcape"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	equip_slot_flags = ITEM_SLOT_BACK
@@ -210,7 +210,7 @@
 	desc = "Greaves made from scraps of cloth and a strange alloy. They feel cold with an alien weight."
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_shoes_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	icon_state = "y-boots1_ebony"
@@ -266,7 +266,7 @@
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "mesh_shirt"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_w_uniform_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 
@@ -351,7 +351,7 @@
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "beltbag"
 	worn_icon_state = "beltbag_w"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_belt_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	item_flags = ITEM_PREDATOR
@@ -487,7 +487,7 @@
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "scalp_1"
 	worn_icon_state = "scalp"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
@@ -860,7 +860,7 @@
 	desc = "A suit of armor made entirely out of stone. Looks incredibly heavy."
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_wear_suit_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	worn_icon_state = "armor"
@@ -884,7 +884,7 @@
 	desc = "A pair of armored, perfectly balanced boots. Perfect for running through cement because they're incredibly heavy."
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_shoes_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	icon_state = "y-boots2_ebony"
@@ -1142,7 +1142,7 @@
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "bar"
 	worn_icon_state = "bar"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
@@ -1153,7 +1153,7 @@
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "wrench"
 	worn_icon_state = "wrench"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
@@ -1164,7 +1164,7 @@
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "wirescutter"
 	worn_icon_state = "wirescutter"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
@@ -1175,7 +1175,7 @@
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "screwdriver"
 	worn_icon_state = "screwdriver"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
@@ -1188,7 +1188,7 @@
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "multitool"
 	worn_icon_state = "multitool"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
@@ -1198,7 +1198,7 @@
 	desc = "A complex chemical welding device, keep away from youngblood."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "welder"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)

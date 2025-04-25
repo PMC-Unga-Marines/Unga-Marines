@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/smg
 	icon = 'icons/obj/items/gun/submachinegun.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/submachinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/submachinegun_righthand_1.dmi',
 	)
@@ -119,7 +119,7 @@
 	silenced_sound = 'sound/weapons/guns/smgs/SMG-90/SMG90_SIL.ogg'
 	icon_state = "t90"
 	worn_icon_state = "t90"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/submachinegun_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/submachinegun_righthand_64.dmi',
 	)
@@ -542,7 +542,7 @@
 	icon = 'icons/obj/items/gun/submachinegun64.dmi'
 	icon_state = "pl38"
 	worn_icon_state = "pl38"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/submachinegun_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/submachinegun_righthand_64.dmi',
 	)
@@ -607,7 +607,7 @@
 	icon = 'icons/obj/items/gun/submachinegun64.dmi'
 	icon_state = "l40"
 	worn_icon_state = "l40"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/submachinegun_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/submachinegun_righthand_64.dmi',
 	)
@@ -679,7 +679,7 @@
 	icon = 'icons/obj/items/gun/submachinegun64.dmi'
 	icon_state = "v45"
 	worn_icon_state = "v45"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/submachinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/submachinegun_righthand_1.dmi',
 		slot_back_str = 'icons/mob/clothing/back.dmi',

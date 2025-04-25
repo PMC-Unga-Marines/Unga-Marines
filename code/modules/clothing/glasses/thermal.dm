@@ -26,7 +26,7 @@
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "visor_thermal"
 	worn_icon_state = "visor_thermal"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_glasses_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 

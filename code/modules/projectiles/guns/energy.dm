@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy
 	icon = 'icons/obj/items/gun/energy.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/energy_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/energy_righthand_1.dmi',
 	)
@@ -756,7 +756,7 @@
 	ammo_level_icon = "te"
 	icon_overlay_x_offset = -1
 	icon_overlay_y_offset = -3
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/energy_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/energy_righthand_64.dmi',
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
@@ -1186,7 +1186,7 @@
 	worn_icon_state = "caliver"
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/energy_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/energy_righthand_64.dmi',
 	)
@@ -1237,7 +1237,7 @@
 	worn_icon_state = "culverin"
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/energy_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/energy_righthand_64.dmi',
 	)
@@ -1274,7 +1274,7 @@
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "p_beam"
 
-	worn_icon_lists = list( // for whatever fucking reason we can't set it null
+	worn_icon_list = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)

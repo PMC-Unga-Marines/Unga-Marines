@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/shotgun
 	icon = 'icons/obj/items/gun/shotgun.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/shotgun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/shotgun_righthand_1.dmi',
 	)
@@ -131,7 +131,7 @@
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "masterkey"
 
-	worn_icon_lists = list( // for whatever fucking reason we can't set it null
+	worn_icon_list = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
@@ -396,7 +396,7 @@
 	name = "\improper ML-101 heavy pump shotgun"
 	desc = "Curiously using a rifled barrel in a shotgun. The ML-101 shotgun is used by ICC personnel forces to devastate targets at close range. Uses 6 gauge shells.\n<b>Requires a pump, which is the Unique Action key.</b>"
 	equip_slot_flags = ITEM_SLOT_BACK
-	icon = 'icons/obj/items/guns/shotguns64.dmi'
+	icon = 'icons/obj/items/gun/shotgun64.dmi'
 	icon_state = "ks23"
 	worn_icon_state = "ks23"
 	caliber = CALIBER_6G //codex
@@ -455,7 +455,7 @@
 	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "mosin"
 	worn_icon_state = "mosin"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
 	)
@@ -527,7 +527,7 @@
 	icon_state = "martini"
 	worn_icon_state = "martini"
 	shell_eject_animation = "martini_flick"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
 	)
@@ -584,7 +584,7 @@
 	worn_icon_state = "musket"
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_64.dmi',
 	)
@@ -632,7 +632,7 @@
 	icon = 'icons/obj/items/gun/special64.dmi'
 	icon_state = "musketoon"
 	worn_icon_state = "musketoon"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
 	)
@@ -682,7 +682,7 @@
 	icon_state = "derringer"
 	icon = 'icons/obj/items/gun/pistol.dmi'
 	worn_icon_state = "tp17"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
 	)
@@ -768,7 +768,7 @@
 		"Raven repeater" = "raven_repeater",
 		"Red" = "leicrepeater_red",
 	)
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
 	)
@@ -1049,7 +1049,7 @@
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "va61"
 
-	worn_icon_lists = list( // for whatever fucking reason we can't set it null
+	worn_icon_list = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
@@ -1079,7 +1079,7 @@
 	icon = 'icons/obj/items/gun/shotgun64.dmi'
 	icon_state = "shq6"
 	worn_icon_state = "shq6"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/gun/shotgun_lefthand_1.dmi',

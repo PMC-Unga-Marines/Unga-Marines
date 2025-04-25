@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/pistol
 	icon = 'icons/obj/items/gun/pistol.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
 	)
@@ -792,7 +792,7 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "elite_knife"
 	worn_icon_state = "knife"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/melee_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
 	)

@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/grenade_launcher
 	icon = 'icons/obj/items/gun/special.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
 	)
@@ -155,7 +155,7 @@
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "grenade"
 
-	worn_icon_lists = list( // for whatever fucking reason we can't set it null
+	worn_icon_list = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
@@ -221,7 +221,7 @@
 	desc = "A weapon-mounted, reloadable, two-shot grenade launcher designed to fit the BR-64."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 
-	worn_icon_lists = list( // for whatever fucking reason we can't set it null
+	worn_icon_list = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)

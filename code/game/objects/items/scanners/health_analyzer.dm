@@ -4,7 +4,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 	name = "\improper HF2 health analyzer"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "health"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/medical_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/medical_right.dmi',
 	)

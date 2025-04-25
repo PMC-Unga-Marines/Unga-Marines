@@ -123,7 +123,7 @@
 	name = "\improper ceremonial officer sabre"
 	desc = "Gold plated, smoked dark wood handle, your name on it, what else do you need?"
 	icon = 'icons/obj/items/weapons.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/melee_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
 	)
@@ -139,7 +139,7 @@
 	force = 90
 	penetration = 15
 	icon = 'icons/obj/items/weapons.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/weapons/melee_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
@@ -162,7 +162,7 @@
 	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "tomahawk_tactic"
 	worn_icon_state = "tomahawk_tactic"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/weapons/weapon64_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/weapon64_right.dmi',
