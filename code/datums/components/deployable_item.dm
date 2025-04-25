@@ -8,12 +8,13 @@
 	///Any extra checks required when trying to deploy this item
 	var/datum/callback/deploy_check_callback
 
-/datum/component/deployable_item/Initialize(_deploy_type, _deploy_time, _undeploy_time)
+/datum/component/deployable_item/Initialize(_deploy_type, _deploy_time, _undeploy_time, _deploy_check_callback)
 	if(!isitem(parent))
 		return COMPONENT_INCOMPATIBLE
 	deploy_type = _deploy_type
 	deploy_time = _deploy_time
 	undeploy_time = _undeploy_time
+	deploy_check_callback = _deploy_check_callback
 
 	var/obj/item/attached_item = parent
 	if(CHECK_BITFIELD(attached_item.item_flags, DEPLOY_ON_INITIALIZE))
@@ -64,6 +65,8 @@
 	if(ISDIAGONALDIR(get_dir(user, location)))
 		return
 	if(get_turf(user) == location || !(user.Adjacent(object)))
+		return
+	if(deploy_check_callback && !deploy_check_callback.Invoke(user, location))
 		return
 	INVOKE_ASYNC(src, PROC_REF(finish_deploy), parent, user, location)
 	return COMSIG_KB_ACTIVATED
