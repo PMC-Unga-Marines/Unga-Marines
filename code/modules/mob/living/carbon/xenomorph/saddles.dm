@@ -4,7 +4,7 @@
 	icon = 'icons/Xeno/saddles/saddles.dmi'
 	icon_state = "cowboybags"
 	worn_icon_state = null
-	storage_type = /datum/storage/backpack/satchel/saddle
+	storage_type = /datum/storage/backpack/duffelbag/saddle
 	//Same as icon state; We need to cache it so that update icons works later in the code and fetches the right style
 	var/style = "cowboybags"
 	///list of selectable styles & the actual name in the DMI file so the user doesn't see the codenames
@@ -18,7 +18,7 @@
 		"saddlebags" = "Rugged",
 	)
 
-/datum/storage/backpack/satchel/saddle
+/datum/storage/backpack/duffelbag/saddle
 	max_storage_space = 18
 
 /obj/item/storage/backpack/marine/duffelbag/xenosaddle/examine(mob/user)
