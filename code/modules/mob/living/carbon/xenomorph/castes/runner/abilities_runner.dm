@@ -80,7 +80,7 @@
 
 /datum/action/ability/xeno_action/evasion
 	name = "Evasion"
-	desc = "Take evasive action, forcing non-friendly projectiles that would hit you to miss for a short duration so long as you keep moving. Alternate use toggles Auto Evasion off or on."
+	desc = "Take evasive action, forcing non-friendly projectiles that would hit you to miss for a short duration so long as you keep moving. Alternate use toggles Auto Evasion off or on. You cannot evade pointblank shots while evading."
 	action_icon_state = "evasion_on"
 	action_icon = 'icons/Xeno/actions/runner.dmi'
 	ability_cost = 75
