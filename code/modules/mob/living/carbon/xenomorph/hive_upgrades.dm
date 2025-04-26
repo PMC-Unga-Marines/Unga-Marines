@@ -243,7 +243,6 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/building/upgrade_chamber
 	upgrade_flags = ABILITY_NUCLEARWAR
-	building_loc = 0
 	var/max_chambers = 3
 
 /datum/hive_upgrade/building/upgrade_chamber/shell
@@ -451,7 +450,6 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	psypoint_cost = 0
 	icon = "nest"
 	building_type = /obj/structure/xeno/thick_nest
-	building_loc = 0 //This results in spawning the structure under the user.
 	building_time = 5 SECONDS
 
 /datum/hive_upgrade/building/nest/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
