@@ -147,7 +147,7 @@
 	deployed_machine.update_appearance()
 
 	if(user && item_to_deploy.loc == user)
-		item_to_deploy.balloon_alert(user, "DepУстoyed!")
+		item_to_deploy.balloon_alert(user, "Установлено!")
 		user.transferItemToLoc(item_to_deploy, deployed_machine, TRUE)
 		if(user.client.prefs.toggles_gameplay & AUTO_INTERACT_DEPLOYABLES)
 			deployed_machine.interact(user)
