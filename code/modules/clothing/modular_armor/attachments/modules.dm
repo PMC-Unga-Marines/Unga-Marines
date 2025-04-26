@@ -47,7 +47,6 @@
 	worn_icon_state = "mod_autodoc_a"
 	slowdown = 0
 	slot = ATTACHMENT_SLOT_MODULE
-	var/static/list/supported_limbs = list(CHEST, GROIN, ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT, LEG_LEFT, LEG_RIGHT, FOOT_LEFT, FOOT_RIGHT)
 
 /obj/item/armor_module/module/valkyrie_autodoc/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
@@ -58,7 +57,7 @@
 	var/list/our_pain_chems = list(/datum/reagent/medicine/tramadol)
 	/// This will do nothing without the autodoc update
 	parent.AddComponent(/datum/component/suit_autodoc, 4 MINUTES, our_brute_chems, our_burn_chems, our_tox_chems, our_oxy_chems, our_pain_chems, 0.5)
-	parent.AddElement(/datum/element/limb_support, supported_limbs)
+	parent.AddElement(/datum/element/limb_support)
 
 /obj/item/armor_module/module/valkyrie_autodoc/on_detach(obj/item/detaching_from, mob/user)
 	qdel(parent.GetComponent(/datum/component/suit_autodoc))
