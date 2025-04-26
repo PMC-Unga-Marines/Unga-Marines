@@ -13720,7 +13720,7 @@
 /area/slumbridge/outside/northeast)
 "kdY" = (
 /obj/structure/table,
-/obj/item/storage/kitchen_trayp,
+/obj/item/storage/kitchen_tray,
 /obj/effect/spawner/random/food_or_drink/kitchen,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/prison/kitchen,
@@ -30469,7 +30469,7 @@
 /area/slumbridge/inside/medical/foyer)
 "wos" = (
 /obj/structure/table,
-/obj/item/storage/kitchen_trayp,
+/obj/item/storage/kitchen_tray,
 /obj/effect/spawner/random/food_or_drink/kitchenknife/butcherweighted,
 /turf/open/floor/prison/kitchen,
 /area/slumbridge/inside/colony/kitchen)
