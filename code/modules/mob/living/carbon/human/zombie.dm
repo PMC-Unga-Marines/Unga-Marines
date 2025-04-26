@@ -269,7 +269,7 @@
 	var/smoke_duration = 9
 
 /datum/action/ability/emit_gas/on_cooldown_finish()
-	playsound(owner.loc, 'sound/effects/alien/new_larva.ogg', 50, 0)
+	playsound(owner.loc, 'sound/effects/alien/newlarva.ogg', 50, 0)
 	to_chat(owner, span_xenodanger("We feel our smoke filling us once more. We can emit gas again."))
 	toggle_particles(TRUE)
 	return ..()

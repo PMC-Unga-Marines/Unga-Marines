@@ -91,7 +91,6 @@
 	turret_pattern = NO_PATTERN
 	unmanned_flags = GIVE_NIGHT_VISION
 	layer = XENO_HIDING_LAYER
-	trigger_gargoyle = FALSE
 	allow_detpacks = FALSE
 
 /obj/structure/closet/crate/uvt_crate
