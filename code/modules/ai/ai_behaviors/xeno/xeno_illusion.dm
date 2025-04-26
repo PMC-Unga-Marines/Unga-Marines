@@ -21,7 +21,7 @@
 				set_escorted_atom(src, victim)
 				return
 
-/datum/ai_behavior/xeno/illusion/attack_target(datum/soure, atom/attacked)
+/datum/ai_behavior/xeno/illusion/attack_target(datum/source, atom/attacked)
 	if(world.time < mob_parent.next_move)
 		return
 	if(!attacked)
