@@ -56,7 +56,7 @@
 	return ..()
 
 ///Enables nuke timer
-/obj/machinery/nuclearbomb/proc/enable(reason)
+/obj/machinery/nuclearbomb/proc/enable(mob/reason)
 	GLOB.active_nuke_list += src
 	countdown.start()
 	notify_ghosts("[reason] enabled the [src], it has [round(time MILLISECONDS)] seconds on the timer.", source = src, action = NOTIFY_ORBIT, extra_large = TRUE)
@@ -65,16 +65,16 @@
 	update_minimap_icon()
 	// The timer is needed for when the signal is sent
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NUKE_START, src)
-	log_game("[reason] has enabled the nuke at [AREACOORD(src)]")
+	log_game("[key_name(reason)] has enabled the nuke at [AREACOORD(src)]")
 
 ///Disables nuke timer
-/obj/machinery/nuclearbomb/proc/disable(reason)
+/obj/machinery/nuclearbomb/proc/disable(mob/reason)
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NUKE_STOP, src)
 	countdown.stop()
 	GLOB.active_nuke_list -= src
 	if(timer_enabled)
-		log_game("[reason] has disabled the nuke at [AREACOORD(src)]")
-		message_admins("[reason] has disabled the nuke at [ADMIN_VERBOSEJMP(src)]") //Incase disputes show up about marines griefing and the like.
+		log_game("[key_name(reason)] has disabled the nuke at [AREACOORD(src)]")
+		message_admins("[key_name(reason)] has disabled the nuke at [ADMIN_VERBOSEJMP(src)]") //Incase disputes show up about marines griefing and the like.
 	timer_enabled = FALSE
 	if(timer)
 		deltimer(timer)
@@ -263,10 +263,10 @@
 		return
 
 	if(!timer_enabled)
-		enable(key_name(user))
+		enable(user)
 		balloon_alert(user, "timer started")
 	else
-		disable(key_name(user))
+		disable(user)
 		balloon_alert(user, "timer stopped")
 
 	if(!lighthack)
