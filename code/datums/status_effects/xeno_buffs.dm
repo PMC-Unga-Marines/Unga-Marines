@@ -677,7 +677,7 @@
 
 /datum/status_effect/frenzy_screech/on_remove()
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	xeno_owner.xeno_melee_damage_modifier -= modifier
+	xeno_owner.xeno_melee_damage_modifier -= damage_modifier
 	xeno_owner.remove_filter("frenzy_screech_outline")
 	return ..()
 
