@@ -18,12 +18,9 @@
 		"saddlebags" = "Rugged",
 	)
 
-/datum/storage/backpack/duffelbag/saddle
-	max_storage_space = 18
-
 /obj/item/storage/backpack/marine/duffelbag/xenosaddle/examine(mob/user)
 	. = ..()
-	. += span_notice("Its current style is set to [style_list_inverted[style]].")
+	. += span_notice("Its current style is set to [style_list_inverted[style]]. You can change it with Alt-Click.")
 
 /obj/item/storage/backpack/marine/duffelbag/xenosaddle/AltClick(mob/user)
 	if(!ishuman(user))
