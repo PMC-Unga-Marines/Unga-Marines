@@ -27,6 +27,10 @@
 		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
+			/obj/item/weapon/gun/smg/smg90 = -1,
+			/obj/item/ammo_magazine/smg/smg90 = -1,
+			/obj/item/weapon/gun/smg/mp19 = -1,
+			/obj/item/ammo_magazine/smg/mp19 = -1,
 	),
 		"Снайперские винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
@@ -255,6 +259,10 @@
 		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
+			/obj/item/weapon/gun/smg/smg90 = -1,
+			/obj/item/ammo_magazine/smg/smg90 = -1,
+			/obj/item/weapon/gun/smg/mp19 = -1,
+			/obj/item/ammo_magazine/smg/mp19 = -1,
 		),
 		"Энергетическое" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
@@ -466,6 +474,10 @@
 		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
+			/obj/item/weapon/gun/smg/smg90 = -1,
+			/obj/item/ammo_magazine/smg/smg90 = -1,
+			/obj/item/weapon/gun/smg/mp19 = -1,
+			/obj/item/ammo_magazine/smg/mp19 = -1,
 		),
 		"Снайперские винтовки" = list(
 			/obj/item/weapon/gun/rifle/dmr37 = -1,
