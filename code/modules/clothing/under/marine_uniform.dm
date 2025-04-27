@@ -40,7 +40,7 @@
 	desc = "A standard issued TGMC turtleneck colored blue."
 	icon_state = "delta_merc"
 	adjustment_variants = list(
-		"Rolled Sleeves" = "_h",
+		"Rolled Sleeves" = "_d",
 	)
 
 /obj/item/clothing/under/marine/squad/neck/delta
