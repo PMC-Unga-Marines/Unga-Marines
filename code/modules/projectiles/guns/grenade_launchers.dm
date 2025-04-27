@@ -299,7 +299,7 @@
 	desc = "A gun that fires flares. Replace with flares. Simple! Equipped with long range irons."
 	icon_state = "flaregun"
 	worn_icon_state = "gun"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
