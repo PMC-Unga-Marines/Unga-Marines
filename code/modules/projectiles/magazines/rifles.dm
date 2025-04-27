@@ -56,18 +56,6 @@
 	ammo_band_color = AMMO_BAND_COLOR_AP
 	default_ammo = /datum/ammo/bullet/rifle/ap
 
-/obj/item/ammo_magazine/rifle/ar18/incendiary
-	name = "\improper AR-18 incendiary magazine (10x24mm)"
-	desc = "A 10mm incendiary carbine magazine."
-	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
-	default_ammo = /datum/ammo/bullet/rifle/incendiary
-
-/obj/item/ammo_magazine/rifle/ar18/hp
-	name = "\improper AR-18 HP magazine (10x24mm)"
-	desc = "A 10mm hollow-point  carbine magazine."
-	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
-	default_ammo = /datum/ammo/bullet/rifle/hp
-
 //-------------------------------------------------------
 //AR12 Assault Rifle
 
@@ -82,23 +70,11 @@
 	default_ammo = /datum/ammo/bullet/rifle
 	max_rounds = 50
 
-/obj/item/ammo_magazine/rifle/ar12/ap
-	name = "\improper AR-12 AP magazine (10x24mm)"
-	desc = "A 10mm armor piercing assault rifle magazine."
-	ammo_band_color = AMMO_BAND_COLOR_AP
-	default_ammo = /datum/ammo/bullet/rifle/ap
-
 /obj/item/ammo_magazine/rifle/ar12/incendiary
 	name = "\improper AR-12 incendiary magazine (10x24mm)"
 	desc = "A 10mm incendiary assault rifle magazine."
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 	default_ammo = /datum/ammo/bullet/rifle/incendiary
-
-/obj/item/ammo_magazine/rifle/ar12/hp
-	name = "\improper AR-12 HP magazine (10x24mm)"
-	desc = "A 10mm hollow-point assault rifle magazine."
-	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
-	default_ammo = /datum/ammo/bullet/rifle/hp
 
 //-------------------------------------------------------
 //DMR37
@@ -126,12 +102,6 @@
 	default_ammo = /datum/ammo/bullet/rifle/br64
 	max_rounds = 36
 	ammo_band_icon = "t64_band"
-
-/obj/item/ammo_magazine/rifle/br64/ap
-	name = "\improper BR-64 AP magazine (10x26.5mm)"
-	desc = "A 10mm armor piercing battle rifle magazine."
-	default_ammo = /datum/ammo/bullet/rifle/br64/ap
-	ammo_band_color = AMMO_BAND_COLOR_AP
 
 //-------------------------------------------------------
 //M41A TRUE AND ORIGINAL
@@ -305,18 +275,6 @@
 	ammo_band_icon = "type_71_band"
 	default_ammo = /datum/ammo/bullet/rifle/mpi_km
 	max_rounds = 42
-
-/obj/item/ammo_magazine/rifle/type71/ap
-	name = "\improper Type 71 AP magazine (7.62x39mm)"
-	desc = "A 7.62x39mm AP magazine that fits in the Type 71 rifle."
-	ammo_band_color = AMMO_BAND_COLOR_AP
-	default_ammo = /datum/ammo/bullet/rifle/mpi_km/ap
-
-/obj/item/ammo_magazine/rifle/type71/hp
-	name = "\improper Type 71 HP magazine (7.62x39mm)"
-	desc = "A 7.62x39mm HP magazine that fits in the Type 71 rifle."
-	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
-	default_ammo = /datum/ammo/bullet/rifle/mpi_km/hp
 
 //sh-15 AUTOMATIC SHOTGUN
 
@@ -492,24 +450,6 @@
 	icon_state_mini = "mag_rifle_big_yellow"
 	ammo_band_color = AMMO_BAND_COLOR_EXTENDED
 	bonus_overlay = "t21_ext"
-
-/obj/item/ammo_magazine/rifle/ar21/ap
-	name = "\improper AR-21 skirmish AP rifle magazine"
-	desc = "A magazine filled with 10x25mm armor piercing rifle rounds for the AR-21."
-	ammo_band_color = AMMO_BAND_COLOR_AP
-	default_ammo = /datum/ammo/bullet/rifle/heavy/ap
-
-/obj/item/ammo_magazine/rifle/ar21/incendiary
-	name = "\improper AR-21 skirmish incendiary rifle magazine"
-	desc = "A magazine filled with 10x25mm incendiary  rifle rounds for the AR-21."
-	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
-	default_ammo = /datum/ammo/bullet/rifle/heavy/incendiary
-
-/obj/item/ammo_magazine/rifle/ar21/hp
-	name = "\improper AR-21 skirmish HP rifle magazine"
-	desc = "A magazine filled with 10x25mm armor-piercing rifle rounds for the AR-21."
-	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
-	default_ammo = /datum/ammo/bullet/rifle/heavy/hp
 
 //ALF-51B
 

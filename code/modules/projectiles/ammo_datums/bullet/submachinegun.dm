@@ -27,22 +27,9 @@
 	accuracy_var_high = 7
 	damage = 20
 	accurate_range = 4
-	damage_falloff = 1.75
 	penetration = 0
 	additional_xeno_penetration = 10
 	shrapnel_chance = 25
-
-/datum/ammo/bullet/smg/acp/hp
-	name = "hollow-point submachinegun ACP bullet"
-	damage = 40
-	penetration = 0
-	additional_xeno_penetration = -15
-
-/datum/ammo/bullet/smg/acp/ap
-	name = "armor-piercing submachinegun ACP bullet"
-	damage = 20
-	penetration = 15
-	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/smg/acp/incendiary
 	name = "incendiary submachinegun ACP bullet"
