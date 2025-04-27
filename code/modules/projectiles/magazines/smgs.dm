@@ -214,23 +214,11 @@
 	icon_state = "ppsh_ext"
 	max_rounds = 40 // HI-Point .45 ACP Drum mag
 
-/obj/item/ammo_magazine/smg/vector/ap
-	name = "\improper Vector armor piercing drum magazine (.45ACP)"
-	desc = "A .45ACP armor piercing drum magazine for the Vector, with even more dakka."
-	ammo_band_color = AMMO_BAND_COLOR_AP
-	default_ammo = /datum/ammo/bullet/smg/acp/ap
-
 /obj/item/ammo_magazine/smg/vector/incendiary
 	name = "\improper Vector incendiary drum magazine (.45ACP)"
 	desc = "A .45ACP incendiary drum magazine for the Vector, with even more dakka."
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 	default_ammo = /datum/ammo/bullet/smg/acp/incendiary
-
-/obj/item/ammo_magazine/smg/vector/hp
-	name = "\improper Vector hollow-point  drum magazine (.45ACP)"
-	desc = "A .45ACP hollow-point  drum magazine for the Vector, with even more dakka."
-	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
-	default_ammo = /datum/ammo/bullet/smg/acp/hp
 
 //------------------------------------------------------
 //C17 riot PDW

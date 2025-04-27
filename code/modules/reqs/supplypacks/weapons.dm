@@ -273,28 +273,10 @@
 	cost = 30 //60 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/box_10x24mm_incendiary
-	name = "10x24mm incendiary ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/p10x24mm/incendiary)
-	cost = 45 //150 rounds
-	containertype = /obj/structure/closet/crate/ammo
-
-/datum/supply_packs/weapons/box_10x25mm_incendiary
-	name = "10x25mm incendiary ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/p10x25mm/incendiary)
-	cost = 50 //125 rounds
-	containertype = /obj/structure/closet/crate/ammo
-
 /datum/supply_packs/weapons/p9mm_incendiary
 	name = "9mm incendiary packet"
 	contains = list(/obj/item/ammo_magazine/packet/p9mm/incendiary)
 	cost = 30 //70 rounds
-	containertype = /obj/structure/closet/crate/ammo
-
-/datum/supply_packs/weapons/box_10x265mm_ap
-	name = "10x26.5mm armor piercing ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/p10x265mm/ap)
-	cost = 60 //100 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/box_10x20mm_ap

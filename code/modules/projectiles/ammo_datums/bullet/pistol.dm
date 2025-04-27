@@ -53,13 +53,6 @@
 	shrapnel_chance = 15
 	additional_xeno_penetration = 12.5
 
-/datum/ammo/bullet/pistol/hp
-	name = "hollow-point pistol bullet"
-	hud_state = "pistol_hollow"
-	damage = 37.5
-	penetration = 0
-	additional_xeno_penetration = -10
-
 /datum/ammo/bullet/pistol/heavy
 	name = "heavy pistol bullet"
 	hud_state = "pistol_heavy"
