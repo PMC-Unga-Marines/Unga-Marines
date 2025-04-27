@@ -236,7 +236,7 @@
 /datum/storage/internal/general/New(atom/parent)
 	. = ..()
 	set_holdable(
-		cant_hold_list = list(/obj/item/cell/lasgun/volkite/powerpack),
+		cant_hold_list = list(/obj/item/cell/lasgun/volkite/powerpack/marine_back),
 		storage_type_limits_list = list(
 			/obj/item/ammo_magazine/rifle,
 			/obj/item/cell/lasgun,

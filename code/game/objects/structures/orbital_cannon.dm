@@ -353,12 +353,10 @@
 	. = ..()
 	. += "Moving this will require some sort of lifter."
 
-
-/obj/structure/ob_ammo/obj_destruction(damage_amount, damage_type, damage_flag)
+/obj/structure/ob_ammo/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
 	cell_explosion(loc, 60, 30)
 	flame_radius(2, loc)
 	return ..()
-
 
 /obj/structure/ob_ammo/warhead
 	name = "theoretical orbital ammo"

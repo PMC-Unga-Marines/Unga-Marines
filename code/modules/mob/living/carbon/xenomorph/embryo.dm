@@ -28,6 +28,7 @@
 	if(iscarbon(affected_mob))
 		var/mob/living/carbon/C = affected_mob
 		C.med_hud_set_status()
+	RegisterSignal(affected_mob, COMSIG_HUMAN_SET_UNDEFIBBABLE, PROC_REF(on_host_dnr))
 
 /obj/item/alien_embryo/Destroy()
 	if(affected_mob)
@@ -65,6 +66,11 @@
 		return //If they are in cryo, bag or cell, the embryo won't grow.
 
 	process_growth()
+
+///Kills larva when host goes DNR
+/obj/item/alien_embryo/proc/on_host_dnr(datum/source)
+	SIGNAL_HANDLER
+	qdel(src)
 
 /obj/item/alien_embryo/proc/process_growth()
 	if(CHECK_BITFIELD(affected_mob.restrained_flags, RESTRAINED_XENO_NEST)) //Hosts who are nested in resin nests provide an ideal setting, larva grows faster.

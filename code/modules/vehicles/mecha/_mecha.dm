@@ -36,6 +36,7 @@
 	generic_canpass = FALSE
 	hud_possible = list(MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD, ORDER_HUD)
 	mouse_pointer = 'icons/mecha/mecha_mouse.dmi'
+	facing_modifiers = list(VEHICLE_FRONT_ARMOUR = 0.5, VEHICLE_SIDE_ARMOUR = 1, VEHICLE_BACK_ARMOUR = 1.5)
 	///What direction will the mech face when entered/powered on? Defaults to South.
 	var/dir_in = SOUTH
 	///How much energy the mech will consume each time it moves. This variable is a backup for when leg actuators affect the energy drain.
@@ -46,8 +47,6 @@
 	var/melee_energy_drain = 15
 	///The minimum amount of energy charge consumed by leg overload
 	var/overload_step_energy_drain_min = 50
-	///Modifiers for directional damage reduction
-	var/list/facing_modifiers = list(MECHA_FRONT_ARMOUR = 0.5, MECHA_SIDE_ARMOUR = 1, MECHA_BACK_ARMOUR = 1.5)
 	///if we cant use our equipment(such as due to EMP)
 	var/equipment_disabled = FALSE
 	/// Keeps track of the mech's cell
@@ -158,6 +157,10 @@
 	var/lights_on = FALSE
 	/// boolean: is mech suffering from emp?
 	var/mech_emped = FALSE
+	///Current owning faction
+	var/faction
+	///holds the EMP timer
+	var/emp_timer
 
 /obj/item/radio/mech //this has to go somewhere
 	subspace_transmission = TRUE
@@ -222,12 +225,21 @@
 	QDEL_NULL(smoke_system)
 	QDEL_NULL(ui_view)
 
-	GLOB.mechas_list -= src //global mech list
-	for(var/datum/atom_hud/squad/mech_status_hud in GLOB.huds) //Add to the squad HUD
+	emp_timer = null
+
+	GLOB.mechas_list -= src
+	for(var/datum/atom_hud/squad/mech_status_hud in GLOB.huds)
 		mech_status_hud.remove_from_hud(src)
 	return ..()
 
-/obj/vehicle/sealed/mecha/obj_destruction(damage_amount, damage_type, damage_flag)
+/obj/vehicle/sealed/mecha/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
+	if(istype(blame_mob) && blame_mob.ckey)
+		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[blame_mob.ckey]
+		if(faction == blame_mob.faction)
+			personal_statistics.mechs_destroyed -- //bruh
+		else
+			personal_statistics.mechs_destroyed ++
+
 	spark_system?.start()
 
 	for(var/mob/living/occupant AS in occupants)
@@ -318,8 +330,9 @@
 		return base_icon_state
 	return "[base_icon_state]-open"
 
+///Restores the mech after EMP
 /obj/vehicle/sealed/mecha/proc/restore_equipment()
-	mech_emped = FALSE
+	emp_timer = null
 	equipment_disabled = FALSE
 	update_appearance(UPDATE_OVERLAYS)
 	for(var/mob/mob_occupant AS in occupants)

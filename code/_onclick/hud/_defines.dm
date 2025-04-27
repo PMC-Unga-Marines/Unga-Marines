@@ -46,15 +46,7 @@
 #define ui_alert4 "EAST-1:28,CENTER+2:21"
 #define ui_alert5 "EAST-1:28,CENTER+1:19"
 
-//Upper-middle right (damage indicators)
-#define ui_toxin "EAST-1:28,13:27"
-#define ui_fire "EAST-1:28,12:25"
-#define ui_oxygen "EAST-1:28,11:23"
-#define ui_pressure "EAST-1:28,10:21"
-
 //Middle right (status indicators)
-#define ui_nutrition "EAST-1:28,5:11"
-#define ui_temp "EAST-1:28,6:13"
 #define UI_STAMINA "EAST-1:28,CENTER-2:13"
 #define ui_health "EAST-1:28,CENTER-1:15"
 #define ui_ammo1 "EAST-1:28,CENTER+1:25"
@@ -99,3 +91,9 @@
 #define ui_ai_bioscan "SOUTH:6,WEST+5"
 #define ui_ai_multicam "SOUTH:6,WEST+17"
 #define ui_ai_add_multicam "SOUTH:6,WEST+18"
+
+// Plane group keys, used to group swaths of plane masters that need to appear in subwindows
+/// The primary group, holds everything on the main window
+#define PLANE_GROUP_MAIN "main"
+/// A secondary group, used when a client views a generic window
+#define PLANE_GROUP_POPUP_WINDOW(screen) "popup-[REF(screen)]"

@@ -126,11 +126,11 @@
 			client.images -= current_image
 		pipes_shown.len = 0
 		pipetracker = null
-		lighting?.remove_atom_colour(TEMPORARY_COLOUR_PRIORITY, "#4d4d4d")
+		lighting?.remove_atom_colour(TEMPORARY_COLOR_PRIORITY, "#4d4d4d")
 		return
 
 	// This is a bit hacky but it makes the background darker, which has a nice effect
-	lighting?.add_atom_colour("#4d4d4d", TEMPORARY_COLOUR_PRIORITY)
+	lighting?.add_atom_colour("#4d4d4d", TEMPORARY_COLOR_PRIORITY)
 
 	var/obj/machinery/atmospherics/current_location = loc
 	var/list/our_pipenets = current_location.returnPipenets()

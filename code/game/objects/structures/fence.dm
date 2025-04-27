@@ -107,7 +107,7 @@
 	span_notice("You cut through [src] with [I]"))
 	deconstruct(TRUE)
 
-/obj/structure/fence/deconstruct(disassembled = TRUE)
+/obj/structure/fence/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	SHOULD_CALL_PARENT(FALSE)
 	if(disassembled)
 		new /obj/item/stack/rods(loc)

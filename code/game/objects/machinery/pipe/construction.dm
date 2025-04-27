@@ -14,7 +14,7 @@ Buildable meters
 	throwforce = 7
 	icon = 'icons/obj/items/pipe_item.dmi'
 	icon_state = "simple"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/engineering_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/engineering_right.dmi',
 	)
@@ -64,7 +64,7 @@ Buildable meters
 /obj/item/pipe/proc/make_from_existing(obj/machinery/atmospherics/make_from)
 	setDir(make_from.dir)
 	pipename = make_from.name
-	add_atom_colour(make_from.color, FIXED_COLOUR_PRIORITY)
+	add_atom_colour(make_from.color, FIXED_COLOR_PRIORITY)
 	pipe_type = make_from.type
 
 /obj/item/pipe/trinary/flippable/make_from_existing(obj/machinery/atmospherics/components/trinary/make_from)
@@ -182,7 +182,7 @@ Buildable meters
 	desc = "A meter that can be laid on pipes."
 	icon = 'icons/obj/items/pipe_item.dmi'
 	icon_state = "meter"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/engineering_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/engineering_right.dmi',
 	)

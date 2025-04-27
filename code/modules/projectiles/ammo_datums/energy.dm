@@ -32,8 +32,8 @@
 	max_range = 15
 	accurate_range = 10
 	bullet_color = COLOR_VIVID_YELLOW
-/datum/ammo/energy/taser/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, stun = 20 SECONDS)
+/datum/ammo/energy/taser/on_hit_mob(mob/target_mob,obj/projectile/proj)
+	staggerstun(target_mob, proj, stun = 20 SECONDS)
 
 /datum/ammo/energy/tesla
 	name = "energy ball"
@@ -59,9 +59,11 @@
 /datum/ammo/energy/tesla/focused/ammo_process(obj/projectile/proj, damage)
 	zap_beam(proj, 3, damage)
 
-/datum/ammo/energy/tesla/on_hit_mob(mob/M,obj/projectile/P)
-	if(isxeno(M)) //need 1 second more than the actual effect time
-		var/mob/living/carbon/xenomorph/X = M
+/datum/ammo/energy/tesla/on_hit_mob(mob/target_mob,obj/projectile/proj)
+	if(isxeno(target_mob)) //need 1 second more than the actual effect time
+		var/mob/living/carbon/xenomorph/X = target_mob
+		if(X.xeno_caste.caste_flags & CASTE_PLASMADRAIN_IMMUNE)
+			return
 		X.use_plasma(0.3 * X.xeno_caste.plasma_max * X.xeno_caste.plasma_regen_limit) //Drains 30% of max plasma on hit
 
 /datum/ammo/energy/lasburster
@@ -88,10 +90,10 @@
 	accuracy_var_low = 3
 	accuracy_var_high = 3
 
-/datum/ammo/energy/lasgun/M43
+/datum/ammo/energy/lasgun/m43
 	icon_state = "laser2"
 
-/datum/ammo/energy/lasgun/M43/overcharge
+/datum/ammo/energy/lasgun/m43/overcharge
 	name = "overcharged laser bolt"
 	icon_state = "overchargedlaser"
 	hud_state = "laser_sniper"
@@ -99,7 +101,7 @@
 	max_range = 40
 	penetration = 50
 
-/datum/ammo/energy/lasgun/M43/heat
+/datum/ammo/energy/lasgun/m43/heat
 	name = "microwave heat bolt"
 	icon_state = "microwavelaser"
 	hud_state = "laser_heat"
@@ -107,11 +109,11 @@
 	penetration = 100 // It's a laser that burns the skin! The fire stacks go threw anyway.
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_INCENDIARY
 
-/datum/ammo/energy/lasgun/M43/blast
+/datum/ammo/energy/lasgun/m43/blast
 	name = "wide range laser blast"
 	icon_state = "heavylaser2"
 	hud_state = "laser_spread"
-	bonus_projectiles_type = /datum/ammo/energy/lasgun/M43/spread
+	bonus_projectiles_type = /datum/ammo/energy/lasgun/m43/spread
 	bonus_projectiles_amount = 2
 	bonus_projectiles_scatter = 10
 	accuracy_var_low = 9
@@ -122,7 +124,7 @@
 	damage_falloff = 10
 	penetration = 0
 
-/datum/ammo/energy/lasgun/M43/spread
+/datum/ammo/energy/lasgun/m43/spread
 	name = "additional laser blast"
 	icon_state = "laser2"
 	shell_speed = 2
@@ -134,7 +136,7 @@
 	damage_falloff = 10
 	penetration = 0
 
-/datum/ammo/energy/lasgun/M43/disabler
+/datum/ammo/energy/lasgun/m43/disabler
 	name = "disabler bolt"
 	icon_state = "disablershot"
 	hud_state = "laser_disabler"
@@ -143,8 +145,8 @@
 	damage_type = STAMINA
 	bullet_color = COLOR_DISABLER_BLUE
 
-/datum/ammo/energy/lasgun/M43/disabler/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, stagger = 1 SECONDS, slowdown = 0.75)
+/datum/ammo/energy/lasgun/m43/disabler/on_hit_mob(mob/target_mob,obj/projectile/proj)
+	staggerstun(target_mob, proj, stagger = 1 SECONDS, slowdown = 0.75)
 
 /datum/ammo/energy/lasgun/pulsebolt
 	name = "pulse bolt"
@@ -155,7 +157,7 @@
 	penetration = 100
 	bullet_color = COLOR_PULSE_BLUE
 
-/datum/ammo/energy/lasgun/M43/practice
+/datum/ammo/energy/lasgun/m43/practice
 	name = "practice laser bolt"
 	icon_state = "disablershot"
 	hud_state = "laser_disabler"
@@ -165,16 +167,11 @@
 	ammo_behavior_flags = AMMO_ENERGY
 	bullet_color = COLOR_DISABLER_BLUE
 
-/datum/ammo/energy/lasgun/M43/practice/on_hit_mob(mob/living/carbon/C, obj/projectile/P)
-	if(!istype(C) || C.stat == DEAD || C.issamexenohive(P.firer) )
+/datum/ammo/energy/lasgun/m43/practice/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(ishuman(target_mob))
 		return
-
-	if(isnestedhost(C))
-		return
-
-	staggerstun(C, P, stagger = 2 SECONDS, slowdown = 1) //Staggers and slows down briefly
-
-	return ..()
+	var/mob/living/carbon/human/human_victim = target_mob
+	staggerstun(human_victim, proj, stagger = 2 SECONDS, slowdown = 1) //Staggers and slows down briefly
 
 // TE Lasers //
 
@@ -214,7 +211,7 @@
 /datum/ammo/energy/lasgun/marine/weakening
 	name = "weakening laser bolt"
 	icon_state = "overchargedlaser"
-	hud_state = "laser_sniper"
+	hud_state = "laser_efficiency"
 	damage = 30
 	penetration = 10
 	damage_type = STAMINA
@@ -223,18 +220,18 @@
 	///plasma drained per hit
 	var/plasma_drain = 25
 
-/datum/ammo/energy/lasgun/marine/weakening/on_hit_mob(mob/M, obj/projectile/proj)
-	staggerstun(M, proj, max_range = 6, slowdown = 1)
+/datum/ammo/energy/lasgun/marine/weakening/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, max_range = 6, slowdown = 1)
 
-	if(!isxeno(M))
+	if(!isxeno(target_mob))
 		return
-	var/mob/living/carbon/xenomorph/xeno_victim = M
+	var/mob/living/carbon/xenomorph/xeno_victim = target_mob
 	xeno_victim.use_plasma(plasma_drain * xeno_victim.xeno_caste.plasma_regen_limit)
 
 /datum/ammo/energy/lasgun/marine/microwave
 	name = "microwave laser bolt"
 	icon_state = "overchargedlaser"
-	hud_state = "laser_sniper"
+	hud_state = "laser_xray"
 	damage = 20
 	penetration = 20
 	additional_xeno_penetration = 5
@@ -243,11 +240,11 @@
 	///number of microwave stacks to apply when hitting mobvs
 	var/microwave_stacks = 1
 
-/datum/ammo/energy/lasgun/marine/microwave/on_hit_mob(mob/M, obj/projectile/proj)
-	if(!isliving(M))
+/datum/ammo/energy/lasgun/marine/microwave/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(!isliving(target_mob))
 		return
 
-	var/mob/living/living_victim = M
+	var/mob/living/living_victim = target_mob
 	var/datum/status_effect/stacking/microwave/debuff = living_victim.has_status_effect(STATUS_EFFECT_MICROWAVE)
 
 	if(debuff)
@@ -278,27 +275,27 @@
 /datum/ammo/energy/lasgun/marine/impact
 	name = "impact laser blast"
 	icon_state = "overchargedlaser"
-	hud_state = "laser_sniper"
+	hud_state = "laser_impact"
 	damage = 35
 	penetration = 10
 	hitscan_effect_icon = "pu_laser"
 	bullet_color = LIGHT_COLOR_PURPLE
 
-/datum/ammo/energy/lasgun/marine/impact/on_hit_mob(mob/M, obj/projectile/proj)
+/datum/ammo/energy/lasgun/marine/impact/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	var/knockback_dist = round(LERP(3, 1, proj.distance_travelled / 6), 1)
-	staggerstun(M, proj, max_range = 6, knockback = knockback_dist)
+	staggerstun(target_mob, proj, max_range = 6, knockback = knockback_dist)
 
 /datum/ammo/energy/lasgun/marine/cripple
 	name = "impact laser blast"
 	icon_state = "overchargedlaser"
-	hud_state = "laser_sniper"
+	hud_state = "laser_disabler"
 	damage = 20
 	penetration = 10
 	hitscan_effect_icon = "blue_beam"
 	bullet_color = COLOR_DISABLER_BLUE
 
-/datum/ammo/energy/lasgun/marine/cripple/on_hit_mob(mob/M, obj/projectile/proj)
-	staggerstun(M, proj, slowdown = 1.5)
+/datum/ammo/energy/lasgun/marine/cripple/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	staggerstun(target_mob, proj, slowdown = 1.5)
 
 /datum/ammo/energy/lasgun/marine/autolaser
 	name = "machine laser bolt"
@@ -313,21 +310,21 @@
 
 /datum/ammo/energy/lasgun/marine/autolaser/charge
 	name = "charged machine laser bolt"
-	hud_state = "laser_efficiency"
+	hud_state = "laser_overcharge"
 	damage = 50
 	penetration = 30
 	additional_xeno_penetration = 2.5
 	hitscan_effect_icon = "beam_heavy"
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_MOB
 
-/datum/ammo/energy/lasgun/marine/autolaser/charge/on_hit_turf(turf/T, obj/projectile/proj)
-	if(istype(T, /turf/closed/wall))
-		var/turf/closed/wall/wall_victim = T
+/datum/ammo/energy/lasgun/marine/autolaser/charge/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	if(istype(target_turf, /turf/closed/wall))
+		var/turf/closed/wall/wall_victim = target_turf
 		wall_victim.take_damage(proj.damage, proj.damtype, proj.armor_type)
 
 /datum/ammo/energy/lasgun/marine/autolaser/melting
 	name = "melting machine laser bolt"
-	hud_state = "laser_efficiency"
+	hud_state = "laser_melting"
 	damage = 15
 	penetration = 20
 	hitscan_effect_icon = "beam_solar"
@@ -335,11 +332,11 @@
 	///number of melting stacks to apply when hitting mobs
 	var/melt_stacks = 1
 
-/datum/ammo/energy/lasgun/marine/autolaser/melting/on_hit_mob(mob/M, obj/projectile/proj)
-	if(!isliving(M))
+/datum/ammo/energy/lasgun/marine/autolaser/melting/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(!isliving(target_mob))
 		return
 
-	var/mob/living/living_victim = M
+	var/mob/living/living_victim = target_mob
 	var/datum/status_effect/stacking/melting/debuff = living_victim.has_status_effect(STATUS_EFFECT_MELTING)
 
 	if(debuff)
@@ -373,7 +370,7 @@
 /datum/ammo/energy/lasgun/marine/shatter
 	name = "sniper shattering bolt"
 	icon_state = "microwavelaser"
-	hud_state = "laser_heat"
+	hud_state = "laser_impact"
 	damage = 40
 	penetration = 30
 	accurate_range_min = 5
@@ -382,11 +379,11 @@
 	///shatter effection duration when hitting mobs
 	var/shatter_duration = 5 SECONDS
 
-/datum/ammo/energy/lasgun/marine/shatter/on_hit_mob(mob/M, obj/projectile/proj)
-	if(!isliving(M))
+/datum/ammo/energy/lasgun/marine/shatter/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(!isliving(target_mob))
 		return
 
-	var/mob/living/living_victim = M
+	var/mob/living/living_victim = target_mob
 	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
 
 /datum/ammo/energy/lasgun/marine/shatter/heavy_laser
@@ -395,7 +392,7 @@
 /datum/ammo/energy/lasgun/marine/ricochet
 	name = "sniper laser bolt"
 	icon_state = "microwavelaser"
-	hud_state = "laser_heat"
+	hud_state = "laser_disabler"
 	damage = 100
 	penetration = 30
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_SNIPER
@@ -419,14 +416,15 @@
 	damage = 40
 	bonus_projectiles_type = /datum/ammo/energy/lasgun/marine/ricochet/three
 
-/datum/ammo/energy/lasgun/marine/ricochet/on_hit_turf(turf/T, obj/projectile/proj)
-	reflect(T, proj, 5)
+/datum/ammo/energy/lasgun/marine/ricochet/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	reflect(target_turf, proj, 5)
 
-/datum/ammo/energy/lasgun/marine/ricochet/on_hit_obj(obj/O, obj/projectile/proj)
-	reflect(get_turf(O), proj, 5)
+/datum/ammo/energy/lasgun/marine/ricochet/on_hit_obj(obj/target_object, obj/projectile/proj)
+	reflect(get_turf(target_object), proj, 5)
 
 /datum/ammo/energy/lasgun/marine/pistol
 	name = "pistol laser bolt"
+	hud_state = "laser_efficiency"
 	damage = 15
 	penetration = 5
 	additional_xeno_penetration = 20
@@ -454,12 +452,12 @@
 	hitscan_effect_icon = "beam_incen"
 	bullet_color = COLOR_LASER_RED
 
-/datum/ammo/energy/lasgun/pistol/disabler/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, stagger = 1 SECONDS, slowdown = 0.75)
+/datum/ammo/energy/lasgun/pistol/disabler/on_hit_mob(mob/target_mob,obj/projectile/proj)
+	staggerstun(target_mob, proj, stagger = 1 SECONDS, slowdown = 0.75)
 
 /datum/ammo/energy/lasgun/marine/xray
 	name = "xray heat bolt"
-	hud_state = "laser_xray"
+	hud_state = "laser_heat"
 	icon_state = "u_laser"
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_INCENDIARY|AMMO_HITSCAN
 	damage = 20
@@ -470,6 +468,7 @@
 
 /datum/ammo/energy/lasgun/marine/xray/piercing
 	name = "xray piercing bolt"
+	hud_state = "laser_xray"
 	icon_state = "xray"
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
 	damage = 25
@@ -486,23 +485,23 @@
 	max_range = 30
 	hitscan_effect_icon = "beam_incen"
 
-/datum/ammo/energy/lasgun/marine/heavy_laser/drop_nade(turf/T, radius = 1)
-	if(!T || !isturf(T))
+/datum/ammo/energy/lasgun/marine/heavy_laser/drop_nade(turf/target_turf, radius = 1)
+	if(!target_turf || !isturf(target_turf))
 		return
-	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 50, 1, 4)
-	flame_radius(radius, T, 3, 3, 3, 3)
+	playsound(target_turf, 'sound/weapons/guns/fire/flamethrower2.ogg', 50, 1, 4)
+	flame_radius(radius, target_turf, 3, 3, 3, 3)
 
-/datum/ammo/energy/lasgun/marine/heavy_laser/on_hit_mob(mob/M, obj/projectile/P)
-	drop_nade(get_turf(M))
+/datum/ammo/energy/lasgun/marine/heavy_laser/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	drop_nade(get_turf(target_mob))
 
-/datum/ammo/energy/lasgun/marine/heavy_laser/on_hit_obj(obj/O, obj/projectile/P)
-	drop_nade(O.density ? get_step_towards(O, P) : O, P)
+/datum/ammo/energy/lasgun/marine/heavy_laser/on_hit_obj(obj/target_object, obj/projectile/proj)
+	drop_nade(target_object.density ? get_step_towards(target_object, proj) : target_object, proj)
 
-/datum/ammo/energy/lasgun/marine/heavy_laser/on_hit_turf(turf/T, obj/projectile/P)
-	drop_nade(T.density ? get_step_towards(T, P) : T)
+/datum/ammo/energy/lasgun/marine/heavy_laser/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
 
-/datum/ammo/energy/lasgun/marine/heavy_laser/do_at_max_range(turf/T, obj/projectile/P)
-	drop_nade(T.density ? get_step_towards(T, P) : T)
+/datum/ammo/energy/lasgun/marine/heavy_laser/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
 
 /datum/ammo/energy/plasma
 	name = "superheated plasma"
@@ -529,10 +528,10 @@
 	damage_falloff = 0.5
 	accurate_range = 25
 
-/datum/ammo/energy/plasma/rifle_marksman/on_hit_mob(mob/M, obj/projectile/proj)
-	if(!isliving(M))
+/datum/ammo/energy/plasma/rifle_marksman/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(!isliving(target_mob))
 		return
-	var/mob/living/living_victim = M
+	var/mob/living/living_victim = target_mob
 	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, 2 SECONDS)
 
 /datum/ammo/energy/plasma/blast
@@ -546,20 +545,20 @@
 	accurate_range = 5
 	max_range = 12
 
-/datum/ammo/energy/plasma/blast/drop_nade(turf/T)
-	cell_explosion(T, 25, 10, color = COLOR_DISABLER_BLUE)
+/datum/ammo/energy/plasma/blast/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 25, 10, color = COLOR_DISABLER_BLUE)
 
-/datum/ammo/energy/plasma/blast/on_hit_obj(obj/O, obj/projectile/P)
-	drop_nade(O.density ? P.loc : O.loc)
+/datum/ammo/energy/plasma/blast/on_hit_obj(obj/target_object, obj/projectile/proj)
+	drop_nade(target_object.density ? proj.loc : target_object.loc)
 
-/datum/ammo/energy/plasma/blast/on_hit_turf(turf/T, obj/projectile/P)
-	drop_nade(T.density ? P.loc : T)
+/datum/ammo/energy/plasma/blast/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? proj.loc : target_turf)
 
-/datum/ammo/energy/plasma/blast/do_at_max_range(turf/T, obj/projectile/P)
-	drop_nade(T.density ? P.loc : T)
+/datum/ammo/energy/plasma/blast/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? proj.loc : target_turf)
 
-/datum/ammo/energy/plasma/blast/on_hit_mob(mob/M, obj/projectile/proj)
-	drop_nade(M.loc)
+/datum/ammo/energy/plasma/blast/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	drop_nade(target_mob.loc)
 
 /datum/ammo/energy/plasma/blast/melting
 	damage = 40
@@ -569,9 +568,9 @@
 	/// Number of melting stacks to apply
 	var/melting_stacks = 2
 
-/datum/ammo/energy/plasma/blast/melting/drop_nade(turf/T)
-	cell_explosion(T, 25, 5, color = COLOR_DISABLER_BLUE)
-	for(var/mob/living/living_victim in viewers(3, T)) //normally using viewers wouldn't work due to darkness and smoke both blocking vision. However explosions clear both temporarily so we avoid this issue.
+/datum/ammo/energy/plasma/blast/melting/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 25, 5, color = COLOR_DISABLER_BLUE)
+	for(var/mob/living/living_victim in viewers(3, target_turf)) //normally using viewers wouldn't work due to darkness and smoke both blocking vision. However explosions clear both temporarily so we avoid this issue.
 		var/datum/status_effect/stacking/melting/debuff = living_victim.has_status_effect(STATUS_EFFECT_MELTING)
 		if(debuff)
 			debuff.add_stacks(melting_stacks)
@@ -585,9 +584,9 @@
 	accurate_range = 9
 	ammo_behavior_flags = AMMO_ENERGY
 
-/datum/ammo/energy/plasma/blast/shatter/drop_nade(turf/T)
-	cell_explosion(T, 75, 25, color = COLOR_DISABLER_BLUE)
-	for(var/mob/living/living_victim in viewers(3, T))
+/datum/ammo/energy/plasma/blast/shatter/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 75, 25, color = COLOR_DISABLER_BLUE)
+	for(var/mob/living/living_victim in viewers(3, target_turf))
 		living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, 5 SECONDS)
 
 /datum/ammo/energy/plasma/blast/incendiary
@@ -598,9 +597,9 @@
 	icon_state = "plasma_big"
 	hud_state = "flame"
 
-/datum/ammo/energy/plasma/blast/incendiary/drop_nade(turf/T)
-	flame_radius(2, T, burn_duration = 9, colour = "blue")
-	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
+/datum/ammo/energy/plasma/blast/incendiary/drop_nade(turf/target_turf)
+	flame_radius(2, target_turf, burn_duration = 9, colour = "blue")
+	playsound(target_turf, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
 
 #define PLASMA_CANNON_INNER_STAGGERSTUN_RANGE 3
 #define PLASMA_CANNON_STAGGERSTUN_RANGE 9
@@ -619,13 +618,13 @@
 	///shatter effection duration when hitting mobs
 	var/shatter_duration = 10 SECONDS
 
-/datum/ammo/energy/plasma/cannon_heavy/on_hit_mob(mob/M, obj/projectile/proj)
-	if(!isliving(M))
+/datum/ammo/energy/plasma/cannon_heavy/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(!isliving(target_mob))
 		return
-	var/mob/living/living_victim = M
+	var/mob/living/living_victim = target_mob
 
 	var/damage_mult = 1
-	switch(M.mob_size)
+	switch(target_mob.mob_size)
 		if(MOB_SIZE_BIG)
 			damage_mult = 2
 		if(MOB_SIZE_XENO)
@@ -636,10 +635,13 @@
 	staggerstun(living_victim, proj, PLASMA_CANNON_INNER_STAGGERSTUN_RANGE, weaken = 0.5 SECONDS, knockback = 1, hard_size_threshold = 1)
 	staggerstun(living_victim, proj, PLASMA_CANNON_STAGGERSTUN_RANGE, stagger = PLASMA_CANNON_STAGGER_DURATION, slowdown = 2, knockback = 1, hard_size_threshold = 2)
 
-/datum/ammo/energy/plasma/cannon_heavy/on_hit_obj(obj/O, obj/projectile/proj)
+/datum/ammo/energy/plasma/cannon_heavy/on_hit_obj(obj/target_object, obj/projectile/proj)
 	var/damage_mult = 3
-	if(isvehicle(O))
-		var/obj/vehicle/vehicle_target = O
+	if(ishitbox(target_object))
+		var/obj/hitbox/target_hitbox = target_object
+		target_object = target_hitbox.root
+	if(isvehicle(target_object))
+		var/obj/vehicle/vehicle_target = target_object
 		if(ismecha(vehicle_target) || isarmoredvehicle(vehicle_target))
 			damage_mult = 4
 		if(get_dist_euclidean(proj.starting_turf, vehicle_target) <= PLASMA_CANNON_STAGGERSTUN_RANGE) //staggerstun will fail on tank occupants if we just use staggerstun
@@ -648,7 +650,7 @@
 				to_chat(living_victim, "You are knocked about by the impact, staggering you!")
 	proj.damage *= damage_mult
 
-/datum/ammo/energy/plasma/cannon_heavy/on_hit_turf(turf/T, obj/projectile/proj)
+/datum/ammo/energy/plasma/cannon_heavy/on_hit_turf(turf/target_turf, obj/projectile/proj)
 	proj.damage *= 5
 
 #undef PLASMA_CANNON_INNER_STAGGERSTUN_RANGE
@@ -681,111 +683,6 @@
 /datum/ammo/energy/plasma/smg_standard/four
 	damage = 22
 	bonus_projectiles_type = /datum/ammo/energy/plasma/smg_standard/three
-
-/datum/ammo/energy/xeno
-	barricade_clear_distance = 0
-	///Plasma cost to fire this projectile
-	var/ability_cost
-	///Particle type used when this ammo is used
-	var/particles/channel_particle
-	///The colour the xeno glows when using this ammo type
-	var/glow_color
-
-/datum/ammo/energy/xeno/psy_blast
-	name = "psychic blast"
-	ammo_behavior_flags = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_ENERGY|AMMO_HITSCAN|AMMO_SKIPS_ALIENS
-	damage = 35
-	penetration = 10
-	sundering = 1
-	max_range = 7
-	accurate_range = 7
-	hitscan_effect_icon = "beam_cult"
-	icon_state = "psy_blast"
-	ability_cost = 230
-	channel_particle = /particles/warlock_charge/psy_blast
-	glow_color = "#9e1f1f"
-	///The AOE for drop_nade
-	var/aoe_range = 2
-
-/datum/ammo/energy/xeno/psy_blast/drop_nade(turf/T, obj/projectile/P)
-	if(!T || !isturf(T))
-		return
-	playsound(T, 'sound/effects/EMPulse.ogg', 50)
-	var/aoe_damage = 25
-	if(isxeno(P.firer))
-		var/mob/living/carbon/xenomorph/xeno_firer = P.firer
-		aoe_damage = xeno_firer.xeno_caste.blast_strength
-
-	var/list/throw_atoms = list()
-	var/list/turf/target_turfs = generate_true_cone(T, aoe_range, -1, 359, 0, air_pass = TRUE)
-	for(var/turf/target_turf AS in target_turfs)
-		for(var/atom/movable/target AS in target_turf)
-			if(isliving(target))
-				var/mob/living/living_victim = target
-				if(living_victim.stat == DEAD)
-					continue
-				if(!isxeno(living_victim))
-					living_victim.apply_damage(aoe_damage, BURN, null, ENERGY, FALSE, FALSE, TRUE, penetration)
-					staggerstun(living_victim, P, 10, slowdown = 1)
-			else if(isobj(target))
-				var/obj/obj_victim = target
-				if(!(obj_victim.resistance_flags & XENO_DAMAGEABLE))
-					continue
-				obj_victim.take_damage(aoe_damage, BURN, ENERGY, TRUE, armour_penetration = penetration)
-			if(target.anchored)
-				continue
-			throw_atoms += target
-
-	for(var/atom/movable/target AS in throw_atoms)
-		var/throw_dir = get_dir(T, target)
-		if(T == get_turf(target))
-			throw_dir = get_dir(P.starting_turf, T)
-		target.safe_throw_at(get_ranged_target_turf(T, throw_dir, 5), 3, 1, spin = TRUE)
-
-	new /obj/effect/temp_visual/shockwave(T, aoe_range + 2)
-
-/datum/ammo/energy/xeno/psy_blast/on_hit_mob(mob/M, obj/projectile/P)
-	drop_nade(get_turf(M), P)
-
-/datum/ammo/energy/xeno/psy_blast/on_hit_obj(obj/O, obj/projectile/P)
-	drop_nade(O.density ? get_step_towards(O, P) : O, P)
-
-/datum/ammo/energy/xeno/psy_blast/on_hit_turf(turf/T, obj/projectile/P)
-	drop_nade(T.density ? get_step_towards(T, P) : T, P)
-
-/datum/ammo/energy/xeno/psy_blast/do_at_max_range(turf/T, obj/projectile/P)
-	drop_nade(T.density ? get_step_towards(T, P) : T, P)
-
-/datum/ammo/energy/xeno/psy_blast/psy_lance
-	name = "psychic lance"
-	ammo_behavior_flags = AMMO_XENO|AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_MOVABLE
-	damage = 60
-	penetration = 50
-	accuracy = 100
-	sundering = 5
-	max_range = 16
-	hitscan_effect_icon = "beam_hcult"
-	icon_state = "psy_lance"
-	ability_cost = 300
-	channel_particle = /particles/warlock_charge/psy_blast/psy_lance
-	glow_color = "#CB0166"
-
-/datum/ammo/energy/xeno/psy_blast/psy_lance/on_hit_obj(obj/O, obj/projectile/P)
-	if(ismecha(O))
-		P.damage *= 3
-	else if(ishitbox(O) || isvehicle(O))
-		P.damage *= 1.5
-
-/datum/ammo/energy/xeno/psy_blast/psy_lance/on_hit_mob(mob/M, obj/projectile/P)
-	if(isxeno(M))
-		return
-	staggerstun(M, P, 9, stagger = 4 SECONDS, slowdown = 2, knockback = 1)
-
-/datum/ammo/energy/xeno/psy_blast/psy_lance/on_hit_turf(turf/T, obj/projectile/P)
-	return
-
-/datum/ammo/energy/xeno/psy_blast/psy_lance/do_at_max_range(turf/T, obj/projectile/P)
-	return
 
 // Plasma //
 /datum/ammo/energy/sectoid_plasma
@@ -832,17 +729,17 @@
 		mob_caught.adjust_fire_stacks(burn_damage)
 		mob_caught.IgniteMob()
 
-/datum/ammo/energy/plasma_pistol/on_hit_turf(turf/T, obj/projectile/proj)
-	drop_fire(T, proj)
+/datum/ammo/energy/plasma_pistol/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_fire(target_turf, proj)
 
-/datum/ammo/energy/plasma_pistol/on_hit_mob(mob/M, obj/projectile/proj)
-	drop_fire(M, proj)
+/datum/ammo/energy/plasma_pistol/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	drop_fire(target_mob, proj)
 
-/datum/ammo/energy/plasma_pistol/on_hit_obj(obj/O, obj/projectile/proj)
-	drop_fire(O, proj)
+/datum/ammo/energy/plasma_pistol/on_hit_obj(obj/target_object, obj/projectile/proj)
+	drop_fire(target_object, proj)
 
-/datum/ammo/energy/plasma_pistol/do_at_max_range(turf/T, obj/projectile/proj)
-	drop_fire(T, proj)
+/datum/ammo/energy/plasma_pistol/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_fire(target_turf, proj)
 
 //volkite
 /datum/ammo/energy/volkite
@@ -871,8 +768,8 @@
 	sound_miss = SFX_BALLISTIC_MISS
 	sound_bounce = SFX_BALLISTIC_BOUNCE
 
-/datum/ammo/energy/volkite/on_hit_mob(mob/M,obj/projectile/P)
-	deflagrate(M, P)
+/datum/ammo/energy/volkite/on_hit_mob(mob/target_mob,obj/projectile/proj)
+	deflagrate(target_mob, proj)
 
 /datum/ammo/energy/volkite/medium
 	max_range = 25
@@ -897,3 +794,43 @@
 	accuracy_var_low = 3
 	accuracy_var_high = 3
 	penetration = 5
+
+/datum/ammo/energy/particle_lance
+	name = "particle beam"
+	hitscan_effect_icon = "particle_lance"
+	hud_state = "plasma_blast"
+	hud_state_empty = "battery_empty_flash"
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_MOVABLE|AMMO_SNIPER
+	bullet_color = LIGHT_COLOR_PURPLE_PINK
+	armor_type = ENERGY
+	max_range = 40
+	accurate_range = 10
+	accuracy = 25
+	damage = 850
+	penetration = 120
+	sundering = 30
+	damage_falloff = 5
+	on_pierce_multiplier = 0.95
+	barricade_clear_distance = 4
+
+/datum/ammo/energy/particle_lance/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(!isliving(target_mob))
+		return
+	var/mob/living/living_victim = target_mob
+	living_victim.apply_radiation(living_victim.modify_by_armor(15, BIO, 25), 3)
+
+
+/datum/ammo/energy/particle_lance/on_hit_obj(obj/target_obj, obj/projectile/proj)
+	if(ishitbox(target_obj)) //yes this is annoying.
+		var/obj/hitbox/hitbox = target_obj
+		target_obj = hitbox.root
+
+	if(isvehicle(target_obj))
+		var/obj/vehicle/vehicle_target = target_obj
+		for(var/mob/living/living_victim AS in vehicle_target.occupants)
+			living_victim.apply_radiation(living_victim.modify_by_armor(12, BIO, 25), 3)
+			living_victim.flash_pain()
+
+	if(target_obj.obj_integrity > target_obj.modify_by_armor(proj.damage, ENERGY, proj.penetration, attack_dir = get_dir(target_obj, proj)))
+		proj.proj_max_range = 0
+

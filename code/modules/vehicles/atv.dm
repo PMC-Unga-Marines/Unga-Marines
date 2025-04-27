@@ -47,7 +47,7 @@
 		buckled_mob.bullet_act(proj)
 	return TRUE
 
-/obj/vehicle/ridden/atv/obj_destruction()
+/obj/vehicle/ridden/atv/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
 	cell_explosion(src, 80, 40)
 	flame_radius(3, src)
 	return ..()

@@ -46,7 +46,7 @@
 		if(H.stat == DEAD || !xeno_owner.Adjacent(H))
 			continue
 		H.add_filter("defender_tail_sweep", 2, gauss_blur_filter(1)) //Add cool SFX; motion blur
-		addtimer(CALLBACK(H, TYPE_PROC_REF(/atom, remove_filter), "defender_tail_sweep"), 0.5 SECONDS) //Remove cool SFX
+		addtimer(CALLBACK(H, TYPE_PROC_REF(/datum, remove_filter), "defender_tail_sweep"), 0.5 SECONDS) //Remove cool SFX
 		var/damage = xeno_owner.xeno_caste.melee_damage
 		var/affecting = H.get_limb(ran_zone(null, 0))
 		if(!affecting) //Still nothing??
@@ -62,7 +62,7 @@
 		to_chat(H, span_xenowarning("We are struck by \the [xeno_owner]'s tail sweep!"))
 		playsound(H,'sound/weapons/alien_claw_block.ogg', 50, 1)
 
-	addtimer(CALLBACK(xeno_owner, TYPE_PROC_REF(/atom, remove_filter), "defender_tail_sweep"), 0.5 SECONDS) //Remove cool SFX
+	addtimer(CALLBACK(xeno_owner, TYPE_PROC_REF(/datum, remove_filter), "defender_tail_sweep"), 0.5 SECONDS) //Remove cool SFX
 	succeed_activate()
 	if(xeno_owner.crest_defense)
 		xeno_owner.use_plasma(ability_cost)
@@ -217,6 +217,7 @@
 		GLOB.round_statistics.defender_crest_lowerings++
 		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defender_crest_lowerings")
 		ADD_TRAIT(xeno_owner, TRAIT_STAGGERIMMUNE, CREST_DEFENSE_TRAIT) //Can now endure impacts/damages that would make lesser xenos flinch
+		xeno_owner.move_resist = MOVE_FORCE_EXTREMELY_STRONG
 		xeno_owner.soft_armor = xeno_owner.soft_armor.modifyAllRatings(last_crest_bonus)
 		xeno_owner.add_movespeed_modifier(MOVESPEED_ID_CRESTDEFENSE, TRUE, 0, NONE, TRUE, xeno_owner.xeno_caste.crest_defense_slowdown)
 	else
@@ -225,6 +226,7 @@
 		GLOB.round_statistics.defender_crest_raises++
 		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defender_crest_raises")
 		REMOVE_TRAIT(xeno_owner, TRAIT_STAGGERIMMUNE, CREST_DEFENSE_TRAIT)
+		xeno_owner.move_resist = initial(xeno_owner.move_resist)
 		xeno_owner.soft_armor = xeno_owner.soft_armor.modifyAllRatings(-last_crest_bonus)
 		xeno_owner.remove_movespeed_modifier(MOVESPEED_ID_CRESTDEFENSE)
 
@@ -422,7 +424,7 @@
 		if(slapped.stat == DEAD)
 			continue
 		slapped.add_filter("defender_tail_sweep", 2, gauss_blur_filter(1)) //Add cool SFX; motion blur
-		addtimer(CALLBACK(slapped, TYPE_PROC_REF(/atom, remove_filter), "defender_tail_sweep"), 0.5 SECONDS) //Remove cool SFX
+		addtimer(CALLBACK(slapped, TYPE_PROC_REF(/datum, remove_filter), "defender_tail_sweep"), 0.5 SECONDS) //Remove cool SFX
 		var/damage = xeno_owner.xeno_caste.melee_damage * 0.5
 		var/affecting = slapped.get_limb(ran_zone(null, 0))
 		if(!affecting)
@@ -590,7 +592,7 @@
 	enraged_mob.heal_xeno_damage(heal_amount, FALSE)
 	enraged_mob.adjust_sunder(-heal_sunder_amount)
 
-	addtimer(CALLBACK(enraged_mob, TYPE_PROC_REF(/atom, remove_filter), "steelcrest_enraged"), 3 SECONDS)
+	addtimer(CALLBACK(enraged_mob, TYPE_PROC_REF(/datum, remove_filter), "steelcrest_enraged"), 3 SECONDS)
 
 /datum/action/ability/xeno_action/fortify/steel_crest
 	move_on_fortifed = TRUE

@@ -211,7 +211,7 @@
 	fire_delay = 0.7 SECONDS
 
 	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
-	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES|GUN_AMMO_COUNT_BY_SHOTS_REMAINING
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
@@ -350,7 +350,7 @@
 	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "mg08"
 	worn_icon_state = "mg08"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
 	)
@@ -397,7 +397,7 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	icon = 'icons/obj/items/gun/machinegun64.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
 	)
@@ -466,7 +466,7 @@
 	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "ptrs"
 	worn_icon_state = "ptrs"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_64.dmi',
 	)
@@ -678,7 +678,7 @@
 	desc = "The KRD-61ES machinegun is the export variant of the ML-91 HMG. It's too heavy to be wielded or operated without the tripod. No extra work required, just deploy it with Ctrl-Click. Can be repaired with a blowtorch once deployed."
 	icon = 'icons/obj/items/gun/machinegun64.dmi'
 	icon_state = "kord"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
 	)

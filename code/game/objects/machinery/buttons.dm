@@ -396,28 +396,29 @@
 /obj/machinery/button/valhalla/vehicle_button
 	name = "Vehicle Spawner"
 
-/obj/machinery/button/valhalla/vehicle_button/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
-	var/list/spawnable_vehicles = list(/obj/vehicle/sealed/armored/multitile,
-	/obj/vehicle/sealed/armored/multitile/apc)
+/// Generates a list of vehicles to spawn
+/obj/machinery/button/valhalla/vehicle_button/proc/spawn_vehicles(mob/living/user)
+	var/list/spawnable_vehicles = list(
+		/obj/vehicle/sealed/armored/multitile,
+		/obj/vehicle/sealed/armored/multitile/apc,
+		/obj/vehicle/sealed/armored/multitile/som_tank,
+		/obj/vehicle/sealed/armored/multitile/campaign,
+		/obj/vehicle/sealed/armored/multitile/icc_lvrt,
+	)
 
-	var/selected_vehicle = tgui_input_list(usr, "Which vehicle do you want to spawn?", "Vehicle spawn", spawnable_vehicles)
+	var/selected_vehicle = tgui_input_list(user, "Which vehicle do you want to spawn?", "Vehicle spawn", spawnable_vehicles)
 	if(!selected_vehicle)
 		return
-
 	QDEL_NULL(linked)
-	turf_check(xeno_attacker)
+	if(!get_turf(GLOB.valhalla_button_spawn_landmark[spawn_link]))
+		to_chat(user, span_warning("An error occured, yell at the coders."))
+		CRASH("Valhalla button linked with an improper landmark: button ID: [spawn_link].")
 	linked = new selected_vehicle(get_turf(GLOB.valhalla_button_spawn_landmark[spawn_link]))
+
+/obj/machinery/button/valhalla/vehicle_button/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	spawn_vehicles(xeno_attacker)
 
 /obj/machinery/button/valhalla/vehicle_button/attack_hand(mob/living/user)
-	var/list/spawnable_vehicles = list(/obj/vehicle/sealed/armored/multitile,
-	/obj/vehicle/sealed/armored/multitile/apc)
-
-	var/selected_vehicle = tgui_input_list(usr, "Which vehicle do you want to spawn?", "Vehicle spawn", spawnable_vehicles)
-	if(!selected_vehicle)
-		return
-
-	QDEL_NULL(linked)
-	turf_check(user)
-	linked = new selected_vehicle(get_turf(GLOB.valhalla_button_spawn_landmark[spawn_link]))
+	spawn_vehicles(user)
 
 #undef DOOR_FLAG_OPEN_ONLY

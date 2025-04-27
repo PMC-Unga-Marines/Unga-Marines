@@ -136,6 +136,8 @@
 	var/protection_aura = 0
 	///Strength of the focus order aura affecting us
 	var/marksman_aura = 0
+	///Strength of the flag aura affecting us
+	var/flag_aura = 0
 
 	///The squad this human is assigned to
 	var/datum/squad/assigned_squad
@@ -152,6 +154,9 @@
 
 	/// This is the cooldown on suffering additional effects for when shock gets high
 	COOLDOWN_DECLARE(last_shock_effect)
+
+	/// Height of the mob
+	VAR_PROTECTED/mob_height = HUMAN_HEIGHT_MEDIUM
 
 ///copies over clothing preferences like underwear to another human
 /mob/living/carbon/human/proc/copy_clothing_prefs(mob/living/carbon/human/destination)

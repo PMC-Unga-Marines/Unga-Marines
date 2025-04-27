@@ -29,3 +29,25 @@
 	friction = 0.2
 	gravity = list(0, 0.95)
 	grow = 0.05
+	
+/particles/tank_wreck_smoke
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "smoke3"
+	width = 1000
+	height = 1000
+	count = 300
+	spawning = 5
+	gradient = list("#333333", "#808080", "#FFFFFF")
+	lifespan = 20
+	fade = 45
+	fadein = 3
+	color = generator(GEN_NUM, 0, 0.025, NORMAL_RAND)
+	color_change = generator(GEN_NUM, 0.04, 0.05)
+	velocity = generator(GEN_CIRCLE, 5, 5, SQUARE_RAND)
+	drift = generator(GEN_CIRCLE, 0, 1, NORMAL_RAND)
+	spin = generator(GEN_NUM, -20, 20)
+	friction = generator(GEN_NUM, 0.1, 0.5)
+	position = list(76, 35, 0)
+	gravity = list(1, 2)
+	scale = 0.075
+	grow = 0.04

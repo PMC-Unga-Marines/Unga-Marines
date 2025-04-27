@@ -351,6 +351,23 @@
 
 /obj/footstep_override(atom/movable/source, list/footstep_overrides)
 	footstep_overrides[FOOTSTEP_PLATING] = layer
-	
+
 /obj/get_dumping_location()
 	return get_turf(src)
+
+/obj/proc/do_deploy(mob/user, turf/location)
+	if(!istype(location))
+		location = get_turf(src)
+	SEND_SIGNAL(src, COMSIG_ITEM_DEPLOY, user, location)
+
+///Dissassembles the device
+/obj/proc/disassemble(mob/user)
+	var/obj/item/internal_item = get_internal_item()
+	if(!internal_item)
+		return FALSE
+	if(internal_item.item_flags & DEPLOYED_NO_PICKUP)
+		if(user)
+			balloon_alert(user, "Cannot disassemble")
+		return FALSE
+	SEND_SIGNAL(src, COMSIG_ITEM_UNDEPLOY, user)
+	return TRUE

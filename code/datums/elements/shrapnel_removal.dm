@@ -71,6 +71,9 @@
 		if(embedded.is_beneficial_implant())
 			continue
 		embedded.unembed_ourself(FALSE)
+		if(user.ckey)
+			var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[user.ckey]
+			personal_statistics.shrapnel_removed ++
 		if(skill < SKILL_MEDICAL_PRACTICED)
 			user.visible_message(span_notice("[user] violently rips out [embedded] from [target]!"), span_notice("You violently rip out [embedded] from [target]!"))
 			targetlimb.take_damage_limb(5 + additional_damage * (SKILL_MEDICAL_PRACTICED - skill), 0, FALSE, FALSE)

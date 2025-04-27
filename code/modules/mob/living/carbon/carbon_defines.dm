@@ -9,10 +9,10 @@
 	var/life_tick = 0
 	///Whether or not the mob is handcuffed
 	var/obj/item/restraints/handcuffs/handcuffed
-	///Tracks whether we can breath right now. Used for a hud icon and for message generation.
-	var/oxygen_alert = FALSE
-	var/fire_alert = FALSE
 
+	///Tracks whether our most recent breath has failed, for messages and HUD feedback.
+	var/breath_failing = FALSE
+	
 	var/butchery_progress = 0
 
 	var/list/internal_organs = list()

@@ -50,6 +50,7 @@
 
 // --- Shotguns ---
 #define CALIBER_12G "12 gauge"
+#define CALIBER_6G "6 gauge"
 #define CALIBER_410 ".410 bore"
 
 // --- Snipers ---
@@ -78,7 +79,6 @@
 #define CALIBER_FUEL_THICK "UT-Napthal Fuel"
 #define CALIBER_WATER "Water"
 #define CALIBER_10X28 "10x28mm" //Sentry, OG Smartgun and SR-26 Sniper?
-#define CALIBER_86 "86mm" //MBT Main Cannon
 #define CALIBER_PEPPERBALL "SAN Ball " //Pepperball gun
 #define CALIBER_10G_RAIL "10 gauge rail"
 
@@ -88,5 +88,8 @@
 #define CALIBER_10X30 "10x30mm caseless"
 #define CALIBER_20 "20mm" //Dualcannon
 
-///Unmanned vehicles
+/// Vehicles
+#define CALIBER_30X17MM "30x170mm" // SARDEN
+#define CALIBER_76MM "76mm shell" // ICC LowVel
 #define CALIBER_11X35 "11x35mm"
+#define CALIBER_105MM "105mm" //MBT Main Cannon

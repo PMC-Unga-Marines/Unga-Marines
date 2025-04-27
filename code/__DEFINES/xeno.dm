@@ -41,6 +41,7 @@
 #define TRAP_HUGGER_NEURO "hugger neuro"
 #define TRAP_HUGGER_RESIN "hugger resin"
 #define TRAP_HUGGER_SLASH "hugger slash"
+#define TRAP_HUGGER_OZELOMELYN "hugger ozelomelyn"
 #define TRAP_SMOKE_NEURO "neurotoxin gas"
 #define TRAP_SMOKE_ACID "acid gas"
 #define TRAP_ACID_WEAK "weak acid"

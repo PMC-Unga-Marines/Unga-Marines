@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/rifle
 	icon = 'icons/obj/items/gun/rifle.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/rifle_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/rifle_righthand_1.dmi',
 	)
@@ -218,7 +218,7 @@
 	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "t37"
 	worn_icon_state = "t37"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_64.dmi',
 	)
@@ -335,7 +335,7 @@
 	icon_state = "t64"
 	worn_icon_state = "t64"
 	icon = 'icons/obj/items/gun/marksman64.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_64.dmi',
 	)
@@ -536,7 +536,7 @@
 	icon = 'icons/obj/items/gun/machinegun64.dmi'
 	icon_state = "m41a"
 	worn_icon_state = "m41a"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
 	)
@@ -708,7 +708,7 @@
 	icon = 'icons/obj/items/gun/machinegun64.dmi'
 	icon_state = "rpd"
 	worn_icon_state = "rpd"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
 	)
@@ -773,7 +773,7 @@
 	icon = 'icons/obj/items/gun/machinegun64.dmi'
 	icon_state = "dp27"
 	worn_icon_state = "dp27"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
 	)
@@ -948,7 +948,7 @@
 	icon_state = "t42"
 	worn_icon_state = "t42"
 	icon = 'icons/obj/items/gun/machinegun.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_64.dmi',
 	)
@@ -1033,7 +1033,7 @@
 	icon_state = "t60"
 	worn_icon_state = "t60"
 	fire_animation = "t60_fire"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_64.dmi',
 	)
@@ -1109,7 +1109,7 @@
 	icon_state = "m412l1"
 	worn_icon_state = "m412l1"
 	fire_animation = "m412l1_fire"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
 	)
@@ -1311,7 +1311,7 @@
 	max_shells = 12 //codex
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/sh15_slug
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/shotgun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/shotgun_righthand_1.dmi',
 	)
@@ -1381,7 +1381,7 @@
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
 	unload_sound = 'sound/weapons/guns/interact/T42_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/T42_reload.ogg'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
 	)
@@ -1437,7 +1437,7 @@
 	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "sg62"
 	worn_icon_state = "sg62"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
 	)
@@ -1523,7 +1523,7 @@
 	icon_state = "alien_rifle"
 	worn_icon_state = "alien_rifle"
 	icon = 'icons/obj/items/gun/energy.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/energy_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/energy_righthand_1.dmi',
 	)
@@ -1576,7 +1576,7 @@
 	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "tl127"
 	worn_icon_state = "tl127"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_64.dmi',
 	)
@@ -1661,7 +1661,7 @@
 	max_shells = 20 //codex
 	default_ammo_type = /obj/item/ammo_magazine/rifle/sr81
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/sr81)
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
 	)
@@ -1768,7 +1768,7 @@
 	icon = 'icons/obj/items/gun/rifle64.dmi'
 	icon_state = "t21"
 	worn_icon_state = "t21"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/rifle_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/rifle_righthand_64.dmi',
 	)
@@ -1852,7 +1852,7 @@
 	icon_state = "alf51b"
 	worn_icon_state = "alf51b"
 	icon = 'icons/obj/items/gun/machinegun.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
 	)
@@ -1957,7 +1957,7 @@
 	icon = 'icons/obj/items/gun/special64.dmi'
 	icon_state = "tx54"
 	worn_icon_state = "tx54"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
 	)
@@ -2116,7 +2116,7 @@
 	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "garand"
 	worn_icon_state = "garand"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_64.dmi',
 	)
@@ -2229,10 +2229,11 @@
 
 	accuracy_mult = 1
 	accuracy_mult_unwielded = 0.55
-	scatter = 1
+	scatter = -2
 	scatter_unwielded = 15
 
 	burst_amount = 3
+	burst_scatter_mult = 4
 	burst_delay = 0.1 SECONDS
 	extra_delay = 0.1 SECONDS
 
@@ -2351,7 +2352,7 @@
 	icon_state = "v41"
 	worn_icon_state = "v41"
 	fire_animation = "v41_fire"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_64.dmi',
 	)
@@ -2418,7 +2419,7 @@
 	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "l11"
 	worn_icon_state = "l11"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_64.dmi',
 	)
@@ -2491,7 +2492,7 @@
 	icon = 'icons/obj/items/gun/rifle64.dmi'
 	icon_state = "l15"
 	worn_icon_state = "l15"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/rifle_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/rifle_righthand_64.dmi',
 	)
@@ -2563,7 +2564,7 @@
 	icon = 'icons/obj/items/gun/rifle64.dmi'
 	icon_state = "ml12"
 	worn_icon_state = "ml12"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/rifle_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/rifle_righthand_64.dmi',
 	)
@@ -2630,7 +2631,7 @@
 	icon = 'icons/obj/items/gun/shotgun64.dmi'
 	icon_state = "ml41"
 	worn_icon_state = "ml41"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/shotgun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/shotgun_righthand_1.dmi',
 	)
@@ -2740,7 +2741,7 @@
 	icon = 'icons/obj/items/gun/rifle64.dmi'
 	icon_state = "t25"
 	worn_icon_state = "t25"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/rifle_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/rifle_righthand_1.dmi',
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
@@ -2797,7 +2798,7 @@
 	icon_state = "minimi"
 	worn_icon_state = "minimi"
 	fire_animation = "minimi_fire"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_64.dmi',
 	)
@@ -2862,12 +2863,12 @@
 	icon = 'icons/obj/items/gun/machinegun64.dmi'
 	icon_state = "l26"
 	worn_icon_state = "l26"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_64.dmi',
 	)
 	fire_animation = "l26_fire"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_64.dmi',
 	)

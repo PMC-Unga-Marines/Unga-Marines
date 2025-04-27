@@ -15,27 +15,27 @@
 	var/burn_time = 17
 	var/burn_level = 31
 
-/datum/ammo/flamethrower/drop_flame(turf/T)
-	if(!istype(T))
+/datum/ammo/flamethrower/drop_flame(turf/target_turf)
+	if(!istype(target_turf))
 		return
-	T.ignite(burn_time, burn_level, fire_color)
+	target_turf.ignite(burn_time, burn_level, fire_color)
 
-/datum/ammo/flamethrower/on_hit_mob(mob/M, obj/projectile/P)
-	drop_flame(get_turf(M))
+/datum/ammo/flamethrower/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	drop_flame(get_turf(target_mob))
 
-/datum/ammo/flamethrower/on_hit_obj(obj/O, obj/projectile/P)
-	drop_flame(get_turf(O))
+/datum/ammo/flamethrower/on_hit_obj(obj/target_object, obj/projectile/proj)
+	drop_flame(get_turf(target_object))
 
-/datum/ammo/flamethrower/on_hit_turf(turf/T, obj/projectile/P)
-	drop_flame(get_turf(T))
+/datum/ammo/flamethrower/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_flame(get_turf(target_turf))
 
-/datum/ammo/flamethrower/do_at_max_range(turf/T, obj/projectile/P)
-	drop_flame(get_turf(T))
+/datum/ammo/flamethrower/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_flame(get_turf(target_turf))
 
-/datum/ammo/flamethrower/tank_flamer/drop_flame(turf/T)
-	if(!istype(T))
+/datum/ammo/flamethrower/tank_flamer/drop_flame(turf/target_turf)
+	if(!istype(target_turf))
 		return
-	flame_radius(2, T)
+	flame_radius(2, target_turf)
 
 /datum/ammo/flamethrower/blue
 	name = "blue flame"
@@ -84,14 +84,14 @@
 			caught_mob.ExtinguishMob()
 	new /obj/effect/temp_visual/dir_setting/water_splash(extinguished_turf, splash_direction)
 
-/datum/ammo/water/on_hit_mob(mob/M, obj/projectile/P)
-	splash(get_turf(M), P.dir)
+/datum/ammo/water/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	splash(get_turf(target_mob), proj.dir)
 
-/datum/ammo/water/on_hit_obj(obj/O, obj/projectile/P)
-	splash(get_turf(O), P.dir)
+/datum/ammo/water/on_hit_obj(obj/target_object, obj/projectile/proj)
+	splash(get_turf(target_object), proj.dir)
 
-/datum/ammo/water/on_hit_turf(turf/T, obj/projectile/P)
-	splash(get_turf(T), P.dir)
+/datum/ammo/water/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	splash(get_turf(target_turf), proj.dir)
 
-/datum/ammo/water/do_at_max_range(turf/T, obj/projectile/P)
-	splash(get_turf(T), P.dir)
+/datum/ammo/water/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	splash(get_turf(target_turf), proj.dir)

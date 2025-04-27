@@ -15,7 +15,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	name = "radio headset"
 	desc = "An updated, modular intercom that fits over the head. Takes encryption keys."
 	icon_state = "headset"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/clothing/ears_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/clothing/ears_right.dmi',
 	)
@@ -305,6 +305,11 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		var/image/overlay = image('icons/UI_icons/map_blips.dmi', null, wearer.job.minimap_icon)
 		overlay.color = wearer.assigned_squad.color
 		underlay.overlays += overlay
+
+		if(wearer.assigned_squad?.squad_leader == wearer)
+			var/image/leader_trim = image('icons/UI_icons/map_blips.dmi', null, "leader_trim")
+			underlay.overlays += leader_trim
+
 		SSminimaps.add_marker(wearer, marker_flags, underlay)
 		return
 	SSminimaps.add_marker(wearer, marker_flags, image('icons/UI_icons/map_blips.dmi', null, wearer.job.minimap_icon))
@@ -696,3 +701,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	name = "security detail headset"
 	keyslot = /obj/item/encryptionkey/vsd
 	frequency = FREQ_VSD
+
+/obj/item/radio/headset/distress/erp
+	name = "prankster headset"
+	keyslot = /obj/item/encryptionkey/erp
+	frequency = FREQ_ERP

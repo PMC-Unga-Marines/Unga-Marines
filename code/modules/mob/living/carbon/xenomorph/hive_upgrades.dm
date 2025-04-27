@@ -122,11 +122,9 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	SHOULD_CALL_PARENT(TRUE)
 	if((upgrade_flags & UPGRADE_FLAG_ONETIME) && times_bought)
 		return FALSE
-	/*RUTGMC EDIT begin*/
 	if(buyer.status_flags & INCORPOREAL)
 		to_chat(buyer, span_xenowarning("You can't build in this form!"))
 		return FALSE
-	/*RUTGMC EDIT end*/
 	if(SSpoints.xeno_points_by_hive[buyer.hivenumber] < psypoint_cost)
 		if(!silent)
 			to_chat(buyer, span_xenowarning("You need [psypoint_cost-SSpoints.xeno_points_by_hive[buyer.hivenumber]] more points to request this blessing!"))
@@ -137,8 +135,6 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	category = "Buildings"
 	///The type of building created
 	var/building_type
-	///The location to spawn the building at. Southwest of the xeno by default.
-	var/building_loc = SOUTHWEST
 	///Building time, in seconds. 10 by default.
 	var/building_time = 10 SECONDS
 
@@ -146,7 +142,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	. = ..()
 	if(!.)
 		return
-	var/turf/buildloc = get_step(buyer, building_loc)
+	var/turf/buildloc = get_turf(buyer)
 	if(!buildloc)
 		return FALSE
 
@@ -172,12 +168,10 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	if(!can_buy(buyer, FALSE))
 		return FALSE
 
-	var/turf/buildloc = get_step(buyer, building_loc)
-
-	var/atom/built = new building_type(buildloc, buyer.hivenumber)
+	var/atom/built = new building_type(get_turf(buyer), buyer.hivenumber)
 	to_chat(buyer, span_notice("We build [built] for [psypoint_cost] psy points."))
-	log_game("[buyer] has built \a [built] in [AREACOORD(buildloc)], spending [psypoint_cost] psy points in the process")
-	xeno_message("[buyer] has built \a [built] at [get_area(buildloc)]!", "xenoannounce", 5, buyer.hivenumber)
+	log_game("[buyer] has built \a [built] in [AREACOORD(built)], spending [psypoint_cost] psy points in the process")
+	xeno_message("[buyer] has built \a [built] at [get_area(built)]!", "xenoannounce", 5, buyer.hivenumber)
 	return ..()
 
 /datum/hive_upgrade/building/silo
@@ -193,7 +187,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	if(!.)
 		return
 
-	var/turf/buildloc = get_step(buyer, building_loc)
+	var/turf/buildloc = get_turf(buyer)
 	if(!buildloc)
 		return FALSE
 
@@ -237,7 +231,6 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	icon = "pherotower"
 	upgrade_flags = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/pherotower
-	building_loc = 0 //This results in spawning the structure under the user.
 	building_time = 5 SECONDS
 
 /datum/hive_upgrade/building/spawner
@@ -250,7 +243,6 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/building/upgrade_chamber
 	upgrade_flags = ABILITY_NUCLEARWAR
-	building_loc = 0
 	var/max_chambers = 3
 
 /datum/hive_upgrade/building/upgrade_chamber/shell
@@ -262,6 +254,12 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/building/upgrade_chamber/shell/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
 	. = ..()
+	if(!.)
+		return
+
+	var/turf/buildloc = get_turf(buyer)
+	if(!buildloc)
+		return FALSE
 	if(length(buyer.hive.shell_chambers) >= max_chambers)
 		to_chat(buyer, span_xenowarning("Hive cannot support more than [max_chambers] active shell chambers!"))
 		return FALSE
@@ -275,6 +273,13 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/building/upgrade_chamber/spur/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
 	. = ..()
+	if(!.)
+		return
+
+	var/turf/buildloc = get_turf(buyer)
+	if(!buildloc)
+		return FALSE
+
 	if(length(buyer.hive.spur_chambers) >= max_chambers)
 		to_chat(buyer, span_xenowarning("Hive cannot support more than [max_chambers] active spur chambers!"))
 		return FALSE
@@ -288,6 +293,12 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/building/upgrade_chamber/veil/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
 	. = ..()
+	if(!.)
+		return
+
+	var/turf/buildloc = get_turf(buyer)
+	if(!buildloc)
+		return FALSE
 	if(length(buyer.hive.veil_chambers) >= max_chambers)
 		to_chat(buyer, span_xenowarning("Hive cannot support more than [max_chambers] active veil chambers!"))
 		return FALSE
@@ -439,11 +450,12 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	psypoint_cost = 0
 	icon = "nest"
 	building_type = /obj/structure/xeno/thick_nest
-	building_loc = 0 //This results in spawning the structure under the user.
 	building_time = 5 SECONDS
 
 /datum/hive_upgrade/building/nest/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
 	. = ..()
+	if(!.)
+		return
 	if(length(buyer.hive.thick_nests) >= buyer.hive.max_thick_nests)
 		to_chat(buyer, span_xenowarning("You cannot build any more thick nests!"))
 		return FALSE

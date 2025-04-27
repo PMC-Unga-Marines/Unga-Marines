@@ -1,13 +1,15 @@
 #define LARVAL_HUGGER "larval hugger"
 #define CLAWED_HUGGER "clawed hugger"
-#define NEURO_HUGGER "neuro hugger"
+#define NEURO_HUGGER "neurotoxin hugger"
 #define ACID_HUGGER "acid hugger"
 #define RESIN_HUGGER "resin hugger"
+#define OZELOMELYN_HUGGER "ozelomelyn hugger"
 
 //List of huggie types
 GLOBAL_LIST_INIT(hugger_type_list, list(
 	/obj/item/clothing/mask/facehugger/larval,
 	/obj/item/clothing/mask/facehugger/combat/slash,
+	/obj/item/clothing/mask/facehugger/combat/chem_injector/ozelomelyn,
 	/obj/item/clothing/mask/facehugger/combat/acid,
 	/obj/item/clothing/mask/facehugger/combat/resin,
 ))
@@ -15,6 +17,7 @@ GLOBAL_LIST_INIT(hugger_type_list, list(
 GLOBAL_LIST_INIT(hugger_to_ammo, list(
 	/obj/item/clothing/mask/facehugger/larval = /datum/ammo/xeno/hugger,
 	/obj/item/clothing/mask/facehugger/combat/slash = /datum/ammo/xeno/hugger/slash,
+	/obj/item/clothing/mask/facehugger/combat/chem_injector/ozelomelyn = /datum/ammo/xeno/hugger/ozelomelyn,
 	/obj/item/clothing/mask/facehugger/combat/acid = /datum/ammo/xeno/hugger/acid,
 	/obj/item/clothing/mask/facehugger/combat/resin = /datum/ammo/xeno/hugger/resin,
 ))
@@ -23,6 +26,7 @@ GLOBAL_LIST_INIT(hugger_to_ammo, list(
 GLOBAL_LIST_INIT(hugger_images_list,  list(
 	LARVAL_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = LARVAL_HUGGER),
 	CLAWED_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = CLAWED_HUGGER),
+	OZELOMELYN_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = OZELOMELYN_HUGGER),
 	ACID_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = ACID_HUGGER),
 	RESIN_HUGGER = image('icons/Xeno/actions/carrier.dmi', icon_state = RESIN_HUGGER),
 ))

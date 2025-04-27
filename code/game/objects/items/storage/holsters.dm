@@ -95,7 +95,7 @@
 	name = "backpack holster"
 	desc = "You wear this on your back and put items into it. Usually one special item too."
 	icon = 'icons/obj/items/storage/backholster.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
 	)
@@ -350,7 +350,7 @@
 /obj/item/storage/holster/blade/officer/valirapier
 	name = "\improper HP-C vali rapier sheath"
 	desc = "An exquisite ceremonial sheath for an even more expensive rapier."
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
 		slot_belt_str = 'icons/mob/belt.dmi',
 	)
@@ -367,7 +367,7 @@
 /obj/item/storage/holster/blade/officer/sabre
 	name = "\improper officer sabre sheath"
 	desc = "An exquisite ceremonial sheath of a high ranking command personel."
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
 		slot_belt_str = 'icons/mob/belt.dmi',
 	)
@@ -388,7 +388,7 @@
 	desc = "A large leather scabbard used to carry a H23 tomahawk. It can be strapped to the back, waist or armor."
 	icon_state = "tomahawk_holster"
 	worn_icon_state = "tomahawk_holster"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 		slot_belt_str = 'icons/mob/clothing/belt.dmi',
 		slot_s_store_str = 'icons/mob/suit_slot.dmi'
@@ -771,7 +771,7 @@
 /obj/item/storage/holster/backholster/rlsadar
 	name = "TGMC RL-152 bag"
 	desc = "This backpack can hold 4 40mm shells, in addition to a SADAR launcher."
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi'
 	)
 	icon_state = "marine_sadar"
@@ -790,7 +790,7 @@
 /obj/item/storage/holster/backholster/rlquad
 	name = "TGMC RL-57 bag"
 	desc = "This backpack can hold 2 rocket arrays, in addition to a thermobaric launcher."
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/clothing/back.dmi'
 	)
 	icon_state = "marine_quad"

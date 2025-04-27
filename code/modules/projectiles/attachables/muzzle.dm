@@ -26,7 +26,7 @@
 	name = "bayonet"
 	desc = "A sharp blade for mounting on a weapon. It can be used to stab manually on anything but harm intent. Slightly reduces the accuracy of the gun when mounted."
 	icon_state = "bayonet"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/melee_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
 	)
@@ -60,7 +60,7 @@
 	desc = "A sharp knife that is the standard issue combat knife of the TerraGov Marine Corps can be attached to a variety of weapons at will or used as a standard knife."
 	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "bayonetknife"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/melee_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/melee_right.dmi',
 	)
@@ -172,7 +172,7 @@
 	icon_state = "focus"
 	pixel_shift_x = 17
 	pixel_shift_y = 13
-	ammo_mod = /datum/ammo/energy/lasgun/M43/overcharge
+	ammo_mod = /datum/ammo/energy/lasgun/m43/overcharge
 	damage_mod = -0.15
 
 /obj/item/attachable/widelens
@@ -182,7 +182,7 @@
 	icon_state = "wide"
 	pixel_shift_x = 18
 	pixel_shift_y = 15
-	ammo_mod = /datum/ammo/energy/lasgun/M43/blast
+	ammo_mod = /datum/ammo/energy/lasgun/m43/blast
 	damage_mod = -0.15
 
 /obj/item/attachable/heatlens
@@ -192,7 +192,7 @@
 	icon_state = "heat"
 	pixel_shift_x = 18
 	pixel_shift_y = 16
-	ammo_mod = /datum/ammo/energy/lasgun/M43/heat
+	ammo_mod = /datum/ammo/energy/lasgun/m43/heat
 	damage_mod = -0.15
 
 /obj/item/attachable/efflens

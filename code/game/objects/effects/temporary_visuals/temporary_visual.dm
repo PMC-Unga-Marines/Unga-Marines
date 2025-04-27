@@ -4,9 +4,13 @@
 	anchored = TRUE
 	layer = ABOVE_MOB_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	///How long before the temp_visual gets deleted
 	var/duration = 1 SECONDS
-	var/randomdir = TRUE
+	///Timer that our duration is stored in
 	var/timerid
+	///Gives our effect a random direction on init
+	var/randomdir = TRUE
+
 
 
 /obj/effect/temp_visual/Initialize(mapload)
@@ -93,7 +97,7 @@ GLOBAL_DATUM_INIT(flare_particles, /particles/flare_smoke, new)
 
 /obj/effect/temp_visual/block/Initialize(mapload, set_color)
 	if(set_color)
-		add_atom_colour(set_color, FIXED_COLOUR_PRIORITY)
+		add_atom_colour(set_color, FIXED_COLOR_PRIORITY)
 	. = ..()
 	pixel_x = rand(-12, 12)
 	pixel_y = rand(-9, 0)

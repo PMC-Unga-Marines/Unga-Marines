@@ -66,10 +66,10 @@
 	. = ..()
 	if(!greyscale_config)
 		return
-	for(var/key in worn_icon_lists)
+	for(var/key in worn_icon_list)
 		if(key == slot_l_hand_str || key == slot_r_hand_str)
 			continue
-		worn_icon_lists[key] = icon
+		worn_icon_list[key] = icon
 
 /obj/item/clothing/apply_blood(mutable_appearance/standing)
 	if(blood_overlay && blood_sprite_state)
@@ -96,7 +96,7 @@
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
 	name = "ears"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/clothing/ears_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/clothing/ears_right.dmi',
 	)
@@ -126,7 +126,7 @@
 //Suit
 /obj/item/clothing/suit
 	icon = 'icons/obj/clothing/suits/suits.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/clothing/suits_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/clothing/suits_right.dmi',
 	)
@@ -139,14 +139,12 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	attachments_by_slot = list(ATTACHMENT_SLOT_BADGE)
 	attachments_allowed = list(/obj/item/armor_module/armor/badge)
-	var/supporting_limbs = NONE
-	var/blood_overlay_type = "suit"
-	var/shield_state = "shield-blue"
 
-	// Strength of the armor light used by [proc/set_light()]
 	light_power = 3
 	light_range = 4
 	light_system = MOVABLE_LIGHT
+	///Blood overlay icon_state
+	var/blood_overlay_type = "suit"
 
 /obj/item/clothing/suit/Initialize(mapload)
 	. = ..()
@@ -181,7 +179,7 @@
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/clothing/gloves.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/clothing/gloves_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/clothing/gloves_right.dmi',
 	)
@@ -200,7 +198,7 @@
 	. = ..()
 	if(!greyscale_config)
 		return
-	worn_icon_lists = list(slot_gloves_str = icon)
+	worn_icon_list = list(slot_gloves_str = icon)
 
 /obj/item/clothing/gloves/emp_act(severity)
 	. = ..()
@@ -236,7 +234,7 @@
 /obj/item/clothing/mask
 	name = "mask"
 	icon = 'icons/obj/clothing/masks.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/clothing/masks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/clothing/masks_right.dmi',
 	)
@@ -257,7 +255,7 @@
 /obj/item/clothing/shoes
 	name = "shoes"
 	icon = 'icons/obj/clothing/shoes.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/clothing/shoes_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/clothing/shoes_right.dmi',
 	)

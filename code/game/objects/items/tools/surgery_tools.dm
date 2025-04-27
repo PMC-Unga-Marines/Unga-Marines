@@ -1,7 +1,7 @@
 // Surgery Tools
 /obj/item/tool/surgery
 	icon = 'icons/obj/items/surgery_tools.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/surgery_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/surgery_right.dmi',
 	)
@@ -45,7 +45,7 @@
 	desc = "Cut, cut, and once more cut."
 	icon_state = "scalpel"
 	atom_flags = CONDUCT
-	force = 10
+	force = 20
 	sharp = IS_SHARP_ITEM_ACCURATE
 	edge = 1
 	w_class = WEIGHT_CLASS_TINY
@@ -79,7 +79,7 @@
 	icon_state = "saw"
 	hitsound = 'sound/weapons/circsawhit.ogg'
 	atom_flags = CONDUCT
-	force = 15
+	force = 30
 	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 9
 	throw_speed = 3

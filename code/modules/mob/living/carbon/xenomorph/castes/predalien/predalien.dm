@@ -7,7 +7,6 @@
 	effects_icon = 'icons/Xeno/castes/predalien/praetorian_effects.dmi'
 	wall_smash = TRUE
 	pixel_x = -16
-	old_x = -16
 	bubble_icon = "alienroyal"
 	talk_sound = SFX_PREDALIEN_TALK
 	mob_size = MOB_SIZE_BIG

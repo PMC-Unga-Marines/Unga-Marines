@@ -143,3 +143,8 @@ GLOBAL_LIST_EMPTY_TYPED(custom_updating_encryptkeys, /obj/item/encryptionkey)
 	name = "\improper Security Detail encryption key"
 	channels = list(RADIO_CHANNEL_VSD = TRUE)
 	independent = TRUE
+
+/obj/item/encryptionkey/erp
+	name = "\improper Pranksters encryption key"
+	channels = list(RADIO_CHANNEL_ERP = TRUE)
+	independent = TRUE

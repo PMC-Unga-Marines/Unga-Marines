@@ -59,7 +59,7 @@
 /obj/item/weapon/gun/energy/yautja
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = null
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/hunter/pred_gear.dmi',
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi',

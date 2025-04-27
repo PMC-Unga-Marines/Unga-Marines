@@ -1,23 +1,22 @@
 /obj/effect/landmark/excavation_site_spawner
 	name = "excavation site spawner"
 	icon_state = "clockwork_orange"
-	///List of possible reward buckets
-	var/list/rewards_datums = list(
-		/datum/excavation_rewards,
-		/datum/excavation_rewards/xeno,
-	)
 	///Excavation rewards datum that is used when excavation is performed
 	var/datum/excavation_rewards/rewards_typepath
 
 /obj/effect/landmark/excavation_site_spawner/Initialize(mapload)
 	. = ..()
-	SSexcavation.excavation_site_spawners += src
+	GLOB.excavation_site_spawners += src
+
+/obj/effect/landmark/excavation_site_spawner/Destroy()
+	. = ..()
+	GLOB.excavation_site_spawners -= src
 
 ///Setup an excavation
 /obj/effect/landmark/excavation_site_spawner/proc/spawn_excavation_site()
-	rewards_typepath = pick(rewards_datums)
+	rewards_typepath = pick(/datum/excavation_rewards, /datum/excavation_rewards/xeno)
 	if(initial(rewards_typepath.map_icon))
-		SSminimaps.add_marker(src, MINIMAP_FLAG_EXCAVATION_ZONE, image('icons/UI_icons/map_blips.dmi', null, initial(rewards_typepath.map_icon))) // RU TGMC edit - map blips
+		SSminimaps.add_marker(src, MINIMAP_FLAG_EXCAVATION_ZONE, image('icons/UI_icons/map_blips.dmi', null, initial(rewards_typepath.map_icon)))
 
 ///Perform an excavation and revert the spawner to inactive state
 /obj/effect/landmark/excavation_site_spawner/proc/excavate_site()
@@ -43,13 +42,11 @@
 ///Generate rewards
 /datum/excavation_rewards/proc/drop_rewards(obj/effect/landmark/excavation_site_spawner/excav_site)
 	var/iterations = rand(rewards_min, rewards_max)
-	for(var/i in 0 to iterations - 1)
+	for(var/i in 1 to iterations)
 		var/typepath = pick(rewards)
 		new typepath(excav_site.loc)
 
 /datum/excavation_rewards/xeno
-	rewards_min = 2
-	rewards_max = 4
 	map_icon = "excav_xeno"
 	rewards = list(
 		/obj/item/research_resource/xeno/tier_one,

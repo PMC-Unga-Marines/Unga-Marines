@@ -409,3 +409,9 @@
 		cost = 0
 
 	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = cost, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = jump_pass_flags)
+
+/// Handles when the player clicks on themself with the grab item
+/mob/living/carbon/proc/grabbed_self_attack(mob/living/user)
+	SHOULD_CALL_PARENT(TRUE)
+	SIGNAL_HANDLER
+	return NONE

@@ -25,7 +25,7 @@
 /obj/structure/largecrate/add_debris_element()
 	AddElement(/datum/element/debris, DEBRIS_WOOD, -10, 5)
 
-/obj/structure/largecrate/deconstruct(disassembled = TRUE)
+/obj/structure/largecrate/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	spawn_stuff()
 	return ..()
 
@@ -120,7 +120,7 @@
 	desc = "A stack of black storage cases."
 	icon_state = "case_double"
 
-/obj/structure/largecrate/random/case/double/deconstruct(disassembled = TRUE)
+/obj/structure/largecrate/random/case/double/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	new /obj/structure/largecrate/random/case(loc)
 	new /obj/structure/largecrate/random/case(loc)
 	return ..()
@@ -137,7 +137,7 @@
 	. = ..()
 	icon_state = pick("mini_case", "mini_case_b", "mini_case_c")
 
-/obj/structure/largecrate/random/barrel/deconstruct(disassembled = TRUE)
+/obj/structure/largecrate/random/barrel/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	if(dropmetal)
 		new /obj/item/stack/sheet/metal/small_stack(src)
 	return ..()

@@ -38,6 +38,8 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 	var/projectile_damage = 0
 	var/melee_damage = 0
 
+	var/mechs_destroyed = 0
+
 	//We are watching
 	var/friendly_fire_damage = 0
 
@@ -53,6 +55,8 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 	var/internal_injuries = 0
 	var/internal_injuries_inflicted = 0
 
+	var/grenade_hand_delimbs = 0
+
 	//Medical
 	var/self_heals = 0
 	var/heals = 0
@@ -62,6 +66,7 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 
 	var/times_revived = 0
 	var/deaths = 0
+	var/shrapnel_removed = 0
 
 	//Downtime
 	var/time_resting = 0
@@ -91,6 +96,7 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 	var/recycle_points_denied = 0
 	var/huggers_created = 0
 	var/impregnations = 0
+	var/items_snatched = 0
 
 	//Close air support
 	var/cas_cannon_shots = 0
@@ -141,6 +147,8 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 
 	if(grenades_primed)
 		stats += "[grenades_primed] grenade\s thrown."
+	if(grenade_hand_delimbs)
+		stats += "You blew off [grenade_hand_delimbs] hand[grenade_hand_delimbs != 1 ? "s" : ""] while holding grenades like an idiot."
 	if(traps_created)
 		stats += "[traps_created] trap\s/mine\s/hazard\s placed."
 	if(grenades_primed || traps_created)
@@ -152,6 +160,9 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 	stats += internal_injuries ? "You suffered [internal_injuries] internal injur[internal_injuries != 1 ? "ies" : "y"]." : "You avoided any internal injuries."
 	if(internal_injuries_inflicted)
 		stats += "Inflicted [internal_injuries_inflicted] internal injur[internal_injuries_inflicted > 1 ? "ies" : "y"] on [internal_injuries_inflicted > 1 ? "others" : "somebody"]."
+
+	if(mechs_destroyed)
+		stats += "[mechs_destroyed] hostile mechs destroyed."
 
 	//Medical
 	stats += "<hr>"
@@ -166,6 +177,8 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 	if(times_revived)
 		stats += "You were revived [times_revived] time\s."
 	stats += deaths ? "You died [deaths] time\s." : "You survived the whole round."
+	if(shrapnel_removed)
+		stats += "Removed [shrapnel_removed] piece\s of shrapnel."
 
 	//Downtime
 	var/list/downtime_stats = list()
@@ -198,6 +211,8 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 		support_stats += "Performed [miner_repairs_performed] miner repair\s."
 	if(apcs_repaired)
 		support_stats += "Repaired [apcs_repaired] APC\s."
+	if(items_snatched)
+		support_stats += "Snatched [items_snatched] item\s."
 
 	if(generator_sabotages_performed)
 		support_stats += "Sabotaged [generator_sabotages_performed] generator\s."
@@ -263,8 +278,6 @@ GLOBAL_LIST_EMPTY(personal_statistics_list)
 
 	//Replace any instances of line breaks after horizontal rules to prevent unneeded empty spaces
 	return replacetext(jointext(stats, "<br>"), "<hr><br>", "<hr>")
-
-
 
 /* Not sure what folder to put a file of just record keeping procs, so just leaving them here
 The alternative is scattering them everywhere under their respective objects which is a bit messy */

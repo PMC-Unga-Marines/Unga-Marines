@@ -4,7 +4,7 @@
 	name = "flamer"
 	desc = "flame go froosh"
 	icon = 'icons/obj/items/gun/special.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
 	)
@@ -309,7 +309,7 @@
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_SHOWS_LOADED
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_64.dmi',
 	)
@@ -369,7 +369,7 @@
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "flamethrower"
 
-	worn_icon_lists = list( // for whatever fucking reason we can't set it null
+	worn_icon_list = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
@@ -520,7 +520,7 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "hydrocannon"
 
-	worn_icon_lists = list( // for whatever fucking reason we can't set it null
+	worn_icon_list = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)

@@ -3,7 +3,7 @@
 	desc = "A large tribal shield made of a strange metal alloy. The face of the shield bears three skulls, two human, one alien."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "shield"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi',
 		slot_back_str = 'icons/mob/hunter/pred_gear.dmi'

@@ -261,8 +261,8 @@
 			//There is a chance to do enough damage here to gib certain mobs. Better update immediately.
 			crushed_living.apply_damage(precrush * 1.7, BRUTE, BODY_ZONE_CHEST, MELEE, updating_health = TRUE, penetration = 15)
 			if(QDELETED(crushed_living))
-				xeno_owner.visible_message(span_danger("[xeno_owner] anihilates [preserved_name]!"),
-				span_xenodanger("We anihilate [preserved_name]!"))
+				xeno_owner.visible_message(span_danger("[xeno_owner] annihilates [preserved_name]!"),
+				span_xenodanger("We annihilate [preserved_name]!"))
 				return COMPONENT_MOVABLE_PREBUMP_PLOWED
 
 		return precrush2signal(crushed_living.post_crush_act(xeno_owner, src))

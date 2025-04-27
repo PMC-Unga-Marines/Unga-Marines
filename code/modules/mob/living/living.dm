@@ -47,7 +47,7 @@
 
 ///Update what auras we'll receive this life tick if it's either new or stronger than current. aura_type as AURA_ define, strength as number.
 /mob/living/proc/receive_aura(aura_type, strength)
-	if(received_auras[aura_type] > strength)
+	if(received_auras[aura_type] && received_auras[aura_type] > strength)
 		return
 	received_auras[aura_type] = strength
 
@@ -879,8 +879,8 @@
 	. = ..()
 	if(!.)
 		return
-	log_admin("[key_name(src)] (Job: [(job) ? job.title : "Unassigned"]) has been away for [AFK_TIMER] minutes.")
-	message_admins("[ADMIN_TPMONTY(src)] (Job: [(job) ? job.title : "Unassigned"]) has been away for [AFK_TIMER] minutes.")
+	log_admin("[key_name(src)] (Job: [(job) ? job.title : "Unassigned"]) has been away for [AFK_TIMER / 600] minutes.")
+	message_admins("[ADMIN_TPMONTY(src)] (Job: [(job) ? job.title : "Unassigned"]) has been away for [AFK_TIMER / 600] minutes.")
 
 ///Transfer the candidate mind into src
 /mob/living/proc/transfer_mob(mob/candidate)

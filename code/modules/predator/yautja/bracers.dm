@@ -4,7 +4,7 @@
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "bracer"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_gloves_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 

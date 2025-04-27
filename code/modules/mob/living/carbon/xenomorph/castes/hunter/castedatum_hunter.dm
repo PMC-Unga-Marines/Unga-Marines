@@ -39,7 +39,7 @@
 	soft_armor = list(MELEE = 80, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 20, FIRE = 5, ACID = 20)
 
 	// *** Stealth ***
-	stealth_break_threshold = 15
+	stealth_break_threshold = 25
 
 	// *** Minimap Icon *** //
 	minimap_icon = "hunter"

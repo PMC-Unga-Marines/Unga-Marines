@@ -5,8 +5,6 @@
 	///Skill level needed to use the tool
 	var/skill_threshold = SKILL_MEDICAL_EXPERT
 
-#define RESEARCH_DELAY 2 SECONDS
-
 /obj/item/tool/research/xeno_analyzer
 	name = "xenomorph analyzer"
 	desc = "A tool for analyzing xenomorphs for research material. Just click on a xenomorph. Can be used to befriend Newt."
@@ -63,32 +61,32 @@
 	var/obj/reward = new reward_typepath
 	reward.forceMove(get_turf(user))
 	ADD_TRAIT(target_xeno, TRAIT_RESEARCHED, TRAIT_RESEARCHED)
-
 	return ..()
-
-#undef RESEARCH_DELAY
 
 /obj/item/tool/research/excavation_tool
 	name = "subterrain scanner and excavator"
-	desc = "A tool for locating and uncovering underground resources. Use \"unique action\" when near an excavation site."
+	desc = "A tool for locating and uncovering underground resources."
 	icon = 'icons/obj/items/surgery_tools.dmi'
 	icon_state = "alien_drill"
 
-/obj/item/tool/research/excavation_tool/unique_action(mob/user)
+/obj/item/tool/research/excavation_tool/examine(mob/user)
+	. = ..()
+	. += span_danger("Use In-Hand when near an excavation site to start escavating it.")
+
+/obj/item/tool/research/excavation_tool/attack_self(mob/user)
 	. = ..()
 	if(user.skills.getRating(skill_type) < skill_threshold)
 		balloon_alert(user, "Not skilled enough")
 		return
-
-	if(!do_after(user, 10 SECONDS, NONE, user.loc, BUSY_ICON_FRIENDLY, null, PROGRESS_BRASS))
+	balloon_alert_to_viewers("Escavating...")
+	if(!do_after(user, 10 SECONDS, NONE, user.loc, BUSY_ICON_GENERIC, BUSY_ICON_GENERIC, PROGRESS_BRASS))
 		return
 
-	var/spawner_located = FALSE
-	for(var/obj/effect/landmark/excavation_site_spawner/spawner_to_check AS in SSexcavation.active_spawners)
-		if(get_dist(user, spawner_to_check) < 3)
-			say(span_notice("<b>Excavation site found, escavating...</b>"))
-			SSexcavation.excavate_site(spawner_to_check)
-			spawner_located = TRUE
+	for(var/obj/effect/landmark/excavation_site_spawner/spawner_to_check in urange(2, user.loc)) // doesn't work with range() for some reason?
+		if(!spawner_to_check.rewards_typepath) // excavate only those that are set up
+			continue
+		spawner_to_check.excavate_site()
+		balloon_alert(user, "Found it!")
+		return
 
-	if (!spawner_located)
-		say(span_notice("<b>No excavation site found at location. Try moving closer to the nearest one on your map.</b>"))
+	balloon_alert(user, "Nothing to escavate!")

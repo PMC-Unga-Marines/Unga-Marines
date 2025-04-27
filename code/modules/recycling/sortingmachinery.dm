@@ -322,7 +322,7 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 	icon_state = "dest_tagger"
 
 	w_class = WEIGHT_CLASS_SMALL
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/engineering_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/engineering_right.dmi',
 	)

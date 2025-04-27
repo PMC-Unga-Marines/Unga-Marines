@@ -44,3 +44,6 @@ GLOBAL_LIST_EMPTY_TYPED(areas_by_type, /area)
 GLOBAL_LIST_INIT(diagonal_smoothing_conversion, list(\
 	"[NORTHEAST]" = N_NORTHEAST, "[NORTHWEST]" = N_NORTHWEST, "[SOUTHEAST]" = N_SOUTHEAST, "[SOUTHWEST]" = N_SOUTHWEST,\
 	"[N_NORTHEAST]" = NORTHEAST, "[N_NORTHWEST]" = NORTHWEST, "[N_SOUTHEAST]" = SOUTHEAST, "[N_SOUTHWEST]" = SOUTHWEST))
+
+/// List of all excavation spawners
+GLOBAL_LIST_EMPTY(excavation_site_spawners)

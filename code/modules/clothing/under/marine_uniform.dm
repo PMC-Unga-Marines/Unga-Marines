@@ -4,7 +4,7 @@
 	siemens_coefficient = 0.9
 	icon = 'icons/obj/clothing/uniforms/marine_uniforms.dmi'
 	icon_state = "marine_jumpsuit"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_w_uniform_str = 'icons/mob/clothing/uniforms/marine_uniforms.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
@@ -40,7 +40,7 @@
 	desc = "A standard issued TGMC turtleneck colored blue."
 	icon_state = "delta_merc"
 	adjustment_variants = list(
-		"Rolled Sleeves" = "_h",
+		"Rolled Sleeves" = "_d",
 	)
 
 /obj/item/clothing/under/marine/squad/neck/delta
@@ -286,7 +286,7 @@
 	adjustment_variants = list() // don't disrespect the EMPEROR!
 	icon = 'icons/obj/clothing/uniforms/ert_uniforms.dmi'
 	icon_state = "guardjumpsuit"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_w_uniform_str = 'icons/mob/clothing/uniforms/ert_uniforms.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
@@ -304,7 +304,7 @@
 
 /obj/item/clothing/under/marine/veteran //none of these are actual used by marines
 	icon = 'icons/obj/clothing/uniforms/ert_uniforms.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_w_uniform_str = 'icons/mob/clothing/uniforms/ert_uniforms.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
@@ -446,7 +446,7 @@
 	desc = "The standard uniform of SOM military personnel. Its design shows a clear lineage from mining uniforms used in the old mining colonies."
 	icon = 'icons/obj/clothing/uniforms/ert_uniforms.dmi'
 	icon_state = "som_uniform"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_w_uniform_str = 'icons/mob/clothing/uniforms/ert_uniforms.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/clothing/uniforms_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/clothing/uniforms_right.dmi',
@@ -505,7 +505,7 @@
 	desc = "The standard uniform of ICC military personnel. The design is clearly dual purpose, meant to be both a combat uniform and one fit for daily tasks abord ships."
 	icon = 'icons/obj/clothing/uniforms/ert_uniforms.dmi'
 	icon_state = "icc"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_w_uniform_str = 'icons/mob/clothing/uniforms/ert_uniforms.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
@@ -602,7 +602,7 @@
 	desc = "A custom-made protective uniform for the Marine Corps with a long service life. It is reinforced with additional protective plates, Kevlar inserts, sewn metal mesh and impregnated with a refractory mixture. Anyway, that's what the tag on the leg says. Believe it or not, after all, if you've really served in the corps long enough, you know the answer."
 	icon = 'icons/obj/clothing/uniforms/marine_uniforms.dmi'
 	icon_state = "veteran"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_w_uniform_str = 'icons/mob/clothing/uniforms/marine_uniforms.dmi',
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
@@ -620,7 +620,7 @@
 	desc = "A TGMC turtleneck issued to special operation units"
 	icon = 'icons/mob/clothing/uniforms/ert_uniforms.dmi'
 	icon_state = "specops_uniform"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_w_uniform_str = 'icons/mob/clothing/uniforms/ert_uniforms.dmi',
 	)
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/holster)
@@ -634,7 +634,7 @@
 	icon = 'icons/mob/clothing/uniforms/ert_uniforms.dmi'
 	icon_state = "vsd_uniform_main"
 	worn_icon_state = "vsd_uniform_main"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_w_uniform_str = 'icons/mob/clothing/uniforms/ert_uniforms.dmi',
 	)
 	has_sensor = FALSE

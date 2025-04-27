@@ -6,7 +6,14 @@
 	//+/- 50 degrees from 310.15K is the 'safe' zone, where no damage is dealt.
 	if(bodytemperature > species.heat_level_1)
 		//Body temperature is too hot.
-		fire_alert = max(fire_alert, 2)
+		var/heat_severity
+		if(bodytemperature > species.heat_level_1)
+			heat_severity = 1
+		if(bodytemperature > species.heat_level_2)
+			heat_severity = 2
+		if(bodytemperature > species.heat_level_3)
+			heat_severity = 3
+		throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/hot, heat_severity)
 		if(status_flags & GODMODE)
 			return 1 //Godmode
 
@@ -16,9 +23,16 @@
 			take_overall_damage(HEAT_DAMAGE_LEVEL_2, BURN)
 		else if(bodytemperature > species.heat_level_1)
 			take_overall_damage(HEAT_DAMAGE_LEVEL_1, BURN)
-
 	else if(bodytemperature < species.cold_level_1)
-		fire_alert = max(fire_alert, 1)
+		//Body temperature is too cold.
+		var/cold_severity
+		if(bodytemperature < species.cold_level_1)
+			cold_severity = 1
+		if(bodytemperature < species.cold_level_2)
+			cold_severity = 2
+		if(bodytemperature < species.cold_level_3)
+			cold_severity = 3
+		throw_alert(ALERT_TEMPERATURE, /atom/movable/screen/alert/cold, cold_severity)
 
 		if(status_flags & GODMODE)
 			return 1 //Godmode

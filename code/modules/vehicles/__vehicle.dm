@@ -146,19 +146,23 @@
 /obj/vehicle/proc/after_move(direction)
 	return
 
+///Adds control flags and any associated changes to a mob
 /obj/vehicle/proc/add_control_flags(mob/controller, flags)
 	if(!is_occupant(controller) || !flags)
 		return FALSE
 	occupants[controller] |= flags
+	SEND_SIGNAL(src, COMSIG_VEHICLE_GRANT_CONTROL_FLAG, controller, flags)
 	for(var/i in GLOB.bitflags)
 		if(flags & i)
 			grant_controller_actions_by_flag(controller, i)
 	return TRUE
 
+///Removes control flags and any associated changes to a mob
 /obj/vehicle/proc/remove_control_flags(mob/controller, flags)
 	if(!is_occupant(controller) || !flags)
 		return FALSE
 	occupants[controller] &= ~flags
+	SEND_SIGNAL(src, COMSIG_VEHICLE_REVOKE_CONTROL_FLAG, controller, flags)
 	for(var/i in GLOB.bitflags)
 		if(flags & i)
 			remove_controller_actions_by_flag(controller, i)
@@ -168,7 +172,6 @@
 	. = ..()
 	if(trailer)
 		trailer.Move(old_loc, movement_dir, glide_size)
-
 
 //TGMC ADDED BELOW
 /obj/vehicle/effect_smoke(obj/effect/particle_effect/smoke/S)

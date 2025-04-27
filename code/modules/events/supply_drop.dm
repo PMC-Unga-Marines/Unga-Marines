@@ -5,8 +5,6 @@
 	weight = 10
 	earliest_start = 5 MINUTES
 
-	gamemode_whitelist = list("Combat Patrol","Sensor Capture")
-
 /datum/round_event/supply_drop
 	///How long between the event firing and the supply drop actually landing
 	var/drop_delay = 2 MINUTES

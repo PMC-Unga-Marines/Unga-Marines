@@ -42,7 +42,7 @@
 	inv_hide_flags = HIDEFACE|HIDEALLHAIR
 	armor_protection_flags = FACE
 	w_class = WEIGHT_CLASS_SMALL
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_wear_mask_str = 'icons/mob/clothing/mask.dmi')
 
 /obj/item/clothing/mask/luchador

@@ -94,7 +94,7 @@
 		span_warning("You hit [src] with [attacking_item]!"), visible_message_flags = COMBAT_MESSAGE)
 	log_combat(user, src, "attacked", attacking_item)
 	var/power = attacking_item.force + round(attacking_item.force * MELEE_SKILL_DAM_BUFF * user.skills.getRating(SKILL_MELEE_WEAPONS))
-	take_damage(power, attacking_item.damtype, MELEE)
+	take_damage(power, attacking_item.damtype, MELEE, blame_mob = user)
 	return TRUE
 
 /obj/attack_powerloader(mob/living/user, obj/item/powerloader_clamp/attached_clamp)

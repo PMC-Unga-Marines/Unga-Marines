@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/energy
 	icon = 'icons/obj/items/gun/energy.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/energy_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/energy_righthand_1.dmi',
 	)
@@ -125,7 +125,7 @@
 	else
 		playsound(user, 'sound/weapons/emitter2.ogg', 5, 0, 2)
 		charge_cost = ENERGY_STANDARD_AMMO_COST
-		ammo_datum_type = /datum/ammo/energy/lasgun/M43
+		ammo_datum_type = /datum/ammo/energy/lasgun/m43
 		fire_delay -= 7
 		fire_sound = 'sound/weapons/guns/fire/laser.ogg'
 		to_chat(user, "[icon2html(src, user)] You [overcharge? "<B>disable</b>" : "<B>enable</b>" ] [src]'s overcharge mode.")
@@ -146,7 +146,7 @@
 	worn_icon_state = "m43"
 	max_shots = 50 //codex stuff
 	load_method = CELL //codex stuff
-	ammo_datum_type = /datum/ammo/energy/lasgun/M43
+	ammo_datum_type = /datum/ammo/energy/lasgun/m43
 	rounds_per_shot = ENERGY_STANDARD_AMMO_COST
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
@@ -227,7 +227,7 @@
 	name = "\improper M43-P Sunfury Lasgun MK1"
 	desc = "An accurate, recoilless laser based battle rifle, based on the outdated M43 design. Only accepts practice power cells and it doesn't have a charge selector. Uses power cells instead of ballistic magazines."
 	force = 8 //Well, it's not complicted compared to the original.
-	ammo_datum_type = /datum/ammo/energy/lasgun/M43/practice
+	ammo_datum_type = /datum/ammo/energy/lasgun/m43/practice
 	attachable_allowed = list(/obj/item/attachable/stock/lasgun/practice)
 	starting_attachment_types = list(/obj/item/attachable/stock/lasgun/practice)
 	muzzle_flash_color = COLOR_DISABLER_BLUE
@@ -756,7 +756,7 @@
 	ammo_level_icon = "te"
 	icon_overlay_x_offset = -1
 	icon_overlay_y_offset = -3
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/energy_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/energy_righthand_64.dmi',
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
@@ -1186,7 +1186,7 @@
 	worn_icon_state = "caliver"
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/energy_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/energy_righthand_64.dmi',
 	)
@@ -1237,7 +1237,7 @@
 	worn_icon_state = "culverin"
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/energy_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/energy_righthand_64.dmi',
 	)
@@ -1274,7 +1274,7 @@
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "p_beam"
 
-	worn_icon_lists = list( // for whatever fucking reason we can't set it null
+	worn_icon_list = list( // for whatever fucking reason we can't set it null
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)

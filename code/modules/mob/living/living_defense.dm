@@ -125,6 +125,10 @@
 		SEND_SIGNAL(src, COMSIG_LIVING_IGNITED, fire_stacks)
 		return TRUE
 
+///Updates fire visuals
+/mob/living/proc/update_fire()
+	return
+
 ///Puts out any fire on the mob
 /mob/living/proc/ExtinguishMob()
 	if(!on_fire)
@@ -134,10 +138,6 @@
 	fire_stacks = 0
 	update_fire()
 	UnregisterSignal(src, COMSIG_LIVING_DO_RESIST)
-
-///Updates fire visuals
-/mob/living/proc/update_fire()
-	return
 
 ///Adjusting the amount of fire_stacks we have on person
 /mob/living/proc/adjust_fire_stacks(add_fire_stacks)

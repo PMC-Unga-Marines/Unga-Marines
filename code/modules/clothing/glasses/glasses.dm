@@ -1,7 +1,7 @@
 /obj/item/clothing/glasses
 	name = "glasses"
 	icon = 'icons/obj/clothing/glasses.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/clothing/glasses_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/clothing/glasses_right.dmi',
 	)
@@ -226,6 +226,7 @@
 	icon_state = "welding-g"
 	worn_icon_state = "welding-g"
 	toggleable = TRUE
+	inventory_flags = COVEREYES
 	eye_protection = 2
 	activation_sound = null
 	deactivation_sound = null
@@ -255,7 +256,6 @@
 ///Toggle the welding goggles on
 /obj/item/clothing/glasses/welding/proc/flip_up(mob/user)
 	DISABLE_BITFIELD(inventory_flags, COVEREYES)
-	DISABLE_BITFIELD(inv_hide_flags, HIDEEYES)
 	DISABLE_BITFIELD(armor_protection_flags, EYES)
 	eye_protection = 0
 	update_icon()
@@ -265,7 +265,6 @@
 ///Toggle the welding goggles off
 /obj/item/clothing/glasses/welding/proc/flip_down(mob/user)
 	ENABLE_BITFIELD(inventory_flags, COVEREYES)
-	ENABLE_BITFIELD(inv_hide_flags, HIDEEYES)
 	ENABLE_BITFIELD(armor_protection_flags, EYES)
 	eye_protection = initial(eye_protection)
 	update_icon()
@@ -445,7 +444,7 @@
 /obj/item/clothing/glasses/meson/orange_glasses
 	name = "Orange glasses"
 	desc = "A pair of orange glasses. This pair has been fitted with an optical meson scanner."
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_glasses_str = 'icons/mob/clothing/eyes.dmi')
 	icon_state = "meson_orange"
 	worn_icon_state = "meson_orange"
@@ -454,7 +453,7 @@
 /obj/item/clothing/glasses/night/imager_goggles/orange_glasses
 	name = "Orange glasses"
 	desc = "A pair of orange glasses. This pair has been fitted with an internal optical imager scanner."
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_glasses_str = 'icons/mob/clothing/eyes.dmi')
 	icon_state = "optical_orange"
 	worn_icon_state = "optical_orange"
@@ -463,7 +462,7 @@
 /obj/item/clothing/glasses/hud/orange_glasses
 	name = "Orange glasses"
 	desc = "A pair of orange glasses. This pair has been fitted with an internal HealthMate HUD projector."
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_glasses_str = 'icons/mob/clothing/eyes.dmi')
 	icon_state = "med_orange"
 	worn_icon_state = "med_orange"

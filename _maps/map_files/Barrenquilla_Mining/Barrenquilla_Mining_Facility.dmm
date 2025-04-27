@@ -8368,7 +8368,7 @@
 /area/barren/cave/north)
 "ND" = (
 /obj/structure/table/reinforced,
-/obj/item/tool/kitchen/tray,
+/obj/item/storage/kitchen_tray,
 /turf/open/floor/prison/kitchen,
 /area/barren/civilian/cook)
 "NE" = (

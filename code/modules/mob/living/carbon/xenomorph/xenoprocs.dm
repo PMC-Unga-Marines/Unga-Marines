@@ -69,9 +69,11 @@
 	return
 
 /mob/living/carbon/xenomorph/proc/toggle_rouny()
+	#ifndef TESTING
 	if(SSdiscord.get_boosty_tier(ckey) < BOOSTY_TIER_3)
 		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
 		return
+	#endif
 
 	if(!rouny_icon)
 		to_chat(usr, span_notice("Sorry, but rouny skin is currently unavailable for this caste."))
@@ -93,9 +95,11 @@
 		balloon_alert(src, "Your caste does not have the ability to change appearance.")
 		return
 
+	#ifndef TESTING
 	if(SSdiscord.get_boosty_tier(ckey) < BOOSTY_TIER_2)
 		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
 		return
+	#endif
 
 	var/datum/xenomorph_skin/selection
 	var/list/available_skins = list() // we do a list of names instead of datums
@@ -206,7 +210,7 @@
 	if(xeno_caste.plasma_max > 0)
 		. += "Plasma: [plasma_stored]/[xeno_caste.plasma_max]"
 
-	. += "Sunder: [100-sunder]% armor left"
+	. += "Armor: [100-sunder]%"
 
 	. += "Regeneration power: [max(regen_power * 100, 0)]%"
 

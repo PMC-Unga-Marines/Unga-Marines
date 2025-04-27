@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/revolver
 	icon = 'icons/obj/items/gun/pistol.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
 	)
@@ -455,7 +455,7 @@
 	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "coltrifle"
 	worn_icon_state = "coltrifle"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
@@ -508,7 +508,7 @@
 	desc = "The R-500 'Nigredo' revolver, chambered in .500 Nigro Express. Hard to use, but hits as hard as it’s kicks your hand. This handgun made by BMSS, designed to be deadly, unholy force to stop everything what moves, so in exchange for it, revolver lacking recoil control and have tight cocking system. Because of its specific, handcanon niche, was produced in small numbers. Black & Metzer special attachments system can turn extremely powerful handgun to fullscale rifle, making it a weapon to surpass Metal Gear."
 	icon = 'icons/obj/items/gun/pistol64.dmi'
 	icon_state = "t500"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
 	)
@@ -568,7 +568,7 @@
 	icon = 'icons/obj/items/gun/pistol64.dmi'
 	icon_state = "t312"
 	worn_icon_state = "t312"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
 	)

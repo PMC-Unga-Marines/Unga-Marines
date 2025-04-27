@@ -7,7 +7,7 @@
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "spike"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
@@ -29,7 +29,7 @@
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "wrist"
 	worn_icon_state = "wristblade"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)

@@ -2165,7 +2165,7 @@
 /turf/open/floor/mainship/cargo/arrow,
 /area/magmoor/engi)
 "bwo" = (
-/obj/structure/computerframe,
+/obj/effect/spawner/random/machinery/random_broken_computer/intel,
 /turf/open/floor/mainship/purple{
 	dir = 1
 	},
@@ -3641,7 +3641,7 @@
 /turf/open/floor/tile/purple/taupepurple,
 /area/magmoor/civilian/jani)
 "cxq" = (
-/obj/structure/prop/vehicle/crane/cranecargo/destructible{
+/obj/structure/prop/vehicle/crane/cranecargo{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -6223,7 +6223,7 @@
 /turf/open/floor/tile/red/full,
 /area/magmoor/security/infocenter)
 "erJ" = (
-/obj/structure/table/mainship,
+/obj/effect/spawner/random/machinery/random_broken_computer/intel,
 /turf/open/floor/wood,
 /area/magmoor/medical/cmo)
 "erS" = (
@@ -7020,7 +7020,7 @@
 	},
 /area/magmoor/medical/chemistry)
 "eQR" = (
-/obj/machinery/photocopier,
+/obj/effect/spawner/random/machinery/random_broken_computer/intel,
 /turf/open/floor/mainship/blue{
 	dir = 5
 	},
@@ -8482,10 +8482,10 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/machinery/computer/intel_computer,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/spawner/random/machinery/random_broken_computer/intel,
 /turf/open/floor/tile/dark/red2{
 	dir = 1
 	},
@@ -18861,8 +18861,7 @@
 	},
 /area/magmoor/security/infocenter)
 "nFZ" = (
-/obj/structure/table/mainship,
-/obj/machinery/prop/computer/PC,
+/obj/effect/spawner/random/machinery/random_broken_computer/intel,
 /turf/open/floor/mainship/orange{
 	dir = 1
 	},
@@ -20004,6 +20003,12 @@
 	dir = 1
 	},
 /area/magmoor/compound)
+"oyj" = (
+/obj/effect/spawner/random/machinery/random_broken_computer/intel,
+/turf/open/floor/mainship/green{
+	dir = 4
+	},
+/area/magmoor/hydroponics/north)
 "oyq" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
@@ -27538,6 +27543,10 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/magmoor/mining/garage)
+"tNI" = (
+/obj/effect/spawner/random/machinery/random_broken_computer/intel,
+/turf/open/floor/freezer,
+/area/magmoor/civilian/bar)
 "tNJ" = (
 /turf/open/floor/mainship/blue{
 	dir = 1
@@ -31104,8 +31113,7 @@
 /turf/open/floor/tile/red,
 /area/magmoor/security/storage)
 "woV" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/donut_box,
+/obj/effect/spawner/random/machinery/random_broken_computer/intel,
 /turf/open/floor/tile/cmo,
 /area/magmoor/security/infocenter)
 "wpg" = (
@@ -32925,8 +32933,7 @@
 /turf/open/floor/plating,
 /area/magmoor/medical/surgery)
 "xuP" = (
-/obj/machinery/computer/station_alert,
-/obj/structure/table/mainship,
+/obj/effect/spawner/random/machinery/random_broken_computer/intel,
 /turf/open/floor/mainship/orange{
 	dir = 1
 	},
@@ -33575,7 +33582,7 @@
 /turf/open/floor/wood,
 /area/magmoor/civilian/dorms)
 "xQQ" = (
-/obj/structure/prop/vehicle/truck/destructible{
+/obj/structure/prop/vehicle/truck{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete/lines,
@@ -43193,7 +43200,7 @@ tky
 ybU
 dff
 llg
-cbr
+oyj
 csb
 tDx
 jMC
@@ -51379,7 +51386,7 @@ ghS
 nKk
 jZu
 ohT
-gYJ
+tNI
 hkb
 gYJ
 vsV

@@ -315,14 +315,16 @@ GLOBAL_PROTECT(exp_specialmap)
 					new_backpack = new /obj/item/storage/backpack/marine(src)
 				if(BACK_SATCHEL)
 					new_backpack = new /obj/item/storage/backpack/marine/satchel(src)
-				if(BACK_GREEN_SATCHEL) // RUTGMC ADDITION START
+				if(BACK_GREEN_SATCHEL)
 					new_backpack = new /obj/item/storage/backpack/marine/satchel/green(src)
 				if(BACK_MOLLE_BACKPACK)
 					new_backpack = new /obj/item/storage/backpack/marine/standard/molle(src)
 				if(BACK_MOLLE_SATCHEL)
 					new_backpack = new /obj/item/storage/backpack/marine/satchel/molle(src)
 				if(BACK_SCAV_BACKPACK)
-					new_backpack = new /obj/item/storage/backpack/marine/standard/scav(src) // RUTGMC ADDITION END
+					new_backpack = new /obj/item/storage/backpack/marine/standard/scav(src)
+				if(BACK_DUFFELBAG)
+					new_backpack = new /obj/item/storage/backpack/marine/duffelbag(src)
 			equip_to_slot_or_del(new_backpack, SLOT_BACK)
 
 		job.outfit.handle_id(src, player)
@@ -337,9 +339,11 @@ GLOBAL_PROTECT(exp_specialmap)
 			job.gear_preset_whitelist[job_whitelist].equip(src, override_client = player)
 		else
 			equip_role_outfit(job)
-
+			
+	#ifndef TESTING
 	if(SSdiscord.get_boosty_tier(player?.ckey) >= BOOSTY_TIER_2)
 		equip_to_slot_or_del(new /obj/item/facepaint/premium, SLOT_IN_BACKPACK)
+	#endif
 
 	if((job.job_flags & JOB_FLAG_ALLOWS_PREFS_GEAR) && player)
 		equip_preference_gear(player)

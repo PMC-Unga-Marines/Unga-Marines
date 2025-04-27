@@ -1,6 +1,6 @@
 /obj/item/toy
 	icon = 'icons/obj/items/toy.dmi'
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/items/toys_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items/toys_right.dmi',
 	)
@@ -104,7 +104,7 @@
 	desc = "Blink.  Blink.  Blink. Ages 8 and up."
 	icon = 'icons/obj/items/radio.dmi'
 	icon_state = "beacon"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/tools_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/tools_right.dmi',
 	)
@@ -407,8 +407,12 @@
 	w_class = WEIGHT_CLASS_TINY
 	icon_state = "debug"
 	attack_verb = list("thumps", "whomps", "bumps")
+	/// What was the last time we touch it?
 	var/last_hug_time
+	/// What sound should we play as squeak?
 	var/squeak_sound = 'sound/items/dollsqueak.ogg'
+	/// How loud is the squeak?
+	var/squeak_volume = 50
 
 /obj/item/toy/plush/attack_self(mob/user)
 	if(world.time > last_hug_time)
@@ -419,7 +423,7 @@
 
 /obj/item/toy/plush/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, squeak_sound, 50)
+	AddComponent(/datum/component/squeak, squeak_sound, squeak_volume)
 
 /obj/item/toy/plush/farwa
 	name = "Farwa plush doll"
@@ -504,6 +508,27 @@
 	icon_state = "rounyplush"
 	worn_icon_state = "rounyplush"
 	attack_verb = list("slashes", "bites", "pounces")
+
+/obj/item/toy/plush/witch
+	name = "witch plushie"
+	desc = "A plushie depicting an adorable witch. It likes to steal books."
+	icon_state = "marisa"
+	worn_icon_state = "marisa"
+
+/obj/item/toy/plush/fairy
+	name = "fairy plushie"
+	desc = "A plushie depicting an adorable fairy. It's cold to the touch."
+	icon_state = "cirno"
+	worn_icon_state = "cirno"
+
+/obj/item/toy/plush/royalqueen
+	name = "royal queen plushie"
+	desc = "A plushie depicting a royal xenomorph queen. Smells faintly of stardust and baguettes, with a tag that has Wee! written on it."
+	icon_state = "queenplushie"
+	worn_icon_state = "queenplushie"
+	attack_verb = list("nuzzles", "bops", "pats")
+	squeak_sound = 'sound/items/wee.ogg'
+	squeak_volume = 20
 
 /obj/item/toy/plush/gnome
 	name = "gnome"

@@ -129,8 +129,8 @@
 			data["windowflashing"] = windowflashing
 			data["auto_fit_viewport"] = auto_fit_viewport
 			data["mute_xeno_health_alert_messages"] = mute_xeno_health_alert_messages
+			data["accessible_tgui_themes"] = accessible_tgui_themes
 			data["tgui_fancy"] = tgui_fancy
-			data["tgui_lock"] = tgui_lock
 			data["tgui_input"] = tgui_input
 			data["tgui_input_big_buttons"] = tgui_input_big_buttons
 			data["tgui_input_buttons_swap"] = tgui_input_buttons_swap
@@ -751,6 +751,9 @@
 
 		if("mute_xeno_health_alert_messages")
 			mute_xeno_health_alert_messages = !mute_xeno_health_alert_messages
+
+		if("accessible_tgui_themes")
+			accessible_tgui_themes = !accessible_tgui_themes
 
 		if("tgui_fancy")
 			tgui_fancy = !tgui_fancy

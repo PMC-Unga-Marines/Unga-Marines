@@ -59,7 +59,6 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	var/pred_additional_max = 0
 	var/pred_leader_count = 0 //How many Leader preds are active
 	var/pred_leader_max = 1 //How many Leader preds are permitted. Currently fixed to 1. May add admin verb to adjust this later.
-	var/quickbuild_points_flags = NONE
 
 //Distress call variables.
 	var/list/datum/emergency_call/all_calls = list() //initialized at round start and stores the datums.
@@ -300,6 +299,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 /datum/game_mode/proc/grant_eord_respawn(datum/dcs, mob/source)
 	SIGNAL_HANDLER
 	add_verb(source, /mob/proc/eord_respawn)
+	add_verb(source, /mob/proc/eord_xeno_respawn)
 
 /datum/game_mode/proc/end_of_round_deathmatch()
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGIN, PROC_REF(grant_eord_respawn)) // New mobs can now respawn into EORD
@@ -314,6 +314,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	for(var/i in GLOB.player_list)
 		var/mob/M = i
 		add_verb(M, /mob/proc/eord_respawn)
+		add_verb(M, /mob/proc/eord_xeno_respawn)
 		if(isnewplayer(M))
 			continue
 		if(!(M.client?.prefs?.be_special & BE_DEATHMATCH))
@@ -342,8 +343,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 
 		if(isxeno(M))
 			var/mob/living/carbon/xenomorph/X = M
-			X.transfer_to_hive(pick(XENO_HIVE_NORMAL, XENO_HIVE_CORRUPTED, XENO_HIVE_ALPHA, XENO_HIVE_BETA, XENO_HIVE_ZETA))
-			INVOKE_ASYNC(X, TYPE_PROC_REF(/atom/movable, forceMove), picked)
+			do_xeno_eord_respawn(X)
 
 		else if(ishuman(M))
 			var/mob/living/carbon/human/H = M
@@ -501,6 +501,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.points_from_research] requisitions points gained from research."
 	if(GLOB.round_statistics.points_from_xenos)
 		parts += "[GLOB.round_statistics.points_from_xenos] requisitions points gained from xenomorph sales."
+	if(GLOB.round_statistics.runner_items_stolen)
+		parts += "[GLOB.round_statistics.runner_items_stolen] items stolen by runners."
 
 	if(length(GLOB.round_statistics.req_items_produced))
 		parts += ""  // make it special from other stats above

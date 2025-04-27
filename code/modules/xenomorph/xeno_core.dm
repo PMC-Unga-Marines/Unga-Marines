@@ -63,7 +63,7 @@
 	COOLDOWN_START(src, proxy_alert_cooldown, XENO_SILO_DETECTION_COOLDOWN) //set the cooldown.
 	addtimer(CALLBACK(src, PROC_REF(clear_warning)), XENO_SILO_DETECTION_COOLDOWN) //clear warning
 
-/obj/structure/xeno/core/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
+/obj/structure/xeno/core/take_damage(damage_amount, damage_type, damage_flag, effects = TRUE, attack_dir, armour_penetration, mob/living/blame_mob)
 	. = ..()
 
 	//We took damage, so it's time to start regenerating if we're not already processing

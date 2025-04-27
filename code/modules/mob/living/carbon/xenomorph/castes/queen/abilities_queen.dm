@@ -146,6 +146,8 @@
 
 /datum/action/ability/activable/xeno/plasma_screech/use_ability(atom/A)
 	for(var/mob/living/carbon/xenomorph/affected_xeno in cheap_get_xenos_near(xeno_owner, screech_range))
+		if(affected_xeno == xeno_owner)
+			continue
 		if(!(affected_xeno.xeno_caste.can_flags & CASTE_CAN_BE_GIVEN_PLASMA))
 			continue
 		affected_xeno.apply_status_effect(/datum/status_effect/plasma_surge, affected_xeno.xeno_caste.plasma_max / 3, bonus_regen, duration)
@@ -180,6 +182,8 @@
 
 /datum/action/ability/activable/xeno/frenzy_screech/use_ability(atom/A)
 	for(var/mob/living/carbon/xenomorph/affected_xeno in cheap_get_xenos_near(xeno_owner, screech_range))
+		if(affected_xeno == xeno_owner)
+			continue
 		affected_xeno.apply_status_effect(/datum/status_effect/frenzy_screech, buff_duration, buff_damage_modifier)
 
 	playsound(xeno_owner.loc, 'sound/voice/alien/queen/screech_frenzy.ogg', 75, 0)

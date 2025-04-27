@@ -13,7 +13,6 @@
 	tier = XENO_TIER_TWO
 	upgrade = XENO_UPGRADE_NORMAL
 	pixel_x = -16
-	old_x = -16
 	bubble_icon = "alien"
 	gib_chance = 0
 	inherent_verbs = list(
@@ -61,6 +60,3 @@
 	if(prob(44.81))
 		new /obj/item/reagent_containers/food/drinks/pantherheart(loc)
 		gib()
-
-/mob/living/carbon/xenomorph/panther/set_frenzy_aura(new_aura)
-	return

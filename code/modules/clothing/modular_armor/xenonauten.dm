@@ -6,7 +6,7 @@
 	icon_state = "chest"
 	worn_icon_state = "chest"
 	icon = null
-	worn_icon_lists = list(slot_wear_suit_str = 'icons/mob/modular/modular_armor.dmi')
+	worn_icon_list = list(slot_wear_suit_str = 'icons/mob/modular/modular_armor.dmi')
 	soft_armor = MARINE_ARMOR_MEDIUM
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 
@@ -201,7 +201,7 @@
 	armor_protection_flags = CHEST|GROIN
 	icon = 'icons/mob/clothing/suits/marine_armor.dmi'
 	icon_state = "ballistic_vest"
-	worn_icon_lists = list(
+	worn_icon_list = list(
 		slot_wear_suit_str = 'icons/mob/clothing/suits/marine_armor.dmi'
 	)
 	equip_delay_self = 2 SECONDS

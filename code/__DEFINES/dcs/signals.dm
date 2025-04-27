@@ -282,8 +282,14 @@
 #define COMSIG_MOVABLE_BUCKLE "buckle"							//from base of atom/movable/buckle_mob(): (mob, force)
 	#define COMPONENT_MOVABLE_BUCKLE_STOPPED (1<<0)
 #define COMSIG_MOVABLE_UNBUCKLE "unbuckle"						//from base of atom/movable/unbuckle_mob(): (mob, force)
+///from /obj/vehicle/add_control_flags
+#define COMSIG_VEHICLE_GRANT_CONTROL_FLAG "vehicle_grant_control_flag"
+///from /obj/vehicle/remove_control_flags
+#define COMSIG_VEHICLE_REVOKE_CONTROL_FLAG "vehicle_revoke_control_flag"
 ///from /obj/vehicle/sealed/proc/driver_move
 #define COMSIG_VEHICLE_MOVE "vehicle_move"
+///From obj/hitbox/owner_turned
+#define  COMSIG_MULTITILE_VEHICLE_ROTATED "multitile_vehicle_rotated"
 ///from /obj/vehicle/proc/driver_move, caught by the riding component to check and execute the driver trying to drive the vehicle
 #define COMSIG_RIDDEN_DRIVER_MOVE "driver_move"
 	#define COMPONENT_DRIVER_BLOCK_MOVE (1<<0)
@@ -392,7 +398,8 @@
 	#define COMPONENT_CLOTHING_MECHANICS_TINTED (1<<0)
 	#define COMPONENT_CLOTHING_BLUR_PROTECTION (1<<1)
 
-#define COMSIG_ITEM_UNDEPLOY "item_undeploy" //from base of /obj/machinery/deployable
+#define COMSIG_ITEM_DEPLOY "item_deploy" //From /obj/proc/do_deploy
+#define COMSIG_ITEM_UNDEPLOY "item_undeploy" //from /obj/proc/disassemble
 
 ///from base of obj/item/quick_equip(): (mob/user)
 #define COMSIG_ITEM_QUICK_EQUIP "item_quick_equip"

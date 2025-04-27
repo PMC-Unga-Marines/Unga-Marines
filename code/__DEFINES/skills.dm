@@ -107,7 +107,7 @@
 ///Disarm chance mod from CQC skill
 #define CQC_SKILL_DISARM_MOD 5
 
-///Powerloader skill; movespeed when using a powerloader (broken currently)
+///Powerloader skill; movespeed when using a powerloader
 
 #define SKILL_POWERLOADER "powerloader"
 
