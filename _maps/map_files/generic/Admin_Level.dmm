@@ -860,7 +860,7 @@
 /area/centcom/valhalla)
 "knX" = (
 /obj/effect/landmark/valhalla/marine_spawner_landmark{
-	spawn_link = "top"
+	spawn_link = "marinetop"
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
@@ -1935,7 +1935,7 @@
 /area/centcom/valhalla)
 "wPz" = (
 /obj/effect/landmark/valhalla/marine_spawner_landmark{
-	spawn_link = "right"
+	spawn_link = "marineright"
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
@@ -1989,7 +1989,7 @@
 /area/centcom/valhalla)
 "xte" = (
 /obj/effect/landmark/valhalla/marine_spawner_landmark{
-	spawn_link = "left"
+	spawn_link = "marineleft"
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
