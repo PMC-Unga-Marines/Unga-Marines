@@ -76,6 +76,7 @@
 			/obj/item/ammo_magazine/agls37/tanglefoot = -1,
 			/obj/structure/largecrate/supply/weapons/fk88 = -1,
 			/obj/item/ammo_magazine/fk88/he = -1,
+			/obj/item/ammo_magazine/fk88/he/unguided = -1,
 			/obj/item/ammo_magazine/fk88/sabot = -1,
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/heavy_laser/deployable = -1,
 			/obj/item/cell/lasgun/heavy_laser = -1,

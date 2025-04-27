@@ -39,13 +39,14 @@
 	contains = list(/obj/item/minerupgrade/overclock)
 	cost = 50
 
-/datum/supply_packs/operations/binoculars_tatical
+/datum/supply_packs/operations/binoculars_tactical
 	name = "Tactical binoculars crate"
 	contains = list(
 		/obj/item/binoculars/tactical,
 		/obj/item/encryptionkey/cas,
 	)
 	cost = 300
+	crash_restricted = TRUE
 
 /datum/supply_packs/operations/bincoulars_rangefinder
 	name = "Rangefinding Binoculars"
@@ -59,6 +60,7 @@
 	name = "Xeno structure tracker crate"
 	contains = list(/obj/item/pinpointer)
 	cost = 200
+	crash_restricted = TRUE
 
 /datum/supply_packs/operations/xeno_iff_tag
 	name = "Xenomorph IFF tag crate" //Intended for corrupted or friendly rounies as rounds sometimes turn out. Avoid abuse or I'll have to admin-only it, which is no fun!
@@ -81,33 +83,30 @@
 	contains = list(/obj/machinery/exportpad)
 	cost = 300
 
-/datum/supply_packs/operations/warhead_cluster
+/datum/supply_packs/operations/warhead
+	access = ACCESS_MARINE_ENGINEERING
+	containertype = /obj/structure/closet/crate/secure/explosives
+	crash_restricted = TRUE
+
+/datum/supply_packs/operations/warhead/cluster
 	name = "Cluster orbital warhead"
 	contains = list(/obj/structure/ob_ammo/warhead/cluster)
 	cost = 200
-	access = ACCESS_MARINE_ENGINEERING
-	containertype = /obj/structure/closet/crate/secure/explosives
 
-/datum/supply_packs/operations/warhead_explosive
+/datum/supply_packs/operations/warhead/explosive
 	name = "HE orbital warhead"
 	contains = list(/obj/structure/ob_ammo/warhead/explosive)
 	cost = 300
-	access = ACCESS_MARINE_ENGINEERING
-	containertype = /obj/structure/closet/crate/secure/explosives
 
-/datum/supply_packs/operations/warhead_incendiary
+/datum/supply_packs/operations/warhead/incendiary
 	name = "Incendiary orbital warhead"
 	contains = list(/obj/structure/ob_ammo/warhead/incendiary)
 	cost = 200
-	access = ACCESS_MARINE_ENGINEERING
-	containertype = /obj/structure/closet/crate/secure/explosives
 
-/datum/supply_packs/operations/warhead_plasmaloss
+/datum/supply_packs/operations/warhead/plasmaloss
 	name = "Plasma draining orbital warhead"
 	contains = list(/obj/structure/ob_ammo/warhead/plasmaloss)
 	cost = 150
-	access = ACCESS_MARINE_ENGINEERING
-	containertype = /obj/structure/closet/crate/secure/explosives
 
 /datum/supply_packs/operations/ob_fuel
 	name = "Solid fuel"
@@ -115,18 +114,21 @@
 	cost = 50
 	access = ACCESS_MARINE_ENGINEERING
 	containertype = /obj/structure/closet/crate/secure/explosives
+	crash_restricted = TRUE
 
 /datum/supply_packs/operations/droppod
 	name = "drop pod"
 	contains = list(/obj/structure/droppod)
 	containertype = null
 	cost = 50
+	crash_restricted = TRUE
 
 /datum/supply_packs/operations/droppod_leader
 	name = "leader drop pod"
 	contains = list(/obj/structure/droppod/leader)
 	containertype = null
 	cost = 100
+	crash_restricted = TRUE
 
 /datum/supply_packs/operations/researchcomp
 	name = "Research console"

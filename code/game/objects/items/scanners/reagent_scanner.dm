@@ -2,6 +2,7 @@
 	name = "reagent scanner"
 	desc = "A hand-held reagent scanner which identifies chemical agents."
 	icon_state = "spectrometer"
+	icon = 'icons/obj/device.dmi'
 	worn_icon_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = CONDUCT

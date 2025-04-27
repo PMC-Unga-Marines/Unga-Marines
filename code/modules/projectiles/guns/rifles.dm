@@ -336,8 +336,8 @@
 	worn_icon_state = "t64"
 	icon = 'icons/obj/items/gun/marksman64.dmi'
 	worn_icon_list = list(
-		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_64.dmi',
 	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
@@ -1032,7 +1032,7 @@
 	icon = 'icons/obj/items/gun/machinegun64.dmi'
 	icon_state = "t60"
 	worn_icon_state = "t60"
-	fire_animation = "loaded_fire"
+	fire_animation = "t60_fire"
 	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_64.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_64.dmi',
