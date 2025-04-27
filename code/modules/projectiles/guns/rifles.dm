@@ -47,8 +47,6 @@
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/ar18,
 		/obj/item/ammo_magazine/rifle/ar18/ap,
-		/obj/item/ammo_magazine/rifle/ar18/hp,
-		/obj/item/ammo_magazine/rifle/ar18/incendiary,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/stock/ar18stock,
@@ -138,8 +136,6 @@
 	default_ammo_type = /obj/item/ammo_magazine/rifle/ar12
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/ar12,
-		/obj/item/ammo_magazine/rifle/ar12/ap,
-		/obj/item/ammo_magazine/rifle/ar12/hp,
 		/obj/item/ammo_magazine/rifle/ar12/incendiary,
 	)
 	attachable_allowed = list(
@@ -359,7 +355,6 @@
 	default_ammo_type = /obj/item/ammo_magazine/rifle/br64
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/br64,
-		/obj/item/ammo_magazine/rifle/br64/ap,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/stock/br64stock,
@@ -1193,8 +1188,6 @@
 	default_ammo_type = /obj/item/ammo_magazine/rifle/type71
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/type71,
-		/obj/item/ammo_magazine/rifle/type71/ap,
-		/obj/item/ammo_magazine/rifle/type71/hp,
 	)
 	aim_slowdown = 0.6
 	wield_delay = 0.9 SECONDS
@@ -1787,9 +1780,6 @@
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/ar21,
 		/obj/item/ammo_magazine/rifle/ar21/extended,
-		/obj/item/ammo_magazine/rifle/ar21/ap,
-		/obj/item/ammo_magazine/rifle/ar21/hp,
-		/obj/item/ammo_magazine/rifle/ar21/incendiary,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/reddot,
@@ -2041,8 +2031,6 @@
 	default_ammo_type = /obj/item/ammo_magazine/rifle/ar12
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/rifle/ar12,
-		/obj/item/ammo_magazine/rifle/ar12/ap,
-		/obj/item/ammo_magazine/rifle/ar12/hp,
 		/obj/item/ammo_magazine/rifle/ar12/incendiary,
 	)
 	attachable_allowed = list(
