@@ -1,65 +1,3 @@
-/*
-Mineral Sheets
-	Contains:
-		- Sandstone
-		- Diamond
-		- Uranium
-		- Phoron
-		- Gold
-		- Silver
-		- Enriched Uranium
-		- Platinum
-		- Metallic Hydrogen
-		- Tritium
-		- Osmium
-*/
-
-GLOBAL_LIST_INIT(sandstone_recipes, list ( \
-	new/datum/stack_recipe("pile of dirt", /obj/prop/hydroponics/soil, 3, time = 1 SECONDS, max_per_turf = STACK_RECIPE_ONE_PER_TILE, on_floor = TRUE), \
-	new/datum/stack_recipe("sandstone door", /obj/structure/mineral_door/sandstone, 10, max_per_turf = STACK_RECIPE_ONE_PER_TILE, on_floor = TRUE), \
-	))
-
-GLOBAL_LIST_INIT(silver_recipes, list ( \
-	new/datum/stack_recipe("silver door", /obj/structure/mineral_door/silver, 10, max_per_turf = STACK_RECIPE_ONE_PER_TILE, on_floor = TRUE), \
-	))
-
-GLOBAL_LIST_INIT(diamond_recipes, list ( \
-	new/datum/stack_recipe("diamond door", /obj/structure/mineral_door/transparent/diamond, 10, max_per_turf = STACK_RECIPE_ONE_PER_TILE, on_floor = TRUE), \
-	))
-
-GLOBAL_LIST_INIT(uranium_recipes, list ( \
-	new/datum/stack_recipe("uranium door", /obj/structure/mineral_door/uranium, 10, max_per_turf = STACK_RECIPE_ONE_PER_TILE, on_floor = TRUE), \
-	))
-
-GLOBAL_LIST_INIT(gold_recipes, list ( \
-	new/datum/stack_recipe("golden door", /obj/structure/mineral_door/gold, 10, max_per_turf = STACK_RECIPE_ONE_PER_TILE, on_floor = TRUE), \
-	))
-
-GLOBAL_LIST_INIT(phoron_recipes, list ( \
-	new/datum/stack_recipe("phoron door", /obj/structure/mineral_door/transparent/phoron, 10, max_per_turf = STACK_RECIPE_ONE_PER_TILE, on_floor = TRUE), \
-	))
-
-GLOBAL_LIST_INIT(plastic_recipes, list ( \
-	new/datum/stack_recipe("plastic crate", /obj/structure/closet/crate/plastic, 10, max_per_turf = STACK_RECIPE_ONE_PER_TILE, on_floor = TRUE), \
-	new/datum/stack_recipe("plastic ashtray", /obj/item/ashtray/plastic, 2, max_per_turf = STACK_RECIPE_ONE_PER_TILE, on_floor = TRUE), \
-	new/datum/stack_recipe("plastic fork", /obj/item/tool/kitchen/utensil/pfork, 1, on_floor = 1), \
-	new/datum/stack_recipe("plastic spoon", /obj/item/tool/kitchen/utensil/pspoon, 1, on_floor = 1), \
-	new/datum/stack_recipe("plastic knife", /obj/item/tool/kitchen/utensil/pknife, 1, on_floor = 1), \
-	new/datum/stack_recipe("plastic bag", /obj/item/storage/bag/plasticbag, 3, on_floor = 1), \
-	))
-
-GLOBAL_LIST_INIT(iron_recipes, list ( \
-	new/datum/stack_recipe("iron door", /obj/structure/mineral_door/iron, 20, max_per_turf = STACK_RECIPE_ONE_PER_TILE, on_floor = TRUE), \
-	null, \
-	))
-
-GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
-	new/datum/stack_recipe("brazier frame", /obj/structure/prop/brazier/frame, req_amount = 5, time = 3 SECONDS, max_per_turf = STACK_RECIPE_ONE_DIRECTIONAL_PER_TILE, on_floor = TRUE, skill_req = SKILL_CONSTRUCTION_MASTER), \
-	new/datum/stack_recipe("torch frame", /obj/item/frame/torch_frame, req_amount = 3, time = 2 SECONDS, skill_req = SKILL_CONSTRUCTION_MASTER), \
-	new/datum/stack_recipe("sandstone floor tile", /obj/item/stack/tile/plasteel/sandstone/runed, 1, 4, 20), \
-	new/datum/stack_recipe("sandstone wall", /turf/closed/wall/mineral/sandstone/runed, req_amount = 15, time = 10 SECONDS, max_per_turf = STACK_RECIPE_ONE_DIRECTIONAL_PER_TILE, on_floor = TRUE, skill_req = SKILL_CONSTRUCTION_MASTER),
-))
-
 /obj/item/stack/sheet/mineral
 	force = 5
 	throwforce = 5
@@ -81,9 +19,14 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	color = "#333333"
 	perunit = 3750
 
-/obj/item/stack/sheet/mineral/iron/Initialize(mapload)
+/obj/item/stack/sheet/mineral/iron/get_main_recipes()
 	. = ..()
-	recipes = GLOB.iron_recipes
+	. += GLOB.iron_recipes
+
+GLOBAL_LIST_INIT(iron_recipes, list ( \
+	new/datum/stack_recipe("iron door", /obj/structure/mineral_door/iron, 20, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	null, \
+	))
 
 /obj/item/stack/sheet/mineral/sandstone
 	name = "sandstone brick"
@@ -94,18 +37,29 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	throw_range = 5
 	sheettype = "sandstone"
 
+GLOBAL_LIST_INIT(sandstone_recipes, list ( \
+	new/datum/stack_recipe("pile of dirt", /obj/prop/hydroponics/soil, 3, time = 1 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("sandstone door", /obj/structure/mineral_door/sandstone, 10, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	))
 
-/obj/item/stack/sheet/mineral/sandstone/Initialize(mapload)
+/obj/item/stack/sheet/mineral/sandstone/get_main_recipes()
 	. = ..()
-	recipes = GLOB.sandstone_recipes
+	. += GLOB.sandstone_recipes
 
 /obj/item/stack/sheet/mineral/sandstone/runed
 	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "sheet-runedsandstone"
 
-/obj/item/stack/sheet/mineral/sandstone/runed/Initialize(mapload)
+GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
+	new/datum/stack_recipe("brazier frame", /obj/structure/prop/brazier/frame, req_amount = 5, time = 3 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_EXPERT), \
+	new/datum/stack_recipe("torch frame", /obj/item/frame/torch_frame, req_amount = 3, time = 2 SECONDS, skill_req = SKILL_CONSTRUCTION_EXPERT), \
+	new/datum/stack_recipe("sandstone floor tile", /obj/item/stack/tile/plasteel/sandstone/runed, req_amount = 1, res_amount = 4, time = 2 SECONDS), \
+	new/datum/stack_recipe("sandstone wall", /turf/closed/wall/mineral/sandstone/runed, req_amount = 15, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_EXPERT),
+))
+
+/obj/item/stack/sheet/mineral/sandstone/runed/get_main_recipes()
 	. = ..()
-	recipes = GLOB.runedsandstone_recipes
+	. += GLOB.runedsandstone_recipes
 
 /obj/item/stack/sheet/mineral/diamond
 	name = "diamond"
@@ -116,12 +70,16 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	sheettype = "diamond"
 	merge_type = /obj/item/stack/sheet/mineral/diamond
 
+GLOBAL_LIST_INIT(diamond_recipes, list ( \
+	new/datum/stack_recipe("diamond door", /obj/structure/mineral_door/transparent/diamond, 10, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	))
+
+/obj/item/stack/sheet/mineral/diamond/get_main_recipes()
+	. = ..()
+	. += GLOB.diamond_recipes
+
 /obj/item/stack/sheet/mineral/diamond/large_stack
 	amount = 50
-
-/obj/item/stack/sheet/mineral/diamond/Initialize(mapload)
-	. = ..()
-	recipes = GLOB.diamond_recipes
 
 /obj/item/stack/sheet/mineral/uranium
 	name = "uranium"
@@ -132,12 +90,16 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	sheettype = "uranium"
 	merge_type = /obj/item/stack/sheet/mineral/uranium
 
+GLOBAL_LIST_INIT(uranium_recipes, list ( \
+	new/datum/stack_recipe("uranium door", /obj/structure/mineral_door/uranium, 10, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	))
+
+/obj/item/stack/sheet/mineral/uranium/get_main_recipes()
+	. = ..()
+	. += GLOB.uranium_recipes
+
 /obj/item/stack/sheet/mineral/uranium/large_stack
 	amount = 50
-
-/obj/item/stack/sheet/mineral/uranium/Initialize(mapload)
-	. = ..()
-	recipes = GLOB.uranium_recipes
 
 /obj/item/stack/sheet/mineral/phoron
 	name = "solid phoron"
@@ -148,14 +110,19 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	sheettype = "phoron"
 	merge_type = /obj/item/stack/sheet/mineral/phoron
 
+GLOBAL_LIST_INIT(phoron_recipes, list ( \
+	new/datum/stack_recipe("phoron door", /obj/structure/mineral_door/transparent/phoron, 10, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	))
+
+/obj/item/stack/sheet/mineral/phoron/get_main_recipes()
+	. = ..()
+	. += GLOB.phoron_recipes
 
 /obj/item/stack/sheet/mineral/phoron/small_stack
 	amount = 10
 
-
 /obj/item/stack/sheet/mineral/phoron/medium_stack
 	amount = 30
-
 
 /obj/item/stack/sheet/mineral/plastic
 	name = "Plastic"
@@ -165,19 +132,21 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/mineral/plastic
 	perunit = 2000
 
+GLOBAL_LIST_INIT(plastic_recipes, list ( \
+	new/datum/stack_recipe("plastic crate", /obj/structure/closet/crate/plastic, 10, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("plastic ashtray", /obj/item/ashtray/plastic, 2, crafting_flags = CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("plastic fork", /obj/item/tool/kitchen/utensil/pfork, 1, crafting_flags = CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("plastic spoon", /obj/item/tool/kitchen/utensil/pspoon, 1, crafting_flags = CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("plastic knife", /obj/item/tool/kitchen/utensil/pknife, 1, crafting_flags = CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("plastic bag", /obj/item/storage/bag/plasticbag, 3, crafting_flags = CRAFT_ON_SOLID_GROUND), \
+	))
+
+/obj/item/stack/sheet/mineral/plastic/get_main_recipes()
+	. = ..()
+	. += GLOB.plastic_recipes
+
 /obj/item/stack/sheet/mineral/plastic/large_stack
 	amount = 50
-
-/obj/item/stack/sheet/mineral/plastic/Initialize(mapload)
-	. = ..()
-	recipes = GLOB.plastic_recipes
-
-/obj/item/stack/sheet/mineral/plastic/cyborg
-	name = "plastic sheets"
-	desc = "Plastic is a synthetic polymer, manufactured from organic and inorganic components into a malleable and light fabric. It can be used for a wide range of objects."
-	singular_name = "plastic sheet"
-	icon_state = "sheet-plastic"
-	perunit = 2000
 
 /obj/item/stack/sheet/mineral/gold
 	name = "gold"
@@ -189,12 +158,16 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	number_of_extra_variants = 2
 	merge_type = /obj/item/stack/sheet/mineral/gold
 
+GLOBAL_LIST_INIT(gold_recipes, list ( \
+	new/datum/stack_recipe("golden door", /obj/structure/mineral_door/gold, 10, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	))
+
+/obj/item/stack/sheet/mineral/gold/get_main_recipes()
+	. = ..()
+	. += GLOB.gold_recipes
+
 /obj/item/stack/sheet/mineral/gold/large_stack
 	amount = 50
-
-/obj/item/stack/sheet/mineral/gold/Initialize(mapload)
-	. = ..()
-	recipes = GLOB.gold_recipes
 
 /obj/item/stack/sheet/mineral/silver
 	name = "silver"
@@ -206,13 +179,16 @@ GLOBAL_LIST_INIT(runedsandstone_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/mineral/silver
 	number_of_extra_variants = 2
 
+GLOBAL_LIST_INIT(silver_recipes, list ( \
+	new/datum/stack_recipe("silver door", /obj/structure/mineral_door/silver, 10, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
+	))
+
+/obj/item/stack/sheet/mineral/silver/get_main_recipes()
+	. = ..()
+	. += GLOB.silver_recipes
+
 /obj/item/stack/sheet/mineral/silver/large_stack
 	amount = 50
-
-/obj/item/stack/sheet/mineral/silver/Initialize(mapload)
-	. = ..()
-	recipes = GLOB.silver_recipes
-
 
 //Valuable resource, cargo can sell it.
 /obj/item/stack/sheet/mineral/platinum

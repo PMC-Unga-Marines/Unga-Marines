@@ -25,6 +25,12 @@
 	contains = list(/obj/item/storage/box/visual/grenade/drain/sticky)
 	cost = 300
 
+/datum/supply_packs/explosives/explosives_antigas
+	name = "M40-AG Anti-Gas grenade box crate"
+	notes = "Cotains 25 grenades"
+	contains = list(/obj/item/storage/box/visual/grenade/antigas)
+	cost = 700
+
 /datum/supply_packs/explosives/explosives_sticky
 	name = "M40 adhesive charge grenade box crate"
 	notes = "Contains 25 grenades"
@@ -51,8 +57,14 @@
 
 /datum/supply_packs/explosives/explosives_cloak
 	name = "M40-2 SCDP grenade box crate"
-	notes = "contains 25 grenades"
+	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/cloak)
+	cost = 310
+
+/datum/supply_packs/explosives/explosives_lasburster
+	name = "M80 lasburster grenade box crate"
+	notes = "Contains 25 grenades"
+	contains = list(/obj/item/storage/box/visual/grenade/lasburster)
 	cost = 310
 
 /datum/supply_packs/explosives/explosives_hidp
@@ -78,6 +90,12 @@
 	notes = "Contains 15 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/phosphorus)
 	cost = 700
+
+/datum/supply_packs/explosives/explosives_hefa
+	name = "M25 HEFA grenade box crate"
+	notes = "Contains 25 grenades"
+	contains = list(/obj/item/storage/box/visual/grenade/hefa)
+	cost = 550
 
 /datum/supply_packs/explosives/explosives_plasmadrain
 	name = "M40-T gas grenade box crate"
@@ -155,6 +173,7 @@
 	name = "AI artillery targeting module"
 	contains = list(/obj/item/ai_target_beacon)
 	cost = 50
+	crash_restricted = TRUE
 
 /datum/supply_packs/explosives/knee_mortar
 	name = "T-10K Knee Mortar"

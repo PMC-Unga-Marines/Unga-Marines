@@ -2,7 +2,7 @@
 	name = "Transparent gas mask"
 	desc = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
 	icon_state = "gas_alt"
-	item_state = "gas_alt"
+	worn_icon_state = "gas_alt"
 	inventory_flags = COVERMOUTH | COVEREYES | BLOCKGASEFFECT
 	inv_hide_flags = HIDEEARS|HIDEFACE|HIDELOWHAIR
 	cold_protection_flags = HEAD
@@ -29,8 +29,6 @@
 	for(var/M in get_hearers_in_view(hearing_range, src))
 		if(ismob(M))
 			var/mob/HM = M
-			if(HM?.client?.prefs?.toggles_sound & SOUND_GAS_MASK)
-				continue
 			HM.playsound_local(user, SFX_GASBREATH, 20, 1)
 			TIMER_COOLDOWN_START(src, COOLDOWN_GAS_BREATH, 10 SECONDS)
 
@@ -48,7 +46,7 @@
 	name = "\improper M8 pattern armored balaclava"
 	desc = "An armored balaclava designed to conceal both the identity of the operator and act as an air-filter."
 	icon_state = "pmc_mask"
-	item_state = "helmet"
+	worn_icon_state = "helmet"
 	anti_hug = 3
 	inventory_flags = COVERMOUTH|BLOCKGASEFFECT
 	inv_hide_flags = HIDEEARS|HIDEFACE|HIDEALLHAIR
@@ -72,12 +70,18 @@
 	desc = "A gasmask worn by ICC personnel."
 	icon_state = "icc"
 
+/obj/item/clothing/mask/gas/vsd
+	name = "\improper Vyacheslav armored commando balaclava"
+	desc = "Old balaclava's handed down to V.S.D."
+	inv_hide_flags = HIDEEARS|HIDEFACE|HIDEALLHAIR
+	icon_state = "upp_mask"
+
 //Plague Dr suit can be found in clothing/suits/bio.dm
 /obj/item/clothing/mask/gas/plaguedoctor
 	name = "plague doctor mask"
 	desc = "A modernised version of the classic design, this mask will not only filter out phoron but it can also be connected to an air supply."
 	icon_state = "plaguedoctor"
-	item_state = "gas_mask"
+	worn_icon_state = "gas_mask"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 2, ENERGY = 2, BOMB = 0, BIO = 75, FIRE = 2, ACID = 2)
 	armor_protection_flags = HEAD|FACE
 
@@ -95,6 +99,17 @@
 	update_clothing_icon()
 	playsound(src, 'sound/items/velpro_rip.ogg', 25)
 
+/obj/item/clothing/mask/gas/specops
+	name = "Special Operations gasmask"
+	desc = "A close-fitting tactical mask that can be connected to an air supply. Based off an old design of gas masks."
+	icon = 'icons/mob/clothing/mask.dmi'
+	worn_icon_list = list(
+		slot_wear_suit_str = 'icons/mob/clothing/mask.dmi'
+	)
+	icon_state = "specop"
+	worn_icon_state = "specop"
+	siemens_coefficient = 0.7
+
 /obj/item/clothing/mask/gas/syndicate
 	name = "syndicate mask"
 	desc = "A close-fitting tactical mask that can be connected to an air supply."
@@ -105,35 +120,35 @@
 	name = "ninja mask"
 	desc = "A close-fitting mask that acts both as an air filter and a post-modern fashion statement."
 	icon_state = "s-ninja"
-	item_state = "s-ninja_mask"
+	worn_icon_state = "s-ninja_mask"
 	siemens_coefficient = 0.2
 
 /obj/item/clothing/mask/gas/clown_hat
 	name = "clown wig and mask"
 	desc = "A true prankster's facial attire. A clown is incomplete without his wig and mask."
 	icon_state = "clown"
-	item_state = "clown_hat"
+	worn_icon_state = "clown_hat"
 	breathy = FALSE
 
 /obj/item/clothing/mask/gas/sexyclown
 	name = "sexy-clown wig and mask"
 	desc = "A feminine clown mask for the dabbling crossdressers or female entertainers."
 	icon_state = "sexyclown"
-	item_state = "sexyclown"
+	worn_icon_state = "sexyclown"
 	breathy = FALSE
 
 /obj/item/clothing/mask/gas/mime
 	name = "mime mask"
 	desc = "The traditional mime's mask. It has an eerie facial posture."
 	icon_state = "mime"
-	item_state = "mime"
+	worn_icon_state = "mime"
 	breathy = FALSE
 
 /obj/item/clothing/mask/gas/monkeymask
 	name = "monkey mask"
 	desc = "A mask used when acting as a monkey."
 	icon_state = "monkeymask"
-	item_state = "monkeymask"
+	worn_icon_state = "monkeymask"
 	armor_protection_flags = HEAD|FACE|EYES
 	breathy = FALSE
 
@@ -141,7 +156,7 @@
 	name = "sexy mime mask"
 	desc = "A traditional female mime's mask."
 	icon_state = "sexymime"
-	item_state = "sexymime"
+	worn_icon_state = "sexymime"
 	breathy = FALSE
 
 /obj/item/clothing/mask/gas/cyborg

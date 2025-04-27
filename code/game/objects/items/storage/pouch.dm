@@ -57,7 +57,7 @@
 	name = "general pouch"
 	icon_state = "large_drop"
 
-/obj/item/storage/pouch/general/large/command/Initialize(mapload)
+/obj/item/storage/pouch/general/large/Initialize(mapload)
 	. = ..()
 	storage_datum.storage_slots = null
 	storage_datum.max_storage_space = 6
@@ -446,6 +446,12 @@
 	new /obj/item/explosive/grenade/chem_grenade/razorburn_small(src)
 	new /obj/item/explosive/grenade/chem_grenade/razorburn_large(src)
 
+/obj/item/storage/pouch/explosive/antigas/PopulateContents()
+	new /obj/item/explosive/grenade/smokebomb/antigas(src)
+	new /obj/item/explosive/grenade/smokebomb/antigas(src)
+	new /obj/item/explosive/grenade/smokebomb/antigas(src)
+	new /obj/item/explosive/grenade/smokebomb/antigas(src)
+
 /obj/item/storage/pouch/explosive/upp
 	fill_type = /obj/item/explosive/grenade/upp
 	fill_number = 4
@@ -492,6 +498,18 @@
 	new /obj/item/explosive/grenade/flashbang/stun(src)
 	new /obj/item/explosive/grenade/flashbang/stun(src)
 
+/obj/item/storage/pouch/grenade/standard/PopulateContents()
+	new /obj/item/explosive/grenade(src)
+	new /obj/item/explosive/grenade(src)
+	new /obj/item/explosive/grenade(src)
+	new /obj/item/explosive/grenade/bullet/laser(src)
+	new /obj/item/explosive/grenade/bullet/laser(src)
+	new /obj/item/explosive/grenade/incendiary(src)
+
+/obj/item/storage/pouch/grenade/emp/PopulateContents()
+	for(var/i in 1 to 6)
+		new /obj/item/explosive/grenade/emp(src)
+
 /obj/item/storage/pouch/grenade/som
 	desc = "It can contain grenades. This one looks to be made out of traditional SOM leather."
 	icon_state = "grenade_som"
@@ -515,6 +533,18 @@
 	new /obj/item/explosive/grenade/smokebomb/satrapine(src)
 	new /obj/item/explosive/grenade/som(src)
 	new /obj/item/explosive/grenade/som(src)
+
+/obj/item/storage/pouch/grenade/som/standard/PopulateContents()
+	new /obj/item/explosive/grenade/som(src)
+	new /obj/item/explosive/grenade/som(src)
+	new /obj/item/explosive/grenade/som(src)
+	new /obj/item/explosive/grenade/som(src)
+	new /obj/item/explosive/grenade/incendiary/som(src)
+	new /obj/item/explosive/grenade/incendiary/som(src)
+
+/obj/item/storage/pouch/grenade/som/emp/PopulateContents()
+	for(var/i in 1 to 6)
+		new /obj/item/explosive/grenade/emp(src)
 
 /obj/item/storage/pouch/medkit
 	name = "medkit pouch"
@@ -571,6 +601,7 @@
 	name = "medical injector pouch"
 	desc = "A specialized medical pouch that can only hold auto-injectors."
 	icon_state = "firstaid_injector"
+	
 /obj/item/storage/pouch/medical_injectors/Initialize(mapload, ...)
 	. = ..()
 	storage_datum.sprite_slots = 5
@@ -964,7 +995,7 @@
 	name = "\improper protein pack pouch"
 	desc = "A storage pouch designed to hold a moderate amount of protein packs."
 	icon_state = "p_pouch"
-	item_state = "survival"
+	worn_icon_state = "survival"
 	fill_type = /obj/item/reagent_containers/food/snacks/protein_pack
 	fill_number = 10
 

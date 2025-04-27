@@ -75,6 +75,11 @@
 		new_overlay.pixel_x = -32
 		. += new_overlay
 
+/obj/structure/platform/nondense
+	density = FALSE
+	climbable = FALSE
+	coverage = 0
+
 /obj/structure/platform/rockcliff
 	icon_state = "rockcliff"
 	name = "rock cliff"
@@ -89,18 +94,38 @@
 /obj/structure/platform/rockcliff/icycliff
 	icon_state = "icerock"
 
+/obj/structure/platform/rockcliff/icycliff/nondense
+	density = FALSE
+	climbable = FALSE
+	coverage = 0
+
 /obj/structure/platform/metalplatform
 	icon_state = "metalplatform"
+
+/obj/structure/platform/metalplatform/nondense
+	density = FALSE
+	climbable = FALSE
+	coverage = 0
 
 /obj/structure/platform/trench
 	icon_state = "platformtrench"
 	name = "trench wall"
 	desc = "A group of roughly cut planks forming the side of a dug in trench."
 
+/obj/structure/platform/trench/nondense
+	density = FALSE
+	climbable = FALSE
+	coverage = 0
+
 /obj/structure/platform/adobe
 	name = "brick wall"
 	desc = "A low adobe brick wall."
 	icon_state = "adobe"
+
+/obj/structure/platform/adobe/nondense
+	density = FALSE
+	climbable = FALSE
+	coverage = 0
 
 //decorative corner platform bits
 /obj/structure/platform_decoration

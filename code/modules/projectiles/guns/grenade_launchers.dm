@@ -1,11 +1,9 @@
-/*
-This file contains:
-The Grenade Launchers
-*/
-
-//GRENADE LAUNCHERS
-
 /obj/item/weapon/gun/grenade_launcher
+	icon = 'icons/obj/items/gun/special.dmi'
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
+	)
 	w_class = WEIGHT_CLASS_BULKY
 	gun_skill_category = SKILL_FIREARMS
 	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -13,6 +11,7 @@ The Grenade Launchers
 	throw_speed = 2
 	throw_range = 10
 	force = 5
+	wield_delay = 0.4 SECONDS
 	caliber = CALIBER_40MM //codex
 	load_method = SINGLE_CASING //codex
 	fire_sound = 'sound/weapons/guns/fire/grenadelauncher.ogg'
@@ -30,6 +29,7 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/upp,
 		/obj/item/explosive/grenade/som,
 		/obj/item/explosive/grenade/sectoid,
+		/obj/item/explosive/grenade/creampie,
 		/obj/item/explosive/grenade/incendiary,
 		/obj/item/explosive/grenade/incendiary/som,
 		/obj/item/explosive/grenade/incendiary/molotov,
@@ -37,6 +37,7 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/smokebomb/som,
 		/obj/item/explosive/grenade/smokebomb/cloak,
 		/obj/item/explosive/grenade/smokebomb/drain,
+		/obj/item/explosive/grenade/smokebomb/antigas,
 		/obj/item/explosive/grenade/smokebomb/neuro,
 		/obj/item/explosive/grenade/smokebomb/acid,
 		/obj/item/explosive/grenade/smokebomb/satrapine,
@@ -56,6 +57,9 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/chem_grenade/incendiary,
 		/obj/item/explosive/grenade/chem_grenade/teargas,
 		/obj/item/explosive/grenade/flashbang/stun,
+		/obj/item/explosive/grenade/bullet/laser,
+		/obj/item/explosive/grenade/bullet/hefa,
+		/obj/item/explosive/grenade/emp,
 	)
 	reciever_flags = NONE
 
@@ -110,9 +114,9 @@ The Grenade Launchers
 /obj/item/weapon/gun/grenade_launcher/multinade_launcher
 	name = "\improper GL-70 grenade launcher"
 	desc = "The GL-70 is the standard grenade launcher used by the TerraGov Marine Corps for area denial and big explosions."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/special64.dmi'
 	icon_state = "t70"
-	item_state = "t70"
+	worn_icon_state = "t70"
 	fire_animation = "t70_fire"
 	equip_slot_flags = ITEM_SLOT_BACK
 	max_shells = 6 //codex
@@ -137,11 +141,25 @@ The Grenade Launchers
 /obj/item/weapon/gun/grenade_launcher/multinade_launcher/unloaded
 	default_ammo_type = null
 
+/obj/item/weapon/gun/grenade_launcher/multinade_launcher/erp
+	name = "\improper PL-70 assault pie launcher"
+	icon_state = "t70_erp"
+	worn_icon_state = "t70_erp"
+	fire_animation = "t70_erp_fire"
+	starting_attachment_types = list(/obj/item/attachable/magnetic_harness)
+	default_ammo_type = /obj/item/explosive/grenade/creampie
+
 /obj/item/weapon/gun/grenade_launcher/underslung
 	name = "underslung grenade launcher"
 	desc = "A weapon-mounted, reloadable, two-shot grenade launcher."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "grenade"
+
+	worn_icon_list = list( // for whatever fucking reason we can't set it null
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
+
 	max_shells = 2 //codex
 	max_chamber_items = 1
 	fire_delay = 1 SECONDS
@@ -169,6 +187,7 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/smokebomb/som,
 		/obj/item/explosive/grenade/smokebomb/cloak,
 		/obj/item/explosive/grenade/smokebomb/drain,
+		/obj/item/explosive/grenade/smokebomb/antigas,
 		/obj/item/explosive/grenade/smokebomb/neuro,
 		/obj/item/explosive/grenade/smokebomb/acid,
 		/obj/item/explosive/grenade/smokebomb/satrapine,
@@ -184,6 +203,9 @@ The Grenade Launchers
 		/obj/item/explosive/grenade/sticky/trailblazer/phosphorus,
 		/obj/item/explosive/grenade/sticky/cloaker,
 		/obj/item/explosive/grenade/mirage,
+		/obj/item/explosive/grenade/bullet/laser,
+		/obj/item/explosive/grenade/bullet/hefa,
+		/obj/item/explosive/grenade/emp,
 	)
 
 	wield_delay_mod = 0.2 SECONDS
@@ -198,6 +220,12 @@ The Grenade Launchers
 	name = "\improper BR-64 underslung grenade launcher"
 	desc = "A weapon-mounted, reloadable, two-shot grenade launcher designed to fit the BR-64."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
+
+	worn_icon_list = list( // for whatever fucking reason we can't set it null
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
+
 	icon_state = "t64_grenade"
 	pixel_shift_x = 21
 	pixel_shift_y = 15
@@ -214,7 +242,7 @@ The Grenade Launchers
 	name = "\improper GL-81 grenade launcher"
 	desc = "A lightweight, single-shot grenade launcher used by the TerraGov Marine Corps for area denial and big explosions."
 	icon_state = "m81"
-	item_state = "m81"
+	worn_icon_state = "m81"
 	w_class = WEIGHT_CLASS_NORMAL
 	max_shells = 1 //codex
 	equip_slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
@@ -270,8 +298,11 @@ The Grenade Launchers
 	name = "flare gun"
 	desc = "A gun that fires flares. Replace with flares. Simple! Equipped with long range irons."
 	icon_state = "flaregun"
-	item_state = "gun"
-	fire_sound = 'sound/weapons/guns/fire/flare.ogg'
+	worn_icon_state = "gun"
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
 	fire_sound = 'sound/weapons/guns/fire/flare.ogg'
 	w_class = WEIGHT_CLASS_SMALL
 	gun_features_flags = NONE

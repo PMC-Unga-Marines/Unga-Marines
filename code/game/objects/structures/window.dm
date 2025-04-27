@@ -7,6 +7,7 @@
 	density = TRUE
 	anchored = TRUE
 	layer = WINDOW_LAYER
+	obj_flags = CAN_BE_HIT | BLOCKS_CONSTRUCTION_DIR | IGNORE_DENSITY
 	atom_flags = ON_BORDER|DIRLOCK
 	allow_pass_flags = PASS_GLASS
 	resistance_flags = XENO_DAMAGEABLE | DROPSHIP_IMMUNE
@@ -14,6 +15,8 @@
 	max_integrity = 15
 	/// If we're dismantling the window properly no smashy smashy
 	var/dismantle = FALSE
+	///Optimization for dynamic explosion block values, for things whose explosion block is dependent on certain conditions.
+	var/real_explosion_block = 0
 	var/state = 2
 	var/reinf = FALSE
 	var/basestate = "window"
@@ -195,7 +198,7 @@
 	playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 	to_chat(user, (state ? span_notice("You have pried the window into the frame.") : span_notice("You have pried the window out of the frame.")))
 
-/obj/structure/window/deconstruct(disassembled = TRUE)
+/obj/structure/window/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	if(disassembled)
 		if(reinf)
 			new /obj/item/stack/sheet/glass/reinforced(loc, 2)
@@ -211,7 +214,7 @@
 
 /obj/structure/window/verb/rotate()
 	set name = "Rotate Window Counter-Clockwise"
-	set category = "Object.Rotate"
+	set category = "IC.Rotate"
 	set src in oview(1)
 
 	if(static_frame)
@@ -226,7 +229,7 @@
 
 /obj/structure/window/verb/revrotate()
 	set name = "Rotate Window Clockwise"
-	set category = "Object.Rotate"
+	set category = "IC.Rotate"
 	set src in oview(1)
 
 	if(static_frame)
@@ -575,7 +578,7 @@
 /obj/structure/window/framed/colony
 	name = "window"
 	icon = 'icons/obj/smooth_objects/col_window.dmi'
-	icon_state = "col_window-0"
+	icon_state = "col_window0"
 	base_icon_state = "col_window"
 	window_frame = /obj/structure/window_frame/colony
 

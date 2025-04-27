@@ -14,6 +14,7 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 	/obj/item/explosive/plastique/genghis_charge = list(CAT_ENGSUP, "EX-62 Genghis incendiary charge", 6, "orange3"),
 	/obj/item/detpack = list(CAT_ENGSUP, "Detonation pack", 2, "orange3"),
 	/obj/structure/closet/crate/uav_crate = list(CAT_ENGSUP, "Iguana Unmanned Vehicle", 50, "blue"),
+	/obj/structure/closet/crate/uvt_crate = list(CAT_ENGSUP, "Skink Unmanned Vehicle", 5, "blue"),
 	/obj/effect/teleporter_linker = list(CAT_ENGSUP, "Teleporters", 25, "blue"),
 	/obj/item/tool/pickaxe/plasmacutter = list(CAT_ENGSUP, "Plasma cutter", 23, "blue"),
 	/obj/item/attachable/buildasentry = list(CAT_ENGSUP, "Build-A-Sentry Attachment", 30, "blue"),

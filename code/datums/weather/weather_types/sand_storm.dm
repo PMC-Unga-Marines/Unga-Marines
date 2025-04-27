@@ -25,7 +25,7 @@
 		return
 	if(is_storm_immune(L))
 		return
-	L.adjustBruteLoss(6)
+	L.adjust_brute_loss(6)
 	to_chat(L, span_danger("You are battered by the coarse sand!"))
 
 /datum/weather/ash_storm/sand/harmless

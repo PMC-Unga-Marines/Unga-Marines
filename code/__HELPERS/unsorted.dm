@@ -290,13 +290,12 @@
 	return moblist
 
 
-//ultra range (no limitations on distance, faster than range for distances > 8); including areas drastically decreases performance
+///ultra range (no limitations on distance, faster than range for distances > 8); including areas drastically decreases performance
 /proc/urange(dist = 0, atom/center = usr, orange = FALSE, areas = FALSE)
 	if(!dist)
 		if(!orange)
 			return list(center)
-		else
-			return list()
+		return list()
 
 	var/list/turfs = RANGE_TURFS(dist, center)
 	if(orange)

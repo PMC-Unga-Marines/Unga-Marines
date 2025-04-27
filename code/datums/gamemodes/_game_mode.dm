@@ -45,6 +45,10 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	var/time_between_round = 0
 	///What factions are used in this gamemode, typically TGMC and xenos
 	var/list/factions = list(FACTION_TERRAGOV, FACTION_XENO)
+	///Increases the amount of xenos needed to evolve to tier three by the value.
+	var/tier_three_penalty = 0
+	///List of castes we dont want to be evolvable depending on gamemode.
+	var/list/restricted_castes
 
 	var/list/predators = list()
 
@@ -55,7 +59,6 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	var/pred_additional_max = 0
 	var/pred_leader_count = 0 //How many Leader preds are active
 	var/pred_leader_max = 1 //How many Leader preds are permitted. Currently fixed to 1. May add admin verb to adjust this later.
-	var/quickbuild_points_flags = NONE
 
 //Distress call variables.
 	var/list/datum/emergency_call/all_calls = list() //initialized at round start and stores the datums.
@@ -123,7 +126,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	create_characters()
 	spawn_characters()
 	transfer_characters()
-	SSpoints.prepare_supply_packs_list()
+	SSpoints.prepare_supply_packs_list(iscrashgamemode(src))
 	SSreqtorio.prepare_assembly_crafts_list()
 	SSpoints.dropship_points = 0
 	SSpoints.supply_points[FACTION_TERRAGOV] = 0
@@ -296,6 +299,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 /datum/game_mode/proc/grant_eord_respawn(datum/dcs, mob/source)
 	SIGNAL_HANDLER
 	add_verb(source, /mob/proc/eord_respawn)
+	add_verb(source, /mob/proc/eord_xeno_respawn)
 
 /datum/game_mode/proc/end_of_round_deathmatch()
 	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGIN, PROC_REF(grant_eord_respawn)) // New mobs can now respawn into EORD
@@ -310,6 +314,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	for(var/i in GLOB.player_list)
 		var/mob/M = i
 		add_verb(M, /mob/proc/eord_respawn)
+		add_verb(M, /mob/proc/eord_xeno_respawn)
 		if(isnewplayer(M))
 			continue
 		if(!(M.client?.prefs?.be_special & BE_DEATHMATCH))
@@ -338,8 +343,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 
 		if(isxeno(M))
 			var/mob/living/carbon/xenomorph/X = M
-			X.transfer_to_hive(pick(XENO_HIVE_NORMAL, XENO_HIVE_CORRUPTED, XENO_HIVE_ALPHA, XENO_HIVE_BETA, XENO_HIVE_ZETA))
-			INVOKE_ASYNC(X, TYPE_PROC_REF(/atom/movable, forceMove), picked)
+			do_xeno_eord_respawn(X)
 
 		else if(ishuman(M))
 			var/mob/living/carbon/human/H = M
@@ -400,6 +404,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.howitzer_shells_fired] howitzer shells were fired."
 	if(GLOB.round_statistics.rocket_shells_fired)
 		parts += "[GLOB.round_statistics.rocket_shells_fired] rocket artillery shells were fired."
+	if(GLOB.round_statistics.obs_fired)
+		parts += "[GLOB.round_statistics.obs_fired] orbital bombardements were fired."
 	if(GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV])
 		parts += "[GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV]] people were killed, among which [GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV]] were revived and [GLOB.round_statistics.total_human_respawns] respawned. For a [(GLOB.round_statistics.total_human_revives[FACTION_TERRAGOV] / max(GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV], 1)) * 100]% revival rate and a [(GLOB.round_statistics.total_human_respawns / max(GLOB.round_statistics.total_human_deaths[FACTION_TERRAGOV], 1)) * 100]% respawn rate."
 	if(SSevacuation.human_escaped)
@@ -495,21 +501,20 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.points_from_research] requisitions points gained from research."
 	if(GLOB.round_statistics.points_from_xenos)
 		parts += "[GLOB.round_statistics.points_from_xenos] requisitions points gained from xenomorph sales."
+	if(GLOB.round_statistics.runner_items_stolen)
+		parts += "[GLOB.round_statistics.runner_items_stolen] items stolen by runners."
 
 	if(length(GLOB.round_statistics.req_items_produced))
+		parts += ""  // make it special from other stats above
 		parts += "Requisitions produced: "
 		for(var/atom/movable/path AS in GLOB.round_statistics.req_items_produced)
-			parts += "[GLOB.round_statistics.req_items_produced[path]] [initial(path.name)]"
-			if(path == GLOB.round_statistics.req_items_produced[length(GLOB.round_statistics.req_items_produced)]) //last element
-				parts += "."
-			else
-				parts += ","
+			var/last = GLOB.round_statistics.req_items_produced[length(GLOB.round_statistics.req_items_produced)]
+			parts += "[GLOB.round_statistics.req_items_produced[path]] [initial(path.name)][last ? "." : ","]"
 
 	if(length(parts))
 		return "<div class='panel stationborder'>[parts.Join("<br>")]</div>"
 	else
 		return ""
-
 
 /datum/game_mode/proc/count_humans_and_xenos(list/z_levels = SSmapping.levels_by_any_trait(list(ZTRAIT_MARINE_MAIN_SHIP, ZTRAIT_GROUND, ZTRAIT_RESERVED)), count_flags)
 	var/num_humans = 0
@@ -1013,6 +1018,10 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		else
 			items += "Xeno respawn timer: [(status_value / 60) % 60]:[add_leading(num2text(status_value % 60), 2, "0")]"
 
+/// Adjusts the inputted jobworth list.
+/datum/game_mode/proc/get_adjusted_jobworth_list(list/jobworth_list)
+	return jobworth_list
+
 /// called to check for updates that might require starting/stopping the siloless collapse timer
 /datum/game_mode/proc/update_silo_death_timer(datum/hive_status/silo_owner)
 	return
@@ -1122,3 +1131,9 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	new_predator.apply_assigned_role_to_spawn(job)
 	job.after_spawn(new_predator)
 	qdel(pred_candidate)
+
+/datum/game_mode/proc/start_hunt()
+	return
+
+/datum/game_mode/proc/can_hunt()
+	return FALSE

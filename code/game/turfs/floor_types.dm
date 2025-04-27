@@ -484,7 +484,7 @@
 	user.visible_message(span_notice("[user] starts removing [src]'s protective cover."),
 	span_notice("You start removing [src]'s protective cover."))
 	playsound(src, 'sound/items/ratchet.ogg', 25, 1)
-	
+
 	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
 		return
 
@@ -943,6 +943,46 @@
 /turf/open/floor/carpet/side
 	icon_state = "carpetside"
 
+/turf/open/floor/carpet/blue
+	icon = 'icons/turf/floors/carpet_blue.dmi'
+	base_icon_state = "carpet_blue"
+	icon_state = "carpet_blue-0"
+
+/turf/open/floor/carpet/black
+	icon = 'icons/turf/floors/carpet_black.dmi'
+	base_icon_state = "carpet_black"
+	icon_state = "carpet_black-0"
+
+/turf/open/floor/carpet/green
+	icon = 'icons/turf/floors/carpet_green.dmi'
+	base_icon_state = "carpet_green"
+	icon_state = "carpet_green-0"
+
+/turf/open/floor/carpet/orange
+	icon = 'icons/turf/floors/carpet_orange.dmi'
+	base_icon_state = "carpet_orange"
+	icon_state = "carpet_orange-0"
+
+/turf/open/floor/carpet/purple
+	icon = 'icons/turf/floors/carpet_purple.dmi'
+	base_icon_state = "carpet_purple"
+	icon_state = "carpet_purple-0"
+
+/turf/open/floor/carpet/red
+	icon = 'icons/turf/floors/carpet_red.dmi'
+	base_icon_state = "carpet_red"
+	icon_state = "carpet_red-0"
+
+/turf/open/floor/carpet/cyan
+	icon = 'icons/turf/floors/carpet_cyan.dmi'
+	base_icon_state = "carpet_cyan"
+	icon_state = "carpet_cyan-0"
+
+/turf/open/floor/carpet/royalblack
+	icon = 'icons/turf/floors/carpet_royalblack.dmi'
+	base_icon_state = "carpet_royalblack"
+	icon_state = "carpet_royalblack-0"
+
 // Start Prison tiles
 
 /turf/open/floor/prison
@@ -1160,7 +1200,7 @@
 
 /turf/open/floor/mech_bay_recharge_floor/break_tile()
 	if(broken) return
-	ChangeTurf(/turf/open/floor/plating)
+	change_turf(/turf/open/floor/plating)
 	broken = TRUE
 
 /turf/open/floor/mech_bay_recharge_floor/asteroid

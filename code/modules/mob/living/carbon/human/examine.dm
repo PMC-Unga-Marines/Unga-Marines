@@ -208,7 +208,9 @@
 		if(stat == DEAD)
 			msg += "[span_deadsay("[t_He] [t_is] limp and unresponsive; there are no signs of life")]"
 			if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
-				msg += "[span_deadsay(" and [t_he] won't be coming back...")]\n"
+				msg += "[span_deadsay(" and [t_he] [t_has] degraded beyond revival...")]\n"
+			else if(!mind && !get_ghost(FALSE))
+				msg += "[span_deadsay(" and [t_his] soul has departed, [t_he] might come back later...")]\n"
 			else
 				msg += "[span_deadsay("...")]\n"
 		if(ishuman(user) && !user.stat && Adjacent(user))
@@ -223,22 +225,21 @@
 
 	msg += "</span>"
 
-	if(getBrainLoss() >= 60)
+	if(get_brain_loss() >= 60)
 		msg += "[t_He] [t_has] a stupid expression on [t_his] face.\n"
 
 	if((!species.has_organ[ORGAN_SLOT_BRAIN] || has_brain()) && stat != DEAD)
 		if(!key)
-			if(species.is_sentient)
-				msg += "[span_deadsay("[t_He] [t_is] fast asleep. It doesn't look like [t_he] [t_is] waking up anytime soon.")]\n"
+			msg += "[span_deadsay("[t_He] [t_is] fast asleep. It doesn't look like [t_he] [t_is] waking up anytime soon.")]\n"
 		else if(!client)
 			if(isxeno(user))
 				msg += "[span_xenowarning("[t_He] [p_do()]n't seem responsive.")]\n"
 			else
 				msg += "[span_deadsay("[t_He] [t_is] completely unresponsive to anything and has fallen asleep, as if affected by Space Sleep Disorder. [t_He] may snap out of it soon.")]\n"
 
-	var/total_brute = getBruteLoss()
-	var/total_burn = getFireLoss()
-	var/total_clone = getCloneLoss()
+	var/total_brute = get_brute_loss()
+	var/total_burn = get_fire_loss()
+	var/total_clone = get_clone_Loss()
 	if(total_brute)
 		if (total_brute < 25)
 			if(species.species_flags & ROBOTIC_LIMBS)
@@ -493,7 +494,7 @@
 					if (display_foot_right)
 						msg += "[span_warning("[t_He] [t_has] blood pooling around [t_his] <b>right boot!</b>")]\n"
 
-	if(chestburst == 2)
+	if(chestburst == CARBON_CHEST_BURSTED)
 		if(isxeno(user))
 			msg += "[span_xenowarning("A larva escaped from [t_him]!")]\n"
 		else
@@ -509,8 +510,9 @@
 	if(hasHUD(user,"medical"))
 		msg += EXAMINE_SECTION_BREAK
 		var/cardcolor = holo_card_color
-		if(!cardcolor) cardcolor = "none"
-		msg += "[span_deptradio("Triage holo card:")] <a href='?src=[text_ref(src)];medholocard=1'>\[[cardcolor]\]</a> - "
+		if(!cardcolor)
+			cardcolor = "none"
+		msg += "[span_deptradio("Triage holo card:")] <a href='?src=[text_ref(src)];medholocard=1'>\[[cardcolor]\]</a> | "
 
 		// scan reports
 		var/datum/data/record/N = null
@@ -520,9 +522,9 @@
 				break
 		if(!isnull(N))
 			if(!(N.fields["last_scan_time"]))
-				msg += "[span_deptradio("No scan report on record")]\n"
+				msg += "[span_deptradio("No body scan report on record")]\n"
 			else
-				msg += "[span_deptradio("<a href='?src=[text_ref(src)];scanreport=1'>Scan from [N.fields["last_scan_time"]]</a>")]\n"
+				msg += "[span_deptradio("<a href='?src=[text_ref(src)];scanreport=1'>Body scan from [N.fields["last_scan_time"]]</a>")]\n"
 
 	if(hasHUD(user,"squadleader"))
 		msg += EXAMINE_SECTION_BREAK

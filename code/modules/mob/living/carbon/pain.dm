@@ -40,7 +40,7 @@
 		painloss = 0
 		return
 
-	painloss = (0.75 * getOxyLoss()) + (0.75 * getToxLoss()) + (1.20 * getFireLoss()) + getBruteLoss() + getCloneLoss()
+	painloss = (0.75 * get_oxy_loss()) + (0.75 * get_tox_loss()) + (1.20 * get_fire_loss()) + get_brute_loss() + get_clone_Loss()
 	painloss += reagent_shock_modifier
 
 	if(has_status_effect(/datum/status_effect/speech/slurring/drunk))
@@ -67,6 +67,8 @@
 
 		if(M.protection_aura)
 			painloss -= 20 * (1 + M.protection_aura) //-60 pain for SLs (2-1+1), -80 for Commanders (3-1+1)
+		if(M.flag_aura)
+			painloss -= M.flag_aura * 20
 
 	painloss += reagent_pain_modifier
 

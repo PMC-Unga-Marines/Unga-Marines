@@ -11,10 +11,6 @@
 	if(icon_variants)
 		icon_state = "[initial(icon_state)]_[rand(1, icon_variants)]"
 
-/obj/structure/flora/ex_act(severity)
-	if(prob(severity * 0.25))
-		qdel(src)
-
 /obj/structure/flora/fire_act(burn_level, flame_color)
 	take_damage(burn_level, BURN, FIRE)
 
@@ -29,6 +25,7 @@
 	layer = ABOVE_FLY_LAYER
 	allow_pass_flags = PASS_PROJECTILE|PASS_AIR
 	var/log_amount = 10
+	resistance_flags = XENO_DAMAGEABLE
 
 /obj/structure/flora/tree/add_debris_element()
 	AddElement(/datum/element/debris, DEBRIS_WOOD, -10, 5)
@@ -45,7 +42,7 @@
 	take_damage(severity, BRUTE, BOMB)
 	START_PROCESSING(SSobj, src)
 
-/obj/structure/flora/tree/deconstruct(disassembled = TRUE)
+/obj/structure/flora/tree/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	density = FALSE
 	var/obj/structure/flora/stump/S = new(loc)
 	S.name = "[name] stump"
@@ -105,6 +102,7 @@
 	name = "xmas tree"
 	icon_state = "pine_c"
 	icon_variants = NONE
+	resistance_flags = null
 
 /obj/structure/flora/tree/xmas/presents
 	icon_state = "pinepresents"
@@ -204,6 +202,7 @@
 		COMSIG_FIND_FOOTSTEP_SOUND = TYPE_PROC_REF(/atom/movable, footstep_override),
 	)
 	AddElement(/datum/element/connect_loc, connections)
+	AddComponent(/datum/component/submerge_modifier, 10)
 
 /obj/structure/flora/grass/tallgrass/footstep_override(atom/movable/source, list/footstep_overrides)
 	footstep_overrides[FOOTSTEP_GRASS] = layer
@@ -551,7 +550,7 @@
 	icon_state = "tall_cactus"
 	icon_variants = 3
 	density = TRUE
-
+	resistance_flags = XENO_DAMAGEABLE
 /obj/structure/flora/drought/short_cactus
 	name = "cactus"
 	desc = "Some short, spikey looking cactus."

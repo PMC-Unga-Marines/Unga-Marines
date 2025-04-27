@@ -3,14 +3,12 @@
 #define XENO_STANDING_HEAL 0.2
 #define XENO_CRIT_DAMAGE 5
 
-#define XENO_HUD_ICON_BUCKETS 16  // should equal the number of icons you use to represent health / plasma (from 0 -> X)
-
 /mob/living/carbon/xenomorph/Life()
 
 	if(!loc)
 		return
 
-	..()
+	. = ..()
 
 	if(notransform) //If we're in true stasis don't bother processing life
 		return
@@ -19,10 +17,10 @@
 		SSmobs.stop_processing(src)
 		return
 	if(stat == UNCONSCIOUS)
-		if(is_zoomed)
+		if(xeno_flags & XENO_ZOOMED)
 			zoom_out()
 	else
-		if(is_zoomed)
+		if(xeno_flags & XENO_ZOOMED)
 			if(!can_walk_zoomed)
 				if(loc != zoom_turf)
 					zoom_out()
@@ -51,8 +49,7 @@
 	if(health < 0)
 		handle_critical_health_updates()
 		return
-	if((health >= maxHealth) || on_fire) //can't regenerate.
-		updatehealth() //Update health-related stats, like health itself (using brute and fireloss), health HUD and status.
+	if(health >= maxHealth || on_fire) //can't regenerate.
 		return
 	var/turf/T = loc
 	if(!istype(T))
@@ -66,7 +63,7 @@
 			heal_wounds(XENO_RESTING_HEAL * ruler_healing_penalty * loc_weeds_type ? initial(loc_weeds_type.resting_buff) : 1, TRUE)
 		else
 			heal_wounds(XENO_STANDING_HEAL * ruler_healing_penalty, TRUE) //Major healing nerf if standing.
-	updatehealth()
+	update_health()
 
 ///Handles sunder modification/recovery during life.dm for xenos
 /mob/living/carbon/xenomorph/proc/handle_living_sunder_updates()
@@ -93,7 +90,7 @@
 	if(loc_weeds_type)
 		heal_wounds(XENO_RESTING_HEAL)
 	else if(!endure) //If we're not Enduring we bleed out
-		adjustBruteLoss(XENO_CRIT_DAMAGE)
+		adjust_brute_loss(XENO_CRIT_DAMAGE)
 
 /mob/living/carbon/xenomorph/proc/heal_wounds(multiplier = XENO_RESTING_HEAL, scaling = FALSE)
 	var/amount = 1 + (maxHealth * 0.0375) // 1 damage + 3.75% max health, with scaling power.
@@ -112,7 +109,7 @@
 
 	var/list/heal_data = list(amount)
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_HEALTH_REGEN, heal_data)
-	HEAL_XENO_DAMAGE(src, heal_data[1], TRUE)
+	heal_xeno_damage(heal_data[1], TRUE)
 	return heal_data[1]
 
 /mob/living/carbon/xenomorph/proc/handle_living_plasma_updates()
@@ -146,6 +143,8 @@
 	var/list/plasma_mod = list(plasma_gain)
 
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_PLASMA_REGEN, plasma_mod)
+
+	plasma_mod[1] = clamp(plasma_mod[1], 0, xeno_caste.plasma_max * xeno_caste.plasma_regen_limit - plasma_stored)
 
 	gain_plasma(plasma_mod[1])
 
@@ -184,8 +183,6 @@
 	if(!client)
 		return FALSE
 
-	handle_regular_health_hud_updates()
-
 	// Evolve Hud
 	if(hud_used && hud_used.alien_evolve_display)
 		hud_used.alien_evolve_display.overlays.Cut()
@@ -207,19 +204,10 @@
 	if(hud_used && hud_used.alien_sunder_display)
 		hud_used.alien_sunder_display.overlays.Cut()
 		if(stat != DEAD)
-			var/amount = round( 100 - sunder , 5)
+			var/amount = round(100 - sunder, 5)
 			hud_used.alien_sunder_display.icon_state = "sunder[amount]"
-			switch(amount)
-				if(80 to 100)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn0")
-				if(60 to 80)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn1")
-				if(40 to 60)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn2")
-				if(20 to 40)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn3")
-				if(0 to 20)
-					hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn4")
+			var/warn_amount = clamp(round(amount * 0.05, 1), 1, 5)
+			hud_used.alien_sunder_display.overlays += image('icons/mob/screen/alien_better.dmi', icon_state = "sunder_warn[warn_amount]")
 		else
 			hud_used.alien_sunder_display.icon_state = "sunder0"
 
@@ -227,46 +215,15 @@
 
 	return TRUE
 
-/mob/living/carbon/xenomorph/proc/handle_regular_health_hud_updates()
-	if(!client)
-		return FALSE
-
-	// Sanity checks
-	if(!maxHealth)
-		stack_trace("[src] called handle_regular_health_hud_updates() while having [maxHealth] maxHealth.")
-		return
-	if(!xeno_caste.plasma_max)
-		stack_trace("[src] called handle_regular_health_hud_updates() while having [xeno_caste.plasma_max] xeno_caste.plasma_max.")
-		return
-
-	// Health Hud
-	if(hud_used && hud_used.healths)
-		if(stat != DEAD)
-			var/amount = round(health * 100 / maxHealth, 5)
-			if(health < 0)
-				amount = 0 //We dont want crit sprite only at 0 health
-			hud_used.healths.icon_state = "health[amount]"
-		else
-			hud_used.healths.icon_state = "health_dead"
-
-	// Plasma Hud
-	if(hud_used && hud_used.alien_plasma_display)
-		if(stat != DEAD)
-			var/amount = round(plasma_stored * 100 / xeno_caste.plasma_max, 5)
-			hud_used.alien_plasma_display.icon_state = "power_display_[amount]"
-		else
-			hud_used.alien_plasma_display.icon_state = "power_display_0"
-
-/mob/living/carbon/xenomorph/updatehealth()
+/mob/living/carbon/xenomorph/update_health()
 	if(status_flags & GODMODE)
 		health = maxHealth
 		stat = CONSCIOUS
 		return
-	health = maxHealth - getFireLoss() - getBruteLoss() //Xenos can only take brute and fire damage.
+	health = maxHealth - get_fire_loss() - get_brute_loss() //Xenos can only take brute and fire damage.
 	med_hud_set_health()
 	update_stat()
 	update_wounds()
-	handle_regular_health_hud_updates()
 
 /mob/living/carbon/xenomorph/handle_slowdown()
 	if(slowdown)

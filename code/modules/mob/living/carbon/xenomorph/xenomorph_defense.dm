@@ -13,7 +13,7 @@ Contains most of the procs that are called when a xeno is attacked by something
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_EXTINGUISH))
 		ExtinguishMob()
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_BLISTERING))
-		adjustFireLoss(12 * (protection + 0.6))
+		adjust_fire_loss(12 * (protection + 0.6))
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_PLASMALOSS) && !CHECK_BITFIELD(xeno_caste.caste_flags, CASTE_PLASMADRAIN_IMMUNE))
 		use_plasma(0.2 * xeno_caste.plasma_max * xeno_caste.plasma_regen_limit)
 		apply_status_effect(/datum/status_effect/noplasmaregen, 5 SECONDS)
@@ -37,3 +37,15 @@ Contains most of the procs that are called when a xeno is attacked by something
 
 /mob/living/carbon/xenomorph/emote_gored()
 	emote(prob(70) ? "hiss" : "roar")
+
+/mob/living/carbon/xenomorph/IgniteMob()
+	if(xeno_caste.caste_flags & CASTE_FIRE_IMMUNE)
+		return
+	. = ..()
+	if(!.)
+		return
+	update_fire()
+
+	for(var/obj/item/clothing/mask/facehugger/hugger in get_held_items())
+		hugger.kill_hugger()
+		dropItemToGround(hugger)

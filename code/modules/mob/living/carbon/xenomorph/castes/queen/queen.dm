@@ -13,15 +13,12 @@
 	maxHealth = 300
 	plasma_stored = 300
 	pixel_x = -16
-	old_x = -16
 	mob_size = MOB_SIZE_BIG
 	drag_delay = 6 //pulling a big dead xeno is hard
 	tier = XENO_TIER_FOUR //Queen doesn't count towards population limit.
 	upgrade = XENO_UPGRADE_NORMAL
 	bubble_icon = "alienroyal"
 	footstep_type = FOOTSTEP_XENO_STOMPY
-
-	var/breathing_counter = 0
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/hijack,
 	)
@@ -77,6 +74,12 @@
 /mob/living/carbon/xenomorph/queen/generate_name()
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
 	var/prefix = (hive.prefix || xeno_caste.upgrade_name) ? "[hive.prefix][xeno_caste.upgrade_name] " : ""
+	if(!client?.prefs.show_xeno_rank || !client)
+		name = prefix + "Queen ([nicknumber])"
+		real_name = name
+		if(mind)
+			mind.name = name
+		return
 	switch(playtime_mins)
 		if(0 to 300)
 			name = prefix + "Young Queen ([nicknumber])"

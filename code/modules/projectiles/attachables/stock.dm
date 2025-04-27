@@ -101,6 +101,13 @@
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
+/obj/item/attachable/stock/icc_heavyshotgun
+	name = "\improper ML-101 stock"
+	desc = "A irremovable ML-101 stock."
+	icon_state = "ml101"
+	pixel_shift_x = 32
+	pixel_shift_y = 13
+
 /obj/item/attachable/stock/icc_pdw
 	name = "\improper L-40 stock"
 	desc = "A irremovable L-40 stock."
@@ -118,8 +125,8 @@
 /obj/item/attachable/stock/clf_heavyrifle
 	name = "PTR-41/1785 body"
 	desc = "A stock for a PTR-41/1785 A-MR."
-	icon = 'icons/obj/items/gun/clf_heavyrifle.dmi'
 	icon_state = "ptrs_stock"
+	icon = 'icons/obj/items/gun/marksman64.dmi'
 	pixel_shift_x = 15
 	pixel_shift_y = 0
 

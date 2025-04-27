@@ -63,7 +63,7 @@
 
 
 		//Fire and Brute damage overlay
-		var/hurtdamage = getBruteLoss() + getFireLoss() + damageoverlaytemp
+		var/hurtdamage = get_brute_loss() + get_fire_loss() + damageoverlaytemp
 		damageoverlaytemp = 0 // We do this so we can detect if someone hits us or not.
 		if(hurtdamage)
 			var/severity = 0
@@ -88,15 +88,6 @@
 
 	if(!hud_used)
 		return
-
-	hud_used?.nutrition_icon?.update_icon()
-
-	hud_used?.oxygen_icon?.update_icon()
-
-	hud_used?.fire_icon?.update_icon()
-
-	hud_used?.bodytemp_icon?.update_icon()
-
 
 /mob/living/carbon/human/handle_healths_hud_updates()
 	if(!hud_used?.healths)

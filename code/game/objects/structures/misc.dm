@@ -6,6 +6,7 @@
 	density = TRUE
 	anchored = TRUE
 	coverage = 15
+	max_integrity = 150
 
 /obj/structure/showcase/two
 	icon_state = "showcase_2"
@@ -31,10 +32,6 @@
 	name = "Mulebot"
 	desc = "A Multiple Utility Load Effector bot."
 	icon_state = "mulebot0"
-
-/obj/structure/showcase/ex_act(severity)
-	if(prob(severity * 0.25))
-		qdel(src)
 
 /obj/structure/showcase/yaut
 	name = "alien sarcophagus"
@@ -134,7 +131,7 @@
 	var/obj/structure/broken_state = /obj/structure/xenoautopsy/tank/escaped
 
 
-/obj/structure/xenoautopsy/tank/deconstruct(disassembled = TRUE)
+/obj/structure/xenoautopsy/tank/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	if(!broken_state)
 		return ..()
 
@@ -344,10 +341,6 @@
 		return TRUE
 
 	return ..()
-
-/obj/structure/plasticflaps/ex_act(severity)
-	if(prob(severity * 0.25))
-		qdel(src)
 
 /obj/structure/plasticflaps/mining //A specific type for mining that doesn't allow airflow because of them damn crates
 	name = "\improper Airtight plastic flaps"

@@ -1,6 +1,44 @@
 //Some mob defines below
 #define AI_CAMERA_LUMINOSITY 6
 
+// Overlay Indexes
+#define PRED_LASER_LAYER 30
+#define BODYPARTS_LAYER 29
+#define WOUND_LAYER 28
+#define MOTH_WINGS_LAYER 27
+#define DAMAGE_LAYER 26
+#define UNIFORM_LAYER 25
+#define FLAY_LAYER 24
+#define ID_LAYER 23
+#define SHOES_LAYER 22
+#define GLOVES_LAYER 21
+#define BELT_LAYER 20
+#define GLASSES_LAYER 19
+#define SUIT_LAYER 18 //Possible make this an overlay of somethign required to wear a belt?
+#define HAIR_LAYER 17 //TODO: make part of head layer?
+#define EARS_LAYER 16
+#define FACEMASK_LAYER 15
+#define GOGGLES_LAYER 14	//For putting Ballistic goggles and potentially other things above masks
+#define HEAD_LAYER 13
+#define COLLAR_LAYER 12
+#define SUIT_STORE_LAYER 11
+#define KAMA_LAYER 10
+#define BACK_LAYER 9
+#define CAPE_LAYER 8
+#define HANDCUFF_LAYER 7
+#define L_HAND_LAYER 6
+#define R_HAND_LAYER 5
+#define BURST_LAYER 4 //Chestburst overlay
+#define OVERHEALTH_SHIELD_LAYER 3
+#define FIRE_LAYER 2 //If you're on fire
+#define LASER_LAYER 1 //For sniper targeting laser
+
+#define TOTAL_LAYERS 30
+
+#define MOTH_WINGS_BEHIND_LAYER 1
+
+#define TOTAL_UNDERLAYS 1
+
 //Mob movement define
 
 ///Speed mod for walk intent
@@ -57,13 +95,11 @@
 #define XENO_PERM_COEFF 0.8
 //=================================================
 
-#define HUMAN_STRIP_DELAY 40 //takes 40ds = 4s to strip someone.
 #define POCKET_STRIP_DELAY 20
 
 #define ALIEN_SELECT_AFK_BUFFER 1 // How many minutes that a person can be AFK before not being allowed to be an alien.
 
 //Life variables
-#define CARBON_BREATH_DELAY 2 // The interval in life ticks between breathe()
 
 ///The amount of damage you'll take per tick when you can't breath. Default value is 1
 #define CARBON_CRIT_MAX_OXYLOSS (round(SSmobs.wait/5, 0.1))
@@ -337,6 +373,8 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 //How long it takes for a human to become undefibbable
 #define TIME_BEFORE_DNR 150 //In life ticks, multiply by 2 to have seconds
 
+///Default living `maxHealth`
+#define LIVING_DEFAULT_MAX_HEALTH 100
 
 //species_flags
 #define NO_BLOOD (1<<0)
@@ -385,6 +423,73 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define MOB_SIZE_XENO 2
 #define MOB_SIZE_BIG 3
 
+// Height defines
+// - They are numbers so you can compare height values (x height < y height)
+// - They do not start at 0 for futureproofing
+// - They skip numbers for futureproofing as well
+// Otherwise they are completely arbitrary
+#define MONKEY_HEIGHT_DWARF 2
+#define MONKEY_HEIGHT_MEDIUM 4
+#define MONKEY_HEIGHT_TALL HUMAN_HEIGHT_DWARF
+#define HUMAN_HEIGHT_DWARF 6
+#define HUMAN_HEIGHT_SHORTEST 8
+#define HUMAN_HEIGHT_SHORT 10
+#define HUMAN_HEIGHT_MEDIUM 12
+#define HUMAN_HEIGHT_TALL 14
+#define HUMAN_HEIGHT_TALLER 16
+#define HUMAN_HEIGHT_TALLEST 18
+
+/// Assoc list of all heights, cast to strings, to """"tuples"""""
+/// The first """tuple""" index is the upper body offset
+/// The second """tuple""" index is the lower body offset
+GLOBAL_LIST_INIT(human_heights_to_offsets, list(
+	"[MONKEY_HEIGHT_DWARF]" = list(-9, -3),
+	"[MONKEY_HEIGHT_MEDIUM]" = list(-7, -4),
+	"[HUMAN_HEIGHT_DWARF]" = list(-5, -4),
+	"[HUMAN_HEIGHT_SHORTEST]" = list(-2, -1),
+	"[HUMAN_HEIGHT_SHORT]" = list(-1, -1),
+	"[HUMAN_HEIGHT_MEDIUM]" = list(0, 0),
+	"[HUMAN_HEIGHT_TALL]" = list(1, 1),
+	"[HUMAN_HEIGHT_TALLER]" = list(2, 1),
+	"[HUMAN_HEIGHT_TALLEST]" = list(3, 2),
+))
+
+#define UPPER_BODY "upper body"
+#define LOWER_BODY "lower body"
+#define NO_MODIFY "do not modify"
+
+
+//tivi todo finish below with our used stuff
+/// Used for human height overlay adjustments
+/// Certain standing overlay layers shouldn't have a filter applied and should instead just offset by a pixel y
+/// This list contains all the layers that must offset, with its value being whether it's a part of the upper half of the body (TRUE) or not (FALSE)
+GLOBAL_LIST_INIT(layers_to_offset, list(
+	// Very tall hats will get cut off by filter
+	"[HEAD_LAYER]" = UPPER_BODY,
+	// Hair will get cut off by filter
+	"[HAIR_LAYER]" = UPPER_BODY,
+	// Long belts (sabre sheathe) will get cut off by filter
+	"[BELT_LAYER]" = LOWER_BODY,
+	// Everything below looks fine with or without a filter, so we can skip it and just offset
+	// (In practice they'd be fine if they got a filter but we can optimize a bit by not.)
+	"[GLASSES_LAYER]" = UPPER_BODY,
+	"[GLOVES_LAYER]" = LOWER_BODY,
+	"[HANDCUFF_LAYER]" = LOWER_BODY,
+	"[ID_LAYER]" = UPPER_BODY,
+	// These DO get a filter, I'm leaving them here as reference,
+	// to show how many filters are added at a glance
+	// BACK_LAYER (backpacks are big)
+	// BODYPARTS_HIGH_LAYER (arms)
+	// BODY_LAYER (body markings (full body), underwear (full body), eyes)
+	// BODY_ADJ_LAYER (external organs like wings)
+	// BODY_BEHIND_LAYER (external organs like wings)
+	// BODY_FRONT_LAYER (external organs like wings)
+	// DAMAGE_LAYER (full body)
+	// HIGHEST_LAYER (full body)
+	// UNIFORM_LAYER (full body)
+	// WOUND_LAYER (full body)
+))
+
 //taste sensitivity defines, used in mob/living/proc/taste
 #define TASTE_HYPERSENSITIVE 5 //anything below 5% is not tasted
 #define TASTE_SENSITIVE 10 //anything below 10%
@@ -411,51 +516,6 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define BLOOD_VOLUME_BAD 224
 #define BLOOD_VOLUME_SURVIVE 122
 
-#define HUMAN_MAX_PALENESS 30 //this is added to human skin tone to get value of pale_max variable
-
-
-// Overlay Indexes
-#define PRED_LASER_LAYER 32
-#define LASER_LAYER 31
-#define WOUND_LAYER 30
-#define MOTH_WINGS_LAYER 29
-#define MUTATIONS_LAYER 28
-#define DAMAGE_LAYER 27
-#define FLAY_LAYER 26
-#define UNIFORM_LAYER 25
-#define TAIL_LAYER 24 //bs12 specific. this hack is probably gonna come back to haunt me
-#define ID_LAYER 23
-#define SHOES_LAYER 22
-#define GLOVES_LAYER 21
-#define BELT_LAYER 20
-#define GLASSES_LAYER 19
-#define SUIT_LAYER 18 //Possible make this an overlay of somethign required to wear a belt?
-#define HAIR_LAYER 17 //TODO: make part of head layer?
-#define EARS_LAYER 16
-#define FACEMASK_LAYER 15
-#define GOGGLES_LAYER 14	//For putting Ballistic goggles and potentially other things above masks
-#define HEAD_LAYER 13
-#define COLLAR_LAYER 12
-#define SUIT_STORE_LAYER 11
-#define KAMA_LAYER 10
-#define BACK_LAYER 9
-#define CAPE_LAYER 8
-#define HANDCUFF_LAYER 7
-#define L_HAND_LAYER 6
-#define R_HAND_LAYER 5
-#define BURST_LAYER 4 //Chestburst overlay
-#define OVERHEALTH_SHIELD_LAYER 3
-#define TARGETED_LAYER 2 //for target sprites when held at gun point, and holo cards.
-#define FIRE_LAYER 1 //If you're on fire
-
-#define TOTAL_LAYERS 32
-
-#define MOTH_WINGS_BEHIND_LAYER 1
-
-#define TOTAL_UNDERLAYS 1
-
-#define ANTI_CHAINSTUN_TICKS 2
-
 #define BASE_GRAB_SLOWDOWN 3 //Slowdown called by /mob/setGrabState(newstate) in mob.dm when grabbing a target aggressively.
 
 ///Stamina exhaustion
@@ -474,6 +534,14 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 //Xeno flags
 ///Xeno is currently performing a leap/dash attack
 #define XENO_LEAPING (1<<0)
+///Hive leader
+#define XENO_LEADER (1<<1)
+///Zoomed out
+#define XENO_ZOOMED (1<<2)
+///mobhud on
+#define XENO_MOBHUD (1<<3)
+///Agility on
+#define XENO_AGILITY (1<<4)
 
 #define HIVE_CAN_COLLAPSE_FROM_SILO (1<<1)
 
@@ -493,8 +561,6 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define XENO_PULL_CHARGE_TIME 2 SECONDS
 
 #define XENO_DEADHUMAN_DRAG_SLOWDOWN 2
-
-#define KING_SUMMON_TIMER_DURATION 5 MINUTES
 
 #define SPIT_UPGRADE_BONUS(Xenomorph) (Xenomorph.upgrade_as_number() ?  0.6 : 0.45 ) //Primo damage increase
 
@@ -560,14 +626,6 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define CASTE_CAN_CORRUPT_GENERATOR (1<<6) //Can corrupt a generator
 #define CASTE_CAN_RIDE_CRUSHER (1<<7) //Can ride a crusher
 
-#define HIVE_STATUS_SHOW_EMPTY (1<<0)
-#define HIVE_STATUS_COMPACT_MODE (1<<1)
-#define HIVE_STATUS_SHOW_GENERAL (1<<2)
-#define HIVE_STATUS_SHOW_POPULATION (1<<3)
-#define HIVE_STATUS_SHOW_XENO_LIST (1<<4)
-#define HIVE_STATUS_SHOW_STRUCTURES (1<<5)
-#define HIVE_STATUS_DEFAULTS (HIVE_STATUS_SHOW_EMPTY | HIVE_STATUS_SHOW_GENERAL | HIVE_STATUS_SHOW_POPULATION | HIVE_STATUS_SHOW_XENO_LIST | HIVE_STATUS_SHOW_STRUCTURES)
-
 //Charge-Crush
 #define CHARGE_OFF 0
 #define CHARGE_BUILDINGUP 1
@@ -612,7 +670,7 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 #define RAVAGER_RAGE_MIN_HEALTH_THRESHOLD				0.75 //The maximum % of HP we can have to trigger Rage
 #define RAVAGER_RAGE_STAGGERSTUN_IMMUNE_THRESHOLD		0.5
 #define RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH			2 SECONDS //The amount of time each slash during Rage increases Endure's duration
-#define RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH			40 //Base amount of healing from slash during Rage
+#define RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH			20 //Base amount of healing from slash during Rage
 #define RAVAGER_IMMORTALITY_DURATION					5 SECONDS
 
 //crusher defines
@@ -799,7 +857,7 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define STAMINA_STATE_IDLE 0
 #define STAMINA_STATE_ACTIVE 1
 
-#define UPDATEHEALTH(MOB) (addtimer(CALLBACK(MOB, TYPE_PROC_REF(/mob/living, updatehealth)), 1, TIMER_UNIQUE))
+#define UPDATEHEALTH(MOB) (addtimer(CALLBACK(MOB, TYPE_PROC_REF(/mob/living, update_health)), 1, TIMER_UNIQUE))
 
 #define GRAB_PIXEL_SHIFT_PASSIVE 6
 #define GRAB_PIXEL_SHIFT_AGGRESSIVE 12
@@ -837,6 +895,7 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define AURA_HUMAN_MOVE "move"
 #define AURA_HUMAN_HOLD "hold"
 #define AURA_HUMAN_FOCUS "focus"
+#define AURA_HUMAN_FLAG "flag"
 
 #define AURA_XENO_BLESSWARDING "Blessing Of Warding"
 #define AURA_XENO_BLESSFRENZY "Blessing Of Frenzy"
@@ -910,3 +969,8 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define WARRIOR_PUNCH_GRAPPLED_PARALYZE 0.5 SECONDS
 #define WARRIOR_PUNCH_KNOCKBACK_DISTANCE 1
 #define WARRIOR_PUNCH_KNOCKBACK_SPEED 1
+
+//chest burst defines
+#define CARBON_NO_CHEST_BURST 0
+#define CARBON_IS_CHEST_BURSTING 1
+#define CARBON_CHEST_BURSTED 2

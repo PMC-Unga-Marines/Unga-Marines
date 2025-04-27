@@ -1,9 +1,7 @@
 //It really should be just a subtype of synthetic
 /datum/species/early_synthetic // Worse at medical, better at engineering. Tougher in general than later synthetics.
 	name = "Early Synthetic"
-	name_plural = "Early Synthetics"
 	icobase = 'icons/mob/human_races/r_synthetic.dmi'
-	hud_type = /datum/hud_data/robotic
 	default_language_holder = /datum/language_holder/synthetic
 	unarmed_type = /datum/unarmed_attack/punch
 	slowdown = 1.15 //Slower than Late Synths.
@@ -21,7 +19,7 @@
 
 	body_temperature = 350
 
-	species_flags = NO_BREATHE|NO_SCAN|NO_BLOOD|NO_POISON|NO_PAIN|IS_SYNTHETIC|NO_CHEM_METABOLIZATION|NO_STAMINA|DETACHABLE_HEAD|HAS_UNDERWEAR|ROBOTIC_LIMBS|GREYSCALE_BLOOD
+	species_flags = NO_BREATHE|NO_BLOOD|NO_POISON|NO_PAIN|IS_SYNTHETIC|NO_CHEM_METABOLIZATION|NO_STAMINA|DETACHABLE_HEAD|HAS_UNDERWEAR|ROBOTIC_LIMBS|GREYSCALE_BLOOD
 
 	blood_color = "#EEEEEE"
 	hair_color = "#000000"
@@ -37,15 +35,25 @@
 	laughs = list(MALE = SFX_MALE_LAUGH, FEMALE = SFX_FEMALE_LAUGH)
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
 
+/datum/species/early_synthetic/handle_unique_behavior(mob/living/carbon/human/H)
+	if(H.health <= SYNTHETIC_CRIT_THRESHOLD && H.stat != DEAD) // Instead of having a critical condition, they overheat and slowly die.
+		H.apply_effect(4 SECONDS, STUTTER) // Added flavor
+		H.take_overall_damage(rand(7, 19), BURN, updating_health = TRUE, max_limbs = 1) // Melting even more!!!
+		if(prob(12))
+			H.visible_message(span_boldwarning("[H] shudders violently and shoots out sparks!"), span_warning("Critical damage sustained. Internal temperature regulation systems offline. Shutdown imminent. <b>Estimated integrity: [round(H.health)]%.</b>"))
+			do_sparks(4, TRUE, H)
+
 /datum/species/early_synthetic/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()
 	var/datum/atom_hud/AH = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED_SYNTH]
 	AH.add_hud_to(H)
+	H.health_threshold_crit = -100 // They overheat below SYNTHETIC_CRIT_THRESHOLD health.
 
 /datum/species/early_synthetic/post_species_loss(mob/living/carbon/human/H)
 	. = ..()
 	var/datum/atom_hud/AH = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED_SYNTH]
 	AH.remove_hud_from(H)
+	H.health_threshold_crit = -50 // You overheat below -30 health.
 
 /mob/living/carbon/human/species/early_synthetic/binarycheck(mob/H)
 	return TRUE

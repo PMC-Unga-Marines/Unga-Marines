@@ -129,9 +129,10 @@
 	message_admins("[ADMIN_TPMONTY(user)] set up a supply beacon.") //do something with this
 	playsound(source, 'sound/machines/twobeep.ogg', 15, 1)
 	user.visible_message("[user] activates [source]'s signal.")
-	user.show_message(span_notice("The [source] beeps and states, \"Your current coordinates were registered by the supply console. LONGITUDE [location.x]. LATITUDE [location.y]. Area ID: [get_area(source)]\""), EMOTE_AUDIBLE, span_notice("The [source] vibrates but you can not hear it!"))
+	user.show_message(span_notice("[source] beeps and states, \"Your current coordinates were registered by the supply console. LONGITUDE [location.x]. LATITUDE [location.y]. Area ID: [get_area(source)]\""), EMOTE_AUDIBLE, span_notice("The [source] vibrates but you can not hear it!"))
 	beacon_datum = new /datum/supply_beacon("[user.name] + [A]", get_turf(source), user.faction)
 	RegisterSignal(beacon_datum, COMSIG_QDELETING, PROC_REF(clean_beacon_datum))
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_SUPPLY_BEACON_CREATED, src)
 	source.update_appearance()
 
 ///Deactivates the beacon
@@ -155,7 +156,7 @@
 		source.set_light(0)
 		SSminimaps.remove_marker(source)
 
-	user.show_message(span_warning("The [source] beeps and states, \"Your last position is no longer accessible by the supply console."), EMOTE_AUDIBLE, span_notice("The [source] vibrates but you can not hear it!"))
+	user.show_message(span_warning("[source] beeps and states, \"Your last position is no longer accessible by the supply console."), EMOTE_AUDIBLE, span_notice("The [source] vibrates but you can not hear it!"))
 	source.visible_message(span_warning("[source] stops emitting a signal."))
 	QDEL_NULL(beacon_cam)
 	QDEL_NULL(beacon_datum)
@@ -185,7 +186,7 @@
 ///Updates the icon state of the object to an active state, if it has one
 /datum/component/beacon/proc/on_update_icon_state(atom/source, updates)
 	SIGNAL_HANDLER
-	if(active)
+	if(active && active_icon_state)
 		source.icon = icon(source.icon, active_icon_state)
 	else
 		source.icon = initial(source.icon)

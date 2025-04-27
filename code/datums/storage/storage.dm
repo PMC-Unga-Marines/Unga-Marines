@@ -87,7 +87,7 @@
 	///whether our storage box on hud changes color when full.
 	var/show_storage_fullness = TRUE
 	///Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
-	var/use_to_pickup
+	var/use_to_pickup = FALSE
 	///Set this to make the storage item group contents of the same type and display them as a number.
 	var/display_contents_with_number
 	///Set this variable to allow the object to have the 'empty' verb, which dumps all the contents on the floor.
@@ -130,7 +130,6 @@
 	var/obj/holstered_item = null
 	///Image that get's underlayed under the sprite of the holster
 	var/image/holstered_item_underlay
-
 
 /datum/storage/New(atom/parent)
 	. = ..()
@@ -346,29 +345,40 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		close(M)
 		return
 
-///Called when you RIGHT click on parent with an empty hand
-///Attempts to draw an object from our storage
+
+/**
+ * Called when you RIGHT click on parent with an empty hand
+ * Attempts to draw an object from our storage
+ */
 /datum/storage/proc/on_attack_hand_alternate(datum/source, mob/living/user)
 	SIGNAL_HANDLER
 	if(parent.Adjacent(user))
 		INVOKE_ASYNC(src, PROC_REF(attempt_draw_object), user)
 
-///Called when you alt + left click on parent
-///Attempts to draw an object from our storage
+/**
+ * Called when you alt + left click on parent
+ * Attempts to draw an object from our storage
+ */
+
 /datum/storage/proc/on_alt_click(datum/source, mob/user)
 	SIGNAL_HANDLER
 	if(parent.Adjacent(user))
 		INVOKE_ASYNC(src, PROC_REF(attempt_draw_object), user)
 
-///Called when you alt + right click on parent
-///Opens the inventory of our storage
+/**
+ * Called when you alt + right click on parent
+ * Opens the inventory of our storage
+ */
+
 /datum/storage/proc/on_alt_right_click(datum/source, mob/user)
 	SIGNAL_HANDLER
 	if(parent.Adjacent(user))
 		open(user)
 
-///Called when you ctrl + left click on parent
-///Attempts to draw an object from out storage, but it draw from the left side instead of the right
+/**
+ * Called when you ctrl + left click on parent
+ * Attempts to draw an object from out storage, but it draw from the left side instead of the right
+ */
 /datum/storage/proc/on_ctrl_click(datum/source, mob/user)
 	SIGNAL_HANDLER
 	if(parent.Adjacent(user))
@@ -398,17 +408,19 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(parent.loc != user && parent.loc.loc != user) //loc.loc handles edge case of storage attached to an item attached to another item (modules/boots)
 		return COMPONENT_NO_MOUSEDROP
 
-	if(user.restrained() || user.stat != CONSCIOUS)
+	if(user.restrained() || user.stat)
 		return COMPONENT_NO_MOUSEDROP
 
-	if(istype(over_object, /atom/movable/screen/inventory/hand))
-		switch(over_object.name)
-			if("r_hand")
-				INVOKE_ASYNC(src, PROC_REF(put_item_in_r_hand), source, user)
-				return COMPONENT_NO_MOUSEDROP
-			if("l_hand")
-				INVOKE_ASYNC(src, PROC_REF(put_item_in_l_hand), source, user)
-				return COMPONENT_NO_MOUSEDROP
+	put_storage_in_hand(source, over_object, user)
+	return COMPONENT_NO_MOUSEDROP
+
+///Wrapper that puts the storage into our chosen hand
+/datum/storage/proc/put_storage_in_hand(datum/source, obj/over_object, mob/living/carbon/human/user)
+	switch(over_object.name)
+		if("r_hand")
+			INVOKE_ASYNC(src, PROC_REF(put_item_in_r_hand), source, user)
+		if("l_hand")
+			INVOKE_ASYNC(src, PROC_REF(put_item_in_l_hand), source, user)
 
 	if(istype(over_object, /atom/movable/screen))
 		return
@@ -493,7 +505,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 /datum/storage/verb/toggle_gathering_mode()
 	set name = "Switch Gathering Method"
-	set category = "Object"
+	set category = "IC.Object"
 
 	collection_mode = !collection_mode
 	if(collection_mode)
@@ -503,7 +515,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 /datum/storage/verb/toggle_draw_mode()
 	set name = "Switch Storage Drawing Method"
-	set category = "Object"
+	set category = "IC.Object"
 
 	draw_mode = !draw_mode
 	if(draw_mode)
@@ -567,12 +579,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 ///Returns a list of lookers, basically any mob that can see our contents
 /datum/storage/proc/can_see_content()
 	var/list/lookers = list()
-	for(var/i in content_watchers)
-		var/mob/content_watcher_mob = i
-		if(content_watcher_mob.s_active == src && content_watcher_mob.client)
-			lookers |= content_watcher_mob
-		else
+	for(var/mob/content_watcher_mob AS in content_watchers)
+		if(!ismob(content_watcher_mob) || !content_watcher_mob.client || content_watcher_mob.s_active != src)
 			content_watchers -= content_watcher_mob
+			continue
+		lookers |= content_watcher_mob
 	return lookers
 
 ///Opens our storage, closes the storage if we are s_active

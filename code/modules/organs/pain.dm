@@ -116,7 +116,7 @@
 
 	var/toxDamageMessage = null
 	var/toxMessageProb = 1
-	var/toxin_damage = getToxLoss()
+	var/toxin_damage = get_tox_loss()
 	switch(toxin_damage)
 		if(1 to 5)
 			toxMessageProb = 1

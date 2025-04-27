@@ -69,9 +69,11 @@
 	return
 
 /mob/living/carbon/xenomorph/proc/toggle_rouny()
+	#ifndef TESTING
 	if(SSdiscord.get_boosty_tier(ckey) < BOOSTY_TIER_3)
 		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
 		return
+	#endif
 
 	if(!rouny_icon)
 		to_chat(usr, span_notice("Sorry, but rouny skin is currently unavailable for this caste."))
@@ -93,9 +95,11 @@
 		balloon_alert(src, "Your caste does not have the ability to change appearance.")
 		return
 
+	#ifndef TESTING
 	if(SSdiscord.get_boosty_tier(ckey) < BOOSTY_TIER_2)
 		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
 		return
+	#endif
 
 	var/datum/xenomorph_skin/selection
 	var/list/available_skins = list() // we do a list of names instead of datums
@@ -206,7 +210,7 @@
 	if(xeno_caste.plasma_max > 0)
 		. += "Plasma: [plasma_stored]/[xeno_caste.plasma_max]"
 
-	. += "Sunder: [100-sunder]% armor left"
+	. += "Armor: [100-sunder]%"
 
 	. += "Regeneration power: [max(regen_power * 100, 0)]%"
 
@@ -218,7 +222,7 @@
 	else
 		. += "Caste Swap Timer: [(casteswap_value / 60) % 60]:[add_leading(num2text(casteswap_value % 60), 2, "0")]"
 
-	//Very weak <= 1.0, weak <= 2.0, no modifier 2-3, strong <= 3.5, very strong <= 4.5
+	//Very weak <= 1.0, Weak <= 2.0, Medium < 3.0, Strong < 4.0, Very strong >= 4.0
 	var/msg_holder = ""
 	if(frenzy_aura)
 		switch(frenzy_aura)
@@ -232,7 +236,7 @@
 				msg_holder = "Strong"
 			if(4.0 to INFINITY)
 				msg_holder = "Very strong"
-		. += "[AURA_XENO_FRENZY] pheromone strength: [msg_holder]"
+		. += "[AURA_XENO_FRENZY] pheromone strength: [msg_holder] ([frenzy_aura])"
 	if(warding_aura)
 		switch(warding_aura)
 			if(-INFINITY to 1.0)
@@ -245,7 +249,7 @@
 				msg_holder = "Strong"
 			if(4.0 to INFINITY)
 				msg_holder = "Very strong"
-		. += "[AURA_XENO_WARDING] pheromone strength: [msg_holder]"
+		. += "[AURA_XENO_WARDING] pheromone strength: [msg_holder] ([warding_aura])"
 	if(recovery_aura)
 		switch(recovery_aura)
 			if(-INFINITY to 1.0)
@@ -258,7 +262,7 @@
 				msg_holder = "Strong"
 			if(4.0 to INFINITY)
 				msg_holder = "Very strong"
-		. += "[AURA_XENO_RECOVERY] pheromone strength: [msg_holder]"
+		. += "[AURA_XENO_RECOVERY] pheromone strength: [msg_holder] ([recovery_aura])"
 
 //A simple handler for checking your state. Used in pretty much all the procs.
 /mob/living/carbon/xenomorph/proc/check_state()
@@ -397,17 +401,16 @@
 
 /mob/living/carbon/xenomorph/proc/zoom_in(tileoffset = 5, viewsize = 12)
 	if(stat || resting)
-		if(is_zoomed)
-			is_zoomed = FALSE
+		if(xeno_flags & XENO_ZOOMED)
 			zoom_out()
 			return
 		return
-	if(is_zoomed)
+	if(xeno_flags & XENO_ZOOMED)
 		return
 	if(!client)
 		return
 	zoom_turf = get_turf(src)
-	is_zoomed = TRUE
+	ENABLE_BITFIELD(xeno_flags, XENO_ZOOMED)
 	client.view_size.set_view_radius_to((viewsize * 0.5) - 2) //convert diameter to radius
 	var/viewoffset = 32 * tileoffset
 	switch(dir)
@@ -425,7 +428,7 @@
 			client.pixel_y = 0
 
 /mob/living/carbon/xenomorph/proc/zoom_out()
-	is_zoomed = FALSE
+	DISABLE_BITFIELD(xeno_flags, XENO_ZOOMED)
 	zoom_turf = null
 	if(!client)
 		return
@@ -446,7 +449,7 @@
 //When the Queen's pheromones are updated, or we add/remove a leader, update leader pheromones
 /mob/living/carbon/xenomorph/proc/handle_xeno_leader_pheromones(mob/living/carbon/xenomorph/queen/Q)
 	QDEL_NULL(leader_current_aura)
-	if(QDELETED(Q) || !queen_chosen_lead || !Q.current_aura || Q.loc.z != loc.z) //We are no longer a leader, or the Queen attached to us has dropped from her ovi, disabled her pheromones or even died
+	if(QDELETED(Q) || !(xeno_flags & XENO_LEADER) || !Q.current_aura || Q.loc.z != loc.z) //We are no longer a leader, or the Queen attached to us has dropped from her ovi, disabled her pheromones or even died
 		to_chat(src, span_xenowarning("Our pheromones wane. The Queen is no longer granting us her pheromones."))
 	else
 		leader_current_aura = SSaura.add_emitter(src, Q.current_aura.aura_types.Copy(), Q.current_aura.range, Q.current_aura.strength, Q.current_aura.duration, Q.current_aura.faction, Q.current_aura.hive_number)
@@ -532,14 +535,13 @@
 	set desc = "Toggles the health and plasma hud appearing above Xenomorphs."
 	set category = "Alien"
 
-	xeno_mobhud = !xeno_mobhud
+	TOGGLE_BITFIELD(xeno_flags, XENO_MOBHUD)
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_XENO_STATUS]
-	if(xeno_mobhud)
+	if(xeno_flags & XENO_MOBHUD)
 		H.add_hud_to(src)
 	else
 		H.remove_hud_from(src)
-	to_chat(src, span_notice("You have [xeno_mobhud ? "enabled" : "disabled"] the Xeno Status HUD."))
-
+	to_chat(src, span_notice("You have [(xeno_flags & XENO_MOBHUD) ? "enabled" : "disabled"] the Xeno Status HUD."))
 
 /mob/living/carbon/xenomorph/proc/recurring_injection(mob/living/carbon/C, datum/reagent/toxin = /datum/reagent/toxin/xeno_neurotoxin, channel_time = XENO_NEURO_CHANNEL_TIME, transfer_amount = XENO_NEURO_AMOUNT_RECURRING, count = 4)
 	if(!C?.can_sting() || !toxin)

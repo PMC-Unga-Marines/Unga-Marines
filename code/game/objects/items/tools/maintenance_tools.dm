@@ -42,11 +42,11 @@
 		set_greyscale_config(/datum/greyscale_config/screwdriver)
 		var/our_color = pick(screwdriver_colors)
 		set_greyscale_colors(list(screwdriver_colors[our_color]))
-		item_icons = list(
+		worn_icon_list = list(
 			slot_l_hand_str = SSgreyscale.GetColoredIconByType(/datum/greyscale_config/screwdriver_inhand_left, greyscale_colors),
 			slot_r_hand_str = SSgreyscale.GetColoredIconByType(/datum/greyscale_config/screwdriver_inhand_right, greyscale_colors),
 		)
-		item_state_slots = list(
+		worn_worn_icon_state_slots = list(
 			slot_l_hand_str = null,
 			slot_r_hand_str = null,
 		)
@@ -73,7 +73,7 @@
 	. = ..()
 	if(prob(50) && !istype(src, /obj/item/tool/wirecutters/yautja)) //RU TGMC EDIT
 		icon_state = "cutters-y"
-		item_state = "cutters_yellow"
+		worn_icon_state = "cutters_yellow"
 
 /obj/item/tool/wirecutters/attack(mob/living/carbon/C, mob/user)
 	if((C.handcuffed) && (istype(C.handcuffed, /obj/item/restraints/handcuffs/cable)))
@@ -311,7 +311,7 @@
 	equip_slot_flags = ITEM_SLOT_BELT
 	force = 5
 	throwforce = 7
-	item_state = "crowbar"
+	worn_icon_state = "crowbar"
 	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
 	pry_capable = IS_PRY_CAPABLE_CROWBAR
@@ -320,7 +320,7 @@
 
 /obj/item/tool/crowbar/red
 	icon_state = "red_crowbar"
-	item_state = "crowbar_red"
+	worn_icon_state = "crowbar_red"
 
 /obj/item/tool/weldpack
 	name = "Welding kit"
@@ -400,6 +400,19 @@
 		playsound(loc, 'sound/effects/refill.ogg', 25, 1, 3)
 		balloon_alert(user, "Refills")
 		RS.update_icon()
+
+	else if(istype(I, /obj/item/weapon/twohanded/chainsaw))
+		var/obj/item/weapon/twohanded/chainsaw/saw = I
+		if(saw.reagents.get_reagent_amount(/datum/reagent/fuel) == saw.max_fuel || !reagents.total_volume)
+			return ..()
+
+		var/fuel_transfer_amount = min(reagents.total_volume, (saw.max_fuel - saw.reagents.get_reagent_amount(/datum/reagent/fuel)))
+		reagents.remove_reagent(/datum/reagent/fuel, fuel_transfer_amount)
+		saw.reagents.add_reagent(/datum/reagent/fuel, fuel_transfer_amount)
+		playsound(loc, 'sound/effects/refill.ogg', 25, 1, 3)
+		to_chat(user, span_notice("You refill [saw] with fuel."))
+		saw.update_icon()
+
 	else
 		balloon_alert(user, "Only works with welders and flamethrowers")
 
@@ -432,7 +445,7 @@
 	desc = "A hand-held, lightweight cell charger. It isn't going to give you tons of power, but it can help in a pinch."
 	icon = 'icons/obj/items/tools.dmi'
 	icon_state = "handheldcharger_black"
-	item_state = "handheldcharger_black"
+	worn_icon_state = "handheldcharger_black"
 	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = CONDUCT
 	force = 6
@@ -485,7 +498,11 @@
 
 	if(!istype(I, /obj/item/cell))
 		return
-	if(I.w_class > WEIGHT_CLASS_NORMAL)
+	var/obj/item/cell/our_cell = I
+	if(!our_cell.rechargable)
+		balloon_alert(user, "Not rechargeable")
+		return
+	if(our_cell.w_class > WEIGHT_CLASS_NORMAL)
 		balloon_alert(user, "Too large")
 		return
 	if(!user.drop_held_item())
@@ -496,8 +513,8 @@
 		user.put_in_hands(cell)
 		cell = null
 
-	I.forceMove(src)
-	cell = I
+	our_cell.forceMove(src)
+	cell = our_cell
 	cell.update_icon()
 	balloon_alert(user, "Charge Remaining: [cell.charge]/[cell.maxcharge]")
 	playsound(user, 'sound/weapons/guns/interact/rifle_reload.ogg', 20, 1, 5)

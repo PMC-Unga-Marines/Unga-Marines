@@ -1226,7 +1226,7 @@
 /turf/open/floor/kutjevo/multi_tiles,
 /area/kutjevo/interior/power)
 "bwt" = (
-/obj/structure/prop/vehicle/truck/truckcargo/destructible{
+/obj/structure/prop/vehicle/truck/truckcargo{
 	dir = 8
 	},
 /turf/open/floor/kutjevo/tan/multi_tiles{
@@ -2422,7 +2422,7 @@
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/kutjevo/exterior/lz_dunes)
 "cKI" = (
-/obj/structure/prop/vehicle/crane/cranecargo/destructible{
+/obj/structure/prop/vehicle/crane/cranecargo{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt/cement_sunbleached,
@@ -7714,7 +7714,7 @@
 /turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/construction/two)
 "its" = (
-/obj/structure/prop/vehicle/van/destructible{
+/obj/structure/prop/vehicle/van{
 	dir = 8
 	},
 /turf/open/floor/kutjevo/multi_tiles,
@@ -8034,7 +8034,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/Northwest_Colony)
 "iLr" = (
-/obj/structure/prop/vehicle/crane/destructible{
+/obj/structure/prop/vehicle/crane{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt/cement_sunbleached,
@@ -11243,7 +11243,7 @@
 /turf/open/floor/kutjevo/colors/orange,
 /area/kutjevo/exterior/Northwest_Colony)
 "mfD" = (
-/obj/structure/prop/vehicle/truck/destructible{
+/obj/structure/prop/vehicle/truck{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -11724,7 +11724,7 @@
 /turf/open/floor/kutjevo/colors/cyan/tile,
 /area/kutjevo/interior/complex/med/operating)
 "mCI" = (
-/obj/structure/prop/vehicle/truck/destructible{
+/obj/structure/prop/vehicle/truck{
 	dir = 8
 	},
 /turf/open/floor/kutjevo/colors,
@@ -11990,7 +11990,7 @@
 /turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/power/comms)
 "mOV" = (
-/obj/structure/prop/vehicle/crane/destructible,
+/obj/structure/prop/vehicle/crane,
 /turf/open/floor/kutjevo/tan/multi_tiles,
 /area/kutjevo/interior/filtration)
 "mPt" = (
@@ -19342,7 +19342,7 @@
 /turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/oob)
 "uxA" = (
-/obj/structure/prop/vehicle/truck/destructible{
+/obj/structure/prop/vehicle/truck{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/desertdam/asphalt/cement_sunbleached,
@@ -19732,7 +19732,7 @@
 /area/kutjevo/exterior/lz_dunes)
 "uQM" = (
 /obj/structure/cable,
-/obj/structure/prop/vehicle/crane/destructible,
+/obj/structure/prop/vehicle/crane,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/kutjevo/tan/multi_tiles,
@@ -21654,6 +21654,12 @@
 	},
 /turf/open/floor/plating/kutjevo,
 /area/kutjevo/interior/colony_South/power2)
+"wQp" = (
+/obj/structure/prop/vehicle/truck/damaged{
+	dir = 8
+	},
+/turf/open/floor/plating/ground/desertdam/asphalt/cement_sunbleached,
+/area/kutjevo/exterior/Northwest_Colony)
 "wQx" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/kutjevo/multi_tiles,
@@ -34555,7 +34561,7 @@ iin
 iin
 sVF
 sVF
-huR
+wQp
 huR
 sVF
 sVF

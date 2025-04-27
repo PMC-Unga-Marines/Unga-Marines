@@ -1,4 +1,10 @@
-GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/facehugger, /obj/alien/egg, /obj/structure/mineral_door, /obj/alien/resin, /obj/structure/bed/nest))) //For sticky/acid spit
+GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
+	/obj/item/clothing/mask/facehugger,
+	/obj/alien/egg,
+	/obj/structure/mineral_door,
+	/obj/alien/resin,
+	/obj/structure/bed/nest
+))) //For sticky/acid spit
 
 /datum/ammo/xeno
 	icon_state = "neurotoxin"
@@ -74,26 +80,26 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 
 	return ..()
 
-/datum/ammo/xeno/toxin/on_hit_obj(obj/O, obj/projectile/P)
-	var/turf/T = get_turf(O)
-	drop_transvitox_smoke(T.density ? P.loc : T)
+/datum/ammo/xeno/toxin/on_hit_obj(obj/target_object, obj/projectile/proj)
+	var/turf/target_turf = get_turf(target_object)
+	drop_transvitox_smoke(target_turf.density ? proj.loc : target_turf)
 
-/datum/ammo/xeno/toxin/on_hit_turf(turf/T, obj/projectile/P)
-	drop_transvitox_smoke(T.density ? P.loc : T)
+/datum/ammo/xeno/toxin/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_transvitox_smoke(target_turf.density ? proj.loc : target_turf)
 
-/datum/ammo/xeno/toxin/do_at_max_range(turf/T, obj/projectile/P)
-	drop_transvitox_smoke(T.density ? P.loc : T)
+/datum/ammo/xeno/toxin/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_transvitox_smoke(target_turf.density ? proj.loc : target_turf)
 
 /datum/ammo/xeno/toxin/set_smoke()
 	smoke_system = new /datum/effect_system/smoke_spread/xeno/transvitox/light()
 
-/datum/ammo/xeno/toxin/proc/drop_transvitox_smoke(turf/T)
-	if(T.density)
+/datum/ammo/xeno/toxin/proc/drop_transvitox_smoke(turf/target_turf)
+	if(target_turf.density)
 		return
 
 	set_smoke()
 	smoke_system.strength = smoke_strength
-	smoke_system.set_up(smoke_range, T)
+	smoke_system.set_up(smoke_range, target_turf)
 	smoke_system.start()
 	smoke_system = null
 
@@ -166,37 +172,37 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	stagger_stacks = 2
 	slowdown_stacks = 3
 
-/datum/ammo/xeno/sticky/on_hit_mob(mob/M, obj/projectile/P)
-	drop_resin(get_turf(M))
-	if(istype(M,/mob/living/carbon))
-		var/mob/living/carbon/C = M
-		if(C.issamexenohive(P.firer))
+/datum/ammo/xeno/sticky/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	drop_resin(get_turf(target_mob))
+	if(istype(target_mob, /mob/living/carbon))
+		var/mob/living/carbon/C = target_mob
+		if(C.issamexenohive(proj.firer))
 			return
 		C.adjust_stagger(stagger_stacks) //stagger briefly; useful for support
 		C.add_slowdown(slowdown_stacks) //slow em down
 
-/datum/ammo/xeno/sticky/on_hit_obj(obj/O, obj/projectile/P)
-	if(isarmoredvehicle(O))
-		var/obj/vehicle/sealed/armored/tank = O
+/datum/ammo/xeno/sticky/on_hit_obj(obj/target_object, obj/projectile/proj)
+	if(isarmoredvehicle(target_object))
+		var/obj/vehicle/sealed/armored/tank = target_object
 		COOLDOWN_START(tank, cooldown_vehicle_move, tank.move_delay)
-	var/turf/T = get_turf(O)
-	drop_resin(T.density ? P.loc : T)
+	var/turf/target_turf = get_turf(target_object)
+	drop_resin(target_turf.density ? proj.loc : target_turf)
 
-/datum/ammo/xeno/sticky/on_hit_turf(turf/T, obj/projectile/P)
-	drop_resin(T.density ? P.loc : T)
+/datum/ammo/xeno/sticky/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_resin(target_turf.density ? proj.loc : target_turf)
 
-/datum/ammo/xeno/sticky/do_at_max_range(turf/T, obj/projectile/P)
-	drop_resin(T.density ? P.loc : T)
+/datum/ammo/xeno/sticky/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_resin(target_turf.density ? proj.loc : target_turf)
 
-/datum/ammo/xeno/sticky/proc/drop_resin(turf/T)
-	if(T.density || istype(T, /turf/open/space)) // No structures in space
+/datum/ammo/xeno/sticky/proc/drop_resin(turf/target_turf)
+	if(target_turf.density || istype(target_turf, /turf/open/space)) // No structures in space
 		return
 
-	for(var/obj/O in T.contents)
-		if(is_type_in_typecache(O, GLOB.no_sticky_resin))
+	for(var/obj/target_object in target_turf.contents)
+		if(is_type_in_typecache(target_object, GLOB.no_sticky_resin))
 			return
 
-	new /obj/alien/resin/sticky/thin(T)
+	new /obj/alien/resin/sticky/thin(target_turf)
 
 /datum/ammo/xeno/sticky/turret
 	max_range = 9
@@ -211,32 +217,31 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	bonus_projectiles_type = /datum/ammo/xeno/sticky/mini
 	bonus_projectiles_scatter = 22
 	var/bonus_projectile_quantity = 16
-	var/bonus_projectile_range = 3
-	var/bonus_projectile_speed = 1
 
 /datum/ammo/xeno/sticky/mini
 	damage = 5
 	max_range = 3
+	shell_speed = 1
 
-/datum/ammo/xeno/sticky/globe/on_hit_obj(obj/O, obj/projectile/P)
-	var/turf/initial_turf = O.density ? P.loc : get_turf(O)
-	drop_resin(initial_turf)
-	fire_directionalburst(P, P.firer, P.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(P.firer, initial_turf))
+/datum/ammo/xeno/sticky/globe/on_hit_obj(obj/target_object, obj/projectile/proj)
+	var/turf/det_turf = target_object.allow_pass_flags & PASS_PROJECTILE ? get_step_towards(target_object, proj) : target_object.loc
+	drop_resin(det_turf)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_object), loc_override = det_turf)
 
-/datum/ammo/xeno/sticky/globe/on_hit_turf(turf/T, obj/projectile/P)
-	var/turf/initial_turf = T.density ? P.loc : T
-	drop_resin(initial_turf)
-	fire_directionalburst(P, P.firer, P.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(P.firer, initial_turf))
+/datum/ammo/xeno/sticky/globe/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	var/turf/det_turf = target_turf.density ? get_step_towards(target_turf, proj) : target_turf
+	drop_resin(det_turf)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_turf), loc_override = det_turf)
 
-/datum/ammo/xeno/sticky/globe/on_hit_mob(mob/M, obj/projectile/P)
-	var/turf/initial_turf = get_turf(M)
-	drop_resin(initial_turf)
-	fire_directionalburst(P, P.firer, P.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(P.firer, initial_turf))
+/datum/ammo/xeno/sticky/globe/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	var/turf/det_turf = get_turf(target_mob)
+	drop_resin(det_turf)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_mob), loc_override = det_turf)
 
-/datum/ammo/xeno/sticky/globe/do_at_max_range(turf/T, obj/projectile/P)
-	var/turf/initial_turf = T.density ? P.loc : T
-	drop_resin(initial_turf)
-	fire_directionalburst(P, P.firer, P.shot_from, bonus_projectile_quantity, bonus_projectile_range, bonus_projectile_speed, Get_Angle(P.firer, initial_turf))
+/datum/ammo/xeno/sticky/globe/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	var/turf/det_turf = target_turf.density ? get_step_towards(target_turf, proj) : target_turf
+	drop_resin(det_turf)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_turf), loc_override = det_turf)
 
 /datum/ammo/xeno/acid
 	name = "acid spit"
@@ -259,10 +264,10 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/acid/on_shield_block(mob/victim, obj/projectile/proj)
 	airburst(victim, proj)
 
-/datum/ammo/xeno/acid/drop_nade(turf/T) //Leaves behind an acid pool; defaults to 1-3 seconds.
-	if(T.density)
+/datum/ammo/xeno/acid/drop_nade(turf/target_turf) //Leaves behind an acid pool; defaults to 1-3 seconds.
+	if(target_turf.density)
 		return
-	new /obj/effect/xenomorph/spray/weak(T, puddle_duration, puddle_acid_damage)
+	new /obj/effect/xenomorph/spray/weak(target_turf, puddle_duration, puddle_acid_damage)
 
 /datum/ammo/xeno/acid/medium
 	name = "acid spatter"
@@ -271,10 +276,10 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	icon_state = "xeno_acid_normal"
 	bullet_color = COLOR_VERY_PALE_LIME_GREEN
 
-/datum/ammo/xeno/acid/medium/drop_nade(turf/T) //Leaves behind an acid pool; defaults to 1-3 seconds.
-	if(T.density)
+/datum/ammo/xeno/acid/medium/drop_nade(turf/target_turf) //Leaves behind an acid pool; defaults to 1-3 seconds.
+	if(target_turf.density)
 		return
-	new /obj/effect/xenomorph/spray(T, puddle_duration, puddle_acid_damage)
+	new /obj/effect/xenomorph/spray(target_turf, puddle_duration, puddle_acid_damage)
 
 /datum/ammo/xeno/acid/medium/passthrough //Spitter
 	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS
@@ -287,18 +292,17 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	added_spit_delay = 0
 	ammo_behavior_flags = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
 
-/datum/ammo/xeno/acid/auto/on_hit_mob(mob/M, obj/projectile/P)
-	var/turf/T = get_turf(M)
-	drop_nade(T.density ? P.loc : T)
+/datum/ammo/xeno/acid/auto/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	drop_nade(get_turf(target_mob), proj)
 
-/datum/ammo/xeno/acid/auto/on_hit_obj(obj/O, obj/projectile/P)
-	drop_nade(O.density ? P.loc : get_turf(O))
+/datum/ammo/xeno/acid/auto/on_hit_obj(obj/target_object, obj/projectile/proj)
+	drop_nade(target_object.density ? get_step_towards(target_object, proj) : get_turf(target_object))
 
-/datum/ammo/xeno/acid/auto/on_hit_turf(turf/T, obj/projectile/P)
-	drop_nade(T.density ? P.loc : T)
+/datum/ammo/xeno/acid/auto/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : get_turf(target_turf))
 
-/datum/ammo/xeno/acid/auto/do_at_max_range(turf/T, obj/projectile/P)
-	drop_nade(T.density ? P.loc : T)
+/datum/ammo/xeno/acid/auto/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : get_turf(target_turf))
 
 /datum/ammo/xeno/acid/passthrough
 	name = "acid spittle"
@@ -313,10 +317,10 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	icon_state = "xeno_acid_strong"
 	bullet_color = COLOR_ASSEMBLY_YELLOW
 
-/datum/ammo/xeno/acid/heavy/drop_nade(turf/T) //Leaves behind an acid pool; defaults to 1-3 seconds.
-	if(T.density)
+/datum/ammo/xeno/acid/heavy/drop_nade(turf/target_turf) //Leaves behind an acid pool; defaults to 1-3 seconds.
+	if(target_turf.density)
 		return
-	new /obj/effect/xenomorph/spray/strong(T, puddle_duration, puddle_acid_damage)
+	new /obj/effect/xenomorph/spray/strong(target_turf, puddle_duration, puddle_acid_damage)
 
 /datum/ammo/xeno/acid/heavy/passthrough //Praetorian
 	ammo_behavior_flags = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
@@ -329,23 +333,23 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	icon_state = "xeno_acid_weak"
 	bullet_color = COLOR_PALE_GREEN_GRAY
 
-/datum/ammo/xeno/acid/heavy/turret/drop_nade(turf/T) //Leaves behind an acid pool; defaults to 1-3 seconds.
-	if(T.density)
+/datum/ammo/xeno/acid/heavy/turret/drop_nade(turf/target_turf) //Leaves behind an acid pool; defaults to 1-3 seconds.
+	if(target_turf.density)
 		return
-	new /obj/effect/xenomorph/spray/weak(T, puddle_duration, puddle_acid_damage)
+	new /obj/effect/xenomorph/spray/weak(target_turf, puddle_duration, puddle_acid_damage)
 
-/datum/ammo/xeno/acid/heavy/on_hit_mob(mob/M, obj/projectile/P)
-	var/turf/T = get_turf(M)
-	drop_nade(T.density ? P.loc : T)
+/datum/ammo/xeno/acid/heavy/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	var/turf/target_turf = get_turf(target_mob)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
 
-/datum/ammo/xeno/acid/heavy/on_hit_obj(obj/O, obj/projectile/P)
-	drop_nade(O.density ? P.loc : get_turf(O))
+/datum/ammo/xeno/acid/heavy/on_hit_obj(obj/target_object, obj/projectile/proj)
+	drop_nade(target_object.density ? get_step_towards(target_object, proj) : get_turf(target_object))
 
-/datum/ammo/xeno/acid/heavy/on_hit_turf(turf/T, obj/projectile/P)
-	drop_nade(T.density ? P.loc : T)
+/datum/ammo/xeno/acid/heavy/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
 
-/datum/ammo/xeno/acid/heavy/do_at_max_range(turf/T, obj/projectile/P)
-	drop_nade(T.density ? P.loc : T)
+/datum/ammo/xeno/acid/heavy/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
 
 ///For the Spitter's Scatterspit ability
 /datum/ammo/xeno/acid/heavy/scatter
@@ -359,10 +363,10 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	icon_state = "xeno_acid_normal"
 	bullet_color = COLOR_VERY_PALE_LIME_GREEN
 
-/datum/ammo/xeno/acid/heavy/scatter/drop_nade(turf/T) //Leaves behind an acid pool; defaults to 1-3 seconds.
-	if(T.density)
+/datum/ammo/xeno/acid/heavy/scatter/drop_nade(turf/target_turf) //Leaves behind an acid pool; defaults to 1-3 seconds.
+	if(target_turf.density)
 		return
-	new /obj/effect/xenomorph/spray(T, puddle_duration, puddle_acid_damage)
+	new /obj/effect/xenomorph/spray(target_turf, puddle_duration, puddle_acid_damage)
 
 /datum/ammo/xeno/acid/heavy/scatter/praetorian
 	max_range = 5
@@ -402,11 +406,11 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	///We're going to reuse one smoke spread system repeatedly to cut down on processing.
 	var/datum/effect_system/smoke_spread/xeno/trail_spread_system
 
-/datum/ammo/xeno/boiler_gas/on_leave_turf(turf/T, obj/projectile/proj)
+/datum/ammo/xeno/boiler_gas/on_leave_turf(turf/target_turf, obj/projectile/proj)
 	if(isxeno(proj.firer))
 		var/mob/living/carbon/xenomorph/X = proj.firer
 		trail_spread_system.strength = X.xeno_caste.bomb_strength
-	trail_spread_system.set_up(0, T)
+	trail_spread_system.set_up(0, target_turf)
 	trail_spread_system.start()
 
 /**
@@ -439,54 +443,50 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 /datum/ammo/xeno/boiler_gas/proc/set_reagents()
 	spit_reagents = list(/datum/reagent/toxin/xeno_neurotoxin = reagent_transfer_amount)
 
-/datum/ammo/xeno/boiler_gas/on_hit_mob(mob/living/victim, obj/projectile/proj)
-	var/turf/target_turf = get_turf(victim)
-	drop_nade(target_turf.density ? proj.loc : target_turf, proj.firer)
+/datum/ammo/xeno/boiler_gas/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	drop_nade(get_turf(target_mob), proj.firer)
+	if(target_mob.stat == DEAD || !ishuman(target_mob))
+		return
+	var/mob/living/carbon/human/human_victim = target_mob
 
-	if(!istype(victim) || victim.stat == DEAD || victim.issamexenohive(proj.firer))
+	human_victim.Paralyze(hit_paralyze_time)
+	human_victim.blur_eyes(hit_eye_blur)
+	human_victim.adjust_drowsyness(hit_drowsyness)
+
+	if(!reagent_transfer_amount)
 		return
 
-	victim.Paralyze(hit_paralyze_time)
-	victim.blur_eyes(hit_eye_blur)
-	victim.adjustDrowsyness(hit_drowsyness)
-
-	if(!reagent_transfer_amount || !iscarbon(victim))
-		return
-
-	var/mob/living/carbon/carbon_victim = victim
 	set_reagents()
 	for(var/reagent_id in spit_reagents)
-		spit_reagents[reagent_id] = carbon_victim.modify_by_armor(spit_reagents[reagent_id], armor_type, penetration, proj.def_zone)
+		spit_reagents[reagent_id] = human_victim.modify_by_armor(spit_reagents[reagent_id], armor_type, penetration, proj.def_zone)
 
-	carbon_victim.reagents.add_reagent_list(spit_reagents)
+	human_victim.reagents.add_reagent_list(spit_reagents)
 
-/datum/ammo/xeno/boiler_gas/on_hit_obj(obj/O, obj/projectile/P)
-	if(ismecha(O))
-		P.damage *= 5 //Globs deal much higher damage to mechs.
-	else if(ishitbox(O) || isvehicle(O))
-		P.damage *= 1.5
-	var/turf/target_turf = get_turf(O)
-	drop_nade(O.density ? P.loc : target_turf, P.firer)
+/datum/ammo/xeno/boiler_gas/on_hit_obj(obj/target_obj, obj/projectile/proj)
+	if(ismecha(target_obj))
+		proj.damage *= 7 //Globs deal much higher damage to mechs.
+	var/turf/target_turf = get_turf(target_obj)
+	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : target_turf, proj.firer)
 
-/datum/ammo/xeno/boiler_gas/on_hit_turf(turf/T, obj/projectile/P)
-	drop_nade(T.density ? P.loc : T, P.firer) //we don't want the gas globs to land on dense turfs, they block smoke expansion.
+/datum/ammo/xeno/boiler_gas/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj.firer) //we don't want the gas globs to land on dense turfs, they block smoke expansion.
 
-/datum/ammo/xeno/boiler_gas/do_at_max_range(turf/T, obj/projectile/P)
-	drop_nade(T.density ? P.loc : T, P.firer)
+/datum/ammo/xeno/boiler_gas/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj.firer)
 
 /datum/ammo/xeno/boiler_gas/set_smoke()
 	smoke_system = new /datum/effect_system/smoke_spread/xeno/neuro()
 
-/datum/ammo/xeno/boiler_gas/drop_nade(turf/T, atom/firer, range = 1)
+/datum/ammo/xeno/boiler_gas/drop_nade(turf/target_turf, atom/firer, range = 1)
 	set_smoke()
 	if(isxeno(firer))
 		var/mob/living/carbon/xenomorph/X = firer
 		smoke_system.strength = X.xeno_caste.bomb_strength
 		range = fixed_spread_range
-	smoke_system.set_up(range, T)
+	smoke_system.set_up(range, target_turf)
 	smoke_system.start()
 	smoke_system = null
-	T.visible_message(danger_message)
+	target_turf.visible_message(danger_message)
 
 /datum/ammo/xeno/boiler_gas/corrosive
 	name = "glob of acid"
@@ -572,27 +572,30 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	///The type of hugger thrown
 	var/obj/item/clothing/mask/facehugger/hugger_type = /obj/item/clothing/mask/facehugger
 
-/datum/ammo/xeno/hugger/on_hit_mob(mob/M, obj/projectile/proj)
-	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(get_turf(M), hivenumber)
-	hugger.Attach(M)
+/datum/ammo/xeno/hugger/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(get_turf(target_mob), hivenumber)
+	hugger.try_attach(target_mob)
 
-/datum/ammo/xeno/hugger/on_hit_obj(obj/O, obj/projectile/proj)
-	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(get_turf(O), hivenumber)
+/datum/ammo/xeno/hugger/on_hit_obj(obj/target_object, obj/projectile/proj)
+	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(get_turf(target_object), hivenumber)
 	hugger.go_active()
 
-/datum/ammo/xeno/hugger/on_hit_turf(turf/T, obj/projectile/P)
-	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(T.density ? P.loc : T, hivenumber)
+/datum/ammo/xeno/hugger/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(target_turf.density ? proj.loc : target_turf, hivenumber)
 	hugger.go_active()
 
-/datum/ammo/xeno/hugger/do_at_max_range(turf/T, obj/projectile/P)
-	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(T.density ? P.loc : T, hivenumber)
+/datum/ammo/xeno/hugger/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(target_turf.density ? proj.loc : target_turf, hivenumber)
 	hugger.go_idle()
 
 /datum/ammo/xeno/hugger/slash
 	hugger_type = /obj/item/clothing/mask/facehugger/combat/slash
 
 /datum/ammo/xeno/hugger/neuro
-	hugger_type = /obj/item/clothing/mask/facehugger/combat/neuro
+	hugger_type = /obj/item/clothing/mask/facehugger/combat/chem_injector/neuro
+
+/datum/ammo/xeno/hugger/ozelomelyn
+	hugger_type = /obj/item/clothing/mask/facehugger/combat/chem_injector/ozelomelyn
 
 /datum/ammo/xeno/hugger/resin
 	hugger_type = /obj/item/clothing/mask/facehugger/combat/resin
@@ -661,3 +664,107 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	var/mob/living/carbon/human/human_victim = target_mob
 	human_victim.apply_effect(hit_weaken, WEAKEN)
 
+/datum/ammo/energy/xeno
+	barricade_clear_distance = 0
+	///Plasma cost to fire this projectile
+	var/ability_cost
+	///Particle type used when this ammo is used
+	var/particles/channel_particle
+	///The colour the xeno glows when using this ammo type
+	var/glow_color
+
+/datum/ammo/energy/xeno/psy_blast
+	name = "psychic blast"
+	ammo_behavior_flags = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SNIPER|AMMO_ENERGY|AMMO_HITSCAN|AMMO_SKIPS_ALIENS
+	damage = 35
+	penetration = 10
+	sundering = 1
+	max_range = 7
+	accurate_range = 7
+	hitscan_effect_icon = "beam_cult"
+	icon_state = "psy_blast"
+	ability_cost = 230
+	channel_particle = /particles/warlock_charge/psy_blast
+	glow_color = "#9e1f1f"
+	///The AOE for drop_nade
+	var/aoe_range = 2
+
+/datum/ammo/energy/xeno/psy_blast/drop_nade(turf/target_turf, obj/projectile/proj)
+	if(!target_turf || !isturf(target_turf))
+		return
+	playsound(target_turf, 'sound/effects/EMPulse.ogg', 50)
+	var/aoe_damage = 25
+	if(isxeno(proj.firer))
+		var/mob/living/carbon/xenomorph/xeno_firer = proj.firer
+		aoe_damage = xeno_firer.xeno_caste.blast_strength
+
+	var/list/throw_atoms = list()
+	var/list/turf/target_turfs = generate_true_cone(target_turf, aoe_range, -1, 359, 0, air_pass = TRUE)
+	for(var/turf/targetted_turf AS in target_turfs)
+		for(var/atom/movable/target AS in targetted_turf)
+			if(isliving(target))
+				var/mob/living/living_victim = target
+				if(living_victim.stat == DEAD)
+					continue
+				if(!isxeno(living_victim))
+					living_victim.apply_damage(aoe_damage, BURN, null, ENERGY, FALSE, FALSE, TRUE, penetration)
+					staggerstun(living_victim, proj, 10, slowdown = 1)
+			else if(isobj(target))
+				var/obj/obj_victim = target
+				if(!(obj_victim.resistance_flags & XENO_DAMAGEABLE))
+					continue
+				obj_victim.take_damage(aoe_damage, BURN, ENERGY, TRUE, armour_penetration = penetration)
+			if(target.anchored)
+				continue
+			throw_atoms += target
+
+	for(var/atom/movable/target AS in throw_atoms)
+		var/throw_dir = get_dir(target_turf, target)
+		if(target_turf == get_turf(target))
+			throw_dir = get_dir(proj.starting_turf, target_turf)
+		target.safe_throw_at(get_ranged_target_turf(target_turf, throw_dir, 5), 3, 1, spin = TRUE)
+
+	new /obj/effect/temp_visual/shockwave(target_turf, aoe_range + 2)
+
+/datum/ammo/energy/xeno/psy_blast/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	drop_nade(get_turf(target_mob), proj)
+
+/datum/ammo/energy/xeno/psy_blast/on_hit_obj(obj/target_object, obj/projectile/proj)
+	drop_nade(target_object.density ? get_step_towards(target_object, proj) : target_object, proj)
+
+/datum/ammo/energy/xeno/psy_blast/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
+
+/datum/ammo/energy/xeno/psy_blast/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf, proj)
+
+/datum/ammo/energy/xeno/psy_blast/psy_lance
+	name = "psychic lance"
+	ammo_behavior_flags = AMMO_XENO|AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_MOVABLE
+	damage = 60
+	penetration = 50
+	accuracy = 100
+	sundering = 5
+	max_range = 16
+	hitscan_effect_icon = "beam_hcult"
+	icon_state = "psy_lance"
+	ability_cost = 300
+	channel_particle = /particles/warlock_charge/psy_blast/psy_lance
+	glow_color = "#CB0166"
+
+/datum/ammo/energy/xeno/psy_blast/psy_lance/on_hit_obj(obj/target_object, obj/projectile/proj)
+	if(ismecha(target_object))
+		proj.damage *= 3
+	else if(ishitbox(target_object) || isvehicle(target_object))
+		proj.damage *= 1.5
+
+/datum/ammo/energy/xeno/psy_blast/psy_lance/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(isxeno(target_mob))
+		return
+	staggerstun(target_mob, proj, 9, stagger = 4 SECONDS, slowdown = 2, knockback = 1)
+
+/datum/ammo/energy/xeno/psy_blast/psy_lance/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	return
+
+/datum/ammo/energy/xeno/psy_blast/psy_lance/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	return

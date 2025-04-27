@@ -1,0 +1,1 @@
+/obj/item/tool/kitchen/tray : /obj/item/storage/kitchen_tray{@OLD}

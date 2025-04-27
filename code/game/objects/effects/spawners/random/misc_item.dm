@@ -128,6 +128,9 @@
 		/obj/item/toy/plush/therapy_red,
 		/obj/item/toy/plush/therapy_purple,
 		/obj/item/toy/plush/pig,
+		/obj/item/toy/plush/witch,
+		/obj/item/toy/plush/fairy,
+		/obj/item/toy/plush/royalqueen,
 	)
 
 /obj/effect/spawner/random/misc/plushie/fiftyfifty
@@ -257,7 +260,7 @@
 		/obj/item/trash/tgmc_tray,
 		/obj/item/trash/boonie,
 		/obj/item/trash/chunk,
-		/obj/item/trash/barcardine,
+		/obj/item/trash/barcaridine,
 		/obj/item/trash/mre,
 		/obj/item/trash/berrybar,
 	)

@@ -56,7 +56,7 @@
 
 /obj/item/ammo_magazine/rifle/tx8
 	name = "\improper high velocity magazine (10x28mm)"
-	desc = "A magazine of overpressuered high velocity rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds."
+	desc = "A magazine of overpressured high velocity rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds."
 	icon_state = "tx8"
 	caliber = CALIBER_10X28_CASELESS
 	default_ammo = /datum/ammo/bullet/rifle/tx8
@@ -66,7 +66,7 @@
 
 /obj/item/ammo_magazine/rifle/tx8/incendiary
 	name = "\improper high velocity incendiary magazine (10x28mm)"
-	desc = "A magazine of overpressuered high velocity incendiary rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds."
+	desc = "A magazine of overpressured high velocity incendiary rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds."
 	caliber = CALIBER_10X28_CASELESS
 	default_ammo = /datum/ammo/bullet/rifle/tx8/incendiary
 	icon_state_mini = "mag_rifle_big_red"
@@ -75,7 +75,7 @@
 
 /obj/item/ammo_magazine/rifle/tx8/impact
 	name = "\improper high velocity impact magazine (10x28mm)"
-	desc = "A magazine of overpressuered high velocity impact rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds."
+	desc = "A magazine of overpressured high velocity impact rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds."
 	default_ammo = /datum/ammo/bullet/rifle/tx8/impact
 	icon_state_mini = "mag_rifle_big_blue"
 	bonus_overlay = "tx8_impact"
@@ -353,6 +353,30 @@
 	default_ammo = /datum/ammo/rocket/som/thermobaric
 	bonus_overlay = "iccrpg_thermobaric"
 
+//VSD RPG
+
+/obj/item/ammo_magazine/rocket/vsd/he
+	name = "\improper 84mm HE 'Anti-Personnel' case"
+	desc = "84mm Anti Personnel case. The label reads: 'Makes big boom'."
+	icon_state = "c153_he"
+	default_ammo = /datum/ammo/rocket/som
+	reload_delay = 2 SECONDS
+	bonus_overlay = "c153_he"
+
+/obj/item/ammo_magazine/rocket/vsd/incendiary
+	name = "\improper 84mm Incendiary 'Anti-Personnel' case"
+	desc = "84mm Incendiary Anti Personnel case. The label reads: 'Makes people go AAAAAAAHH'."
+	icon_state = "c153_incendiary"
+	default_ammo = /datum/ammo/rocket/wp/quad/som
+	bonus_overlay = "c153_incendiary"
+
+/obj/item/ammo_magazine/rocket/vsd/chemical
+	name = "\improper 84mm Chemical-Warhead 'Anti-Personnel' case"
+	desc = "Chemical Capped 84mm Anti Personnel case. The label reads: 'Makes people fucking die'."
+	icon_state = "c153_chemical"
+	default_ammo = /datum/ammo/rocket/recoilless/chemical/harmgas/vsd
+	bonus_overlay = "c153_chemical"
+
 // railgun
 
 /obj/item/ammo_magazine/railgun
@@ -404,8 +428,8 @@
 
 /obj/item/ammo_magazine/minigun_powerpack
 	name = "\improper MG-100 Vindicator powerpack"
-	desc = "A heavy reinforced backpack with support equipment, power cells, and spare rounds for the MG-100 Minigun System.\nClick the icon in the top left to reload your M56."
-	icon = 'icons/obj/items/storage/storage.dmi'
+	desc = "A heavy reinforced backpack with support equipment, power cells, and spare rounds for the MG-100 Minigun System.\nClick the icon in the top left to reload your MG-100."
+	icon = 'icons/obj/items/ammo/powerpack.dmi'
 	icon_state = "powerpack"
 	atom_flags = CONDUCT
 	equip_slot_flags = ITEM_SLOT_BACK
@@ -439,6 +463,20 @@
 	caliber = CALIBER_10X26_CASELESS
 	item_map_variant_flags = null
 
+//"External magazine" for the wheelchair-mounted minigun
+/obj/item/ammo_magazine/minigun_wheelchair
+	name = "\improper Mounted MG-100 Vindicator ammo rack"
+	desc = "A case filled to the brim with ammunition. Appears custom made to be slotted into a feeding system."
+	icon = 'icons/obj/items/ammo/stationary.dmi'
+	icon_state = "minigun"
+	atom_flags = CONDUCT
+	magazine_flags = MAGAZINE_REFILLABLE
+	equip_slot_flags = ITEM_SLOT_BACK
+	w_class = WEIGHT_CLASS_HUGE
+	default_ammo = /datum/ammo/bullet/minigun
+	current_rounds = 1000
+	max_rounds = 1000
+	reload_delay = 0.75 SECONDS
 
 // ICC coilgun
 

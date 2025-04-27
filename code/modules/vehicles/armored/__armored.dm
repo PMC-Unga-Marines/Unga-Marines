@@ -70,6 +70,10 @@
 	 * This will be turned into a typeCache on  initialize
 	*/
 	var/list/easy_load_list
+	///Wether we are strafing
+	var/strafe = FALSE
+	///modifier to view range when manning a control chair
+	var/vis_range_mod = 0
 
 /obj/vehicle/sealed/armored/Initialize(mapload)
 	easy_load_list = typecacheof(easy_load_list)
@@ -112,8 +116,7 @@
 				icon_state += "_urban"
 			if(MAP_ARMOR_STYLE_DESERT)
 				icon_state += "_desert"
-	if(minimap_icon_state)
-		SSminimaps.add_marker(src, minimap_flags, image('icons/UI_icons/map_blips_large.dmi', null, minimap_icon_state))
+	update_minimap_icon()
 	GLOB.tank_list += src
 
 /obj/vehicle/sealed/armored/Destroy()
@@ -152,8 +155,11 @@
 		return list(get_turf(entering_thing))
 
 /obj/vehicle/sealed/armored/obj_destruction(damage_amount, damage_type, damage_flag)
-	. = ..()
-	playsound(get_turf(src), 'sound/weapons/guns/fire/tank_cannon1.ogg', 100, TRUE)
+	playsound(get_turf(src), SFX_EXPLOSION_LARGE, 100, TRUE) //destroy sound is normally very quiet
+	new /obj/effect/temp_visual/explosion(get_turf(src), 7, LIGHT_COLOR_LAVA, FALSE, TRUE)
+	for(var/mob/living/nearby_mob AS in occupants + cheap_get_living_near(src, 7))
+		shake_camera(nearby_mob, 4, 2)
+	return ..()
 
 /obj/vehicle/sealed/armored/update_icon()
 	. = ..()
@@ -210,9 +216,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(COOLDOWN_CHECK(src, enginesound_cooldown))
-		COOLDOWN_START(src, enginesound_cooldown, engine_sound_length)
-		playsound(get_turf(src), engine_sound, 100, TRUE, 20)
+	play_engine_sound()
 	after_move(direction)
 	forceMove(get_step(src, direction)) // still animates and calls moved() and all that stuff BUT we skip checks
 
@@ -241,7 +245,7 @@
 	var/list/drivers = return_drivers()
 	if(length(drivers))
 		pilot = drivers[1]
-	A.vehicle_collision(src, get_dir(src, A), get_turf(loc), get_turf(loc), pilot)
+	A.vehicle_collision(src, get_dir(src, A), pilot)
 
 /obj/vehicle/sealed/armored/auto_assign_occupant_flags(mob/new_occupant)
 	if(interior) //handled by interior seats
@@ -257,6 +261,20 @@
 
 /obj/vehicle/sealed/armored/exit_location(mob/M)
 	return get_step(src, REVERSE_DIR(dir))
+
+/obj/vehicle/sealed/armored/emp_act(severity)
+	. = ..()
+	playsound(src, 'sound/magic/lightningshock.ogg', 50, FALSE)
+	take_damage(400 / severity, BURN, ENERGY)
+	for(var/mob/living/living_occupant AS in occupants)
+		living_occupant.Stagger((6 - severity) SECONDS)
+
+///Plays the engine sound for this vehicle if its not on cooldown
+/obj/vehicle/sealed/armored/proc/play_engine_sound(freq_vary = TRUE, sound_freq)
+	if(!COOLDOWN_CHECK(src, enginesound_cooldown))
+		return
+	COOLDOWN_START(src, enginesound_cooldown, engine_sound_length)
+	playsound(get_turf(src), engine_sound, 100, freq_vary, 20, frequency = sound_freq)
 
 ///called when a mob tried to leave our interior
 /obj/vehicle/sealed/armored/proc/interior_exit(mob/leaver, datum/interior/inside, teleport)
@@ -434,7 +452,7 @@
 		if(!(gun.type in permitted_weapons))
 			balloon_alert(user, "cannot attach")
 			return
-		if(!(gun.weapon_slot & MODULE_PRIMARY))
+		if(!(gun.armored_weapon_flags & MODULE_PRIMARY))
 			balloon_alert(user, "not a primary weapon")
 			return
 		if(!do_after(user, 2 SECONDS, NONE, src))
@@ -460,14 +478,14 @@
 	else
 		try_easy_load(I, user)
 		return
-	if(length(primary_weapon.ammo_magazine) >= primary_weapon.maximum_magazines)
+	if((length(weapon_to_load.ammo_magazine) >= weapon_to_load.maximum_magazines) && weapon_to_load.ammo)
 		balloon_alert(user, "magazine already full")
 		return
 	user.temporarilyRemoveItemFromInventory(I)
 	I.forceMove(weapon_to_load)
 	if(!weapon_to_load.ammo)
 		weapon_to_load.ammo = I
-		balloon_alert(user, "primary gun loaded")
+		balloon_alert(user, "weapon loaded")
 		for(var/mob/occupant AS in occupants)
 			occupant?.hud_used?.update_ammo_hud(weapon_to_load, list(weapon_to_load.ammo.default_ammo.hud_state, weapon_to_load.ammo.default_ammo.hud_state_empty), weapon_to_load.ammo.current_rounds)
 	else
@@ -495,7 +513,7 @@
 		if(!(gun.type in permitted_weapons))
 			balloon_alert(user, "cannot attach")
 			return
-		if(!(gun.weapon_slot & MODULE_SECONDARY))
+		if(!(gun.armored_weapon_flags & MODULE_SECONDARY))
 			balloon_alert(user, "not a secondary weapon")
 			return
 		if(!do_after(user, 2 SECONDS, NONE, src))
@@ -536,9 +554,8 @@
 			secondary_weapon.ammo_magazine += I
 			balloon_alert(user, "magazines [length(secondary_weapon.ammo_magazine)]/[secondary_weapon.maximum_magazines]")
 
-
 /obj/vehicle/sealed/armored/welder_act(mob/living/user, obj/item/I)
-	var/fumbling_time = 5 SECONDS - 1 SECONDS * user.skills.getRating(SKILL_ENGINEER)
+	var/fumbling_time = 5 SECONDS - 0.5 SECONDS * user.skills.getRating(SKILL_ENGINEER)
 	return welder_repair_act(user, I, 5 SECONDS, fumbling_time, 0, SKILL_ENGINEER_METAL, 5, 2 SECONDS)
 
 /obj/vehicle/sealed/armored/crowbar_act(mob/living/user, obj/item/I)
@@ -588,7 +605,7 @@
 	balloon_alert(user, "detached")
 
 /obj/vehicle/sealed/armored/plastique_act(mob/living/plastique_user)
-	ex_act(EXPLODE_LIGHT)
+	take_damage(500, BRUTE, BOMB, TRUE, REVERSE_DIR(dir), 50, plastique_user)
 
 /**
  * Toggles Weapons Safety
@@ -658,46 +675,53 @@
 		return
 	INVOKE_ASYNC(selected, TYPE_PROC_REF(/obj/item/armored_weapon, begin_fire), user, target, modifiers)
 
+///Updates the vehicles minimap icon
+/obj/vehicle/sealed/armored/proc/update_minimap_icon()
+	if(!minimap_icon_state)
+		return
+	SSminimaps.remove_marker(src)
+	minimap_icon_state = initial(minimap_icon_state)
+	if(armored_flags & ARMORED_IS_WRECK)
+		minimap_icon_state += "_wreck"
+	SSminimaps.add_marker(src, minimap_flags, image('icons/UI_icons/map_blips_large.dmi', null, minimap_icon_state, HIGH_FLOAT_LAYER))
+
 /atom/movable/vis_obj/turret_overlay
 	name = "Tank gun turret"
 	desc = "The shooty bit on a tank."
 	icon = 'icons/obj/armored/3x3/tank_gun.dmi' //set by owner
 	icon_state = "turret"
 	layer = ABOVE_ALL_MOB_LAYER
-	///overlay for the attached gun
-	var/image/gun_overlay
-	///overlay for the shooting version of that gun
-	var/image/flash_overlay
-	///currently using the flashing overlay
-	var/flashing = FALSE
+	vis_flags = VIS_INHERIT_ID
+	///overlay obj for for the attached gun
+	var/atom/movable/vis_obj/tank_gun/primary_overlay
 	///icon state for the secondary
 	var/image/secondary_overlay
 
-/atom/movable/vis_obj/turret_overlay/proc/update_gun_overlay(gun_icon_state)
-	cut_overlays()
-	if(!gun_icon_state)
-		flash_overlay = null
-		gun_overlay = null
-		return
-	flashing = FALSE
-	flash_overlay = image(icon, gun_icon_state + "_fire", pixel_x = -70, pixel_y = -69)
-	gun_overlay  = image(icon, gun_icon_state, pixel_x = -40, pixel_y = -48)
-	update_appearance(UPDATE_OVERLAYS)
+/atom/movable/vis_obj/turret_overlay/Destroy()
+	QDEL_NULL(primary_overlay)
+	return ..()
 
-/atom/movable/vis_obj/turret_overlay/proc/set_flashing(new_flashing)
-	flashing = new_flashing
-	update_appearance(UPDATE_OVERLAYS)
+/atom/movable/vis_obj/turret_overlay/proc/update_gun_overlay(gun_icon_state)
+	if(!gun_icon_state)
+		QDEL_NULL(primary_overlay)
+		return
+
+	primary_overlay = new()
+	primary_overlay.icon = icon //VIS_INHERIT_ICON doesn't work with flick
+	primary_overlay.base_icon_state = gun_icon_state
+	primary_overlay.icon_state = gun_icon_state
+	vis_contents += primary_overlay
 
 /atom/movable/vis_obj/turret_overlay/update_overlays()
 	. = ..()
-	. += (flashing ? flash_overlay : gun_overlay)
+	if(secondary_overlay)
+		secondary_overlay.icon_state = copytext(secondary_overlay.icon_state, 1, length(secondary_overlay.icon_state)) + "[dir]"
+		. += secondary_overlay
 
 /atom/movable/vis_obj/turret_overlay/setDir(newdir)
 	. = ..()
 	if(secondary_overlay)
-		cut_overlay(secondary_overlay)
-		secondary_overlay.icon_state = copytext(secondary_overlay.icon_state, 1, length(secondary_overlay.icon_state)) + "[dir]"
-		add_overlay(secondary_overlay)
+		update_appearance(UPDATE_OVERLAYS)
 
 /atom/movable/vis_obj/tank_damage
 	name = "Tank damage overlay"
@@ -705,3 +729,9 @@
 	icon = 'icons/obj/armored/3x3/tank_damage.dmi' //set by owner
 	icon_state = "null" // set on demand
 	vis_flags = VIS_INHERIT_DIR
+
+/atom/movable/vis_obj/tank_gun
+	name = "Tank weapon"
+	vis_flags = VIS_INHERIT_DIR|VIS_INHERIT_LAYER|VIS_INHERIT_ID
+	pixel_x = -70
+	pixel_y = -69

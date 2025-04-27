@@ -100,8 +100,8 @@
 	desc = "A 37mm shell for light anti tank guns. Will penetrate walls and fortifications, before hitting a target and exploding, has less payload and punch than usual rounds."
 	w_class = WEIGHT_CLASS_BULKY
 	icon = 'icons/obj/items/ammo/stationary.dmi'
-	icon_state = "tat36_shell"
-	item_state = "tat36"
+	icon_state = "at36"
+	worn_icon_state = "tat36"
 	magazine_flags = MAGAZINE_REFUND_IN_CHAMBER
 	caliber = CALIBER_37MM
 	max_rounds = 1
@@ -111,29 +111,29 @@
 /obj/item/ammo_magazine/at36/apcr
 	name = "AT-36 APCR shell (37mm Shell)"
 	desc = "A 37mm tungsten shell for light anti tank guns made to penetrate through just about everything, but it won't leave a big hole."
-	icon_state = "tat36_shell_apcr"
-	item_state = "tat36_apcr"
+	icon_state = "at36_apcr"
+	worn_icon_state = "tat36_apcr"
 	default_ammo = /datum/ammo/rocket/atgun_shell/apcr
 
 /obj/item/ammo_magazine/at36/he
 	name = "AT-36 HE (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns made to destroy fortifications, the high amount of payload gives it a slow speed. But it leaves quite a hole."
-	icon_state = "tat36_shell_he"
-	item_state = "tat36_he"
+	icon_state = "at36_he"
+	worn_icon_state = "tat36_he"
 	default_ammo = /datum/ammo/rocket/atgun_shell/he
 
 /obj/item/ammo_magazine/at36/beehive
 	name = "AT-36 Beehive (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns made to mince infantry, the light payload gives it moderate speed. Turns anyone into swiss cheese."
-	icon_state = "tat36_shell_beehive"
-	item_state = "tat36_beehive"
+	icon_state = "at36_beehive"
+	worn_icon_state = "tat36_beehive"
 	default_ammo = /datum/ammo/rocket/atgun_shell/beehive
 
 /obj/item/ammo_magazine/at36/incend
 	name = "AT-36 Napalm (37mm Shell)"
 	desc = "A 37mm shell for light anti tank guns made to set the battlefield ablaze, the light payload gives it a moderate speed. Will cook any target flambé."
-	icon_state = "tat36_shell_incend"
-	item_state = "tat36_incend"
+	icon_state = "at36_incend"
+	worn_icon_state = "tat36_incend"
 	default_ammo = /datum/ammo/rocket/atgun_shell/beehive/incend
 
 /obj/item/ammo_magazine/heavy_minigun
@@ -154,7 +154,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/obj/items/ammo/stationary.dmi'
 	icon_state = "ac_mag"
-	item_state = "ac"
+	worn_icon_state = "ac"
 	magazine_flags = NONE
 	caliber = CALIBER_20
 	max_rounds = 100
@@ -165,7 +165,7 @@
 	name = "autocannon smart-detonating magazine(20mm)"
 	desc = "A box of 80 smart-detonating 20mm rounds for the ATR-22 mounted autocannon. Will detonate upon hitting a target."
 	icon_state = "ac_mag_flak"
-	item_state = "ac_flak"
+	worn_icon_state = "ac_flak"
 	default_ammo = /datum/ammo/bullet/auto_cannon/flak
 
 /obj/item/cell/lasgun/heavy_laser
@@ -178,37 +178,44 @@
 	icon_state = "hl"
 	charge_overlay = null
 
-/obj/item/ammo_magazine/heavy_isg
+/obj/item/ammo_magazine/fk88
 	name = "FK-88 shell (155mm Shell)"
 	desc = "A 15cm shell for the FK-88 mounted flak gun. How did you even get this?"
 	icon = 'icons/obj/items/ammo/stationary.dmi'
-	icon_state = "isg_ammo"
-	item_state = "isg_ammo"
+	icon_state = "fk88_he"
 	w_class = WEIGHT_CLASS_BULKY
 	magazine_flags = MAGAZINE_REFUND_IN_CHAMBER
 	caliber = CALIBER_15CM
 	max_rounds = 1
 	reload_delay = 8 SECONDS
-	default_ammo = /datum/ammo/rocket/heavy_isg
+	default_ammo = /datum/ammo/rocket/fk88
 
-/obj/item/ammo_magazine/heavy_isg/he
+/obj/item/ammo_magazine/fk88/he
 	name = "FK-88 HE shell (155mm Shell)"
-	desc = "A 15cm HE shell for the FK-88 mounted flak gun. Activate in hand to swap between unguided and guided modes."
-	default_ammo = /datum/ammo/rocket/heavy_isg
-	var/guided = TRUE
+	desc = "A 15cm HE shell for the FK-88 mounted flak gun."
+	default_ammo = /datum/ammo/rocket/fk88
 
-/obj/item/ammo_magazine/heavy_isg/he/attack_hand_alternate(mob/living/user)
-	if(guided)
-		default_ammo = /datum/ammo/rocket/heavy_isg/unguided
-		balloon_alert(user, "You swap the shell to unguided form")
-		guided = FALSE
-	else
-		default_ammo = /datum/ammo/rocket/heavy_isg
-		balloon_alert(user, "You swap the shell to guided form")
-		guided = TRUE
+/obj/item/ammo_magazine/fk88/he/unguided
+	name = "FK-88 unguided HE shell (155mm Shell)"
+	desc = "A 15cm unguided HE shell for the FK-88 mounted flak gun."
+	default_ammo = /datum/ammo/rocket/fk88/unguided
 
-/obj/item/ammo_magazine/heavy_isg/sabot
+/obj/item/ammo_magazine/fk88/sabot
 	name = "FK-88 APFDS shell (155mm Shell)"
 	desc = "A 15cm APFDS shell for the FK-88 mounted flak gun containing a large metal dart fired at hypersonic speeds, will pierce through basically anything and onto the other side with ease. Requires a minimum range before it stabilizes to properly hit anything, will rip a clean hole through basically anything."
-	icon_state = "isg_ammo_sabot"
-	default_ammo = /datum/ammo/bullet/heavy_isg_apfds
+	icon_state = "fk88_sabot"
+	default_ammo = /datum/ammo/bullet/fk88_apfds
+
+///Default ammo for the ML-91 and its export variants.
+/obj/item/ammo_magazine/kord
+	name = "KRD-61ES magazine (10x30mm Caseless)"
+	desc = "A box of 300, 10x30mm caseless tungsten rounds for the KRD-61ESmounted heavy smartgun."
+	w_class = WEIGHT_CLASS_NORMAL
+	icon = 'icons/obj/items/ammo/stationary.dmi'
+	icon_state = "kord"
+	magazine_flags = NONE
+	caliber = CALIBER_10X30
+	max_rounds = 300
+	default_ammo = /datum/ammo/bullet/machinegun
+	reload_delay = 5 SECONDS
+	icon_state_mini = "mag_hmg"

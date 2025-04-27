@@ -20,8 +20,7 @@
 	update_icons()
 
 /mob/living/carbon/xenomorph/update_icons(state_change = TRUE)
-	if(HAS_TRAIT(src, TRAIT_MOB_ICON_UPDATE_BLOCKED))
-		return
+	SEND_SIGNAL(src, COMSIG_XENOMORPH_UPDATE_ICONS, state_change)
 	if(state_change)
 		if(stat == DEAD)
 			icon_state = "[xeno_caste.caste_name] Dead"
@@ -37,10 +36,10 @@
 				icon_state = "[xeno_caste.caste_name] Running"
 			else
 				icon_state = "[xeno_caste.caste_name] Walking"
-	update_fire() //the fire overlay depends on the xeno's stance, so we must update it.
+	update_fire() //all 3 overlays depends on the xeno's stance, so we update them.
 	update_wounds()
+	update_snowflake_overlays()
 
-	med_hud_set_health()
 	hud_set_sunder()
 	hud_set_firestacks()
 
@@ -56,7 +55,7 @@
 			r_hand.screen_loc = ui_rhand
 			client.screen += r_hand
 
-		overlays_standing[R_HAND_LAYER] = r_hand.make_worn_icon(inhands = TRUE, slot_name = slot_r_hand_str, default_icon = 'icons/mob/items_righthand_1.dmi', default_layer = R_HAND_LAYER)
+		overlays_standing[R_HAND_LAYER] = r_hand.make_worn_icon(inhands = TRUE, slot_name = slot_r_hand_str, default_icon = 'icons/mob/inhands/items_righthand_1.dmi', default_layer = R_HAND_LAYER)
 		apply_overlay(R_HAND_LAYER)
 
 /mob/living/carbon/xenomorph/update_inv_l_hand()
@@ -66,7 +65,7 @@
 			l_hand.screen_loc = ui_lhand
 			client.screen += l_hand
 
-		overlays_standing[L_HAND_LAYER] = l_hand.make_worn_icon(inhands = TRUE, slot_name = slot_l_hand_str, default_icon = 'icons/mob/items_lefthand_1.dmi', default_layer = L_HAND_LAYER)
+		overlays_standing[L_HAND_LAYER] = l_hand.make_worn_icon(inhands = TRUE, slot_name = slot_l_hand_str, default_icon = 'icons/mob/inhands/items_lefthand_1.dmi', default_layer = L_HAND_LAYER)
 		apply_overlay(L_HAND_LAYER)
 
 /mob/living/carbon/xenomorph/proc/create_shriekwave(color)
@@ -84,10 +83,12 @@
 	if(!fire_overlay)
 		return
 	var/fire_light = min(fire_stacks * 0.2 , 3)
+	if(!on_fire)
+		fire_light = 0
 	if(fire_light == fire_luminosity)
 		return
 	fire_luminosity = fire_light
-	fire_overlay.update_icon()
+	fire_overlay.update_appearance(UPDATE_ICON)
 
 ///Updates the wound overlays on the xeno
 /mob/living/carbon/xenomorph/proc/update_wounds()
@@ -101,7 +102,7 @@
 	wound_overlay.layer = layer + 0.3
 	wound_overlay.icon = src.icon
 	wound_overlay.vis_flags |= VIS_HIDE
-	if(HAS_TRAIT(src, TRAIT_MOB_ICON_UPDATE_BLOCKED) || HAS_TRAIT(src, TRAIT_BURROWED))
+	if(HAS_TRAIT(src, TRAIT_XENOMORPH_INVISIBLE_BLOOD) || HAS_TRAIT(src, TRAIT_BURROWED))
 		wound_overlay.icon_state = "none"
 		return
 	if(health > health_threshold_crit)
@@ -140,16 +141,49 @@
 
 	wound_overlay.vis_flags &= ~VIS_HIDE // Show the overlay
 
+///Updates the niche overlays of a xenomorph, like the backpack overlay
+/mob/living/carbon/xenomorph/proc/update_snowflake_overlays()
+	if(!backpack_overlay)
+		return
+	if(!istype(back,/obj/item/storage/backpack/marine/duffelbag/xenosaddle))
+		backpack_overlay.icon_state = ""
+		return
+	var/obj/item/storage/backpack/marine/duffelbag/xenosaddle/saddle = back
+	if(stat == DEAD)
+		backpack_overlay.icon_state = "[saddle.style] Dead"
+		return
+	if(lying_angle)
+		if((resting || has_status_effect(STATUS_EFFECT_SLEEPING)) && (!has_status_effect(STATUS_EFFECT_PARALYZED) && !has_status_effect(STATUS_EFFECT_UNCONSCIOUS) && health > 0))
+			backpack_overlay.icon_state = "[saddle.style] Sleeping"
+			return
+		backpack_overlay.icon_state = "[saddle.style] Knocked Down"
+		return
+	backpack_overlay.icon_state = "[saddle.style]"
+
 /mob/living/carbon/xenomorph/update_transform()
 	. = ..()
 	return update_icons()
 
-///Used to display the xeno wounds without rapidly switching overlays
+///Used to display xeno wounds & equipment without rapidly switching overlays
+
+/atom/movable/vis_obj/xeno_wounds/backpack_overlay
+	layer = ABOVE_MOB_LAYER
+	icon = 'icons/Xeno/saddles/runnersaddle.dmi' //this should probally be something more generic if saddles r ever added to anything other than rounies
+	///The xeno this overlay belongs to
+	var/mob/living/carbon/xenomorph/owner
+
 /atom/movable/vis_obj/xeno_wounds
 	vis_flags = VIS_INHERIT_DIR|VIS_INHERIT_ID
 
+/atom/movable/vis_obj/xeno_wounds/backpack_overlay/Initialize(mapload, new_owner)
+	owner = new_owner
+	if(!owner)
+		return INITIALIZE_HINT_QDEL
+	return ..()
+
 /atom/movable/vis_obj/xeno_wounds/fire_overlay
 	light_system = MOVABLE_LIGHT
+	layer = ABOVE_MOB_LAYER
 	///The xeno this belongs to
 	var/mob/living/carbon/xenomorph/owner
 
@@ -161,7 +195,7 @@
 	light_pixel_x = owner.light_pixel_x
 	light_pixel_y = owner.light_pixel_y
 	. = ..()
-	update_icon()
+	update_appearance(UPDATE_ICON)
 
 /atom/movable/vis_obj/xeno_wounds/fire_overlay/Destroy()
 	owner = null
@@ -182,7 +216,6 @@
 	if(HAS_TRAIT(owner, TRAIT_BURROWED))
 		icon_state = ""
 		return
-	layer = layer + 0.4
 	if((!owner.lying_angle && !owner.resting && !owner.has_status_effect(STATUS_EFFECT_SLEEPING)))
 		icon_state = "alien_fire"
 	else

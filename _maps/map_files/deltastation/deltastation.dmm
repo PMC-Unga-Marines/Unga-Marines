@@ -2975,10 +2975,6 @@
 	dir = 1
 	},
 /obj/structure/prop/mainship/generator/ground_rod,
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
 /turf/open/floor/engine,
 /area/deltastation/engineering/supermatter)
 "aIR" = (
@@ -14735,10 +14731,6 @@
 	dir = 4
 	},
 /obj/structure/prop/mainship/generator/tesla_coil,
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
 /turf/open/floor/engine,
 /area/deltastation/engineering/supermatter)
 "dgL" = (
@@ -14759,10 +14751,6 @@
 	dir = 4
 	},
 /obj/structure/prop/mainship/generator/ground_rod,
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
 /turf/open/floor/engine,
 /area/deltastation/engineering/supermatter)
 "dgT" = (
@@ -21388,14 +21376,14 @@
 /area/deltastation/commons/toilet/restrooms)
 "esh" = (
 /obj/structure/table,
-/obj/item/tool/kitchen/tray,
-/obj/item/tool/kitchen/tray,
-/obj/item/tool/kitchen/tray,
-/obj/item/tool/kitchen/tray,
-/obj/item/tool/kitchen/tray,
-/obj/item/tool/kitchen/tray,
-/obj/item/tool/kitchen/tray,
-/obj/item/tool/kitchen/tray,
+/obj/item/storage/kitchen_tray,
+/obj/item/storage/kitchen_tray,
+/obj/item/storage/kitchen_tray,
+/obj/item/storage/kitchen_tray,
+/obj/item/storage/kitchen_tray,
+/obj/item/storage/kitchen_tray,
+/obj/item/storage/kitchen_tray,
+/obj/item/storage/kitchen_tray,
 /turf/open/floor/plating,
 /area/deltastation/security/prison/mess)
 "esj" = (
@@ -26922,10 +26910,6 @@
 	},
 /turf/open/floor/iron,
 /area/deltastation/maintenance/port/fore)
-"fyi" = (
-/obj/effect/attach_point/weapon/dropship1,
-/turf/open/floor/plating,
-/area/shuttle/drop1/lz1)
 "fyj" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -32948,14 +32932,6 @@
 /obj/effect/spawner/random/misc/plant,
 /turf/open/floor/plating,
 /area/deltastation/service/library/abandoned)
-"gIk" = (
-/obj/effect/attach_point/weapon/dropship1{
-	dir = 8
-	},
-/turf/open/floor/plating/icefloor/warnplate{
-	dir = 8
-	},
-/area/shuttle/drop1/lz1)
 "gIm" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
@@ -34275,13 +34251,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/iron,
 /area/deltastation/commons/storage/primary)
-"gWn" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
-/turf/closed/wall/r_wall/unmeltable,
-/area/deltastation/engineering/supermatter)
 "gWp" = (
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/machinery/flasher{
@@ -34543,10 +34512,6 @@
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/deltastation/command/heads_quarters/ce)
-"hao" = (
-/obj/machinery/landinglight/lz1,
-/turf/open/floor/asteroidfloor,
-/area/deltastation/external/landingzone)
 "har" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
@@ -35136,6 +35101,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/deltastation/maintenance/port/aft)
+"hfw" = (
+/obj/machinery/landinglight/lz1{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/asteroidfloor,
+/area/deltastation/external/landingzone)
 "hfA" = (
 /obj/structure/lattice,
 /obj/structure/grille/smoothing,
@@ -36051,18 +36023,6 @@
 /obj/machinery/status_display,
 /turf/closed/wall/r_wall/unmeltable,
 /area/deltastation/command/heads_quarters/hos)
-"hpF" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 4
-	},
-/obj/structure/prop/mainship/doorblocker/engi{
-	dir = 4
-	},
-/turf/open/floor/engine,
-/area/deltastation/engineering/supermatter)
 "hpS" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -51881,10 +51841,6 @@
 /turf/open/floor/iron/cafeteria,
 /area/deltastation/security/prison/mess)
 "kNX" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
 /turf/open/floor/engine,
 /area/deltastation/engineering/supermatter)
 "kOb" = (
@@ -59570,6 +59526,12 @@
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window,
 /turf/closed/mineral/smooth,
 /area/deltastation/hallway/secondary/entry)
+"msq" = (
+/obj/machinery/floodlight/landing,
+/obj/effect/turf_decal/warning_stripes,
+/obj/structure/cable,
+/turf/open/floor/mech_bay_recharge_floor,
+/area/deltastation/external/landingzone)
 "msD" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 2;
@@ -68672,10 +68634,10 @@
 /obj/effect/spawner/random/food_or_drink/kitchen,
 /obj/effect/spawner/random/food_or_drink/kitchen,
 /obj/effect/spawner/random/food_or_drink/kitchen,
-/obj/item/tool/kitchen/tray,
-/obj/item/tool/kitchen/tray,
-/obj/item/tool/kitchen/tray,
-/obj/item/tool/kitchen/tray,
+/obj/item/storage/kitchen_tray,
+/obj/item/storage/kitchen_tray,
+/obj/item/storage/kitchen_tray,
+/obj/item/storage/kitchen_tray,
 /obj/item/storage/box/drinkingglasses,
 /turf/open/floor/iron/cafeteria,
 /area/deltastation/security/prison/mess)
@@ -70862,10 +70824,6 @@
 	dir = 1
 	},
 /obj/structure/prop/mainship/generator/tesla_coil,
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
 /turf/open/floor/engine,
 /area/deltastation/engineering/supermatter)
 "oMX" = (
@@ -72743,12 +72701,8 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/structure/prop/mainship/doorblocker/engi{
-	dir = 4
-	},
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
+/obj/machinery/door/airlock/mainship/engineering{
+	name = "Supermatter Engine Room"
 	},
 /turf/open/floor/engine,
 /area/deltastation/engineering/supermatter)
@@ -75267,6 +75221,12 @@
 /obj/effect/turf_decal/tile/transparent/brown/half/contrasted,
 /turf/open/floor/iron,
 /area/deltastation/cargo/office)
+"pHi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/landinglight/lz1,
+/obj/structure/cable,
+/turf/open/floor/asteroidfloor,
+/area/deltastation/external/landingzone)
 "pHj" = (
 /obj/effect/turf_decal/tile/transparent/neutral{
 	dir = 4
@@ -77513,7 +77473,7 @@
 /turf/open/floor/iron,
 /area/deltastation/maintenance/port)
 "qem" = (
-/turf/closed/wall/r_wall/unmeltable,
+/turf/closed/wall/r_wall,
 /area/deltastation/engineering/supermatter)
 "qeq" = (
 /obj/machinery/door/firedoor,
@@ -78479,6 +78439,11 @@
 /obj/effect/spawner/random/misc/structure/fire_closet,
 /turf/open/floor/plating,
 /area/deltastation/maintenance/department/science/xenobiology)
+"qoE" = (
+/obj/machinery/landinglight/lz1,
+/obj/structure/cable,
+/turf/open/floor/asteroidfloor,
+/area/deltastation/external/landingzone)
 "qoF" = (
 /obj/machinery/door/poddoor/shutters/opened{
 	dir = 2;
@@ -89634,7 +89599,9 @@
 /turf/open/floor/iron/grimy,
 /area/deltastation/security/detectives_office/private_investigators_office)
 "sDd" = (
-/obj/structure/prop/vehicle/truck/truckcargo/destructible,
+/obj/structure/prop/vehicle/truck/truckcargo{
+	dir = 8
+	},
 /turf/open/floor/asteroidfloor,
 /area/deltastation/external/landingzone)
 "sDf" = (
@@ -91917,11 +91884,7 @@
 /turf/template_noop,
 /area/template_noop)
 "tbJ" = (
-/obj/effect/forcefield{
-	desc = "You can't get in. Heh.";
-	name = "Blocker"
-	},
-/obj/structure/window/framed/colony/reinforced/hull,
+/obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/plating,
 /area/deltastation/engineering/supermatter)
 "tbL" = (
@@ -96068,10 +96031,6 @@
 	dir = 1
 	},
 /area/deltastation/engineering/atmos/pumproom)
-"tRz" = (
-/obj/effect/attach_point/electronics/dropship1,
-/turf/open/floor/plating,
-/area/shuttle/drop1/lz1)
 "tRG" = (
 /obj/structure/cable,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -97598,11 +97557,6 @@
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window,
 /turf/open/floor/plating,
 /area/deltastation/tcommsat/server)
-"uin" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/landinglight/lz1,
-/turf/open/floor/asteroidfloor,
-/area/deltastation/external/landingzone)
 "uit" = (
 /obj/effect/turf_decal/tile/transparent/neutral/anticorner/contrasted{
 	dir = 8
@@ -115914,10 +115868,6 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /turf/open/floor/gcircuit,
 /area/deltastation/tcommsat/server)
-"xQz" = (
-/obj/effect/spawner/random/machinery/status_display,
-/turf/closed/wall/r_wall/unmeltable,
-/area/deltastation/engineering/supermatter)
 "xQH" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/junction{
@@ -138284,11 +138234,11 @@ pyA
 slM
 pvL
 vla
-xQz
+ijf
 kZo
 wDA
 kZo
-xQz
+ijf
 iOT
 nBP
 gzE
@@ -139055,7 +139005,7 @@ mwr
 wyI
 jHw
 jdQ
-gWn
+qem
 kNX
 kNX
 kNX
@@ -139569,7 +139519,7 @@ nUi
 qxm
 kTe
 lvk
-gWn
+qem
 kNX
 kNX
 kNX
@@ -139827,12 +139777,12 @@ leA
 sAq
 tiG
 qem
-gWn
+qem
 pir
-gWn
 qem
 qem
-xQz
+qem
+ijf
 fja
 kBa
 eHg
@@ -140340,11 +140290,11 @@ lyj
 wyI
 kFp
 jFd
-xQz
+ijf
 qem
-hpF
+pir
 qem
-xQz
+ijf
 xza
 pEk
 jMe
@@ -164352,7 +164302,7 @@ dfm
 xuY
 xuY
 xuY
-vNR
+xuY
 vNR
 vNR
 cSG
@@ -164610,8 +164560,8 @@ xuY
 xuY
 dfm
 xuY
-vNR
-vNR
+xuY
+xuY
 cSG
 sbS
 vNR
@@ -164868,7 +164818,7 @@ dfm
 xuY
 xuY
 xuY
-vNR
+xuY
 cSG
 sbS
 vNR
@@ -165101,8 +165051,7 @@ vNR
 pCr
 dfm
 xuY
-vXs
-orp
+msq
 rTj
 rTj
 rLQ
@@ -165125,6 +165074,7 @@ rTj
 rTj
 rTj
 orp
+xuY
 dfm
 cSG
 sbS
@@ -165358,8 +165308,7 @@ vNR
 xoq
 xoq
 sfZ
-bYh
-uin
+pHi
 phF
 wVi
 wVi
@@ -165367,7 +165316,7 @@ wVi
 wVi
 wVi
 wVi
-gIk
+wVi
 wVi
 wVi
 uDj
@@ -165382,6 +165331,7 @@ wVi
 wVi
 dQu
 guZ
+xuY
 xuY
 cSG
 sbS
@@ -165615,12 +165565,11 @@ vNR
 toH
 nZF
 aZA
-vXs
-hao
+qoE
 pCO
 qgB
 mmf
-fyi
+qgB
 qgB
 qgB
 qgB
@@ -165639,6 +165588,7 @@ mmf
 qgB
 nEs
 dOS
+xuY
 bqa
 cSG
 sbS
@@ -165872,12 +165822,11 @@ vNR
 jOD
 gdc
 aZA
-vXs
-uin
+pHi
 pCO
 qgB
 qgB
-tRz
+qgB
 qgB
 qgB
 qgB
@@ -165896,6 +165845,7 @@ qgB
 qgB
 nEs
 guZ
+dfm
 dfm
 cSG
 sbS
@@ -166129,8 +166079,7 @@ vNR
 toH
 xaf
 aZA
-bYh
-hao
+qoE
 pCO
 qgB
 qgB
@@ -166153,6 +166102,7 @@ qgB
 qgB
 nEs
 dOS
+xuY
 xuY
 cSG
 sbS
@@ -166386,8 +166336,7 @@ vNR
 bPd
 bPd
 kZL
-vXs
-uin
+pHi
 pCO
 qgB
 qgB
@@ -166410,6 +166359,7 @@ qgB
 qgB
 nEs
 dOS
+dfm
 dfm
 cSG
 sbS
@@ -166643,8 +166593,7 @@ vNR
 toH
 toH
 aZA
-bYh
-uin
+pHi
 pCO
 qgB
 qgB
@@ -166667,6 +166616,7 @@ qgB
 qgB
 nEs
 dOS
+xuY
 xuY
 cSG
 sbS
@@ -166900,8 +166850,7 @@ vNR
 npA
 toH
 sYK
-vXs
-uin
+pHi
 pCO
 qgB
 qgB
@@ -166924,6 +166873,7 @@ qgB
 qgB
 nEs
 dOS
+dfm
 dfm
 cSG
 sbS
@@ -167157,8 +167107,7 @@ vNR
 toH
 xuo
 kZL
-vXs
-hao
+qoE
 pCO
 qgB
 qgB
@@ -167181,6 +167130,7 @@ qgB
 qgB
 nEs
 dOS
+dfm
 xuY
 cSG
 sbS
@@ -167414,12 +167364,11 @@ vNR
 toH
 xuo
 kZL
-bYh
-uin
+pHi
 pCO
 qgB
 qgB
-tRz
+qgB
 qgB
 qgB
 qgB
@@ -167437,7 +167386,8 @@ qgB
 qgB
 qgB
 nEs
-guZ
+hfw
+xuY
 dfm
 cSG
 sbS
@@ -167671,12 +167621,11 @@ vNR
 xuo
 toH
 sYK
-vXs
-uin
+pHi
 pCO
 qgB
 mmf
-fyi
+qgB
 qgB
 qgB
 qgB
@@ -167695,6 +167644,7 @@ mmf
 qgB
 nEs
 dOS
+xuY
 bqa
 cSG
 sbS
@@ -167928,8 +167878,7 @@ vNR
 njf
 njf
 liB
-bYh
-hao
+qoE
 wIv
 wAz
 wAz
@@ -167952,6 +167901,7 @@ wAz
 wAz
 wkR
 guZ
+xuY
 dfm
 cSG
 sbS
@@ -168185,8 +168135,7 @@ vNf
 xuY
 dfm
 xuY
-vXs
-orp
+msq
 fcv
 exa
 fcv
@@ -168209,6 +168158,7 @@ exa
 fcv
 fcv
 orp
+xuY
 xuY
 cSG
 sbS

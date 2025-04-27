@@ -2,11 +2,11 @@
 	name = "toolbox"
 	desc = "Danger. Very robust."
 	icon_state = "red"
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/toolboxes_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/toolboxes_right.dmi',
 	)
-	item_state = "toolbox_red"
+	worn_icon_state = "toolbox_red"
 	atom_flags = CONDUCT
 	force = 5
 	throwforce = 10
@@ -18,7 +18,7 @@
 /obj/item/storage/toolbox/emergency
 	name = "emergency toolbox"
 	icon_state = "red"
-	item_state = "toolbox_red"
+	worn_icon_state = "toolbox_red"
 
 /obj/item/storage/toolbox/emergency/PopulateContents()
 	new /obj/item/tool/crowbar/red(src)
@@ -31,7 +31,7 @@
 /obj/item/storage/toolbox/mechanical
 	name = "mechanical toolbox"
 	icon_state = "blue"
-	item_state = "toolbox_blue"
+	worn_icon_state = "toolbox_blue"
 
 /obj/item/storage/toolbox/mechanical/PopulateContents()
 	new /obj/item/tool/screwdriver(src)
@@ -44,7 +44,7 @@
 /obj/item/storage/toolbox/electrical
 	name = "electrical toolbox"
 	icon_state = "yellow"
-	item_state = "toolbox_yellow"
+	worn_icon_state = "toolbox_yellow"
 
 /obj/item/storage/toolbox/electrical/PopulateContents()
 	var/color = pick("red", "yellow", "green", "blue", "pink", "orange", "cyan", "white")
@@ -62,7 +62,7 @@
 /obj/item/storage/toolbox/syndicate
 	name = "suspicious looking toolbox"
 	icon_state = "syndicate"
-	item_state = "toolbox_syndi"
+	worn_icon_state = "toolbox_syndi"
 	force = 7
 
 /obj/item/storage/toolbox/syndicate/PopulateContents()

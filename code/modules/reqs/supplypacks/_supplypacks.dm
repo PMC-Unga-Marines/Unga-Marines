@@ -3,7 +3,22 @@
 //NOTE: Don't add living things to crates, that's bad, it will break the shuttle.
 //NOTE: Do NOT set the price of any crates below 7 points. Doing so allows infinite points.
 
-GLOBAL_LIST_INIT(all_supply_groups, list("Operations", "Weapons", "Smartguns", "Stationary", "Launchers", "Explosives", "Armor", "Clothing", "Medical", "Engineering", "Supplies", "Imports", "Vehicles", "Factory"))
+GLOBAL_LIST_INIT(all_supply_groups, list(
+	"Operations",
+	"Weapons",
+	"Smartguns",
+	"Stationary",
+	"Launchers",
+	"Explosives",
+	"Armor",
+	"Clothing",
+	"Medical",
+	"Engineering",
+	"Supplies",
+	"Imports",
+	"Vehicles",
+	"Factory",
+))
 
 /datum/supply_packs
 	var/name
@@ -15,6 +30,8 @@ GLOBAL_LIST_INIT(all_supply_groups, list("Operations", "Weapons", "Smartguns", "
 	var/group
 	///Randomly picks X of items out of the contains list instead of using all.
 	var/randomised_num_contained = 0
+	/// Is this item restricted from buying on crash?
+	var/crash_restricted = FALSE
 
 /datum/supply_packs/proc/generate(atom/movable/location)
 	for(var/i in contains)

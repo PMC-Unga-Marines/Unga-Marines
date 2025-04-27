@@ -57,16 +57,16 @@
 	newlevel = XENO_UPGRADE_BASETYPE
 	return ..()
 
-/mob/living/carbon/xenomorph/hivemind/updatehealth()
+/mob/living/carbon/xenomorph/hivemind/update_health()
 	if(on_fire)
 		ExtinguishMob()
-	health = maxHealth - getFireLoss() - getBruteLoss() //Xenos can only take brute and fire damage.
+	health = maxHealth - get_fire_loss() - get_brute_loss() //Xenos can only take brute and fire damage.
 	if(health <= 0 && !(status_flags & INCORPOREAL))
-		setBruteLoss(0)
-		setFireLoss(-minimum_health)
+		set_brute_loss(0)
+		set_fire_loss(-minimum_health)
 		change_form()
 		remove_status_effect(/datum/status_effect/spacefreeze)
-	health = maxHealth - getFireLoss() - getBruteLoss()
+	health = maxHealth - get_fire_loss() - get_brute_loss()
 	med_hud_set_health()
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_HIVEMIND_MANIFESTATION))
 		return
@@ -81,17 +81,17 @@
 		return
 	// If manifested and off weeds, lets deal some damage.
 	if(!(status_flags & INCORPOREAL) && !loc_weeds_type)
-		adjustBruteLoss(20 * XENO_RESTING_HEAL, TRUE)
+		adjust_brute_loss(20 * XENO_RESTING_HEAL, TRUE)
 		return
 	// If not manifested
 	if(health < minimum_health + maxHealth)
-		setBruteLoss(0)
-		setFireLoss(-minimum_health)
+		set_brute_loss(0)
+		set_fire_loss(-minimum_health)
 	if(health >= maxHealth) //can't regenerate.
-		updatehealth() //Update health-related stats, like health itself (using brute and fireloss), health HUD and status.
+		update_health() //Update health-related stats, like health itself (using brute and fireloss), health HUD and status.
 		return
 	heal_wounds(XENO_RESTING_HEAL)
-	updatehealth()
+	update_health()
 
 /mob/living/carbon/xenomorph/hivemind/Destroy()
 	var/obj/structure/xeno/hivemindcore/hive_core = get_core()
@@ -124,7 +124,7 @@
 	setDir(SOUTH)
 	addtimer(CALLBACK(src, PROC_REF(do_change_form)), TIME_TO_TRANSFORM)
 
-/mob/living/carbon/xenomorph/hivemind/set_jump_component(duration = 0.5 SECONDS, cooldown = 2 SECONDS, cost = 0, height = 16, sound = null, flags = JUMP_SHADOW, pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
+/mob/living/carbon/xenomorph/hivemind/set_jump_component(duration = 0.5 SECONDS, cooldown = 2 SECONDS, cost = 0, height = 16, sound = null, flags = JUMP_SHADOW, jump_pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
 	return //no jumping, bad hivemind
 
 ///Finish the form changing of the hivemind and give the needed stats
@@ -160,19 +160,6 @@
 /mob/living/carbon/xenomorph/hivemind/fire_act(burn_level, flame_color)
 	return_to_core()
 	to_chat(src, span_xenonotice("We were on top of fire, we got moved to our core."))
-
-/mob/living/carbon/xenomorph/hivemind/proc/check_weeds(turf/T, strict_turf_check = FALSE)
-	SHOULD_BE_PURE(TRUE)
-	if(isnull(T))
-		return FALSE
-	. = TRUE
-	if(locate(/obj/fire/flamer) in T)
-		return FALSE
-	for(var/obj/alien/weeds/W in range(strict_turf_check ? 0 : 1, T ? T : get_turf(src)))
-		if(QDESTROYING(W))
-			continue
-		return
-	return FALSE
 
 /mob/living/carbon/xenomorph/hivemind/handle_weeds_adjacent_removed()
 	if(loc_weeds_type || check_weeds(get_turf(src)))
@@ -354,7 +341,7 @@
 	xeno_attacker.visible_message(span_danger("[xeno_attacker] nudges its head against [src]."), \
 	span_danger("You nudge your head against [src]."))
 
-/obj/structure/xeno/hivemindcore/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
+/obj/structure/xeno/hivemindcore/take_damage(damage_amount, damage_type, damage_flag = null, effects = TRUE, attack_dir, armour_penetration, mob/living/blame_mob)
 	. = ..()
 	var/mob/living/carbon/xenomorph/hivemind/our_parent = get_parent()
 	if(isnull(our_parent))

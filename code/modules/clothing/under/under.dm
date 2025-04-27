@@ -1,6 +1,6 @@
 /obj/item/clothing/under
 	icon = 'icons/obj/clothing/uniforms/uniforms.dmi'
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/clothing/uniforms_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/clothing/uniforms_right.dmi',
 	)
@@ -115,6 +115,23 @@
 			. += "Its vital tracker appears to be enabled."
 		if(3)
 			. += "Its vital tracker and tracking beacon appear to be enabled."
+	var/armor_info
+	var/obj/item/clothing/under/wear_modular_suit = src
+	if(wear_modular_suit.attachments_by_slot[ATTACHMENT_SLOT_UNIFORM])
+		armor_info += "	- [wear_modular_suit.attachments_by_slot[ATTACHMENT_SLOT_UNIFORM]].\n"
+	if(wear_modular_suit.attachments_by_slot[ATTACHMENT_SLOT_BADGE])
+		armor_info += "	- [wear_modular_suit.attachments_by_slot[ATTACHMENT_SLOT_BADGE]].\n"
+	if(wear_modular_suit.attachments_by_slot[ATTACHMENT_SLOT_UNIFORM_TIE])
+		armor_info += "	- [wear_modular_suit.attachments_by_slot[ATTACHMENT_SLOT_UNIFORM_TIE]].\n"
+	if(wear_modular_suit.attachments_by_slot[ATTACHMENT_SLOT_CAPE])
+		armor_info += "	- [wear_modular_suit.attachments_by_slot[ATTACHMENT_SLOT_CAPE]].\n"
+	if(wear_modular_suit.attachments_by_slot[ATTACHMENT_SLOT_CAPE_HIGHLIGHT])
+		armor_info += "	- [wear_modular_suit.attachments_by_slot[ATTACHMENT_SLOT_CAPE_HIGHLIGHT]].\n"
+	if(wear_modular_suit.attachments_by_slot[ATTACHMENT_SLOT_KAMA])
+		armor_info += "	- [wear_modular_suit.attachments_by_slot[ATTACHMENT_SLOT_KAMA]].\n"
+	if(armor_info)
+		. += "	It has the following attachments:"
+		. += armor_info
 
 /obj/item/clothing/under/proc/set_sensors(mob/living/user)
 	if (!istype(user))
@@ -163,13 +180,13 @@
 
 /obj/item/clothing/under/verb/toggle()
 	set name = "Toggle Suit Sensors"
-	set category = "Object.Clothing"
+	set category = "IC.Clothing"
 	set src in usr
 	set_sensors(usr)
 
 /obj/item/clothing/under/verb/rollsuit()
 	set name = "Roll Down Jumpsuit"
-	set category = "Object.Clothing"
+	set category = "IC.Clothing"
 	set src in usr
 	if(!isliving(usr))
 		return

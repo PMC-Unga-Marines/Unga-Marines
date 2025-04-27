@@ -15,7 +15,7 @@
 	name = "fingerless marine combat gloves"
 	desc = "Standard issue marine tactical gloves but fingerless! It reads: 'knit by Marine Widows Association'."
 	icon_state = "gloves_marine_fingerless"
-	item_state = "fingerless"
+	worn_icon_state = "fingerless"
 
 /obj/item/clothing/gloves/marine/insulated
 	name = "insulated marine combat gloves"
@@ -37,6 +37,7 @@
 	desc = "Gloves worn by a Spatial Agent."
 	siemens_coefficient = 0
 	permeability_coefficient = 0
+	item_flags = DELONDROP
 
 /obj/item/clothing/gloves/marine/techofficer
 	name = "tech officer gloves"
@@ -69,7 +70,7 @@
 /obj/item/clothing/gloves/marine/veteran/pmc/commando
 	name = "\improper PMC commando gloves"
 	desc = "A pair of heavily armored, insulated, acid-resistant gloves."
-	icon_state = "armored"
+	icon_state = "death_squad"
 	soft_armor = list(MELEE = 40, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 20, FIRE = 20, ACID = 25)
 	resistance_flags = UNACIDABLE
 
@@ -120,13 +121,13 @@
 	name = "kevlar gloves TG-94"
 	desc = "Once before, the original of these gloves had protected the hands of the civilian militia of the colony of Terra during the heroic liberation of their territories from the hands of the enemy. 'Wear it with honor,' reads the inscription at the bottom"
 	icon_state = "separatist"
-	item_state = "separatist"
+	worn_icon_state = "separatist"
 
 /obj/item/clothing/gloves/marine/veteran/marine
 	name = "veteran gloves"
 	desc = "Ordinary Marine gloves, artfully reinforced for personal gain. An extra steel plate and a pair of cool white laces will definitely make this item look better. You're sure. The Marine Widows Association is outraged."
 	icon_state = "veteran_1"
-	item_state = "veteran"
+	worn_icon_state = "veteran"
 	var/gloves_inside_out = FALSE
 
 /obj/item/clothing/gloves/marine/veteran/marine/examine(mob/user)

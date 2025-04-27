@@ -18,11 +18,11 @@
 	if(..())
 		if(broken)
 			icon_state = icon_off
-		return 1
-	else
-		return 0
+		return TRUE
+	return FALSE
 
 /obj/structure/closet/secure_closet/emp_act(severity)
+	. = ..()
 	for(var/obj/O in src)
 		O.emp_act(severity)
 	if(!broken)
@@ -35,7 +35,6 @@
 			else
 				req_access = list()
 				req_access += pick(ALL_ACCESS)
-	return ..()
 
 /obj/structure/closet/secure_closet/update_icon_state()
 	. = ..()
@@ -52,4 +51,4 @@
 /obj/structure/closet/secure_closet/break_open()
 	broken = TRUE
 	locked = FALSE
-	..()
+	return ..()

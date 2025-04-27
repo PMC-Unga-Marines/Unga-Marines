@@ -852,36 +852,36 @@
 	layer = 2.79;
 	resistance_flags = 1
 	},
-/obj/item/weapon/claymore/mercsword{
+/obj/item/weapon/sword{
 	attack_speed = 12;
 	force = 25;
 	pixel_x = 12
 	},
-/obj/item/weapon/claymore/mercsword{
+/obj/item/weapon/sword{
 	attack_speed = 12;
 	force = 25;
 	pixel_x = 8
 	},
-/obj/item/weapon/claymore/mercsword{
+/obj/item/weapon/sword{
 	attack_speed = 12;
 	force = 25;
 	pixel_x = 4
 	},
-/obj/item/weapon/claymore/mercsword{
+/obj/item/weapon/sword{
 	attack_speed = 12;
 	force = 25;
 	pixel_x = -4
 	},
-/obj/item/weapon/claymore/mercsword{
+/obj/item/weapon/sword{
 	attack_speed = 12;
 	force = 25;
 	pixel_x = -12
 	},
-/obj/item/weapon/claymore/mercsword{
+/obj/item/weapon/sword{
 	attack_speed = 12;
 	force = 25
 	},
-/obj/item/weapon/claymore/mercsword{
+/obj/item/weapon/sword{
 	attack_speed = 12;
 	force = 25;
 	pixel_x = -8
@@ -1008,7 +1008,7 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "cY" = (
-/obj/item/tool/kitchen/tray{
+/obj/item/storage/kitchen_tray{
 	pixel_y = -3
 	},
 /obj/effect/decal/cleanable/blood,
@@ -1019,7 +1019,7 @@
 	color = "#6b675e";
 	resistance_flags = 1
 	},
-/obj/item/weapon/claymore/mercsword/machete/arnold,
+/obj/item/weapon/sword/machete/arnold,
 /turf/open/floor/corsat,
 /area/yautja)
 "da" = (
@@ -1419,24 +1419,24 @@
 	layer = 2.79;
 	resistance_flags = 1
 	},
-/obj/item/weapon/claymore{
+/obj/item/weapon/sword{
 	attack_speed = 12;
 	force = 25;
 	name = "duelling claymore"
 	},
-/obj/item/weapon/claymore{
+/obj/item/weapon/sword{
 	attack_speed = 12;
 	force = 25;
 	name = "duelling claymore";
 	pixel_x = -5
 	},
-/obj/item/weapon/claymore{
+/obj/item/weapon/sword{
 	attack_speed = 12;
 	force = 25;
 	name = "duelling claymore";
 	pixel_x = 5
 	},
-/obj/item/weapon/claymore{
+/obj/item/weapon/sword{
 	attack_speed = 12;
 	force = 25;
 	name = "duelling claymore";
@@ -1517,7 +1517,7 @@
 /turf/open/ground/grass,
 /area/yautja)
 "mv" = (
-/obj/item/weapon/katana{
+/obj/item/weapon/sword/katana{
 	anchored = 1
 	},
 /obj/structure/table/reinforced/prison{
@@ -1809,7 +1809,7 @@
 	color = "#6b675e";
 	resistance_flags = 1
 	},
-/obj/item/weapon/claymore/mercsword{
+/obj/item/weapon/sword{
 	anchored = 1
 	},
 /turf/open/floor/corsat,
@@ -2023,7 +2023,7 @@
 	color = "#6b675e";
 	resistance_flags = 1
 	},
-/obj/item/tool/kitchen/tray{
+/obj/item/storage/kitchen_tray{
 	color = "#FFE55C";
 	pixel_y = 4
 	},
@@ -2318,7 +2318,7 @@
 	},
 /area/yautja)
 "KI" = (
-/obj/item/tool/kitchen/tray{
+/obj/item/storage/kitchen_tray{
 	pixel_y = -5
 	},
 /obj/effect/decal/cleanable/blood,
@@ -2680,7 +2680,7 @@
 	color = "#6b675e";
 	resistance_flags = 1
 	},
-/obj/item/tool/kitchen/tray,
+/obj/item/storage/kitchen_tray,
 /obj/item/tool/kitchen/utensil/fork{
 	pixel_x = 10;
 	pixel_y = 3

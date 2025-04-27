@@ -17,7 +17,7 @@
 	var/sheet_type = /obj/item/stack/barbed_wire
 	var/sheet_type2 = /obj/item/stack/rods
 
-/obj/structure/razorwire/deconstruct(disassembled = TRUE)
+/obj/structure/razorwire/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	if(obj_integrity > max_integrity * 0.5)
 		new sheet_type(loc)
 	else
@@ -182,10 +182,7 @@
 	return ..()
 
 /obj/structure/razorwire/update_icon_state()
-	. = ..()
-	var/health_percent = round(obj_integrity/max_integrity * 100)
-	var/remaining = CEILING(health_percent, 25)
-	icon_state = "[base_icon_state]_[remaining]"
+	icon_state = "[base_icon_state]_[CEILING(ROUND_UP(obj_integrity/max_integrity * 100), 25)]"
 
 /obj/structure/razorwire/effect_smoke(obj/effect/particle_effect/smoke/S)
 	. = ..()

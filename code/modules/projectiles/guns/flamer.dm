@@ -1,10 +1,13 @@
 #define FLAMER_WATER 200
 
-//FLAMETHROWER
-
 /obj/item/weapon/gun/flamer
 	name = "flamer"
 	desc = "flame go froosh"
+	icon = 'icons/obj/items/gun/special.dmi'
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
+	)
 	equip_slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	force = 15
@@ -14,6 +17,7 @@
 	reload_sound = 'sound/weapons/guns/interact/flamethrower_reload.ogg'
 	muzzle_flash = null
 	aim_slowdown = 1.75
+	wield_delay = 0.4 SECONDS
 	general_codex_key = "flame weapons"
 	attachable_allowed = list( //give it some flexibility.
 		/obj/item/attachable/flashlight,
@@ -157,7 +161,7 @@
 	return TRUE
 
 /obj/item/weapon/gun/flamer/do_fire(obj/projectile/projectile_to_fire)
-	playsound(loc, fire_sound, 50, 1)
+	playsound(loc, fire_sound, GUN_FIRE_SOUND_VOLUME, 1)
 	var/obj/item/attachable/flamer_nozzle/nozzle = attachments_by_slot[ATTACHMENT_SLOT_FLAMER_NOZZLE]
 	var/burn_type = nozzle.stream_type
 	var/old_turfs = list(get_turf(src))
@@ -291,20 +295,23 @@
 	name = "\improper FL-240 incinerator unit"
 	desc = "The FL-240 has proven to be one of the most effective weapons at clearing out soft-targets. This is a weapon to be feared and respected as it is quite deadly."
 	icon_state = "m240"
-	item_state = "m240"
+	worn_icon_state = "m240"
+
+/obj/item/weapon/gun/flamer/big_flamer/vsd
+	starting_attachment_types = list(/obj/item/attachable/motiondetector, /obj/item/attachable/flamer_nozzle/wide,)
 
 /obj/item/weapon/gun/flamer/som
 	name = "\improper V-62 incinerator"
 	desc = "The V-62 is a deadly weapon employed in close quarter combat, favoured as much for the terror it inspires as the actual damage it inflicts. It has good range for a flamer, but lacks the integrated extinguisher of its TGMC equivalent."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/special64.dmi'
 	icon_state = "v62"
-	item_state = "v62"
+	worn_icon_state = "v62"
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_SHOWS_LOADED
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_64.dmi',
 	)
 	lit_overlay_icon_state = "v62_lit"
 	lit_overlay_offset_x = 0
@@ -362,6 +369,11 @@
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "flamethrower"
 
+	worn_icon_list = list( // for whatever fucking reason we can't set it null
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
+
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_IS_ATTACHMENT|GUN_ATTACHMENT_FIRE_ONLY
 	flamer_features_flags = FLAMER_NO_LIT_OVERLAY
 	w_class = WEIGHT_CLASS_BULKY
@@ -402,7 +414,7 @@
 	desc = "The FL-84 flamethrower is the current standard issue flamethrower of the TGMC, and is used for area control and urban combat. Use unique action to use hydro cannon"
 	default_ammo_type = /obj/item/ammo_magazine/flamer_tank/large
 	icon_state = "tl84"
-	item_state = "tl84"
+	worn_icon_state = "tl84"
 	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_WIELDED_STABLE_FIRING_ONLY
 	attachable_offset = list("rail_x" = 10, "rail_y" = 23, "stock_x" = 16, "stock_y" = 13, "flamer_nozzle_x" = 33, "flamer_nozzle_y" = 20, "under_x" = 24, "under_y" = 15)
 	attachable_allowed = list(
@@ -507,6 +519,11 @@ GLOBAL_LIST_EMPTY(flamer_particles)
 	desc = "For the quenching of unfortunate mistakes."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = "hydrocannon"
+
+	worn_icon_list = list( // for whatever fucking reason we can't set it null
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
 
 	fire_delay = 1.2 SECONDS
 	fire_sound = 'sound/effects/extinguish.ogg'

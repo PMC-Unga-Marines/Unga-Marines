@@ -1,7 +1,8 @@
 /datum/action/ability/xeno_action/ready_charge
 	name = "Toggle Charging"
-	action_icon_state = "ready_charge"
 	desc = "Toggles the movement-based charge on and off."
+	action_icon_state = "ready_charge"
+	action_icon = 'icons/Xeno/actions/crusher.dmi'
 	keybinding_signals = list(KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_CHARGE)
 	action_type = ACTION_TOGGLE
 	use_state_flags = ABILITY_USE_LYING
@@ -56,29 +57,26 @@
 	charge_on()
 
 /datum/action/ability/xeno_action/ready_charge/proc/charge_on(verbose = TRUE)
-	var/mob/living/carbon/xenomorph/charger = owner
 	charge_ability_on = TRUE
-	RegisterSignal(charger, COMSIG_MOVABLE_MOVED, PROC_REF(update_charging), override = TRUE)
-	RegisterSignal(charger, COMSIG_ATOM_DIR_CHANGE, PROC_REF(on_dir_change), override = TRUE)
+	RegisterSignal(xeno_owner, COMSIG_MOVABLE_MOVED, PROC_REF(update_charging), override = TRUE)
+	RegisterSignal(xeno_owner, COMSIG_ATOM_DIR_CHANGE, PROC_REF(on_dir_change), override = TRUE)
 	set_toggle(TRUE)
 	if(verbose)
-		to_chat(charger, span_xenonotice("We will charge when moving, now."))
+		to_chat(xeno_owner, span_xenonotice("We will charge when moving, now."))
 
 /datum/action/ability/xeno_action/ready_charge/proc/charge_off(verbose = TRUE)
-	var/mob/living/carbon/xenomorph/charger = owner
-	if(charger.is_charging != CHARGE_OFF)
+	if(xeno_owner.is_charging != CHARGE_OFF)
 		do_stop_momentum()
-	UnregisterSignal(charger, list(COMSIG_MOVABLE_MOVED, COMSIG_ATOM_DIR_CHANGE))
+	UnregisterSignal(xeno_owner, list(COMSIG_MOVABLE_MOVED, COMSIG_ATOM_DIR_CHANGE))
 	if(verbose)
-		to_chat(charger, span_xenonotice("We will no longer charge when moving."))
+		to_chat(xeno_owner, span_xenonotice("We will no longer charge when moving."))
 	set_toggle(FALSE)
 	valid_steps_taken = 0
 	charge_ability_on = FALSE
 
 /datum/action/ability/xeno_action/ready_charge/proc/on_dir_change(datum/source, old_dir, new_dir)
 	SIGNAL_HANDLER
-	var/mob/living/carbon/xenomorph/charger = owner
-	if(charger.is_charging == CHARGE_OFF)
+	if(xeno_owner.is_charging == CHARGE_OFF)
 		return
 	if(!old_dir || !new_dir || old_dir == new_dir) //Check for null direction from help shuffle signals
 		return
@@ -92,18 +90,17 @@
 	if(Forced)
 		return
 
-	var/mob/living/carbon/xenomorph/charger = owner
-	if(charger.throwing || oldloc == charger.loc)
+	if(xeno_owner.throwing || oldloc == xeno_owner.loc)
 		return
 
-	if(charger.is_charging == CHARGE_OFF)
-		if(charger.dir != direction) //It needs to move twice in the same direction, at least, to begin charging.
+	if(xeno_owner.is_charging == CHARGE_OFF)
+		if(xeno_owner.dir != direction) //It needs to move twice in the same direction, at least, to begin charging.
 			return
 		charge_dir = direction
 		if(!check_momentum(direction))
 			charge_dir = null
 			return
-		charger.is_charging = CHARGE_BUILDINGUP
+		xeno_owner.is_charging = CHARGE_BUILDINGUP
 		handle_momentum()
 		return
 
@@ -114,65 +111,59 @@
 	handle_momentum()
 
 /datum/action/ability/xeno_action/ready_charge/proc/do_start_crushing()
-	var/mob/living/carbon/xenomorph/charger = owner
-	RegisterSignals(charger, list(COMSIG_MOVABLE_PREBUMP_TURF, COMSIG_MOVABLE_PREBUMP_MOVABLE, COMSIG_MOVABLE_PREBUMP_EXIT_MOVABLE), PROC_REF(do_crush))
-	charger.is_charging = CHARGE_ON
-	charger.update_icons()
+	RegisterSignals(xeno_owner, list(COMSIG_MOVABLE_PREBUMP_TURF, COMSIG_MOVABLE_PREBUMP_MOVABLE, COMSIG_MOVABLE_PREBUMP_EXIT_MOVABLE), PROC_REF(do_crush))
+	xeno_owner.is_charging = CHARGE_ON
+	xeno_owner.update_icons()
 
 /datum/action/ability/xeno_action/ready_charge/proc/do_stop_crushing()
-	var/mob/living/carbon/xenomorph/charger = owner
-	UnregisterSignal(charger, list(COMSIG_MOVABLE_PREBUMP_TURF, COMSIG_MOVABLE_PREBUMP_MOVABLE, COMSIG_MOVABLE_PREBUMP_EXIT_MOVABLE))
+	UnregisterSignal(xeno_owner, list(COMSIG_MOVABLE_PREBUMP_TURF, COMSIG_MOVABLE_PREBUMP_MOVABLE, COMSIG_MOVABLE_PREBUMP_EXIT_MOVABLE))
 	if(valid_steps_taken > 0) //If this is false, then do_stop_momentum() should have it handled already.
-		charger.is_charging = CHARGE_BUILDINGUP
-		charger.update_icons()
+		xeno_owner.is_charging = CHARGE_BUILDINGUP
+		xeno_owner.update_icons()
 
 /datum/action/ability/xeno_action/ready_charge/proc/do_stop_momentum(message = TRUE)
-	var/mob/living/carbon/xenomorph/charger = owner
 	if(message && valid_steps_taken >= steps_for_charge) //Message now happens without a stun condition
-		charger.visible_message(span_danger("[charger] skids to a halt!"),
+		xeno_owner.visible_message(span_danger("[xeno_owner] skids to a halt!"),
 		span_xenowarning("We skid to a halt."), null, 5)
 	valid_steps_taken = 0
 	next_move_limit = 0
 	lastturf = null
 	charge_dir = null
-	charger.remove_movespeed_modifier(MOVESPEED_ID_XENO_CHARGE)
-	if(charger.is_charging >= CHARGE_ON)
+	xeno_owner.remove_movespeed_modifier(MOVESPEED_ID_XENO_CHARGE)
+	if(xeno_owner.is_charging >= CHARGE_ON)
 		do_stop_crushing()
-	charger.is_charging = CHARGE_OFF
-	charger.update_icons()
+	xeno_owner.is_charging = CHARGE_OFF
+	xeno_owner.update_icons()
 
 /datum/action/ability/xeno_action/ready_charge/proc/check_momentum(newdir)
-	var/mob/living/carbon/xenomorph/charger = owner
 	if((newdir && ISDIAGONALDIR(newdir) || charge_dir != newdir) && !agile_charge) //Check for null direction from help shuffle signals
 		return FALSE
 
 	if(next_move_limit && world.time > next_move_limit)
 		return FALSE
 
-	if(charger.pulling)
+	if(xeno_owner.pulling)
 		return FALSE
 
-	if(charger.incapacitated())
+	if(xeno_owner.incapacitated())
 		return FALSE
 
-	if(charge_dir != charger.dir && !agile_charge)
+	if(charge_dir != xeno_owner.dir && !agile_charge)
 		return FALSE
 
-	if(charger.pulledby)
+	if(xeno_owner.pulledby)
 		return FALSE
 
-	if(lastturf && (!isturf(lastturf) || isspaceturf(lastturf) || (charger.loc == lastturf))) //Check if the Crusher didn't move from his last turf, aka stopped
+	if(lastturf && (!isturf(lastturf) || isspaceturf(lastturf) || (xeno_owner.loc == lastturf))) //Check if the Crusher didn't move from his last turf, aka stopped
 		return FALSE
 
-	if(charger.plasma_stored < CHARGE_MAX_SPEED)
+	if(xeno_owner.plasma_stored < CHARGE_MAX_SPEED)
 		return FALSE
 	return TRUE
 
 /datum/action/ability/xeno_action/ready_charge/proc/handle_momentum()
-	var/mob/living/carbon/xenomorph/charger = owner
-
-	if(charger.pulling && valid_steps_taken)
-		charger.stop_pulling()
+	if(xeno_owner.pulling && valid_steps_taken)
+		xeno_owner.stop_pulling()
 
 	next_move_limit = world.time + 0.5 SECONDS
 
@@ -180,39 +171,39 @@
 		if(valid_steps_taken == steps_for_charge)
 			do_start_crushing()
 		else if(valid_steps_taken == max_steps_buildup)
-			charger.is_charging = CHARGE_MAX
-			charger.emote("roar")
-		charger.add_movespeed_modifier(MOVESPEED_ID_XENO_CHARGE, TRUE, 100, NONE, TRUE, -CHARGE_SPEED(src))
+			xeno_owner.is_charging = CHARGE_MAX
+			xeno_owner.emote("roar")
+		xeno_owner.add_movespeed_modifier(MOVESPEED_ID_XENO_CHARGE, TRUE, 100, NONE, TRUE, -CHARGE_SPEED(src))
 
 	if(valid_steps_taken > steps_for_charge)
-		charger.plasma_stored -= round(CHARGE_SPEED(src) * plasma_use_multiplier) //Eats up plasma the faster you go. //now uses a multiplier
+		xeno_owner.plasma_stored -= round(CHARGE_SPEED(src) * plasma_use_multiplier) //Eats up plasma the faster you go. //now uses a multiplier
 
 		switch(charge_type)
 			if(CHARGE_CRUSH) //Xeno Crusher
 				if(MODULUS(valid_steps_taken, 4) == 0)
-					playsound(charger, SFX_ALIEN_CHARGE, 50)
+					playsound(xeno_owner, SFX_ALIEN_CHARGE, 50)
 				var/shake_dist = min(round(CHARGE_SPEED(src) * 5), 8)
-				for(var/mob/living/carbon/human/victim in range(shake_dist, charger))
+				for(var/mob/living/carbon/human/victim in range(shake_dist, xeno_owner))
 					if(victim.stat == DEAD)
 						continue
 					if(victim.client)
 						shake_camera(victim, 1, 1)
-					if(victim.loc != charger.loc || !victim.lying_angle || isnestedhost(victim))
+					if(victim.loc != xeno_owner.loc || !victim.lying_angle || isnestedhost(victim))
 						continue
 					if(victim.pass_flags & PASS_THROW) // if the mob is being thrown by us EXPLICITLY, we don't deal x2 damage
 						continue
-					charger.visible_message(span_danger("[charger] runs [victim] over!"),
+					xeno_owner.visible_message(span_danger("[xeno_owner] runs [victim] over!"),
 						span_danger("We run [victim] over!"), null, 5)
 					victim.apply_damage(CHARGE_SPEED(src) * 40, BRUTE, BODY_ZONE_CHEST, MELEE, updating_health = TRUE, penetration = 30)
 					animation_flash_color(victim)
 			if(CHARGE_BULL, CHARGE_BULL_HEADBUTT, CHARGE_BULL_GORE) //Xeno Bull
 				if(MODULUS(valid_steps_taken, 4) == 0)
-					playsound(charger, SFX_ALIEN_FOOTSTEP_LARGE, 50)
+					playsound(xeno_owner, SFX_ALIEN_FOOTSTEP_LARGE, 50)
 			if(CHARGE_BEHEMOTH)
 				if(MODULUS(valid_steps_taken, 2) == 0)
-					playsound(charger, SFX_BEHEMOTH_ROLLING, 30)
+					playsound(xeno_owner, SFX_BEHEMOTH_ROLLING, 30)
 
-	lastturf = charger.loc
+	lastturf = xeno_owner.loc
 
 /datum/action/ability/xeno_action/ready_charge/proc/speed_down(amt)
 	if(valid_steps_taken == 0)
@@ -238,15 +229,14 @@
 // Charge is divided into two acts: before and after the crushed thing taking damage, as that can cause it to be deleted.
 /datum/action/ability/xeno_action/ready_charge/proc/do_crush(datum/source, atom/crushed)
 	SIGNAL_HANDLER
-	var/mob/living/carbon/xenomorph/charger = owner
-	if(charger.incapacitated() || charger.now_pushing)
+	if(xeno_owner.incapacitated() || xeno_owner.now_pushing)
 		return NONE
 
 	if(charge_type & (CHARGE_BULL|CHARGE_BULL_HEADBUTT|CHARGE_BULL_GORE|CHARGE_BEHEMOTH) && !isliving(crushed))
 		do_stop_momentum()
 		return COMPONENT_MOVABLE_PREBUMP_STOPPED
 
-	var/precrush = crushed.pre_crush_act(charger, src) //Negative values are codes. Positive ones are damage to deal.
+	var/precrush = crushed.pre_crush_act(xeno_owner, src) //Negative values are codes. Positive ones are damage to deal.
 	switch(precrush)
 		if(null)
 			CRASH("[crushed] returned null from do_crush()")
@@ -267,32 +257,35 @@
 		animation_flash_color(crushed_living)
 
 		if(precrush > 0)
-			log_combat(charger, crushed_living, "xeno charged")
+			log_combat(xeno_owner, crushed_living, "xeno charged")
 			//There is a chance to do enough damage here to gib certain mobs. Better update immediately.
 			crushed_living.apply_damage(precrush * 1.7, BRUTE, BODY_ZONE_CHEST, MELEE, updating_health = TRUE, penetration = 15)
 			if(QDELETED(crushed_living))
-				charger.visible_message(span_danger("[charger] anihilates [preserved_name]!"),
-				span_xenodanger("We anihilate [preserved_name]!"))
+				xeno_owner.visible_message(span_danger("[xeno_owner] annihilates [preserved_name]!"),
+				span_xenodanger("We annihilate [preserved_name]!"))
 				return COMPONENT_MOVABLE_PREBUMP_PLOWED
 
-		return precrush2signal(crushed_living.post_crush_act(charger, src))
+		return precrush2signal(crushed_living.post_crush_act(xeno_owner, src))
 
 	if(isobj(crushed))
 		var/obj/crushed_obj = crushed
 		if(istype(crushed_obj, /obj/structure/xeno/silo) || istype(crushed_obj, /obj/structure/xeno/turret))
-			return precrush2signal(crushed_obj.post_crush_act(charger, src))
+			return precrush2signal(crushed_obj.post_crush_act(xeno_owner, src))
 		playsound(crushed_obj.loc, "punch", 25, 1)
 		var/crushed_behavior = crushed_obj.crushed_special_behavior()
-		crushed_obj.take_damage(precrush, BRUTE, MELEE)
+		var/obj_damage_mult = 1
+		if(isarmoredvehicle(crushed) || ishitbox(crushed))
+			obj_damage_mult = 5
+		crushed_obj.take_damage(precrush * obj_damage_mult, BRUTE, MELEE)
 		if(QDELETED(crushed_obj))
-			charger.visible_message(span_danger("[charger] crushes [preserved_name]!"),
+			xeno_owner.visible_message(span_danger("[xeno_owner] crushes [preserved_name]!"),
 			span_xenodanger("We crush [preserved_name]!"))
 			if(crushed_behavior & STOP_CRUSHER_ON_DEL)
 				return COMPONENT_MOVABLE_PREBUMP_STOPPED
 			else
 				return COMPONENT_MOVABLE_PREBUMP_PLOWED
 
-		return precrush2signal(crushed_obj.post_crush_act(charger, src))
+		return precrush2signal(crushed_obj.post_crush_act(xeno_owner, src))
 
 	if(isturf(crushed))
 		var/turf/crushed_turf = crushed
@@ -302,17 +295,18 @@
 		else
 			crushed_turf.ex_act(precrush * rand(50, 100))
 		if(QDELETED(crushed_turf))
-			charger.visible_message(span_danger("[charger] plows straight through [preserved_name]!"),
+			xeno_owner.visible_message(span_danger("[xeno_owner] plows straight through [preserved_name]!"),
 			span_xenowarning("We plow straight through [preserved_name]!"))
 			return COMPONENT_MOVABLE_PREBUMP_PLOWED
 
-		charger.visible_message(span_danger("[charger] rams into [crushed_turf] and skids to a halt!"),
+		xeno_owner.visible_message(span_danger("[xeno_owner] rams into [crushed_turf] and skids to a halt!"),
 		span_xenowarning("We ram into [crushed_turf] and skid to a halt!"))
 		do_stop_momentum(FALSE)
 		return COMPONENT_MOVABLE_PREBUMP_STOPPED
 
 /datum/action/ability/xeno_action/ready_charge/bull_charge
 	action_icon_state = "bull_ready_charge"
+	action_icon = 'icons/Xeno/actions/bull.dmi'
 	charge_type = CHARGE_BULL
 	speed_per_step = 0.15
 	steps_for_charge = 5
@@ -333,8 +327,7 @@
 	if(charge_type == new_charge_type)
 		return
 
-	var/mob/living/carbon/xenomorph/charger = owner
-	if(charger.is_charging >= CHARGE_ON)
+	if(xeno_owner.is_charging >= CHARGE_ON)
 		do_stop_momentum()
 
 	switch(new_charge_type)
@@ -351,8 +344,8 @@
 			to_chat(owner, span_notice("Now goring on impact."))
 
 /datum/action/ability/xeno_action/ready_charge/bull_charge/on_xeno_upgrade()
-	var/mob/living/carbon/xenomorph/X = owner
-	agile_charge = (X.upgrade == XENO_UPGRADE_PRIMO)
+	agile_charge = (xeno_owner.upgrade == XENO_UPGRADE_PRIMO)
 
 /datum/action/ability/xeno_action/ready_charge/queen_charge
 	action_icon_state = "queen_ready_charge"
+	action_icon = 'icons/Xeno/actions/queen.dmi'

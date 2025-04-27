@@ -12,16 +12,11 @@
 	tier = XENO_TIER_TWO
 	upgrade = XENO_UPGRADE_NORMAL
 	pixel_x = -16 //Needed for 2x2
-	old_x = -16
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
-	///Number of huggers the carrier is currently carrying
-	var/huggers = 0
 	///Facehuggers overlay
 	var/mutable_appearance/hugger_overlays_icon
-	///The number of huggers the carrier reserves against observer possession.
-	var/huggers_reserved = 0
 
 // ***************************************
 // *********** Life overrides
@@ -32,7 +27,7 @@
 
 /mob/living/carbon/xenomorph/carrier/get_status_tab_items()
 	. = ..()
-	. += "Reserved Huggers: [huggers_reserved] / [xeno_caste.huggers_max]"
+	. += "Reserved Huggers: [xeno_caste.huggers_reserved] / [xeno_caste.huggers_max]"
 
 /mob/living/carbon/xenomorph/carrier/update_icons()
 	. = ..()
@@ -68,7 +63,7 @@
 	if(stat == DEAD)
 		return FALSE
 
-	if(huggers_reserved >= huggers)
+	if(xeno_caste.huggers_reserved >= huggers)
 		return FALSE
 
 	if(!hive.can_spawn_as_hugger(user))

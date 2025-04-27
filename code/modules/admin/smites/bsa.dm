@@ -23,7 +23,7 @@
 	if (target.health <= 1)
 		target.gib()
 	else
-		target.adjustBruteLoss(min(BSA_MAX_DAMAGE, target.health - 1))
+		target.adjust_brute_loss(min(BSA_MAX_DAMAGE, target.health - 1))
 		target.Paralyze(BSA_PARALYZE_TIME)
 		target.set_timed_status_effect(BSA_STUTTER_TIME, /datum/status_effect/speech/stutter)
 

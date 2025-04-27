@@ -342,7 +342,7 @@
 /obj/structure/ship_ammo/cas/laser_battery/proc/laser_burn(turf/T)
 	playsound(T, 'sound/effects/pred_vision.ogg', 30, 1)
 	for(var/mob/living/L in T)
-		L.adjustFireLoss(120)
+		L.adjust_fire_loss(120)
 		L.adjust_fire_stacks(20)
 		L.IgniteMob()
 	T.ignite(5, 30) //short but intense
@@ -470,7 +470,7 @@
 /obj/structure/ship_ammo/cas/rocket/napalm/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(3)
 	cell_explosion(impact, explosion_power, explosion_falloff)
-	flame_radius(fire_range, impact, 60, 30) //cooking for a long time
+	flame_radius(fire_range, impact, 30, 60) //cooking for a long time
 	var/datum/effect_system/smoke_spread/phosphorus/warcrime = new
 	warcrime.set_up(fire_range + 1, impact, 8)
 	warcrime.start()

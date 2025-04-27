@@ -88,7 +88,7 @@
 				to_chat(h_user, "Small electrical arc almost burns your hand. Luckily you had your gloves on!")
 			else
 				to_chat(h_user, "Small electrical arc sparks and burns your hand as you touch the [src]!")
-				h_user.adjustFireLoss(rand(5,10))
+				h_user.adjust_fire_loss(rand(5,10))
 				h_user.Unconscious(4 SECONDS)
 			charge = 0
 
@@ -101,7 +101,7 @@
 				to_chat(h_user, "Medium electrical arc sparks and almost burns your hand. Luckily you had your gloves on!")
 			else
 				to_chat(h_user, "Medium electrical sparks as you touch the [src], severely burning your hand!")
-				h_user.adjustFireLoss(rand(10,25))
+				h_user.adjust_fire_loss(rand(10,25))
 				h_user.Unconscious(10 SECONDS)
 			INVOKE_ASYNC(src, PROC_REF(empulse), loc, 2, 4)
 			charge = 0
@@ -113,11 +113,11 @@
 			s.start()
 			if (user_protected)
 				to_chat(h_user, "Strong electrical arc sparks between you and [src], ignoring your gloves and burning your hand!")
-				h_user.adjustFireLoss(rand(25,60))
+				h_user.adjust_fire_loss(rand(25,60))
 				h_user.Unconscious(16 SECONDS)
 			else
 				to_chat(h_user, "Strong electrical arc sparks between you and [src], knocking you out for a while!")
-				h_user.adjustFireLoss(rand(35,75))
+				h_user.adjust_fire_loss(rand(35,75))
 				h_user.Unconscious(24 SECONDS)
 			INVOKE_ASYNC(src, PROC_REF(empulse), loc, 8, 16)
 			charge = 0
@@ -131,7 +131,7 @@
 			s.start()
 			to_chat(h_user, "Massive electrical arc sparks between you and [src]. Last thing you can think about is \"Oh shit...\"")
 			// Remember, we have few gigajoules of electricity here.. Turn them into crispy toast.
-			h_user.adjustFireLoss(rand(150,195))
+			h_user.adjust_fire_loss(rand(150,195))
 			h_user.Unconscious(50 SECONDS)
 			INVOKE_ASYNC(src, PROC_REF(empulse), loc, 32, 64)
 			charge = 0
@@ -223,8 +223,6 @@
 		M.state = 2
 		M.icon_state = "box_1"
 		for(var/obj/O in component_parts)
-			if(O.reliability != 100 && crit_fail)
-				O.crit_fail = TRUE
 			O.forceMove(loc)
 		qdel(src)
 

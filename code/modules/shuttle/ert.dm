@@ -62,7 +62,7 @@
 		if(!T.density)
 			T.close()
 
-/obj/docking_port/mobile/ert/afterShuttleMove()
+/obj/docking_port/mobile/ert/after_shuttle_move()
 	. = ..()
 	if(istype(get_docked(), /obj/docking_port/stationary/ert/target))
 		open_shutters()

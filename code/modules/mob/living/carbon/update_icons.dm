@@ -17,7 +17,7 @@
 
 ///IMPORTANT: Multiple animate() calls do not stack well, so try to do them all at once if you can.
 /mob/living/carbon/update_transform()
-	var/matrix/ntransform = matrix(transform) //aka transform.Copy()
+	var/matrix/ntransform = matrix(transform)
 	var/final_pixel_y = pixel_y
 	var/final_dir = dir
 	var/changed = 0
@@ -37,7 +37,7 @@
 		resize = RESIZE_DEFAULT_SIZE
 
 	if(changed)
-		animate(src, transform = ntransform, time = (lying_prev == 0 || lying_angle == 0) ? 0.2 SECONDS : 0, pixel_y = final_pixel_y, dir = final_dir, easing = (EASE_IN|EASE_OUT))
+		animate(src, transform = ntransform, time = (lying_prev == 0 || lying_angle == 0) ? 0.2 SECONDS : 0, pixel_y = final_pixel_y, dir = final_dir, easing = (EASE_IN|EASE_OUT), flags = ANIMATION_PARALLEL)
 
 /mob/living/carbon/hud_set_hunter()
 	var/image/holder = hud_list[HUNTER_HUD]

@@ -8,7 +8,7 @@
 
 	handle_organs()
 
-	updatehealth()
+	update_health()
 
 	if(client)
 		var/turf/T = get_turf(src)
@@ -47,7 +47,7 @@
 
 ///Update what auras we'll receive this life tick if it's either new or stronger than current. aura_type as AURA_ define, strength as number.
 /mob/living/proc/receive_aura(aura_type, strength)
-	if(received_auras[aura_type] > strength)
+	if(received_auras[aura_type] && received_auras[aura_type] > strength)
 		return
 	received_auras[aura_type] = strength
 
@@ -80,21 +80,21 @@
 	if(world.time < last_staminaloss_dmg + 3 SECONDS)
 		return
 	if(staminaloss > 0)
-		adjustStaminaLoss(-maxHealth * 0.2 * stamina_regen_multiplier, TRUE, FALSE)
+		adjust_stamina_loss(-maxHealth * 0.2 * stamina_regen_multiplier, TRUE, FALSE)
 	else if(staminaloss > -max_stamina_buffer)
-		adjustStaminaLoss(-max_stamina * 0.08 * stamina_regen_multiplier, TRUE, FALSE)
+		adjust_stamina_loss(-max_stamina * 0.08 * stamina_regen_multiplier, TRUE, FALSE)
 
 
 /mob/living/proc/handle_regular_hud_updates()
 	if(!client)
 		return FALSE
 
-/mob/living/proc/updatehealth()
+/mob/living/proc/update_health()
 	if(status_flags & GODMODE)
 		health = maxHealth
 		stat = CONSCIOUS
 		return
-	health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
+	health = maxHealth - get_oxy_loss() - get_tox_loss() - get_fire_loss() - get_brute_loss() - get_clone_Loss()
 	update_stat()
 
 /mob/living/update_stat()
@@ -201,19 +201,18 @@
 	if(s_active && !(s_active.parent in contents) && !CanReach(s_active.parent))
 		s_active.close(src)
 
-
-/mob/living/Moved(oldLoc, dir)
+/mob/living/Moved(atom/old_loc, movement_dir, forced = FALSE, list/old_locs)
 	. = ..()
-	update_camera_location(oldLoc)
-
+	update_camera_location(old_loc)
 
 /mob/living/forceMove(atom/destination)
 	. = ..()
 	//Only bother updating the camera if we actually managed to move
-	if(.)
-		update_camera_location(destination)
-		if(client)
-			reset_perspective()
+	if(!.)
+		return
+	update_camera_location(destination)
+	if(client)
+		reset_perspective()
 
 ///Updates the mob's registered_z
 /mob/living/proc/update_z(new_z) // 1+ to register, null to unregister
@@ -483,6 +482,14 @@
 /mob/living/proc/get_permeability_protection()
 	return LIVING_PERM_COEFF
 
+/// Returns the overall SOFT acid protection of a mob.
+/mob/living/proc/get_soft_acid_protection()
+	return soft_armor?.getRating(ACID)/100
+
+/// Returns the overall HARD acid protection of a mob.
+/mob/living/proc/get_hard_acid_protection()
+	return hard_armor?.getRating(ACID)
+
 /mob/proc/flash_act(intensity = 1, bypass_checks, type = /atom/movable/screen/fullscreen/flash, duration)
 	return
 
@@ -711,7 +718,7 @@
 //for more info on why this is not atom/pull, see examinate() in mob.dm
 /mob/living/verb/pulled(atom/movable/AM as mob|obj in oview(1))
 	set name = "Pull"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 
 	if(istype(AM) && Adjacent(AM))
 		start_pulling(AM)
@@ -738,7 +745,7 @@
 		if("eye_blurry")
 			set_blurriness(var_value)
 		if("maxHealth")
-			updatehealth()
+			update_health()
 		if("resize")
 			update_transform()
 		if("lighting_alpha")
@@ -872,8 +879,8 @@
 	. = ..()
 	if(!.)
 		return
-	log_admin("[key_name(src)] (Job: [(job) ? job.title : "Unassigned"]) has been away for [AFK_TIMER] minutes.")
-	message_admins("[ADMIN_TPMONTY(src)] (Job: [(job) ? job.title : "Unassigned"]) has been away for [AFK_TIMER] minutes.")
+	log_admin("[key_name(src)] (Job: [(job) ? job.title : "Unassigned"]) has been away for [AFK_TIMER / 600] minutes.")
+	message_admins("[ADMIN_TPMONTY(src)] (Job: [(job) ? job.title : "Unassigned"]) has been away for [AFK_TIMER / 600] minutes.")
 
 ///Transfer the candidate mind into src
 /mob/living/proc/transfer_mob(mob/candidate)
@@ -889,7 +896,17 @@
 		get_up()
 
 ///Sets up the jump component for the mob. Proc args can be altered so different mobs have different 'default' jump settings
-/mob/living/proc/set_jump_component(duration = 0.5 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 16, sound = null, flags = JUMP_SHADOW, pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
+/mob/living/proc/set_jump_component(duration = 0.5 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 16, sound = null, flags = JUMP_SHADOW, jump_pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
+	var/list/arg_list = list(duration, cooldown, cost, height, sound, flags, jump_pass_flags)
+	if(SEND_SIGNAL(src, COMSIG_LIVING_SET_JUMP_COMPONENT, arg_list))
+		duration = arg_list[1]
+		cooldown = arg_list[2]
+		cost = arg_list[3]
+		height = arg_list[4]
+		sound = arg_list[5]
+		flags = arg_list[6]
+		jump_pass_flags = arg_list[7]
+
 	var/gravity = get_gravity()
 	if(gravity < 1) //low grav
 		duration *= 2.5 - gravity
@@ -897,11 +914,11 @@
 		cost *= gravity * 0.5
 		height *= 2 - gravity
 		if(gravity <= 0.75)
-			pass_flags |= PASS_DEFENSIVE_STRUCTURE
+			jump_pass_flags |= PASS_DEFENSIVE_STRUCTURE
 	else if(gravity > 1) //high grav
 		duration *= gravity * 0.5
 		cooldown *= gravity
 		cost *= gravity
 		height *= gravity * 0.5
 
-	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = cost, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = pass_flags)
+	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = cost, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = jump_pass_flags)

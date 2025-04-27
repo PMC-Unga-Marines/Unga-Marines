@@ -4,11 +4,11 @@
 	gender = PLURAL
 	icon = 'icons/obj/det.dmi'
 	icon_state = "detpack_off"
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/explosives_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/explosives_right.dmi',
 		)
-	item_state = "plasticx"
+	worn_icon_state = "plasticx"
 	item_flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
 	layer = MOB_LAYER - 0.1
@@ -32,6 +32,7 @@
 /obj/item/detpack/Initialize(mapload)
 	. = ..()
 	set_frequency(frequency)
+	code = rand(1, 100)
 
 /obj/item/detpack/examine(mob/user)
 	. = ..()
@@ -252,6 +253,11 @@
 		return FALSE
 	if(target.resistance_flags & INDESTRUCTIBLE)
 		return FALSE
+	if(istype(target, /obj/vehicle/unmanned))
+		var/obj/vehicle/unmanned/unmanned_target = target
+		if(!unmanned_target.allow_explosives)
+			to_chat(user, "[span_warning("[src] doesnt fit on [unmanned_target]")]!")
+			return FALSE
 	if(istype(target, /obj/structure/window))
 		var/obj/structure/window/W = target
 		if(!W.damageable)

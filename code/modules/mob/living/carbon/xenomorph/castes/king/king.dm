@@ -12,7 +12,6 @@
 	maxHealth = 500
 	plasma_stored = 300
 	pixel_x = -16
-	old_x = -16
 	mob_size = MOB_SIZE_BIG
 	drag_delay = 6
 	tier = XENO_TIER_FOUR //King, like queen, doesn't count towards population limit.
@@ -34,6 +33,12 @@
 /mob/living/carbon/xenomorph/king/generate_name()
 	var/playtime_mins = client?.get_exp(xeno_caste.caste_name)
 	var/prefix = (hive.prefix || xeno_caste.upgrade_name) ? "[hive.prefix][xeno_caste.upgrade_name] " : ""
+	if(!client?.prefs.show_xeno_rank || !client)
+		name = prefix + "King ([nicknumber])"
+		real_name = name
+		if(mind)
+			mind.name = name
+		return
 	switch(playtime_mins)
 		if(0 to 300)
 			name = prefix + "Young King ([nicknumber])"

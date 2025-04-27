@@ -24,3 +24,11 @@
 /datum/map_template/interior/clone_bay
 	name = "clone bay apc interior template"
 	filename = "apc_cloner"
+
+/datum/map_template/interior/som_tank
+	name = "SOM tank interior template"
+	filename = "som_tank"
+
+/datum/map_template/interior/icc_recontank
+	name = "ICC Fallow Recon Vehicle Tracked interior template"
+	filename = "icc_recontank"

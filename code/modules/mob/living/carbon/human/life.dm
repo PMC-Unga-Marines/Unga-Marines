@@ -1,8 +1,5 @@
 /mob/living/carbon/human/Life()
 	. = ..()
-
-	fire_alert = 0 //Reset this here, because both breathe() and handle_environment() have a chance to set it.
-
 	//update the current life tick, can be used to e.g. only do something every 4 ticks
 	life_tick++
 
@@ -20,7 +17,7 @@
 			//blood
 			handle_blood()
 
-			if(stat == CONSCIOUS && getToxLoss() >= 45 && nutrition > 20)
+			if(stat == CONSCIOUS && get_tox_loss() >= 45 && nutrition > 20)
 				vomit()
 
 			handle_pain_levels()
@@ -32,11 +29,8 @@
 
 		else //Dead
 			dead_ticks ++
-			var/mob/dead/observer/related_ghost = get_ghost()
-			// boolean, determines if the body's ghost can reenter the body
-			var/ghost_left = !client && !related_ghost?.can_reenter_corpse
-			if(dead_ticks > TIME_BEFORE_DNR || ghost_left)
-				set_undefibbable(ghost_left)
+			if(dead_ticks > TIME_BEFORE_DNR)
+				set_undefibbable()
 			else
 				med_hud_set_status()
 
@@ -58,12 +52,6 @@
 	SEND_SIGNAL(src, COMSIG_HUMAN_SET_UNDEFIBBABLE)
 	SSmobs.stop_processing(src) //Last round of processing.
 
-	if(CHECK_BITFIELD(status_flags, XENO_HOST))
-		var/obj/item/alien_embryo/parasite = locate(/obj/item/alien_embryo) in src
-		if(parasite) //The larva cannot survive without a host.
-			qdel(parasite)
-		DISABLE_BITFIELD(status_flags, XENO_HOST)
-
 	if(hud_list)
 		med_hud_set_status()
 
@@ -71,20 +59,25 @@
 	if(species.species_flags & NO_BREATHE)
 		return
 
-	if(losebreath <= 10)
-		adjust_Losebreath(-1) //Since this happens before checking to take/heal oxyloss, a losebreath of 1 or less won't do anything.
-	else
+	if(pulledby?.grab_state >= GRAB_KILL)
+		Losebreath(1)
+		adjust_oxy_loss(4)
+	else if(losebreath > 10)
 		set_Losebreath(10) //Any single hit is functionally capped - to keep someone suffocating, you need continued losebreath applications.
+	else if(losebreath > 0)
+		adjust_Losebreath(-1) //Since this happens before checking to take/heal oxyloss, a losebreath of 1 or less won't do anything.
 
 	if(health < get_crit_threshold() || losebreath)
 		if(HAS_TRAIT(src, TRAIT_IGNORE_SUFFOCATION)) //Prevent losing health from asphyxiation, but natural recovery can still happen.
 			return
-		adjustOxyLoss(CARBON_CRIT_MAX_OXYLOSS, TRUE)
-		if(!oxygen_alert)
+		adjust_oxy_loss(CARBON_CRIT_MAX_OXYLOSS, TRUE)
+		if(!breath_failing)
 			emote("gasp")
-			oxygen_alert = TRUE
+			throw_alert(ALERT_NOT_ENOUGH_OXYGEN, /atom/movable/screen/alert/not_enough_oxy)
+			breath_failing = TRUE
 	else
-		adjustOxyLoss(CARBON_RECOVERY_OXYLOSS, TRUE)
-		if(oxygen_alert)
+		adjust_oxy_loss(CARBON_RECOVERY_OXYLOSS, TRUE)
+		if(breath_failing)
 			to_chat(src, span_notice("Fresh air fills your lungs; you can breath again!"))
-			oxygen_alert = FALSE
+			clear_alert(ALERT_NOT_ENOUGH_OXYGEN)
+			breath_failing = FALSE

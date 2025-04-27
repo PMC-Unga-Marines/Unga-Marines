@@ -49,19 +49,11 @@
 /obj/machinery/deployable/welder_act(mob/living/user, obj/item/I)
 	return welder_repair_act(user, I, 120, 5 SECONDS)
 
-///Dissassembles the device
-/obj/machinery/deployable/proc/disassemble(mob/user)
+/obj/machinery/deployable/disassemble(mob/user)
 	if(get_self_acid())
 		balloon_alert(user, "It's melting!")
 		return
-	var/obj/item/item = get_internal_item()
-	if(!item)
-		return
-	if(CHECK_BITFIELD(item.item_flags, DEPLOYED_NO_PICKUP))
-		to_chat(user, span_notice("The [src] is anchored in place and cannot be disassembled."))
-		return
-	operator?.unset_interaction()
-	SEND_SIGNAL(src, COMSIG_ITEM_UNDEPLOY, user)
+	return ..()
 
 /obj/machinery/deployable/Destroy()
 	operator?.unset_interaction()

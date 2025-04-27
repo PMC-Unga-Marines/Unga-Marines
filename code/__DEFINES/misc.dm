@@ -71,13 +71,6 @@ GLOBAL_VAR_INIT(global_unique_id, 1)
 #define SHELLEO_STDOUT 2
 #define SHELLEO_STDERR 3
 
-//different types of atom colorations
-#define ADMIN_COLOUR_PRIORITY 1 //only used by rare effects like greentext coloring mobs and when admins varedit color
-#define TEMPORARY_COLOUR_PRIORITY 2 //e.g. purple effect of the revenant on a mob, black effect when mob electrocuted
-#define WASHABLE_COLOUR_PRIORITY 3 //color splashed onto an atom (e.g. paint on turf)
-#define FIXED_COLOUR_PRIORITY 4 //color inherent to the atom (e.g. blob color)
-#define COLOUR_PRIORITY_AMOUNT 4 //how many priority levels there are.
-
 //Dummy mob reserve slots
 #define DUMMY_HUMAN_SLOT_PREFERENCES "dummy_preference_preview"
 #define DUMMY_HUMAN_SLOT_ADMIN "admintools"
@@ -154,9 +147,5 @@ GLOBAL_VAR_INIT(global_unique_id, 1)
 // shorter way to write as anything
 #define AS as anything
 
-// What kind of function to use for Explosions falling off.
-#define EXPLOSION_FALLOFF_SHAPE_LINEAR 1
-#define EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL 2
-#define EXPLOSION_FALLOFF_SHAPE_EXPONENTIAL_HALF 3
-
-#define EXPLOSION_MAX_POWER 5000
+/// Emoji icon set TODO make this used everywhere properly
+#define EMOJI_SET 'icons/misc/emoji.dmi'

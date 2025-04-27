@@ -119,7 +119,11 @@
 	var/obj/item/W = get_active_held_item()
 
 	if(W == A)
-		W.attack_self(src)
+		if(modifiers["right"])
+			W.attack_self_alternate(src)
+		else
+			W.attack_self(src)
+
 		update_inv_l_hand()
 		update_inv_r_hand()
 		return
@@ -434,6 +438,7 @@ if(selected_ability.target_flags & flagname && !istype(A, typepath)){\
 /atom/proc/ShiftClick(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_CLICK_SHIFT, user)
+	user.examinate(src)
 	return TRUE
 
 /*

@@ -2,7 +2,7 @@
 	Global associative list for caching humanoid icons.
 	Index format m or f, followed by a string of 0 and 1 to represent bodyparts followed by husk fat hulk skeleton 1 or 0.
 	TODO: Proper documentation
-	icon_key is [species.race_key][g][husk][fat][hulk][skeleton][ethnicity]
+	icon_key is [species.race_key][g][husk][fat][hulk][skeleton][ethnicity][height]
 */
 GLOBAL_LIST_EMPTY(human_icon_cache)
 
@@ -52,14 +52,13 @@ There are several things that need to be remembered:
 		update_body()	//Handles updating your mob's icon to reflect their gender/race/complexion etc
 		update_hair()	//Handles updating your hair overlay (used to be update_face, but mouth and
 																			...eyes were merged into update_body)
-		update_targeted() // Updates the target overlay when someone points a gun at you
 
 >	If you need to update all overlays you can use regenerate_icons(). it works exactly like update_clothing used to.
 
 
 */
 
-#define ITEM_STATE_IF_SET(I) I.item_state ? I.item_state : I.icon_state
+#define worn_icon_state_IF_SET(I) I.worn_icon_state ? I.worn_icon_state : I.icon_state
 
 /mob/living/carbon/human
 	var/list/underlays_standing[TOTAL_UNDERLAYS]
@@ -70,9 +69,181 @@ There are several things that need to be remembered:
 	SEND_SIGNAL(src, COMSIG_HUMAN_APPLY_OVERLAY, cache_index, to_add)
 	var/image/I = overlays_standing[cache_index]
 	if(I)
-		//TODO THIS SHOULD USE THE API!
+		//TODO THIS SHOULD USE THE API! or even better just make it based off of tg
 		to_add += I
+
+	if(get_mob_height() == HUMAN_HEIGHT_MEDIUM)
+		overlays += to_add
+		return
+
+	var/raw_applied = overlays_standing[cache_index]
+	var/string_form_index = num2text(cache_index)
+	var/offset_type = GLOB.layers_to_offset[string_form_index]
+	if(isnull(offset_type))
+		if(islist(raw_applied))
+			for(var/image/applied_appearance in raw_applied)
+				apply_height_filters(applied_appearance)
+		else if(isimage(raw_applied))
+			apply_height_filters(raw_applied)
+	else
+		if(islist(raw_applied))
+			for(var/image/applied_appearance in raw_applied)
+				apply_height_offsets(applied_appearance, offset_type)
+		else if(isimage(raw_applied))
+			apply_height_offsets(raw_applied, offset_type)
+
 	overlays += to_add
+
+
+/**
+ * Used in some circumstances where appearances can get cut off from the mob sprite from being too tall
+ *
+ * upper_torso is to specify whether the appearance is locate in the upper half of the mob rather than the lower half,
+ * higher up things (hats for example) need to be offset more due to the location of the filter displacement
+ */
+/mob/living/carbon/human/proc/apply_height_offsets(image/appearance, upper_torso)
+	var/height_to_use = num2text(get_mob_height())
+	var/final_offset = 0
+	switch(upper_torso)
+		if(UPPER_BODY)
+			final_offset = GLOB.human_heights_to_offsets[height_to_use][1]
+		if(LOWER_BODY)
+			final_offset = GLOB.human_heights_to_offsets[height_to_use][2]
+		else
+			return
+
+	appearance.pixel_y += final_offset
+	return appearance
+
+/**
+ * Applies a filter to an appearance according to mob height
+ */
+/mob/living/carbon/human/proc/apply_height_filters(image/appearance)
+	var/static/icon/cut_torso_mask = icon('icons/effects/cut.dmi', "Cut1")
+	var/static/icon/cut_legs_mask = icon('icons/effects/cut.dmi', "Cut2")
+	var/static/icon/lenghten_torso_mask = icon('icons/effects/cut.dmi', "Cut3")
+	var/static/icon/lenghten_legs_mask = icon('icons/effects/cut.dmi', "Cut4")
+
+	appearance.remove_filter(list(
+		"Cut_Torso",
+		"Cut_Legs",
+		"Lenghten_Legs",
+		"Lenghten_Torso",
+		"Gnome_Cut_Torso",
+		"Gnome_Cut_Legs",
+		"Monkey_Torso",
+		"Monkey_Legs",
+		"Monkey_Gnome_Cut_Torso",
+		"Monkey_Gnome_Cut_Legs",
+	))
+
+	switch(get_mob_height())
+		// Don't set this one directly, use TRAIT_DWARF
+		if(MONKEY_HEIGHT_DWARF)
+			appearance.add_filters(list(
+				list(
+					"name" = "Monkey_Gnome_Cut_Torso",
+					"priority" = 1,
+					"params" = displacement_map_filter(cut_torso_mask, x = 0, y = 0, size = 3),
+				),
+				list(
+					"name" = "Monkey_Gnome_Cut_Legs",
+					"priority" = 1,
+					"params" = displacement_map_filter(cut_legs_mask, x = 0, y = 0, size = 4),
+				),
+			))
+		if(MONKEY_HEIGHT_MEDIUM)
+			appearance.add_filters(list(
+				list(
+					"name" = "Monkey_Torso",
+					"priority" = 1,
+					"params" = displacement_map_filter(cut_torso_mask, x = 0, y = 0, size = 2),
+				),
+				list(
+					"name" = "Monkey_Legs",
+					"priority" = 1,
+					"params" = displacement_map_filter(cut_legs_mask, x = 0, y = 0, size = 4),
+				),
+			))
+		if(HUMAN_HEIGHT_DWARF) // tall monkeys and dwarves use the same value
+			if(ismonkey(src))
+				appearance.add_filters(list(
+					list(
+						"name" = "Monkey_Torso",
+						"priority" = 1,
+						"params" = displacement_map_filter(cut_torso_mask, x = 0, y = 0, size = 1),
+					),
+					list(
+						"name" = "Monkey_Legs",
+						"priority" = 1,
+						"params" = displacement_map_filter(cut_legs_mask, x = 0, y = 0, size = 1),
+					),
+				))
+			else
+				appearance.add_filters(list(
+					list(
+						"name" = "Gnome_Cut_Torso",
+						"priority" = 1,
+						"params" = displacement_map_filter(cut_torso_mask, x = 0, y = 0, size = 2),
+					),
+					list(
+						"name" = "Gnome_Cut_Legs",
+						"priority" = 1,
+						"params" = displacement_map_filter(cut_legs_mask, x = 0, y = 0, size = 3),
+					),
+				))
+		// Don't set this one directly, use TRAIT_DWARF
+		if(HUMAN_HEIGHT_SHORTEST)
+			appearance.add_filters(list(
+				list(
+					"name" = "Cut_Torso",
+					"priority" = 1,
+					"params" = displacement_map_filter(cut_torso_mask, x = 0, y = 0, size = 1),
+				),
+				list(
+					"name" = "Cut_Legs",
+					"priority" = 1,
+					"params" = displacement_map_filter(cut_legs_mask, x = 0, y = 0, size = 1),
+				),
+			))
+		if(HUMAN_HEIGHT_SHORT)
+			appearance.add_filter("Cut_Legs", 1, displacement_map_filter(cut_legs_mask, x = 0, y = 0, size = 1))
+		if(HUMAN_HEIGHT_TALL)
+			appearance.add_filter("Lenghten_Legs", 1, displacement_map_filter(lenghten_legs_mask, x = 0, y = 0, size = 1))
+		if(HUMAN_HEIGHT_TALLER)
+			appearance.add_filters(list(
+				list(
+					"name" = "Lenghten_Torso",
+					"priority" = 1,
+					"params" = displacement_map_filter(lenghten_torso_mask, x = 0, y = 0, size = 1),
+				),
+				list(
+					"name" = "Lenghten_Legs",
+					"priority" = 1,
+					"params" = displacement_map_filter(lenghten_legs_mask, x = 0, y = 0, size = 1),
+				),
+			))
+		if(HUMAN_HEIGHT_TALLEST)
+			appearance.add_filters(list(
+				list(
+					"name" = "Lenghten_Torso",
+					"priority" = 1,
+					"params" = displacement_map_filter(lenghten_torso_mask, x = 0, y = 0, size = 1),
+				),
+				list(
+					"name" = "Lenghten_Legs",
+					"priority" = 1,
+					"params" = displacement_map_filter(lenghten_legs_mask, x = 0, y = 0, size = 2),
+				),
+			))
+
+	// Kinda gross but because many humans overlays do not use KEEP_TOGETHER we need to manually propogate the filter
+	// Otherwise overlays, such as worn overlays on icons, won't have the filter "applied", and the effect kinda breaks
+	if(!(appearance.appearance_flags & KEEP_TOGETHER))
+		for(var/image/overlay in list() + appearance.underlays + appearance.overlays)
+			apply_height_filters(overlay)
+
+	return appearance
 
 /mob/living/carbon/human/remove_overlay(cache_index)
 	var/list/to_remove = list()
@@ -187,7 +358,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		else
 			icon_key = "[icon_key]1"
 
-	icon_key = "[icon_key][0][0][0][0][ethnicity]"
+	icon_key = "[icon_key][0][0][0][0][ethnicity][get_mob_height()]"
 
 	var/icon/base_icon
 	if(!force_cache_update && GLOB.human_icon_cache[icon_key])
@@ -275,16 +446,15 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		stand_icon.Blend(eyes, ICON_OVERLAY)
 
 		//Mouth	(lipstick!)
-		if(lip_style && (species?.species_flags & HAS_LIPS))	//skeletons are allowed to wear lipstick no matter what you think, agouri.
-			stand_icon.Blend(new/icon('icons/mob/human_face.dmi', "camo_[lip_style]_s"), ICON_OVERLAY)
+		if(makeup_style && (species?.species_flags & HAS_LIPS))	//skeletons are allowed to wear lipstick no matter what you think, agouri.
+			stand_icon.Blend(new/icon('icons/mob/human_face.dmi', "camo_[makeup_style]_s"), ICON_OVERLAY)
 
 
 	if(species.species_flags & HAS_UNDERWEAR)
 		stand_icon.Blend(new /icon('icons/mob/human.dmi', "underwear_[underwear]_[gender]"), ICON_OVERLAY)
 		stand_icon.Blend(new /icon('icons/mob/human.dmi', "undershirt_[undershirt]_[gender]"), ICON_OVERLAY)
 
-	icon = stand_icon
-
+	update_bodyparts()
 	species?.update_body(src)
 
 //HAIR OVERLAY
@@ -346,22 +516,10 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	overlays_standing[HAIR_LAYER] = hair_final
 	apply_overlay(HAIR_LAYER)
 
-//Call when target overlay should be added/removed
-/mob/living/carbon/human/update_targeted()
-	remove_overlay(TARGETED_LAYER)
-	var/image/I
-	if(holo_card_color)
-		if(I)
-			I.overlays += image("icon" = 'icons/effects/Targeted.dmi', "icon_state" = "holo_card_[holo_card_color]")
-		else
-			I = image("icon" = 'icons/effects/Targeted.dmi', "icon_state" = "holo_card_[holo_card_color]", "layer" =-TARGETED_LAYER)
-	if(I)
-		overlays_standing[TARGETED_LAYER] = I
-	apply_overlay(TARGETED_LAYER)
-
 /* --------------------------------------- */
 //For legacy support.
 /mob/living/carbon/human/regenerate_icons()
+	update_bodyparts()
 	update_inv_w_uniform()
 	update_inv_wear_id()
 	update_inv_gloves()
@@ -385,6 +543,12 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 
 /* --------------------------------------- */
 //vvvvvv UPDATE_INV PROCS vvvvvv
+
+///snowflake replacement handling since we don't have tg's proper handling of individual body parts as overlays
+/mob/living/carbon/human/proc/update_bodyparts()
+	remove_overlay(BODYPARTS_LAYER)
+	overlays_standing[BODYPARTS_LAYER] = image(icon=stand_icon, layer=-BODYPARTS_LAYER)
+	apply_overlay(BODYPARTS_LAYER)
 
 /mob/living/carbon/human/update_inv_w_uniform()
 	remove_overlay(UNIFORM_LAYER)
@@ -598,7 +762,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		client.screen += r_hand
 		r_hand.screen_loc = ui_rhand
 
-	overlays_standing[R_HAND_LAYER] = r_hand.make_worn_icon(species.name, slot_r_hand_str, TRUE, 'icons/mob/items_righthand_1.dmi', R_HAND_LAYER)
+	overlays_standing[R_HAND_LAYER] = r_hand.make_worn_icon(species.name, slot_r_hand_str, TRUE, 'icons/mob/inhands/items_righthand_1.dmi', R_HAND_LAYER)
 
 	apply_overlay(R_HAND_LAYER)
 
@@ -611,67 +775,23 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		client.screen += l_hand
 		l_hand.screen_loc = ui_lhand
 
-	overlays_standing[L_HAND_LAYER] = l_hand.make_worn_icon(species.name, slot_l_hand_str, TRUE, 'icons/mob/items_lefthand_1.dmi', L_HAND_LAYER)
+	overlays_standing[L_HAND_LAYER] = l_hand.make_worn_icon(species.name, slot_l_hand_str, TRUE, 'icons/mob/inhands/items_lefthand_1.dmi', L_HAND_LAYER)
 	apply_overlay(L_HAND_LAYER)
 
-/// Used mostly for creating head items
-/mob/living/carbon/human/proc/generate_head_icon()
-	//base icons
-	var/icon/face_lying = new /icon('icons/mob/human_face.dmi',"bald_l")
-
-	if(f_style)
-		var/datum/sprite_accessory/facial_hair_style = GLOB.facial_hair_styles_list[f_style]
-		if(facial_hair_style)
-			var/icon/facial_l = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_l")
-			facial_l.Blend(rgb(r_facial, g_facial, b_facial), ICON_ADD)
-			face_lying.Blend(facial_l, ICON_OVERLAY)
-
-	if(h_style)
-		var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[h_style]
-		if(hair_style)
-			var/icon/hair_l = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_l")
-			hair_l.Blend(rgb(r_hair, g_hair, b_hair), ICON_ADD)
-			face_lying.Blend(hair_l, ICON_OVERLAY)
-
-	//Eyes
-	// Note: These used to be in update_face(), and the fact they're here will make it difficult to create a disembodied head
-	var/icon/eyes_l = new/icon('icons/mob/human_face.dmi', "eyes_l")
-	eyes_l.Blend(rgb(r_eyes, g_eyes, b_eyes), ICON_ADD)
-	face_lying.Blend(eyes_l, ICON_OVERLAY)
-
-	if(lip_style)
-		face_lying.Blend(new/icon('icons/mob/human_face.dmi', "lips_[lip_style]_l"), ICON_OVERLAY)
-
-	var/image/face_lying_image = new /image(icon = face_lying)
-	return face_lying_image
 
 /mob/living/carbon/human/update_burst()
 	remove_overlay(BURST_LAYER)
-	var/mutable_appearance/standing
-	if(chestburst == 1)
-		if(isyautja(src))
-			standing = mutable_appearance('icons/Xeno/Effects.dmi', "predburst_stand", -BURST_LAYER)
-		else
-			standing = mutable_appearance('icons/Xeno/Effects.dmi', "burst_stand", -BURST_LAYER)
-	else if(chestburst == 2)
-		if(isyautja(src))
-			standing = mutable_appearance('icons/Xeno/Effects.dmi', "predbursted_stand", -BURST_LAYER)
-		else
-			standing = mutable_appearance('icons/Xeno/Effects.dmi', "bursted_stand", -BURST_LAYER)
-
-	overlays_standing[BURST_LAYER] = standing
+	if(!chestburst)
+		return
+	overlays_standing[BURST_LAYER] = mutable_appearance('icons/Xeno/Effects.dmi', chestburst == CARBON_IS_CHEST_BURSTING ? "burst_stand" : "bursted_stand", -BURST_LAYER)
 	apply_overlay(BURST_LAYER)
 
 /mob/living/carbon/human/update_fire()
 	remove_overlay(FIRE_LAYER)
-	if(on_fire)
-		switch(fire_stacks)
-			if(1 to 14)
-				overlays_standing[FIRE_LAYER] = mutable_appearance('icons/mob/OnFire.dmi', "Standing_weak", -FIRE_LAYER)
-			if(15 to 20)
-				overlays_standing[FIRE_LAYER] = mutable_appearance('icons/mob/OnFire.dmi', "Standing_medium", -FIRE_LAYER)
-
-		apply_overlay(FIRE_LAYER)
+	if(!on_fire)
+		return
+	overlays_standing[FIRE_LAYER] = mutable_appearance('icons/mob/OnFire.dmi', fire_stacks < 15 ? "Standing_weak" : "Standing_medium", -FIRE_LAYER)
+	apply_overlay(FIRE_LAYER)
 
 //HAIR OVERLAY
 /mob/living/carbon/human/species/yautja/update_hair()

@@ -27,7 +27,7 @@
 	///If these weeds are not destroyed but just swapped
 	var/swapped = FALSE
 
-/obj/alien/weeds/deconstruct(disassembled = TRUE)
+/obj/alien/weeds/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	GLOB.round_statistics.weeds_destroyed++
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "weeds_destroyed")
 	return ..()
@@ -224,11 +224,11 @@
 		return ..()
 	return window.MouseDrop_T(dropping, user)
 
-/obj/alien/weeds/weedwall/window/specialclick(mob/living/carbon/user)
+/obj/alien/weeds/weedwall/window/CtrlClick(mob/living/carbon/user)
 	var/obj/structure/window = locate(window_type) in loc
 	if(!window)
 		return ..()
-	return window.specialclick(user)
+	return window.CtrlClick(user)
 
 /obj/alien/weeds/weedwall/window/attackby(obj/item/I, mob/user, params) //yes, this blocks attacking the weed itself, but if you destroy the frame you destroy the weed!
 	var/obj/structure/window = locate(window_type) in loc

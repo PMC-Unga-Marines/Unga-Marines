@@ -232,3 +232,15 @@
 	ammo_band_color = AMMO_BAND_COLOR_HOLLOWPOINT
 	default_ammo = /datum/ammo/bullet/smg/acp/hp
 
+//------------------------------------------------------
+//C17 riot PDW
+
+/obj/item/ammo_magazine/smg/vsd_pdw
+	name = "\improper C17 drum mag (.45 ACP)"
+	desc = "An Armor-Piercing .45 ACP caseless submachinegun magazine."
+	default_ammo = /datum/ammo/bullet/smg/ap/hv
+	caliber = CALIBER_45ACP
+	icon_state = "ppsh_ext"
+	max_rounds = 55
+	w_class = WEIGHT_CLASS_SMALL
+	icon_state_mini = "mag_heavy_smg"

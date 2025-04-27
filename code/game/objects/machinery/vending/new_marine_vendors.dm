@@ -501,7 +501,7 @@
 	)
 
 /obj/effect/vendor_bundle/stretcher
-	desc = "A collapsed medevac stretcher that can be carried around, beacon included."
+	desc = "A standard-issue TerraGov Marine Corps corpsman medivac stretcher. Comes with an extra beacon, but multiple beds can be linked to one beacon."
 	gear_to_spawn = list(
 		/obj/item/roller/medevac,
 		/obj/item/medevac_beacon,
@@ -555,7 +555,6 @@
 		/obj/item/stack/sheet/metal/large_stack,
 		/obj/item/tool/weldingtool/hugetank,
 		/obj/item/lightreplacer,
-		/obj/item/healthanalyzer,
 		/obj/item/tool/handheld_charger,
 		/obj/item/defibrillator,
 		/obj/item/medevac_beacon,
@@ -566,6 +565,8 @@
 		/obj/item/tweezers,
 		/obj/item/tool/surgery/solderingtool,
 		/obj/item/supplytablet,
+		/obj/item/cell/high,
+		/obj/item/circuitboard/apc,
 	)
 
 /obj/effect/vendor_bundle/white_dress

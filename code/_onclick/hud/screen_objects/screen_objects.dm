@@ -1,12 +1,23 @@
+/*
+	Screen objects
+	Todo: improve/re-implement
+
+	Screen objects are only used for the hud and should not appear anywhere "in-game".
+	They are used with the client/screen list and the screen_loc var.
+	For more information, see the byond documentation on the screen_loc and screen vars.
+*/
 /atom/movable/screen
 	name = ""
 	icon = 'icons/mob/screen/generic.dmi'
 	layer = HUD_LAYER
+	// NOTE: screen objects do NOT change their plane to match the z layer of their owner
+	// You shouldn't need this, but if you ever do and it's widespread, reconsider what you're doing.
 	plane = HUD_PLANE
 	resistance_flags = RESIST_ALL | PROJECTILE_IMMUNE
 	appearance_flags = APPEARANCE_UI
 	var/obj/master //A reference to the object in the slot. Grabs or items, generally.
-	var/datum/hud/hud // A reference to the owner HUD, if any./atom/movable/screen
+	/// A reference to the owner HUD, if any.
+	var/datum/hud/hud
 
 	//Map popups
 	/**
@@ -23,6 +34,15 @@
 	 */
 	var/del_on_map_removal = TRUE
 
+	/**
+	 * If TRUE, clicking the screen element will fall through and perform a default "Click" call
+	 * Obviously this requires your Click override, if any, to call parent on their own.
+	 * This is set to FALSE to default to dissade you from doing this.
+	 * Generally we don't want default Click stuff, which results in bugs like using Telekinesis on a screen element
+	 * or trying to point your gun at your screen.
+	*/
+	var/default_click = FALSE
+
 /atom/movable/screen/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
 	if(hud_owner && istype(hud_owner))
@@ -33,6 +53,11 @@
 	hud = null
 	return ..()
 
+/atom/movable/screen/Click(location, control, params)
+	if(atom_flags & INITIALIZED)
+		SEND_SIGNAL(src, COMSIG_SCREEN_ELEMENT_CLICK, location, control, params, usr)
+	if(default_click)
+		return ..()
 
 /atom/movable/screen/proc/component_click(atom/movable/screen/component_button/component, params)
 	return
@@ -57,6 +82,12 @@
 
 /atom/movable/screen/swap_hand/human
 	icon_state = "swap_1"
+
+/atom/movable/screen/craft
+	name = "crafting menu"
+	icon = 'icons/mob/screen/midnight.dmi'
+	icon_state = "craft"
+	screen_loc = ui_crafting
 
 /atom/movable/screen/language_menu
 	name = "language menu"
@@ -450,7 +481,7 @@
 	if(mymob_human.stat == DEAD)
 		icon_state = "stamloss200"
 		return
-	var/relative_stamloss = mymob_human.getStaminaLoss()
+	var/relative_stamloss = mymob_human.get_stamina_loss()
 	if(relative_stamloss < 0 && mymob_human.max_stamina)
 		relative_stamloss = round(((relative_stamloss * 14) / mymob_human.max_stamina), 1)
 	else
@@ -461,10 +492,10 @@
 	if(!isliving(usr))
 		return
 	var/mob/living/living_user = usr
-	if(living_user.getStaminaLoss() < 0 && living_user.max_stamina)
-		living_user.balloon_alert(living_user, "Stamina buffer:[(-living_user.getStaminaLoss() * 100 / living_user.max_stamina)]%")
+	if(living_user.get_stamina_loss() < 0 && living_user.max_stamina)
+		living_user.balloon_alert(living_user, "Stamina buffer:[(-living_user.get_stamina_loss() * 100 / living_user.max_stamina)]%")
 		return
-	living_user.balloon_alert(living_user, "You have [living_user.getStaminaLoss()] stamina loss")
+	living_user.balloon_alert(living_user, "You have [living_user.get_stamina_loss()] stamina loss")
 
 
 /atom/movable/screen/component_button
@@ -544,103 +575,6 @@
 
 /atom/movable/screen/drop/Click()
 	usr.drop_item_v()
-
-/atom/movable/screen/bodytemp
-	name = "body temperature"
-	icon_state = "temp0"
-	screen_loc = ui_temp
-
-/atom/movable/screen/bodytemp/update_icon_state()
-	. = ..()
-	if(!ishuman(hud?.mymob))
-		return
-	var/mob/living/carbon/human/human_mymob = hud.mymob
-	if(!human_mymob.species)
-		switch(human_mymob.bodytemperature) //310.055 optimal body temp
-			if(370 to INFINITY)
-				icon_state = "temp4"
-			if(350 to 370)
-				icon_state = "temp3"
-			if(335 to 350)
-				icon_state = "temp2"
-			if(320 to 335)
-				icon_state = "temp1"
-			if(300 to 320)
-				icon_state = "temp0"
-			if(295 to 300)
-				icon_state = "temp-1"
-			if(280 to 295)
-				icon_state = "temp-2"
-			if(260 to 280)
-				icon_state = "temp-3"
-			else
-				icon_state = "temp-4"
-		return
-
-	var/temp_step
-	if(human_mymob.bodytemperature >= human_mymob.species.body_temperature)
-		temp_step = (human_mymob.species.heat_level_1 - human_mymob.species.body_temperature) / 4
-
-		if(human_mymob.bodytemperature >= human_mymob.species.heat_level_1)
-			icon_state = "temp4"
-		else if(human_mymob.bodytemperature >= human_mymob.species.body_temperature + temp_step * 3)
-			icon_state = "temp3"
-		else if(human_mymob.bodytemperature >= human_mymob.species.body_temperature + temp_step * 2)
-			icon_state = "temp2"
-		else if(human_mymob.bodytemperature >= human_mymob.species.body_temperature + temp_step * 1)
-			icon_state = "temp1"
-		else
-			icon_state = "temp0"
-		return
-
-	if(human_mymob.bodytemperature < human_mymob.species.body_temperature)
-		temp_step = (human_mymob.species.body_temperature - human_mymob.species.cold_level_1)/4
-
-		if(human_mymob.bodytemperature <= human_mymob.species.cold_level_1)
-			icon_state = "temp-4"
-		else if(human_mymob.bodytemperature <= human_mymob.species.body_temperature - temp_step * 3)
-			icon_state = "temp-3"
-		else if(human_mymob.bodytemperature <= human_mymob.species.body_temperature - temp_step * 2)
-			icon_state = "temp-2"
-		else if(human_mymob.bodytemperature <= human_mymob.species.body_temperature - temp_step * 1)
-			icon_state = "temp-1"
-		else
-			icon_state = "temp0"
-
-/atom/movable/screen/nutrition
-	name = "nutrition"
-	icon_state = "nutrition1"
-	screen_loc = ui_nutrition
-
-/atom/movable/screen/nutrition/update_icon_state()
-	. = ..()
-	if(!ishuman(hud?.mymob))
-		return
-	var/mob/living/carbon/human/human_mymob = hud.mymob
-	switch(human_mymob.nutrition)
-		if(NUTRITION_OVERFED to INFINITY)
-			icon_state = "nutrition0"
-		if(NUTRITION_HUNGRY to NUTRITION_OVERFED) //Not-hungry.
-			icon_state = "nutrition1" //Empty icon.
-		if(NUTRITION_STARVING to NUTRITION_HUNGRY)
-			icon_state = "nutrition3"
-		else
-			icon_state = "nutrition4"
-
-/atom/movable/screen/fire
-	name = "body temperature"
-	icon_state = "fire0"
-	screen_loc = ui_fire
-
-/atom/movable/screen/fire/update_icon_state()
-	. = ..()
-	if(!ishuman(hud?.mymob))
-		return
-	var/mob/living/carbon/human/human_mymob = hud.mymob
-	if(human_mymob.fire_alert)
-		icon_state = "fire[human_mymob.fire_alert]" //fire_alert is either 0 if no alert, 1 for cold and 2 for heat.
-	else
-		icon_state = "fire0"
 
 /atom/movable/screen/toggle_inv
 	name = "toggle"

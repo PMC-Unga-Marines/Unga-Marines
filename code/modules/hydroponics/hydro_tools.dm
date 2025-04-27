@@ -7,7 +7,7 @@
 /obj/item/tool/analyzer/plant_analyzer
 	name = "plant analyzer"
 	icon_state = "hydro"
-	item_state = "analyzer"
+	worn_icon_state = "analyzer"
 
 // *************************************
 // Nutrient defines for hydroponics

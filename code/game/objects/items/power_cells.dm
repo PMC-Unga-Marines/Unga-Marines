@@ -3,11 +3,11 @@
 	desc = "A rechargable electrochemical power cell."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "cell"
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/tools_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/tools_right.dmi',
 	)
-	item_state = "cell"
+	worn_icon_state = "cell"
 	force = 5
 	throwforce = 5
 	throw_speed = 3
@@ -31,6 +31,8 @@
 	var/charge_delay = 0
 	///used to track what set of overlays to use to display charge level
 	var/charge_overlay = "cell"
+	/// Can this cell be recharged via cell recharger or TE powerpack?
+	var/rechargable = TRUE
 
 /obj/item/cell/Initialize(mapload)
 	. = ..()
@@ -315,7 +317,7 @@
 	desc = "This is a miniature radioisotope generator that can fit into APC's, but not laser-based weapory. The needed shielding lowers the maximum capacity significantly."
 	icon = 'icons/obj/items/stock_parts.dmi'
 	icon_state = "capacitor"
-	item_state = "capacitor"
+	worn_icon_state = "capacitor"
 	maxcharge = 2000
 	self_recharge = TRUE
 	charge_amount = 25
@@ -334,7 +336,7 @@
 	desc = "This is a radioisotope generator that can fit into APC's, but not laser-based weapory. It is too hot to be easily stored and cannot be handcharged."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "trashmelt"
-	item_state = "trashmelt"
+	worn_icon_state = "trashmelt"
 	w_class = WEIGHT_CLASS_HUGE
 	maxcharge = 5000
 	self_recharge = TRUE
@@ -346,7 +348,7 @@
 	desc = "A large twisting piece of metal that acts as the power core of a mecha. You probably shouldn't lick it, despite the blue glow."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "trashmelt"
-	item_state = "trashmelt"
+	worn_icon_state = "trashmelt"
 	w_class = WEIGHT_CLASS_HUGE
 	self_recharge = TRUE
 	maxcharge = 1000
@@ -369,3 +371,4 @@
 	maxcharge = 500
 	w_class = WEIGHT_CLASS_TINY
 	charge_overlay = ""
+	rechargable = FALSE

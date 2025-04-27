@@ -5,7 +5,7 @@
 
 /obj/item/tool/plantspray
 	icon = 'icons/obj/items/spray.dmi'
-	item_state = "spray"
+	worn_icon_state = "spray"
 	item_flags = NOBLUDGEON
 	equip_slot_flags = ITEM_SLOT_BELT
 	throwforce = 4
@@ -87,7 +87,7 @@
 	desc = "It's used for removing weeds or scratching your back."
 	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "hoe"
-	item_state = "hoe"
+	worn_icon_state = "hoe"
 	atom_flags = CONDUCT
 	item_flags = NOBLUDGEON
 	force = 5
@@ -105,9 +105,9 @@
 	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "hatchet"
 	atom_flags = CONDUCT
-	force = 25
+	force = 35
 	w_class = WEIGHT_CLASS_SMALL
-	throwforce = 20
+	throwforce = 25
 	throw_speed = 4
 	throw_range = 4
 	sharp = IS_SHARP_ITEM_BIG
@@ -124,7 +124,7 @@
 	desc = "A sharp and curved blade on a long fibremetal handle, this tool makes it easy to reap what you sow."
 	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "scythe"
-	force = 13
+	force = 35
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 3

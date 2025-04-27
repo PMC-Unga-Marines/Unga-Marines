@@ -31,7 +31,7 @@
 	desc = "A peel from a banana."
 	icon = 'icons/obj/items/harvest.dmi'
 	icon_state = "banana_peel"
-	item_state = "banana_peel"
+	worn_icon_state = "banana_peel"
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 4
 	throw_range = 20
@@ -44,21 +44,21 @@
 	name = "gift"
 	desc = "A wrapped item."
 	icon = 'icons/obj/items/items.dmi'
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/items/containers_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items/containers_right.dmi',
 	)
 	icon_state = "gift3"
 	var/size = 3
 	var/obj/item/gift = null
-	item_state = "gift"
+	worn_icon_state = "gift"
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/staff
 	name = "wizards staff"
 	desc = "Apparently a staff used by the wizard."
 	icon = 'icons/obj/wizard.dmi'
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/items/toys_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items/toys_right.dmi',
 	)
@@ -179,7 +179,7 @@
 	if(TIMER_COOLDOWN_CHECK(activator, "Koran"))
 		activator.balloon_alert(activator, "Allah has already helped you")
 		if(TIMER_COOLDOWN_CHECK(activator, "KoranSpam"))
-			activator.adjustBrainLoss(1, TRUE)
+			activator.adjust_brain_loss(1, TRUE)
 			return
 		return
 	if(!((activator.religion == "Islam (Shia)") || (activator.religion == "Islam (Sunni)")))
@@ -192,7 +192,15 @@
 			cell_explosion(activator, 150, 150)
 		if(prob(80))
 			activator.heal_limb_damage(50, 50, TRUE)
-			activator.adjustCloneLoss(-10)
+			activator.adjust_clone_Loss(-10)
 			activator.playsound_local(loc, 'sound/hallucinations/im_here1.ogg', 50)
 	else
 		activator.balloon_alert(activator, "This place is not sacred")
+
+/obj/item/rosary
+	name = "Rosary"
+	desc = "A small hematite-beaded silver rosary"
+	icon = 'icons/obj/items/items.dmi'
+	icon_state = "rosary"
+	worn_icon_state = "rosary"
+	w_class = WEIGHT_CLASS_TINY

@@ -4,7 +4,7 @@
 
 /obj/item/weapon/yautja
 	icon = 'icons/obj/hunter/pred_gear.dmi'
-	item_icons = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/hunter/pred_gear.dmi',
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi',
@@ -43,7 +43,7 @@
 	name = "chainwhip"
 	desc = "A segmented, lightweight whip made of durable, acid-resistant metal. Not very common among Yautja Hunters, but still a dangerous weapon capable of shredding prey."
 	icon_state = "whip"
-	item_state = "whip"
+	worn_icon_state = "whip"
 	atom_flags = CONDUCT
 	item_flags = ITEM_PREDATOR
 	equip_slot_flags = ITEM_SLOT_BELT
@@ -96,7 +96,7 @@
 	name = "dual war scythe"
 	desc = "A huge, incredibly sharp dual blade used for hunting dangerous prey. This weapon is commonly carried by Yautja who wish to disable and slice apart their foes."
 	icon_state = "predscythe"
-	item_state = "scythe_dual"
+	worn_icon_state = "scythe_dual"
 	atom_flags = CONDUCT
 	item_flags = ITEM_PREDATOR
 	equip_slot_flags = ITEM_SLOT_BELT
@@ -115,7 +115,7 @@
 	ability_charge_rate = 1
 
 /obj/item/weapon/yautja/scythe/verb/use_unique_action()
-	set category = "Weapons"
+	set category = "IC.Weapons"
 	set name = "Unique Action"
 	set desc = "Activate or deactivate the scythe."
 	set src in usr
@@ -181,7 +181,7 @@
 	name = "double war scythe"
 	desc = "A huge, incredibly sharp double blade used for hunting dangerous prey. This weapon is commonly carried by Yautja who wish to disable and slice apart their foes."
 	icon_state = "predscythe_alt"
-	item_state = "scythe_double"
+	worn_icon_state = "scythe_double"
 
 //Combistick
 /obj/item/weapon/yautja/combistick
@@ -259,7 +259,7 @@
 	unwield(handler) //Otherwise stays wielded even when thrown
 
 /obj/item/weapon/yautja/combistick/verb/use_unique_action()
-	set category = "Weapons"
+	set category = "IC.Weapons"
 	set name = "Unique Action"
 	set desc = "Activate or deactivate the combistick."
 	set src in usr
@@ -293,11 +293,11 @@
 /obj/item/weapon/yautja/combistick/update_icon()
 	. = ..()
 	if(item_flags & WIELDED)
-		item_state = "combistick_w"
+		worn_icon_state = "combistick_w"
 	else if(!on)
-		item_state = "combistick_f"
+		worn_icon_state = "combistick_f"
 	else
-		item_state = "combistick"
+		worn_icon_state = "combistick"
 
 /obj/item/weapon/yautja/combistick/unique_action(mob/living/user)
 	if(user.get_active_held_item() != src)
@@ -388,7 +388,7 @@
 	name = "ceremonial dagger"
 	desc = "A viciously sharp dagger inscribed with ancient Yautja markings. Smells thickly of blood. Carried by some hunters."
 	icon_state = "predknife"
-	item_state = "knife"
+	worn_icon_state = "knife"
 	atom_flags = CONDUCT
 	item_flags = ITEM_PREDATOR
 	equip_slot_flags = ITEM_SLOT_BACK

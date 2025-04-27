@@ -19,7 +19,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	/// If you don't want to use icon_state for onmob inhand/belt/back/ear/suitstorage/glove sprite.
 	/// e.g. most headsets have different icon_state but they all use the same sprite when shown on the mob's ears.
 	/// also useful for items with many icon_state values when you don't want to make an inhand sprite for each value.
-	var/item_state = null
+	var/worn_icon_state = null
 	/// The icon state used to represent this image in "icons/obj/items/items_mini.dmi" Used in /obj/item/storage/box/visual to display tiny items in the box
 	var/icon_state_mini = "item"
 	/// Byond tick delay between left click attacks
@@ -99,14 +99,14 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	/// Species-specific sprites, concept stolen from Paradise//vg/. Ex: sprite_sheets = list("Combat Robot" = 'icons/mob/species/robot/backpack.dmi') If index term exists and icon_override is not set, this sprite sheet will be used.
 	var/list/sprite_sheets = null
 	//** These specify item/icon overrides for _slots_
-	/// >Lazylist< that overrides the default item_state for particular slots.
-	var/list/item_state_slots
+	/// >Lazylist< that overrides the default worn_icon_state for particular slots.
+	var/list/worn_worn_icon_state_slots
 	/// >LazyList< Used to specify the icon file to be used when the item is worn in a certain slot. icon_override or sprite_sheets are set they will take precendence over this, assuming they apply to the slot in question.
-	var/list/item_icons
+	var/list/worn_icon_list
 	/// Specific layer for on-mob icon.
 	var/worn_layer
-	/// Tells if the item shall use item_state for non-inhands, needed due to some items using item_state only for inhands and not worn.
-	var/item_state_worn = FALSE
+	/// Tells if the item shall use worn_icon_state for non-inhands, needed due to some items using worn_icon_state only for inhands and not worn.
+	var/worn_icon_state_worn = FALSE
 	/// Overrides the icon file which the item will be used to render on mob, if its in hands it will add _l or _r to the state depending if its on left or right hand.
 	var/icon_override = null
 	/// Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
@@ -212,12 +212,12 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 /obj/item/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
 	return
 
-/obj/item/proc/update_item_state(mob/user)
-	item_state = "[initial(icon_state)][item_flags & WIELDED ? "_w" : ""]"
+/obj/item/proc/update_worn_icon_state(mob/user)
+	worn_icon_state = "[initial(worn_icon_state)][item_flags & WIELDED ? "_w" : ""]"
 
 /obj/item/verb/move_to_top()
 	set name = "Move To Top"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	set src in oview(1)
 
 	if(!isturf(loc) || usr.stat || usr.restrained())
@@ -284,27 +284,27 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	. = ..()
 	if(current_variant)
 		icon_state = initial(icon_state) + "_[current_variant]"
-		item_state = initial(item_state) + "_[current_variant]"
+		worn_icon_state = initial(worn_icon_state) + "_[current_variant]"
 
 // Due to storage type consolidation this should get used more now.
 // I have cleaned it up a little, but it could probably use more.  -Sayu
-/obj/item/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/facepaint/premium) && unique_reskin && !current_skin)
-		reskin_obj(I, user)
+/obj/item/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/facepaint/premium) && unique_reskin && !current_skin)
+		reskin_obj(attacking_item, user)
 		return TRUE
 
-	if(istype(I, /obj/item/facepaint) && colorable_allowed != NONE)
-		color_item(I, user)
+	if(istype(attacking_item, /obj/item/facepaint) && colorable_allowed != NONE)
+		color_item(attacking_item, user)
 		return TRUE
 
 	. = ..()
 	if(.)
 		return TRUE
 
-	if(!istype(I, /obj/item/storage))
-		return FALSE
+	if(!istype(attacking_item, /obj/item/storage))
+		return
 
-	var/obj/item/storage/attacked_storage = I
+	var/obj/item/storage/attacked_storage = attacking_item
 
 	if(!attacked_storage.storage_datum.use_to_pickup || !isturf(loc))
 		return
@@ -333,9 +333,9 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	else if(attacked_storage.storage_datum.can_be_inserted(src, user))
 		attacked_storage.storage_datum.handle_item_insertion(src, FALSE, user)
 
-/obj/item/attackby_alternate(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/facepaint))
-		alternate_color_item(I, user)
+/obj/item/attackby_alternate(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/facepaint))
+		alternate_color_item(attacking_item, user)
 		return TRUE
 	. = ..()
 	if(.)
@@ -395,6 +395,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
  */
 /obj/item/proc/equipped(mob/user, slot)
 	SHOULD_CALL_PARENT(TRUE) // no exceptions
+	item_flags |= IN_INVENTORY // if it's located after the signal is sent, it doesn't update stuff like verbs for storages
 	SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, slot)
 
 	var/equipped_to_slot = equip_slot_flags & slotdefine2slotbit(slot)
@@ -406,8 +407,6 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	for(var/datum/action/A AS in actions)
 		if(item_action_slot_check(user, slot)) //some items only give their actions buttons when in a specific slot.
 			A.give_action(user)
-
-	item_flags |= IN_INVENTORY
 
 	if(!equipped_to_slot)
 		return
@@ -696,7 +695,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 					current_variant = JUNGLE_VARIANT
 				else
 					icon_state = "m_[icon_state]"
-					item_state = "m_[item_state]"
+					worn_icon_state = "m_[worn_icon_state]"
 		if(MAP_ARMOR_STYLE_ICE)
 			if(item_map_variant_flags & ITEM_ICE_VARIANT)
 				if(colorable_allowed & PRESET_COLORS_ALLOWED)
@@ -705,7 +704,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 					current_variant = SNOW_VARIANT
 				else
 					icon_state = "s_[icon_state]"
-					item_state = "s_[item_state]"
+					worn_icon_state = "s_[worn_icon_state]"
 		if(MAP_ARMOR_STYLE_PRISON)
 			if(item_map_variant_flags & ITEM_PRISON_VARIANT)
 				if(colorable_allowed & PRESET_COLORS_ALLOWED)
@@ -714,7 +713,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 					current_variant = PRISON_VARIANT
 				else
 					icon_state = "k_[icon_state]"
-					item_state = "k_[item_state]"
+					worn_icon_state = "k_[worn_icon_state]"
 		if(MAP_ARMOR_STYLE_DESERT)
 			if(item_map_variant_flags & ITEM_DESERT_VARIANT)
 				if(colorable_allowed & PRESET_COLORS_ALLOWED)
@@ -805,7 +804,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 /obj/item/verb/verb_pickup()
 	set src in oview(1)
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	set name = "Pick up"
 
 	if(usr.incapacitated() || !Adjacent(usr))
@@ -823,14 +822,14 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 /obj/item/proc/ui_action_click(mob/user, datum/action/item_action/action)
 	return attack_self(user)
 
-/obj/item/proc/toggle_item_state(mob/user)
+/obj/item/proc/toggle_worn_icon_state(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_ITEM_TOGGLE_ACTION, user)
 
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 
 	var/obj/item/I = get_active_held_item()
 	if(I && !(I.item_flags & ITEM_ABSTRACT))
@@ -859,7 +858,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 		zoom = FALSE
 		UnregisterSignal(user, COMSIG_ITEM_ZOOM)
-		onunzoom(user)
+		on_unzoomed(user)
 		TIMER_COOLDOWN_START(user, COOLDOWN_ZOOM, 2 SECONDS)
 		SEND_SIGNAL(user, COMSIG_ITEM_UNZOOM)
 
@@ -946,16 +945,14 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	RegisterSignal(user, COMSIG_MOB_FACE_DIR, PROC_REF(change_zoom_offset))
 	RegisterSignals(src, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_DROPPED), PROC_REF(zoom_item_turnoff))
 
-
 ///called when zoom is deactivated.
-/obj/item/proc/onunzoom(mob/living/user)
+/obj/item/proc/on_unzoomed(mob/living/user)
 	if(zoom_allow_movement)
 		UnregisterSignal(user, list(COMSIG_CARBON_SWAPPED_HANDS, COMSIG_MOB_FACE_DIR))
 	else
 		UnregisterSignal(user, list(COMSIG_MOVABLE_MOVED, COMSIG_CARBON_SWAPPED_HANDS, COMSIG_MOB_FACE_DIR))
 
 	UnregisterSignal(src, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_DROPPED))
-
 
 /obj/item/proc/eyecheck(mob/user)
 	if(!ishuman(user))
@@ -1088,7 +1085,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				var/mob/living/M = atm
 				M.ExtinguishMob()
 				for(var/obj/item/clothing/mask/cigarette/C in M.contents)
-					if(C.item_state != C.icon_on)
+					if(C.worn_icon_state != C.icon_on)
 						continue
 					C.die()
 		if(W.loc == my_target)
@@ -1235,7 +1232,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return icon
 
 	//3: slot-specific sprite sheets
-	icon = LAZYACCESS(item_icons, slot_name)
+	icon = LAZYACCESS(worn_icon_list, slot_name)
 	if(ispath(icon, /datum/greyscale_config))
 		return SSgreyscale.GetColoredIconByType(icon, greyscale_colors)
 	if(icon)
@@ -1252,14 +1249,14 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/get_worn_icon_state(slot_name, inhands)
 
 	//1: slot-specific sprite sheets
-	. = LAZYACCESS(item_state_slots, slot_name)
+	. = LAZYACCESS(worn_worn_icon_state_slots, slot_name)
 	if(.)
 		return
 
-	//2: item_state variable, some items use it for worn sprite, others for inhands.
-	if(inhands || item_state_worn)
-		if(item_state)
-			return item_state
+	//2: worn_icon_state variable, some items use it for worn sprite, others for inhands.
+	if(inhands || worn_icon_state_worn)
+		if(worn_icon_state)
+			return worn_icon_state
 
 	//3: icon_state variable
 	if(icon_state)
@@ -1509,3 +1506,14 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 ///Returns whether this is considered beneficial if embedded in a mob
 /obj/item/proc/is_beneficial_implant()
 	return FALSE
+
+///Mult on submerge height for changing the alpha of submerged items
+#define ITEM_LIQUID_TURF_ALPHA_MULT 11
+
+/obj/item/set_submerge_level(turf/new_loc, turf/old_loc, submerge_icon, submerge_icon_state, duration)
+	var/old_alpha_mod = istype(old_loc) ? old_loc.get_submerge_height(TRUE) : 0
+	var/new_alpha_mod = istype(new_loc) ? new_loc.get_submerge_height(TRUE) : 0
+
+	alpha -= (new_alpha_mod - old_alpha_mod) * ITEM_LIQUID_TURF_ALPHA_MULT
+
+#undef ITEM_LIQUID_TURF_ALPHA_MULT

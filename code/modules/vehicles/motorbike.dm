@@ -179,14 +179,14 @@
 	smoke.set_up(0, src)
 	smoke.start()
 
-/obj/vehicle/ridden/motorbike/obj_destruction()
+/obj/vehicle/ridden/motorbike/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
 	cell_explosion(src, 50, 20)
 	return ..()
 
 /obj/vehicle/ridden/motorbike/Destroy()
 	STOP_PROCESSING(SSobj,src)
 	return ..()
-	
+
 //internal storage
 /obj/item/vehicle_module/storage/motorbike
 	name = "internal storage"

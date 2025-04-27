@@ -24,7 +24,7 @@
 	var/order = 1
 
 /obj/machinery/computer/secure_data/verb/eject_id()
-	set category = "Object"
+	set category = "IC.Object"
 	set name = "Eject ID Card"
 	set src in oview(1)
 
@@ -472,7 +472,7 @@ What a mess.*/
 
 /obj/machinery/computer/secure_data/emp_act(severity)
 	if(machine_stat & (BROKEN|NOPOWER))
-		return ..(severity)
+		return ..()
 
 	for(var/datum/data/record/R in GLOB.datacore.security)
 		if(prob(10/severity))
@@ -493,8 +493,7 @@ What a mess.*/
 			GLOB.datacore.security -= R
 			qdel(R)
 			continue
-
-	return ..(severity)
+	return ..()
 
 /obj/machinery/computer/secure_data/detective_computer
 	icon = 'icons/obj/machines/computer.dmi'

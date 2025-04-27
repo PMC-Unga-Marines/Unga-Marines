@@ -59,7 +59,7 @@
 
 	loaded_equipment.pixel_x = equipment_offset_x
 	loaded_equipment.pixel_y = equipment_offset_y
-	loaded_equipment.shuttleRotate(dir2angle(dir)) // i dont know why rotation wasnt taken in account when this was made
+	loaded_equipment.shuttle_rotate(dir2angle(dir)) // i dont know why rotation wasnt taken in account when this was made
 
 	loaded_equipment.update_equipment()
 
@@ -264,7 +264,7 @@
 				linked_console.selected_equipment = null
 	update_equipment()
 
-/obj/structure/dropship_equipment/beforeShuttleMove(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
+/obj/structure/dropship_equipment/before_shuttle_move(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
 	. = ..()
 	on_launch()
 
@@ -364,6 +364,7 @@
 		var/obj/new_gun = new sentry_type(src)
 		deployed_turret = new_gun.loc
 		RegisterSignal(deployed_turret, COMSIG_QDELETING, PROC_REF(clean_refs))
+	deployed_turret.set_on(FALSE)
 
 /obj/structure/dropship_equipment/shuttle/sentry_holder/Destroy()
 	deployed_turret = null
@@ -516,7 +517,7 @@
 
 /obj/structure/dropship_equipment/shuttle/weapon_holder/machinegun
 	name = "machinegun deployment system"
-	desc = "A box that deploys a modified M56D crewserved machine gun. Fits on the crewserved weapon attach points of dropships. You need a powerloader to lift it."
+	desc = "A box that deploys a modified HSG-102 crewserved machine gun. Fits on the crewserved weapon attach points of dropships. You need a powerloader to lift it."
 	icon_state = "mg_system"
 	point_cost = 250
 	deployable_type = /obj/item/weapon/gun/hsg102/hsg_nest

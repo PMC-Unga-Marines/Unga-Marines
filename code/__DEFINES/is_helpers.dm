@@ -10,6 +10,11 @@
 
 #define isweakref(D) (istype(D, /datum/weakref))
 
+#define isimage(thing) (istype(thing, /image))
+
+GLOBAL_VAR_INIT(magic_appearance_detecting_image, new /image) // appearances are awful to detect safely, but this seems to be the best way ~ninjanomnom
+#define isappearance(thing) (!isimage(thing) && !ispath(thing) && istype(GLOB.magic_appearance_detecting_image, thing))
+
 #define isgenerator(A) (istype(A, /generator))
 
 //Turfs
@@ -119,6 +124,8 @@
 #define issiliconoradminghost(A) (istype(A, /mob/living/silicon) || IsAdminGhost(A))
 
 #define isAI(A) (istype(A, /mob/living/silicon/ai))
+
+#define isAIeye(A) (istype(A, /mob/camera/aiEye))
 
 //Simple animals
 #define isanimal(A) (istype(A, /mob/living/simple_animal))
@@ -268,6 +275,8 @@
 #define isfire(A) (istype(A, /obj/fire))
 
 #define issentry(A) (istype(A, /obj/machinery/deployable/mounted/sentry))
+
+#define is_reagent_container(O) (istype(O, /obj/item/reagent_containers))
 
 #define isimplant(A) (istype(A, /obj/item/implant))
 

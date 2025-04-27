@@ -188,13 +188,13 @@
 		return
 	update_resource(-resource_drain_amount)
 
-	wearer.adjustToxLoss(-tox_heal * boost_amount)
+	wearer.adjust_tox_loss(-tox_heal * boost_amount)
 	wearer.heal_overall_damage(6 * boost_amount*brute_heal_amp, 6 * boost_amount * burn_heal_amp)
 	vali_necro_timer = world.time - processing_start
 	if(vali_necro_timer > 20 SECONDS)
 		return
 	if(connected_weapon)
-		wearer.adjustStaminaLoss(-7 * stamina_regen_amp * ((20 - (vali_necro_timer) * 0.1) * 0.05)) //stamina gain scales inversely with passed time, up to 20 seconds
+		wearer.adjust_stamina_loss(-7 * stamina_regen_amp * ((20 - (vali_necro_timer) * 0.1) * 0.05)) //stamina gain scales inversely with passed time, up to 20 seconds
 	if(vali_necro_timer > 10 SECONDS)
 		to_chat(wearer, span_bold("WARNING: You have [(200 - (vali_necro_timer)) * 0.1] seconds before necrotic tissue forms on your limbs."))
 	if(vali_necro_timer > 15 SECONDS)
@@ -379,7 +379,7 @@
 	if(resource_storage_current >= resource_storage_max)
 		return
 	var/obj/item/vali_weapon = wearer.get_held_item()
-	if(vali_weapon.type == /obj/item/weapon/claymore/mercsword/officersword/valirapier)
+	if(vali_weapon.type == /obj/item/weapon/sword/officer/valirapier)
 		update_resource(20)
 	else
 		update_resource(round(20 * connected_weapon.attack_speed / 11))

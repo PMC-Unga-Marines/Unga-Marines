@@ -426,7 +426,7 @@
 	caliber = CALIBER_ALIEN
 	icon_state = "alien_rifle"
 	icon_state_mini = "mag_rifle_purple"
-	default_ammo = /datum/ammo/energy/plasma
+	default_ammo = /datum/ammo/energy/sectoid_plasma
 	max_rounds = 20
 
 //-------------------------------------------------------
@@ -729,3 +729,54 @@
 	max_rounds = 120
 	icon_state_mini = "mag_rifle_big_yellow"
 	bonus_overlay = "t25_ext"
+
+//ML-41 Assault Machinegun
+/obj/item/ammo_magazine/icc_mg
+	name = "\improper ML-41 GPMG box magazine (10x26mm)"
+	desc = "A belt box for the ML-41 assault machinegun."
+	icon_state = "minimi"
+	icon_state_mini = "mag_gpmg"
+	caliber = CALIBER_10X26_CASELESS
+	default_ammo = /datum/ammo/bullet/rifle/machinegun
+	w_class = WEIGHT_CLASS_NORMAL
+	max_rounds = 150
+	reload_delay = 2 SECONDS
+
+// This is a 'belt'.
+/obj/item/ammo_magazine/icc_mg/belt
+	name = "\improper ML-41 GPMG buttpack magazine (10x26mm)"
+	desc = "A buttpack for the ML-41 which carries the ammo inside."
+	icon_state = "minimi_belt"
+	equip_slot_flags = ITEM_SLOT_BELT
+	magazine_flags = MAGAZINE_WORN
+	w_class = WEIGHT_CLASS_HUGE
+	max_rounds = 750
+
+/obj/item/ammo_magazine/icc_mg/packet
+	name = "box of 10x26mm"
+	desc = "A box containing 500 rounds of 10x26mm caseless."
+	icon_state = "box_minimi"
+	current_rounds = 500
+	max_rounds = 500
+
+// L26
+
+/obj/item/ammo_magazine/rifle/vsd_mg
+	name = "\improper L26 box mag (5.56x45mm)"
+	desc = "A 200 round box mag for the L26."
+	caliber = CALIBER_556X45
+	default_ammo = /datum/ammo/bullet/rifle/machinegun
+	icon_state = "l26"
+	icon_state_mini = "mag_gpmg"
+	bonus_overlay = "l26_100"
+	max_rounds = 200
+
+/obj/item/ammo_magazine/rifle/vsd_rifle
+	name = "\improper C550 magazine (10x27mm)"
+	desc = "A 10x27mm rifle magazine."
+	caliber = CALIBER_10X27_CASELESS
+	icon_state = "c550"
+	icon_state_mini = "mag_rifle_big"
+	w_class = WEIGHT_CLASS_NORMAL
+	default_ammo = /datum/ammo/bullet/rifle
+	max_rounds = 30

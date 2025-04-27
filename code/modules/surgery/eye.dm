@@ -49,7 +49,7 @@
 	affected.createwound(CUT, 10)
 	var/datum/internal_organ/eyes/our_eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
 	our_eyes.take_damage(5, 0)
-	target.updatehealth()
+	target.update_health()
 	affected.update_wounds()
 
 /datum/surgery_step/eye/lift_eyes

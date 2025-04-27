@@ -4,6 +4,10 @@
 	interaction_flags = INTERACT_OBJ_DEFAULT
 	resistance_flags = NONE
 
+	/// Icon to use as a 32x32 preview in crafting menus and such
+	var/icon_preview
+	var/icon_state_preview
+
 	///damage amount to deal when this obj is attacking something
 	var/force = 0
 	///damage type to deal when this obj is attacking something
@@ -13,30 +17,26 @@
 
 	/// %-reduction-based armor.
 	var/datum/armor/soft_armor
-	/// Flat-damage-reduction-based armor.
+	///Modifies the AP of incoming attacks
 	var/datum/armor/hard_armor
-
-	var/obj_integrity	//defaults to max_integrity
+	///Object HP
+	var/obj_integrity
+	///Max object HP
 	var/max_integrity = 500
-	var/integrity_failure = 0 //0 if we have no special broken behavior
-	var/reliability = 100	//Used by SOME devices to determine how reliable they are.
-	var/crit_fail = 0
-
-	///throwforce needs to be at least 1 else it causes runtimes with shields
+	///Integrety below this number causes special behavior
+	var/integrity_failure = 0
+	///Base throw damage. Throwforce needs to be at least 1 else it causes runtimes with shields
 	var/throwforce = 1
-
+	///Object behavior flags
 	var/obj_flags = NONE
-	var/hit_sound //Sound this object makes when hit, overrides specific item hit sound.
-	var/destroy_sound //Sound this object makes when destroyed.
-
-	var/item_fire_stacks = 0	//How many fire stacks it applies
-
+	///Sound when hit
+	var/hit_sound
+	///Sound this object makes when destroyed
+	var/destroy_sound
+	///ID access where all are required to access this object
 	var/list/req_access = null
+	///ID access where any one is required to access this object
 	var/list/req_one_access = null
-
-	///Optimization for dynamic explosion block values, for things whose explosion block is dependent on certain conditions.
-	var/real_explosion_block
-
 	///Odds of a projectile hitting the object, if the object is dense
 	var/coverage = 50
 
@@ -276,6 +276,9 @@
 		if(!do_after(user, (fumble_time ? fumble_time : repair_time) * (skill_required - user.skills.getRating(SKILL_ENGINEER)), NONE, src, BUSY_ICON_BUILD))
 			return TRUE
 
+	if(user.skills.getRating(SKILL_ENGINEER) > skill_required)
+		repair_amount *= (1+(0.1*(user.skills.getRating(SKILL_ENGINEER) - (skill_required + 1))))
+
 	repair_time *= welder.toolspeed
 	balloon_alert_to_viewers("starting repair...")
 	handle_weldingtool_overlay()
@@ -348,6 +351,23 @@
 
 /obj/footstep_override(atom/movable/source, list/footstep_overrides)
 	footstep_overrides[FOOTSTEP_PLATING] = layer
-	
+
 /obj/get_dumping_location()
 	return get_turf(src)
+
+/obj/proc/do_deploy(mob/user, turf/location)
+	if(!istype(location))
+		location = get_turf(src)
+	SEND_SIGNAL(src, COMSIG_ITEM_DEPLOY, user, location)
+
+///Dissassembles the device
+/obj/proc/disassemble(mob/user)
+	var/obj/item/internal_item = get_internal_item()
+	if(!internal_item)
+		return FALSE
+	if(internal_item.item_flags & DEPLOYED_NO_PICKUP)
+		if(user)
+			balloon_alert(user, "Cannot disassemble")
+		return FALSE
+	SEND_SIGNAL(src, COMSIG_ITEM_UNDEPLOY, user)
+	return TRUE

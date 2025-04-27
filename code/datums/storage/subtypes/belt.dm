@@ -99,6 +99,7 @@
 		/obj/item/defibrillator,
 		/obj/item/roller,
 		/obj/item/tool/research,
+		/obj/item/tool/soap,
 		/obj/item/tool/surgery/solderingtool,
 		/obj/item/tweezers,
 		/obj/item/tweezers_advanced,
@@ -145,6 +146,7 @@
 			/obj/item/flashlight,
 			/obj/item/radio/headset,
 			/obj/item/tool/taperoll/police,
+			/obj/item/weapon/telebaton,
 		),
 		cant_hold_list = list(
 			/obj/item/weapon/gun,

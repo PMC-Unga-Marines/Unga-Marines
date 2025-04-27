@@ -50,6 +50,14 @@
 #define MARK_THREE_WEBBING "mark_three_webbing"
 #define MARK_ONE_WEBBING "mark_one_webbing"
 
+// Ballistic Vest Variants
+#define BALLISTIC_VEST_URBAN "ballistic_vest_urban"
+#define BALLISTIC_VEST_DESERT "ballistic_vest_desert"
+#define BALLISTIC_VEST_JUNGLE "ballistic_vest_jungle"
+#define BALLISTIC_VEST_SNOW "ballistic_vest_snow"
+
+// Each key AND value HAS to be unique.
+///saved loadout key = icon_state, AGAIN DO NOT EDIT THE KEYS IT WILL BREAK LOADOUTS
 GLOBAL_LIST_INIT(loadout_variant_keys, list(
 	CAPE_KAMA = "kama",
 	CAPE_KILT = "kilt",
@@ -64,4 +72,10 @@ GLOBAL_LIST_INIT(loadout_variant_keys, list(
 	MARK_THREE_WEBBING = "webbing",
 	MARK_ONE_WEBBING = "webbing",
 	SOM_BLACK = "black",
+	FOUR_EYE_FACEPLATE = "Four Eye",
+	FOUR_EYE_FACEPLATE_VISOR = "Four Eye",
+	BALLISTIC_VEST_URBAN = "urban",
+	BALLISTIC_VEST_JUNGLE = "jungle",
+	BALLISTIC_VEST_DESERT = "desert",
+	BALLISTIC_VEST_SNOW = "snow",
 ))

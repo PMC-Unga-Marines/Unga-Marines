@@ -56,7 +56,7 @@
 	if(tunnel_desc)
 		. += span_info("The Hivelord scent reads: \'[tunnel_desc]\'")
 
-/obj/structure/xeno/tunnel/deconstruct(disassembled = TRUE)
+/obj/structure/xeno/tunnel/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	visible_message(span_danger("[src] suddenly collapses!") )
 	return ..()
 

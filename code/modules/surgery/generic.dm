@@ -22,7 +22,6 @@
 		return SURGERY_CANNOT_USE
 	return SURGERY_CAN_USE
 
-
 /datum/surgery_step/generic/incision_manager
 	priority = 0.1 //Attempt before generic scalpel step
 	allowed_tools = list(/obj/item/tool/surgery/scalpel/manager = 100)
@@ -40,7 +39,7 @@
 	span_notice("You start to construct a prepared incision on and within [target]'s [affected.display_name] with \the [tool]."))
 	target.balloon_alert_to_viewers("Incising...")
 	target.custom_pain("You feel a horrible, searing pain in your [affected.display_name] as it is pushed apart!",1)
-	..()
+	return ..()
 
 /datum/surgery_step/generic/incision_manager/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] has constructed a prepared incision on and within [target]'s [affected.display_name] with \the [tool]."), \
@@ -54,7 +53,7 @@
 	affected.createwound(CUT, 1)
 	affected.clamp_bleeder() //Hemostat function, clamp bleeders
 	affected.surgery_open_stage = 2 //Can immediately proceed to other surgery steps
-	target.updatehealth()
+	target.update_health()
 	return ..()
 
 /datum/surgery_step/generic/incision_manager/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
@@ -64,8 +63,6 @@
 	affected.createwound(CUT, 20)
 	affected.createwound(BURN, 15)
 	affected.update_wounds()
-
-
 
 /datum/surgery_step/generic/cut_with_laser
 	priority = 0.1 //Attempt before generic scalpel step
@@ -88,7 +85,7 @@
 	span_notice("You start the bloodless incision on [target]'s [affected.display_name] with \the [tool]."))
 	target.custom_pain("You feel a horrible, searing pain in your [affected.display_name]!", 1)
 	target.balloon_alert_to_viewers("Incising...")
-	..()
+	return ..()
 
 /datum/surgery_step/generic/cut_with_laser/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] has made a bloodless incision on [target]'s [affected.display_name] with \the [tool]."), \
@@ -114,8 +111,6 @@
 	affected.createwound(BURN, 12.5)
 	affected.update_wounds()
 
-
-
 /datum/surgery_step/generic/cut_open
 	allowed_tools = list(
 		/obj/item/tool/surgery/scalpel = 100,
@@ -123,7 +118,7 @@
 		/obj/item/shard = 50,
 		/obj/item/weapon/combat_knife = 25,
 		/obj/item/stack/throwing_knife = 15,
-		/obj/item/weapon/claymore/mercsword = 1,
+		/obj/item/weapon/sword/mercsword = 1,
 	)
 
 	min_duration = 60
@@ -139,7 +134,7 @@
 	span_notice("You start the incision on [target]'s [affected.display_name] with \the [tool]."))
 	target.custom_pain("You feel a horrible pain as if from a sharp knife in your [affected.display_name]!", 1)
 	target.balloon_alert_to_viewers("Incising...")
-	..()
+	return ..()
 
 /datum/surgery_step/generic/cut_open/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] has made an incision on [target]'s [affected.display_name] with \the [tool]."), \
@@ -151,7 +146,7 @@
 		affected.add_limb_flags(LIMB_BLEEDING)
 
 	affected.createwound(CUT, 1)
-	target.updatehealth()
+	target.update_health()
 	return ..()
 
 /datum/surgery_step/generic/cut_open/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
@@ -179,7 +174,7 @@
 
 /datum/surgery_step/generic/clamp_bleeders/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected, checks_only)
 	if(..())
-		if(affected.surgery_open_stage && !(affected.limb_status & LIMB_WOUND_CLAMPED))
+		if(affected.surgery_open_stage && !(affected.limb_wound_status & LIMB_WOUND_CLAMPED))
 			return SURGERY_CAN_USE
 	return SURGERY_CANNOT_USE
 
@@ -188,7 +183,7 @@
 	span_notice("You start clamping bleeders in [target]'s [affected.display_name] with \the [tool]."))
 	target.custom_pain("The pain in your [affected.display_name] is maddening!", 1)
 	target.balloon_alert_to_viewers("Clamping...")
-	..()
+	return ..()
 
 /datum/surgery_step/generic/clamp_bleeders/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] clamps bleeders in [target]'s [affected.display_name] with \the [tool]."),	\
@@ -231,7 +226,7 @@
 		span_notice("You start to pry open the incision on [target]'s [affected.display_name] with \the [tool]."))
 	target.custom_pain("It feels like the skin on your [affected.display_name] is on fire!", 1)
 	target.balloon_alert_to_viewers("Incising...")
-	..()
+	return ..()
 
 /datum/surgery_step/generic/retract_skin/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	if(target_zone == "chest")
@@ -289,7 +284,7 @@
 	span_notice("You are beginning to cauterize the incision on [target]'s [affected.display_name] with \the [tool]."))
 	target.custom_pain("Your [affected.display_name] is being burned!", 1)
 	target.balloon_alert_to_viewers("Cauterizing...")
-	..()
+	return ..()
 
 /datum/surgery_step/generic/cauterize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] cauterizes the incision on [target]'s [affected.display_name] with \the [tool]."), \
@@ -337,7 +332,7 @@
 	span_notice("You are beginning to suture the wounds on [target]'s [affected.display_name].") )
 	target.custom_pain("Your [affected.display_name] is getting stabbed!!", 1)
 	target.balloon_alert_to_viewers("Suturing...")
-	..()
+	return ..()
 
 /datum/surgery_step/generic/repair/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	user.visible_message(span_notice("[user] sews some of the wounds on [target]'s [affected.display_name] shut.") , \

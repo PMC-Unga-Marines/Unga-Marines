@@ -5,6 +5,7 @@ import {
   LabeledList,
   Section,
   Stack,
+  Tooltip,
 } from '../../components';
 import {
   LoopingSelectionPreference,
@@ -68,6 +69,13 @@ export const GameSettings = (props) => {
                 leftLabel={'Muted'}
                 rightLabel={'Enabled'}
               />
+              <Tooltip content="Use more accessible TGUI themes/layouts wherever possible.">
+                <ToggleFieldPreference
+                  label="Accessible TGUI themes"
+                  value="accessible_tgui_themes"
+                  action="accessible_tgui_themes"
+                />
+              </Tooltip>
               <ToggleFieldPreference
                 label="Fullscreen mode"
                 value="fullscreen_mode"
@@ -203,6 +211,15 @@ export const GameSettings = (props) => {
                 leftValue={0}
                 leftLabel={'Enabled'}
                 rightValue={1}
+                rightLabel={'Disabled'}
+              />
+              <ToggleFieldPreference
+                label="Show xeno rank"
+                value="show_xeno_rank"
+                action="show_xeno_rank"
+                leftValue={1}
+                leftLabel={'Enabled'}
+                rightValue={0}
                 rightLabel={'Disabled'}
               />
             </LabeledList>

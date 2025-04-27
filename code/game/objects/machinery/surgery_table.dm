@@ -52,7 +52,7 @@
 	disassemble(user)
 
 ///Dissassembles the device
-/obj/machinery/optable/deployable/proc/disassemble(mob/user)
+/obj/machinery/optable/deployable/disassemble(mob/user)
 	if(CHECK_BITFIELD(internal_item.item_flags, DEPLOYED_NO_PICKUP))
 		balloon_alert(user, "cannot be disassembled")
 		return

@@ -23,7 +23,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	desc = "It's an attachment. You should never see this."
 	icon = 'icons/obj/items/attachments/attachments.dmi'
 	icon_state = null
-	item_state = null
+	worn_icon_state = null
 
 	///Determines the amount of pixels to move the icon state for the overlay. in the x direction
 	var/pixel_shift_x = 16
@@ -336,7 +336,23 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 	master_gun = attached_to
 	master_gun.wield_delay += wield_delay_mod
 	if(gun_user)
-		UnregisterSignal(gun_user, list(COMSIG_MOB_MOUSEDOWN, COMSIG_MOB_MOUSEUP, COMSIG_ITEM_ZOOM, COMSIG_ITEM_UNZOOM, COMSIG_MOB_MOUSEDRAG, COMSIG_KB_RAILATTACHMENT, COMSIG_KB_UNDERRAILATTACHMENT, COMSIG_KB_UNLOADGUN, COMSIG_KB_GUN_SAFETY, COMSIG_KB_AUTOEJECT, COMSIG_KB_UNIQUEACTION, COMSIG_QDELETING,  COMSIG_MOB_CLICK_RIGHT))
+		UnregisterSignal(gun_user, list(
+			COMSIG_MOB_MOUSEDOWN,
+			COMSIG_MOB_MOUSEUP,
+			COMSIG_ITEM_ZOOM,
+			COMSIG_ITEM_UNZOOM,
+			COMSIG_MOB_MOUSEDRAG,
+			COMSIG_KB_RAILATTACHMENT,
+			COMSIG_KB_MUZZLEATTACHMENT,
+			COMSIG_KB_UNDERRAILATTACHMENT,
+			COMSIG_KB_UNLOADGUN,
+			COMSIG_KB_FIREMODE,
+			COMSIG_KB_GUN_SAFETY,
+			COMSIG_KB_AUTOEJECT,
+			COMSIG_KB_UNIQUEACTION,
+			COMSIG_QDELETING,
+			COMSIG_MOB_CLICK_RIGHT
+		))
 	var/datum/action/item_action/toggle/new_action = new /datum/action/item_action/toggle(src, master_gun)
 	if(!isliving(user))
 		return

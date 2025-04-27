@@ -112,6 +112,8 @@
 
 /mob/living/simple_animal/cat/MouseDrop(atom/over_object)
 	. = ..()
+	if(!.)
+		return
 
 	if(!ishuman(over_object))
 		return
@@ -137,7 +139,7 @@
 	desc = "Kitty!!"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "cat2"
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/items/animals_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items/animals_right.dmi',
 	)

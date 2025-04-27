@@ -14656,7 +14656,7 @@
 "bKg" = (
 /obj/structure/safe,
 /obj/item/reagent_containers/food/drinks/bottle/absinthe,
-/obj/item/weapon/katana,
+/obj/item/weapon/sword/katana,
 /turf/open/floor/tile/dark/blue2{
 	dir = 1
 	},
@@ -20437,6 +20437,12 @@
 	dir = 1
 	},
 /area/ice_colony/surface/hangar/beta)
+"fVJ" = (
+/obj/structure/prop/vehicle/crawler{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer0,
+/area/ice_colony/exterior/surface/valley/southwest)
 "fVL" = (
 /obj/effect/landmark/lv624/fog_blocker,
 /turf/closed/wall/r_wall,
@@ -21337,6 +21343,10 @@
 /obj/structure/window/reinforced,
 /turf/open/floor/wood,
 /area/ice_colony/underground/crew/bball/garbledradio)
+"hmz" = (
+/obj/structure/prop/vehicle/crawler,
+/turf/open/floor/plating/ground/snow/layer2,
+/area/ice_colony/exterior/surface/valley/southwest)
 "hpb" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -22108,14 +22118,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump,
 /turf/open/floor/tile/white,
 /area/ice_colony/underground/medical/hallway/garbledradio)
-"iDS" = (
-/obj/effect/attach_point/weapon/dropship1{
-	dir = 8
-	},
-/turf/open/floor/plating/icefloor/warnplate{
-	dir = 8
-	},
-/area/ice_colony/exterior/surface/landing_pad2)
 "iEz" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -23226,6 +23228,12 @@
 	dir = 4
 	},
 /area/ice_colony/surface/dorms)
+"kdo" = (
+/obj/structure/prop/vehicle/crawler{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer2,
+/area/ice_colony/exterior/surface/valley/southwest)
 "kea" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/ice,
@@ -27077,6 +27085,12 @@
 	dir = 8
 	},
 /area/ice_colony/surface/dorms)
+"ptc" = (
+/obj/structure/prop/vehicle/crawler{
+	dir = 1
+	},
+/turf/open/floor/plating/ground/snow/layer1,
+/area/ice_colony/exterior/surface/valley/southwest)
 "pty" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
@@ -28928,10 +28942,6 @@
 	},
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/crew/bball/garbledradio)
-"rUI" = (
-/obj/effect/attach_point/electronics/dropship1,
-/turf/open/floor/plating,
-/area/ice_colony/exterior/surface/landing_pad2)
 "rVU" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/ice,
@@ -30488,10 +30498,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/freezer,
 /area/ice_colony/surface/bar/bar)
-"tQj" = (
-/obj/effect/attach_point/weapon/dropship1,
-/turf/open/floor/plating,
-/area/ice_colony/exterior/surface/landing_pad2)
 "tQt" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -36714,7 +36720,7 @@ cTP
 cTP
 cTP
 cTP
-iDS
+cTP
 cTP
 cTP
 acU
@@ -36922,7 +36928,7 @@ aay
 dWh
 afd
 tkL
-tQj
+afd
 afd
 afd
 afd
@@ -37134,7 +37140,7 @@ aay
 dWh
 afd
 afd
-rUI
+afd
 afd
 afd
 afd
@@ -38406,7 +38412,7 @@ aay
 dWh
 afd
 afd
-rUI
+afd
 afd
 afd
 afd
@@ -38618,7 +38624,7 @@ aay
 dWh
 afd
 tkL
-tQj
+afd
 afd
 afd
 afd
@@ -47423,7 +47429,7 @@ aLu
 vlr
 qxY
 vlr
-aLu
+ptc
 aLu
 jkQ
 xJX
@@ -47846,7 +47852,7 @@ vlr
 vlr
 vlr
 vlr
-vlr
+fVJ
 aLu
 stA
 jkQ
@@ -48480,7 +48486,7 @@ vlr
 aLu
 aLu
 jkQ
-jkQ
+kdo
 jkQ
 jkQ
 jkQ
@@ -49752,7 +49758,7 @@ vlr
 vlr
 aLu
 jkQ
-jkQ
+hmz
 jkQ
 nwA
 jkQ
@@ -49966,7 +49972,7 @@ aLu
 jkQ
 jkQ
 jkQ
-jkQ
+hmz
 jkQ
 xJX
 xJX

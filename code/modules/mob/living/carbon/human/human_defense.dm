@@ -60,15 +60,9 @@ Contains most of the procs that are called when a mob is attacked by something
 
 
 /mob/living/carbon/human/emp_act(severity)
-	for(var/obj/O in src)
-		if(!O)
-			continue
-		O.emp_act(severity)
+	. = ..()
 	for(var/datum/limb/O in limbs)
-		if(O.limb_status & LIMB_DESTROYED)
-			continue
 		O.emp_act(severity)
-	..()
 
 /mob/living/carbon/human/has_smoke_protection()
 	if(istype(wear_mask) && wear_mask.inventory_flags & BLOCKGASEFFECT)
@@ -104,6 +98,19 @@ Contains most of the procs that are called when a mob is attacked by something
 	else
 		target_zone = def_zone ? check_zone(def_zone) : get_zone_with_miss_chance(user.zone_selected, src)
 
+	var/attack_verb = LAZYLEN(I.attack_verb) ? pick(I.attack_verb) : "attacked"
+
+	if(!target_zone)
+		user.do_attack_animation(src)
+		playsound(loc, 'sound/weapons/punchmiss.ogg', 25, TRUE)
+		visible_message(span_danger("[user] tried to hit [src] with [I]!"), null, null, 5)
+		log_combat(user, src, "[attack_verb]", "(missed)")
+		if(!user.mind?.bypass_ff && !mind?.bypass_ff && user.faction == faction)
+			var/turf/T = get_turf(src)
+			log_ffattack("[key_name(user)] missed a attack against [key_name(src)] with [I] in [AREACOORD(T)].")
+			msg_admin_ff("[ADMIN_TPMONTY(user)] missed an against [ADMIN_TPMONTY(src)] with [I] in [ADMIN_VERBOSEJMP(T)].")
+		return FALSE
+
 	var/datum/limb/affecting = get_limb(target_zone)
 	if(affecting.limb_status & LIMB_DESTROYED)
 		to_chat(user, "What [affecting.display_name]?")
@@ -123,7 +130,6 @@ Contains most of the procs that are called when a mob is attacked by something
 
 	var/applied_damage = modify_by_armor(damage, MELEE, I.penetration, target_zone)
 	var/percentage_penetration = applied_damage / damage * 100
-	var/attack_verb = LAZYLEN(I.attack_verb) ? pick(I.attack_verb) : "attacked"
 	var/armor_verb
 	switch(percentage_penetration)
 		if(-INFINITY to 0)
@@ -303,11 +309,6 @@ Contains most of the procs that are called when a mob is attacked by something
 
 		hit_report += "(RAW DMG: [throw_damage])"
 
-		if(thrown_item.item_fire_stacks)
-			fire_stacks += thrown_item.item_fire_stacks
-			IgniteMob()
-			hit_report += "(set ablaze)"
-
 		//thrown weapon embedded object code.
 		if(affecting.limb_status & LIMB_DESTROYED)
 			hit_report += "(delimbed [affecting.display_name])"
@@ -330,11 +331,24 @@ Contains most of the procs that are called when a mob is attacked by something
 
 	return TRUE
 
+/mob/living/carbon/human/IgniteMob()
+	. = ..()
+	if(!.)
+		return
+	if(!stat && !(species.species_flags & NO_PAIN))
+		emote("scream")
+
+/mob/living/carbon/human/fire_act(burn_level)
+	. = ..()
+	if(!.)
+		return
+	if(stat || (species.species_flags & NO_PAIN))
+		return
+	emote("scream")
 
 /mob/living/carbon/human/resist_fire(datum/source)
 	spin(30, 1.5)
 	return ..()
-
 
 /mob/living/carbon/human/proc/bloody_hands(mob/living/source, amount = 2)
 	if (istype(gloves))
@@ -409,7 +423,7 @@ Contains most of the procs that are called when a mob is attacked by something
 	remove_organ_slot(ORGAN_SLOT_HEART)
 	var/obj/item/organ/heart/heart = new
 	user.put_in_hands(heart)
-	chestburst = 2
+	chestburst = CARBON_CHEST_BURSTED
 	update_burst()
 
 /mob/living/carbon/human/ExtinguishMob()

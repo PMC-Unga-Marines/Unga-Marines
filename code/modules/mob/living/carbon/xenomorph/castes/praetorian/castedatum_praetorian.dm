@@ -40,9 +40,6 @@
 	acid_spray_damage_on_hit = 47
 	acid_spray_structure_damage = 69
 
-	// *** Pheromones *** //
-	aura_strength = 4.5 //Praetorian's aura starts strong. They are the Queen's right hand.
-
 	// *** Minimap Icon *** //
 	minimap_icon = "praetorian"
 
@@ -52,15 +49,12 @@
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/xeno_action/place_acidwell,
-		/datum/action/ability/activable/xeno/corrosive_acid,
+		/datum/action/ability/xeno_action/place_trap,
+		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/activable/xeno/xeno_spit,
-		/datum/action/ability/activable/xeno/spray_acid/line/short,
 		/datum/action/ability/activable/xeno/scatter_spit/praetorian,
+		/datum/action/ability/activable/xeno/spray_acid/line/short,
 		/datum/action/ability/activable/xeno/charge/dash,
-		/datum/action/ability/xeno_action/pheromones,
-		/datum/action/ability/xeno_action/pheromones/emit_recovery,
-		/datum/action/ability/xeno_action/pheromones/emit_warding,
-		/datum/action/ability/xeno_action/pheromones/emit_frenzy,
 	)
 
 /datum/xeno_caste/praetorian/normal
@@ -77,16 +71,13 @@
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/xeno_action/place_acidwell,
-		/datum/action/ability/activable/xeno/corrosive_acid,
+		/datum/action/ability/xeno_action/place_trap,
+		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/activable/xeno/xeno_spit,
-		/datum/action/ability/activable/xeno/spray_acid/line/short,
 		/datum/action/ability/activable/xeno/scatter_spit/praetorian,
+		/datum/action/ability/activable/xeno/spray_acid/line/short,
 		/datum/action/ability/activable/xeno/spray_acid/cone,
 		/datum/action/ability/activable/xeno/charge/dash,
-		/datum/action/ability/xeno_action/pheromones,
-		/datum/action/ability/xeno_action/pheromones/emit_recovery,
-		/datum/action/ability/xeno_action/pheromones/emit_warding,
-		/datum/action/ability/xeno_action/pheromones/emit_frenzy,
 	)
 
 /datum/xeno_caste/praetorian/dancer
@@ -111,14 +102,11 @@
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/xeno_action/place_acidwell,
-		/datum/action/ability/activable/xeno/corrosive_acid,
+		/datum/action/ability/xeno_action/place_trap,
+		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/xeno_action/dodge,
 		/datum/action/ability/activable/xeno/impale,
 		/datum/action/ability/activable/xeno/tail_trip,
-		/datum/action/ability/xeno_action/pheromones,
-		/datum/action/ability/xeno_action/pheromones/emit_recovery,
-		/datum/action/ability/xeno_action/pheromones/emit_warding,
-		/datum/action/ability/xeno_action/pheromones/emit_frenzy,
 	)
 
 /datum/xeno_caste/praetorian/dancer/normal
@@ -135,13 +123,10 @@
 		/datum/action/ability/xeno_action/watch_xeno,
 		/datum/action/ability/activable/xeno/psydrain,
 		/datum/action/ability/xeno_action/place_acidwell,
-		/datum/action/ability/activable/xeno/corrosive_acid,
+		/datum/action/ability/xeno_action/place_trap,
+		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/xeno_action/dodge,
 		/datum/action/ability/activable/xeno/impale,
 		/datum/action/ability/activable/xeno/tail_trip,
 		/datum/action/ability/activable/xeno/charge/acid_dash, // No unique primordial ability at the moment. Replace eventually with something cooler!
-		/datum/action/ability/xeno_action/pheromones,
-		/datum/action/ability/xeno_action/pheromones/emit_recovery,
-		/datum/action/ability/xeno_action/pheromones/emit_warding,
-		/datum/action/ability/xeno_action/pheromones/emit_frenzy,
 	)

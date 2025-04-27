@@ -16,8 +16,10 @@
 	var/buildstackamount = 1
 	/// To fold into an item (e.g. roller bed item)
 	var/foldabletype
-	/// Pixel y shift to give to the buckled mob.
-	var/buckling_y = 0
+	/// pixel x shift to give to the buckled mob
+	var/buckling_x = 0
+	///pixel y shift to give to the buckled mob. This stacks with the lying down pixel shift when relevant
+	var/buckling_y = -2
 	var/obj/structure/closet/bodybag/buckled_bodybag
 	/// Whether you can buckle bodybags to this bed
 	var/accepts_bodybag = FALSE
@@ -48,7 +50,7 @@
 /obj/structure/bed/post_buckle_mob(mob/buckling_mob)
 	. = ..()
 	buckling_mob.pixel_y = buckling_y
-	buckling_mob.old_y = buckling_y
+	buckling_mob.pixel_x = buckling_x
 	if(base_bed_icon)
 		density = TRUE
 	update_icon()
@@ -56,7 +58,7 @@
 /obj/structure/bed/post_unbuckle_mob(mob/buckled_mob)
 	. = ..()
 	buckled_mob.pixel_y = initial(buckled_mob.pixel_y)
-	buckled_mob.old_y = initial(buckled_mob.pixel_y)
+	buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
 	if(base_bed_icon)
 		density = FALSE
 	update_icon()
@@ -209,7 +211,7 @@
 	anchored = FALSE
 	buckle_flags = CAN_BUCKLE
 	drag_delay = 0 //Pulling something on wheels is easy
-	buckling_y = 6
+	buckling_y = 3
 	foldabletype = /obj/item/roller
 	accepts_bodybag = TRUE
 	base_bed_icon = "roller"
@@ -297,7 +299,7 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 	desc = "A medevac stretcher with integrated beacon for rapid evacuation of an injured patient via dropship lift and an emergency bluespace teleporter for tele-evacuation to a linked beacon. Accepts patients and body bags."
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "stretcher_down"
-	buckling_y = 6
+	buckling_y = 0
 	buildstacktype = null
 	foldabletype = /obj/item/roller/medevac
 	base_bed_icon = "stretcher"
@@ -314,6 +316,10 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 /obj/structure/bed/medevac_stretcher/Initialize(mapload)
 	. = ..()
 	radio = new(src)
+
+/obj/structure/bed/medevac_stretcher/examine(mob/user)
+	. = ..()
+	. += span_warning("Right-click to activate. Unique action to activate on yourself.")
 
 /obj/structure/bed/medevac_stretcher/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(xeno_attacker.status_flags & INCORPOREAL)
@@ -343,14 +349,6 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 
 	if(LAZYLEN(buckled_mobs) || buckled_bodybag)
 		. += image("icon_state"="stretcher_box","layer"=LYING_MOB_LAYER + 0.1)
-
-/obj/structure/bed/medevac_stretcher/verb/activate_medevac_displacer()
-	set name = "Activate Medevac Displacement Field"
-	set desc = "Teleport the occupant of the stretcher to a linked beacon."
-	set category = "Object"
-	set src in oview(1)
-
-	activate_medevac_teleport(usr)
 
 /obj/structure/bed/medevac_stretcher/attack_hand_alternate(mob/living/user)
 	activate_medevac_teleport(user)
@@ -504,7 +502,7 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 
 /obj/item/roller/medevac
 	name = "medevac stretcher"
-	desc = "A collapsed medevac stretcher that can be carried around."
+	desc = "A collapsed medevac stretcher that can be carried around. Can be used to instantly transport a marine to a linked beacon. Don't forget the beacon!"
 	icon_state = "stretcher_folded"
 	var/last_teleport = null
 	var/obj/item/medevac_beacon/linked_beacon = null

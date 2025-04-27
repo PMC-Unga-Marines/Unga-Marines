@@ -16,7 +16,7 @@
 	var/printing = null
 
 /obj/machinery/computer/med_data/verb/eject_id()
-	set category = "Object"
+	set category = "IC.Object"
 	set name = "Eject ID Card"
 	set src in oview(1)
 
@@ -462,8 +462,8 @@
 	return TRUE
 
 /obj/machinery/computer/med_data/emp_act(severity)
-	if(machine_stat &(BROKEN|NOPOWER))
-		return ..(severity)
+	if(machine_stat & (BROKEN|NOPOWER))
+		return ..()
 
 	for(var/datum/data/record/R in GLOB.datacore.medical)
 		if(prob(10 / severity))
@@ -486,8 +486,7 @@
 			GLOB.datacore.medical -= R
 			qdel(R)
 			continue
-
-	return ..(severity)
+	return ..()
 
 /obj/machinery/computer/med_data/laptop
 	name = "Medical Laptop"

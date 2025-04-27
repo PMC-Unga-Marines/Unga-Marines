@@ -16,6 +16,7 @@
 
 //  Generic non-item
 /obj/item/storage/bag
+	icon = 'icons/obj/items/storage/bag.dmi'
 	storage_type = /datum/storage/bag
 	equip_slot_flags = ITEM_SLOT_BELT
 
@@ -26,8 +27,8 @@
 	name = "trash bag"
 	desc = "It's the heavy-duty black polymer kind. Time to take out the trash!"
 	icon = 'icons/obj/janitor.dmi'
-	icon_state = "trashbag0"
-	item_state = "trashbag"
+	icon_state = "trash0"
+	worn_icon_state = "trashbag"
 
 	w_class = WEIGHT_CLASS_BULKY
 	storage_type = /datum/storage/bag/trash
@@ -35,13 +36,13 @@
 /obj/item/storage/bag/trash/update_icon_state()
 	. = ..()
 	if(length(contents) == 0)
-		icon_state = "trashbag0"
+		icon_state = "trash0"
 	else if(length(contents) < 12)
-		icon_state = "trashbag1"
+		icon_state = "trash1"
 	else if(length(contents) < 21)
-		icon_state = "trashbag2"
+		icon_state = "trash2"
 	else
-		icon_state = "trashbag3"
+		icon_state = "trash3"
 
 // -----------------------------
 //        Plastic Bag
@@ -52,7 +53,7 @@
 	desc = "It's a very flimsy, very noisy alternative to a bag."
 	icon = 'icons/obj/items/trash.dmi'
 	icon_state = "plasticbag"
-	item_state = "plasticbag"
+	worn_icon_state = "plasticbag"
 	w_class = WEIGHT_CLASS_BULKY
 	storage_type = /datum/storage/bag/plastic
 
@@ -74,8 +75,7 @@
 // -----------------------------
 
 /obj/item/storage/bag/plants
-	icon = 'icons/obj/items/storage/storage.dmi'
-	icon_state = "plantbag"
+	icon_state = "plant"
 	name = "Plant Bag"
 	w_class = WEIGHT_CLASS_SMALL
 	storage_type = /datum/storage/bag/plants
@@ -96,13 +96,8 @@
 	///the number of sheets it can carry.
 	var/capacity = 300
 
-// -----------------------------
-//           Cash Bag
-// -----------------------------
-
 /obj/item/storage/bag/cash
-	icon = 'icons/obj/items/storage/storage.dmi'
-	icon_state = "cashbag"
+	icon_state = "cash"
 	name = "Cash bag"
 	desc = "A bag for carrying lots of cash. It's got a big dollar sign printed on the front."
 	w_class = WEIGHT_CLASS_SMALL

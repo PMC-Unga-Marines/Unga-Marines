@@ -57,7 +57,7 @@ Godspeed, captain! And remember, you are not above the law."})
 		return
 	new_human.dropItemToGround(new_human.head)
 	switch(playtime_mins)
-		if(0 to 1500) // starting
+		if(0 to 600) // starting
 			new_human.wear_id.paygrade = "O6"
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/beret/marine/captain/black, SLOT_HEAD)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/captain_cloak_red, SLOT_BACK)
@@ -167,7 +167,7 @@ Make the TGMC proud!"})
 //Staff Officer
 /datum/job/terragov/command/staffofficer
 	title = STAFF_OFFICER
-	paygrade = "O3"
+	paygrade = "O1"
 	comm_title = "SO"
 	total_positions = 4
 	access = list(ACCESS_MARINE_BRIDGE, ACCESS_MARINE_BRIG, ACCESS_MARINE_CARGO, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_ALPHA, ACCESS_MARINE_BRAVO, ACCESS_MARINE_CHARLIE, ACCESS_MARINE_DELTA)
@@ -210,7 +210,11 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
-		if(0 to 1500) // starting
+		if(0 to 600) // starting
+			new_human.wear_id.paygrade = "O1"
+		if(601 to 1500) // 10hrs
+			new_human.wear_id.paygrade = "O2"
+		if(1501 to 6000) // 25 hrs
 			new_human.wear_id.paygrade = "O3"
 			new_human.equip_to_slot_or_del(new /obj/item/clothing/head/beret/marine/staff, SLOT_HEAD)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/officer_cloak_red, SLOT_BACK)
@@ -320,7 +324,7 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 //Pilot Officer
 /datum/job/terragov/command/pilot
 	title = PILOT_OFFICER
-	paygrade = "WO"
+	paygrade = "O1"
 	comm_title = "PO"
 	total_positions = 1
 	access = list(ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_PILOT)
@@ -357,25 +361,21 @@ You are to ensure the Tadpole's survival and to transport marines around, acting
 		return
 	switch(playtime_mins)
 		if(0 to 600) // starting
-			new_human.wear_id.paygrade = "WO"
-		if(601 to 3000) // 10 hrs
-			new_human.wear_id.paygrade = "CWO"
-		if(3001 to 6000) // 50 hrs
 			new_human.wear_id.paygrade = "O1"
-		if(6001 to 9000) // 100 hrs
+		if(601 to 1500) // 10hrs
 			new_human.wear_id.paygrade = "O2"
-		if(9001 to 15000) // 150 hrs
+		if(1501 to 6000) // 25 hrs
 			new_human.wear_id.paygrade = "O3"
-		if(15001 to 18000) // 250 hrs
+		if(6001 to 18000) // 100 hrs
 			new_human.wear_id.paygrade = "O4"
 		if(18001 to INFINITY) // 300 hrs
-			new_human.wear_id.paygrade = "O4"
+			new_human.wear_id.paygrade = "O5"
 
 /datum/job/terragov/command/pilot/radio_help_message(mob/M)
 	. = ..()
 	to_chat(M, {"Your job is to support marines with either close air support via the Condor.
 You are expected to use the Condor as the Alamo is able to be ran automatically, though at some points you will be required to take control of the Alamo for the operation's success, though highly unlikey.
-Though you are a warrant officer, your authority is limited to the dropship and the Condor, where you have authority over the enlisted personnel.
+Though you are an officer, your authority is limited to the dropship and the Condor, where you have authority over the enlisted personnel.
 "})
 
 /datum/outfit/job/command/pilot
@@ -458,6 +458,9 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	head = /obj/item/clothing/head/helmet/marine/mech_pilot
 	shoes = /obj/item/clothing/shoes/marine/full
 	gloves = /obj/item/clothing/gloves/marine
+
+/datum/outfit/job/command/mech_pilot/fallen
+	ears = null
 
 //apc/jeep driver
 /datum/job/terragov/command/transport_crewman
@@ -708,12 +711,14 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	switch(playtime_mins)
 		if(0 to 600) // starting
 			new_human.wear_id.paygrade = "PO3"
-		if(601 to 3000) // 10 hrs
+		if(601 to 1500) // 10hrs
 			new_human.wear_id.paygrade = "PO2"
-		if(3001 to 6000) // 50 hrs
+		if(1501 to 6000) // 25 hrs
 			new_human.wear_id.paygrade = "PO1"
-		if(6001 to INFINITY) // 100 hrs
+		if(6001 to 18000) // 100 hrs
 			new_human.wear_id.paygrade = "CPO"
+		if(18001 to INFINITY) // 300 hrs
+			new_human.wear_id.paygrade = "SCPO"
 
 /datum/job/terragov/requisitions/tech/radio_help_message(mob/M)
 	. = ..()
@@ -748,7 +753,7 @@ requisitions line and later on to be ready to send supplies for marines who are 
 /datum/job/terragov/requisitions/officer
 	title = REQUISITIONS_OFFICER
 	req_admin_notify = TRUE
-	paygrade = "CPO"
+	paygrade = "O1"
 	comm_title = "RO"
 	selection_color = "#9990B2"
 	total_positions = 1
@@ -787,13 +792,15 @@ requisitions line and later on to be ready to send supplies for marines who are 
 		return
 	switch(playtime_mins)
 		if(0 to 600) // starting
-			new_human.wear_id.paygrade = "CPO"
-		if(601 to 1500) // 10 hrs
-			new_human.wear_id.paygrade = "WO"
-		if(1501 to 6000) // 50 hrs
-			new_human.wear_id.paygrade = "CWO"
-		if(6001 to INFINITY) // 100 hrs
 			new_human.wear_id.paygrade = "O1"
+		if(601 to 1500) // 10hrs
+			new_human.wear_id.paygrade = "O2"
+		if(1501 to 6000) // 25 hrs
+			new_human.wear_id.paygrade = "O3"
+		if(6001 to 18000) // 100 hrs
+			new_human.wear_id.paygrade = "O4"
+		if(18001 to INFINITY) // 300 hrs
+			new_human.wear_id.paygrade = "O5"
 
 /datum/job/terragov/requisitions/officer/radio_help_message(mob/M)
 	. = ..()
@@ -827,7 +834,7 @@ A happy ship is a well-functioning ship."})
 	title = CHIEF_MEDICAL_OFFICER
 	req_admin_notify = TRUE
 	comm_title = "CMO"
-	paygrade = "CHO"
+	paygrade = "SP"
 	total_positions = 1
 	supervisors = "the acting captain"
 	selection_color = "#99FF99"
@@ -871,9 +878,15 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
-		if(0 to 3000) // starting
-			new_human.wear_id.paygrade = "CHO"
-		if(3001 to INFINITY) // 50 hrs
+		if(0 to 600) // starting
+			new_human.wear_id.paygrade = "SP"
+		if(601 to 1500) // 10hrs
+			new_human.wear_id.paygrade = "HP"
+		if(1501 to 6000) // 25 hrs
+			new_human.wear_id.paygrade = "MSPVR"
+		if(6001 to 18000) // 100 hrs
+			new_human.wear_id.paygrade = "MDR"
+		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "CMO"
 
 /datum/outfit/job/medical/professor
@@ -902,7 +915,7 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 /datum/job/terragov/medical/medicalofficer
 	title = MEDICAL_DOCTOR
 	comm_title = "MD"
-	paygrade = "RES"
+	paygrade = "MS"
 	total_positions = 4
 	supervisors = "the chief medical officer"
 	access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY)
@@ -938,10 +951,16 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
-		if(0 to 3000) // starting
-			new_human.wear_id.paygrade = "RES"
-		if(3001 to INFINITY) // 50 hrs
-			new_human.wear_id.paygrade = "MD"
+		if(0 to 600) // starting
+			new_human.wear_id.paygrade = "MS"
+		if(601 to 1500) // 10hrs
+			new_human.wear_id.paygrade = "JR"
+		if(1501 to 6000) // 25 hrs
+			new_human.wear_id.paygrade = "SR"
+		if(6001 to 18000) // 100 hrs
+			new_human.wear_id.paygrade = "GP"
+		if(18001 to INFINITY) // 300 hrs
+			new_human.wear_id.paygrade = "AP"
 
 /datum/job/terragov/medical/medicalofficer/radio_help_message(mob/M)
 	. = ..()
@@ -977,7 +996,7 @@ You are also an expert when it comes to medication and treatment. If you do not 
 /datum/job/terragov/medical/researcher
 	title = FIELD_RESEARCHER
 	comm_title = "Rsr"
-	paygrade = "CD"
+	paygrade = "RSRA"
 	total_positions = 2
 	supervisors = "the NT corporate office"
 	access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_RESEARCH, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_ENGINEERING, ACCESS_CIVILIAN_ENGINEERING)
@@ -1022,9 +1041,15 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
-		if(0 to 3000) // starting
-			new_human.wear_id.paygrade = "CD"
-		if(3001 to INFINITY) // 50 hrs
+		if(0 to 600) // starting
+			new_human.wear_id.paygrade = "RSRA"
+		if(601 to 1500) // 10hrs
+			new_human.wear_id.paygrade = "RSR"
+		if(1501 to 6000) // 25 hrs
+			new_human.wear_id.paygrade = "LECT"
+		if(6001 to 18000) // 100 hrs
+			new_human.wear_id.paygrade = "APROF"
+		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "PROF"
 
 
@@ -1057,7 +1082,7 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 //Liaison
 /datum/job/terragov/civilian/liaison
 	title = CORPORATE_LIAISON
-	paygrade = "NT"
+	paygrade = "NT1"
 	comm_title = "CL"
 	supervisors = "the NT corporate office"
 	total_positions = 1
@@ -1095,15 +1120,15 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
-		if(0 to 600) // 0 to 10 hours
+		if(0 to 600) // starting
 			new_human.wear_id.paygrade = "NT1"
-		if(601 to 1500) // 10 to 25 hours
+		if(601 to 1500) // 10hrs
 			new_human.wear_id.paygrade = "NT2"
-		if(1501 to 3000) // 25 to 50 hours
+		if(1501 to 6000) // 25 hrs
 			new_human.wear_id.paygrade = "NT3"
-		if(3001 to 6000) // 50 to 100 hours
+		if(6001 to 18000) // 100 hrs
 			new_human.wear_id.paygrade = "NT4"
-		if(6000 to INFINITY) // Above 100 hours
+		if(18001 to INFINITY) // 300 hrs
 			new_human.wear_id.paygrade = "NT5"
 
 /datum/job/terragov/civilian/liaison/radio_help_message(mob/M)
@@ -1180,11 +1205,11 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	if(!playtime_mins || playtime_mins < 1 )
 		return
 	switch(playtime_mins)
-		if(0 to 600) //up to 10 hours
+		if(0 to 600) // starting
 			new_human.wear_id.paygrade = "Mk.I"
-		if(601 to 3000) // 10 to 50 hrs
+		if(601 to 1500) // 10hrs
 			new_human.wear_id.paygrade = "Mk.II"
-		if(3001 to 6000) // 50 to 100 hrs
+		if(1501 to 6000) // 50 to 100 hrs
 			new_human.wear_id.paygrade = "Mk.III"
 		if(6001 to 9000) // 100 to 150 hrs
 			new_human.wear_id.paygrade = "Mk.IV"

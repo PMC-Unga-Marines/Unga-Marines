@@ -49,14 +49,8 @@
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOMATIC)
 
-	attachable_allowed = list(
-		/obj/item/attachable/scope/unremovable/hsg102,
-	)
-
-	starting_attachment_types = list(
-		/obj/item/attachable/scope/unremovable/hsg102,
-	)
-
+	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102)
+	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102)
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/hsg102,
 	)
@@ -124,7 +118,6 @@
 	aim_fire_delay = 0.05 SECONDS
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102)
-
 	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102)
 
 	allowed_ammo_types = list(/obj/item/ammo_magazine/heavy_minigun)
@@ -146,9 +139,7 @@
 	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
-
-	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102/nest,)
-
+	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 20)
 
 //-------------------------------------------------------
@@ -206,8 +197,8 @@
 
 	w_class = WEIGHT_CLASS_HUGE
 	equip_slot_flags = ITEM_SLOT_BACK
-	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "heavylaser"
+	icon_state = "heavylaser_deployed"
 
 	fire_sound = 'sound/weapons/guns/fire/tank_flamethrower.ogg'
 	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
@@ -220,11 +211,10 @@
 	fire_delay = 0.7 SECONDS
 
 	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
-	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES|GUN_AMMO_COUNT_BY_SHOTS_REMAINING
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
-
 	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
 
 	allowed_ammo_types = list(/obj/item/cell/lasgun/heavy_laser)
@@ -283,7 +273,7 @@
 //-------------------------------------------------------
 //FK-88 mounted heavy infantry support gun
 
-/obj/item/weapon/gun/heavy_isg
+/obj/item/weapon/gun/fk88
 	name = "\improper FK-88 mounted flak gun"
 	desc = "The FK-88 is a big gun, offically meant to be used against large hostile wildlife or unruly crowds, this cannon will most definitely give a very bad day to anything that gets caught in its line of fire. Takes quite a while to dial in your shots. Uses 15cm shells."
 
@@ -295,7 +285,7 @@
 	reload_sound = 'sound/weapons/guns/interact/tat36_reload.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/launcher_empty.ogg'
 
-	default_ammo_type = /obj/item/ammo_magazine/heavy_isg/he
+	default_ammo_type = /obj/item/ammo_magazine/fk88/he
 	max_shells = 1 //codex
 	caliber = CALIBER_15CM // codex
 
@@ -312,18 +302,19 @@
 	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
 
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/heavy_isg/he,
-		/obj/item/ammo_magazine/heavy_isg/sabot,
+		/obj/item/ammo_magazine/fk88/he,
+		/obj/item/ammo_magazine/fk88/he/unguided,
+		/obj/item/ammo_magazine/fk88/sabot,
 	)
 
 	deploy_time = 6 SECONDS
 	undeploy_time = 3 SECONDS
-	deployable_item = /obj/machinery/deployable/mounted/moveable/isg
+	deployable_item = /obj/machinery/deployable/mounted/moveable/fk88
 
 	max_integrity = 800
 	soft_armor = list(MELEE = 60, BULLET = 60, LASER = 60, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 0)
 
-/obj/machinery/deployable/mounted/moveable/isg
+/obj/machinery/deployable/mounted/moveable/fk88
 	coverage = 90 // Has a shield.
 	anchor_time = 4 SECONDS
 	has_anchored_sprite = TRUE
@@ -358,6 +349,11 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "mg08"
+	worn_icon_state = "mg08"
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
+	)
 
 	fire_sound = 'sound/weapons/guns/fire/mg08.ogg'
 	reload_sound = 'sound/weapons/guns/machineguns/HMG-08/HMG-08_jam.ogg'
@@ -400,14 +396,18 @@
 	desc = "The MG-27 is the SG-29s aging IFF-less cousin, made for rapid accurate machinegun fire in a short amount of time, you could use it while standing, not a great idea. Use the tripod for actual combat. It uses 10x27mm boxes."
 	equip_slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
-	icon = 'icons/obj/items/gun/mg27.dmi'
+	icon = 'icons/obj/items/gun/machinegun64.dmi'
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
+	)
 	icon_state = "t27"
-	item_state = "t27"
+	worn_icon_state = "t27"
 	caliber = CALIBER_10X27_CASELESS // codex
 	max_shells = 150 //codex
 	force = 40
 	aim_slowdown = 1.2
-	wield_delay = 2 SECONDS
+	wield_delay = 2.2 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mg27.ogg'
 	fire_rattle = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mg27_low.ogg'
 	dry_fire_sound = 'sound/weapons/guns/fire/m41a_empty.ogg'
@@ -463,12 +463,12 @@
 	name = "\improper PTR-41/1785 anti-mech gun"
 	desc = "The PTR-41/1785 is a bottom shelf solution modernized for dealing with armor, while one could use it while standing it is obviously not a great idea. It is recommended to be used while the bipod is deployed. It uses 14.5mm high velocity rounds that will certainly leave a hole in whatever unfortunate soul is hit by it."
 	w_class = WEIGHT_CLASS_BULKY
-	icon = 'icons/obj/items/gun/clf_heavyrifle.dmi'
+	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "ptrs"
-	item_state = "ptrs"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_64.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_64.dmi',
+	worn_icon_state = "ptrs"
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_64.dmi',
 	)
 	inhand_x_dimension = 64
 	inhand_y_dimension = 32
@@ -538,7 +538,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	icon = 'icons/obj/artillery/at36.dmi'
 	icon_state = "tat36"
-	item_state = "tat36"
+	worn_icon_state = "tat36"
 	caliber = CALIBER_37MM // codex
 	max_shells = 1 //codex
 	fire_sound = 'sound/weapons/guns/fire/tat36.ogg'
@@ -622,7 +622,7 @@
 
 /obj/item/weapon/gun/agls37
 	name = "\improper AGLS-37 Kauser automatic grenade launcher"
-	desc = "The AGLS-37 automatic grenade launching IFF capable system, it's too heavy to be wielded or operated without the tripod. On the back, it reads: \"The Explosions and Fragmentation from this weapon ARE NOT friendly fire capable. Kauser is not obligated to buy you new body parts for you or your friends if you lose them.\"\nCan be deployed with Crtl-Click. It CANNOT be turned once deployed, due to a lack of swivels, pick it up to move your cone of fire. Can be repaired with a blowtorch once deployed."
+	desc = "The AGLS-37 automatic grenade launching IFF capable system, it's too heavy to be wielded or operated without the tripod. On the back, it reads: \"The Explosions and Fragmentation from this weapon ARE NOT friendly fire capable. Kauser is not obligated to buy you new body parts for you or your friends if you lose them.\"\nCan be deployed with Crtl-Click. Can be repaired with a blowtorch once deployed."
 	w_class = WEIGHT_CLASS_HUGE
 	equip_slot_flags = ITEM_SLOT_BACK
 	caliber = CALIBER_40MM
@@ -671,4 +671,44 @@
 	if(istype(in_chamber, /obj/item/ammo_magazine/agls37/incendiary))
 		gun_user?.record_war_crime()
 
+// Non-TGMC HMG
 
+/obj/item/weapon/gun/kord
+	name = "\improper KRD-61ES mounted heavy machinegun"
+	desc = "The KRD-61ES machinegun is the export variant of the ML-91 HMG. It's too heavy to be wielded or operated without the tripod. No extra work required, just deploy it with Ctrl-Click. Can be repaired with a blowtorch once deployed."
+	icon = 'icons/obj/items/gun/machinegun64.dmi'
+	icon_state = "kord"
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/machinegun_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/machinegun_righthand_1.dmi',
+	)
+	fire_sound = 'sound/weapons/guns/fire/hmg2.ogg'
+	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
+
+	w_class = WEIGHT_CLASS_HUGE
+	equip_slot_flags = ITEM_SLOT_BACK
+
+	scatter = 10
+	deployed_scatter_change = -10
+	accuracy_mult = 1.2 //it's got a bipod
+	fire_delay = 0.25 SECONDS
+
+	default_ammo_type = /obj/item/ammo_magazine/kord
+	allowed_ammo_types = list(/obj/item/ammo_magazine/kord)
+
+	item_flags = IS_DEPLOYABLE|TWOHANDED
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	aim_fire_delay = 0.05 SECONDS
+	aim_speed_modifier = 5
+	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102)
+	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102)
+
+	deploy_time = 1.5 SECONDS
+	undeploy_time = 0.5 SECONDS
+	deployable_item = /obj/machinery/deployable/mounted
+
+	max_integrity = 200
+	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 20)
+
+	allowed_ammo_types = list(/obj/item/ammo_magazine/kord)

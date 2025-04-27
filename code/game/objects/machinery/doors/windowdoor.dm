@@ -5,7 +5,7 @@
 	icon_state = "left"
 	layer = ABOVE_WINDOW_LAYER
 	resistance_flags = XENO_DAMAGEABLE
-	obj_flags = CAN_BE_HIT
+	obj_flags = CAN_BE_HIT | BLOCKS_CONSTRUCTION_DIR
 	max_integrity = 50
 	soft_armor = list(MELEE = 20, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 100, FIRE = 70, ACID = 100)
 	visible = FALSE
@@ -48,6 +48,11 @@
 	if(operating)
 		return
 	icon_state = density ? base_state : "[base_state]open"
+
+/obj/machinery/door/window/emp_act(severity)
+	. = ..()
+	if(prob(30 / severity))
+		open()
 
 /obj/machinery/door/window/proc/open_and_close()
 	open()

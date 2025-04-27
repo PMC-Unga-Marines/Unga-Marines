@@ -11,54 +11,54 @@
 	ping = null
 	bullet_color = COLOR_VERY_SOFT_YELLOW
 
-/datum/ammo/mortar/drop_nade(turf/T)
-	cell_explosion(T, 90, 30)
+/datum/ammo/mortar/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 90, 30)
 
-/datum/ammo/mortar/do_at_max_range(turf/T, obj/projectile/P)
-	drop_nade(T)
+/datum/ammo/mortar/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf)
 
-/datum/ammo/mortar/incend/drop_nade(turf/T)
-	cell_explosion(T, 45, 20)
-	flame_radius(4, T)
-	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
+/datum/ammo/mortar/incend/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 45, 20)
+	flame_radius(4, target_turf)
+	playsound(target_turf, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
 
 /datum/ammo/mortar/knee
 	name = "50mm shell"
 	icon_state = "howi"
 	shell_speed = 0.75
 
-/datum/ammo/mortar/knee/drop_nade(turf/T)
-	cell_explosion(T, 80, 30)
+/datum/ammo/mortar/knee/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 80, 30)
 
 /datum/ammo/mortar/smoke
 	///the smoke effect at the point of detonation
 	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread/tactical
 
-/datum/ammo/mortar/smoke/drop_nade(turf/T)
+/datum/ammo/mortar/smoke/drop_nade(turf/target_turf)
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
-	cell_explosion(T, 15, 5)
-	playsound(T, 'sound/effects/smoke.ogg', 25, 1, 4)
-	smoke.set_up(10, T, 11)
+	cell_explosion(target_turf, 15, 5)
+	playsound(target_turf, 'sound/effects/smoke.ogg', 25, 1, 4)
+	smoke.set_up(10, target_turf, 11)
 	smoke.start()
 
 /datum/ammo/mortar/smoke/plasmaloss
 	smoketype = /datum/effect_system/smoke_spread/plasmaloss
 
-/datum/ammo/mortar/flare/drop_nade(turf/T)
-	new /obj/effect/temp_visual/above_flare(T)
-	playsound(T, 'sound/weapons/guns/fire/flare.ogg', 50, 1, 4)
+/datum/ammo/mortar/flare/drop_nade(turf/target_turf)
+	new /obj/effect/temp_visual/above_flare(target_turf)
+	playsound(target_turf, 'sound/weapons/guns/fire/flare.ogg', 50, 1, 4)
 
 /datum/ammo/mortar/howi
 	name = "150mm shell"
 	icon_state = "howi"
 
-/datum/ammo/mortar/howi/drop_nade(turf/T)
-	cell_explosion(T, 200, 100)
+/datum/ammo/mortar/howi/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 200, 100)
 
-/datum/ammo/mortar/howi/incend/drop_nade(turf/T)
-	cell_explosion(T, 45, 30)
-	flame_radius(5, T)
-	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
+/datum/ammo/mortar/howi/incend/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 45, 30)
+	flame_radius(5, target_turf)
+	playsound(target_turf, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
 
 /datum/ammo/mortar/smoke/howi
 	name = "150mm shell"
@@ -67,23 +67,23 @@
 /datum/ammo/mortar/smoke/howi/wp
 	smoketype = /datum/effect_system/smoke_spread/phosphorus
 
-/datum/ammo/mortar/smoke/howi/wp/drop_nade(turf/T)
+/datum/ammo/mortar/smoke/howi/wp/drop_nade(turf/target_turf)
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
-	cell_explosion(T, 15, 15)
-	playsound(T, 'sound/effects/smoke.ogg', 25, 1, 4)
-	smoke.set_up(6, T, 7)
+	cell_explosion(target_turf, 15, 15)
+	playsound(target_turf, 'sound/effects/smoke.ogg', 25, 1, 4)
+	smoke.set_up(6, target_turf, 7)
 	smoke.start()
-	flame_radius(4, T)
-	flame_radius(1, T, burn_intensity = 45, burn_duration = 75, burn_damage = 15, fire_stacks = 75)
+	flame_radius(4, target_turf)
+	flame_radius(1, target_turf, burn_intensity = 75, burn_duration = 45, burn_damage = 15, fire_stacks = 75)
 
 /datum/ammo/mortar/smoke/howi/plasmaloss
 	smoketype = /datum/effect_system/smoke_spread/plasmaloss
 
-/datum/ammo/mortar/smoke/howi/plasmaloss/drop_nade(turf/T)
+/datum/ammo/mortar/smoke/howi/plasmaloss/drop_nade(turf/target_turf)
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
-	cell_explosion(T, 75, 25)
-	playsound(T, 'sound/effects/smoke.ogg', 25, 1, 4)
-	smoke.set_up(10, T, 11)
+	cell_explosion(target_turf, 75, 25)
+	playsound(target_turf, 'sound/effects/smoke.ogg', 25, 1, 4)
+	smoke.set_up(10, target_turf, 11)
 	smoke.start()
 
 /datum/ammo/mortar/rocket
@@ -91,56 +91,56 @@
 	icon_state = "rocket"
 	shell_speed = 1.5
 
-/datum/ammo/mortar/rocket/drop_nade(turf/T)
-	cell_explosion(T, 175, 75)
+/datum/ammo/mortar/rocket/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 175, 75)
 
-/datum/ammo/mortar/rocket/incend/drop_nade(turf/T)
-	cell_explosion(T, 50, 20)
-	flame_radius(6, T)
-	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
+/datum/ammo/mortar/rocket/incend/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 50, 20)
+	flame_radius(6, target_turf)
+	playsound(target_turf, 'sound/weapons/guns/fire/flamethrower2.ogg', 35, 1, 4)
 
-/datum/ammo/mortar/rocket/minelayer/drop_nade(turf/T)
-	var/obj/item/explosive/mine/mine = new /obj/item/explosive/mine(T)
+/datum/ammo/mortar/rocket/minelayer/drop_nade(turf/target_turf)
+	var/obj/item/explosive/mine/mine = new /obj/item/explosive/mine(target_turf)
 	mine.deploy_mine(null, TGMC_LOYALIST_IFF)
 
 /datum/ammo/mortar/rocket/smoke
 	///the smoke effect at the point of detonation
 	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread/tactical
 
-/datum/ammo/mortar/rocket/smoke/drop_nade(turf/T)
+/datum/ammo/mortar/rocket/smoke/drop_nade(turf/target_turf)
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
-	cell_explosion(T, 15, 15)
-	playsound(T, 'sound/effects/smoke.ogg', 25, 1, 4)
-	smoke.set_up(10, T, 11)
+	cell_explosion(target_turf, 15, 15)
+	playsound(target_turf, 'sound/effects/smoke.ogg', 25, 1, 4)
+	smoke.set_up(10, target_turf, 11)
 	smoke.start()
 
 /datum/ammo/mortar/rocket/mlrs
 	shell_speed = 3
 
-/datum/ammo/mortar/rocket/mlrs/drop_nade(turf/T)
-	cell_explosion(T, 70, 25)
+/datum/ammo/mortar/rocket/mlrs/drop_nade(turf/target_turf)
+	cell_explosion(target_turf, 70, 25)
 
 /datum/ammo/mortar/rocket/smoke/mlrs
 	shell_speed = 3
 	smoketype = /datum/effect_system/smoke_spread/mustard
 
-/datum/ammo/mortar/rocket/smoke/mlrs/drop_nade(turf/T)
+/datum/ammo/mortar/rocket/smoke/mlrs/drop_nade(turf/target_turf)
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
-	cell_explosion(T, 30, 15)
-	playsound(T, 'sound/effects/smoke.ogg', 25, 1, 4)
-	smoke.set_up(5, T, 6)
-	flame_radius(4, T)
+	cell_explosion(target_turf, 30, 15)
+	playsound(target_turf, 'sound/effects/smoke.ogg', 25, 1, 4)
+	smoke.set_up(5, target_turf, 6)
+	flame_radius(4, target_turf)
 	smoke.start()
 
 /datum/ammo/mortar/rocket/smoke/mlrs/tangle
 	shell_speed = 3
 	smoketype = /datum/effect_system/smoke_spread/plasmaloss
 
-/datum/ammo/mortar/rocket/smoke/mlrs/tangle/drop_nade(turf/T)
+/datum/ammo/mortar/rocket/smoke/mlrs/tangle/drop_nade(turf/target_turf)
 	var/datum/effect_system/smoke_spread/smoke = new smoketype()
-	cell_explosion(T, 10, 2)
-	playsound(T, 'sound/effects/smoke.ogg', 25, 1, 4)
-	smoke.set_up(5, T, 6)
+	cell_explosion(target_turf, 10, 2)
+	playsound(target_turf, 'sound/effects/smoke.ogg', 25, 1, 4)
+	smoke.set_up(5, target_turf, 6)
 	smoke.start()
 
 /datum/ammo/bullet/atgun_spread
@@ -162,16 +162,16 @@
 	penetration = 10
 	sundering = 1.5
 
-/datum/ammo/bullet/atgun_spread/incendiary/on_hit_mob(mob/M, obj/projectile/proj)
+/datum/ammo/bullet/atgun_spread/incendiary/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	return
 
-/datum/ammo/bullet/atgun_spread/incendiary/drop_flame(turf/T)
-	if(!istype(T))
+/datum/ammo/bullet/atgun_spread/incendiary/drop_flame(turf/target_turf)
+	if(!istype(target_turf))
 		return
-	T.ignite(5, 10)
+	target_turf.ignite(5, 10)
 
-/datum/ammo/bullet/atgun_spread/incendiary/on_leave_turf(turf/T, obj/projectile/proj)
-	drop_flame(T)
+/datum/ammo/bullet/atgun_spread/incendiary/on_leave_turf(turf/target_turf, obj/projectile/proj)
+	drop_flame(target_turf)
 
 /datum/ammo/ags_shrapnel
 	name = "fragmentation grenade"
@@ -194,21 +194,25 @@
 	bonus_projectiles_scatter = 20
 	var/bonus_projectile_quantity = 15
 
-/datum/ammo/ags_shrapnel/on_hit_mob(mob/M, obj/projectile/proj)
-	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, M) )
+/datum/ammo/ags_shrapnel/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	var/turf/det_turf = get_step_towards(target_mob, proj)
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_mob), loc_override = det_turf)
 
-/datum/ammo/ags_shrapnel/on_hit_obj(obj/O, obj/projectile/proj)
-	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, O) )
+/datum/ammo/ags_shrapnel/on_hit_obj(obj/target_object, obj/projectile/proj)
+	var/turf/det_turf = get_turf(target_object)
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_object), loc_override = det_turf)
 
-/datum/ammo/ags_shrapnel/on_hit_turf(turf/T, obj/projectile/proj)
-	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, T) )
+/datum/ammo/ags_shrapnel/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	var/turf/det_turf = get_turf(target_turf)
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_turf), loc_override = det_turf)
 
-/datum/ammo/ags_shrapnel/do_at_max_range(turf/T, obj/projectile/proj)
-	playsound(proj, SFX_EXPLOSION_MICRO, 30, falloff = 5)
-	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, 2, 3, Get_Angle(proj.firer, get_turf(proj)) )
+/datum/ammo/ags_shrapnel/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	var/turf/det_turf = get_turf(target_turf)
+	playsound(det_turf, SFX_EXPLOSION_MICRO, 30, falloff = 5)
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_quantity, Get_Angle(proj.starting_turf, target_turf), loc_override = det_turf)
 
 /datum/ammo/ags_shrapnel/incendiary
 	name = "white phosphorous grenade"
@@ -234,22 +238,22 @@
 	sundering = 1.5
 	damage_falloff = 0
 
-/datum/ammo/bullet/ags_spread/incendiary/on_hit_mob(mob/M, obj/projectile/P)
-	drop_flame(get_turf(M))
+/datum/ammo/bullet/ags_spread/incendiary/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	drop_flame(get_turf(target_mob))
 
-/datum/ammo/bullet/ags_spread/incendiary/on_hit_obj(obj/O, obj/projectile/P)
-	drop_flame(get_turf(O))
+/datum/ammo/bullet/ags_spread/incendiary/on_hit_obj(obj/target_object, obj/projectile/proj)
+	drop_flame(get_turf(target_object))
 
-/datum/ammo/bullet/ags_spread/incendiary/on_hit_turf(turf/T, obj/projectile/P)
-	drop_flame(get_turf(T))
+/datum/ammo/bullet/ags_spread/incendiary/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_flame(get_turf(target_turf))
 
-/datum/ammo/bullet/ags_spread/incendiary/do_at_max_range(turf/T, obj/projectile/P)
-	drop_flame(get_turf(T))
+/datum/ammo/bullet/ags_spread/incendiary/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_flame(get_turf(target_turf))
 
-/datum/ammo/bullet/ags_spread/incendiary/drop_flame(turf/T)
-	if(!istype(T))
+/datum/ammo/bullet/ags_spread/incendiary/drop_flame(turf/target_turf)
+	if(!istype(target_turf))
 		return
-	T.ignite(5, 10)
+	target_turf.ignite(5, 10)
 
 /datum/ammo/grenade_container
 	name = "grenade shell"
@@ -262,21 +266,21 @@
 	accuracy = 15
 	max_range = 10
 
-/datum/ammo/grenade_container/on_hit_mob(mob/M, obj/projectile/P)
-	drop_nade(get_turf(P))
+/datum/ammo/grenade_container/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	drop_nade(get_turf(proj))
 
-/datum/ammo/grenade_container/on_hit_obj(obj/O, obj/projectile/P)
-	drop_nade(O.density ? P.loc : O.loc)
+/datum/ammo/grenade_container/on_hit_obj(obj/target_object, obj/projectile/proj)
+	drop_nade(target_object.density ? proj.loc : target_object.loc)
 
-/datum/ammo/grenade_container/on_hit_turf(turf/T, obj/projectile/P)
-	drop_nade(T.density ? P.loc : T)
+/datum/ammo/grenade_container/on_hit_turf(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? proj.loc : target_turf)
 
-/datum/ammo/grenade_container/do_at_max_range(turf/T, obj/projectile/P)
-	drop_nade(T.density ? P.loc : T)
+/datum/ammo/grenade_container/do_at_max_range(turf/target_turf, obj/projectile/proj)
+	drop_nade(target_turf.density ? proj.loc : target_turf)
 
-/datum/ammo/grenade_container/drop_nade(turf/T)
-	var/obj/item/explosive/grenade/G = new nade_type(T)
-	G.visible_message(span_warning("\A [G] lands on [T]!"))
+/datum/ammo/grenade_container/drop_nade(turf/target_turf)
+	var/obj/item/explosive/grenade/G = new nade_type(target_turf)
+	G.visible_message(span_warning("\A [G] lands on [target_turf]!"))
 	G.det_time = 10
 	G.activate()
 

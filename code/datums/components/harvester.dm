@@ -221,7 +221,8 @@
 
 		if(/datum/reagent/medicine/kelotane)
 			target.apply_damage(weapon.force*0.6, BRUTE, user.zone_selected)
-			target.fire_act(10, FLAME_COLOR_RED)
+			target.adjust_fire_stacks(5)
+			target.IgniteMob()
 
 		if(/datum/reagent/medicine/tramadol)
 			target.apply_damage(weapon.force*0.6, BRUTE, user.zone_selected)
@@ -248,7 +249,7 @@
 	if(user.a_intent != INTENT_HELP) //Self-heal on attacking
 		new /obj/effect/temp_visual/telekinesis(get_turf(user))
 		target.apply_damage(weapon.force*0.6, BRUTE, user.zone_selected)
-		user.adjustStaminaLoss(-30)
+		user.adjust_stamina_loss(-30)
 		user.heal_overall_damage(5, 0, updating_health = TRUE)
 		return
 
@@ -259,7 +260,7 @@
 		var/skill_heal_amt = user.skills.getRating(SKILL_MEDICAL) * 5
 		target.heal_overall_damage(10 + skill_heal_amt, 0, updating_health = TRUE) //5u of Bica will normally heal 25 damage. Medics get this full amount
 	else
-		target.adjustStaminaLoss(-30)
+		target.adjust_stamina_loss(-30)
 		target.heal_overall_damage(5, 0, updating_health = TRUE)
 
 /datum/component/harvester/proc/select_reagent(datum/source)
@@ -277,8 +278,18 @@
 		if(initial(reagent_entry.name) == selected_option)
 			selected_reagent = reagent_entry
 
+	var/obj/item/item_parent = parent
+	item_parent.update_appearance(UPDATE_ICON)
+	loaded_reagent = null
+	var/parent_slot = reagent_select_action.owner.get_equipped_slot(parent)
+	if(parent_slot == SLOT_L_HAND)
+		reagent_select_action.owner.update_inv_l_hand()
+	else
+		reagent_select_action.owner.update_inv_r_hand()
+
 	update_selected_reagent(selected_reagent)
 
+	INVOKE_ASYNC(src, PROC_REF(activate_blade_async), item_parent, reagent_select_action.owner) //Load up on the chem we just picked
 
 /datum/component/harvester/proc/update_selected_reagent(datum/reagent/new_reagent)
 	selected_reagent = new_reagent

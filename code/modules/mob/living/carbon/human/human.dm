@@ -1,7 +1,5 @@
 /mob/living/carbon/human/Initialize(mapload)
-	add_verb(src, /mob/living/proc/toggle_resting)
-	b_type = pick(7;"O-", 38;"O+", 6;"A-", 34;"A+", 2;"B-", 9;"B+", 1;"AB-", 3;"AB+")
-	blood_type = b_type
+	blood_type = pick(7;"O-", 38;"O+", 6;"A-", 34;"A+", 2;"B-", 9;"B+", 1;"AB-", 3;"AB+")
 
 	if(!species)
 		set_species()
@@ -23,6 +21,7 @@
 
 	randomize_appearance()
 
+	AddComponent(/datum/component/personal_crafting)
 	AddComponent(/datum/component/bump_attack, FALSE, FALSE)
 	AddElement(/datum/element/footstep, isrobot(src) ? FOOTSTEP_MOB_SHOE : FOOTSTEP_MOB_HUMAN, 1)
 	AddElement(/datum/element/ridable, /datum/component/riding/creature/human)
@@ -61,7 +60,7 @@
 	RegisterSignal(src, COMSIG_ATOM_ACIDSPRAY_ACT, PROC_REF(acid_spray_entered))
 	RegisterSignal(src, COMSIG_KB_QUICKEQUIP, PROC_REF(async_do_quick_equip))
 	RegisterSignal(src, COMSIG_KB_UNIQUEACTION, PROC_REF(do_unique_action))
-	RegisterSignal(src, COMSIG_GRAB_SELF_ATTACK, PROC_REF(fireman_carry_grabbed)) // Fireman carry
+	RegisterSignal(src, COMSIG_GRAB_SELF_ATTACK, PROC_REF(grabbed_self_attack)) // Fireman carry & mounting saddled xenos
 	RegisterSignal(src, COMSIG_KB_GIVE, PROC_REF(give_signal_handler))
 
 /mob/living/carbon/human/Destroy()
@@ -441,7 +440,6 @@
 		else if(newcolor != holo_card_color)
 			holo_card_color = newcolor
 			to_chat(usr, span_notice("You add a [newcolor] holo card on [src]."))
-		update_targeted()
 
 	if(href_list["scanreport"])
 		if(!hasHUD(usr,"medical"))
@@ -469,9 +467,8 @@
 
 	return ..()
 
-
-/mob/living/carbon/human/proc/fireman_carry_grabbed()
-	SIGNAL_HANDLER
+/mob/living/carbon/human/grabbed_self_attack()
+	. = ..()
 	var/mob/living/grabbed = pulling
 	if(!istype(grabbed))
 		return NONE
@@ -563,7 +560,7 @@
 
 
 /mob/living/carbon/human/verb/check_pulse()
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	set name = "Check pulse"
 	set desc = "Approximately count somebody's pulse. Requires you to stand still at least 6 seconds."
 	set src in view(1)
@@ -676,7 +673,7 @@
 		AddComponent(/datum/component/stamina_behavior)
 		max_stamina = species.max_stamina
 		max_stamina_buffer = max_stamina
-		setStaminaLoss(-max_stamina)
+		set_stamina_loss(-max_stamina)
 
 	add_movespeed_modifier(MOVESPEED_ID_SPECIES, TRUE, 0, NONE, TRUE, species.slowdown)
 	species.on_species_gain(src, oldspecies) //todo move most of the stuff in this proc to here

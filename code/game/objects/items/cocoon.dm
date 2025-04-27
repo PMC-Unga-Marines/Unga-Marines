@@ -42,9 +42,9 @@
 /obj/structure/cocoon/process()
 	SSpoints.add_psy_points(hivenumber, COCOON_PSY_POINTS_REWARD)
 	//Gives marine cloneloss for a total of 30.
-	victim.adjustCloneLoss(0.5)
+	victim.adjust_clone_Loss(0.5)
 
-/obj/structure/cocoon/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
+/obj/structure/cocoon/take_damage(damage_amount, damage_type, damage_flag = null, effects, attack_dir, armour_penetration, mob/living/blame_mob)
 	. = ..()
 	if(anchored && obj_integrity < max_integrity * 0.5)
 		unanchor_from_nest()

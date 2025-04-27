@@ -38,9 +38,9 @@
 ///Creates plating, used for space turfs only
 /obj/item/stack/tile/plasteel/proc/build(turf/space_turf)
 	if(isspaceturf(space_turf))
-		space_turf.ChangeTurf(/turf/open/floor/plating/airless)
+		space_turf.change_turf(/turf/open/floor/plating/airless)
 	else
-		space_turf.ChangeTurf(/turf/open/floor/plating)
+		space_turf.change_turf(/turf/open/floor/plating)
 
 /obj/item/stack/tile/plasteel/sandstone/runed
 	icon_state = "tile_runedsandstone"

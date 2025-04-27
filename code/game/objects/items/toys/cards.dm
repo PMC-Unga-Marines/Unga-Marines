@@ -55,7 +55,7 @@
 
 /obj/item/toy/deck/verb/draw_card()
 
-	set category = "Object.Cards"
+	set category = "IC.Cards"
 	set name = "Draw"
 	set desc = "Draw a card from a deck."
 	set src in view(1)
@@ -97,7 +97,7 @@
 
 /obj/item/toy/deck/verb/deal_card()
 
-	set category = "Object.Cards"
+	set category = "IC.Cards"
 	set name = "Deal"
 	set desc = "Deal a card from a deck."
 	set src in view(1)
@@ -139,14 +139,9 @@
 		user.visible_message("\The [user] deals a card to \the [target].")
 	H.throw_at(get_step(target,target.dir),10,1,H)
 
-/obj/item/toy/deck/attack_self(mob/user as mob)
-
-	var/list/newcards = list()
-	while(length(cards))
-		var/datum/playingcard/P = pick(cards)
-		newcards += P
-		cards -= P
-	cards = newcards
+/obj/item/toy/deck/attack_self(mob/user)
+	. = ..()
+	shuffle_inplace(cards)
 	user.visible_message("\The [user] shuffles [src].")
 
 /obj/item/toy/deck/MouseDrop(atom/over)
@@ -198,7 +193,7 @@
 /// Takes a selected card, and puts it down, face-up, in front
 /obj/item/toy/handcard/verb/discard()
 
-	set category = "Object.Cards"
+	set category = "IC.Cards"
 	set name = "Discard"
 	set desc = "Place a card from your hand in front of you."
 
@@ -367,6 +362,7 @@
 		P.card_icon = "Wildcard"
 		cards += P
 	for(var/k in 0 to 3)
+		P = new()
 		P.name= "Draw 4"
 		P.card_icon = "Draw 4"
 		cards += P
@@ -380,3 +376,20 @@
 			icon_state = "deck_open"
 		if(0)
 			icon_state = "deck_empty"
+
+// purely cosmetic for helmet stuff, can't be stacked with normal cards
+/obj/item/toy/card/ace/hearts
+	name = "Ancient Ace of Hearts card"
+	desc = "An ancient copy of an Ace of Hearts from a deck of playing cards."
+	icon = 'icons/obj/items/items.dmi'
+	icon_state = "ace_of_hearts"
+	worn_icon_state = "ace_of_hearts"
+	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/toy/card/ace/spades
+	name = "Ancient Ace of Spades card"
+	desc = "An ancient copy of an Ace of Spades from a deck of playing cards."
+	icon = 'icons/obj/items/items.dmi'
+	icon_state = "ace_of_spades"
+	worn_icon_state = "ace_of_spades"
+	w_class = WEIGHT_CLASS_TINY

@@ -5,7 +5,7 @@
 /obj/item/stack/medical
 	name = "medical pack"
 	singular_name = "medical pack"
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/medical_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/medical_right.dmi',
 	)
@@ -89,13 +89,15 @@
 	var/unskilled_penalty = (user.skills.getRating(SKILL_MEDICAL) < skill_level_needed) ? 0.5 : 1
 	var/list/patient_limbs = patient.limbs.Copy()
 	patient_limbs -= affecting
-	while(affecting)
+	while(affecting && amount)
 		if(!do_after(user, SKILL_TASK_VERY_EASY / (unskilled_penalty ** 2), NONE, patient, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL, extra_checks = CALLBACK(src, PROC_REF(can_affect_limb), affecting)))
 			patient.balloon_alert(user, "Stopped tending")
 			return
 		var/affected = heal_limb(affecting, unskilled_penalty)
+		if(affected)
+			use(1)
+			record_healing(user,M)
 		generate_treatment_messages(user, patient, affecting, affected)
-		use(1)
 		affecting = null
 		while(!affecting)
 			var/candidate = popleft(patient_limbs)
@@ -293,12 +295,12 @@
 	name = "combat trauma kit"
 	singular_name = "combat trauma kit"
 	desc = "An expensive huge kit for prolonged combat conditions. Has more space and better medicine compared to a regular one."
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/medical_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/medical_right.dmi',
 	)
 	icon_state = "brute_advanced"
-	item_state = "brute_advanced"
+	worn_icon_state = "brute_advanced"
 	amount = 140
 	max_amount = 140
 	w_class = WEIGHT_CLASS_NORMAL
@@ -318,12 +320,12 @@
 	singular_name = "combat burn kit"
 	desc = "An expensive huge kit for prolonged combat conditions. Has more space and better medicine compared to a regular one."
 	icon = 'icons/obj/stack_objects.dmi'
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/medical_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/medical_right.dmi',
 	)
 	icon_state = "burn_advanced"
-	item_state = "burn_advanced"
+	worn_icon_state = "burn_advanced"
 	w_class = WEIGHT_CLASS_NORMAL
 	amount = 140
 	max_amount = 140

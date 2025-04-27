@@ -2,7 +2,8 @@
 	name = "briefcase"
 	desc = "It's made of AUTHENTIC faux-leather and has a price-tag still attached. Its owner must be a real professional."
 	icon_state = "briefcase"
-	item_state = "briefcase"
+	worn_icon_state = "briefcase"
+	icon = 'icons/obj/items/storage/briefcase.dmi'
 	atom_flags = CONDUCT
 	force = 8
 	throw_speed = 1
@@ -14,7 +15,7 @@
 	name = "R-76 Magnum case"
 	desc = "A well made, expensive looking case, made to fit an R-76 Magnum and its accessories. For the discerning gun owner."
 	icon_state = "magnum_case"
-	item_state = "briefcase"
+	worn_icon_state = "briefcase"
 	atom_flags = CONDUCT
 	force = 12
 	throw_speed = 1
@@ -84,7 +85,7 @@
 	name = "inflatable barrier box"
 	desc = "Contains inflatable walls and doors."
 	icon_state = "inf_box"
-	item_state = "syringe_kit"
+	worn_icon_state = "syringe_kit"
 
 /obj/item/storage/briefcase/inflatable/Initialize(mapload, ...)
 	. = ..()

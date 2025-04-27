@@ -1266,3 +1266,26 @@ GLOBAL_LIST_EMPTY(transformation_animation_objects)
 		var/icon/my_icon = icon(icon_path)
 		GLOB.icon_dimensions[icon_path] = list("width" = my_icon.Width(), "height" = my_icon.Height())
 	return GLOB.icon_dimensions[icon_path]
+
+///Checks if the given iconstate exists in the given file, caching the result. Setting scream to TRUE will print a stack trace ONCE.
+/proc/icon_exists(file, state, scream)
+	var/static/list/icon_states_cache = list()
+	if(icon_states_cache[file]?[state])
+		return TRUE
+
+	if(icon_states_cache[file]?[state] == FALSE)
+		return FALSE
+
+	var/list/states = icon_states(file)
+
+	if(!icon_states_cache[file])
+		icon_states_cache[file] = list()
+
+	if(state in states)
+		icon_states_cache[file][state] = TRUE
+		return TRUE
+	else
+		icon_states_cache[file][state] = FALSE
+		if(scream)
+			stack_trace("Icon Lookup for state: [state] in file [file] failed.")
+		return FALSE

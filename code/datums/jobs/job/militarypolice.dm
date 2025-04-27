@@ -20,7 +20,7 @@
 	name = "identification card"
 	desc = "A security card which shows law and order."
 	icon_state = "sec"
-	item_state = "silver_id"
+	worn_icon_state = "silver_id"
 
 /datum/skills/military_police
 	name = MILITARY_POLICE

@@ -38,6 +38,7 @@
 	STOP_PROCESSING(SSmachines, src)
 	if(istype(circuit)) //There are some uninitialized legacy path circuits.
 		QDEL_NULL(circuit)
+	operator?.unset_interaction()
 	operator = null
 	var/turf/current_turf = get_turf(src)
 	if(anchored && current_turf && density)
@@ -64,7 +65,7 @@
 	to_chat(user, span_notice("You rotate [src]."))
 	return TRUE
 
-/obj/machinery/deconstruct(disassembled = TRUE)
+/obj/machinery/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	if(!(atom_flags & NODECONSTRUCT))
 		on_deconstruction()
 		if(length(component_parts))
@@ -172,10 +173,10 @@
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.getBrainLoss() >= 60)
+		if(H.get_brain_loss() >= 60)
 			visible_message(span_warning("[H] stares cluelessly at [src] and drools."))
 			return FALSE
-		if(prob(H.getBrainLoss()))
+		if(prob(H.get_brain_loss()))
 			to_chat(user, span_warning("You momentarily forget how to use [src]."))
 			return FALSE
 
@@ -261,12 +262,12 @@
 		"stationtime" = worldtime2text(),
 		"stat" = H.stat,
 		"health" = H.health,
-		"bruteloss" = H.getBruteLoss(),
-		"fireloss" = H.getFireLoss(),
-		"oxyloss" = H.getOxyLoss(),
-		"toxloss" = H.getToxLoss(),
-		"cloneloss" = H.getCloneLoss(),
-		"brainloss" = H.getBrainLoss(),
+		"bruteloss" = H.get_brute_loss(),
+		"fireloss" = H.get_fire_loss(),
+		"oxyloss" = H.get_oxy_loss(),
+		"toxloss" = H.get_tox_loss(),
+		"cloneloss" = H.get_clone_Loss(),
+		"brainloss" = H.get_brain_loss(),
 		"knocked_out" = H.AmountUnconscious(),
 		"bodytemp" = H.bodytemperature,
 		"inaprovaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/medicine/inaprovaline),

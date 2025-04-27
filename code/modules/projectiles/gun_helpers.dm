@@ -89,7 +89,7 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 /obj/item/weapon/gun/attack_self(mob/user)
 	. = ..()
 	//There are only two ways to interact here.
-	if(!CHECK_BITFIELD(item_flags, TWOHANDED))
+	if(!(item_flags & TWOHANDED))
 		return
 	if(item_flags & WIELDED)
 		unwield(user)//Trying to unwield it
@@ -343,7 +343,7 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 
 // todo destroy all verbs
 /mob/living/carbon/human/verb/empty_mag()
-	set category = "Weapons"
+	set category = "IC.Weapons"
 	set name = "Unload Weapon"
 	set desc = "Removes the magazine from your current gun and drops it on the ground, or clears the chamber if your gun is already empty."
 
@@ -360,7 +360,7 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 	unload(usr) //We want to drop the mag on the ground.
 
 /mob/living/carbon/human/verb/use_unique_action()
-	set category = "Weapons"
+	set category = "IC.Weapons"
 	set name = "Unique Action"
 	set desc = "Use anything unique your firearm is capable of. Includes pumping a shotgun or spinning a revolver."
 
@@ -377,7 +377,7 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 	do_unique_action(usr)
 
 /mob/living/carbon/human/verb/toggle_gun_safety()
-	set category = "Weapons"
+	set category = "IC.Weapons"
 	set name = "Toggle Gun Safety"
 	set desc = "Toggle the safety of the held gun."
 
@@ -399,7 +399,7 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 		REMOVE_TRAIT(src, TRAIT_GUN_SAFETY, GUN_TRAIT)
 
 /mob/living/carbon/human/verb/activate_attachment_verb()
-	set category = "Weapons"
+	set category = "IC.Weapons"
 	set name = "Load From Attachment"
 	set desc = "Load from a gun attachment, such as a mounted grenade launcher, shotgun, or flamethrower."
 
@@ -440,7 +440,7 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 	usable_attachment.ui_action_click(usr, null, src)
 
 /mob/living/carbon/human/verb/toggle_rail_attachment()
-	set category = "Weapons"
+	set category = "IC.Weapons"
 	set name = "Toggle Rail Attachment"
 	set desc = "Uses the rail attachement currently attached to the gun."
 
@@ -598,6 +598,14 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 	if(gun_user?.get_active_held_item() != src && !(item_flags & IS_DEPLOYED))
 		return
 	activate_attachment(ATTACHMENT_SLOT_RAIL, gun_user)
+	return COMSIG_KB_ACTIVATED
+
+/// Signal handler to activate the muzzle attachement of that gun if it's in our active hand
+/obj/item/weapon/gun/proc/activate_muzzle_attachment()
+	SIGNAL_HANDLER
+	if(gun_user?.get_active_held_item() != src && !(item_flags & IS_DEPLOYED))
+		return
+	activate_attachment(ATTACHMENT_SLOT_MUZZLE, gun_user)
 	return COMSIG_KB_ACTIVATED
 
 /// Signal handler to activate the underrail attachement of that gun if it's in our active hand

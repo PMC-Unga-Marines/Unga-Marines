@@ -18,7 +18,7 @@
 	desc = "Composite made of iron and copper plates"
 	singular_name = "composite sheet"
 	icon_state = "CuFe_composite"
-	item_state = "CuFe_composite"
+	worn_icon_state = "CuFe_composite"
 	item_flags = NOBLUDGEON
 	throwforce = 14
 	atom_flags = CONDUCT
@@ -33,7 +33,7 @@
 	desc = "Jeweler steel, contains precious metals"
 	singular_name = "steel sheet"
 	icon_state = "jeweler_steel"
-	item_state = "jeweler_steel"
+	worn_icon_state = "jeweler_steel"
 	item_flags = NOBLUDGEON
 	throwforce = 14
 	atom_flags = CONDUCT

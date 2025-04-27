@@ -175,7 +175,7 @@
 		affected.robotize()
 
 	target.update_body()
-	target.updatehealth()
+	target.update_health()
 	target.UpdateDamageIcon()
 
 	//Deal with the limb item properly

@@ -55,15 +55,19 @@ export const title_labels = {
 	},
 	'April Fools' : {
 		keywords: ['[april fools]'],
+		add_only: true,
 	},
 	'Do Not Merge' : {
 		keywords: ['[dnm]', '[do not merge]'],
+		add_only: true,
 	},
 	'Test Merge Only' : {
 		keywords: ['[tm only]', '[test merge only]'],
+		add_only: true,
 	},
 	'Port': {
 		keywords: ['port'],
+		add_only: true,
 	},
 }
 

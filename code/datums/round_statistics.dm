@@ -62,6 +62,7 @@ GLOBAL_DATUM_INIT(round_statistics, /datum/round_statistics, new)
 	var/mortar_shells_fired = 0
 	var/howitzer_shells_fired = 0
 	var/rocket_shells_fired = 0
+	var/obs_fired = 0
 	var/queen_screech = 0
 	var/now_pregnant = 0
 	var/failed_impregnations = 0
@@ -102,3 +103,4 @@ GLOBAL_DATUM_INIT(round_statistics, /datum/round_statistics, new)
 	var/chimera_blinks = 0
 	var/larva_from_xeno_core = 0
 	var/points_from_towers = 0
+	var/runner_items_stolen = 0

@@ -118,10 +118,11 @@
 					return FALSE
 
 				if(NON_ASCII_CHECK(input))
-					to_chat(usr, span_warning("That announcement contained charachters prohibited in IC chat! Consider reviewing the server rules."))
+					to_chat(usr, span_warning("That announcement contained characters prohibited in IC chat! Consider reviewing the server rules."))
 					return FALSE
 
-				priority_announce(input, subtitle = "Sent by [usr]", type = ANNOUNCEMENT_COMMAND)
+				var/mob/living/carbon/human/sender = usr
+				priority_announce(input, subtitle = "Sent by [sender.get_paygrade(0) ? sender.get_paygrade(0) : sender.job.title] [sender.real_name]", type = ANNOUNCEMENT_COMMAND)
 				message_admins("[ADMIN_TPMONTY(usr)] has just sent a command announcement")
 				log_game("[key_name(usr)] has just sent a command announcement.")
 				TIMER_COOLDOWN_START(usr, COOLDOWN_HUD_ORDER, CIC_ORDER_COOLDOWN)
@@ -176,7 +177,7 @@
 
 			state = STATE_EVACUATION
 
-		if("evacuation_cancel")
+		if("delta_cancel")
 			if(state == STATE_EVACUATION_CANCEL)
 				if(!SSevacuation.cancel_evacuation())
 					to_chat(usr, span_warning("You are unable to cancel the evacuation right now!"))
@@ -362,7 +363,7 @@
 						dat += "<BR>\[ <A HREF='?src=[text_ref(src)];operation=distress'>Send Distress Beacon</A> \]"
 					switch(SSevacuation.evac_status)
 						if(EVACUATION_STATUS_STANDING_BY) dat += "<BR>\[ <A HREF='?src=[text_ref(src)];operation=evacuation_start'>Initiate emergency evacuation</A> \]"
-						if(EVACUATION_STATUS_INITIATING) dat += "<BR>\[ <A HREF='?src=[text_ref(src)];operation=evacuation_cancel'>Cancel emergency evacuation</A> \]"
+						if(EVACUATION_STATUS_INITIATING) dat += "<BR>\[ <A HREF='?src=[text_ref(src)];operation=delta_cancel'>Cancel Delta Alert</A> \]"
 
 			else
 				dat += "<BR>\[ <A HREF='?src=[text_ref(src)];operation=login'>LOG IN</A> \]"
@@ -371,7 +372,7 @@
 			dat += "Are you sure you want to evacuate the [SSmapping.configs[SHIP_MAP].map_name]? \[ <A HREF='?src=[text_ref(src)];operation=evacuation_start'>Confirm</A>\]"
 
 		if(STATE_EVACUATION_CANCEL)
-			dat += "Are you sure you want to cancel the evacuation of the [SSmapping.configs[SHIP_MAP].map_name]? \[ <A HREF='?src=[text_ref(src)];operation=evacuation_cancel'>Confirm</A>\]"
+			dat += "Are you sure you want to cancel Delta Alert and prevent the evacuation and/or self destruction of the [SSmapping.configs[SHIP_MAP].map_name]? \[ <A HREF='?src=[text_ref(src)];operation=delta_cancel'>Confirm</A>\]"
 
 		if(STATE_DISTRESS)
 			if(CONFIG_GET(flag/infestation_ert_allowed))

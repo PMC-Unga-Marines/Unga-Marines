@@ -2,6 +2,7 @@
 	name = "heart"
 	slot = ORGAN_SLOT_HEART
 	peri_effect = TRUE
+	damage_description = "Bruised hearts cause reduced constitution, suffocation and pain. Broken hearts prevent revival until repaired."
 
 /datum/internal_organ/heart/process()
 	if(organ_status == ORGAN_BRUISED && prob(5))
@@ -21,6 +22,7 @@
 	name = "lungs"
 	slot = ORGAN_SLOT_LUNGS
 	peri_effect = TRUE
+	damage_description = "Bruised lungs cause suffocation, slowdown and slower endurance regeneration. Broken lungs significantly worsen these effects."
 
 /datum/internal_organ/lungs/process()
 	if((organ_status == ORGAN_BRUISED && prob(5)) || (organ_status == ORGAN_BROKEN && prob(20)))
@@ -45,6 +47,7 @@
 	slot = ORGAN_SLOT_KIDNEYS
 	parent_limb = BODY_ZONE_PRECISE_GROIN
 	peri_effect = TRUE
+	damage_description = "Bruised and broken kidneys reduce the amount of reagents a person can have in their system before they feel drawbacks."
 	///Tracks the number of reagent/medicine datums we currently have
 	var/current_medicine_count = 0
 	///How many drugs we can take before they overwhelm us. Decreases with damage
@@ -122,6 +125,7 @@
 	name = "liver"
 	slot = ORGAN_SLOT_LIVER
 	peri_effect = TRUE
+	damage_description = "Damaged livers slowly increase toxin damage instead of healing it, take damage when processing toxins, become less effective at processing toxins, and deal toxin damage when processing toxins."
 	///lower value, higher resistance.
 	var/alcohol_tolerance = 0.005
 	///How fast we clean out toxins/toxloss. Adjusts based on organ damage.
@@ -129,7 +133,7 @@
 
 /datum/internal_organ/liver/process()
 	//High toxins levels are dangerous if you aren't actively treating them. 100 seconds to hit bruised from this alone
-	if(owner.getToxLoss() >= (80 - 20 * organ_status))
+	if(owner.get_tox_loss() >= (80 - 20 * organ_status))
 		//Healthy liver suffers on its own
 		if(organ_status != ORGAN_BROKEN)
 			take_damage(0.2, TRUE)
@@ -139,7 +143,7 @@
 			O?.take_damage(0.2, TRUE)
 
 	// Heal a bit if needed and we're not busy. This allows recovery from low amounts of toxins.
-	if(!owner.drunkenness && owner.getToxLoss() <= 15 && organ_status == ORGAN_HEALTHY)
+	if(!owner.drunkenness && owner.get_tox_loss() <= 15 && organ_status == ORGAN_HEALTHY)
 		heal_organ_damage(0.04)
 
 	// Do some reagent filtering/processing.
@@ -147,11 +151,11 @@
 		//Liver helps clear out any toxins but with drawbacks if damaged
 		if(istype(potential_toxin, /datum/reagent/consumable/ethanol) || istype(potential_toxin, /datum/reagent/toxin))
 			if(organ_status != ORGAN_HEALTHY)
-				owner.adjustToxLoss(0.3 * organ_status)
+				owner.adjust_tox_loss(0.3 * organ_status)
 			owner.reagents.remove_reagent(potential_toxin.type, potential_toxin.custom_metabolism * filter_rate * 0.1)
 
 	//Heal toxin damage slowly if not damaged. If broken, increase it instead.
-	owner.adjustToxLoss((2 - filter_rate) * 0.1)
+	owner.adjust_tox_loss((2 - filter_rate) * 0.1)
 	if(prob(organ_status)) //Just under once every three minutes while bruised, twice as often while broken.
 		owner.vomit() //No stomach, so the liver can cause vomiting instead. Stagger and slowdown plus feedback that something's wrong.
 
@@ -171,6 +175,7 @@
 	name = "stomach"
 	slot = ORGAN_SLOT_STOMACH
 	peri_effect = TRUE
+	damage_description = "Eating with a bruised stomach has increased chance of getting sepsis upon ingestion. Owner is likely to puke during the stomach processing its contents."
 	///The rate that the stomach will transfer reagents to the body
 	var/metabolism_efficiency = 0.05 // the lowest we should go is 0.025
 	/// Our reagents
@@ -196,11 +201,14 @@
 		// the stomach manages how fast they are feed in a drip style
 		reagents.trans_to(body, amount)
 
-	//If the stomach is not damage exit out
+	//If the stomach isn't damaged exit out
 	if(damage < min_bruised_damage)
 		return
 
-	if(prob(0.0125 * damage) || damage > min_broken_damage && prob(0.05 * damage))
+	var/prob_mod = 0.0125
+	if(damage >= min_broken_damage)
+		prob_mod = 0.05
+	if(prob(prob_mod * damage))
 		body.vomit()
 		to_chat(body, span_warning("Your stomach reels in pain as you're incapable of holding down it's contents!"))
 		return
@@ -209,6 +217,7 @@
 	name = "eyeballs"
 	slot = ORGAN_SLOT_EYES
 	parent_limb = BODY_ZONE_HEAD
+	damage_description = "Bruised eyes cause blurry vision. Broken eyes cause blindness."
 	///stores which stage of the eye surgery the eye is at
 	var/eye_surgery_stage = 0
 
@@ -221,6 +230,7 @@
 /datum/internal_organ/brain
 	name = "brain"
 	parent_limb = BODY_ZONE_HEAD
+	damage_description = "Brain damage reduces the patient's skills."
 	var/mob/living/brain/brainmob = null
 
 /datum/internal_organ/brain/set_organ_status()

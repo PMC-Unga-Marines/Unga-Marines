@@ -11,8 +11,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/essence_link
 	name = "Essence Link"
-	action_icon_state = "healing_infusion"
 	desc = "Link to a xenomorph. This changes some of your abilities, and grants them and you both various bonuses."
+	action_icon_state = "healing_infusion"
+	action_icon = 'icons/Xeno/actions/drone.dmi'
 	cooldown_duration = 5 SECONDS
 	ability_cost = 0
 	target_flags = ABILITY_MOB_TARGET
@@ -20,6 +21,8 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ESSENCE_LINK,
 		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_ESSENCE_LINK_REMOVE,
 	)
+	use_state_flags = ABILITY_USE_LYING
+
 	/// Used to determine whether there is an existing Essence Link or not. Also allows access to its vars.
 	var/datum/status_effect/stacking/essence_link/existing_link
 	/// The target of an existing link, if applicable.
@@ -28,50 +31,46 @@
 	var/attunement_cooldown = 10 SECONDS
 
 /datum/action/ability/activable/xeno/essence_link/can_use_ability(mob/living/carbon/xenomorph/target, silent = FALSE, override_flags)
-	var/mob/living/carbon/xenomorph/X = owner
-	if(!isxeno(target) || target.get_xeno_hivenumber() != X.get_xeno_hivenumber())
+	if(!isxeno(target) || target.get_xeno_hivenumber() != xeno_owner.get_xeno_hivenumber())
 		return FALSE
-	if(!X.Adjacent(target))
-		X.balloon_alert(X, "Not adjacent")
+	if(!xeno_owner.Adjacent(target))
+		xeno_owner.balloon_alert(xeno_owner, "Not adjacent")
 		return FALSE
 	if(target.tier == XENO_TIER_ZERO || target.tier == XENO_TIER_MINION)
-		target.balloon_alert(X, "We cannot link to her.")
+		target.balloon_alert(xeno_owner, "We cannot link to her.")
 		return FALSE
-	if(HAS_TRAIT(X, TRAIT_ESSENCE_LINKED))
-		target.balloon_alert(X, "We are already linked")
+	if(HAS_TRAIT(xeno_owner, TRAIT_ESSENCE_LINKED))
+		target.balloon_alert(xeno_owner, "We are already linked")
 		return FALSE
 	if(HAS_TRAIT(target, TRAIT_ESSENCE_LINKED))
-		target.balloon_alert(X, "She is already linked")
+		target.balloon_alert(xeno_owner, "She is already linked")
 		return FALSE
 	return ..()
 
 /datum/action/ability/activable/xeno/essence_link/use_ability(atom/target)
-	var/mob/living/carbon/xenomorph/X = owner
-	if(!HAS_TRAIT(X, TRAIT_ESSENCE_LINKED))
-		target.balloon_alert(X, "Linking...")
-		if(!do_after(X, DRONE_ESSENCE_LINK_WINDUP, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_FRIENDLY))
-			X.balloon_alert(X, "Link cancelled")
+	if(!HAS_TRAIT(xeno_owner, TRAIT_ESSENCE_LINKED))
+		target.balloon_alert(xeno_owner, "Linking...")
+		if(!do_after(xeno_owner, DRONE_ESSENCE_LINK_WINDUP, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_FRIENDLY))
+			xeno_owner.balloon_alert(xeno_owner, "Link cancelled")
 			return
-		X.apply_status_effect(STATUS_EFFECT_XENO_ESSENCE_LINK, 1, target)
-		existing_link = X.has_status_effect(STATUS_EFFECT_XENO_ESSENCE_LINK)
+		xeno_owner.apply_status_effect(STATUS_EFFECT_XENO_ESSENCE_LINK, 1, target)
+		existing_link = xeno_owner.has_status_effect(STATUS_EFFECT_XENO_ESSENCE_LINK)
 		linked_target = target
 		target.balloon_alert(target, "Essence Link established")
 	succeed_activate()
 
 /datum/action/ability/activable/xeno/essence_link/alternate_action_activate()
-	var/mob/living/carbon/xenomorph/X = owner
-	if(!HAS_TRAIT(X, TRAIT_ESSENCE_LINKED))
-		X.balloon_alert(X, "No link to cancel")
+	if(!HAS_TRAIT(xeno_owner, TRAIT_ESSENCE_LINKED))
+		xeno_owner.balloon_alert(xeno_owner, "No link to cancel")
 		return
 	end_ability()
 	return COMSIG_KB_ACTIVATED
 
 /// Ends the ability, removing signals and buffs.
 /datum/action/ability/activable/xeno/essence_link/proc/end_ability()
-	var/mob/living/carbon/xenomorph/X = owner
-	var/datum/action/ability/xeno_action/enhancement/enhancement_action = X.actions_by_path[/datum/action/ability/xeno_action/enhancement]
+	var/datum/action/ability/xeno_action/enhancement/enhancement_action = xeno_owner.actions_by_path[/datum/action/ability/xeno_action/enhancement]
 	enhancement_action?.end_ability()
-	X.remove_status_effect(STATUS_EFFECT_XENO_ESSENCE_LINK)
+	xeno_owner.remove_status_effect(STATUS_EFFECT_XENO_ESSENCE_LINK)
 	existing_link = null
 	linked_target = null
 	add_cooldown()
@@ -85,8 +84,9 @@
 // ***************************************
 /datum/action/ability/activable/xeno/psychic_cure/acidic_salve
 	name = "Acidic Salve"
-	action_icon_state = "heal_xeno"
 	desc = "Apply a minor heal to the target. If applied to a linked sister, it will also apply a regenerative buff. Additionally, if that linked sister is near death, the heal's potency is increased"
+	action_icon_state = "heal_xeno"
+	action_icon = 'icons/Xeno/actions/drone.dmi'
 	cooldown_duration = 5 SECONDS
 	ability_cost = 150
 	keybinding_signals = list(
@@ -96,13 +96,12 @@
 	target_flags = ABILITY_MOB_TARGET
 
 /datum/action/ability/activable/xeno/psychic_cure/acidic_salve/use_ability(atom/target)
-	var/mob/living/carbon/xenomorph/X = owner
-	if(X.do_actions)
+	if(xeno_owner.do_actions)
 		return FALSE
 	owner.face_atom(target) //Face the target so we don't look stupid
-	if(!do_after(X, 1 SECONDS, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL))
+	if(!do_after(xeno_owner, 1 SECONDS, NONE, target, BUSY_ICON_FRIENDLY, BUSY_ICON_MEDICAL))
 		return FALSE
-	X.visible_message(span_xenowarning("\the [X] vomits acid over [target], mending their wounds!"))
+	xeno_owner.visible_message(span_xenowarning("\the [xeno_owner] vomits acid over [target], mending their wounds!"))
 	owner.changeNext_move(CLICK_CD_RANGE)
 	salve_healing(target)
 	succeed_activate()
@@ -116,7 +115,7 @@
 	var/datum/action/ability/activable/xeno/essence_link/essence_link_action = owner.actions_by_path[/datum/action/ability/activable/xeno/essence_link]
 	var/heal_multiplier = 1
 	if(essence_link_action.existing_link?.link_target == target)
-		var/remaining_health = round(target.maxHealth - (target.getBruteLoss() + target.getFireLoss()))
+		var/remaining_health = round(target.maxHealth - (target.get_brute_loss() + target.get_fire_loss()))
 		var/health_threshold = round(target.maxHealth * 0.1) // 10% of the target's maximum health
 		target.apply_status_effect(STATUS_EFFECT_XENO_SALVE_REGEN)
 		if(essence_link_action.existing_link.stacks > 0 && remaining_health <= health_threshold)
@@ -124,8 +123,8 @@
 	playsound(target, SFX_ALIEN_DROOL, 25)
 	new /obj/effect/temp_visual/telekinesis(get_turf(target))
 	var/heal_amount = (DRONE_BASE_SALVE_HEAL + target.recovery_aura * target.maxHealth * 0.01) * heal_multiplier
-	target.adjustFireLoss(-max(0, heal_amount - target.getBruteLoss()), TRUE)
-	target.adjustBruteLoss(-heal_amount)
+	target.adjust_fire_loss(-max(0, heal_amount - target.get_brute_loss()), TRUE)
+	target.adjust_brute_loss(-heal_amount)
 	target.adjust_sunder(-heal_amount * 0.1)
 	if(heal_multiplier > 1) // A signal depends on the above heals, so this has to be done here.
 		playsound(target,'sound/effects/magic.ogg', 75, 1)
@@ -136,8 +135,9 @@
 // ***************************************
 /datum/action/ability/xeno_action/enhancement
 	name = "Enhancement"
-	action_icon_state = "enhancement"
 	desc = "Apply an enhancement to the linked xeno, increasing their capabilities beyond their limits."
+	action_icon_state = "enhancement"
+	action_icon = 'icons/Xeno/actions/drone.dmi'
 	cooldown_duration = 120 SECONDS
 	ability_cost = 0
 	keybinding_signals = list(
@@ -180,8 +180,7 @@
 /datum/action/ability/xeno_action/enhancement/proc/link_essence_action()
 	if(essence_link_action)
 		return
-	var/mob/living/carbon/xenomorph/X = owner
-	essence_link_action = X.actions_by_path[/datum/action/ability/activable/xeno/essence_link]
+	essence_link_action = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/essence_link]
 	if(!essence_link_action)
 		CRASH("[type] loaded with a drone_enhancement to link to")
 	RegisterSignal(essence_link_action, COMSIG_QDELETING, PROC_REF(unlink_essence_action))

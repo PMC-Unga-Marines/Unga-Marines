@@ -1,14 +1,14 @@
 /datum/supply_packs/vehicles
 	group = "Vehicles"
 
-/datum/supply_packs/vehicles/ltb_shells
-	name = "LTB tank shell"
+/datum/supply_packs/vehicles/ltb_he_shell
+	name = "LTB High Explosive tank shell"
 	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon)
 	cost = 10
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/vehicles/ltb_shells_apfds
-	name = "LTB tank APFDS shell"
+/datum/supply_packs/vehicles/ltb_apfds_shell
+	name = "LTB APFDS tank shell"
 	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon/apfds)
 	cost = 10
 	containertype = /obj/structure/closet/crate/ammo
@@ -18,6 +18,11 @@
 	contains = list(/obj/item/ammo_magazine/tank/ltaap_chaingun)
 	cost = 10
 	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/weapons/ltb_canister_shell
+	name = "LTB Canister tank shell"
+	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon/canister)
+	cost = 10
 
 /datum/supply_packs/vehicles/cupola_rounds
 	name = "Cupola tank magazine"
@@ -72,6 +77,11 @@
 	contains = list(/obj/item/uav_turret/droid)
 	cost = 200
 	containertype = /obj/structure/closet/crate/weapon
+
+/datum/supply_packs/vehicles/tiny_uv
+	name = "Tiny unmanned vehicle - Skink"
+	contains = list(/obj/item/deployable_vehicle/tiny)
+	cost = 50
 
 /datum/supply_packs/vehicles/light_uv
 	name = "Light unmanned vehicle - Iguana"

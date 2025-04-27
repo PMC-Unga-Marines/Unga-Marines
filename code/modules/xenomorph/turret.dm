@@ -3,7 +3,7 @@
 /obj/structure/xeno/turret
 	name = "acid turret"
 	desc = "A menacing looking construct of resin, it seems to be alive. It fires acid against intruders."
-	icon = 'icons/Xeno/acidturret.dmi'
+	icon = 'icons/Xeno/acid_turret.dmi'
 	icon_state = "acid_turret"
 	base_icon_state = "acid_turret"
 	obj_integrity = 600
@@ -53,7 +53,7 @@
 	SIGNAL_HANDLER
 	qdel(src)
 
-/obj/structure/xeno/turret/obj_destruction(damage_amount, damage_type, damage_flag)
+/obj/structure/xeno/turret/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
 	if(damage_amount) //Spawn effects only if we actually get destroyed by damage
 		on_destruction()
 		playsound(loc,'sound/effects/alien/turret_death.ogg', 70)

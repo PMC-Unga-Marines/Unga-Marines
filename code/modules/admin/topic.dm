@@ -62,7 +62,7 @@
 					status = "Unconscious"
 				if(DEAD)
 					status = "Dead"
-			health = "Oxy: [L.getOxyLoss()]  Tox: [L.getToxLoss()]  Fire: [L.getFireLoss()]  Brute: [L.getBruteLoss()]  Clone: [L.getCloneLoss()]  Brain: [L.getBrainLoss()]  Stamina: [L.getStaminaLoss()]"
+			health = "Oxy: [L.get_oxy_loss()]  Tox: [L.get_tox_loss()]  Fire: [L.get_fire_loss()]  Brute: [L.get_brute_loss()]  Clone: [L.get_clone_Loss()]  Brain: [L.get_brain_loss()]  Stamina: [L.get_stamina_loss()]"
 
 		to_chat(usr, {"<span class='notice'><hr><b>Info about [M.real_name]:</b>
 Type: [M.type] | Gender: [M.gender] |[job ? " Job: [job.title]" : ""]
@@ -297,22 +297,21 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			return
 		E.admin_setup(usr)
 		var/datum/round_event/event = E.run_event()
-		if(event.announce_when>0)
+		if(event.announce_when > 0)
 			event.processing = FALSE
-			var/prompt = alert(usr, "Would you like to alert the crew?", "Alert", "Yes", "No", "Cancel")
+			var/prompt = tgui_alert(usr, "Would you like to alert the crew?", "Alert", list("Yes", "No"), 0)
+			if(!prompt)
+				event.kill()
+				return
 			switch(prompt)
 				if("Yes")
 					event.announce_chance = 100
-				if("Cancel")
-					event.kill()
-					return
 				if("No")
 					event.announce_chance = 0
 			event.processing = TRUE
 		message_admins("[key_name_admin(usr)] has triggered an event. ([E.name])")
 		log_admin("[key_name(usr)] has triggered an event. ([E.name])")
 		return
-
 
 	else if(href_list["kick"])
 		if(!check_rights(R_BAN))
@@ -322,7 +321,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(ismob(M))
 			if(!check_if_greater_rights_than(M.client))
 				return
-			if(alert(usr, "Are you sure you want to kick [key_name(M)]?", "Warning", "Yes", "No") != "Yes")
+			if(tgui_alert(usr, "Are you sure you want to kick [key_name(M)]?", "Warning", list("Yes", "No"), 0) != "Yes")
 				return
 			if(!M?.client)
 				to_chat(usr, span_warning("Error: [M] no longer has a client!"))
@@ -332,7 +331,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 			log_admin_private("[key_name(usr)] kicked [key_name(M)].")
 			message_admins("[ADMIN_TPMONTY(usr)] kicked [ADMIN_TPMONTY(M)].")
-
 
 	else if(href_list["mute"])
 		if(!check_rights(R_BAN))
@@ -370,18 +368,18 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			return
 
 		var/delmob
-		switch(alert("Delete old mob?", "Message", "Yes", "No", "Cancel"))
-			if("Cancel")
-				return
-			if("Yes")
-				delmob = TRUE
+		var/delmob_prompt = tgui_alert(usr, "Delete old mob?", "Message", list("Yes", "No"), 0)
+		if(!delmob_prompt)
+			return
+		if(delmob_prompt == "Yes")
+			delmob = TRUE
 
 		var/turf/location
-		switch(alert("Teleport to your location?", "Message", "Yes", "No", "Cancel"))
-			if("Cancel")
-				return
-			if("Yes")
-				location = get_turf(oldusr)
+		var/loc_prompt = tgui_alert(usr, "Teleport to your location?", "Message", list("Yes", "No"), 0)
+		if(!loc_prompt)
+			return
+		if(loc_prompt == "Yes")
+			location = get_turf(oldusr)
 
 		var/mob/newmob
 
@@ -499,14 +497,13 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(!istype(L))
 			return
 
-		if(alert("Are you sure you want to rejuvenate [L]?", "Rejuvenate", "Yes", "No") != "Yes")
+		if(tgui_alert(usr, "Are you sure you want to rejuvenate [L]?", "Rejuvenate", list("Yes", "No"), 0) != "Yes")
 			return
 
 		L.revive(TRUE)
 
 		log_admin("[key_name(usr)] revived [key_name(L)].")
 		message_admins("[ADMIN_TPMONTY(usr)] revived [ADMIN_TPMONTY(L)].")
-
 
 	else if(href_list["editrightsbrowser"])
 		if(!check_rights(R_PERMISSIONS))
@@ -549,7 +546,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			H.update_inv_l_hand()
 		else
 			if(isobserver(M))
-				if(alert("Are you sure you want to spawn the cookie at observer location [AREACOORD(M.loc)]?", "Confirmation", "Yes", "No") != "Yes")
+				if(tgui_alert(usr, "Are you sure you want to spawn the cookie at observer location [AREACOORD(M.loc)]?", "Confirmation", list("Yes", "No"), 0) != "Yes")
 					return
 			var/turf/T = get_turf(M)
 			new /obj/item/reagent_containers/food/snacks/cookie(T)
@@ -571,12 +568,12 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			H.update_inv_r_hand()
 			H.update_inv_l_hand()
 		else if(isobserver(M))
-			if(alert("Are you sure you want to spawn the fortune cookie at observer location [AREACOORD(M.loc)]?", "Confirmation", "Yes", "No") != "Yes")
+			if(tgui_alert(usr, "Are you sure you want to spawn the fortune cookie at observer location [AREACOORD(M.loc)]?", "Confirmation", list("Yes", "No"), 0) != "Yes")
 				return
 			var/turf/T = get_turf(M)
 			new /obj/item/reagent_containers/food/snacks/fortunecookie(T)
 		else if(isxeno(M))
-			if(alert("Are you sure you want to tell the Xeno a Xeno tip?", "Confirmation", "Yes", "No") != "Yes")
+			if(tgui_alert(usr, "Are you sure you want to tell the Xeno a Xeno tip?", "Confirmation", list("Yes", "No"), 0) != "Yes")
 				return
 			to_chat(M, span_tip("[pick(SSstrings.get_list_from_file("tips/xeno"))]"))
 
@@ -592,7 +589,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(!check_rights(R_ADMIN))
 			return
 
-		var/message = input(owner, "As well as a popup, they'll also be sent a message to reply to. What do you want that to be?", "Message") as text|null
+		var/message = tgui_input_text(owner, "As well as a popup, they'll also be sent a message to reply to. What do you want that to be?", "Message", timeout = 0)
 		if(!message)
 			to_chat(owner, span_notice("Popup cancelled."))
 			return
@@ -620,7 +617,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			return
 
 		if(!SSticker.HasRoundStarted())
-			alert("The game hasn't started yet!")
+			to_chat(usr, "The game hasn't started yet!")
 			return
 
 		var/mob/M = locate(href_list["traitor"])
@@ -638,7 +635,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(!istype(H))
 			return
 
-		var/input = input("Please enter a message to reply to [key_name(H)].", "Outgoing message from TGMC", "") as message|null
+		var/input = tgui_input_text(usr, "Please enter a message to reply to [key_name(H)].", "Outgoing message from TGMC", timeout = 0)
 		if(!input)
 			return
 
@@ -648,7 +645,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		log_admin("[key_name(usr)] replied to [ADMIN_TPMONTY(H)]'s TGMC message with: [input].")
 		message_admins("[ADMIN_TPMONTY(usr)] replied to [ADMIN_TPMONTY(H)]'s' TGMC message with: [input]")
-
 
 	if(href_list["deny"])
 		var/mob/M = locate(href_list["deny"])
@@ -660,7 +656,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		priority_announce("Сигнал бедствия заблокирован. Пусковые трубы перекалибруются.", "Сигнал Бедствия", sound = 'sound/AI/distressbeaconlocked.ogg')
 		log_admin("[key_name(usr)] has denied a distress beacon, requested by [key_name(M)]")
 		message_admins("[ADMIN_TPMONTY(usr)] has denied a distress beacon, requested by [ADMIN_TPMONTY(M)]")
-
 
 	if(href_list["distress"])
 		var/mob/M = locate(href_list["distress"])
@@ -675,7 +670,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		for(var/datum/emergency_call/E in SSticker.mode.all_calls) //Loop through all potential candidates
 			valid_calls.Add(E)
 
-		var/chosen_call = input(usr, "Select a distress to send", "Emergency Response") as null|anything in valid_calls
+		var/chosen_call = tgui_input_list(usr, "Select a distress to send", "Emergency Response", valid_calls, "Random", 0)
 
 		if(chosen_call == "Random")
 			SSticker.mode.activate_distress()
@@ -685,7 +680,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		log_admin("[key_name(usr)] has sent a [chosen_call] distress beacon early, requested by [key_name(M)]")
 		message_admins("[ADMIN_TPMONTY(usr)] has sent a [chosen_call] distress beacon early, requested by [ADMIN_TPMONTY(M)]")
 
-
 	else if(href_list["thunderdome"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -694,7 +688,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(!ismob(M))
 			return
 
-		if(alert("Do you want to send [key_name(M)] to the Thunderdome?", "Confirmation", "Yes", "No") != "Yes")
+		if(tgui_alert(usr, "Do you want to send [key_name(M)] to the Thunderdome?", "Confirmation", list("Yes", "No"), 0) != "Yes")
 			return
 
 		if(ishuman(M))
@@ -720,14 +714,13 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(!istype(L) || isobserver(L))
 			return
 
-		if(alert("Are you sure you want to gib [L]?", "Warning", "Yes", "No") != "Yes")
+		if(tgui_alert("Are you sure you want to gib [L]?", "Warning", list("Yes", "No"), 0) != "Yes")
 			return
 
 		log_admin("[key_name(usr)] has gibbed [key_name(L)].")
 		message_admins("[ADMIN_TPMONTY(usr)] has gibbed [ADMIN_TPMONTY(L)].")
 
 		L.gib()
-
 
 	else if(href_list["lobby"])
 		if(!check_rights(R_ADMIN))
@@ -739,7 +732,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			to_chat(usr, span_warning("[M] doesn't seem to have an active client."))
 			return
 
-		if(alert("Send [key_name(M)] back to Lobby?", "Send to Lobby", "Yes", "No") != "Yes")
+		if(tgui_alert(usr, "Send [key_name(M)] back to Lobby?", "Send to Lobby", list("Yes", "No"), 0) != "Yes")
 			return
 
 		log_admin("[key_name(usr)] has sent [key_name(M)] back to the lobby.")
@@ -754,7 +747,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		else
 			M.ghostize()
 
-
 	else if(href_list["cryo"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -763,18 +755,18 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(!istype(L))
 			return
 
-		if(alert("Cryo [key_name(L)]?", "Cryosleep", "Yes", "No") != "Yes")
+		if(tgui_alert(usr, "Cryo [key_name(L)]?", "Cryosleep", list("Yes", "No"), 0) != "Yes")
 			return
 
 		var/client/C = L.client
-		if(C && alert("They have a client attached, are you sure?", "Cryosleep", "Yes", "No") != "Yes")
+		if(C && tgui_alert(usr, "They have a client attached, are you sure?", "Cryosleep", list("Yes", "No"), 0) != "Yes")
 			return
 
 		var/old_name = L.real_name
 		L.despawn()
 
 		var/lobby
-		if(C?.mob?.mind && alert("Do you also want to send them to the lobby?", "Cryosleep", "Yes", "No") == "Yes")
+		if(C?.mob?.mind && tgui_alert(usr, "Do you also want to send them to the lobby?", "Cryosleep", list("Yes", "No"), 0) == "Yes")
 			lobby = TRUE
 			var/mob/new_player/NP = new()
 			var/mob/N = C.mob
@@ -786,7 +778,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		log_admin("[key_name(usr)] has cryo'd [C ? key_name(C) : old_name][lobby ? " sending them to the lobby" : ""].")
 		message_admins("[ADMIN_TPMONTY(usr)] has cryo'd [C ? key_name_admin(C) : old_name] [lobby ? " sending them to the lobby" : ""].")
-
 
 	else if(href_list["jumpto"])
 		if(!check_rights(R_ADMIN))
@@ -800,7 +791,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		log_admin("[key_name(usr)] has jumped to [key_name(M)]'s mob.")
 		message_admins("[ADMIN_TPMONTY(usr)] has jumped to [ADMIN_TPMONTY(M)]'s mob.")
-
 
 	else if(href_list["getmob"])
 		if(!check_rights(R_ADMIN))
@@ -826,26 +816,26 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		var/atom/target
 
-		switch(input("Where do you want to send it to?", "Send Mob") as null|anything in list("Area", "Mob", "Key", "Coords"))
+		switch(tgui_input_list(usr, "Where do you want to send it to?", "Send Mob", list("Area", "Mob", "Key", "Coords"), timeout = 0))
 			if("Area")
-				var/area/A = input("Pick an area.", "Pick an area") as null|anything in GLOB.sorted_areas
+				var/area/A = tgui_input_list(usr, "Pick an area.", "Pick an area", GLOB.sorted_areas, timeout = 0)
 				if(!A || !M)
 					return
 				target = pick(get_area_turfs(A))
 			if("Mob")
-				var/mob/N = input("Pick a mob.", "Pick a mob") as null|anything in sortList(GLOB.mob_list)
+				var/mob/N = tgui_input_list(usr, "Pick a mob.", "Pick a mob", sortList(GLOB.mob_list), timeout = 0)
 				if(!N || !M)
 					return
 				target = N.loc
 			if("Key")
-				var/client/C = input("Pick a key.", "Pick a key") as null|anything in sortKey(GLOB.clients)
+				var/client/C = tgui_input_list(usr, "Pick a key.", "Pick a key", sortKey(GLOB.clients), timeout = 0)
 				if(!C || !M)
 					return
 				target = C.mob.loc
 			if("Coords")
-				var/X = input("Select coordinate X", "Coordinate X") as null|num
-				var/Y = input("Select coordinate Y", "Coordinate Y") as null|num
-				var/Z = input("Select coordinate Z", "Coordinate Z") as null|num
+				var/X = tgui_input_number(usr, "Select coordinate X", "Coordinate X", 1, 255, 1, 0)
+				var/Y = tgui_input_number(usr, "Select coordinate Y", "Coordinate Y", 1, 255, 1, 0)
+				var/Z = tgui_input_number(usr, "Select coordinate Z", "Coordinate Z", 1, 10, 1, 0)
 				if(isnull(X) || isnull(Y) || isnull(Z) || !M)
 					return
 				target = locate(X, Y, Z)
@@ -854,7 +844,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		log_admin("[key_name(usr)] has sent [key_name(M)]'s mob to [AREACOORD(target)].")
 		message_admins("[ADMIN_TPMONTY(usr)] has sent [ADMIN_TPMONTY(M)]'s mob to [ADMIN_VERBOSEJMP(target)].")
-
 
 	else if(href_list["faxview"])
 		if(!check_rights(R_ADMIN|R_MENTOR))
@@ -872,7 +861,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		usr << browse(dat, "window=fax")
 
-
 	else if(href_list["faxmark"])
 		if(!check_rights(R_ADMIN|R_MENTOR))
 			return
@@ -885,7 +873,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			return
 
 		if(F.marked)
-			switch(alert("This fax has already been marked by [F.marked], do you want to replace them?", "Warning", "Replace", "Unmark", "Cancel"))
+			switch(tgui_alert(usr, "This fax has already been marked by [F.marked], do you want to replace them?", "Warning", list("Replace", "Unmark"), 0))
 				if("Replace")
 					F.marked = usr.client.key
 					message_staff("[key_name_admin(usr)] has re-marked a fax from [key_name_admin(F.sender)].")
@@ -896,7 +884,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		F.marked = usr.client.key
 		message_staff("[key_name_admin(usr)] has marked a fax from [key_name_admin(F.sender)].")
-
 
 	else if(href_list["faxcreate"] || href_list["faxreply"])
 		if(!check_rights(R_ADMIN|R_MENTOR))
@@ -999,7 +986,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		usr << browse(fax_message, "window=faxpreview;size=600x600")
 
-		if(alert("Send this fax?", "Confirmation", "Yes", "No") != "Yes")
+		if(tgui_alert(usr, "Send this fax?", "Confirmation", list("Yes", "No"), 0) != "Yes")
 			usr << browse(null, "window=faxpreview")
 			return
 
@@ -1010,30 +997,25 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		else
 			message_staff("[key_name_admin(usr)] sent a new fax - Department: [dep] | Subject: [subject].")
 
-
 	else if(href_list["create_object"])
 		if(!check_rights(R_SPAWN))
 			return
 		return usr.client.holder.create_object(usr)
-
 
 	else if(href_list["quick_create_object"])
 		if(!check_rights(R_SPAWN))
 			return
 		return usr.client.holder.quick_create_object(usr)
 
-
 	else if(href_list["create_turf"])
 		if(!check_rights(R_SPAWN))
 			return
 		return usr.client.holder.create_turf(usr)
 
-
 	else if(href_list["create_mob"])
 		if(!check_rights(R_SPAWN))
 			return
 		return usr.client.holder.create_mob(usr)
-
 
 	else if(href_list["modemenu"])
 		if(!check_rights(R_SERVER))
@@ -1049,7 +1031,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/datum/browser/browser = new(usr, "change_mode", "<div align='center'>Change Gamemode</div>")
 		browser.set_content(dat)
 		browser.open(FALSE)
-
 
 	else if(href_list["changemode"])
 		if(!check_rights(R_SERVER))
@@ -1071,7 +1052,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			message_admins("[ADMIN_TPMONTY(usr)] set the mode to: [GLOB.master_mode].")
 
 		Topic(usr.client.holder, list("admin_token" = RawHrefToken(TRUE), "modemenu" = TRUE))
-
 
 	if(href_list["evac_authority"])
 		if(!check_rights(R_ADMIN))
@@ -1126,7 +1106,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				message_admins("[ADMIN_TPMONTY(usr)] canceled the self-destruct system.")
 
 			if("use_dest")
-				if(alert("Are you sure you want to destroy the [SSmapping.configs[SHIP_MAP].map_name] right now?", "Self-Destruct", "Yes", "No") != "Yes")
+				if(tgui_alert(usr, "Are you sure you want to destroy the [SSmapping.configs[SHIP_MAP].map_name] right now?", "Self-Destruct", list("Yes", "No"), 0) != "Yes")
 					return
 
 				if(!SSevacuation.initiate_self_destruct(TRUE))
@@ -1141,19 +1121,17 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				log_admin("[key_name(src)] has [SSevacuation.scuttle_flags & SELF_DESTRUCT_DENY_flags ? "forbidden" : "allowed"] the self-destruct system.")
 				message_admins("[ADMIN_TPMONTY(usr)] has [SSevacuation.scuttle_flags & SELF_DESTRUCT_DENY_flags ? "forbidden" : "allowed"] the self-destruct system.")
 
-//RU TGMC EDIT
 	else if(href_list["admincancelpredsd"])
 		if(!check_rights(R_ADMIN))
 			return
 		var/obj/item/clothing/gloves/yautja/hunter/bracer = locate(href_list["bracer"])
 		var/mob/living/carbon/victim = locate(href_list["victim"])
-		if (!istype(bracer))
+		if(!istype(bracer))
 			return
-		if (alert("Are you sure you want to cancel this pred SD?",,"Yes","No") != "Yes")
+		if(tgui_alert(usr, "Are you sure you want to cancel this pred SD?", "Cancel?", list("Yes", "No"), 0) != "Yes")
 			return
 		bracer.exploding = FALSE
 		message_admins("[src.owner] has cancelled the predator self-destruct sequence [victim ? "of [victim] ([victim.key])":""].")
-//RU TGMC EDIT
 
 	else if(href_list["object_list"])
 		if(!check_rights(R_SPAWN))
@@ -1234,7 +1212,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				for(var/i in 1 to number)
 					if(path in typesof(/turf))
 						var/turf/O = target
-						var/turf/N = O.ChangeTurf(path)
+						var/turf/N = O.change_turf(path)
 						if(N && obj_name)
 							N.name = obj_name
 					else
@@ -1263,7 +1241,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		log_admin("[key_name(usr)] created [number] [english_list(paths)] at [AREACOORD(usr.loc)].")
 		message_admins("[ADMIN_TPMONTY(usr)] created [number] [english_list(paths)] at [ADMIN_VERBOSEJMP(usr.loc)].")
 
-
 	else if(href_list["viewruntime"])
 		var/datum/error_viewer/error_viewer = locate(href_list["viewruntime"])
 		if(!istype(error_viewer))
@@ -1275,13 +1252,11 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		else
 			error_viewer.show_to(owner, null, href_list["viewruntime_linear"])
 
-
 	else if(href_list["addmessage"])
 		if(!check_rights(R_BAN))
 			return
 		var/target_key = href_list["addmessage"]
 		create_message("message", target_key, secret = FALSE)
-
 
 	else if(href_list["addnote"])
 		if(!check_rights(R_BAN))
@@ -1289,55 +1264,47 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/target_key = href_list["addnote"]
 		create_message("note", target_key)
 
-
 	else if(href_list["addwatch"])
 		if(!check_rights(R_BAN))
 			return
 		var/target_key = href_list["addwatch"]
 		create_message("watchlist entry", target_key, secret = TRUE)
 
-
 	else if(href_list["addmemo"])
 		if(!check_rights(R_BAN))
 			return
 		create_message("memo", secret = TRUE, browse = TRUE)
-
 
 	else if(href_list["addmessageempty"])
 		if(!check_rights(R_BAN))
 			return
 		create_message("message", secret = FALSE)
 
-
 	else if(href_list["addnoteempty"])
 		if(!check_rights(R_BAN))
 			return
 		create_message("note")
-
 
 	else if(href_list["addwatchempty"])
 		if(!check_rights(R_BAN))
 			return
 		create_message("watchlist entry", secret = TRUE)
 
-
 	else if(href_list["deletemessage"])
 		if(!check_rights(R_BAN))
 			return
-		if(alert("Delete message/note?", "Confirmation", "Yes", "No") != "Yes")
+		if(tgui_alert(usr, "Delete message/note?", "Confirmation", list("Yes", "No"), 0) != "Yes")
 			return
 		var/message_id = href_list["deletemessage"]
 		delete_message(message_id)
 
-
 	else if(href_list["deletemessageempty"])
 		if(!check_rights(R_BAN))
 			return
-		if(alert("Delete message/note?", "Confirmation", "Yes", "No") != "Yes")
+		if(tgui_alert(usr, "Delete message/note?", "Confirmation", list("Yes", "No"), 0) != "Yes")
 			return
 		var/message_id = href_list["deletemessageempty"]
 		delete_message(message_id, browse = TRUE)
-
 
 	else if(href_list["editmessage"])
 		if(!check_rights(R_BAN))
@@ -1345,13 +1312,11 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/message_id = href_list["editmessage"]
 		edit_message(message_id)
 
-
 	else if(href_list["editmessageempty"])
 		if(!check_rights(R_BAN))
 			return
 		var/message_id = href_list["editmessageempty"]
 		edit_message(message_id, browse = TRUE)
-
 
 	else if(href_list["editmessageexpiry"])
 		if(!check_rights(R_BAN))
@@ -1359,13 +1324,11 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/message_id = href_list["editmessageexpiry"]
 		edit_message_expiry(message_id)
 
-
 	else if(href_list["editmessageexpiryempty"])
 		if(!check_rights(R_BAN))
 			return
 		var/message_id = href_list["editmessageexpiryempty"]
 		edit_message_expiry(message_id, browse = TRUE)
-
 
 	else if(href_list["editmessageseverity"])
 		if(!check_rights(R_BAN))
@@ -1373,20 +1336,17 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/message_id = href_list["editmessageseverity"]
 		edit_message_severity(message_id)
 
-
 	else if(href_list["secretmessage"])
 		if(!check_rights(R_BAN))
 			return
 		var/message_id = href_list["secretmessage"]
 		toggle_message_secrecy(message_id)
 
-
 	else if(href_list["searchmessages"])
 		if(!check_rights(R_BAN))
 			return
 		var/target = href_list["searchmessages"]
 		browse_messages(index = target)
-
 
 	else if(href_list["nonalpha"])
 		if(!check_rights(R_BAN))
@@ -1395,31 +1355,26 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		target = text2num(target)
 		browse_messages(index = target)
 
-
 	else if(href_list["showmessages"])
 		if(!check_rights(R_BAN))
 			return
 		var/target = href_list["showmessages"]
 		browse_messages(index = target)
 
-
 	else if(href_list["showmemo"])
 		if(!check_rights(R_BAN))
 			return
 		browse_messages("memo")
-
 
 	else if(href_list["showwatch"])
 		if(!check_rights(R_BAN))
 			return
 		browse_messages("watchlist entry")
 
-
 	else if(href_list["showwatchfilter"])
 		if(!check_rights(R_BAN))
 			return
 		browse_messages("watchlist entry", filter = 1)
-
 
 	else if(href_list["showmessageckey"])
 		if(!check_rights(R_BAN))
@@ -1430,11 +1385,9 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			agegate = FALSE
 		browse_messages(target_ckey = target, agegate = agegate)
 
-
 	else if(href_list["showmessageckeylinkless"])
 		var/target = href_list["showmessageckeylinkless"]
 		browse_messages(target_ckey = target, linkless = TRUE)
-
 
 	else if(href_list["messageedits"])
 		if(!check_rights(R_BAN))
@@ -1454,20 +1407,17 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				browser.open()
 		qdel(query_get_message_edits)
 
-
 	else if(href_list["newbankey"])
 		var/player_key = href_list["newbankey"]
 		var/player_ip = href_list["newbanip"]
 		var/player_cid = href_list["newbancid"]
 		usr.client.holder.banpanel(player_key, player_ip, player_cid)
 
-
 	else if(href_list["intervaltype"]) //check for ban panel, intervaltype is used as it's the only value which will always be present
 		if(href_list["roleban_delimiter"])
 			usr.client.holder.ban_parse_href(href_list)
 		else
 			usr.client.holder.ban_parse_href(href_list, TRUE)
-
 
 	else if(href_list["searchunbankey"] || href_list["searchunbanadminkey"] || href_list["searchunbanip"] || href_list["searchunbancid"])
 		var/player_key = href_list["searchunbankey"]
@@ -1476,7 +1426,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/player_cid = href_list["searchunbancid"]
 		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid)
 
-
 	else if(href_list["unbanpagecount"])
 		var/page = href_list["unbanpagecount"]
 		var/player_key = href_list["unbankey"]
@@ -1484,7 +1433,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/player_ip = href_list["unbanip"]
 		var/player_cid = href_list["unbancid"]
 		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid, page)
-
 
 	else if(href_list["editbanid"])
 		var/edit_id = href_list["editbanid"]
@@ -1499,7 +1447,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/admin_key = href_list["editbanadminkey"]
 		usr.client.holder.banpanel(player_key, player_ip, player_cid, role, duration, applies_to_admins, reason, edit_id, page, admin_key)
 
-
 	else if(href_list["unbanid"])
 		var/ban_id = href_list["unbanid"]
 		var/player_key = href_list["unbankey"]
@@ -1511,15 +1458,12 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		usr.client.holder.unban(ban_id, player_key, player_ip, player_cid, role, page, admin_key)
 		usr.client.holder.unbanpanel(player_key, admin_key, player_ip, player_cid)
 
-
 	else if(href_list["unbanlog"])
 		var/ban_id = href_list["unbanlog"]
 		usr.client.holder.ban_log(ban_id)
 
-
 	else if(href_list["stickyban"])
 		stickyban(href_list["stickyban"], href_list)
-
 
 	else if(href_list["addjobslot"])
 		if(!check_rights(R_ADMIN))
@@ -1538,7 +1482,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		log_admin("[key_name(src)] has added a [slot] job slot.")
 		message_admins("[ADMIN_TPMONTY(usr)] has added a [slot] job slot.")
 
-
 	else if(href_list["filljobslot"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -1556,7 +1499,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		log_admin("[key_name(src)] has filled a [slot] job slot.")
 		message_admins("[ADMIN_TPMONTY(usr)] has filled a [slot] job slot.")
 
-
 	else if(href_list["freejobslot"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -1573,7 +1515,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		log_admin("[key_name(src)] has freed a [slot] job slot.")
 		message_admins("[ADMIN_TPMONTY(usr)] has freed a [slot] job slot.")
-
 
 	else if(href_list["removejobslot"])
 		if(!check_rights(R_ADMIN))
@@ -2007,7 +1948,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				var/list/picker = sortList(job_outfits)
 				picker.Insert(1, "{Naked}")
 
-				var/dresscode = input("Select job equipment", "Select Equipment") as null|anything in picker
+				var/dresscode = tgui_input_list(usr, "Select job equipment", "Select Equipment",  picker, "{Naked}", 0)
 
 				if(dresscode != "{Naked}")
 					dresscode = job_outfits[dresscode]
@@ -2167,6 +2108,12 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		message_admins(logtext)
 		log_admin(logtext)
 
+	else if(href_list["cancelsummon"])
+		GLOB.active_summons.Cut()
+		var/logtext = "[key_name(usr)] has cancelled all psychic summons"
+		message_admins(logtext)
+		log_admin(logtext)
+
 	else if(href_list["adminunbanish"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -2174,7 +2121,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		if(!HAS_TRAIT(target, TRAIT_BANISHED))
 			to_chat(usr, span_warning("Target already is unbanished."))
 			return
-		if(alert("Are you sure you want to unbanish [target]?",,"Yes","No") != "Yes")
+		if(tgui_alert(usr, "Are you sure you want to unbanish [target]?", "Unbanishing", list("Yes","No"), 0) != "Yes")
 			return
 		var/reason = stripped_input(src.owner, "Provide a reason for unbunish this xenomorph, [target]", default = "I will not allow meaningless death in my hive!")
 		REMOVE_TRAIT(target, TRAIT_BANISHED, TRAIT_BANISHED)

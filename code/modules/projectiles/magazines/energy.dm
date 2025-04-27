@@ -4,12 +4,12 @@
 	name = "\improper lasgun Battery"
 	desc = "A specialized high density battery used to power lasguns."
 	icon = 'icons/obj/items/ammo/energy.dmi'
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/ammo_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/ammo_right.dmi',
 		)
 	icon_state = "m43"
-	item_state = null
+	worn_icon_state = null
 	maxcharge = 600 ///Changed due to the fact some maps and ERTs spawn with the child, the lasrifle. Charges on guns changed accordingly.
 	w_class = WEIGHT_CLASS_NORMAL
 	icon_state_mini = "mag_cell"
@@ -70,20 +70,27 @@
 /obj/item/cell/lasgun/fob_sentry/cell
 	maxcharge = INFINITY
 
+/obj/item/cell/lasgun/plasma
+	name = "\improper WML plasma energy cell"
+	desc = "A plasma containment cell used by the TerraGov Marine Corps for plasma guns. It doesn't seem to have an expiry date on it."
+	icon_state = "plasma"
+	maxcharge = 900
+	icon_state_mini = "mag_plasma"
+	charge_overlay = "plasma"
+
 //volkite
 
 /obj/item/cell/lasgun/volkite
-	name = "\improper volkite energy cell"
+	name = "volkite energy cell"
 	desc = "A specialized high density battery used to power volkite weaponry."
 	icon_state = "volkite"
 	maxcharge = 1440
-	w_class = WEIGHT_CLASS_NORMAL
 	icon_state_mini = "mag_cell"
 	charge_overlay = "volkite"
 	reload_delay = 0
 
 /obj/item/cell/lasgun/volkite/small
-	name = "\improper compact volkite energy cell"
+	name = "compact volkite energy cell"
 	desc = "A specialized compact battery used to power the smallest volkite weaponry."
 	icon_state = "volkite_small"
 	maxcharge = 540
@@ -91,14 +98,12 @@
 	icon_state_mini = "mag_cell"
 
 /obj/item/cell/lasgun/volkite/turret
-	name = "\improper volkite nuclear energy cell"
+	name = "volkite nuclear energy cell"
 	desc = "A nuclear powered battery designed for certain heavy SOM machinery like sentries. Slowly charges over time."
 	icon_state = "volkite_turret"
 	maxcharge = 1800
-	w_class = WEIGHT_CLASS_NORMAL
 	icon_state_mini = "mag_cell"
 	charge_overlay = "volkite_big"
-	reload_delay = 0
 	self_recharge = TRUE
 	charge_amount = 24
 	charge_delay = 2 SECONDS
@@ -106,8 +111,8 @@
 /obj/item/cell/lasgun/volkite/powerpack
 	name = "\improper M-70 powerpack"
 	desc = "A heavy reinforced backpack with an array of ultradensity energy cells, linked to a miniature radioisotope thermoelectric generator for continuous power generation. Used to power the largest man portable volkite weaponry. Click drag cells to the powerpack to recharge."
-	icon = 'icons/obj/items/storage/storage.dmi'
-	item_icons = list(
+	icon = 'icons/obj/items/ammo/powerpack.dmi'
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/backpacks_right.dmi',
 	)
@@ -125,6 +130,8 @@
 	light_range = 0.1
 	light_power = 0.1
 	light_color = LIGHT_COLOR_ORANGE
+	///The kind of cells we like to accept around here to charge from us.
+	var/cell_type = /obj/item/cell
 
 /obj/item/cell/lasgun/volkite/powerpack/Initialize(mapload)
 	. = ..()
@@ -170,38 +177,40 @@
 		gun.reload(src, user)
 		return
 
-	if(!istype(I, /obj/item/cell))
+	if(!istype(I, cell_type))
 		return
 	if(I != user.r_hand && I != user.l_hand)
 		to_chat(user, span_warning("[I] must be in your hand to do that."))
 		return
-	var/obj/item/cell/D = I
-	var/charge_difference = D.maxcharge - D.charge
+	var/obj/item/cell/our_cell = I
+	if(!our_cell.rechargable)
+		balloon_alert(user, "Not rechargeable")
+		return
+	var/charge_difference = our_cell.maxcharge - our_cell.charge
 	if(charge_difference) //If the cell has less than max charge, recharge it.
 		var/charge_used = use_charge(user, charge_difference) //consume an appropriate amount of charge
-		D.charge += charge_used //Recharge the cell battery with the lower of the difference between its present and max cap, or the remaining charge
-		D.update_icon()
+		our_cell.charge += charge_used //Recharge the cell battery with the lower of the difference between its present and max cap, or the remaining charge
+		our_cell.update_icon()
 	else
 		to_chat(user, span_warning("This cell is already at maximum charge!"))
 
 /obj/item/cell/lasgun/volkite/powerpack/marine
 	name = "\improper TE powerpack"
 	desc = "A recently developed mass produced side pouch which charges any TE technological achievement."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "lasgun_pouch"
-	charge_overlay = "lasgun_cell"
+	charge_overlay = "lasgun_pouch"
 	atom_flags = CONDUCT
 	equip_slot_flags = ITEM_SLOT_POCKET
 	magazine_features_flags = MAGAZINE_REFUND_IN_CHAMBER|MAGAZINE_WORN
 	w_class = WEIGHT_CLASS_BULKY
 	slowdown = 0
 	maxcharge = 2400
+	cell_type = /obj/item/cell/lasgun/lasrifle
 	self_recharge = FALSE
 
 /obj/item/cell/lasgun/volkite/powerpack/marine_back
 	name = "\improper TE powerback"
 	desc = "A heavy reinforced backpack with an array of ultradensity energy cells. Click drag cells to the powerpack to recharge."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "pp_100"
 	maxcharge = 2400
 	base_icon_state = "pp"

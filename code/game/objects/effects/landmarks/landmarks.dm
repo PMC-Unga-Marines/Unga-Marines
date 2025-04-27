@@ -197,7 +197,7 @@
 
 /obj/effect/landmark/resin_jelly_pod
 	name = "xeno jelly pod landmark"
-	icon = 'icons/Xeno/resinpod.dmi'
+	icon = 'icons/Xeno/resin_pod.dmi'
 	icon_state = "resinpod"
 
 /obj/effect/landmark/resin_jelly_pod/Initialize(mapload)
@@ -207,7 +207,7 @@
 
 /obj/effect/landmark/xeno_turret
 	name = "xeno turret landmark"
-	icon = 'icons/Xeno/acidturret.dmi'
+	icon = 'icons/Xeno/acid_turret.dmi'
 	icon_state = "acid_turret"
 
 /obj/effect/landmark/xeno_turret/Initialize(mapload)
@@ -307,8 +307,8 @@
 		/obj/item/weapon/gun/revolver/cmb,
 		/obj/item/weapon/gun/revolver/judge,
 		/obj/item/weapon/gun/shotgun/double/derringer,
-		/obj/item/weapon/claymore/mercsword/machete,
-		/obj/item/weapon/katana/replica,
+		/obj/item/weapon/sword/machete,
+		/obj/item/weapon/sword/katana/replica,
 		/obj/item/weapon/combat_knife,
 		/obj/item/weapon/combat_knife/upp,
 		/obj/item/stack/throwing_knife,
@@ -318,7 +318,7 @@
 		/obj/item/weapon/baseballbat/metal,
 		/obj/item/weapon/butterfly,
 		/obj/item/weapon/butterfly/switchblade,
-		/obj/item/weapon/katana/samurai,
+		/obj/item/weapon/sword/katana/samurai,
 	)
 
 /obj/effect/landmark/weapon_spawn/tier2_weapon_spawn
@@ -344,11 +344,11 @@
 		/obj/item/weapon/gun/smg/icc_machinepistol/medic,
 		/obj/item/weapon/gun/smg/icc_pdw/standard,
 		/obj/item/weapon/gun/smg/som/veteran,
-		/obj/item/weapon/claymore,
-		/obj/item/weapon/claymore/mercsword,
-		/obj/item/weapon/claymore/mercsword/captain,
-		/obj/item/weapon/claymore/mercsword/commissar_sword,
-		/obj/item/weapon/katana,
+		/obj/item/weapon/sword,
+		/obj/item/weapon/sword/mercsword,
+		/obj/item/weapon/sword/captain,
+		/obj/item/weapon/sword/commissar,
+		/obj/item/weapon/sword/katana,
 		/obj/item/weapon/twohanded/fireaxe,
 		/obj/item/weapon/twohanded/spear,
 		/obj/item/weapon/twohanded/glaive,
@@ -467,7 +467,7 @@
 	weapon_list = list(
 		/obj/item/weapon/gun/pistol/chimp,
 		/obj/item/weapon/banhammer,
-		/obj/item/weapon/chainsword,
+		/obj/item/weapon/twohanded/chainsaw/sword,
 	)
 
 /obj/effect/landmark/sensor_tower
@@ -482,23 +482,23 @@
 
 /obj/effect/landmark/valhalla
 	icon = 'icons/effects/landmarks_static.dmi'
-	///What do we spawn? (xeno or marine)
-	var/spawns
-	///Where do we spawn?
-	var/where
+	///Link with the button that spawns stuff on us
+	var/spawn_link
 
 /obj/effect/landmark/valhalla/Initialize(mapload)
 	. = ..()
-	GLOB.valhalla_button_spawn_landmark["[spawns][where]"] = src
+	GLOB.valhalla_button_spawn_landmark[spawn_link] = src
 
 /obj/effect/landmark/valhalla/xeno_spawn_landmark
 	name = "Valhalla xeno spawn"
 	icon_state = "xeno_spawn_valhalla"
-	spawns = "xeno"
 
 /obj/effect/landmark/valhalla/marine_spawner_landmark
 	name = "Marine spawner landmark"
-	spawns = "marine"
+
+/obj/effect/landmark/valhalla/vehicle_spawner_landmark
+	name = "Vehicle spawner landmark"
+	icon_state = "x4"
 
 /obj/effect/landmark/eord_roomba
 	name = "EORD roomba spawn point"

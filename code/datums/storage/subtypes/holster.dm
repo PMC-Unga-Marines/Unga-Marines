@@ -45,7 +45,7 @@
 
 /datum/storage/holster/blade/officer/New(atom/parent)
 	. = ..()
-	set_holdable(can_hold_list = list(/obj/item/weapon/claymore/mercsword/machete/officersword))
+	set_holdable(can_hold_list = list(/obj/item/weapon/sword/officer))
 
 /datum/storage/holster/backholster
 	max_w_class = WEIGHT_CLASS_NORMAL //normal items
@@ -179,7 +179,6 @@
 	))
 	storage_type_limits_max = list(/obj/item/weapon/gun/grenade_launcher/single_shot/flare = 1)
 
-/* WE DON'T HAVE IT YET
 /datum/storage/holster/icc_mg
 	storage_slots = 5
 	max_storage_space = 16
@@ -189,7 +188,7 @@
 	set_holdable(can_hold_list = list(
 		/obj/item/weapon/gun/rifle/icc_mg,
 		/obj/item/ammo_magazine/icc_mg/packet,
-	)) */
+	))
 
 /datum/storage/holster/belt
 	use_sound = null
@@ -203,7 +202,7 @@
 		/obj/item/weapon/gun/pistol,
 		/obj/item/ammo_magazine/pistol,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
-		///obj/item/cell/lasgun/plasma,
+		/obj/item/cell/lasgun/plasma,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
 		/obj/item/cell/lasgun/lasrifle,
 		/obj/item/cell/lasgun/volkite/small,
@@ -211,7 +210,6 @@
 
 /datum/storage/holster/belt/t500/New(atom/parent)
 	. = ..()
-	//storage_type_limits = list(/obj/item/weapon/gun/revolver/t500)
 	set_holdable(can_hold_list = list(
 		/obj/item/weapon/gun/revolver/t500,
 		/obj/item/weapon/gun/revolver/t312,
@@ -250,6 +248,8 @@
 		/obj/item/weapon/gun/pistol/c99,
 		/obj/item/ammo_magazine/pistol/c99,
 		/obj/item/ammo_magazine/pistol/c99t,
+		/obj/item/weapon/gun/pistol/xmdivider,
+		/obj/item/ammo_magazine/pistol/xmdivider,
 	))
 
 /datum/storage/holster/belt/ts34

@@ -50,8 +50,6 @@
 	var/next_move_modifier = 1
 	var/last_move_intent
 	var/area/lastarea
-	var/old_x = 0
-	var/old_y = 0
 	var/inertia_dir = 0
 	///Can move on the shuttle.
 	var/move_on_shuttle = TRUE
@@ -142,6 +140,7 @@
 	var/life_value = 1
 	var/default_honor_value = 1
 	var/life_kills_total = 0
+	var/max_bonus_life_kills
 
 	///Tracks open UIs for a user.
 	var/list/tgui_open_uis = list()

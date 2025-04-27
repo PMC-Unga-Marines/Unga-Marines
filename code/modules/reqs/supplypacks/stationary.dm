@@ -174,20 +174,25 @@
 	)
 	cost = 20
 
-/datum/supply_packs/stationary/flak_gun
+/datum/supply_packs/stationary/fk88
 	name = "FK-88 Flak Gun"
-	contains = list(/obj/item/weapon/gun/heavy_isg)
-	cost = 1200
+	contains = list(/obj/item/weapon/gun/fk88)
+	cost = 1000
 
-/datum/supply_packs/stationary/flak_he
-	name = "FK-88 HE Shell"
-	contains = list(/obj/item/ammo_magazine/heavy_isg/he)
-	cost = 100
+/datum/supply_packs/stationary/fk88_he
+	name = "FK-88 Flak HE Shell"
+	contains = list(/obj/item/ammo_magazine/fk88/he)
+	cost = 50
 
-/datum/supply_packs/stationary/flak_sabot
-	name = "FK-88 APFDS Shell"
-	contains = list(/obj/item/ammo_magazine/heavy_isg/sabot)
-	cost = 120
+/datum/supply_packs/stationary/fk88_he_unguided
+	name = "FK-88 unguided Flak HE Shell"
+	contains = list(/obj/item/ammo_magazine/fk88/he/unguided)
+	cost = 50
+
+/datum/supply_packs/stationary/fk88_sabot
+	name = "FK-88 Flak APFDS Shell"
+	contains = list(/obj/item/ammo_magazine/fk88/sabot)
+	cost = 60
 
 /datum/supply_packs/stationary/heayvlaser_emplacement
 	name = "Mounted Heavy Laser"

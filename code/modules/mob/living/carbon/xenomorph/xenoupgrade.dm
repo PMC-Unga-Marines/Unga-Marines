@@ -39,7 +39,7 @@
 			activable_ability.select()
 			break
 
-	if(queen_chosen_lead)
+	if(xeno_flags & XENO_LEADER)
 		give_rally_abilities() //Give them back their rally hive ability
 
 	if(current_aura) //Updates pheromone strength
@@ -300,6 +300,9 @@
 	upgrade = XENO_UPGRADE_NORMAL
 
 /mob/living/carbon/xenomorph/defender/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/defender/steel_crest/primordial
 	upgrade = XENO_UPGRADE_PRIMO
 
 //---DEFENDER END---//

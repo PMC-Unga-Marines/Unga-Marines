@@ -7,7 +7,6 @@
 	effects_icon = 'icons/Xeno/castes/predalien/praetorian_effects.dmi'
 	wall_smash = TRUE
 	pixel_x = -16
-	old_x = -16
 	bubble_icon = "alienroyal"
 	talk_sound = SFX_PREDALIEN_TALK
 	mob_size = MOB_SIZE_BIG
@@ -22,8 +21,7 @@
 		/datum/xenomorph_skin/predalien,
 	)
 
-	var/max_bonus_life_kills = 10
-	var/butcher_time = 6 SECONDS
+	max_bonus_life_kills = 10
 
 /mob/living/carbon/xenomorph/predalien/Initialize(mapload, mob/living/carbon/xenomorph/oldxeno, h_number)
 	. = ..()

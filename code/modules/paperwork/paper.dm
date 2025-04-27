@@ -3,11 +3,11 @@
 	gender = PLURAL
 	icon = 'icons/obj/items/paper.dmi'
 	icon_state = "paper"
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/items/civilian_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items/civilian_right.dmi',
 	)
-	item_state = "paper"
+	worn_icon_state = "paper"
 	w_class = WEIGHT_CLASS_TINY
 	throw_range = 1
 	throw_speed = 1
@@ -77,7 +77,7 @@
 
 /obj/item/paper/verb/rename()
 	set name = "Rename paper"
-	set category = "Object"
+	set category = "IC.Object"
 	set src in usr
 
 	var/n_name = stripped_input(usr, "What would you like to label the paper?", "Paper Labelling")
@@ -103,22 +103,26 @@
 		user.visible_message(span_notice("You show the paper to [M]. "), \
 			span_notice(" [user] holds up a paper and shows it to [M]. "))
 		examine(M)
+		return
 
-	else if(user.zone_selected == "mouth") // lipstick wiping
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
-			if(H == user)
-				to_chat(user, span_notice("You wipe off the lipstick with [src]."))
-				H.lip_style = null
-				H.update_body()
-			else
-				user.visible_message(span_warning("[user] begins to wipe [H]'s lipstick off with \the [src]."), \
-									span_notice("You begin to wipe off [H]'s lipstick."))
-				if(do_after(user, 10, NONE, H, BUSY_ICON_FRIENDLY))
-					user.visible_message(span_notice("[user] wipes [H]'s lipstick off with \the [src]."), \
-										span_notice("You wipe off [H]'s lipstick."))
-					H.lip_style = null
-					H.update_body()
+	if(user.zone_selected == "mouth") // lipstick wiping
+		if(!ishuman(M))
+			return
+		var/mob/living/carbon/human/H = M
+		if(H == user)
+			to_chat(user, span_notice("You wipe off the lipstick with [src]."))
+			H.makeup_style = null
+			H.update_body()
+			return
+
+		user.visible_message(span_warning("[user] begins to wipe [H]'s lipstick off with \the [src]."), \
+			span_notice("You begin to wipe off [H]'s lipstick."))
+		if(!do_after(user, 1 SECONDS, NONE, H, BUSY_ICON_FRIENDLY))
+			return
+		user.visible_message(span_notice("[user] wipes [H]'s lipstick off with \the [src]."), \
+			span_notice("You wipe off [H]'s lipstick."))
+		H.makeup_style = null
+		H.update_body()
 
 /obj/item/paper/proc/addtofield(id, text, links = 0)
 	var/locid = 0
@@ -379,7 +383,7 @@ then, for every time you included a field, increment fields. */
 
 /obj/item/paper/flag
 	icon_state = "flag_neutral"
-	item_state = "paper"
+	worn_icon_state = "paper"
 	anchored = TRUE
 
 /obj/item/paper/jobs
@@ -389,7 +393,7 @@ then, for every time you included a field, increment fields. */
 /obj/item/paper/photograph
 	name = "photo"
 	icon_state = "photo"
-	item_state = "paper"
+	worn_icon_state = "paper"
 	var/photo_id = 0
 
 /obj/item/paper/sop

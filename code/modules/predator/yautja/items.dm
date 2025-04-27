@@ -25,8 +25,8 @@
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "halfarmor1_ebony"
-	item_state = "armor"
-	item_icons = list(
+	worn_icon_state = "armor"
+	worn_icon_list = list(
 		slot_wear_suit_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 
@@ -69,7 +69,7 @@
 		/obj/item/weapon/twohanded/yautja,
 	)
 	resistance_flags = UNACIDABLE
-	item_state_slots = list(slot_wear_suit_str = "halfarmor1")
+	worn_worn_icon_state_slots = list(slot_wear_suit_str = "halfarmor1")
 	/// Used to affect icon generation.
 	var/thrall = FALSE
 
@@ -86,34 +86,34 @@
 			if("Dragon")
 				name = "\improper 'Armor of the Dragon'"
 				icon_state = "halfarmor_elder_tr"
-				LAZYSET(item_state_slots, slot_wear_suit_str, "halfarmor_elder_tr")
+				LAZYSET(worn_worn_icon_state_slots, slot_wear_suit_str, "halfarmor_elder_tr")
 				return
 			if("Swamp")
 				name = "\improper 'Armor of the Swamp Horror'"
 				icon_state = "halfarmor_elder_joshuu"
-				LAZYSET(item_state_slots, slot_wear_suit_str, "halfarmor_elder_joshuu")
+				LAZYSET(worn_worn_icon_state_slots, slot_wear_suit_str, "halfarmor_elder_joshuu")
 				return
 			if("Enforcer")
 				name = "\improper 'Armor of the Enforcer'"
 				icon_state = "halfarmor_elder_feweh"
-				LAZYSET(item_state_slots, slot_wear_suit_str, "halfarmor_elder_feweh")
+				LAZYSET(worn_worn_icon_state_slots, slot_wear_suit_str, "halfarmor_elder_feweh")
 				return
 			if("Collector")
 				name = "\improper 'Armor of the Ambivalent Collector'"
 				icon_state = "halfarmor_elder_n"
-				LAZYSET(item_state_slots, slot_wear_suit_str, "halfarmor_elder_n")
+				LAZYSET(worn_worn_icon_state_slots, slot_wear_suit_str, "halfarmor_elder_n")
 				return
 			else
 				name = "clan elder's armor"
 				icon_state = "halfarmor_elder"
-				LAZYSET(item_state_slots, slot_wear_suit_str, "halfarmor_elder")
+				LAZYSET(worn_worn_icon_state_slots, slot_wear_suit_str, "halfarmor_elder")
 				return
 
 	if(armor_number > 7)
 		armor_number = 1
 	if(armor_number) //Don't change full armor number
 		icon_state = "halfarmor[armor_number]_[armor_material]"
-		LAZYSET(item_state_slots, slot_wear_suit_str, "halfarmor[armor_number]_[armor_material]")
+		LAZYSET(worn_worn_icon_state_slots, slot_wear_suit_str, "halfarmor[armor_number]_[armor_material]")
 
 /obj/item/clothing/suit/armor/yautja/hunter
 	name = "clan armor"
@@ -135,7 +135,7 @@
 
 	soft_armor = list(MELEE = 40, BULLET = 30, LASER = 35, ENERGY = 35, BOMB = 45, BIO = 40, FIRE = 30, ACID = 30)
 	slowdown = 0.7
-	item_state_slots = list(slot_wear_suit_str = "fullarmor")
+	worn_worn_icon_state_slots = list(slot_wear_suit_str = "fullarmor")
 	allowed = list(
 		/obj/item/weapon/harpoon,
 		/obj/item/weapon/gun/energy/yautja,
@@ -147,14 +147,14 @@
 /obj/item/clothing/suit/armor/yautja/hunter/full/Initialize(mapload, armor_number, armor_material = "ebony")
 	. = ..(mapload, 0)
 	icon_state = "fullarmor_[armor_material]"
-	LAZYSET(item_state_slots, slot_wear_suit_str, "fullarmor_[armor_material]")
+	LAZYSET(worn_worn_icon_state_slots, slot_wear_suit_str, "fullarmor_[armor_material]")
 
 /obj/item/clothing/yautja_cape
 	name = PRED_YAUTJA_CAPE
 	desc = "A battle-worn cape passed down by elder Yautja."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "fullcape"
-	item_icons = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	equip_slot_flags = ITEM_SLOT_BACK
@@ -210,7 +210,7 @@
 	desc = "Greaves made from scraps of cloth and a strange alloy. They feel cold with an alien weight."
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
-	item_icons = list(
+	worn_icon_list = list(
 		slot_shoes_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	icon_state = "y-boots1_ebony"
@@ -266,7 +266,7 @@
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "mesh_shirt"
-	item_icons = list(
+	worn_icon_list = list(
 		slot_w_uniform_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 
@@ -304,7 +304,7 @@
 	desc = "A strange Yautja device used for projecting the Yautja's voice to the others in its pack. Similar in function to a standard human radio."
 	icon_state = "communicator"
 	icon = 'icons/obj/hunter/pred_gear.dmi'
-	item_state = "headset"
+	worn_icon_state = "headset"
 	frequency = YAUT_FREQ
 	keyslot = /obj/item/encryptionkey/yautja
 	freqlock = TRUE
@@ -350,8 +350,8 @@
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "beltbag"
-	item_state = "beltbag_w"
-	item_icons = list(
+	worn_icon_state = "beltbag_w"
+	worn_icon_list = list(
 		slot_belt_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	item_flags = ITEM_PREDATOR
@@ -486,8 +486,8 @@
 	name = "scalp"
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "scalp_1"
-	item_state = "scalp"
-	item_icons = list(
+	worn_icon_state = "scalp"
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
@@ -680,11 +680,11 @@
 	user.reset_perspective(null)
 
 
-/obj/item/weapon/claymore/mercsword/ceremonial
+/obj/item/weapon/sword/ceremonial
 	name = "Ceremonial Sword"
 	desc = "A fancy ceremonial sword passed down from generation to generation. Despite this, it has been very well cared for, and is in top condition."
 	icon_state = "officer_sword"
-	item_state = "machete"
+	worn_icon_state = "machete"
 
 
 // Hunting traps
@@ -842,7 +842,7 @@
 
 /obj/item/hunting_trap/verb/configure_trap()
 	set name = "Configure Hunting Trap"
-	set category = "Object"
+	set category = "IC.Object"
 
 	var/mob/living/carbon/human/H = usr
 	if(!HAS_TRAIT(H, TRAIT_YAUTJA_TECH))
@@ -860,10 +860,10 @@
 	desc = "A suit of armor made entirely out of stone. Looks incredibly heavy."
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
-	item_icons = list(
+	worn_icon_list = list(
 		slot_wear_suit_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
-	item_state = "armor"
+	worn_icon_state = "armor"
 	icon_state = "fullarmor_ebony"
 
 	armor_protection_flags = CHEST|GROIN|ARMS|HEAD|LEGS
@@ -877,14 +877,14 @@
 		/obj/item/weapon/twohanded/yautja,
 	)
 	resistance_flags = UNACIDABLE
-	item_state_slots = list(slot_wear_suit_str = "fullarmor_ebony")
+	worn_worn_icon_state_slots = list(slot_wear_suit_str = "fullarmor_ebony")
 
 /obj/item/clothing/shoes/yautja_flavor
 	name = "alien stone greaves"
 	desc = "A pair of armored, perfectly balanced boots. Perfect for running through cement because they're incredibly heavy."
 
 	icon = 'icons/obj/hunter/pred_gear.dmi'
-	item_icons = list(
+	worn_icon_list = list(
 		slot_shoes_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
 	icon_state = "y-boots2_ebony"
@@ -927,11 +927,9 @@
 /obj/item/storage/medicomp
 	name = "medicomp"
 	desc = "A complex kit of alien tools and medicines."
-	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "medicomp"
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = ITEM_PREDATOR
-
 
 /obj/item/storage/medicomp/full/Initialize(mapload, ...)
 	. = ..()
@@ -1084,7 +1082,7 @@
 	desc = "A modular belt with various clips. This version lacks any hunting functionality, and is commonly used by engineers to transport important tools."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "utilitybelt_pred"
-	item_state = "utility"
+	worn_icon_state = "utility"
 
 /obj/item/storage/belt/utility/pred/full/PopulateContents()
 	new /obj/item/tool/screwdriver/yautja(src)
@@ -1143,8 +1141,8 @@
 	desc = "Used to remove floors and to pry open doors, made of an unusual alloy."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "bar"
-	item_state = "bar"
-	item_icons = list(
+	worn_icon_state = "bar"
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
@@ -1154,8 +1152,8 @@
 	desc = "A wrench with many common uses. Made of some bizarre alien bones."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "wrench"
-	item_state = "wrench"
-	item_icons = list(
+	worn_icon_state = "wrench"
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
@@ -1165,8 +1163,8 @@
 	desc = "This cuts wires, also flesh. Made of some razorsharp animal teeth."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "wirescutter"
-	item_state = "wirescutter"
-	item_icons = list(
+	worn_icon_state = "wirescutter"
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
@@ -1176,8 +1174,8 @@
 	desc = "Some hightech screwing abilities."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "screwdriver"
-	item_state = "screwdriver"
-	item_icons = list(
+	worn_icon_state = "screwdriver"
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
@@ -1189,8 +1187,8 @@
 	desc = "Top notch alien tech for B&E through hacking."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "multitool"
-	item_state = "multitool"
-	item_icons = list(
+	worn_icon_state = "multitool"
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
@@ -1200,7 +1198,7 @@
 	desc = "A complex chemical welding device, keep away from youngblood."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "welder"
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
@@ -1209,7 +1207,7 @@
 	usesound = list('sound/items/welder.ogg', 'sound/items/welder2.ogg')
 	max_fuel = 150	//The max amount of fuel the welder can hold
 
-/obj/item/weapon/claymore/mercsword/machete/arnold
+/obj/item/weapon/sword/machete/arnold
 	anchored = TRUE
 	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "arnold-machete"

@@ -31,7 +31,7 @@
 	name = "wizard robe"
 	desc = "A magnificant, gem-lined robe that seems to radiate power."
 	icon_state = "wizard"
-	item_state = "wizrobe"
+	worn_icon_state = "wizrobe"
 	gas_transfer_coefficient = 0.01 // IT'S MAGICAL OKAY JEEZ +1 TO NOT DIE
 	permeability_coefficient = 0.01
 	soft_armor = list(MELEE = 30, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 20, BIO = 20, FIRE = 20, ACID = 20)
@@ -42,19 +42,19 @@
 	name = "red wizard robe"
 	desc = "A magnificant, red, gem-lined robe that seems to radiate power."
 	icon_state = "redwizard"
-	item_state = "redwizrobe"
+	worn_icon_state = "redwizrobe"
 
 /obj/item/clothing/suit/wizrobe/marisa
 	name = "Witch Robe"
 	desc = "Magic is all about the spell power, ZE!"
 	icon_state = "marisa"
-	item_state = "marisarobe"
+	worn_icon_state = "marisarobe"
 
 /obj/item/clothing/suit/storage/wizrobe/gentlecoat
 	name = "Gentlemans Coat"
 	desc = "A heavy threaded twead gray jacket. For a different sort of Gentleman."
 	icon_state = "gentlecoat"
-	item_state = "gentlecoat"
+	worn_icon_state = "gentlecoat"
 	armor_protection_flags = CHEST|GROIN|ARMS
 	inv_hide_flags = NONE
 
@@ -62,7 +62,7 @@
 	name = "wizard robe"
 	desc = "A rather dull, blue robe meant to mimick real wizard robes."
 	icon_state = "wizard-fake"
-	item_state = "wizrobe"
+	worn_icon_state = "wizrobe"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	siemens_coefficient = 1
 
@@ -77,7 +77,7 @@
 	name = "Witch Robe"
 	desc = "Magic is all about the spell power, ZE!"
 	icon_state = "marisa"
-	item_state = "marisarobe"
+	worn_icon_state = "marisarobe"
 	armor_protection_flags = CHEST|GROIN|ARMS|LEGS
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	siemens_coefficient = 1

@@ -12,6 +12,9 @@
 	icon_state = "webbing"
 	storage_type = /datum/storage/internal/webbing
 
+/obj/item/armor_module/storage/uniform/webbing/erp
+	storage_type = /datum/storage/internal/vest
+
 /obj/item/armor_module/storage/uniform/black_vest
 	name = "black webbing vest"
 	desc = "Robust black synthcotton vest with lots of pockets to hold whatever you need, but cannot hold in hands."
@@ -36,7 +39,7 @@
 	icon_state = "webbing_white"
 	storage_type = /datum/storage/internal/surgery_webbing
 
-/obj/item/storage/internal/surgery_webbing/PopulateContents()
+/obj/item/armor_module/storage/uniform/surgery_webbing/PopulateContents()
 	new /obj/item/tool/surgery/scalpel/manager(src)
 	new /obj/item/tool/surgery/scalpel(src)
 	new /obj/item/tool/surgery/hemostat(src)
@@ -92,4 +95,4 @@
 	name = "shoulder holster"
 	desc = "A handgun holster. Made of expensive leather."
 	icon_state = "holster"
-	item_state = "holster_low"
+	worn_icon_state = "holster_low"

@@ -3,7 +3,7 @@
 #########################################*/
 /obj/item/weapon/twohanded/yautja
 	icon = 'icons/obj/hunter/pred_gear.dmi'
-	item_icons = list(
+	worn_icon_list = list(
 		slot_back_str = 'icons/mob/hunter/pred_gear.dmi',
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi',
@@ -23,7 +23,7 @@
 	name = "hunter spear"
 	desc = "A spear of exquisite design, used by an ancient civilisation."
 	icon_state = "spearhunter"
-	item_state = "spearhunter"
+	worn_icon_state = "spearhunter"
 	item_flags = TWOHANDED
 	force = 20
 	force_wielded = 45
@@ -36,7 +36,7 @@
 	name = "war glaive"
 	desc = "A huge, powerful blade on a metallic pole. Mysterious writing is carved into the weapon."
 	icon_state = "glaive"
-	item_state = "glaive"
+	worn_icon_state = "glaive"
 	force = 20
 	force_wielded = 45
 	reach = 2
@@ -67,7 +67,7 @@
 
 /obj/item/weapon/twohanded/yautja/glaive/alt
 	icon_state = "glaive_alt"
-	item_state = "glaive_alt"
+	worn_icon_state = "glaive_alt"
 
 /obj/item/weapon/twohanded/yautja/glaive/damaged
 	name = "ancient war glaive"
@@ -77,6 +77,6 @@
 	penetration = 5
 	throwforce = 10
 	icon_state = "glaive_alt"
-	item_state = "glaive_alt"
+	worn_icon_state = "glaive_alt"
 	item_flags = TWOHANDED
 

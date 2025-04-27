@@ -45,10 +45,10 @@
 
 	create_reagents(tank_volume, AMOUNT_VISIBLE|DRAINABLE, list_reagents)
 
-/obj/structure/reagent_dispensers/ex_act(severity)
-	if(prob(severity * 0.25))
+/obj/structure/reagent_dispensers/obj_destruction(damage_amount, damage_type, damage_flag)
+	. = ..()
+	if(damage_amount)
 		new /obj/effect/particle_effect/water(loc)
-		qdel(src)
 
 //Dispensers
 /obj/structure/reagent_dispensers/watertank
@@ -165,19 +165,18 @@
 /obj/structure/reagent_dispensers/fueltank/bullet_act(obj/projectile/proj)
 	if(exploding)
 		return FALSE
-
+	. = ..()
+	if(QDELETED(src))
+		return
 	if(proj.damage > 10 && prob(60) && (proj.ammo.damage_type in list(BRUTE, BURN)))
 		log_attack("[key_name(proj.firer)] detonated a fuel tank with a projectile at [AREACOORD(src)].")
 		explode()
-		return
-	return ..()
 
 /obj/structure/reagent_dispensers/fueltank/ex_act()
 	explode()
 
 ///Does what it says on the tin, blows up the fueltank with radius depending on fuel left
 /obj/structure/reagent_dispensers/fueltank/proc/explode()
-	log_bomber(usr, "triggered a fueltank explosion with", src)
 	if(exploding)
 		return
 	exploding = TRUE
@@ -227,7 +226,7 @@
 	exploding = TRUE
 
 	cell_explosion(loc, reagents.total_volume * 0.4, reagents.total_volume * 0.2)
-	flame_radius(round(reagents.total_volume * 0.005), loc, 46, 40, 31, 30, colour = FLAME_COLOR_BLUE )
+	flame_radius(round(reagents.total_volume * 0.005), loc, 40, 46, 31, 30, colour = FLAME_COLOR_BLUE )
 	qdel(src)
 
 /obj/structure/reagent_dispensers/fueltank/gfuel

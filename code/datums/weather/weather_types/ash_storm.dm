@@ -31,7 +31,7 @@
 	. = ..()
 	var/list/impacted_mobs = list()
 	for(var/mob/impacted_mob AS in GLOB.player_list)
-		if(impacted_mob?.client?.prefs?.toggles_sound & SOUND_WEATHER)
+		if(!(impacted_mob?.client?.prefs?.toggles_sound & SOUND_WEATHER))
 			continue
 		var/turf/impacted_mob_turf = get_turf(impacted_mob)
 		if(!impacted_mob_turf || !(impacted_mob.z in impacted_z_levels))
@@ -74,7 +74,7 @@
 		return
 	if(is_storm_immune(L))
 		return
-	L.adjustFireLoss(6)
+	L.adjust_fire_loss(6)
 
 
 //Emberfalls are the result of an ash storm passing by close to the playable area of lavaland. They have a 10% chance to trigger in place of an ash storm.

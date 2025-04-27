@@ -52,6 +52,7 @@
 	return
 
 /mob/living/silicon/emp_act(severity)
+	. = ..()
 	switch(severity)
 		if(1)
 			Stun(rand(10 SECONDS, 20 SECONDS))
@@ -63,27 +64,26 @@
 
 	to_chat(src, span_danger("*BZZZT*"))
 	to_chat(src, span_warning("Warning: Electromagnetic pulse detected."))
-	return ..()
 
 /mob/living/silicon/apply_effect(effect = 0, effecttype = STUN, updating_health = FALSE)
 	return FALSE
 
-/mob/living/silicon/adjustToxLoss(amount)
+/mob/living/silicon/adjust_tox_loss(amount)
 	return FALSE
 
-/mob/living/silicon/setToxLoss(amount)
+/mob/living/silicon/set_tox_loss(amount)
 	return FALSE
 
-/mob/living/silicon/adjustCloneLoss(amount)
+/mob/living/silicon/adjust_clone_Loss(amount)
 	return FALSE
 
-/mob/living/silicon/setCloneLoss(amount)
+/mob/living/silicon/set_clone_loss(amount)
 	return FALSE
 
-/mob/living/silicon/adjustBrainLoss(amount)
+/mob/living/silicon/adjust_brain_loss(amount)
 	return FALSE
 
-/mob/living/silicon/setBrainLoss(amount)
+/mob/living/silicon/set_brain_loss(amount)
 	return FALSE
 
 //can't inject synths
@@ -132,7 +132,7 @@
 		gib()
 		return
 
-	adjustBruteLoss(severity)
+	adjust_brute_loss(severity)
 	UPDATEHEALTH(src)
 
 /mob/living/silicon/update_transform()

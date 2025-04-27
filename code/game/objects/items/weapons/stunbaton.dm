@@ -2,7 +2,7 @@
 	name = "stunbaton"
 	desc = "A stun baton for incapacitating people with."
 	icon_state = "stunbaton"
-	item_state = "baton"
+	worn_icon_state = "baton"
 	equip_slot_flags = ITEM_SLOT_BELT
 	force = 15
 	sharp = 0
@@ -182,16 +182,16 @@
 	return TRUE
 
 /obj/item/weapon/baton/emp_act(severity)
+	. = ..()
 	if(bcell)
 		bcell.emp_act(severity)	//let's not duplicate code everywhere if we don't have to please.
-	return ..()
 
 //Makeshift stun baton. Replacement for stun gloves.
 /obj/item/weapon/baton/cattleprod
 	name = "stunprod"
 	desc = "An improvised stun baton."
 	icon_state = "stunprod_nocell"
-	item_state = "prod"
+	worn_icon_state = "prod"
 	force = 3
 	throwforce = 5
 	stunforce = 0
@@ -205,7 +205,7 @@
 	name = "electrified prodder"
 	desc = "A specialised prod designed for incapacitating xenomorphic lifeforms with."
 	icon_state = "stunbaton"
-	item_state = "baton"
+	worn_icon_state = "baton"
 	equip_slot_flags = ITEM_SLOT_BELT
 	force = 12
 	throwforce = 7
@@ -252,11 +252,11 @@
 			update_icon()
 
 /obj/item/weapon/stunprod/emp_act(severity)
-	switch(severity)
-		if(1)
-			charges = 0
-		if(2)
-			charges = max(0, charges - 5)
+	. = ..()
+	if(severity == EMP_DEVASTATE)
+		charges = 0
+	else
+		charges = max(0, charges - (6 - severity))
 	if(charges < 1)
 		status = 0
 		update_icon()

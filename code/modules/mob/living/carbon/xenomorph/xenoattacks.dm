@@ -96,10 +96,10 @@
 			if(!issamexenohive(xeno_attacker))
 				return FALSE
 
-			if(xeno_attacker.tier != XENO_TIER_FOUR && !xeno_attacker.queen_chosen_lead)
+			if(xeno_attacker.tier != XENO_TIER_FOUR && !(xeno_attacker.xeno_flags & XENO_LEADER))
 				return FALSE
 
-			if((isxenoqueen(src) || queen_chosen_lead) && !isxenoqueen(xeno_attacker))
+			if((isxenoqueen(src) || xeno_flags & XENO_LEADER) && !isxenoqueen(xeno_attacker))
 				return FALSE
 
 			xeno_attacker.visible_message("\The [xeno_attacker] shoves \the [src] out of her way!", \

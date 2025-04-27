@@ -45,12 +45,15 @@
 
 #define RADIO_CHANNEL_COLONIST "Colonist"
 #define RADIO_CHANNEL_PMC "NT PMC"
+#define RADIO_CHANNEL_RETIRED "Terragov Retirees"
 #define RADIO_CHANNEL_USL "USL"
 #define RADIO_CHANNEL_DEATHSQUAD "Deathsquad"
 #define RADIO_CHANNEL_IMPERIAL "Imperial"
 #define RADIO_CHANNEL_SECTOID "Alien"
 #define RADIO_CHANNEL_ICC "ICC"
 #define RADIO_CHANNEL_ECHO "Echo"
+#define RADIO_CHANNEL_VSD "VSD"
+#define RADIO_CHANNEL_ERP "ERP"
 #define RADIO_CHANNEL_DS1 "Alamo"
 #define RADIO_CHANNEL_DS2 "Normandy"
 #define RADIO_CHANNEL_YAUTJA "Yautja"
@@ -62,6 +65,7 @@
 #define YAUT_FREQ 1233
 #define MIN_ERT_FREQ 1331
 #define FREQ_PMC 1331
+#define FREQ_RETIRED 1334
 #define FREQ_COLONIST 1335
 #define FREQ_USL 1337
 #define FREQ_DEATHSQUAD 1339
@@ -70,8 +74,11 @@
 #define FREQ_ICC 1345
 #define FREQ_SECTOID 1347
 #define FREQ_ECHO 1349
-#define MAX_ERT_FREQ 1349
-#define FREQ_AI 1351
+#define FREQ_VSD 1350
+#define FREQ_ERP 1351
+#define MAX_ERT_FREQ 1351
+
+#define FREQ_AI 1352
 #define FREQ_COMMAND 1353
 #define FREQ_REQUISITIONS 1354
 #define FREQ_MEDICAL 1355

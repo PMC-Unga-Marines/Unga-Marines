@@ -64,9 +64,9 @@
 
 /datum/storage/internal/motorbike_pack
 	storage_slots = 4
-	max_w_class = WEIGHT_CLASS_SMALL
+	max_w_class = WEIGHT_CLASS_BULKY
 	max_storage_space = 8
-	
+
 /datum/storage/internal/motorbike_pack/on_ctrl_click()
 	return //We want to be able to grab the bike without pulling something out
 
@@ -107,6 +107,8 @@
 		/obj/item/stack/sheet,
 		/obj/item/stack/sandbags,
 		/obj/item/stack/snow,
+		/obj/item/cell/lasgun/volkite/powerpack,
+		/obj/item/cell/lasgun/plasma,
 	))
 
 /datum/storage/internal/white_vest
@@ -234,7 +236,7 @@
 /datum/storage/internal/general/New(atom/parent)
 	. = ..()
 	set_holdable(
-		cant_hold_list = list(/obj/item/cell/lasgun/volkite/powerpack),
+		cant_hold_list = list(/obj/item/cell/lasgun/volkite/powerpack/marine_back),
 		storage_type_limits_list = list(
 			/obj/item/ammo_magazine/rifle,
 			/obj/item/cell/lasgun,
@@ -243,7 +245,7 @@
 			/obj/item/ammo_magazine/revolver,
 			/obj/item/ammo_magazine/sniper,
 			/obj/item/ammo_magazine/handful,
-			// /obj/item/cell/lasgun/plasma, // we don't have it yet
+			/obj/item/cell/lasgun/plasma,
 		)
 	)
 
@@ -308,6 +310,7 @@
 		/obj/item/circuitboard,
 		/obj/item/lightreplacer,
 		/obj/item/tool/surgery/solderingtool,
+		/obj/item/minerupgrade,
 	))
 
 /datum/storage/internal/medical
@@ -376,7 +379,10 @@
 /datum/storage/internal/shoes/boot_knife/New(atom/parent)
 	. = ..()
 	set_holdable(
-		can_hold_list = list(
+		cant_hold_list = list(
+			/obj/item/stack/sheet,
+		),
+		storage_type_limits_list = list(
 			/obj/item/weapon/combat_knife,
 			/obj/item/weapon/gun/pistol/p17,
 			/obj/item/weapon/gun/shotgun/double/derringer,
@@ -385,10 +391,6 @@
 			/obj/item/weapon/yautja/knife,
 			/obj/item/stack/throwing_knife,
 			/obj/item/storage/box/mre,
-			/obj/item/reagent_containers/food/snacks,
-		),
-		cant_hold_list = list(
-			/obj/item/stack/sheet,
 		)
 	)
 

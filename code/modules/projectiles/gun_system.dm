@@ -1,30 +1,14 @@
-/particles/firing_smoke
-	icon = 'icons/effects/96x96.dmi'
-	icon_state = "smoke5"
-	width = 500
-	height = 500
-	count = 5
-	spawning = 15
-	lifespan = 0.5 SECONDS
-	fade = 2.4 SECONDS
-	grow = 0.12
-	drift = generator(GEN_CIRCLE, 8, 8)
-	scale = 0.1
-	spin = generator(GEN_NUM, -20, 20)
-	velocity = list(50, 0)
-	friction = generator(GEN_NUM, 0.3, 0.6)
-
 /obj/item/weapon/gun
 	name = "Guns"
 	desc = "Its a gun. It's pretty terrible, though."
-	icon = 'icons/obj/items/gun/gun.dmi'
+	icon = 'icons/obj/items/gun/special.dmi'
 	icon_state = ""
-	item_state = "gun"
-	item_state_worn = TRUE
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
+	worn_icon_state = "gun"
+	worn_icon_state_worn = TRUE
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/special_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
+	)
 	max_integrity = 250
 	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 5
@@ -180,10 +164,8 @@
 	var/shots_fired = 0
 	///If this gun is in inactive hands and shooting in akimbo
 	var/dual_wield = FALSE
-	///determines upper accuracy modifier in akimbo
-	var/upper_akimbo_accuracy = 2
-	///determines lower accuracy modifier in akimbo
-	var/lower_akimbo_accuracy = 1
+	///mult to scatter when firing akimbo
+	var/akimbo_scatter_mod = 3
 	///If fire delay is 1 second, and akimbo_additional_delay is 0.5, then you'll have to wait 1 second * 0.5 to fire the second gun
 	var/akimbo_additional_delay = 0.5
 	///Delay for the gun winding up before firing.
@@ -238,7 +220,7 @@
 	///Multiplier. Increased and decreased through attachments. Multiplies the accuracy/scatter penalty of the projectile when firing while moving.
 	var/movement_acc_penalty_mult = 5
 	///For regular shots, how long to wait before firing again.
-	var/fire_delay = 6
+	var/fire_delay = 0.6 SECONDS
 	///Modifies the speed of projectiles fired.
 	var/shell_speed_mod = 0
 	///Modifies projectile damage by a % when a marine gets passed, but not hit
@@ -264,7 +246,7 @@
 	///Slowdown for wielding
 	var/aim_slowdown = 0
 	///How long between wielding and firing in tenths of seconds
-	var/wield_delay = 0.4 SECONDS
+	var/wield_delay = 0.6 SECONDS
 	///Extra wield delay for untrained operators
 	var/wield_penalty = 0.2 SECONDS
 	///Storing value for above
@@ -288,6 +270,24 @@
 	var/gun_accuracy_mod = 0
 	///The actual scatter value of the fired projectile
 	var/gun_scatter = 0
+
+/*
+ *  HEAT MECHANIC VARS
+ *
+*/
+	/// heat on this gun. at over 100 heat stops you from firing and goes on cooldown
+	var/heat_amount = 0
+	///heat that we add every successful fire()
+	var/heat_per_fire = 0
+	///heat reduction per second
+	var/cool_amount = 5
+	///tracks overheat timer ref
+	var/overheat_timer
+	///multiplier on cool amount to determine overheat time
+	var/overheat_multiplier = 1.1
+	///image we create to keep track of heat
+	var/image/heat_bar/heat_meter
+
 /*
  *  extra icon and item states or overlays
 */
@@ -297,6 +297,7 @@
 	var/icon_overlay_x_offset = 0
 	///Whether the icon_state overlay is offset in the Y axis
 	var/icon_overlay_y_offset = 0
+
 /*
  *
  *   ATTACHMENT VARS
@@ -422,6 +423,7 @@
 		lit_flashlight.turn_light(user, toggle_on, cooldown, sparks, forced, light_again)
 
 /obj/item/weapon/gun/emp_act(severity)
+	. = ..()
 	for(var/obj/O in contents)
 		O.emp_act(severity)
 
@@ -451,6 +453,7 @@
 		COMSIG_ITEM_UNZOOM,
 		COMSIG_MOB_MOUSEDRAG,
 		COMSIG_KB_RAILATTACHMENT,
+		COMSIG_KB_MUZZLEATTACHMENT,
 		COMSIG_KB_UNDERRAILATTACHMENT,
 		COMSIG_KB_UNLOADGUN,
 		COMSIG_KB_GUN_SAFETY,
@@ -465,6 +468,9 @@
 		gun_user.client?.mouse_pointer_icon = initial(gun_user.client.mouse_pointer_icon)
 		SEND_SIGNAL(gun_user, COMSIG_GUN_USER_UNSET, src)
 		gun_user.hud_used?.remove_ammo_hud(src)
+		if(heat_meter && gun_user.client)
+			gun_user.client.images -= heat_meter
+			heat_meter = null
 		gun_user = null
 
 	if(!user)
@@ -473,9 +479,12 @@
 	if(master_gun?.master_gun) //Prevent gunception
 		return
 	gun_user = user
-	SEND_SIGNAL(gun_user, COMSIG_GUN_USER_SET, src)
 	if(gun_features_flags & GUN_AMMO_COUNTER)
 		gun_user.hud_used?.add_ammo_hud(src, get_ammo_list(), get_display_ammo_count())
+	if(heat_per_fire)
+		heat_meter = new(loc = gun_user)
+		heat_meter.animate_change(heat_amount * 0.01, 5)
+		gun_user.client.images += heat_meter
 	if(master_gun)
 		return
 	setup_bullet_accuracy()
@@ -493,6 +502,7 @@
 	RegisterSignals(gun_user, list(COMSIG_MOB_MOUSEUP, COMSIG_ITEM_ZOOM), PROC_REF(stop_fire))
 	RegisterSignal(gun_user, COMSIG_ITEM_UNZOOM, PROC_REF(on_unzoom))
 	RegisterSignal(gun_user, COMSIG_KB_RAILATTACHMENT, PROC_REF(activate_rail_attachment))
+	RegisterSignal(gun_user, COMSIG_KB_MUZZLEATTACHMENT, PROC_REF(activate_muzzle_attachment))
 	RegisterSignal(gun_user, COMSIG_KB_UNDERRAILATTACHMENT, PROC_REF(activate_underrail_attachment))
 	RegisterSignal(gun_user, COMSIG_KB_UNLOADGUN, PROC_REF(unload_gun))
 	RegisterSignal(gun_user, COMSIG_KB_GUN_SAFETY, PROC_REF(toggle_gun_safety_keybind))
@@ -505,7 +515,7 @@
 
 /obj/item/weapon/gun/update_icon(updates=ALL)
 	. = ..()
-	update_item_state()
+	update_worn_icon_state()
 
 /obj/item/weapon/gun/update_icon_state()
 	. = ..()
@@ -542,18 +552,18 @@
 	attachment_overlays[ATTACHMENT_SLOT_MAGAZINE] = overlay
 	. += overlay
 
-/obj/item/weapon/gun/update_item_state()
-	var/current_state = item_state
-	var/real_icon = current_skin ? current_skin : initial(icon_state)
+/obj/item/weapon/gun/update_worn_icon_state()
+	var/current_state = worn_icon_state
+	var/real_icon = current_skin ? current_skin : initial(worn_icon_state)
 	if(gun_features_flags & GUN_SHOWS_AMMO_REMAINING) //shows different ammo levels
 		var/remaining_rounds = (rounds <= 0) ? 0 : CEILING((rounds / max((length(chamber_items) ? max_rounds : max_shells ? max_shells : 1), 1)) * 100, 25)
-		item_state = "[real_icon]_[remaining_rounds][item_flags & WIELDED ? "_w" : ""]"
+		worn_icon_state = "[real_icon]_[remaining_rounds][item_flags & WIELDED ? "_w" : ""]"
 	else if(gun_features_flags & GUN_SHOWS_LOADED) //shows loaded or unloaded
-		item_state = "[real_icon]_[rounds ? 100 : 0][item_flags & WIELDED ? "_w" : ""]"
+		worn_icon_state = "[real_icon]_[rounds ? 100 : 0][item_flags & WIELDED ? "_w" : ""]"
 	else
-		item_state = "[current_skin ? current_skin : base_gun_icon][item_flags & WIELDED ? "_w" : ""]"
+		worn_icon_state = "[current_skin ? current_skin : base_gun_icon][item_flags & WIELDED ? "_w" : ""]"
 
-	if(current_state != item_state && ishuman(gun_user))
+	if(current_state != worn_icon_state && ishuman(gun_user))
 		var/mob/living/carbon/human/human_user = gun_user
 		if(src == human_user.l_hand)
 			human_user.update_inv_l_hand()
@@ -633,13 +643,13 @@
 	var/wdelay = wield_delay
 	//slower or faster wield delay depending on skill.
 	if(user.skills.getRating(SKILL_FIREARMS) < SKILL_FIREARMS_DEFAULT)
-		wdelay += 0.3 SECONDS //no training in any firearms
+		wdelay += wield_penalty
 	else
 		var/skill_value = user.skills.getRating(gun_skill_category)
+		if(skill_value < 0)
+			wdelay += wield_penalty
 		if(skill_value > 0)
 			wdelay -= skill_value * 2
-		else
-			wdelay += wield_penalty
 	wield_time = world.time + wdelay
 	playsound(loc, wield_sound, 20, 1)
 	do_wield(user, wdelay)
@@ -850,6 +860,21 @@
 		if(inactive_gun.rounds && !(inactive_gun.gun_features_flags & GUN_WIELDED_FIRING_ONLY))
 			inactive_gun.last_fired = max(world.time - fire_delay * (1 - akimbo_additional_delay), inactive_gun.last_fired)
 			gun_user.swap_hand()
+	heat_amount += heat_per_fire
+	if(!(datum_flags & DF_ISPROCESSING))
+		START_PROCESSING(SSprocessing, src)
+	if(!heat_per_fire)
+		return AUTOFIRE_CONTINUE
+	if(heat_amount >= 100)
+		STOP_PROCESSING(SSprocessing, src)
+		var/obj/effect/abstract/particle_holder/overheat_smoke = new(src, /particles/overheat_smoke)
+		playsound(src, 'sound/weapons/guns/interact/gun_overheat.ogg', 25, 1, 5)
+		//overheat gives either you a bonus or penalty depending on gun, by default it is +10% time.
+		var/overheat_time = (heat_amount / cool_amount * overheat_multiplier) SECONDS
+		overheat_timer = addtimer(CALLBACK(src, PROC_REF(complete_overheat), overheat_smoke), overheat_time, TIMER_STOPPABLE)
+		heat_meter.animate_change(0, overheat_time)
+		return NONE
+	heat_meter.animate_change(heat_amount * 0.01, fire_delay)
 	return AUTOFIRE_CONTINUE
 
 ///Actually fires the gun, sets up the projectile and fires it.
@@ -861,7 +886,7 @@
 	apply_gun_modifiers(projectile_to_fire, target, firer)
 
 	projectile_to_fire.accuracy = round((projectile_to_fire.accuracy * max( 0.1, gun_accuracy_mult)))
-	var/proj_scatter = 0
+	var/proj_scatter = projectile_to_fire.ammo.scatter
 
 	if((item_flags & FULLY_WIELDED) || CHECK_BITFIELD(item_flags, IS_DEPLOYED) || (master_gun && (master_gun.item_flags & FULLY_WIELDED)))
 		scatter = clamp((scatter + scatter_increase) - ((world.time - last_fired - 1) * scatter_decay), min_scatter, max_scatter)
@@ -1003,6 +1028,19 @@
 	windup_checked = WEAPON_WINDUP_CHECKED
 	Fire()
 
+///called by a timer after overheat finishes
+/obj/item/weapon/gun/proc/complete_overheat(overheat_smoke)
+	QDEL_NULL(overheat_smoke)
+	overheat_timer = null
+	heat_amount = 0
+
+/obj/item/weapon/gun/process(delta_time)
+	if(heat_meter)
+		heat_amount = max(0, heat_amount - cool_amount * delta_time)
+		heat_meter.animate_change(heat_amount * 0.01, 5)
+	if(!heat_amount)
+		return PROCESS_KILL
+
 /obj/item/weapon/gun/attack(mob/living/M, mob/living/user, def_zone)
 	if(!CHECK_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK) || !able_to_fire(user) || gun_on_cooldown(user) || CHECK_BITFIELD(M.status_flags, INCORPOREAL)) // If it can't point blank, you can't suicide and such.
 		if(master_gun)
@@ -1051,8 +1089,10 @@
 	playsound(user, actual_sound, sound_volume, 1)
 	simulate_recoil(2, Get_Angle(user, M))
 	var/obj/item/weapon/gun/revolver/current_revolver = src
-	log_combat(user, null, "committed suicide with [src].")
-	message_admins("[ADMIN_TPMONTY(user)] committed suicide with [src].")
+	var/admin_msg = "committed suicide with [src] (Dmg:[projectile_to_fire.damage], Dmg type: [projectile_to_fire.ammo.damage_type])"
+	log_combat(user, null, admin_msg)
+	if(projectile_to_fire.damage)
+		message_admins("[ADMIN_TPMONTY(user)] " + admin_msg)
 	if(istype(current_revolver) && current_revolver.russian_roulette) //If it's a revolver set to Russian Roulette.
 		user.apply_damage(projectile_to_fire.damage * 3, projectile_to_fire.ammo.damage_type, "head", 0, TRUE)
 		user.apply_damage(200, OXY) //In case someone tried to defib them. Won't work.
@@ -1062,17 +1102,20 @@
 		ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
 		return
 
-	switch(projectile_to_fire.ammo.damage_type)
-		if(STAMINA)
-			to_chat(user, span_notice("Ow..."))
-			user.apply_damage(200, STAMINA)
-		else
-			user.apply_damage(projectile_to_fire.damage * 2.5, projectile_to_fire.ammo.damage_type, "head", 0, TRUE)
-			user.apply_damage(200, OXY)
-			if(ishuman(user) && user == M)
-				var/mob/living/carbon/human/HM = user
-				HM.set_undefibbable(TRUE) //can't be defibbed back from self inflicted gunshot to head
-			user.death()
+	if(!projectile_to_fire.damage)
+		ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
+		return // suicide with a blank?
+
+	if(projectile_to_fire.ammo.damage_type == STAMINA)
+		to_chat(user, span_notice("Ow..."))
+		user.apply_damage(200, STAMINA)
+	else
+		user.apply_damage(projectile_to_fire.damage * 2.5, projectile_to_fire.ammo.damage_type, "head", 0, TRUE)
+		user.apply_damage(200, OXY)
+		if(ishuman(user) && user == M)
+			var/mob/living/carbon/human/HM = user
+			HM.set_undefibbable(TRUE) //can't be defibbed back from self inflicted gunshot to head
+		user.death()
 
 	user.log_message("commited suicide with [src]", LOG_ATTACK, "red") //Apply the attack log.
 	last_fired = world.time
@@ -1673,6 +1716,9 @@
 	if(CHECK_BITFIELD(gun_features_flags, GUN_IS_ATTACHMENT) && !master_gun && CHECK_BITFIELD(gun_features_flags, GUN_ATTACHMENT_FIRE_ONLY))
 		to_chat(user, span_notice("You cannot fire [src] without it attached to a gun!"))
 		return FALSE
+	if(overheat_timer)
+		balloon_alert(user, "overheat")
+		return FALSE
 	return TRUE
 
 /obj/item/weapon/gun/proc/gun_on_cooldown(mob/user)
@@ -1701,14 +1747,14 @@
 
 /obj/item/weapon/gun/proc/play_fire_sound(mob/user)
 	//Guns with low ammo have their firing sound
-	var/firing_sndfreq = CHECK_BITFIELD(gun_features_flags, GUN_NO_PITCH_SHIFT_NEAR_EMPTY) ? FALSE : ((rounds / (max_rounds ? max_rounds : max_shells ? max_shells : 1)) > 0.25) ? FALSE : 55000
+	var/firing_sndfreq = CHECK_BITFIELD(gun_features_flags, GUN_NO_PITCH_SHIFT_NEAR_EMPTY) ? FALSE : ((max(rounds, 1) / (max_rounds ? max_rounds : max_shells ? max_shells : 1)) > 0.25) ? FALSE : 55000
 	if(HAS_TRAIT(src, TRAIT_GUN_SILENCED))
-		playsound(user, fire_sound, 25, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
+		playsound(user, fire_sound, GUN_FIRE_SOUND_VOLUME/2, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
 		return
 	if(firing_sndfreq && fire_rattle)
-		playsound(user, fire_rattle, 60, FALSE)
+		playsound(user, fire_rattle, GUN_FIRE_SOUND_VOLUME, FALSE)
 		return
-	playsound(user, fire_sound, 60, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
+	playsound(user, fire_sound, GUN_FIRE_SOUND_VOLUME, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
 
 /obj/item/weapon/gun/proc/apply_gun_modifiers(obj/projectile/projectile_to_fire, atom/target, firer)
 	projectile_to_fire.shot_from = src
@@ -1764,7 +1810,7 @@
 			gun_scatter += burst_amount * burst_scatter_mult * 2
 
 	if(dual_wield) //akimbo firing gives terrible scatter
-		gun_scatter += 2 * rand(upper_akimbo_accuracy, lower_akimbo_accuracy) //TODO: remove the rng increase
+		gun_scatter += akimbo_scatter_mod
 
 	if(gun_user)
 		//firearm skills modifiers
@@ -1800,7 +1846,7 @@
 		total_recoil += recoil_unwielded
 		if(HAS_TRAIT(src, TRAIT_GUN_BURST_FIRING))
 			total_recoil += 1
-	if(!gun_user.skills.getRating(SKILL_FIREARMS)) //no training in any firearms
+	if(gun_user.skills.getRating(SKILL_FIREARMS) <= SKILL_FIREARMS_UNTRAINED) //no training in any firearms
 		total_recoil += 2
 	else
 		var/recoil_tweak = gun_user.skills.getRating(gun_skill_category)
@@ -1836,4 +1882,11 @@
 		lit_flashlight.turn_light(null, FALSE)
 	playsound(loc, SFX_ALIEN_CLAW_METAL, 25, 1)
 	xeno_attacker.do_attack_animation(src, ATTACK_EFFECT_CLAW)
-	to_chat(xeno_attacker, span_warning("We disable the metal thing's lights.") )
+	to_chat(xeno_attacker, span_warning("We disable the metal thing's lights."))
+
+/obj/item/weapon/gun/special_stripped_behavior(mob/stripper, mob/owner)
+	var/obj/item/attachable/magnetic_harness/magharn = attachments_by_slot[ATTACHMENT_SLOT_RAIL]
+	if(!istype(magharn))
+		return
+	magharn.reequip_component.active = FALSE
+	addtimer(VARSET_CALLBACK(magharn.reequip_component, active, TRUE), 2 SECONDS)

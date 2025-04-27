@@ -1,13 +1,8 @@
-
 /mob/living/carbon/xenomorph/proc/death_cry()
 	playsound(loc, prob(50) ? 'sound/voice/alien/death.ogg' : 'sound/voice/alien/death2.ogg', 25, 1)
 
-
 /mob/living/carbon/xenomorph/death(gibbing, deathmessage = "lets out a waning guttural screech, green blood bubbling from its maw.", silent)
-	if(stat == DEAD)
-		return ..()
-	return ..() //Just a different standard deathmessage
-
+	return ..() //we're just changing the death message
 
 /mob/living/carbon/xenomorph/on_death()
 	GLOB.alive_xeno_list -= src
@@ -20,7 +15,7 @@
 	hive?.on_xeno_death(src)
 	hive?.update_tier_limits() //Update our tier limits.
 
-	if(is_zoomed)
+	if(xeno_flags & XENO_ZOOMED)
 		zoom_out()
 
 	if(tier != XENO_TIER_MINION)
@@ -44,6 +39,7 @@
 	hud_update_primo()
 
 	update_icons()
+	hud_update_rank()
 
 	death_cry()
 

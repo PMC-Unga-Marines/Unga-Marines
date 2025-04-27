@@ -1,7 +1,9 @@
-//Generic parent object.
-//---------------------------------------------------
-
 /obj/item/weapon/gun/revolver
+	icon = 'icons/obj/items/gun/pistol.dmi'
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
+	)
 	equip_slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_sound = 'sound/weapons/guns/fire/44mag.ogg'
@@ -15,7 +17,7 @@
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_SMOKE_PARTICLES
 	aim_speed_modifier = 0.75
 	aim_fire_delay = 0.25 SECONDS
-	wield_delay = 0.2 SECONDS //If you modify your revolver to be two-handed, it will still be fast to aim
+	wield_delay = 0.4 SECONDS
 	gun_skill_category = SKILL_PISTOLS
 
 	reciever_flags = AMMO_RECIEVER_HANDFULS|AMMO_RECIEVER_ROTATES_CHAMBER|AMMO_RECIEVER_TOGGLES_OPEN|AMMO_RECIEVER_TOGGLES_OPEN_EJECTS
@@ -35,7 +37,7 @@
 	var/catchworking = TRUE
 
 /mob/living/carbon/human/verb/revolvertrick()
-	set category = "Weapons"
+	set category = "IC.Weapons"
 	set name = "Do a revolver trick"
 	set desc = "Show off to all your friends!"
 
@@ -47,7 +49,7 @@
 	gun.revolvertrick()
 
 /obj/item/weapon/gun/revolver/verb/revolvertrick()
-	set category = "Weapons"
+	set category = "IC.Weapons"
 	set name = "Do a revolver trick"
 	set desc = "Show off to all your friends!"
 
@@ -109,17 +111,13 @@
 	name = "\improper R-44 combat revolver"
 	desc = "The R-44 standard combat revolver, produced by Terran Armories. A sturdy and hard hitting firearm that loads .44 Magnum rounds. Holds 7 rounds in the cylinder. Due to an error in the cylinder rotation system the fire rate of the gun is much faster than intended, it ended up being billed as a feature of the system."
 	icon_state = "tp44"
-	item_state = "tp44"
+	worn_icon_state = "tp44"
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_r44.ogg'
 	caliber = CALIBER_44 //codex
 	max_chamber_items = 7 //codex
 	default_ammo_type = /obj/item/ammo_magazine/revolver/r44
 	allowed_ammo_types = list(/obj/item/ammo_magazine/revolver/r44)
 	force = 8
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-	)
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/reddot,
@@ -159,7 +157,7 @@
 	name = "\improper N-Y 7.62mm revolver"
 	desc = "The Nagant-Yamasaki 7.62 is an effective killing machine designed by a consortion of shady Not-Americans. It is frequently found in the hands of criminals or mercenaries."
 	icon_state = "ny762"
-	item_state = "ny762"
+	worn_icon_state = "ny762"
 	caliber = CALIBER_762X38 //codex
 	max_chamber_items = 7 //codex
 	fire_sound = 'sound/weapons/guns/fire/ny.ogg'
@@ -179,7 +177,6 @@
 	scatter_unwielded = 12
 	recoil_unwielded = 0
 
-
 //-------------------------------------------------------
 //A generic 357 revolver. With a twist.
 
@@ -187,7 +184,7 @@
 	name = "\improper FFA 'Rebota' revolver"
 	desc = "A lean .357 made by Falffearmeria. A timeless design, from antiquity to the future. This one is well known for it's strange ammo, which ricochets off walls constantly. Which went from being a defect to a feature."
 	icon_state = "rebota"
-	item_state = "sw357"
+	worn_icon_state = "rebota"
 	caliber = CALIBER_357 //codex
 	max_chamber_items = 6 //codex
 	fire_sound = 'sound/weapons/guns/fire/revolver.ogg'
@@ -216,7 +213,7 @@
 	name = "\improper R-24 'Mateba' autorevolver"
 	desc = "The R-24 is the rather rare autorevolver used by the TGMC issued in rather small numbers to backline personnel and officers it uses recoil to spin the cylinder. Uses heavy .454 rounds."
 	icon_state = "mateba"
-	item_state = "mateba"
+	worn_icon_state = "mateba"
 	fire_animation = "mateba_fire"
 	muzzleflash_iconstate = "muzzle_flash"
 	caliber = CALIBER_454 //codex
@@ -256,7 +253,7 @@
 	name = "\improper R-24 autorevolver special"
 	desc = "The Mateba is a powerful, fast-firing revolver that uses its own recoil to rotate the cylinders. This one appears to have had more love and care put into it. Uses .454 rounds."
 	icon_state = "mateba"
-	item_state = "mateba"
+	worn_icon_state = "mateba"
 
 //-------------------------------------------------------
 //MARSHALS REVOLVER
@@ -265,7 +262,7 @@
 	name = "\improper CMB autorevolver"
 	desc = "An automatic revolver chambered in .357 magnum. Commonly issued to Nanotrasen security. It has a burst mode. Currently in trial with other revolvers across Terra and other colonies."
 	icon_state = "cmb"
-	item_state = "cmb"
+	worn_icon_state = "cmb"
 	caliber = CALIBER_357 //codex
 	max_chamber_items = 6 //codex
 	fire_sound = 'sound/weapons/guns/fire/revolver_light.ogg'
@@ -296,7 +293,7 @@
 	name = "\improper 'Judge' revolver"
 	desc = "An incredibly uncommon revolver utilizing a oversized chamber to be able to both fire 45 Long at the cost of firing speed. Normal rounds have no falloff, and next to no scatter. Due to the short barrel, buckshot out of it has high spread."
 	icon_state = "judge"
-	item_state = "m44"
+	worn_icon_state = "judge"
 	fire_animation = "judge_fire"
 	caliber = CALIBER_45L //codex
 	max_chamber_items = 5 //codex
@@ -331,9 +328,9 @@
 /obj/item/weapon/gun/revolver/standard_magnum
 	name = "\improper R-76 KC magnum"
 	desc = "The R-76 magnum is an absolute beast of a handgun used by the TGMC, rumors say it was created as a money laundering scheme by some general due to the sheer inpracticality of this firearm. Hits hard, recommended to be used with its stock attachment. Chambered in 12.7mm."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/pistol64.dmi'
 	icon_state = "t76"
-	item_state = "t76"
+	worn_icon_state = "t76"
 	fire_animation = "t76_fire"
 	caliber = CALIBER_12X7 //codex
 	max_chamber_items = 5 //codex
@@ -388,19 +385,19 @@
 /obj/item/weapon/gun/revolver/standard_magnum/fancy/gold
 	desc = "A gold plated R-76 magnum, to ensure it's incredibly expensive as well as incredibly impractical. The R-76 magnum is an absolute beast of a handgun used by the TGMC, rumors say it was created as a money laundering scheme by some general due to the sheer inpracticality of this firearm. Hits hard, recommended to be used with its stock attachment. Chambered in 12.7mm."
 	icon_state = "g_t76"
-	item_state = "g_t76"
+	worn_icon_state = "g_t76"
 	fire_animation = "g_t76_fire"
 
 /obj/item/weapon/gun/revolver/standard_magnum/fancy/silver
 	desc = "A silver plated R-76 magnum, to ensure it's incredibly expensive as well as incredibly impractical. The R-76 magnum is an absolute beast of a handgun used by the TGMC, rumors say it was created as a money laundering scheme by some general due to the sheer inpracticality of this firearm. Hits hard, recommended to be used with its stock attachment. Chambered in 12.7mm."
 	icon_state = "s_t76"
-	item_state = "s_t76"
+	worn_icon_state = "s_t76"
 	fire_animation = "s_t76_fire"
 
 /obj/item/weapon/gun/revolver/standard_magnum/fancy/nickle
 	desc = "A nickle plated R-76 magnum, for a more tasteful finish. The R-76 magnum is an absolute beast of a handgun used by the TGMC, rumors say it was created as a money laundering scheme by some general due to the sheer inpracticality of this firearm. Hits hard, recommended to be used with its stock attachment. Chambered in 12.7mm."
 	icon_state = "n_t76"
-	item_state = "n_t76"
+	worn_icon_state = "n_t76"
 	fire_animation = "n_t76_fire"
 
 //Single action revolvers below
@@ -424,7 +421,7 @@
 	name = "\improper R-44 SAA revolver"
 	desc = "A uncommon revolver occasionally carried by civilian law enforcement that's very clearly based off a modernized Single Action Army. Has to be manully primed with each shot. Uses .44 Magnum rounds."
 	icon_state = "m44"
-	item_state = "m44"
+	worn_icon_state = "m44"
 	caliber = CALIBER_44 //codex
 	max_chamber_items = 6
 	default_ammo_type = /obj/item/ammo_magazine/revolver
@@ -455,12 +452,12 @@
 /obj/item/weapon/gun/revolver/r44/coltrifle
 	name = "\improper M1855 Revolving Rifle"
 	desc = "A revolver and carbine hybrid, designed and manufactured a long time ago by Crowford Armory Union. Popular back then, but completely obsolete today. Still used by some antiquity lovers."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/marksman64.dmi'
 	icon_state = "coltrifle"
-	item_state = "coltrifle"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
+	worn_icon_state = "coltrifle"
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 	)
@@ -484,8 +481,7 @@
 
 	fire_delay = 0.25 SECONDS
 	aim_fire_delay = 0.25 SECONDS
-	upper_akimbo_accuracy = 6
-	lower_akimbo_accuracy = 3
+	akimbo_scatter_mod = 8
 	akimbo_additional_delay = 1
 	aim_slowdown = 0.3
 
@@ -510,13 +506,13 @@
 /obj/item/weapon/gun/revolver/t500
 	name = "\improper R-500 'Nigredo' revolver"
 	desc = "The R-500 'Nigredo' revolver, chambered in .500 Nigro Express. Hard to use, but hits as hard as it’s kicks your hand. This handgun made by BMSS, designed to be deadly, unholy force to stop everything what moves, so in exchange for it, revolver lacking recoil control and have tight cocking system. Because of its specific, handcanon niche, was produced in small numbers. Black & Metzer special attachments system can turn extremely powerful handgun to fullscale rifle, making it a weapon to surpass Metal Gear."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/pistol64.dmi'
 	icon_state = "t500"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
-	item_state = "t500"
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
+	)
+	worn_icon_state = "t500"
 	caliber =  CALIBER_500 //codex
 	max_chamber_items = 5 //codex
 	default_ammo_type = /obj/item/ammo_magazine/revolver/t500
@@ -569,13 +565,13 @@
 /obj/item/weapon/gun/revolver/t312
 	name = "R-312 'Albedo' Revolver"
 	desc = "Futuristic style revolver with railgun system, using to fire EMB (experimental medical bullets). Just first make sure that you chambered EMB, but not .500 White Express."
-	icon = 'icons/obj/items/gun/gun64.dmi'
+	icon = 'icons/obj/items/gun/pistol64.dmi'
 	icon_state = "t312"
-	item_state = "t312"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',
-		)
+	worn_icon_state = "t312"
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
+	)
 	caliber =  CALIBER_500_EMB
 	max_chamber_items = 5 //codex
 	default_ammo_type = /datum/ammo/bullet/revolver/t312

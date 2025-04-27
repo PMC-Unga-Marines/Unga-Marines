@@ -15,19 +15,10 @@
 		to_chat(src,"<b>[span_deadsay("<p style='font-size:1.5em'>[species.special_death_message]</p>")]</b>")
 	return ..()
 
-/mob/living/carbon/Moved(oldLoc, dir)
+/mob/living/carbon/Moved(atom/old_loc, movement_dir, forced = FALSE, list/old_locs)
 	. = ..()
 	if(nutrition && stat != DEAD)
 		adjust_nutrition(-HUNGER_FACTOR * 0.1 * ((m_intent == MOVE_INTENT_RUN) ? 2 : 1))
-
-
-/mob/living/carbon/relaymove(mob/user, direction)
-	if(user.incapacitated(TRUE))
-		return
-	if(!chestburst && (status_flags & XENO_HOST) && isxenolarva(user))
-		var/mob/living/carbon/xenomorph/larva/L = user
-		L.initiate_burst(src)
-
 
 /mob/living/carbon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0, def_zone = null)
 	if(status_flags & GODMODE)
@@ -86,7 +77,7 @@
 		location.add_vomit_floor(src, 1)
 
 	adjust_nutrition(-40)
-	adjustToxLoss(-3)
+	adjust_tox_loss(-3)
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/shaker)
 	if(health < get_crit_threshold())
@@ -111,7 +102,7 @@
 		AdjustStun(-6 SECONDS)
 		if(has_status_effect(STATUS_EFFECT_PARALYZED))
 			if(staminaloss)
-				adjustStaminaLoss(-20, FALSE)
+				adjust_stamina_loss(-20, FALSE)
 		AdjustParalyzed(-6 SECONDS)
 
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, TRUE, 5)
@@ -314,14 +305,14 @@
 
 	sight = initial(sight)
 	lighting_alpha = initial(lighting_alpha)
-	see_in_dark = species.darksight
+	see_in_dark = initial(see_in_dark)
 	see_invisible = initial(see_invisible)
 
 	if(species)
 		if(species.lighting_alpha)
-			lighting_alpha = initial(species.lighting_alpha)
+			lighting_alpha = species.lighting_alpha
 		if(species.see_in_dark)
-			see_in_dark = initial(species.see_in_dark)
+			see_in_dark = species.see_in_dark
 
 	if(client.eye != src)
 		var/atom/A = client.eye
@@ -399,7 +390,7 @@
 	ex_act(500)
 
 ///Sets up the jump component for the mob. Proc args can be altered so different mobs have different 'default' jump settings
-/mob/living/carbon/set_jump_component(duration = 0.5 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 16, sound = null, flags = JUMP_SHADOW, pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
+/mob/living/carbon/set_jump_component(duration = 0.5 SECONDS, cooldown = 1 SECONDS, cost = 8, height = 16, sound = null, flags = JUMP_SHADOW, jump_pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_TANK)
 	var/gravity = get_gravity()
 	if(gravity < 1) //low grav
 		duration *= 2.5 - gravity
@@ -407,7 +398,7 @@
 		cost *= gravity * 0.5
 		height *= 2 - gravity
 		if(gravity <= 0.75)
-			pass_flags |= PASS_DEFENSIVE_STRUCTURE
+			jump_pass_flags |= PASS_DEFENSIVE_STRUCTURE
 	else if(gravity > 1) //high grav
 		duration *= gravity * 0.5
 		cooldown *= gravity
@@ -417,4 +408,10 @@
 	if(species?.species_flags & NO_STAMINA)
 		cost = 0
 
-	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = cost, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = pass_flags)
+	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = cost, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = jump_pass_flags)
+
+/// Handles when the player clicks on themself with the grab item
+/mob/living/carbon/proc/grabbed_self_attack(mob/living/user)
+	SHOULD_CALL_PARENT(TRUE)
+	SIGNAL_HANDLER
+	return NONE

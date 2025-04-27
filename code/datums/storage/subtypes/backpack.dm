@@ -74,3 +74,34 @@
 
 /datum/storage/backpack/dispenser/attempt_draw_object(mob/living/user)
 	to_chat(user, span_notice("You can't grab anything out of [parent] while it's not deployed."))
+
+/datum/storage/backpack/duffelbag
+	access_delay = 0
+
+/datum/storage/backpack/duffelbag/put_storage_in_hand(datum/source, obj/over_object, mob/living/carbon/human/user)
+	//Taking off the duffelbag has a channel
+	if(user.back != parent || !do_after(user, 3 SECONDS))
+		return
+
+	switch(over_object.name)
+		if("r_hand")
+			INVOKE_ASYNC(src, PROC_REF(put_item_in_r_hand), source, user)
+		if("l_hand")
+			INVOKE_ASYNC(src, PROC_REF(put_item_in_l_hand), source, user)
+
+/datum/storage/backpack/duffelbag/open(mob/user)
+	if(!iscarbon(user))
+		return TRUE
+	var/mob/living/carbon/carbon_user = user
+	if(carbon_user.back == parent && !do_after(carbon_user, 2 SECONDS))
+		return TRUE
+	return ..()
+
+/datum/storage/backpack/duffelbag/attempt_draw_object(mob/living/carbon/user, start_from_left)
+	if(user.back == parent && user.s_active != src)
+		to_chat(user, span_notice("You can't grab anything out of [parent] while it's on your back."))
+		return
+	return ..()
+
+/datum/storage/backpack/duffelbag/saddle
+	max_storage_space = 18

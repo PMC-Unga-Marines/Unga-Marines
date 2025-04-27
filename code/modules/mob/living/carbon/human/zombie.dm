@@ -1,6 +1,5 @@
 /datum/species/zombie
 	name = "Zombie"
-	name_plural = "Zombies"
 	icobase = 'icons/mob/human_races/r_husk.dmi'
 	total_health = 125
 	species_flags = NO_BREATHE|NO_SCAN|NO_BLOOD|NO_POISON|NO_PAIN|NO_CHEM_METABOLIZATION|NO_STAMINA|HAS_UNDERWEAR|HEALTH_HUD_ALWAYS_DEAD|PARALYSE_RESISTANT
@@ -34,9 +33,9 @@
 	H.set_undefibbable()
 	H.faction = faction
 	H.language_holder = new default_language_holder()
-	H.setOxyLoss(0)
-	H.setToxLoss(0)
-	H.setCloneLoss(0)
+	H.set_oxy_loss(0)
+	H.set_tox_loss(0)
+	H.set_clone_loss(0)
 	H.dropItemToGround(H.r_hand, TRUE)
 	H.dropItemToGround(H.l_hand, TRUE)
 	if(istype(H.wear_id, /obj/item/card/id))
@@ -84,7 +83,7 @@
 	for(var/organ_slot in has_organ)
 		var/datum/internal_organ/internal_organ = H.get_organ_slot(organ_slot)
 		internal_organ?.heal_organ_damage(1)
-	H.updatehealth()
+	H.update_health()
 
 /datum/species/zombie/handle_death(mob/living/carbon/human/H)
 	SSmobs.stop_processing(H)
@@ -142,6 +141,32 @@
 	total_health = 200
 	faction = FACTION_SECTOIDS
 	claw_type = /obj/item/weapon/zombie_claw/no_zombium
+
+/datum/species/zombie/smoker
+	name = "Smoker zombie"
+
+/datum/species/zombie/smoker/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
+	. = ..()
+	var/datum/action/ability/emit_gas/emit_gas = new
+	emit_gas.give_action(H)
+
+/particles/smoker_zombie
+	icon = 'icons/effects/particles/smoke.dmi'
+	icon_state = list("smoke_1" = 1, "smoke_2" = 1, "smoke_3" = 2)
+	width = 100
+	height = 100
+	count = 5
+	spawning = 4
+	lifespan = 9
+	fade = 10
+	grow = 0.2
+	velocity = list(0, 0)
+	position = generator(GEN_CIRCLE, 10, 10, NORMAL_RAND)
+	drift = generator(GEN_VECTOR, list(0, -0.15), list(0, 0.15))
+	gravity = list(0, 0.4)
+	scale = generator(GEN_VECTOR, list(0.3, 0.3), list(0.9,0.9), NORMAL_RAND)
+	rotation = 0
+	spin = generator(GEN_NUM, 10, 20)
 
 /datum/action/rally_zombie
 	name = "Rally Zombies"
@@ -220,3 +245,80 @@
 
 /obj/item/weapon/zombie_claw/no_zombium
 	zombium_per_hit = 0
+
+// ***************************************
+// *********** Emit Gas
+// ***************************************
+/datum/action/ability/emit_gas
+	name = "Emit Gas"
+	action_icon_state = "emit_neurogas"
+	action_icon = 'icons/Xeno/actions/defiler.dmi'
+	desc = "Use to emit a cloud of blinding smoke."
+	cooldown_duration = 40 SECONDS
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY|ABILITY_IGNORE_SELECTED_ABILITY
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_EMIT_NEUROGAS,
+	)
+	/// Used for particles. Holds the particles instead of the mob. See particle_holder for documentation.
+	var/obj/effect/abstract/particle_holder/particle_holder
+	/// smoke type created when the grenade is primed
+	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread/bad
+	///radius this smoke grenade will encompass
+	var/smokeradius = 4
+	///The duration of the smoke in 2 second ticks
+	var/smoke_duration = 9
+
+/datum/action/ability/emit_gas/on_cooldown_finish()
+	playsound(owner.loc, 'sound/effects/alien/newlarva.ogg', 50, 0)
+	to_chat(owner, span_xenodanger("We feel our smoke filling us once more. We can emit gas again."))
+	toggle_particles(TRUE)
+	return ..()
+
+/datum/action/ability/emit_gas/action_activate()
+	var/datum/effect_system/smoke_spread/smoke = new smoketype()
+	var/turf/owner_turf = get_turf(owner)
+	playsound(owner_turf, 'sound/effects/smoke_bomb.ogg', 25, TRUE)
+	smoke.set_up(smokeradius, owner_turf, smoke_duration)
+	smoke.start()
+	toggle_particles(FALSE)
+
+	add_cooldown()
+	succeed_activate()
+
+	owner.record_war_crime()
+
+/datum/action/ability/emit_gas/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/emit_gas/ai_should_use(atom/target)
+	var/mob/living/L = owner
+	if(!iscarbon(target))
+		return FALSE
+	if(get_dist(target, owner) > 2 && L.health > 50)
+		return FALSE
+	if(!can_use_action(override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
+		return FALSE
+	if(!line_of_sight(owner, target))
+		return FALSE
+	return TRUE
+
+/// Toggles particles on or off
+/datum/action/ability/emit_gas/proc/toggle_particles(activate)
+	if(!activate)
+		QDEL_NULL(particle_holder)
+		return
+
+	particle_holder = new(owner, /particles/smoker_zombie)
+	particle_holder.pixel_y = 6
+
+/datum/action/ability/emit_gas/give_action(mob/living/L)
+	. = ..()
+	toggle_particles(TRUE)
+
+/datum/action/ability/emit_gas/remove_action(mob/living/L)
+	. = ..()
+	QDEL_NULL(particle_holder)
+
+/datum/action/ability/emit_gas/Destroy()
+	. = ..()
+	QDEL_NULL(particle_holder)

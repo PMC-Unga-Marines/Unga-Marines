@@ -30,6 +30,7 @@
 	. = ..()
 	balloon = new()
 	holder_obj = new()
+	RegisterSignal(SSdcs, COMSIG_GLOB_SUPPLY_BEACON_CREATED, PROC_REF(ping_beacon))
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/computer/supplydrop_console/LateInitialize()
@@ -38,6 +39,11 @@
 		if(_supply_pad.faction == faction)
 			supply_pad = _supply_pad
 			return
+
+/// Used to notify of a new beacon target
+/obj/machinery/computer/supplydrop_console/proc/ping_beacon()
+	SIGNAL_HANDLER
+	playsound(src,'sound/machines/terminal_prompt_confirm.ogg', 50, TRUE)
 
 /obj/machinery/computer/supplydrop_console/Destroy()
 	supply_beacon = null
@@ -186,7 +192,7 @@
 		visible_message("[icon2html(supply_pad, usr)] [span_warning("Launch aborted! No deployable object detected on the drop pad.")]")
 		return
 
-	supply_beacon.drop_location.visible_message(span_boldnotice("A supply drop appears suddendly!"))
+	supply_beacon.drop_location.visible_message(span_boldnotice("A supply drop appears suddenly!"))
 	playsound(supply_beacon.drop_location,'sound/effects/tadpolehovering.ogg', 30, TRUE)
 	playsound(supply_pad.loc,'sound/effects/phasein.ogg', 50, TRUE)
 	for(var/obj/C in supplies)

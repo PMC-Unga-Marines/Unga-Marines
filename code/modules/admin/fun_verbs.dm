@@ -170,7 +170,7 @@
 	if(!check_rights(R_FUN))
 		return
 
-	var/msg = tgui_input_text(usr, "Enter the text you wish to appear to everyone.", "Global Narrate", multiline = TRUE , encode = FALSE)
+	var/msg = tgui_input_text(usr, "Enter the text you wish to appear to everyone.", "Global Narrate", multiline = TRUE , encode = FALSE, max_length = INFINITY)
 
 	if(!msg)
 		return
@@ -473,7 +473,7 @@
 	if(!check_rights(R_FUN))
 		return
 
-	var/message = tgui_input_text(usr, "Global message to send:", "Admin Announce", multiline = TRUE, encode = FALSE)
+	var/message = tgui_input_text(usr, "Global message to send:", "Admin Announce", multiline = TRUE, encode = FALSE, max_length = INFINITY)
 
 	message = noscript(message)
 
@@ -661,7 +661,7 @@
 /proc/delayed_detonate_bomb_napalm(turf/impact)
 	impact.ceiling_debris_check(3)
 	cell_explosion(impact, 250, 90)
-	flame_radius(5, impact, 60, 30)
+	flame_radius(5, impact, 30, 60)
 
 /datum/admins/proc/drop_OB()
 	set category = "Admin.Fun"
@@ -1183,15 +1183,15 @@
 		if("Low gravity")
 			to_chat(GLOB.mob_living_list, span_highdanger("You feel gravity pull gently at you."))
 			for(var/mob/living/living_mob AS in GLOB.mob_living_list)
-				living_mob.set_jump_component(duration = 1 SECONDS, cooldown = 1.5 SECONDS, cost = 2, height = 32, pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_DEFENSIVE_STRUCTURE|PASS_TANK)
+				living_mob.set_jump_component(duration = 1 SECONDS, cooldown = 1.5 SECONDS, cost = 2, height = 32, jump_pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_DEFENSIVE_STRUCTURE|PASS_TANK)
 		if("John Woo")
 			to_chat(GLOB.mob_living_list, span_highdanger("You feel gravity grow weak, and the urge to fly."))
 			for(var/mob/living/living_mob AS in GLOB.mob_living_list)
-				living_mob.set_jump_component(duration = 1 SECONDS, cooldown = 1.5 SECONDS, cost = 2, height = 48, sound = SFX_JUMP, flags = JUMP_SPIN, pass_flags = HOVERING|PASS_PROJECTILE|PASS_TANK)
+				living_mob.set_jump_component(duration = 1 SECONDS, cooldown = 1.5 SECONDS, cost = 2, height = 48, sound = SFX_JUMP, flags = JUMP_SPIN, jump_pass_flags = HOVERING|PASS_PROJECTILE|PASS_TANK)
 		if("Exceeding orbital velocity")
 			to_chat(GLOB.mob_living_list, span_highdanger("You feel gravity fade to nothing. Will you even come back down?"))
 			for(var/mob/living/living_mob AS in GLOB.mob_living_list)
-				living_mob.set_jump_component(duration = 4 SECONDS, cooldown = 6 SECONDS, cost = 0, height = 128, sound = SFX_JUMP, flags = JUMP_SPIN, pass_flags = HOVERING|PASS_PROJECTILE|PASS_TANK)
+				living_mob.set_jump_component(duration = 4 SECONDS, cooldown = 6 SECONDS, cost = 0, height = 128, sound = SFX_JUMP, flags = JUMP_SPIN, jump_pass_flags = HOVERING|PASS_PROJECTILE|PASS_TANK)
 		else
 			return
 

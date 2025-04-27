@@ -191,7 +191,7 @@
 		if(!istype(arrived))
 			break
 		our_explosion.on_turf_entered(arrived)
-	..()
+	return ..()
 
 /turf/proc/get_cell(type)
 	for(var/datum/automata_cell/our_cell in autocells)
@@ -222,7 +222,7 @@
 
 // Creates a new turf
 // new_baseturfs can be either a single type or list of types, formated the same as baseturfs. see turf.dm
-/turf/proc/ChangeTurf(path, list/new_baseturfs, flags)
+/turf/proc/change_turf(path, list/new_baseturfs, flags)
 	switch(path)
 		if(null)
 			return
@@ -338,11 +338,11 @@
 		qdel(thing, force=TRUE)
 
 	if(turf_type)
-		ChangeTurf(turf_type, baseturf_type, flags)
-		//var/turf/newT = ChangeTurf(turf_type, baseturf_type, flags)
+		change_turf(turf_type, baseturf_type, flags)
+		//var/turf/newT = change_turf(turf_type, baseturf_type, flags)
 
 /turf/proc/ReplaceWithLattice()
-	src.ChangeTurf(/turf/open/space)
+	src.change_turf(/turf/open/space)
 	new /obj/structure/lattice( locate(src.x, src.y, src.z) )
 
 /turf/proc/AdjacentTurfs()
@@ -622,7 +622,7 @@
 
 /turf/proc/copyTurf(turf/T)
 	if(T.type != type)
-		T.ChangeTurf(type)
+		T.change_turf(type)
 	if(T.icon_state != icon_state)
 		T.icon_state = icon_state
 	if(T.icon != icon)
@@ -635,7 +635,7 @@
 	return T
 
 //If you modify this function, ensure it works correctly with lateloaded map templates.
-/turf/proc/AfterChange(flags) //called after a turf has been replaced in ChangeTurf()
+/turf/proc/AfterChange(flags) //called after a turf has been replaced in change_turf()
 	levelupdate()
 	//CalculateAdjacentTurfs() // linda
 
@@ -765,7 +765,8 @@
 	transfer_area_lighting(old_area, new_area)
 
 ///cleans any cleanable decals from the turf
-/turf/proc/clean_turf()
+/turf/wash()
+	. = ..()
 	for(var/obj/effect/decal/cleanable/filth in src)
 		qdel(filth) //dirty, filthy floor
 
@@ -782,3 +783,17 @@
 	if(SEND_SIGNAL(src, COMSIG_TURF_TELEPORT_CHECK))
 		return FALSE
 	return TRUE
+
+///Returns the number that represents how submerged an AM is by a turf and its contents
+/turf/proc/get_submerge_height(turf_only = FALSE)
+	. = 0
+	if(turf_only)
+		return
+	var/list/submerge_list = list()
+	SEND_SIGNAL(src, COMSIG_TURF_SUBMERGE_CHECK, submerge_list)
+	for(var/i in submerge_list)
+		. += i
+
+///Returns the number that shows how far an AM is offset when submerged in this turf
+/turf/proc/get_submerge_depth()
+	return 0

@@ -1,6 +1,6 @@
 /mob/verb/mode()
 	set name = "Activate Held Object"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	set src = usr
 
 	if(next_move > world.time)
@@ -88,7 +88,6 @@
 
 	M.key = key
 
-
 /// This is only available to mobs once they join EORD.
 /mob/proc/eord_respawn()
 	set name = "EORD Respawn"
@@ -98,7 +97,7 @@
 	if(isliving(usr))
 		liver = usr
 		if(liver.health >= liver.health_threshold_crit)
-			to_chat(src, "You can only use this when you're dead or crit.")
+			to_chat(src, span_notice("You can only use this when you're dead or crit."))
 			return
 
 	if(usr)
@@ -133,12 +132,13 @@
 		/datum/job/pmc,
 		/datum/job/special_forces,
 		/datum/job/icc,
+		/datum/job/vsd,
 	)
 
 	// List of HvH factions - these are handled differently, using the quick loadout outfits.
 	var/list/static/hvh_faction_list = list(/datum/job/som, /datum/job/terragov)
 	// List of rare factions, not common because they're funny in moderation / stronk.
-	var/list/static/rare_faction_list = list(/datum/job/necoarc, /datum/job/sectoid, /datum/job/imperial, /datum/job/skeleton)
+	var/list/static/rare_faction_list = list(/datum/job/necoarc, /datum/job/sectoid, /datum/job/imperial, /datum/job/skeleton, /datum/job/retired, /datum/job/erp,)
 
 	var/total_list = base_faction_list + hvh_faction_list
 
@@ -191,17 +191,49 @@
 
 	to_chat(eord_body, "<br><br><h1>[span_danger("Fight for your life (again), try not to die this time!")]</h1><br><br>")
 
+/// This is only available to mobs once they join EORD.
+/mob/proc/eord_xeno_respawn()
+	set name = "EORD Xeno Respawn"
+	set category = "OOC.Ghost"
+
+	var/mob/living/liver
+	if(isliving(usr))
+		liver = usr
+		if(liver.health >= liver.health_threshold_crit)
+			to_chat(src, span_notice("You can only use this when you're dead or crit."))
+			return
+
+	if(usr)
+		do_xeno_eord_respawn(usr)
+
+/**
+ * Teleports the mob, if it's xeno. if it's not xeno, creates a random xeno and transfers the mind there.
+ * Further changes the hive, regenerate icons. Reviving is handled in on_eord()
+ */
+/proc/do_xeno_eord_respawn(mob/respawner)
+	var/spawn_location = pick(GLOB.deathmatch)
+	var/mob/living/carbon/xenomorph/eord_body
+	if(isxeno(respawner) && !is_centcom_level(respawner.z)) // Wont take from valhalla
+		eord_body = respawner
+		eord_body.forceMove(spawn_location)
+	else
+		var/picked_xeno = pick(GLOB.all_xeno_types)
+		eord_body = new picked_xeno(spawn_location)
+		respawner.mind.transfer_to(eord_body, TRUE)
+	ENABLE_BITFIELD(eord_body.xeno_caste.caste_flags, CASTE_INNATE_HEALING|CASTE_QUICK_HEAL_STANDING|CASTE_INNATE_PLASMA_REGEN) // add self-healing, otherwise they will suck too often
+	eord_body.transfer_to_hive(pick(XENO_HIVE_NORMAL, XENO_HIVE_CORRUPTED, XENO_HIVE_ALPHA, XENO_HIVE_BETA, XENO_HIVE_ZETA))
+	eord_body.regenerate_icons()
+	to_chat(eord_body, "<br><br><h1>[span_danger("Fight for your life (again), try not to die this time!")]</h1><br><br>")
 
 /mob/verb/cancel_camera()
 	set name = "Cancel Camera View"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	reset_perspective(null)
 	unset_interaction()
 	if(isliving(src))
 		var/mob/living/M = src
 		if(M.cameraFollow)
 			M.cameraFollow = null
-
 
 /mob/verb/eastface()
 	SIGNAL_HANDLER
@@ -235,7 +267,7 @@
 
 /mob/verb/point_to(atom/pointed_atom as mob|obj|turf in view())
 	set name = "Point To"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 
 	if(client && !(pointed_atom in view(client.view, src)))
 		return FALSE

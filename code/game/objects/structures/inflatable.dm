@@ -45,7 +45,7 @@
 	///The popped variant of this type
 	var/popped_variant
 
-/obj/structure/inflatable/deconstruct(disassembled = TRUE)
+/obj/structure/inflatable/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	if(!deflated)
 		deflate(!disassembled)
 	return ..()
@@ -85,7 +85,7 @@
 
 /obj/structure/inflatable/verb/hand_deflate()
 	set name = "Deflate"
-	set category = "Object"
+	set category = "IC.Object"
 	set src in oview(1)
 
 	if(!ishuman(usr))

@@ -60,8 +60,10 @@ GLOBAL_PROTECT(exp_specialmap)
 	var/multiple_outfits = FALSE
 	///list of outfit variants
 	var/list/datum/outfit/job/outfits = list()
-
+	///Skills for this job
 	var/skills_type = /datum/skills
+	///Any special traits that are assigned for this job
+	var/list/job_traits
 
 	var/display_order = JOB_DISPLAY_ORDER_DEFAULT
 	var/job_flags = NONE
@@ -201,15 +203,16 @@ GLOBAL_PROTECT(exp_specialmap)
 	if(amount <= 0)
 		CRASH("occupy_job_positions() called with amount: [amount]")
 	current_positions += amount
-	for(var/index in jobworth)
+	var/adjusted_jobworth_list = SSticker.mode?.get_adjusted_jobworth_list(jobworth) || jobworth
+	for(var/index in adjusted_jobworth_list)
 		var/datum/job/scaled_job = SSjob.GetJobType(index)
 		if(!(index in SSticker.mode.valid_job_types))
 			continue
 		if(isxenosjob(scaled_job))
 			if(respawn && (SSticker.mode?.round_type_flags & MODE_SILO_RESPAWN))
 				continue
-			GLOB.round_statistics.larva_from_marine_spawning += jobworth[index] / scaled_job.job_points_needed
-		scaled_job.add_job_points(jobworth[index])
+			GLOB.round_statistics.larva_from_marine_spawning += adjusted_jobworth_list[index] / scaled_job.job_points_needed
+		scaled_job.add_job_points(adjusted_jobworth_list[index])
 	var/datum/hive_status/normal_hive = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	normal_hive.update_tier_limits()
 	return TRUE
@@ -312,14 +315,16 @@ GLOBAL_PROTECT(exp_specialmap)
 					new_backpack = new /obj/item/storage/backpack/marine(src)
 				if(BACK_SATCHEL)
 					new_backpack = new /obj/item/storage/backpack/marine/satchel(src)
-				if(BACK_GREEN_SATCHEL) // RUTGMC ADDITION START
+				if(BACK_GREEN_SATCHEL)
 					new_backpack = new /obj/item/storage/backpack/marine/satchel/green(src)
 				if(BACK_MOLLE_BACKPACK)
 					new_backpack = new /obj/item/storage/backpack/marine/standard/molle(src)
 				if(BACK_MOLLE_SATCHEL)
 					new_backpack = new /obj/item/storage/backpack/marine/satchel/molle(src)
 				if(BACK_SCAV_BACKPACK)
-					new_backpack = new /obj/item/storage/backpack/marine/standard/scav(src) // RUTGMC ADDITION END
+					new_backpack = new /obj/item/storage/backpack/marine/standard/scav(src)
+				if(BACK_DUFFELBAG)
+					new_backpack = new /obj/item/storage/backpack/marine/duffelbag(src)
 			equip_to_slot_or_del(new_backpack, SLOT_BACK)
 
 		job.outfit.handle_id(src, player)
@@ -334,9 +339,11 @@ GLOBAL_PROTECT(exp_specialmap)
 			job.gear_preset_whitelist[job_whitelist].equip(src, override_client = player)
 		else
 			equip_role_outfit(job)
-
+			
+	#ifndef TESTING
 	if(SSdiscord.get_boosty_tier(player?.ckey) >= BOOSTY_TIER_2)
 		equip_to_slot_or_del(new /obj/item/facepaint/premium, SLOT_IN_BACKPACK)
+	#endif
 
 	if((job.job_flags & JOB_FLAG_ALLOWS_PREFS_GEAR) && player)
 		equip_preference_gear(player)

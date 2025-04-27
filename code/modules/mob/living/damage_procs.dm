@@ -29,19 +29,19 @@
 
 	switch(damagetype)
 		if(BRUTE)
-			adjustBruteLoss(damage)
+			adjust_brute_loss(damage)
 		if(BURN)
-			adjustFireLoss(damage)
+			adjust_fire_loss(damage)
 		if(TOX)
-			adjustToxLoss(damage)
+			adjust_tox_loss(damage)
 		if(OXY)
-			adjustOxyLoss(damage)
+			adjust_oxy_loss(damage)
 		if(CLONE)
-			adjustCloneLoss(damage)
+			adjust_clone_Loss(damage)
 		if(STAMINA)
-			adjustStaminaLoss(damage)
+			adjust_stamina_loss(damage)
 	if(updating_health)
-		updatehealth()
+		update_health()
 	return damage
 
 ///Used to apply multiple types of damage to a mob at the same time
@@ -57,7 +57,7 @@
 	if(clone)
 		apply_damage(clone, CLONE, def_zone, blocked, sharp, edge, FALSE, penetration)
 	if(updating_health)
-		updatehealth()
+		update_health()
 	return TRUE
 
 
@@ -67,7 +67,7 @@ Apply status effect to mob
 Arguments
 	*effect: duration or amount of effect
 	*effecttype which affect to apply
-	*updating_health if we should update health [/mob/living/updatehealth]
+	*updating_health if we should update health [/mob/living/update_health]
 */
 /mob/living/proc/apply_effect(effect = 0, effecttype = STUN, updating_health = FALSE)
 	if(status_flags & GODMODE)
@@ -85,16 +85,16 @@ Arguments
 		if(STAGGER)
 			Stagger(effect)
 		if(AGONY)
-			adjustStaminaLoss(effect)
+			adjust_stamina_loss(effect)
 		if(STUTTER)
 			if(status_flags & CANSTUN) // stun is usually associated with stutter
 				set_timed_status_effect(effect, /datum/status_effect/speech/stutter, only_if_higher = TRUE)
 		if(EYE_BLUR)
 			blur_eyes(effect)
 		if(DROWSY)
-			adjustDrowsyness(effect)
+			adjust_drowsyness(effect)
 	if(updating_health)
-		updatehealth()
+		update_health()
 	return TRUE
 
 ///Applies multiple negative effects to a mob
@@ -116,5 +116,5 @@ Arguments
 	if(agony)
 		apply_effect(agony, AGONY)
 	if(updating_health)
-		updatehealth()
+		update_health()
 	return TRUE

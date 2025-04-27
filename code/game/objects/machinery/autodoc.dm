@@ -136,8 +136,8 @@
 
 	// keep them alive
 	var/updating_health = FALSE
-	occupant.adjustToxLoss(-0.5) // pretend they get IV dylovene
-	occupant.adjustOxyLoss(-occupant.getOxyLoss()) // keep them breathing, pretend they get IV dexalinplus
+	occupant.adjust_tox_loss(-0.5) // pretend they get IV dylovene
+	occupant.adjust_oxy_loss(-occupant.get_oxy_loss()) // keep them breathing, pretend they get IV dexalinplus
 	if(filtering)
 		var/filtered = 0
 		for(var/datum/reagent/x in occupant.reagents.reagent_list)
@@ -162,7 +162,7 @@
 			blood_transfer = 0
 			say("Blood transfer complete.")
 	if(heal_brute)
-		if(occupant.getBruteLoss() > 0)
+		if(occupant.get_brute_loss() > 0)
 			occupant.heal_limb_damage(3, 0)
 			updating_health = TRUE
 			if(prob(10))
@@ -172,7 +172,7 @@
 			heal_brute = 0
 			say("Trauma repair surgery complete.")
 	if(heal_burn)
-		if(occupant.getFireLoss() > 0)
+		if(occupant.get_fire_loss() > 0)
 			occupant.heal_limb_damage(0, 3)
 			updating_health = TRUE
 			if(prob(10))
@@ -182,8 +182,8 @@
 			heal_burn = 0
 			say("Skin grafts complete.")
 	if(heal_toxin)
-		if(occupant.getToxLoss() > 0)
-			occupant.adjustToxLoss(-3)
+		if(occupant.get_tox_loss() > 0)
+			occupant.adjust_tox_loss(-3)
 			updating_health = TRUE
 			if(prob(10))
 				visible_message("[src] whirrs and gurgles as it kelates the occupant.")
@@ -192,7 +192,7 @@
 			heal_toxin = 0
 			say("Chelation complete.")
 	if(updating_health)
-		occupant.updatehealth()
+		occupant.update_health()
 
 /obj/machinery/autodoc/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	if(!occupant)
@@ -278,11 +278,11 @@
 	var/datum/internal_organ/I = M.get_organ_slot(ORGAN_SLOT_EYES)
 	if(I && (M.disabilities & NEARSIGHTED || M.disabilities & BLIND || I.damage > 0))
 		surgery_list += create_autodoc_surgery(null,ORGAN_SURGERY,ADSURGERY_EYES,0,I)
-	if(M.getBruteLoss() > 0)
+	if(M.get_brute_loss() > 0)
 		surgery_list += create_autodoc_surgery(null,EXTERNAL_SURGERY,ADSURGERY_BRUTE)
-	if(M.getFireLoss() > 0)
+	if(M.get_fire_loss() > 0)
 		surgery_list += create_autodoc_surgery(null,EXTERNAL_SURGERY,ADSURGERY_BURN)
-	if(M.getToxLoss() > 0)
+	if(M.get_tox_loss() > 0)
 		surgery_list += create_autodoc_surgery(null,EXTERNAL_SURGERY,ADSURGERY_TOXIN)
 	var/overdose = FALSE
 	for(var/datum/reagent/x in M.reagents.reagent_list)
@@ -524,7 +524,7 @@
 							break
 						S.limb_ref.robotize()
 						occupant.update_body()
-						occupant.updatehealth()
+						occupant.update_health()
 						occupant.UpdateDamageIcon()
 
 					if(ADSURGERY_NECRO)
@@ -660,7 +660,7 @@
 		L.createwound(CUT, 1)
 		L.clamp_bleeder() //Hemostat function, clamp bleeders
 		L.surgery_open_stage = 2 //Can immediately proceed to other surgery steps
-		target.updatehealth()
+		target.update_health()
 
 /obj/machinery/autodoc/proc/close_incision(mob/living/carbon/human/target, datum/limb/L)
 	if(target && L && 0 < L.surgery_open_stage <= 2)
@@ -670,7 +670,7 @@
 		L.surgery_open_stage = 0
 		L.germ_level = 0
 		L.remove_limb_flags(LIMB_BLEEDING)
-		target.updatehealth()
+		target.update_health()
 
 /obj/machinery/autodoc/proc/open_encased(mob/living/carbon/human/target, datum/limb/L)
 	if(target && L && L.surgery_open_stage >= 2)
@@ -700,7 +700,7 @@
 
 /obj/machinery/autodoc/verb/eject()
 	set name = "Eject Med-Pod"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	set src in oview(1)
 	if(usr.incapacitated())
 		return // nooooooooooo
@@ -807,7 +807,7 @@
 
 /obj/machinery/autodoc/verb/move_inside()
 	set name = "Enter Med-Pod"
-	set category = "Object.Mob"
+	set category = "IC.Mob"
 	set src in oview(1)
 
 	move_inside_wrapper(usr, usr)
@@ -1033,10 +1033,10 @@
 	dat += "[health_ratio > 50 ? "<font color='#487553'>" : "<font color='#b54646'>"]\tHealth %: [round(health_ratio)] ([t1])</FONT><BR>"
 	var/pulse = connected.occupant.handle_pulse()
 	dat += "[pulse == PULSE_NONE || pulse == PULSE_THREADY ? "<font color='#b54646'>" : "<font color='#487553'>"]\t-Pulse, bpm: [connected.occupant.get_pulse(GETPULSE_TOOL)]</FONT><BR>"
-	dat += "[connected.occupant.getBruteLoss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Brute Damage %: [connected.occupant.getBruteLoss()]</FONT><BR>"
-	dat += "[connected.occupant.getOxyLoss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Respiratory Damage %: [connected.occupant.getOxyLoss()]</FONT><BR>"
-	dat += "[connected.occupant.getToxLoss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Toxin Content %: [connected.occupant.getToxLoss()]</FONT><BR>"
-	dat += "[connected.occupant.getFireLoss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Burn Severity %: [connected.occupant.getFireLoss()]</FONT><BR>"
+	dat += "[connected.occupant.get_brute_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Brute Damage %: [connected.occupant.get_brute_loss()]</FONT><BR>"
+	dat += "[connected.occupant.get_oxy_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Respiratory Damage %: [connected.occupant.get_oxy_loss()]</FONT><BR>"
+	dat += "[connected.occupant.get_tox_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Toxin Content %: [connected.occupant.get_tox_loss()]</FONT><BR>"
+	dat += "[connected.occupant.get_fire_loss() < 60 ? "<font color='#487553'>" : "<font color='#b54646'>"]\t-Burn Severity %: [connected.occupant.get_fire_loss()]</FONT><BR>"
 
 	dat += "<hr> Surgery Queue:<br>"
 

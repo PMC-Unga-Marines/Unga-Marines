@@ -103,12 +103,6 @@
 
 	take_damage(max(0, attacking_item.force * damage_multiplier), attacking_item.damtype, MELEE)
 
-/obj/structure/mineral_door/Destroy()
-	if(material_type)
-		for(var/i in 1 to rand(1,5))
-			new material_type(get_turf(src))
-	return ..()
-
 ///Takes extra damage if our attacking item does burn damage
 /obj/structure/mineral_door/proc/get_burn_damage_multiplier(obj/item/attacking_item, mob/living/user, def_zone, bonus_damage = 0)
 	if(!isplasmacutter(attacking_item))
@@ -131,6 +125,12 @@
 		attacking_pc.cut_apart(user, name, src, PLASMACUTTER_BASE_COST * PLASMACUTTER_VLOW_MOD) //Minimal energy cost.
 
 	return bonus_damage
+
+/obj/structure/mineral_door/Destroy()
+	if(material_type)
+		for(var/i in 1 to rand(1,5))
+			new material_type(get_turf(src))
+	return ..()
 
 /obj/structure/mineral_door/resin/plasmacutter_act(mob/living/user, obj/item/tool/pickaxe/plasmacutter/I)
 	if(user.do_actions)
@@ -216,9 +216,9 @@
 	icon_state = "phoron"
 	max_integrity = 250
 
-/obj/structure/mineral_door/transparent/phoron/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/tool/weldingtool))
-		var/obj/item/tool/weldingtool/WT = W
+/obj/structure/mineral_door/transparent/phoron/attackby(obj/item/attacking_item as obj, mob/user as mob)
+	if(istype(attacking_item, /obj/item/tool/weldingtool))
+		var/obj/item/tool/weldingtool/WT = attacking_item
 		if(WT.remove_fuel(0, user))
 			var/turf/T = get_turf(src)
 			T.ignite(25, 25)

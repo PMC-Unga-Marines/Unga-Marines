@@ -3,11 +3,11 @@
 	gender = PLURAL
 	icon = 'icons/obj/items/paper.dmi'
 	icon_state = "paper"
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/items/civilian_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items/civilian_right.dmi',
 	)
-	item_state = "paper"
+	worn_icon_state = "paper"
 	w_class = WEIGHT_CLASS_TINY
 	throw_range = 2
 	throw_speed = 1
@@ -180,7 +180,7 @@
 
 /obj/item/paper_bundle/verb/rename()
 	set name = "Rename bundle"
-	set category = "Object"
+	set category = "IC.Object"
 	set src in usr
 
 	var/n_name = stripped_input(usr, "What would you like to label the bundle?", "Bundle Labelling")
@@ -189,7 +189,7 @@
 
 /obj/item/paper_bundle/verb/remove_all()
 	set name = "Loose bundle"
-	set category = "Object"
+	set category = "IC.Object"
 	set src in usr
 
 	to_chat(usr, span_notice("You loosen the bundle."))

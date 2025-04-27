@@ -218,6 +218,8 @@
 	if(inaccurate_fuel > 0)
 		fuel_warning = "Уровень топлива боеголовки: некорректный.<br>Возможно смещение области поражения."
 
+	GLOB.round_statistics.obs_fired++
+	SSblackbox.record_feedback("tally", "round_statistics", 1, "obs_fired")
 	priority_announce(
 		message = "Немедленно покиньте зону поражения!<br><br>Тип боеголовки: [tray.warhead.warhead_kind_rus].<br>[fuel_warning]<br>Цель: [get_area(T)].",
 		title = "Обнаружена команда на запуск орбитальной бомбардировки!",
@@ -351,12 +353,10 @@
 	. = ..()
 	. += "Moving this will require some sort of lifter."
 
-
-/obj/structure/ob_ammo/obj_destruction(damage_amount, damage_type, damage_flag)
+/obj/structure/ob_ammo/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
 	cell_explosion(loc, 60, 30)
 	flame_radius(2, loc)
 	return ..()
-
 
 /obj/structure/ob_ammo/warhead
 	name = "theoretical orbital ammo"
@@ -408,7 +408,7 @@
 	warhead_kind_rus = "зажигательный"
 	icon_state = "ob_warhead_2"
 	var/flame_range_num
-	var/flame_intensity = 36
+	var/flame_intensity = 46
 	var/flame_duration = 40
 	var/flame_colour = "blue"
 	var/smoke_radius = 17
@@ -452,7 +452,7 @@
 
 /obj/structure/ob_ammo/warhead/plasmaloss/warhead_impact(turf/target, inaccuracy_amt = 0)
 	var/datum/effect_system/smoke_spread/plasmaloss/smoke = new
-	smoke.set_up(smoke_radius - inaccuracy_amt, target, smoke_duration)//Vape nation
+	smoke.set_up(smoke_radius - inaccuracy_amt, target, smoke_duration - (inaccuracy_amt * 2))//Vape nation
 	smoke.start()
 
 /obj/structure/ob_ammo/ob_fuel

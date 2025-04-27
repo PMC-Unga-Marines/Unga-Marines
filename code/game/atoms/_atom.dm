@@ -24,8 +24,6 @@
 	///a very temporary list of overlays to add
 	var/list/add_overlays
 
-	///Lazy assoc list for managing filters attached to us
-	var/list/filter_data
 
 	///Related to do_after/do_mob overlays, I can't get my hopes high.
 	var/list/display_icons
@@ -177,8 +175,38 @@ directive is properly returned.
 	SHOULD_CALL_PARENT(TRUE)
 	return !density
 
+/**
+ * Ensure a list of atoms/reagents exists inside this atom
+ *
+ * Goes throught he list of passed in parts, if they're reagents, adds them to our reagent holder
+ * creating the reagent holder if it exists.
+ *
+ * If the part is a moveable atom and the  previous location of the item was a mob/living,
+ * it calls the inventory handler transferItemToLoc for that mob/living and transfers the part
+ * to this atom
+ *
+ * Otherwise it simply forceMoves the atom into this atom
+ */
+/atom/proc/CheckParts(list/parts_list, datum/crafting_recipe/current_recipe)
+	SEND_SIGNAL(src, COMSIG_ATOM_CHECKPARTS, parts_list, current_recipe)
+	if(!parts_list)
+		return
+	for(var/part in parts_list)
+		if(istype(part, /datum/reagent))
+			if(!reagents)
+				reagents = new()
+			reagents.reagent_list.Add(part)
+		else if(ismovable(part))
+			var/atom/movable/object = part
+			if(isliving(object.loc))
+				var/mob/living/living = object.loc
+				living.transferItemToLoc(object, src)
+			else
+				object.forceMove(src)
+			SEND_SIGNAL(object, COMSIG_ATOM_USED_IN_CRAFT, src)
+	parts_list.Cut()
 
-// Convenience proc for reagents handling.
+/// Convenience proc for reagents handling.
 /atom/proc/is_open_container()
 	return is_refillable() && is_drainable()
 
@@ -200,6 +228,7 @@ directive is properly returned.
 
 
 /atom/proc/emp_act(severity)
+	SEND_SIGNAL(src, COMSIG_ATOM_EMP_ACT, severity)
 	return
 
 
@@ -209,17 +238,17 @@ directive is properly returned.
 	return TRUE
 
 
-/*
-*	atom/proc/search_contents_for(path,list/filter_path=null)
-* Recursevly searches all atom contens (including contents contents and so on).
-*
-* ARGS: path - search atom contents for atoms of this type
-*	   list/filter_path - if set, contents of atoms not of types in this list are excluded from search.
-*
-* RETURNS: list of found atoms
-*/
-
-/atom/proc/search_contents_for(path,list/filter_path=null)
+/**
+ * atom/proc/search_contents_for(path,list/filter_path=null)
+ * Recursevly searches all atom contens (including contents contents and so on).
+ *
+ * ARGS:
+ * path - search atom contents for atoms of this type
+ * list/filter_path - if set, contents of atoms not of types in this list are excluded from search.
+ *
+ * RETURNS: list of found atoms
+ */
+/atom/proc/search_contents_for(path, list/filter_path = null)
 	var/list/found = list()
 	for(var/atom/A in src)
 		if(istype(A, path))
@@ -442,71 +471,10 @@ directive is properly returned.
 			//we were deleted
 			return
 
-///Add filters by priority to an atom
-/atom/proc/add_filter(name,priority,list/params)
-	LAZYINITLIST(filter_data)
-	var/list/p = params.Copy()
-	p["priority"] = priority
-	filter_data[name] = p
-	update_filters()
-
-///Sorts our filters by priority and reapplies them
-/atom/proc/update_filters()
-	filters = null
-	filter_data = sortTim(filter_data, GLOBAL_PROC_REF(cmp_filter_data_priority), TRUE)
-	for(var/f in filter_data)
-		var/list/data = filter_data[f]
-		var/list/arguments = data.Copy()
-		arguments -= "priority"
-		filters += filter(arglist(arguments))
-	UNSETEMPTY(filter_data)
-
-/atom/proc/transition_filter(name, time, list/new_params, easing, loop)
-	var/filter = get_filter(name)
-	if(!filter)
-		return
-
-	var/list/old_filter_data = filter_data[name]
-
-	var/list/params = old_filter_data.Copy()
-	for(var/thing in new_params)
-		params[thing] = new_params[thing]
-
-	animate(filter, new_params, time = time, easing = easing, loop = loop)
-	for(var/param in params)
-		filter_data[name][param] = params[param]
-
-/atom/proc/change_filter_priority(name, new_priority)
-	if(!filter_data || !filter_data[name])
-		return
-
-	filter_data[name]["priority"] = new_priority
-	update_filters()
-
-/obj/item/update_filters()
+/obj/item/update_filters() // tivi todo move this to items
 	. = ..()
 	for(var/datum/action/A AS in actions)
 		A.update_button_icon()
-
-///returns a filter in the managed filters list by name
-/atom/proc/get_filter(name)
-	if(filter_data && filter_data[name])
-		return filters[filter_data.Find(name)]
-
-///removes a filter from the atom
-/atom/proc/remove_filter(name_or_names)
-	if(!filter_data)
-		return
-	var/list/names = islist(name_or_names) ? name_or_names : list(name_or_names)
-
-	for(var/name in names)
-		if(filter_data[name])
-			filter_data -= name
-	update_filters()
-
-/atom/proc/clear_filters()
-	filter_data = null
-	filters = null
 
 /*
 	Atom Colour Priority System
@@ -522,7 +490,7 @@ directive is properly returned.
 /atom/proc/add_atom_colour(coloration, colour_priority)
 	if(!atom_colours || !length(atom_colours))
 		atom_colours = list()
-		atom_colours.len = COLOUR_PRIORITY_AMOUNT //four priority levels currently.
+		atom_colours.len = COLOR_PRIORITY_AMOUNT //four priority levels currently.
 	if(!coloration)
 		return
 	if(colour_priority > length(atom_colours))
@@ -537,7 +505,7 @@ directive is properly returned.
 /atom/proc/remove_atom_colour(colour_priority, coloration)
 	if(!atom_colours)
 		atom_colours = list()
-		atom_colours.len = COLOUR_PRIORITY_AMOUNT //four priority levels currently.
+		atom_colours.len = COLOR_PRIORITY_AMOUNT //four priority levels currently.
 	if(colour_priority > length(atom_colours))
 		return
 	if(coloration && atom_colours[colour_priority] != coloration)
@@ -553,7 +521,7 @@ directive is properly returned.
 /atom/proc/update_atom_colour()
 	if(!atom_colours)
 		atom_colours = list()
-		atom_colours.len = COLOUR_PRIORITY_AMOUNT //four priority levels currently.
+		atom_colours.len = COLOR_PRIORITY_AMOUNT //four priority levels currently.
 	color = null
 	for(var/C in atom_colours)
 		if(islist(C))
@@ -612,14 +580,9 @@ directive is properly returned.
 		update_light()
 	if(loc)
 		SEND_SIGNAL(loc, COMSIG_ATOM_INITIALIZED_ON, src) //required since spawning something doesn't call Move hence it doesn't call Entered.
-		if(isturf(loc))
-			if(opacity)
-				var/turf/T = loc
-				T.directional_opacity = ALL_CARDINALS // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
-
-			if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
-				QUEUE_SMOOTH(src)
-				QUEUE_SMOOTH_NEIGHBORS(src)
+		if(isturf(loc) && (smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK)))
+			QUEUE_SMOOTH(src)
+			QUEUE_SMOOTH_NEIGHBORS(src)
 
 	if(length(smoothing_groups))
 		sortTim(smoothing_groups) //In case it's not properly ordered, let's avoid duplicate entries with the same values.
@@ -650,6 +613,24 @@ directive is properly returned.
 	SEND_SIGNAL(src, COMSIG_ATOM_DIR_CHANGE, dir, newdir)
 	dir = newdir
 
+/**
+ * Wash this atom
+ *
+ * This will clean it off any temporary stuff like blood. Override this in your item to add custom cleaning behavior.
+ * Returns true if any washing was necessary and thus performed
+ */
+/atom/proc/wash()
+	SHOULD_CALL_PARENT(TRUE)
+	if(SEND_SIGNAL(src, COMSIG_COMPONENT_CLEAN_ACT) & COMPONENT_CLEANED)
+		return TRUE
+
+	// Basically "if has washable coloration"
+	if(length(atom_colours) >= WASHABLE_COLOR_PRIORITY && atom_colours[WASHABLE_COLOR_PRIORITY])
+		remove_atom_colour(WASHABLE_COLOR_PRIORITY)
+		return TRUE
+	if(clean_blood())
+		return TRUE
+	return FALSE
 
 /atom/vv_get_dropdown()
 	. = ..()
@@ -715,7 +696,7 @@ directive is properly returned.
 	return TRUE
 
 /atom/proc/screwdriver_act(mob/living/user, obj/item/I)
-	SEND_SIGNAL(src, COMSIG_ATOM_SCREWDRIVER_ACT, user, I)
+	return FALSE
 
 /atom/proc/wrench_act(mob/living/user, obj/item/I)
 	return FALSE
@@ -837,11 +818,6 @@ directive is properly returned.
 
 	return TRUE
 
-
-// For special click interactions (take first item out of container, quick-climb, etc.)
-/atom/proc/specialclick(mob/living/carbon/user)
-	return
-
 /atom/proc/prepare_huds()
 	hud_list = new
 	for(var/hud in hud_possible) //Providing huds.
@@ -853,7 +829,7 @@ directive is properly returned.
 				var/image/I = image('icons/mob/hud/human_misc.dmi', src, "")
 				if(hud == HUNTER_CLAN || hud == HUNTER_HUD)
 					I = image('icons/mob/hud/yautja.dmi', src, "")
-				I.appearance_flags = RESET_COLOR|RESET_TRANSFORM
+				I.appearance_flags = RESET_COLOR|RESET_TRANSFORM|KEEP_APART
 				hud_list[hud] = I
 
 /**
