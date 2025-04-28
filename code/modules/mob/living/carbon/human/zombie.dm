@@ -177,7 +177,7 @@
 	action_icon = 'icons/Xeno/actions/general.dmi'
 
 /datum/action/rally_zombie/action_activate()
-	owner.emote("roar")
+	owner.balloon_alert(owner, "Zombies Rallied!")
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_AI_MINION_RALLY, owner)
 	var/datum/action/set_agressivity/set_agressivity = owner.actions_by_path[/datum/action/set_agressivity]
 	if(set_agressivity)
