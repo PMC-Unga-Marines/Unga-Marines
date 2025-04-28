@@ -187,9 +187,9 @@
 		return
 
 	var/datum/limb/O = user.get_limb(check_zone("r_arm"))
-	O.droplimb()
+	O.drop_limb()
 	O = user.get_limb(check_zone("l_arm"))
-	O.droplimb()
+	O.drop_limb()
 
 	to_chat(user, span_notice("The device emits a strange noise and falls off... Along with your arms!"))
 	playsound(user,'sound/weapons/wristblades_on.ogg', 15, 1)

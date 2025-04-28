@@ -391,3 +391,21 @@
 		return MONKEY_HEIGHT_MEDIUM
 
 	return mob_height
+
+/mob/living/carbon/human/proc/remove_random_limb(delete_limb = 0)
+	var/list/limbs_to_remove = list()
+	for(var/datum/limb/E in limbs)
+		if(istype(E, /datum/limb/chest) || istype(E, /datum/limb/groin) || istype(E, /datum/limb/head))
+			continue
+		limbs_to_remove += E
+	if(length(limbs_to_remove))
+		var/datum/limb/L = pick(limbs_to_remove)
+		var/limb_name = L.display_name
+		L.drop_limb(0,delete_limb)
+		return limb_name
+	return null
+
+///Amputates the limb in the specified limb zone
+/mob/living/carbon/human/proc/amputate_limb(limb_zone)
+	var/datum/limb/limb_to_drop = get_limb(limb_zone)
+	limb_to_drop?.drop_limb(TRUE, TRUE)
