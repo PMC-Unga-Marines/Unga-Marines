@@ -192,3 +192,10 @@
 #define MODE_PREDATOR (1<<17)
 
 #define MAX_EXCAVATIONS 10
+
+// make sure you don't turn 0 into a false positive
+#define BIOSCAN_DELTA(count, delta) count ? max(0, count + rand(-delta, delta)) : 0
+
+#define BIOSCAN_LOCATION(show_locations, location) ((show_locations && location) ? ", including one in [location]" : "")
+
+#define AI_SCAN_DELAY 15 SECONDS
