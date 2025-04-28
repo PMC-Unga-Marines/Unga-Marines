@@ -1149,9 +1149,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 	owner.name = owner.get_visible_name()
 
 /datum/limb/head/reset_limb_surgeries()
-	..()
+	. = ..()
 	face_surgery_stage = 0
-
 
 /datum/limb/head/droplimb(amputation, delete_limb = FALSE, silent = FALSE)
 	. = ..()

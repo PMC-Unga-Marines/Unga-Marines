@@ -68,7 +68,7 @@
 	if(prob(10))
 		playsound(get_turf(H), pick(sounds), 50)
 	for(var/datum/limb/limb AS in H.limbs) //Regrow some limbs
-		if(limb.limb_status & LIMB_DESTROYED && !(limb.parent?.limb_status & LIMB_DESTROYED) && prob(10))
+		if(limb.limb_status & LIMB_DESTROYED && !(limb.parent?.limb_status & LIMB_DESTROYED) && limb.vital && prob(10))
 			limb.remove_limb_flags(LIMB_DESTROYED)
 			if(istype(limb, /datum/limb/hand/l_hand))
 				H.equip_to_slot_or_del(new /obj/item/weapon/zombie_claw, SLOT_L_HAND)
@@ -76,7 +76,7 @@
 				H.equip_to_slot_or_del(new /obj/item/weapon/zombie_claw, SLOT_R_HAND)
 			H.update_body()
 		else if(limb.limb_status & LIMB_BROKEN && prob(20))
-			limb.remove_limb_flags(LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED)
+			limb.remove_limb_flags(LIMB_BROKEN|LIMB_SPLINTED|LIMB_STABILIZED)
 
 	if(H.health != total_health)
 		H.heal_limbs(heal_rate)
@@ -96,14 +96,6 @@
 		return
 	SSmobs.stop_processing(H)
 	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, revive_to_crit), TRUE, FALSE), revive_time)
-
-/datum/species/zombie/create_organs(mob/living/carbon/human/organless_human)
-	. = ..()
-	for(var/datum/limb/limb AS in organless_human.limbs)
-		if(!istype(limb, /datum/limb/head))
-			continue
-		limb.vital = FALSE
-		return
 
 /datum/species/zombie/fast
 	name = "Fast zombie"
