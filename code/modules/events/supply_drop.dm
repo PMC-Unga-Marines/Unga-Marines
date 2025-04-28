@@ -4,6 +4,7 @@
 	typepath = /datum/round_event/supply_drop
 	weight = 10
 	earliest_start = 5 MINUTES
+	gamemode_whitelist = list("Last Stand")
 
 /datum/round_event/supply_drop
 	///How long between the event firing and the supply drop actually landing
