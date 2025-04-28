@@ -7,8 +7,6 @@
 */
 
 /mob/living/carbon/human/proc/stabilize_body_temperature()
-
-
 	var/body_temperature_difference = species.body_temperature - bodytemperature
 
 	if(abs(body_temperature_difference) < 0.5)
