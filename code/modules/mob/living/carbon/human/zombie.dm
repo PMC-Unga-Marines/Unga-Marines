@@ -131,7 +131,11 @@
 
 /datum/species/zombie/strong/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()
-	H.color = COLOR_MAROON
+	H.color = COLOR_DARK_BROWN
+
+/datum/species/zombie/strong/post_species_loss(mob/living/carbon/human/H, datum/species/old_species)
+	. = ..()
+	H.color = null
 
 /datum/species/zombie/psi_zombie
 	name = "Psi zombie" //reanimated by psionic ability
@@ -170,6 +174,7 @@
 /datum/action/rally_zombie
 	name = "Rally Zombies"
 	action_icon_state = "rally_minions"
+	action_icon = 'icons/Xeno/actions/general.dmi'
 
 /datum/action/rally_zombie/action_activate()
 	owner.emote("roar")
@@ -181,6 +186,7 @@
 /datum/action/set_agressivity
 	name = "Set other zombie behavior"
 	action_icon_state = "minion_agressive"
+	action_icon = 'icons/Xeno/actions/general.dmi'
 	///If zombies should be agressive
 	var/zombies_agressive = TRUE
 
