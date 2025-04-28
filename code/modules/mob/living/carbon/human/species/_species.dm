@@ -340,6 +340,7 @@
 /// Only used by horrors at the moment. Only triggers if the mob is alive and not dead.
 /datum/species/proc/handle_unique_behavior(mob/living/carbon/human/H)
 	return
+
 /// Called on Life(), special behaviour if we are on fire
 /datum/species/proc/handle_fire(mob/living/carbon/human/H)
 	return
@@ -355,7 +356,7 @@
 /// Basically just used to update moth wings
 /datum/species/proc/update_inv_w_uniform(mob/living/carbon/human/H)
 	return
-	
+
 ///Basically just used to update moth wings //Man moths are giga shitcoded
 /datum/species/proc/update_inv_wear_suit(mob/living/carbon/human/H)
 	return

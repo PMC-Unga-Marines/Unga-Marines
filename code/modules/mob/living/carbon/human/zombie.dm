@@ -19,6 +19,7 @@
 		ORGAN_SLOT_APPENDIX = /datum/internal_organ/appendix,
 		ORGAN_SLOT_EYES = /datum/internal_organ/eyes
 	)
+	death_message = "seizes up and falls limp..."
 	///Sounds made randomly by the zombie
 	var/list/sounds = list('sound/hallucinations/growl1.ogg','sound/hallucinations/growl2.ogg','sound/hallucinations/growl3.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/wail.ogg')
 	///Time before resurrecting if dead
@@ -86,9 +87,15 @@
 	H.update_health()
 
 /datum/species/zombie/handle_death(mob/living/carbon/human/H)
+	if(H.on_fire)
+		fade_out(src, our_time = 55 SECONDS)
+		QDEL_IN(H, 1 MINUTES)
+		return
+	if(!H.has_working_organs())
+		SSmobs.stop_processing(H) // stopping the processing extinguishes the fire that is already on, so that's a hack around
+		return
 	SSmobs.stop_processing(H)
-	if(!H.on_fire && H.has_working_organs())
-		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, revive_to_crit), TRUE, FALSE), revive_time)
+	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, revive_to_crit), TRUE, FALSE), revive_time)
 
 /datum/species/zombie/create_organs(mob/living/carbon/human/organless_human)
 	. = ..()

@@ -182,20 +182,19 @@
 		// Might need re-wording.
 		to_chat(user, span_alert("There is no exposed flesh or thin material [target_zone == "head" ? "on their head" : "on their body"] to inject into."))
 
-
 /mob/living/carbon/human/has_brain()
 	if(get_organ_slot(ORGAN_SLOT_BRAIN))
 		var/datum/internal_organ/brain = get_organ_slot(ORGAN_SLOT_BRAIN)
-		if(brain && istype(brain))
-			return 1
-	return 0
+		if(brain)
+			return TRUE
+	return FALSE
 
 /mob/living/carbon/human/has_eyes()
 	if(get_organ_slot(ORGAN_SLOT_EYES))
 		var/datum/internal_organ/eyes = get_organ_slot(ORGAN_SLOT_EYES)
-		if(eyes && istype(eyes))
-			return 1
-	return 0
+		if(eyes)
+			return TRUE
+	return FALSE
 
 /mob/living/carbon/human/has_vision()
 	if(disabilities & BLIND)
@@ -301,12 +300,11 @@
  * Returns true otherwise
  */
 /mob/living/carbon/human/proc/has_working_organs()
-	var/datum/internal_organ/heart/heart = internal_organs_by_name["heart"]
-
 	if(species.species_flags & ROBOTIC_LIMBS)
 		return TRUE // combat robots and synthetics don't have any of these for some reason
 	if(!has_brain())
 		return FALSE
+	var/datum/internal_organ/heart/heart = get_organ_slot(ORGAN_SLOT_HEART)
 	if(!heart || heart.organ_status == ORGAN_BROKEN)
 		return FALSE
 	return TRUE
