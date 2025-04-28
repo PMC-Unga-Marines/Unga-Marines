@@ -352,25 +352,24 @@ RU TGMC EDIT */
 
 /datum/limb/proc/need_process()
 	if(limb_status & LIMB_DESTROYED)	//Missing limb is missing
-		return 0
+		return FALSE
 	if(limb_status && !(limb_status & LIMB_ROBOT)) // Any status other than destroyed or robotic requires processing
-		return 1
+		return TRUE
 	if(brute_dam || burn_dam)
-		return 1
+		return TRUE
 	if(last_dam != brute_dam + burn_dam) // Process when we are fully healed up.
 		last_dam = brute_dam + burn_dam
-		return 1
+		return TRUE
 	else
 		last_dam = brute_dam + burn_dam
 	if(germ_level)
-		return 1
+		return TRUE
 	if(length(wounds))
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 //TODO limbs should probably be on slow process
 /datum/limb/process(limb_regen_penalty)
-
 	// Process wounds, doing healing etc. Only do this every few ticks to save processing power
 	if(owner.life_tick % wound_update_accuracy == 0)
 		update_wounds(limb_regen_penalty)
@@ -769,8 +768,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 	release_restraints()
 
 	if(vital)
+		owner_pre_death()
 		owner.death()
 	return TRUE
+
+/// This is required for head, so it deletes brain for zombies before they start to reviving
+/datum/limb/proc/owner_pre_death()
+	return
 
 /datum/limb/hand/l_hand/droplimb(amputation, delete_limb = FALSE, silent = FALSE)
 	. = ..()
@@ -1158,3 +1162,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 	if(!(owner.species.species_flags & DETACHABLE_HEAD) && vital)
 		owner.set_undefibbable()
+
+/datum/limb/head/owner_pre_death()
+	if(owner.species.species_flags & DETACHABLE_HEAD)
+		return
+	if(!vital)
+		return
+	owner.remove_organ_slot(ORGAN_SLOT_BRAIN)
+	owner.remove_organ_slot(ORGAN_SLOT_EYES)
