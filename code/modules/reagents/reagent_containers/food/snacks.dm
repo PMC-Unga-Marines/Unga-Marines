@@ -34,8 +34,6 @@
 	if(reagents.total_volume)
 		return
 
-	balloon_alert_to_viewers("Eats \the [src]")
-
 	usr.dropItemToGround(src)	//so icons update :[
 
 	if(trash)
