@@ -3,7 +3,7 @@
 	use_postspawn = TRUE //Gotta equip those AI you know
 
 /obj/effect/ai_node/spawner/human/deathsquad
-	spawntypes = /mob/living/carbon/human/node_pathing
+	spawntypes = list(/mob/living/carbon/human/node_pathing = 1)
 	spawnamount = 4
 	spawndelay = 10 SECONDS
 	maxamount = 10
