@@ -16,6 +16,8 @@
 
 /datum/game_mode/infestation/post_setup()
 	. = ..()
+	if(!(round_type_flags & MODE_INFESTATION))
+		return
 	if(bioscan_interval)
 		TIMER_COOLDOWN_START(src, COOLDOWN_BIOSCAN, bioscan_interval)
 	var/weed_type
@@ -288,6 +290,8 @@
 /datum/game_mode/infestation/can_start(bypass_checks = FALSE)
 	. = ..()
 	if(!.)
+		return
+	if(!(round_type_flags & MODE_INFESTATION))
 		return
 	var/xeno_candidate = FALSE //Let's guarantee there's at least one xeno.
 	for(var/level = JOBS_PRIORITY_HIGH; level >= JOBS_PRIORITY_LOW; level--)

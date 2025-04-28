@@ -55,6 +55,10 @@
 #define MODE_INFESTATION_M_MAJOR "Marine Major Victory"
 #define MODE_INFESTATION_X_MINOR "Xenomorph Minor Victory"
 #define MODE_INFESTATION_M_MINOR "Marine Minor Victory"
+
+#define MODE_ZOMBIE_MAJOR "Zombie Major Victory"
+#define MODE_ZOMBIE_MINOR "Zombie Minor Victory"
+
 #define MODE_INFESTATION_DRAW_DEATH "DRAW: Mutual Annihilation"
 
 #define MODE_GENERIC_DRAW_NUKE "DRAW: Nuclear Explosion"

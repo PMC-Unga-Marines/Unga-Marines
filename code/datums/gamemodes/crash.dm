@@ -88,11 +88,6 @@
 
 /datum/game_mode/infestation/crash/post_setup()
 	. = ..()
-	for(var/i in GLOB.xeno_resin_silo_turfs)
-		new /obj/structure/xeno/silo/crash(i)
-
-	for(var/obj/effect/landmark/corpsespawner/corpse AS in GLOB.corpse_landmarks_list)
-		corpse.create_mob()
 
 	for(var/i in GLOB.nuke_spawn_locs)
 		new /obj/machinery/nuclearbomb(i)
@@ -110,6 +105,12 @@
 
 	if(!(round_type_flags & MODE_INFESTATION))
 		return
+
+	for(var/i in GLOB.xeno_resin_silo_turfs)
+		new /obj/structure/xeno/silo/crash(i)
+
+	for(var/obj/effect/landmark/corpsespawner/corpse AS in GLOB.corpse_landmarks_list)
+		corpse.create_mob()
 
 	for(var/i in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
 		if(isxenolarva(i)) // Larva
@@ -171,9 +172,7 @@
 			message_admins("Round finished: [MODE_INFESTATION_X_MAJOR]") //marines nuked themselves somehow
 			round_finished = MODE_INFESTATION_X_MAJOR
 			return TRUE
-
 	return FALSE
-
 
 /datum/game_mode/infestation/crash/on_nuclear_diffuse(obj/machinery/nuclearbomb/bomb, mob/living/carbon/xenomorph/X)
 	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_HUMAN_SSD)
