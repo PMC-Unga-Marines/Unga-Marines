@@ -202,7 +202,8 @@
 /obj/item/weapon/zombie_claw
 	name = "claws"
 	hitsound = 'sound/weapons/slice.ogg'
-	icon_state = ""
+	icon_state = "zombie_claw_left"
+	base_icon_state = "zombie_claw"
 	force = 20
 	sharp = IS_SHARP_ITEM_BIG
 	edge = TRUE
@@ -247,6 +248,13 @@
 		return FALSE
 	if(door.density) //Make sure it's still closed
 		door.open(TRUE)
+
+/obj/item/weapon/zombie_claw/equipped(mob/user, slot)
+	. = ..()
+	if(slot == SLOT_L_HAND)
+		icon_state = "[base_icon_state]_right"
+	else if(slot == SLOT_R_HAND)
+		icon_state = "[base_icon_state]_left"
 
 /obj/item/weapon/zombie_claw/no_zombium
 	zombium_per_hit = 0
