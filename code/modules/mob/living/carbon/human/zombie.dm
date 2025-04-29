@@ -225,7 +225,7 @@
 		var/mob/living/carbon/human/human_target = target
 		if(human_target.stat == DEAD)
 			return
-		human_target.reagents.add_reagent(/datum/reagent/zombium, zombium_per_hit)
+		human_target.reagents.add_reagent(/datum/reagent/zombium, zombium_per_hit * 0.01 * get_soft_armor(BIO))
 	return ..()
 
 /obj/item/weapon/zombie_claw/afterattack(atom/target, mob/user, has_proximity, click_parameters)
