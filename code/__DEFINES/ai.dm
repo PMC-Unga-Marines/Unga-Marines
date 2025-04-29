@@ -62,3 +62,5 @@ GLOBAL_LIST_EMPTY(ai_instances_active)
 GLOBAL_LIST_EMPTY(nodes_with_enemies)
 GLOBAL_LIST_EMPTY(nodes_with_construction)
 #define can_cross_lava_turf(turf_to_check) (!islava(turf_to_check) || locate(/obj/structure/catwalk) in turf_to_check)
+
+GLOBAL_LIST_EMPTY(zombie_spawners)

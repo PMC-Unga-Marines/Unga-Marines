@@ -35,7 +35,10 @@
 	return
 
 /datum/game_mode/infestation/crash/zombie/balance_scales()
-	return
+	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_HUMAN_SSD)
+	var/num_humans = living_player_list[1]
+	for(var/obj/effect/ai_node/spawner/zombie/spawner AS in GLOB.zombie_spawners)
+		spawner.maxamount = clamp(num_humans, 5, 20)
 
 /datum/game_mode/infestation/crash/zombie/get_adjusted_jobworth_list(list/jobworth_list)
 	return jobworth_list
