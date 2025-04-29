@@ -96,6 +96,8 @@
 
 	if(node_to_return)
 		return node_to_return
+	if(!length(adjacent_nodes))
+		return null
 	return adjacent_nodes[pick(adjacent_nodes)]
 
 ///Clears the adjacencies of src and repopulates it, it will consider nodes "adjacent" to src should it be less 15 turfs away
