@@ -56,8 +56,9 @@
 #define MODE_INFESTATION_X_MINOR "Xenomorph Minor Victory"
 #define MODE_INFESTATION_M_MINOR "Marine Minor Victory"
 
-#define MODE_ZOMBIE_MAJOR "Zombie Major Victory"
-#define MODE_ZOMBIE_MINOR "Zombie Minor Victory"
+#define MODE_ZOMBIE_M_MAJOR "Marine Major Victory. All zombie spawners were destroyed!"
+#define MODE_ZOMBIE_Z_MAJOR "Zombie Major Victory"
+#define MODE_ZOMBIE_Z_MINOR "Zombie Minor Victory"
 
 #define MODE_INFESTATION_DRAW_DEATH "DRAW: Mutual Annihilation"
 
