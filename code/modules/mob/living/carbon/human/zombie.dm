@@ -88,12 +88,12 @@
 
 /datum/species/zombie/handle_death(mob/living/carbon/human/H)
 	if(H.on_fire)
-		fade_out(src, our_time = 55 SECONDS)
+		fade_out(H, our_time = 55 SECONDS)
 		QDEL_IN(H, 1 MINUTES)
 		return
 	if(!H.has_working_organs())
 		SSmobs.stop_processing(H) // stopping the processing extinguishes the fire that is already on, so that's a hack around
-		fade_out(src, our_time = 55 SECONDS)
+		fade_out(H, our_time = 55 SECONDS)
 		QDEL_IN(H, 1 MINUTES)
 		return
 	SSmobs.stop_processing(H)
