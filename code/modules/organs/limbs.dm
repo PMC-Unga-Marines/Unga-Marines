@@ -665,6 +665,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 				organ = new /obj/item/limb/head/synth(owner.loc, owner)
 			else if(isrobot(owner))
 				organ = new /obj/item/limb/head/robotic(owner.loc, owner)
+			else if(iszombie(owner))
+				organ = new /obj/item/limb/head/zombie(owner.loc, owner) // why is this like that
 			else
 				organ = new /obj/item/limb/head(owner.loc, owner)
 			owner.dropItemToGround(owner.glasses, force = TRUE)

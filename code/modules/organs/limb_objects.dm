@@ -87,7 +87,8 @@
 	bone_type = /obj/item/armor_module/limb/skeleton/head
 	var/mob/living/brain/brainmob
 	var/brain_item_type = /obj/item/organ/brain
-	var/braindeath_on_decap = 1 //whether the brainmob dies when head is decapitated (used by synthetics)
+	///whether the brainmob dies when head is decapitated (used by synthetics)
+	var/braindeath_on_decap = TRUE
 
 /obj/item/limb/head/Initialize(mapload, mob/living/carbon/human/H)
 	. = ..()
@@ -146,8 +147,11 @@
 //synthetic head, allowing brain mob inside to talk
 /obj/item/limb/head/synth
 	brain_item_type = null
-	braindeath_on_decap = 0
+	braindeath_on_decap = FALSE
 
 /obj/item/limb/head/robotic
 	brain_item_type = null
-	braindeath_on_decap = 0
+	braindeath_on_decap = FALSE
+
+/obj/item/limb/head/zombie/transfer_identity(mob/living/carbon/human/H)
+	return
