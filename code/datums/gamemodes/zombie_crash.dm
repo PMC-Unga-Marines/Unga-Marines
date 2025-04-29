@@ -86,3 +86,7 @@
 			round_finished = MODE_ZOMBIE_Z_MAJOR
 			return TRUE
 	return FALSE
+
+/datum/game_mode/infestation/crash/zombie/announce()
+	to_chat(world, span_round_header("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))
+	priority_announce("Высадка запланирована через 10 минут. Приготовьтесь к посадке. Предварительное сканирование показывает наличие агрессивных форм биологической жизни. Ваша следующая миссия - заполучить коды доступа и активировать ядерную боеголовку. Альтернативная миссия - уничтожить все места появления агрессивных существ.", title = "Доброе утро, товарищи!", type = ANNOUNCEMENT_PRIORITY, sound = 'sound/AI/crash_start.ogg', color_override = "red")
