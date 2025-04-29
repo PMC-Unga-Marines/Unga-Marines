@@ -32,4 +32,4 @@
 
 /obj/effect/ai_node/spawner/zombie/examine(mob/user)
 	. = ..()
-	. += span_notice("Maybe you could collapse it with a plastique explosive.")
+	. += span_notice("It seems like you could collapse it with a plastique explosive.")
