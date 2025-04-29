@@ -14,7 +14,7 @@
 /obj/item/organ/heart/examine(mob/user)
 	. = ..()
 	if(iszombiecrashgamemode(SSticker.mode))
-		. += span_notice("It looks like it could be sold to requisitions for some supply points.")
+		. += span_notice("It looks like it could be sold to requisitions for supply points.")
 
 /obj/item/organ/heart/get_export_value()
 	if(iszombiecrashgamemode(SSticker.mode))
