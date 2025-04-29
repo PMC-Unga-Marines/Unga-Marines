@@ -64,8 +64,8 @@
 				round_finished = MODE_ZOMBIE_Z_MAJOR
 				return TRUE
 			if(!length(GLOB.zombie_spawners))
-				message_admins("Round finished: [MODE_ZOMBIE_M_MAJOR]") //marines destroyed all zombie spawners
-				round_finished = MODE_ZOMBIE_M_MAJOR
+				message_admins("Round finished: [MODE_INFESTATION_M_MAJOR]") //marines destroyed all zombie spawners
+				round_finished = MODE_INFESTATION_M_MAJOR
 				return TRUE
 			if(marines_evac == CRASH_EVAC_COMPLETED || (!length(GLOB.active_nuke_list) && marines_evac != CRASH_EVAC_NONE))
 				message_admins("Round finished: [MODE_ZOMBIE_Z_MINOR]") //marines evaced without a nuke
