@@ -527,7 +527,7 @@
 	else if((!length(chamber_items) && max_chamber_items) || (!rounds && !max_chamber_items))
 		icon_state = real_icon + "_e"
 	else if(current_chamber_position <= length(chamber_items) && chamber_items[current_chamber_position] && chamber_items[current_chamber_position].loc != src)
-		icon_state = real_icon + "_l"
+		icon_state = real_icon + "_l" // TODO, this bugs out sentry icons
 	else
 		icon_state = real_icon
 
