@@ -123,7 +123,8 @@
 			return 3
 		if(500 to INFINITY)
 			return 4
-		return 0
+		else
+			return 0
 
 
 
