@@ -104,8 +104,6 @@
 		return fail_activate()
 	if(!can_use_ability(A))
 		return fail_activate()
-	add_cooldown()
-	xeno_owner.face_atom(living_target)
 	xeno_owner.do_attack_animation(living_target)
 	playsound(living_target, 'sound/effects/spray3.ogg', 15, TRUE)
 	playsound(living_target, pick('sound/voice/alien/drool1.ogg', 'sound/voice/alien/drool2.ogg'), 15, 1)
@@ -155,6 +153,7 @@
 	GLOB.round_statistics.defiler_defiler_stings++
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "defiler_defiler_stings")
 	succeed_activate()
+	add_cooldown()
 	return ..()
 
 // ***************************************
@@ -555,6 +554,7 @@
 		current = get_step_towards(current, target_turf)
 
 /datum/action/ability/activable/xeno/tentacle/use_ability(atom/movable/target)
+	xeno_owner.face_atom(target)
 	xeno_owner.icon_state = "[xeno_owner.xeno_caste.caste_name] Power Up"
 	if(!do_after(xeno_owner, 1 SECONDS, IGNORE_TARGET_LOC_CHANGE, target, BUSY_ICON_HOSTILE))
 		xeno_owner.icon_state = "[xeno_owner.xeno_caste.caste_name] Running"
@@ -564,8 +564,6 @@
 	tentacle = owner.beam(tentacle_end,"curse0",'icons/effects/beam.dmi')
 	RegisterSignals(tentacle_end, list(COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_IMPACT), PROC_REF(finish_grab))
 	tentacle_end.throw_at(target, TENTACLE_ABILITY_RANGE * 1.5, 3, owner, FALSE) //Too hard to hit if just TENTACLE_ABILITY_RANGE
-	succeed_activate()
-	add_cooldown()
 
 ///Signal handler to grab the target when we thentacle head hit something
 /datum/action/ability/activable/xeno/tentacle/proc/finish_grab(datum/source, atom/movable/target)
@@ -574,8 +572,8 @@
 	qdel(source)
 	if(!can_use_ability(target, TRUE, ABILITY_IGNORE_COOLDOWN|ABILITY_IGNORE_PLASMA))
 		owner.balloon_alert(owner, "Grab failed")
-		clear_cooldown()
-		return
+		add_cooldown(5 SECONDS)
+		return fail_activate()
 	tentacle = owner.beam(target, "curse0",'icons/effects/beam.dmi')
 	playsound(target, 'sound/effects/blobattack.ogg', 40, 1)
 	to_chat(owner, span_warning("We grab [target] with a tentacle!"))
@@ -586,6 +584,8 @@
 		var/mob/living/loser = target
 		loser.apply_effect(2 SECONDS, WEAKEN)
 		loser.adjust_stagger(5 SECONDS)
+	succeed_activate()
+	add_cooldown()
 
 ///signal handler to delete tetacle after we are done draggging owner along
 /datum/action/ability/activable/xeno/tentacle/proc/delete_beam(datum/source, atom/impacted)
