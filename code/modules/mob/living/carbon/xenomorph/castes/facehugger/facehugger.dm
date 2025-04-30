@@ -103,7 +103,7 @@
 			rank_name = "Royal"
 		else
 			rank_name = "Young"
-	var/prefix = (hive.prefix || xeno_caste.upgrade_name) ? "[hive.prefix][xeno_caste.upgrade_name] " : ""
+	var/prefix = "[hive.prefix ? "[hive.prefix] " : ""][xeno_caste.upgrade_name ? "[xeno_caste.upgrade_name] " : ""]"
 	name = prefix + "[rank_name ? "[rank_name] " : ""][xeno_caste.display_name] ([nicknumber])"
 
 	real_name = name
@@ -123,8 +123,7 @@
 			return 3
 		if(500 to INFINITY)
 			return 4
-		else
-			return 0
+		return 0
 
 
 
