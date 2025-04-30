@@ -99,7 +99,7 @@
 		owner.balloon_alert(owner, "Cannot defile")
 		return fail_activate()
 	xeno_owner.face_atom(living_target)
-	if(!do_after(xeno_owner, DEFILER_DEFILE_CHANNEL_TIME, NONE, living_target, BUSY_ICON_HOSTILE))
+	if(!do_after(xeno_owner, DEFILER_DEFILE_CHANNEL_TIME, IGNORE_TARGET_LOC_CHANGE, living_target, BUSY_ICON_HOSTILE))
 		add_cooldown(DEFILER_DEFILE_FAIL_COOLDOWN)
 		return fail_activate()
 	if(!can_use_ability(A))
