@@ -86,7 +86,6 @@
 	resistance_flags = UNACIDABLE
 	bone_type = /obj/item/armor_module/limb/skeleton/head
 	var/mob/living/brain/brainmob
-	var/brain_item_type = /obj/item/organ/brain
 	///whether the brainmob dies when head is decapitated (used by synthetics)
 	var/braindeath_on_decap = TRUE
 
@@ -146,11 +145,12 @@
 
 //synthetic head, allowing brain mob inside to talk
 /obj/item/limb/head/synth
-	brain_item_type = null
 	braindeath_on_decap = FALSE
 
 /obj/item/limb/head/robotic
-	brain_item_type = null
+	braindeath_on_decap = FALSE
+
+/obj/item/limb/head/zombie
 	braindeath_on_decap = FALSE
 
 /obj/item/limb/head/zombie/transfer_identity(mob/living/carbon/human/H)
