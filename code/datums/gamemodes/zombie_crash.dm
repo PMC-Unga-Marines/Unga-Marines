@@ -34,9 +34,37 @@
 /datum/game_mode/infestation/crash/zombie/on_nuke_started(datum/source, obj/machinery/nuclearbomb/nuke)
 	return
 
+/datum/game_mode/infestation/crash/zombie/proc/count_humans_and_zombies(list/z_levels = SSmapping.levels_by_any_trait(list(ZTRAIT_MARINE_MAIN_SHIP, ZTRAIT_GROUND, ZTRAIT_RESERVED)), count_flags)
+	var/num_humans = 0
+	var/num_zombies
+
+	for(var/z in z_levels)
+		for(var/i in GLOB.humans_by_zlevel["[z]"])
+			var/mob/living/carbon/human/H = i
+			if(!istype(H)) // Small fix?
+				continue
+			if(H.faction == FACTION_ZOMBIE)
+				num_zombies++
+				continue
+			if(isyautja(H))
+				continue
+			if(count_flags & COUNT_IGNORE_HUMAN_SSD && !H.client && H.afk_status == MOB_DISCONNECTED)
+				continue
+			if(H.status_flags & XENO_HOST)
+				continue
+			if(isspaceturf(H.loc))
+				continue
+			num_humans++
+	return list(num_humans, num_zombies)
+
 /datum/game_mode/infestation/crash/zombie/balance_scales()
-	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_HUMAN_SSD)
+	var/list/living_player_list = count_humans_and_zombies(count_flags = COUNT_IGNORE_HUMAN_SSD)
 	var/num_humans = living_player_list[1]
+	var/num_zombies = living_player_list[2]
+	if(num_zombies * 0.1 <= num_humans) // if there's too much zombies, don't spawn even more
+		for(var/obj/effect/ai_node/spawner/zombie/spawner AS in GLOB.zombie_spawners)
+			spawner.max_amount = 0
+		return
 	for(var/obj/effect/ai_node/spawner/zombie/spawner AS in GLOB.zombie_spawners)
 		spawner.max_amount = clamp(num_humans, 5, 20)
 
