@@ -5,16 +5,16 @@
 	icon_state = "hole"
 	invisibility = 0
 	resistance_flags = UNACIDABLE|PLASMACUTTER_IMMUNE|PROJECTILE_IMMUNE
-	spawntypes = list(
+	spawn_types = list(
 		/mob/living/carbon/human/species/zombie/ai/patrol = 80,
 		/mob/living/carbon/human/species/zombie/ai/fast/patrol = 5,
 		/mob/living/carbon/human/species/zombie/ai/tank/patrol = 5,
 		/mob/living/carbon/human/species/zombie/ai/smoker/patrol = 5,
 		/mob/living/carbon/human/species/zombie/ai/strong/patrol = 5,
 	)
-	spawnamount = 1
-	spawndelay = 8 SECONDS
-	maxamount = 15
+	spawn_amount = 1
+	spawn_delay = 8 SECONDS
+	max_amount = 15
 
 /obj/effect/ai_node/spawner/zombie/Initialize(mapload)
 	. = ..()
