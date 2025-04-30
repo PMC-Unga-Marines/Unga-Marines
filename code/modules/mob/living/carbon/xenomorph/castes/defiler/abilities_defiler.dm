@@ -555,6 +555,11 @@
 		current = get_step_towards(current, target_turf)
 
 /datum/action/ability/activable/xeno/tentacle/use_ability(atom/movable/target)
+	xeno_owner.icon_state = "[xeno_owner.xeno_caste.caste_name] Power Up"
+	if(!do_after(xeno_owner, 1 SECONDS, IGNORE_TARGET_LOC_CHANGE, target, BUSY_ICON_HOSTILE))
+		xeno_owner.icon_state = "[xeno_owner.xeno_caste.caste_name] Running"
+		return fail_activate()
+	xeno_owner.icon_state = "[xeno_owner.xeno_caste.caste_name] Running"
 	var/atom/movable/tentacle_end/tentacle_end = new (get_turf(owner))
 	tentacle = owner.beam(tentacle_end,"curse0",'icons/effects/beam.dmi')
 	RegisterSignals(tentacle_end, list(COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_IMPACT), PROC_REF(finish_grab))
@@ -579,7 +584,7 @@
 	target.throw_at(get_step(owner, owner.dir), TENTACLE_ABILITY_RANGE, 1, owner, FALSE)
 	if(isliving(target))
 		var/mob/living/loser = target
-		loser.ImmobilizeNoChain(1 SECONDS)
+		loser.apply_effect(2 SECONDS, WEAKEN)
 		loser.adjust_stagger(5 SECONDS)
 
 ///signal handler to delete tetacle after we are done draggging owner along
