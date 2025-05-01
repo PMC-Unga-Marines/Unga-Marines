@@ -1772,6 +1772,11 @@
 	dir = 4
 	},
 /area/icy_caves/caves/cavesbrig)
+"js" = (
+/obj/machinery/door/airlock/multi_tile/mainship/research,
+/obj/machinery/door/airlock/multi_tile/mainship/generic,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/LZ2)
 "jt" = (
 /obj/machinery/floodlight/landing,
 /obj/effect/turf_decal/warning_stripes,
@@ -1894,7 +1899,7 @@
 /turf/open/floor/wood,
 /area/icy_caves/caves/underground_cafeteria)
 "ka" = (
-/obj/machinery/door/airlock/multi_tile/mainship/research,
+/obj/machinery/door/airlock/multi_tile/mainship/generic,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/LZ2)
 "kd" = (
@@ -6138,7 +6143,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/computer/shuttle/shuttle_control/dropship,
 /turf/open/floor/tile/dark,
-/area/lv624/lazarus/console)
+/area/icy_caves/outpost/LZ2)
 "En" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 2
@@ -7384,7 +7389,7 @@
 /turf/open/floor/tile/dark/green2,
 /area/icy_caves/outpost/medbay)
 "JN" = (
-/obj/machinery/door/airlock/multi_tile/mainship/research,
+/obj/machinery/door/airlock/multi_tile/mainship/generic,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/LZ2)
 "JO" = (
@@ -7546,7 +7551,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/dorms)
 "Kz" = (
-/obj/machinery/door/airlock/multi_tile/mainship/research{
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
@@ -30385,7 +30390,7 @@ IT
 IT
 IT
 VI
-ka
+js
 oP
 oP
 nI
