@@ -232,7 +232,7 @@
 			var/list/limb_list = GLOB.human_body_parts.Copy()
 			limb_list -= target_zone
 			target_zone = pick(limb_list)
-			affecting = get_limb(target_zone)
+			affecting = target:get_limb(target_zone)
 		var/hit_area = affecting.display_name
 
 		var/mob/living/carbon/human/H = target
