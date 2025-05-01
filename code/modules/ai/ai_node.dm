@@ -57,7 +57,7 @@
 	weights[identifier][name] = amount
 
 /obj/effect/ai_node/Destroy()
-	GLOB.all_nodes[unique_id + 1] = null
+	GLOB.all_nodes -= src
 	rustg_remove_node_astar("[unique_id]")
 	//Remove our reference to self from nearby adjacent node's adjacent nodes
 	for(var/direction AS in adjacent_nodes)
