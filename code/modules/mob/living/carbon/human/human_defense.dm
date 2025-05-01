@@ -90,7 +90,6 @@ Contains most of the procs that are called when a mob is attacked by something
 
 //Returns 1 if the attack hit, 0 if it missed.
 /mob/living/carbon/human/attacked_by(obj/item/I, mob/living/user, def_zone)
-
 	var/target_zone
 
 	if(user == src) // Attacking yourself can't miss
@@ -113,9 +112,10 @@ Contains most of the procs that are called when a mob is attacked by something
 
 	var/datum/limb/affecting = get_limb(target_zone)
 	if(affecting.limb_status & LIMB_DESTROYED)
-		to_chat(user, "What [affecting.display_name]?")
-		log_combat(user, src, "attacked", I, "(FAILED: target limb missing) (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(I.damtype)])")
-		return FALSE
+		var/list/limb_list = GLOB.human_body_parts.Copy()
+		limb_list -= target_zone
+		target_zone = pick(limb_list)
+		affecting = get_limb(target_zone)
 	var/hit_area = affecting.display_name
 
 	if((user != src) && check_pred_shields(I.force, "the [I.name]", backside_attack = dir == get_dir(get_turf(user), get_turf(src))))

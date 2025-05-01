@@ -226,11 +226,13 @@
 		var/target_zone = ran_zone(check_zone(user.zone_selected, target))
 		var/datum/limb/affecting = target:get_limb(target_zone)
 
-		if (!affecting)
+		if(!affecting)
 			return
 		if(affecting.limb_status & LIMB_DESTROYED)
-			to_chat(user, "What [affecting.display_name]?")
-			return
+			var/list/limb_list = GLOB.human_body_parts.Copy()
+			limb_list -= target_zone
+			target_zone = pick(limb_list)
+			affecting = get_limb(target_zone)
 		var/hit_area = affecting.display_name
 
 		var/mob/living/carbon/human/H = target
