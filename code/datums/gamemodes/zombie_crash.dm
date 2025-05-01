@@ -78,22 +78,21 @@
 	if(!shuttle_landed && !force_end)
 		return FALSE
 
+	if(!length(GLOB.zombie_spawners))
+		message_admins("Round finished: [MODE_INFESTATION_M_MAJOR]") //marines destroyed all zombie spawners
+		round_finished = MODE_INFESTATION_M_MAJOR
+		return TRUE
+
 	var/list/living_player_list = count_humans_and_xenos(count_flags = COUNT_IGNORE_HUMAN_SSD)
 	var/num_humans = living_player_list[1]
-
 	if(num_humans && planet_nuked == INFESTATION_NUKE_NONE && marines_evac == CRASH_EVAC_NONE && !force_end)
 		return FALSE
 
 	switch(planet_nuked)
-
 		if(INFESTATION_NUKE_NONE)
 			if(!num_humans)
 				message_admins("Round finished: [MODE_ZOMBIE_Z_MAJOR]") //xenos wiped out ALL the marines
 				round_finished = MODE_ZOMBIE_Z_MAJOR
-				return TRUE
-			if(!length(GLOB.zombie_spawners))
-				message_admins("Round finished: [MODE_INFESTATION_M_MAJOR]") //marines destroyed all zombie spawners
-				round_finished = MODE_INFESTATION_M_MAJOR
 				return TRUE
 			if(marines_evac == CRASH_EVAC_COMPLETED || (!length(GLOB.active_nuke_list) && marines_evac != CRASH_EVAC_NONE))
 				message_admins("Round finished: [MODE_ZOMBIE_Z_MINOR]") //marines evaced without a nuke
@@ -102,16 +101,16 @@
 
 		if(INFESTATION_NUKE_COMPLETED)
 			if(marines_evac == CRASH_EVAC_NONE)
-				message_admins("Round finished: [MODE_ZOMBIE_Z_MINOR]") //marines nuked the planet but didn't evac
-				round_finished = MODE_ZOMBIE_Z_MINOR
+				message_admins("Round finished: [MODE_INFESTATION_M_MINOR]") //marines nuked the planet but didn't evac
+				round_finished = MODE_INFESTATION_M_MINOR
 				return TRUE
 			message_admins("Round finished: [MODE_INFESTATION_M_MAJOR]") //marines nuked the planet and managed to evac
 			round_finished = MODE_INFESTATION_M_MAJOR
 			return TRUE
 
 		if(INFESTATION_NUKE_COMPLETED_SHIPSIDE, INFESTATION_NUKE_COMPLETED_OTHER)
-			message_admins("Round finished: [MODE_ZOMBIE_Z_MAJOR]") //marines nuked themselves somehow
-			round_finished = MODE_ZOMBIE_Z_MAJOR
+			message_admins("Round finished: [MODE_GENERIC_DRAW_NUKE]") //marines nuked themselves somehow
+			round_finished = MODE_GENERIC_DRAW_NUKE
 			return TRUE
 	return FALSE
 
