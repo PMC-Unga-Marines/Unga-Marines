@@ -1772,11 +1772,6 @@
 	dir = 4
 	},
 /area/icy_caves/caves/cavesbrig)
-"js" = (
-/obj/machinery/door/airlock/multi_tile/mainship/research,
-/obj/machinery/door/airlock/multi_tile/mainship/generic,
-/turf/open/floor/tile/dark,
-/area/icy_caves/outpost/LZ2)
 "jt" = (
 /obj/machinery/floodlight/landing,
 /obj/effect/turf_decal/warning_stripes,
@@ -30390,7 +30385,7 @@ IT
 IT
 IT
 VI
-js
+ka
 oP
 oP
 nI
