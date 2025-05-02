@@ -199,6 +199,7 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	icon_state = "heavylaser_deployed"
 	icon = 'icons/obj/items/gun/hmg.dmi'
+	ammo_level_icon = ""
 
 	fire_sound = 'sound/weapons/guns/fire/tank_flamethrower.ogg'
 	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
