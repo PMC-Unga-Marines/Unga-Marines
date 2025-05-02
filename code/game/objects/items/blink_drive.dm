@@ -195,8 +195,9 @@
 
 /datum/action/ability/activable/item_toggle/blink_drive
 	name = "Use Blink Drive"
-	action_icon_state = "axe_sweep"
 	desc = "Teleport a short distance instantly."
+	action_icon = 'icons/mob/actions.dmi'
+	action_icon_state = ""
 	keybind_flags = ABILITY_USE_STAGGERED|ABILITY_USE_BUSY
 	keybinding_signals = list(KEYBINDING_NORMAL = COMSIG_ITEM_TOGGLE_BLINKDRIVE)
 
