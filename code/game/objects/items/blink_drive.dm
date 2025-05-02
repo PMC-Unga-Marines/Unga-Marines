@@ -33,7 +33,7 @@
 
 /obj/item/blink_drive/examine(mob/user)
 	. = ..()
-	. += span_danger(<b>Alt right click or middleclick to teleport to a destination when the blink drive is equipped.</b>)
+	. += span_danger("<b>Alt right click or middleclick to teleport to a destination when the blink drive is equipped.</b>")
 
 /obj/item/blink_drive/update_icon(updates=ALL)
 	. = ..()
