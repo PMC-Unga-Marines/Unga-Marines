@@ -375,12 +375,11 @@
 	force = 1
 	throwforce = 1
 	resistance_flags = UNACIDABLE
-	var/timer = 0
 
 /obj/item/yautja_teleporter/attack_self(mob/user)
 	set waitfor = FALSE
 
-	..()
+	. = ..()
 
 	if(!ishuman(user))
 		return
@@ -420,7 +419,6 @@
 
 	// Let's go
 	playsound(src, 'sound/ambience/signal.ogg', 25, 1, sound_range = 6)
-	timer = 1
 	user.visible_message(span_info("[user] starts becoming shimmery and indistinct..."))
 
 	if(do_after(user, 10 SECONDS, NONE, src, BUSY_ICON_GENERIC, BUSY_ICON_GENERIC))
@@ -441,9 +439,6 @@
 		animation_teleport_quick_in(user)
 		if(istype(M) && !QDELETED(M))
 			animation_teleport_quick_in(M)
-		timer = 0
-	else
-		addtimer(VARSET_CALLBACK(src, timer, FALSE), 1 SECONDS)
 
 /obj/item/yautja_teleporter/verb/add_tele_loc()
 	set name = "Add Teleporter Destination"

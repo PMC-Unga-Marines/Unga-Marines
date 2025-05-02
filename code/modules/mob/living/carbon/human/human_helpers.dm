@@ -142,19 +142,6 @@
 			else
 				return null
 
-/mob/living/carbon/human/proc/set_limb_icons()
-	var/datum/ethnicity/E = GLOB.ethnicities_list[ethnicity]
-
-	var/e_icon
-
-	if (!E)
-		e_icon = "western"
-	else
-		e_icon = E.icon_name
-
-	for(var/datum/limb/L in limbs)
-		L.icon_name = get_limb_icon_name(species, gender, L.display_name, e_icon)
-
 /mob/living/carbon/human/get_reagent_tags()
 	. = ..()
 	return .|IS_HUMAN

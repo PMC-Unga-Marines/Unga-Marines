@@ -76,26 +76,14 @@
 
 /datum/outfit/job/yautja
 	name = "Yautja"
-
-	id = null //No IDs for Yautja!
-	back = FALSE //Null hecks, no null here
-
+	id = null
+	back = FALSE
 	var/default_cape_type = "None"
 	var/clan_rank
+	var/name_prefix = ""
 
 /datum/outfit/job/yautja/pre_equip(mob/living/carbon/human/H, visualsOnly, client/override_client)
-	var/client/mob_client = H.client
-	if(override_client)
-		mob_client = override_client
-
-	H.ethnicity = "Tan"
-	if(mob_client)
-		H.ethnicity = mob_client.prefs.predator_skin_color
-
 	H.set_species("Yautja")
-	if(mob_client)
-		H.h_style = mob_client.prefs.predator_h_style
-		H.update_hair()
 
 	var/using_legacy = "No"
 	var/armor_number = 1
@@ -109,20 +97,18 @@
 	var/cape_type = default_cape_type
 	var/cape_color = "#654321"
 
-	if(mob_client)
-		using_legacy = mob_client.prefs.predator_use_legacy
-		armor_number = mob_client.prefs.predator_armor_type
-		boot_number = mob_client.prefs.predator_boot_type
-		mask_number = mob_client.prefs.predator_mask_type
-		armor_material = mob_client.prefs.predator_armor_material
-		greave_material = mob_client.prefs.predator_greave_material
-		mask_material = mob_client.prefs.predator_mask_material
-		caster_material = mob_client.prefs.predator_caster_material
-		translator_type = mob_client.prefs.predator_translator_type
-		if(mob_client.prefs.predator_cape_type != "Default")
-			cape_type = mob_client.prefs.predator_cape_type
-
-		cape_color = mob_client.prefs.predator_cape_color
+	if(H.client)
+		using_legacy = H.client.prefs.predator_use_legacy
+		armor_number = H.client.prefs.predator_armor_type
+		boot_number = H.client.prefs.predator_boot_type
+		mask_number = H.client.prefs.predator_mask_type
+		armor_material = H.client.prefs.predator_armor_material
+		greave_material = H.client.prefs.predator_greave_material
+		mask_material = H.client.prefs.predator_mask_material
+		caster_material = H.client.prefs.predator_caster_material
+		translator_type = H.client.prefs.predator_translator_type
+		cape_type = H.client.prefs.predator_cape_type
+		cape_color = H.client.prefs.predator_cape_color
 
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/chainshirt/hunter(H), SLOT_W_UNIFORM)
 	H.equip_to_slot_or_del(new /obj/item/clothing/gloves/yautja/hunter(H, translator_type, caster_material, clan_rank), SLOT_GLOVES, TRUE, TRUE)
@@ -141,52 +127,17 @@
 		H.equip_to_slot_or_del(new cape_path(H, cape_color), SLOT_BACK)
 
 /datum/outfit/job/yautja/handle_id(mob/living/carbon/human/H, client/override_client)
-	var/client/mob_client = H.client
-	if(override_client)
-		mob_client = override_client
-
-	var/datum/job/job = SSjob.GetJobType(jobtype)
-	if(!job)
-		job = H.job
-
+	var/datum/job/job = H.job ? H.job : SSjob.GetJobType(jobtype)
 	H.faction = GLOB.faction_to_iff[job.faction]
-
-	var/final_name = "Le'pro"
-	H.gender = MALE
-	H.age = 100
-	H.flavor_text = ""
-
-	if(mob_client)
-		H.h_style = mob_client.prefs.predator_h_style
-		H.update_hair()
-		H.gender = mob_client.prefs.predator_gender
-		H.age = mob_client.prefs.predator_age
-		final_name = mob_client.prefs.predator_name
-		H.flavor_text = mob_client.prefs.predator_flavor_text
-		H.r_eyes = mob_client.prefs.pred_r_eyes
-		H.g_eyes = mob_client.prefs.pred_g_eyes
-		H.b_eyes = mob_client.prefs.pred_b_eyes
-		if(!final_name || final_name == "Undefined") //In case they don't have a name set or no prefs, there's a name.
-			final_name = "Le'pro"
-
-		H.update_body()
-		H.update_hair()
-		H.regenerate_icons()
-
-	H.real_name = final_name
-	H.name = final_name
-	H.hud_set_hunter()
+	var/new_name = name_prefix ? "[name_prefix] [H.real_name]" : "[H.real_name]"
+	H.real_name = new_name
+	H.name = new_name
 
 // YOUNG BLOOD
 /datum/outfit/job/yautja/youngblood
 	name = "Yautja Young"
 	clan_rank = CLAN_RANK_UNBLOODED_INT
-
-/datum/outfit/job/yautja/youngblood/handle_id(mob/living/carbon/human/H, client/override_client)
-	. = ..()
-	var/new_name = "Young [H.real_name]"
-	H.real_name = new_name
-	H.name = new_name
+	name_prefix = "Young"
 
 //BLOODED
 /datum/outfit/job/yautja/blooded
@@ -199,12 +150,7 @@
 	name = "Yautja Elite"
 	default_cape_type = PRED_YAUTJA_HALF_CAPE
 	clan_rank = CLAN_RANK_ELITE_INT
-
-/datum/outfit/job/yautja/elite/handle_id(mob/living/carbon/human/H, client/override_client)
-	. = ..()
-	var/new_name = "Elite [H.real_name]"
-	H.real_name = new_name
-	H.name = new_name
+	name_prefix = "Elite"
 
 // ELDER
 /datum/outfit/job/yautja/elder
@@ -212,12 +158,7 @@
 	default_cape_type = PRED_YAUTJA_THIRD_CAPE
 	ears = /obj/item/radio/headset/yautja/elder
 	clan_rank = CLAN_RANK_ELDER_INT
-
-/datum/outfit/job/yautja/elder/handle_id(mob/living/carbon/human/H, client/override_client)
-	. = ..()
-	var/new_name = "Elder [H.real_name]"
-	H.real_name = new_name
-	H.name = new_name
+	name_prefix = "Elder"
 
 // CLAN LEADER
 /datum/outfit/job/yautja/leader
@@ -225,12 +166,7 @@
 	default_cape_type = PRED_YAUTJA_CAPE
 	ears = /obj/item/radio/headset/yautja/elder
 	clan_rank = CLAN_RANK_LEADER_INT
-
-/datum/outfit/job/yautja/leader/handle_id(mob/living/carbon/human/H, client/override_client)
-	. = ..()
-	var/new_name = "Clan Leader [H.real_name]"
-	H.real_name = new_name
-	H.name = new_name
+	name_prefix = "Clan Leader"
 
 // ANCIENT
 /datum/outfit/job/yautja/ancient
@@ -238,9 +174,4 @@
 	default_cape_type = PRED_YAUTJA_PONCHO
 	ears = /obj/item/radio/headset/yautja/elder
 	clan_rank = CLAN_RANK_ADMIN_INT
-
-/datum/outfit/job/yautja/ancient/handle_id(mob/living/carbon/human/H, client/override_client)
-	. = ..()
-	var/new_name = "Ancient [H.real_name]"
-	H.real_name = new_name
-	H.name = new_name
+	name_prefix = "Ancient"

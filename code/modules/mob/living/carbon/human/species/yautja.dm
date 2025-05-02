@@ -90,6 +90,7 @@
 
 /datum/species/yautja/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()
+	H.ethnicity = pick(GLOB.yautja_ethnicities_list) // snowflakes, yey
 	var/datum/atom_hud/A = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
 	A.add_to_hud(H)
 
@@ -112,6 +113,7 @@
 
 /datum/species/yautja/post_species_loss(mob/living/carbon/human/H)
 	. = ..()
+	H.ethnicity = random_ethnicity()
 	var/datum/atom_hud/A = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
 	A.remove_hud_from(H)
 	remove_inherent_abilities(H)
@@ -171,3 +173,119 @@
 		if(chem.overdose_threshold && chem.volume > chem.overdose_threshold)
 			H.reagents.remove_reagent(chem.type, chem.volume - chem.overdose_threshold)
 	return FALSE
+
+/mob/living/carbon/human/species/yautja
+	race = "Yautja"
+	h_style = "Standard"
+	ethnicity = "Tan"
+	gender = MALE
+	age = 100
+	chat_color = "#aa0000"
+
+/mob/living/carbon/human/species/yautja/get_paygrade()
+	if(client.clan_info)
+		return client.clan_info.item[2] <= GLOB.clan_ranks_ordered.len ? GLOB.clan_ranks_ordered[client.clan_info.item[2]] : GLOB.clan_ranks_ordered[1]
+
+/mob/living/carbon/human/species/yautja/hud_set_hunter()
+	. = ..()
+
+	var/image/holder = hud_list[HUNTER_CLAN]
+	if(!holder)
+		return
+
+	holder.icon_state = "predhud"
+
+	if(client?.clan_info?.item?[4])
+		var/datum/db_query/player_clan = SSdbcore.NewQuery("SELECT id, name, description, honor, color FROM [format_table_name("clan")] WHERE id = :clan_id", list("clan_id" = client.clan_info.item[4]))
+		player_clan.Execute()
+		if(player_clan.NextRow())
+			holder.color = player_clan.item[5]
+
+	hud_list[HUNTER_CLAN] = holder
+
+/mob/living/carbon/human/species/yautja/send_speech(message_raw, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode)
+	. = ..()
+	playsound(loc, pick('sound/voice/predator/click1.ogg', 'sound/voice/predator/click2.ogg'), 25, 1)
+
+/mob/living/carbon/human/species/yautja/get_idcard(hand_first = TRUE)
+	. = ..()
+	if(!.)
+		var/obj/item/clothing/gloves/yautja/hunter/bracer = gloves
+		if(istype(bracer))
+			return bracer.embedded_id
+	return .
+
+/mob/living/carbon/human/species/yautja/get_reagent_tags()
+	return species?.reagent_tag
+
+/mob/living/carbon/human/species/yautja/can_be_operated_on(mob/user)
+	return TRUE
+
+/mob/living/carbon/human/species/yautja/randomize_appearance()
+	name = "Le'pro"
+	real_name = name
+	switch(pick(15;"black", 15;"grey", 15;"brown", 15;"lightbrown", 10;"white", 15;"blonde", 15;"red"))
+		if("black")
+			r_hair = 10
+			g_hair = 10
+			b_hair = 10
+		if("grey")
+			r_hair = 50
+			g_hair = 50
+			b_hair = 50
+		if("brown")
+			r_hair = 70
+			g_hair = 35
+			b_hair = 0
+		if("lightbrown")
+			r_hair = 100
+			g_hair = 50
+			b_hair = 0
+		if("white")
+			r_hair = 235
+			g_hair = 235
+			b_hair = 235
+		if("blonde")
+			r_hair = 240
+			g_hair = 240
+			b_hair = 0
+		if("red")
+			r_hair = 128
+			g_hair = 0
+			b_hair = 0
+
+	h_style = pick(GLOB.yautja_hair_styles_list)
+
+	switch(pick(15;"black", 15;"green", 15;"brown", 15;"blue", 15;"lightblue", 5;"red"))
+		if("black")
+			r_eyes = 10
+			g_eyes = 10
+			b_eyes = 10
+		if("green")
+			r_eyes = 200
+			g_eyes = 0
+			b_eyes = 0
+		if("brown")
+			r_eyes = 100
+			g_eyes = 50
+			b_eyes = 0
+		if("blue")
+			r_eyes = 0
+			g_eyes = 0
+			b_eyes = 200
+		if("lightblue")
+			r_eyes = 0
+			g_eyes = 150
+			b_eyes = 255
+		if("red")
+			r_eyes = 220
+			g_eyes = 0
+			b_eyes = 0
+
+	ethnicity = pick(GLOB.yautja_ethnicities_list)
+
+	age = rand(100, 999)
+
+	update_hair()
+	update_body()
+	regenerate_icons()

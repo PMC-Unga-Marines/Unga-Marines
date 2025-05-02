@@ -23,9 +23,12 @@
 	else
 		base = icon('icons/mob/human_races/r_human.dmi') ///RUTGMC edit, icon redirect to module
 
-
 	icon = base
-	var/datum/ethnicity/E = GLOB.ethnicities_list[H.ethnicity]
+	var/datum/ethnicity/E
+	if(isyautja(H))
+		E = GLOB.yautja_ethnicities_list[H.ethnicity]
+	else
+		E = GLOB.ethnicities_list[H.ethnicity]
 
 	var/e_icon
 

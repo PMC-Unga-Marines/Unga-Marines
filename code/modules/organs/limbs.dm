@@ -845,14 +845,14 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return brute_dam || burn_dam
 
 /datum/limb/proc/get_icon(icon/race_icon, gender="")
-	if(limb_status & LIMB_ROBOT && !(owner.species.species_flags & LIMB_ROBOT)) //if race set the flag then we just let the race handle this
-		return icon('icons/mob/human_races/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
-
-	var/datum/ethnicity/E = GLOB.ethnicities_list[owner.ethnicity]
+	var/datum/ethnicity/E
+	if(isyautja(owner))
+		E = GLOB.yautja_ethnicities_list[owner.ethnicity]
+	else
+		E = GLOB.ethnicities_list[owner.ethnicity]
 
 	var/e_icon
-
-	if (!E)
+	if(!E)
 		e_icon = "western"
 	else
 		e_icon = E.icon_name
