@@ -1973,7 +1973,7 @@
 #include "code\modules\predator\falcon.dm"
 #include "code\modules\predator\huntdata.dm"
 #include "code\modules\predator\keybinds.dm"
-#include "code\modules\predator\landmakrs.dm"
+#include "code\modules\predator\landmarks.dm"
 #include "code\modules\predator\predator_action.dm"
 #include "code\modules\predator\smartdisc.dm"
 #include "code\modules\predator\thrall\items.dm"

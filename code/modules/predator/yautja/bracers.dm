@@ -118,7 +118,7 @@
 			action.give_action(user)
 		if(!user.hunter_data?.claimed_equipment)
 			claim_equipment.give_action(user)
-	..()
+	return ..()
 
 /obj/item/clothing/gloves/yautja/unequipped(mob/living/carbon/human/user, slot)
 	if(slot == SLOT_GLOVES)
@@ -131,14 +131,16 @@
 			action.remove_action(user)
 		if(!user.hunter_data?.claimed_equipment)
 			claim_equipment.remove_action(user)
-	..()
+	return ..()
 
 /obj/item/clothing/gloves/yautja/pickup(mob/living/user)
-	..()
+	. = ..()
 	if(!isyautja(user))
 		to_chat(user, span_warning("The bracer feels cold against your skin, heavy with an unfamiliar, almost alien weight."))
 
 /obj/item/clothing/gloves/yautja/proc/owner_teleported()
+	SIGNAL_HANDLER
+	
 	if(cloaked)
 		decloak(owner)
 	update_minimap_icon()
