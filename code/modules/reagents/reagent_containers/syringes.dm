@@ -230,7 +230,10 @@
 			return
 		if(affecting.limb_status & LIMB_DESTROYED)
 			var/list/limb_list = GLOB.human_body_parts.Copy()
-			limb_list -= target_zone
+			for(var/datum/limb/our_limb AS in limb_list)
+				if(!(our_limb.limb_status & LIMB_DESTROYED))
+					continue
+				limb_list -= our_limb
 			target_zone = pick(limb_list)
 			affecting = target:get_limb(target_zone)
 		var/hit_area = affecting.display_name
