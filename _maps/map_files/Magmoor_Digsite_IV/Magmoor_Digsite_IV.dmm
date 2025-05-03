@@ -12790,7 +12790,7 @@
 /obj/structure/table/wood{
 	flipped = 1
 	},
-/obj/item/reagent_containers/cup/glass/drinking_glass/soda,
+/obj/item/reagent_containers/cup/glass/drinking_glass/filled/soda,
 /turf/open/floor/wood,
 /area/magmoor/civilian/bar)
 "jlm" = (
@@ -16850,7 +16850,7 @@
 /area/magmoor/civilian/arrival/east)
 "mcQ" = (
 /obj/structure/table/wood/gambling,
-/obj/item/reagent_containers/cup/glass/drinking_glass/soda,
+/obj/item/reagent_containers/cup/glass/drinking_glass/filled/soda,
 /turf/open/floor/wood,
 /area/magmoor/civilian/gambling)
 "mcS" = (
