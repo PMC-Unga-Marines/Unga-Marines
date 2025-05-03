@@ -172,10 +172,6 @@
 /obj/machinery/marine_selector/gear/medic/valhalla,
 /turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
-"bsY" = (
-/obj/effect/landmark/corpsespawner/colonist,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/centcom/valhalla/xenocave)
 "bxZ" = (
 /obj/structure/table,
 /obj/item/toy/deck/kotahi,
@@ -18138,7 +18134,7 @@ oXf
 oXf
 oXf
 oXf
-bsY
+oXf
 oXf
 oXf
 oXf
@@ -18903,7 +18899,7 @@ boC
 fog
 oXf
 oXf
-bsY
+oXf
 oXf
 oXf
 oXf
@@ -19931,14 +19927,14 @@ oXf
 oXf
 oXf
 oXf
-bsY
 oXf
 oXf
-bsY
+oXf
+oXf
 rjK
 oXf
 oXf
-bsY
+oXf
 oXf
 oXf
 fog
@@ -21215,7 +21211,7 @@ boC
 boC
 fog
 oXf
-bsY
+oXf
 oXf
 oXf
 oXf
@@ -21480,7 +21476,7 @@ oXf
 rjK
 oXf
 oXf
-bsY
+oXf
 oXf
 oXf
 fog

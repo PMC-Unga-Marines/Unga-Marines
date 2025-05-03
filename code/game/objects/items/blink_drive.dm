@@ -4,7 +4,7 @@
 
 /obj/item/blink_drive
 	name = "blink drive"
-	desc = "A portable Bluespace Displacement Drive, otherwise known as a blink drive. Can teleport the user across short distances with a degree of unreliability, with potentially fatal results. Teleporting past 5 tiles, to tiles out of sight or rapid use of the drive add variance to the teleportation destination. <b>Alt right click or middleclick to teleport to a destination when the blink drive is equipped.</b>"
+	desc = "A portable Bluespace Displacement Drive, otherwise known as a blink drive. Can teleport the user across short distances with a degree of unreliability, with potentially fatal results. Teleporting past 5 tiles, to tiles out of sight or rapid use of the drive add variance to the teleportation destination."
 	icon = 'icons/obj/items/jetpack.dmi'
 	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/backpacks_left.dmi',
@@ -30,6 +30,10 @@
 /obj/item/blink_drive/Initialize(mapload)
 	. = ..()
 	blink_action = new(src)
+
+/obj/item/blink_drive/examine(mob/user)
+	. = ..()
+	. += span_danger("<b>Alt right click or middleclick to teleport to a destination when the blink drive is equipped.</b>")
 
 /obj/item/blink_drive/update_icon(updates=ALL)
 	. = ..()
@@ -195,8 +199,9 @@
 
 /datum/action/ability/activable/item_toggle/blink_drive
 	name = "Use Blink Drive"
-	action_icon_state = "axe_sweep"
 	desc = "Teleport a short distance instantly."
+	action_icon = 'icons/mob/actions.dmi'
+	action_icon_state = ""
 	keybind_flags = ABILITY_USE_STAGGERED|ABILITY_USE_BUSY
 	keybinding_signals = list(KEYBINDING_NORMAL = COMSIG_ITEM_TOGGLE_BLINKDRIVE)
 

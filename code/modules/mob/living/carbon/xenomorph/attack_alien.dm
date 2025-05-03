@@ -184,7 +184,7 @@
 			to_chat(X, span_warning("[src] is dead, why would we want to touch it?"))
 		return FALSE
 
-	if(isyautja(src) && check_pred_shields(X.xeno_caste.melee_damage * X.xeno_melee_damage_modifier + dam_bonus, backside_attack = dir == get_dir(get_turf(X), get_turf(src)), xenomorph = TRUE))
+	if(check_predator_shields(X, X.xeno_caste.melee_damage * X.xeno_melee_damage_modifier + dam_bonus, dir))
 		return FALSE
 
 	SEND_SIGNAL(X, COMSIG_XENOMORPH_ATTACK_HUMAN, src)

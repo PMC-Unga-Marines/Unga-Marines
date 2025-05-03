@@ -534,6 +534,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 				continue
 			if(H.faction == FACTION_XENO)
 				continue
+			if(H.faction == FACTION_ZOMBIE)
+				continue
 			if(isspaceturf(H.loc))
 				continue
 			num_humans++
@@ -1089,7 +1091,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 
 	if(show_warning && alert(pred_candidate, "Confirm joining the hunt. You will join as \a [lowertext(job.get_whitelist_status(GLOB.roles_whitelist, pred_candidate.client))] predator", "Confirm", "Yes", "No") != "Yes")
 		return
-
+	#ifndef TESTING
 	if(!(GLOB.roles_whitelist[pred_candidate.ckey] & WHITELIST_PREDATOR))
 		if(show_warning)
 			to_chat(pred_candidate, span_warning("You are not whitelisted! You may apply on the forums to be whitelisted as a predator."))
@@ -1116,7 +1118,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			if(show_warning)
 				to_chat(pred_candidate, span_warning("Only [pred_max] predators may spawn this round, but Councillors and Ancients do not count."))
 			return
-
+	#endif
 	return TRUE
 
 #undef calculate_pred_max

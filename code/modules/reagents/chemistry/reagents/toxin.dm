@@ -638,9 +638,13 @@
 	reagent_state = LIQUID
 	color = COLOR_TOXIN_ZOMBIUM
 	custom_metabolism = REAGENTS_METABOLISM * 0.25
-	scannable = TRUE
 	overdose_threshold = 20
 	overdose_crit_threshold = 50
+
+/datum/reagent/zombium/on_mob_life(mob/living/L, metabolism)
+	. = ..()
+	if(prob(10))
+		L.emote("cough")
 
 /datum/reagent/zombium/on_overdose_start(mob/living/L, metabolism)
 	RegisterSignal(L, COMSIG_HUMAN_SET_UNDEFIBBABLE, PROC_REF(zombify))

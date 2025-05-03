@@ -75,7 +75,6 @@
 	///What % of the body does this limb cover. Make sure that the sum is always 100.
 	var/cover_index = 0
 
-
 /datum/limb/New(datum/limb/P, mob/mob_owner)
 	if(P)
 		parent = P
@@ -261,7 +260,7 @@ RU TGMC EDIT */
 			owner.update_health()
 		return update_icon()
 	if(CONFIG_GET(flag/limbs_can_break) && brute_dam >= max_damage * LIMB_MAX_DAMAGE_SEVER_RATIO)
-		droplimb()
+		drop_limb()
 		if(!(owner.species && (owner.species.species_flags & NO_PAIN)))
 			owner.emote("scream")
 		return
@@ -353,25 +352,24 @@ RU TGMC EDIT */
 
 /datum/limb/proc/need_process()
 	if(limb_status & LIMB_DESTROYED)	//Missing limb is missing
-		return 0
+		return FALSE
 	if(limb_status && !(limb_status & LIMB_ROBOT)) // Any status other than destroyed or robotic requires processing
-		return 1
+		return TRUE
 	if(brute_dam || burn_dam)
-		return 1
+		return TRUE
 	if(last_dam != brute_dam + burn_dam) // Process when we are fully healed up.
 		last_dam = brute_dam + burn_dam
-		return 1
+		return TRUE
 	else
 		last_dam = brute_dam + burn_dam
 	if(germ_level)
-		return 1
+		return TRUE
 	if(length(wounds))
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 //TODO limbs should probably be on slow process
 /datum/limb/process(limb_regen_penalty)
-
 	// Process wounds, doing healing etc. Only do this every few ticks to save processing power
 	if(owner.life_tick % wound_update_accuracy == 0)
 		update_wounds(limb_regen_penalty)
@@ -541,7 +539,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 	else
 		remove_limb_flags(LIMB_BLEEDING)
 
-
 /datum/limb/proc/set_limb_flags(to_set_flags)
 	if(to_set_flags == limb_status)
 		return
@@ -553,7 +550,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(to_change_flags)
 		add_limb_flags(to_change_flags)
 
-
 /datum/limb/proc/remove_limb_flags(to_remove_flags)
 	if(!(limb_status & to_remove_flags))
 		return //Nothing old to remove.
@@ -562,7 +558,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/changed_flags = . & to_remove_flags
 	if((changed_flags & LIMB_DESTROYED))
 		SEND_SIGNAL(src, COMSIG_LIMB_UNDESTROYED)
-
 
 /datum/limb/proc/add_limb_flags(to_add_flags)
 	if(to_add_flags == (limb_status & to_add_flags))
@@ -573,32 +568,14 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if((changed_flags & LIMB_DESTROYED))
 		SEND_SIGNAL(src, COMSIG_LIMB_DESTROYED)
 
-
-/datum/limb/foot/remove_limb_flags(to_remove_flags)
-	. = ..()
-	if(isnull(.))
-		return
-	var/changed_flags = . & to_remove_flags
-	if((changed_flags & LIMB_DESTROYED) && owner.has_legs())
-		REMOVE_TRAIT(owner, TRAIT_LEGLESS, TRAIT_LEGLESS)
-
-/datum/limb/foot/add_limb_flags(to_add_flags)
-	. = ..()
-	if(isnull(.))
-		return
-	var/changed_flags = ~(. & to_add_flags) & to_add_flags
-	if((changed_flags & LIMB_DESTROYED) && !owner.has_legs())
-		ADD_TRAIT(owner, TRAIT_LEGLESS, TRAIT_LEGLESS)
-
-
 // new damage icon system
 // adjusted to set damage_state to brute/burn code only (without r_name0 as before)
 /datum/limb/proc/update_icon()
 	var/n_is = damage_state_text()
 	if (n_is != damage_state)
 		damage_state = n_is
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 // new damage icon system
 // returns just the brute/burn damage code
@@ -639,26 +616,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		O.add_limb_flags(LIMB_AMPUTATED)
 		O.setAmputatedTree()
 
-/mob/living/carbon/human/proc/remove_random_limb(delete_limb = 0)
-	var/list/limbs_to_remove = list()
-	for(var/datum/limb/E in limbs)
-		if(istype(E, /datum/limb/chest) || istype(E, /datum/limb/groin) || istype(E, /datum/limb/head))
-			continue
-		limbs_to_remove += E
-	if(length(limbs_to_remove))
-		var/datum/limb/L = pick(limbs_to_remove)
-		var/limb_name = L.display_name
-		L.droplimb(0,delete_limb)
-		return limb_name
-	return null
-
-///Amputates the limb in the specified limb zone
-/mob/living/carbon/human/proc/amputate_limb(limb_zone)
-	var/datum/limb/limb_to_drop = get_limb(limb_zone)
-	limb_to_drop?.droplimb(TRUE, TRUE)
-
 //Handles dismemberment
-/datum/limb/proc/droplimb(amputation, delete_limb = FALSE, silent = FALSE)
+/datum/limb/proc/drop_limb(amputation, delete_limb = FALSE, silent = FALSE)
 	if(limb_status & LIMB_DESTROYED)
 		return FALSE
 
@@ -685,7 +644,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	// If any organs are attached to this, destroy them
 	for(var/c in children)
 		var/datum/limb/appendage = c
-		appendage.droplimb(amputation, delete_limb, silent)
+		appendage.drop_limb(amputation, delete_limb, silent)
 
 	//Clear out any internal and external wounds, damage the parent limb
 	QDEL_LIST(wounds)
@@ -706,6 +665,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 				organ = new /obj/item/limb/head/synth(owner.loc, owner)
 			else if(isrobot(owner))
 				organ = new /obj/item/limb/head/robotic(owner.loc, owner)
+			else if(iszombie(owner))
+				organ = new /obj/item/limb/head/zombie(owner.loc, owner) // why is this like that
 			else
 				organ = new /obj/item/limb/head(owner.loc, owner)
 			owner.dropItemToGround(owner.glasses, force = TRUE)
@@ -770,10 +731,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 	release_restraints()
 
 	if(vital)
+		owner_pre_death()
 		owner.death()
 	return TRUE
 
-/datum/limb/hand/l_hand/droplimb(amputation, delete_limb = FALSE, silent = FALSE)
+/// This is required for head, so it deletes brain for zombies before they start to reviving
+/datum/limb/proc/owner_pre_death()
+	return
+
+/datum/limb/hand/l_hand/drop_limb(amputation, delete_limb = FALSE, silent = FALSE)
 	. = ..()
 	if(!.)
 		return
@@ -834,7 +800,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return limb_wound_status & LIMB_WOUND_SALVED || !burn_dam
 
 /datum/limb/proc/fracture()
-
 	if(limb_status & (LIMB_BROKEN|LIMB_DESTROYED|LIMB_ROBOT) )
 		return
 
@@ -856,7 +821,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	/// Emit a signal for autodoc to support the life if available
 	SEND_SIGNAL(owner, COMSIG_HUMAN_LIMB_FRACTURED, src)
-
 
 /datum/limb/proc/robotize()
 	rejuvenate()
@@ -881,20 +845,19 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return brute_dam || burn_dam
 
 /datum/limb/proc/get_icon(icon/race_icon, gender="")
-	if(limb_status & LIMB_ROBOT && !(owner.species.species_flags & LIMB_ROBOT)) //if race set the flag then we just let the race handle this
-		return icon('icons/mob/human_races/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
-
-	var/datum/ethnicity/E = GLOB.ethnicities_list[owner.ethnicity]
+	var/datum/ethnicity/E
+	if(isyautja(owner))
+		E = GLOB.yautja_ethnicities_list[owner.ethnicity]
+	else
+		E = GLOB.ethnicities_list[owner.ethnicity]
 
 	var/e_icon
-
-	if (!E)
+	if(!E)
 		e_icon = "western"
 	else
 		e_icon = E.icon_name
 
 	return icon(race_icon, "[get_limb_icon_name(owner.species, owner.gender, icon_name, e_icon)]")
-
 
 /datum/limb/proc/is_usable()
 	return !(limb_status & (LIMB_DESTROYED|LIMB_NECROTIZED))
@@ -960,7 +923,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return FALSE
 	return !(limb_status & LIMB_DESTROYED)
 
-
 ///called when limb is removed or robotized, any ongoing surgery and related vars are reset
 /datum/limb/proc/reset_limb_surgeries()
 	surgery_open_stage = 0
@@ -969,12 +931,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 	necro_surgery_stage = 0
 	cavity = 0
 
-
 /datum/limb/proc/add_limb_soft_armor(datum/armor/added_armor)
 	soft_armor = soft_armor.attachArmor(added_armor)
 	var/datum/armor/scaled_armor = added_armor.scaleAllRatings(cover_index * 0.01, 1)
 	owner.soft_armor = owner.soft_armor.attachArmor(scaled_armor)
-
 
 /datum/limb/proc/remove_limb_soft_armor(datum/armor/removed_armor)
 	soft_armor = soft_armor.detachArmor(removed_armor)
@@ -982,181 +942,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(owner)
 		owner.soft_armor = owner.soft_armor.detachArmor(scaled_armor)
 
-
 /datum/limb/proc/add_limb_hard_armor(datum/armor/added_armor)
 	hard_armor = hard_armor.attachArmor(added_armor)
 	var/datum/armor/scaled_armor = added_armor.scaleAllRatings(cover_index * 0.01, 1)
 	owner.hard_armor = owner.hard_armor.attachArmor(scaled_armor)
-
 
 /datum/limb/proc/remove_limb_hard_armor(datum/armor/removed_armor)
 	hard_armor = hard_armor.detachArmor(removed_armor)
 	var/datum/armor/scaled_armor = removed_armor.scaleAllRatings(cover_index * 0.01, 1)
 	if(owner)
 		owner.hard_armor = owner.hard_armor.detachArmor(scaled_armor)
-
-
-/****************************************************
-			LIMB TYPES
-****************************************************/
-
-/datum/limb/chest
-	name = "chest"
-	icon_name = "torso"
-	display_name = "chest"
-	max_damage = 200
-	min_broken_damage = 60
-	body_part = CHEST
-	vital = TRUE
-	cover_index = 27
-	encased = "ribcage"
-
-/datum/limb/groin
-	name = "groin"
-	icon_name = "groin"
-	display_name = "groin"
-	max_damage = 200
-	min_broken_damage = 60
-	body_part = GROIN
-	vital = TRUE
-	cover_index = 9
-
-/datum/limb/l_arm
-	name = "l_arm"
-	display_name = "left arm"
-	icon_name = "l_arm"
-	max_damage = 150
-	min_broken_damage = 50
-	body_part = ARM_LEFT
-	cover_index = 7
-
-/datum/limb/l_arm/process()
-	..()
-	process_grasp(owner.l_hand, "left hand")
-
-/datum/limb/l_leg
-	name = "l_leg"
-	display_name = "left leg"
-	icon_name = "l_leg"
-	max_damage = 125
-	min_broken_damage = 50
-	body_part = LEG_LEFT
-	cover_index = 14
-	icon_position = LEFT
-
-/datum/limb/r_arm
-	name = "r_arm"
-	display_name = "right arm"
-	icon_name = "r_arm"
-	max_damage = 150
-	min_broken_damage = 50
-	body_part = ARM_RIGHT
-	cover_index = 7
-
-/datum/limb/r_arm/process()
-	..()
-	process_grasp(owner.r_hand, "right hand")
-
-/datum/limb/r_leg
-	name = "r_leg"
-	display_name = "right leg"
-	icon_name = "r_leg"
-	max_damage = 125
-	min_broken_damage = 50
-	body_part = LEG_RIGHT
-	cover_index = 14
-	icon_position = RIGHT
-
-/datum/limb/foot/l_foot
-	name = "l_foot"
-	display_name = "left foot"
-	icon_name = "l_foot"
-	max_damage = 100
-	min_broken_damage = 37
-	body_part = FOOT_LEFT
-	cover_index = 4
-	icon_position = LEFT
-
-/datum/limb/foot/r_foot
-	name = "r_foot"
-	display_name = "right foot"
-	icon_name = "r_foot"
-	max_damage = 100
-	min_broken_damage = 37
-	body_part = FOOT_RIGHT
-	cover_index = 4
-	icon_position = RIGHT
-
-/datum/limb/hand/r_hand
-	name = "r_hand"
-	display_name = "right hand"
-	icon_name = "r_hand"
-	max_damage = 100
-	min_broken_damage = 37
-	body_part = HAND_RIGHT
-	cover_index = 2
-
-/datum/limb/hand/r_hand/process()
-	..()
-	process_grasp(owner.r_hand, "right hand")
-
-/datum/limb/hand/l_hand
-	name = "l_hand"
-	display_name = "left hand"
-	icon_name = "l_hand"
-	max_damage = 100
-	min_broken_damage = 37
-	body_part = HAND_LEFT
-	cover_index = 2
-
-/datum/limb/hand/l_hand/process()
-	..()
-	process_grasp(owner.l_hand, "left hand")
-
-/datum/limb/head
-	name = "head"
-	icon_name = "head"
-	display_name = "head"
-	max_damage = 125
-	min_broken_damage = 40
-	body_part = HEAD
-	vital = TRUE
-	cover_index = 10
-	encased = "skull"
-	var/disfigured = 0 //whether the head is disfigured.
-	var/face_surgery_stage = 0
-
-/datum/limb/head/take_damage_limb(brute, burn, sharp, edge, blocked = 0, updating_health = FALSE, list/forbidden_limbs = list())
-	. = ..()
-	if(!disfigured)
-		if(brute_dam > 40)
-			if(prob(50))
-				disfigure(BRUTE)
-		if(burn_dam > 40)
-			disfigure(BURN)
-
-/datum/limb/head/proc/disfigure(type = BRUTE)
-	if(disfigured)
-		return
-	if(type == BRUTE)
-		owner.visible_message(span_warning(" You hear a sickening cracking sound coming from \the [owner]'s face."),	\
-		span_danger("Your face becomes an unrecognizible mangled mess!"),	\
-		span_warning(" You hear a sickening crack."))
-	else
-		owner.visible_message(span_warning(" [owner]'s face melts away, turning into a mangled mess!"),	\
-		span_danger("Your face melts off!"),	\
-		span_warning(" You hear a sickening sizzle."))
-	disfigured = 1
-	owner.name = owner.get_visible_name()
-
-/datum/limb/head/reset_limb_surgeries()
-	..()
-	face_surgery_stage = 0
-
-
-/datum/limb/head/droplimb(amputation, delete_limb = FALSE, silent = FALSE)
-	. = ..()
-	if(!.)
-		return
-	if(!(owner.species.species_flags & DETACHABLE_HEAD) && vital)
-		owner.set_undefibbable()

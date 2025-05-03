@@ -106,6 +106,7 @@
 	force = 55
 
 /obj/item/weapon/sword/officer
+	name = "officer sabre"
 	icon_state = "officer_sword"
 	worn_icon_state = "officer_sword"
 	force = 80

@@ -21,7 +21,7 @@ GLOBAL_LIST_EMPTY(xenoden_cores_locs)
 
 GLOBAL_LIST_EMPTY(waves_spawner_locs)
 
-GLOBAL_LIST_EMPTY(last_stand_nukes)
+GLOBAL_LIST_EMPTY(nuclear_bombs)
 
 /proc/init_ammo_list()
 	. = list()

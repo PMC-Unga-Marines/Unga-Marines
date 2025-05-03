@@ -115,7 +115,7 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 			for(var/datum/limb/E in H.limbs)
 				if(istype(E, /datum/limb/chest) || istype(E, /datum/limb/groin) || istype(E, /datum/limb/head))
 					continue
-				E.droplimb()
+				E.drop_limb()
 
 		if(effectGib)
 			L.adjust_brute_loss(5000)

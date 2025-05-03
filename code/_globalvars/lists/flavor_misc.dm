@@ -151,20 +151,19 @@ GLOBAL_LIST_INIT(ethnicities_list, init_ethnicities())
 /proc/init_ethnicities()
 	. = list()
 
-	for(var/path in subtypesof(/datum/ethnicity) - /datum/ethnicity/human - /datum/ethnicity/yautja)
-		var/datum/ethnicity/E = new path()
+	for(var/path in subtypesof(/datum/ethnicity/human))
+		var/datum/ethnicity/human/E = new path()
 		.[E.name] = E
+		GLOB.human_ethnicities_list[E.name] = E
 
-		if(istype(E, /datum/ethnicity/human))
-			GLOB.human_ethnicities_list[E.name] = E
-
-		if(istype(E, /datum/ethnicity/yautja))
-			GLOB.yautja_ethnicities_list[E.name] = E
+	for(var/path in subtypesof(/datum/ethnicity/yautja))
+		var/datum/ethnicity/yautja/E = new path()
+		.[E.name] = E
+		GLOB.yautja_ethnicities_list[E.name] = E
 
 	for(var/path in subtypesof(/datum/sprite_accessory/yautja_hair))
 		var/datum/sprite_accessory/yautja_hair/H = new path()
 		GLOB.yautja_hair_styles_list[H.name] = H
-
 
 GLOBAL_LIST_INIT(minimap_icons, init_minimap_icons())
 

@@ -180,7 +180,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	///State tracking of hive status toggles
 	var/status_toggle_flags = HIVE_STATUS_DEFAULTS
-	
+
 	//Predator specific preferences.
 	var/predator_name = "Undefined"
 	var/predator_gender = MALE
@@ -196,7 +196,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/predator_mask_material = "ebony"
 	var/predator_greave_material = "ebony"
 	var/predator_caster_material = "ebony"
-	var/predator_cape_type = "None"
+	var/predator_cape_type = "Default"
 	var/predator_cape_color = "#654321"
 	var/predator_flavor_text = "None"
 	var/pred_r_eyes = 0

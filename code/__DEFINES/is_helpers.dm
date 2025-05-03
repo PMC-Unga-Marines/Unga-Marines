@@ -299,6 +299,7 @@ GLOBAL_VAR_INIT(magic_appearance_detecting_image, new /image) // appearances are
 
 //Gamemode
 #define iscrashgamemode(O) (istype(O, /datum/game_mode/infestation/crash))
+#define iszombiecrashgamemode(O) (istype(O, /datum/game_mode/infestation/crash/zombie))
 #define isinfestationgamemode(O) (istype(O, /datum/game_mode/infestation))
 #define isexterminationgamemode(O) (istype(O, /datum/game_mode/infestation/distress/extermination))
 #define isdistressgamemode(O) (istype(O, /datum/game_mode/infestation/distress))

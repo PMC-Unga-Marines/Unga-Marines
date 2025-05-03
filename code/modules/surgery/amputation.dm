@@ -38,7 +38,7 @@
 	user.visible_message(span_notice("[user] cuts off [target]'s [affected.display_name] with \the [tool]."), \
 	span_notice("You cut off [target]'s [affected.display_name] with \the [tool]."))
 	target.balloon_alert_to_viewers("Success")
-	affected.droplimb(1)
+	affected.drop_limb(1)
 	target.update_health()
 	return ..()
 

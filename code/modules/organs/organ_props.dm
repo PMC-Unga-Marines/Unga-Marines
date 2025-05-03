@@ -11,6 +11,16 @@
 	name = "heart"
 	icon_state = "heart-on"
 
+/obj/item/organ/heart/examine(mob/user)
+	. = ..()
+	if(iszombiecrashgamemode(SSticker.mode))
+		. += span_notice("It looks like it could be sold to requisitions for supply points.")
+
+/obj/item/organ/heart/get_export_value()
+	if(iszombiecrashgamemode(SSticker.mode))
+		return 50
+	return 0
+
 /obj/item/organ/lungs
 	name = "lungs"
 	icon_state = "lungs"

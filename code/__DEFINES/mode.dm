@@ -55,6 +55,10 @@
 #define MODE_INFESTATION_M_MAJOR "Marine Major Victory"
 #define MODE_INFESTATION_X_MINOR "Xenomorph Minor Victory"
 #define MODE_INFESTATION_M_MINOR "Marine Minor Victory"
+
+#define MODE_ZOMBIE_Z_MAJOR "Zombie Major Victory"
+#define MODE_ZOMBIE_Z_MINOR "Zombie Minor Victory"
+
 #define MODE_INFESTATION_DRAW_DEATH "DRAW: Mutual Annihilation"
 
 #define MODE_GENERIC_DRAW_NUKE "DRAW: Nuclear Explosion"
@@ -191,3 +195,10 @@
 #define MODE_PREDATOR (1<<17)
 
 #define MAX_EXCAVATIONS 10
+
+// make sure you don't turn 0 into a false positive
+#define BIOSCAN_DELTA(count, delta) count ? max(0, count + rand(-delta, delta)) : 0
+
+#define BIOSCAN_LOCATION(show_locations, location) ((show_locations && location) ? ", including one in [location]" : "")
+
+#define AI_SCAN_DELAY 15 SECONDS

@@ -868,9 +868,6 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 /mob/living/bullet_act(obj/projectile/proj)
 	. = ..()
 
-	if(stat == DEAD)
-		return
-
 	if(proj.sundering)
 		adjust_sunder(proj.sundering)
 

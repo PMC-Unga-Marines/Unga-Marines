@@ -90,7 +90,6 @@ Contains most of the procs that are called when a mob is attacked by something
 
 //Returns 1 if the attack hit, 0 if it missed.
 /mob/living/carbon/human/attacked_by(obj/item/I, mob/living/user, def_zone)
-
 	var/target_zone
 
 	if(user == src) // Attacking yourself can't miss
@@ -113,16 +112,19 @@ Contains most of the procs that are called when a mob is attacked by something
 
 	var/datum/limb/affecting = get_limb(target_zone)
 	if(affecting.limb_status & LIMB_DESTROYED)
-		to_chat(user, "What [affecting.display_name]?")
-		log_combat(user, src, "attacked", I, "(FAILED: target limb missing) (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(I.damtype)])")
-		return FALSE
+		var/list/limb_list = GLOB.human_body_parts.Copy()
+		for(var/datum/limb/our_limb AS in limb_list)
+			if(!(our_limb.limb_status & LIMB_DESTROYED))
+				continue
+			limb_list -= our_limb
+		target_zone = pick(limb_list)
+		affecting = get_limb(target_zone)
 	var/hit_area = affecting.display_name
-
-	if((user != src) && check_pred_shields(I.force, "the [I.name]", backside_attack = dir == get_dir(get_turf(user), get_turf(src))))
-		return FALSE
 
 	var/damage = I.force + round(I.force * MELEE_SKILL_DAM_BUFF * user.skills.getRating(SKILL_MELEE_WEAPONS))
 	if(user != src)
+		if(check_predator_shields(user, I.force, dir, "the [I.name]"))
+			return FALSE
 		damage = check_shields(COMBAT_MELEE_ATTACK, damage, MELEE)
 		if(!damage)
 			log_combat(user, src, "attacked", I, "(FAILED: shield blocked) (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(I.damtype)])")
@@ -153,11 +155,10 @@ Contains most of the procs that are called when a mob is attacked by something
 	if((weapon_sharp || weapon_edge) && !prob(modify_by_armor(100, MELEE, def_zone = target_zone)))
 		weapon_sharp = FALSE
 		weapon_edge = FALSE
-// RU TGMC EDIT
+
 	var/final_damage = applied_damage
-	if(isyautja(user) && (ishumanbasic(src) || isrobot(src)))
+	if(isyautja(user) && !isxeno(src))
 		final_damage *= PRED_MELEE_DAMAGE_MOD
-// RU TGMC EDIT
 	user.do_attack_animation(src, used_item = I)
 
 	apply_damage(final_damage, I.damtype, target_zone, 0, weapon_sharp, weapon_edge, updating_health = TRUE) //RU TGMC EDIT
@@ -179,16 +180,8 @@ Contains most of the procs that are called when a mob is attacked by something
 						H.bloody_body(src)
 						H.bloody_hands(src)
 
-
 		switch(hit_area)
-			if("head")//Harder to score a stun but if you do it lasts a bit longer
-				/*
-				if(prob(applied_damage - 5) && stat == CONSCIOUS)
-					apply_effect(modify_by_armor(10 SECONDS, MELEE, def_zone = target_zone), WEAKEN)
-					visible_message(span_danger("[src] has been knocked unconscious!"),
-									span_danger("You have been knocked unconscious!"), null, 5)
-					hit_report += "(KO)"
-					*/ //RUTGMC EDIT - turn off melee stuns
+			if("head")
 				if(bloody)//Apply blood
 					if(wear_mask)
 						wear_mask.add_mob_blood(src)
@@ -200,28 +193,13 @@ Contains most of the procs that are called when a mob is attacked by something
 						glasses.add_mob_blood(src)
 						update_inv_glasses(0)
 
-			if("chest")//Easier to score a stun but lasts less time
-			/*
-				if(prob((applied_damage + 5)) && !incapacitated())
-					apply_effect(modify_by_armor(6 SECONDS, MELEE, def_zone = target_zone), WEAKEN)
-					visible_message(span_danger("[src] has been knocked down!"),
-									span_danger("You have been knocked down!"), null, 5)
-					hit_report += "(KO)"
-			*/ //RUTGMC edit -turn off melee stuns
+			if("chest")
 				if(bloody)
 					bloody_body(src)
 
 	//Melee weapon embedded object code.
 	if(affecting.limb_status & LIMB_DESTROYED)
 		hit_report += "(delimbed [affecting.display_name])"
-//RUTGMC edit - item embed disable
-/*
-	else if(I.damtype == BRUTE && !(HAS_TRAIT(I, TRAIT_NODROP) || (I.item_flags & DELONDROP)))
-		if (percentage_penetration && weapon_sharp && prob(I.embedding.embed_chance))
-			user.dropItemToGround(I, TRUE)
-			I.embed_into(src, affecting)
-			hit_report += "(embedded in [affecting.display_name])"
-*/
 	record_melee_damage(user, applied_damage, affecting.limb_status & LIMB_DESTROYED)
 	log_combat(user, src, "attacked", I, "(INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(I.damtype)]) [hit_report.Join(" ")]")
 	if(damage && !user.mind?.bypass_ff && !mind?.bypass_ff && user.faction == faction)
@@ -278,6 +256,8 @@ Contains most of the procs that are called when a mob is attacked by something
 			return FALSE
 
 		if(thrown_item.thrower != src)
+			if(check_predator_shields(thrown_item, throw_damage, dir, "[thrown_item]"))
+				return TRUE
 			throw_damage = check_shields(COMBAT_MELEE_ATTACK, throw_damage, MELEE)
 			if(!throw_damage)
 				thrown_item.stop_throw()
@@ -285,9 +265,6 @@ Contains most of the procs that are called when a mob is attacked by something
 				if(living_thrower)
 					log_combat(living_thrower, src, "thrown at", thrown_item, "(FAILED: shield blocked)")
 				return TRUE
-
-		if((living_thrower != src) && check_pred_shields(throw_damage, "[thrown_item]", backside_attack = dir == get_dir(get_turf(AM), get_turf(src))))
-			return
 
 		var/datum/limb/affecting = get_limb(zone)
 
@@ -487,57 +464,59 @@ Contains most of the procs that are called when a mob is attacked by something
 	cut_overlay(GLOB.welding_sparks)
 	return TRUE
 
-#define BLOCK_SOUND_VOLUME 70
-
-/mob/living/carbon/human/proc/check_pred_shields(damage = 0, attack_text = "the attack", combistick = FALSE, backside_attack = FALSE, xenomorph = FALSE)
-	if(skills.getRating("melee_weapons") < SKILL_MELEE_MASTER)
-		return FALSE
-
-	var/block_effect = /obj/effect/temp_visual/block
-	var/owner_turf = get_turf(src)
-	for(var/obj/item/weapon/I in list(l_hand, r_hand))
-		if(I && istype(I, /obj/item/weapon) && !isgun(I) && !istype(I, /obj/item/weapon/twohanded/offhand))//Current base is the prob(50-d/3)
-			if(combistick && istype(I, /obj/item/weapon/yautja/combistick) && prob(I.can_block_chance))
-				var/obj/item/weapon/yautja/combistick/C = I
-				if(C.on)
-					return TRUE
-
-			if(istype(I, /obj/item/weapon/shield/riot/yautja)) // Activable shields
-				var/obj/item/weapon/shield/riot/yautja/S = I
-				var/shield_blocked = FALSE
-				if(S.shield_readied && prob(S.readied_block)) // User activated his shield before the attack. Lower if it blocks.
-					S.lower_shield(src)
-					shield_blocked = TRUE
-				else if(prob(S.passive_block))
-					shield_blocked = TRUE
-
-				if(shield_blocked)
-					new block_effect(owner_turf, COLOR_YELLOW)
-					playsound(src, 'sound/items/block_shield.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
-					visible_message(span_danger("<B>[src] blocks [attack_text] with the [I.name]!</B>"), null, null, 5)
-					return TRUE
-				// We cannot return FALSE on fail here, because we haven't checked r_hand yet. Dual-wielding shields perhaps!
-
-			else if((!xenomorph || I.can_block_xeno) && (prob(I.can_block_chance - round(damage / 3)))) // 'other' shields, like predweapons. Make sure that item/weapon/shield does not apply here, no double-rolls.
-				new block_effect(owner_turf, COLOR_YELLOW)
-				if(istype(I, /obj/item/weapon/shield))
-					playsound(src, 'sound/items/block_shield.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
-				else
-					playsound(src, 'sound/items/parry.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
-				visible_message(span_danger("<B>[src] blocks [attack_text] with the [I.name]!</B>"), null, null, 5)
-				return TRUE
-
-	var/obj/item/weapon/shield/riot/yautja/shield = back
-	if(backside_attack && istype(shield) && prob(shield.readied_block))
-		if(!shield.blocks_on_back)
-			return FALSE
-		playsound(src, 'sound/items/block_shield.ogg', BLOCK_SOUND_VOLUME, vary = TRUE)
-		visible_message(span_danger("<B>The [back] on [src]'s back blocks [attack_text]!</B>"), null, null, 5)
-		return TRUE
-
+/mob/living/carbon/human/proc/check_predator_shields(atom/attacker, damage, attack_dir, attack_text = "the attack")
 	return FALSE
 
-#undef BLOCK_SOUND_VOLUME
+/mob/living/carbon/human/species/yautja/check_predator_shields(atom/attacker, damage, attack_dir, attack_text = "the attack")
+	for(var/obj/item/weapon/I in get_held_items())
+		if(isgun(I))
+			continue
+		if(istype(I, /obj/item/weapon/twohanded/offhand))//Current base is the prob(50-d/3)
+			continue
+		if(istype(I, /obj/item/weapon/yautja/combistick) && prob(I.can_block_chance))
+			var/obj/item/weapon/yautja/combistick/C = I
+			if(C.on)
+				block_attack(C)
+				visible_message(span_danger("<B>[src] blocks [attack_text] with the [C.name]!</B>"), null, null, 5)
+				return TRUE
+
+		if(istype(I, /obj/item/weapon/shield/riot/yautja)) // Activable shields
+			var/obj/item/weapon/shield/riot/yautja/S = I
+			var/shield_blocked = FALSE
+			if(S.shield_readied && prob(S.readied_block)) // User activated his shield before the attack. Lower if it blocks.
+				S.lower_shield(src)
+				shield_blocked = TRUE
+			else if(prob(S.passive_block))
+				shield_blocked = TRUE
+
+			if(shield_blocked)
+				block_attack(src)
+				visible_message(span_danger("<B>[src] blocks [attack_text] with the [S.name]!</B>"), null, null, 5)
+				return TRUE
+			// We cannot return FALSE on fail here, because we haven't checked r_hand yet. Dual-wielding shields perhaps!
+
+		else if((isxeno(attacker) || I.can_block_xeno) && (prob(I.can_block_chance - round(damage / 3)))) // 'other' shields, like predweapons. Make sure that item/weapon/shield does not apply here, no double-rolls.
+			var/attack_sound = 'sound/items/parry.ogg'
+			if(istype(I, /obj/item/weapon/shield))
+				attack_sound = 'sound/items/block_shield.ogg'
+			block_attack(I, attack_sound)
+			visible_message(span_danger("<B>[src] blocks [attack_text] with the [I.name]!</B>"), null, null, 5)
+			return TRUE
+
+	var/obj/item/weapon/shield/riot/yautja/shield = back
+	if(!istype(shield))
+		return FALSE
+	if(dir != get_dir(get_turf(attacker), get_turf(src)))
+		return FALSE
+	if(!prob(shield.readied_block))
+		return FALSE
+	block_attack(shield)
+	visible_message(span_danger("<B>The [shield] on [src]'s back blocks [attack_text]!</B>"), null, null, 5)
+	return TRUE
+
+/mob/living/carbon/human/species/yautja/proc/block_attack(atom/blocker, block_sound = 'sound/items/block_shield.ogg')
+	new /obj/effect/temp_visual/block(get_turf(src), COLOR_YELLOW)
+	playsound(src, block_sound, 70, vary = TRUE)
 
 /mob/living/carbon/human/emote_gored()
 	if(species.species_flags & NO_PAIN)

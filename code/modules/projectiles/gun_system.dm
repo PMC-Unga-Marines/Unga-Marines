@@ -527,7 +527,7 @@
 	else if((!length(chamber_items) && max_chamber_items) || (!rounds && !max_chamber_items))
 		icon_state = real_icon + "_e"
 	else if(current_chamber_position <= length(chamber_items) && chamber_items[current_chamber_position] && chamber_items[current_chamber_position].loc != src)
-		icon_state = real_icon + "_l"
+		icon_state = real_icon + "_l" // TODO, this bugs out sentry icons
 	else
 		icon_state = real_icon
 
@@ -1450,7 +1450,8 @@
 			user.put_in_hands(mag)
 		else
 			mag.forceMove(get_turf(src))
-			SEND_SIGNAL(gun_user, COMSIG_MAGAZINE_DROP, mag)
+			if(gun_user) // sentries usually don't have a gun_user
+				SEND_SIGNAL(gun_user, COMSIG_MAGAZINE_DROP, mag)
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_ROTATES_CHAMBER))
 		chamber_items[chamber_items.Find(mag)] = null
 	else

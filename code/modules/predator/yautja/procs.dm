@@ -208,7 +208,7 @@
 			if(limb_datum.limb_status & LIMB_DESTROYED)
 				to_chat(src, span_warning("The victim lacks a [limbName]."))
 				return
-			limb_datum.droplimb(TRUE, FALSE, "butchering")
+			limb_datum.drop_limb(TRUE, FALSE, "butchering")
 			playsound(loc, 'sound/weapons/slice.ogg', 25)
 			if(hunter_data.prey == T)
 				to_chat(src, span_yautjabold("You have claimed [T] as your trophy."))
