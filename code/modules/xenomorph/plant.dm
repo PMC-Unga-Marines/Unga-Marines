@@ -70,7 +70,7 @@
 
 /obj/structure/xeno/plant/heal_fruit/deconstruct(disassembled = TRUE, mob/living/blame_mob)
 	if(!disassembled && mature)
-		var/datum/effect_system/smoke_spread/xeno/acid/opaque/plant_explosion = new(get_turf(src))
+		var/datum/effect_system/smoke_spread/xeno/acid/plant_explosion = new(get_turf(src))
 		plant_explosion.set_up(3,src)
 		plant_explosion.start()
 		visible_message(span_danger("[src] bursts, releasing toxic gas!"))

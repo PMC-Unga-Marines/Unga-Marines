@@ -586,6 +586,91 @@
 		resist_debuff() // We repeat ourselves as long as the debuff persists.
 		return
 
+// ***************************************
+// *********** Melting fire
+// ***************************************
+/datum/status_effect/stacking/melting_fire
+	id = "melting_fire"
+	tick_interval = 2 SECONDS
+	stack_decay = 1
+	stacks = 1
+	max_stacks = 10
+	consumed_on_threshold = FALSE
+	/// Owner of the debuff is limited to carbons.
+	var/mob/living/carbon/debuff_owner
+	/// Pyrogen creator of the debuff.
+	var/mob/living/carbon/xenomorph/debuff_creator
+	/// Used for the fire effect.
+	var/obj/vis_melt_fire/visual_fire
+
+/obj/vis_melt_fire
+	name = "ouch ouch ouch"
+	icon = 'icons/mob/OnFire.dmi'
+	layer = ABOVE_MOB_LAYER
+	vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_ID | VIS_INHERIT_PLANE
+
+/datum/status_effect/stacking/melting_fire/on_creation(mob/living/new_owner, stacks_to_apply, atom/new_creator)
+	if(new_owner.status_flags & GODMODE || new_owner.stat == DEAD || new_owner.soft_armor.getRating(FIRE) >= 100)
+		qdel(src)
+		return
+	. = ..()
+	visual_fire = new
+	visual_fire.icon_state = "melting_low_stacks"
+	debuff_owner = new_owner
+	debuff_owner.vis_contents += visual_fire
+	debuff_owner.balloon_alert(debuff_owner, "Melting fire")
+	playsound(debuff_owner.loc, 'sound/bullets/acid_impact1.ogg', 30)
+	RegisterSignal(debuff_owner, COMSIG_LIVING_DO_RESIST, PROC_REF(call_resist_debuff))
+
+/// on remove has owner set to null
+/datum/status_effect/stacking/melting_fire/on_remove()
+	owner.vis_contents -= visual_fire
+	debuff_owner = null
+	QDEL_NULL(visual_fire)
+	return ..()
+
+/datum/status_effect/stacking/melting_fire/tick(delta_time)
+	. = ..()
+	if(!debuff_owner)
+		qdel(src)
+		return
+	if(debuff_owner.stat == DEAD || debuff_owner.status_flags & GODMODE)
+		qdel(src)
+		return
+	debuff_owner.take_overall_damage(2.5 * stacks, BURN, FIRE, updating_health = TRUE)
+	if(stacks > 4)
+		visual_fire.icon_state = "melting_high_stacks"
+	else
+		visual_fire.icon_state = "melting_low_stacks"
+	playsound(debuff_owner.loc, 'sound/bullets/acid_impact1.ogg', 4)
+
+	if(QDELETED(debuff_creator) || debuff_creator.stat == DEAD)
+		return
+	debuff_creator.heal_xeno_damage(2, FALSE)
+	debuff_creator.gain_plasma(5, TRUE)
+
+/// Called when the debuff's owner uses the Resist action for this debuff.
+/datum/status_effect/stacking/melting_fire/proc/call_resist_debuff()
+	SIGNAL_HANDLER
+	INVOKE_ASYNC(src, PROC_REF(resist_debuff)) // grilled cheese sandwich
+
+/// Resisting the debuff will allow the debuff's owner to remove some stacks from themselves.
+/datum/status_effect/stacking/melting_fire/proc/resist_debuff()
+	if(!debuff_owner)
+		qdel(src)
+		return
+	if(length(debuff_owner.do_actions))
+		return
+	debuff_owner.spin(30, 1.5)
+	add_stacks(-4)
+	debuff_owner.Paralyze(3 SECONDS)
+	if(stacks > 0)
+		debuff_owner.visible_message(span_danger("[debuff_owner] rolls on the floor, trying to put themselves out!"), \
+		span_notice("You stop, drop, and roll!"), null, 5)
+		return
+	debuff_owner.visible_message(span_danger("[debuff_owner] has successfully extinguished themselves!"), \
+	span_notice("You extinguish yourself."), null, 5)
+	qdel(src)
 
 // ***************************************
 // *********** dread

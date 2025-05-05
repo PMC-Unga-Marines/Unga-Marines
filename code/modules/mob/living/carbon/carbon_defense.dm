@@ -89,10 +89,10 @@
 		if(prob(10 * S.strength * bio_protection))
 			to_chat(src, span_danger("Your veins and skin itch where the gas touches them!"))
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_XENO_PYROGEN))
-		var/datum/status_effect/stacking/melting_fire/debuff = src.has_status_effect(STATUS_EFFECT_MELTING_FIRE)
+		var/datum/status_effect/stacking/melting_fire/debuff = has_status_effect(STATUS_EFFECT_MELTING_FIRE)
 		if(debuff)
-			debuff.add_stacks(PYROGEN_TORNADO_MELTING_FIRE_STACKS)
+			debuff.add_stacks(2)
 		else
-			src.apply_status_effect(STATUS_EFFECT_MELTING_FIRE, PYROGEN_MELTING_FIRE_EFFECT_STACK * S.strength)
+			apply_status_effect(STATUS_EFFECT_MELTING_FIRE, 2 * S.strength)
 		if(prob(10 * S.strength))
 			to_chat(src, span_danger("Your skin burns with blue fire!"))

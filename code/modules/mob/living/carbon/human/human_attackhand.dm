@@ -30,6 +30,17 @@
 				human_user.stripPanelUnequip(wear_mask, src, SLOT_WEAR_MASK, BUSY_ICON_FACEHUGGER)
 				return TRUE
 
+			var/datum/status_effect/stacking/melting_fire/burning = has_status_effect(STATUS_EFFECT_MELTING_FIRE)
+			if(burning)
+				playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
+				human_user.visible_message(span_danger("[human_user] tries to put out the fire on [src]!"), \
+				span_warning("You try to put out the fire on [src]!"), null, 5)
+				burning.add_stacks(-2)
+				if(QDELETED(burning))
+					human_user.visible_message(span_danger("[human_user] has successfully extinguished the fire on [src]!"), \
+					span_notice("You extinguished the fire on [src]."), null, 5)
+				return TRUE
+
 			if(health >= get_crit_threshold())
 				help_shake_act(human_user)
 				return TRUE
