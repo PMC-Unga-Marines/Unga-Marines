@@ -17,8 +17,9 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 
 /datum/action/ability/xeno_action/return_to_core
 	name = "Return to Core"
-	action_icon_state = "lay_hivemind"
 	desc = "Teleport back to your core."
+	action_icon_state = "lay_hivemind"
+	action_icon = 'icons/Xeno/actions/hivemind.dmi'
 	use_state_flags = ABILITY_USE_CLOSEDTURF
 
 /datum/action/ability/xeno_action/return_to_core/action_activate()
