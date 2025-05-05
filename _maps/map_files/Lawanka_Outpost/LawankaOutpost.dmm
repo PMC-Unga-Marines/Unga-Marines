@@ -5353,7 +5353,7 @@
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "eEV" = (
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -5652,7 +5652,7 @@
 	},
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "eQN" = (
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_x = -2;
 	pixel_y = 4
 	},

@@ -40210,7 +40210,7 @@
 /area/prison/cellblock/mediumsec/south)
 "dqG" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/drinkingglass,
+/obj/item/reagent_containers/cup/glass/drinking_glass,
 /turf/open/floor/wood,
 /area/prison/residential/central)
 "dqU" = (

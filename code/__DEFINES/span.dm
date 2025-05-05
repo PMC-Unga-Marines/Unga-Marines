@@ -50,6 +50,7 @@
 #define span_narsie(str) ("<span class='narsie'>" + str + "</span>")
 #define span_narsiesmall(str) ("<span class='narsiesmall'>" + str + "</span>")
 #define span_nopositions(str) ("<span class='nopositions'>" + str + "</span>")
+#define span_nicegreen(str) ("<span class='nicegreen'>" + str + "</span>")
 #define span_notice(str) ("<span class='notice'>" + str + "</span>")
 #define span_tinydeadsay(str) ("<span class='tinydeadsay'>" + str + "</span>")
 #define span_tinynotice(str) ("<span class='tinynotice'>" + str + "</span>")

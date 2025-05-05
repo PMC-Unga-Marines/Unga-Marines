@@ -65,12 +65,12 @@
 	. = ..()
 	if(!owner)
 		return
-	RegisterSignal(owner.reagents, COMSIG_NEW_REAGENT_ADD, PROC_REF(owner_added_reagent))
-	RegisterSignal(owner.reagents, COMSIG_REAGENT_DELETING, PROC_REF(owner_removed_reagent))
+	RegisterSignal(owner.reagents, COMSIG_REAGENTS_NEW_REAGENT, PROC_REF(owner_added_reagent))
+	RegisterSignal(owner.reagents, COMSIG_REAGENTS_DEL_REAGENT, PROC_REF(owner_removed_reagent))
 
 /datum/internal_organ/kidneys/Destroy()
 	if(owner?.reagents)
-		UnregisterSignal(owner.reagents, list(COMSIG_NEW_REAGENT_ADD, COMSIG_REAGENT_DELETING))
+		UnregisterSignal(owner.reagents, list(COMSIG_REAGENTS_NEW_REAGENT, COMSIG_REAGENTS_DEL_REAGENT))
 	return ..()
 
 ///Signaled proc. Check if the added reagent was under reagent/medicine. If so, increment medicine counter and potentially notify owner.
