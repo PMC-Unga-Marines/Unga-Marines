@@ -17,7 +17,7 @@
 		if(INTENT_HELP)
 			if(on_fire && human_user != src)
 				fire_stacks = max(fire_stacks - 1, 0)
-				playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
+				playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 				human_user.visible_message(span_danger("[human_user] tries to put out the fire on [src]!"), \
 					span_warning("You try to put out the fire on [src]!"), null, 5)
 				if(fire_stacks <= 0)
@@ -32,7 +32,7 @@
 
 			var/datum/status_effect/stacking/melting_fire/burning = has_status_effect(STATUS_EFFECT_MELTING_FIRE)
 			if(burning)
-				playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
+				playsound(loc, 'sound/weapons/thudswoosh.ogg', 25, 1, 7)
 				human_user.visible_message(span_danger("[human_user] tries to put out the fire on [src]!"), \
 				span_warning("You try to put out the fire on [src]!"), null, 5)
 				burning.add_stacks(-2)
