@@ -924,12 +924,12 @@
 
 /datum/action/ability/xeno_action/xenohide/action_activate()
 	if(xeno_owner.layer != XENO_HIDING_LAYER)
-		RegisterSignal(_actions, COMSIG_XENOMORPH_POUNCE, PROC_REF(action_activate))
+		RegisterSignal(xeno_owner, COMSIG_XENOMORPH_POUNCE, PROC_REF(action_activate))
 		xeno_owner.layer = XENO_HIDING_LAYER
 		to_chat(xeno_owner, span_notice("We are now hiding."))
 		button.add_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE))
 	else
-		UnregisterSignal(_actions, COMSIG_XENOMORPH_POUNCE)
+		UnregisterSignal(xeno_owner, COMSIG_XENOMORPH_POUNCE)
 		xeno_owner.layer = MOB_LAYER
 		to_chat(xeno_owner, span_notice("We have stopped hiding."))
 		button.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE))
