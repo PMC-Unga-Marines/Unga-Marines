@@ -49,7 +49,7 @@
 	if(!can_use_action())
 		return
 	to_chat(owner ,span_ordercic("Вы приказали морпехам [verb_name] [get_area(target.loc)]!"))
-	owner.playsound_local(owner, "sound/effects/CIC_order.ogg", 10, 1)
+	owner.playsound_local(owner, 'sound/effects/CIC_order.ogg', 10, 1)
 	if(visual_type)
 		target = get_turf(target)
 		new visual_type(target, faction)
@@ -95,7 +95,7 @@
 		return
 	var/atom/movable/screen/arrow/arrow_hud = new arrow_type
 	arrow_hud.add_hud(src, target)
-	playsound_local(src, "sound/effects/CIC_order.ogg", 20, 1)
+	playsound_local(src, 'sound/effects/CIC_order.ogg', 20, 1)
 	to_chat(src,span_ordercic("Командование приказывает вам [verb_name] [get_area(get_turf(target))]!"))
 
 /datum/action/innate/order/attack_order

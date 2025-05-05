@@ -302,7 +302,7 @@
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 15, BIO = 100, FIRE = 100, ACID = 10)
 	stack_type = /obj/item/stack/rods
 	destroyed_stack_amount = 3
-	hit_sound = "sound/effects/metalhit.ogg"
+	hit_sound = 'sound/effects/metalhit.ogg'
 	barricade_type = "railing"
 	can_wire = FALSE
 
@@ -324,7 +324,7 @@
 	stack_type = /obj/item/stack/sheet/wood
 	stack_amount = 5
 	destroyed_stack_amount = 3
-	hit_sound = "sound/effects/woodhit.ogg"
+	hit_sound = 'sound/effects/woodhit.ogg'
 	can_change_dmg_state = FALSE
 	barricade_type = "wooden"
 	can_wire = FALSE
@@ -391,7 +391,7 @@
 	stack_type = /obj/item/stack/sheet/metal
 	stack_amount = 4
 	destroyed_stack_amount = 2
-	hit_sound = "sound/effects/metalhit.ogg"
+	hit_sound = 'sound/effects/metalhit.ogg'
 	barricade_type = "metal"
 	can_wire = TRUE
 	///Build state of the barricade
@@ -707,7 +707,7 @@
 	stack_type = /obj/item/stack/sheet/plasteel
 	stack_amount = 6
 	destroyed_stack_amount = 3
-	hit_sound = "sound/effects/metalhit.ogg"
+	hit_sound = 'sound/effects/metalhit.ogg'
 	barricade_type = "plasteel"
 	density = FALSE
 	closed = TRUE
@@ -953,7 +953,7 @@
 	soft_armor = list(MELEE = 0, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 100, FIRE = 80, ACID = 40)
 	coverage = 128
 	stack_type = /obj/item/stack/sandbags
-	hit_sound = "sound/weapons/genhit.ogg"
+	hit_sound = 'sound/weapons/genhit.ogg'
 	barricade_type = "sandbag"
 	can_wire = TRUE
 
@@ -1082,7 +1082,7 @@
 	soft_armor = list(MELEE = 60, BULLET = 60, LASER = 60, ENERGY = 60, BOMB = 40, BIO = 100, FIRE = 100, ACID = 20)
 	stack_type = null
 	destroyed_stack_amount = 0
-	hit_sound = "sound/effects/metalhit.ogg"
+	hit_sound = 'sound/effects/metalhit.ogg'
 	barricade_type = "concrete"
 	can_wire = FALSE
 
@@ -1106,7 +1106,7 @@
 	stack_type = /obj/item/stack/sheet/plasteel
 	stack_amount = 4
 	destroyed_stack_amount = 2
-	hit_sound = "sound/effects/metalhit.ogg"
+	hit_sound = 'sound/effects/metalhit.ogg'
 	barricade_type = "new_plasteel"
 	can_wire = TRUE
 	can_upgrade = FALSE

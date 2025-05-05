@@ -33,7 +33,7 @@
 
 /datum/action/ability/activable/xeno/charge/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("Our exoskeleton quivers as we get ready to use [name] again."))
-	playsound(owner, "sound/effects/alien/newlarva.ogg", 50, 0, 1)
+	playsound(owner, 'sound/effects/alien/newlarva.ogg', 50, 0, 1)
 	return ..()
 
 /datum/action/ability/activable/xeno/charge/ai_should_start_consider()
@@ -103,7 +103,7 @@
 
 /datum/action/ability/activable/xeno/ravage/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("We gather enough strength to Ravage again."))
-	playsound(owner, "sound/effects/alien/newlarva.ogg", 50, 0, 1)
+	playsound(owner, 'sound/effects/alien/newlarva.ogg', 50, 0, 1)
 	return ..()
 
 /datum/action/ability/activable/xeno/ravage/use_ability(atom/A)

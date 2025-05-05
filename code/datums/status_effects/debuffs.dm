@@ -537,7 +537,7 @@
 	debuff_owner = new_owner
 	RegisterSignal(debuff_owner, COMSIG_LIVING_DO_RESIST, PROC_REF(call_resist_debuff))
 	debuff_owner.balloon_alert(debuff_owner, "Intoxicated")
-	playsound(debuff_owner.loc, "sound/bullets/acid_impact1.ogg", 30)
+	playsound(debuff_owner.loc, 'sound/bullets/acid_impact1.ogg', 30)
 	particle_holder = new(debuff_owner, /particles/toxic_slash)
 	particle_holder.particles.spawning = 1 + round(stacks * 0.5)
 	particle_holder.pixel_x = -2
@@ -559,7 +559,7 @@
 		stack_decay = 2
 	var/debuff_damage = SENTINEL_INTOXICATED_BASE_DAMAGE + round(stacks * 0.1)
 	debuff_owner.adjust_fire_loss(debuff_damage)
-	playsound(debuff_owner.loc, "sound/bullets/acid_impact1.ogg", 4)
+	playsound(debuff_owner.loc, 'sound/bullets/acid_impact1.ogg', 4)
 	particle_holder.particles.spawning = 1 + round(stacks * 0.5)
 	if(stacks >= 20)
 		debuff_owner.adjust_slowdown(1)
@@ -740,7 +740,7 @@
 	. = ..()
 	debuff_owner = new_owner
 	debuff_owner.balloon_alert(debuff_owner, "Melting!")
-	playsound(debuff_owner.loc, "sound/bullets/acid_impact1.ogg", 30)
+	playsound(debuff_owner.loc, 'sound/bullets/acid_impact1.ogg', 30)
 	particle_holder = new(debuff_owner, /particles/melting_status)
 	particle_holder.particles.spawning = 1 + round(stacks * 0.5)
 
@@ -754,7 +754,7 @@
 	if(!debuff_owner)
 		return
 
-	playsound(debuff_owner.loc, "sound/bullets/acid_impact1.ogg", 4)
+	playsound(debuff_owner.loc, 'sound/bullets/acid_impact1.ogg', 4)
 	particle_holder.particles.spawning = 1 + round(stacks * 0.5)
 
 	debuff_owner.apply_damage(STATUS_EFFECT_MELTING_DAMAGE, BURN, null, FIRE)
@@ -818,7 +818,7 @@
 		return
 	debuff_owner = new_owner
 	debuff_owner.balloon_alert(debuff_owner, "microwaved!")
-	playsound(debuff_owner.loc, "sound/bullets/acid_impact1.ogg", 30)
+	playsound(debuff_owner.loc, 'sound/bullets/acid_impact1.ogg', 30)
 	particle_holder = new(debuff_owner, /particles/microwave_status)
 	COOLDOWN_START(src, cooldown_microwave_status, MICROWAVE_STATUS_DURATION)
 	return ..()
@@ -842,7 +842,7 @@
 	if(!debuff_owner)
 		return
 
-	playsound(debuff_owner.loc, "sound/bullets/acid_impact1.ogg", 4)
+	playsound(debuff_owner.loc, 'sound/bullets/acid_impact1.ogg', 4)
 
 	debuff_owner.adjust_fire_loss(stacks * MICROWAVE_STATUS_DAMAGE_MULT * (debuff_owner.mob_size > MOB_SIZE_HUMAN ? 1 : 0.5)) //this shreds humans otherwise
 

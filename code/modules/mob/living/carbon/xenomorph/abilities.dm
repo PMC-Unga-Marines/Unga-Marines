@@ -699,7 +699,7 @@
 		log_combat(xeno_owner, A, "spat on", addition="with corrosive acid")
 	xeno_owner.visible_message(span_xenowarning("\The [xeno_owner] vomits globs of vile stuff all over \the [A]. It begins to sizzle and melt under the bubbling mess of acid!"), \
 	span_xenowarning("We vomit globs of vile stuff all over \the [A]. It begins to sizzle and melt under the bubbling mess of acid!"), null, 5)
-	playsound(xeno_owner.loc, "sound/bullets/acid_impact1.ogg", 25)
+	playsound(xeno_owner.loc, 'sound/bullets/acid_impact1.ogg', 25)
 
 // ***************************************
 // *********** Super strong acid

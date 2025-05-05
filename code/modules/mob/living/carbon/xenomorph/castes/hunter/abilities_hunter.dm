@@ -35,7 +35,7 @@
 
 /datum/action/ability/xeno_action/stealth/on_cooldown_finish()
 	owner.balloon_alert(owner, "Stealth ready.")
-	playsound(owner, "sound/effects/alien/newlarva.ogg", 25, 0, 1)
+	playsound(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 /datum/action/ability/xeno_action/stealth/action_activate()
@@ -114,7 +114,7 @@
 		return
 	can_sneak_attack = TRUE
 	xeno_owner.balloon_alert(xeno_owner, "Sneak Attack ready.")
-	playsound(xeno_owner, "sound/effects/alien/newlarva.ogg", 25, 0, 1)
+	playsound(xeno_owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 
 /datum/action/ability/xeno_action/stealth/process()
 	if(!stealth)
