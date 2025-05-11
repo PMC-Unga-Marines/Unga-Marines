@@ -138,7 +138,7 @@
 
 	. = ..()
 	for(var/mob/M in range(1))
-		if(M.s_active == src)
+		if(M.active_storage == src)
 			storage_datum.close(M)
 
 // -----------------------------

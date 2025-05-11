@@ -18,8 +18,8 @@
 		mind = null
 	if(hud_used)
 		QDEL_NULL(hud_used)
-	if(s_active)
-		s_active.hide_from(src)
+	if(active_storage)
+		active_storage.hide_from(src)
 	unset_machine()
 	for(var/a in actions)
 		var/datum/action/action_to_remove = a

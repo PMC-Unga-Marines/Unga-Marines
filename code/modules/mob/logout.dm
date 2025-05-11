@@ -11,7 +11,7 @@
 	remove_typing_indicator()
 	GLOB.player_list -= src
 	log_message("[key_name(src)] has left mob [src]([type]).", LOG_OOC)
-	if(s_active)
-		s_active.hide_from(src)
+	if(active_storage)
+		active_storage.hide_from(src)
 	become_uncliented()
 	return ..()

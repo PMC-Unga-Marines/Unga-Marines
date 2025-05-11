@@ -426,7 +426,7 @@
 	if(!iscarbon(source))
 		return
 	var/mob/living/carbon/carbon_user = source
-	if(carbon_user.back == src && carbon_user.s_active == storage_datum)
+	if(carbon_user.back == src && carbon_user.active_storage == storage_datum)
 		storage_datum.close(carbon_user)
 
 //CLOAKS

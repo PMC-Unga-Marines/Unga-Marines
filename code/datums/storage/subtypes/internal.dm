@@ -467,7 +467,7 @@
 
 // Special override to reload our gun if it's empty before putting extra shells into storage
 /datum/storage/internal/ammo_rack/on_attackby(datum/source, obj/item/attacking_item, mob/user, params)
-	if(user.s_active != src) //Only insert shells into storage if our storage UI is open
+	if(user.active_storage != src) //Only insert shells into storage if our storage UI is open
 		return FALSE
 
 	if(length(refill_types))

@@ -27,7 +27,7 @@
 				return
 
 	else //store item
-		if(s_active?.on_attackby(s_active, I, src)) //stored in currently open storage
+		if(active_storage?.on_attackby(active_storage, I, src)) //stored in currently open storage
 			return TRUE
 		if(slot_requested)
 			if(equip_to_slot_if_possible(I, slot_requested, FALSE, FALSE, FALSE))
@@ -357,7 +357,7 @@
 		if(SLOT_IN_S_HOLSTER)
 			selected_slot = s_store
 		if(SLOT_IN_STORAGE)
-			selected_slot = s_active
+			selected_slot = active_storage
 		if(SLOT_IN_L_POUCH)
 			selected_slot = l_store
 		if(SLOT_IN_R_POUCH)
