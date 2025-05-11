@@ -600,8 +600,17 @@
 			/obj/item/mortal_shell/knee = 40,
 		),
 		"Тяжёлое вооружение" = list(
-			/obj/item/storage/box/crate/sentry = -1,
 			/obj/item/sentry_upgrade_kit = -1,
+			/obj/item/weapon/gun/sentry/basic = -1,
+			/obj/item/ammo_magazine/sentry = -1,
+			/obj/item/weapon/gun/sentry/sniper = -1,
+			/obj/item/ammo_magazine/sentry/sniper = -1,
+			/obj/item/weapon/gun/sentry/shotgun = -1,
+			/obj/item/ammo_magazine/sentry/shotgun = -1,
+			/obj/item/weapon/gun/sentry/flamer = -1,
+			/obj/item/ammo_magazine/flamer_tank/large/sentry = -1,
+			/obj/item/weapon/gun/sentry/mini = -1,
+			/obj/item/ammo_magazine/minisentry = -1,
 		),
 		"Модули" = list(
 			/obj/item/attachable/bayonet = -1,
