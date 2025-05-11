@@ -11,6 +11,9 @@
 	var/nutriment_factor = 1
 	var/adj_temp = 0
 	var/targ_temp = BODYTEMP_NORMAL
+	var/adj_dizzy = 0
+	var/adj_drowsy = 0
+	var/adj_sleepy = 0
 
 /datum/reagent/consumable/on_mob_life(mob/living/L, metabolism)
 	current_cycle++
@@ -20,6 +23,12 @@
 	if(adj_temp)
 		L.adjust_bodytemperature(adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT, (adj_temp < 0 ? targ_temp : INFINITY), (adj_temp > 0 ? 0 : targ_temp))
 	holder.remove_reagent(type, custom_metabolism)
+	if(adj_dizzy != 0)
+		L.dizzy(adj_dizzy)
+	if(adj_drowsy != 0)
+		L.adjust_drowsyness(adj_drowsy)
+	if(adj_sleepy != 0)
+		L.AdjustSleeping(adj_sleepy)
 	return TRUE
 
 /datum/reagent/consumable/nutriment
@@ -76,7 +85,6 @@
 
 	data = taste_amounts
 
-
 /datum/reagent/consumable/sugar
 	name = "Sugar"
 	description = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
@@ -84,7 +92,6 @@
 	taste_multi = 1.5 // stop sugar drowning out other flavours
 	nutriment_factor = 4 //still more than bars, but not to much
 	taste_description = "sweetness"
-	scannable = TRUE
 
 /datum/reagent/consumable/virus_food
 	name = "Virus Food"

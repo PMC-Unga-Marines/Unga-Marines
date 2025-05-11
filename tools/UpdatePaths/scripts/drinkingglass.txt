@@ -1,0 +1,1 @@
+/obj/item/reagent_containers/food/drinks/drinkingglass/@SUBTYPES : /obj/item/reagent_containers/cup/glass/drinking_glass/@SUBTYPES {@OLD}

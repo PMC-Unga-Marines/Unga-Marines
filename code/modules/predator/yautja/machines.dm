@@ -68,7 +68,7 @@
 		/obj/item/tool/kitchen/tray = 8,
 		/obj/item/tool/kitchen/utensil/fork = 6,
 		/obj/item/tool/kitchen/knife = 3,
-		/obj/item/reagent_containers/food/drinks/drinkingglass = 8,
+		/obj/item/reagent_containers/cup/glass/drinking_glass = 8,
 		/obj/item/clothing/suit/storage/chef/classic = 2,
 		/obj/item/clothing/head/chefhat = 1,
 		/obj/item/tool/kitchen/utensil/spoon = 2,

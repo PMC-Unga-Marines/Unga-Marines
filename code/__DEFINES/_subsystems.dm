@@ -194,3 +194,12 @@
 #define FEEDBACK_TALLY "tally"
 #define FEEDBACK_NESTED_TALLY "nested_tally"
 #define FEEDBACK_ASSOCIATIVE "associative"
+
+/// Mobs subsystem defines
+
+/// The mobs subsystem buckets up mobs to smooth out processing load,
+/// each 5 ticks it fires, but won't actually run Life on every fire()
+/// Instead it buckets mobs and ends up running Life on every mob every 2 seconds
+/// but since subsystem wait only considers the last fire,
+/// we need to multiply wait enough that it matches the 2 second interval Life is actually running on
+#define SS_MOBS_BUCKET_DELAY 4

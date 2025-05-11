@@ -1,4 +1,3 @@
-#define HYDRO_SPEED_MULTIPLIER 1
 /obj/prop/hydroponics
 	name = "hydroponics tray"
 	icon = 'icons/obj/machines/hydroponics.dmi'
@@ -30,5 +29,3 @@
 /obj/prop/hydroponics/slashable
 	resistance_flags = XENO_DAMAGEABLE
 	max_integrity = 80
-
-#undef HYDRO_SPEED_MULTIPLIER

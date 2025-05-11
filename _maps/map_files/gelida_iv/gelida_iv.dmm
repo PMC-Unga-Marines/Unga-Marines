@@ -8003,7 +8003,7 @@
 /turf/open/floor/prison/darkbrown/full,
 /area/gelida/indoors/c_block/casino)
 "fnH" = (
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_x = 11;
 	pixel_y = 3
 	},
@@ -12737,7 +12737,7 @@
 /area/gelida/indoors/c_block/garage)
 "iDU" = (
 /obj/structure/table/wood/fancy,
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_x = 12;
 	pixel_y = 17
 	},
@@ -14980,11 +14980,11 @@
 	pixel_x = -7;
 	pixel_y = 2
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_x = 14;
 	pixel_y = 17
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_x = 14;
 	pixel_y = 5
 	},
@@ -21210,7 +21210,7 @@
 /area/gelida/outdoors/colony_streets/south_east_street)
 "otS" = (
 /obj/structure/table/wood/fancy,
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_x = 13;
 	pixel_y = 17
 	},
@@ -21448,7 +21448,7 @@
 /area/gelida/powergen)
 "oCb" = (
 /obj/structure/table/wood/gambling,
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_x = 14;
 	pixel_y = 9
 	},
@@ -22559,11 +22559,11 @@
 "pio" = (
 /obj/structure/table/wood/fancy,
 /obj/item/clothing/suit/storage/snow_suit,
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_x = -1;
 	pixel_y = 17
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_x = -1;
 	pixel_y = 5
 	},
@@ -33786,7 +33786,7 @@
 /turf/open/floor/plating,
 /area/gelida/indoors/a_block/security)
 "wYG" = (
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_x = 12;
 	pixel_y = 16
 	},
@@ -35369,7 +35369,7 @@
 /area/gelida/landing_zone_2)
 "ydO" = (
 /obj/structure/table/wood/gambling,
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_x = 6;
 	pixel_y = 12
 	},

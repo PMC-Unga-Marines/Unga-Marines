@@ -388,7 +388,7 @@
 	name = "Dylovene"
 	description = "Dylovene is a broad-spectrum antitoxin."
 	color = COLOR_REAGENT_DYLOVENE
-	purge_list = list(/datum/reagent/toxin, /datum/reagent/medicine/research/stimulon, /datum/reagent/consumable/drink/atomiccoffee, /datum/reagent/medicine/paracetamol, /datum/reagent/medicine/larvaway)
+	purge_list = list(/datum/reagent/toxin, /datum/reagent/medicine/research/stimulon, /datum/reagent/consumable/atomiccoffee, /datum/reagent/medicine/paracetamol, /datum/reagent/medicine/larvaway)
 	purge_rate = 1
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
@@ -1517,24 +1517,6 @@
 			to_chat(L, span_userdanger("You start to ache and cramp as your muscles wear out. You should probably remove this drug soon."))
 		if (21 to INFINITY)
 			L.jitter(5)
-	return ..()
-
-/datum/reagent/medicine/doctor_delight
-	name = "The Doctor's Delight"
-	description = "A gulp a day keeps the MediBot away. That's probably for the best."
-	color = "#FF8CFF" // rgb: 255, 140, 255
-	taste_description = "homely fruit"
-	var/nutriment_factor = - 1
-	custom_metabolism = REAGENTS_METABOLISM * 0.25 //Twice the rate of paracetamol
-
-/datum/reagent/medicine/doctor_delight/on_mob_life(mob/living/L, metabolism)
-	L.adjust_brute_loss(-0.5, 0)
-	L.adjust_fire_loss(-0.5, 0)
-	L.adjust_tox_loss(-0.5, 0)
-	L.adjust_oxy_loss(-0.5, 0)
-	if(iscarbon(L))
-		var/mob/living/carbon/C = L
-		C.adjust_nutrition(nutriment_factor*0.5*effect_str)
 	return ..()
 
 /datum/reagent/medicine/sulfasalazine
