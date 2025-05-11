@@ -14,7 +14,7 @@
 	attack_delay = 6
 
 	// *** Speed *** //
-	speed = -0.5
+	speed = -0.75
 
 	// *** Plasma *** //
 	plasma_max = 275
