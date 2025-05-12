@@ -117,6 +117,8 @@
 #define COMSIG_XENOABILITY_CREATE_BOMB "xenoability_create_bomb"
 #define COMSIG_XENOABILITY_ROOT "xenoability_root"
 #define COMSIG_XENOABILITY_BOMBARD "xenoability_bombard"
+#define COMSIG_XENOABILITY_ACID_SHROUD "xenoability_acid_shroud"
+#define COMSIG_XENOABILITY_ACID_SHROUD_SELECT "xenoability_acid_shroud_select"
 
 #define COMSIG_XENOABILITY_THROW_HUGGER "xenoability_throw_hugger"
 #define COMSIG_XENOABILITY_CALL_YOUNGER "xenoability_call_younger"
@@ -315,8 +317,6 @@
 #define COMSIG_XENOABILITY_ADRENALINE_RUSH "xenoability_adrenaline_rush"
 #define COMSIG_XENOABILITY_EVASIVE_MANEUVERS "xenoability_evasive_maneuvers"
 #define COMSIG_XENOABILITY_PANTHER_SELECT_REAGENT "xenoability_panther_select_reagent"
-
-#define COMSIG_XENOABILITY_DUMP_ACID "xenoability_dump_acid"
 
 #define COMSIG_XENOABILITY_PSYCHIC_GRAB "xenoability_psychic_grab"
 

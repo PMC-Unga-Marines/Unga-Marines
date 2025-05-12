@@ -32333,9 +32333,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/north_east_street)
 "vSH" = (
-/obj/item/clothing/shoes/pmc{
-	name = "steel toe boots"
-	},
+/obj/item/clothing/shoes/marine/pmc,
 /obj/machinery/light,
 /turf/open/floor/prison/darkbrown/full,
 /area/gelida/indoors/c_block/mining)

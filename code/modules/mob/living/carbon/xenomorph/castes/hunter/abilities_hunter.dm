@@ -35,7 +35,7 @@
 
 /datum/action/ability/xeno_action/stealth/on_cooldown_finish()
 	owner.balloon_alert(owner, "Stealth ready.")
-	playsound(owner, "sound/effects/alien/newlarva.ogg", 25, 0, 1)
+	playsound(owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 	return ..()
 
 /datum/action/ability/xeno_action/stealth/action_activate()
@@ -114,7 +114,7 @@
 		return
 	can_sneak_attack = TRUE
 	xeno_owner.balloon_alert(xeno_owner, "Sneak Attack ready.")
-	playsound(xeno_owner, "sound/effects/alien/newlarva.ogg", 25, 0, 1)
+	playsound(xeno_owner, 'sound/effects/alien/newlarva.ogg', 25, 0, 1)
 
 /datum/action/ability/xeno_action/stealth/process()
 	if(!stealth)
@@ -285,17 +285,11 @@
 	return ..()
 
 /datum/action/ability/activable/xeno/pounce/can_use_ability(atom/A, silent = FALSE, override_flags)
-	. = ..()
-	if(!.)
+	if(!A)
 		return FALSE
-	if(!A || A.layer >= FLY_LAYER)
-		return FALSE
+	return ..()
 
 /datum/action/ability/activable/xeno/pounce/use_ability(atom/A)
-	if(owner.layer != MOB_LAYER)
-		owner.layer = MOB_LAYER
-		var/datum/action/ability/xeno_action/xenohide/hide_action = owner.actions_by_path[/datum/action/ability/xeno_action/xenohide]
-		hide_action?.button?.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)) // Removes Hide action icon border
 	if(owner.buckled)
 		owner.buckled.unbuckle_mob(owner)
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(movement_fx))

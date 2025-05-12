@@ -141,7 +141,7 @@
 	worn_icon_state = "etool_c"
 	force = 2
 	throwforce = 2
-	hitsound = "sound/weapons/shovel.ogg"
+	hitsound = 'sound/weapons/shovel.ogg'
 	w_class = WEIGHT_CLASS_SMALL //three for unfolded, 3 for folded. This should keep it outside backpacks until its folded, made it 3 because 2 lets you fit in pockets appearntly.
 	folded = TRUE
 	dirt_overlay = "etool_overlay"

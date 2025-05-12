@@ -118,11 +118,11 @@
 	//marines
 	for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 		if(human.faction == FACTION_TERRAGOV)
-			human.playsound_local(human, "sound/effects/CIC_order.ogg", 10, 1)
+			human.playsound_local(human, 'sound/effects/CIC_order.ogg', 10, 1)
 			human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "[src] is being activated, get ready to defend it team!", /atom/movable/screen/text/screen_text/picture/potrait)
 	//beno
 	for(var/mob/living/carbon/xenomorph/xeno AS in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
-		xeno.playsound_local(xeno, "sound/voice/alien_hiss1.ogg", 10, 1)
+		xeno.playsound_local(xeno, 'sound/voice/alien/hiss1.ogg', 10, 1)
 		xeno.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>HIVEMIND</u></span><br>" + "[src] is being activated, deactivate it!", /atom/movable/screen/text/screen_text/picture/potrait/queen_mother)
 
 ///When timer ends add a point to the point pool in sensor capture, increase game timer, and send an alert
@@ -147,11 +147,11 @@
 	//marines
 	for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 		if(human.faction == FACTION_TERRAGOV)
-			human.playsound_local(human, "sound/effects/CIC_order.ogg", 10, 1)
+			human.playsound_local(human, 'sound/effects/CIC_order.ogg', 10, 1)
 			human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "[src] is fully activated!", /atom/movable/screen/text/screen_text/picture/potrait)
 	//beno
 	for(var/mob/living/carbon/xenomorph/xeno AS in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
-		xeno.playsound_local(xeno, "sound/voice/alien_hiss1.ogg", 10, 1)
+		xeno.playsound_local(xeno, 'sound/voice/alien/hiss1.ogg', 10, 1)
 		xeno.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>HIVEMIND</u></span><br>" + "[src] is fully activated, stop further towers from being activated!", /atom/movable/screen/text/screen_text/picture/potrait/queen_mother)
 
 ///Stops timer if activating and sends an alert
@@ -168,13 +168,12 @@
 	//marines
 	for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 		if(human.faction == FACTION_TERRAGOV)
-			human.playsound_local(human, "sound/effects/CIC_order.ogg", 10, 1)
+			human.playsound_local(human, 'sound/effects/CIC_order.ogg', 10, 1)
 			human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "[src] has been deactivated", /atom/movable/screen/text/screen_text/picture/potrait)
 	//beno
 	for(var/mob/living/carbon/xenomorph/xeno AS in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
-		xeno.playsound_local(xeno, "sound/voice/alien_hiss1.ogg", 10, 1)
+		xeno.playsound_local(xeno, 'sound/voice/alien/hiss1.ogg', 10, 1)
 		xeno.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>HIVEMIND</u></span><br>" + "[src] has been deactivated! Get ready to defend it hive", /atom/movable/screen/text/screen_text/picture/potrait/queen_mother)
-
 
 /obj/structure/sensor_tower_infestation/update_icon()
 	. = ..()
@@ -189,13 +188,12 @@
 		SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, "beacon[current_timer ? "_capture" : "_xeno"]"))
 
 /obj/structure/sensor_tower_infestation/process()
-	if(add_tick >= required_ticks)
-		SSpoints.supply_points[FACTION_TERRAGOV] += points_income
-		SSpoints.dropship_points += dropship_bonus
-		GLOB.round_statistics.points_from_towers += points_income
-		do_sparks(5, TRUE, src)
-		say("Scientific data has been sold for [points_income] points.")
-		add_tick = 0
-		return
-	else
+	if(add_tick < required_ticks)
 		add_tick += 1
+		return
+	SSpoints.supply_points[FACTION_TERRAGOV] += points_income
+	SSpoints.dropship_points += dropship_bonus
+	GLOB.round_statistics.points_from_towers += points_income
+	do_sparks(5, TRUE, src)
+	say("Scientific data has been sold for [points_income] points.")
+	add_tick = 0

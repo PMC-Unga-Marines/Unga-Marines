@@ -212,7 +212,7 @@
 		can_hunt = TRUE
 		for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 			if(human.faction == FACTION_TERRAGOV)
-				human.playsound_local(human, "sound/effects/CIC_order.ogg", 10, 1)
+				human.playsound_local(human, 'sound/effects/CIC_order.ogg', 10, 1)
 				human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "New Destination has been added to the Normandy, take off and destroy them to the end. Extra points awarded in cargo", /atom/movable/screen/text/screen_text/picture/potrait)
 				SSpoints.supply_points[FACTION_TERRAGOV] += 150
 
@@ -235,7 +235,7 @@
 	//marine announce
 	for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 		if(human.faction == FACTION_TERRAGOV)
-			human.playsound_local(human, "sound/effects/CIC_order.ogg", 10, 1)
+			human.playsound_local(human, 'sound/effects/CIC_order.ogg', 10, 1)
 			human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + "Xeno den has been added to the Normandy destonation, destroy them to the end", /atom/movable/screen/text/screen_text/picture/potrait)
 	round_stage = INFESTATION_MARINE_DEN_RUSH
 

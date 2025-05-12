@@ -534,9 +534,9 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 				return FALSE
 			return TRUE
 		if(SLOT_IN_STORAGE) //open storage
-			if(!H.s_active)
+			if(!H.active_storage)
 				return FALSE
-			selected_slot = H.s_active
+			selected_slot = H.active_storage
 
 		//actual slots
 		if(SLOT_WEAR_MASK)
@@ -1393,8 +1393,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 ///Called by vendors when vending an item. Allows the item to specify what happens when it is given to the player.
 /obj/item/proc/on_vend(mob/user, faction, fill_container = FALSE, auto_equip = FALSE)
 	//Put item into player's currently open storage
-	if(fill_container && user.s_active && user.s_active.can_be_inserted(src, user, FALSE))
-		user.s_active.handle_item_insertion(src, FALSE, user)
+	if(fill_container && user.active_storage && user.active_storage.can_be_inserted(src, user, FALSE))
+		user.active_storage.handle_item_insertion(src, FALSE, user)
 		return
 	//Equip item onto player
 	if(auto_equip && vendor_equip(user))

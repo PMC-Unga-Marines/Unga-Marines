@@ -378,12 +378,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 	name = "glob of gas"
 	icon_state = "boiler_gas2"
 	ping = "ping_x"
-	///Key used for icon stuff during bombard ammo selection.
-	var/icon_key = BOILER_GLOB_NEURO
-	///This text will show up when a boiler selects this ammo. Span proc should be applied when this var is used.
-	var/select_text = "We will now fire neurotoxic gas. This is nonlethal."
 	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_TARGET_TURF
-	var/danger_message = span_danger("A glob of acid lands with a splat and explodes into noxious fumes!")
 	armor_type = BIO
 	accuracy_var_high = 10
 	max_range = 30
@@ -393,6 +388,11 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 	penetration = 40
 	bullet_color = BOILER_LUMINOSITY_AMMO_NEUROTOXIN_COLOR
 	reagent_transfer_amount = 30
+	///Key used for icon stuff during bombard ammo selection.
+	var/icon_key = BOILER_GLOB_NEURO
+	///This text will show up when a boiler selects this ammo. Span proc should be applied when this var is used.
+	var/select_text = "We will now fire neurotoxic gas. This is nonlethal."
+	var/danger_message = span_danger("A glob of acid lands with a splat and explodes into noxious fumes!")
 	///On a direct hit, how long is the target paralyzed?
 	var/hit_paralyze_time = 1 SECONDS
 	///On a direct hit, how much do the victim's eyes get blurred?

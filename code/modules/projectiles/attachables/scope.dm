@@ -60,6 +60,9 @@
 /obj/item/attachable/scope/unremovable
 	attach_features_flags = ATTACH_ACTIVATION
 
+/obj/item/attachable/scope/unremovable/invisible
+	icon_state = "sniperscope_invisible"
+
 /obj/item/attachable/scope/unremovable/flaregun
 	name = "long range ironsights"
 	desc = "An unremovable set of long range ironsights for a flaregun."

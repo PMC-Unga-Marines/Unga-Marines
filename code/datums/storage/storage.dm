@@ -246,6 +246,7 @@
 	RegisterSignals(parent, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_DROPPED), PROC_REF(update_verbs))
 	RegisterSignal(parent, COMSIG_ITEM_QUICK_EQUIP, PROC_REF(on_quick_equip_request))
 	RegisterSignal(parent, COMSIG_ATOM_INITIALIZED_ON, PROC_REF(item_init_in_parent))
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(close_distance))
 
 ///Unregisters our signals from parent. Used when parent loses storage but is not destroyed
 /datum/storage/proc/unregister_storage_signals(atom/parent)
@@ -269,6 +270,7 @@
 		COMSIG_ITEM_DROPPED,
 		COMSIG_ITEM_QUICK_EQUIP,
 		COMSIG_ATOM_INITIALIZED_ON,
+		COMSIG_MOVABLE_MOVED,
 	))
 
 /// Almost 100% of the time the lists passed into set_holdable are reused for each instance
@@ -318,7 +320,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 				INVOKE_ASYNC(src, PROC_REF(do_refill), attacking_item, user)
 				return
 	if(!can_be_inserted(attacking_item, user))
-		if(user.s_active != src) //this would close the open storage otherwise
+		if(user.active_storage != src) //this would close the open storage otherwise
 			open(user)
 		return FALSE
 	INVOKE_ASYNC(src, PROC_REF(handle_item_insertion), attacking_item, FALSE, user)
@@ -537,9 +539,9 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	return inventory
 
-///Shows our inventory to user, we become s_active and user is added to our content_watchers
+///Shows our inventory to user, we become active_storage and user is added to our content_watchers
 /datum/storage/proc/show_to(mob/user)
-	if(user.s_active != src)
+	if(user.active_storage != src)
 		for(var/obj/item/item in parent)
 			if(item.on_found(user))
 				return
@@ -559,10 +561,10 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		user.client.screen += storage_continue
 		user.client.screen += storage_end
 
-	user.s_active = src
+	user.active_storage = src
 	content_watchers |= user
 
-///Hides our inventory from user, sets s_active to null and removes user from content_watchers
+///Hides our inventory from user, sets active_storage to null and removes user from content_watchers
 /datum/storage/proc/hide_from(mob/user)
 	if(!user.client)
 		return
@@ -572,21 +574,29 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	user.client.screen -= storage_end
 	user.client.screen -= src.closer
 	user.client.screen -= parent.contents
-	if(user.s_active == src)
-		user.s_active = null
+	if(user.active_storage == src)
+		user.active_storage = null
 	content_watchers -= user
+
+/// Signal handler for whenever a mob walks away with us, close if they can't reach us.
+/datum/storage/proc/close_distance(datum/source)
+	SIGNAL_HANDLER
+	for(var/mob/user in can_see_content())
+		if(user.CanReach(parent))
+			continue
+		hide_from(user)
 
 ///Returns a list of lookers, basically any mob that can see our contents
 /datum/storage/proc/can_see_content()
 	var/list/lookers = list()
 	for(var/mob/content_watcher_mob AS in content_watchers)
-		if(!ismob(content_watcher_mob) || !content_watcher_mob.client || content_watcher_mob.s_active != src)
+		if(!ismob(content_watcher_mob) || !content_watcher_mob.client || content_watcher_mob.active_storage != src)
 			content_watchers -= content_watcher_mob
 			continue
 		lookers |= content_watcher_mob
 	return lookers
 
-///Opens our storage, closes the storage if we are s_active
+///Opens our storage, closes the storage if we are active_storage
 /datum/storage/proc/open(mob/user)
 	if(!opened)
 		orient2hud()
@@ -594,11 +604,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(use_sound && user.stat != DEAD)
 		playsound(parent.loc, use_sound, 25, 1, 3)
 
-	if(user.s_active == src) //If active storage is already open, close it
+	if(user.active_storage == src) //If active storage is already open, close it
 		close(user)
 		return TRUE
-	if(user.s_active) //We can only have 1 active storage at once
-		user.s_active.close(user)
+	if(user.active_storage) //We can only have 1 active storage at once
+		user.active_storage.close(user)
 	show_to(user)
 	return TRUE
 
@@ -878,7 +888,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 				continue
 			holstered_item = item
 	if(user)
-		if(user.s_active != src)
+		if(user.active_storage != src)
 			user.client?.screen -= item
 		if(!prevent_warning)
 			insertion_message(item, user)

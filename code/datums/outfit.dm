@@ -215,7 +215,7 @@
 		return
 	var/mob/living/carbon/carbon_mob = base
 	back = carbon_mob.back?.type
-	mask = carbon_mob.s_active?.type
+	mask = carbon_mob.active_storage?.type
 
 	if(!ishuman(base))
 		return

@@ -75,7 +75,7 @@
 			grill_loop.start(src)
 			return
 	return ..()
-	
+
 /obj/machinery/grill/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
 	if(grill_fuel <= 0)
 		return ..()
@@ -101,7 +101,7 @@
 
 	user.visible_message(span_danger("[user] slams [grabbed_mob] onto the [src]!"))
 	grabbed_mob.apply_damage(40, BURN, BODY_ZONE_HEAD, FIRE, updating_health = TRUE)
-	playsound(src, "sound/machines/grill/frying.ogg", 100, null, 9)
+	playsound(src, 'sound/machines/grill/frying.ogg', 100, null, 9)
 	grabbed_mob.emote("scream")
 	return TRUE
 

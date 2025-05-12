@@ -198,8 +198,9 @@
 			var/mob/living/living_puller = pulledby
 			living_puller.set_pull_offsets(src)
 
-	if(s_active && !(s_active.parent in contents) && !CanReach(s_active.parent))
-		s_active.close(src)
+	if(active_storage)
+		if(!(active_storage.parent in contents) && !CanReach(active_storage.parent))
+			active_storage.close(src)
 
 /mob/living/Moved(atom/old_loc, movement_dir, forced = FALSE, list/old_locs)
 	. = ..()

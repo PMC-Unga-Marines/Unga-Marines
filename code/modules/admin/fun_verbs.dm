@@ -123,7 +123,7 @@
 		else
 			return
 
-	priority_announce(input, customname, sound = "sound/misc/interference.ogg")
+	priority_announce(input, customname, sound = 'sound/misc/interference.ogg')
 
 	if(paper)
 		print_command_report(input, "[customname] Update", announce = FALSE)

@@ -98,7 +98,7 @@
 	return ..()
 
 /datum/storage/backpack/duffelbag/attempt_draw_object(mob/living/carbon/user, start_from_left)
-	if(user.back == parent && user.s_active != src)
+	if(user.back == parent && user.active_storage != src)
 		to_chat(user, span_notice("You can't grab anything out of [parent] while it's on your back."))
 		return
 	return ..()
