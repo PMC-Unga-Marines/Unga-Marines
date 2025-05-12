@@ -12,8 +12,8 @@
 	RegisterSignal(xeno_owner, COMSIG_MOB_PRE_DEATH, PROC_REF(handle_smoke))
 
 /datum/action/ability/xeno_action/baneling_explode/remove_action(mob/living/L)
-	. = ..()
 	UnregisterSignal(xeno_owner, COMSIG_MOB_PRE_DEATH)
+	return ..()
 
 /datum/action/ability/xeno_action/baneling_explode/action_activate()
 	. = ..()
