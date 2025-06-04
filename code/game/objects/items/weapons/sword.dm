@@ -70,13 +70,13 @@
 	UnregisterSignal(owner, list(COMSIG_MOVABLE_BUMP, COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_MOVED))
 
 ///Sig handler for atom impacts during lunge
-/datum/action/ability/activable/weapon_skill/sword_lunge/proc/lunge_impact(datum/source, obj/target, speed)
+/datum/action/ability/activable/weapon_skill/sword_lunge/proc/lunge_impact(datum/source, atom/movable/target, speed)
 	SIGNAL_HANDLER
 	INVOKE_ASYNC(src, PROC_REF(do_lunge_impact), source, target)
 	charge_complete()
 
 ///Actual effects of lunge impact
-/datum/action/ability/activable/weapon_skill/sword_lunge/proc/do_lunge_impact(datum/source, obj/target)
+/datum/action/ability/activable/weapon_skill/sword_lunge/proc/do_lunge_impact(datum/source, atom/movable/target)
 	var/mob/living/carbon/carbon_owner = source
 	if(isobj(target))
 		var/obj/obj_victim = target
