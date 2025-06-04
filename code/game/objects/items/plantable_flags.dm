@@ -152,6 +152,7 @@
 	update_appearance(UPDATE_ICON_STATE)
 	if(deployer)
 		new_internal_item.lift_flag(deployer)
+		log_game("[key_name(deployer)] has deployed the flag at [AREACOORD(src)].")
 
 /obj/structure/plantable_flag/Destroy()
 	clear_internal_item()
@@ -196,3 +197,4 @@
 	if(!current_internal_item)
 		return
 	disassemble(user)
+	log_game("[key_name(user)] has undeployed the flag at [AREACOORD(src)].")
