@@ -5,24 +5,22 @@
 	desc = "A slimy, oozy resin bed filled with foul-looking egg-like ...things."
 	bound_width = 96
 	bound_height = 96
+	bound_x = -32
+	bound_y = -32
+	pixel_x = -32
+	pixel_y = -24
 	max_integrity = 5000
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE
 	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE|XENO_STRUCT_WARNING_RADIUS|XENO_STRUCT_DAMAGE_ALERT
-	var/turf/center_turf
 
 /obj/structure/xeno/core/Initialize(mapload, _hivenumber)
 	. = ..()
-	center_turf = get_step(src, NORTHEAST)
-	if(!istype(center_turf))
-		center_turf = loc
-
 	update_minimap_icon()
 
 /obj/structure/xeno/core/Destroy()
 	for(var/i in contents)
 		var/atom/movable/AM = i
-		AM.forceMove(get_step(center_turf, pick(CARDINAL_ALL_DIRS)))
-	center_turf = null
+		AM.forceMove(get_step(src, pick(CARDINAL_ALL_DIRS)))
 	STOP_PROCESSING(SSslowprocess, src)
 	return ..()
 
