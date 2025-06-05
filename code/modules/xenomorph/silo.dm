@@ -10,7 +10,7 @@
 	pixel_x = -32
 	pixel_y = -24
 	max_integrity = 1000
-	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE // why doesn't it have PLASMACUTTER_IMMUNE?
+	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE
 	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE|XENO_STRUCT_WARNING_RADIUS|XENO_STRUCT_DAMAGE_ALERT
 	plane = FLOOR_PLANE
 	///How many larva points one silo produce in one minute
