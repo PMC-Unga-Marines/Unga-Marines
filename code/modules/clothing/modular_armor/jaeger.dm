@@ -96,45 +96,6 @@
 	colorable_colors = ARMOR_PALETTES_LIST
 	greyscale_config = /datum/greyscale_config/armor_mk2/infantry
 
-
-	attachments_allowed = list(
-		/obj/item/armor_module/module/tyr_head,
-		/obj/item/armor_module/module/tyr_head/mark2,
-		/obj/item/armor_module/module/fire_proof_helmet,
-		/obj/item/armor_module/module/hod_head,
-		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
-		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1,
-		/obj/item/armor_module/module/welding,
-		/obj/item/armor_module/module/welding/superior,
-		/obj/item/armor_module/module/binoculars,
-		/obj/item/armor_module/module/binoculars/artemis_mark_two,
-		/obj/item/armor_module/module/artemis,
-		/obj/item/armor_module/module/antenna,
-		/obj/item/armor_module/module/night_vision,
-		/obj/item/armor_module/module/motion_detector,
-		/obj/item/armor_module/storage/helmet,
-		/obj/item/armor_module/armor/badge,
-		/obj/item/armor_module/armor/visor/marine,
-		/obj/item/armor_module/armor/visor/marine/skirmisher,
-		/obj/item/armor_module/armor/visor/marine/scout,
-		/obj/item/armor_module/armor/visor/marine/eva,
-		/obj/item/armor_module/armor/visor/marine/eva/skull,
-		/obj/item/armor_module/armor/visor/marine/gungnir,
-		/obj/item/armor_module/armor/visor/marine/eod,
-		/obj/item/armor_module/armor/visor/marine/assault,
-		/obj/item/armor_module/armor/visor/marine/helljumper,
-		/obj/item/armor_module/armor/visor/marine/ranger,
-		/obj/item/armor_module/armor/visor/marine/traditional,
-		/obj/item/armor_module/armor/visor/marine/trooper,
-		/obj/item/armor_module/armor/visor/marine/kabuto,
-		/obj/item/armor_module/armor/visor/marine/hotaru,
-		/obj/item/armor_module/armor/visor/marine/dashe,
-		/obj/item/armor_module/armor/visor/marine/fourvisor,
-		/obj/item/armor_module/armor/visor/marine/foureyevisor,
-		/obj/item/armor_module/armor/visor/marine/markonevisor,
-		/obj/item/armor_module/armor/secondary_color/helm,
-	)
-
 	starting_attachments = list(/obj/item/armor_module/armor/visor/marine, /obj/item/armor_module/storage/helmet)
 
 	item_map_variant_flags = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT

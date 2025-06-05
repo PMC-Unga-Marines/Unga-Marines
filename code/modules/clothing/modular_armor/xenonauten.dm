@@ -217,24 +217,6 @@
 	desc = "A standard M10 Pattern Helmet with attach points. It reads on the label, 'The difference between an open-casket and closed-casket funeral. Wear on head for best results.'."
 	worn_icon_state_worn = TRUE
 	soft_armor = MARINE_ARMOR_MEDIUM
-	attachments_allowed = list(
-		/obj/item/armor_module/module/tyr_head,
-		/obj/item/armor_module/module/tyr_head/mark2,
-		/obj/item/armor_module/module/fire_proof_helmet,
-		/obj/item/armor_module/module/hod_head,
-		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
-		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1,
-		/obj/item/armor_module/module/welding,
-		/obj/item/armor_module/module/welding/superior,
-		/obj/item/armor_module/module/binoculars,
-		/obj/item/armor_module/module/binoculars/artemis_mark_two,
-		/obj/item/armor_module/module/artemis,
-		/obj/item/armor_module/module/antenna,
-		/obj/item/armor_module/module/night_vision,
-		/obj/item/armor_module/module/motion_detector,
-		/obj/item/armor_module/storage/helmet,
-		/obj/item/armor_module/armor/badge,
-	)
 	starting_attachments = list(/obj/item/armor_module/storage/helmet)
 	item_map_variant_flags = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
 
@@ -273,25 +255,6 @@
 	worn_icon_state = "helm"
 	greyscale_config = /datum/greyscale_config/xenonaut/helm/heavy
 	starting_attachments = list(/obj/item/armor_module/armor/visor/marine/xenonaut, /obj/item/armor_module/storage/helmet)
-	attachments_allowed = list(
-		/obj/item/armor_module/module/tyr_head,
-		/obj/item/armor_module/module/tyr_head/mark2,
-		/obj/item/armor_module/module/fire_proof_helmet,
-		/obj/item/armor_module/module/hod_head,
-		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
-		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1,
-		/obj/item/armor_module/module/welding,
-		/obj/item/armor_module/module/welding/superior,
-		/obj/item/armor_module/module/binoculars,
-		/obj/item/armor_module/module/binoculars/artemis_mark_two,
-		/obj/item/armor_module/module/artemis,
-		/obj/item/armor_module/module/antenna,
-		/obj/item/armor_module/module/motion_detector,
-		/obj/item/armor_module/module/night_vision,
-		/obj/item/armor_module/storage/helmet,
-		/obj/item/armor_module/armor/badge,
-		/obj/item/armor_module/armor/visor/marine/xenonaut,
-	)
 
 /obj/item/clothing/head/modular/m10x/leader
 	name = "\improper M11X pattern leader helmet"

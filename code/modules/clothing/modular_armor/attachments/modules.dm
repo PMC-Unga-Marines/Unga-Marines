@@ -482,14 +482,16 @@
 		return
 	var/alpha_mod = user.alpha * 0.95
 	user.alpha -= alpha_mod
+	ADD_TRAIT(user, TRAIT_STEALTH, TRAIT_STEALTH)
 	var/mob/illusion/mirage_nade/fake = new(get_turf(user), user, null, 15 SECONDS)
-	addtimer(CALLBACK(src, PROC_REF(end_mirage), user, alpha_mod, fake), 15)
+	addtimer(CALLBACK(src, PROC_REF(end_mirage), user, alpha_mod, fake), 1.5 SECONDS)
 	COOLDOWN_START(src, mirage_cooldown, 30 SECONDS)
 
 /// just cleans up the alpha on both the user and the fake
 /obj/item/armor_module/module/mirage/proc/end_mirage(mob/user, alpha_mod, mob/illusion/mirage_nade/fake)
 	user.alpha += alpha_mod
 	fake.alpha = user.alpha
+	REMOVE_TRAIT(user, TRAIT_STEALTH, TRAIT_STEALTH)
 
 #define ARMORLOCK_DURATION 6 SECONDS
 #define ARMORLOCK_SIEMENS_COEFF -0.9
