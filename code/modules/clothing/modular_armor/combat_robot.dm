@@ -15,33 +15,18 @@
 	greyscale_config = /datum/greyscale_config/robot
 	greyscale_colors = ARMOR_PALETTE_DRAB
 
-	attachments_allowed = list(
-		/obj/item/armor_module/module/better_shoulder_lamp,
-		/obj/item/armor_module/module/pluto,
-		/obj/item/armor_module/module/fire_proof,
-		/obj/item/armor_module/module/tyr_extra_armor,
-		/obj/item/armor_module/module/tyr_extra_armor/mark1,
-		/obj/item/armor_module/module/ballistic_armor,
-		/obj/item/armor_module/module/eshield,
-		/obj/item/armor_module/module/mirage,
-		/obj/item/armor_module/module/armorlock,
-
-		/obj/item/armor_module/storage/general,
-		/obj/item/armor_module/storage/ammo_mag,
-		/obj/item/armor_module/storage/engineering,
-		/obj/item/armor_module/storage/medical,
-		/obj/item/armor_module/storage/general/som,
-		/obj/item/armor_module/storage/engineering/som,
-		/obj/item/armor_module/storage/medical/som,
-		/obj/item/armor_module/storage/injector,
-		/obj/item/armor_module/storage/grenade,
-		/obj/item/armor_module/storage/integrated,
-		/obj/item/armor_module/armor/badge,
-	)
-
 	allowed_uniform_type = /obj/item/clothing/under/marine/robotic
 
 	item_map_variant_flags = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
+
+/obj/item/clothing/suit/modular/robot/generate_attachments_allowed()
+	attachments_allowed = general_list_of_marine_modules
+	attachments_allowed -= list( // useless for robots modules
+		/obj/item/armor_module/module/valkyrie_autodoc,
+		/obj/item/armor_module/module/mimir_environment_protection,
+		/obj/item/armor_module/module/mimir_environment_protection/mark1,
+		/obj/item/armor_module/module/chemsystem,
+	)
 
 /obj/item/clothing/suit/modular/robot/mob_can_equip(mob/user, slot, warning = TRUE, override_nodrop = FALSE, bitslot = FALSE)
 	. = ..()

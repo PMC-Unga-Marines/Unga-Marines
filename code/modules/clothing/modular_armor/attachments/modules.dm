@@ -464,13 +464,6 @@
 	name = "\improper Aegis Energy Dispersion Module"
 	desc = "A sophisticated shielding unit, designed to disperse the energy of incoming impacts, rendering them harmless to the user. If it sustains too much it will deactivate, and leave the user vulnerable. It is unclear if this was a purely  SOM designed module, or whether it was reverse engineered from the TGMC's 'Svalinn' shield system which was developed around the same time."
 
-/obj/item/armor_module/module/eshield/som/overclocked
-	max_shield_health = 75
-	damaged_shield_cooldown = 5 SECONDS
-	shield_color_low = COLOR_MAROON
-	shield_color_mid = LIGHT_COLOR_RED_ORANGE
-	shield_color_full = LIGHT_COLOR_ELECTRIC_CYAN
-
 /obj/item/armor_module/module/mirage
 	name = "\improper Loki Illusion Module"
 	desc = "Designed for mounting on modular armor. This module creates a holographic projection of the user, which can be used to distract enemies and draw their fire when the user is hit."
