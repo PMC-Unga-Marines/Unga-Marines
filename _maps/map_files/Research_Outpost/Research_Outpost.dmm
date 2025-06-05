@@ -6298,10 +6298,6 @@
 	dir = 8
 	},
 /area/outpost/hallway/central)
-"Bm" = (
-/obj/structure/nuke_disk_candidate,
-/turf/open/floor/tile/dark/red2,
-/area/outpost/brig/wardens_office)
 "Bn" = (
 /turf/open/floor/plating/asteroidwarning{
 	dir = 4
@@ -23229,7 +23225,7 @@ Qo
 lp
 zg
 Tp
-Bm
+FG
 yY
 tz
 tx
