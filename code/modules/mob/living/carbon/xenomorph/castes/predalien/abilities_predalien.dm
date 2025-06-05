@@ -45,7 +45,7 @@
 
 /datum/action/ability/activable/xeno/predalien_roar/use_ability(atom/target)
 	playsound(xeno_owner.loc, pick(predalien_roar), 75, 0)
-	xeno_owner.visible_message(span_xenohighdanger("[xeno_owner] emits a guttural roar!"))
+	xeno_owner.visible_message(span_xenouserdanger("[xeno_owner] emits a guttural roar!"))
 	xeno_owner.create_shriekwave(color = "#FF0000")
 
 	for(var/mob/living/carbon/carbon in view(7, xeno_owner))
@@ -119,7 +119,7 @@
 
 /datum/action/ability/activable/xeno/smash/use_ability(atom/target)
 	playsound(xeno_owner.loc, pick(smash_sounds), 50, 0)
-	xeno_owner.visible_message(span_xenohighdanger("[xeno_owner] smashes into the ground!"))
+	xeno_owner.visible_message(span_xenouserdanger("[xeno_owner] smashes into the ground!"))
 
 	xeno_owner.create_stomp()
 
@@ -186,7 +186,7 @@
 	xeno_owner.Immobilize(30 SECONDS)
 
 	if(do_after(xeno_owner, activation_delay, NONE, carbon, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE))
-		xeno_owner.visible_message(span_xenohighdanger("[xeno_owner] rips open the guts of [carbon]!"), span_xenohighdanger("You rip open the guts of [carbon]!"))
+		xeno_owner.visible_message(span_xenouserdanger("[xeno_owner] rips open the guts of [carbon]!"), span_xenouserdanger("You rip open the guts of [carbon]!"))
 		carbon.spawn_gibs()
 		playsound(get_turf(carbon), 'sound/effects/gibbed.ogg', 75, 1)
 		carbon.apply_effect(0.5, WEAKEN)
