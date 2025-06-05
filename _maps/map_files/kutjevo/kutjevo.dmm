@@ -4533,10 +4533,6 @@
 	},
 /turf/open/floor/kutjevo/colors/green,
 /area/kutjevo/interior/complex/botany)
-"ePb" = (
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/plating/ground/desertdam/asphalt/cement_sunbleached,
-/area/kutjevo/exterior/Northwest_Colony)
 "ePn" = (
 /obj/structure/platform/metalplatform{
 	dir = 8
@@ -5548,11 +5544,6 @@
 	dir = 4
 	},
 /area/kutjevo/interior/colony_South/power2)
-"fTN" = (
-/obj/structure/rock/variable/tinyrock,
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/plating/ground/mars/random/sand,
-/area/kutjevo/exterior/Northwest_Colony)
 "fTV" = (
 /obj/machinery/computer/emails{
 	dir = 4
@@ -31972,7 +31963,7 @@ dxF
 cTz
 cTz
 cTz
-clc
+cTz
 cTz
 tIF
 dxF
@@ -32599,7 +32590,7 @@ ddH
 ddH
 ddH
 ddH
-oXl
+vXd
 vXd
 iCG
 ddH
@@ -32647,7 +32638,7 @@ kIh
 ePx
 ePx
 ePx
-clc
+cTz
 onM
 bIg
 cTz
@@ -33225,7 +33216,7 @@ soL
 sVF
 sVF
 huR
-ePb
+huR
 huR
 sVF
 sVF
@@ -33574,7 +33565,7 @@ sVF
 sVF
 sVF
 xrT
-ett
+sVF
 sVF
 hLi
 soL
@@ -33754,7 +33745,7 @@ pBi
 nEs
 iin
 oTF
-fTN
+iin
 iin
 tvJ
 soL
@@ -34209,7 +34200,7 @@ soL
 soL
 soL
 sVF
-ett
+sVF
 ahM
 dxF
 dxF
@@ -35493,7 +35484,7 @@ cTz
 cTz
 xJg
 xJg
-xOc
+xJg
 xJg
 vea
 vea
@@ -35801,7 +35792,7 @@ fId
 jJe
 cTz
 cTz
-clc
+cTz
 cTz
 cTz
 hii
@@ -37816,7 +37807,7 @@ vea
 vea
 xJg
 xJg
-xOc
+xJg
 xue
 xJg
 xJg
@@ -41659,7 +41650,7 @@ vea
 vea
 vea
 xJg
-xOc
+xJg
 xJg
 xJg
 wwk
