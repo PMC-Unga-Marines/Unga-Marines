@@ -552,7 +552,7 @@
 	var/turn_rate = 5
 
 /datum/ammo/rocket/homing/drop_nade(turf/target_turf)
-	cell_explosion(target_turf, 180, 45)
+	cell_explosion(target_turf, 165, 45)
 
 /datum/ammo/rocket/homing/ammo_process(obj/projectile/proj, damage)
 	if(QDELETED(proj.original_target))
@@ -575,8 +575,8 @@
 	sundering = 10
 	turn_rate = 10
 
-/datum/ammo/rocket/homing/drop_nade(turf/T)
-	cell_explosion(T, 250, 75)
+/datum/ammo/rocket/homing/microrocket/drop_nade(turf/T)
+	cell_explosion(T, 50, 15)
 
 /datum/ammo/rocket/homing/tow
 	name = "TOW-III missile"
