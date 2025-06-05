@@ -1625,7 +1625,7 @@
 	description = "Re-grow is rare and unusual drug that stimulates the rapid (and horrifically painful) regeneration of missing limbs."
 	color = COLOR_REAGENT_SYNAPTIZINE
 	overdose_threshold = REAGENTS_OVERDOSE*0.2
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICA*0.2
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL*0.2
 	custom_metabolism = REAGENTS_METABOLISM * 5
 
 /datum/reagent/medicine/regrow/on_mob_add(mob/living/L, metabolism)
@@ -1641,17 +1641,17 @@
 		to_chat(human, span_userdanger("You feel unbelievable pain as your [limb.display_name] regrows before your eyes!"))
 		human.jitter(10)
 		human.Paralyze(1 SECONDS)
-		human.adjustStaminaLoss(20)
+		human.adjust_stamina_loss(20)
 	if(!limb_regrown)
 		return
 	human.emote("burstscream")
 	human.update_body()
-	human.updatehealth()
+	human.update_health()
 	human.UpdateDamageIcon()
 
 /datum/reagent/medicine/regrow/on_mob_life(mob/living/L, metabolism)
 	L.reagent_shock_modifier -= PAIN_REDUCTION_SUPER_HEAVY
-	L.adjustToxLoss(effect_str * 2)
+	L.adjust_tox_loss(effect_str * 2)
 	return ..()
 
 /datum/reagent/medicine/regrow/overdose_process(mob/living/L, metabolism)

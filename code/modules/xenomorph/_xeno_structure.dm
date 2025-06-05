@@ -128,12 +128,7 @@
 			var/mob/living/carbon/xenomorph/xeno_triggerer = hostile
 			if(xeno_triggerer.hive == GLOB.hive_datums[hivenumber]) //Trigger proxy alert only for hostile xenos
 				return
-
-	if(isvehicle(hostile))
-		var/obj/vehicle/vehicle_triggerer = hostile
-		if(vehicle_triggerer.trigger_gargoyle == FALSE)
-			return
-
+			
 	threat_warning = TRUE
 	GLOB.hive_datums[hivenumber].xeno_message("Our [name] has detected a nearby hostile [hostile] at [get_area(hostile)] (X: [hostile.x], Y: [hostile.y]).", "xenoannounce", 5, FALSE, hostile, 'sound/voice/alien/help1.ogg', FALSE, null, /atom/movable/screen/arrow/leader_tracker_arrow)
 	COOLDOWN_START(src, proxy_alert_cooldown, XENO_STRUCTURE_DETECTION_COOLDOWN)
