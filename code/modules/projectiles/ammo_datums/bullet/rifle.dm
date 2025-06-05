@@ -22,7 +22,7 @@
 	ammo_behavior_flags = AMMO_BALLISTIC
 	accurate_range = 20
 	damage = 20
-	penetration = 25
+	penetration = 15
 	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/rifle/hv
