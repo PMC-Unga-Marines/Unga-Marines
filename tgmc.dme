@@ -537,6 +537,7 @@
 #include "code\datums\emergency_calls\xenozeta.dm"
 #include "code\datums\gamemodes\_game_mode.dm"
 #include "code\datums\gamemodes\crash.dm"
+#include "code\datums\gamemodes\distro_crash.dm"
 #include "code\datums\gamemodes\distress.dm"
 #include "code\datums\gamemodes\extended.dm"
 #include "code\datums\gamemodes\extermination.dm"
