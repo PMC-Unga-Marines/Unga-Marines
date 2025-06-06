@@ -492,7 +492,7 @@
 	action_icon_state = "emit_pheromones"
 	action_icon = 'icons/Xeno/actions/general.dmi'
 	ability_cost = 30
-	use_state_flags = ABILITY_USE_STAGGERED|ABILITY_USE_NOTTURF|ABILITY_USE_BUSY|ABILITY_USE_LYING
+	use_state_flags = ABILITY_USE_STAGGERED|ABILITY_USE_NOTTURF|ABILITY_USE_BUSY|ABILITY_USE_LYING|ABILITY_USE_BUCKLED
 
 /datum/action/ability/xeno_action/pheromones/proc/apply_pheros(phero_choice)
 	if(xeno_owner.current_aura && xeno_owner.current_aura.aura_types[1] == phero_choice)
