@@ -165,50 +165,41 @@
 	. = ..()
 	if(.)
 		return
+	var/obj/item/clothing/glasses/our_glasses
+
 	if(istype(our_item, /obj/item/clothing/glasses/night/imager_goggles))
-		var/obj/item/clothing/glasses/night/optgoggles/our_glasses
 		if(prescription)
 			our_glasses = new /obj/item/clothing/glasses/night/optgoggles/prescription
-			to_chat(user, span_notice("You fasten the optical imaging scanner to the inside of the goggles."))
 		else
 			our_glasses = new /obj/item/clothing/glasses/night/optgoggles
-			to_chat(user, span_notice("You fasten the optical imaging scanner to the inside of the goggles."))
-		qdel(our_item)
-		qdel(src)
-		user.put_in_hands(our_glasses)
-		update_icon(user)
+		to_chat(user, span_notice("You fasten the optical imaging scanner to the inside of the goggles."))
+
+	else if(istype(our_item, /obj/item/clothing/glasses/hud/health))
+		if(prescription)
+			our_glasses = new /obj/item/clothing/glasses/hud/medgoggles/prescription
+		else
+			our_glasses = new /obj/item/clothing/glasses/hud/medgoggles
+		to_chat(user, span_notice("You fasten the medical hud projector to the inside of the goggles."))
+
+	else if(istype(our_item, /obj/item/clothing/glasses/meson))
+		if(prescription)
+			our_glasses = new /obj/item/clothing/glasses/meson/enggoggles/prescription
+		else
+			our_glasses = new /obj/item/clothing/glasses/meson/enggoggles
+		to_chat(user, span_notice("You fasten the optical meson scanner to the inside of the goggles."))
+
+	if(!our_glasses)
+		return
+
+	qdel(our_item)
+	qdel(src)
+	user.put_in_hands(our_glasses)
+	update_icon()
 
 /obj/item/clothing/glasses/mgoggles/prescription
 	name = "prescription marine ballistic goggles"
 	desc = "Standard issue TGMC goggles. Mostly used to decorate one's helmet. Contains prescription lenses in case you weren't sure if they were lame or not."
 	prescription = TRUE
-
-/obj/item/clothing/glasses/mgoggles/attackby(obj/item/I, mob/user, params)
-	. = ..()
-	if(.)
-		return
-
-	var/obj/item/clothing/glasses/our_glasses
-	if(istype(I, /obj/item/clothing/glasses/hud/health))
-		if(prescription)
-			our_glasses = new /obj/item/clothing/glasses/hud/medsunglasses
-			to_chat(user, span_notice("You fasten the medical hud projector to the inside of the goggles."))
-		else
-			our_glasses = new /obj/item/clothing/glasses/meson/sunglasses
-			to_chat(user, span_notice("You fasten the medical hud projector to the inside of the goggles."))
-	else if(istype(I, /obj/item/clothing/glasses/meson))
-		if(prescription)
-			our_glasses = new /obj/item/clothing/glasses/night/sunglasses
-			to_chat(user, span_notice("You fasten the optical meson scanner to the inside of the goggles."))
-		else
-			our_glasses = new /obj/item/clothing/glasses/night/imager_goggles/sunglasses
-			to_chat(user, span_notice("You fasten the optical meson scanner to the inside of the goggles."))
-	if(!our_glasses)
-		return
-	qdel(I)
-	qdel(src)
-	user.put_in_hands(our_glasses)
-	update_icon()
 
 /obj/item/clothing/glasses/m42_goggles
 	name = "\improper M42 scout sight"
