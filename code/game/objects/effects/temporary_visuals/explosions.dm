@@ -266,12 +266,12 @@
 	if(iswater(get_turf(src)))
 		icon_state = null
 		return
-	var/image/I
-	if(tiny)
+	var/image/our_image
+	if(radius <= 1)
 		icon = 'icons/effects/64x64.dmi'
-		I = image(icon, src, icon_state, 10, -16, -16)
+		our_image = image(icon, src, icon_state, 10, -16, -16)
 	else
-		I = image(icon, src, icon_state, 10, -32, -32)
+		our_image = image(icon, src, icon_state, 10, -32, -32)
 	var/matrix/rotate = matrix()
 	rotate.Turn(rand(0, 359))
 	our_image.transform = rotate
@@ -309,6 +309,10 @@
 
 	smoke_wave.particles.velocity = generator(GEN_CIRCLE, rand(3, 8) * radius, rand(3, 8) * radius)
 	explosion_smoke.layer = layer + 0.1
+
+	sparks.particles.velocity = generator(GEN_CIRCLE, 8 * radius, 8 * radius)
+	addtimer(CALLBACK(src, PROC_REF(set_count_short)), 5)
+	addtimer(CALLBACK(src, PROC_REF(set_count_long)), 10)
 
 /obj/effect/temp_visual/explosion/proc/set_count_short()
 	smoke_wave.particles.count = 0
