@@ -171,11 +171,9 @@
 /datum/action/ability/activable/item_toggle/jetpack
 	name = "Use jetpack"
 	desc = "Briefly fly using your jetpack."
-	action_icon = 'icons/mob/actions.dmi'
-	action_icon_state = ""
-	keybind_flags = ABILITY_USE_STAGGERED|ABILITY_USE_BUSY
+	action_icon_state = "123" // for whatever fucking reason, there's no proper icon state without this bullshit
+	use_state_flags = ABILITY_USE_STAGGERED|ABILITY_USE_BUSY
 	keybinding_signals = list(KEYBINDING_NORMAL = COMSIG_ITEM_TOGGLE_JETPACK)
-	use_state_flags = ABILITY_USE_STAGGERED
 
 /datum/action/ability/activable/item_toggle/jetpack/New(Target, obj/item/holder)
 	. = ..()
