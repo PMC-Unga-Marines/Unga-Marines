@@ -98,7 +98,7 @@
 
 /datum/ammo/bullet/tank_apfds/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	proj.proj_max_range -= 2
-	if(ishuman(target_mob) && prob(35))
+	if(ishuman(target_mob) && !(target_mob.status_flags & GODMODE) &&  prob(35))
 		target_mob.gib()
 
 /datum/ammo/bullet/tank_apfds/on_hit_obj(obj/target_object, obj/projectile/proj)
@@ -637,7 +637,7 @@
 	cell_explosion(target_turf, 350, 75)
 
 /datum/ammo/rocket/coilgun/high/on_hit_mob(mob/target_mob, obj/projectile/proj)
-	if(ishuman(target_mob) && prob(50))
+	if(ishuman(target_mob) && !(target_mob.status_flags & GODMODE) &&  prob(50))
 		target_mob.gib()
 		proj.proj_max_range -= 5
 		return
