@@ -202,7 +202,7 @@
 			visible_message(span_danger("[human_user] attempted to disarm [src]!"), null, null, 5)
 			log_combat(human_user, src, "missed a disarm")
 
-/mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
+/mob/living/carbon/human/proc/afterattack(atom/target, mob/living/user, inrange, params)
 	return
 
 

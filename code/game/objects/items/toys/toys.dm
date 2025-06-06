@@ -350,7 +350,7 @@
 	throw_speed = 1
 	throw_range = 20
 
-/obj/item/toy/beach_ball/afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
+/obj/item/toy/beach_ball/afterattack(atom/target, mob/user)
 	user.drop_held_item()
 	throw_at(target, throw_range, throw_speed, user)
 

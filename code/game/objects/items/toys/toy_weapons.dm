@@ -46,7 +46,7 @@
 		return 1
 	return
 
-/obj/item/toy/gun/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
+/obj/item/toy/gun/afterattack(atom/target, mob/user, flag)
 	if (flag)
 		return
 	if (src.bullets < 1)
@@ -101,8 +101,7 @@
 		else
 			to_chat(usr, span_warning("It's already fully loaded."))
 
-
-/obj/item/toy/crossbow/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
+/obj/item/toy/crossbow/afterattack(atom/target, mob/user, flag)
 	if(!isturf(target.loc) || target == user) return
 	if(flag) return
 

@@ -98,7 +98,7 @@
 	name = "gunner seat"
 
 /obj/structure/bed/chair/vehicle_crew/gunner/get_vis_range_mod()
-	return (SSticker.mode?.round_type_flags & MODE_HUMAN_ONLY) ? 4 : 1
+	return 4
 
 /obj/structure/bed/chair/vehicle_crew/gunner/post_buckle_mob(mob/buckling_mob)
 	. = ..()
