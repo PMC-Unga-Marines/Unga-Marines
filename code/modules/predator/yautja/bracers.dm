@@ -140,7 +140,7 @@
 
 /obj/item/clothing/gloves/yautja/proc/owner_teleported()
 	SIGNAL_HANDLER
-	
+
 	if(cloaked)
 		decloak(owner)
 	update_minimap_icon()
@@ -1060,9 +1060,8 @@
 	. = ..()
 	if(slot != SLOT_GLOVES)
 		move_chip_to_bracer()
-	else
-		if(embedded_id?.registered_name)
-			embedded_id.set_user_data(user)
+	else if(embedded_id?.registered_name)
+		embedded_id.set_user_data(user)
 
 /obj/item/clothing/gloves/yautja/hunter/process()
 	if(!ishuman(loc))

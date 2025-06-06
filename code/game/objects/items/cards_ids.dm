@@ -203,42 +203,19 @@
 	worn_icon_state = "dogtag"
 	iff_signal = TGMC_LOYALIST_IFF
 	marine_points = list(CAT_MARINE = MARINE_TOTAL_BUY_POINTS)
-	var/dogtag_taken = FALSE
 
-/obj/item/card/id/dogtag/update_icon_state()
+/obj/item/card/id/dogtag/examine(mob/user)
 	. = ..()
-	if(dogtag_taken)
-		icon_state = initial(icon_state) + "_taken"
-		return
-	icon_state = initial(icon_state)
+	if(ishuman(user))
+		. += span_notice("It reads: \"[registered_name] - [assignment] - [blood_type]\"")
 
 /obj/item/card/id/dogtag/canStrip(mob/stripper, mob/owner)
 	. = ..()
 	if(!.)
 		return
-	if(stripper.faction != owner.faction)
-		return TRUE // so enemy factions don't take info tags
-	if(dogtag_taken)
-		stripper.balloon_alert(stripper, "Info tag already taken")
+	if(stripper.faction == owner.faction && owner.stat != DEAD) // no grief please
+		stripper.balloon_alert(stripper, "[owner.name] isn't dead yet")
 		return FALSE
-	if(owner.stat != DEAD)
-		stripper.balloon_alert(stripper, "[owner] isn't dead yet")
-		return FALSE
-
-/obj/item/card/id/dogtag/special_stripped_behavior(mob/stripper, mob/owner)
-	if(stripper.faction != owner.faction)
-		return FALSE // so enemy factions ignore info tags
-	if(dogtag_taken)
-		return TRUE
-	stripper.balloon_alert(stripper, "Took info tag")
-	to_chat(stripper, span_notice("You take [owner]'s information tag, leaving the ID tag."))
-	dogtag_taken = TRUE
-	update_icon()
-	var/obj/item/dogtag/info_tag = new()
-	info_tag.fallen_names = list(registered_name)
-	info_tag.fallen_assignments = list(assignment)
-	stripper.put_in_hands(info_tag)
-	return TRUE
 
 // Vendor points for job override
 /obj/item/card/id/dogtag/smartgun
@@ -277,50 +254,3 @@
 	icon_state = "dogtag_som"
 	worn_icon_state = "dogtag_som"
 	iff_signal = SOM_IFF
-
-/obj/item/card/id/dogtag/examine(mob/user)
-	. = ..()
-	if(ishuman(user))
-		. += span_notice("It reads \"[registered_name] - [assignment] - [blood_type]\"")
-
-/obj/item/dogtag
-	name = "information dog tag"
-	desc = "A fallen marine's information dog tag."
-	icon_state = "dogtag_taken"
-	icon = 'icons/obj/items/card.dmi'
-	w_class = WEIGHT_CLASS_TINY
-	var/fallen_names[0]
-	var/fallen_assignments[0]
-
-/obj/item/dogtag/attackby(obj/item/I, mob/user, params)
-	. = ..()
-	if(.)
-		return
-
-	if(istype(I, /obj/item/dogtag))
-		var/obj/item/dogtag/D = I
-		to_chat(user, span_notice("You join the two tags together."))
-		name = "information dog tags"
-		if(D.fallen_names)
-			fallen_names += D.fallen_names
-		if(D.fallen_assignments)
-			fallen_assignments += D.fallen_assignments
-		qdel(D)
-		return TRUE
-
-/obj/item/dogtag/examine(mob/user)
-	. = ..()
-	if(ishuman(user) && fallen_names && length(fallen_names))
-		if(length(fallen_names) == 1)
-			to_chat(user, span_notice("It reads: \"[fallen_names[1]] - [fallen_assignments[1]]\"."))
-		else
-			var/msg = "<span class='notice'> It reads: "
-			for(var/x = 1 to length(fallen_names))
-				if (x == length(fallen_names))
-					msg += "\"[fallen_names[x]] - [fallen_assignments[x]]\""
-				else
-					msg += "\"[fallen_names[x]] - [fallen_assignments[x]]\", "
-
-			msg += ".</span>"
-
-			to_chat(user, msg)
