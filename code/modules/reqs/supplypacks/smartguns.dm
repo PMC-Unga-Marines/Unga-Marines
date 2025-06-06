@@ -49,7 +49,7 @@
 	cost = 150
 
 /datum/supply_packs/smartguns/sg62
-	name = "SG-62 Smart Target Rifle"
+	name = "SG-62 smart target rifle"
 	contains = list(/obj/item/weapon/gun/rifle/sg62)
 	cost = 400
 

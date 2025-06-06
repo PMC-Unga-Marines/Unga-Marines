@@ -3,7 +3,7 @@
 	containertype = /obj/structure/closet/crate/operations
 
 /datum/supply_packs/operations/standard_ammo
-	name = "Surplus Standard Ammo Crate"
+	name = "Surplus standard ammo crate"
 	notes = "Contains 22 ammo boxes of a wide variety which come prefilled. You lazy bum."
 	contains = list(/obj/structure/largecrate/supply/ammo/standard_ammo)
 	containertype = null
@@ -49,7 +49,7 @@
 	crash_restricted = TRUE
 
 /datum/supply_packs/operations/bincoulars_rangefinder
-	name = "Rangefinding Binoculars"
+	name = "Rangefinding binoculars"
 	contains = list(
 		/obj/item/binoculars/tactical/range,
 		/obj/item/encryptionkey/cas,
@@ -70,7 +70,7 @@
 	cost = 130
 
 /datum/supply_packs/operations/deployable_camera
-	name = "3 Deployable Cameras"
+	name = "3 Deployable cameras"
 	contains = list(
 		/obj/item/deployable_camera,
 		/obj/item/deployable_camera,
@@ -79,7 +79,7 @@
 	cost = 20
 
 /datum/supply_packs/operations/exportpad
-	name = "ASRS Bluespace Export Point"
+	name = "ASRS bluespace export point"
 	contains = list(/obj/machinery/exportpad)
 	cost = 300
 
@@ -117,14 +117,14 @@
 	crash_restricted = TRUE
 
 /datum/supply_packs/operations/droppod
-	name = "drop pod"
+	name = "Zeus orbital drop pod"
 	contains = list(/obj/structure/droppod)
 	containertype = null
 	cost = 50
 	crash_restricted = TRUE
 
 /datum/supply_packs/operations/droppod_leader
-	name = "leader drop pod"
+	name = "Zeus command drop pod"
 	contains = list(/obj/structure/droppod/leader)
 	containertype = null
 	cost = 100

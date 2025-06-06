@@ -3,7 +3,7 @@
 	containertype = /obj/structure/closet/crate/supply
 
 /datum/supply_packs/engineering/powerloader
-	name = "RPL-Y Cargo Loader"
+	name = "RPL-Y cargo loader"
 	contains = list(/obj/vehicle/ridden/powerloader)
 	cost = 200
 	containertype = null
@@ -44,22 +44,22 @@
 	cost = 300
 
 /datum/supply_packs/engineering/handheld_charger
-	name = "handheld charger"
+	name = "Handheld charger"
 	contains = list(/obj/item/tool/handheld_charger)
 	cost = 80
 
 /datum/supply_packs/engineering/plasmacutter
-	name = "plasma cutter"
+	name = "Plasma cutter"
 	contains = list(/obj/item/tool/pickaxe/plasmacutter/)
 	cost = 300
 
 /datum/supply_packs/engineering/quikdeploycade
-	name = "quikdeploy barricade"
+	name = "Quikdeploy barricade"
 	contains = list(/obj/item/quikdeploy/cade)
 	cost = 30
 
 /datum/supply_packs/engineering/pacman
-	name = "P.A.C.M.A.N. Portable Generator"
+	name = "P.A.C.M.A.N. portable generator"
 	contains = list(/obj/machinery/power/port_gen/pacman)
 	cost = 150
 	containertype = null
@@ -70,7 +70,7 @@
 	cost = 200
 
 /datum/supply_packs/engineering/electrical
-	name = "electrical maintenance supplies"
+	name = "Electrical maintenance supplies"
 	contains = list(
 		/obj/item/storage/toolbox/electrical,
 		/obj/item/clothing/gloves/insulated,
@@ -80,7 +80,7 @@
 	cost = 50
 
 /datum/supply_packs/engineering/mechanical
-	name = "mechanical maintenance crate"
+	name = "Mechanical maintenance crate"
 	contains = list(
 		/obj/item/storage/belt/utility/full,
 		/obj/item/storage/belt/utility/full,
@@ -95,36 +95,36 @@
 	cost = 100
 
 /datum/supply_packs/engineering/fueltank
-	name = "fuel tank"
+	name = "Fuel tank"
 	contains = list(/obj/structure/reagent_dispensers/fueltank)
 	cost = 100
 	containertype = null
 
 /datum/supply_packs/engineering/watertank
-	name = "Water Tank"
+	name = "Water tank"
 	contains = list(/obj/structure/reagent_dispensers/watertank)
 	cost = 50
 	containertype = null
 
 /datum/supply_packs/engineering/inflatable
-	name = "inflatable barriers"
+	name = "Inflatable barriers"
 	notes = "Contains 3 doors and 4 walls"
 	contains = list(/obj/item/storage/briefcase/inflatable)
 	cost = 50
 
 /datum/supply_packs/engineering/lightbulbs
-	name = "replacement lights"
+	name = "Replacement lights"
 	notes = "Contains 14 tubes, 7 bulbs"
 	contains = list(/obj/item/storage/box/lights/mixed)
 	cost = 50
 
 /datum/supply_packs/engineering/foam_grenade
-	name = "Foam Grenade"
+	name = "Foam grenade"
 	contains = list(/obj/item/explosive/grenade/chem_grenade/metalfoam)
 	cost = 30
 
 /datum/supply_packs/engineering/floodlight
-	name = "Deployable Floodlight"
+	name = "Deployable floodlight"
 	contains = list(/obj/item/deployable_floodlight)
 	cost = 30
 

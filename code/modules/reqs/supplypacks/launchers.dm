@@ -3,12 +3,12 @@
 	group = "Launchers"
 
 /datum/supply_packs/launchers/rpgoneuse
-	name = "RL-72 Disposable RPG"
+	name = "RL-72 disposable RPG"
 	contains = list(/obj/item/weapon/gun/launcher/rocket/oneuse)
 	cost = 100
 
 /datum/supply_packs/launchers/recoillesskit
-	name = "RL-160 Recoilless rifle kit"
+	name = "RL-160 recoilless rifle kit"
 	contains = list(/obj/item/storage/holster/backholster/rpg/full)
 	cost = 400
 
@@ -28,37 +28,37 @@
 	cost = 30
 
 /datum/supply_packs/launchers/shell_smoke
-	name = "RL-160 RR Smoke shell"
+	name = "RL-160 RR smoke shell"
 	contains = list(/obj/item/ammo_magazine/rocket/recoilless/smoke)
 	cost = 30
 
 /datum/supply_packs/launchers/shell_cloak
-	name = "RL-160 RR Cloak shell"
+	name = "RL-160 RR cloak shell"
 	contains = list(/obj/item/ammo_magazine/rocket/recoilless/cloak)
 	cost = 30
 
 /datum/supply_packs/launchers/shell_tangle
-	name = "RL-160 RR Tanglefoot shell"
+	name = "RL-160 RR tanglefoot shell"
 	contains = list(/obj/item/ammo_magazine/rocket/recoilless/plasmaloss)
 	cost = 30
 
 /datum/supply_packs/launchers/thermobaric
-	name = "RL-57 Thermobaric Launcher"
+	name = "RL-57 quad thermobaric launcher"
 	contains = list(/obj/item/weapon/gun/launcher/rocket/m57a4/t57)
 	cost = 500
 
 /datum/supply_packs/launchers/thermobaric_wp
-	name = "RL-57 Thermobaric WP rocket array"
+	name = "RL-57 thermobaric WP rocket array"
 	contains = list(/obj/item/ammo_magazine/rocket/m57a4)
 	cost = 50
 
 /datum/supply_packs/launchers/thermobaric
-	name = "RL-57 Thermobaric Launcher Kit"
+	name = "RL-57 thermobaric launcher kit"
 	contains = list(/obj/item/storage/holster/backholster/rlquad/full)
 	cost = 550 //launcher + ammo price
 
 /datum/supply_packs/launchers/sadar
-	name = "RL-152 SADAR Rocket Launcher"
+	name = "RL-152 SADAR rocket launcher"
 	contains = list(/obj/item/weapon/gun/launcher/rocket/sadar)
 	cost = SADAR_PRICE
 
@@ -68,7 +68,7 @@
 	cost = 50
 
 /datum/supply_packs/launchers/rpg_regular_unguided
-	name = "RL-152 SADAR HE rocket (Unguided)"
+	name = "RL-152 SADAR HE rocket (unguided)"
 	contains = list(/obj/item/ammo_magazine/rocket/sadar/unguided)
 	cost = 50
 
@@ -83,12 +83,12 @@
 	cost = 40
 
 /datum/supply_packs/launchers/rpg_wp_unguided
-	name = "RL-152 SADAR WP rocket (Unguided)"
+	name = "RL-152 SADAR WP rocket (unguided)"
 	contains = list(/obj/item/ammo_magazine/rocket/sadar/wp/unguided)
 	cost = 40
 
 /datum/supply_packs/launchers/specdemo
-	name = "RL-152 SADAR Rocket Launcher kit"
+	name = "RL-152 SADAR rocket launcher kit"
 	contains = list(/obj/item/storage/holster/backholster/rlsadar/full)
 	cost = SADAR_PRICE + 150 //ammo price
 

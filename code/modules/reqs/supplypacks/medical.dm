@@ -15,21 +15,21 @@
 	cost = 300
 
 /datum/supply_packs/medical/biomass
-	name = "biomass crate"
+	name = "Biomass beaker"
 	contains = list(
 		/obj/item/reagent_containers/glass/beaker/biomass,
 	)
 	cost = 150
 
 /datum/supply_packs/medical/Medical_hud
-	name = "Medical Hud Crate"
+	name = "Healthmate medical hud"
 	contains = list(
 		/obj/item/clothing/glasses/hud/health,
 	)
 	cost = 20
 
 /datum/supply_packs/medical/medical
-	name = "Pills and Chemicals"
+	name = "Pills and chemicals"
 	contains = list(
 		/obj/item/storage/box/autoinjectors,
 		/obj/item/storage/box/syringes,
@@ -53,43 +53,41 @@
 	cost = 100
 
 /datum/supply_packs/medical/firstaid
-	name = "advanced first aid kit"
+	name = "Advanced first aid kit"
 	contains = list(/obj/item/storage/firstaid/adv)
 	cost = 50
 
 /datum/supply_packs/medical/bodybag
-	name = "body bags"
+	name = "Body bags"
 	notes = "Contains 7 bodybags"
 	contains = list(/obj/item/storage/box/bodybags)
 	cost = 50
 
 /datum/supply_packs/medical/cryobag
-	name = "stasis bag"
+	name = "Stasis bag"
 	contains = list(/obj/item/bodybag/cryobag)
 	cost = 50
 
 /datum/supply_packs/medical/surgery
-	name = "surgical equipment"
+	name = "Surgical equipment"
 	contains = list(
 		/obj/item/storage/surgical_tray,
 		/obj/item/clothing/mask/breath/medical,
 		/obj/item/tank/anesthetic,
-		/obj/item/reagent_containers/hypospray/autoinjector/sleeptoxin,
-		/obj/item/reagent_containers/hypospray/autoinjector/sleeptoxin,
 	)
 	cost = 100
 	access = ACCESS_MARINE_MEDBAY
 	containertype = /obj/structure/closet/crate/secure/surgery
 
 /datum/supply_packs/medical/hypospray
-	name = "advanced hypospray"
+	name = "Advanced hypospray"
 	contains = list(/obj/item/reagent_containers/hypospray/advanced)
 	cost = 50
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
 
 /datum/supply_packs/medical/hypospray
-	name = "advanced big hypospray"
+	name = "Advanced big hypospray"
 	contains = list(/obj/item/reagent_containers/hypospray/advanced/big)
 	cost = 120 //just a little over the regular hypo.
 	containertype = /obj/structure/closet/crate/secure/surgery
@@ -106,7 +104,7 @@
 	access = ACCESS_MARINE_MEDBAY
 
 /datum/supply_packs/medical/lemolime
-	name = "lemoline"
+	name = "Lemoline bottle"
 	notes = "Contains 1 bottle of lemoline with 30 units each."
 	contains = list(
 		/obj/item/reagent_containers/glass/bottle/lemoline/doctor,
@@ -138,7 +136,7 @@
 	access = ACCESS_MARINE_MEDBAY
 
 /datum/supply_packs/medical/tweezers
-	name = "tweezers"
+	name = "Tweezers"
 	notes = "contains a pair of tweezers."
 	contains = list(/obj/item/tweezers)
 	cost = 125
@@ -255,7 +253,7 @@
 	access = ACCESS_MARINE_MEDBAY
 
 /datum/supply_packs/medical/meraderm_pills
-	name = "Meraderm pills"
+	name = "Meraderm pill bottle"
 	notes = "contains meralyne and dermaline pill bottle."
 	contains = list(
 		/obj/item/storage/pill_bottle/dermaline,
@@ -279,7 +277,7 @@
 	cost = 120
 
 /datum/supply_packs/medical/antitox_kit
-	name = "Anti-tox kit"
+	name = "Anti-toxin pill bottles kit"
 	notes = "contains some things against toxins."
 	contains = list(
 		/obj/item/storage/pill_bottle/hypervene,
@@ -289,7 +287,7 @@
 	cost = 20
 
 /datum/supply_packs/medical/imialky_kit
-	name = "ImiAlky kit"
+	name = "ImiAlky pill bottles kit"
 	notes = "contains pill bottles imialky."
 	contains = list(
 		/obj/item/storage/pill_bottle/imialky,
@@ -298,7 +296,7 @@
 	cost = 30
 
 /datum/supply_packs/medical/quick_peri_kit
-	name = "QuickPeri kit"
+	name = "QuickPeri autoinjector kit"
 	notes = "contains quick-clot and peri injectors."
 	contains = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
@@ -325,7 +323,7 @@
 	cost = 20
 
 /datum/supply_packs/medical/neuraline_kit
-	name ="large neuraline kit"
+	name ="Large neuraline autoinjector kit"
 	notes = "contains five neuraline injectors"
 	contains = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
@@ -343,7 +341,7 @@
 	cost = 70
 
 /datum/supply_packs/medical/bkkt_kit
-	name = "BKKT kit"
+	name = "BKKT pill bottles kit"
 	notes = "contains pill bottles BKKT."
 	contains = list(
 		/obj/item/storage/pill_bottle/bicaridine,
@@ -361,40 +359,33 @@
 	containertype = /obj/structure/closet/crate/secure/surgery
 	access = ACCESS_MARINE_MEDBAY
 
-/datum/supply_packs/medical/surgery
-	contains = list(
-		/obj/item/storage/surgical_tray,
-		/obj/item/clothing/mask/breath/medical,
-		/obj/item/tank/anesthetic,
-	)
-
 /datum/supply_packs/medical/t312case
-	name = "R-312 'Albedo' Revolver bundle"
+	name = "R-312 'Albedo' revolver bundle"
 	contains = list(/obj/item/storage/briefcase/t312)
 	cost = 500
 
 /datum/supply_packs/medical/t312
-	name = "R-312 'Albedo' Revolver"
+	name = "R-312 'Albedo' revolver"
 	contains = list(/obj/item/attachable/lace/t500, /obj/item/weapon/gun/revolver/t312)
 	cost = 150
 
 /datum/supply_packs/medical/t312_adr
-	name = "R-312 Adrenaline ammo"
+	name = "R-312 adrenaline ammo"
 	contains = list(/obj/item/ammo_magazine/packet/t312/med/adrenaline, /obj/item/ammo_magazine/revolver/t312/med/adrenaline)
 	cost = 50
 
 /datum/supply_packs/medical/t312_rr
-	name = "R-312 Russian Red ammo"
+	name = "R-312 russian red ammo"
 	contains = list(/obj/item/ammo_magazine/packet/t312/med/rr, /obj/item/ammo_magazine/revolver/t312/med/rr)
 	cost = 150
 
 /datum/supply_packs/medical/t312_md
-	name = "R-312 Meraderm ammo"
+	name = "R-312 meraderm ammo"
 	contains = list(/obj/item/ammo_magazine/packet/t312/med/md, /obj/item/ammo_magazine/revolver/t312/med/md)
 	cost = 100
 
 /datum/supply_packs/medical/t312_neu
-	name = "R-312 Neuraline ammo"
+	name = "R-312 neuraline ammo"
 	contains = list(/obj/item/ammo_magazine/packet/t312/med/neu, /obj/item/ammo_magazine/revolver/t312/med/neu)
 	cost = 200
 

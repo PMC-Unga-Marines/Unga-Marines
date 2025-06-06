@@ -2,7 +2,7 @@
 	group = "Vehicles"
 
 /datum/supply_packs/vehicles/ltb_he_shell
-	name = "LTB High Explosive tank shell"
+	name = "LTB high explosive tank shell"
 	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon)
 	cost = 10
 	containertype = /obj/structure/closet/crate/ammo
@@ -20,7 +20,7 @@
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/ltb_canister_shell
-	name = "LTB Canister tank shell"
+	name = "LTB canister tank shell"
 	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon/canister)
 	cost = 10
 
@@ -43,7 +43,7 @@
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/vehicles/tow_rocket
-	name = "TOW Missile"
+	name = "TOW missile"
 	contains = list(/obj/item/ammo_magazine/tank/tow_missile)
 	cost = 5 // marginally cheaper due to being a single loader
 
@@ -53,7 +53,7 @@
 	cost = 10
 
 /datum/supply_packs/vehicles/motorbike
-	name = "All-Terrain Motorbike"
+	name = "All-terrain motorbike"
 	cost = 400
 	contains = list(/obj/vehicle/ridden/motorbike)
 
@@ -63,7 +63,7 @@
 	contains = list(/obj/item/sidecar)
 
 /datum/supply_packs/vehicles/jerrycan
-	name = "Jerry Can"
+	name = "Jerry can"
 	cost = 100
 	contains = list(/obj/item/reagent_containers/jerrycan)
 
@@ -139,34 +139,34 @@
 	containertype = /obj/structure/closet/crate
 
 /datum/supply_packs/vehicles/mounted_hsg
-	name = "Mounted HSG"
+	name = "Dropship mounted HSG-102 heavy smartgun"
 	contains = list(/obj/structure/dropship_equipment/shuttle/weapon_holder/machinegun)
 	cost = 500
 
 /datum/supply_packs/vehicles/minigun_nest
-	name = "Mounted Minigun"
+	name = "Dropship mounted MG-2005 minigun"
 	contains = list(/obj/structure/dropship_equipment/shuttle/weapon_holder/minigun)
 	cost = 750
 
 /datum/supply_packs/vehicles/mounted_heavy_laser
-	name = "Mounted Heavy Laser"
+	name = "Dropship mounted TE-9001 heavy laser"
 	contains = list(/obj/structure/dropship_equipment/shuttle/weapon_holder/heavylaser)
 	cost = 900
 
 /datum/supply_packs/vehicles/hsg_ammo
-	name = "Mounted HSG ammo"
+	name = "Dropship mounted HSG-102 mounted heavy smartgun ammo"
 	contains = list(/obj/item/ammo_magazine/hsg102/hsg_nest)
 	cost = 100
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/vehicles/minigun_ammo
-	name = "Mounted Minigun ammo"
+	name = "Dropship mounted MG-2005 minigun ammo"
 	contains = list(/obj/item/ammo_magazine/heavy_minigun)
 	cost = 30
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/vehicles/hl_ammo
-	name = "Mounted Heavy Laser ammo (x3)"
+	name = "Dropship mounted TE-9001 heavy laser ammo (x3)"
 	contains = list(/obj/item/cell/lasgun/heavy_laser, /obj/item/cell/lasgun/heavy_laser, /obj/item/cell/lasgun/heavy_laser)
 	cost = 50
 	containertype = /obj/structure/closet/crate/ammo

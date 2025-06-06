@@ -3,12 +3,12 @@
 	containertype = /obj/structure/closet/crate/weapon
 
 /datum/supply_packs/weapons/tesla
-	name = "Tesla Shock Rifle"
+	name = "Tesla shock rifle"
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla)
 	cost = 600
 
 /datum/supply_packs/weapons/tx55
-	name = "AR-55 OICW Rifle"
+	name = "AR-55 OICW rifle"
 	contains = list(/obj/item/weapon/gun/rifle/tx55)
 	cost = 525
 
@@ -18,27 +18,27 @@
 	cost = 100
 
 /datum/supply_packs/weapons/railgun
-	name = "SR-220 Railgun"
+	name = "SR-220 railgun"
 	contains = list(/obj/item/weapon/gun/rifle/railgun)
 	cost = 400
 
 /datum/supply_packs/weapons/railgun_ammo
-	name = "SR-220 Railgun armor piercing discarding sabot round"
+	name = "SR-220 railgun armor piercing discarding sabot APDS round"
 	contains = list(/obj/item/ammo_magazine/railgun)
 	cost = 50
 
 /datum/supply_packs/weapons/railgun_ammo/hvap
-	name = "SR-220 Railgun high velocity armor piercing round"
+	name = "SR-220 railgun high velocity armor piercing HVAP round"
 	contains = list(/obj/item/ammo_magazine/railgun/hvap)
 	cost = 50
 
 /datum/supply_packs/weapons/railgun_ammo/smart
-	name = "SR-220 Railgun smart armor piercing round"
+	name = "SR-220 railgun smart armor piercing SAP round"
 	contains = list(/obj/item/ammo_magazine/railgun/smart)
 	cost = 50
 
 /datum/supply_packs/weapons/tx8
-	name = "BR-8 Scout Rifle"
+	name = "BR-8 scout rifle"
 	contains = list(/obj/item/weapon/gun/rifle/tx8)
 	cost = 400
 
@@ -63,7 +63,7 @@
 	cost = 100
 
 /datum/supply_packs/weapons/scout_incendiary
-	name = "Br-8 scout rifle incendiary magazine"
+	name = "BR-8 scout rifle incendiary magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/tx8/incendiary)
 	cost = 40
 
@@ -73,22 +73,22 @@
 	cost = 100
 
 /datum/supply_packs/weapons/zx76
-	name = "ZX-76 Twin-Barrled Burst Shotgun"
+	name = "ZX-76 twin-barrled burst shotgun"
 	contains = list(/obj/item/weapon/gun/shotgun/zx76)
 	cost = 1000
 
 /datum/supply_packs/weapons/shotguntracker
-	name = "12 Gauge Tracker Shells"
+	name = "12 gauge tracker shells"
 	contains = list(/obj/item/ammo_magazine/shotgun/tracker)
 	cost = 50
 
 /datum/supply_packs/weapons/incendiaryslugs
-	name = "Box of Incendiary Slugs"
+	name = "Box of incendiary slugs"
 	contains = list(/obj/item/ammo_magazine/shotgun/incendiary)
 	cost = 100
 
 /datum/supply_packs/weapons/sr81
-	name = "SR-81 IFF Auto Sniper kit"
+	name = "SR-81 IFF auto sniper kit"
 	contains = list(/obj/item/weapon/gun/rifle/sr81)
 	cost = 500
 
@@ -103,7 +103,7 @@
 	cost = 50
 
 /datum/supply_packs/weapons/antimaterial
-	name = "SR-26 Antimaterial rifle (AMR) kit"
+	name = "SR-26 antimaterial rifle (AMR) kit"
 	contains = list(/obj/item/weapon/gun/rifle/sniper/antimaterial)
 	cost = 775
 
@@ -123,7 +123,7 @@
 	cost = 40
 
 /datum/supply_packs/weapons/specminigun
-	name = "MG-100 Vindicator Minigun"
+	name = "MG-100 Vindicator minigun"
 	contains = list(/obj/item/weapon/gun/minigun)
 	cost = MINIGUN_PRICE
 
@@ -133,47 +133,47 @@
 	cost = 50
 
 /datum/supply_packs/weapons/flamethrower
-	name = "FL-84 Flamethrower"
+	name = "FL-84 flamethrower"
 	contains = list(/obj/item/weapon/gun/flamer/big_flamer/marinestandard)
 	cost = 150
 
 /datum/supply_packs/weapons/napalm
-	name = "FL-84 normal fuel tank"
+	name = "FL-84 standard fuel tank"
 	contains = list(/obj/item/ammo_magazine/flamer_tank/large)
 	cost = 60
 
 /datum/supply_packs/weapons/napalm_G
-	name = "FL-84 G fuel tank"
+	name = "FL-84 G-fuel tank"
 	contains = list(/obj/item/ammo_magazine/flamer_tank/large/G)
 	cost = 75
 
 /datum/supply_packs/weapons/napalm_X
-	name = "FL-84 X fuel tank"
+	name = "FL-84 X-fuel tank"
 	contains = list(/obj/item/ammo_magazine/flamer_tank/large/X)
 	cost = 300
 
 /datum/supply_packs/weapons/back_fuel_tank
-	name = "Standard back fuel tank"
+	name = "Standard backpack fuel tank"
 	contains = list(/obj/item/ammo_magazine/flamer_tank/backtank)
 	cost = 200
 
 /datum/supply_packs/weapons/back_fuel_tank_g
-	name = "Type G fuel tank"
+	name = "G-fuel tank"
 	contains = list(/obj/item/ammo_magazine/flamer_tank/backtank/G)
 	cost = 150
 
 /datum/supply_packs/weapons/back_fuel_tank_x
-	name = "X-fuel backpack"
+	name = "X-fuel backpack fuel tank"
 	contains = list(/obj/item/ammo_magazine/flamer_tank/backtank/X)
 	cost = 600
 
 /datum/supply_packs/weapons/mini_fuel_tank_g
-	name = "Type G  mini fuel tank"
+	name = "G-fuel mini fuel tank"
 	contains = list(/obj/item/ammo_magazine/flamer_tank/mini/G)
 	cost = 5
 
 /datum/supply_packs/weapons/mini_fuel_tank_x
-	name = "Type X back mini fuel tank"
+	name = "X-fuel mini fuel tank"
 	contains = list(/obj/item/ammo_magazine/flamer_tank/mini/X)
 	cost = 20
 
@@ -190,7 +190,7 @@
 	containertype = null
 
 /datum/supply_packs/weapons/mateba
-	name = "Mateba Autorevolver belt"
+	name = "Mateba autorevolver belt"
 	contains = list(/obj/item/storage/holster/belt/revolver/mateba/full)
 	notes = "Contains 6 speedloaders"
 	cost = 150
@@ -206,22 +206,22 @@
 	cost = 120
 
 /datum/supply_packs/weapons/sr127_flak
-	name = "SR-127 Flak Magazine"
+	name = "SR-127 flak magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/sr127/flak)
 	cost = 50
 
 /datum/supply_packs/weapons/rechargemag
-	name = "Terra Experimental recharger battery"
+	name = "Terra Experimental TE-X recharger battery"
 	contains = list(/obj/item/cell/lasgun/lasrifle/recharger)
 	cost = 60
 
 /datum/supply_packs/weapons/xray_gun
-	name = "TE-X Laser Rifle"
+	name = "Terra Experimental TE-X Laser Rifle"
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/xray)
 	cost = 400
 
 /datum/supply_packs/weapons/rocketsledge
-	name = "Rocket Sledge"
+	name = "Rocket sledge"
 	contains = list(/obj/item/weapon/twohanded/rocketsledge)
 	cost = 600
 
@@ -231,7 +231,7 @@
 	cost = 500
 
 /datum/supply_packs/weapons/vector_incendiary
-	name = "vector incendiary magazine"
+	name = "Vector incendiary magazine"
 	contains = list(/obj/item/ammo_magazine/smg/vector/incendiary)
 	cost = 20 //40 rounds
 	containertype = /obj/structure/closet/crate/ammo
