@@ -36,7 +36,8 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 // ***************************************
 /datum/action/ability/activable/xeno/throw_hugger
 	name = "Use/Throw Facehugger"
-	desc = "Throw a facehugger at something. Using this ability on a facehugger already on the ground will recycle it to your storage."action_icon_state = "throw_hugger"
+	desc = "Throw a facehugger at something. Using this ability on a facehugger already on the ground will recycle it to your storage."
+	action_icon_state = "throw_hugger"
 	action_icon = 'icons/Xeno/actions/carrier.dmi'
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_THROW_HUGGER,
@@ -314,7 +315,7 @@ GLOBAL_LIST_INIT(hugger_images_list,  list(
 	return succeed_activate()
 
 /datum/action/ability/xeno_action/build_hugger_turret
-	name = "Build Hugger Turret
+	name = "Build Hugger Turret"
 	desc = "Construct a turret that will launch facehuggers at enemy marines. The type of facehugger currently when the turret is built will determine the type of facehugger that is fired."
 	action_icon_state = "hugger_turret"
 	action_icon = 'icons/Xeno/actions/carrier.dmi'
