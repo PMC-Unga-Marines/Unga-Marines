@@ -89,7 +89,6 @@
 	RegisterSignal(SSdcs, COMSIG_GLOB_GAMEMODE_LOADED, TYPE_PROC_REF(/atom/movable/screen/text/lobby, update_text))
 
 /atom/movable/screen/text/lobby/clickable/join_game/update_text()
-	var/mob/new_player/player = hud.mymob
 	if(SSticker?.current_state > GAME_STATE_PREGAME)
 		maptext = "<span class='lobbytext'>ПРИСОЕДИНИТЬСЯ</span>"
 		icon_state = "join"
@@ -97,6 +96,7 @@
 		return
 	if(!hud?.mymob)
 		return
+	var/mob/new_player/player = hud.mymob
 	remove_atom_colour(FIXED_COLOR_PRIORITY, unhighlighted_color)
 	unhighlighted_color = player.ready ? COLOR_GREEN : COLOR_RED
 	add_atom_colour(unhighlighted_color, FIXED_COLOR_PRIORITY)
