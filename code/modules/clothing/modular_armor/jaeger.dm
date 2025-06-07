@@ -20,7 +20,7 @@
 	allowed_uniform_type = /obj/item/clothing/under
 
 /obj/item/clothing/suit/modular/jaeger/generate_attachments_allowed()
-	attachments_allowed = general_list_of_marine_modules
+	attachments_allowed = general_list_of_marine_modules.Copy()
 
 /obj/item/clothing/suit/modular/jaeger/eva
 	name = "\improper Jaeger EVA medium exoskeleton"

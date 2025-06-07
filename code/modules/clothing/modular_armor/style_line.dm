@@ -18,7 +18,7 @@
 	This line of equipment accepts <b>Equalizer modules</b>, which allow the user to alter any given piece of equipment's protection according to their preferences.<BR>"}
 
 /obj/item/clothing/suit/modular/style/generate_attachments_allowed()
-	attachments_allowed = general_list_of_marine_modules
+	attachments_allowed = general_list_of_marine_modules.Copy()
 	attachments_allowed += list(
 		/obj/item/armor_module/module/style/light_armor,
 		/obj/item/armor_module/module/style/medium_armor,

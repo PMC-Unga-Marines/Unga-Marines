@@ -99,7 +99,7 @@
 
 /// A proc in which we can use a static list of marine attachment modules, to avoid copypaste
 /obj/item/clothing/suit/modular/proc/generate_attachments_allowed()
-	attachments_allowed = general_list_of_marine_modules
+	attachments_allowed = general_list_of_marine_modules.Copy()
 	attachments_allowed += list(
 		/obj/item/armor_module/armor/chest/marine,
 		/obj/item/armor_module/armor/legs/marine,
@@ -239,7 +239,7 @@
 	allowed_uniform_type = /obj/item/clothing/under
 
 /obj/item/clothing/suit/modular/rownin/generate_attachments_allowed()
-	attachments_allowed = general_list_of_marine_modules
+	attachments_allowed = general_list_of_marine_modules.Copy()
 
 /obj/item/clothing/suit/modular/rownin/erp
 	name = "\improper ERP rownin Skeleton"
@@ -260,7 +260,7 @@
 	allowed_uniform_type = /obj/item/clothing/under
 
 /obj/item/clothing/suit/modular/hardsuit_exoskeleton/generate_attachments_allowed()
-	attachments_allowed = general_list_of_marine_modules
+	attachments_allowed = general_list_of_marine_modules.Copy()
 	attachments_allowed += list(
 		/obj/item/armor_module/armor/chest/marine/hardsuit/syndicate_markfive,
 		/obj/item/armor_module/armor/arms/marine/hardsuit_arms/syndicate_markfive,

@@ -19,7 +19,7 @@
 	allowed_uniform_type = /obj/item/clothing/under
 
 /obj/item/clothing/suit/modular/xenonauten/generate_attachments_allowed()
-	attachments_allowed = general_list_of_marine_modules
+	attachments_allowed = general_list_of_marine_modules.Copy()
 
 /obj/item/clothing/suit/modular/xenonauten/hodgrenades
 	starting_attachments = list(

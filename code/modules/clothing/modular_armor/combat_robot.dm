@@ -19,6 +19,15 @@
 
 	item_map_variant_flags = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
 
+/obj/item/clothing/suit/modular/robot/generate_attachments_allowed()
+	attachments_allowed = general_list_of_marine_modules.Copy()
+	attachments_allowed -= list( // useless for robots modules
+		/obj/item/armor_module/module/valkyrie_autodoc,
+		/obj/item/armor_module/module/mimir_environment_protection,
+		/obj/item/armor_module/module/mimir_environment_protection/mark1,
+		/obj/item/armor_module/module/chemsystem,
+	)
+
 /obj/item/clothing/suit/modular/robot/mob_can_equip(mob/user, slot, warning = TRUE, override_nodrop = FALSE, bitslot = FALSE)
 	. = ..()
 	if(!isrobot(user))
