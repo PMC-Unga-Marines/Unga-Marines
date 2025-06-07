@@ -4580,7 +4580,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -6657,7 +6657,7 @@
 	dir = 4
 	},
 /obj/effect/ai_node,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/prison/darkyellow{
@@ -7842,7 +7842,7 @@
 /area/prison/cellblock/highsec/north/north)
 "azr" = (
 /obj/effect/ai_node,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/prison/darkyellow{
@@ -20310,7 +20310,7 @@
 /turf/open/floor/prison,
 /area/prison/hallway/entrance)
 "blB" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/prison/darkyellow{
@@ -20930,7 +20930,7 @@
 /turf/open/floor/prison,
 /area/prison/hangar/main)
 "bnO" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/prison/bright_clean,
@@ -27870,7 +27870,7 @@
 /turf/open/floor/prison/darkred/full,
 /area/prison/quarters/security)
 "bKO" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating,
 /area/prison/maintenance/hangar_barracks)
 "bKP" = (
@@ -36612,7 +36612,7 @@
 /turf/open/floor/prison/red/full,
 /area/prison/cellblock/highsec/south/south)
 "cnP" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating,
 /area/prison/hangar/civilian)
 "cnQ" = (
@@ -40479,10 +40479,10 @@
 /turf/open/floor/prison/plate,
 /area/prison/cellblock/maxsec/south)
 "dRX" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/prison/darkyellow{
@@ -40702,7 +40702,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/prison/darkyellow,
@@ -40756,7 +40756,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/prison,
@@ -40824,7 +40824,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 6
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/prison,
@@ -41327,7 +41327,7 @@
 /turf/open/floor/plating,
 /area/prison/cellblock/maxsec/north)
 "fze" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -41665,7 +41665,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating,
 /area/prison/maintenance/hangar_barracks)
 "gpm" = (
@@ -41712,7 +41712,7 @@
 	dir = 4;
 	welded = 1
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/prison,
@@ -42034,7 +42034,7 @@
 /obj/structure/bed/chair/comfy{
 	dir = 8
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/prison,
@@ -42271,7 +42271,7 @@
 /area/prison/cellblock/mediumsec/south)
 "hBK" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/prison,
 /area/prison/hangar/main)
 "hDh" = (
@@ -42392,7 +42392,7 @@
 "hNt" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating,
 /area/prison/hangar/civilian)
 "hNK" = (
@@ -43348,10 +43348,10 @@
 /turf/closed/wall/r_wall/prison,
 /area/prison/hangar/civilian)
 "jFn" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/prison/darkyellow,
 /area/prison/hangar/main)
 "jFA" = (
@@ -43645,7 +43645,7 @@
 "khS" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/prison,
 /area/prison/hangar/main)
 "kja" = (
@@ -43657,7 +43657,7 @@
 /area/prison/cellblock/mediumsec/east)
 "kjJ" = (
 /obj/effect/ai_node,
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/prison,
 /area/prison/hangar/main)
 "kla" = (
@@ -44314,7 +44314,7 @@
 /turf/closed/wall/prison,
 /area/prison/cellblock/lowsec/sw)
 "lAs" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -44417,7 +44417,7 @@
 /turf/open/space/sea,
 /area/template_noop)
 "lLt" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/prison,
 /area/prison/hangar/main)
 "lMq" = (
@@ -44529,7 +44529,7 @@
 	},
 /area/prison/hangar/main)
 "mbM" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -44645,7 +44645,7 @@
 /turf/open/floor/carpet,
 /area/prison/command/secretary_office)
 "moG" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/prison/bright_clean,
@@ -45094,10 +45094,10 @@
 /turf/open/floor/prison/plate,
 /area/prison/cellblock/mediumsec/north)
 "ncr" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/prison,
@@ -45810,10 +45810,10 @@
 	},
 /area/prison/cellblock/mediumsec/south)
 "orB" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/prison,
 /area/prison/hangar/civilian)
 "osS" = (
@@ -46266,7 +46266,7 @@
 /turf/open/floor/prison/plate,
 /area/prison/cellblock/highsec/south/south)
 "pzF" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -46636,7 +46636,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/plating/plating_catwalk/prison,
@@ -46813,7 +46813,7 @@
 /area/prison/security/checkpoint/maxsec)
 "qxc" = (
 /obj/machinery/light/small,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -47188,7 +47188,7 @@
 /turf/open/floor/plating,
 /area/prison/cellblock/maxsec/north)
 "rfz" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -47522,7 +47522,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -48347,7 +48347,7 @@
 /area/prison/yard)
 "tnU" = (
 /obj/machinery/light,
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/prison,
 /area/prison/hangar/civilian)
 "tnZ" = (
@@ -48381,7 +48381,7 @@
 /turf/open/floor/plating,
 /area/prison/hangar_storage/research)
 "tsp" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/prison,
@@ -48418,7 +48418,7 @@
 /turf/open/floor/prison/plate,
 /area/prison/cellblock/lowsec/nw)
 "tuK" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating,
 /area/prison/maintenance/residential/sw)
 "tvO" = (
@@ -49150,7 +49150,7 @@
 /turf/open/floor/prison/kitchen,
 /area/prison/command/quarters)
 "uVZ" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/prison,
@@ -49385,7 +49385,7 @@
 /turf/open/ground/grass,
 /area/prison/residential/central)
 "vvI" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/structure/janitorialcart,
@@ -49764,8 +49764,8 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/effect/ai_node,
 /obj/structure/cable,
-/obj/structure/barricade/plasteel,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/folding,
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/prison,
@@ -49950,7 +49950,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -50213,7 +50213,7 @@
 /turf/closed/wall/prison,
 /area/prison/cellblock/mediumsec/south)
 "xaR" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/prison/darkyellow,
@@ -50313,7 +50313,7 @@
 /turf/open/floor/carpet,
 /area/prison/command/quarters)
 "xpT" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/prison/darkyellow{
 	dir = 6
 	},
@@ -50495,7 +50495,7 @@
 /turf/open/floor/prison,
 /area/prison/recreation/medsec)
 "xEV" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/prison,

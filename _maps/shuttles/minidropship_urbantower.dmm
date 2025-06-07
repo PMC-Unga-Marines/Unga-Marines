@@ -4,7 +4,7 @@
 /obj/machinery/door/poddoor/mainship/open{
 	id = "minidropship_podlock"
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /obj/machinery/light/floor{
@@ -23,7 +23,7 @@
 /obj/machinery/door/poddoor/mainship/open{
 	id = "minidropship_podlock"
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /obj/structure/closet/walllocker/hydrant/extinguisher{
@@ -44,7 +44,7 @@
 /obj/machinery/door/poddoor/mainship/open{
 	id = "minidropship_podlock"
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /obj/machinery/light/floor{
@@ -103,7 +103,7 @@
 /obj/machinery/door/poddoor/mainship/open{
 	id = "minidropship_podlock"
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/mainship/plate,
@@ -116,7 +116,7 @@
 /obj/machinery/door/poddoor/mainship/open{
 	id = "minidropship_podlock"
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/mainship/plate,
@@ -137,7 +137,7 @@
 	dir = 2;
 	id = "minidropship_podlock"
 	},
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/mainship/plate,
 /area/shuttle/minidropship)
 "M" = (
@@ -152,7 +152,7 @@
 	id = "minidropship_podlock"
 	},
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /obj/machinery/vending/nanomed/tadpolemed{

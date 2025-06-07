@@ -16132,7 +16132,7 @@
 /area/deltastation/science/research)
 "duD" = (
 /obj/structure/cable,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/asteroidfloor,
@@ -34380,7 +34380,7 @@
 /obj/effect/turf_decal/sandedge/corner2{
 	dir = 1
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -47501,7 +47501,7 @@
 /turf/open/floor/iron/grimy,
 /area/deltastation/command/heads_quarters/captain/private)
 "jTi" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -47610,7 +47610,7 @@
 /area/deltastation/asteroidcaves/ship)
 "jUb" = (
 /obj/effect/turf_decal/sandedge,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -52052,7 +52052,7 @@
 /turf/open/floor/iron,
 /area/deltastation/maintenance/department/eva/abandoned)
 "kPW" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -72067,7 +72067,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/sandedge,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -97053,7 +97053,7 @@
 /turf/open/floor/iron,
 /area/deltastation/service/hydroponics)
 "udx" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -98932,7 +98932,7 @@
 /turf/open/floor/iron,
 /area/deltastation/security/checkpoint/engineering)
 "uwS" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating/icefloor/warnplate{
@@ -102470,7 +102470,7 @@
 /turf/open/floor/iron,
 /area/deltastation/hallway/secondary/entry)
 "vhE" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/mars/random/cave,

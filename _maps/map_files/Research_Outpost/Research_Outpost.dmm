@@ -180,7 +180,7 @@
 /turf/open/floor/tile/dark/blue2,
 /area/outpost/medbay/storage)
 "aR" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning,
@@ -454,7 +454,7 @@
 	},
 /area/outpost/yard/south)
 "ci" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/plating/asteroidwarning{
@@ -736,7 +736,7 @@
 	},
 /area/outpost/yard/east)
 "dE" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -925,7 +925,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
 "et" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -1013,7 +1013,7 @@
 /turf/open/floor/tile/dark,
 /area/outpost/engineering)
 "eJ" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/plating/asteroidfloor,
@@ -1195,7 +1195,7 @@
 /area/outpost/brig/gear_room)
 "fw" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -1369,7 +1369,7 @@
 	},
 /area/outpost/hallway/central)
 "gh" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -2049,7 +2049,7 @@
 /turf/open/floor/freezer,
 /area/outpost/dormitories)
 "je" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -3937,7 +3937,7 @@
 	},
 /area/outpost/engineering/engine)
 "qY" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/mars/dirttosand{
@@ -4138,7 +4138,7 @@
 /turf/closed/wall/r_wall,
 /area/outpost/science/rd_office)
 "rN" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/plating/asteroidwarning,
@@ -5750,7 +5750,7 @@
 /turf/open/floor/tile/dark/brown2,
 /area/outpost/hallway/west)
 "yN" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating/asteroidfloor,
@@ -6047,10 +6047,10 @@
 /turf/open/floor/plating,
 /area/outpost/engineering/engine)
 "Ae" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -6695,7 +6695,7 @@
 /turf/closed/wall/r_wall,
 /area/outpost/lz2)
 "Dl" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating/asteroidfloor,
@@ -6914,7 +6914,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/outpost/caves/south)
 "El" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -7914,7 +7914,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/outpost/yard/central)
 "IN" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -9241,7 +9241,7 @@
 	},
 /area/outpost/engineering)
 "Ow" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -9501,7 +9501,7 @@
 /turf/open/floor/tile/dark,
 /area/outpost/engineering)
 "PE" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -9509,7 +9509,7 @@
 	},
 /area/outpost/lz1)
 "PF" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -9588,7 +9588,7 @@
 /area/outpost/arrivals)
 "Qa" = (
 /obj/structure/cable,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/asteroidfloor,
@@ -10493,7 +10493,7 @@
 	},
 /area/outpost/hallway/central)
 "TP" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave,

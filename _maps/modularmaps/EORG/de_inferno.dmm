@@ -732,13 +732,13 @@
 /turf/open/floor/industrial,
 /area/deathmatch)
 "pG" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/ai_node,
 /turf/open/floor/plating/asteroidfloor,
 /area/deathmatch)
 "pN" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/asteroidfloor,
 /area/deathmatch)

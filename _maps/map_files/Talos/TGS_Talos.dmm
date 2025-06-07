@@ -4493,7 +4493,7 @@
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/airoom)
 "czT" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/structure/rack,
@@ -5270,8 +5270,8 @@
 /area/mainship/hull/upper_hull)
 "cWX" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid,
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/prison/cleanmarked,
@@ -6721,7 +6721,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
 "dQS" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/structure/largecrate/random,
@@ -6959,7 +6959,7 @@
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
 "dYm" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
 "dYE" = (
@@ -8444,7 +8444,7 @@
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
 "eQp" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/shipboard/ex_firing_range)
 "eQx" = (
@@ -9799,8 +9799,8 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/engineering/engineering_workshop)
 "fAQ" = (
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid,
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -9955,7 +9955,7 @@
 /turf/open/floor/wood,
 /area/mainship/medical/lower_medical)
 "fJo" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/effect/turf_decal/warning_stripes/cargo,
@@ -11181,7 +11181,7 @@
 	},
 /area/mainship/squads/bravo)
 "gCR" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment{
@@ -14169,7 +14169,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/medical/chemistry)
 "iBH" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/autoname{
 	dir = 8
@@ -15414,7 +15414,7 @@
 /area/mainship/hallways/hangar)
 "jkU" = (
 /obj/effect/turf_decal/warning_stripes/cargo,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/machinery/camera/autoname{
@@ -18437,7 +18437,7 @@
 	},
 /area/mainship/medical/medical_science)
 "laE" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
@@ -20001,7 +20001,7 @@
 /area/mainship/squads/charlie)
 "lOH" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/effect/spawner/random/misc/structure/barrel,
 /turf/open/floor/prison/cleanmarked,
 /area/mainship/hallways/hangar/droppod)
@@ -20942,7 +20942,7 @@
 "muB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/warning_stripes/cargo,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/prison/plate,
@@ -21600,7 +21600,7 @@
 /turf/open/floor/wood,
 /area/mainship/medical/lower_medical)
 "mLS" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "mLW" = (
@@ -23404,7 +23404,7 @@
 /turf/open/floor/mainship/metal/full,
 /area/mainship/hull/starboard_hull)
 "nMR" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/mainship/metal/full,
@@ -25045,7 +25045,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/starboard_hallway)
 "oIO" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/effect/turf_decal/warning_stripes/cargo,
@@ -25086,7 +25086,7 @@
 /area/mainship/medical/medical_science)
 "oJz" = (
 /obj/effect/turf_decal/warning_stripes/cargo,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/prison/plate,
@@ -28560,7 +28560,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/pilotbunks)
 "qGy" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/mainship/metal/full,
@@ -32978,7 +32978,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/bow_hallway)
 "trz" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/machinery/line_nexter{
@@ -35629,7 +35629,7 @@
 "vdr" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment/corner,
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 8
 	},

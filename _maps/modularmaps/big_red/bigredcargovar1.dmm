@@ -163,7 +163,7 @@
 /area/bigredv2/outside/cargo)
 "oA" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/structure/cable,
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
@@ -220,7 +220,7 @@
 /turf/open/floor/marking/delivery,
 /area/bigredv2/outside/cargo)
 "rF" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "rX" = (
@@ -243,7 +243,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "sF" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -507,7 +507,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "Pn" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,

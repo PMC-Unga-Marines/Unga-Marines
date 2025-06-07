@@ -65,7 +65,7 @@
 	if(!do_after(fobdrone, 1.5 SECONDS, IGNORE_HELD_ITEM, buildplace, BUSY_ICON_BUILD))
 		return
 	console.metal_remaining -= 4
-	cade = new /obj/structure/barricade/metal(buildplace)
+	cade = new /obj/structure/barricade/solid(buildplace)
 	cade.setDir(fobdrone.dir)
 	if(console.do_wiring)
 		if(!console.metal_remaining)
@@ -106,7 +106,7 @@
 	if(!do_after(fobdrone, 1.5 SECONDS, IGNORE_HELD_ITEM, buildplace, BUSY_ICON_BUILD))
 		return
 	console.metal_remaining -= 6
-	cade = new /obj/structure/barricade/plasteel/metal(buildplace)
+	cade = new /obj/structure/barricade/folding/metal(buildplace)
 	cade.setDir(fobdrone.dir)
 	cade.closed = FALSE
 	cade.density = TRUE
@@ -150,7 +150,7 @@
 	if(!do_after(fobdrone, 1.5 SECONDS, FALSE, buildplace, BUSY_ICON_BUILD))
 		return
 	console.plasteel_remaining -= 4
-	cade = new /obj/structure/barricade/metal/plasteel(buildplace)
+	cade = new /obj/structure/barricade/solid/plasteel(buildplace)
 	cade.setDir(fobdrone.dir)
 	cade.closed = FALSE
 	cade.density = TRUE
@@ -194,7 +194,7 @@
 	if(!do_after(fobdrone, 1.5 SECONDS, FALSE, buildplace, BUSY_ICON_BUILD))
 		return
 	console.plasteel_remaining -= 6
-	cade = new /obj/structure/barricade/plasteel(buildplace)
+	cade = new /obj/structure/barricade/folding(buildplace)
 	cade.setDir(fobdrone.dir)
 	cade.closed = FALSE
 	cade.density = TRUE

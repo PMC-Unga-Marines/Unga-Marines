@@ -51,7 +51,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
 "eZ" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/marking/asteroidwarning,
@@ -156,7 +156,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor,
@@ -170,7 +170,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/asteroidfloor,
@@ -192,7 +192,7 @@
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/caves/northeast/garbledradio)
 "lN" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor,
@@ -373,7 +373,7 @@
 /area/bigredv2/outside/general_offices)
 "uQ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor,
@@ -516,7 +516,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/hydroponics)
 "Bq" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
@@ -696,7 +696,7 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/general_offices)
 "Iy" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -1001,7 +1001,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/general_offices)
 "WV" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
@@ -1019,7 +1019,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/corpsespawner/security,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor,
