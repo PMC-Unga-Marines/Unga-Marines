@@ -22,9 +22,9 @@
 	return 2
 
 /obj/item/explosive/grenade/flare/acid_spray_act(mob/living/carbon/xenomorph/X)
-	if(!flare.active)
+	if(!active)
 		return
-	flare.turn_off()
+	turn_off()
 
 /obj/item/explosive/grenade/flare/Initialize(mapload)
 	. = ..()
