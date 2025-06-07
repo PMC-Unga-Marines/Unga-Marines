@@ -25,7 +25,7 @@
 #define GROWTH_DOOR "growth door"
 #define RESIN_WALL_BULLET "bulletproof resin wall"
 #define RESIN_WALL_FIRE "fireproof resin wall"
-#define RESIN_WALL_HARDY "Hardy resin wall"
+#define RESIN_WALL_HARDY "hardy resin wall"
 
 //Xeno reagents defines
 #define REAGENT_NEUROTOXIN "Neurotoxin"
@@ -118,9 +118,9 @@ GLOBAL_LIST_INIT(plant_images_list, list(
 //List of resin structure images
 GLOBAL_LIST_INIT(resin_images_list, list(
 	RESIN_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL),
-	RESIN_WALL_HARDY = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_HARDY),
 	RESIN_WALL_BULLET = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_BULLET),
 	RESIN_WALL_FIRE = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_FIRE),
+	RESIN_WALL_HARDY = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_HARDY),
 	STICKY_RESIN = image('icons/Xeno/actions/construction.dmi', icon_state = STICKY_RESIN),
 	RESIN_DOOR = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_DOOR),
 	ALIEN_NEST = image('icons/Xeno/actions/construction.dmi', icon_state = ALIEN_NEST)
