@@ -311,7 +311,7 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 		if(current_squad.squad_leader)
 			if(H == current_squad.squad_leader)
 				dist = "<b>N/A</b>"
-				if(!ismarineleaderjob(H.job) && !issommarineleaderjob(H.job))
+				if(!ismarineleaderjob(H.job))
 					act_sl = " (acting SL)"
 			else if(M_turf && SL_z && M_turf.z == SL_z)
 				dist = "[get_dist(H, current_squad.squad_leader)] ([dir2text_short(get_dir(current_squad.squad_leader, H))])"
@@ -336,23 +336,24 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 			fteam = " \[[ID.assigned_fireteam]\]"
 		var/marine_infos = "<tr><td><A href='?src=[text_ref(src)];operation=use_cam;cam_target=[text_ref(H)]'>[mob_name]</a></td><td>[role][act_sl][fteam]</td><td>[mob_state]</td><td>[area_name]</td><td>[dist]</td></tr>"
 
-		if(role in GLOB.jobs_squad_standard)
-			marine_text += marine_infos
-			marine_count++
-		else if(role in GLOB.jobs_squad_corpsman)
-			medic_text += marine_infos
-			medic_count++
-		else if(role in GLOB.jobs_squad_engineer)
-			engi_text += marine_infos
-			engi_count++
-		else if(role in GLOB.jobs_squad_specialist)
-			smart_text += marine_infos
-			smart_count++
-		else if(role in GLOB.jobs_squad_leader)
-			leader_text += marine_infos
-			leader_count++
-		else
-			misc_text += marine_infos
+		switch(role)
+			if(SQUAD_MARINE)
+				marine_text += marine_infos
+				marine_count++
+			if(SQUAD_CORPSMAN)
+				medic_text += marine_infos
+				medic_count++
+			if(SQUAD_ENGINEER)
+				engi_text += marine_infos
+				engi_count++
+			if(SQUAD_SMARTGUNNER)
+				smart_text += marine_infos
+				smart_count++
+			if(SQUAD_LEADER)
+				leader_text += marine_infos
+				leader_count++
+			else
+				misc_text += marine_infos
 
 	if(current_squad.overwatch_officer)
 		dat += "<b>Squad Overwatch:</b> [current_squad.overwatch_officer.name]<br>"

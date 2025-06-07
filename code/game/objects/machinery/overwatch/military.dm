@@ -233,8 +233,6 @@
 			if(!new_lead || new_lead == "Cancel")
 				return
 			change_lead(operator, new_lead)
-		if("insubordination")
-			mark_insubordination()
 		if("squad_transfer")
 			if(!current_squad)
 				to_chat(operator, "[icon2html(src, operator)] [span_warning("No squad selected!")]")
@@ -549,39 +547,9 @@
 			to_chat(source, span_boldnotice("[target.real_name] is the new Squad Leader of squad '[target_squad]'! Logging to enlistment file."))
 		visible_message(span_boldnotice("[target.real_name] is the new Squad Leader of squad '[target_squad]'! Logging to enlistment file."))
 
-	to_chat(target, "[icon2html(src, target)] <font size='3' color='blue'><B>\[Overwatch\]: You've been promoted to \'[(ismarineleaderjob(target.job) || issommarineleaderjob(target.job)) ? "SQUAD LEADER" : "ACTING SQUAD LEADER"]\' for [target_squad.name]. Your headset has access to the command channel (:v).</B></font>")
+	to_chat(target, "[icon2html(src, target)] <font size='3' color='blue'><B>\[Overwatch\]: You've been promoted to \'[ismarineleaderjob(target.job) ? "SQUAD LEADER" : "ACTING SQUAD LEADER"]\' for [target_squad.name]. Your headset has access to the command channel (:v).</B></font>")
 	to_chat(source, "[icon2html(src, source)] [target.real_name] is [target_squad]'s new leader!")
 	target_squad.promote_leader(target)
-
-///Marks a marine for insubordination
-/obj/machinery/computer/camera_advanced/overwatch/military/proc/mark_insubordination()
-	if(!usr || usr != operator)
-		return
-	if(!current_squad)
-		to_chat(operator, "[icon2html(src, operator)] [span_warning("No squad selected!")]")
-		return
-	var/mob/living/carbon/human/wanted_marine = tgui_input_list(operator, "Report a marine for insubordination", null, current_squad.get_all_members())
-	if(!wanted_marine) return
-	if(!istype(wanted_marine))//gibbed/deleted, all we have is a name.
-		to_chat(operator, "[icon2html(src, operator)] [span_warning("[wanted_marine] is missing in action.")]")
-		return
-
-	for (var/datum/data/record/E in GLOB.datacore.general)
-		if(E.fields["name"] == wanted_marine.real_name)
-			for (var/datum/data/record/R in GLOB.datacore.security)
-				if (R.fields["id"] == E.fields["id"])
-					if(!findtext(R.fields["ma_crim"],"Insubordination."))
-						R.fields["criminal"] = "*Arrest*"
-						if(R.fields["ma_crim"] == "None")
-							R.fields["ma_crim"] = "Insubordination."
-						else
-							R.fields["ma_crim"] += "Insubordination."
-						if(issilicon(operator))
-							to_chat(operator, span_boldnotice("[wanted_marine] has been reported for insubordination. Logging to enlistment file."))
-						visible_message(span_boldnotice("[wanted_marine] has been reported for insubordination. Logging to enlistment file."))
-						to_chat(wanted_marine, "[icon2html(src, wanted_marine)] <font size='3' color='blue'><B>\[Overwatch\]:</b> You've been reported for insubordination by your overwatch officer.</font>")
-						wanted_marine.sec_hud_set_security_status()
-					return
 
 ///Moves a marine to another squad
 /obj/machinery/computer/camera_advanced/overwatch/military/proc/transfer_squad(datum/source, mob/living/carbon/human/transfer_marine, datum/squad/new_squad)
@@ -602,7 +570,7 @@
 	if(!new_squad)
 		return
 
-	if((ismarineleaderjob(transfer_marine.job) || issommarineleaderjob(transfer_marine.job)) && new_squad.current_positions[transfer_marine.job.type] >= SQUAD_MAX_POSITIONS(transfer_marine.job.total_positions))
+	if(ismarineleaderjob(transfer_marine.job) && new_squad.current_positions[transfer_marine.job.type] >= SQUAD_MAX_POSITIONS(transfer_marine.job.total_positions))
 		to_chat(source, "[icon2html(src, source)] [span_warning("Transfer aborted. [new_squad] can't have another [transfer_marine.job.title].")]")
 		return
 
@@ -645,15 +613,6 @@
 	target.playsound_local(target, "sound/machines/dotprinter.ogg", 35)
 	to_chat(target, span_notice("<b><i>New message from [sender.real_name]:</b> [message]</i>"))
 	target.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>CIC MESSAGE FROM [sender.real_name]:</u></span><br>" + message, new /atom/movable/screen/text/screen_text/picture/potrait/custom_mugshot(null, null, sender), "#32cd32")
-
-	var/list/tts_listeners = filter_tts_listeners(sender, target, null, RADIO_TTS_COMMAND)
-	if(!length(tts_listeners))
-		return
-	var/list/treated_message = sender?.treat_message(message)
-	var/list/extra_filters = list(TTS_FILTER_RADIO)
-	if(isrobot(sender))
-		extra_filters += TTS_FILTER_SILICON
-	INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), sender, treated_message["tts_message"], sender.get_default_language(), sender.voice, sender.voice_filter, tts_listeners, FALSE, pitch = sender.pitch, special_filters = extra_filters.Join("|"), directionality = FALSE)
 
 ///Radial menu squad select menu
 /obj/machinery/computer/camera_advanced/overwatch/military/proc/squad_select(datum/source, atom/A)
