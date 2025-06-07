@@ -215,6 +215,8 @@
 		return
 	for(var/direction in GLOB.cardinals)
 		for(var/obj/structure/barricade/folding/cade in get_step(src, direction))
+			if(cade.barricade_type != barricade_type)
+				continue
 			if(((dir & (NORTH|SOUTH) && get_dir(src, cade) & (EAST|WEST)) || (dir & (EAST|WEST) && get_dir(src, cade) & (NORTH|SOUTH))) && dir == cade.dir && cade.linked && cade.closed == closed)
 				. += image(icon, icon_state = "[barricade_type]_[closed ? "closed" : "open"]_connection_[get_dir(src, cade)]")
 
@@ -233,6 +235,8 @@
 		return
 	for(var/direction in GLOB.cardinals)
 		for(var/obj/structure/barricade/folding/cade in get_step(src, direction))
+			if(cade.barricade_type != barricade_type)
+				continue
 			if(((dir & (NORTH|SOUTH) && get_dir(src, cade) & (EAST|WEST)) || (dir & (EAST|WEST) && get_dir(src, cade) & (NORTH|SOUTH))) && dir == cade.dir && cade.linked)
 				cade.toggle_open(closed)
 
