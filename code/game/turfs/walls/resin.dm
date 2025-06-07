@@ -10,7 +10,8 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_XENO_STRUCTURES)
 	canSmoothWith = list(SMOOTH_GROUP_XENO_STRUCTURES)
-	soft_armor = list(MELEE = 0, BULLET = 80, LASER = 75, ENERGY = 75, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 0, BULLET = 80, LASER = 75, ENERGY = 75, BOMB = 20, BIO = 0, FIRE = 0, ACID = 0)
+	hard_armor = list(MELEE = 0, BULLET = 15, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	resistance_flags = UNACIDABLE
 
 /turf/closed/wall/resin/add_debris_element()
@@ -139,7 +140,7 @@
 /turf/closed/wall/resin/regenerating
 	max_integrity = 150
 	/// Total health possible for a wall after regenerating at max health
-	var/max_upgradable_health = 200
+	var/max_upgradable_health = 300
 	/// How much the walls integrity heals per tick (5 seconds)
 	var/heal_per_tick = 25
 	/// How much the walls max_integrity increases per tick (5 seconds)
@@ -189,13 +190,13 @@
 
 /turf/closed/wall/resin/regenerating/bulletproof
 	name = RESIN_WALL_BULLET
-	desc = "Weird slime solidified into a wall. Looks like it could be resistant to bullets and lasers."
+	desc = "Weird slime solidified into a wall. Looks like it could be resistant to bullets and energy weaponry."
 	icon = 'icons/obj/smooth_objects/resin-wall-bullet.dmi'
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 0, BULLET = 120, LASER = 100, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0) //You aren't damaging this with bullets without alot of AP.
-	max_upgradable_health = 200
+	soft_armor = list(MELEE = 0, BULLET = 120, LASER = 100, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0) //You aren't damaging this with bullets without alot of AP.
+	max_upgradable_health = 250
 
 /turf/closed/wall/resin/regenerating/fireproof
 	name = RESIN_WALL_FIRE
@@ -204,7 +205,7 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 0, BULLET = 60, LASER = 75, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 200, ACID = 0)
+	soft_armor = list(MELEE = 0, BULLET = 65, LASER = 75, ENERGY = 75, BOMB = 0, BIO = 0, FIRE = 200, ACID = 0)
 	max_upgradable_health = 200
 
 /turf/closed/wall/resin/regenerating/hardy
@@ -214,6 +215,6 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 80, BULLET = 30, LASER = 25, ENERGY = 0, BOMB = 80, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 80, BULLET = 30, LASER = 25, ENERGY = 25, BOMB = 80, BIO = 0, FIRE = 0, ACID = 0)
 	max_upgradable_health = 200
 	max_upgrade_per_tick = 12 //Upgrades faster, but if damaged at all it will be put on cooldown still to help against walling in combat.
