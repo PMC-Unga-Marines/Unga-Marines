@@ -216,10 +216,9 @@
 	///List of buildable structures. Order corresponds with resin_images_list.
 	var/list/buildable_structures = list(
 		/turf/closed/wall/resin/regenerating,
-		/turf/closed/wall/resin/regenerating/bombproof,
 		/turf/closed/wall/resin/regenerating/bulletproof,
 		/turf/closed/wall/resin/regenerating/fireproof,
-		/turf/closed/wall/resin/regenerating/meleeproof,
+		/turf/closed/wall/resin/regenerating/hardy,
 		/obj/alien/resin/sticky,
 		/obj/structure/mineral_door/resin,
 		/obj/structure/bed/nest,

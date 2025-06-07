@@ -23,10 +23,9 @@
 #define ALIEN_NEST "alien nest"
 #define GROWTH_WALL "growth wall"
 #define GROWTH_DOOR "growth door"
-#define RESIN_WALL_BOMB "bombproof resin wall"
 #define RESIN_WALL_BULLET "bulletproof resin wall"
 #define RESIN_WALL_FIRE "fireproof resin wall"
-#define RESIN_WALL_MELEE "meleeproof resin wall"
+#define RESIN_WALL_HARDY "Hardy resin wall"
 
 //Xeno reagents defines
 #define REAGENT_NEUROTOXIN "Neurotoxin"
