@@ -124,7 +124,7 @@
 	icon_state = "mod_armor"
 	worn_icon_state = "mod_armor_a"
 	attachment_layer = COLLAR_LAYER
-	soft_armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 15, FIRE = 15, ACID = 5)
 	slowdown = 0.2
 	slot = ATTACHMENT_SLOT_MODULE
 
@@ -133,7 +133,7 @@
 	desc = "Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This older version has worse protection. Will greatly impact mobility."
 	icon_state = "mod_armor_lower"
 	worn_icon_state = "mod_armor_lower_a"
-	soft_armor = list(MELEE = 5, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 5, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, FIRE = 10, ACID = 0)
 	slowdown = 0.3
 
 /obj/item/armor_module/module/tyr_extra_armor/som
@@ -143,7 +143,7 @@
 	icon_state = "lorica_armor"
 	worn_icon_state = "lorica_armor_a"
 	attachment_layer = null
-	soft_armor = list(MELEE = 10, BULLET = 10, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 5, FIRE = 10, ACID = 5)
+	soft_armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 15, FIRE = 15, ACID = 5)
 	slowdown = 0.2
 	slot = ATTACHMENT_SLOT_MODULE
 
@@ -154,13 +154,13 @@
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "tyr_head_xn")
 	icon_state = "tyr_head"
 	worn_icon_state = "tyr_head_a"
-	soft_armor = list(MELEE = 5, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 5, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, FIRE = 10, ACID = 0)
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 
 /obj/item/armor_module/module/tyr_head/mark2
 	name = "Tyr 2 Helmet System"
 	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most damaging hazards, ranging from xeno slashes to friendly fire incidents."
-	soft_armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = -5, FIRE = 0, ACID = -5)
+	soft_armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 15, FIRE = 15, ACID = 5)
 
 /obj/item/armor_module/module/hod_head
 	name = "\improper Hod Helmet System"
@@ -180,8 +180,8 @@
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_biohazard"
 	worn_icon_state = "mod_biohazard_a"
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 0, ACID = 25)
-	slowdown = 0.2
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 40, FIRE = 0, ACID = 30)
+	slowdown = 0.3
 	slot = ATTACHMENT_SLOT_MODULE
 	///siemens (electro resist) coefficient mod for gas protection.
 	var/siemens_coefficient_mod = -0.9
@@ -207,7 +207,7 @@
 	desc = "Designed for mounting on modular armor. This older model provides minor resistance to acid, biological, and radiological attacks. Pairing this with a Mimir helmet module and mask will make the user almost impervious to any gas clouds. Will impact mobility."
 	icon_state = "mod_biohazard"
 	worn_icon_state = "mod_biohazard_a"
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 5, FIRE = 0, ACID = 10)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 15, FIRE = 0, ACID = 15)
 	slowdown = 0.3
 	permeability_coefficient_mod = -0.5
 	gas_transfer_coefficient_mod = -0.5
@@ -226,14 +226,14 @@
 	icon_state = "mimir_head"
 	worn_icon_state = "mimir_head_a"
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "mimir_head_xn")
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 10, FIRE = 0, ACID = 25)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 40, FIRE = 0, ACID = 30)
 	slowdown = 0
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 
 /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1
 	name = "Mark 1 Mimir Environmental Helmet System"
 	desc = "Designed for mounting on a modular helmet. This older model provides minor resistance to acid and biological attacks."
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 5, FIRE = 0, ACID = 10)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 15, FIRE = 0, ACID = 15)
 
 //Explosive defense armor
 /obj/item/armor_module/module/hlin_explosive_armor
@@ -301,7 +301,7 @@
 	icon_state = "mod_eshield"
 	worn_icon_state = "mod_eshield_a"
 	slot = ATTACHMENT_SLOT_MODULE
-	soft_armor = list(MELEE = -5, BULLET = -5, LASER = -5, ENERGY = -5, BOMB = -5, BIO = -5, FIRE = -5, ACID = -5)
+	soft_armor = list(MELEE = -5, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = -5, FIRE = 0, ACID = -5)
 
 	///Current shield Health
 	var/shield_health = 0
@@ -484,21 +484,21 @@
 	name = "\improper Light Armor Equalizer"
 	icon_state = "style_light"
 	worn_icon_state = "style_light_a"
-	soft_armor = list(MELEE = 35, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 40, BIO = 45, FIRE = 45, ACID = 45)
+	soft_armor = MARINE_ARMOR_LIGHT
 	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
 
 /obj/item/armor_module/module/style/medium_armor
 	name = "\improper Medium Armor Equalizer"
 	icon_state = "style_medium"
 	worn_icon_state = "style_medium_a"
-	soft_armor = list(MELEE = 45, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 45, BIO = 50, FIRE = 50, ACID = 50)
+	soft_armor = MARINE_ARMOR_MEDIUM
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 
 /obj/item/armor_module/module/style/heavy_armor
 	name = "\improper Heavy Armor Equalizer"
 	icon_state = "style_heavy"
 	worn_icon_state = "style_heavy_a"
-	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
+	soft_armor = MARINE_ARMOR_HEAVY
 	slowdown = SLOWDOWN_ARMOR_HEAVY
 
 /**
