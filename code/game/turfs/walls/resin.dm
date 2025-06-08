@@ -216,4 +216,3 @@
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
 	soft_armor = list(MELEE = 80, BULLET = 30, LASER = 25, ENERGY = 25, BOMB = 80, BIO = 0, FIRE = 0, ACID = 0)
-	max_upgrade_per_tick = 12 //Upgrades faster, but if damaged at all it will be put on cooldown still to help against walling in combat.
