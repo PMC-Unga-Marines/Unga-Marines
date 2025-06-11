@@ -955,8 +955,8 @@
 /area/oscar_outpost/village/abandonedbase)
 "uv" = (
 /obj/structure/rack,
-/obj/item/clothing/under/marine/veteran/UPP,
-/obj/item/clothing/under/marine/veteran/UPP,
+/obj/item/clothing/under/marine/veteran/upp,
+/obj/item/clothing/under/marine/veteran/upp,
 /turf/open/floor/grayscale/black,
 /area/oscar_outpost/village/abandonedbase)
 "vm" = (

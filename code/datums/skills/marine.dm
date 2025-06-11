@@ -33,3 +33,12 @@
 	name = SQUAD_SMARTGUNNER
 	smartgun = SKILL_SMART_TRAINED
 	leadership = SKILL_LEAD_BEGINNER
+
+/datum/skills/vatgrown
+	name = "Vat Grown"
+
+/datum/skills/vatgrown/early
+	name = "Vat Grown"
+	cqc = SKILL_CQC_WEAK
+	firearms = SKILL_FIREARMS_UNTRAINED
+	melee_weapons = SKILL_MELEE_WEAK

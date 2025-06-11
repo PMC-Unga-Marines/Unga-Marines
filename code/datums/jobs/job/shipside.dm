@@ -75,24 +75,6 @@ Godspeed, captain! And remember, you are not above the law."})
 			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/captain_cloak_red/white, SLOT_BACK)
 	new_human.wear_id.update_label()
 
-/datum/outfit/job/command/captain
-	name = CAPTAIN
-	jobtype = /datum/job/terragov/command/captain
-
-	id = /obj/item/card/id/gold
-	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/marine/officer/command
-	shoes = /obj/item/clothing/shoes/marinechief/captain
-	gloves = /obj/item/clothing/gloves/marine/techofficer/captain
-	r_store = /obj/item/storage/pouch/general/large/command
-	l_store = /obj/item/hud_tablet/leadership
-	belt = /obj/item/storage/holster/blade/officer/sabre/full
-	glasses = /obj/item/clothing/glasses/sunglasses/aviator/yellow
-	head = null
-	back = FALSE
-	r_hand = /obj/item/weapon/gun/shotgun/double/musket
-	l_hand = /obj/item/ammo_magazine/packet/musket
-
 //Field Commander
 /datum/job/terragov/command/fieldcommander
 	title = FIELD_COMMANDER
@@ -148,22 +130,6 @@ Make the TGMC proud!"})
 		if(7501 to INFINITY) // 125 hrs
 			new_human.wear_id.paygrade = "MO5"
 	new_human.wear_id.update_label()
-
-/datum/outfit/job/command/fieldcommander
-	name = FIELD_COMMANDER
-	jobtype = /datum/job/terragov/command/fieldcommander
-
-	id = /obj/item/card/id/dogtag/fc
-	belt = /obj/item/storage/holster/blade/officer/full
-	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/marine/officer/exec
-	wear_suit = /obj/item/clothing/suit/modular/xenonauten
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves = /obj/item/clothing/gloves/marine/officer
-	head = /obj/item/clothing/head/tgmcberet/fc
-	r_store = /obj/item/storage/pouch/general/large/command
-	l_store = /obj/item/hud_tablet/fieldcommand
-	suit_store = /obj/item/storage/holster/belt/pistol/m4a3/fieldcommander
 
 //Staff Officer
 /datum/job/terragov/command/staffofficer
@@ -229,22 +195,6 @@ You are in charge of logistics and the overwatch system. You are also in line to
 			new_human.equip_to_slot_or_del(new /obj/item/storage/backpack/marine/satchel/officer_cloak_red/alt, SLOT_BACK)
 	new_human.wear_id.update_label()
 
-/datum/outfit/job/command/staffofficer
-	name = STAFF_OFFICER
-	jobtype = /datum/job/terragov/command/staffofficer
-
-	id = /obj/item/card/id/silver
-	belt = /obj/item/storage/holster/belt/pistol/m4a3/officer
-	ears = /obj/item/radio/headset/mainship/mcom
-	r_store = /obj/item/storage/pouch/general/large
-	l_store = /obj/item/binoculars/tactical
-	back = FALSE
-	head = null
-	w_uniform = /obj/item/clothing/under/marine/whites/blacks
-	shoes = /obj/item/clothing/shoes/laceup
-	r_hand = /obj/item/weapon/gun/shotgun/double/musketoon
-	l_hand = /obj/item/ammo_magazine/packet/musket/small
-
 //Transport Officer
 /datum/job/terragov/command/transportofficer
 	title = TRANSPORT_OFFICER
@@ -298,31 +248,6 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	to_chat(M, {"Your job is to support marines mobile dropship support with the Tadpole.
 You are to ensure the Tadpole's survival and to transport marines around, acting as a mobile bunker. In the case of it's death, you may perform the role of Combat Engineer.
 "})
-
-/datum/outfit/job/command/transportofficer
-	name = TRANSPORT_OFFICER
-	jobtype = /datum/job/terragov/command/transportofficer
-
-	id = /obj/item/card/id/silver
-	belt = /obj/item/storage/belt/utility/full
-	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/marine/officer/pilot
-	wear_suit = /obj/item/clothing/suit/modular/xenonauten/pilot
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves = /obj/item/clothing/gloves/marine/insulated
-	glasses = /obj/item/clothing/glasses/welding/superior
-	head = /obj/item/clothing/head/helmet/marine/pilot
-	r_store = /obj/item/storage/pouch/construction
-	l_store = /obj/item/hud_tablet/transportofficer
-	back = /obj/item/storage/backpack/marine/engineerpack
-	suit_store = /obj/item/storage/holster/belt/pistol/m4a3/vp70
-
-/datum/outfit/job/command/transportofficer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_hand(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_hand(new /obj/item/stack/sheet/plasteel/large_stack, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_hand(new /obj/item/stack/sandbags/large_stack, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_hand(new /obj/item/stack/barbed_wire/full, SLOT_IN_R_POUCH)
 
 //Pilot Officer
 /datum/job/terragov/command/pilot
@@ -382,22 +307,6 @@ You are expected to use the Condor as the Alamo is able to be ran automatically,
 Though you are an officer, your authority is limited to the dropship and the Condor, where you have authority over the enlisted personnel.
 "})
 
-/datum/outfit/job/command/pilot
-	name = PILOT_OFFICER
-	jobtype = /datum/job/terragov/command/pilot
-
-	id = /obj/item/card/id/silver
-	belt = /obj/item/storage/holster/belt/pistol/m4a3/vp70
-	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/marine/officer/pilot
-	wear_suit = /obj/item/clothing/suit/modular/xenonauten/pilot
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves = /obj/item/clothing/gloves/insulated
-	glasses = /obj/item/clothing/glasses/sunglasses/aviator
-	head = /obj/item/clothing/head/helmet/marine/pilot
-	r_store = /obj/item/clothing/glasses/night/imager_goggles
-	l_store = /obj/item/hud_tablet/pilot
-
 //Mech pilot
 /datum/job/terragov/command/mech_pilot
 	title = MECH_PILOT
@@ -449,23 +358,6 @@ You can serve your Division in a variety of roles, so choose carefully."})
 		if(7501 to INFINITY) // 125 hrs
 			new_human.wear_id.paygrade = "E5"
 	new_human.wear_id.update_label()
-
-/datum/outfit/job/command/mech_pilot
-	name = MECH_PILOT
-	jobtype = /datum/job/terragov/command/mech_pilot
-
-	id = /obj/item/card/id/dogtag
-	belt = /obj/item/storage/belt/utility/full
-	glasses = /obj/item/clothing/glasses/welding
-	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/marine/officer/mech
-	wear_suit = /obj/item/clothing/suit/storage/marine/mech_pilot
-	head = /obj/item/clothing/head/helmet/marine/mech_pilot
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves = /obj/item/clothing/gloves/marine
-
-/datum/outfit/job/command/mech_pilot/fallen
-	ears = null
 
 //apc/jeep driver
 /datum/job/terragov/command/transport_crewman
@@ -520,20 +412,6 @@ You can serve your Division in a variety of roles, so choose carefully."})
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E9A" //If you play way too much TGMC. 1000 hours.
 	new_human.wear_id.update_label()
-
-/datum/outfit/job/command/transport_crewman
-	name = TRANSPORT_CREWMAN
-	jobtype = /datum/job/terragov/command/transport_crewman
-
-	id = /obj/item/card/id/dogtag
-	belt = /obj/item/storage/belt/utility/full
-	glasses = /obj/item/clothing/glasses/welding
-	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/marine/officer/transport_crewman
-	wear_suit = /obj/item/clothing/suit/storage/marine/transport_crewman
-	head = /obj/item/clothing/head/helmet/marine/transport_crewman
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves = /obj/item/clothing/gloves/marine
 
 //tank/arty driver+gunner
 /datum/job/terragov/command/assault_crewman
@@ -594,21 +472,6 @@ You can serve your Division in a variety of roles, so choose carefully."})
 			new_human.wear_id.paygrade = "E9A" //If you play way too much TGMC. 1000 hours.
 	new_human.wear_id.update_label()
 
-/datum/outfit/job/command/assault_crewman
-	name = ASSAULT_CREWMAN
-	jobtype = /datum/job/terragov/command/assault_crewman
-
-	id = /obj/item/card/id/dogtag
-	belt = /obj/item/storage/belt/utility/full
-	glasses = /obj/item/clothing/glasses/welding
-	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/marine/officer/assault_crewman
-	wear_suit = /obj/item/clothing/suit/storage/marine/assault_crewman
-	head = /obj/item/clothing/head/helmet/marine/assault_crewman
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves = /obj/item/clothing/gloves/marine
-	l_store = /obj/item/pamphlet/tank_loader
-
 //apc/jeep driver
 /datum/job/terragov/command/transport_crewman
 	title = TRANSPORT_CREWMAN
@@ -662,20 +525,6 @@ You can serve your Division in a variety of roles, so choose carefully."})
 		if(60001 to INFINITY) // 1000 hrs
 			new_human.wear_id.paygrade = "E9A" //If you play way too much TGMC. 1000 hours.
 	new_human.wear_id.update_label()
-
-/datum/outfit/job/command/transport_crewman
-	name = TRANSPORT_CREWMAN
-	jobtype = /datum/job/terragov/command/transport_crewman
-
-	id = /obj/item/card/id/dogtag
-	belt = /obj/item/storage/belt/utility/full
-	glasses = /obj/item/clothing/glasses/welding
-	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/marine/officer/transport_crewman
-	wear_suit = /obj/item/clothing/suit/storage/marine/transport_crewman
-	head = /obj/item/clothing/head/helmet/marine/transport_crewman
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves = /obj/item/clothing/gloves/marine
 
 //Ship Engineer
 /datum/job/terragov/requisitions/tech
@@ -734,29 +583,11 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	to_chat(M, {"Your job is to make sure the ship is operational, you should firstly focus on manning the
 requisitions line and later on to be ready to send supplies for marines who are groundside."})
 
-
-/datum/outfit/job/requisitions/tech
-	name = SHIP_TECH
-	jobtype = /datum/job/terragov/requisitions/tech
-
-	id = /obj/item/card/id/silver
-	belt = /obj/item/storage/belt/utility/full
-	ears = /obj/item/radio/headset/mainship/st
-	w_uniform = /obj/item/clothing/under/marine/officer/engi
-	wear_suit = /obj/item/clothing/suit/storage/marine/ship_tech
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves = /obj/item/clothing/gloves/insulated
-	glasses = /obj/item/clothing/glasses/welding/flipped
-	head = /obj/item/clothing/head/tgmccap/req
-	r_store = /obj/item/storage/pouch/general/medium
-	back = /obj/item/storage/backpack/marine/engineerpack
-
 /datum/job/terragov/requisitions
 	job_category = JOB_CAT_REQUISITIONS
 	selection_color = "#BAAFD9"
 	supervisors = "the acting captain"
 	exp_type_department = EXP_TYPE_REQUISITIONS
-
 
 //Requisitions Officer
 /datum/job/terragov/requisitions/officer
@@ -818,27 +649,10 @@ requisitions line and later on to be ready to send supplies for marines who are 
 While you may request paperwork for supplies, do not go out of your way to screw with marines, unless you want to get deposed.
 A happy ship is a well-functioning ship."})
 
-
-/datum/outfit/job/requisitions/officer
-	name = REQUISITIONS_OFFICER
-	jobtype = /datum/job/terragov/requisitions/officer
-
-	id = /obj/item/card/id/silver
-	belt = /obj/item/storage/holster/belt/revolver/m44/full
-	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/marine/officer/ro_suit
-	wear_suit = /obj/item/clothing/suit/storage/marine/officer/req
-	suit_store = /obj/item/weapon/gun/energy/taser
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves = /obj/item/clothing/gloves/insulated
-	head = /obj/item/clothing/head/tgmccap/req
-	r_store = /obj/item/storage/pouch/general/large
-
 /datum/job/terragov/medical
 	job_category = JOB_CAT_MEDICAL
 	selection_color = "#BBFFBB"
 	exp_type_department = EXP_TYPE_MEDICAL
-
 
 /datum/job/terragov/medical/professor
 	title = CHIEF_MEDICAL_OFFICER
@@ -872,7 +686,6 @@ A happy ship is a well-functioning ship."})
 	"}
 	minimap_icon = "chief_medical"
 
-
 /datum/job/terragov/medical/professor/radio_help_message(mob/M)
 	. = ..()
 	to_chat(M, {"You are the chief medical officer aboard the [SSmapping.configs[SHIP_MAP].map_name] and supervisor to the medical department.
@@ -900,29 +713,6 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 			new_human.wear_id.paygrade = "CMO"
 	new_human.wear_id.update_label()
 
-/datum/outfit/job/medical/professor
-	name = CHIEF_MEDICAL_OFFICER
-	jobtype = /datum/job/terragov/medical/professor
-
-	id = /obj/item/card/id
-	belt = /obj/item/storage/belt/rig/medical
-	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/rank/medical/blue
-	wear_suit = /obj/item/clothing/suit/storage/labcoat/cmo
-	shoes = /obj/item/clothing/shoes/white
-	gloves = /obj/item/clothing/gloves/latex
-	glasses = /obj/item/clothing/glasses/hud/health
-	mask = /obj/item/clothing/mask/surgical
-	head = /obj/item/clothing/head/cmo
-	r_store = /obj/item/storage/pouch/surgery
-	l_store = /obj/item/storage/pouch/medkit/medic
-
-/datum/outfit/job/medical/professor/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_hand(new /obj/item/tweezers, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_hand(new /obj/item/reagent_containers/glass/bottle/lemoline/doctor, SLOT_S_STORE)
-
-//Medical Officer
 /datum/job/terragov/medical/medicalofficer
 	title = MEDICAL_DOCTOR
 	comm_title = "MD"
@@ -980,31 +770,6 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 You are tasked with keeping the marines healthy and strong, usually in the form of surgery.
 You are also an expert when it comes to medication and treatment. If you do not know what you are doing, <b>mentorhelp</b> so a mentor can assist you."})
 
-
-/datum/outfit/job/medical/medicalofficer
-	name = MEDICAL_DOCTOR
-	jobtype = /datum/job/terragov/medical/medicalofficer
-
-	id = /obj/item/card/id
-	belt = /obj/item/storage/belt/rig/medical
-	ears = /obj/item/radio/headset/mainship/doc
-	w_uniform = /obj/item/clothing/under/rank/medical
-	wear_suit = /obj/item/clothing/suit/storage/labcoat
-	shoes = /obj/item/clothing/shoes/white
-	gloves = /obj/item/clothing/gloves/latex
-	glasses = /obj/item/clothing/glasses/hud/health
-	mask = /obj/item/clothing/mask/surgical
-	head = /obj/item/clothing/head/surgery/green
-	r_store = /obj/item/storage/pouch/surgery
-	l_store = /obj/item/storage/pouch/medkit/medic
-
-/datum/outfit/job/medical/medicalofficer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_hand(new /obj/item/tweezers, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_hand(new /obj/item/reagent_containers/glass/bottle/lemoline/doctor, SLOT_S_STORE)
-
-
-//Researcher
 /datum/job/terragov/medical/researcher
 	title = FIELD_RESEARCHER
 	comm_title = "Rsr"
@@ -1035,7 +800,6 @@ You are also an expert when it comes to medication and treatment. If you do not 
 	"}
 	minimap_icon = "researcher"
 
-
 /datum/job/terragov/medical/researcher/radio_help_message(mob/M)
 	. = ..()
 	to_chat(M, {"You are a civilian, working for the Nanotrasen Corporation, but you are still subject to the military chain of command.
@@ -1065,33 +829,10 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 			new_human.wear_id.paygrade = "PROF"
 	new_human.wear_id.update_label()
 
-/datum/outfit/job/medical/researcher
-	name = FIELD_RESEARCHER
-	jobtype = /datum/job/terragov/medical/researcher
-
-	id = /obj/item/card/id
-	belt = /obj/item/storage/belt/rig/research
-	ears = /obj/item/radio/headset/mainship/res
-	w_uniform = /obj/item/clothing/under/marine/officer/researcher
-	wear_suit = /obj/item/clothing/suit/storage/labcoat/researcher
-	shoes = /obj/item/clothing/shoes/laceup
-	gloves = /obj/item/clothing/gloves/latex
-	glasses = /obj/item/clothing/glasses/hud/health
-	mask = /obj/item/clothing/mask/surgical
-	r_store = /obj/item/storage/pouch/surgery
-	l_store = /obj/item/storage/pouch/medkit/medic
-
-/datum/outfit/job/medical/researcher/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_hand(new /obj/item/tweezers, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_hand(new /obj/item/reagent_containers/glass/bottle/lemoline/doctor, SLOT_S_STORE)
-
 /datum/job/terragov/civilian
 	job_category = JOB_CAT_CIVILIAN
 	selection_color = "#ffeedd"
 
-
-//Liaison
 /datum/job/terragov/civilian/liaison
 	title = CORPORATE_LIAISON
 	paygrade = "NT1"
@@ -1102,7 +843,7 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 	minimal_access = list(ACCESS_NT_CORPORATE, ACCESS_ILLEGAL_PIRATE, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_RESEARCH, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO, ACCESS_MARINE_MEDBAY)
 	skills_type = /datum/skills/civilian
 	display_order = JOB_DISPLAY_ORDER_CORPORATE_LIAISON
-	outfit = /datum/outfit/job/civilian/liaison
+	outfit = /datum/outfit/job/liaison
 	exp_type = EXP_TYPE_COMMAND
 	exp_requirements = XP_REQ_UNSEASONED
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD
@@ -1151,20 +892,10 @@ You are not required to follow military orders; however, you cannot give militar
 Your primary job is to observe and report back your findings to Nanotrasen. Follow regular game rules unless told otherwise by your superiors.
 Use your office fax machine to communicate with corporate headquarters or to acquire new directives. You may not receive anything back (especially if the game staff is absent or otherwise busy), and this is normal."})
 
-/datum/outfit/job/civilian/liaison
-	name = CORPORATE_LIAISON
-	jobtype = /datum/job/terragov/civilian/liaison
-
-	id = /obj/item/card/id/silver
-	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/liaison_suit
-	shoes = /obj/item/clothing/shoes/laceup
-
 /datum/job/terragov/silicon
 	job_category = JOB_CAT_SILICON
 	selection_color = "#aaee55"
 
-//Synthetic
 /datum/job/terragov/silicon/synthetic
 	title = SYNTHETIC
 	req_admin_notify = TRUE
@@ -1176,7 +907,7 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	access = ALL_ACCESS
 	minimal_access = ALL_ACCESS
 	display_order = JOB_DISPLAY_ORDER_SYNTHETIC
-	outfit = /datum/outfit/job/civilian/synthetic
+	outfit = /datum/outfit/job/synthetic
 	exp_type = EXP_TYPE_SYNTHETIC
 	exp_requirements = XP_REQ_UPPER_INTERMEDIATE
 	job_flags = JOB_FLAG_SPECIALNAME|JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
@@ -1244,19 +975,6 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	. = ..()
 	to_chat(M, {"Your primary job is to support and assist all TGMC departments and personnel on-board.
 In addition, being a Synthetic gives you knowledge in every field and specialization possible on-board the ship."})
-
-/datum/outfit/job/civilian/synthetic
-	name = SYNTHETIC
-	jobtype = /datum/job/terragov/silicon/synthetic
-
-	id = /obj/item/card/id/gold
-	belt = /obj/item/storage/belt/utility/full
-	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/rank/synthetic
-	shoes = /obj/item/clothing/shoes/white
-	gloves = /obj/item/clothing/gloves/insulated
-	r_store = /obj/item/storage/pouch/general/medium
-	l_store = /obj/item/storage/pouch/general/medium
 
 /datum/job/terragov/silicon/ai
 	title = SILICON_AI
@@ -1390,9 +1108,9 @@ If you require any help, use <b>mentorhelp</b> to ask mentors about what you're 
 		ACCESS_MARINE_ENGINEERING,
 		ACCESS_MARINE_LEADER,
 	)
-	skills_type = /datum/skills/civilian/clown
+	skills_type = /datum/skills/clown
 	display_order = JOB_DISPLAY_ORDER_CLOWN
-	outfit = /datum/outfit/job/civilian/clown
+	outfit = /datum/outfit/job/clown
 	boosty_job = TRUE
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
 	jobworth = list(
@@ -1410,3 +1128,8 @@ If you require any help, use <b>mentorhelp</b> to ask mentors about what you're 
 	"}
 
 	minimap_icon = "clown"
+
+/datum/job/terragov/civilian/clown/radio_help_message(mob/M)
+	. = ..()
+	to_chat(M, {"Your primary job is to uphold the law, order, peace and stability aboard the ship. Marines can get rowdy after a few weeks of cryosleep!
+	In addition, you are tasked with the security of high-ranking personnel, including the command staff. Keep them safe!"})

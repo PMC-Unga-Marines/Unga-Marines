@@ -65,16 +65,6 @@
 	large_vehicle = SKILL_LARGE_VEHICLE_VETERAN
 	mech_pilot = SKILL_MECH_PILOT_TRAINED
 
-/* Vat growns */
-/datum/skills/vatgrown
-	name = "Vat Grown"
-
-/datum/skills/vatgrown/early
-	name = "Vat Grown"
-	cqc = SKILL_CQC_WEAK
-	firearms = SKILL_FIREARMS_UNTRAINED
-	melee_weapons = SKILL_MELEE_WEAK
-
 /datum/skills/sectoid
 	name = "Sectoid"
 

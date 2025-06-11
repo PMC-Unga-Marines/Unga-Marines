@@ -28,16 +28,13 @@
 	///the species this outfit is designed for
 	var/species = SPECIES_HUMAN
 
-
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overridden for customization depending on client prefs,species etc
 	return
 
-
 /datum/outfit/proc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overridden for toggling internals, id binding, access etc
 	return
-
 
 /datum/outfit/proc/equip(mob/living/carbon/human/H, visualsOnly = FALSE, client/override_client)
 	pre_equip(H, visualsOnly, override_client)
@@ -165,7 +162,6 @@
 	fdel(f)
 	WRITE_FILE(f, json)
 	usr << ftp(f, "[name].json")
-
 
 /datum/outfit/proc/load_from(list/outfit_data)
 	name = outfit_data["name"]

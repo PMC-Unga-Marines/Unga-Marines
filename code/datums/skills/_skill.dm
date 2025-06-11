@@ -175,7 +175,7 @@
 /// returns/gets a new skills datum with values changed according to the args passed
 /datum/skills/proc/modifyRating(
 	cqc,
-	melee_weapons
+	melee_weapons,
 	firearms,
 	pistols,
 	shotguns,

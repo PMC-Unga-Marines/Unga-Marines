@@ -79,12 +79,6 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 	to_chat(M, {"\nYou are a rank-and-file marine of the TGMC, and that is your strength.
 What you lack alone, you gain standing shoulder to shoulder with the men and women of the TerraGov Marine Corps. Ooh-rah!"})
 
-/datum/outfit/job/marine/standard
-	name = SQUAD_MARINE
-	jobtype = /datum/job/terragov/squad/standard
-
-	id = /obj/item/card/id/dogtag
-
 //Squad Combat Robot
 /datum/job/terragov/squad/robot
 	title = SQUAD_ROBOT
@@ -157,11 +151,6 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 	to_chat(M, {"\nYou are a rank-and-file marine of the TGMC, and that is your strength.
 What you lack alone, you gain standing shoulder to shoulder with the men and women of the TerraGov Marine Corps. Ooh-rah!"})
 
-/datum/outfit/job/marine/robot
-	name = SQUAD_ROBOT
-	jobtype = /datum/job/terragov/squad/robot
-	id = /obj/item/card/id/dogtag/robot
-
 //Squad Engineer
 /datum/job/terragov/squad/engineer
 	title = SQUAD_ENGINEER
@@ -202,13 +191,6 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 	. = ..()
 	to_chat(M, {"\nYou have the equipment and skill to build fortifications, reroute power lines, and bunker down.
 Your squaddies will look to you when it comes to construction in the field of battle."})
-
-
-/datum/outfit/job/marine/engineer
-	name = SQUAD_ENGINEER
-	jobtype = /datum/job/terragov/squad/engineer
-
-	id = /obj/item/card/id/dogtag/engineer
 
 /datum/job/terragov/squad/engineer/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
@@ -269,12 +251,6 @@ Your squaddies will look to you when it comes to construction in the field of ba
 	. = ..()
 	to_chat(M, {"\nYou must tend the wounds of your squad mates and make sure they are healthy and active.
 You may not be a fully-fledged doctor, but you stand between life and death when it matters."})
-
-/datum/outfit/job/marine/corpsman
-	name = SQUAD_CORPSMAN
-	jobtype = /datum/job/terragov/squad/corpsman
-
-	id = /obj/item/card/id/dogtag/corpsman
 
 /datum/job/terragov/squad/corpsman/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
@@ -351,12 +327,6 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 			new_human.wear_id.paygrade = "E9" //If you play way too much TGMC. 1000 hours.
 	new_human.wear_id.update_label()
 
-/datum/outfit/job/marine/smartgunner
-	name = SQUAD_SMARTGUNNER
-	jobtype = /datum/job/terragov/squad/smartgunner
-
-	id = /obj/item/card/id/dogtag/smartgun
-
 //Squad Specialist
 /datum/job/terragov/squad/specialist
 	title = SQUAD_SPECIALIST
@@ -382,14 +352,6 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	. = ..()
 	to_chat(M, {"\nYou are the very rare and valuable weapon expert, trained to use special equipment.
 You can serve a variety of roles, so choose carefully."})
-
-
-/datum/outfit/job/marine/specialist
-	name = SQUAD_SPECIALIST
-	jobtype = /datum/job/terragov/squad/specialist
-
-	id = /obj/item/card/id/dogtag
-	head = /obj/item/clothing/head/helmet/specrag
 
 //Squad Leader
 /datum/job/terragov/squad/leader
@@ -434,12 +396,6 @@ You can serve a variety of roles, so choose carefully."})
 	to_chat(M, {"\nYou are responsible for the men and women of your squad. Make sure they are on task, working together, and communicating.
 You are also in charge of communicating with command and letting them know about the situation first hand. Keep out of harm's way."})
 
-/datum/outfit/job/marine/leader
-	name = SQUAD_LEADER
-	jobtype = /datum/job/terragov/squad/leader
-
-	id = /obj/item/card/id/dogtag/leader
-
 /datum/job/terragov/squad/leader/after_spawn(mob/living/carbon/C, mob/user, latejoin = FALSE)
 	. = ..()
 	if(!ishuman(C))
@@ -483,8 +439,3 @@ You are also in charge of communicating with command and letting them know about
 
 /datum/job/terragov/squad/vatgrown/return_spawn_type(datum/preferences/prefs)
 	return /mob/living/carbon/human/species/vatgrown
-
-/datum/outfit/job/marine/vatgrown
-	name = SQUAD_VATGROWN
-	jobtype = /datum/job/terragov/squad/vatgrown
-	id = /obj/item/card/id/dogtag
