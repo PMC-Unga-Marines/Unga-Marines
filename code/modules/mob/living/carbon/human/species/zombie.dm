@@ -19,6 +19,7 @@
 		ORGAN_SLOT_APPENDIX = /datum/internal_organ/appendix,
 		ORGAN_SLOT_EYES = /datum/internal_organ/eyes
 	)
+	death_message = "seizes up and falls limp..."
 	///Sounds made randomly by the zombie
 	var/list/sounds = list('sound/hallucinations/growl1.ogg','sound/hallucinations/growl2.ogg','sound/hallucinations/growl3.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/wail.ogg')
 	///Time before resurrecting if dead
@@ -67,7 +68,7 @@
 	if(prob(10))
 		playsound(get_turf(H), pick(sounds), 50)
 	for(var/datum/limb/limb AS in H.limbs) //Regrow some limbs
-		if(limb.limb_status & LIMB_DESTROYED && !(limb.parent?.limb_status & LIMB_DESTROYED) && prob(10))
+		if(limb.limb_status & LIMB_DESTROYED && !(limb.parent?.limb_status & LIMB_DESTROYED) && limb.vital && prob(10))
 			limb.remove_limb_flags(LIMB_DESTROYED)
 			if(istype(limb, /datum/limb/hand/l_hand))
 				H.equip_to_slot_or_del(new /obj/item/weapon/zombie_claw, SLOT_L_HAND)
@@ -75,7 +76,7 @@
 				H.equip_to_slot_or_del(new /obj/item/weapon/zombie_claw, SLOT_R_HAND)
 			H.update_body()
 		else if(limb.limb_status & LIMB_BROKEN && prob(20))
-			limb.remove_limb_flags(LIMB_BROKEN | LIMB_SPLINTED | LIMB_STABILIZED)
+			limb.remove_limb_flags(LIMB_BROKEN|LIMB_SPLINTED|LIMB_STABILIZED)
 
 	if(H.health != total_health)
 		H.heal_limbs(heal_rate)
@@ -86,17 +87,20 @@
 	H.update_health()
 
 /datum/species/zombie/handle_death(mob/living/carbon/human/H)
-	SSmobs.stop_processing(H)
-	if(!H.on_fire && H.has_working_organs())
-		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, revive_to_crit), TRUE, FALSE), revive_time)
-
-/datum/species/zombie/create_organs(mob/living/carbon/human/organless_human)
-	. = ..()
-	for(var/datum/limb/limb AS in organless_human.limbs)
-		if(!istype(limb, /datum/limb/head))
-			continue
-		limb.vital = FALSE
+	if(H.on_fire)
+		addtimer(CALLBACK(src, PROC_REF(fade_out_and_qdel_in), H), 1 MINUTES)
 		return
+	if(!H.has_working_organs())
+		SSmobs.stop_processing(H) // stopping the processing extinguishes the fire that is already on, so that's a hack around
+		addtimer(CALLBACK(src, PROC_REF(fade_out_and_qdel_in), H), 1 MINUTES)
+		return
+	SSmobs.stop_processing(H)
+	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, revive_to_crit), TRUE, FALSE), revive_time)
+
+/// We start fading out the human and qdel them in set time
+/datum/species/zombie/proc/fade_out_and_qdel_in(mob/living/carbon/human/H, time = 5 SECONDS)
+	fade_out(H, our_time = time)
+	QDEL_IN(H, time)
 
 /datum/species/zombie/fast
 	name = "Fast zombie"
@@ -132,7 +136,11 @@
 
 /datum/species/zombie/strong/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
 	. = ..()
-	H.color = COLOR_MAROON
+	H.color = COLOR_DARK_BROWN
+
+/datum/species/zombie/strong/post_species_loss(mob/living/carbon/human/H, datum/species/old_species)
+	. = ..()
+	H.color = null
 
 /datum/species/zombie/psi_zombie
 	name = "Psi zombie" //reanimated by psionic ability
@@ -171,9 +179,10 @@
 /datum/action/rally_zombie
 	name = "Rally Zombies"
 	action_icon_state = "rally_minions"
+	action_icon = 'icons/Xeno/actions/general.dmi'
 
 /datum/action/rally_zombie/action_activate()
-	owner.emote("roar")
+	owner.balloon_alert(owner, "Zombies Rallied!")
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_AI_MINION_RALLY, owner)
 	var/datum/action/set_agressivity/set_agressivity = owner.actions_by_path[/datum/action/set_agressivity]
 	if(set_agressivity)
@@ -182,6 +191,7 @@
 /datum/action/set_agressivity
 	name = "Set other zombie behavior"
 	action_icon_state = "minion_agressive"
+	action_icon = 'icons/Xeno/actions/general.dmi'
 	///If zombies should be agressive
 	var/zombies_agressive = TRUE
 
@@ -197,7 +207,8 @@
 /obj/item/weapon/zombie_claw
 	name = "claws"
 	hitsound = 'sound/weapons/slice.ogg'
-	icon_state = ""
+	icon_state = "zombie_claw_left"
+	base_icon_state = "zombie_claw"
 	force = 20
 	sharp = IS_SHARP_ITEM_BIG
 	edge = TRUE
@@ -217,7 +228,7 @@
 		var/mob/living/carbon/human/human_target = target
 		if(human_target.stat == DEAD)
 			return
-		human_target.reagents.add_reagent(/datum/reagent/zombium, zombium_per_hit)
+		human_target.reagents.add_reagent(/datum/reagent/zombium, zombium_per_hit * 0.01 * get_soft_armor(BIO))
 	return ..()
 
 /obj/item/weapon/zombie_claw/afterattack(atom/target, mob/user, has_proximity, click_parameters)
@@ -242,6 +253,13 @@
 		return FALSE
 	if(door.density) //Make sure it's still closed
 		door.open(TRUE)
+
+/obj/item/weapon/zombie_claw/equipped(mob/user, slot)
+	. = ..()
+	if(slot == SLOT_L_HAND)
+		icon_state = "[base_icon_state]_right"
+	else if(slot == SLOT_R_HAND)
+		icon_state = "[base_icon_state]_left"
 
 /obj/item/weapon/zombie_claw/no_zombium
 	zombium_per_hit = 0

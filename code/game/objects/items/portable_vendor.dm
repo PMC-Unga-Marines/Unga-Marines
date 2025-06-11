@@ -129,7 +129,7 @@
 			if(use_points)
 				points -= cost
 
-			playsound(src, "sound/machines/fax.ogg", 5)
+			playsound(src, 'sound/machines/fax.ogg', 5)
 			balloon_alert(user, "fabricating")
 			fabricating = TRUE
 			update_appearance()

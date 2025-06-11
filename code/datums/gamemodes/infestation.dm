@@ -16,6 +16,8 @@
 
 /datum/game_mode/infestation/post_setup()
 	. = ..()
+	if(!(round_type_flags & MODE_INFESTATION))
+		return
 	if(bioscan_interval)
 		TIMER_COOLDOWN_START(src, COOLDOWN_BIOSCAN, bioscan_interval)
 	var/weed_type
@@ -46,13 +48,6 @@
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_BIOSCAN) || bioscan_interval == 0)
 		return
 	announce_bioscans(GLOB.current_orbit)
-
-// make sure you don't turn 0 into a false positive
-#define BIOSCAN_DELTA(count, delta) count ? max(0, count + rand(-delta, delta)) : 0
-
-#define BIOSCAN_LOCATION(show_locations, location) ((show_locations && location) ? ", including one in [location]" : "")
-
-#define AI_SCAN_DELAY 15 SECONDS
 
 ///Annonce to everyone the number of xeno and marines on ship and ground
 /datum/game_mode/infestation/announce_bioscans(show_locations = TRUE, delta = 2, ai_operator = FALSE, announce_humans = TRUE, announce_xenos = TRUE, send_fax = TRUE)
@@ -166,21 +161,17 @@
 		to_chat(M, assemble_alert(
 			title = "Detailed Bioscan",
 			message = {"[numXenosPlanet] xeno\s on the planet.
-[numXenosShip] xeno\s on the ship.
-[numXenosTransit] xeno\s in transit.
+			[numXenosShip] xeno\s on the ship.
+			[numXenosTransit] xeno\s in transit.
 
-[numHostsPlanet] human\s on the planet.
-[numHostsShip] human\s on the ship.
-[numHostsTransit] human\s in transit."},
+			[numHostsPlanet] human\s on the planet.
+			[numHostsShip] human\s on the ship.
+			[numHostsTransit] human\s in transit."},
 			color_override = "purple"
 		))
 
 	message_admins("Bioscan - Humans: [numHostsPlanet] on the planet[host_location_planetside ? ". Location:[host_location_planetside]":""]. [hosts_shipside] on the ship.[host_location_shipside ? " Location: [host_location_shipside].":""]. [hosts_transit] in transit.")
 	message_admins("Bioscan - Xenos: [xenos_planetside] on the planet[xenos_planetside > 0 && xeno_location_planetside ? ". Location:[xeno_location_planetside]":""]. [numXenosShip] on the ship.[xeno_location_shipside ? " Location: [xeno_location_shipside].":""] [xenos_transit] in transit.")
-
-#undef BIOSCAN_DELTA
-#undef BIOSCAN_LOCATION
-#undef AI_SCAN_DELAY
 
 /datum/game_mode/infestation/check_finished()
 	if(round_finished)
@@ -299,6 +290,8 @@
 /datum/game_mode/infestation/can_start(bypass_checks = FALSE)
 	. = ..()
 	if(!.)
+		return
+	if(!(round_type_flags & MODE_INFESTATION))
 		return
 	var/xeno_candidate = FALSE //Let's guarantee there's at least one xeno.
 	for(var/level = JOBS_PRIORITY_HIGH; level >= JOBS_PRIORITY_LOW; level--)

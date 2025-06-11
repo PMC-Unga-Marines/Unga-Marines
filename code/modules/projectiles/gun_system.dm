@@ -527,30 +527,26 @@
 	else if((!length(chamber_items) && max_chamber_items) || (!rounds && !max_chamber_items))
 		icon_state = real_icon + "_e"
 	else if(current_chamber_position <= length(chamber_items) && chamber_items[current_chamber_position] && chamber_items[current_chamber_position].loc != src)
-		icon_state = real_icon + "_l"
+		icon_state = real_icon + "_l" // TODO, this bugs out sentry icons
 	else
 		icon_state = real_icon
 
 //manages the overlays for the gun - separate from attachment overlays
 /obj/item/weapon/gun/update_overlays()
 	. = ..()
+	//magazines overlays
+	attachment_overlays[ATTACHMENT_SLOT_MAGAZINE] = null
+	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_MAGAZINES) && length(chamber_items))
+		var/image/mag_overlay = get_magazine_overlay(chamber_items[current_chamber_position])
+		if(mag_overlay)
+			attachment_overlays[ATTACHMENT_SLOT_MAGAZINE] = mag_overlay
+			. += mag_overlay
+
 	//ammo level overlays
 	if(ammo_level_icon && length(chamber_items) && rounds > 0 && chamber_items[current_chamber_position].loc == src)
-		var/remaining = CEILING((rounds /(max_rounds)) * 100, 25)
+		var/remaining = CEILING(min(rounds / max_rounds, 1) * 100, 25)
 		var/image/ammo_overlay = image(icon, icon_state = "[ammo_level_icon]_[remaining]", pixel_x = icon_overlay_x_offset, pixel_y = icon_overlay_y_offset)
 		. += ammo_overlay
-
-	//magazines overlays
-	var/image/overlay = attachment_overlays[ATTACHMENT_SLOT_MAGAZINE]
-	if(!CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_MAGAZINES) || !length(chamber_items))
-		attachment_overlays[ATTACHMENT_SLOT_MAGAZINE] = null
-		return
-	if(!get_magazine_overlay(chamber_items[current_chamber_position]))
-		return
-	var/obj/item/current_mag = chamber_items[current_chamber_position]
-	overlay = get_magazine_overlay(current_mag)
-	attachment_overlays[ATTACHMENT_SLOT_MAGAZINE] = overlay
-	. += overlay
 
 /obj/item/weapon/gun/update_worn_icon_state()
 	var/current_state = worn_icon_state
@@ -1450,7 +1446,8 @@
 			user.put_in_hands(mag)
 		else
 			mag.forceMove(get_turf(src))
-			SEND_SIGNAL(gun_user, COMSIG_MAGAZINE_DROP, mag)
+			if(gun_user) // sentries usually don't have a gun_user
+				SEND_SIGNAL(gun_user, COMSIG_MAGAZINE_DROP, mag)
 	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_ROTATES_CHAMBER))
 		chamber_items[chamber_items.Find(mag)] = null
 	else

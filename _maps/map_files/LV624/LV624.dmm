@@ -6600,7 +6600,7 @@
 /area/lv624/ground/jungle8)
 "fDN" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/drinkingglass,
+/obj/item/reagent_containers/cup/glass/drinking_glass,
 /turf/open/floor/grimy,
 /area/lv624/lazarus/bar)
 "fEz" = (
@@ -10346,7 +10346,7 @@
 /area/lv624/lazarus/sleep_male)
 "jNN" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -15497,7 +15497,7 @@
 /area/lv624/ground/sand4)
 "pHQ" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/drinkingglass{
+/obj/item/reagent_containers/cup/glass/drinking_glass{
 	pixel_y = 4
 	},
 /turf/open/floor/grimy,
@@ -16252,7 +16252,7 @@
 /area/lv624/lazarus/sleep_male)
 "qAV" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/drinkingglass,
+/obj/item/reagent_containers/cup/glass/drinking_glass,
 /obj/item/weapon/broken_bottle,
 /turf/open/floor/grimy,
 /area/lv624/lazarus/bar)

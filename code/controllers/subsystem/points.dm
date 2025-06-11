@@ -85,7 +85,8 @@ SUBSYSTEM_DEF(points)
 		var/list/containsname = list()
 		for(var/i in P.contains)
 			var/atom/movable/path = i
-			if(!path)	continue
+			if(!path)
+				continue
 			if(!containsname[path])
 				containsname[path] = list("name" = initial(path.name), "count" = 1)
 			else

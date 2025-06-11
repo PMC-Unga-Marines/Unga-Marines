@@ -292,7 +292,7 @@
 //======================================\\
 
 /*
-				   GEAR
+				GEAR
 */
 
 //======================================\\
@@ -365,32 +365,24 @@
 /obj/item/yautja_teleporter
 	name = "relay beacon"
 	desc = "A device covered in sacred text. It whirrs and beeps every couple of seconds."
-
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "teleporter"
-
 	item_flags = ITEM_PREDATOR
 	atom_flags = CONDUCT
 	w_class = WEIGHT_CLASS_TINY
 	force = 1
 	throwforce = 1
 	resistance_flags = UNACIDABLE
-	var/timer = 0
 
 /obj/item/yautja_teleporter/attack_self(mob/user)
-	set waitfor = FALSE
-
-	..()
-
-	if(!ishuman(user))
-		return
+	. = ..()
 
 	if(!HAS_TRAIT(user, TRAIT_YAUTJA_TECH) || is_centcom_level(user.z))
 		to_chat(user, span_warning("You fiddle with it, but nothing happens!"))
 		return
 
 	var/mob/living/carbon/human/H = user
-	var/ship_to_tele = list("Yautja Ship" = -1, "Human Ship" = "Human")
+	var/ship_to_tele = list("Yautja Ship" = -1, "Human Ship" = "Human") // what the fuck is this piece of crap
 
 	if(H.client && H.client.clan_info)
 		if(H.client.clan_info.item[3] & CLAN_PERMISSION_ADMIN_VIEW)
@@ -415,35 +407,34 @@
 		target_turf = get_turf(pickedYT)
 	else
 		target_turf = SAFEPICK(SSpredships.get_clan_spawnpoints(clan))
-	if(!istype(target_turf))
+	if(!target_turf)
 		return
 
 	// Let's go
 	playsound(src, 'sound/ambience/signal.ogg', 25, 1, sound_range = 6)
-	timer = 1
 	user.visible_message(span_info("[user] starts becoming shimmery and indistinct..."))
 
-	if(do_after(user, 10 SECONDS, NONE, src, BUSY_ICON_GENERIC, BUSY_ICON_GENERIC))
-		// Display fancy animation for you and the person you might be pulling (Legacy)
-		user.visible_message(span_warning("[icon2html(user, viewers(src))][user] disappears!"))
-		var/tele_time = animation_teleport_quick_out(user)
-		var/mob/living/M = user.pulling
-		SEND_SIGNAL(H, COMSIG_ATOM_TELEPORT, src)
-		if(istype(M)) // Pulled person
-			SEND_SIGNAL(M, COMSIG_ATOM_TELEPORT, src)
-			M.visible_message(span_warning("[icon2html(M, viewers(src))][M] disappears!"))
-			animation_teleport_quick_out(M)
+	if(!do_after(user, 10 SECONDS, NONE, src, BUSY_ICON_GENERIC, BUSY_ICON_GENERIC))
+		return
+	// Display fancy animation for you and the person you might be pulling (Legacy)
+	user.visible_message(span_warning("[icon2html(user, viewers(src))][user] disappears!"))
+	animation_teleport_quick_out(user)
+	SEND_SIGNAL(H, COMSIG_ATOM_TELEPORT, src)
+	var/mob/living/pulled_mob = user.pulling
+	if(pulled_mob) // Pulled person
+		SEND_SIGNAL(pulled_mob, COMSIG_ATOM_TELEPORT, src)
+		pulled_mob.visible_message(span_warning("[icon2html(pulled_mob, viewers(src))][pulled_mob] disappears!"))
+		animation_teleport_quick_out(pulled_mob)
 
-		sleep(tele_time) // Animation delay
-		user.trainteleport(target_turf) // Actually teleports everyone, not just you + pulled
+	addtimer(CALLBACK(src, PROC_REF(teleport), target_turf, user, pulled_mob), 1 SECONDS)
 
-		// Undo animations
-		animation_teleport_quick_in(user)
-		if(istype(M) && !QDELETED(M))
-			animation_teleport_quick_in(M)
-		timer = 0
-	else
-		addtimer(VARSET_CALLBACK(src, timer, FALSE), 1 SECONDS)
+/obj/item/yautja_teleporter/proc/teleport(turf/target_turf, mob/user, mob/pulled_mob)
+	user.trainteleport(target_turf) // Actually teleports everyone, not just you + pulled
+
+	// Undo animations
+	animation_teleport_quick_in(user)
+	if(pulled_mob)
+		animation_teleport_quick_in(pulled_mob)
 
 /obj/item/yautja_teleporter/verb/add_tele_loc()
 	set name = "Add Teleporter Destination"
@@ -476,7 +467,7 @@
 //======================================\\
 
 /*
-			   OTHER THINGS
+				OTHER THINGS
 */
 
 //======================================\\
@@ -491,8 +482,8 @@
 		slot_l_hand_str = 'icons/mob/hunter/items_lefthand.dmi',
 		slot_r_hand_str = 'icons/mob/hunter/items_righthand.dmi'
 	)
-	var/true_desc = "This is the scalp of a" //humans and Yautja see different things when examining these.
 	appearance_flags = NONE //So that the blood overlay renders separately and isn't affected by the hair color matrix.
+	var/true_desc = "This is the scalp of a" //humans and Yautja see different things when examining these.
 
 /obj/item/scalp/Initialize(mapload, mob/living/carbon/human/scalpee, mob/living/carbon/human/user)
 	. = ..()
@@ -612,12 +603,14 @@
 /obj/item/explosive/grenade/spawnergrenade/hellhound
 	name = "hellhound caller"
 	spawner_type = /mob/living/carbon/xenomorph/hellhound
+	force = 20
+	throwforce = 40
 	deliveryamt = 1
 	desc = "A strange piece of alien technology. It seems to call forth a hellhound."
 	icon = 'icons/obj/hunter/pred_gear.dmi'
 	icon_state = "hellnade"
 	w_class = WEIGHT_CLASS_TINY
-	det_time = 30
+	det_time = 3 SECONDS
 	var/obj/machinery/camera/current = null
 	var/turf/activated_turf = null
 
@@ -626,7 +619,7 @@
 	return ..()
 
 /obj/item/explosive/grenade/spawnergrenade/hellhound/attack_self(mob/living/carbon/human/user)
-	..()
+	. = ..()
 	if(!active)
 		if(!HAS_TRAIT(user, TRAIT_YAUTJA_TECH))
 			to_chat(user, span_warning("What's this thing?"))
@@ -664,28 +657,20 @@
 	else if (!current || get_turf(user) != activated_turf || src.loc != user ) //camera doesn't work, or we moved.
 		user.unset_interaction()
 
-/obj/item/explosive/grenade/spawnergrenade/hellhound/New()
-	. = ..()
-
-	force = 20
-	throwforce = 40
-
 /obj/item/explosive/grenade/spawnergrenade/hellhound/on_set_interaction(mob/user)
-	..()
+	. = ..()
 	user.reset_perspective(current)
 
 /obj/item/explosive/grenade/spawnergrenade/hellhound/on_unset_interaction(mob/user)
-	..()
+	. = ..()
 	current = null
 	user.reset_perspective(null)
-
 
 /obj/item/weapon/sword/ceremonial
 	name = "Ceremonial Sword"
 	desc = "A fancy ceremonial sword passed down from generation to generation. Despite this, it has been very well cared for, and is in top condition."
 	icon_state = "officer_sword"
-	worn_icon_state = "machete"
-
+	worn_icon_state = "officer_sword"
 
 // Hunting traps
 /obj/item/hunting_trap
@@ -713,7 +698,7 @@
 
 /obj/item/hunting_trap/Destroy()
 	cleanup_tether()
-	. = ..()
+	return ..()
 
 /obj/item/hunting_trap/dropped(mob/living/carbon/human/mob) //Changes to "camouflaged" icons based on where it was dropped.
 	if(armed && isturf(mob.loc))
@@ -724,10 +709,10 @@
 			icon_state = "yauttrapgrass"
 		else
 			icon_state = "yauttrap1"
-	..()
+	return ..()
 
 /obj/item/hunting_trap/attack_self(mob/user as mob)
-	..()
+	. = ..()
 	if(ishuman(user) && !user.stat && !user.restrained())
 		var/wait_time = 3 SECONDS
 		if(!HAS_TRAIT(user, TRAIT_YAUTJA_TECH))
@@ -749,7 +734,7 @@
 		to_chat(user, span_warning("You foolishly reach out for \the [src]..."))
 		trapMob(user)
 		return
-	. = ..()
+	return ..()
 
 /obj/item/hunting_trap/proc/trapMob(mob/living/carbon/C)
 	if(!armed)
@@ -1208,9 +1193,9 @@
 	max_fuel = 150	//The max amount of fuel the welder can hold
 
 /obj/item/weapon/sword/machete/arnold
-	anchored = TRUE
+	name = "\improper Dutch's Machete"
+	desc = "Won by an Elder during their youthful hunting days. None are allowed to touch it."
 	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "arnold-machete"
-	desc = "Won by an Elder during their youthful hunting days. None are allowed to touch it."
-	name = "\improper Dutch's Machete"
 	force = 130
+	anchored = TRUE

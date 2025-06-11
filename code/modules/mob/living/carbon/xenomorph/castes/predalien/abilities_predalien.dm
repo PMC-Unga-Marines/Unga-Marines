@@ -39,7 +39,7 @@
 	cooldown_duration = 25 SECONDS
 	ability_cost = 50
 
-	var/predalien_roar = list("sound/voice/alien/predalien/roar.ogg")
+	var/predalien_roar = list('sound/voice/alien/predalien/roar.ogg')
 	var/bonus_damage_scale = 2.5
 	var/bonus_speed_scale = 0.05
 

@@ -15,7 +15,7 @@
 	)
 	worn_icon_state = "syringe_0"
 	icon_state = "0"
-	init_reagent_flags = AMOUNT_SKILLCHECK
+	reagent_flags = AMOUNT_SKILLCHECK
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5,10,15)
 	volume = 15
@@ -226,11 +226,16 @@
 		var/target_zone = ran_zone(check_zone(user.zone_selected, target))
 		var/datum/limb/affecting = target:get_limb(target_zone)
 
-		if (!affecting)
+		if(!affecting)
 			return
 		if(affecting.limb_status & LIMB_DESTROYED)
-			to_chat(user, "What [affecting.display_name]?")
-			return
+			var/list/limb_list = GLOB.human_body_parts.Copy()
+			for(var/datum/limb/our_limb AS in limb_list)
+				if(!(our_limb.limb_status & LIMB_DESTROYED))
+					continue
+				limb_list -= our_limb
+			target_zone = pick(limb_list)
+			affecting = target:get_limb(target_zone)
 		var/hit_area = affecting.display_name
 
 		var/mob/living/carbon/human/H = target

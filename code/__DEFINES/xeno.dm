@@ -145,6 +145,7 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 	/mob/living/carbon/xenomorph/mantis/ai,
 	/mob/living/carbon/xenomorph/scorpion/ai,
 	/mob/living/carbon/xenomorph/nymph/ai,
+	/mob/living/carbon/xenomorph/baneling/ai,
 ))
 
 /// Used by the is_valid_for_resin_structure proc.
@@ -211,3 +212,6 @@ GLOBAL_LIST_INIT(xeno_utility_upgrades, list(
 #define SPIDERLING_ATTACK "seek and attack order"
 
 #define SPIDERLING_WITHER_RANGE 15
+
+/// Life runs every 2 seconds, but we don't want to multiply all healing by 2 due to seconds_per_tick
+#define XENO_PER_SECOND_LIFE_MOD 0.5

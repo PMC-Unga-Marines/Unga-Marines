@@ -4,11 +4,9 @@
 	var/list/vv_values
 	var/list/stored_access
 
-
 /datum/outfit/varedit/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	H.delete_equipment() //Applying VV to wrong objects is not reccomended.
-	. = ..()
-
+	return ..()
 
 /datum/outfit/varedit/proc/set_equipement_by_slot(slot,item_path)
 	switch(slot)

@@ -1,4 +1,4 @@
-/mob/living/carbon/human/Life()
+/mob/living/carbon/human/Life(seconds_per_tick, times_fired)
 	. = ..()
 	//update the current life tick, can be used to e.g. only do something every 4 ticks
 	life_tick++

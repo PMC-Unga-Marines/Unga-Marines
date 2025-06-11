@@ -628,7 +628,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/pen
 	icon = 'icons/obj/items/storage/firstaid.dmi'
 	volume = 30
-	init_reagent_flags = null
+	reagent_flags = null
 
 /obj/item/reagent_containers/hypospray/autoinjector/pen/tramadol
 	name = "Tramadol pen"

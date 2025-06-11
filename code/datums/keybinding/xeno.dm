@@ -198,6 +198,12 @@
 //
 // Single caste, alphabetical order
 //
+/datum/keybinding/xeno/baneling_explode
+	name = "Explode"
+	full_name = "Baneling: Explode"
+	description = "Detonate yourself, spreading your currently selected reagent. Size depends on current stored plasma, more plasma is more reagent."
+	keybind_signal = COMSIG_XENOABILITY_BANELING_EXPLODE
+	hotkey_keys = list("E")
 
 /datum/keybinding/xeno/long_range_sight
 	name = "long_range_sight"
@@ -239,6 +245,19 @@
 	description = "Fire globules."
 	keybind_signal = COMSIG_XENOABILITY_BOMBARD
 	hotkey_keys = list("R")
+
+/datum/keybinding/xeno/acid_shroud
+	name = "acid_shroud"
+	full_name = "Boiler: Acid Shroud"
+	description = "Create a smokescreen for a getaway."
+	keybind_signal = COMSIG_XENOABILITY_ACID_SHROUD
+	hotkey_keys = list("Q")
+
+/datum/keybinding/xeno/acid_shroud_select
+	name = "select_acid_shroud"
+	full_name = "Boiler: Select Acid Shroud"
+	description = "Create a smokescreen for a getaway."
+	keybind_signal = COMSIG_XENOABILITY_ACID_SHROUD_SELECT
 
 /datum/keybinding/xeno/acid_charge
 	name = "acid_charge"
@@ -1073,13 +1092,6 @@
 	description = "Cycles through reagents to choose one for Defiler abilities."
 	keybind_signal = COMSIG_XENOABILITY_PANTHER_SELECT_REAGENT
 	hotkey_keys = list("V")
-
-/datum/keybinding/xeno/dump_acid
-	name = "dump_acid"
-	full_name = "Boiler: Dump Acid"
-	description = ""
-	keybind_signal = COMSIG_XENOABILITY_DUMP_ACID
-	hotkey_keys = list("Q")
 
 /datum/keybinding/xeno/psychic_grab
 	name = "psychic_grab"

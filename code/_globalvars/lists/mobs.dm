@@ -121,6 +121,7 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/scorpion,
 	/mob/living/carbon/xenomorph/facehugger,
 	/mob/living/carbon/xenomorph/spiderling,
+	/mob/living/carbon/xenomorph/baneling,
 ))
 
 GLOBAL_LIST_EMPTY_TYPED(hellhound_list, /mob/living/carbon/xenomorph/hellhound)

@@ -205,7 +205,6 @@
 	toxpwr = 0
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
-	scannable = TRUE
 	taste_description = "cough syrup"
 	trait_flags = BRADYCARDICS
 
@@ -436,7 +435,6 @@
 	color = COLOR_TOXIN_XENO_NEUROTOXIN
 	custom_metabolism = REAGENTS_METABOLISM * 2
 	overdose_threshold = 10000 //Overdosing for neuro is what happens when you run out of stamina to avoid its oxy and toxin damage
-	scannable = TRUE
 	toxpwr = 0
 
 /datum/reagent/toxin/xeno_neurotoxin/on_mob_life(mob/living/L, metabolism)
@@ -483,7 +481,6 @@
 	color = COLOR_TOXIN_XENO_HEMODILE
 	custom_metabolism = 0.4
 	overdose_threshold = 10000
-	scannable = TRUE
 	toxpwr = 0
 
 /datum/reagent/toxin/xeno_hemodile/on_mob_life(mob/living/L, metabolism)
@@ -526,7 +523,6 @@
 	color = COLOR_TOXIN_XENO_TRANSVITOX
 	custom_metabolism = 0.4
 	overdose_threshold = 10000
-	scannable = TRUE
 	toxpwr = 0
 
 /datum/reagent/toxin/xeno_transvitox/on_mob_add(mob/living/L, metabolism, affecting)
@@ -583,7 +579,6 @@
 	color = COLOR_TOXIN_XENO_SANGUINAL
 	custom_metabolism = 0.4
 	overdose_threshold = 10000
-	scannable = TRUE
 	toxpwr = 0
 
 /datum/reagent/toxin/xeno_sanguinal/on_mob_life(mob/living/L, metabolism)
@@ -617,7 +612,6 @@
 	color = COLOR_TOXIN_XENO_OZELOMELYN
 	custom_metabolism = 1.5 // metabolizes decently quickly. A sting does 15 at the same rate as neurotoxin.
 	overdose_threshold = 10000
-	scannable = TRUE
 	toxpwr = 0 // This is going to do slightly snowflake tox damage.
 	purge_list = list(/datum/reagent/medicine)
 	purge_rate = 5
@@ -638,9 +632,13 @@
 	reagent_state = LIQUID
 	color = COLOR_TOXIN_ZOMBIUM
 	custom_metabolism = REAGENTS_METABOLISM * 0.25
-	scannable = TRUE
 	overdose_threshold = 20
 	overdose_crit_threshold = 50
+
+/datum/reagent/zombium/on_mob_life(mob/living/L, metabolism)
+	. = ..()
+	if(prob(10))
+		L.emote("cough")
 
 /datum/reagent/zombium/on_overdose_start(mob/living/L, metabolism)
 	RegisterSignal(L, COMSIG_HUMAN_SET_UNDEFIBBABLE, PROC_REF(zombify))
@@ -678,7 +676,6 @@
 	color = COLOR_TOXIN_SATRAPINE
 	overdose_threshold = 10000
 	custom_metabolism = REAGENTS_METABOLISM
-	scannable = TRUE
 	toxpwr = 0
 	purge_list = list(
 		/datum/reagent/medicine/tramadol,
@@ -725,7 +722,6 @@
 	description = "Jelly used by xenos to stabilize the hosts."
 	color = "#500f4d"
 	taste_description = "glue and grape"
-	scannable = TRUE
 	custom_metabolism = REAGENTS_METABOLISM * 0.5
 	effect_str = 2
 

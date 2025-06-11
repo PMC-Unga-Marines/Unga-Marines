@@ -393,11 +393,23 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	if(!gun)
 		return FALSE
 	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(src, range))
-		if(nearby_human.stat == DEAD || CHECK_BITFIELD(nearby_human.status_flags, INCORPOREAL)  || (CHECK_BITFIELD(gun.turret_flags, TURRET_SAFETY) || nearby_human.wear_id?.iff_signal & iff_signal) || HAS_TRAIT(nearby_human, TRAIT_STEALTH))
+		if(nearby_human.faction != FACTION_ZOMBIE && (nearby_human.stat == DEAD || CHECK_BITFIELD(gun.turret_flags, TURRET_SAFETY)))
+			continue
+		if(CHECK_BITFIELD(nearby_human.status_flags, INCORPOREAL))
+			continue
+		if(nearby_human.wear_id?.iff_signal & iff_signal)
+			continue
+		if(HAS_TRAIT(nearby_human, TRAIT_STEALTH))
 			continue
 		potential_targets += nearby_human
 	for(var/mob/living/carbon/xenomorph/nearby_xeno AS in cheap_get_xenos_near(src, range))
-		if(nearby_xeno.stat == DEAD || HAS_TRAIT(nearby_xeno, TRAIT_STEALTH) || CHECK_BITFIELD(nearby_xeno.status_flags, INCORPOREAL) || CHECK_BITFIELD(nearby_xeno.xeno_iff_check(), iff_signal)) //So hiveminds wont be shot at when in phase shift
+		if(nearby_xeno.stat == DEAD)
+			continue
+		if(HAS_TRAIT(nearby_xeno, TRAIT_STEALTH))
+			continue
+		if(CHECK_BITFIELD(nearby_xeno.status_flags, INCORPOREAL))
+			continue
+		if(CHECK_BITFIELD(nearby_xeno.xeno_iff_check(), iff_signal)) //So hiveminds wont be shot at when in phase shift
 			continue
 		potential_targets += nearby_xeno
 	for(var/mob/illusion/nearby_illusion AS in cheap_get_illusions_near(src, range))

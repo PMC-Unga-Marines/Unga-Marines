@@ -172,10 +172,6 @@
 /obj/machinery/marine_selector/gear/medic/valhalla,
 /turf/open/floor/mainship/metal/full,
 /area/centcom/valhalla)
-"bsY" = (
-/obj/effect/landmark/corpsespawner/colonist,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/centcom/valhalla/xenocave)
 "bxZ" = (
 /obj/structure/table,
 /obj/item/toy/deck/kotahi,
@@ -860,7 +856,7 @@
 /area/centcom/valhalla)
 "knX" = (
 /obj/effect/landmark/valhalla/marine_spawner_landmark{
-	spawn_link = "top"
+	spawn_link = "marinetop"
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
@@ -1935,7 +1931,7 @@
 /area/centcom/valhalla)
 "wPz" = (
 /obj/effect/landmark/valhalla/marine_spawner_landmark{
-	spawn_link = "right"
+	spawn_link = "marineright"
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
@@ -1989,7 +1985,7 @@
 /area/centcom/valhalla)
 "xte" = (
 /obj/effect/landmark/valhalla/marine_spawner_landmark{
-	spawn_link = "left"
+	spawn_link = "marineleft"
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/centcom/valhalla/xenocave)
@@ -18138,7 +18134,7 @@ oXf
 oXf
 oXf
 oXf
-bsY
+oXf
 oXf
 oXf
 oXf
@@ -18903,7 +18899,7 @@ boC
 fog
 oXf
 oXf
-bsY
+oXf
 oXf
 oXf
 oXf
@@ -19931,14 +19927,14 @@ oXf
 oXf
 oXf
 oXf
-bsY
 oXf
 oXf
-bsY
+oXf
+oXf
 rjK
 oXf
 oXf
-bsY
+oXf
 oXf
 oXf
 fog
@@ -21215,7 +21211,7 @@ boC
 boC
 fog
 oXf
-bsY
+oXf
 oXf
 oXf
 oXf
@@ -21480,7 +21476,7 @@ oXf
 rjK
 oXf
 oXf
-bsY
+oXf
 oXf
 oXf
 fog

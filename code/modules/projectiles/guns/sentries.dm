@@ -3,6 +3,11 @@
 	desc = "sentry"
 	icon = 'icons/obj/sentry.dmi'
 
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
+	)
+
 	fire_sound = 'sound/weapons/guns/fire/smg_heavy.ogg'
 	reload_sound = 'sound/weapons/guns/interact/smartgun_unload.ogg'
 
@@ -24,6 +29,9 @@
 	deploy_time = 5 SECONDS
 
 	allowed_ammo_types = list(/obj/item/ammo_magazine/sentry)
+
+/obj/item/weapon/gun/sentry/update_worn_icon_state()
+	return
 
 // *******************************
 // ********* UPGRADE KIT *********
@@ -103,10 +111,7 @@
 	name = "\improper Турель TUR-B \"Базис\""
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Не имеет каких-либо модификаций. Ведёт эффективный и точный огонь."
 	icon_state = "sentry"
-	worn_icon_list = list( // for whatever fucking reason we can't set it null
-		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
-		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
-	)
+	worn_icon_state = "sentry"
 
 	turret_range = 8
 	deploy_time = 5 SECONDS
@@ -257,6 +262,7 @@
 	name = "\improper Турель TUR-M \"Гном\""
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация с уменьшением габаритов и калибра, крайне лёгок в установке."
 	icon_state = "minisentry"
+	worn_icon_state = "sentry"
 
 	fire_sound = 'sound/items/turrets/turret_smg.ogg'
 
@@ -321,6 +327,7 @@
 	name = "\improper Турель TUR-SN \"Оса\""
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация для ведения огня большим калибром на дальние дистанции."
 	icon_state = "sentry_sniper"
+	worn_icon_state = "sentry"
 
 	fire_sound = 'sound/items/turrets/turret_sniper.ogg'
 
@@ -340,11 +347,8 @@
 
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 
-	attachable_allowed = list(/obj/item/attachable/scope/unremovable)
-	starting_attachment_types = list(
-		/obj/item/attachable/scope/unremovable,
-	)
-
+	attachable_allowed = list(/obj/item/attachable/scope/unremovable/invisible)
+	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/invisible,)
 
 // Shotgun Sentry
 
@@ -352,6 +356,7 @@
 	name = "\improper Турель TUR-SH \"Бык\""
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация для ведения массивного огня на ближние дистанции."
 	icon_state = "sentry_shotgun"
+	worn_icon_state = "sentry"
 
 	fire_sound = 'sound/items/turrets/turret_shotgun.ogg'
 
@@ -382,8 +387,8 @@
 /obj/item/weapon/gun/sentry/flamer
 	name = "\improper Турель TUR-F \"Феникс\""
 	desc = "Развёртываемая автоматическая турель, имеет встроенный ИИ. Установлена модификация для ведения огня подожёнными сгустками горючего."
-	icon = 'icons/obj/sentry.dmi'
 	icon_state = "sentry_flamer"
+	worn_icon_state = "sentry"
 
 	fire_sound = 'sound/weapons/guns/fire/flamethrower3.ogg'
 

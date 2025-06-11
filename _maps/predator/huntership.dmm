@@ -940,7 +940,7 @@
 	color = "#6b675e";
 	resistance_flags = 1
 	},
-/obj/item/clothing/shoes/combat,
+/obj/item/clothing/shoes/marine/srf/full,
 /obj/item/clothing/under/chainshirt/hunter,
 /obj/item/clothing/gloves/combat,
 /obj/item/clothing/head/helmet/gladiator,

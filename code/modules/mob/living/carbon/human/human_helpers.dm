@@ -142,19 +142,6 @@
 			else
 				return null
 
-/mob/living/carbon/human/proc/set_limb_icons()
-	var/datum/ethnicity/E = GLOB.ethnicities_list[ethnicity]
-
-	var/e_icon
-
-	if (!E)
-		e_icon = "western"
-	else
-		e_icon = E.icon_name
-
-	for(var/datum/limb/L in limbs)
-		L.icon_name = get_limb_icon_name(species, gender, L.display_name, e_icon)
-
 /mob/living/carbon/human/get_reagent_tags()
 	. = ..()
 	return .|IS_HUMAN
@@ -182,20 +169,17 @@
 		// Might need re-wording.
 		to_chat(user, span_alert("There is no exposed flesh or thin material [target_zone == "head" ? "on their head" : "on their body"] to inject into."))
 
-
 /mob/living/carbon/human/has_brain()
-	if(get_organ_slot(ORGAN_SLOT_BRAIN))
-		var/datum/internal_organ/brain = get_organ_slot(ORGAN_SLOT_BRAIN)
-		if(brain && istype(brain))
-			return 1
-	return 0
+	var/datum/internal_organ/brain/brain = get_organ_slot(ORGAN_SLOT_BRAIN)
+	if(brain)
+		return TRUE
+	return FALSE
 
 /mob/living/carbon/human/has_eyes()
-	if(get_organ_slot(ORGAN_SLOT_EYES))
-		var/datum/internal_organ/eyes = get_organ_slot(ORGAN_SLOT_EYES)
-		if(eyes && istype(eyes))
-			return 1
-	return 0
+	var/datum/internal_organ/eyes/eyes = get_organ_slot(ORGAN_SLOT_EYES)
+	if(eyes)
+		return TRUE
+	return FALSE
 
 /mob/living/carbon/human/has_vision()
 	if(disabilities & BLIND)
@@ -301,12 +285,11 @@
  * Returns true otherwise
  */
 /mob/living/carbon/human/proc/has_working_organs()
-	var/datum/internal_organ/heart/heart = internal_organs_by_name["heart"]
-
 	if(species.species_flags & ROBOTIC_LIMBS)
 		return TRUE // combat robots and synthetics don't have any of these for some reason
 	if(!has_brain())
 		return FALSE
+	var/datum/internal_organ/heart/heart = get_organ_slot(ORGAN_SLOT_HEART)
 	if(!heart || heart.organ_status == ORGAN_BROKEN)
 		return FALSE
 	return TRUE
@@ -395,3 +378,21 @@
 		return MONKEY_HEIGHT_MEDIUM
 
 	return mob_height
+
+/mob/living/carbon/human/proc/remove_random_limb(delete_limb = 0)
+	var/list/limbs_to_remove = list()
+	for(var/datum/limb/E in limbs)
+		if(istype(E, /datum/limb/chest) || istype(E, /datum/limb/groin) || istype(E, /datum/limb/head))
+			continue
+		limbs_to_remove += E
+	if(length(limbs_to_remove))
+		var/datum/limb/L = pick(limbs_to_remove)
+		var/limb_name = L.display_name
+		L.drop_limb(0,delete_limb)
+		return limb_name
+	return null
+
+///Amputates the limb in the specified limb zone
+/mob/living/carbon/human/proc/amputate_limb(limb_zone)
+	var/datum/limb/limb_to_drop = get_limb(limb_zone)
+	limb_to_drop?.drop_limb(TRUE, TRUE)

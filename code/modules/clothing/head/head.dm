@@ -202,7 +202,6 @@
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',)
 	icon_state = "headband"
 	species_exception = list(/datum/species/robot)
-	armor_features_flags = ARMOR_NO_DECAP
 
 /obj/item/clothing/head/headband/red
 	name = "\improper Red headband"

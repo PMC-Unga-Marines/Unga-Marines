@@ -215,6 +215,21 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 /obj/item/proc/update_worn_icon_state(mob/user)
 	worn_icon_state = "[initial(worn_icon_state)][item_flags & WIELDED ? "_w" : ""]"
 
+/**
+ * Checks if an item is allowed to be used on an atom/target
+ * Returns TRUE if allowed.
+ *
+ * Args:
+ * target_self - Whether we will check if we (src) are in target, preventing people from using items on themselves.
+ * not_inside - Whether target (or target's loc) has to be a turf.
+ */
+/obj/item/proc/check_allowed_items(atom/target, not_inside = FALSE, target_self = FALSE)
+	if(!target_self && (src in target))
+		return FALSE
+	if(not_inside && !isturf(target.loc) && !isturf(target))
+		return FALSE
+	return TRUE
+
 /obj/item/verb/move_to_top()
 	set name = "Move To Top"
 	set category = "IC.Mob"
@@ -519,9 +534,9 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 				return FALSE
 			return TRUE
 		if(SLOT_IN_STORAGE) //open storage
-			if(!H.s_active)
+			if(!H.active_storage)
 				return FALSE
-			selected_slot = H.s_active
+			selected_slot = H.active_storage
 
 		//actual slots
 		if(SLOT_WEAR_MASK)
@@ -1378,8 +1393,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 ///Called by vendors when vending an item. Allows the item to specify what happens when it is given to the player.
 /obj/item/proc/on_vend(mob/user, faction, fill_container = FALSE, auto_equip = FALSE)
 	//Put item into player's currently open storage
-	if(fill_container && user.s_active && user.s_active.can_be_inserted(src, user, FALSE))
-		user.s_active.handle_item_insertion(src, FALSE, user)
+	if(fill_container && user.active_storage && user.active_storage.can_be_inserted(src, user, FALSE))
+		user.active_storage.handle_item_insertion(src, FALSE, user)
 		return
 	//Equip item onto player
 	if(auto_equip && vendor_equip(user))

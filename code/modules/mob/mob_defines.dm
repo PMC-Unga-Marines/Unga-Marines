@@ -92,7 +92,7 @@
 	var/obj/item/l_hand //Living
 	var/obj/item/r_hand //Living
 	///Our mobs currently active storage
-	var/datum/storage/s_active //Carbon
+	var/datum/storage/active_storage //Carbon
 	var/obj/item/clothing/mask/wear_mask //Carbon
 	///the current turf being examined in the stat panel
 	var/turf/listed_turf

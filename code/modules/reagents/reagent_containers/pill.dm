@@ -5,7 +5,7 @@
 	worn_icon_state = "pill"
 	possible_transfer_amounts = null
 	amount_per_transfer_from_this = 15
-	init_reagent_flags = AMOUNT_SKILLCHECK
+	reagent_flags = AMOUNT_SKILLCHECK
 	w_class = WEIGHT_CLASS_TINY
 	volume = 60
 	attack_speed = 1 //War against input locking while pill munching
@@ -265,7 +265,7 @@
 
 /obj/item/reagent_containers/pill/doctor_delight
 	pill_desc = "A doctor's delight pill. Used to heal wounds slowly at cost of your hunger and stamina, can't be overdosed."
-	list_reagents = list(/datum/reagent/medicine/doctor_delight = 15)
+	list_reagents = list(/datum/reagent/consumable/doctor_delight = 15)
 	pill_id = 15
 
 /obj/item/reagent_containers/pill/sugar

@@ -147,7 +147,7 @@
 		if(!S.amount)
 			qdel(S) // todo: there's probably something missing here
 	orient2hud(user)
-	if(user.s_active)
+	if(user.active_storage)
 		show_to(user)
 	sheetsnatcher.update_icon()
 

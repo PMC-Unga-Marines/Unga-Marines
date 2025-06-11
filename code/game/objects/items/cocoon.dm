@@ -101,7 +101,7 @@
 			return
 		busy = TRUE
 		var/channel = SSsounds.random_available_channel()
-		playsound(user, "sound/effects/cutting_cocoon.ogg", 30, channel = channel)
+		playsound(user, 'sound/effects/cutting_cocoon.ogg', 30, channel = channel)
 		if(!do_after(user, 8 SECONDS, NONE, src))
 			busy = FALSE
 			user.stop_sound_channel(channel)

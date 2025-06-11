@@ -192,7 +192,7 @@
 		stepper.apply_damage(charges * 10, BURN, BODY_ZONE_PRECISE_R_FOOT, ACID,  penetration = 33 - 20 * H.get_permeability_protection()) //without providing full protection against them
 		stepper.visible_message(span_danger("[stepper] is immersed in [src]'s acid!") , \
 		span_danger("We are immersed in [src]'s acid!") , null, 5)
-		playsound(stepper, "sound/bullets/acid_impact1.ogg", 10 * charges)
+		playsound(stepper, 'sound/bullets/acid_impact1.ogg', 10 * charges)
 		new /obj/effect/temp_visual/acid_bath(get_turf(stepper))
 		charges_used = charges //humans stepping on it empties it out
 

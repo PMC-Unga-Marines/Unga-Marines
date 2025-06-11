@@ -612,10 +612,10 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define CASTE_EXCLUDE_STRAINS (1<<17) // denotes castes/basetypes that should be excluded from being evoable as a strain
 
 // Xeno defines that affect evolution, considering making a new var for these
-#define CASTE_LEADER_TYPE (1<<16) //Whether we are a leader type caste, such as the queen, shrike or ?king?, and is affected by queen ban and playtime restrictions
-#define CASTE_CANNOT_EVOLVE_IN_CAPTIVITY (1<<17) //Whether we cannot evolve in the research lab
-#define CASTE_REQUIRES_FREE_TILE (1<<18) //Whether we require a free tile to evolve
-#define CASTE_INSTANT_EVOLUTION (1<<19) //Whether we require no evolution progress to evolve to this caste
+#define CASTE_LEADER_TYPE (1<<18) //Whether we are a leader type caste, such as the queen, shrike or ?king?, and is affected by queen ban and playtime restrictions
+#define CASTE_CANNOT_EVOLVE_IN_CAPTIVITY (1<<19) //Whether we cannot evolve in the research lab
+#define CASTE_REQUIRES_FREE_TILE (1<<20) //Whether we require a free tile to evolve
+#define CASTE_INSTANT_EVOLUTION (1<<21) //Whether we require no evolution progress to evolve to this caste
 
 #define CASTE_CAN_HOLD_FACEHUGGERS (1<<0)
 #define CASTE_CAN_BE_QUEEN_HEALED (1<<1)
@@ -771,6 +771,11 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 
 //Defender defines
 #define DEFENDER_CHARGE_RANGE 4
+
+//Baneling defines
+/// Not specified in seconds because it causes smoke to last almost four times as long if done so
+#define BANELING_SMOKE_DURATION 4
+#define BANELING_SMOKE_RANGE 4
 
 //Sentinel defines
 #define SENTINEL_TOXIC_SPIT_STACKS_PER 2 //Amount of debuff stacks to be applied per spit.

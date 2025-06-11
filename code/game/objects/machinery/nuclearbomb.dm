@@ -65,6 +65,7 @@
 	update_minimap_icon()
 	// The timer is needed for when the signal is sent
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NUKE_START, src)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_AI_MINION_RALLY, src)
 	log_game("[key_name(reason)] has enabled the nuke at [AREACOORD(src)]")
 
 ///Disables nuke timer
@@ -376,7 +377,7 @@
 
 /obj/structure/nuclearbomb/Initialize(mapload)
 	. = ..()
-	GLOB.last_stand_nukes += src
+	GLOB.nuclear_bombs += src
 
 /obj/structure/nuclearbomb/attacked_by(obj/item/I, mob/living/user, def_zone)
 	return FALSE
@@ -389,7 +390,7 @@
 	return ..()
 
 /obj/structure/nuclearbomb/Destroy()
-	GLOB.last_stand_nukes -= src
+	GLOB.nuclear_bombs -= src
 	return ..()
 
 #undef NUKE_STAGE_NONE

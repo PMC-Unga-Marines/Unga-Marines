@@ -23,15 +23,6 @@
 	item_flags = SYNTH_RESTRICTED
 	siemens_coefficient = 0.6
 
-/obj/item/clothing/shoes/combat //Basically SWAT shoes combined with galoshes.
-	name = "combat boots"
-	desc = "When you REALLY want to turn up the heat"
-	icon_state = "swat"
-	item_flags = SYNTH_RESTRICTED
-	soft_armor = list(MELEE = 80, BULLET = 60, LASER = 50, ENERGY = 25, BOMB = 50, BIO = 10, FIRE = 25, ACID = 25)
-	inventory_flags = NOSLIPPING
-	siemens_coefficient = 0.6
-
 	cold_protection_flags = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection_flags = FEET

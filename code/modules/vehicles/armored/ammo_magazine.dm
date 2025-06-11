@@ -39,6 +39,7 @@
 	max_rounds = 5
 
 /obj/item/ammo_magazine/tank/ltb_cannon/canister
+	name = "LTB canister round (105mm)"
 	desc = "A 105mm canister shell for demolishing soft targets. The payload of hundreds of small metal balls imitates a shotgun blast in trajectory."
 	icon_state = "ltb_canister"
 	default_ammo = /datum/ammo/tx54/tank_cannister

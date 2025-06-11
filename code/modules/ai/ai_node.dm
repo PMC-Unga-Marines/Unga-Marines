@@ -57,7 +57,7 @@
 	weights[identifier][name] = amount
 
 /obj/effect/ai_node/Destroy()
-	GLOB.all_nodes[unique_id + 1] = null
+	GLOB.all_nodes -= src
 	rustg_remove_node_astar("[unique_id]")
 	//Remove our reference to self from nearby adjacent node's adjacent nodes
 	for(var/direction AS in adjacent_nodes)
@@ -96,6 +96,8 @@
 
 	if(node_to_return)
 		return node_to_return
+	if(!length(adjacent_nodes))
+		return null
 	return adjacent_nodes[pick(adjacent_nodes)]
 
 ///Clears the adjacencies of src and repopulates it, it will consider nodes "adjacent" to src should it be less 15 turfs away

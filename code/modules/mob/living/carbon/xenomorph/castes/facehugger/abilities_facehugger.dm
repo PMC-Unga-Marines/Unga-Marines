@@ -73,20 +73,13 @@
 	if(!target || target.layer >= FLY_LAYER)
 		return FALSE
 
-/datum/action/ability/activable/xeno/pounce_hugger/proc/prepare_to_pounce()
-	if(owner.layer == XENO_HIDING_LAYER) //Xeno is currently hiding, unhide him
-		owner.layer = MOB_LAYER
-		var/datum/action/ability/xeno_action/xenohide/hide_action = owner.actions_by_path[/datum/action/ability/xeno_action/xenohide]
-		hide_action?.button?.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)) // Removes Hide action icon border
-	if(owner.buckled)
-		owner.buckled.unbuckle_mob(owner)
-
 /datum/action/ability/activable/xeno/pounce_hugger/on_cooldown_finish()
 	xeno_owner.xeno_flags |= XENO_LEAPING
 	return ..()
 
 /datum/action/ability/activable/xeno/pounce_hugger/use_ability(atom/target)
-	prepare_to_pounce()
+	if(owner.buckled)
+		owner.buckled.unbuckle_mob(owner)
 	if(!do_after(xeno_owner, HUGGER_POUNCE_WINDUP_DURATION, IGNORE_HELD_ITEM, xeno_owner, BUSY_ICON_DANGER, extra_checks = CALLBACK(src, PROC_REF(can_use_ability), target, FALSE, ABILITY_USE_BUSY)))
 		return fail_activate()
 
