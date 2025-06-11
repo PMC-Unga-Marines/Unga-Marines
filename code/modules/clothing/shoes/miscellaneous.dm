@@ -55,10 +55,18 @@
 	worn_icon_state = "clown"
 	slowdown = SHOES_SLOWDOWN + 1
 
-
 /obj/item/clothing/shoes/clown_shoes/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/squeak, list('sound/effects/clownstep1.ogg', 'sound/effects/clownstep2.ogg'), 50)
+
+/obj/item/clothing/shoes/clown_shoes/equipped(mob/user, slot)
+	. = ..()
+	if(slot == SLOT_SHOES)
+		user.AddElement(/datum/element/waddling)
+
+/obj/item/clothing/shoes/clown_shoes/unequipped(mob/user)
+	. = ..()
+	user.RemoveElement(/datum/element/waddling)
 
 /obj/item/clothing/shoes/clown_shoes/erp
 	desc ="The prankster's military-standard-issue clowning shoes. Damn they're huge! And reinforced!"

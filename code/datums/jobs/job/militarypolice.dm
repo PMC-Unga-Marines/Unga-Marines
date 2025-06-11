@@ -22,15 +22,6 @@
 	icon_state = "sec"
 	worn_icon_state = "silver_id"
 
-/datum/skills/military_police
-	name = MILITARY_POLICE
-	cqc = SKILL_CQC_MP
-	police = SKILL_POLICE_MP
-	medical = SKILL_MEDICAL_PRACTICED
-	pistols = SKILL_PISTOLS_TRAINED
-	firearms = SKILL_FIREARMS_TRAINED
-	shotguns = SKILL_SHOTGUNS_TRAINED
-
 /datum/job/terragov/command/military_police
 	title = MILITARY_POLICE
 	paygrade = "MP"

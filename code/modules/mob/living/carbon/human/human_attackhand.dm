@@ -154,7 +154,7 @@
 			var/target_zone = ran_zone(human_user.zone_selected)
 
 			//Accidental gun discharge
-			if(human_user.skills.getRating(SKILL_CQC) < SKILL_CQC_MP)
+			if(human_user.skills.getRating(SKILL_CQC) < SKILL_CQC_TRAINED)
 				if (istype(r_hand,/obj/item/weapon/gun) || istype(l_hand,/obj/item/weapon/gun))
 					var/obj/item/weapon/gun/W = null
 					var/chance = 0
