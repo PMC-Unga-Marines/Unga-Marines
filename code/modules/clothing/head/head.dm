@@ -419,7 +419,8 @@
 	desc = "Headband made from ultra-thin special cloth. Cloth thickness provides more than just a stylish fluttering of headband. You can tie around headband onto a helmet. This squad version of a headband has secret unique features created by the cloth coloring component. "
 	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	worn_icon_list = list(
-		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi'
+	)
 	icon_state = ""
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	slowdown = -0.1
@@ -455,7 +456,8 @@
 	desc = "Military beret with TGMC marine squad insignia."
 	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	worn_icon_list = list(
-		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi'
+	)
 
 /obj/item/clothing/head/tgmcberet/squad/alpha
 	name = "\improper Alpha Squad beret"
@@ -513,7 +515,8 @@
 	icon_state = "marcommandoberet"
 	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	worn_icon_list = list(
-		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi'
+	)
 
 /obj/item/clothing/head/tgmcberet/vdv
 	name = "\improper Airborne beret"
@@ -521,7 +524,8 @@
 	icon_state = "russobluecamohat"
 	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	worn_icon_list = list(
-		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi'
+	)
 
 /obj/item/clothing/head/tgmcberet/medical
 	name = "\improper Medical beret"
@@ -529,14 +533,16 @@
 	icon_state = "medberet"
 	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	worn_icon_list = list(
-		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi'
+	)
 
 /obj/item/clothing/head/hachimaki
 	name = "\improper Ancient pilot headband and scarf kit"
 	desc = "Ancient pilot kit of scarf that protects neck from cold wind and headband that protects face from sweat"
 	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	worn_icon_list = list(
-		slot_head_str = 'icons/mob/clothing/headwear/head_0.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/head_0.dmi'
+	)
 	icon_state = "Banzai"
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	w_class = WEIGHT_CLASS_SMALL
@@ -569,7 +575,8 @@
 	desc = "Black stylish beret with TGMC marine squad insignia. This one belongs to the Alpha Squad."
 	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	worn_icon_list = list(
-		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi'
+	)
 
 /obj/item/clothing/head/tgmcberet/squad/black/bravo
 	name = "\improper Bravo squad black beret"
@@ -588,19 +595,26 @@
 
 /obj/item/clothing/head/beret/marine
 	worn_icon_list = list(
-		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
-
-/obj/item/clothing/head/beret/sec/warden
-	worn_icon_list = list(
-		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi'
+	)
 
 /obj/item/clothing/head/beret/sec
 	worn_icon_list = list(
-		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi'
+	)
+
+/obj/item/clothing/head/beret/sec/mp
+	soft_armor = list(MELEE = 10, BULLET = 75, LASER = 75, ENERGY = 0, BOMB = 0, BIO = 85, FIRE = 0, ACID = 0)
+
+/obj/item/clothing/head/beret/sec/warden
+	worn_icon_list = list(
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi'
+	)
 
 /obj/item/clothing/head/beret/eng
 	worn_icon_list = list(
-		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi'
+	)
 
 /obj/item/clothing/head/beret/marine/captain
 	icon = 'icons/obj/clothing/headwear/hats.dmi'
@@ -618,7 +632,8 @@
 /obj/item/clothing/head/highcap
 	icon = 'icons/obj/clothing/headwear/hats.dmi'
 	worn_icon_list = list(
-		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi')
+		slot_head_str = 'icons/mob/clothing/headwear/marine_hats.dmi'
+	)
 	icon_state = "cap_black"
 	inventory_flags = BLOCKSHARPOBJ
 	armor_features_flags = ARMOR_NO_DECAP

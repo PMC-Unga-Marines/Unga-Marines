@@ -330,6 +330,15 @@
 	worn_icon_state = "swatbelt"
 	storage_type = /datum/storage/belt/security/tactical
 
+/obj/item/storage/belt/security/mp/PopulateContents()
+	new /obj/item/explosive/grenade/flashbang(src)
+	new /obj/item/explosive/grenade/chem_grenade/teargas(src)
+	new /obj/item/reagent_containers/spray/pepper(src)
+	new /obj/item/restraints/handcuffs(src)
+	new /obj/item/restraints/handcuffs(src)
+	new /obj/item/flash(src)
+	new /obj/item/weapon/baton(src)
+
 /obj/item/storage/belt/marine
 	name = "\improper M276 pattern ammo load rig"
 	desc = "The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is the standard variant designed for bulk ammunition-carrying operations."

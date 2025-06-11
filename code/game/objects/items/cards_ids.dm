@@ -96,6 +96,19 @@
 	to_chat(usr, "[icon2html(src, usr)] [name]: The current assignment on the card is [assignment].")
 	to_chat(usr, "The blood type on the card is [blood_type].")
 
+/obj/item/card/id/equipped(mob/living/carbon/human/H, slot)
+	if(istype(H))
+		H.update_inv_head() //updating marine helmet squad coloring
+		H.update_inv_wear_suit()
+	return ..()
+
+/obj/item/card/id/dropped(mob/user)
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_head() //Don't do a full update yet
+		H.update_inv_wear_suit()
+	return ..()
+
 /obj/item/card/id/silver
 	name = "identification card"
 	desc = "A silver card which shows honour and dedication."
@@ -183,18 +196,11 @@
 	assignment = CAPTAIN
 	access = ALL_MARINE_ACCESS
 
-/obj/item/card/id/equipped(mob/living/carbon/human/H, slot)
-	if(istype(H))
-		H.update_inv_head() //updating marine helmet squad coloring
-		H.update_inv_wear_suit()
-	return ..()
-
-/obj/item/card/id/dropped(mob/user)
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
-		H.update_inv_head() //Don't do a full update yet
-		H.update_inv_wear_suit()
-	return ..()
+/obj/item/card/id/sec
+	name = "identification card"
+	desc = "A security card which shows law and order."
+	icon_state = "sec"
+	worn_icon_state = "silver_id"
 
 /obj/item/card/id/dogtag
 	name = "dog tag"

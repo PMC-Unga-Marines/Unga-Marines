@@ -392,6 +392,10 @@
 			H.remove_hud_from(user)
 	return ..()
 
+/obj/item/clothing/glasses/sunglasses/sechud/mp/Initialize()
+	. = ..()
+	AddComponent(/datum/component/clothing_tint, TINT_NONE)
+
 /obj/item/clothing/glasses/sunglasses/aviator
 	name = "aviator sunglasses"
 	desc = "A pair of aviator sunglasses."

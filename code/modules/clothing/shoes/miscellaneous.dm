@@ -86,6 +86,9 @@
 	worn_icon_state = "jackboots"
 	siemens_coefficient = 0.7
 
+/obj/item/clothing/shoes/jackboots/mp
+	soft_armor = list(MELEE = 10, BULLET = 85, LASER = 85, ENERGY = 5, BOMB = 0, BIO = 85, FIRE = 0, ACID = 0)
+
 /obj/item/clothing/shoes/cult
 	name = "boots"
 	desc = "A pair of boots worn by the followers of Nar-Sie."
