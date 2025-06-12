@@ -10,21 +10,22 @@
 	gloves = /obj/item/clothing/gloves/marine/som
 	mask = /obj/item/clothing/mask/gas
 	head = /obj/item/clothing/head/modular/som
-	r_store = /obj/item/storage/pouch/firstaid/som/combat_patrol
-	l_store = /obj/item/storage/pouch/grenade/som/combat_patrol
+	r_pocket = /obj/item/storage/pouch/firstaid/som/combat_patrol
+	l_pocket = /obj/item/storage/pouch/grenade/som/combat_patrol
 	back = /obj/item/storage/backpack/satchel/som
 
-/datum/outfit/quick/som/marine/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
+	head_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/combat = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
+	)
 
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
-
-	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/isotonic, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclot, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_SUIT)
+	suit_contents = list(
+		/obj/item/stack/medical/heal_pack/gauze = 1,
+		/obj/item/stack/medical/heal_pack/ointment = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/isotonic = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclot = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
+	)
 
 /datum/outfit/quick/som/marine/standard_assaultrifle
 	name = "V-31 Infantryman"
@@ -33,20 +34,19 @@
 	suit_store = /obj/item/weapon/gun/rifle/som/standard
 	belt = /obj/item/storage/belt/marine/som/som_rifle
 
-/datum/outfit/quick/som/marine/standard_assaultrifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/som/standard(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/som, SLOT_IN_BACKPACK)
-
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/micro_grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/micro_grenade/dragonbreath, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/micro_grenade/cluster, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/micro_grenade/smoke_burst, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/storage/box/mre/som = 1,
+		/obj/item/ammo_magazine/pistol/som = 2,
+		/obj/item/weapon/gun/pistol/som/standard = 1,
+		/obj/item/ammo_magazine/rifle/som = 2,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/som = 1,
+		/obj/item/ammo_magazine/handful/micro_grenade = 1,
+		/obj/item/ammo_magazine/handful/micro_grenade/dragonbreath = 1,
+		/obj/item/ammo_magazine/handful/micro_grenade/cluster = 1,
+		/obj/item/ammo_magazine/handful/micro_grenade/smoke_burst = 1,
+	)
 
 /datum/outfit/quick/som/marine/mpi
 	name = "MPI_KM Infantryman"
@@ -55,20 +55,16 @@
 	suit_store = /obj/item/weapon/gun/rifle/mpi_km/black/grenadier
 	belt = /obj/item/storage/belt/marine/som/mpi_black
 
-/datum/outfit/quick/som/marine/mpi/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/som/standard(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/black, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/black, SLOT_IN_BACKPACK)
-
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary/som, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/storage/box/mre/som = 1,
+		/obj/item/ammo_magazine/pistol/som = 2,
+		/obj/item/weapon/gun/pistol/som/standard = 1,
+		/obj/item/ammo_magazine/rifle/mpi_km/black = 2,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/som = 4,
+		/obj/item/explosive/grenade/incendiary/som = 1,
+	)
 
 /datum/outfit/quick/som/marine/light_carbine
 	name = "V-34 Light Infantryman"
@@ -78,20 +74,16 @@
 	suit_store = /obj/item/weapon/gun/rifle/som_carbine/black/standard
 	belt = /obj/item/storage/belt/marine/som/carbine_black
 
-/datum/outfit/quick/som/marine/light_carbine/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/som/standard(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mpi_km/carbine/black, SLOT_IN_BACKPACK)
-
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary/som, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/storage/box/mre/som = 1,
+		/obj/item/ammo_magazine/pistol/som = 2,
+		/obj/item/weapon/gun/pistol/som/standard = 1,
+		/obj/item/ammo_magazine/rifle/mpi_km/carbine/black = 2,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/som = 4,
+		/obj/item/explosive/grenade/incendiary/som = 1,
+	)
 
 /datum/outfit/quick/som/marine/scout
 	name = "V-21 Light Infantryman"
@@ -101,21 +93,17 @@
 	suit_store = /obj/item/weapon/gun/smg/som/scout
 	belt = /obj/item/storage/belt/marine/som/som_smg
 
-/datum/outfit/quick/som/marine/scout/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/som/standard(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/som, SLOT_IN_BACKPACK)
-
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/storage/box/mre/som = 1,
+		/obj/item/ammo_magazine/pistol/som = 2,
+		/obj/item/weapon/gun/pistol/som/standard = 1,
+		/obj/item/ammo_magazine/smg/som = 3,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/som = 2,
+		/obj/item/explosive/grenade/incendiary/som = 2,
+		/obj/item/binoculars = 1,
+	)
 
 /datum/outfit/quick/som/marine/shotgunner
 	name = "V-51 Pointman"
@@ -125,21 +113,17 @@
 	wear_suit = /obj/item/clothing/suit/modular/som/light/shield
 	suit_store = /obj/item/weapon/gun/shotgun/som/standard
 
-/datum/outfit/quick/som/marine/shotgunner/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/som/standard(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/flashbang/stun, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/flashbang/stun, SLOT_IN_BACKPACK)
-
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/storage/box/mre/som = 1,
+		/obj/item/ammo_magazine/pistol/som = 3,
+		/obj/item/weapon/gun/pistol/som/standard = 1,
+		/obj/item/explosive/grenade/flashbang/stun = 2,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/som = 2,
+		/obj/item/explosive/grenade/incendiary/som = 2,
+		/obj/item/binoculars = 1,
+	)
 
 /datum/outfit/quick/som/marine/pyro
 	name = "V-62 Flamethrower Operator"
@@ -151,21 +135,17 @@
 	back = /obj/item/ammo_magazine/flamer_tank/backtank
 	suit_store = /obj/item/weapon/gun/flamer/som/mag_harness
 
-/datum/outfit/quick/som/marine/pyro/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/som/burst(H), SLOT_IN_HOLSTER)
+	belt_contents = list(
+		/obj/item/ammo_magazine/pistol/som/extended = 6,
+		/obj/item/weapon/gun/pistol/som/burst = 1,
+	)
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_ACCESSORY)
+	webbing_contents = list(
+		/obj/item/storage/box/mre/som = 1,
+		/obj/item/tool/extinguisher/mini = 1,
+		/obj/item/explosive/grenade/som = 1,
+		/obj/item/ammo_magazine/pistol/som/extended = 2,
+	)
 
 /datum/outfit/quick/som/marine/breacher
 	name = "V-21 Breacher"
@@ -177,22 +157,19 @@
 	belt = /obj/item/storage/belt/marine/som/som_smg
 	r_hand = /obj/item/weapon/shield/riot/marine/som
 
-/datum/outfit/quick/som/marine/breacher/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/weldingtool/largetank, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/som, SLOT_IN_BACKPACK)
+	backpack_contents = list(
+		/obj/item/storage/box/mre/som = 1,
+		/obj/item/tool/weldingtool/largetank = 1,
+		/obj/item/tool/extinguisher/mini = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 1,
+		/obj/item/ammo_magazine/smg/som = 4,
+	)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/flashbang/stun, SLOT_IN_ACCESSORY)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/som = 2,
+		/obj/item/explosive/grenade/incendiary/som = 2,
+		/obj/item/explosive/grenade/flashbang/stun = 1,
+	)
 
 /datum/outfit/quick/som/marine/breacher_melee
 	name = "CQC Breacher"
@@ -203,32 +180,24 @@
 	suit_store = /obj/item/weapon/twohanded/fireaxe/som
 	belt = /obj/item/storage/holster/belt/pistol/m4a3/som
 
-/datum/outfit/quick/som/marine/breacher_melee/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_BACKPACK)
+	backpack_contents = list(
+		/obj/item/storage/box/mre/som = 1,
+		/obj/item/ammo_magazine/pistol/som = 2,
+		/obj/item/explosive/plastique = 3,
+		/obj/item/tool/extinguisher = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 1,
+	)
+	belt_contents = list(
+		/obj/item/ammo_magazine/pistol/som/extended = 6,
+		/obj/item/weapon/gun/pistol/som/burst = 1,
+	)
 
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/som/burst(H), SLOT_IN_HOLSTER)
-
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary/som, SLOT_IN_ACCESSORY)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/som = 4,
+		/obj/item/explosive/grenade/incendiary/som = 1,
+	)
 
 /datum/outfit/quick/som/marine/machine_gunner
 	name = "V-41 Machinegunner"
@@ -236,34 +205,29 @@
 
 	suit_store = /obj/item/weapon/gun/rifle/som_mg/standard
 	belt = /obj/item/storage/holster/belt/pistol/m4a3/som
-	l_store = /obj/item/storage/pouch/construction/som
+	l_pocket = /obj/item/storage/pouch/construction/som
 
-/datum/outfit/quick/som/marine/machine_gunner/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som/extended, SLOT_IN_HOLSTER)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/som/burst(H), SLOT_IN_HOLSTER)
+	belt_contents = list(
+		/obj/item/ammo_magazine/pistol/som/extended = 6,
+		/obj/item/weapon/gun/pistol/som/burst = 1,
+	)
 
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/som_mg, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/som_mg, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/som_mg, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/som_mg, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_BACKPACK)
-
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/satrapine, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre/som, SLOT_IN_ACCESSORY)
-
-	H.equip_to_slot_or_del(new /obj/item/tool/shovel/etool, SLOT_IN_L_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/stack/sandbags_empty/half, SLOT_IN_L_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/stack/sandbags/large_stack, SLOT_IN_L_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/half_stack, SLOT_IN_L_POUCH)
+	backpack_contents = list(
+		/obj/item/ammo_magazine/som_mg = 4,
+		/obj/item/tool/extinguisher = 1,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/som = 2,
+		/obj/item/explosive/grenade/smokebomb/som = 1,
+		/obj/item/explosive/grenade/smokebomb/satrapine = 1,
+		/obj/item/storage/box/mre/som = 1,
+	)
+	l_pocket_contents = list(
+		/obj/item/tool/shovel/etool = 1,
+		/obj/item/stack/sandbags_empty/half = 1,
+		/obj/item/stack/sandbags/large_stack = 1,
+		/obj/item/stack/barbed_wire/half_stack = 1,
+	)
 
 /datum/outfit/quick/som/marine/charger
 	name = "Charger Infantryman"
@@ -273,17 +237,15 @@
 	suit_store = /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger/magharness
 	belt = /obj/item/storage/belt/marine/som/volkite
 
-/datum/outfit/quick/som/marine/charger/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/som, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/som/standard(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/volkite, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/volkite, SLOT_IN_BACKPACK)
+	backpack_contents = list(
+		/obj/item/storage/box/mre/som = 1,
+		/obj/item/ammo_magazine/pistol/som = 2,
+		/obj/item/weapon/gun/pistol/som/standard = 1,
+		/obj/item/cell/lasgun/volkite = 2,
+	)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary/som, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/som = 2,
+		/obj/item/explosive/grenade/incendiary/som = 2,
+		/obj/item/tool/extinguisher/mini = 1,
+	)

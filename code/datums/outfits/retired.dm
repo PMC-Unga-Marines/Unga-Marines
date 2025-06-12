@@ -11,37 +11,33 @@
 	back = /obj/item/storage/backpack/satchel
 	belt = /obj/item/storage/belt/marine
 	gloves = /obj/item/clothing/gloves/marine
-	l_store = /obj/item/storage/pouch/medkit/firstaid
-	r_store = /obj/item/storage/holster/flarepouch/full
+	l_pocket = /obj/item/storage/pouch/medkit/firstaid
+	r_pocket = /obj/item/storage/holster/flarepouch/full
 	suit_store = /obj/item/weapon/gun/rifle/m41a/magharness
 	ears = /obj/item/radio/headset/distress/retired
 	shoes = /obj/item/clothing/shoes/marine/brown/full
 
-/datum/outfit/job/retired/post_equip(mob/living/carbon/human/H, visualsOnly)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m41a, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m41a, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m41a, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m41a, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m41a, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/m41a, SLOT_IN_BELT)
+	backpack_contents = list(
+		/obj/item/reagent_containers/food/snacks/burger/tofu = 1,
+		/obj/item/reagent_containers/food/drinks/flask/marine = 1,
+		/obj/item/explosive/grenade/incendiary = 2,
+		/obj/item/explosive/grenade = 4,
+	)
+	suit_contents = list(
+		/obj/item/storage/fancy/chemrettes = 1,
+		/obj/item/explosive/grenade/m15 = 1,
+	)
 
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/burger/tofu, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/flask/marine, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
+	belt_contents = list(
+		/obj/item/ammo_magazine/rifle/m41a = 6,
+	)
 
-	H.equip_to_slot_or_del(new /obj/item/storage/fancy/chemrettes, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/m15, SLOT_IN_SUIT)
-
+/datum/outfit/job/retired/post_equip(mob/living/carbon/human/H, visualsOnl)
 	var/list/limbs = list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 	for(var/i in 1 to 2)
 		var/datum/limb/picked_limb = H.get_limb(pick_n_take(limbs))
 		picked_limb.robotize()
-		
+
 /datum/outfit/job/retired/leader
 	name = "TGMC retired veteran expedition leader"
 	jobtype = /datum/job/retired/leader
@@ -54,11 +50,10 @@
 	suit_store = /obj/item/storage/holster/belt/revolver/mateba/full
 	back = /obj/item/ammo_magazine/minigun_wheelchair
 	shoes = null
+	belt_contents = null
+	backpack_contents = null
 
 /datum/outfit/job/retired/leader/post_equip(mob/living/carbon/human/H, visualsOnly)
-	H.equip_to_slot_or_del(new /obj/item/storage/fancy/chemrettes, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/m15, SLOT_IN_SUIT)
-
 	H.amputate_limb(BODY_ZONE_L_LEG)
 	H.amputate_limb(BODY_ZONE_R_LEG)
 	var/obj/vehicle/ridden/wheelchair/weaponized/wheelchair = new(H.drop_location())

@@ -2,6 +2,14 @@
 	name = "Yautja"
 	id = null
 	back = FALSE
+	w_uniform = /obj/item/clothing/under/chainshirt/hunter
+	ears = /obj/item/radio/headset/yautja
+	r_pocker = /obj/item/flashlight/lantern
+	l_pocker = /obj/item/yautja_teleporter
+	belt = /obj/item/storage/belt/yautja
+	belt_contents = list(
+		/obj/item/storage/medicomp/full = 1,
+	)
 	var/default_cape_type = "None"
 	var/clan_rank
 	var/name_prefix = ""
@@ -34,14 +42,7 @@
 		cape_type = H.client.prefs.predator_cape_type
 		cape_color = H.client.prefs.predator_cape_color
 
-	H.equip_to_slot_or_del(new /obj/item/clothing/under/chainshirt/hunter(H), SLOT_W_UNIFORM)
 	H.equip_to_slot_or_del(new /obj/item/clothing/gloves/yautja/hunter(H, translator_type, caster_material, clan_rank), SLOT_GLOVES, TRUE, TRUE)
-	H.equip_to_slot_or_del(new /obj/item/radio/headset/yautja(H), SLOT_EARS)
-	H.equip_to_slot_or_del(new /obj/item/flashlight/lantern(H), SLOT_R_STORE)
-	H.equip_to_slot_or_del(new /obj/item/yautja_teleporter(H), SLOT_L_STORE)
-	H.equip_to_slot_or_del(new /obj/item/storage/belt/yautja(H), SLOT_BELT)
-	H.equip_to_slot_or_del(new /obj/item/storage/medicomp/full(H), SLOT_IN_BELT)
-
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/yautja/hunter/knife(H, boot_number, greave_material), SLOT_SHOES)
 	H.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/yautja/hunter(H, armor_number, armor_material, using_legacy), SLOT_WEAR_SUIT)
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/yautja/hunter(H, mask_number, mask_material, using_legacy), SLOT_WEAR_MASK)

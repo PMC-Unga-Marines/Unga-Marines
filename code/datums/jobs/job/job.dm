@@ -311,7 +311,7 @@ GLOBAL_PROTECT(exp_specialmap)
 			job_whitelist = "[job_whitelist][whitelist_status]"
 
 		if(job.gear_preset_whitelist[job_whitelist])
-			job.gear_preset_whitelist[job_whitelist].equip(src, override_client = player)
+			job.gear_preset_whitelist[job_whitelist].equip(src)
 		else
 			equip_role_outfit(job)
 

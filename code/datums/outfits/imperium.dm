@@ -20,22 +20,23 @@
 	wear_suit = /obj/item/clothing/suit/storage/marine/imperial
 	suit_store = /obj/item/weapon/gun/energy/lasgun/lasrifle
 	head = /obj/item/clothing/head/helmet/marine/imperial
-	r_store = /obj/item/storage/pouch/medical_injectors/firstaid
-	l_store = /obj/item/storage/holster/flarepouch/full
+	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
+	l_pocket = /obj/item/storage/holster/flarepouch/full
 	back = /obj/item/storage/backpack/lightpack
 
-/datum/outfit/job/imperial/guardsman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
+	head_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/tricordrazine = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = 1,
+	)
 
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/tricordrazine, SLOT_IN_HEAD)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/oxycodone, SLOT_IN_HEAD)
+	suit_contents = list(
+		/obj/item/explosive/grenade = 1,
+		/obj/item/explosive/grenade/incendiary = 1,
+	)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_SUIT)
-
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_BACKPACK)
-
+	backpack_contents = list(
+		/obj/item/reagent_containers/food/snacks/enrg_bar = 2,
+	)
 
 /datum/outfit/job/imperial/guardsman/sergeant
 	name = "Guardsman Sergeant"
@@ -43,8 +44,8 @@
 
 	wear_suit = /obj/item/clothing/suit/storage/marine/imperial/sergeant
 	head = /obj/item/clothing/head/helmet/marine/imperial/sergeant
-	r_store = /obj/item/storage/pouch/explosive/upp
-	l_store = /obj/item/storage/pouch/field_pouch/full
+	r_pocket = /obj/item/storage/pouch/explosive/upp
+	l_pocket = /obj/item/storage/pouch/field_pouch/full
 
 /datum/outfit/job/imperial/guardsman/medicae
 	name = "Guardsman Medicae"
@@ -53,19 +54,14 @@
 	belt = /obj/item/storage/belt/lifesaver/full
 	wear_suit = /obj/item/clothing/suit/storage/marine/imperial/medicae
 	glasses = /obj/item/clothing/glasses/hud/health
-	l_store = /obj/item/storage/pouch/medkit/medic
-	r_store = /obj/item/storage/pouch/medical_injectors/medic
+	l_pocket = /obj/item/storage/pouch/medkit/medic
+	r_pocket = /obj/item/storage/pouch/medical_injectors/medic
 
-/datum/outfit/job/imperial/guardsman/medicae/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/defibrillator, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/pill_bottle/zoom, SLOT_IN_BACKPACK) // closest thing to combat performance drugs
+	backpack_contents = list(
+		/obj/item/cell/lasgun/lasrifle = 6,
+		/obj/item/defibrillator = 1,
+		/obj/item/storage/pill_bottle/zoom = 1, // closest thing to combat performance drugs // no
+	)
 
 /datum/outfit/job/imperial/commissar
 	name = "Imperial Commissar"
@@ -77,15 +73,15 @@
 	suit_store = /obj/item/weapon/sword/commissar
 	gloves = /obj/item/clothing/gloves/marine/commissar
 	head = /obj/item/clothing/head/commissar
-	l_store = /obj/item/storage/pouch/medkit/firstaid
-	r_store = /obj/item/storage/pouch/magazine/pistol/large/mateba
+	l_pocket = /obj/item/storage/pouch/medkit/firstaid
+	r_pocket = /obj/item/storage/pouch/magazine/pistol/large/mateba
 	back = /obj/item/storage/backpack/lightpack
 
-/datum/outfit/job/imperial/commissar/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
+	suit_contents = list(
+		/obj/item/explosive/grenade = 1,
+		/obj/item/explosive/grenade/incendiary = 1,
+	)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_SUIT)
-
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_BACKPACK)
+	backpack_contents = list(
+		/obj/item/reagent_containers/food/snacks/enrg_bar = 2,
+	)

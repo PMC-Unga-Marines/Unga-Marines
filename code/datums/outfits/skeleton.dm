@@ -16,12 +16,9 @@
 	belt = /obj/item/weapon/sword
 	back = /obj/item/weapon/twohanded/spear
 	ears = /obj/item/radio/headset/survivor
-	r_store = /obj/item/flashlight
-	l_store = /obj/item/tool/crowbar/red
-
-/datum/outfit/job/skeleton/basic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/milk, SLOT_L_HAND)
+	r_pocket = /obj/item/flashlight
+	l_pocket = /obj/item/tool/crowbar/red
+	l_hand = /obj/item/reagent_containers/food/drinks/milk
 
 /datum/outfit/job/skeleton/leader
 	name = "Skeleton Commander"
@@ -34,9 +31,7 @@
 	belt = /obj/item/weapon/sword
 	back = /obj/item/weapon/twohanded/glaive
 	ears = /obj/item/radio/headset/survivor
-	r_store = /obj/item/flashlight
-	l_store = /obj/item/reagent_containers/food/drinks/milk
+	r_pocket = /obj/item/flashlight
+	l_pocket = /obj/item/reagent_containers/food/drinks/milk
+	l_hand = /obj/item/reagent_containers/food/drinks/milk
 
-/datum/outfit/job/skeleton/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/drinks/milk, SLOT_L_HAND)

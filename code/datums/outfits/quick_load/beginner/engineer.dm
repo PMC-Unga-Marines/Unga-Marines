@@ -3,22 +3,21 @@
 
 	w_uniform = /obj/item/clothing/under/marine/brown_vest
 	gloves = /obj/item/clothing/gloves/marine/insulated
-	l_store = /obj/item/storage/pouch/tools/engineer
-
-/datum/outfit/quick/beginner/engineer/post_equip(mob/living/carbon/human/human, visualsOnly)
-	. = ..()
-
-	human.equip_to_slot_or_del(new /obj/item/explosive/grenade/chem_grenade/razorburn_small, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/circuitboard/apc, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/tool/handheld_charger/hicapcell, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
-
-	human.equip_to_slot_or_del(new /obj/item/stack/sheet/plasteel/medium_stack, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
-
-	human.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
-	human.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+	l_pocket = /obj/item/storage/pouch/tools/engineer
+	webbing_contents = list(
+		/obj/item/explosive/grenade/chem_grenade/razorburn_small = 1,
+		/obj/item/circuitboard/apc = 1,
+		/obj/item/tool/handheld_charger/hicapcell = 1,
+		/obj/item/stack/medical/heal_pack/gauze = 1,
+		/obj/item/stack/medical/heal_pack/ointment = 1,
+	)
+	suit_contents = list(
+		/obj/item/stack/sheet/plasteel/medium_stack = 1,
+		/obj/item/stack/sheet/metal/large_stack = 1,
+	)
+	head_contents = list(
+		/obj/item/explosive/plastique = 2,
+	)
 
 /datum/outfit/quick/beginner/engineer/builder
 	name = "Engineer Standard"
@@ -32,22 +31,22 @@
 	glasses = /obj/item/clothing/glasses/welding/superior
 	l_hand = /obj/item/paper/tutorial/builder
 
-/datum/outfit/quick/beginner/engineer/builder/post_equip(mob/living/carbon/human/human, visualsOnly)
-	. = ..()
-	for(var/i in 1 to 3)
-		human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
-
-	for(var/i in 1 to 7)
-		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/vector, SLOT_IN_BELT)
-
-	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/small_stack, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/stack/sandbags_empty/full, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/tool/shovel/etool, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/weapon/gun/sentry/basic, SLOT_IN_BACKPACK)
-	for(var/i in 1 to 4)
-		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/acp, SLOT_IN_BACKPACK)
+	suit_contents = list(
+		/obj/item/stack/sheet/plasteel/medium_stack = 1,
+		/obj/item/stack/sheet/metal/large_stack = 4,
+	)
+	belt_contents = list(
+		/obj/item/ammo_magazine/smg/vector = 7,
+	)
+	backpack_contents = list(
+		/obj/item/stack/sheet/metal/small_stack = 1,
+		/obj/item/stack/sandbags_empty/full = 1,
+		/obj/item/tool/shovel/etool = 1,
+		/obj/item/storage/box/m94 = 1,
+		/obj/item/explosive/plastique = 1,
+		/obj/item/weapon/gun/sentry/basic = 1,
+		/obj/item/ammo_magazine/packet/acp = 4,
+	)
 
 /datum/outfit/quick/beginner/engineer/burnitall
 	name = "Flamethrower"
@@ -64,16 +63,22 @@
 
 /datum/outfit/quick/beginner/engineer/burnitall/post_equip(mob/living/carbon/human/human, visualsOnly)
 	. = ..()
-	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/medium_stack, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/circuitboard/apc, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/tool/multitool, SLOT_IN_SUIT)
+	suit_contents = list(
+		/obj/item/stack/sheet/plasteel/medium_stack = 1,
+		/obj/item/stack/sheet/metal/large_stack = 1,
+		/obj/item/stack/sheet/metal/medium_stack = 1,
+		/obj/item/circuitboard/apc = 1,
+		/obj/item/tool/multitool = 1,
+	)
 
-	human.equip_to_slot_or_del(new /obj/item/weapon/gun/flamer/big_flamer/marinestandard/engineer/beginner(human), SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/storage/box/explosive_mines/large, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/weapon/gun/sentry/basic, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/tool/shovel/etool, SLOT_IN_BACKPACK)
+	backpack_contents = list(
+		/obj/item/weapon/gun/flamer/big_flamer/marinestandard/engineer/beginner = 1,
+		/obj/item/storage/box/explosive_mines/large = 1,
+		/obj/item/weapon/gun/sentry/basic = 1,
+		/obj/item/explosive/plastique = 1,
+		/obj/item/explosive/plastique = 1,
+		/obj/item/tool/shovel/etool = 1,
+	)
 
 /datum/outfit/quick/beginner/engineer/pcenjoyer
 	name = "Plasma Cutter"
@@ -88,15 +93,14 @@
 	glasses = /obj/item/clothing/glasses/meson
 	l_hand = /obj/item/paper/tutorial/plasmacutter
 
-/datum/outfit/quick/beginner/engineer/pcenjoyer/post_equip(mob/living/carbon/human/human, visualsOnly)
-	. = ..()
-
-	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/small_stack, SLOT_IN_SUIT)
-
-	human.equip_to_slot_or_del(new /obj/item/weapon/gun/revolver/r44(human), SLOT_IN_BACKPACK)
-	for(var/i in 1 to 3)
-		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/revolver/r44, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/weapon/gun/sentry/basic, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/magnum, SLOT_IN_BACKPACK)
+	suit_contents = list(
+		/obj/item/stack/sheet/plasteel/medium_stack = 1,
+		/obj/item/stack/sheet/metal/large_stack = 3,
+		/obj/item/stack/sheet/metal/small_stack = 1,
+	)
+	backpack_contents = list(
+		/obj/item/weapon/gun/revolver/r44 = 1,
+		/obj/item/ammo_magazine/revolver/r44 = 3,
+		/obj/item/weapon/gun/sentry/basic = 1,
+		/obj/item/ammo_magazine/packet/magnum = 1,
+	)

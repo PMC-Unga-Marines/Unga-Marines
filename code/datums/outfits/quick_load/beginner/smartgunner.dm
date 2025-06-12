@@ -8,9 +8,9 @@
 	belt = /obj/item/belt_harness/marine
 	glasses = /obj/item/clothing/glasses/night/m56_goggles
 
-/datum/outfit/quick/beginner/smartgunner/post_equip(mob/living/carbon/human/human, visualsOnly)
-	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_HEAD)
-	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_HEAD)
+	head_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
+	)
 
 /datum/outfit/quick/beginner/smartgunner/sg29
 	name = "Standard Smartmachinegun"
@@ -21,19 +21,21 @@
 	suit_store = /obj/item/weapon/gun/rifle/sg29/pmc
 	l_hand = /obj/item/paper/tutorial/smartmachinegunner
 
-/datum/outfit/quick/beginner/smartgunner/sg29/post_equip(mob/living/carbon/human/human, visualsOnly)
-	. = ..()
-	human.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/plasma_pistol, SLOT_IN_SUIT)
+	suit_contents = list(
+		/obj/item/tool/extinguisher = 1,
+		/obj/item/weapon/gun/pistol/plasma_pistol = 1,
+	)
 
-	for(var/i in 1 to 3)
-		human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
+	webbing_contents = list(
+		/obj/item/storage/box/m94 = 3,
+		/obj/item/stack/medical/heal_pack/gauze = 1,
+		/obj/item/stack/medical/heal_pack/ointment = 1,
+	)
 
-	for(var/i in 1 to 4)
-		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_BACKPACK)
+	backpack_contents = list(
+		/obj/item/ammo_magazine/sg29 = 4,
+		/obj/item/explosive/grenade = 1,
+	)
 
 /datum/outfit/quick/beginner/smartgunner/sg85
 	name = "Standard Smartminigun"
@@ -44,12 +46,12 @@
 	back = /obj/item/ammo_magazine/minigun_powerpack/smartgun
 	l_hand = /obj/item/paper/tutorial/smartminigunner
 
-/datum/outfit/quick/beginner/smartgunner/sg85/post_equip(mob/living/carbon/human/human, visualsOnly)
-	. = ..()
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/smart_minigun, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/smart_minigun, SLOT_IN_SUIT)
+	suit_contents = list(
+		/obj/item/ammo_magazine/packet/smart_minigun = 2,
+	)
 
-	for(var/i in 1 to 3)
-		human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_ACCESSORY)
+	webbing_contents = list(
+		/obj/item/storage/box/m94 = 3,
+		/obj/item/stack/medical/heal_pack/gauze = 1,
+		/obj/item/stack/medical/heal_pack/ointment = 1,
+	)

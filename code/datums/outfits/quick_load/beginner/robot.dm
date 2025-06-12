@@ -7,17 +7,17 @@
 	gloves = null
 	mask = null
 	head = /obj/item/clothing/head/modular/robot
-	r_store = /obj/item/storage/pouch/tools/full
+	r_pocket = /obj/item/storage/pouch/tools/full
 
-/datum/outfit/quick/beginner/robot/post_equip(mob/living/carbon/human/robot, visualsOnly)
-	robot.equip_to_slot_or_del(new /obj/item/tool/surgery/solderingtool, SLOT_IN_ACCESSORY)
-	robot.equip_to_slot_or_del(new /obj/item/stack/cable_coil, SLOT_IN_ACCESSORY)
-	robot.equip_to_slot_or_del(new /obj/item/tool/weldingtool, SLOT_IN_ACCESSORY)
-	robot.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
-	robot.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_ACCESSORY)
-
-	robot.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_HEAD)
-	robot.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline, SLOT_IN_HEAD)
+	webbing_contents = list(
+		/obj/item/tool/surgery/solderingtool = 1,
+		/obj/item/stack/cable_coil = 1,
+		/obj/item/tool/weldingtool = 1,
+		/obj/item/storage/box/m94 = 2,
+	)
+	head_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
+	)
 
 /datum/outfit/quick/beginner/robot/laser_rifle
 	name = "Laser Rifleman"
@@ -30,16 +30,18 @@
 	wear_suit = /obj/item/clothing/suit/modular/robot/svalinn
 	l_hand = /obj/item/paper/tutorial/robot_laser_rifleman
 
-/datum/outfit/quick/beginner/robot/laser_rifle/post_equip(mob/living/carbon/human/robot, visualsOnly)
-	. = ..()
-	for(var/i in 1 to 6)
-		robot.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BELT)
+	belt_contents = list(
+		/obj/item/cell/lasgun/lasrifle = 6,
+	)
 
-	for(var/i in 1 to 6)
-		robot.equip_to_slot_or_del(new /obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_BACKPACK)
-	robot.equip_to_slot_or_del(new /obj/item/weapon/powerfist/full, SLOT_IN_BACKPACK)
+	backpack_contents = list(
+		/obj/item/ammo_magazine/flamer_tank/mini = 6,
+		/obj/item/weapon/powerfist/full = 1,
+	)
 
-	robot.equip_to_slot_or_del(new /obj/item/cell/lasgun/volkite/powerpack/marine, SLOT_IN_SUIT)
+	suit_contents = list(
+		/obj/item/cell/lasgun/volkite/powerpack/marine = 1,
+	)
 
 /datum/outfit/quick/beginner/robot/laser_machinegunner
 	name = "Laser Machinegunner"
@@ -53,10 +55,10 @@
 	wear_suit = /obj/item/clothing/suit/modular/robot/heavy/tyr_onegeneral
 	l_hand = /obj/item/paper/tutorial/robot_laser_machinegunner
 
-/datum/outfit/quick/beginner/robot/laser_machinegunner/post_equip(mob/living/carbon/human/robot, visualsOnly)
-	. = ..()
-	robot.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_SUIT)
-	robot.equip_to_slot_or_del(new /obj/item/weapon/powerfist/full, SLOT_IN_SUIT)
+	suit_contents = list(
+		/obj/item/cell/lasgun/lasrifle = 1,
+		/obj/item/weapon/powerfist/full = 1,
+	)
 
 /datum/outfit/quick/beginner/robot/laser_sniper
 	name = "Laser Sniper"
@@ -70,7 +72,7 @@
 	wear_suit = /obj/item/clothing/suit/modular/robot/light/baldur_general
 	l_hand = /obj/item/paper/tutorial/robot_laser_sniper
 
-/datum/outfit/quick/beginner/robot/laser_sniper/post_equip(mob/living/carbon/human/robot, visualsOnly)
-	. = ..()
-	robot.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_SUIT)
-	robot.equip_to_slot_or_del(new /obj/item/weapon/powerfist/full, SLOT_IN_SUIT)
+	suit_contents = list(
+		/obj/item/cell/lasgun/lasrifle = 1,
+		/obj/item/weapon/powerfist/full = 1,
+	)
