@@ -1397,7 +1397,7 @@
 	set category = "Admin"
 	set name = "Smite"
 
-	var/punishment = tgui_input_list(usr, "Choose a punishment", "DIVINE SMITING", sortNames(GLOB.smites), timeout = 0)//Choose a smite if any exist from global smites
+	var/punishment = tgui_input_list(usr, "Choose a punishment", "DIVINE SMITING", GLOB.smites, timeout = 0)//Choose a smite if any exist from global smites
 
 	if(QDELETED(target) || !punishment)
 		return
