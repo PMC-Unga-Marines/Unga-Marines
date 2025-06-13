@@ -7,6 +7,6 @@ GLOBAL_VAR(stickbanadminexemptiontimerid) //stores the timerid of the callback t
 	for (var/_smite_path in subtypesof(/datum/smite))
 		var/datum/smite/smite_path = _smite_path
 		smites[initial(smite_path.name)] = smite_path
-	return sortNames(smites)
+	return smites
 
 GLOBAL_LIST_INIT_TYPED(smites, /datum/smite, init_smites())
