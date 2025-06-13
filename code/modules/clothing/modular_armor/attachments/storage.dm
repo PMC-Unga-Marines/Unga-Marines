@@ -156,6 +156,9 @@
 /obj/item/armor_module/storage/boot/som_knife/PopulateContents()
 	new /obj/item/attachable/bayonetknife/som(src)
 
+/obj/item/armor_module/storage/boot/upp/PopulateContents()
+	new /obj/item/weapon/combat_knife/upp(src)
+
 /obj/item/armor_module/storage/helmet
 	name = "Jaeger Pattern helmet storage"
 	desc = "A small set of bands and straps to allow easy storage of small items."

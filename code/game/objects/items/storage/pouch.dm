@@ -604,6 +604,13 @@
 	. = ..()
 	storage_datum.sprite_slots = null
 
+/obj/item/storage/pouch/medkit/elite
+	new /obj/item/storage/pill_bottle/hypervene(src)
+	new /obj/item/storage/pill_bottle/packet/ryetalyn(src)
+	new /obj/item/reagent_containers/hypospray/advanced/oxycodone(src)
+	for(var/i in 1 to 4)
+		new /obj/item/reagent_containers/hypospray/autoinjector/elite(src)
+
 /obj/item/storage/pouch/medical_injectors
 	name = "medical injector pouch"
 	desc = "A specialized medical pouch that can only hold auto-injectors."

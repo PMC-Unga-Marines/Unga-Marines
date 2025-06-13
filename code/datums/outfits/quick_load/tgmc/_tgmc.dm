@@ -15,17 +15,17 @@
 	gloves = /obj/item/clothing/gloves/marine
 	mask = /obj/item/clothing/mask/gas
 	head = /obj/item/clothing/head/modular/m10x
-	r_store = /obj/item/storage/pouch/firstaid/combat_patrol
-	l_store = /obj/item/storage/pouch/grenade/combat_patrol
+	r_pocket = /obj/item/storage/pouch/firstaid/combat_patrol
+	l_pocket = /obj/item/storage/pouch/grenade/combat_patrol
 	back = /obj/item/storage/backpack/marine/satchel
 
 /datum/outfit/quick/tgmc/marine/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	/obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
+	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
 
-	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/isotonic, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclot, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_SUIT)
+	/obj/item/stack/medical/heal_pack/gauze, SLOT_IN_SUIT)
+	/obj/item/stack/medical/heal_pack/ointment, SLOT_IN_SUIT)
+	/obj/item/reagent_containers/hypospray/autoinjector/isotonic, SLOT_IN_SUIT)
+	/obj/item/reagent_containers/hypospray/autoinjector/quickclot, SLOT_IN_SUIT)
+	/obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_SUIT)

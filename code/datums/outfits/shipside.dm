@@ -7,8 +7,8 @@
 	w_uniform = /obj/item/clothing/under/marine/officer/command
 	shoes = /obj/item/clothing/shoes/marinechief/captain
 	gloves = /obj/item/clothing/gloves/marine/techofficer/captain
-	r_store = /obj/item/storage/pouch/general/large/command
-	l_store = /obj/item/hud_tablet/leadership
+	r_pocket = /obj/item/storage/pouch/general/large/command
+	l_pocket = /obj/item/hud_tablet/leadership
 	belt = /obj/item/storage/holster/blade/officer/sabre/full
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator/yellow
 	head = null
@@ -28,8 +28,8 @@
 	shoes = /obj/item/clothing/shoes/marine/full
 	gloves = /obj/item/clothing/gloves/marine/officer
 	head = /obj/item/clothing/head/tgmcberet/fc
-	r_store = /obj/item/storage/pouch/general/large/command
-	l_store = /obj/item/hud_tablet/fieldcommand
+	r_pocket = /obj/item/storage/pouch/general/large/command
+	l_pocket = /obj/item/hud_tablet/fieldcommand
 	suit_store = /obj/item/storage/holster/belt/pistol/m4a3/fieldcommander
 
 /datum/outfit/job/command/staffofficer
@@ -39,8 +39,8 @@
 	id = /obj/item/card/id/silver
 	belt = /obj/item/storage/holster/belt/pistol/m4a3/officer
 	ears = /obj/item/radio/headset/mainship/mcom
-	r_store = /obj/item/storage/pouch/general/large
-	l_store = /obj/item/binoculars/tactical
+	r_pocket = /obj/item/storage/pouch/general/large
+	l_pocket = /obj/item/binoculars/tactical
 	back = FALSE
 	head = null
 	w_uniform = /obj/item/clothing/under/marine/whites/blacks
@@ -61,17 +61,17 @@
 	gloves = /obj/item/clothing/gloves/marine/insulated
 	glasses = /obj/item/clothing/glasses/welding/superior
 	head = /obj/item/clothing/head/helmet/marine/pilot
-	r_store = /obj/item/storage/pouch/construction
-	l_store = /obj/item/hud_tablet/transportofficer
+	r_pocket = /obj/item/storage/pouch/construction
+	l_pocket = /obj/item/hud_tablet/transportofficer
 	back = /obj/item/storage/backpack/marine/engineerpack
 	suit_store = /obj/item/storage/holster/belt/pistol/m4a3/vp70
 
-/datum/outfit/job/command/transportofficer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_hand(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_hand(new /obj/item/stack/sheet/plasteel/large_stack, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_hand(new /obj/item/stack/sandbags/large_stack, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_hand(new /obj/item/stack/barbed_wire/full, SLOT_IN_R_POUCH)
+	r_pocket_contents = list(
+		/obj/item/stack/sheet/metal/large_stack = 1,
+		/obj/item/stack/sheet/plasteel/large_stack = 1,
+		/obj/item/stack/sandbags/large_stack = 1,
+		/obj/item/stack/barbed_wire/full = 1,
+	)
 
 /datum/outfit/job/command/pilot
 	name = PILOT_OFFICER
@@ -86,8 +86,8 @@
 	gloves = /obj/item/clothing/gloves/insulated
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
 	head = /obj/item/clothing/head/helmet/marine/pilot
-	r_store = /obj/item/clothing/glasses/night/imager_goggles
-	l_store = /obj/item/hud_tablet/pilot
+	r_pocket = /obj/item/clothing/glasses/night/imager_goggles
+	l_pocket = /obj/item/hud_tablet/pilot
 
 /datum/outfit/job/command/mech_pilot
 	name = MECH_PILOT
@@ -133,7 +133,7 @@
 	head = /obj/item/clothing/head/helmet/marine/assault_crewman
 	shoes = /obj/item/clothing/shoes/marine/full
 	gloves = /obj/item/clothing/gloves/marine
-	l_store = /obj/item/pamphlet/tank_loader
+	l_pocket = /obj/item/pamphlet/tank_loader
 
 /datum/outfit/job/command/transport_crewman
 	name = TRANSPORT_CREWMAN
@@ -162,7 +162,7 @@
 	gloves = /obj/item/clothing/gloves/insulated
 	glasses = /obj/item/clothing/glasses/welding/flipped
 	head = /obj/item/clothing/head/tgmccap/req
-	r_store = /obj/item/storage/pouch/general/medium
+	r_pocket = /obj/item/storage/pouch/general/medium
 	back = /obj/item/storage/backpack/marine/engineerpack
 
 /datum/outfit/job/requisitions/officer
@@ -178,7 +178,7 @@
 	shoes = /obj/item/clothing/shoes/marine/full
 	gloves = /obj/item/clothing/gloves/insulated
 	head = /obj/item/clothing/head/tgmccap/req
-	r_store = /obj/item/storage/pouch/general/large
+	r_pocket = /obj/item/storage/pouch/general/large
 
 /datum/outfit/job/medical/professor
 	name = CHIEF_MEDICAL_OFFICER
@@ -194,13 +194,15 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 	mask = /obj/item/clothing/mask/surgical
 	head = /obj/item/clothing/head/cmo
-	r_store = /obj/item/storage/pouch/surgery
-	l_store = /obj/item/storage/pouch/medkit/medic
+	r_pocket = /obj/item/storage/pouch/surgery
+	l_pocket = /obj/item/storage/pouch/medkit/medic
 
-/datum/outfit/job/medical/professor/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_hand(new /obj/item/tweezers, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_hand(new /obj/item/reagent_containers/glass/bottle/lemoline/doctor, SLOT_S_STORE)
+	r_pocket_contents = list(
+		/obj/item/tweezers = 1,
+	)
+	suit_contents = list(
+		/obj/item/reagent_containers/glass/bottle/lemoline/doctor = 1,
+	)
 
 /datum/outfit/job/medical/medicalofficer
 	name = MEDICAL_DOCTOR
@@ -216,13 +218,16 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 	mask = /obj/item/clothing/mask/surgical
 	head = /obj/item/clothing/head/surgery/green
-	r_store = /obj/item/storage/pouch/surgery
-	l_store = /obj/item/storage/pouch/medkit/medic
+	r_pocket = /obj/item/storage/pouch/surgery
+	l_pocket = /obj/item/storage/pouch/medkit/medic
 
-/datum/outfit/job/medical/medicalofficer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_hand(new /obj/item/tweezers, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_hand(new /obj/item/reagent_containers/glass/bottle/lemoline/doctor, SLOT_S_STORE)
+
+	r_pocket_contents = list(
+		/obj/item/tweezers = 1,
+	)
+	suit_contents = list(
+		/obj/item/reagent_containers/glass/bottle/lemoline/doctor = 1,
+	)
 
 /datum/outfit/job/medical/researcher
 	name = FIELD_RESEARCHER
@@ -237,13 +242,15 @@
 	gloves = /obj/item/clothing/gloves/latex
 	glasses = /obj/item/clothing/glasses/hud/health
 	mask = /obj/item/clothing/mask/surgical
-	r_store = /obj/item/storage/pouch/surgery
-	l_store = /obj/item/storage/pouch/medkit/medic
+	r_pocket = /obj/item/storage/pouch/surgery
+	l_pocket = /obj/item/storage/pouch/medkit/medic
 
-/datum/outfit/job/medical/researcher/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_hand(new /obj/item/tweezers, SLOT_IN_R_POUCH)
-	H.equip_to_slot_or_hand(new /obj/item/reagent_containers/glass/bottle/lemoline/doctor, SLOT_S_STORE)
+	r_pocket_contents = list(
+		/obj/item/tweezers = 1,
+	)
+	suit_contents = list(
+		/obj/item/reagent_containers/glass/bottle/lemoline/doctor = 1,
+	)
 
 /datum/outfit/job/liaison
 	name = CORPORATE_LIAISON
@@ -264,8 +271,8 @@
 	w_uniform = /obj/item/clothing/under/rank/synthetic
 	shoes = /obj/item/clothing/shoes/white
 	gloves = /obj/item/clothing/gloves/insulated
-	r_store = /obj/item/storage/pouch/general/medium
-	l_store = /obj/item/storage/pouch/general/medium
+	r_pocket = /obj/item/storage/pouch/general/medium
+	l_pocket = /obj/item/storage/pouch/general/medium
 
 /datum/outfit/job/clown
 	name = CLOWN
@@ -277,17 +284,14 @@
 	mask = /obj/item/clothing/mask/gas/clown_hat
 	w_uniform = /obj/item/clothing/under/rank/clown
 	shoes = /obj/item/clothing/shoes/clown_shoes
-	r_store = /obj/item/toy/bikehorn
-	l_store = /obj/item/instrument/bikehorn
+	r_pocket = /obj/item/toy/bikehorn
+	l_pocket = /obj/item/instrument/bikehorn
 	gloves = /obj/item/clothing/gloves/white
 	back = /obj/item/storage/backpack/clown
 
-/datum/outfit/job/clown/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	H.equip_to_slot_or_del(new /obj/item/tool/soap/clown, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/soap/clown, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/soap/clown, SLOT_IN_BACKPACK)
+	backpack_contents = list(
+		/obj/item/tool/soap/clown = 3,
+	)
 
 /datum/outfit/job/command/military_police
 	name = MILITARY_POLICE
@@ -300,8 +304,8 @@
 	shoes = /obj/item/clothing/shoes/jackboots/mp
 	head = /obj/item/clothing/head/beret/sec/mp
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/mp
-	r_store = /obj/item/storage/pouch/magazine/large/laser
-	l_store = /obj/item/storage/pouch/pistol/laserpistol
+	r_pocket = /obj/item/storage/pouch/magazine/large/laser
+	l_pocket = /obj/item/storage/pouch/pistol/laserpistol
 	gloves = /obj/item/clothing/gloves/marine/mp
 	back = /obj/item/storage/backpack/satchel/sec
 	wear_suit = /obj/item/clothing/suit/armor/bulletproof/mp

@@ -7,18 +7,18 @@
 
 /datum/outfit/quick/tgmc/marine/ar12/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p10x24mm, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
+	/obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/packet/p10x24mm, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
+	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/marine/standard_laserrifle
 	name = "Laser Rifleman"
@@ -29,17 +29,17 @@
 
 /datum/outfit/quick/tgmc/marine/standard_laserrifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
+	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
+	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
+	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical(H), SLOT_IN_BACKPACK)
+	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/marine/ar18
 	name = "AR-18 Rifleman"
@@ -50,18 +50,18 @@
 
 /datum/outfit/quick/tgmc/marine/ar18/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p10x24mm, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/ar18, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/packet/p10x24mm, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/rifle/ar18, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
+	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/marine/combat_rifle
 	name = "AR-11 Rifleman"
@@ -72,18 +72,18 @@
 
 /datum/outfit/quick/tgmc/marine/combat_rifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p492x34mm, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p492x34mm, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/packet/p492x34mm, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/packet/p492x34mm, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
+	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
+	/obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/marine/br64
 	name = "BR-64 Rifleman"
@@ -94,18 +94,18 @@
 
 /datum/outfit/quick/tgmc/marine/br64/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p10x265mm, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
+	/obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/packet/p10x265mm, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
+	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/marine/ar21
 	name = "AR-21 Rifleman"
@@ -116,18 +116,18 @@
 
 /datum/outfit/quick/tgmc/marine/ar21/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p10x25mm, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
+	/obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/packet/p10x25mm, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
+	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/marine/alf_shocktrooper
 	name = "ALF-51B Shocktrooper"
@@ -140,19 +140,19 @@
 
 /datum/outfit/quick/tgmc/marine/alf_shocktrooper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/alf_machinecarbine, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/alf_machinecarbine, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/rifle/alf_machinecarbine, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/rifle/alf_machinecarbine, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
+	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
+	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
+	/obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	/obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/flashbang/stun, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/flashbang/stun, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/marine/mg60
 	name = "MG-60 Machinegunner"
@@ -160,31 +160,31 @@
 
 	belt = /obj/item/storage/belt/sparepouch
 	suit_store = /obj/item/weapon/gun/rifle/mg60/machinegunner
-	l_store = /obj/item/storage/pouch/construction
+	l_pocket = /obj/item/storage/pouch/construction
 
 /datum/outfit/quick/tgmc/marine/mg60/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/mg60, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
+	/obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/mg60, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/mg60, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/mg60, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/mg60, SLOT_IN_BELT)
+	/obj/item/ammo_magazine/mg60, SLOT_IN_BELT)
+	/obj/item/ammo_magazine/mg60, SLOT_IN_BELT)
+	/obj/item/ammo_magazine/mg60, SLOT_IN_BELT)
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/flashbang/stun, SLOT_IN_ACCESSORY)
+	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/flashbang/stun, SLOT_IN_ACCESSORY)
 
-	H.equip_to_slot_or_del(new /obj/item/tool/shovel/etool, SLOT_IN_L_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/stack/sandbags_empty/half, SLOT_IN_L_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/stack/sandbags/large_stack, SLOT_IN_L_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/half_stack, SLOT_IN_L_POUCH)
+	/obj/item/tool/shovel/etool, SLOT_IN_L_POUCH)
+	/obj/item/stack/sandbags_empty/half, SLOT_IN_L_POUCH)
+	/obj/item/stack/sandbags/large_stack, SLOT_IN_L_POUCH)
+	/obj/item/stack/barbed_wire/half_stack, SLOT_IN_L_POUCH)
 
 /datum/outfit/quick/tgmc/marine/mg27
 	name = "MG-27 Machinegunner"
@@ -193,30 +193,30 @@
 	belt = /obj/item/storage/holster/m25
 	wear_suit = /obj/item/clothing/suit/modular/xenonauten/shield
 	suit_store = /obj/item/weapon/gun/mg27/machinegunner
-	l_store = /obj/item/storage/pouch/construction
+	l_pocket = /obj/item/storage/pouch/construction
 	glasses = /obj/item/clothing/glasses/mgoggles
 
 /datum/outfit/quick/tgmc/marine/mg27/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/mg27, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/mg27, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/mg27, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/flashbang/stun, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/mg27, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/mg27, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/mg27, SLOT_IN_BACKPACK)
+	/obj/item/explosive/grenade/smokebomb, SLOT_IN_BACKPACK)
+	/obj/item/explosive/grenade/smokebomb, SLOT_IN_BACKPACK)
+	/obj/item/explosive/grenade/flashbang/stun, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/m25/holstered(H), SLOT_IN_HOLSTER)
+	/obj/item/weapon/gun/smg/m25/holstered(H), SLOT_IN_HOLSTER)
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
+	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
 
-	H.equip_to_slot_or_del(new /obj/item/tool/shovel/etool, SLOT_IN_L_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/stack/sandbags_empty/half, SLOT_IN_L_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/stack/sandbags/large_stack, SLOT_IN_L_POUCH)
-	H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/half_stack, SLOT_IN_L_POUCH)
+	/obj/item/tool/shovel/etool, SLOT_IN_L_POUCH)
+	/obj/item/stack/sandbags_empty/half, SLOT_IN_L_POUCH)
+	/obj/item/stack/sandbags/large_stack, SLOT_IN_L_POUCH)
+	/obj/item/stack/barbed_wire/half_stack, SLOT_IN_L_POUCH)
 
 /datum/outfit/quick/tgmc/marine/standard_lasermg
 	name = "Laser Machinegunner"
@@ -227,17 +227,17 @@
 
 /datum/outfit/quick/tgmc/marine/standard_lasermg/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
+	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
+	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
+	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical(H), SLOT_IN_BACKPACK)
+	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/marine/pyro
 	name = "FL-84 Flamethrower Operator"
@@ -252,13 +252,13 @@
 
 /datum/outfit/quick/tgmc/marine/pyro/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/m25/holstered(H), SLOT_IN_HOLSTER)
+	/obj/item/weapon/gun/smg/m25/holstered(H), SLOT_IN_HOLSTER)
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p10x20mm, SLOT_IN_ACCESSORY)
+	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/packet/p10x20mm, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/marine/standard_shotgun
 	name = "SH-35 Scout"
@@ -271,20 +271,20 @@
 
 /datum/outfit/quick/tgmc/marine/standard_shotgun/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p10x20mm, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/mp19/compact(H), SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/packet/p10x20mm, SLOT_IN_BACKPACK)
+	/obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_BACKPACK)
+	/obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/smg/mp19/compact(H), SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
+	/obj/item/binoculars, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/marine/standard_lasercarbine
 	name = "Laser Carbine Scout"
@@ -296,19 +296,19 @@
 
 /datum/outfit/quick/tgmc/marine/standard_lasercarbine/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
+	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
+	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical(H), SLOT_IN_BACKPACK)
+	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_BACKPACK)
+	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
+	/obj/item/explosive/plastique, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
+	/obj/item/binoculars, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/marine/light_carbine
 	name = "AR-18 Scout"
@@ -320,18 +320,18 @@
 
 /datum/outfit/quick/tgmc/marine/light_carbine/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p10x24mm, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p10x24mm, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/ar18, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/packet/p10x24mm, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/packet/p10x24mm, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/rifle/ar18, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
+	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
+	/obj/item/explosive/plastique, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/p23, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/marine/shield_tank
 	name = "SMG-25 Guardian"
@@ -346,19 +346,19 @@
 
 /datum/outfit/quick/tgmc/marine/shield_tank/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/weldingtool/largetank, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p10x20mm, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p10x20mm, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
+	/obj/item/tool/extinguisher, SLOT_IN_BACKPACK)
+	/obj/item/tool/weldingtool/largetank, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/packet/p10x20mm, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/packet/p10x20mm, SLOT_IN_BACKPACK)
+	/obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_BACKPACK)
+	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/marine/machete
 	name = "Assault Marine"
@@ -372,11 +372,11 @@
 /datum/outfit/quick/tgmc/marine/machete/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/marine/scout
 	name = "BR-8 Scout"
@@ -389,15 +389,15 @@
 
 /datum/outfit/quick/tgmc/marine/scout/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/mp19/scanner(H), SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/tx8, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/tx8, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/smg/mp19/scanner(H), SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/rifle/tx8, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/rifle/tx8, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/binoculars, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/m15, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/m15, SLOT_IN_ACCESSORY)
+	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
+	/obj/item/binoculars, SLOT_IN_ACCESSORY)
+	/obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/m15, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/m15, SLOT_IN_ACCESSORY)

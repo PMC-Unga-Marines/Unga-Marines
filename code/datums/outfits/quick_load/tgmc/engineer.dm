@@ -11,21 +11,21 @@
 	gloves = /obj/item/clothing/gloves/marine/insulated
 	mask = /obj/item/clothing/mask/gas
 	head = /obj/item/clothing/head/modular/m10x/welding
-	r_store = /obj/item/storage/pouch/firstaid/combat_patrol
-	l_store = /obj/item/storage/pouch/tools/full
+	r_pocket = /obj/item/storage/pouch/firstaid/combat_patrol
+	l_pocket = /obj/item/storage/pouch/tools/full
 	back = /obj/item/storage/backpack/marine/engineerpack
 
 /datum/outfit/quick/tgmc/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_HEAD)
+	/obj/item/explosive/plastique, SLOT_IN_HEAD)
+	/obj/item/explosive/plastique, SLOT_IN_HEAD)
 
-	H.equip_to_slot_or_del(new /obj/item/circuitboard/apc, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/cell/high, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/stack/sheet/plasteel/medium_stack, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/stack/barbed_wire/half_stack, SLOT_IN_SUIT)
+	/obj/item/circuitboard/apc, SLOT_IN_SUIT)
+	/obj/item/cell/high, SLOT_IN_SUIT)
+	/obj/item/stack/sheet/plasteel/medium_stack, SLOT_IN_SUIT)
+	/obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
+	/obj/item/stack/barbed_wire/half_stack, SLOT_IN_SUIT)
 
 /datum/outfit/quick/tgmc/engineer/rrengineer
 	name = "Rocket Specialist"
@@ -39,11 +39,11 @@
 /datum/outfit/quick/tgmc/engineer/rrengineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/stack/cable_coil, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/chem_grenade/razorburn_large, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
+	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
+	/obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_ACCESSORY)
+	/obj/item/stack/cable_coil, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/chem_grenade/razorburn_large, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/engineer/sentry
 	name = "Sentry Technician"
@@ -54,18 +54,18 @@
 
 /datum/outfit/quick/tgmc/engineer/sentry/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/sentry/mini/combat_patrol, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/sentry/mini/combat_patrol, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/minisentry, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/minisentry, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/sentry/mini/combat_patrol, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/sentry/mini/combat_patrol, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/minisentry, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/minisentry, SLOT_IN_BACKPACK)
+	/obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
+	/obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/stack/cable_coil, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/chem_grenade/razorburn_large, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
+	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_ACCESSORY)
+	/obj/item/stack/cable_coil, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/chem_grenade/razorburn_large, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/engineer/demolition
 	name = "Demolition Specialist"
@@ -77,21 +77,21 @@
 
 /datum/outfit/quick/tgmc/engineer/demolition/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/minelayer, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/explosive_mines/large, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/explosive_mines, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/stack/cable_coil, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/detpack, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/detpack, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/detpack, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/smokebomb, SLOT_IN_BACKPACK)
+	/obj/item/minelayer, SLOT_IN_BACKPACK)
+	/obj/item/storage/box/explosive_mines/large, SLOT_IN_BACKPACK)
+	/obj/item/storage/box/explosive_mines, SLOT_IN_BACKPACK)
+	/obj/item/stack/cable_coil, SLOT_IN_BACKPACK)
+	/obj/item/detpack, SLOT_IN_BACKPACK)
+	/obj/item/detpack, SLOT_IN_BACKPACK)
+	/obj/item/detpack, SLOT_IN_BACKPACK)
+	/obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	/obj/item/explosive/plastique, SLOT_IN_BACKPACK)
+	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
+	/obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_BACKPACK)
+	/obj/item/explosive/grenade/smokebomb, SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/assembly/signaler, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
+	/obj/item/assembly/signaler, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)

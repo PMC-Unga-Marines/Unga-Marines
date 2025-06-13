@@ -5,10 +5,9 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 	r_hand = /obj/item/medevac_beacon
 
-/datum/outfit/quick/beginner/corpsman/post_equip(mob/living/carbon/human/human, visualsOnly)
-	. = ..()
-	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
-	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_HEAD)
+	head_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 2,
+	)
 
 /datum/outfit/quick/beginner/corpsman/lifesaver
 	name = "Standard Lifesaver"
@@ -20,39 +19,34 @@
 	gloves = /obj/item/clothing/gloves/defibrillator
 	mask = /obj/item/clothing/mask/gas
 	head = /obj/item/clothing/head/modular/m10x/mimir
-	r_store = /obj/item/storage/pouch/medkit/medic
-	l_store = /obj/item/storage/pouch/shotgun
+	r_pocket = /obj/item/storage/pouch/medkit/medic
+	l_pocket = /obj/item/storage/pouch/shotgun
 	back = /obj/item/storage/backpack/marine/corpsman
 	belt = /obj/item/storage/belt/lifesaver/beginner
 	l_hand = /obj/item/paper/tutorial/lifesaver
 
-/datum/outfit/quick/beginner/corpsman/lifesaver/post_equip(mob/living/carbon/human/human, visualsOnly)
-	. = ..()
-	human.equip_to_slot_or_del(new /obj/item/roller, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/bodybag/cryobag, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/oxycodone, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/nanoblood, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/roller/medevac, SLOT_IN_ACCESSORY)
-	human.equip_to_slot_or_del(new /obj/item/tweezers, SLOT_IN_ACCESSORY)
-
-	for(var/i in 1 to 8)
-		human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_SUIT)
-	for(var/i in 1 to 2)
-		human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dexalinplus, SLOT_IN_SUIT)
-	for(var/i in 1 to 2)
-		human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclot, SLOT_IN_SUIT)
-	for(var/i in 1 to 2)
-		human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/peridaxon, SLOT_IN_SUIT)
-
-	for(var/i in 1 to 3)
-		human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
-
-	for(var/i in 1 to 7)
-		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/p4570, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
-
-	for(var/i in 1 to 7)
-		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/repeater, SLOT_IN_L_POUCH)
+	webbing_contents = list(
+		/obj/item/roller = 1,
+		/obj/item/bodybag/cryobag = 1,
+		/obj/item/reagent_containers/hypospray/advanced/oxycodone = 1,
+		/obj/item/reagent_containers/hypospray/advanced/nanoblood = 1,
+		/obj/item/roller/medevac = 1,
+		/obj/item/tweezers = 1,
+	)
+	suit_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 8,
+		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclot = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon = 2,
+	)
+	backpack_contents = list(
+		/obj/item/storage/box/m94 = 3,
+		/obj/item/ammo_magazine/packet/p4570 = 7,
+		/obj/item/tool/extinguisher/mini = 1,
+	)
+	r_pocket_contents = list(
+		/obj/item/ammo_magazine/handful/repeater = 7,
+	)
 
 /datum/outfit/quick/beginner/corpsman/hypobelt
 	name = "Standard Hypobelt"
@@ -64,29 +58,28 @@
 	gloves = /obj/item/healthanalyzer/gloves
 	mask = /obj/item/clothing/mask/gas
 	head = /obj/item/clothing/head/modular/m10x/antenna
-	r_store = /obj/item/storage/pouch/medkit/medic
-	l_store = /obj/item/storage/pouch/shotgun
+	r_pocket = /obj/item/storage/pouch/medkit/medic
+	l_pocket = /obj/item/storage/pouch/shotgun
 	back = /obj/item/storage/backpack/marine/corpsman
 	belt = /obj/item/storage/belt/hypospraybelt/beginner
 	l_hand = /obj/item/paper/tutorial/hypobelt
 
-/datum/outfit/quick/beginner/corpsman/hypobelt/post_equip(mob/living/carbon/human/human, visualsOnly)
-	. = ..()
-	for(var/i in 1 to 6)
-		human.equip_to_slot_or_del(new /obj/item/stack/medical/splint, SLOT_IN_ACCESSORY)
-
-	human.equip_to_slot_or_del(new /obj/item/roller, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/bodybag/cryobag, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/oxycodone, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/roller/medevac, SLOT_IN_SUIT)
-	human.equip_to_slot_or_del(new /obj/item/tweezers, SLOT_IN_SUIT)
-
-	for(var/i in 1 to 7)
-		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/slug, SLOT_IN_L_POUCH)
-
-	for(var/i in 1 to 3)
-		human.equip_to_slot_or_del(new /obj/item/storage/box/m94, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/tool/extinguisher, SLOT_IN_BACKPACK)
-	human.equip_to_slot_or_del(new /obj/item/defibrillator/advanced, SLOT_IN_BACKPACK)
-	for(var/i in 1 to 4)
-		human.equip_to_slot_or_del(new /obj/item/ammo_magazine/shotgun, SLOT_IN_BACKPACK)
+	webbing_contents = list(
+		/obj/item/stack/medical/splint = 6
+	)
+	suit_contents = list(
+		/obj/item/roller = 1,
+		/obj/item/bodybag/cryobag = 1,
+		/obj/item/reagent_containers/hypospray/advanced/oxycodone = 1,
+		/obj/item/roller/medevac = 1,
+		/obj/item/tweezers = 1,
+	)
+	l_pocket_contents = list(
+		/obj/item/ammo_magazine/handful/slug = 7,
+	)
+	backpack_contents = list(
+		/obj/item/storage/box/m94 = 3,
+		/obj/item/tool/extinguisher = 1,
+		/obj/item/defibrillator/advanced = 1,
+		/obj/item/ammo_magazine/shotgun = 4,
+	)

@@ -15,12 +15,12 @@
 	gloves = /obj/item/clothing/gloves/marine
 	mask = /obj/item/clothing/mask/bandanna
 	head = /obj/item/clothing/head/modular/m10x
-	r_store = /obj/item/storage/pouch/medkit/firstaid
-	l_store = /obj/item/storage/holster/flarepouch/full
+	r_pocket = /obj/item/storage/pouch/medkit/firstaid
+	l_pocket = /obj/item/storage/holster/flarepouch/full
 	back = /obj/item/storage/backpack/marine/satchel
 	belt = /obj/item/storage/belt/marine
 	ears = /obj/item/radio/headset/mainship/marine
 
-/datum/outfit/quick/beginner/post_equip(mob/living/carbon/human/human, visualsOnly)
-	. = ..()
-	human.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_BOOT)
+	shoe_contents = list(
+		/obj/item/storage/box/mre = 1,
+	)

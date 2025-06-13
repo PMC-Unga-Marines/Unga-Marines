@@ -12,21 +12,21 @@
 	gloves = /obj/item/clothing/gloves/marine
 	mask = /obj/item/clothing/mask/gas/tactical
 	head = /obj/item/clothing/head/modular/m10x/tyr
-	r_store = /obj/item/storage/pouch/firstaid/combat_patrol
-	l_store = /obj/item/storage/pouch/grenade/combat_patrol
+	r_pocket = /obj/item/storage/pouch/firstaid/combat_patrol
+	l_pocket = /obj/item/storage/pouch/grenade/combat_patrol
 	back = /obj/item/storage/backpack/marine/satchel
 
 /datum/outfit/quick/tgmc/smartgunner/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
+	/obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
+	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
 
-	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/gauze, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/ointment, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/isotonic, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/quickclot, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_SUIT)
+	/obj/item/stack/medical/heal_pack/gauze, SLOT_IN_SUIT)
+	/obj/item/stack/medical/heal_pack/ointment, SLOT_IN_SUIT)
+	/obj/item/reagent_containers/hypospray/autoinjector/isotonic, SLOT_IN_SUIT)
+	/obj/item/reagent_containers/hypospray/autoinjector/quickclot, SLOT_IN_SUIT)
+	/obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_SUIT)
 
 /datum/outfit/quick/tgmc/smartgunner/sg29
 	name = "SG29 Smart Machinegunner"
@@ -36,17 +36,17 @@
 
 /datum/outfit/quick/tgmc/smartgunner/sg29/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vp70/tactical(H), SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/pistol/vp70/tactical(H), SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
+	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
 
 /datum/outfit/quick/tgmc/smartgunner/minigun_sg
 	name = "SG85 Smart Machinegunner"
@@ -59,15 +59,15 @@
 /datum/outfit/quick/tgmc/smartgunner/minigun_sg/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/mp19, SLOT_IN_ACCESSORY)
+	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_ACCESSORY)
 
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/smart_minigun, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/packet/smart_minigun, SLOT_IN_BELT)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/mp19/compact(H), SLOT_IN_BELT)
+	/obj/item/ammo_magazine/packet/smart_minigun, SLOT_IN_BELT)
+	/obj/item/ammo_magazine/packet/smart_minigun, SLOT_IN_BELT)
+	/obj/item/weapon/gun/smg/mp19/compact(H), SLOT_IN_BELT)
 
 /datum/outfit/quick/tgmc/smartgunner/sg62
 	name = "SG62 Smart Machinegunner"
@@ -78,17 +78,17 @@
 
 /datum/outfit/quick/tgmc/smartgunner/sg62/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sg153/incendiary, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sg153/incendiary, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sg153/tungsten, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sg153/tungsten, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/vp70/tactical(H), SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/rifle/sg153/incendiary, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/rifle/sg153/incendiary, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/rifle/sg153/tungsten, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/rifle/sg153/tungsten, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BACKPACK)
+	/obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BACKPACK)
+	/obj/item/weapon/gun/pistol/vp70/tactical(H), SLOT_IN_BACKPACK)
 
-	H.equip_to_slot_or_del(new /obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sg153/highimpact, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sg153/highimpact, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sg153/highimpact, SLOT_IN_ACCESSORY)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/sg153/highimpact, SLOT_IN_ACCESSORY)
+	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/rifle/sg153/highimpact, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/rifle/sg153/highimpact, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/rifle/sg153/highimpact, SLOT_IN_ACCESSORY)
+	/obj/item/ammo_magazine/rifle/sg153/highimpact, SLOT_IN_ACCESSORY)
