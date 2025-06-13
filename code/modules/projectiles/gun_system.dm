@@ -1095,7 +1095,7 @@
 		to_chat(user, span_notice("Ow..."))
 		user.apply_damage(200, STAMINA)
 	else
-		user.apply_damage(250, projectile_to_fire.ammo.damage_type, BODY_ZONE_HEAD, projectile_to_fire.ammo.armor_type, updating_health = TRUE)
+		user.apply_damage(200, projectile_to_fire.ammo.damage_type, BODY_ZONE_HEAD, 0, updating_health = TRUE)
 
 	user.log_message("commited suicide with [src]", LOG_ATTACK, "red") //Apply the attack log.
 	last_fired = world.time
