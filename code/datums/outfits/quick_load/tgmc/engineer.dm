@@ -15,17 +15,16 @@
 	l_pocket = /obj/item/storage/pouch/tools/full
 	back = /obj/item/storage/backpack/marine/engineerpack
 
-/datum/outfit/quick/tgmc/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	/obj/item/explosive/plastique, SLOT_IN_HEAD)
-	/obj/item/explosive/plastique, SLOT_IN_HEAD)
-
-	/obj/item/circuitboard/apc, SLOT_IN_SUIT)
-	/obj/item/cell/high, SLOT_IN_SUIT)
-	/obj/item/stack/sheet/plasteel/medium_stack, SLOT_IN_SUIT)
-	/obj/item/stack/sheet/metal/large_stack, SLOT_IN_SUIT)
-	/obj/item/stack/barbed_wire/half_stack, SLOT_IN_SUIT)
+	head_contents = list(
+		/obj/item/explosive/plastique = 2,
+	)
+	suit_contents = list(
+		/obj/item/circuitboard/apc = 1,
+		/obj/item/cell/high = 1,
+		/obj/item/stack/sheet/plasteel/medium_stack = 1,
+		/obj/item/stack/sheet/metal/large_stack = 1,
+		/obj/item/stack/barbed_wire/half_stack = 1,
+	)
 
 /datum/outfit/quick/tgmc/engineer/rrengineer
 	name = "Rocket Specialist"
@@ -36,14 +35,13 @@
 	back = /obj/item/storage/holster/backholster/rpg/low_impact
 	belt = /obj/item/storage/belt/marine/ar18
 
-/datum/outfit/quick/tgmc/engineer/rrengineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	/obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_ACCESSORY)
-	/obj/item/stack/cable_coil, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/chem_grenade/razorburn_large, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
+	webbing_contents = list(
+		/obj/item/storage/box/mre = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
+		/obj/item/stack/cable_coil = 1,
+		/obj/item/explosive/grenade/chem_grenade/razorburn_large = 1,
+		/obj/item/explosive/grenade/smokebomb = 1,
+	)
 
 /datum/outfit/quick/tgmc/engineer/sentry
 	name = "Sentry Technician"
@@ -52,20 +50,19 @@
 	suit_store = /obj/item/weapon/gun/rifle/ar12/engineer
 	belt = /obj/item/storage/belt/marine/ar12
 
-/datum/outfit/quick/tgmc/engineer/sentry/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/weapon/gun/sentry/mini/combat_patrol, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/sentry/mini/combat_patrol, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/minisentry, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/minisentry, SLOT_IN_BACKPACK)
-	/obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_BACKPACK)
-
-	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_ACCESSORY)
-	/obj/item/stack/cable_coil, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/chem_grenade/razorburn_large, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/weapon/gun/sentry/mini/combat_patrol = 2,
+		/obj/item/ammo_magazine/minisentry = 2,
+		/obj/item/tool/extinguisher/mini = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
+	)
+	webbing_contents = list(
+		/obj/item/storage/box/mre = 1,
+		/obj/item/ammo_magazine/flamer_tank/mini = 1,
+		/obj/item/stack/cable_coil = 1,
+		/obj/item/explosive/grenade/chem_grenade/razorburn_large = 1,
+		/obj/item/explosive/grenade/smokebomb = 1,
+	)
 
 /datum/outfit/quick/tgmc/engineer/demolition
 	name = "Demolition Specialist"
@@ -75,23 +72,19 @@
 	back = /obj/item/storage/backpack/marine/tech
 	belt = /obj/item/storage/belt/marine/auto_shotgun
 
-/datum/outfit/quick/tgmc/engineer/demolition/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/minelayer, SLOT_IN_BACKPACK)
-	/obj/item/storage/box/explosive_mines/large, SLOT_IN_BACKPACK)
-	/obj/item/storage/box/explosive_mines, SLOT_IN_BACKPACK)
-	/obj/item/stack/cable_coil, SLOT_IN_BACKPACK)
-	/obj/item/detpack, SLOT_IN_BACKPACK)
-	/obj/item/detpack, SLOT_IN_BACKPACK)
-	/obj/item/detpack, SLOT_IN_BACKPACK)
-	/obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	/obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/smokebomb, SLOT_IN_BACKPACK)
-
-	/obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
-	/obj/item/assembly/signaler, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/minelayer = 1,
+		/obj/item/storage/box/explosive_mines/large = 1,
+		/obj/item/storage/box/explosive_mines = 1,
+		/obj/item/stack/cable_coil = 1,
+		/obj/item/detpack = 3,
+		/obj/item/explosive/plastique = 2,
+		/obj/item/storage/box/mre = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
+		/obj/item/explosive/grenade/smokebomb = 1,
+	)
+	webbing_contents = list(
+		/obj/item/tool/extinguisher/mini = 1,
+		/obj/item/assembly/signaler = 1,
+		/obj/item/explosive/grenade/sticky = 3,
+	)

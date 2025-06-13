@@ -16,20 +16,22 @@
 	l_pocket = /obj/item/storage/pouch/grenade/combat_patrol
 	back = /obj/item/storage/backpack/marine/corpsman
 
-/datum/outfit/quick/tgmc/corpsman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/bodybag/cryobag, SLOT_IN_ACCESSORY)
-	/obj/item/roller, SLOT_IN_ACCESSORY)
-	/obj/item/tweezers_advanced, SLOT_IN_ACCESSORY)
-	/obj/item/reagent_containers/hypospray/advanced/nanoblood, SLOT_IN_ACCESSORY)
-	/obj/item/storage/pill_bottle/spaceacillin, SLOT_IN_ACCESSORY)
-	/obj/item/reagent_containers/hypospray/advanced/combat_advanced, SLOT_IN_ACCESSORY)
-
-	/obj/item/tool/extinguisher, SLOT_IN_SUIT)
-	/obj/item/defibrillator, SLOT_IN_SUIT)
-
-	/obj/item/reagent_containers/hypospray/autoinjector/isotonic, SLOT_IN_HEAD)
-	/obj/item/reagent_containers/hypospray/autoinjector/neuraline, SLOT_IN_HEAD)
+	webbing_contents = list(
+		/obj/item/bodybag/cryobag = 1,
+		/obj/item/roller = 1,
+		/obj/item/tweezers_advanced = 1,
+		/obj/item/reagent_containers/hypospray/advanced/nanoblood = 1,
+		/obj/item/storage/pill_bottle/spaceacillin = 1,
+		/obj/item/reagent_containers/hypospray/advanced/combat_advanced = 1,
+	)
+	suit_contents = list(
+		/obj/item/tool/extinguisher = 1,
+		/obj/item/defibrillator = 1,
+	)
+	head_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/isotonic = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/neuraline = 1,
+	)
 
 /datum/outfit/quick/tgmc/corpsman/ar12
 	name = "AR-12 Corpsman"
@@ -37,24 +39,18 @@
 
 	suit_store = /obj/item/weapon/gun/rifle/ar12/medic
 
-/datum/outfit/quick/tgmc/corpsman/ar12/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/incendiary, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/packet/p10x24mm, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/ar12, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/ar12, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/ar12, SLOT_IN_BACKPACK)
-
-	/obj/item/ammo_magazine/rifle/ar12, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rifle/ar12, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rifle/ar12, SLOT_IN_R_POUCH)
+	backpack_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = 2,
+		/obj/item/explosive/grenade = 1,
+		/obj/item/explosive/grenade/sticky = 2,
+		/obj/item/explosive/grenade/incendiary = 1,
+		/obj/item/ammo_magazine/packet/p10x24mm = 1,
+		/obj/item/ammo_magazine/rifle/ar12 = 3,
+	)
+	r_pocket_contents = list(
+		/obj/item/ammo_magazine/rifle/ar12 = 3,
+	)
 
 /datum/outfit/quick/tgmc/corpsman/smg90
 	name = "SMG-90 Corpsman"
@@ -62,26 +58,18 @@
 
 	suit_store = /obj/item/weapon/gun/smg/smg90/tactical
 
-/datum/outfit/quick/tgmc/corpsman/smg90/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/smg/smg90, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/smg/smg90, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/incendiary, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/incendiary, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/packet/p10x20mm, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/smg/smg90, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/smg/smg90, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/smg/smg90, SLOT_IN_BACKPACK)
-
-	/obj/item/ammo_magazine/smg/smg90, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/smg/smg90, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/smg/smg90, SLOT_IN_R_POUCH)
+	backpack_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = 2,
+		/obj/item/ammo_magazine/smg/smg90 = 2,
+		/obj/item/explosive/grenade = 2,
+		/obj/item/explosive/grenade/incendiary = 2,
+		/obj/item/ammo_magazine/packet/p10x20mm = 1,
+		/obj/item/ammo_magazine/smg/smg90 = 3,
+	)
+	r_pocket_contents = list(
+		/obj/item/ammo_magazine/smg/smg90 = 3,
+	)
 
 /datum/outfit/quick/tgmc/corpsman/ar21
 	name = "AR-21 Corpsman"
@@ -89,24 +77,17 @@
 
 	suit_store = /obj/item/weapon/gun/rifle/ar21/standard
 
-/datum/outfit/quick/tgmc/corpsman/ar21/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/packet/p10x25mm, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/ar21, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/ar21, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/ar21, SLOT_IN_BACKPACK)
-
-	/obj/item/ammo_magazine/rifle/ar21, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rifle/ar21, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rifle/ar21, SLOT_IN_R_POUCH)
+	backpack_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = 2,
+		/obj/item/explosive/grenade = 2,
+		/obj/item/explosive/grenade/sticky = 2,
+		/obj/item/ammo_magazine/packet/p10x25mm = 1,
+		/obj/item/ammo_magazine/rifle/ar21 = 3,
+	)
+	r_pocket_contents = list(
+		/obj/item/ammo_magazine/rifle/ar21 = 3,
+	)
 
 /datum/outfit/quick/tgmc/corpsman/auto_shotgun
 	name = "SH-15 Corpsman"
@@ -114,28 +95,20 @@
 
 	suit_store = /obj/item/weapon/gun/rifle/sh15/engineer
 
-/datum/outfit/quick/tgmc/corpsman/auto_shotgun/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/incendiary, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/sh15_slug, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/sh15_slug, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/sh15_flechette, SLOT_IN_BACKPACK)
-
-	/obj/item/ammo_magazine/rifle/sh15_flechette, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rifle/sh15_flechette, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rifle/sh15_slug, SLOT_IN_R_POUCH)
-
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_R_POUCH)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_R_POUCH)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_R_POUCH)
+	backpack_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = 2,
+		/obj/item/explosive/grenade = 2,
+		/obj/item/explosive/grenade/sticky = 2,
+		/obj/item/explosive/grenade/incendiary = 1,
+		/obj/item/ammo_magazine/rifle/sh15_slug = 2,
+		/obj/item/ammo_magazine/rifle/sh15_flechette = 1,
+	)
+	r_pocket_contents = list(
+		/obj/item/ammo_magazine/rifle/sh15_flechette = 2,
+		/obj/item/ammo_magazine/rifle/sh15_slug = 1,
+		/obj/item/cell/lasgun/lasrifle = 3
+	)
 
 /datum/outfit/quick/tgmc/corpsman/laser_medic
 	name = "Laser Rifle Corpsman"
@@ -143,23 +116,15 @@
 
 	suit_store = /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle/medic
 
-/datum/outfit/quick/tgmc/corpsman/laser_medic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_R_POUCH)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_R_POUCH)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_R_POUCH)
+	backpack_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = 2,
+		/obj/item/ammo_magazine/flamer_tank/mini = 2,
+		/obj/item/cell/lasgun/lasrifle = 5,
+	)
+	r_pocket_contents = list(
+		/obj/item/cell/lasgun/lasrifle = 3,
+	)
 
 /datum/outfit/quick/tgmc/corpsman/laser_carbine
 	name = "Laser Carbine Corpsman"
@@ -167,21 +132,13 @@
 
 	suit_store = /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine/scout
 
-/datum/outfit/quick/tgmc/corpsman/laser_carbine/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_R_POUCH)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_R_POUCH)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_R_POUCH)
+	backpack_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = 2,
+		/obj/item/explosive/grenade/sticky = 2,
+		/obj/item/explosive/grenade = 2,
+		/obj/item/cell/lasgun/lasrifle = 4,
+	)
+	r_pocket_contents = list(
+		/obj/item/cell/lasgun/lasrifle = 3,
+	)

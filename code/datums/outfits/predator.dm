@@ -4,8 +4,8 @@
 	back = FALSE
 	w_uniform = /obj/item/clothing/under/chainshirt/hunter
 	ears = /obj/item/radio/headset/yautja
-	r_pocker = /obj/item/flashlight/lantern
-	l_pocker = /obj/item/yautja_teleporter
+	r_pocket = /obj/item/flashlight/lantern
+	l_pocket = /obj/item/yautja_teleporter
 	belt = /obj/item/storage/belt/yautja
 	belt_contents = list(
 		/obj/item/storage/medicomp/full = 1,

@@ -5,6 +5,10 @@
 	skills_type = /datum/skills/special_forces_standard
 	faction = FACTION_SPECFORCE
 
+/datum/job/special_forces/standard
+	title = "Special Response Force Standard"
+	outfit = /datum/outfit/job/special_forces/standard
+
 /datum/job/special_forces/breacher
 	title = "Special Response Force Breacher"
 	outfit = /datum/outfit/job/special_forces/breacher

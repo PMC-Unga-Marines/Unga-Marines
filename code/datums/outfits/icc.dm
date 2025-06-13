@@ -13,9 +13,10 @@
 	head = /obj/item/clothing/head/helmet/marine/icc
 	mask = /obj/item/clothing/mask/gas/icc
 
-/datum/outfit/job/icc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	/obj/item/reagent_containers/food/snacks/wrapped/barcaridine, SLOT_IN_HEAD)
-	/obj/item/reagent_containers/hypospray/autoinjector/oxycodone, SLOT_IN_HEAD)
+	head_contents = list(
+		/obj/item/reagent_containers/food/snacks/wrapped/barcaridine = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = 1,
+	)
 
 /datum/outfit/job/icc/standard
 	name = "ICC Standard"
@@ -23,84 +24,61 @@
 
 	id = /obj/item/card/id/silver
 	gloves = /obj/item/clothing/gloves/marine/icc/insulated
-	r_store = /obj/item/storage/pouch/pistol/icc
+	r_pocket = /obj/item/storage/pouch/pistol/icc
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
 	back = /obj/item/storage/backpack/lightpack/icc
 
-/datum/outfit/job/icc/standard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/stack/medical/heal_pack/gauze, SLOT_IN_SUIT)
-	/obj/item/stack/medical/heal_pack/ointment, SLOT_IN_SUIT)
+	suit_contents = list(
+		/obj/item/stack/medical/heal_pack/gauze = 1,
+		/obj/item/stack/medical/heal_pack/ointment = 1,
+	)
 
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/icc_dpistol, SLOT_IN_BACKPACK)
-	/obj/item/stack/sheet/metal/large_stack, SLOT_IN_BACKPACK)
-	/obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
-	/obj/item/tool/screwdriver, SLOT_IN_BACKPACK)
-	/obj/item/tool/wrench, SLOT_IN_BACKPACK)
-	/obj/item/storage/box/m94, SLOT_IN_BACKPACK)
+	backpack_contents = list(
+		/obj/item/explosive/grenade/som = 5,
+		/obj/item/ammo_magazine/pistol/icc_dpistol = 1,
+		/obj/item/stack/sheet/metal/large_stack = 1,
+		/obj/item/tool/crowbar/red = 1,
+		/obj/item/tool/screwdriver = 1,
+		/obj/item/tool/wrench = 1,
+		/obj/item/storage/box/m94 = 1,
+	)
 
-	/obj/item/ammo_magazine/pistol/icc_dpistol, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/pistol/icc_dpistol, SLOT_IN_R_POUCH)
-	/obj/item/weapon/gun/pistol/icc_dpistol, SLOT_IN_R_POUCH)
+	r_pocket_contents = list(
+		/obj/item/ammo_magazine/pistol/icc_dpistol = 2,
+		/obj/item/weapon/gun/pistol/icc_dpistol = 1,
+	)
 
-	/obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
+	webbing_contents = list(
+		/obj/item/explosive/plastique = 5,
+	)
 
 /datum/outfit/job/icc/standard/mpi_km
 	suit_store = /obj/item/weapon/gun/rifle/mpi_km/standard
 
-/datum/outfit/job/icc/standard/mpi_km/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/rifle/mpi_km/black, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/mpi_km/black, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/mpi_km/black, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/mpi_km/black, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/mpi_km/black, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/mpi_km/black, SLOT_IN_BELT)
+	belt_contents = list(
+		/obj/item/ammo_magazine/rifle/mpi_km/black = 6,
+	)
 
 /datum/outfit/job/icc/standard/icc_pdw
 	suit_store = /obj/item/weapon/gun/smg/icc_pdw/standard
 
-/datum/outfit/job/icc/standard/icc_pdw/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/smg/icc_pdw, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/smg/icc_pdw, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/smg/icc_pdw, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/smg/icc_pdw, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/smg/icc_pdw, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/smg/icc_pdw, SLOT_IN_BELT)
+	belt_contents = list(
+		/obj/item/ammo_magazine/smg/icc_pdw = 6,
+	)
 
 /datum/outfit/job/icc/standard/icc_battlecarbine
 	suit_store = /obj/item/weapon/gun/rifle/icc_battlecarbine/standard
 
-/datum/outfit/job/icc/standard/icc_battlecarbine/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/rifle/icc_battlecarbine, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_battlecarbine, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_battlecarbine, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_battlecarbine, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_battlecarbine, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_battlecarbine, SLOT_IN_BELT)
+	belt_contents = list(
+		/obj/item/ammo_magazine/rifle/icc_battlecarbine = 6,
+	)
 
 /datum/outfit/job/icc/standard/icc_assaultcarbine
 	suit_store = /obj/item/weapon/gun/rifle/icc_assaultcarbine
 
-/datum/outfit/job/icc/standard/icc_assaultcarbine/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/rifle/icc_assaultcarbine, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_assaultcarbine, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_assaultcarbine, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_assaultcarbine, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_assaultcarbine, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_assaultcarbine, SLOT_IN_BELT)
+	belt_contents = list(
+		/obj/item/ammo_magazine/rifle/icc_assaultcarbine = 6,
+	)
 
 /datum/outfit/job/icc/guard
 	name = "ICC Guard"
@@ -111,72 +89,59 @@
 	gloves = /obj/item/clothing/gloves/marine/icc/guard
 	head = /obj/item/clothing/head/helmet/marine/icc/guard
 
-/datum/outfit/job/icc/guard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/stack/medical/heal_pack/gauze, SLOT_IN_SUIT)
-	/obj/item/stack/medical/heal_pack/ointment, SLOT_IN_SUIT)
+	suit_contents = list(
+		/obj/item/stack/medical/heal_pack/gauze = 1,
+		/obj/item/stack/medical/heal_pack/ointment = 1,
+	)
 
-	/obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/storage/box/m94, SLOT_IN_BACKPACK)
+	backpack_contents = list(
+		/obj/item/tool/crowbar/red = 1,
+		/obj/item/explosive/grenade/som = 6,
+		/obj/item/storage/box/m94 = 1,
+	)
 
-	/obj/item/reagent_containers/hypospray/autoinjector/russian_red, SLOT_IN_ACCESSORY)
-	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_ACCESSORY)
-	/obj/item/reagent_containers/hypospray/autoinjector/tricordrazine, SLOT_IN_ACCESSORY)
-	/obj/item/reagent_containers/hypospray/autoinjector/tricordrazine, SLOT_IN_ACCESSORY)
-	/obj/item/reagent_containers/hypospray/autoinjector/tramadol, SLOT_IN_ACCESSORY)
+	webbing_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/tricordrazine = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/tramadol = 1,
+	)
 
 /datum/outfit/job/icc/guard/coilgun
 	suit_store = /obj/item/weapon/gun/launcher/rocket/icc
 	back = /obj/item/weapon/gun/rifle/icc_coilgun
 	l_pocket = /obj/item/storage/pouch/explosive/icc
-	r_store = /obj/item/storage/pouch/explosive/icc
+	r_pocket = /obj/item/storage/pouch/explosive/icc
 
-/datum/outfit/job/icc/guard/coilgun/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/rocket/icc, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rocket/icc, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rocket/icc, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rocket/icc, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rocket/icc/thermobaric, SLOT_IN_L_POUCH)
-	/obj/item/ammo_magazine/rocket/icc/thermobaric, SLOT_IN_L_POUCH)
-	/obj/item/ammo_magazine/rocket/icc/heat, SLOT_IN_L_POUCH)
-	/obj/item/ammo_magazine/rocket/icc/heat, SLOT_IN_L_POUCH)
+	r_pocket_contents = list(
+		/obj/item/ammo_magazine/rocket/icc = 4,
+	)
+	l_pocket_contents = list(
+		/obj/item/ammo_magazine/rocket/icc/thermobaric = 2,
+		/obj/item/ammo_magazine/rocket/icc/heat = 2,
+	)
 
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+	belt_contents = list(
+		/obj/item/ammo_magazine/rifle/icc_coilgun = 6,
+	)
 
 /datum/outfit/job/icc/guard/icc_autoshotgun
 	suit_store = /obj/item/weapon/gun/rifle/icc_coilgun
 	back = /obj/item/weapon/gun/rifle/icc_autoshotgun/guard
 	l_pocket = /obj/item/storage/pouch/magazine/large/icc
-	r_store = /obj/item/storage/pouch/magazine/large/icc
+	r_pocket = /obj/item/storage/pouch/magazine/large/icc
 
-/datum/outfit/job/icc/guard/icc_autoshotgun/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_BELT)
+	belt_contents = list(
+		/obj/item/ammo_magazine/rifle/icc_coilgun = 6,
+	)
 
-	/obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rifle/icc_autoshotgun, SLOT_IN_R_POUCH)
+	r_pocket_contents = list(
+		/obj/item/ammo_magazine/rifle/icc_autoshotgun = 3,
+	)
 
-	/obj/item/ammo_magazine/rifle/icc_autoshotgun/frag, SLOT_IN_L_POUCH)
-	/obj/item/ammo_magazine/rifle/icc_autoshotgun/frag, SLOT_IN_L_POUCH)
-	/obj/item/ammo_magazine/rifle/icc_autoshotgun/frag, SLOT_IN_L_POUCH)
+	l_pocket_contents = list(
+		/obj/item/ammo_magazine/rifle/icc_autoshotgun/frag = 3,
+	)
 
 /datum/outfit/job/icc/guard/icc_bagmg
 	wear_suit = /obj/item/clothing/suit/storage/marine/icc/guard/heavy
@@ -185,16 +150,11 @@
 	back = /obj/item/storage/holster/icc_mg/full
 	belt = /obj/item/ammo_magazine/icc_mg/belt
 	l_pocket = /obj/item/storage/pouch/magazine/large/icc
-	r_store = /obj/item/storage/pouch/magazine/large/icc
+	r_pocket = /obj/item/storage/pouch/magazine/large/icc
 
-/datum/outfit/job/icc/guard/icc_bagmg/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_L_POUCH)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_L_POUCH)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_L_POUCH)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rifle/icc_coilgun, SLOT_IN_R_POUCH)
+	l_pocket_contents = list(
+		/obj/item/ammo_magazine/rifle/icc_coilgun = 6,
+	)
 
 /datum/outfit/job/icc/medic
 	name = "ICC Medic"
@@ -206,63 +166,64 @@
 	belt = /obj/item/storage/belt/lifesaver/icc/ert
 	glasses = /obj/item/clothing/glasses/hud/health
 
-/datum/outfit/job/icc/medic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/tool/extinguisher, SLOT_IN_SUIT)
-	/obj/item/reagent_containers/food/snacks/wrapped/barcaridine, SLOT_IN_SUIT)
+	suit_contents = list(
+		/obj/item/tool/extinguisher = 1,
+		/obj/item/reagent_containers/food/snacks/wrapped/barcaridine = 1,
+	)
 
-	/obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/defibrillator, SLOT_IN_BACKPACK)
-	/obj/item/storage/box/m94, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/pistol/icc_dpistol, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/icc_dpistol, SLOT_IN_BACKPACK)
+	backpack_contents = list(
+		/obj/item/tool/crowbar/red = 1,
+		/obj/item/explosive/grenade/som = 6,
+		/obj/item/defibrillator = 1,
+		/obj/item/storage/box/m94 = 1,
+		/obj/item/weapon/gun/pistol/icc_dpistol = 1,
+		/obj/item/ammo_magazine/pistol/icc_dpistol = 1,
+	)
 
-	/obj/item/roller, SLOT_IN_ACCESSORY)
-	/obj/item/tweezers, SLOT_IN_ACCESSORY)
-	/obj/item/storage/pill_bottle/spaceacillin, SLOT_IN_ACCESSORY)
-	/obj/item/reagent_containers/hypospray/advanced/nanoblood, SLOT_IN_ACCESSORY)
-	/obj/item/bodybag/cryobag, SLOT_IN_ACCESSORY)
-	/obj/item/reagent_containers/hypospray/advanced/combat_advanced, SLOT_IN_ACCESSORY)
+	webbing_contents = list(
+		/obj/item/roller = 1,
+		/obj/item/tweezers = 1,
+		/obj/item/storage/pill_bottle/spaceacillin = 1,
+		/obj/item/reagent_containers/hypospray/advanced/nanoblood = 1,
+		/obj/item/bodybag/cryobag = 1,
+		/obj/item/reagent_containers/hypospray/advanced/combat_advanced = 1,
+	)
 
 /datum/outfit/job/icc/medic/icc_machinepistol
 	suit_store = /obj/item/weapon/gun/smg/icc_machinepistol/medic
 	l_pocket = /obj/item/storage/pouch/magazine/large/icc
-	r_store = /obj/item/storage/pouch/magazine/large/icc
+	r_pocket = /obj/item/storage/pouch/magazine/large/icc
 
-/datum/outfit/job/icc/medic/icc_machinepistol/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/smg/icc_machinepistol, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/smg/icc_machinepistol, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/smg/icc_machinepistol, SLOT_IN_R_POUCH)
+	r_pocket_contents = list(
+		/obj/item/ammo_magazine/smg/icc_machinepistol = 3,
+	)
 
-	/obj/item/ammo_magazine/smg/icc_machinepistol/hp, SLOT_IN_L_POUCH)
-	/obj/item/ammo_magazine/smg/icc_machinepistol/hp, SLOT_IN_L_POUCH)
-	/obj/item/ammo_magazine/smg/icc_machinepistol/hp, SLOT_IN_L_POUCH)
+	l_pocket_contents = list(
+		/obj/item/ammo_magazine/smg/icc_machinepistol/hp = 3,
+	)
 
-	/obj/item/ammo_magazine/smg/icc_machinepistol, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/smg/icc_machinepistol, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/smg/icc_machinepistol, SLOT_IN_BACKPACK)
+	backpack_contents = list(
+		/obj/item/tool/crowbar/red = 1,
+		/obj/item/explosive/grenade/som = 6,
+		/obj/item/defibrillator = 1,
+		/obj/item/storage/box/m94 = 1,
+		/obj/item/weapon/gun/pistol/icc_dpistol = 1,
+		/obj/item/ammo_magazine/pistol/icc_dpistol = 1,
+		/obj/item/ammo_magazine/smg/icc_machinepistol = 3,
+	)
 
 /datum/outfit/job/icc/medic/icc_sharpshooter
 	suit_store = /obj/item/weapon/gun/rifle/icc_sharpshooter/medic
 	l_pocket = /obj/item/storage/pouch/magazine/large/icc
-	r_store = /obj/item/storage/pouch/magazine/large/icc
+	r_pocket = /obj/item/storage/pouch/magazine/large/icc
 
-/datum/outfit/job/icc/medic/icc_sharpshooter/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_R_POUCH)
-	/obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_R_POUCH)
+	r_pocket_contents = list(
+		/obj/item/ammo_magazine/rifle/icc_sharpshooter = 3,
+	)
 
-	/obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_L_POUCH)
-	/obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_L_POUCH)
-	/obj/item/ammo_magazine/rifle/icc_sharpshooter, SLOT_IN_L_POUCH)
+	l_pocket_contents = list(
+		/obj/item/ammo_magazine/rifle/icc_sharpshooter = 3,
+	)
 
 /datum/outfit/job/icc/leader
 	name = "ICC Leader"
@@ -274,31 +235,26 @@
 	head = /obj/item/clothing/head/helmet/marine/icc/guard
 	back = /obj/item/storage/backpack/lightpack/icc/guard
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
-	r_store = /obj/item/storage/pouch/construction/icc/full
+	r_pocket = /obj/item/storage/pouch/construction/icc/full
 
-/datum/outfit/job/icc/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/stack/medical/heal_pack/gauze, SLOT_IN_SUIT)
-	/obj/item/stack/medical/heal_pack/ointment, SLOT_IN_SUIT)
+	suit_contents = list(
+		/obj/item/stack/medical/heal_pack/gauze = 1,
+		/obj/item/stack/medical/heal_pack/ointment = 1,
+	)
 
-	/obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/incendiary/som, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/incendiary/som, SLOT_IN_BACKPACK)
-	/obj/item/storage/box/m94, SLOT_IN_BACKPACK)
-	/obj/item/tool/extinguisher, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
+	backpack_contents = list(
+		/obj/item/tool/crowbar/red = 1,
+		/obj/item/explosive/grenade/som = 6,
+		/obj/item/explosive/grenade/incendiary/som = 2,
+		/obj/item/storage/box/m94 = 1,
+		/obj/item/tool/extinguisher = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
+	)
 
-	/obj/item/binoculars/tactical/range, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/plastique, SLOT_IN_ACCESSORY)
+	webbing_contents = list(
+		/obj/item/binoculars/tactical/range = 1,
+		/obj/item/explosive/plastique = 4,
+	)
 
 /datum/outfit/job/icc/leader/icc_heavyshotgun
 	suit_store = /obj/item/weapon/gun/shotgun/pump/icc_heavyshotgun/icc_leader
@@ -308,11 +264,6 @@
 	belt = /obj/item/storage/belt/marine/icc
 	suit_store = /obj/item/weapon/gun/rifle/icc_confrontationrifle/leader
 
-/datum/outfit/job/icc/leader/icc_confrontationrifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/rifle/icc_confrontationrifle, SLOT_IN_BELT)
+	belt_contents = list(
+		/obj/item/ammo_magazine/rifle/icc_confrontationrifle = 6,
+	)

@@ -5,20 +5,18 @@
 	suit_store = /obj/item/weapon/gun/rifle/ar12/rifleman
 	belt = /obj/item/storage/belt/marine/ar12
 
-/datum/outfit/quick/tgmc/marine/ar12/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/packet/p10x24mm, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
-
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/weapon/shield/riot/marine/deployable = 1,
+		/obj/item/ammo_magazine/packet/p10x24mm = 1,
+		/obj/item/ammo_magazine/pistol/p23 = 2,
+		/obj/item/weapon/gun/pistol/p23/tactical = 1,
+		/obj/item/storage/box/mre = 1,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/sticky = 2,
+		/obj/item/explosive/grenade = 2,
+		/obj/item/explosive/grenade/incendiary = 1,
+	)
 
 /datum/outfit/quick/tgmc/marine/standard_laserrifle
 	name = "Laser Rifleman"
@@ -27,19 +25,16 @@
 	suit_store = /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_rifle/rifleman
 	belt = /obj/item/storage/belt/marine/te_cells
 
-/datum/outfit/quick/tgmc/marine/standard_laserrifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical(H), SLOT_IN_BACKPACK)
-	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
-
-	/obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/flamer_tank/mini, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/cell/lasgun/lasrifle = 3,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical = 1,
+		/obj/item/storage/box/mre = 1,
+	)
+	webbing_contents = list(
+		/obj/item/ammo_magazine/flamer_tank/mini = 2,
+		/obj/item/explosive/grenade = 2,
+		/obj/item/tool/extinguisher/mini = 1,
+	)
 
 /datum/outfit/quick/tgmc/marine/ar18
 	name = "AR-18 Rifleman"
@@ -48,20 +43,18 @@
 	suit_store = /obj/item/weapon/gun/rifle/ar18/standard
 	belt = /obj/item/storage/belt/marine/ar18
 
-/datum/outfit/quick/tgmc/marine/ar18/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/packet/p10x24mm, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/ar18, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
-
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/ammo_magazine/packet/p10x24mm = 1,
+		/obj/item/ammo_magazine/pistol/p23 = 2,
+		/obj/item/ammo_magazine/rifle/ar18 = 1,
+		/obj/item/weapon/gun/pistol/p23/tactical = 1,
+		/obj/item/storage/box/mre = 1,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/sticky = 2,
+		/obj/item/explosive/grenade = 2,
+		/obj/item/explosive/grenade/incendiary = 1,
+	)
 
 /datum/outfit/quick/tgmc/marine/combat_rifle
 	name = "AR-11 Rifleman"
@@ -70,20 +63,17 @@
 	suit_store = /obj/item/weapon/gun/rifle/ar11/standard
 	belt = /obj/item/storage/belt/marine/combat_rifle
 
-/datum/outfit/quick/tgmc/marine/combat_rifle/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/packet/p492x34mm, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/packet/p492x34mm, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
-
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
-	/obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/ammo_magazine/packet/p492x34mm = 2,
+		/obj/item/ammo_magazine/pistol/p23 = 2,
+		/obj/item/weapon/gun/pistol/p23/tactical = 1,
+		/obj/item/storage/box/mre = 1,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade = 3,
+		/obj/item/explosive/grenade/incendiary = 1,
+		/obj/item/tool/extinguisher/mini = 1,
+	)
 
 /datum/outfit/quick/tgmc/marine/br64
 	name = "BR-64 Rifleman"
@@ -92,20 +82,18 @@
 	suit_store = /obj/item/weapon/gun/rifle/br64/standard
 	belt = /obj/item/storage/belt/marine/br64
 
-/datum/outfit/quick/tgmc/marine/br64/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/packet/p10x265mm, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
-
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/weapon/shield/riot/marine/deployable = 1,
+		/obj/item/ammo_magazine/packet/p10x265mm = 1,
+		/obj/item/ammo_magazine/pistol/p23 = 2,
+		/obj/item/weapon/gun/pistol/p23/tactical = 1,
+		/obj/item/storage/box/mre = 1,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/sticky = 2,
+		/obj/item/explosive/grenade = 2,
+		/obj/item/explosive/grenade/incendiary = 1,
+	)
 
 /datum/outfit/quick/tgmc/marine/ar21
 	name = "AR-21 Rifleman"
@@ -114,20 +102,18 @@
 	suit_store = /obj/item/weapon/gun/rifle/ar21/standard
 	belt = /obj/item/storage/belt/marine/ar21
 
-/datum/outfit/quick/tgmc/marine/ar21/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/packet/p10x25mm, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
-
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/weapon/shield/riot/marine/deployable = 1,
+		/obj/item/ammo_magazine/packet/p10x25mm = 1,
+		/obj/item/ammo_magazine/pistol/p23 = 2,
+		/obj/item/weapon/gun/pistol/p23/tactical = 1,
+		/obj/item/storage/box/mre = 1,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/sticky = 2,
+		/obj/item/explosive/grenade = 2,
+		/obj/item/explosive/grenade/incendiary = 1,
+	)
 
 /datum/outfit/quick/tgmc/marine/alf_shocktrooper
 	name = "ALF-51B Shocktrooper"
@@ -138,21 +124,19 @@
 	suit_store = /obj/item/weapon/gun/rifle/alf_machinecarbine/assault
 	belt = /obj/item/storage/belt/marine/alf_machinecarbine
 
-/datum/outfit/quick/tgmc/marine/alf_shocktrooper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/rifle/alf_machinecarbine, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/alf_machinecarbine, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
-	/obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	/obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
-
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/flashbang/stun, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/ammo_magazine/rifle/alf_machinecarbine = 2,
+		/obj/item/weapon/gun/pistol/p23/tactical = 1,
+		/obj/item/storage/box/mre = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
+		/obj/item/explosive/plastique = 1,
+		/obj/item/tool/extinguisher/mini = 1,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade = 2,
+		/obj/item/explosive/grenade/flashbang/stun = 1,
+		/obj/item/ammo_magazine/pistol/p23 = 2,
+	)
 
 /datum/outfit/quick/tgmc/marine/mg60
 	name = "MG-60 Machinegunner"
@@ -162,29 +146,27 @@
 	suit_store = /obj/item/weapon/gun/rifle/mg60/machinegunner
 	l_pocket = /obj/item/storage/pouch/construction
 
-/datum/outfit/quick/tgmc/marine/mg60/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/weapon/shield/riot/marine/deployable, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/mg60, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_BACKPACK)
-
-	/obj/item/ammo_magazine/mg60, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/mg60, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/mg60, SLOT_IN_BELT)
-
-	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/smokebomb, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/flashbang/stun, SLOT_IN_ACCESSORY)
-
-	/obj/item/tool/shovel/etool, SLOT_IN_L_POUCH)
-	/obj/item/stack/sandbags_empty/half, SLOT_IN_L_POUCH)
-	/obj/item/stack/sandbags/large_stack, SLOT_IN_L_POUCH)
-	/obj/item/stack/barbed_wire/half_stack, SLOT_IN_L_POUCH)
+	backpack_contents = list(
+		/obj/item/weapon/shield/riot/marine/deployable = 1,
+		/obj/item/ammo_magazine/mg60 = 1,
+		/obj/item/weapon/gun/pistol/p23/tactical = 1,
+		/obj/item/ammo_magazine/pistol/p23 = 3,
+	)
+	belt_contents = list(
+		/obj/item/ammo_magazine/mg60 = 3,
+	)
+	webbing_contents = list(
+		/obj/item/storage/box/mre = 1,
+		/obj/item/explosive/grenade/smokebomb = 2,
+		/obj/item/explosive/grenade/incendiary = 1,
+		/obj/item/explosive/grenade/flashbang/stun = 1,
+	)
+	l_pocket_contents = list(
+		/obj/item/tool/shovel/etool = 1,
+		/obj/item/stack/sandbags_empty/half = 1,
+		/obj/item/stack/sandbags/large_stack = 1,
+		/obj/item/stack/barbed_wire/half_stack = 1,
+	)
 
 /datum/outfit/quick/tgmc/marine/mg27
 	name = "MG-27 Machinegunner"
@@ -196,27 +178,24 @@
 	l_pocket = /obj/item/storage/pouch/construction
 	glasses = /obj/item/clothing/glasses/mgoggles
 
-/datum/outfit/quick/tgmc/marine/mg27/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/mg27, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/mg27, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/mg27, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/smokebomb, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/smokebomb, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/flashbang/stun, SLOT_IN_BACKPACK)
-
-	/obj/item/weapon/gun/smg/m25/holstered(H), SLOT_IN_HOLSTER)
-
-	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
-
-	/obj/item/tool/shovel/etool, SLOT_IN_L_POUCH)
-	/obj/item/stack/sandbags_empty/half, SLOT_IN_L_POUCH)
-	/obj/item/stack/sandbags/large_stack, SLOT_IN_L_POUCH)
-	/obj/item/stack/barbed_wire/half_stack, SLOT_IN_L_POUCH)
+	backpack_contents = list(
+		/obj/item/ammo_magazine/mg27 = 3,
+		/obj/item/explosive/grenade/smokebomb = 2,
+		/obj/item/explosive/grenade/flashbang/stun = 1,
+	)
+	belt_contents = list(
+		/obj/item/weapon/gun/smg/m25/holstered = 1,
+	)
+	webbing_contents = list(
+		/obj/item/storage/box/mre = 1,
+		/obj/item/ammo_magazine/smg/m25 = 4,
+	)
+	l_pocket_contents = list(
+		/obj/item/tool/shovel/etool = 1,
+		/obj/item/stack/sandbags_empty/half = 1,
+		/obj/item/stack/sandbags/large_stack = 1,
+		/obj/item/stack/barbed_wire/half_stack = 1,
+	)
 
 /datum/outfit/quick/tgmc/marine/standard_lasermg
 	name = "Laser Machinegunner"
@@ -225,19 +204,16 @@
 	suit_store = /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_mlaser/patrol
 	belt = /obj/item/storage/belt/marine/te_cells
 
-/datum/outfit/quick/tgmc/marine/standard_lasermg/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical(H), SLOT_IN_BACKPACK)
-	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
-
-	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/cell/lasgun/lasrifle = 3,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical = 1,
+		/obj/item/storage/box/mre = 1,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/incendiary = 1,
+		/obj/item/explosive/grenade = 3,
+		/obj/item/tool/extinguisher/mini = 1,
+	)
 
 /datum/outfit/quick/tgmc/marine/pyro
 	name = "FL-84 Flamethrower Operator"
@@ -250,15 +226,14 @@
 	back = /obj/item/ammo_magazine/flamer_tank/backtank
 	suit_store = /obj/item/weapon/gun/flamer/big_flamer/marinestandard/wide
 
-/datum/outfit/quick/tgmc/marine/pyro/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/weapon/gun/smg/m25/holstered(H), SLOT_IN_HOLSTER)
-
-	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/packet/p10x20mm, SLOT_IN_ACCESSORY)
+	belt_contents = list(
+		/obj/item/weapon/gun/smg/m25/holstered = 1,
+	)
+	webbing_contents = list(
+		/obj/item/storage/box/mre = 1,
+		/obj/item/ammo_magazine/smg/m25/extended = 3,
+		/obj/item/ammo_magazine/packet/p10x20mm = 1,
+	)
 
 /datum/outfit/quick/tgmc/marine/standard_shotgun
 	name = "SH-35 Scout"
@@ -269,22 +244,21 @@
 	suit_store = /obj/item/weapon/gun/shotgun/pump/t35/standard
 	belt = /obj/item/storage/belt/shotgun/mixed
 
-/datum/outfit/quick/tgmc/marine/standard_shotgun/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/packet/p10x20mm, SLOT_IN_BACKPACK)
-	/obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_BACKPACK)
-	/obj/item/tool/extinguisher/mini, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/smg/mp19/compact(H), SLOT_IN_BACKPACK)
+	backpack_contents = list(
+		/obj/item/ammo_magazine/smg/mp19 = 3,
+		/obj/item/ammo_magazine/packet/p10x20mm = 1,
+		/obj/item/explosive/plastique = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = 1,
+		/obj/item/tool/extinguisher/mini = 1,
+		/obj/item/weapon/gun/smg/mp19/compact = 1,
+	)
 
-	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	/obj/item/binoculars, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	webbing_contents = list(
+		/obj/item/storage/box/mre = 1,
+		/obj/item/binoculars = 1,
+		/obj/item/explosive/grenade/incendiary = 1,
+		/obj/item/explosive/grenade = 2,
+	)
 
 /datum/outfit/quick/tgmc/marine/standard_lasercarbine
 	name = "Laser Carbine Scout"
@@ -294,21 +268,18 @@
 	suit_store = /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_carbine/scout
 	belt = /obj/item/storage/belt/marine/te_cells
 
-/datum/outfit/quick/tgmc/marine/standard_lasercarbine/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/cell/lasgun/lasrifle, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical(H), SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine, SLOT_IN_BACKPACK)
-	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_BACKPACK)
-	/obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	/obj/item/binoculars, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/cell/lasgun/lasrifle = 3,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
+		/obj/item/explosive/plastique = 1,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/sticky = 3,
+		/obj/item/storage/box/mre = 1,
+		/obj/item/binoculars = 1,
+	)
 
 /datum/outfit/quick/tgmc/marine/light_carbine
 	name = "AR-18 Scout"
@@ -318,20 +289,17 @@
 	suit_store = /obj/item/weapon/gun/rifle/ar18/scout
 	belt = /obj/item/storage/belt/marine/ar18
 
-/datum/outfit/quick/tgmc/marine/light_carbine/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/packet/p10x24mm, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/packet/p10x24mm, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/ar18, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/pistol/p23/tactical(H), SLOT_IN_BACKPACK)
-	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
-	/obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/pistol/p23, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/ammo_magazine/packet/p10x24mm = 2,
+		/obj/item/ammo_magazine/rifle/ar18 = 1,
+		/obj/item/weapon/gun/pistol/p23/tactical = 1,
+		/obj/item/storage/box/mre = 1,
+		/obj/item/explosive/plastique = 1,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/sticky = 3,
+		/obj/item/ammo_magazine/pistol/p23 = 2,
+	)
 
 /datum/outfit/quick/tgmc/marine/shield_tank
 	name = "SMG-25 Guardian"
@@ -344,21 +312,19 @@
 	belt = /obj/item/storage/belt/marine/secondary
 	r_hand = /obj/item/weapon/shield/riot/marine
 
-/datum/outfit/quick/tgmc/marine/shield_tank/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/tool/extinguisher, SLOT_IN_BACKPACK)
-	/obj/item/tool/weldingtool/largetank, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/packet/p10x20mm, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/packet/p10x20mm, SLOT_IN_BACKPACK)
-	/obj/item/explosive/grenade/smokebomb/cloak, SLOT_IN_BACKPACK)
-	/obj/item/storage/box/mre, SLOT_IN_BACKPACK)
-
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/sticky, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/incendiary, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/tool/extinguisher = 1,
+		/obj/item/tool/weldingtool/largetank = 1,
+		/obj/item/ammo_magazine/smg/m25/extended = 1,
+		/obj/item/ammo_magazine/packet/p10x20mm = 2,
+		/obj/item/explosive/grenade/smokebomb/cloak = 1,
+		/obj/item/storage/box/mre = 1,
+	)
+	webbing_contents = list(
+		/obj/item/explosive/grenade/sticky = 2,
+		/obj/item/explosive/grenade/incendiary = 1,
+		/obj/item/explosive/grenade = 2,
+	)
 
 /datum/outfit/quick/tgmc/marine/machete
 	name = "Assault Marine"
@@ -369,14 +335,10 @@
 	belt = /obj/item/storage/holster/blade/machete/full
 	suit_store = /obj/item/weapon/gun/smg/m25/magharness
 
-/datum/outfit/quick/tgmc/marine/machete/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	/obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/m25/extended, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/m25, SLOT_IN_ACCESSORY)
+	webbing_contents = list(
+		/obj/item/ammo_magazine/smg/m25/extended = 2,
+		/obj/item/ammo_magazine/smg/m25 = 3,
+	)
 
 /datum/outfit/quick/tgmc/marine/scout
 	name = "BR-8 Scout"
@@ -387,17 +349,14 @@
 	suit_store = /obj/item/weapon/gun/rifle/tx8/scout
 	belt = /obj/item/storage/belt/marine/tx8
 
-/datum/outfit/quick/tgmc/marine/scout/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/smg/mp19/scanner(H), SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/tx8, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/tx8, SLOT_IN_BACKPACK)
-
-	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	/obj/item/binoculars, SLOT_IN_ACCESSORY)
-	/obj/item/tool/extinguisher/mini, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/m15, SLOT_IN_ACCESSORY)
-	/obj/item/explosive/grenade/m15, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/ammo_magazine/smg/mp19 = 3,
+		/obj/item/weapon/gun/smg/mp19/scanner = 1,
+		/obj/item/ammo_magazine/rifle/tx8 = 2,
+	)
+	webbing_contents = list(
+		/obj/item/storage/box/mre = 1,
+		/obj/item/binoculars = 1,
+		/obj/item/tool/extinguisher/mini = 1,
+		/obj/item/explosive/grenade/m15 = 2,
+	)

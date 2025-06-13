@@ -16,17 +16,17 @@
 	l_pocket = /obj/item/storage/pouch/grenade/combat_patrol
 	back = /obj/item/storage/backpack/marine/satchel
 
-/datum/outfit/quick/tgmc/smartgunner/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	/obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
-	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
-
-	/obj/item/stack/medical/heal_pack/gauze, SLOT_IN_SUIT)
-	/obj/item/stack/medical/heal_pack/ointment, SLOT_IN_SUIT)
-	/obj/item/reagent_containers/hypospray/autoinjector/isotonic, SLOT_IN_SUIT)
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclot, SLOT_IN_SUIT)
-	/obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_SUIT)
+	head_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/combat = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
+	)
+	suit_contents = list(
+		/obj/item/stack/medical/heal_pack/gauze = 1,
+		/obj/item/stack/medical/heal_pack/ointment = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/isotonic = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclot = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
+	)
 
 /datum/outfit/quick/tgmc/smartgunner/sg29
 	name = "SG29 Smart Machinegunner"
@@ -34,19 +34,14 @@
 
 	suit_store = /obj/item/weapon/gun/rifle/sg29/patrol
 
-/datum/outfit/quick/tgmc/smartgunner/sg29/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/sg29, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/pistol/vp70/tactical(H), SLOT_IN_BACKPACK)
-
-	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/pistol/vp70, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/ammo_magazine/sg29 = 4,
+		/obj/item/weapon/gun/pistol/vp70/tactical = 1,
+	)
+	webbing_contents = list(
+		/obj/item/storage/box/mre = 1,
+		/obj/item/ammo_magazine/pistol/vp70 = 4,
+	)
 
 /datum/outfit/quick/tgmc/smartgunner/minigun_sg
 	name = "SG85 Smart Machinegunner"
@@ -56,18 +51,14 @@
 	suit_store = /obj/item/weapon/gun/minigun/smart_minigun/motion_detector
 	back = /obj/item/ammo_magazine/minigun_powerpack/smartgun
 
-/datum/outfit/quick/tgmc/smartgunner/minigun_sg/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/smg/mp19, SLOT_IN_ACCESSORY)
-
-	/obj/item/ammo_magazine/packet/smart_minigun, SLOT_IN_BELT)
-	/obj/item/ammo_magazine/packet/smart_minigun, SLOT_IN_BELT)
-	/obj/item/weapon/gun/smg/mp19/compact(H), SLOT_IN_BELT)
+	webbing_contents = list(
+		/obj/item/storage/box/mre = 1,
+		/obj/item/ammo_magazine/smg/mp19 = 4,
+	)
+	belt_contents = list(
+		/obj/item/ammo_magazine/packet/smart_minigun = 2,
+		/obj/item/weapon/gun/smg/mp19/compact = 1,
+	)
 
 /datum/outfit/quick/tgmc/smartgunner/sg62
 	name = "SG62 Smart Machinegunner"
@@ -76,19 +67,13 @@
 	belt = /obj/item/storage/belt/marine/sg62
 	suit_store = /obj/item/weapon/gun/rifle/sg62/motion
 
-/datum/outfit/quick/tgmc/smartgunner/sg62/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/ammo_magazine/rifle/sg153/incendiary, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/sg153/incendiary, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/sg153/tungsten, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/rifle/sg153/tungsten, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BACKPACK)
-	/obj/item/ammo_magazine/pistol/vp70, SLOT_IN_BACKPACK)
-	/obj/item/weapon/gun/pistol/vp70/tactical(H), SLOT_IN_BACKPACK)
-
-	/obj/item/storage/box/mre, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/rifle/sg153/highimpact, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/rifle/sg153/highimpact, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/rifle/sg153/highimpact, SLOT_IN_ACCESSORY)
-	/obj/item/ammo_magazine/rifle/sg153/highimpact, SLOT_IN_ACCESSORY)
+	backpack_contents = list(
+		/obj/item/ammo_magazine/rifle/sg153/incendiary = 2,
+		/obj/item/ammo_magazine/rifle/sg153/tungsten = 2,
+		/obj/item/ammo_magazine/pistol/vp70 = 3,
+		/obj/item/weapon/gun/pistol/vp70/tactical = 1,
+	)
+	webbing_contents = list(
+		/obj/item/storage/box/mre = 1,
+		/obj/item/ammo_magazine/rifle/sg153/highimpact = 4,
+	)

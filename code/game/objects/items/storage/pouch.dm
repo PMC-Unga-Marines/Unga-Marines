@@ -604,7 +604,7 @@
 	. = ..()
 	storage_datum.sprite_slots = null
 
-/obj/item/storage/pouch/medkit/elite
+/obj/item/storage/pouch/medkit/elite/PopulateContents()
 	new /obj/item/storage/pill_bottle/hypervene(src)
 	new /obj/item/storage/pill_bottle/packet/ryetalyn(src)
 	new /obj/item/reagent_containers/hypospray/advanced/oxycodone(src)

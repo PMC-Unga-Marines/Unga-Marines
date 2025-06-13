@@ -19,13 +19,14 @@
 	l_pocket = /obj/item/storage/pouch/grenade/combat_patrol
 	back = /obj/item/storage/backpack/marine/satchel
 
-/datum/outfit/quick/tgmc/marine/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	/obj/item/reagent_containers/hypospray/autoinjector/combat, SLOT_IN_HEAD)
-	/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced, SLOT_IN_HEAD)
-
-	/obj/item/stack/medical/heal_pack/gauze, SLOT_IN_SUIT)
-	/obj/item/stack/medical/heal_pack/ointment, SLOT_IN_SUIT)
-	/obj/item/reagent_containers/hypospray/autoinjector/isotonic, SLOT_IN_SUIT)
-	/obj/item/reagent_containers/hypospray/autoinjector/quickclot, SLOT_IN_SUIT)
-	/obj/item/reagent_containers/hypospray/autoinjector/dylovene, SLOT_IN_SUIT)
+	head_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/combat = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
+	)
+	suit_contents = list(
+		/obj/item/stack/medical/heal_pack/gauze = 1,
+		/obj/item/stack/medical/heal_pack/ointment = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/isotonic = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclot = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
+	)
