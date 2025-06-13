@@ -434,8 +434,6 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///Boiler acid ammo
 	var/corrosive_ammo = 0
 
-	COOLDOWN_DECLARE(xeno_health_alert_cooldown)
-
 	///The resting cooldown
 	COOLDOWN_DECLARE(xeno_resting_cooldown)
 	///The unresting cooldown
