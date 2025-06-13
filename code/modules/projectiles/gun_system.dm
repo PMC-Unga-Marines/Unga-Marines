@@ -1058,7 +1058,7 @@
 	if(master_gun)
 		return
 
-	if(M != user || user.zone_selected != "mouth")
+	if(M != user || user.zone_selected != BODY_ZONE_PRECISE_MOUTH)
 		return ..()
 
 	DISABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK) //If they try to click again, they're going to hit themselves.
@@ -1066,38 +1066,26 @@
 	user.visible_message(span_warning("[user] sticks their gun in their mouth, ready to pull the trigger."))
 	log_combat(user, null, "is trying to commit suicide")
 
-	if(!do_after(user, 40, NONE, src, BUSY_ICON_DANGER))
+	if(!do_after(user, 1 SECONDS * w_class, NONE, src, BUSY_ICON_DANGER)) // faster suicide with pistols and etc.
 		M.visible_message(span_notice("[user] decided life was worth living."))
 		ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
 		return
 
-	var/obj/projectile/projectile_to_fire = in_chamber
-
+	var/obj/projectile/projectile_to_fire = get_ammo_object()
 	if(!projectile_to_fire) //We actually have a projectile, let's move on.
 		playsound(src, dry_fire_sound, 25, 1, 5)
 		ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
 		return
-
-	projectile_to_fire = get_ammo_object()
 
 	user.visible_message(span_warning("[user] pulls the trigger!"))
 	var/actual_sound = (active_attachable?.fire_sound) ? active_attachable.fire_sound : fire_sound
 	var/sound_volume = (HAS_TRAIT(src, TRAIT_GUN_SILENCED) && !active_attachable) ? 25 : 60
 	playsound(user, actual_sound, sound_volume, 1)
 	simulate_recoil(2, Get_Angle(user, M))
-	var/obj/item/weapon/gun/revolver/current_revolver = src
 	var/admin_msg = "committed suicide with [src] (Dmg:[projectile_to_fire.damage], Dmg type: [projectile_to_fire.ammo.damage_type])"
 	log_combat(user, null, admin_msg)
 	if(projectile_to_fire.damage)
 		message_admins("[ADMIN_TPMONTY(user)] " + admin_msg)
-	if(istype(current_revolver) && current_revolver.russian_roulette) //If it's a revolver set to Russian Roulette.
-		user.apply_damage(projectile_to_fire.damage * 3, projectile_to_fire.ammo.damage_type, "head", 0, TRUE)
-		user.apply_damage(200, OXY) //In case someone tried to defib them. Won't work.
-		user.death()
-		to_chat(user, span_userdanger("Your life flashes before you as your spirit is torn from your body!"))
-		user.ghostize(FALSE) //No return.
-		ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
-		return
 
 	if(!projectile_to_fire.damage)
 		ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
@@ -1107,16 +1095,12 @@
 		to_chat(user, span_notice("Ow..."))
 		user.apply_damage(200, STAMINA)
 	else
-		user.apply_damage(projectile_to_fire.damage * 2.5, projectile_to_fire.ammo.damage_type, "head", 0, TRUE)
-		user.apply_damage(200, OXY)
-		if(ishuman(user) && user == M)
-			var/mob/living/carbon/human/HM = user
-			HM.set_undefibbable(TRUE) //can't be defibbed back from self inflicted gunshot to head
-		user.death()
+		user.apply_damage(250, projectile_to_fire.ammo.damage_type, BODY_ZONE_HEAD, projectile_to_fire.ammo.armor_type, updating_health = TRUE)
 
 	user.log_message("commited suicide with [src]", LOG_ATTACK, "red") //Apply the attack log.
 	last_fired = world.time
 
+	projectile_to_fire.ammo.on_hit_mob(user, projectile_to_fire)
 	projectile_to_fire.play_damage_effect(user)
 
 	QDEL_NULL(projectile_to_fire)

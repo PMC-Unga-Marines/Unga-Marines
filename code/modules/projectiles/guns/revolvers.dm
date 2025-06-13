@@ -31,10 +31,6 @@
 	recoil = 0
 	recoil_unwielded = 1
 	placed_overlay_iconstate = "revolver"
-	///If the gun is able to play Russian Roulette
-	var/russian_roulette = FALSE //God help you if you do this.
-	///Whether the chamber can be spun for Russian Roulette. If False the chamber can be spun.
-	var/catchworking = TRUE
 
 /obj/item/weapon/gun/revolver/tactical_reload(obj/item/new_magazine, mob/living/carbon/human/user)
 	if(!istype(user) || user.incapacitated(TRUE) || user.do_actions)
