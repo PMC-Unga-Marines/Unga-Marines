@@ -515,22 +515,19 @@
 		/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 1,
 	)
 	backpack_contents = list(
-		/obj/item/explosive/plastique = 1,
-		/obj/item/explosive/plastique = 1,
+		/obj/item/explosive/plastique = 2,
 		/obj/item/tool/extinguisher/mini = 1,
 		/obj/item/storage/box/mre = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
 	)
 	suit_contents = list(
-		/obj/item/explosive/grenade/vsd = 1,
-		/obj/item/explosive/grenade/vsd = 1,
+		/obj/item/explosive/grenade/vsd = 2,
 	)
 	webbing_contents = list(
 		/obj/item/stack/medical/heal_pack/gauze = 1,
 		/obj/item/stack/medical/heal_pack/ointment = 1,
 		/obj/item/explosive/plastique = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 2,
 	)
 
 /datum/outfit/job/vsd/leader/one
@@ -542,8 +539,7 @@
 	belt = /obj/item/storage/holster/belt/pistol/standard
 
 	backpack_contents = list(
-		/obj/item/explosive/plastique = 1,
-		/obj/item/explosive/plastique = 1,
+		/obj/item/explosive/plastique = 2,
 		/obj/item/tool/extinguisher/mini = 1,
 		/obj/item/storage/box/mre = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
@@ -567,8 +563,7 @@
 	belt = /obj/item/storage/holster/belt/pistol/korovin
 
 	backpack_contents = list(
-		/obj/item/explosive/plastique = 1,
-		/obj/item/explosive/plastique = 1,
+		/obj/item/explosive/plastique = 2,
 		/obj/item/tool/extinguisher/mini = 1,
 		/obj/item/storage/box/mre = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
@@ -592,8 +587,7 @@
 	belt = /obj/item/storage/holster/belt/pistol/standard
 
 	backpack_contents = list(
-		/obj/item/explosive/plastique = 1,
-		/obj/item/explosive/plastique = 1,
+		/obj/item/explosive/plastique = 2,
 		/obj/item/tool/extinguisher/mini = 1,
 		/obj/item/storage/box/mre = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
