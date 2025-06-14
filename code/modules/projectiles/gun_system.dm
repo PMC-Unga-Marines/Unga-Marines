@@ -1076,13 +1076,12 @@
 	var/obj/projectile/projectile_to_fire = in_chamber
 	if(!projectile_to_fire) //We actually have a projectile, let's move on.
 		playsound(src, dry_fire_sound, 25, 1, 5)
+		cycle(user, FALSE)
 		ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
 		return
 	projectile_to_fire = get_ammo_object()
 	user.visible_message(span_warning("[user] pulls the trigger!"))
-	var/actual_sound = (active_attachable?.fire_sound) ? active_attachable.fire_sound : fire_sound
-	var/sound_volume = (HAS_TRAIT(src, TRAIT_GUN_SILENCED) && !active_attachable) ? 25 : 60
-	playsound(user, actual_sound, sound_volume, 1)
+	play_fire_sound(loc)
 	simulate_recoil(2, Get_Angle(user, M))
 	var/admin_msg = "committed suicide with [src] (Dmg:[projectile_to_fire.damage], Dmg type: [projectile_to_fire.ammo.damage_type])"
 	log_combat(user, null, admin_msg)
@@ -1102,10 +1101,12 @@
 	user.log_message("commited suicide with [src]", LOG_ATTACK, "red") //Apply the attack log.
 	last_fired = world.time
 
-	projectile_to_fire.ammo.on_hit_mob(user, projectile_to_fire)
-	projectile_to_fire.play_damage_effect(user)
-
+	user.do_projectile_hit(projectile_to_fire)
+	//projectile_to_fire.fire_at(user, user, src, projectile_to_fire.ammo.max_range, projectile_to_fire.projectile_speed, null, suppress_light = HAS_TRAIT(src, TRAIT_GUN_SILENCED))
+	if(fire_animation)
+		flick("[fire_animation]", src)
 	QDEL_NULL(projectile_to_fire)
+	cycle(null)
 
 	ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
 
@@ -1729,16 +1730,16 @@
 		to_chat(user, span_warning("[src] is not ready to fire again!"))
 	return TRUE
 
-/obj/item/weapon/gun/proc/play_fire_sound(mob/user)
+/obj/item/weapon/gun/proc/play_fire_sound(atom/location)
 	//Guns with low ammo have their firing sound
 	var/firing_sndfreq = CHECK_BITFIELD(gun_features_flags, GUN_NO_PITCH_SHIFT_NEAR_EMPTY) ? FALSE : ((max(rounds, 1) / (max_rounds ? max_rounds : max_shells ? max_shells : 1)) > 0.25) ? FALSE : 55000
 	if(HAS_TRAIT(src, TRAIT_GUN_SILENCED))
-		playsound(user, fire_sound, GUN_FIRE_SOUND_VOLUME/2, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
+		playsound(location, fire_sound, GUN_FIRE_SOUND_VOLUME * 0.5, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
 		return
 	if(firing_sndfreq && fire_rattle)
-		playsound(user, fire_rattle, GUN_FIRE_SOUND_VOLUME, FALSE)
+		playsound(location, fire_rattle, GUN_FIRE_SOUND_VOLUME, FALSE)
 		return
-	playsound(user, fire_sound, GUN_FIRE_SOUND_VOLUME, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
+	playsound(location, fire_sound, GUN_FIRE_SOUND_VOLUME, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
 
 /obj/item/weapon/gun/proc/apply_gun_modifiers(obj/projectile/projectile_to_fire, atom/target, firer)
 	projectile_to_fire.shot_from = src
