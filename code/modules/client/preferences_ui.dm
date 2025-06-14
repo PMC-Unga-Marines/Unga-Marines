@@ -128,7 +128,6 @@
 			data["ui_style_alpha"] = ui_style_alpha
 			data["windowflashing"] = windowflashing
 			data["auto_fit_viewport"] = auto_fit_viewport
-			data["mute_xeno_health_alert_messages"] = mute_xeno_health_alert_messages
 			data["accessible_tgui_themes"] = accessible_tgui_themes
 			data["tgui_fancy"] = tgui_fancy
 			data["tgui_input"] = tgui_input
@@ -748,9 +747,6 @@
 		if("auto_fit_viewport")
 			auto_fit_viewport = !auto_fit_viewport
 			parent?.attempt_auto_fit_viewport()
-
-		if("mute_xeno_health_alert_messages")
-			mute_xeno_health_alert_messages = !mute_xeno_health_alert_messages
 
 		if("accessible_tgui_themes")
 			accessible_tgui_themes = !accessible_tgui_themes
