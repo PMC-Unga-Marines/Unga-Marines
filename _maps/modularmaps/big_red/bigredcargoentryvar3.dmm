@@ -3,7 +3,7 @@
 /turf/closed/wall,
 /area/bigredv2/outside/cargo)
 "l" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor,
@@ -34,7 +34,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "J" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -46,7 +46,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "S" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/item/stack/sheet/wood,

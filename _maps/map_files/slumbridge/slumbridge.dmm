@@ -92,7 +92,7 @@
 /turf/open/floor/tile/white,
 /area/slumbridge/inside/pmcdome)
 "aen" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -335,7 +335,7 @@
 /turf/open/floor/tile/bar,
 /area/slumbridge/inside/houses/recreational)
 "aqm" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /obj/structure/prop/mainship/gelida/powercconnectortwoside,
@@ -1927,7 +1927,7 @@
 /turf/open/floor/tile/dark,
 /area/slumbridge/inside/colony/orestorage)
 "bvu" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/tile/white,
@@ -2334,7 +2334,7 @@
 /turf/open/floor/tile/dark,
 /area/slumbridge/outside/southwest)
 "bIA" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/effect/turf_decal/tracks/wheels/bloody{
@@ -3787,7 +3787,7 @@
 /turf/open/liquid/water/river,
 /area/slumbridge/inside/hydrotreatment)
 "cLt" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /obj/effect/landmark/corpsespawner/pirate,
@@ -4012,10 +4012,10 @@
 	},
 /area/slumbridge/outside/northwest/nearlz)
 "cUo" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/tile/bar,
@@ -4036,7 +4036,7 @@
 /area/slumbridge/outside/southeast)
 "cWA" = (
 /obj/effect/landmark/corpsespawner/pmc,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -4477,7 +4477,7 @@
 /turf/open/floor/tile/lightred/full,
 /area/slumbridge/inside/colony/southerndome)
 "dmJ" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/structure/sign/safety/medical_supplies{
 	dir = 4
 	},
@@ -4510,7 +4510,7 @@
 /turf/open/floor/wood,
 /area/slumbridge/inside/colony/bar)
 "dnE" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
@@ -4779,7 +4779,7 @@
 /turf/open/floor/tile/bar,
 /area/slumbridge/inside/houses/recreational)
 "dAM" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -5736,7 +5736,7 @@
 /turf/open/floor/tile/white,
 /area/slumbridge/inside/pmcdome/dorms)
 "enq" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/wood/variable/wide,
@@ -6497,7 +6497,7 @@
 /turf/closed/wall/r_wall,
 /area/slumbridge/inside/pmcdome/nukevault)
 "eTP" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -6901,7 +6901,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/engi/central)
 "fkz" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/wood/variable/wide,
@@ -7271,7 +7271,7 @@
 	},
 /area/slumbridge/inside/prison/innerring)
 "fxP" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/wood/variable/wide/damaged,
@@ -7423,7 +7423,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/slumbridge/outside/northeast)
 "fEp" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/tile/bar,
@@ -7472,7 +7472,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/caves/mining)
 "fHS" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -9427,7 +9427,7 @@
 /turf/open/floor/tile/dark,
 /area/slumbridge/inside/colony/dorms)
 "hcJ" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/tile/bar,
 /area/slumbridge/inside/medical/foyer)
 "hcZ" = (
@@ -14496,7 +14496,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/medical/southern)
 "kKJ" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/wood/variable/mosaic,
@@ -14700,7 +14700,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/medical/foyer)
 "kQI" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/bar,
@@ -16186,7 +16186,7 @@
 /turf/open/floor/plating/platebot,
 /area/slumbridge/inside/engi/south)
 "lUh" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -17927,7 +17927,7 @@
 /turf/open/floor/mainship/plate,
 /area/slumbridge/inside/sombase/hangar)
 "nkc" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/tile/bar,
@@ -20482,7 +20482,7 @@
 	},
 /area/slumbridge/inside/houses/dorms)
 "pat" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/wood/variable/wide/damaged,
@@ -22928,7 +22928,7 @@
 /turf/open/floor/tile/dark,
 /area/slumbridge/outside/southwest)
 "qNQ" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -22984,7 +22984,7 @@
 /turf/open/floor/prison,
 /area/slumbridge/outside/southeast)
 "qQB" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -23006,7 +23006,7 @@
 /turf/open/floor/tile/bar,
 /area/slumbridge/inside/medical/surgery)
 "qQQ" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/tile/white,
@@ -23962,7 +23962,7 @@
 /turf/open/floor/tile/bar,
 /area/slumbridge/inside/medical/foyer)
 "rAv" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /obj/structure/prop/mainship/gelida/powerccable,
@@ -24180,7 +24180,7 @@
 	},
 /area/slumbridge/inside/zeta/entrance)
 "rIb" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -24389,7 +24389,7 @@
 /turf/open/floor,
 /area/slumbridge/inside/engi/central)
 "rQs" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -24747,7 +24747,7 @@
 	},
 /area/slumbridge/inside/medical/foyer)
 "sbZ" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/tile/bar,
@@ -26205,7 +26205,7 @@
 /turf/open/floor/prison/plate,
 /area/slumbridge/inside/prison/innerring)
 "tho" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -28540,7 +28540,7 @@
 /turf/open/floor/prison,
 /area/slumbridge/inside/prison/outerringsouth)
 "uZs" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -28884,7 +28884,7 @@
 /area/slumbridge/inside/houses/dorms)
 "vlL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -30251,7 +30251,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/slumbridge/caves/northeastcaves)
 "wgT" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /obj/structure/prop/mainship/gelida/powercconnectortwosidealt{
@@ -31498,7 +31498,7 @@
 /turf/open/floor/elevatorshaft,
 /area/slumbridge/inside/zeta/north)
 "wXI" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/bar,
 /area/slumbridge/inside/medical/foyer)
@@ -33018,7 +33018,7 @@
 /turf/open/floor/tile/dark,
 /area/slumbridge/outside/southwest)
 "ygv" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/wood/variable/mosaic/damaged,

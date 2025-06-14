@@ -17,7 +17,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/ne)
 "aG" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor,
@@ -238,7 +238,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
 "nb" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -291,7 +291,7 @@
 /area/bigredv2/outside/ne)
 "oO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor,
@@ -487,7 +487,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/general_offices)
 "xP" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -545,7 +545,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/general_offices)
 "Bb" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
@@ -640,7 +640,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/general_offices)
 "Fa" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)

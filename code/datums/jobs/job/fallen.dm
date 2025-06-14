@@ -94,7 +94,7 @@
 	skills_type = /datum/skills/synthetic
 	access = ALL_ACCESS
 	minimal_access = ALL_ACCESS
-	outfit = /datum/outfit/job/civilian/synthetic
+	outfit = /datum/outfit/job/synthetic
 
 /datum/job/fallen/marine/synthetic/get_special_name(client/preference_source)
 	return preference_source.prefs.synthetic_name

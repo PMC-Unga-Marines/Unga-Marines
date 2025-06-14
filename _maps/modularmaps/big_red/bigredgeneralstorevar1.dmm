@@ -66,7 +66,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "eX" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -124,7 +124,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "hw" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "hz" = (
@@ -132,7 +132,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/cargo)
 "iq" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor,
@@ -569,7 +569,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "Fg" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -633,7 +633,7 @@
 /area/bigredv2/outside/general_store)
 "Jr" = (
 /obj/structure/cable,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,
@@ -839,7 +839,7 @@
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "XD" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /obj/machinery/door_control{
@@ -854,7 +854,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "XN" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,

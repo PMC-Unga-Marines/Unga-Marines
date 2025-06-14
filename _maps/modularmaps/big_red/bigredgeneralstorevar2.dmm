@@ -71,7 +71,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "dM" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,
@@ -88,7 +88,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "gf" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -149,7 +149,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "ji" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor,
@@ -261,7 +261,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "po" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -469,7 +469,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "zX" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /obj/machinery/door_control{
@@ -724,7 +724,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "Pe" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "PR" = (
@@ -897,7 +897,7 @@
 /area/bigredv2/outside/general_store)
 "Zm" = (
 /obj/structure/cable,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,

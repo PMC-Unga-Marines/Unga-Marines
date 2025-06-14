@@ -3,13 +3,13 @@
 /turf/closed/wall,
 /area/bigredv2/outside/cargo)
 "b" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "g" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -21,7 +21,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor,

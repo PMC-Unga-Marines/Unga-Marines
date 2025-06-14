@@ -431,7 +431,6 @@
 	desc = "A tiny pistol used by the TGMC as an emergency handgun meant to be stored about anywhere. Fits in boots. Uses .380 ACP stored in an eight round magazine."
 	icon_state = "tp17"
 	worn_icon_state = "tp17"
-	fire_animation = "tp17_fire"
 	caliber = CALIBER_380ACP //codex
 	max_shells = 8 //codex
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_p17.ogg'

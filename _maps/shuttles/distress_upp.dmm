@@ -162,7 +162,7 @@
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/ert/upp)
 "J" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/barricade/closed,
@@ -197,7 +197,7 @@
 	},
 /area/shuttle/ert/upp)
 "U" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /obj/effect/mapping_helpers/barricade/closed,
 /turf/open/shuttle/dropship/floor,
 /area/shuttle/ert/upp)
@@ -210,7 +210,7 @@
 /turf/closed/shuttle/dropship_dark/interior_wall,
 /area/shuttle/ert/upp)
 "X" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/barricade/closed,

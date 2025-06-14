@@ -3,11 +3,11 @@
 /turf/closed/wall,
 /area/bigredv2/outside/cargo)
 "o" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "z" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -15,7 +15,7 @@
 	},
 /area/bigredv2/outside/c)
 "D" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor,
@@ -25,13 +25,13 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "L" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,

@@ -717,7 +717,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		QDEL_NULL(organ)
 	else if(!silent)
 		owner.visible_message(span_warning("[owner.name]'s [display_name] flies off in an arc!"),
-		span_highdanger("<b>Your [display_name] goes flying off!</b>"),
+		span_userdanger("<b>Your [display_name] goes flying off!</b>"),
 		span_warning("You hear a terrible sound of ripping tendons and flesh!"), 3)
 
 	if(organ)
@@ -805,7 +805,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	owner.visible_message(\
 		span_warning("You hear a loud cracking sound coming from [owner]!"),
-		span_highdanger("Something feels like it shattered in your [display_name]!"),
+		span_userdanger("Something feels like it shattered in your [display_name]!"),
 		span_warning("You hear a sickening crack!"))
 	playsound(owner, SFX_BONE_BREAK, 45, 1)
 	if(owner.species && !(owner.species.species_flags & NO_PAIN))

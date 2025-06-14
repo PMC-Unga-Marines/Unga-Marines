@@ -21,7 +21,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/surface/building/cargo)
 "ak" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete/lines{
@@ -185,7 +185,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostnw)
 "aX" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/surface/landing_pad_external)
 "aY" = (
@@ -718,7 +718,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outposts)
 "dl" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/surface/landing_pad2_external)
 "dm" = (
@@ -1642,7 +1642,7 @@
 	},
 /area/orion_outpost/surface/building/prep)
 "hq" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -1683,7 +1683,7 @@
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/command)
 "hz" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/surface/landing_pad2_external)
 "hB" = (
@@ -3018,7 +3018,7 @@
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/engineering)
 "nr" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/surface/landing_pad_external)
 "ns" = (
@@ -3317,7 +3317,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostw)
 "oJ" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/structure/platform{
@@ -3804,7 +3804,7 @@
 /area/orion_outpost/surface/building/monitor)
 "qM" = (
 /obj/effect/ai_node,
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/surface/landing_pad2_external)
 "qO" = (
@@ -4198,7 +4198,7 @@
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/ground/underground/caveS/garbledradio)
 "sw" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 4
 	},
@@ -4268,7 +4268,7 @@
 /turf/open/floor/wood,
 /area/orion_outpost/surface/building/barracks)
 "sK" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 8
 	},
@@ -5183,7 +5183,7 @@
 	},
 /area/orion_outpost/surface/building/prep)
 "wX" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -5389,7 +5389,7 @@
 /area/orion_outpost/surface/building/prep)
 "yb" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/concrete,
@@ -5609,7 +5609,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostw)
 "yX" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/concrete/lines,
@@ -6677,7 +6677,7 @@
 /area/orion_outpost/surface/building/prep)
 "DS" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/concrete,
@@ -6865,14 +6865,14 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/surface/landing_pad2_external)
 "EK" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/surface/landing_pad_external)
 "EL" = (
 /obj/effect/ai_node,
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/surface/landing_pad_external)
 "EM" = (
@@ -6897,7 +6897,7 @@
 	},
 /area/orion_outpost/ground/outpostcent)
 "EP" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -7612,7 +7612,7 @@
 /turf/open/floor/wood,
 /area/orion_outpost/surface/building/administration)
 "Il" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -7904,7 +7904,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostcent)
 "Jz" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete/lines{
@@ -8069,7 +8069,7 @@
 /turf/open/floor/plating/ground/concrete/lines,
 /area/orion_outpost/ground/outpostcent)
 "Kj" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/concrete/lines{
@@ -9351,7 +9351,7 @@
 /turf/open/floor/wood,
 /area/orion_outpost/surface/building/administration)
 "PH" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/mars/random/cave/darker,
@@ -9439,7 +9439,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt,
 /area/orion_outpost/ground/outpostsw)
 "Qd" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/item/stack/rods,
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/bunker)
@@ -9967,7 +9967,7 @@
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
 "SD" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/concrete,
@@ -11510,7 +11510,7 @@
 /area/orion_outpost/surface/building/bunker)
 "ZA" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete,

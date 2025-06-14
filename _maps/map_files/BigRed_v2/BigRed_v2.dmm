@@ -84,13 +84,13 @@
 /turf/open/floor/podhatch/floor,
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "abY" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/north)
 "acc" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave/rock,
@@ -1660,7 +1660,7 @@
 	},
 /area/bigredv2/outside/nw)
 "aoP" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
 	},
@@ -1687,7 +1687,7 @@
 /area/bigredv2/outside/marshal_office)
 "aoW" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -1891,14 +1891,14 @@
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/n)
 "aqN" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/n)
 "aqO" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/n)
 "aqP" = (
@@ -2024,16 +2024,16 @@
 	},
 /area/bigredv2/outside/n)
 "asg" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/n)
 "ash" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -2314,7 +2314,7 @@
 /turf/open/floor/tile/dark/purple2/corner,
 /area/bigredv2/caves/lambda_lab)
 "auB" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/tile/dark/purple2/corner,
 /area/bigredv2/caves/lambda_lab)
 "auC" = (
@@ -2452,7 +2452,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "avJ" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor,
@@ -4585,11 +4585,11 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "aSu" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
 "aSv" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating,
 /area/bigredv2/outside/virology)
 "aSx" = (
@@ -4715,7 +4715,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "aTK" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/tile/white,
@@ -4919,7 +4919,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/tile/white,
@@ -5137,7 +5137,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 5
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor,
@@ -5195,13 +5195,13 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
 "bct" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/plating,
 /area/bigredv2/outside/cargo)
 "bcu" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/marking/delivery,
@@ -5266,11 +5266,11 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/c)
 "beF" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/c)
 "beG" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 6
 	},
@@ -5299,7 +5299,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "bfb" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/c)
 "bfc" = (
@@ -5654,7 +5654,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "bmA" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
@@ -6152,10 +6152,10 @@
 	},
 /area/bigredv2/outside/s)
 "bvq" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -6460,7 +6460,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "byq" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -7369,7 +7369,7 @@
 "bMD" = (
 /obj/structure/sign/safety/atmospherics,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
@@ -7665,7 +7665,7 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/nw)
 "cvx" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
@@ -9171,7 +9171,7 @@
 /turf/template_noop,
 /area/template_noop)
 "fLE" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -9316,7 +9316,7 @@
 /area/bigredv2/outside/space_port/two)
 "gaa" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -9437,7 +9437,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "grw" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
@@ -9525,7 +9525,7 @@
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/hydroponics)
 "gCy" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth{
@@ -9767,7 +9767,7 @@
 	},
 /area/bigredv2/outside/space_port)
 "gSJ" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning,
@@ -11198,7 +11198,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "jRI" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,
@@ -11404,7 +11404,7 @@
 /turf/open/floor/tile/dark/yellow2/corner,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "ksp" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -11486,7 +11486,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
 "kDN" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating/dmg2,
 /area/bigredv2/outside/space_port)
 "kDU" = (
@@ -11863,7 +11863,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/northeast)
 "lBT" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/c)
@@ -12600,7 +12600,7 @@
 "nkz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -12914,7 +12914,7 @@
 /area/bigredv2/outside/engineering)
 "nNf" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning,
@@ -12953,7 +12953,7 @@
 "nQa" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/asteroidfloor,
@@ -13856,7 +13856,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "pYG" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -13903,7 +13903,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "qcd" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -13914,7 +13914,7 @@
 /area/bigredv2/outside/marshal_office)
 "qdv" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -14163,7 +14163,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "qJB" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/n)
@@ -14173,7 +14173,7 @@
 /area/bigredv2/outside/marshal_office)
 "qJR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,
@@ -14291,7 +14291,7 @@
 /area/bigredv2/outside/bar)
 "qZP" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning,
@@ -14407,7 +14407,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "rhP" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating/dmg2,
 /area/bigredv2/outside/space_port)
 "rid" = (
@@ -14580,7 +14580,7 @@
 /area/bigredv2/caves/lambda_lab)
 "rwp" = (
 /obj/item/stack/sheet/metal,
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating/dmg3,
 /area/bigredv2/outside/space_port)
 "rws" = (
@@ -15148,7 +15148,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "sQk" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
@@ -15290,7 +15290,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/space_port)
 "tfi" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -15307,7 +15307,7 @@
 /area/bigredv2/outside/marshal_office)
 "tgt" = (
 /obj/item/stack/rods,
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating/dmg3,
 /area/bigredv2/outside/space_port)
 "tgz" = (
@@ -15700,7 +15700,7 @@
 /area/bigredv2/outside/space_port)
 "uam" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/space_port)
 "ubV" = (
@@ -16234,7 +16234,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "vjI" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -16392,7 +16392,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast)
 "vzf" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor,
@@ -16822,7 +16822,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "woJ" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/weed_node,
@@ -17539,7 +17539,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/effect/ai_node,
@@ -17684,7 +17684,7 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/space_port/two)
 "ygG" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},

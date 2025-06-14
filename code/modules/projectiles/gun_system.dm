@@ -350,8 +350,8 @@
 	var/deployable_item = null
 	///If the gun is deployable, the time it takes for the weapon to deploy.
 	var/deploy_time = 0
-	///If the gun is deployable, the time it takes for the weapon to undeploy.
-	var/undeploy_time = 0
+	///If the gun is deployable, the time it takes for the weapon to undeploy. Defaults to deploy time
+	var/undeploy_time = null
 	///If the gun is deployed, change the scatter amount by this number. Negative reduces scatter, positive adds.
 	var/deployed_scatter_change = 0
 	///Flags that the deployed sentry uses upon deployment.
@@ -389,7 +389,7 @@
 	muzzle_flash = new(src, muzzleflash_iconstate)
 
 	if(deployable_item)
-		AddComponent(/datum/component/deployable_item, deployable_item, deploy_time, undeploy_time)
+		AddComponent(/datum/component/deployable_item, deployable_item, deploy_time, isnum(undeploy_time) ? undeploy_time : deploy_time)
 
 	GLOB.nightfall_toggleable_lights += src
 
@@ -787,7 +787,8 @@
 /obj/item/weapon/gun/proc/change_target(datum/source, atom/src_object, atom/over_object, turf/src_location, turf/over_location, src_control, over_control, params)
 	SIGNAL_HANDLER
 	set_target(get_turf_on_clickcatcher(over_object, gun_user, params))
-	gun_user?.face_atom(target)
+	if(!HAS_TRAIT(gun_user, TRAIT_INCAPACITATED))
+		gun_user?.face_atom(target)
 
 //----------------------------------------------------------
 		//									   \\
@@ -1057,7 +1058,7 @@
 	if(master_gun)
 		return
 
-	if(M != user || user.zone_selected != "mouth")
+	if(M != user || user.zone_selected != BODY_ZONE_PRECISE_MOUTH)
 		return ..()
 
 	DISABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK) //If they try to click again, they're going to hit themselves.
@@ -1065,38 +1066,27 @@
 	user.visible_message(span_warning("[user] sticks their gun in their mouth, ready to pull the trigger."))
 	log_combat(user, null, "is trying to commit suicide")
 
-	if(!do_after(user, 40, NONE, src, BUSY_ICON_DANGER))
+	if(!do_after(user, 1 SECONDS * w_class, NONE, src, BUSY_ICON_DANGER)) // faster suicide with pistols and etc.
 		M.visible_message(span_notice("[user] decided life was worth living."))
 		ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
 		return
 
+	if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE))
+		cycle(gun_user, FALSE) // fookin laser sights
 	var/obj/projectile/projectile_to_fire = in_chamber
-
 	if(!projectile_to_fire) //We actually have a projectile, let's move on.
 		playsound(src, dry_fire_sound, 25, 1, 5)
+		cycle(user, FALSE)
 		ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
 		return
-
 	projectile_to_fire = get_ammo_object()
-
 	user.visible_message(span_warning("[user] pulls the trigger!"))
-	var/actual_sound = (active_attachable?.fire_sound) ? active_attachable.fire_sound : fire_sound
-	var/sound_volume = (HAS_TRAIT(src, TRAIT_GUN_SILENCED) && !active_attachable) ? 25 : 60
-	playsound(user, actual_sound, sound_volume, 1)
+	play_fire_sound(loc)
 	simulate_recoil(2, Get_Angle(user, M))
-	var/obj/item/weapon/gun/revolver/current_revolver = src
 	var/admin_msg = "committed suicide with [src] (Dmg:[projectile_to_fire.damage], Dmg type: [projectile_to_fire.ammo.damage_type])"
 	log_combat(user, null, admin_msg)
 	if(projectile_to_fire.damage)
 		message_admins("[ADMIN_TPMONTY(user)] " + admin_msg)
-	if(istype(current_revolver) && current_revolver.russian_roulette) //If it's a revolver set to Russian Roulette.
-		user.apply_damage(projectile_to_fire.damage * 3, projectile_to_fire.ammo.damage_type, "head", 0, TRUE)
-		user.apply_damage(200, OXY) //In case someone tried to defib them. Won't work.
-		user.death()
-		to_chat(user, span_highdanger("Your life flashes before you as your spirit is torn from your body!"))
-		user.ghostize(FALSE) //No return.
-		ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
-		return
 
 	if(!projectile_to_fire.damage)
 		ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
@@ -1106,19 +1096,17 @@
 		to_chat(user, span_notice("Ow..."))
 		user.apply_damage(200, STAMINA)
 	else
-		user.apply_damage(projectile_to_fire.damage * 2.5, projectile_to_fire.ammo.damage_type, "head", 0, TRUE)
-		user.apply_damage(200, OXY)
-		if(ishuman(user) && user == M)
-			var/mob/living/carbon/human/HM = user
-			HM.set_undefibbable(TRUE) //can't be defibbed back from self inflicted gunshot to head
-		user.death()
+		user.apply_damage(200, projectile_to_fire.ammo.damage_type, BODY_ZONE_HEAD, 0, updating_health = TRUE)
 
 	user.log_message("commited suicide with [src]", LOG_ATTACK, "red") //Apply the attack log.
 	last_fired = world.time
 
-	projectile_to_fire.play_damage_effect(user)
-
+	user.do_projectile_hit(projectile_to_fire)
+	//projectile_to_fire.fire_at(user, user, src, projectile_to_fire.ammo.max_range, projectile_to_fire.projectile_speed, null, suppress_light = HAS_TRAIT(src, TRAIT_GUN_SILENCED))
+	if(fire_animation)
+		flick("[fire_animation]", src)
 	QDEL_NULL(projectile_to_fire)
+	cycle(null)
 
 	ENABLE_BITFIELD(gun_features_flags, GUN_CAN_POINTBLANK)
 
@@ -1742,16 +1730,16 @@
 		to_chat(user, span_warning("[src] is not ready to fire again!"))
 	return TRUE
 
-/obj/item/weapon/gun/proc/play_fire_sound(mob/user)
+/obj/item/weapon/gun/proc/play_fire_sound(atom/location)
 	//Guns with low ammo have their firing sound
 	var/firing_sndfreq = CHECK_BITFIELD(gun_features_flags, GUN_NO_PITCH_SHIFT_NEAR_EMPTY) ? FALSE : ((max(rounds, 1) / (max_rounds ? max_rounds : max_shells ? max_shells : 1)) > 0.25) ? FALSE : 55000
 	if(HAS_TRAIT(src, TRAIT_GUN_SILENCED))
-		playsound(user, fire_sound, GUN_FIRE_SOUND_VOLUME/2, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
+		playsound(location, fire_sound, GUN_FIRE_SOUND_VOLUME * 0.5, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
 		return
 	if(firing_sndfreq && fire_rattle)
-		playsound(user, fire_rattle, GUN_FIRE_SOUND_VOLUME, FALSE)
+		playsound(location, fire_rattle, GUN_FIRE_SOUND_VOLUME, FALSE)
 		return
-	playsound(user, fire_sound, GUN_FIRE_SOUND_VOLUME, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
+	playsound(location, fire_sound, GUN_FIRE_SOUND_VOLUME, firing_sndfreq ? TRUE : FALSE, frequency = firing_sndfreq)
 
 /obj/item/weapon/gun/proc/apply_gun_modifiers(obj/projectile/projectile_to_fire, atom/target, firer)
 	projectile_to_fire.shot_from = src

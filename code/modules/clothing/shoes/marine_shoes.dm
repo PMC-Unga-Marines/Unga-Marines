@@ -49,6 +49,9 @@
 /obj/item/clothing/shoes/marine/brown/full
 	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
 
+/obj/item/clothing/shoes/marine/upp
+	starting_attachments = list(/obj/item/armor_module/storage/boot/upp)
+
 /obj/item/clothing/shoes/marinechief
 	name = "chief officer shoes"
 	desc = "Only a small amount of monkeys, kittens, and orphans were killed in making this."

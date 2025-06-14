@@ -22,7 +22,6 @@
 	brute_mod = 1.3
 	burn_mod = 1.3
 	slowdown = 0.3
-
 	var/timerid
 
 /datum/species/human/vatgrown/early/handle_post_spawn(mob/living/carbon/human/H)

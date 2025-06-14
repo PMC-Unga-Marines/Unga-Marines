@@ -5,72 +5,28 @@
 	desc = "A slimy, oozy resin bed filled with foul-looking egg-like ...things."
 	bound_width = 96
 	bound_height = 96
+	bound_x = -32
+	bound_y = -32
+	pixel_x = -32
+	pixel_y = -24
 	max_integrity = 5000
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE
-	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE
-	///For minimap icon change if silo takes damage or nearby hostile
-	var/warning
-	var/turf/center_turf
-	COOLDOWN_DECLARE(damage_alert_cooldown)
-	COOLDOWN_DECLARE(proxy_alert_cooldown)
+	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE|XENO_STRUCT_WARNING_RADIUS|XENO_STRUCT_DAMAGE_ALERT
 
 /obj/structure/xeno/core/Initialize(mapload, _hivenumber)
 	. = ..()
-	center_turf = get_step(src, NORTHEAST)
-	if(!istype(center_turf))
-		center_turf = loc
-
-	for(var/turfs in RANGE_TURFS(XENO_SILO_DETECTION_RANGE, src))
-		RegisterSignal(turfs, COMSIG_ATOM_ENTERED, PROC_REF(proxy_alert))
-
 	update_minimap_icon()
 
 /obj/structure/xeno/core/Destroy()
 	for(var/i in contents)
 		var/atom/movable/AM = i
-		AM.forceMove(get_step(center_turf, pick(CARDINAL_ALL_DIRS)))
-	center_turf = null
+		AM.forceMove(get_step(src, pick(CARDINAL_ALL_DIRS)))
 	STOP_PROCESSING(SSslowprocess, src)
 	return ..()
 
-///Change minimap icon if silo is under attack or not
-/obj/structure/xeno/core/proc/update_minimap_icon()
+/obj/structure/xeno/core/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[warning ? "_warn" : "_passive"]", VERY_HIGH_FLOAT_LAYER))
-
-///Alerts the Hive when hostiles get too close to their resin silo
-/obj/structure/xeno/core/proc/proxy_alert(datum/source, atom/movable/hostile, direction)
-	SIGNAL_HANDLER
-
-	if(!COOLDOWN_CHECK(src, proxy_alert_cooldown)) //Proxy alert triggered too recently; abort
-		return
-
-	if(!isliving(hostile))
-		return
-
-	var/mob/living/living_triggerer = hostile
-	if(living_triggerer.stat == DEAD) //We don't care about the dead
-		return
-
-	if(isxeno(hostile))
-		var/mob/living/carbon/xenomorph/X = hostile
-		if(X.hive == GLOB.hive_datums[hivenumber]) //Trigger proxy alert only for hostile xenos
-			return
-
-	warning = TRUE
-	update_minimap_icon()
-	GLOB.hive_datums[hivenumber].xeno_message("Our [name] has detected a nearby hostile [hostile] at [get_area(hostile)] (X: [hostile.x], Y: [hostile.y]).", "xenoannounce", 5, FALSE, hostile, 'sound/voice/alien/help1.ogg', FALSE, null, /atom/movable/screen/arrow/leader_tracker_arrow)
-	COOLDOWN_START(src, proxy_alert_cooldown, XENO_SILO_DETECTION_COOLDOWN) //set the cooldown.
-	addtimer(CALLBACK(src, PROC_REF(clear_warning)), XENO_SILO_DETECTION_COOLDOWN) //clear warning
-
-/obj/structure/xeno/core/take_damage(damage_amount, damage_type, damage_flag, effects = TRUE, attack_dir, armour_penetration, mob/living/blame_mob)
-	. = ..()
-
-	//We took damage, so it's time to start regenerating if we're not already processing
-	if(!CHECK_BITFIELD(datum_flags, DF_ISPROCESSING))
-		START_PROCESSING(SSslowprocess, src)
-
-	damage_alert()
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[threat_warning ? "_warn" : "_passive"]", VERY_HIGH_FLOAT_LAYER))
 
 /obj/structure/xeno/core/obj_destruction(damage_amount, damage_type, damage_flag)
 	if(GLOB.hive_datums[hivenumber])
@@ -89,20 +45,6 @@
 		mode.round_stage = INFESTATION_MARIN_RUSH_MAJOR
 
 	return ..()
-
-/obj/structure/xeno/core/proc/damage_alert()
-	if(!COOLDOWN_CHECK(src, damage_alert_cooldown))
-		return
-	warning = TRUE
-	update_minimap_icon()
-	GLOB.hive_datums[hivenumber].xeno_message("Our [name] at [AREACOORD_NO_Z(src)] is under attack! It has [obj_integrity]/[max_integrity] health remaining.", "xenoannounce", 5, FALSE, src, 'sound/voice/alien/help1.ogg', FALSE, null, /atom/movable/screen/arrow/silo_damaged_arrow)
-	COOLDOWN_START(src, damage_alert_cooldown, XENO_SILO_HEALTH_ALERT_COOLDOWN) //set the cooldown.
-	addtimer(CALLBACK(src, PROC_REF(clear_warning)), XENO_SILO_HEALTH_ALERT_COOLDOWN) //clear warning
-
-///Clears the warning for minimap if its warning for hostiles
-/obj/structure/xeno/core/proc/clear_warning()
-	warning = FALSE
-	update_minimap_icon()
 
 /obj/structure/xeno/core/process()
 	//Regenerate if we're at less than max integrity

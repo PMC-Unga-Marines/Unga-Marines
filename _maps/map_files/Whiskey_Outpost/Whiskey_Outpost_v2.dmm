@@ -137,10 +137,10 @@
 /turf/open/floor/prison/plate,
 /area/whiskey_outpost)
 "aB" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/structure/platform{
@@ -151,10 +151,10 @@
 	},
 /area/whiskey_outpost)
 "aC" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/structure/platform{
@@ -165,7 +165,7 @@
 	},
 /area/whiskey_outpost)
 "aE" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/structure/platform{
@@ -689,11 +689,11 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/whiskey_outpost)
 "do" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/effect/landmark/start/job/squadmarine,
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/structure/platform{
 	dir = 6
 	},
@@ -1558,10 +1558,10 @@
 /turf/open/floor/prison/plate,
 /area/whiskey_outpost)
 "ie" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/structure/platform{
 	dir = 6
 	},
@@ -1845,7 +1845,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/north)
 "jy" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/vehicle/ridden/powerloader,
@@ -2004,7 +2004,7 @@
 /turf/open/ground/grass,
 /area/whiskey_outpost/outside/north)
 "kj" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/structure/platform{
@@ -2061,7 +2061,7 @@
 	},
 /area/whiskey_outpost)
 "kt" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/machinery/line_nexter{
@@ -2249,7 +2249,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "lk" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating,
 /area/whiskey_outpost)
 "ln" = (
@@ -2266,7 +2266,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/east)
 "lp" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "lq" = (
@@ -2372,7 +2372,7 @@
 /turf/open/liquid/water/river,
 /area/whiskey_outpost/outside/south)
 "lT" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/structure/platform,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
@@ -2845,10 +2845,10 @@
 /turf/open/ground/grass,
 /area/whiskey_outpost/outside/north)
 "ov" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/structure/platform{
 	dir = 10
 	},
@@ -2861,8 +2861,8 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "oA" = (
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid,
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/structure/platform{
@@ -2873,10 +2873,10 @@
 	},
 /area/whiskey_outpost)
 "oB" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/structure/platform{
 	dir = 8
 	},
@@ -3018,8 +3018,8 @@
 /turf/open/floor/plating/asteroidplating,
 /area/whiskey_outpost/outside/north)
 "pq" = (
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid,
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/structure/platform{
@@ -3084,8 +3084,8 @@
 /turf/open/floor/plating,
 /area/whiskey_outpost)
 "pJ" = (
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid,
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/structure/platform,
@@ -3167,10 +3167,10 @@
 	},
 /area/whiskey_outpost/outside/north)
 "qd" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/structure/platform{
@@ -3346,7 +3346,7 @@
 /turf/open/floor,
 /area/whiskey_outpost)
 "qE" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/structure/platform{
@@ -3406,7 +3406,7 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/whiskey_outpost)
 "qZ" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "rb" = (
@@ -3494,7 +3494,7 @@
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "rs" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/structure/platform{
@@ -3565,7 +3565,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
 "rP" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/effect/landmark/start/job/squadmarine,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/west)
@@ -3654,8 +3654,8 @@
 /turf/open/shuttle/dropship/floor,
 /area/whiskey_outpost/outside/east)
 "sy" = (
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid,
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/structure/platform,
@@ -3719,7 +3719,7 @@
 /turf/open/floor/wood,
 /area/whiskey_outpost)
 "sV" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/east)
 "sW" = (
@@ -4331,8 +4331,8 @@
 /turf/closed/mineral/smooth,
 /area/whiskey_outpost/outside/west)
 "wN" = (
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid,
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/structure/platform{
@@ -4790,7 +4790,7 @@
 	},
 /area/whiskey_outpost/outside/north)
 "zZ" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mainship/sterile/dark,
 /area/whiskey_outpost)
@@ -4977,8 +4977,8 @@
 /turf/open/liquid/water/river,
 /area/whiskey_outpost/outside/west)
 "Bb" = (
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid,
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -5090,8 +5090,8 @@
 /turf/open/floor/plating,
 /area/whiskey_outpost/outside/north)
 "BM" = (
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid,
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/structure/platform{
@@ -5358,7 +5358,7 @@
 /turf/open/floor/mainship/sterile/corner,
 /area/whiskey_outpost)
 "Dp" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/effect/landmark/start/job/squadmarine,
 /obj/structure/platform,
 /turf/open/floor/plating/asteroidwarning,
@@ -5407,7 +5407,7 @@
 /turf/open/ground/jungle,
 /area/whiskey_outpost/outside/south)
 "DV" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /obj/structure/stairs/edge{
@@ -5420,7 +5420,7 @@
 /turf/open/ground/grass,
 /area/whiskey_outpost/outside/south)
 "DZ" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/structure/platform,
 /turf/open/floor/plating/asteroidwarning,
 /area/whiskey_outpost)
@@ -5561,7 +5561,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "Fj" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -5609,7 +5609,7 @@
 /turf/open/ground/grass/beach/corner,
 /area/whiskey_outpost/outside/west)
 "FA" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/mainship/sterile/dark,
 /area/whiskey_outpost)
 "FD" = (
@@ -5899,7 +5899,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "Ic" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/effect/landmark/start/job/squadmarine,
@@ -5995,7 +5995,7 @@
 /turf/open/liquid/water/river,
 /area/whiskey_outpost/outside/west)
 "IZ" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/effect/landmark/start/job/squadmarine,
@@ -6128,7 +6128,7 @@
 	},
 /area/whiskey_outpost/outside/west)
 "JQ" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/effect/turf_decal/lvsanddecal/full,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/east)
@@ -6432,7 +6432,7 @@
 /turf/open/ground/grass,
 /area/whiskey_outpost/outside/west)
 "Ml" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/effect/landmark/start/job/squadmarine,
@@ -6814,7 +6814,7 @@
 /turf/open/floor/plating/platebot,
 /area/whiskey_outpost/outside/west)
 "Pc" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating/warning{
 	dir = 6
 	},
@@ -6828,7 +6828,7 @@
 /turf/open/ground/jungle,
 /area/whiskey_outpost/outside/south)
 "Pi" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating/warning{
 	dir = 10
 	},
@@ -6923,7 +6923,7 @@
 /turf/closed/wall,
 /area/whiskey_outpost)
 "Qp" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating/asteroidfloor,
@@ -6971,7 +6971,7 @@
 	},
 /area/whiskey_outpost)
 "QS" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/item/weapon/gun/sentry/premade,
 /turf/open/floor/plating/platebot,
 /area/whiskey_outpost/outside/west)
@@ -6985,11 +6985,11 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "QX" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/west)
 "QY" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/west)
 "Rc" = (
@@ -7014,7 +7014,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "Rl" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/west)
 "Rn" = (
@@ -7557,7 +7557,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
 "VI" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/east)
 "VJ" = (
@@ -7688,7 +7688,7 @@
 /turf/open/ground/jungle/impenetrable/nobush,
 /area/whiskey_outpost/outside/south)
 "WZ" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /obj/effect/turf_decal/lvsanddecal/full,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/east)

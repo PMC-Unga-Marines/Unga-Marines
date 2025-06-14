@@ -311,16 +311,14 @@
 	var/list/fallen_list
 
 /obj/structure/prop/mainship/ship_memorial/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/dogtag))
-		var/obj/item/dogtag/D = I
-		if(D.fallen_names)
-			to_chat(user, span_notice("You add [D] to [src]."))
-			if(!fallen_list)
-				fallen_list = list()
-			fallen_list += D.fallen_names
-			qdel(D)
-		return TRUE
-	return ..()
+	if(!istype(I, /obj/item/card/id/dogtag))
+		return ..()
+	var/obj/item/card/id/dogtag/D = I
+	if(D.registered_name)
+		to_chat(user, span_notice("You add [D] to [src]."))
+		LAZYADD(fallen_list, D.registered_name)
+		qdel(D)
+	return TRUE
 
 /obj/structure/prop/mainship/ship_memorial/examine(mob/user)
 	. = ..()

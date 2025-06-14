@@ -239,6 +239,9 @@
 /obj/item/storage/pouch/pistol/rt3/PopulateContents()
 	new /obj/item/weapon/gun/pistol/rt3(src)
 
+/obj/item/storage/pouch/pistol/laserpistol/PopulateContents()
+	new /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical(src)
+
 /obj/item/storage/pouch/pistol/som
 	desc = "It can contain a pistol or revolver. Useful for emergencies, and made out of stylish leather in the old SOM tradition."
 	icon_state = "pistol_som"
@@ -299,6 +302,10 @@
 
 /obj/item/storage/pouch/magazine/large/t19full
 	fill_type = /obj/item/ammo_magazine/smg/smg90
+	fill_number = 3
+
+/obj/item/storage/pouch/magazine/large/laser
+	fill_type = /obj/item/cell/lasgun/lasrifle
 	fill_number = 3
 
 /obj/item/storage/pouch/magazine/large/som
@@ -597,11 +604,18 @@
 	. = ..()
 	storage_datum.sprite_slots = null
 
+/obj/item/storage/pouch/medkit/elite/PopulateContents()
+	new /obj/item/storage/pill_bottle/hypervene(src)
+	new /obj/item/storage/pill_bottle/packet/ryetalyn(src)
+	new /obj/item/reagent_containers/hypospray/advanced/oxycodone(src)
+	for(var/i in 1 to 4)
+		new /obj/item/reagent_containers/hypospray/autoinjector/elite(src)
+
 /obj/item/storage/pouch/medical_injectors
 	name = "medical injector pouch"
 	desc = "A specialized medical pouch that can only hold auto-injectors."
 	icon_state = "firstaid_injector"
-	
+
 /obj/item/storage/pouch/medical_injectors/Initialize(mapload, ...)
 	. = ..()
 	storage_datum.sprite_slots = 5

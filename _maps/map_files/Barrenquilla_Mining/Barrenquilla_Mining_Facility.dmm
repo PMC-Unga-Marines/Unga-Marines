@@ -1961,7 +1961,7 @@
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "jf" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/wood/variable/wide/damaged,
 /area/barren/misc/ruin)
 "jg" = (
@@ -2035,7 +2035,7 @@
 /turf/open/floor/plating,
 /area/barren/cave/central)
 "jx" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "jy" = (
@@ -2412,7 +2412,7 @@
 /area/barren/engie/engine)
 "lj" = (
 /obj/effect/landmark/weed_node,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/wood/variable/wide/damaged,
@@ -3670,7 +3670,7 @@
 /turf/closed/mineral/smooth/basalt,
 /area/barren/cave/lz1)
 "rd" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -3701,7 +3701,7 @@
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "rk" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/wood/variable/wide/damaged,
@@ -4110,7 +4110,7 @@
 	},
 /area/barren/medical)
 "te" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -7131,7 +7131,7 @@
 /turf/open/floor/prison,
 /area/barren/security/nuke)
 "HA" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/structure/lattice,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
@@ -9658,7 +9658,7 @@
 /turf/open/floor,
 /area/barren/civilian)
 "TS" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/lavaland/basalt,

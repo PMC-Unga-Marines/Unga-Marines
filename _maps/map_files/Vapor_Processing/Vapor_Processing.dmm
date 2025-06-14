@@ -16,7 +16,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/shuttle/drop2/lz2)
 "aj" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /obj/machinery/landinglight/lz2,
@@ -43,7 +43,7 @@
 /turf/open/floor,
 /area/shuttle/drop2/lz2)
 "aB" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/machinery/landinglight/lz2{
@@ -84,7 +84,7 @@
 /turf/open/floor,
 /area/shuttle/drop2/lz2)
 "aR" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/machinery/landinglight/lz2{
@@ -95,7 +95,7 @@
 	},
 /area/shuttle/drop2/lz2)
 "aT" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/machinery/landinglight/lz2{
 	dir = 1
 	},
