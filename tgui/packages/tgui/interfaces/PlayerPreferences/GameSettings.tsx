@@ -62,13 +62,6 @@ export const GameSettings = (props) => {
                 leftLabel={'Use on active hand'}
                 rightLabel={'Use on both hands'}
               />
-              <ToggleFieldPreference
-                label="Mute xeno health alert messages"
-                value="mute_xeno_health_alert_messages"
-                action="mute_xeno_health_alert_messages"
-                leftLabel={'Muted'}
-                rightLabel={'Enabled'}
-              />
               <Tooltip content="Use more accessible TGUI themes/layouts wherever possible.">
                 <ToggleFieldPreference
                   label="Accessible TGUI themes"
@@ -82,6 +75,13 @@ export const GameSettings = (props) => {
                 action="fullscreen_mode"
                 leftLabel={'Fullscreen'}
                 rightLabel={'Windowed'}
+              />
+              <ToggleFieldPreference
+                label="Status Bar (Bottom left text)"
+                value="show_status_bar"
+                action="show_status_bar"
+                leftLabel={'Show'}
+                rightLabel={'Hide'}
               />
               <ToggleFieldPreference
                 label="TGUI Window Mode"

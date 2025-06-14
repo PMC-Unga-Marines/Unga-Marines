@@ -20,7 +20,7 @@
 	spawn_loot_chance = 30
 	loot = list(
 		/obj/effect/spawner/random/engineering/wood = 6,
-		/obj/structure/barricade/wooden = 4,
+		/obj/structure/barricade/wood = 4,
 	)
 
 /obj/effect/spawner/random/misc/structure/closet

@@ -191,7 +191,6 @@
 	if(initial(sterile))
 		. += span_warning("It looks like the proboscis has been removed.")
 
-
 /obj/item/clothing/mask/facehugger/proc/go_idle(hybernate = FALSE, no_activate = FALSE)
 	if(stat == DEAD)
 		return FALSE
@@ -663,16 +662,30 @@
 /obj/item/clothing/mask/facehugger/attackby(obj/item/I, mob/user, params)
 	if(I.item_flags & NOBLUDGEON || attached)
 		return
+	if(I.hitsound)
+		playsound(src, I.hitsound, 25, TRUE)
+	user.do_attack_animation(src, used_item = I)
 	kill_hugger()
+	user.changeNext_move(CLICK_CD_MELEE)
 
 /obj/item/clothing/mask/facehugger/bullet_act(obj/projectile/proj)
-	..()
+	. = ..()
 	if(proj.ammo.ammo_behavior_flags & AMMO_XENO)
 		return FALSE //Xeno spits ignore huggers.
 	if(proj.damage && !(proj.ammo.damage_type in list(OXY, STAMINA)))
+		if(proj.ammo.sound_hit)
+			playsound(src, proj.ammo.sound_hit, 50, 1) // imitation of hitting something fleshy
+		if(stat != DEAD)
+			animation_flash_color(src)
+		if(proj.ammo.ammo_behavior_flags & AMMO_BALLISTIC)
+			var/angle = !isnull(proj.dir_angle) ? proj.dir_angle : round(Get_Angle(proj.starting_turf, src), 1)
+			new /obj/effect/temp_visual/dir_setting/bloodsplatter(loc, angle, "#dffc00")
 		kill_hugger()
 	proj.ammo.on_hit_obj(src, proj)
 	return TRUE
+
+/obj/item/clothing/mask/facehugger/add_debris_element() // we add hit sounds manually
+	return
 
 /obj/item/clothing/mask/facehugger/dropped(mob/user)
 	. = ..()

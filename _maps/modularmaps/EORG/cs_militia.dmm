@@ -341,7 +341,7 @@
 	},
 /area/deathmatch)
 "IB" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/sand,

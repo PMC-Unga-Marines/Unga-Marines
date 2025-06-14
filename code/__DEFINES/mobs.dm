@@ -107,7 +107,7 @@
 #define CARBON_RECOVERY_OXYLOSS -5
 
 #define CARBON_KO_OXYLOSS 50
-#define HUMAN_CRITDRAG_OXYLOSS 3 //the amount of oxyloss taken per tile a human is dragged by a xeno while unconscious
+#define HUMAN_CRITDRAG_OXYLOSS 6 //the amount of oxyloss taken per tile a human is dragged by a xeno while unconscious
 
 #define HEAT_DAMAGE_LEVEL_1 1 //Amount of damage applied when your body temperature just passes the 360.15k safety point
 #define HEAT_DAMAGE_LEVEL_2 2 //Amount of damage applied when your body temperature passes the 400K point
@@ -151,15 +151,15 @@
 #define STAMINA "stamina"
 //=================================================
 
-#define STUN "stun"
-#define WEAKEN "weaken"
-#define PARALYZE "paralyze"
-#define STAGGER "stagger"
-#define AGONY "agony" // Added in PAIN!
-#define STUTTER "stutter"
-#define EYE_BLUR "eye_blur"
-#define DROWSY "drowsy"
-#define SLUR "slur"
+#define EFFECT_STUN "stun"
+#define EFFECT_PARALYZE "paralyze"
+#define EFFECT_UNCONSCIOUS "unconscious"
+#define EFFECT_STAGGER "stagger"
+#define EFFECT_STAMLOSS "stamloss"
+#define EFFECT_STUTTER "stutter"
+#define EFFECT_EYE_BLUR "eye_blur"
+#define EFFECT_DROWSY "drowsy"
+
 //=================================================
 
 //damagetype
@@ -569,15 +569,8 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define XENO_NEURO_AMOUNT_RECURRING 5
 #define XENO_NEURO_CHANNEL_TIME 0.25 SECONDS
 
-#define XENO_HEALTH_ALERT_TRIGGER_PERCENT 0.25 //If a xeno is damaged while its current hit points are less than this percent of its maximum, we send out an alert to the hive
-#define XENO_HEALTH_ALERT_TRIGGER_THRESHOLD 50 //If a xeno is damaged while its current hit points are less than this amount, we send out an alert to the hive
-#define XENO_HEALTH_ALERT_COOLDOWN 60 SECONDS //The cooldown on these xeno damage alerts
-#define XENO_SILO_HEALTH_ALERT_COOLDOWN 30 SECONDS //The cooldown on these xeno damage alerts
 #define XENO_HEALTH_ALERT_POINTER_DURATION 6 SECONDS //How long the alert directional pointer lasts.
 #define XENO_RALLYING_POINTER_DURATION 15 SECONDS //How long the rally hive pointer lasts
-#define XENO_SILO_DAMAGE_POINTER_DURATION 10 SECONDS //How long the alert directional pointer lasts when silos are damaged
-#define XENO_SILO_DETECTION_COOLDOWN 1 MINUTES
-#define XENO_SILO_DETECTION_RANGE 10//How far silos can detect hostiles
 #define XENO_HIVEMIND_DETECTION_RANGE 10 //How far out (in tiles) can the hivemind detect hostiles
 #define XENO_HIVEMIND_DETECTION_COOLDOWN 1 MINUTES
 

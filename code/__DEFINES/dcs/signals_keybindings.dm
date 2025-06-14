@@ -14,6 +14,7 @@
 #define COMSIG_KB_CLIENT_GETHELP_DOWN "keybinding_client_gethelp_down"
 #define COMSIG_KB_CLIENT_SCREENSHOT_DOWN "keybinding_client_screenshot_down"
 #define COMSIG_KB_CLIENT_MINIMALHUD_DOWN "keybinding_client_minimalhud_down"
+#define COMSIG_KB_CLIENT_FULLSCREEN_DOWN "keybinding_client_fullscreen_down"
 #define COMSIG_KB_CLIENT_SAY_DOWN "keybinding_client_say_down"
 #define COMSIG_KB_CLIENT_RADIO_DOWN "keybinding_client_radio_down"
 #define COMSIG_KB_CLIENT_ME_DOWN "keybinding_client_me_down"
@@ -24,10 +25,6 @@
 #define COMSIG_KB_LIVING_RESIST_DOWN "keybinding_living_resist_down"
 #define COMSIG_KB_LIVING_JUMP_DOWN "keybind_living_jump_down"
 #define COMSIG_KB_LIVING_JUMP_UP "keybind_living_jump_up"
-#define COMSIG_KB_MOB_FACENORTH_DOWN "keybinding_mob_facenorth_down"
-#define COMSIG_KB_MOB_FACEEAST_DOWN "keybinding_mob_faceeast_down"
-#define COMSIG_KB_MOB_FACESOUTH_DOWN "keybinding_mob_facesouth_down"
-#define COMSIG_KB_MOB_FACEWEST_DOWN "keybinding_mob_facewest_down"
 #define COMSIG_KB_MOB_STOPPULLING_DOWN "keybinding_mob_stoppulling_down"
 #define COMSIG_KB_MOB_CYCLEINTENTRIGHT_DOWN "keybinding_mob_cycleintentright_down"
 #define COMSIG_KB_MOB_CYCLEINTENTLEFT_DOWN "keybinding_mob_cycleintentleft_down"
@@ -47,6 +44,7 @@
 #define COMSIG_KB_MOVEMENT_SOUTH_DOWN "keybinding_movement_south_down"
 #define COMSIG_KB_MOVEMENT_WEST_DOWN "keybinding_movement_west_down"
 #define COMSIG_KB_MOVEMENT_EAST_DOWN "keybinding_movement_east_down"
+#define COMSIG_KB_MOB_BLOCKMOVEMENT_DOWN "keybinding_mob_blockmovement_down"
 
 // mob keybinds
 #define COMSIG_KB_HOLD_RUN_MOVE_INTENT_UP "keybinding_hold_run_move_intent_up"
@@ -281,6 +279,7 @@
 #define COMSIG_KB_AUTOEJECT "keybind_autoeject"
 #define COMSIG_KB_GIVE "keybind_give"
 #define COMSIG_KB_HELMETMODULE "keybinding_helmetmodule"
+#define COMSIG_KB_ARMORMODULE "keybinding_armormodule"
 #define COMSIG_KB_ROBOT_AUTOREPAIR "keybinding_robot_autorepair"
 #define COMSIG_KB_SUITLIGHT "keybinding_suitlight"
 #define COMSIG_KB_MOVEORDER "keybind_moveorder"
@@ -300,6 +299,7 @@
 //Weapon related ability keybinds
 #define COMSIG_WEAPONABILITY_AXESWEEP "weaponability_axesweep"
 #define COMSIG_WEAPONABILITY_SWORDLUNGE "weaponability_swordlunge"
+#define COMSIG_WEAPONABILITY_SHIELDBASH "weaponability_shieldbash"
 
 //Implant abilities
 #define COMSIG_IMPLANT_ABILITY_SANDEVISTAN "implant_ability_sandevistan"

@@ -642,7 +642,7 @@
 		jab_damage *= WARRIOR_PUNCH_EMPOWER_MULTIPLIER
 		if(ishuman(A))
 			var/mob/living/carbon/human/target = A
-			to_chat(target, span_highdanger("The concussion from the [xeno_owner]'s blow blinds us!"))
+			to_chat(target, span_userdanger("The concussion from the [xeno_owner]'s blow blinds us!"))
 			target.apply_status_effect(STATUS_EFFECT_CONFUSED, 3 SECONDS)
 			target.Paralyze(0.5 SECONDS)
 	GLOB.round_statistics.warrior_punches++

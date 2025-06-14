@@ -996,7 +996,7 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/general_offices)
 "Yq" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/plating/dmg3,

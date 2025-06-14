@@ -683,7 +683,7 @@
 /mob/living/carbon/human/reagent_check(datum/reagent/R)
 	return species.handle_chemicals(R,src) // if it returns 0, it will run the usual on_mob_life for that reagent. otherwise, it will stop after running handle_chemicals for the species.
 
-/mob/living/carbon/human/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps, slip_xeno)
+/mob/living/carbon/human/slip(slip_source_name, stun_level, paralyze_level, run_only, override_noslip, slide_steps, slip_xeno)
 	if((shoes?.inventory_flags & NOSLIPPING) && !override_noslip) //If our shoes are noslip just return immediately unless we don't care about the noslip
 		return FALSE
 	return ..()
@@ -953,3 +953,9 @@
 	if(!do_after(src, 2 SECONDS, IGNORE_LOC_CHANGE|IGNORE_HELD_ITEM, src))
 		return
 	return ..()
+
+/mob/living/carbon/human/attack_ghost(mob/dead/observer/user)
+	if(!user.health_scan)
+		return FALSE
+	user.health_analyzer.analyze_vitals(src, user)
+	return TRUE

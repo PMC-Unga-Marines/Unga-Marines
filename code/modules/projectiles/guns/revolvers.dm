@@ -7,6 +7,7 @@
 	equip_slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	fire_sound = 'sound/weapons/guns/fire/44mag.ogg'
+	dry_fire_sound = 'sound/weapons/guns/fire/revolver_empty.ogg'
 	reload_sound = 'sound/weapons/guns/interact/revolver_spun.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/revolver_cocked.ogg'
 	unload_sound = 'sound/weapons/guns/interact/revolver_unload.ogg'
@@ -31,40 +32,49 @@
 	recoil = 0
 	recoil_unwielded = 1
 	placed_overlay_iconstate = "revolver"
-	///If the gun is able to play Russian Roulette
-	var/russian_roulette = FALSE //God help you if you do this.
-	///Whether the chamber can be spun for Russian Roulette. If False the chamber can be spun.
-	var/catchworking = TRUE
+	var/recent_spin = 0
 
-/mob/living/carbon/human/verb/revolvertrick()
-	set category = "IC.Weapons"
-	set name = "Do a revolver trick"
-	set desc = "Show off to all your friends!"
+/obj/item/weapon/gun/revolver/examine(mob/user)
+	. = ..()
+	if(!(reciever_flags & AMMO_RECIEVER_ROTATES_CHAMBER))
+		return
+	. += span_notice("It's champer can be spun with <b>alt-right-click</b>.")
 
-	var/obj/item/weapon/gun/revolver/gun = get_active_firearm(usr)
-	if(!gun)
-		return
-	if(!istype(gun))
-		return
-	gun.revolvertrick()
+/obj/item/weapon/gun/revolver/AltRightClick(mob/living/user)
+	. = ..()
+	do_spin(user)
 
-/obj/item/weapon/gun/revolver/verb/revolvertrick()
-	set category = "IC.Weapons"
-	set name = "Do a revolver trick"
-	set desc = "Show off to all your friends!"
+/obj/item/weapon/gun/revolver/verb/spin()
+	set name = "Spin Chamber"
+	set category = "Object"
+	set desc = "Click to spin your revolver's chamber."
 
-	var/obj/item/weapon/gun/revolver/gun = get_active_firearm(usr)
-	if(!gun)
+	if(!(reciever_flags & AMMO_RECIEVER_ROTATES_CHAMBER))
 		return
-	if(!istype(gun))
+
+	var/mob/user = usr
+	if(user.stat || !in_range(user, src))
 		return
-	if(usr.do_actions)
-		src.balloon_alert(usr, "Busy!")
+	do_spin(user)
+
+/obj/item/weapon/gun/revolver/proc/do_spin(mob/user)
+	if(!(reciever_flags & AMMO_RECIEVER_ROTATES_CHAMBER))
 		return
-	if(zoom)
-		to_chat(usr, span_warning("You cannot conceviably do that while looking down \the [src]'s scope!"))
+	if(recent_spin > world.time)
 		return
-	do_trick(usr)
+	recent_spin = world.time + 1 SECONDS
+
+	playsound(src, SFX_REVOLVER_SPIN, 30, FALSE)
+	visible_message(span_notice("[user] spins [src]'s chamber."), span_notice("You spin [src]'s chamber."))
+	balloon_alert(user, "chamber spun")
+
+	var/previous_chamber_position = chamber_items[current_chamber_position]
+	chamber_items[current_chamber_position] = in_chamber
+	in_chamber = previous_chamber_position
+	current_chamber_position = rand(1, max_chamber_items)
+	var/previous_chambered_item = in_chamber
+	in_chamber = chamber_items[current_chamber_position]
+	chamber_items[current_chamber_position] = previous_chambered_item
 
 /obj/item/weapon/gun/revolver/tactical_reload(obj/item/new_magazine, mob/living/carbon/human/user)
 	if(!istype(user) || user.incapacitated(TRUE) || user.do_actions)

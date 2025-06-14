@@ -98,8 +98,10 @@
 
 #define SKILL_CQC_WEAK -1
 #define SKILL_CQC_DEFAULT 0
-#define SKILL_CQC_TRAINED 1
-#define SKILL_CQC_MP 2
+#define SKILL_CQC_AMATEUR 1
+#define SKILL_CQC_TRAINED 2
+#define SKILL_CQC_PROFESSIONAL 3
+#define SKILL_CQC_EXPERT 4
 #define SKILL_CQC_MASTER 5
 
 ///Unarmed damage mod from CQC skill

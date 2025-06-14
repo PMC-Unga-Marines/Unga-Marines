@@ -23,13 +23,16 @@
 	permitted_mods = list(
 		/obj/item/tank_module/overdrive,
 		/obj/item/tank_module/ability/zoom,
-		/obj/item/tank_module/ability/smoke_launcher
+		/obj/item/tank_module/ability/smoke_launcher,
 	)
 	permitted_weapons = list(
 		/obj/item/armored_weapon,
 		/obj/item/armored_weapon/ltaap,
+		/obj/item/armored_weapon/bfg,
 		/obj/item/armored_weapon/secondary_weapon,
-		/obj/item/armored_weapon/secondary_flamer
+		/obj/item/armored_weapon/secondary_flamer,
+		/obj/item/armored_weapon/tow,
+		/obj/item/armored_weapon/microrocket_pod,
 	)
 	max_occupants = 4
 	move_delay = 0.75 SECONDS
@@ -177,7 +180,6 @@
 	armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_SECONDARY_WEAPON|ARMORED_HAS_UNDERLAY|ARMORED_HAS_HEADLIGHTS|ARMORED_WRECKABLE
 	move_delay = 0.6 SECONDS
 	glide_size = 2.5
-	vis_range_mod = 4
 	ram_damage = 130
 
 /obj/vehicle/sealed/armored/multitile/campaign/Initialize(mapload)

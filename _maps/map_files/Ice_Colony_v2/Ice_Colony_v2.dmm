@@ -8132,7 +8132,7 @@
 /turf/open/floor/plating/icefloor,
 /area/ice_colony/exterior/surface/container_yard)
 "aXi" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/icefloor/warnplate{
@@ -8717,7 +8717,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/hydroponics/south)
 "bbe" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/plating/icefloor/warnplate{
@@ -9704,7 +9704,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/responsehangar)
 "bgQ" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -10201,7 +10201,7 @@
 	},
 /area/ice_colony/underground/requesition/lobby)
 "bkh" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/north)
 "bkm" = (
@@ -10324,7 +10324,7 @@
 /turf/open/floor/plating,
 /area/ice_colony/underground/crew/morgue)
 "bkY" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -11180,7 +11180,7 @@
 /turf/open/floor/wood,
 /area/ice_colony/underground/crew/library)
 "bpS" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/machinery/light/small,
@@ -11354,7 +11354,7 @@
 /turf/closed/wall/r_wall,
 /area/ice_colony/underground/maintenance/engineering)
 "bqR" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -11809,13 +11809,13 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/engineering)
 "bwC" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -11858,7 +11858,7 @@
 	},
 /area/ice_colony/underground/medical/hallway)
 "bxx" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -11889,7 +11889,7 @@
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/engineering)
 "bxO" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/central)
 "bxP" = (
@@ -12462,10 +12462,10 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -12477,7 +12477,7 @@
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/central)
 "bAH" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -12940,10 +12940,10 @@
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/central)
 "bCt" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/central)
 "bCu" = (
@@ -13233,7 +13233,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/storage/highsec)
 "bDU" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -15655,7 +15655,7 @@
 /turf/closed/wall/r_wall,
 /area/ice_colony/underground/maintenance/south)
 "bOl" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/central)
@@ -16161,7 +16161,7 @@
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/south)
 "bQr" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/south)
 "bQs" = (
@@ -16740,7 +16740,7 @@
 /area/ice_colony/underground/maintenance/east)
 "bTZ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/east)
 "bUi" = (
@@ -25302,7 +25302,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/underground/maintenance/east)
 "mTI" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/machinery/floodlight/colony,
@@ -26587,7 +26587,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/hallway/south_east/garbledradio)
 "oEX" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/machinery/floodlight/colony,
@@ -27607,7 +27607,7 @@
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/south)
 "qgu" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/weapon/gun/pistol/highpower{
 	pixel_x = 20;
@@ -28872,7 +28872,7 @@
 /area/ice_colony/underground/storage)
 "rOv" = (
 /obj/effect/spawner/random/misc/structure/supplycrate,
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/north)
 "rOI" = (

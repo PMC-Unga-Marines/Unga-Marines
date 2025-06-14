@@ -12,7 +12,7 @@
 	allow_pass_flags = PASSABLE|PASS_DEFENSIVE_STRUCTURE
 
 /obj/structure/rock/add_debris_element()
-	AddElement(/datum/element/debris, DEBRIS_ROCK, -10, 5, 1)
+	AddElement(/datum/element/debris, DEBRIS_ROCK, -40, 5, 1)
 
 /obj/structure/rock/basalt
 	name = "volcanic rock"

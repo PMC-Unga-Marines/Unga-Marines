@@ -8,7 +8,7 @@
 /mob/proc/play_screen_text(text, alert_type = /atom/movable/screen/text/screen_text)
 	if(!client)
 		return
-	var/atom/movable/screen/text/screen_text/text_box = new alert_type()
+	var/atom/movable/screen/text/screen_text/text_box = isatom(alert_type) ? alert_type : new alert_type()
 	text_box.text_to_play = text
 	LAZYADD(client.screen_texts, text_box)
 	if(LAZYLEN(client.screen_texts) == 1) //lets only play one at a time, for thematic effect and prevent overlap

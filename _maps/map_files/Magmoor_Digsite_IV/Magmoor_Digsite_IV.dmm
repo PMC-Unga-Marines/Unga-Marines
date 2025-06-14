@@ -176,7 +176,7 @@
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound/west)
 "aft" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/mainship/black{
@@ -2755,7 +2755,7 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/command/commandroom)
 "bQW" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/mainship/black{
@@ -3102,7 +3102,7 @@
 /turf/open/floor/tile/blue/taupeblue,
 /area/magmoor/civilian/dorms)
 "ceS" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/mainship/floor,
@@ -4791,7 +4791,7 @@
 	},
 /area/magmoor/command/lobby/east)
 "dqr" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/mainship/blue{
@@ -4833,7 +4833,7 @@
 	},
 /area/magmoor/compound/north)
 "drm" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -4957,7 +4957,7 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/command/commandroom)
 "dvv" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/mainship/blue,
 /area/magmoor/command/commandroom)
 "dvH" = (
@@ -5867,7 +5867,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/mainship/blue/corner{
 	dir = 8
 	},
@@ -6586,7 +6586,7 @@
 /turf/open/floor/wood,
 /area/magmoor/civilian/bar)
 "eCQ" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/mainship/green{
@@ -6871,7 +6871,7 @@
 /turf/open/floor/mainship/sterile/side,
 /area/magmoor/medical/patient)
 "eKW" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/item/shard,
@@ -8102,7 +8102,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/mainship/blue{
@@ -8318,7 +8318,7 @@
 /turf/open/floor/wood,
 /area/magmoor/civilian/jani)
 "fOp" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -9745,7 +9745,7 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/cargo/processing/south)
 "gQd" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood,
@@ -9939,7 +9939,7 @@
 /turf/open/floor/carpet,
 /area/magmoor/command/conference)
 "hcR" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/mainship/blue,
@@ -10006,7 +10006,7 @@
 /turf/open/floor/plating/platebotc,
 /area/magmoor/research/containment)
 "heV" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/mainship/black{
@@ -11597,7 +11597,7 @@
 /turf/open/liquid/lava/autosmoothing,
 /area/magmoor/compound/north)
 "irH" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/mainship/black,
@@ -11731,7 +11731,7 @@
 /turf/open/floor/mainship/purple,
 /area/magmoor/research/containment)
 "iwu" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/wood,
@@ -12024,7 +12024,7 @@
 	},
 /area/magmoor/research/containment)
 "iHT" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/mainship/black{
@@ -12045,7 +12045,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/magmoor/medical/morgue)
 "iIY" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -13047,7 +13047,7 @@
 /turf/open/floor/wood,
 /area/magmoor/civilian/bar)
 "jsW" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/mainship/blue/corner,
 /area/magmoor/command/commandroom)
 "jtd" = (
@@ -13209,7 +13209,7 @@
 /area/magmoor/volcano)
 "jAh" = (
 /obj/effect/turf_decal/warning_stripes/thin,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/mainship/blue{
@@ -13733,7 +13733,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -15432,7 +15432,7 @@
 /area/magmoor/civilian/arrival/east)
 "ldf" = (
 /obj/effect/ai_node,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/mainship/black{
@@ -16112,7 +16112,7 @@
 	},
 /area/magmoor/landing)
 "lDW" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/mainship/black,
@@ -16909,7 +16909,7 @@
 /turf/open/floor/freezer,
 /area/magmoor/civilian/clean/toilet)
 "mfM" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/mainship/silver{
@@ -17388,7 +17388,7 @@
 /turf/open/floor/mainship/orange/full,
 /area/magmoor/engi)
 "mBs" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/decal/cleanable/blood/splatter/animated,
 /turf/open/floor/mainship/silver,
 /area/magmoor/civilian/arrival/east)
@@ -18375,7 +18375,7 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/cargo/processing/south)
 "nlW" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/mainship/wylogo/wy2,
 /area/magmoor/civilian/arrival/east)
@@ -19040,7 +19040,7 @@
 /turf/open/floor/plating/ground/concrete/lines,
 /area/magmoor/compound)
 "nPr" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -19176,7 +19176,7 @@
 	dir = 8;
 	on = 1
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -19745,7 +19745,7 @@
 /area/magmoor/cargo/storage/secure/south)
 "orN" = (
 /obj/effect/decal/cleanable/blood/xeno,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/wood,
@@ -20163,7 +20163,7 @@
 	},
 /area/magmoor/civilian/cryostasis)
 "oEf" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/mainship/silver,
@@ -20617,7 +20617,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -22207,7 +22207,7 @@
 /turf/open/floor/tile/arrival/corner,
 /area/magmoor/civilian/pool)
 "pSn" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/mainship/silver,
 /area/magmoor/civilian/arrival/east)
 "pSu" = (
@@ -23668,7 +23668,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/wood,
@@ -24324,7 +24324,7 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/engi)
 "rzj" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/mainship/blue{
@@ -24614,7 +24614,7 @@
 /area/magmoor/medical/chemistry)
 "rKI" = (
 /obj/effect/turf_decal/warning_stripes/thin,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/mainship/blue{
@@ -27226,7 +27226,7 @@
 /turf/open/floor/mainship/cargo,
 /area/magmoor/mining/storage)
 "tBS" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/mainship/blue{
@@ -27510,7 +27510,7 @@
 /area/magmoor/command/commandroom)
 "tNl" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/mainship/black{
@@ -27593,7 +27593,7 @@
 /turf/open/floor/mainship/floor,
 /area/magmoor/cargo/storage/south)
 "tPJ" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/mainship/mono,
@@ -28054,7 +28054,7 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/security/arrivals/east)
 "uhg" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -28286,7 +28286,7 @@
 /turf/open/floor/wood,
 /area/magmoor/civilian/basket)
 "unU" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/mainship/black{
@@ -28909,7 +28909,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/mainship/blue{
@@ -31132,7 +31132,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/magmoor/compound)
 "wpl" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -31671,7 +31671,7 @@
 	},
 /area/magmoor/landing/two)
 "wIg" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/mainship/black{
@@ -31739,7 +31739,7 @@
 /area/magmoor/civilian/arrival/east)
 "wJm" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/mainship/black{
@@ -33319,7 +33319,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/mainship/blue{
 	dir = 10
 	},
@@ -33692,7 +33692,7 @@
 /turf/open/floor/tile/white,
 /area/magmoor/civilian/pool)
 "xUc" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/mainship/green,
@@ -33899,7 +33899,7 @@
 /turf/open/floor/plating,
 /area/magmoor/compound/north)
 "ybI" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/wood,

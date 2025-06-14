@@ -175,7 +175,7 @@
 /turf/open/floor/mainship/cargo,
 /area/shuttle/canterbury)
 "aA" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/barricade/wired,
@@ -197,7 +197,7 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "aF" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/barricade/wired,
@@ -587,7 +587,7 @@
 	name = "General Listening Channel";
 	pixel_y = -28
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/barricade/wired,
@@ -747,7 +747,7 @@
 	name = "General Listening Channel";
 	pixel_y = -28
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/barricade/wired,
@@ -758,12 +758,12 @@
 	dir = 8;
 	pixel_y_offset = 5
 	},
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /obj/effect/mapping_helpers/barricade/wired,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "cZ" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /obj/effect/mapping_helpers/barricade/wired,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
@@ -772,7 +772,7 @@
 	dir = 4;
 	pixel_y_offset = 5
 	},
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /obj/machinery/door_control{
 	dir = 8;
 	id = "aft_engine_podlock";

@@ -81,6 +81,8 @@
 			/obj/item/armor_module/module/pluto = -1,
 			/obj/item/armor_module/module/chemsystem = -1,
 			/obj/item/armor_module/module/eshield = -1,
+			/obj/item/armor_module/module/mirage = -1,
+			/obj/item/armor_module/module/armorlock = -1,
 		),
 		"Jaeger Mk.I chestpieces" = list(
 			/obj/item/armor_module/armor/chest/marine/skirmisher = -1,

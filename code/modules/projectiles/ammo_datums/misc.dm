@@ -442,13 +442,13 @@
 	smoke.set_up(0, target_turf, rand(1,2))
 	smoke.start()
 
-	var/list/turf/target_turfs = generate_true_cone(target_turf, explosion_range, -1, 359, 0, air_pass = TRUE)
+	var/list/turf/target_turfs = generate_cone(target_turf, explosion_range, -1, 359, 0, pass_flags_checked = PASS_AIR)
 	for(var/turf/targetted_turf AS in target_turfs)
 		for(var/target in targetted_turf)
 			if(isliving(target))
 				var/mob/living/living_target = target
 				living_target.visible_message(span_danger("[living_target] is hit by the bomblet blast!"),
-					isxeno(living_target) ? span_xenodanger("We are hit by the bomblet blast!") : span_highdanger("you are hit by the bomblet blast!"))
+					isxeno(living_target) ? span_xenodanger("We are hit by the bomblet blast!") : span_userdanger("you are hit by the bomblet blast!"))
 				living_target.apply_damages(explosion_damage * 0.5, explosion_damage * 0.5, 0, 0, 0, blocked = BOMB, updating_health = TRUE)
 				staggerstun(living_target, proj, stagger = stagger_amount, slowdown = slow_amount)
 				living_target.do_jitter_animation(500)

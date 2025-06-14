@@ -75,7 +75,7 @@
 /area/lv624/lazarus/crashed_ship/desparity)
 "az" = (
 /obj/structure/catwalk,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/liquid/water/river/autosmooth,
@@ -2044,7 +2044,7 @@
 /area/lv624/lazarus/fitness)
 "kE" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor,
@@ -2350,7 +2350,7 @@
 /area/lv624/ground/jungle9)
 "mg" = (
 /obj/effect/landmark/weed_node,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -3265,7 +3265,7 @@
 /turf/open/floor/tile/blue,
 /area/lv624/lazarus/medbay)
 "qR" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
@@ -3339,7 +3339,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor,
@@ -3354,7 +3354,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/engineering)
 "ri" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -3705,7 +3705,7 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle10)
 "sX" = (
-/obj/structure/barricade/metal/deployable{
+/obj/structure/barricade/solid/deployable{
 	dir = 8
 	},
 /turf/open/floor/plating/dmg1,
@@ -4124,7 +4124,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/structure/barricade/metal/deployable{
+/obj/structure/barricade/solid/deployable{
 	dir = 1
 	},
 /turf/open/floor/podhatch{
@@ -4235,7 +4235,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
 /area/lv624/lazarus/spaceport)
 "vy" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor,
@@ -4274,7 +4274,7 @@
 "vF" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/structure/barricade/metal/deployable{
+/obj/structure/barricade/solid/deployable{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -4579,7 +4579,7 @@
 /turf/open/floor,
 /area/lv624/lazarus/spaceport)
 "xl" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor,
@@ -4907,7 +4907,7 @@
 /area/lv624/lazarus/canteen)
 "yT" = (
 /obj/structure/flora/ausbushes/reedbush,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -5156,7 +5156,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
 /area/lv624/ground/jungle10)
 "zX" = (
-/obj/structure/barricade/metal/deployable{
+/obj/structure/barricade/solid/deployable{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -5505,7 +5505,7 @@
 "BJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/structure/barricade/metal/deployable{
+/obj/structure/barricade/solid/deployable{
 	dir = 1
 	},
 /obj/item/stack/rods,
@@ -5558,7 +5558,7 @@
 	},
 /area/lv624/lazarus/hydroponics)
 "BV" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -5678,7 +5678,7 @@
 	},
 /obj/effect/decal/cleanable/blood/xeno,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -5693,7 +5693,7 @@
 	},
 /area/lv624/lazarus/hydroponics)
 "CE" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor,
@@ -5984,7 +5984,7 @@
 /area/lv624/lazarus/spaceport)
 "Ec" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor,
@@ -6138,7 +6138,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
 "ET" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor,
@@ -6388,7 +6388,7 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle7)
 "Gl" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -6416,7 +6416,7 @@
 /area/lv624/lazarus/research/caves)
 "Gr" = (
 /obj/structure/catwalk,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/liquid/water/river/autosmooth,
@@ -7184,7 +7184,7 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle9)
 "JU" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -8013,7 +8013,7 @@
 /area/lv624/lazarus/medbay)
 "NS" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor,
@@ -8626,7 +8626,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 8
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor,
@@ -8665,7 +8665,7 @@
 /turf/open/floor,
 /area/lv624/lazarus/spaceport2)
 "Rg" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/wood/broken,
@@ -9059,7 +9059,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/river3)
 "SV" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/wood,

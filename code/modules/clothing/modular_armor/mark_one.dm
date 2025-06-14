@@ -9,32 +9,6 @@
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
 
-	attachments_allowed = list(
-		/obj/item/armor_module/module/tyr_head,
-		/obj/item/armor_module/module/tyr_head/mark2,
-		/obj/item/armor_module/module/hod_head,
-		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
-		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1,
-		/obj/item/armor_module/module/welding,
-		/obj/item/armor_module/module/welding/superior,
-		/obj/item/armor_module/module/binoculars,
-		/obj/item/armor_module/module/binoculars/artemis_mark_two,
-		/obj/item/armor_module/module/artemis,
-		/obj/item/armor_module/module/antenna,
-		/obj/item/armor_module/module/night_vision,
-		/obj/item/armor_module/module/fire_proof_helmet,
-		/obj/item/armor_module/module/motion_detector,
-		/obj/item/armor_module/storage/helmet,
-		/obj/item/armor_module/armor/badge,
-		/obj/item/armor_module/armor/visor/marine/old,
-		/obj/item/armor_module/armor/visor/marine/old/skirmisher,
-		/obj/item/armor_module/armor/visor/marine/old/scout,
-		/obj/item/armor_module/armor/visor/marine/old/eva,
-		/obj/item/armor_module/armor/visor/marine/old/eva/skull,
-		/obj/item/armor_module/armor/visor/marine/old/eod,
-		/obj/item/armor_module/armor/visor/marine/old/assault,
-	)
-
 	greyscale_config = /datum/greyscale_config/armor_mk1/infantry
 	greyscale_colors = ARMOR_PALETTE_DRAB
 	colorable_allowed = PRESET_COLORS_ALLOWED|HAIR_CONCEALING_CHANGE_ALLOWED

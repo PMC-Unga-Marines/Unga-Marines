@@ -25,6 +25,8 @@
 #define JOB_DISPLAY_ORDER_SYNTHETIC 21
 #define JOB_DISPLAY_ORDER_SURVIVOR 22
 #define JOB_DISPLAY_ORDER_CORPORATE_LIAISON 23
+#define JOB_DISPLAY_ORDER_CLOWN 24
+#define JOB_DISPLAY_ORDER_MILITARY_POLICE 25
 
 #define JOB_FLAG_SPECIALNAME (1<<0)
 #define JOB_FLAG_LATEJOINABLE (1<<1) //Can this job be selected for prefs to join as?
@@ -68,6 +70,8 @@
 #define SQUAD_VATGROWN "Squad VatGrown"
 #define SILICON_AI "AI"
 #define JOB_PREDATOR "Predator"
+#define CLOWN "Ship Clown"
+#define MILITARY_POLICE "Military Policeman"
 
 #define JOB_CAT_COMMAND "Command"
 #define JOB_CAT_SILICON "Silicon"

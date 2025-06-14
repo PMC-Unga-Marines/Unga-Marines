@@ -67,16 +67,6 @@
 /datum/species/zombie/handle_unique_behavior(mob/living/carbon/human/H)
 	if(prob(10))
 		playsound(get_turf(H), pick(sounds), 50)
-	for(var/datum/limb/limb AS in H.limbs) //Regrow some limbs
-		if(limb.limb_status & LIMB_DESTROYED && !(limb.parent?.limb_status & LIMB_DESTROYED) && limb.vital && prob(10))
-			limb.remove_limb_flags(LIMB_DESTROYED)
-			if(istype(limb, /datum/limb/hand/l_hand))
-				H.equip_to_slot_or_del(new /obj/item/weapon/zombie_claw, SLOT_L_HAND)
-			else if (istype(limb, /datum/limb/hand/r_hand))
-				H.equip_to_slot_or_del(new /obj/item/weapon/zombie_claw, SLOT_R_HAND)
-			H.update_body()
-		else if(limb.limb_status & LIMB_BROKEN && prob(20))
-			limb.remove_limb_flags(LIMB_BROKEN|LIMB_SPLINTED|LIMB_STABILIZED)
 
 	if(H.health != total_health)
 		H.heal_limbs(heal_rate)
@@ -212,7 +202,7 @@
 	force = 20
 	sharp = IS_SHARP_ITEM_BIG
 	edge = TRUE
-	attack_verb = list("clawed", "slashed", "torn", "ripped", "diced", "cut", "bit")
+	attack_verb = list("claws", "slashes", "tears", "rips", "dices", "cuts", "bites")
 	item_flags = CAN_BUMP_ATTACK|DELONDROP
 	attack_speed = 8 //Same as unarmed delay
 	pry_capable = IS_PRY_CAPABLE_FORCE
