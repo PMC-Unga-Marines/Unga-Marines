@@ -19781,9 +19781,7 @@ __metadata:
     "@swc/core": "npm:^1.9.1"
     "@swc/jest": "npm:^0.2.37"
     "@types/jest": "npm:^29.5.14"
-    "@types/jsdom": ^21.1.6
     "@types/node": "npm:^22.9.0"
-    "@types/webpack": ^5.28.5
     "@types/webpack-env": "npm:^1.18.5"
     "@typescript-eslint/parser": "npm:^8.13.0"
     "@typescript-eslint/utils": "npm:^8.13.0"
@@ -19792,7 +19790,7 @@ __metadata:
     eslint: "npm:^8.57.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-react: "npm:^7.34.1"
-    eslint-plugin-simple-import-sort: "npm:^12.0.0"
+    eslint-plugin-simple-import-sort: "npm:^12.1.1"
     eslint-plugin-sonarjs: "npm:^0.25.0"
     eslint-plugin-unused-imports: "npm:^3.1.0"
     file-loader: "npm:^6.2.0"
