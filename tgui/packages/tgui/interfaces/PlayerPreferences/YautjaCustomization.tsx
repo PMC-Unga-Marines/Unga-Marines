@@ -6,7 +6,7 @@ import {
   Flex,
   LabeledList,
   Section,
-} from '../../components';
+} from 'tgui-core/components';
 import { SelectFieldPreference, TextFieldPreference } from './FieldPreferences';
 import { ProfilePicture } from './ProfilePicture';
 

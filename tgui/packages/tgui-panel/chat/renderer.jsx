@@ -4,8 +4,6 @@
  * @license MIT
  */
 
-import { EventEmitter } from 'common/events';
-import { Tooltip } from 'tgui/components';
 import { createRoot } from 'react-dom/client';
 import { createLogger } from 'tgui/logging';
 import { Tooltip } from 'tgui-core/components';
