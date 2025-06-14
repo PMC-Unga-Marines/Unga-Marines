@@ -4,11 +4,11 @@
 	desc = "The planet's thunderstorms are by nature acidic, and will incinerate anyone standing beneath them without protection."
 
 	telegraph_duration = 400
-	telegraph_message = span_highdanger("Thunder rumbles far above. You hear acidic droplets hissing against the canopy. Seek shelter!")
+	telegraph_message = span_userdanger("Thunder rumbles far above. You hear acidic droplets hissing against the canopy. Seek shelter!")
 	telegraph_overlay = "rain_med"
 	telegraph_sound = 'sound/effects/siren.ogg'
 
-	weather_message = span_highdanger("<i>Acidic rain pours down around you! Get inside!</i>")
+	weather_message = span_userdanger("<i>Acidic rain pours down around you! Get inside!</i>")
 	weather_overlay = "acid_rain"
 	weather_duration_lower = 600
 	weather_duration_upper = 1500
@@ -56,7 +56,7 @@
 	L.wash()
 	if(L.fire_stacks > -20)
 		L.fire_stacks = max(-20, L.fire_stacks - 1)
-// RU TGMC EDIT
+
 	if(ishuman(L))
 		var/mob/living/carbon/human/human = L
 		if(!istype(human.gloves, /obj/item/clothing/gloves/yautja/hunter))
@@ -64,8 +64,8 @@
 		var/obj/item/clothing/gloves/yautja/hunter/gloves = human.gloves
 		if(gloves.cloaked)
 			gloves.decloak(L)
-			to_chat(L, span_highdanger("<i>Rain interferes with your cloaking device!</i>"))
-// RU TGMC EDIT
+			to_chat(L, span_userdanger("<i>Rain interferes with your cloaking device!</i>"))
+
 /datum/weather/acid_rain/harmless
 	target_trait = ZTRAIT_RAIN
 
@@ -98,7 +98,7 @@
 			"As you move through the heavy rain, your clothes become completely waterlogged!",
 			)
 			to_chat(L, span_warning(wetmessage))
-// RU TGMC EDIT
+
 	if(ishuman(L))
 		var/mob/living/carbon/human/human = L
 		if(!istype(human.gloves, /obj/item/clothing/gloves/yautja/hunter))
@@ -106,5 +106,5 @@
 		var/obj/item/clothing/gloves/yautja/hunter/gloves = human.gloves
 		if(gloves.cloaked)
 			gloves.decloak(L)
-			to_chat(L, span_highdanger("<i>Rain interferes with your cloaking device!</i>"))
-// RU TGMC EDIT
+			to_chat(L, span_userdanger("<i>Rain interferes with your cloaking device!</i>"))
+

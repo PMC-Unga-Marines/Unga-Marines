@@ -70,7 +70,6 @@
 	icon_state = "fobpc-transfer"
 	user.lighting_alpha = 120
 	eyeobj.name = "Remote Construction Drone"
-	eyeobj.register_facedir_signals(user)
 	if(eyeobj.eye_initialized)
 		eyeobj.setLoc(get_turf(spawn_spot))
 
@@ -192,7 +191,6 @@
 	icon_state = "fobpc"
 	eyeobj.invisibility = INVISIBILITY_ABSTRACT
 	eyeobj.eye_initialized = FALSE
-	eyeobj.unregister_facedir_signals(user)
 	UnregisterSignal(user, COMSIG_MOB_CLICKON)
 	return ..()
 

@@ -344,7 +344,7 @@
 /turf/open/floor/plating,
 /area/lv624/ground/river1)
 "alR" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/tile/bar,
 /area/lv624/lazarus/canteen)
 "alV" = (
@@ -1012,10 +1012,10 @@
 	},
 /area/lv624/lazarus/comms)
 "aAg" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -1791,7 +1791,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand8)
 "aTl" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -2639,7 +2639,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand4)
 "bpY" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/tile/white,
@@ -4430,7 +4430,7 @@
 /area/lv624/ground/jungle3)
 "djk" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor,
@@ -4798,7 +4798,7 @@
 /area/lv624/lazarus/overgrown)
 "dBC" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/marking/warning{
@@ -4957,7 +4957,7 @@
 /turf/closed/wall,
 /area/lv624/lazarus/corporate_affairs)
 "dLJ" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
@@ -5288,7 +5288,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage)
 "ecd" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -5562,7 +5562,7 @@
 	},
 /area/lv624/ground/river2)
 "esF" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
@@ -5743,7 +5743,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
 "eGk" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/marking/warning{
@@ -5851,7 +5851,7 @@
 /area/lv624/lazarus/captain)
 "eOR" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "ePv" = (
@@ -6444,7 +6444,7 @@
 "fwA" = (
 /obj/item/contraband/poster,
 /obj/item/clothing/glasses/regular/hipster,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/tile/blue/taupebluecorner{
@@ -6645,7 +6645,7 @@
 /area/lv624/ground/jungle3)
 "fIg" = (
 /obj/item/trash/cheesie,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/tile/white,
@@ -6831,7 +6831,7 @@
 "fWm" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/marking/warning{
@@ -6875,7 +6875,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/corporate_affairs)
 "fXp" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -7873,7 +7873,7 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
 "hdI" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
@@ -8484,7 +8484,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/corporate_affairs)
 "hOJ" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -8626,7 +8626,7 @@
 /turf/open/floor/plating/platebotc,
 /area/lv624/lazarus/engineering)
 "hVV" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/marking/warning{
@@ -8734,7 +8734,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/secure_storage)
 "iav" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
@@ -8756,7 +8756,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/bar)
 "ica" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -9252,7 +9252,7 @@
 /turf/open/floor/grimy,
 /area/lv624/lazarus/captain)
 "iDE" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/wood,
@@ -9515,7 +9515,7 @@
 /turf/open/liquid/water/river/deep,
 /area/lv624/ground/river2)
 "iSZ" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/wood/broken,
@@ -9876,7 +9876,7 @@
 	},
 /area/lv624/lazarus/comms)
 "jqf" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/wood,
 /area/lv624/ground/jungle8)
 "jqp" = (
@@ -9896,7 +9896,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
 "jrx" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating/platebotc,
 /area/lv624/lazarus/quartstorage/outdoors)
 "jsp" = (
@@ -10307,7 +10307,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/west1)
 "jMz" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
@@ -10333,10 +10333,10 @@
 /turf/open/floor/tile/chapel,
 /area/lv624/lazarus/chapel)
 "jNH" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /obj/effect/landmark/weed_node,
@@ -10385,7 +10385,7 @@
 /obj/effect/turf_decal/tracks/human1/wet{
 	dir = 8
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/marking/warning{
@@ -11432,7 +11432,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/c)
 "kVC" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -11609,7 +11609,7 @@
 /area/lv624/ground/jungle8)
 "lfr" = (
 /obj/item/tool/crowbar,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/marking/warning{
@@ -11645,7 +11645,7 @@
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/jungle9)
 "liv" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/marking/warning{
@@ -11926,7 +11926,7 @@
 /turf/open/floor/plating/platebotc,
 /area/lv624/lazarus/canteen)
 "lBN" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -12323,7 +12323,7 @@
 	},
 /area/lv624/ground/filtration)
 "lXD" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/plating/warning{
@@ -12678,7 +12678,7 @@
 	},
 /area/lv624/lazarus/fitness)
 "mnT" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/marking/warning/corner{
@@ -12737,7 +12737,7 @@
 /turf/open/floor/freezer,
 /area/lv624/lazarus/research)
 "mrB" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/marking/warning/corner{
@@ -12855,7 +12855,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
 "myG" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/marking/warning{
@@ -13026,7 +13026,7 @@
 	},
 /area/lv624/lazarus/hydroponics)
 "mJw" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
@@ -13235,10 +13235,10 @@
 /turf/open/floor,
 /area/lv624/ground/river2)
 "mUd" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/marking/warning{
@@ -14335,7 +14335,7 @@
 /turf/closed/wall,
 /area/lv624/lazarus/internal_affairs)
 "omv" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/ai_node,
 /turf/open/floor/tile/bar,
 /area/lv624/lazarus/canteen)
@@ -14358,7 +14358,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/engineering)
 "opZ" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/marking/warning/corner,
@@ -14413,7 +14413,7 @@
 /turf/open/shuttle/dropship/fourteen,
 /area/lv624/lazarus/sandtemple)
 "org" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/quartstorage/outdoors)
 "orR" = (
@@ -14759,7 +14759,7 @@
 /turf/open/floor/plating/platebot,
 /area/lv624/lazarus/robotics)
 "oNS" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/marking/warning/corner{
@@ -15083,7 +15083,7 @@
 /turf/open/liquid/water/river/autosmooth/deep,
 /area/lv624/ground/river1)
 "pfZ" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -15118,7 +15118,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle4)
 "phB" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
@@ -15420,7 +15420,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/jungle8)
 "pDK" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/marking/warning{
@@ -15698,7 +15698,7 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "pTs" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
@@ -15707,7 +15707,7 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "pTC" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /obj/effect/landmark/weed_node,
@@ -16046,7 +16046,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/jungle4)
 "qpx" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/effect/ai_node,
@@ -16079,7 +16079,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/caves/rock)
 "qrv" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -16241,7 +16241,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/tile/white,
@@ -16725,7 +16725,7 @@
 /area/lv624/ground/jungle7)
 "rbm" = (
 /obj/structure/cable,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/marking/warning{
@@ -17121,7 +17121,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/compound/sw)
 "ruJ" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
@@ -17203,7 +17203,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle6)
 "ryY" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
@@ -17519,7 +17519,7 @@
 /area/lv624/ground/jungle8)
 "rLY" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating/asteroidfloor,
@@ -17763,7 +17763,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/tile/white,
@@ -17910,10 +17910,10 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage)
 "sdo" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -18171,7 +18171,7 @@
 /obj/effect/turf_decal/tracks/human1/wet{
 	dir = 8
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating/asteroidfloor,
@@ -19061,7 +19061,7 @@
 	},
 /area/lv624/lazarus/main_hall)
 "tue" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/tile/purple/taupepurple{
@@ -20369,7 +20369,7 @@
 /area/lv624/ground/jungle5)
 "uSv" = (
 /obj/machinery/light/small,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/tile/white,
@@ -20379,7 +20379,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle5)
 "uTM" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
@@ -20624,7 +20624,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/armory)
 "vfD" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/tile/blue/taupebluecorner{
@@ -20636,7 +20636,7 @@
 /turf/open/floor,
 /area/lv624/ground/sand2)
 "vfH" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "vgb" = (
@@ -20743,7 +20743,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage/dome)
 "vmI" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -21296,7 +21296,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor,
@@ -21872,7 +21872,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/se)
 "wsA" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/tile/purple/taupepurple{
@@ -21997,7 +21997,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/tile/white,
@@ -22433,7 +22433,7 @@
 /area/lv624/lazarus/main_hall)
 "wTQ" = (
 /obj/machinery/light,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor,
@@ -22585,7 +22585,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle5)
 "wZX" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/marking/warning{
@@ -23399,7 +23399,7 @@
 	},
 /area/lv624/lazarus/robotics)
 "xNJ" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/tile/white,
@@ -23658,7 +23658,7 @@
 /turf/closed/wall,
 /area/lv624/lazarus/corporate_affairs)
 "ycn" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 4
 	},
 /turf/open/floor/tile/white,

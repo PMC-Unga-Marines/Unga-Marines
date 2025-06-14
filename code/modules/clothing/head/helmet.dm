@@ -360,7 +360,7 @@
 	icon_state = "guardvethelm"
 	soft_armor = list(MELEE = 90, BULLET = 90, LASER = 90, ENERGY = 90, BOMB = 90, BIO = 30, FIRE = 90, ACID = 90)
 
-/obj/item/clothing/head/helmet/UPP
+/obj/item/clothing/head/helmet/upp
 	name = "\improper UM4 helmet"
 	desc = "A skirted helmet designed for use with the UM/UH system."
 	icon = 'icons/obj/clothing/headwear/ert_headwear.dmi'
@@ -373,7 +373,7 @@
 	soft_armor = list(MELEE = 70, BULLET = 55, LASER = 40, ENERGY = 35, BOMB = 35, BIO = 5, FIRE = 35, ACID = 35)
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
 
-/obj/item/clothing/head/helmet/UPP/heavy
+/obj/item/clothing/head/helmet/upp/heavy
 	name = "\improper UH7 helmet"
 	icon_state = "upp_helmet_heavy"
 	soft_armor = list(MELEE = 90, BULLET = 85, LASER = 60, ENERGY = 65, BOMB = 85, BIO = 5, FIRE = 65, ACID = 65)

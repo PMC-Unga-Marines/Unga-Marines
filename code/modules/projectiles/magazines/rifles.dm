@@ -722,6 +722,7 @@
 /obj/item/ammo_magazine/icc_mg/packet
 	name = "box of 10x26mm"
 	desc = "A box containing 500 rounds of 10x26mm caseless."
+	icon = 'icons/obj/items/ammo/packet.dmi'
 	icon_state = "box_minimi"
 	current_rounds = 500
 	max_rounds = 500

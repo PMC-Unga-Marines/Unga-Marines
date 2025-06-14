@@ -35,7 +35,7 @@
 		if(amount > MAX_PARALYSE_AMOUNT_FOR_PARALYSE_RESISTANT * 4)
 			amount = MAX_PARALYSE_AMOUNT_FOR_PARALYSE_RESISTANT
 			return ..()
-		amount /= 4
+		amount *= 0.25
 	return ..()
 
 ///Used to set paralyzed to a set amount, commonly to remove it

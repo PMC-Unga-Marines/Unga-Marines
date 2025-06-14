@@ -577,3 +577,15 @@
 	emote_type = EMOTE_AUDIBLE
 	emote_flags = EMOTE_RESTRAINT_CHECK|EMOTE_MUZZLE_IGNORE|EMOTE_ARMS_CHECK
 	sound = 'sound/misc/sound_misc_knuckles.ogg'
+
+/datum/emote/living/carbon/human/trick
+	key = "trick"
+	key_third_person = "tricks"
+	emote_flags = EMOTE_ACTIVE_ITEM|EMOTE_RESTRAINT_CHECK
+
+/datum/emote/living/carbon/human/trick/run_emote(mob/user, params, type_override, intentional, prefix)
+	. = ..()
+	if(!.)
+		return
+	var/obj/item/I = user.get_active_held_item()
+	I.do_trick(usr)

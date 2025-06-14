@@ -332,7 +332,7 @@
 	},
 /area/bigredv2/outside/admin_building)
 "oq" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/tile/white,
@@ -1087,7 +1087,7 @@
 "Mm" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/tile/white,

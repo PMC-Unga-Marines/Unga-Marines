@@ -107,7 +107,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/general_offices)
 "dH" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
@@ -126,7 +126,7 @@
 /area/bigredv2/outside/general_offices)
 "eP" = (
 /obj/effect/landmark/excavation_site_spawner,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor,
@@ -181,10 +181,10 @@
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
 "hQ" = (
@@ -460,7 +460,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
 "sx" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -481,7 +481,7 @@
 /area/bigredv2/outside/general_offices)
 "tx" = (
 /obj/structure/cable,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
@@ -829,7 +829,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/general_offices)
 "Jx" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
@@ -1020,7 +1020,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor,
@@ -1035,7 +1035,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/caves/northeast/garbledradio)
 "TL" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor,
@@ -1046,7 +1046,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/general_offices)
 "Ue" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor,

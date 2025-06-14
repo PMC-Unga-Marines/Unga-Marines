@@ -283,3 +283,7 @@
 
 /// Time needed to initially configure an antenna module after equipping
 #define ANTENNA_SYNCING_TIME 30 SECONDS
+
+#define CADE_TYPE_BOMB "concussive armor"
+#define CADE_TYPE_MELEE "ballistic armor"
+#define CADE_TYPE_ACID "caustic armor"

@@ -550,9 +550,8 @@
 			msg += "Sanguinal: Causes brute damage and bleeding from the brute damage. Does additional damage types in the presence of other xeno-based toxins. Toxin damage for Neuro, Stamina damage for Hemodile, and Burn damage for Transvitox.\n"
 
 	if(has_status_effect(STATUS_EFFECT_ADMINSLEEP))
-		msg += span_highdanger("<b>This player has been slept by staff. Best to leave them be.</b>\n")
+		msg += span_userdanger("This player has been slept by staff. Best to leave them be.\n")
 
-//RUTGMC EDIT
 	if(isyautja(user))
 		var/obj/item/clothing/gloves/yautja/hunter/bracers = gloves
 		if(istype(bracers) && bracers.name_active)
@@ -570,7 +569,6 @@
 			msg += span_green("[src] was thralled by [src.hunter_data.thralled_set.real_name] for '[src.hunter_data.thralled_reason]'.")
 		else if(src.hunter_data.gear)
 			msg += span_red("[src] was marked as carrying gear by [src.hunter_data.gear_set].")
-//RUTGMC EDIT
 
 	msg += "</span>"
 	return list(msg)

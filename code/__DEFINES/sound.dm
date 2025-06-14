@@ -169,3 +169,4 @@
 #define SFX_CLAN_SWORD_HIT "clan_sword_hit"
 #define SFX_CHAIN_SWING "chain_swing"
 #define SFX_HOVER_TANK "hover_tank"
+#define SFX_REVOLVER_SPIN "revolver_spin"

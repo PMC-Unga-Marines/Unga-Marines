@@ -47,7 +47,7 @@
 		return
 
 	if(grenadiers < max_grenadiers)
-		var/datum/job/J = SSjob.GetJobType(/datum/job/freelancer/grenadier)
+		var/datum/job/J = SSjob.GetJobType(/datum/job/freelancer/veteran)
 		H.apply_assigned_role_to_spawn(J)
 		to_chat(H, span_notice("You are a Grenadier of the local resistance group, the Colonial Liberation Front."))
 		grenadiers++

@@ -373,4 +373,12 @@
 /obj/item/reagent_containers/hypospray/autoinjector/yautja/interact(mob/user)
 	return
 
-
+/obj/item/reagent_containers/hypospray/autoinjector/regrow
+	name = "Re-Grow autoinjector"
+	desc = "An auto-injector loaded with Re-Grow - able to rapidly regrow missing limbs."
+	icon_state = "AngelLight"
+	amount_per_transfer_from_this = 5
+	list_reagents = list(
+		/datum/reagent/medicine/regrow = 30,
+	)
+	description_overlay = "Grw"

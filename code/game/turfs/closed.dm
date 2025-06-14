@@ -47,7 +47,7 @@
 	resistance_flags = UNACIDABLE
 
 /turf/closed/mineral/add_debris_element()
-	AddElement(/datum/element/debris, DEBRIS_ROCK, -10, 5, 1)
+	AddElement(/datum/element/debris, DEBRIS_ROCK, -40, 5, 1)
 
 /turf/closed/mineral/Initialize(mapload)
 	. = ..()
@@ -237,7 +237,7 @@
 	open_turf_type = /turf/open/ground/jungle/clear
 
 /turf/closed/gm/add_debris_element()
-	AddElement(/datum/element/debris, DEBRIS_LEAF, -10, 5)
+	AddElement(/datum/element/debris, DEBRIS_LEAF, -40, 5)
 
 /turf/closed/gm/tree
 	name = "dense jungle trees"
@@ -297,7 +297,7 @@
 	open_turf_type = /turf/open/floor/plating/ground/ice
 
 /turf/closed/ice/add_debris_element()
-	AddElement(/datum/element/debris, DEBRIS_SNOW, -10, 5, 1)
+	AddElement(/datum/element/debris, DEBRIS_SNOW, -40, 5, 1)
 
 /turf/closed/ice/single
 	icon_state = "Single"
@@ -380,7 +380,7 @@
 	open_turf_type = /turf/open/floor/plating/ground/ice
 
 /turf/closed/ice_rock/add_debris_element()
-	AddElement(/datum/element/debris, DEBRIS_SNOW, -10, 5, 1)
+	AddElement(/datum/element/debris, DEBRIS_SNOW, -40, 5, 1)
 
 /turf/closed/ice_rock/single
 	icon_state = "single"
@@ -442,7 +442,7 @@
 	resistance_flags = PLASMACUTTER_IMMUNE
 
 /turf/closed/shuttle/add_debris_element()
-	AddElement(/datum/element/debris, DEBRIS_SPARKS, -15, 8, 1)
+	AddElement(/datum/element/debris, DEBRIS_SPARKS, -40, 8, 1)
 
 /turf/closed/shuttle/re_corner/notdense
 	icon_state = "re_cornergrass"

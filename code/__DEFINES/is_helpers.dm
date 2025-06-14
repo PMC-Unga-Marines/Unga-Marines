@@ -235,6 +235,8 @@ GLOBAL_VAR_INIT(magic_appearance_detecting_image, new /image) // appearances are
 
 #define isstructure(A) (istype(A, /obj/structure))
 
+#define isxenostructure(A) (istype(A, /obj/structure/xeno))
+
 #define iscable(A) (istype(A, /obj/structure/cable))
 
 #define isladder(A) (istype(A, /obj/structure/ladder))

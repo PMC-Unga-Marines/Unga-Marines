@@ -62,7 +62,7 @@
 	screen_loc = ui_sunderhud
 
 /datum/hud/alien/New(mob/living/carbon/xenomorph/owner, ui_style, ui_color, ui_alpha = 230)
-	..()
+	. = ..()
 	var/atom/movable/screen/using
 	var/atom/movable/screen/inventory/inv_box
 

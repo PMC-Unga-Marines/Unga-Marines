@@ -191,8 +191,6 @@
 	if(!islist)
 		type = D.type
 
-
-
 	if(istype(D, /atom))
 		var/atom/AT = D
 		if(AT.icon && AT.icon_state)
@@ -1136,19 +1134,19 @@
 
 		var/atom/target
 
-		switch(input("Where do you want to send it to?", "Send Mob") as null|anything in list("Area", "Mob", "Key", "Coords"))
+		switch(input("Where do you want to send it to?", "Send Mob") AS in list("Area", "Mob", "Key", "Coords"))
 			if("Area")
-				var/area/AR = input("Pick an area.", "Pick an area") as null|anything in GLOB.sorted_areas
+				var/area/AR = input("Pick an area.", "Pick an area") AS in GLOB.sorted_areas
 				if(!AR || !A)
 					return
 				target = pick(get_area_turfs(AR))
 			if("Mob")
-				var/mob/N = input("Pick a mob.", "Pick a mob") as null|anything in sortList(GLOB.mob_list)
+				var/mob/N = input("Pick a mob.", "Pick a mob") AS in sortList(GLOB.mob_list)
 				if(!N || !A)
 					return
 				target = get_turf(N)
 			if("Key")
-				var/client/C = input("Pick a key.", "Pick a key") as null|anything in sortKey(GLOB.clients)
+				var/client/C = input("Pick a key.", "Pick a key") AS in sortKey(GLOB.clients)
 				if(!C || !A)
 					return
 				target = get_turf(C.mob)

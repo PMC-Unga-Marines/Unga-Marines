@@ -341,7 +341,7 @@ directive is properly returned.
 		else if(CHECK_BITFIELD(reagents.reagent_flags, AMOUNT_SKILLCHECK))
 			if(isxeno(user))
 				return
-			if(user.skills.getRating(SKILL_MEDICAL) >= SKILL_MEDICAL_NOVICE)
+			if((user.skills.getRating(SKILL_MEDICAL) >= SKILL_MEDICAL_NOVICE) || isobserver(usr))
 				. += "It contains these reagents:"
 				if(length(reagents.reagent_list))
 					for(var/datum/reagent/R in reagents.reagent_list)
@@ -892,7 +892,7 @@ directive is properly returned.
 
 ///Adds the debris element for projectile impacts
 /atom/proc/add_debris_element()
-	AddElement(/datum/element/debris, null, -15, 8, 0.7)
+	AddElement(/datum/element/debris, null, -40, 8, 0.7)
 
 /**
 	Returns a number after taking into account both soft and hard armor for the specified damage type, usually damage

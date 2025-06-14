@@ -85,6 +85,11 @@
 		/datum/reagent/medicine/dylovene = list(NAME = "Dylovene", REQ = 5, BRUTE_AMP = 0, BURN_AMP = 0, TOX_HEAL = 0.5, STAM_REG_AMP = 0, SPEED_BOOST = 0),
 		/datum/reagent/medicine/synaptizine = list(NAME = "Synaptizine", REQ = 1, BRUTE_AMP = 0, BURN_AMP = 0, TOX_HEAL = 1, STAM_REG_AMP = 0.1, SPEED_BOOST = 0),
 		/datum/reagent/medicine/neuraline = list(NAME = "Neuraline", REQ = 2, BRUTE_AMP = 1, BURN_AMP = 1, TOX_HEAL = -3, STAM_REG_AMP = 0, SPEED_BOOST = -0.3),
+		/datum/reagent/toxin/xeno_hemodile = list(NAME = "Hemodile", REQ = 3, BRUTE_AMP = 0, BURN_AMP = 0, TOX_HEAL = 0, STAM_REG_AMP = -0.2, SPEED_BOOST = 0.2),
+		/datum/reagent/toxin/xeno_transvitox = list(NAME = "Transvitox", REQ = 3, BRUTE_AMP = 0, BURN_AMP = 0, TOX_HEAL = -0.3, STAM_REG_AMP = 0, SPEED_BOOST = 0),
+		/datum/reagent/toxin/xeno_sanguinal = list(NAME = "Sanguinal", REQ = 3, BRUTE_AMP = -0.3, BURN_AMP = 0, TOX_HEAL = 0, STAM_REG_AMP = 0, SPEED_BOOST = 0),
+		/datum/reagent/toxin/xeno_ozelomelyn = list(NAME = "Ozelomelyn", REQ = 3, BRUTE_AMP = -0.2, BURN_AMP = -0.2, TOX_HEAL = -0.2, STAM_REG_AMP = 0, SPEED_BOOST = 0),
+		/datum/reagent/toxin/satrapine = list(NAME = "Satrapine", REQ = 3, BRUTE_AMP = 0, BURN_AMP = 0, TOX_HEAL = -0.3, STAM_REG_AMP = -0.3, SPEED_BOOST = 0),
 	)
 
 /datum/component/chem_booster/Initialize()
@@ -199,7 +204,7 @@
 		to_chat(wearer, span_bold("WARNING: You have [(200 - (vali_necro_timer)) * 0.1] seconds before necrotic tissue forms on your limbs."))
 	if(vali_necro_timer > 15 SECONDS)
 		wearer.overlay_fullscreen("degeneration", /atom/movable/screen/fullscreen/animated/infection, 1)
-		to_chat(wearer, span_highdanger("The process of necrosis begins to set in. Turn it off before it's too late!"))
+		to_chat(wearer, span_userdanger("The process of necrosis begins to set in. Turn it off before it's too late!"))
 
 /**
  *	Opens the radial menu with everything

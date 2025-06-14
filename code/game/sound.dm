@@ -418,7 +418,6 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 		if(SFX_PRED_LAUGH)
 			soundin = pick('sound/voice/predator/laugh1.ogg', 'sound/voice/predator/laugh2.ogg', 'sound/voice/predator/laugh3.ogg', 'sound/voice/predator/laugh4.ogg')
 
-		//pred items
 		if(SFX_CLAN_SWORD_HIT)
 			soundin = pick('sound/weapons/clan_sword_hit_1.ogg', 'sound/weapons/clan_sword_hit_2.ogg')
 		if(SFX_CHAIN_SWING)
@@ -426,4 +425,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 
 		if(SFX_HOVER_TANK)
 			soundin = pick('sound/vehicles/hover_1.ogg', 'sound/vehicles/hover_2.ogg', 'sound/vehicles/hover_3.ogg', 'sound/vehicles/hover_4.ogg')
+
+		if(SFX_REVOLVER_SPIN)
+			soundin = pick('sound/weapons/guns/interact/revolver_spin1.ogg', 'sound/weapons/guns/interact/revolver_spin2.ogg', 'sound/weapons/guns/interact/revolver_spin3.ogg')
 	return soundin

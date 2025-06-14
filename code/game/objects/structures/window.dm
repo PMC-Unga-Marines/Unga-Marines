@@ -48,7 +48,7 @@
 	return obj_integrity / EXPLOSION_DAMAGE_MULTIPLIER_WINDOW
 
 /obj/structure/window/add_debris_element()
-	AddElement(/datum/element/debris, DEBRIS_GLASS, -10, 5)
+	AddElement(/datum/element/debris, DEBRIS_GLASS, -40, 5)
 
 //I hate this as much as you do
 /obj/structure/window/full
