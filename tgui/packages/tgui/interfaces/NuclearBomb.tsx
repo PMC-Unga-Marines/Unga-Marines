@@ -6,7 +6,6 @@ import {
   NoticeBox,
   ProgressBar,
   Section,
-  Stack,
 } from 'tgui-core/components';
 
 import { useBackend } from '../backend';

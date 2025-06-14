@@ -8,7 +8,7 @@ import {
 } from 'tgui-core/components';
 
 import { useBackend } from '../../backend';
-import {  OperatorData } from './data';
+import { OperatorData } from './data';
 
 export const MechStatPane = () => {
   const { act, data } = useBackend<OperatorData>();

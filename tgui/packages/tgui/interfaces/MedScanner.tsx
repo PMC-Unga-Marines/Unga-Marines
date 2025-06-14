@@ -358,7 +358,7 @@ const PatientStomachChemicals = () => {
               </Box>
               <Box inline width={'5px'} />
               {chemical.od ? (
-                <Box inline color={'red'} bold={1}>
+                <Box inline color={'red'} bold>
                   {'OD'}
                 </Box>
               ) : null}
