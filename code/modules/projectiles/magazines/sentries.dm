@@ -55,6 +55,7 @@
 	name = "\improper Малый бак TUR-F (Горючее)"
 	desc = "Малый бак на 5 литров горючего для турели \"Феникс\". Вставьте в порт турели в случае отстутсвия горючего."
 	icon_state = "sentry_flamer"
+	icon = 'icons/obj/items/ammo/stationary.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 	max_rounds = 75
 	current_rounds = 75

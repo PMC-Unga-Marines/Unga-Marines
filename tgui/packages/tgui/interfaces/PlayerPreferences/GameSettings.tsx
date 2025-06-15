@@ -1,12 +1,12 @@
-import { useBackend } from '../../backend';
 import {
   Button,
   ColorBox,
   LabeledList,
   Section,
   Stack,
-  Tooltip,
-} from '../../components';
+} from 'tgui-core/components';
+
+import { useBackend } from '../../backend';
 import {
   LoopingSelectionPreference,
   SelectFieldPreference,
@@ -62,13 +62,6 @@ export const GameSettings = (props) => {
                 leftLabel={'Use on active hand'}
                 rightLabel={'Use on both hands'}
               />
-              <Tooltip content="Use more accessible TGUI themes/layouts wherever possible.">
-                <ToggleFieldPreference
-                  label="Accessible TGUI themes"
-                  value="accessible_tgui_themes"
-                  action="accessible_tgui_themes"
-                />
-              </Tooltip>
               <ToggleFieldPreference
                 label="Fullscreen mode"
                 value="fullscreen_mode"

@@ -62,7 +62,7 @@
 					status = "Unconscious"
 				if(DEAD)
 					status = "Dead"
-			health = "Oxy: [L.get_oxy_loss()]  Tox: [L.get_tox_loss()]  Fire: [L.get_fire_loss()]  Brute: [L.get_brute_loss()]  Clone: [L.get_clone_Loss()]  Brain: [L.get_brain_loss()]  Stamina: [L.get_stamina_loss()]"
+			health = "Oxy: [L.get_oxy_loss()]  Tox: [L.get_tox_loss()]  Fire: [L.get_fire_loss()]  Brute: [L.get_brute_loss()]  Clone: [L.get_clone_loss()]  Brain: [L.get_brain_loss()]  Stamina: [L.get_stamina_loss()]"
 
 		to_chat(usr, {"<span class='notice'><hr><b>Info about [M.real_name]:</b>
 Type: [M.type] | Gender: [M.gender] |[job ? " Job: [job.title]" : ""]
@@ -92,7 +92,9 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/list/dat = list("Related accounts by [uppertext(href_list["showrelatedacc"])]:")
 		dat += thing_to_check
 
-		usr << browse(dat.Join("<br>"), "window=related_[C];size=420x300")
+		var/datum/browser/browser = new(usr, "related_[C]", "[C.ckey] Related Accounts", 420, 300)
+		browser.set_content(dat.Join("<br>"))
+		browser.open()
 
 	else if(href_list["centcomlookup"])
 		if(!check_rights(R_ADMIN))
@@ -859,7 +861,9 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		var/dat = "<html><meta charset='UTF-8'><head><title>Fax Message: [F.title]</title></head>"
 		dat += "<body>[F.message]</body></html>"
 
-		usr << browse(dat, "window=fax")
+		var/datum/browser/browser = new(usr, "fax", "Fax")
+		browser.set_content(dat)
+		browser.open()
 
 	else if(href_list["faxmark"])
 		if(!check_rights(R_ADMIN|R_MENTOR))
@@ -984,10 +988,12 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				if(!fax_message)
 					return
 
-		usr << browse(fax_message, "window=faxpreview;size=600x600")
+		var/datum/browser/browser = new(usr, "faxpreview", "New Fax", 600, 600)
+		browser.set_content(fax_message)
+		browser.open()
 
 		if(tgui_alert(usr, "Send this fax?", "Confirmation", list("Yes", "No"), 0) != "Yes")
-			usr << browse(null, "window=faxpreview")
+			browser.close()
 			return
 
 		send_fax(usr, null, dep, subject, fax_message, TRUE)
@@ -1023,7 +1029,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		var/dat = "<b>What mode do you wish to play?</b><br>"
 		for(var/datum/game_mode/mode AS in config.modes)
-			dat += "<a href='?src=[REF(usr.client.holder)];[HrefToken()];changemode=[mode]'>[mode.name]</a><br>"
+			dat += "<a href='byond://?src=[REF(usr.client.holder)];[HrefToken()];changemode=[mode]'>[mode.name]</a><br>"
 		dat += "<br>"
 		dat += "Now: [GLOB.master_mode]<br>"
 		dat += "Next Round: [trim(file2text("data/mode.txt"))]"
@@ -1687,7 +1693,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 
 	else if(href_list["playtime"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_ADMIN|R_MENTOR))
 			return
 
 		var/mob/M = locate(href_list["playtime"]) in GLOB.mob_list
@@ -2077,7 +2083,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 	else if(href_list["clearpollvotes"])
 		var/datum/poll_question/poll = locate(href_list["clearpollvotes"]) in GLOB.polls
-		poll.cleaR_DBRANKS_votes()
+		poll.cleaR_POLLS_votes()
 		poll_management_panel(poll)
 
 	else if(href_list["addpolloption"])
@@ -2127,3 +2133,31 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		xeno_message("QUEEN MOTHER BANISHMENT", "xenobanishtitleannonce", 5, target.hivenumber, sound= sound(SFX_QUEEN, channel = CHANNEL_ANNOUNCEMENTS))
 		xeno_message("By Queen Mother's will, [target] has been unbanished!\n[reason]", "xenobanishannonce", 5, target.hivenumber)
 		message_admins("[src.owner] has unbanish [ADMIN_TPMONTY(target)]. Reason: [reason ? "[reason]" : "no reason"]")
+	else if(href_list["tag_datum"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/datum/datum_to_tag = locate(href_list["tag_datum"])
+		if(!datum_to_tag)
+			return
+		return add_tagged_datum(datum_to_tag)
+
+	else if(href_list["del_tag"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/datum/datum_to_remove = locate(href_list["del_tag"])
+		if(!datum_to_remove)
+			return
+		return remove_tagged_datum(datum_to_remove)
+
+	else if(href_list["show_tags"])
+		if(!check_rights(R_ADMIN))
+			return
+		return display_tags()
+
+	else if(href_list["mark_datum"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/datum/datum_to_mark = locate(href_list["mark_datum"])
+		if(!datum_to_mark)
+			return
+		return usr.client?.mark_datum(datum_to_mark)

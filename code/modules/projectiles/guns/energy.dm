@@ -954,7 +954,7 @@
 	burst_amount = 4
 	fire_sound = 'sound/weapons/guns/fire/Laser Carbine Scatter.ogg'
 	message_to_user = "You set the machine laser's charge mode to burst."
-	fire_mode = GUN_FIREMODE_BURSTFIRE
+	fire_mode = GUN_FIREMODE_AUTOBURST
 	icon_state = "tem"
 	radial_icon_state = "laser_spread"
 	description = "Fires a series of laser pulses in quick succession. Each pulse in a burst is more powerful than the last."

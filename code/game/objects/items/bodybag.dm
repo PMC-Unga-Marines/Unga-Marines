@@ -320,7 +320,7 @@
 		if(!(medical_record.fields["last_scan_time"]))
 			. += span_deptradio("No scan report on record")
 		else
-			. += span_deptradio("<a href='?src=[text_ref(src)];scanreport=1'>Scan from [medical_record.fields["last_scan_time"]]</a>")
+			. += span_deptradio("<a href='byond://?src=[text_ref(src)];scanreport=1'>Scan from [medical_record.fields["last_scan_time"]]</a>")
 		break
 	if(occupant.stat != DEAD)
 		return

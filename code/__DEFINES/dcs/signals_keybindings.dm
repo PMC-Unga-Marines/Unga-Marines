@@ -1,16 +1,20 @@
+/*!
+ * Contains keybinding signals
+ */
+
 #define COMSIG_KB_ACTIVATED (1<<0)
 #define COMSIG_KB_NOT_ACTIVATED (1<<1) //used in unique action
-#define COMSIG_KB_ADMIN_ASAY_DOWN "keybinding_admin_asay_down"
-#define COMSIG_KB_ADMIN_MSAY_DOWN "keybinding_admin_msay_down"
-#define COMSIG_KB_ADMIN_DSAY_DOWN "keybinding_admin_dsay_down"
+
+//carbon
 #define COMSIG_KB_CARBON_HOLDRUNMOVEINTENT_DOWN "keybinding_carbon_holdrunmoveintent_down"
-#define COMSIG_KB_ADMIN_TOGGLEBUILDMODE_DOWN "keybinding_admin_togglebuildmode_down"
 #define COMSIG_KB_CARBON_TOGGLETHROWMODE_DOWN "keybinding_carbon_togglethrowmode_down"
 #define COMSIG_KB_CARBON_TOGGLEREST_DOWN "kebinding_carbon_togglerest_down"
 #define COMSIG_KB_CARBON_SELECTHELPINTENT_DOWN "keybinding_carbon_selecthelpintent_down"
 #define COMSIG_KB_CARBON_SELECTDISARMINTENT_DOWN "keybinding_carbon_selectdisarmintent_down"
 #define COMSIG_KB_CARBON_SELECTGRABINTENT_DOWN "keybinding_carbon_selectgrabintent_down"
 #define COMSIG_KB_CARBON_SELECTHARMINTENT_DOWN "keybinding_carbon_selectharmintent_down"
+
+//client
 #define COMSIG_KB_CLIENT_GETHELP_DOWN "keybinding_client_gethelp_down"
 #define COMSIG_KB_CLIENT_SCREENSHOT_DOWN "keybinding_client_screenshot_down"
 #define COMSIG_KB_CLIENT_MINIMALHUD_DOWN "keybinding_client_minimalhud_down"
@@ -22,9 +26,13 @@
 #define COMSIG_KB_CLIENT_XOOC_DOWN "keybinding_client_xooc_down"
 #define COMSIG_KB_CLIENT_MOOC_DOWN "keybinding_client_mooc_down"
 #define COMSIG_KB_CLIENT_LOOC_DOWN "keybinding_client_looc_down"
+
+//living
 #define COMSIG_KB_LIVING_RESIST_DOWN "keybinding_living_resist_down"
 #define COMSIG_KB_LIVING_JUMP_DOWN "keybind_living_jump_down"
 #define COMSIG_KB_LIVING_JUMP_UP "keybind_living_jump_up"
+
+//mob
 #define COMSIG_KB_MOB_STOPPULLING_DOWN "keybinding_mob_stoppulling_down"
 #define COMSIG_KB_MOB_CYCLEINTENTRIGHT_DOWN "keybinding_mob_cycleintentright_down"
 #define COMSIG_KB_MOB_CYCLEINTENTLEFT_DOWN "keybinding_mob_cycleintentleft_down"
@@ -40,11 +48,20 @@
 #define COMSIG_KB_MOB_TARGETRIGHTLEG_DOWN "keybinding_mob_targetrightleg_down"
 #define COMSIG_KB_MOB_TARGETBODYGROIN_DOWN "keybinding_mob_targetbodygroin_down"
 #define COMSIG_KB_MOB_TARGETLEFTLEG_DOWN "keybinding_mob_targetleftleg_down"
+
+//movement
 #define COMSIG_KB_MOVEMENT_NORTH_DOWN "keybinding_movement_north_down"
 #define COMSIG_KB_MOVEMENT_SOUTH_DOWN "keybinding_movement_south_down"
 #define COMSIG_KB_MOVEMENT_WEST_DOWN "keybinding_movement_west_down"
 #define COMSIG_KB_MOVEMENT_EAST_DOWN "keybinding_movement_east_down"
 #define COMSIG_KB_MOB_BLOCKMOVEMENT_DOWN "keybinding_mob_blockmovement_down"
+
+//Admin
+#define COMSIG_KB_ADMIN_ASAY_DOWN "keybinding_admin_asay_down"
+#define COMSIG_KB_ADMIN_DSAY_DOWN "keybinding_admin_dsay_down"
+#define COMSIG_KB_ADMIN_MSAY_DOWN "keybinding_admin_msay_down"
+#define COMSIG_KB_ADMIN_TOGGLEBUILDMODE_DOWN "keybinding_admin_togglebuildmode_down"
+#define COMSIG_KB_ADMIN_VIEWTAGS_DOWN "keybinding_admin_viewtags_down"
 
 // mob keybinds
 #define COMSIG_KB_HOLD_RUN_MOVE_INTENT_UP "keybinding_hold_run_move_intent_up"
@@ -52,6 +69,54 @@
 #define COMSIG_KB_TOGGLE_MINIMAP "toggle_minimap"
 #define COMSIG_KB_TOGGLE_EXTERNAL_MINIMAP "toggle_external_minimap"
 #define COMSIG_KB_SELFHARM "keybind_selfharm"
+
+// human signals for keybindings
+#define COMSIG_KB_QUICKEQUIP "keybinding_quickequip"
+#define COMSIG_KB_GUN_SAFETY "keybinding_gun_safety"
+#define COMSIG_KB_UNIQUEACTION "keybinding_uniqueaction"
+#define COMSIG_KB_RAILATTACHMENT "keybinding_railattachment"
+#define COMSIG_KB_MUZZLEATTACHMENT "keybinding_muzzleattachment"
+#define COMSIG_KB_UNDERRAILATTACHMENT "keybinding_underrailattachment"
+#define COMSIG_KB_UNLOADGUN "keybinding_unloadgun"
+#define COMSIG_KB_AIMMODE "keybinding_aimmode"
+#define COMSIG_KB_FIREMODE "keybind_firemode"
+#define COMSIG_KB_AUTOEJECT "keybind_autoeject"
+#define COMSIG_KB_GIVE "keybind_give"
+#define COMSIG_KB_HELMETMODULE "keybinding_helmetmodule"
+#define COMSIG_KB_ARMORMODULE "keybinding_armormodule"
+#define COMSIG_KB_ROBOT_AUTOREPAIR "keybinding_robot_autorepair"
+#define COMSIG_KB_SUITLIGHT "keybinding_suitlight"
+#define COMSIG_KB_MOVEORDER "keybind_moveorder"
+#define COMSIG_KB_HOLDORDER "keybind_holdorder"
+#define COMSIG_KB_FOCUSORDER "keybind_focusorder"
+#define COMSIG_KB_RALLYORDER "keybind_rallyorder"
+#define COMSIG_KB_SENDORDER "keybind_sendorder"
+#define COMSIG_KB_ATTACKORDER "keybind_attackorder"
+#define COMSIG_KB_DEFENDORDER "keybind_defendorder"
+#define COMSIG_KB_RETREATORDER "keybind_retreatorder"
+#define COMSIG_KB_VEHICLEHONK "keybind_vehiclehonk"
+
+//Item toggle keybinds
+#define COMSIG_ITEM_TOGGLE_JETPACK "item_toggle_jetpack"
+#define COMSIG_ITEM_TOGGLE_BLINKDRIVE "item_toggle_blinkdrive"
+
+//Weapon related ability keybinds
+#define COMSIG_WEAPONABILITY_AXESWEEP "weaponability_axesweep"
+#define COMSIG_WEAPONABILITY_SWORDLUNGE "weaponability_swordlunge"
+#define COMSIG_WEAPONABILITY_SHIELDBASH "weaponability_shieldbash"
+
+//Implant abilities
+#define COMSIG_IMPLANT_ABILITY_SANDEVISTAN "implant_ability_sandevistan"
+
+// human modules signals for keybindings
+#define COMSIG_KB_VALI_CONFIGURE "keybinding_vali_configure"
+#define COMSIG_KB_VALI_HEAL "keybinding_vali_heal"
+#define COMSIG_KB_VALI_CONNECT "keybiding_vali_connect"
+#define COMSIG_KB_SUITANALYZER "keybinding_suitanalyzer"
+
+// Ability adding/removing signals
+#define ACTION_GIVEN "gave_an_action"		//from base of /datum/action/proc/give_action(): (datum/action)
+#define ACTION_REMOVED "removed_an_action"	//from base of /datum/action/proc/remove_action(): (datum/action)
 
 // mecha keybinds
 #define COMSIG_MECHABILITY_TOGGLE_STRAFE "mechability_toggle_strafe"
@@ -64,8 +129,8 @@
 #define COMSIG_MECHABILITY_TOGGLE_ACTUATORS "mechability_toggle_actuators"
 
 #define COMSIG_ACTION_EXCLUSIVE_TOGGLE "action_exclusive_toggle"
-// xeno abilities for keybindings
 
+// xeno abilities for keybindings
 #define COMSIG_XENOABILITY_REST "xenoability_rest"
 #define COMSIG_XENOABILITY_HEADBITE "xenoability_headbite"
 #define COMSIG_XENOABILITY_REGURGITATE "xenoability_regurgitate"
@@ -253,64 +318,9 @@
 #define COMSIG_XENOABILITY_UNLEASH_SPIDERLINGS "xenoability_unleash_spiderlings"
 #define COMSIG_XENOABILITY_RECALL_SPIDERLINGS "xenoability_recall_spiderlings"
 
-//spiderling
 #define COMSIG_SPIDERLING_CHANGE_ORDER "spiderlingchangeorder"
 #define COMSIG_SPIDERLING_CHANGE_ALL_ORDER "spiderlingglobalorder"
 
-//sectoid abilities
-#define COMSIG_ABILITY_MINDMELD "ability_mindmeld"
-#define COMSIG_ABILITY_MINDFRAY "ability_mindfray"
-#define COMSIG_ABILITY_REKNIT_FORM "ability_reknit_form"
-#define COMSIG_ABILITY_FUSE "ability_fuse"
-#define COMSIG_ABILITY_STASIS "ability_stasis"
-#define COMSIG_ABILITY_TELEKINESIS "ability_telekinesis"
-#define COMSIG_ABILITY_REANIMATE "ability_reanimate"
-
-// human signals for keybindings
-#define COMSIG_KB_QUICKEQUIP "keybinding_quickequip"
-#define COMSIG_KB_GUN_SAFETY "keybinding_gun_safety"
-#define COMSIG_KB_UNIQUEACTION "keybinding_uniqueaction"
-#define COMSIG_KB_RAILATTACHMENT "keybinding_railattachment"
-#define COMSIG_KB_MUZZLEATTACHMENT "keybinding_muzzleattachment"
-#define COMSIG_KB_UNDERRAILATTACHMENT "keybinding_underrailattachment"
-#define COMSIG_KB_UNLOADGUN "keybinding_unloadgun"
-#define COMSIG_KB_AIMMODE "keybinding_aimmode"
-#define COMSIG_KB_FIREMODE "keybind_firemode"
-#define COMSIG_KB_AUTOEJECT "keybind_autoeject"
-#define COMSIG_KB_GIVE "keybind_give"
-#define COMSIG_KB_HELMETMODULE "keybinding_helmetmodule"
-#define COMSIG_KB_ARMORMODULE "keybinding_armormodule"
-#define COMSIG_KB_ROBOT_AUTOREPAIR "keybinding_robot_autorepair"
-#define COMSIG_KB_SUITLIGHT "keybinding_suitlight"
-#define COMSIG_KB_MOVEORDER "keybind_moveorder"
-#define COMSIG_KB_HOLDORDER "keybind_holdorder"
-#define COMSIG_KB_FOCUSORDER "keybind_focusorder"
-#define COMSIG_KB_RALLYORDER "keybind_rallyorder"
-#define COMSIG_KB_SENDORDER "keybind_sendorder"
-#define COMSIG_KB_ATTACKORDER "keybind_attackorder"
-#define COMSIG_KB_DEFENDORDER "keybind_defendorder"
-#define COMSIG_KB_RETREATORDER "keybind_retreatorder"
-#define COMSIG_KB_VEHICLEHONK "keybind_vehiclehonk"
-
-//Item toggle keybinds
-#define COMSIG_ITEM_TOGGLE_JETPACK "item_toggle_jetpack"
-#define COMSIG_ITEM_TOGGLE_BLINKDRIVE "item_toggle_blinkdrive"
-
-//Weapon related ability keybinds
-#define COMSIG_WEAPONABILITY_AXESWEEP "weaponability_axesweep"
-#define COMSIG_WEAPONABILITY_SWORDLUNGE "weaponability_swordlunge"
-#define COMSIG_WEAPONABILITY_SHIELDBASH "weaponability_shieldbash"
-
-//Implant abilities
-#define COMSIG_IMPLANT_ABILITY_SANDEVISTAN "implant_ability_sandevistan"
-
-// human modules signals for keybindings
-#define COMSIG_KB_VALI_CONFIGURE "keybinding_vali_configure"
-#define COMSIG_KB_VALI_HEAL "keybinding_vali_heal"
-#define COMSIG_KB_VALI_CONNECT "keybiding_vali_connect"
-#define COMSIG_KB_SUITANALYZER "keybinding_suitanalyzer"
-
-/// Xeno signals
 #define COMSIG_XENOABILITY_TEARING_TAIL "xenoability_tearing_tail"
 #define COMSIG_XENOABILITY_PANTHER_POUNCE "xenoability_panther_pounce"
 #define COMSIG_XENOABILITY_ADRENALINE_JUMP "xenoability_adrenaline_jump"
@@ -322,7 +332,6 @@
 
 #define COMSING_XENOABILITY_HUGGER_POUNCE "xenoability_hugger_pounce"
 
-/// Predalien signals
 #define COMSIG_XENOABILITY_ROAR "xenoability_roar"
 #define COMSIG_XENOABILITY_SMASH "xenoability_smash"
 #define COMSIG_XENOABILITY_DEVASTATE "xenoability_devastate"

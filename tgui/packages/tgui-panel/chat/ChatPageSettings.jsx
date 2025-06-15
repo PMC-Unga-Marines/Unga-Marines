@@ -12,9 +12,15 @@ import {
   Input,
   Section,
   Stack,
-} from 'tgui/components';
+} from 'tgui-core/components';
 
-import { removeChatPage, toggleAcceptedType, updateChatPage } from './actions';
+import {
+  moveChatPageLeft,
+  moveChatPageRight,
+  removeChatPage,
+  toggleAcceptedType,
+  updateChatPage,
+} from './actions';
 import { MESSAGE_TYPES } from './constants';
 import { selectCurrentChatPage } from './selectors';
 
@@ -24,7 +30,23 @@ export const ChatPageSettings = (props) => {
   return (
     <Section>
       <Stack align="center">
-        <Stack.Item grow>
+        {!page.isMain && (
+          <Stack.Item>
+            <Button
+              color="blue"
+              icon="angles-left"
+              tooltip="Reorder tab to the left"
+              onClick={() =>
+                dispatch(
+                  moveChatPageLeft({
+                    pageId: page.id,
+                  }),
+                )
+              }
+            />
+          </Stack.Item>
+        )}
+        <Stack.Item grow ml={0.5}>
           <Input
             width="100%"
             value={page.name}
@@ -38,9 +60,24 @@ export const ChatPageSettings = (props) => {
             }
           />
         </Stack.Item>
+        {!page.isMain && (
+          <Stack.Item ml={0.5}>
+            <Button
+              color="blue"
+              icon="angles-right"
+              tooltip="Reorder tab to the right"
+              onClick={() =>
+                dispatch(
+                  moveChatPageRight({
+                    pageId: page.id,
+                  }),
+                )
+              }
+            />
+          </Stack.Item>
+        )}
         <Stack.Item>
           <Button.Checkbox
-            content="Mute"
             checked={page.hideUnreadCount}
             icon={page.hideUnreadCount ? 'bell-slash' : 'bell'}
             tooltip="Disables unread counter"
@@ -52,22 +89,27 @@ export const ChatPageSettings = (props) => {
                 }),
               )
             }
-          />
+          >
+            Mute
+          </Button.Checkbox>
         </Stack.Item>
-        <Stack.Item>
-          <Button
-            content="Remove"
-            icon="times"
-            color="red"
-            onClick={() =>
-              dispatch(
-                removeChatPage({
-                  pageId: page.id,
-                }),
-              )
-            }
-          />
-        </Stack.Item>
+        {!page.isMain && (
+          <Stack.Item>
+            <Button
+              color="red"
+              icon="times"
+              onClick={() =>
+                dispatch(
+                  removeChatPage({
+                    pageId: page.id,
+                  }),
+                )
+              }
+            >
+              Remove
+            </Button>
+          </Stack.Item>
+        )}
       </Stack>
       <Divider />
       <Section title="Messages to display" level={2}>

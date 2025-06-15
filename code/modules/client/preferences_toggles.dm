@@ -150,10 +150,11 @@
 		mob.stop_sound_channel(CHANNEL_AMBIENCE)
 	usr.client.update_ambience_pref()
 
-/client/verb/toggle_special(role in BE_SPECIAL_FLAGS)
+/client/verb/toggle_special()
 	set category = "Preferences"
 	set name = "Toggle Special Roles"
 
+	var/role = tgui_input_list(usr, "Select a role to toggle", "Toggle Special Roles", BE_SPECIAL_FLAGS)
 	var/role_flag = BE_SPECIAL_FLAGS[role]
 	if(!role_flag)
 		return

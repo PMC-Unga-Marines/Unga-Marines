@@ -1247,7 +1247,7 @@
 	span_xenodanger("We suddenly feel \the [victim]'s life force streaming into us!"))
 
 	victim.do_jitter_animation(2)
-	victim.adjust_clone_Loss(20)
+	victim.adjust_clone_loss(20)
 	xeno_owner.biomass = min(xeno_owner.biomass + 15, 100)
 
 	ADD_TRAIT(victim, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)

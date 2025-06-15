@@ -848,7 +848,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 	var/obj/item/I = get_active_held_item()
 	if(I && !(I.item_flags & ITEM_ABSTRACT))
-		visible_message("[src] holds up [I]. <a HREF=?src=[REF(usr)];lookitem=[REF(I)]>Take a closer look.</a>")
+		visible_message("[src] holds up [I]. <a href=?byond://src=[REF(usr)];lookitem=[REF(I)]>Take a closer look.</a>")
 
 /*
 For zooming with scope or binoculars. This is called from

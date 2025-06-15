@@ -33,7 +33,7 @@
 		return
 	var/mob/living/carbon/human/human = carbon_mob
 	var/datum/limb/limb = human.get_limb(parent_limb)
-	LAZYDISTINCTADD(limb.internal_organs, src)
+	LAZYOR(limb.internal_organs, src)
 
 /datum/internal_organ/Destroy()
 	STOP_PROCESSING(SSprocessing, src)

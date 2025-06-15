@@ -37,7 +37,7 @@
 		if(OXY)
 			adjust_oxy_loss(damage)
 		if(CLONE)
-			adjust_clone_Loss(damage)
+			adjust_clone_loss(damage)
 		if(STAMINA)
 			adjust_stamina_loss(damage)
 	if(updating_health)
@@ -67,7 +67,7 @@
  * Arguments:
  * * effect: the amount of effect, duration for some, amount for others
  * * effect_type: the type of effect to apply
- * * updating_health: should we call the updatehealth proc?
+ * * updating_health: should we call the update_health proc?
  */
 /mob/living/proc/apply_effect(effect = 0, effect_type = EFFECT_STUN, updating_health = FALSE)
 	if(status_flags & GODMODE)

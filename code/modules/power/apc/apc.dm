@@ -406,7 +406,7 @@
 		main_status = APC_EXTERNAL_POWER_GOOD
 
 	if(!cell || shorted)
-		 // no cell, switch everything off
+		// no cell, switch everything off
 		charging = APC_NOT_CHARGING
 		chargecount = 0
 		equipment = autoset(equipment, 0)

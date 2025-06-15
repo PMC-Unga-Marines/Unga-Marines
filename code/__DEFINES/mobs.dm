@@ -497,17 +497,6 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define TASTE_DULL 30 //anything below 30%
 #define TASTE_NUMB 101 //no taste
 
-
-//defins for datum/hud
-
-#define HUD_STYLE_STANDARD 1
-#define HUD_STYLE_REDUCED 2
-#define HUD_STYLE_NOHUD 3
-#define HUD_VERSIONS 3
-#define HUD_SL_LOCATOR_COOLDOWN 0.5 SECONDS
-#define HUD_SL_LOCATOR_PROCESS_COOLDOWN 10 SECONDS
-
-
 //Blood levels
 #define BLOOD_VOLUME_MAXIMUM 600
 #define BLOOD_VOLUME_NORMAL 560

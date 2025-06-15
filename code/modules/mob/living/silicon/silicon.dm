@@ -74,7 +74,7 @@
 /mob/living/silicon/set_tox_loss(amount)
 	return FALSE
 
-/mob/living/silicon/adjust_clone_Loss(amount)
+/mob/living/silicon/adjust_clone_loss(amount)
 	return FALSE
 
 /mob/living/silicon/set_clone_loss(amount)
