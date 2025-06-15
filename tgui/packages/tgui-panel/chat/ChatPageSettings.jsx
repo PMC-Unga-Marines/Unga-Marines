@@ -78,22 +78,6 @@ export const ChatPageSettings = (props) => {
         )}
         <Stack.Item>
           <Button.Checkbox
-            content="Mute"
-            checked={page.hideUnreadCount}
-            icon={page.hideUnreadCount ? 'bell-slash' : 'bell'}
-            tooltip="Disables unread counter"
-            onClick={() =>
-              dispatch(
-                updateChatPage({
-                  pageId: page.id,
-                  hideUnreadCount: !page.hideUnreadCount,
-                }),
-              )
-            }
-          />
-        </Stack.Item>
-        <Stack.Item>
-          <Button.Checkbox
             checked={page.hideUnreadCount}
             icon={page.hideUnreadCount ? 'bell-slash' : 'bell'}
             tooltip="Disables unread counter"
