@@ -239,7 +239,7 @@
 
 	var/total_brute = get_brute_loss()
 	var/total_burn = get_fire_loss()
-	var/total_clone = get_clone_Loss()
+	var/total_clone = get_clone_loss()
 	if(total_brute)
 		if (total_brute < 25)
 			if(species.species_flags & ROBOTIC_LIMBS)

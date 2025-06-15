@@ -226,7 +226,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	succeed_activate()
 
 	playsound(xeno_owner.loc, 'sound/effects/refill.ogg', 50, 1)
-	var/turflist = getline(xeno_owner, target)
+	var/turflist = get_traversal_line(xeno_owner, target)
 	spray_turfs(turflist)
 	add_cooldown()
 

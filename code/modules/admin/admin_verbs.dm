@@ -190,6 +190,15 @@
 	log_admin("[key_name(usr)] revived [key_name(L)].")
 	message_admins("[ADMIN_TPMONTY(usr)] revived [ADMIN_TPMONTY(L)].")
 
+/client/proc/cmd_admin_check_contents(mob/living/M in GLOB.mob_list)
+	set category = "Debug"
+	set name = "Check Contents"
+
+	var/list/L = M.GetAllContents()
+	for(var/t in L)
+		to_chat(usr, "[t] [ADMIN_VV(t)] [ADMIN_TAG(t)]", confidential = TRUE)
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Check Contents") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
+
 /datum/admins/proc/toggle_sleep(mob/living/L in GLOB.mob_living_list)
 	set category = null
 	set name = "Toggle Sleeping"
@@ -602,6 +611,18 @@
 		to_chat(C,
 			type = MESSAGE_TYPE_DEADCHAT,
 			html = span_game("<span class='deadsay'>[span_prefix("DEAD: [rank_name]")] says, [span_message(msg)]</span>"))
+
+/client/proc/object_say(obj/O in world)
+	set category = "Admin"
+	set name = "OSay"
+	set desc = "Makes an object say something."
+	var/message = tgui_input_text(usr, "What do you want the message to be?", "Make Sound", encode = FALSE)
+	if(!message)
+		return
+	O.say(message, sanitize = FALSE)
+	log_admin("[key_name(usr)] made [O] at [AREACOORD(O)] say \"[message]\"")
+	message_admins(span_adminnotice("[key_name_admin(usr)] made [O] at [AREACOORD(O)]. say \"[message]\""))
+	SSblackbox.record_feedback("tally", "admin_verb", 1, "Object Say") // If you are copy-pasting this, ensure the 4th parameter is unique to the new proc!
 
 /datum/admins/proc/jump()
 	set category = "Admin"

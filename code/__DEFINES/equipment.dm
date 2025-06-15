@@ -121,8 +121,6 @@
 #define IS_SENTRY (1<<22)
 ///This item is in any storage
 #define IN_STORAGE (1<<23)
-///Admin possession yes/no
-#define DANGEROUS_POSSESSION (1<<24)
 
 //storage_flags
 ///If a storage container can be restocked into a vendor

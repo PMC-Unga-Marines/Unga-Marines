@@ -192,7 +192,7 @@
 			cell_explosion(activator, 150, 150)
 		if(prob(80))
 			activator.heal_limb_damage(50, 50, TRUE)
-			activator.adjust_clone_Loss(-10)
+			activator.adjust_clone_loss(-10)
 			activator.playsound_local(loc, 'sound/hallucinations/im_here1.ogg', 50)
 	else
 		activator.balloon_alert(activator, "This place is not sacred")

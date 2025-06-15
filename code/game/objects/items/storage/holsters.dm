@@ -452,7 +452,6 @@
 	name = "\improper M276 pattern M25 holster rig"
 	desc = "The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is designed for the M25 SMG, and features a larger frame to support the gun. Due to its unorthodox design, it isn't a very common sight, and is only specially issued."
 	icon_state = "m25_holster"
-	icon = 'icons/obj/clothing/belts.dmi'
 	equip_slot_flags = ITEM_SLOT_BELT
 	holsterable_allowed = list(
 		/obj/item/weapon/gun/smg/m25,

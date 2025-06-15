@@ -62,7 +62,7 @@
 					status = "Unconscious"
 				if(DEAD)
 					status = "Dead"
-			health = "Oxy: [L.get_oxy_loss()]  Tox: [L.get_tox_loss()]  Fire: [L.get_fire_loss()]  Brute: [L.get_brute_loss()]  Clone: [L.get_clone_Loss()]  Brain: [L.get_brain_loss()]  Stamina: [L.get_stamina_loss()]"
+			health = "Oxy: [L.get_oxy_loss()]  Tox: [L.get_tox_loss()]  Fire: [L.get_fire_loss()]  Brute: [L.get_brute_loss()]  Clone: [L.get_clone_loss()]  Brain: [L.get_brain_loss()]  Stamina: [L.get_stamina_loss()]"
 
 		to_chat(usr, {"<span class='notice'><hr><b>Info about [M.real_name]:</b>
 Type: [M.type] | Gender: [M.gender] |[job ? " Job: [job.title]" : ""]
@@ -1693,7 +1693,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 
 	else if(href_list["playtime"])
-		if(!check_rights(R_ADMIN))
+		if(!check_rights(R_ADMIN|R_MENTOR))
 			return
 
 		var/mob/M = locate(href_list["playtime"]) in GLOB.mob_list
@@ -2083,7 +2083,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 	else if(href_list["clearpollvotes"])
 		var/datum/poll_question/poll = locate(href_list["clearpollvotes"]) in GLOB.polls
-		poll.cleaR_DBRANKS_votes()
+		poll.cleaR_POLLS_votes()
 		poll_management_panel(poll)
 
 	else if(href_list["addpolloption"])
@@ -2133,3 +2133,31 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		xeno_message("QUEEN MOTHER BANISHMENT", "xenobanishtitleannonce", 5, target.hivenumber, sound= sound(SFX_QUEEN, channel = CHANNEL_ANNOUNCEMENTS))
 		xeno_message("By Queen Mother's will, [target] has been unbanished!\n[reason]", "xenobanishannonce", 5, target.hivenumber)
 		message_admins("[src.owner] has unbanish [ADMIN_TPMONTY(target)]. Reason: [reason ? "[reason]" : "no reason"]")
+	else if(href_list["tag_datum"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/datum/datum_to_tag = locate(href_list["tag_datum"])
+		if(!datum_to_tag)
+			return
+		return add_tagged_datum(datum_to_tag)
+
+	else if(href_list["del_tag"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/datum/datum_to_remove = locate(href_list["del_tag"])
+		if(!datum_to_remove)
+			return
+		return remove_tagged_datum(datum_to_remove)
+
+	else if(href_list["show_tags"])
+		if(!check_rights(R_ADMIN))
+			return
+		return display_tags()
+
+	else if(href_list["mark_datum"])
+		if(!check_rights(R_ADMIN))
+			return
+		var/datum/datum_to_mark = locate(href_list["mark_datum"])
+		if(!datum_to_mark)
+			return
+		return usr.client?.mark_datum(datum_to_mark)

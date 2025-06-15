@@ -181,6 +181,8 @@
 		return TRUE
 	var/adir = get_dir(A, B)
 	var/rdir = get_dir(B, A)
+	if(A.density && (!istype(A, /turf/closed/wall/resin) || !(pass_flags_checked & PASS_XENO)))
+		return TRUE
 	if(B.density && (!istype(B, /turf/closed/wall/resin) || !(pass_flags_checked & PASS_XENO))) //TODO: Unsnowflake this check here and in DirBlocked()
 		return TRUE
 	if(adir & (adir - 1))//is diagonal direction
@@ -802,8 +804,10 @@ GLOBAL_LIST_INIT(wallitems, typecacheof(list(
 			. = "huge"
 		if(WEIGHT_CLASS_GIGANTIC)
 			. = "gigantic"
+		if(WEIGHT_CLASS_GIGANTIC + 1 to INFINITY)
+			. = "titanic"
 		else
-			. = ""
+			. = "unknown size"
 
 /// Converts a semver string into a list of numbers
 /proc/semver_to_list(semver_string)
@@ -816,62 +820,6 @@ GLOBAL_LIST_INIT(wallitems, typecacheof(list(
 		text2num(semver_regex.group[2]),
 		text2num(semver_regex.group[3]),
 	)
-
-//Reasonably Optimized Bresenham's Line Drawing
-/proc/getline(atom/start, atom/end)
-	var/x = start.x
-	var/y = start.y
-	var/z = start.z
-
-	//horizontal and vertical lines special case
-	if(y == end.y)
-		return x <= end.x ? block(locate(x,y,z), locate(end.x,y,z)) : reverseRange(block(locate(end.x,y,z), locate(x,y,z)))
-	if(x == end.x)
-		return y <= end.y ? block(locate(x,y,z), locate(x,end.y,z)) : reverseRange(block(locate(x,end.y,z), locate(x,y,z)))
-
-	//let's compute these only once
-	var/abs_dx = abs(end.x - x)
-	var/abs_dy = abs(end.y - y)
-	var/sign_dx = SIGN(end.x - x)
-	var/sign_dy = SIGN(end.y - y)
-
-	var/list/turfs = list(locate(x,y,z))
-
-	//diagonal special case
-	if(abs_dx == abs_dy)
-		for(var/j = 1 to abs_dx)
-			x += sign_dx
-			y += sign_dy
-			turfs += locate(x,y,z)
-		return turfs
-
-	/*x_error and y_error represents how far we are from the ideal line.
-	Initialized so that we will check these errors against 0, instead of 0.5 * abs_(dx/dy)*/
-
-	//We multiply every check by the line slope denominator so that we only handles integers
-	if(abs_dx > abs_dy)
-		var/y_error = -(abs_dx >> 1)
-		var/steps = abs_dx
-		while(steps--)
-			y_error += abs_dy
-			if(y_error > 0)
-				y_error -= abs_dx
-				y += sign_dy
-			x += sign_dx
-			turfs += locate(x,y,z)
-	else
-		var/x_error = -(abs_dy >> 1)
-		var/steps = abs_dy
-		while(steps--)
-			x_error += abs_dx
-			if(x_error > 0)
-				x_error -= abs_dy
-				x += sign_dx
-			y += sign_dy
-			turfs += locate(x,y,z)
-
-	. = turfs
-
 
 // Makes a call in the context of a different usr
 // Use sparingly
@@ -1240,7 +1188,7 @@ GLOBAL_LIST_INIT(survivor_outfits, typecacheof(/datum/outfit/job/survivor))
  * Returns the last turf in the list it can successfully path to
 */
 /proc/check_path(atom/start, atom/end, pass_flags_checked = NONE)
-	var/list/path_to_target = getline(start, end)
+	var/list/path_to_target = get_line(start, end) //we don't use traversal because link blocked checks both diags as needed
 	var/line_count = 1
 	while(line_count < length(path_to_target))
 		if(LinkBlocked(path_to_target[line_count], path_to_target[line_count + 1], pass_flags_checked))
