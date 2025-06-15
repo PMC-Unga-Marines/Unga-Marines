@@ -1,17 +1,29 @@
-/*
-	These defines specificy screen locations.  For more information, see the byond documentation on the screen_loc var.
+//HUD styles.  Index order defines how they are cycled in F12.
+/// Standard hud
+#define HUD_STYLE_STANDARD 1
+/// Reduced hud (just hands and intent switcher)
+#define HUD_STYLE_REDUCED 2
+/// No hud (for screenshots)
+#define HUD_STYLE_NOHUD 3
 
-	The short version:
+/// Used in show_hud(); Please ensure this is the same as the maximum index.
+#define HUD_VERSIONS 3
 
-	Everything is encoded as strings because apparently that's how Byond rolls.
+//defines for datum/hud
+#define HUD_SL_LOCATOR_COOLDOWN 0.5 SECONDS
+#define HUD_SL_LOCATOR_PROCESS_COOLDOWN 10 SECONDS
 
-	"1,1" is the bottom left square of the user's screen.  This aligns perfectly with the turf grid.
-	"1:2,3:4" is the square (1,3) with pixel offsets (+2, +4); slightly right and slightly above the turf grid.
-	Pixel offsets are used so you don't perfectly hide the turf under them, that would be crappy.
+// Consider these images/atoms as part of the UI/HUD (apart of the appearance_flags)
+/// Used for progress bars and chat messages
+#define APPEARANCE_UI_IGNORE_ALPHA (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
+/// Used for HUD objects
+#define APPEARANCE_UI (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|PIXEL_SCALE)
+#define APPEARANCE_UI_TRANSFORM (RESET_COLOR|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
 
-	The size of the user's screen is defined by client.view (indirectly by WORLD_VIEW), in our case "15x15".
-	Therefore, the top right corner (except during admin shenanigans) is at "15,15"
-*/
+/proc/ui_hand_position(i) //values based on old hand ui positions (CENTER:-/+16,SOUTH:5)
+	var/x_off = i % 2 ? 0 : -1
+	var/y_off = round((i-1) / 2)
+	return"CENTER+[x_off]:16,SOUTH+[y_off]:5"
 
 //Lower left, persistant menu
 #define ui_inventory "WEST:6,1:5"
@@ -79,8 +91,13 @@
 #define ui_sl_dir "CENTER,CENTER"
 
 // Ghosts
-#define ui_ghost_slot2 "SOUTH:6,CENTER-1:24"
-#define ui_ghost_slot3 "SOUTH:6,CENTER:24"
+#define ui_ghost_base(horizontal_offset, vertical_offset) "SOUTH" + vertical_offset + ":6" + ",CENTER" + horizontal_offset + ":24"
+
+#define ui_ghost_slot1 ui_ghost_base("-3", "")
+#define ui_ghost_slot2 ui_ghost_base("-2", "")
+#define ui_ghost_slot3 ui_ghost_base("-1", "")
+#define ui_ghost_slot4 ui_ghost_base("", "")
+#define ui_ghost_slot5 ui_ghost_base("+1", "")
 
 // AI
 #define ui_ai_core "SOUTH:6,WEST"
