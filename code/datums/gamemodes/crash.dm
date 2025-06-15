@@ -107,8 +107,9 @@
 	if(!(round_type_flags & MODE_INFESTATION))
 		return
 
-	for(var/i in GLOB.xeno_resin_silo_turfs)
-		new /obj/structure/xeno/silo/crash(i)
+	if(round_type_flags & MODE_XENO_SPAWN_PROTECT)
+		for(var/i in GLOB.xeno_resin_silo_turfs)
+			new /obj/structure/xeno/silo/crash(i)
 
 	for(var/obj/effect/landmark/corpsespawner/corpse AS in GLOB.corpse_landmarks_list)
 		corpse.create_mob()
