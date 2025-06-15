@@ -17,7 +17,6 @@
 		if(8)
 			return WEST
 
-
 //Turns a direction into text
 /proc/dir2text(direction)
 	switch(direction)
@@ -191,7 +190,7 @@
 		. += "[seperator]+RUNTIME"
 	if(rights & R_LOG)
 		. += "[seperator]+LOG"
-
+	if(rights & R_POLLS)
 		. += "[seperator]+POLLS"
 
 /proc/ui_style2icon(ui_style)
