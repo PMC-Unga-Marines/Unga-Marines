@@ -293,12 +293,11 @@
 	</body></html>
 	"}
 
-	log_admin("[key_name(user)] opened the global player panel.")
+	log_admin("[key_name(usr)] opened the global player panel.")
 
 	var/datum/browser/browser = new(usr, "players", "<div align='center'>Player Panel</div>", 700, 500)
 	browser.set_content(dat)
 	browser.open()
-
 
 ADMIN_VERB(player_panel_extended, R_BAN, "Player Panel Extended", "View the extended player panel", ADMIN_CATEGORY_MAIN)
 	var/ref = "[REF(user.holder)];[HrefToken()]"

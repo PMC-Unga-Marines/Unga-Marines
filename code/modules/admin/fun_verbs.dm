@@ -54,11 +54,11 @@ ADMIN_VERB(queen_report, R_FUN, "Queen Mother Report", "Play a Queen mother repo
 
 ADMIN_VERB(rouny_all, R_FUN, "Toggle Glob Xeno Rouny", "Toggle all living xenos into rouny versions of themselves", ADMIN_CATEGORY_FUN)
 	for(var/mob/living/carbon/xenomorph/xenotorouny in GLOB.xeno_mob_list)
-		if(!isxeno(xeno)) // will it even do something?
+		if(!isxeno(xenotorouny)) // will it even do something?
 			continue
-		if(!xeno.rouny_icon)
+		if(!xenotorouny.rouny_icon)
 			continue
-		xeno.toggle_rouny_skin()
+		xenotorouny.toggle_rouny_skin()
 	log_admin("[key_name(user)] toggled global rounification")
 	message_admins("[ADMIN_TPMONTY(user.mob)] toggled global rounification.")
 
@@ -408,7 +408,7 @@ ADMIN_VERB(force_distress, R_FUN, "Distress Beacon", "Call a distress beacon man
 	message_admins("[ADMIN_TPMONTY(user.mob)] called a [choice == "Randomize" ? "randomized ":""]distress beacon: [SSticker.mode.picked_call.name] Min: [min], Max: [max].")
 
 ADMIN_VERB(drop_bomb, R_FUN, "Drop Bomb", "Cause an explosion of varying strength at your location.", ADMIN_CATEGORY_FUN)
-		var/choice = tgui_input_list(user, "What explosion would you like to produce?", "Drop Bomb", list("CAS: Widow Maker", "CAS: Banshee", "CAS: Keeper", "CAS: Fatty", "CAS: Napalm", "Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb"))
+	var/choice = tgui_input_list(user, "What explosion would you like to produce?", "Drop Bomb", list("CAS: Widow Maker", "CAS: Banshee", "CAS: Keeper", "CAS: Fatty", "CAS: Napalm", "Small Bomb", "Medium Bomb", "Big Bomb", "Custom Bomb"))
 	switch(choice)
 		if("CAS: Widow Maker")
 			playsound(user.mob.loc, 'sound/machines/hydraulics_2.ogg', 70, TRUE)
@@ -489,7 +489,7 @@ ADMIN_VERB(drop_bomb, R_FUN, "Drop Bomb", "Cause an explosion of varying strengt
 	cell_explosion(impact, 250, 90)
 	flame_radius(5, impact, 30, 60)
 
-ADMIN_VERB(change_security_level, R_FUN, "Drop OB", "Cause an OB explosion of varying strength at your location", ADMIN_CATEGORY_FUN)
+ADMIN_VERB(drop_ob, R_FUN, "Drop OB", "Cause an OB explosion of varying strength at your location", ADMIN_CATEGORY_FUN)
 	var/list/firemodes = list("Standard OB List", "Custom HE", "Custom Cluster", "Custom Incendiary", "Custom Plasmaloss")
 	var/mode = tgui_input_list(user, "Select fire mode:", "Fire mode", firemodes)
 	// Select the warhead.
@@ -577,7 +577,6 @@ ADMIN_VERB(change_security_level, R_FUN, "Drop OB", "Cause an OB explosion of va
 			warhead.warhead_impact(target)
 		if("Spawn Warhead.")
 			warhead.loc = target
-
 
 ADMIN_VERB(change_security_level, R_FUN, "Set Security Level", "Set the security level of the ship", ADMIN_CATEGORY_FUN)
 	var/sec_level = tgui_input_list(user, "It's currently code [GLOB.marine_main_ship.get_security_level()]. Choose the new security level.", "Set Security Level", list("green", "blue", "red", "delta") - GLOB.marine_main_ship.get_security_level())
@@ -750,14 +749,14 @@ ADMIN_VERB_AND_CONTEXT_MENU(imaginary_friend, R_FUN|R_MENTOR, "Imaginary Friend"
 	if(!check_rights(R_FUN|R_MENTOR))
 		return
 	if(!istype(friend_owner)) // living only
-		to_chat(user, span_warning("That creature can not have Imaginary Friends") )
+		to_chat(usr, span_warning("That creature can not have Imaginary Friends") )
 		return
-	if(seek_confirm && tgui_alert(user, "Become Imaginary Friend of [friend_owner]?", "Confirm", list("Yes", "No")) != "Yes")
+	if(seek_confirm && tgui_alert(usr, "Become Imaginary Friend of [friend_owner]?", "Confirm", list("Yes", "No")) != "Yes")
 		return
 
-	var/client/C = user.client
+	var/client/C = usr.client
 	if(!isobserver(C.mob))
-		if(is_mentor(C) && tgui_alert(user, "You will be unable to return to your old body without admin help. Are you sure?", "Confirm", list("Yes", "No")) != "Yes")
+		if(is_mentor(C) && tgui_alert(usr, "You will be unable to return to your old body without admin help. Are you sure?", "Confirm", list("Yes", "No")) != "Yes")
 			return
 		SSadmin_verbs.dynamic_invoke_verb(C, /datum/admin_verb/aghost)
 	var/mob/camera/imaginary_friend/IF = new(get_turf(friend_owner), friend_owner)

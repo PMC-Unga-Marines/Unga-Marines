@@ -80,7 +80,7 @@ ADMIN_VERB(shutdown_server, R_SERVER, "Shutdown Server", "Shuts the server down.
 		return
 
 	if(tgui_alert(user, "ARE YOU SURE YOU WANT TO SHUTDOWN THE SERVER? ONLY SOMEBODY WITH REMOTE ACCESS TO THE SERVER CAN TURN IT BACK ON.", "Shutdown Server?", list("Yes!", "Cancel."), 0) != "Yes!")
-		message_admins("[ADMIN_TPMONTY(user)] decided against shutting down the server.")
+		message_admins("[ADMIN_TPMONTY(user.mob)] decided against shutting down the server.")
 		shuttingdown = null
 		return
 	to_chat(world, span_danger("Server shutting down [waitforroundend ? "after this round" : "in 30 seconds!"]</span> <span class='notice'>Initiated by: [usr.key]"))

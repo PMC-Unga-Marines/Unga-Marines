@@ -420,11 +420,10 @@ ADMIN_VERB(dsay, R_ADMIN|R_MENTOR, "dsay", "Speak as an admin in deadchat.", ADM
 	user.mob.log_talk(msg, LOG_DSAY)
 
 	var/rank_name = ""
-	if(holder.fakekey)
+	if(user.holder.fakekey)
 		rank_name = "Administrator"
 	else
-		rank_name += span_tooltip(user.holder.rank.name)
-		rank_name += span_tooltip("(STAFF)")
+		rank_name += span_tooltip(user.holder.rank.name, "(STAFF)")
 		rank_name += user.key
 	rank_name = span_name(rank_name)
 
