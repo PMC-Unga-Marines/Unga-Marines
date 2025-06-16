@@ -1026,10 +1026,10 @@
 	desc = "Advanced medkit pouch made by BMSS. It is also capable of holding R-312 ammo and tweezers."
 	icon_state = "t312"
 
-/obj/item/storage/pouch/protein_pack/Initialize(mapload, ...)
+/obj/item/storage/pouch/medkit/t312/Initialize(mapload, ...)
 	. = ..()
 	storage_datum.set_holdable(can_hold_list = list(
-				/obj/item/healthanalyzer,
+		/obj/item/healthanalyzer,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/glass/bottle,
