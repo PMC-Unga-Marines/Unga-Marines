@@ -447,7 +447,6 @@ const ShoppingCart = (props) => {
           p="5px"
           icon="dollar-sign"
           content={readOnly ? 'Submit Request' : 'Purchase Cart'}
-          color={shopping_list_cost > currentpoints ? 'bad' : 'good'}
           disabled={(readOnly && !reason) || !shopping_list_items}
           onClick={() =>
             act(readOnly ? 'submitrequest' : 'buycart', {
