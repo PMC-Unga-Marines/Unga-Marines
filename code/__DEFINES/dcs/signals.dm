@@ -13,6 +13,7 @@
 #define COMSIG_GLOB_OPEN_TIMED_SHUTTERS_CRASH "!open_timed_shutters_crash"
 #define COMSIG_GLOB_OPEN_SHUTTERS_EARLY "!open_shutters_early"
 #define COMSIG_GLOB_TELETOWER "!teletower"
+#define COMSIG_GLOB_CANTERBURRY_LANDING "!canterburry_landing"
 
 //#define COMSIG_GLOB_TADPOLE_LAUNCHED "!tadpole_launched" for future
 #define COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ "!tadpole_landed_out_lz"
