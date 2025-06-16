@@ -428,17 +428,16 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 			client.prefs.save_preferences()
 			to_chat(src, span_boldnotice("[hud_choice] [ghost_orderhud ? "Enabled" : "Disabled"]"))
 
-
-
-/mob/dead/observer/verb/teleport(area/A in GLOB.sorted_areas)
+/mob/dead/observer/verb/teleport()
 	set category = "Ghost"
 	set name = "Teleport"
 	set desc = "Teleport to an area."
 
-	if(!A)
+	var/area/newloc = tgui_input_list(usr, "Choose an area to teleport to.", "Teleport", get_sorted_areas())
+	if(!newloc)
 		return
 
-	abstract_move(pick(get_area_turfs(A)))
+	abstract_move(pick(get_area_turfs(newloc)))
 
 /mob/dead/observer/verb/follow_ghost()
 	set category = "Ghost"
