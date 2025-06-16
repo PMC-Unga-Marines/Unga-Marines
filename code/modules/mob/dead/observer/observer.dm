@@ -433,7 +433,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	set name = "Teleport"
 	set desc = "Teleport to an area."
 
-	var/area/newloc = tgui_input_list(usr, "Choose an area to teleport to.", "Teleport", get_sorted_areas())
+	var/area/newloc = tgui_input_list(usr, "Choose an area to teleport to.", "Teleport", GLOB.sorted_areas)
 	if(!newloc)
 		return
 
