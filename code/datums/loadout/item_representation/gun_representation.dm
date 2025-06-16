@@ -6,13 +6,12 @@
 	///Flat list of the representations of the attachements on the gun
 	var/list/datum/item_representation/attachments = list()
 
-
 /datum/item_representation/gun/New(obj/item/item_to_copy)
 	if(!item_to_copy)
 		return
 	if(!isgun(item_to_copy))
 		CRASH("/datum/item_representation/gun created from an item that is not a gun")
-	..()
+	. = ..()
 	var/obj/item/weapon/gun/gun_to_copy = item_to_copy
 	for(var/key in gun_to_copy.attachments_by_slot)
 		if(!gun_to_copy.attachments_by_slot[key])
@@ -21,7 +20,6 @@
 			attachments += new /datum/item_representation/gun_attachement(gun_to_copy.attachments_by_slot[key])
 			continue
 		attachments += new /datum/item_representation/gun(gun_to_copy.attachments_by_slot[key])
-
 
 /datum/item_representation/gun/instantiate_object(datum/loadout_seller/seller, master = null, mob/living/user)
 	. = ..()
@@ -55,7 +53,7 @@
 		return
 	if(!isgunattachment(item_to_copy) && !isgun(item_to_copy))
 		CRASH("/datum/item_representation/gun_attachement created from an item that is not a gun attachment")
-	..()
+	return ..()
 
 ///Attach the instantiated attachment to the gun
 /datum/item_representation/gun_attachement/proc/install_on_gun(seller, obj/item/weapon/gun/gun_to_attach, mob/living/user)

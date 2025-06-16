@@ -93,21 +93,19 @@
  * An item is supported if it's path
  */
 /datum/loadout/proc/save_mob_loadout(mob/living/carbon/human/user, admin_loadout = FALSE)
-	var/obj/item/item_in_slot
-	var/item2representation_type
 	for(var/slot_key in GLOB.visible_item_slot_list)
-		item_in_slot = user.get_item_by_slot(GLOB.slot_str_to_slot[slot_key])
+		var/obj/item/item_in_slot = user.get_item_by_slot(GLOB.slot_str_to_slot[slot_key])
 		if(!item_in_slot)
 			continue
-		item2representation_type = item2representation_type(item_in_slot.type)
+		var/item2representation_type = item2representation_type(item_in_slot.type)
 		item_list[slot_key] = new item2representation_type(item_in_slot, src)
 	if(!admin_loadout)
 		return
 	for(var/slot_key in GLOB.additional_admin_item_slot_list)
-		item_in_slot = user.get_item_by_slot(GLOB.slot_str_to_slot[slot_key])
+		var/obj/item/item_in_slot = user.get_item_by_slot(GLOB.slot_str_to_slot[slot_key])
 		if(!item_in_slot)
 			continue
-		item2representation_type = item2representation_type(item_in_slot.type)
+		var/item2representation_type = item2representation_type(item_in_slot.type)
 		item_list[slot_key] = new item2representation_type(item_in_slot, src)
 
 /datum/loadout/ui_interact(mob/user, datum/tgui/ui)
