@@ -406,10 +406,6 @@ ADMIN_VERB(dsay, R_ADMIN, "dsay", "Speak as an admin in deadchat.", ADMIN_CATEGO
 	if(!msg)
 		return
 
-	if(is_mentor(src) && user.mob.stat != DEAD)
-		to_chat(src, span_warning("You must be an observer to use dsay."))
-		return
-
 	if(!(user.prefs.toggles_chat & CHAT_DEAD))
 		to_chat(src, span_warning("You have deadchat muted."))
 		return

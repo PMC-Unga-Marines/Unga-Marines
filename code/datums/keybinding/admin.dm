@@ -27,7 +27,7 @@
 /datum/keybinding/admin/dead_say
 	hotkey_keys = list("F5")
 	name = DEAD_CHANNEL
-	full_name = "Dead chat"
+	full_name = "Dead say"
 	description = "Speak with the dead."
 	keybind_signal = COMSIG_KB_ADMIN_DSAY_DOWN
 
