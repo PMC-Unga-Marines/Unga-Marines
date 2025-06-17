@@ -60,7 +60,7 @@
 	var/attachment_to_vend
 	if(item_type in gun_to_attach.starting_attachment_types)
 		bypass_vendor_check = TRUE
-	attachment_to_vend = instantiate_object(seller, null, user)
+	attachment_to_vend = instantiate_object(seller, gun_to_attach, user)
 	if(!attachment_to_vend)
 		return
 	SEND_SIGNAL(gun_to_attach, COMSIG_LOADOUT_VENDOR_VENDED_GUN_ATTACHMENT, attachment_to_vend)
@@ -83,7 +83,7 @@
 		return
 	if(!ishandful(item_to_copy))
 		CRASH("/datum/item_representation/handful_representation created from an item that is not a handful")
-	..()
+	. = ..()
 	var/obj/item/ammo_magazine/handful/handful_to_copy = item_to_copy
 	icon_state = handful_to_copy.icon_state
 	ammo = handful_to_copy.default_ammo
