@@ -238,14 +238,12 @@
 			if(length(L.wounds))
 				surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_INTERNAL)
 
-			var/organdamagesurgery = 0
 			for(var/datum/internal_organ/I in L.internal_organs)
 				if(I.damage <= 0)
 					continue
 				if(I.slot == ORGAN_SLOT_EYES) // treat eye surgery differently
 					continue
 				surgery_list += create_autodoc_surgery(L,ORGAN_SURGERY,ADSURGERY_DAMAGE,0,I)
-				organdamagesurgery = 1
 				break
 
 			if(istype(L,/datum/limb/head))
