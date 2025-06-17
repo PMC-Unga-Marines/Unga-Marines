@@ -35,10 +35,9 @@
 
 ///Instantiates and instals the type onto gun_to_attach
 /datum/item_representation/gun/proc/install_on_gun(seller, obj/item/weapon/gun/gun_to_attach, mob/living/user)
-	var/gun_to_vend
 	if(item_type in gun_to_attach.starting_attachment_types)
 		bypass_vendor_check = TRUE
-	gun_to_vend = instantiate_object(seller, null, user)
+	var/gun_to_vend = instantiate_object(seller, null, user)
 	if(!gun_to_vend)
 		return
 	SEND_SIGNAL(gun_to_attach, COMSIG_LOADOUT_VENDOR_VENDED_ATTACHMENT_GUN, gun_to_vend)
@@ -57,10 +56,9 @@
 
 ///Attach the instantiated attachment to the gun
 /datum/item_representation/gun_attachement/proc/install_on_gun(seller, obj/item/weapon/gun/gun_to_attach, mob/living/user)
-	var/attachment_to_vend
 	if(item_type in gun_to_attach.starting_attachment_types)
 		bypass_vendor_check = TRUE
-	attachment_to_vend = instantiate_object(seller, gun_to_attach, user)
+	var/attachment_to_vend = instantiate_object(seller, gun_to_attach, user)
 	if(!attachment_to_vend)
 		return
 	SEND_SIGNAL(gun_to_attach, COMSIG_LOADOUT_VENDOR_VENDED_GUN_ATTACHMENT, attachment_to_vend)
