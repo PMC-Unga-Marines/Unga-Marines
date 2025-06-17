@@ -240,13 +240,13 @@
 
 			var/organdamagesurgery = 0
 			for(var/datum/internal_organ/I in L.internal_organs)
-				if(I.damage > 0)
-					if(I.slot == ORGAN_SLOT_EYES) // treat eye surgery differently
-						continue
-					if(organdamagesurgery > 0)
-						continue // avoid duplicates
-					surgery_list += create_autodoc_surgery(L,ORGAN_SURGERY,ADSURGERY_DAMAGE,0,I)
-					organdamagesurgery++
+				if(I.damage <= 0)
+					continue
+				if(I.slot == ORGAN_SLOT_EYES) // treat eye surgery differently
+					continue
+				surgery_list += create_autodoc_surgery(L,ORGAN_SURGERY,ADSURGERY_DAMAGE,0,I)
+				organdamagesurgery = 1
+				break
 
 			if(istype(L,/datum/limb/head))
 				var/datum/limb/head/H = L
