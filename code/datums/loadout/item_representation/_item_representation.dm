@@ -133,7 +133,7 @@
 				stack_representation.amount = amount_to_remove
 			starting_items[item_representation.item_type] = starting_items[item_representation.item_type] - amount_to_remove
 			item_representation.bypass_vendor_check = TRUE
-		var/obj/item/item_to_insert = item_representation.instantiate_object(seller, null, user)
+		var/obj/item/item_to_insert = item_representation.instantiate_object(seller, item_type, user)
 		if(!item_to_insert)
 			continue
 		if(current_storage_datum.can_be_inserted(item_to_insert, user))

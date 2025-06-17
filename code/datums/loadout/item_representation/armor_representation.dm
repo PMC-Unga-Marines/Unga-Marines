@@ -212,4 +212,4 @@
 		return
 	if(!storage)
 		return
-	storage.instantiate_current_storage_datum(seller, storage_module, user)
+	storage.instantiate_current_storage_datum(seller, ., user)
