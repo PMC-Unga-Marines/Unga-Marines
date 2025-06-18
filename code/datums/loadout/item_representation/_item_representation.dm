@@ -100,11 +100,10 @@
 	//Internal storage are not in vendors. They should always be available for the loadout vendors, because they are instantiated like any other object
 	if(istype(item_to_copy, /obj/item/storage/internal))
 		bypass_vendor_check = TRUE
-	var/item_representation_type
 	for(var/atom/thing_in_content AS in item_to_copy.contents)
 		if(!isitem(thing_in_content))
 			continue
-		item_representation_type = item2representation_type(thing_in_content.type)
+		var/item_representation_type = item2representation_type(thing_in_content.type)
 		if(item_representation_type == /datum/item_representation/storage) //Storage nested in storage tends to be erased by jatum, so just give the default content
 			item_representation_type = /datum/item_representation
 		contents += new item_representation_type(thing_in_content)
@@ -133,7 +132,7 @@
 				stack_representation.amount = amount_to_remove
 			starting_items[item_representation.item_type] = starting_items[item_representation.item_type] - amount_to_remove
 			item_representation.bypass_vendor_check = TRUE
-		var/obj/item/item_to_insert = item_representation.instantiate_object(seller, item_type, user)
+		var/obj/item/item_to_insert = item_representation.instantiate_object(seller, item_representation.item_type, user)
 		if(!item_to_insert)
 			continue
 		if(current_storage_datum.can_be_inserted(item_to_insert, user))

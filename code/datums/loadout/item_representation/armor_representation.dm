@@ -201,7 +201,13 @@
 	if(!ismodulararmorstoragemodule(item_to_copy))
 		CRASH("/datum/item_representation/armor_module created from an item that is not an armor storage module")
 	. = ..()
-	storage = new(item_to_copy)
+	for(var/atom/thing_in_content AS in item_to_copy.contents)
+		if(!isitem(thing_in_content))
+			continue
+		var/item_representation_type = item2representation_type(thing_in_content.type)
+		if(item_representation_type == /datum/item_representation/storage) //Storage nested in storage tends to be erased by jatum, so just give the default content
+			item_representation_type = /datum/item_representation
+		contents += new item_representation_type(thing_in_content)
 
 /datum/item_representation/armor_module/storage/instantiate_object(datum/loadout_seller/seller, master, mob/living/user)
 	. = ..()
