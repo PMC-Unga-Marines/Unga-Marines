@@ -118,12 +118,10 @@ GLOBAL_LIST_INIT(pod_styles, list(\
 				E.drop_limb()
 
 		if(effectGib)
-			L.adjust_brute_loss(5000)
 			L.gib()
 			continue
 
-		L.adjust_brute_loss(damage)
-		UPDATEHEALTH(L)
+		L.adjust_brute_loss(damage, TRUE)
 
 	if(explosion_power > 0 && explosion_falloff > 0)
 		cell_explosion(get_turf(src), explosion_power, explosion_falloff)

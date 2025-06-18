@@ -262,28 +262,28 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			if("gethumans")
 				log_admin("[key_name(usr)] mass-teleported all humans.")
 				message_admins("[ADMIN_TPMONTY(usr)] mass-teleported all humans.")
-				to_chat(GLOB.alive_human_list, span_highdanger("[key_name_admin(usr, FALSE)] mass-teleported all humans."))
+				to_chat(GLOB.alive_human_list, span_userdanger("[key_name_admin(usr, FALSE)] mass-teleported all humans."))
 				for(var/i in GLOB.alive_human_list)
 					var/mob/M = i
 					M.forceMove(T)
 			if("getxenos")
 				log_admin("[key_name(usr)] mass-teleported all Xenos.")
 				message_admins("[ADMIN_TPMONTY(usr)] mass-teleported all Xenos.")
-				to_chat(GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL], span_highdanger("[key_name_admin(usr, FALSE)] mass-teleported all xenos."))
+				to_chat(GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL], span_userdanger("[key_name_admin(usr, FALSE)] mass-teleported all xenos."))
 				for(var/i in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
 					var/mob/M = i
 					M.forceMove(T)
 			if("getall")
 				log_admin("[key_name(usr)] mass-teleported everyone.")
 				message_admins("[ADMIN_TPMONTY(usr)] mass-teleported everyone.")
-				to_chat(GLOB.mob_living_list, span_highdanger("[key_name_admin(usr, FALSE)] mass-teleported everyone."))
+				to_chat(GLOB.mob_living_list, span_userdanger("[key_name_admin(usr, FALSE)] mass-teleported everyone."))
 				for(var/i in GLOB.mob_living_list)
 					var/mob/M = i
 					M.forceMove(T)
 			if("rejuvall")
 				log_admin("[key_name(usr)] mass-rejuvenated cliented mobs.")
 				message_admins("[ADMIN_TPMONTY(usr)] mass-rejuvenated cliented mobs.")
-				to_chat(GLOB.mob_living_list, span_highdanger("[key_name_admin(usr, FALSE)] mass-rejuvenated everyone."))
+				to_chat(GLOB.mob_living_list, span_userdanger("[key_name_admin(usr, FALSE)] mass-rejuvenated everyone."))
 				for(var/i in GLOB.mob_living_list)
 					var/mob/living/L = i
 					if(!L.client)
@@ -1775,7 +1775,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				change = input("Select the hair color.", "Edit Appearance") as null|color
 				if(!change || !istype(H))
 					return
-				previous = "#[num2hex(H.r_hair)][num2hex(H.g_hair)][num2hex(H.b_hair)]"
+				previous = "#[num2hex(H.r_hair, 2)][num2hex(H.g_hair, 2)][num2hex(H.b_hair, 2)]"
 				H.r_hair = hex2num(copytext(change, 2, 4))
 				H.g_hair = hex2num(copytext(change, 4, 6))
 				H.b_hair = hex2num(copytext(change, 6, 8))
@@ -1789,7 +1789,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				change = input("Select the facial hair color.", "Edit Appearance") as null|color
 				if(!change || !istype(H))
 					return
-				previous = "#[num2hex(H.r_facial)][num2hex(H.g_facial)][num2hex(H.b_facial)]"
+				previous = "#[num2hex(H.r_facial, 2)][num2hex(H.g_facial, 2)][num2hex(H.b_facial, 2)]"
 				H.r_facial = hex2num(copytext(change, 2, 4))
 				H.g_facial = hex2num(copytext(change, 4, 6))
 				H.b_facial = hex2num(copytext(change, 6, 8))
@@ -1797,7 +1797,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				change = input("Select the eye color.", "Edit Appearance") as null|color
 				if(!change || !istype(H))
 					return
-				previous = "#[num2hex(H.r_eyes)][num2hex(H.g_eyes)][num2hex(H.b_eyes)]"
+				previous = "#[num2hex(H.r_eyes, 2)][num2hex(H.g_eyes, 2)][num2hex(H.b_eyes, 2)]"
 				H.r_eyes = hex2num(copytext(change, 2, 4))
 				H.g_eyes = hex2num(copytext(change, 4, 6))
 				H.b_eyes = hex2num(copytext(change, 6, 8))
@@ -1805,7 +1805,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				change = input("Select the body color.", "Edit Appearance") as null|color
 				if(!change || !istype(H))
 					return
-				previous = "#[num2hex(H.r_skin)][num2hex(H.g_skin)][num2hex(H.b_skin)]"
+				previous = "#[num2hex(H.r_skin, 2)][num2hex(H.g_skin, 2)][num2hex(H.b_skin, 2)]"
 				H.r_skin = hex2num(copytext(change, 2, 4))
 				H.g_skin = hex2num(copytext(change, 4, 6))
 				H.b_skin = hex2num(copytext(change, 6, 8))
@@ -1941,9 +1941,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				var/list/job_outfits = list()
 				for(var/path in job_paths)
 					var/datum/outfit/O = path
-					if(initial(O.can_be_admin_equipped))
-						var/outfit_name = initial(O.name)
-						job_outfits[outfit_name] = path
+					job_outfits[initial(O.name)] = path
 
 				var/list/picker = sortList(job_outfits)
 				picker.Insert(1, "{Naked}")

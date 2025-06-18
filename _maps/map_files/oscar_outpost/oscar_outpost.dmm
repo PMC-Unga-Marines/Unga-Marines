@@ -398,7 +398,7 @@
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/outside/east)
 "cD" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/machinery/camera/autoname/mainship{
@@ -415,10 +415,10 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "cN" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -764,10 +764,10 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost)
 "fn" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/structure/platform{
@@ -860,7 +860,7 @@
 /turf/open/floor/plating,
 /area/oscar_outpost)
 "fR" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/machinery/light{
@@ -931,10 +931,10 @@
 /turf/open/ground/grass,
 /area/oscar_outpost/outside/west)
 "gm" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/structure/platform{
 	dir = 6
 	},
@@ -992,7 +992,7 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "gu" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/structure/platform,
 /turf/open/floor/tile/dark,
 /area/oscar_outpost)
@@ -1045,10 +1045,10 @@
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/village/fairgrounds)
 "gC" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
@@ -1092,7 +1092,7 @@
 /turf/open/floor/wood,
 /area/oscar_outpost/village)
 "hb" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
@@ -1280,7 +1280,7 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "is" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
@@ -1373,7 +1373,7 @@
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/outside/road)
 "je" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -1596,7 +1596,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/oscar_outpost/village/fairgrounds)
 "kE" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -1686,7 +1686,7 @@
 /turf/open/floor,
 /area/oscar_outpost/village/south)
 "lu" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/machinery/light{
@@ -1951,7 +1951,7 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost)
 "nt" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -1964,7 +1964,7 @@
 /turf/open/floor/wood,
 /area/oscar_outpost/base)
 "nx" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -2212,7 +2212,7 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "pi" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	alpha = 0;
 	dir = 4;
 	mouse_opacity = 0
@@ -2321,7 +2321,7 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "pP" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating/asteroidwarning,
 /area/oscar_outpost)
 "pR" = (
@@ -2609,7 +2609,7 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost)
 "rr" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/structure/platform{
@@ -2761,7 +2761,7 @@
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/outside/east)
 "sb" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/asteroidfloor,
@@ -2773,7 +2773,7 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "se" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -3081,10 +3081,10 @@
 /turf/open/floor/plating/ground/dirtgrassborder,
 /area/oscar_outpost/outside/road)
 "uo" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -3183,7 +3183,7 @@
 /turf/open/floor/wood,
 /area/oscar_outpost/village/south)
 "uS" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/effect/landmark/start/job/squadmarine,
@@ -3208,10 +3208,10 @@
 	},
 /area/oscar_outpost/outside/road)
 "vp" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating/asteroidwarning{
 	dir = 10
 	},
@@ -3359,7 +3359,7 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost)
 "wl" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -3445,7 +3445,7 @@
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/outside/underground)
 "wM" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "wW" = (
@@ -3512,7 +3512,7 @@
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/village/fairgrounds)
 "xe" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/asteroidwarning{
@@ -3534,7 +3534,7 @@
 /turf/open/floor/prison,
 /area/oscar_outpost/base)
 "xm" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/machinery/light{
@@ -3727,7 +3727,7 @@
 	},
 /area/oscar_outpost)
 "yv" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/structure/platform{
@@ -4117,7 +4117,7 @@
 /turf/open/floor,
 /area/oscar_outpost/village)
 "Av" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	alpha = 0;
 	dir = 4;
 	mouse_opacity = 0
@@ -4553,10 +4553,10 @@
 /turf/open/floor/plating/ground/dirt,
 /area/oscar_outpost/village/fairgrounds)
 "Cs" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/asteroidwarning{
@@ -4610,7 +4610,7 @@
 /turf/open/floor/wood,
 /area/oscar_outpost/village)
 "CM" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/machinery/camera/autoname/mainship{
@@ -4626,11 +4626,11 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost)
 "CP" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "CQ" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/machinery/camera/autoname/mainship{
@@ -4897,10 +4897,10 @@
 /turf/open/floor/wood,
 /area/oscar_outpost/base)
 "Eb" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/structure/platform{
@@ -5005,7 +5005,7 @@
 /turf/open/floor/wood,
 /area/oscar_outpost/village/south)
 "Er" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/machinery/light{
@@ -5027,7 +5027,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/cement,
 /area/oscar_outpost/outside/west)
 "Ex" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/structure/platform{
@@ -5151,7 +5151,7 @@
 /turf/open/floor,
 /area/oscar_outpost/village/south)
 "Fg" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/structure/platform{
@@ -5171,7 +5171,7 @@
 /turf/open/ground/grass,
 /area/oscar_outpost/outside/road)
 "Fj" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -5446,7 +5446,7 @@
 /turf/open/floor/wood,
 /area/oscar_outpost/base)
 "Gs" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -5629,7 +5629,7 @@
 	},
 /area/oscar_outpost/outside/road)
 "Hc" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/structure/platform{
@@ -5911,7 +5911,7 @@
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/outside/underground)
 "Is" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/machinery/light{
@@ -6015,7 +6015,7 @@
 /turf/open/floor,
 /area/oscar_outpost/village)
 "IK" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/machinery/camera/autoname/mainship{
@@ -6285,7 +6285,7 @@
 /turf/open/floor,
 /area/oscar_outpost/village/south)
 "JO" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/machinery/light{
@@ -6297,10 +6297,10 @@
 /turf/open/floor/plating,
 /area/oscar_outpost)
 "JR" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/asteroidwarning{
@@ -6308,10 +6308,10 @@
 	},
 /area/oscar_outpost)
 "JS" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
@@ -6529,7 +6529,7 @@
 /turf/open/floor/wood,
 /area/oscar_outpost/village/central)
 "KZ" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/effect/ai_node,
@@ -6870,7 +6870,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/oscar_outpost/village)
 "Mm" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	alpha = 0;
 	dir = 4;
 	mouse_opacity = 0
@@ -7194,7 +7194,7 @@
 /obj/structure/window{
 	dir = 8
 	},
-/obj/machinery/computer/camera_advanced/overwatch/main,
+/obj/machinery/computer/camera_advanced/overwatch/military/main,
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "NS" = (
@@ -7246,7 +7246,7 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost)
 "Ol" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /obj/effect/ai_node,
@@ -7322,7 +7322,7 @@
 /obj/item/stack/sheet/metal/large_stack,
 /obj/item/stack/sheet/metal/large_stack,
 /obj/structure/closet/crate,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
@@ -7516,7 +7516,7 @@
 /turf/open/floor/plating,
 /area/oscar_outpost)
 "Pm" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
@@ -7663,7 +7663,7 @@
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/village/fairgrounds)
 "PN" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -7992,7 +7992,7 @@
 	},
 /area/oscar_outpost/outside/road)
 "QS" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -8096,7 +8096,7 @@
 /turf/open/floor/wood,
 /area/oscar_outpost/village/east)
 "Rt" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
@@ -8503,10 +8503,10 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "Tk" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -8938,7 +8938,7 @@
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/outside/road)
 "VC" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/machinery/light{
@@ -8960,7 +8960,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/oscar_outpost/village/fairgrounds)
 "VH" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/effect/landmark/start/job/squadmarine,
@@ -8988,7 +8988,7 @@
 /turf/open/floor/wood,
 /area/oscar_outpost/village/east)
 "VV" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -9116,7 +9116,7 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "WA" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/machinery/light{
@@ -9142,10 +9142,10 @@
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/outside/road)
 "WF" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /obj/structure/platform{
@@ -9199,10 +9199,10 @@
 /turf/open/floor/wood,
 /area/oscar_outpost/village/south)
 "WY" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/structure/platform{
@@ -9290,8 +9290,8 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost/base)
 "Xq" = (
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid,
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/asteroidwarning{
@@ -9439,7 +9439,7 @@
 /turf/open/floor/prison,
 /area/oscar_outpost/base)
 "XY" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
@@ -9460,7 +9460,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/oscar_outpost/base)
 "Ye" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /obj/machinery/camera/autoname/mainship{
@@ -9499,7 +9499,7 @@
 /turf/open/floor/plating,
 /area/oscar_outpost)
 "Yo" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/asteroidwarning{
@@ -9989,7 +9989,7 @@
 /turf/open/floor,
 /area/oscar_outpost/village/south)
 "ZW" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/plating/asteroidwarning{

@@ -221,6 +221,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 		for(var/ammo in veh_ui.secondary_ammo)
 			for(var/i=1 to veh_ui.secondary_ammo[ammo])
 				new ammo(dumploc)
+	SStgui.close_user_uis(user, veh_ui)
 
 /obj/docking_port/stationary/supply/vehicle
 	shuttle_id = "vehicle_home"

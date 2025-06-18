@@ -10,28 +10,22 @@
 	pixel_x = -32
 	pixel_y = -24
 	max_integrity = 1000
-	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE
-	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE
+	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE
+	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE|XENO_STRUCT_WARNING_RADIUS|XENO_STRUCT_DAMAGE_ALERT
 	plane = FLOOR_PLANE
 	///How many larva points one silo produce in one minute
 	var/larva_spawn_rate = 0.5
 	var/number_silo
-	///For minimap icon change if silo takes damage or nearby hostile
-	var/warning
 	///Strength of pheromones given by silo.
 	var/aura_strength = 4
 	///Radius (in tiles) of the pheromones given by silo.
 	var/aura_radius = 30
 	COOLDOWN_DECLARE(silo_damage_alert_cooldown)
-	COOLDOWN_DECLARE(silo_proxy_alert_cooldown)
 
 /obj/structure/xeno/silo/Initialize(mapload, _hivenumber)
 	if(CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_SILO_NO_LARVA))
 		xeno_structure_flags &= ~CRITICAL_STRUCTURE
 	. = ..()
-	if(SSticker.mode?.round_type_flags & MODE_SILO_RESPAWN)
-		for(var/turfs in RANGE_TURFS(XENO_SILO_DETECTION_RANGE, src))
-			RegisterSignal(turfs, COMSIG_ATOM_ENTERED, PROC_REF(resin_silo_proxy_alert))
 
 	if(SSticker.mode?.round_type_flags & MODE_SILOS_SPAWN_MINIONS)
 		SSspawning.registerspawner(src, INFINITY, GLOB.xeno_ai_spawnable, 0, 0, CALLBACK(src, PROC_REF(on_spawn)))
@@ -63,6 +57,11 @@
 		newt.name += " [name]"
 	if(GLOB.hive_datums[hivenumber])
 		SSticker.mode.update_silo_death_timer(GLOB.hive_datums[hivenumber])
+
+/obj/structure/xeno/silo/set_proximity_warning()
+	if(!(SSticker.mode?.round_type_flags & MODE_SILO_RESPAWN))
+		return
+	return ..()
 
 /obj/structure/xeno/silo/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
 	if(GLOB.hive_datums[hivenumber])
@@ -100,51 +99,13 @@
 
 /obj/structure/xeno/silo/take_damage(damage_amount, damage_type, damage_flag = null, effects = TRUE, attack_dir, armour_penetration, mob/living/blame_mob)
 	. = ..()
-
 	//We took damage, so it's time to start regenerating if we're not already processing
 	if(!CHECK_BITFIELD(datum_flags, DF_ISPROCESSING))
 		START_PROCESSING(SSslowprocess, src)
 
-	resin_silo_damage_alert()
-
-/obj/structure/xeno/silo/proc/resin_silo_damage_alert()
-	if(!COOLDOWN_CHECK(src, silo_damage_alert_cooldown))
-		return
-	warning = TRUE
-	update_minimap_icon()
-	GLOB.hive_datums[hivenumber].xeno_message("Our [name] at [AREACOORD_NO_Z(src)] is under attack! It has [obj_integrity]/[max_integrity] Health remaining.", "xenoannounce", 5, FALSE, src, 'sound/voice/alien/help1.ogg',FALSE, null, /atom/movable/screen/arrow/silo_damaged_arrow)
-	COOLDOWN_START(src, silo_damage_alert_cooldown, XENO_SILO_HEALTH_ALERT_COOLDOWN) //set the cooldown.
-	addtimer(CALLBACK(src, PROC_REF(clear_warning)), XENO_SILO_HEALTH_ALERT_COOLDOWN) //clear warning
-
-///Alerts the Hive when hostiles get too close to their resin silo
-/obj/structure/xeno/silo/proc/resin_silo_proxy_alert(datum/source, atom/movable/hostile, direction)
-	SIGNAL_HANDLER
-
-	if(!COOLDOWN_CHECK(src, silo_proxy_alert_cooldown)) //Proxy alert triggered too recently; abort
-		return
-
-	if(!isliving(hostile))
-		return
-
-	var/mob/living/living_triggerer = hostile
-	if(living_triggerer.stat == DEAD) //We don't care about the dead
-		return
-
-	if(isxeno(hostile))
-		var/mob/living/carbon/xenomorph/X = hostile
-		if(X.hive == GLOB.hive_datums[hivenumber]) //Trigger proxy alert only for hostile xenos
-			return
-
-	warning = TRUE
-	update_minimap_icon()
-	GLOB.hive_datums[hivenumber].xeno_message("Our [name] has detected a nearby hostile [hostile] at [get_area(hostile)] (X: [hostile.x], Y: [hostile.y]).", "xenoannounce", 5, FALSE, hostile, 'sound/voice/alien/help1.ogg', FALSE, null, /atom/movable/screen/arrow/leader_tracker_arrow)
-	COOLDOWN_START(src, silo_proxy_alert_cooldown, XENO_SILO_DETECTION_COOLDOWN) //set the cooldown.
-	addtimer(CALLBACK(src, PROC_REF(clear_warning)), XENO_SILO_DETECTION_COOLDOWN) //clear warning
-
-///Clears the warning for minimap if its warning for hostiles
-/obj/structure/xeno/silo/proc/clear_warning()
-	warning = FALSE
-	update_minimap_icon()
+/obj/structure/xeno/silo/update_minimap_icon()
+	SSminimaps.remove_marker(src)
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[threat_warning ? "_warn" : "_passive"]", HIGH_FLOAT_LAYER))
 
 /obj/structure/xeno/silo/process()
 	//Regenerate if we're at less than max integrity
@@ -155,11 +116,6 @@
 	SIGNAL_HANDLER
 	if(GLOB.hive_datums[hivenumber])
 		silos += src
-
-///Change minimap icon if silo is under attack or not
-/obj/structure/xeno/silo/proc/update_minimap_icon()
-	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[warning ? "_warn" : "_passive"]", VERY_HIGH_FLOAT_LAYER))
 
 /// Transfers the spawned minion to the silo's hivenumber.
 /obj/structure/xeno/silo/proc/on_spawn(list/newly_spawned_things)

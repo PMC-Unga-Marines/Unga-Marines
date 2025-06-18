@@ -38,4 +38,6 @@ GLOBAL_LIST_INIT(robot_clothes_listed_products, list(
 	/obj/item/armor_module/module/ballistic_armor = list(CAT_ARMMOD, "Hod Accident Prevention Plating", 0,"black"),
 	/obj/item/armor_module/module/better_shoulder_lamp = list(CAT_ARMMOD, "Baldur light armor module", 0,"black"),
 	/obj/item/armor_module/module/eshield = list(CAT_ARMMOD, "Svalinn Energy Shield System", 0 , "black"),
+	/obj/item/armor_module/module/mirage = list(CAT_ARMMOD, "Loki Illusion Module", 0, "black"),
+	/obj/item/armor_module/module/armorlock = list(CAT_ARMMOD, "Thor Armorlock Module", 0, "black"),
 ))

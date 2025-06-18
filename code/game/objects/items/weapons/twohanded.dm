@@ -168,7 +168,7 @@
 	atom_flags = CONDUCT
 	item_flags = TWOHANDED
 	force_wielded = 75
-	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
+	attack_verb = list("attacks", "chops", "cleaves", "tears", "cuts")
 
 /obj/item/weapon/twohanded/fireaxe/wield(mob/user)
 	. = ..()
@@ -245,7 +245,7 @@
 	succeed_activate()
 	add_cooldown()
 	var/mob/living/carbon/carbon_owner = owner
-	carbon_owner.Move(get_step_towards(carbon_owner, A), get_dir(src, A))
+	carbon_owner.Move(get_step(carbon_owner, angle_to_dir(Get_Angle(carbon_owner, A))), get_dir(carbon_owner, A))
 	carbon_owner.face_atom(A)
 	activate_particles(owner.dir)
 	playsound(owner, 'sound/effects/alien/tail_swipe3.ogg', 50, 0, 5)
@@ -307,7 +307,7 @@
 	wieldsound = 'sound/weapons/saberon.ogg'
 	unwieldsound = 'sound/weapons/saberoff.ogg'
 	atom_flags = NOBLOODY
-	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	attack_verb = list("attacks", "slashes", "stabs", "slices", "tears", "rips", "dices", "cuts")
 	sharp = IS_SHARP_ITEM_BIG
 	edge = 1
 
@@ -330,7 +330,7 @@
 	edge = 1
 	sharp = IS_SHARP_ITEM_SIMPLE
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("attacked", "stabbed", "jabbed", "torn", "gored")
+	attack_verb = list("attacks", "stabs", "jabs", "tears", "gores")
 	///Based on what direction the tip of the spear is pointed at in the sprite; maybe someone makes a spear that points northwest
 	var/current_angle = 45
 
@@ -419,7 +419,7 @@
 	sharp = IS_SHARP_ITEM_BIG
 	atom_flags = CONDUCT
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	attack_verb = list("sliced", "slashed", "jabbed", "torn", "gored")
+	attack_verb = list("slices", "slashes", "jabs", "tears", "gores")
 	resistance_flags = UNACIDABLE
 	attack_speed = 12 //Default is 7.
 
@@ -443,7 +443,7 @@
 	edge = 1
 	sharp = IS_SHARP_ITEM_BIG
 	atom_flags = CONDUCT | TWOHANDED
-	attack_verb = list("smashed", "hammered")
+	attack_verb = list("smashes", "hammers")
 	attack_speed = 20
 
 	///amount of fuel stored inside
@@ -454,23 +454,23 @@
 	var/additional_damage = 75
 	///stun value in crush mode
 	var/crush_stun_amount = 2 SECONDS
-	///weaken value in crush mode
-	var/crush_weaken_amount = 4 SECONDS
+	///paralyze value in crush mode
+	var/crush_paralyze_amount = 4 SECONDS
 	///stun value in knockback mode
 	var/knockback_stun_amount = 2 SECONDS
-	///weaken value in knockback mode
-	var/knockback_weaken_amount = 2 SECONDS
+	///paralyze value in knockback mode
+	var/knockback_paralyze_amount = 2 SECONDS
 	///stun value
 	var/stun
-	///weaken value
-	var/weaken
+	///paralyze value
+	var/paralyze
 	///knockback value; 0 = crush mode, 1 = knockback mode
 	var/knockback
 
 /obj/item/weapon/twohanded/rocketsledge/Initialize(mapload)
 	. = ..()
 	stun = crush_stun_amount
-	weaken = crush_weaken_amount
+	paralyze = crush_paralyze_amount
 	knockback = 0
 	create_reagents(max_fuel, null, list(/datum/reagent/fuel = max_fuel))
 	AddElement(/datum/element/strappable)
@@ -525,14 +525,14 @@
 	. = ..()
 	if (knockback)
 		stun = crush_stun_amount
-		weaken = crush_weaken_amount
+		paralyze = crush_paralyze_amount
 		knockback = 0
 		balloon_alert(user, "Selected mode: CRUSH.")
 		playsound(loc, 'sound/machines/switch.ogg', 25)
 		return
 
 	stun = knockback_stun_amount
-	weaken = knockback_weaken_amount
+	paralyze = knockback_paralyze_amount
 	knockback = 1
 	balloon_alert(user, "Selected mode: KNOCKBACK.")
 	playsound(loc, 'sound/machines/switch.ogg', 25)
@@ -577,7 +577,7 @@
 			stun = knockback ? knockback_stun_amount : crush_stun_amount
 
 	if(!M.has_status_effect(STATUS_EFFECT_STUN) && !M.has_status_effect(STATUS_EFFECT_PARALYZED) && !isxenoqueen(M) && !isxenoking(M)) //Prevent chain stunning. Queen and King are protected.
-		M.apply_effects(stun,weaken)
+		M.apply_effects(stun,paralyze)
 
 	return ..()
 
@@ -593,7 +593,7 @@
 	force_wielded = 85
 	penetration = 10
 	attack_speed = 20
-	attack_verb = list("attacked", "walloped", "smashed", "shattered", "bashed")
+	attack_verb = list("attacks", "wallops", "smashes", "shatters", "bashes")
 
 /obj/item/weapon/twohanded/sledgehammer/wield(mob/user)
 	. = ..()
@@ -618,7 +618,7 @@
 	icon_state = "chainsaw_off"
 	worn_icon_state = "chainsaw"
 	atom_flags = TWOHANDED
-	attack_verb = list("gored", "torn", "ripped", "shred", "slashed", "cut")
+	attack_verb = list("gores", "tears", "rips", "shreds", "slashes", "cuts")
 	force = 20
 	force_wielded = 75
 	throwforce = 30

@@ -111,8 +111,8 @@
 	if(. && (world.time > last_attack + cooldown_time))
 		last_attack = world.time
 		M.throw_at(get_step(M, user.dir), 1, 5, user, FALSE)
-		M.apply_effect(3, EYE_BLUR)
-		M.apply_effect(5, WEAKEN)
+		M.apply_effect(3, EFFECT_EYE_BLUR)
+		M.apply_effect(5, EFFECT_PARALYZE)
 
 /obj/item/weapon/shield/riot/yautja/attackby(obj/item/I, mob/user)
 	if(cooldown < world.time - 25)

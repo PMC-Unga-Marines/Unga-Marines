@@ -261,7 +261,7 @@
 /area/oscar_outpost/outside/northeast)
 "cy" = (
 /obj/structure/table/reinforced,
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating,
 /area/oscar_outpost/outside/north)
 "cz" = (
@@ -330,14 +330,14 @@
 /area/oscar_outpost)
 "cX" = (
 /obj/structure/table/reinforced,
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid,
+/obj/structure/barricade/solid{
 	dir = 8
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/ground/coast{
@@ -348,7 +348,7 @@
 /turf/closed/wall,
 /area/oscar_outpost/outside/east)
 "da" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/engine/cult{
@@ -515,7 +515,7 @@
 /turf/open/floor,
 /area/oscar_outpost)
 "ec" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/effect/ai_node,
@@ -2428,7 +2428,7 @@
 	},
 /area/oscar_outpost)
 "xh" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /obj/item/weapon/gun/hsg102/hsg_nest{
@@ -3169,7 +3169,7 @@
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/outside/road)
 "Ei" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -3374,14 +3374,14 @@
 /area/oscar_outpost/outside/northeast)
 "GQ" = (
 /obj/structure/table/reinforced,
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid,
+/obj/structure/barricade/solid{
 	dir = 8
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/liquid/water/river,
@@ -3920,14 +3920,14 @@
 /area/oscar_outpost)
 "Nh" = (
 /obj/structure/table/reinforced,
-/obj/structure/barricade/metal,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid,
+/obj/structure/barricade/solid{
 	dir = 8
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -4541,16 +4541,16 @@
 /area/oscar_outpost)
 "QW" = (
 /obj/structure/table/reinforced,
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/plating,
 /area/oscar_outpost/outside/north)
 "QX" = (

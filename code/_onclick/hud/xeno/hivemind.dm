@@ -1,5 +1,5 @@
 /datum/hud/hivemind/New(mob/living/carbon/xenomorph/hivemind/owner, ui_style, ui_color, ui_alpha = 230)
-	..()
+	. = ..()
 	var/atom/movable/screen/using
 
 	using = new /atom/movable/screen/alien/nightvision(null, src)

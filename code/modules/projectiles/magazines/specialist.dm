@@ -381,7 +381,7 @@
 
 /obj/item/ammo_magazine/railgun
 	name = "railgun canister (Armor Piercing Discarding Sabot)"
-	desc = "A canister holding a tungsten projectile to be used inside a railgun. APDS is written across the canister, this round will penetrate through most armor, but will not leave much of a hole."
+	desc = "A canister holding a tungsten projectile to be used inside a railgun. APDS is written across the canister. This round will penetrate through most armor, but will not leave much of a hole."
 	caliber = CALIBER_RAILGUN
 	icon = 'icons/obj/items/ammo/misc.dmi'
 	icon_state = "railgun"
@@ -428,7 +428,7 @@
 
 /obj/item/ammo_magazine/minigun_powerpack
 	name = "\improper MG-100 Vindicator powerpack"
-	desc = "A heavy reinforced backpack with support equipment, power cells, and spare rounds for the MG-100 Minigun System.\nClick the icon in the top left to reload your MG-100."
+	desc = "A heavy reinforced backpack with support equipment, power cells, and spare rounds for the MG-100 minigun system.\nClick the icon in the top left to reload your MG-100."
 	icon = 'icons/obj/items/ammo/powerpack.dmi'
 	icon_state = "powerpack"
 	atom_flags = CONDUCT

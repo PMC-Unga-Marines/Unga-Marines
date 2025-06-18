@@ -682,7 +682,6 @@
 	desc = "The R-2395 Derringer has been a classic for centuries. This latest iteration combines plasma propulsion powder with the classic design to make an assasination weapon that will leave little to chance."
 	icon_state = "derringer"
 	icon = 'icons/obj/items/gun/pistol.dmi'
-	worn_icon_state = "tp17"
 	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',

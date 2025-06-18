@@ -27,7 +27,7 @@
 	create_shrapnel(get_turf(src), rand(2, 5), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
 
 /obj/structure/girder/add_debris_element()
-	AddElement(/datum/element/debris, DEBRIS_SPARKS, -15, 8, 1)
+	AddElement(/datum/element/debris, DEBRIS_SPARKS, -40, 8, 1)
 
 /obj/structure/girder/proc/change_state(new_state, mob/user)
 	if(new_state == girder_state)

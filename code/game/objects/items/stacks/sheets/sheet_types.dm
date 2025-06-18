@@ -1,6 +1,6 @@
 GLOBAL_LIST_INIT(metal_recipes, list ( \
-	new/datum/stack_recipe("metal barricade", /obj/structure/barricade/metal, 4, time = 6 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
-	new/datum/stack_recipe("metal folding barricade", /obj/structure/barricade/plasteel/metal, 6, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
+	new/datum/stack_recipe("metal barricade", /obj/structure/barricade/solid, 4, time = 6 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
+	new/datum/stack_recipe("metal folding barricade", /obj/structure/barricade/folding/metal, 6, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), \
 	new/datum/stack_recipe("barbed wire", /obj/item/stack/barbed_wire, 1, 1, 20, time = 1 SECONDS, crafting_flags = NONE, skill_req = SKILL_CONSTRUCTION_METAL), \
 	new/datum/stack_recipe("razor wire", /obj/item/stack/razorwire, 4, 2, 20, time = 5 SECONDS, crafting_flags = NONE, skill_req = SKILL_CONSTRUCTION_METAL), \
 	null, \
@@ -92,9 +92,9 @@ GLOBAL_LIST_INIT(plasteel_radial_images, list(
 		if("recipes")
 			return TRUE
 		if("metal barricade")
-			create_object(user, new/datum/stack_recipe("metal barricade", /obj/structure/barricade/metal, 4, time = 6 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), 1)
+			create_object(user, new/datum/stack_recipe("metal barricade", /obj/structure/barricade/solid, 4, time = 6 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), 1)
 		if("folding metal barricade")
-			create_object(user, new/datum/stack_recipe("folding metal barricade", /obj/structure/barricade/plasteel/metal, 6, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), 1)
+			create_object(user, new/datum/stack_recipe("folding metal barricade", /obj/structure/barricade/folding/metal, 6, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_METAL), 1)
 		if("barbedwire")
 			create_object(user, new/datum/stack_recipe("barbed wire", /obj/item/stack/barbed_wire, 1, 1, 20, time = 1 SECONDS, crafting_flags = NONE, skill_req = SKILL_CONSTRUCTION_METAL), 1)
 		if("razorwire")
@@ -132,15 +132,15 @@ GLOBAL_LIST_INIT(plasteel_radial_images, list(
 		if("recipes")
 			return TRUE
 		if("plasteel barricade")
-			create_object(user, new/datum/stack_recipe("folding plasteel barricade", /obj/structure/barricade/metal/plasteel, 4, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_PLASTEEL), 1)
+			create_object(user, new/datum/stack_recipe("folding plasteel barricade", /obj/structure/barricade/solid/plasteel, 4, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_PLASTEEL), 1)
 		if("folding plasteel barricade")
-			create_object(user, new/datum/stack_recipe("folding plasteel barricade", /obj/structure/barricade/plasteel, 6, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_PLASTEEL), 1)
+			create_object(user, new/datum/stack_recipe("folding plasteel barricade", /obj/structure/barricade/folding, 6, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_PLASTEEL), 1)
 
 	return FALSE
 
 GLOBAL_LIST_INIT(plasteel_recipes, list ( \
-	new/datum/stack_recipe("plasteel barricade", /obj/structure/barricade/metal/plasteel, 4, time = 6 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_PLASTEEL), \
-	new/datum/stack_recipe("plasteel folding barricade", /obj/structure/barricade/plasteel, 6, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_PLASTEEL), \
+	new/datum/stack_recipe("plasteel barricade", /obj/structure/barricade/solid/plasteel, 4, time = 6 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_PLASTEEL), \
+	new/datum/stack_recipe("plasteel folding barricade", /obj/structure/barricade/folding, 6, time = 10 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, skill_req = SKILL_CONSTRUCTION_PLASTEEL), \
 	null, \
 	))
 
@@ -185,7 +185,7 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 	new/datum/stack_recipe("table parts", /obj/item/frame/table/wood, 2), \
 	*/
 	new/datum/stack_recipe("wooden chair", /obj/structure/bed/chair/wood/normal, 1, time = 1 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
-	new/datum/stack_recipe("wooden barricade", /obj/structure/barricade/wooden, 5, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND), \
+	new/datum/stack_recipe("wooden barricade", /obj/structure/barricade/wood, 5, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND), \
 
 	new/datum/stack_recipe("wooden door", /obj/structure/mineral_door/wood, 10, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
 	new/datum/stack_recipe("coffin", /obj/structure/closet/coffin, 5, time = 1.5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), \
@@ -211,7 +211,7 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 		if("recipes")
 			return TRUE
 		if("barricade")
-			create_object(user, new/datum/stack_recipe("wooden barricade", /obj/structure/barricade/wooden, 5, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND), 1)
+			create_object(user, new/datum/stack_recipe("wooden barricade", /obj/structure/barricade/wood, 5, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND), 1)
 		if("chair")
 			create_object(user, new/datum/stack_recipe("wooden chair", /obj/structure/bed/chair/wood/normal, 1, time = 1 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND), 1)
 		if("tile")

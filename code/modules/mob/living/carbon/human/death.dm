@@ -9,7 +9,7 @@
 			// Override the current limb status
 			E.drop_limb(silent = TRUE)
 	visible_message(span_warning("[name] explodes violently into a bloody mess!"),
-		span_highdanger("<b>You explode violently into a bloody mess!</b>"),
+		span_userdanger("<b>You explode violently into a bloody mess!</b>"),
 		span_warning("You hear a terrible sound of breaking bones and ripping flesh!"), 3)
 	return ..()
 
@@ -19,8 +19,10 @@
 /mob/living/carbon/human/spawn_gibs()
 	if(species)
 		hgibs(loc, species.flesh_color, species.blood_color)
+		new /obj/effect/temp_visual/gib_particles(get_turf(src), species.blood_color)
 	else
 		hgibs(loc)
+		new /obj/effect/temp_visual/gib_particles(get_turf(src), get_blood_color())
 
 /mob/living/carbon/human/spawn_dust_remains()
 	if(species)

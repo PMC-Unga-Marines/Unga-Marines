@@ -39,6 +39,7 @@
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	oxyloss = clamp(oxyloss + amount, 0, maxHealth * 2)
+	return TRUE
 
 /mob/living/proc/set_oxy_loss(amount)
 	if(status_flags & GODMODE)

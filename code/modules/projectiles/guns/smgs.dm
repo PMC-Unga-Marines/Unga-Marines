@@ -345,6 +345,9 @@
 /obj/item/weapon/gun/smg/skorpion/mag_harness
 	starting_attachment_types = list(/obj/item/attachable/foldable/skorpion_stock, /obj/item/attachable/magnetic_harness)
 
+/obj/item/weapon/gun/smg/skorpion/commando
+	starting_attachment_types = list(/obj/item/attachable/suppressor, /obj/item/attachable/reddot)
+
 //-------------------------------------------------------
 //PPSH //Based on the PPSh-41.
 

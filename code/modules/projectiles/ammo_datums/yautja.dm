@@ -58,12 +58,12 @@
 
 		if(ishuman(C))
 			var/mob/living/carbon/human/H = C
-			H.apply_effect(stun_time, WEAKEN)
+			H.apply_effect(stun_time, EFFECT_PARALYZE)
 		else
-			C.apply_effect(stun_time, WEAKEN)
+			C.apply_effect(stun_time, EFFECT_PARALYZE)
 
-		C.apply_effect(stun_time, STUN)
-	..()
+		C.apply_effect(stun_time, EFFECT_STUN)
+	return ..()
 
 /datum/ammo/energy/yautja/caster/bolt
 	name = "plasma bolt"
@@ -93,12 +93,12 @@
 
 		if(ishuman(C))
 			var/mob/living/carbon/human/H = C
-			H.apply_effect(stun_time, WEAKEN)
+			H.apply_effect(stun_time, EFFECT_PARALYZE)
 		else
-			C.apply_effect(stun_time, WEAKEN)
+			C.apply_effect(stun_time, EFFECT_PARALYZE)
 
-		C.apply_effect(stun_time, STUN)
-	..()
+		C.apply_effect(stun_time, EFFECT_STUN)
+	return ..()
 
 /datum/ammo/energy/yautja/caster/sphere/stun
 	name = "plasma immobilizer"
@@ -133,13 +133,13 @@
 		if(ispredalien(target_mob))
 			continue
 		to_chat(target_mob, span_danger("A powerful electric shock ripples through your body, freezing you in place!"))
-		target_mob.apply_effect(f_stun_time, STUN)
+		target_mob.apply_effect(f_stun_time, EFFECT_STUN)
 
 		if(ishuman(target_mob))
 			var/mob/living/carbon/human/H = target_mob
-			H.apply_effect(f_stun_time, WEAKEN)
+			H.apply_effect(f_stun_time, EFFECT_PARALYZE)
 		else
-			target_mob.apply_effect(f_stun_time, WEAKEN)
+			target_mob.apply_effect(f_stun_time, EFFECT_PARALYZE)
 
 /datum/ammo/energy/yautja/rifle/bolt
 	name = "plasma rifle bolt"

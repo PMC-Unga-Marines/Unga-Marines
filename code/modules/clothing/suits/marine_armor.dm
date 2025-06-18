@@ -383,9 +383,9 @@
 	)
 	armor_features_flags = ARMOR_LAMP_OVERLAY
 	item_flags = SYNTH_RESTRICTED
+	actions_types = list(/datum/action/item_action/toggle)
 	var/locate_cooldown = 0 //Cooldown for SL locator
 	var/armor_overlays["lamp"]
-	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/suit/storage/faction/Initialize(mapload, ...)
 	. = ..()
@@ -421,7 +421,7 @@
 	if(slot != SLOT_WEAR_SUIT) return FALSE
 	return TRUE //only give action button when armor is worn.
 
-/obj/item/clothing/suit/storage/faction/UPP
+/obj/item/clothing/suit/storage/faction/upp
 	name = "\improper UM5 personal armor"
 	desc = "Standard body armor of the USL pirates, the UM5 (United Medium MK5) is a medium body armor, roughly on par with the venerable M3 pattern body armor in service with the TGMC."
 	icon_state = "upp_armor"
@@ -430,21 +430,21 @@
 	soft_armor = list(MELEE = 55, BULLET = 60, LASER = 60, ENERGY = 60, BOMB = 55, BIO = 10, FIRE = 60, ACID = 60)
 
 /// Modified version of the armor for HvH combat. Stats are based on medium armor, with tyr mark 2.
-/obj/item/clothing/suit/storage/faction/UPP/hvh
+/obj/item/clothing/suit/storage/faction/upp/hvh
 	soft_armor = list(MELEE = 55, BULLET = 75, LASER = 75, ENERGY = 60, BOMB = 60, BIO = 45, FIRE = 60, ACID = 65)
 
 
-/obj/item/clothing/suit/storage/faction/UPP/commando
+/obj/item/clothing/suit/storage/faction/upp/commando
 	name = "\improper UM5CU personal armor"
 	desc = "A modification of the UM5, designed for stealth operations."
 	icon_state = "upp_armor_commando"
 	slowdown = SLOWDOWN_ARMOR_LIGHT
 
 /// Modified version of the armor for HvH combat. Stats are based on medium armor, with tyr mark 2.
-/obj/item/clothing/suit/storage/faction/UPP/commando/hvh
+/obj/item/clothing/suit/storage/faction/upp/commando/hvh
 	soft_armor = list(MELEE = 55, BULLET = 75, LASER = 75, ENERGY = 60, BOMB = 60, BIO = 45, FIRE = 60, ACID = 65)
 
-/obj/item/clothing/suit/storage/faction/UPP/heavy
+/obj/item/clothing/suit/storage/faction/upp/heavy
 	name = "\improper UH7 heavy plated armor"
 	desc = "An extremely heavy duty set of body armor in service with the USL pirates, the UH7 (United Heavy MK7) is known for being a rugged set of armor, capable of taking immesnse punishment."
 	icon_state = "upp_armor_heavy"
@@ -452,10 +452,10 @@
 	soft_armor = list(MELEE = 65, BULLET = 65, LASER = 65, ENERGY = 60, BOMB = 60, BIO = 10, FIRE = 60, ACID = 60)
 
 /// Modified version of the armor for HvH combat. Stats are based on heavy armor, with tyr mark 2.
-/obj/item/clothing/suit/storage/faction/UPP/heavy/hvh
+/obj/item/clothing/suit/storage/faction/upp/heavy/hvh
 	soft_armor = list(MELEE = 60, BULLET = 80, LASER = 80, ENERGY = 65, BOMB = 60, BIO = 60, FIRE = 60, ACID = 70)
 
-/obj/item/clothing/suit/storage/marine/smartgunner/UPP
+/obj/item/clothing/suit/storage/marine/smartgunner/upp
 	name = "\improper UH7 heavy plated armor"
 	desc = "An extremely heavy duty set of body armor in service with the USL pirates, the UH7 (United Heavy MK7) is known for being a rugged set of armor, capable of taking immesnse punishment."
 	icon_state = "upp_armor_heavy"
@@ -463,7 +463,7 @@
 	soft_armor = list(MELEE = 65, BULLET = 65, LASER = 65, ENERGY = 60, BOMB = 60, BIO = 10, FIRE = 60, ACID = 60)
 
 /// Modified version of the armor for HvH combat. Stats are based on heavy armor, with tyr mark 2.
-/obj/item/clothing/suit/storage/marine/smartgunner/UPP/hvh
+/obj/item/clothing/suit/storage/marine/smartgunner/upp/hvh
 	soft_armor = list(MELEE = 60, BULLET = 80, LASER = 80, ENERGY = 65, BOMB = 60, BIO = 60, FIRE = 60, ACID = 70)
 
 //===========================FREELANCER================================

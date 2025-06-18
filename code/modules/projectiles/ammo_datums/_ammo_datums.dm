@@ -114,7 +114,7 @@
 	return
 
 ///Handles CC application on the victim
-/datum/ammo/proc/staggerstun(mob/victim, obj/projectile/proj, max_range = 5, stun = 0, weaken = 0, stagger = 0, slowdown = 0, knockback = 0, soft_size_threshold = 3, hard_size_threshold = 2)
+/datum/ammo/proc/staggerstun(mob/victim, obj/projectile/proj, max_range = 5, stun = 0, paralyze = 0, stagger = 0, slowdown = 0, knockback = 0, soft_size_threshold = 3, hard_size_threshold = 2)
 	if(!victim)
 		CRASH("staggerstun called without a mob target")
 	if(!isliving(victim))
@@ -139,26 +139,26 @@
 			stun = 0
 
 	//Check for and apply hard CC.
-	if(hard_size_threshold >= victim.mob_size && (stun || weaken || knockback))
+	if(hard_size_threshold >= victim.mob_size && (stun || paralyze || knockback))
 		var/mob/living/living_victim = victim
 		if(living_victim.has_status_effect(STATUS_EFFECT_STUN) || living_victim.has_status_effect(STATUS_EFFECT_PARALYZED)) //Prevent chain stunning.
 			stun = 0
-			weaken = 0
+			paralyze = 0
 
-		if(stun || weaken)
-			var/list/stunlist = list(stun, weaken, stagger, slowdown)
+		if(stun || paralyze)
+			var/list/stunlist = list(stun, paralyze, stagger, slowdown)
 			if(SEND_SIGNAL(living_victim, COMSIG_LIVING_PROJECTILE_STUN, stunlist, armor_type, penetration))
 				stun = stunlist[1]
-				weaken = stunlist[2]
+				paralyze = stunlist[2]
 				stagger = stunlist[3]
 				slowdown = stunlist[4]
-			living_victim.apply_effects(stun,weaken)
+			living_victim.apply_effects(stun,paralyze)
 
 		if(knockback)
 			if(isxeno(victim))
 				impact_message += span_xenodanger("The blast knocks you off your feet!")
 			else
-				impact_message += span_highdanger("The blast knocks you off your feet!")
+				impact_message += span_userdanger("The blast knocks you off your feet!")
 			victim.knockback(proj, knockback, 5)
 
 	//Check for and apply soft CC
@@ -186,7 +186,7 @@
 		if(proj.firer == victim)
 			continue
 		victim.visible_message(span_danger("[victim] is hit by backlash from \a [proj.name]!"),
-			isxeno(victim) ? span_xenodanger("We are hit by backlash from \a </b>[proj.name]</b>!") : span_highdanger("You are hit by backlash from \a </b>[proj.name]</b>!"))
+			isxeno(victim) ? span_xenodanger("We are hit by backlash from \a </b>[proj.name]</b>!") : span_userdanger("You are hit by backlash from \a </b>[proj.name]</b>!"))
 		victim.apply_damage(proj.damage * airburst_multiplier, proj.ammo.damage_type, blocked = armor_type, updating_health = TRUE)
 
 ///handles the probability of a projectile hit to trigger fire_burst, based off actual damage done
@@ -212,7 +212,7 @@
 			victim.visible_message(span_danger("[victim] bursts into flames as they are deflagrated by \a [proj.name]!"))
 		else
 			victim.visible_message(span_danger("[victim] is scorched by [target] as they burst into flames!"),
-				isxeno(victim) ? span_xenodanger("We are scorched by [target] as they burst into flames!") : span_highdanger("you are scorched by [target] as they burst into flames!"))
+				isxeno(victim) ? span_xenodanger("We are scorched by [target] as they burst into flames!") : span_userdanger("you are scorched by [target] as they burst into flames!"))
 		//Damages the victims, inflicts brief stagger+slow, and ignites
 		victim.apply_damage(fire_burst_damage, BURN, blocked = FIRE, updating_health = TRUE)
 

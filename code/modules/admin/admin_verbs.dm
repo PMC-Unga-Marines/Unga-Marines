@@ -324,7 +324,7 @@
 		var/list/choices = flist(path)
 		if(path != root)
 			choices.Insert(1, "/")
-		var/choice = tgui_input_list(usr, "Choose a folder to access:", "Server Logs", choices, timeout = 0)
+		var/choice = tgui_input_list(usr, "Choose a folder to access:", "Server Logs", sortList(choices), timeout = 0)
 		switch(choice)
 			if(null)
 				return FALSE
@@ -354,7 +354,7 @@
 		var/list/choices = flist(path)
 		if(path != root)
 			choices.Insert(1, "/")
-		var/choice = tgui_input_list(usr, "Choose a file to access:", "Download", choices, timeout = 0)
+		var/choice = tgui_input_list(usr, "Choose a file to access:", "Download", sortList(choices), timeout = 0)
 		switch(choice)
 			if(null)
 				return
@@ -679,7 +679,7 @@
 		return
 
 	var/mob/M = usr
-	var/chosen = tgui_input_list(usr, "Please, select an area.", "Select an area.", GLOB.sorted_areas, timeout = 0)
+	var/chosen = tgui_input_list(usr, "Please, select an area.", "Select an area.", sortNames(GLOB.sorted_areas), timeout = 0)
 	if(!chosen)
 		return // no tp's to the void
 	var/turf/T = pick(get_area_turfs(chosen))

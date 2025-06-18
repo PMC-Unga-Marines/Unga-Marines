@@ -188,8 +188,8 @@
 	blood_sprite_state = "bloodyhands"
 	armor_protection_flags = HANDS
 	equip_slot_flags = ITEM_SLOT_GLOVES
-	attack_verb = list("challenged")
-	var/wired = 0
+	attack_verb = list("challenges")
+	//var/wired = 0
 	var/obj/item/cell/cell = 0
 	var/clipped = 0
 	var/transfer_prints = TRUE

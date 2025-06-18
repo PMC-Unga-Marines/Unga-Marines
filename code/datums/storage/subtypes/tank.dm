@@ -27,6 +27,7 @@
 		/obj/item/ammo_magazine/tank/icc_lowvel_cannon/high_explosive,
 		/obj/item/ammo_magazine/tank/sarden_clip,
 		/obj/item/ammo_magazine/tank/sarden_clip/high_explosive,
+		/obj/item/ammo_magazine/tank/bfg,
 	))
 
 /datum/storage/tank/ammorack_secondary/New(atom/parent)
@@ -36,4 +37,6 @@
 		/obj/item/ammo_magazine/tank/secondary_flamer_tank,
 		/obj/item/ammo_magazine/tank/secondary_mlrs,
 		/obj/item/ammo_magazine/icc_mg,
+		/obj/item/ammo_magazine/tank/microrocket_rack,
+		/obj/item/ammo_magazine/tank/tow_missile,
 	))

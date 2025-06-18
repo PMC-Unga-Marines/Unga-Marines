@@ -613,7 +613,7 @@
 /turf/open/floor/wood,
 /area/deathmatch)
 "BR" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/wood,
@@ -782,7 +782,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/deathmatch)
 "IR" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor/wood,
 /area/deathmatch)
 "IV" = (
@@ -908,7 +908,7 @@
 /turf/open/floor/grime,
 /area/deathmatch)
 "Op" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/wood/broken,

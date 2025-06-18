@@ -112,7 +112,7 @@
 			continue
 		var/relative_dir = get_dir(current_mob, user)
 		var/final_dir = dir2text(relative_dir)
-		to_chat(current_mob, span_highdanger("You hear a loud roar coming from [final_dir ? "the [final_dir]" : "nearby"]!"))
+		to_chat(current_mob, span_userdanger("You hear a loud roar coming from [final_dir ? "the [final_dir]" : "nearby"]!"))
 
 /datum/emote/living/carbon/human/yautja/turnaround
 	key = "turnaround"

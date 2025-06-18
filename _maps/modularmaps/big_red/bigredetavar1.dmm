@@ -236,7 +236,7 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/ne)
 "lc" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor,
@@ -443,7 +443,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/hydroponics)
 "uy" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
@@ -769,7 +769,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/bar)
 "GV" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -828,7 +828,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/general_offices)
 "IS" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -878,7 +878,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/general_offices)
 "NW" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
@@ -890,7 +890,7 @@
 /area/bigredv2/outside/general_offices)
 "OC" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor,

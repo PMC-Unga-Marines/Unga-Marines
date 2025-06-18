@@ -3,7 +3,7 @@
 	group = "Explosives"
 
 /datum/supply_packs/explosives/explosives_mines
-	name = "claymore mines"
+	name = "Claymore mines"
 	notes = "Contains 5 mines"
 	contains = list(/obj/item/storage/box/explosive_mines)
 	cost = 150
@@ -14,7 +14,7 @@
 	cost = 50
 
 /datum/supply_packs/explosives/explosives_razor
-	name = "Razorburn grenade box crate"
+	name = "Razorburn grenade box"
 	notes = "Contains 15 razor burns"
 	contains = list(/obj/item/storage/box/visual/grenade/razorburn)
 	cost = 500
@@ -26,79 +26,79 @@
 	cost = 300
 
 /datum/supply_packs/explosives/explosives_antigas
-	name = "M40-AG Anti-Gas grenade box crate"
+	name = "M40-AG anti-gas grenade box"
 	notes = "Cotains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/antigas)
 	cost = 700
 
 /datum/supply_packs/explosives/explosives_sticky
-	name = "M40 adhesive charge grenade box crate"
+	name = "M40 adhesive charge grenade box"
 	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/sticky)
 	cost = 310
 
 /datum/supply_packs/explosives/explosives_smokebomb
-	name = "M40 HSDP smokebomb grenade box crate"
+	name = "M40 HSDP smokebomb grenade box"
 	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/smokebomb)
 	cost = 310
 
 /datum/supply_packs/explosives/explosives_hedp
-	name = "M40 HEDP high explosive grenade box crate"
+	name = "M40 HEDP high explosive grenade box"
 	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/frag)
 	cost = 310
 
 /datum/supply_packs/explosives/explosives_cloaker
-	name = "M45 Cloaker grenade box crate"
+	name = "M45 cloaker grenade box"
 	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/cloaker)
 	cost = 310
 
 /datum/supply_packs/explosives/explosives_cloak
-	name = "M40-2 SCDP grenade box crate"
+	name = "M40-2 SCDP grenade box"
 	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/cloak)
 	cost = 310
 
 /datum/supply_packs/explosives/explosives_lasburster
-	name = "M80 lasburster grenade box crate"
+	name = "M80 lasburster grenade box"
 	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/lasburster)
 	cost = 310
 
 /datum/supply_packs/explosives/explosives_hidp
-	name = "M40 HIDP incendiary explosive grenade box crate"
+	name = "M40 HIDP incendiary explosive grenade box"
 	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/incendiary)
 	cost = 350
 
 /datum/supply_packs/explosives/explosives_m15
-	name = "M15 fragmentation grenade box crate"
+	name = "M15 fragmentation grenade box"
 	notes = "Contains 15 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/m15)
 	cost = 350
 
 /datum/supply_packs/explosives/explosives_trailblazer
-	name = "M45 Trailblazer grenade box crate"
+	name = "M45 trailblazer grenade box"
 	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/trailblazer)
 	cost = 350
 
 /datum/supply_packs/explosives/explosives_hsdp
-	name = "M40 HSDP white phosphorous grenade box crate"
+	name = "M40 HSDP white phosphorous grenade box"
 	notes = "Contains 15 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/phosphorus)
 	cost = 700
 
 /datum/supply_packs/explosives/explosives_hefa
-	name = "M25 HEFA grenade box crate"
+	name = "M25 HEFA grenade box"
 	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/hefa)
 	cost = 550
 
 /datum/supply_packs/explosives/explosives_plasmadrain
-	name = "M40-T gas grenade box crate"
+	name = "M40-T gas grenade box"
 	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/drain)
 	cost = 700
@@ -114,7 +114,7 @@
 	cost = 150
 
 /datum/supply_packs/explosives/detpack
-	name = "detpack explosive"
+	name = "Detpack explosive"
 	contains = list(/obj/item/detpack)
 	cost = 50
 
@@ -150,22 +150,22 @@
 	cost = 10
 
 /datum/supply_packs/explosives/mlrs
-	name = "TA-40L Multiple Rocket System"
+	name = "TA-40L multiple rocket system"
 	contains = list(/obj/item/mortar_kit/mlrs)
 	cost = 450
 
 /datum/supply_packs/explosives/mlrs_rockets
-	name = "TA-40L MLRS Rocket Pack (x16)"
+	name = "TA-40L MLRS rocket pack (x16)"
 	contains = list(/obj/item/storage/box/mlrs_rockets)
 	cost = 40
 
 /datum/supply_packs/explosives/mlrs_rockets_gas
-	name = "TA-40L X-50 MLRS Rocket Pack (x16)"
+	name = "TA-40L X-50 MLRS rocket pack (x16)"
 	contains = list(/obj/item/storage/box/mlrs_rockets_gas)
 	cost = 50
 
 /datum/supply_packs/explosives/mlrs_rockets_tangle
-	name = "TA-40L T-33 MLRS Rocket Pack (x16)"
+	name = "TA-40L T-33 MLRS rocket pack (x16)"
 	contains = list(/obj/item/storage/box/mlrs_rockets_tangle)
 	cost = 50
 
@@ -176,7 +176,7 @@
 	crash_restricted = TRUE
 
 /datum/supply_packs/explosives/knee_mortar
-	name = "T-10K Knee Mortar"
+	name = "T-10K knee mortar"
 	contains = list(/obj/item/mortar_kit/knee)
 	cost = 50
 
@@ -186,7 +186,7 @@
 	cost = 5
 
 /datum/supply_packs/explosives/explosives_trailblazer_phosphorus
-	name = "M45 Phosphorous trailblazer grenade box crate"
+	name = "M45 phosphorous trailblazer grenade box"
 	notes = "Contains 25 grenades"
 	contains = list(/obj/item/storage/box/visual/grenade/trailblazer/phosphorus)
 	cost = 600

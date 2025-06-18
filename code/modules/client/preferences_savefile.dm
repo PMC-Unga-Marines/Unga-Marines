@@ -47,11 +47,6 @@
 
 		to_chat(parent, span_userdanger("Forced keybindings for say (T), me (M), ooc (O), looc (L) have been applied."))
 
-	// Reset the xeno crit health alerts to default
-	if(current_version < 43)
-		WRITE_FILE(S["mute_xeno_health_alert_messages"], TRUE)
-		mute_xeno_health_alert_messages = TRUE
-		to_chat(parent, span_userdanger("Preferences for Mute xeno health alert messages have been reverted to default settings; these are now muted. Go into Preferences and set Mute xeno health alert messages to No if you wish to get xeno critical health alerts."))
 	if(current_version < 46)
 		toggles_sound |= SOUND_WEATHER
 		WRITE_FILE(S["toggles_sound"], toggles_sound)
@@ -137,6 +132,7 @@
 	READ_FILE(S["toggles_sound"], toggles_sound)
 	READ_FILE(S["toggles_gameplay"], toggles_gameplay)
 	READ_FILE(S["fullscreen_mode"], fullscreen_mode)
+	READ_FILE(S["show_status_bar"], show_status_bar)
 	READ_FILE(S["show_typing"], show_typing)
 	READ_FILE(S["ghost_hud"], ghost_hud)
 	READ_FILE(S["windowflashing"], windowflashing)
@@ -163,7 +159,6 @@
 
 	READ_FILE(S["mute_self_combat_messages"], mute_self_combat_messages)
 	READ_FILE(S["mute_others_combat_messages"], mute_others_combat_messages)
-	READ_FILE(S["mute_xeno_health_alert_messages"], mute_xeno_health_alert_messages)
 	READ_FILE(S["show_xeno_rank"], show_xeno_rank)
 
 	// Runechat options
@@ -196,6 +191,7 @@
 	toggles_sound = sanitize_integer(toggles_sound, NONE, MAX_BITFLAG, initial(toggles_sound))
 	toggles_gameplay = sanitize_integer(toggles_gameplay, NONE, MAX_BITFLAG, initial(toggles_gameplay))
 	fullscreen_mode = sanitize_integer(fullscreen_mode, FALSE, TRUE, initial(fullscreen_mode))
+	show_status_bar = sanitize_integer(show_status_bar, FALSE, TRUE, initial(show_status_bar))
 	show_typing = sanitize_integer(show_typing, FALSE, TRUE, initial(show_typing))
 	ghost_hud = sanitize_integer(ghost_hud, NONE, MAX_BITFLAG, initial(ghost_hud))
 	windowflashing = sanitize_integer(windowflashing, FALSE, TRUE, initial(windowflashing))
@@ -223,7 +219,6 @@
 
 	mute_self_combat_messages = sanitize_integer(mute_self_combat_messages, FALSE, TRUE, initial(mute_self_combat_messages))
 	mute_others_combat_messages = sanitize_integer(mute_others_combat_messages, FALSE, TRUE, initial(mute_others_combat_messages))
-	mute_xeno_health_alert_messages = sanitize_integer(mute_xeno_health_alert_messages, FALSE, TRUE, initial(mute_xeno_health_alert_messages))
 	show_xeno_rank = sanitize_integer(show_xeno_rank, FALSE, TRUE, initial(show_xeno_rank))
 
 	chat_on_map = sanitize_integer(chat_on_map, FALSE, TRUE, initial(chat_on_map))
@@ -270,6 +265,7 @@
 	toggles_sound = sanitize_integer(toggles_sound, NONE, MAX_BITFLAG, initial(toggles_sound))
 	toggles_gameplay = sanitize_integer(toggles_gameplay, NONE, MAX_BITFLAG, initial(toggles_gameplay))
 	fullscreen_mode = sanitize_integer(fullscreen_mode, FALSE, TRUE, initial(fullscreen_mode))
+	show_status_bar = sanitize_integer(show_status_bar, FALSE, TRUE, initial(show_status_bar))
 	show_typing = sanitize_integer(show_typing, FALSE, TRUE, initial(show_typing))
 	ghost_hud = sanitize_integer(ghost_hud, NONE, MAX_BITFLAG, initial(ghost_hud))
 	windowflashing = sanitize_integer(windowflashing, FALSE, TRUE, initial(windowflashing))
@@ -288,7 +284,6 @@
 
 	mute_self_combat_messages = sanitize_integer(mute_self_combat_messages, FALSE, TRUE, initial(mute_self_combat_messages))
 	mute_others_combat_messages = sanitize_integer(mute_others_combat_messages, FALSE, TRUE, initial(mute_others_combat_messages))
-	mute_xeno_health_alert_messages = sanitize_integer(mute_xeno_health_alert_messages, FALSE, TRUE, initial(mute_xeno_health_alert_messages))
 	show_xeno_rank = sanitize_integer(show_xeno_rank, FALSE, TRUE, initial(show_xeno_rank))
 	slot_draw_order_pref = sanitize_islist(slot_draw_order_pref, SLOT_DRAW_ORDER, length(SLOT_DRAW_ORDER), TRUE, SLOT_DRAW_ORDER)
 	status_toggle_flags = sanitize_integer(status_toggle_flags, NONE, MAX_BITFLAG, initial(status_toggle_flags))
@@ -321,6 +316,7 @@
 	WRITE_FILE(S["toggles_sound"], toggles_sound)
 	WRITE_FILE(S["toggles_gameplay"], toggles_gameplay)
 	WRITE_FILE(S["fullscreen_mode"], fullscreen_mode)
+	WRITE_FILE(S["show_status_bar"], show_status_bar)
 	WRITE_FILE(S["show_typing"], show_typing)
 	WRITE_FILE(S["ghost_hud"], ghost_hud)
 	WRITE_FILE(S["windowflashing"], windowflashing)
@@ -342,7 +338,6 @@
 
 	WRITE_FILE(S["mute_self_combat_messages"], mute_self_combat_messages)
 	WRITE_FILE(S["mute_others_combat_messages"], mute_others_combat_messages)
-	WRITE_FILE(S["mute_xeno_health_alert_messages"], mute_xeno_health_alert_messages)
 	WRITE_FILE(S["show_xeno_rank"], show_xeno_rank)
 
 	// Runechat options

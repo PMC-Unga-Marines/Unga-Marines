@@ -25,12 +25,6 @@
 /obj/item/clothing/under/marine/corpman_vest
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/white_vest)
 
-/obj/item/clothing/under/marine/black_vest
-	starting_attachments = list(/obj/item/armor_module/storage/uniform/black_vest)
-
-/obj/item/clothing/under/marine/brown_vest
-	starting_attachments = list(/obj/item/armor_module/storage/uniform/brown_vest)
-
 /obj/item/clothing/under/marine/holster
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/holster)
 
@@ -338,14 +332,14 @@
 	has_sensor = 0
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/holster/deathsquad)
 
-/obj/item/clothing/under/marine/veteran/UPP
+/obj/item/clothing/under/marine/veteran/upp
 	name = "\improper USL fatigues"
 	desc = "A well used set of USL fatigues, mass-produced for the pirates of the Lepidoptera."
 	icon_state = "upp_uniform"
 	min_cold_protection_temperature = ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE
 	has_sensor = 0
 
-/obj/item/clothing/under/marine/veteran/UPP/medic
+/obj/item/clothing/under/marine/veteran/upp/medic
 	name = "\improper USL medic fatigues"
 	icon_state = "upp_uniform_medic"
 

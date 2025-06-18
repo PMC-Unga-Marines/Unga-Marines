@@ -4,7 +4,7 @@
 	allow_pass_flags = PASS_PROJECTILE|PASS_AIR
 
 /obj/structure/shuttle/add_debris_element()
-	AddElement(/datum/element/debris, DEBRIS_SPARKS, -15, 8, 1)
+	AddElement(/datum/element/debris, DEBRIS_SPARKS, -40, 8, 1)
 
 /obj/structure/shuttle/window
 	name = "shuttle window"
