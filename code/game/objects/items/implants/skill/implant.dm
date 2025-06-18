@@ -1,9 +1,9 @@
 /obj/item/implant/skill
 	implant_flags = BENEFICIAL_IMPLANT|HIGHLANDER_IMPLANT
 	w_class = WEIGHT_CLASS_TINY
-//  Maximum skill a user can possess
+	/// Maximum skill a user can possess
 	var/list/max_skills
-//vars for update skills
+	//vars for update skills
 	var/cqc
 	var/melee_weapons
 	var/firearms
@@ -52,11 +52,12 @@
 
 /obj/item/implant/skill/attackby(obj/item/I, mob/user, params)
 	. = ..()
-	if(istype(I, /obj/item/implanter/implantator/cargo))
-		var/obj/item/implanter/implantator/cargo/cargo = I
-		if(cargo.icon_state == "cargo_full_s")
-			balloon_alert(user, "Implantator already used!")
+	if(istype(I, /obj/item/implanter/skill/cargo))
+		var/obj/item/implanter/skill/cargo/implanter = I
+		if(implanter.spent)
+			balloon_alert(user, "Already spent!")
 			return
-		cargo.internal_implant = src
-		forceMove(cargo)
-		cargo.icon_state = "cargo_full"
+		implanter.internal_implant = src
+		forceMove(implanter)
+		implanter.icon_state = "cargo_full"
+		implanter.spent = TRUE

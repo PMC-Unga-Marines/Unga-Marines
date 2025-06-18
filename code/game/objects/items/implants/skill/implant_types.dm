@@ -1,20 +1,8 @@
 /obj/item/implant/skill/combat
-	name = "Сombat implants"
+	name = "Combat implant"
 	desc = "An implant from a line of implants that enhances combat skills"
 	icon_state = "combat_implant"
 	allowed_limbs = list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)
-
-/obj/item/implant/skill/codex
-	name = "CODEX implants"
-	desc = "Implant from a line of implants that increases basic knowledge"
-	icon_state = "support_implant"
-	allowed_limbs = list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
-
-/obj/item/implant/skill/oper_system
-	name = "Tactics implants"
-	desc = "An implant from the line of implants that increases knowledge of battle tactics"
-	icon_state = "skill_implant"
-	allowed_limbs = list(BODY_ZONE_HEAD)
 
 /obj/item/implant/skill/combat/firearms
 	name = "aiming support implant system"
@@ -27,6 +15,12 @@
 	desc = "Integrated hit support system! Update melee skills!"
 	melee_weapons = 1
 	max_skills = list(SKILL_MELEE_WEAPONS = SKILL_MELEE_TRAINED)
+
+/obj/item/implant/skill/codex
+	name = "CODEX implant"
+	desc = "Implant from a line of implants that increases basic knowledge"
+	icon_state = "support_implant"
+	allowed_limbs = list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_GROIN)
 
 /obj/item/implant/skill/codex/medical
 	name = "medtech implant system"
@@ -52,7 +46,13 @@
 	construction = 1
 	max_skills = list(SKILL_CONSTRUCTION = SKILL_CONSTRUCTION_EXPERT)
 
-/obj/item/implant/skill/oper_system/leadership
+/obj/item/implant/skill/tactical
+	name = "Tactics implant"
+	desc = "An implant from the line of implants that increases knowledge of battle tactics"
+	icon_state = "skill_implant"
+	allowed_limbs = list(BODY_ZONE_HEAD)
+
+/obj/item/implant/skill/tactical/leadership
 	name = "command protocols 'Graiyor' codex"
 	desc = "Uploading knowledge of advanced mnemonics of inspiration and persuasion to the brain so that people around go under bullets even more willingly! Update leadership skills!"
 	icon_state = "leadership_implant"
