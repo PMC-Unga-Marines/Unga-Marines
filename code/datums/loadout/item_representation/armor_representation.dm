@@ -183,7 +183,7 @@
 	var/obj/item/armor_module/module_type = item_type
 	if(!CHECK_BITFIELD(initial(module_type.attach_features_flags), ATTACH_REMOVABLE))
 		bypass_vendor_check = TRUE
-	var/obj/item/armor_module/module = instantiate_object(seller, thing_to_install_on, user)
+	var/obj/item/armor_module/module = instantiate_object(seller, null, user)
 	if(!module)
 		return
 	if(thing_to_install_on.attachments_by_slot[module.slot])
