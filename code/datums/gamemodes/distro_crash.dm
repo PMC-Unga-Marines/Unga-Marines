@@ -2,7 +2,7 @@
 	name = "Distro Crash"
 	config_tag = "Distro Crash"
 	shutters_drop_time = 10 MINUTES
-	whitelist_ground_maps = list(MAP_BIG_RED)
+	blacklist_ground_maps = list(MAP_WHISKEY_OUTPOST, MAP_OSCAR_OUTPOST, MAP_LAST_STAND)
 	round_type_flags = MODE_INFESTATION|MODE_DISALLOW_RAILGUN|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD|MODE_HAS_EXCAVATION
 	respawn_time = 5 MINUTES
 	xenorespawn_time = 10 SECONDS
