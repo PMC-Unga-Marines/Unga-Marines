@@ -34,7 +34,7 @@
 		/obj/item/explosive/grenade/vsd = 2,
 	)
 	suit_contents = list(
-		/obj/item/explosive/grenade/vsd = 1,
+		/obj/item/explosive/grenade/vsd = 2,
 	)
 	belt_contents = list(
 		/obj/item/ammo_magazine/pistol/vsd_pistol = 6,
@@ -79,9 +79,6 @@
 	l_pocket_contents = list(
 		/obj/item/ammo_magazine/handful/buckshot = 7,
 	)
-	suit_contents = list(
-		/obj/item/explosive/grenade/vsd = 2,
-	)
 
 /datum/outfit/job/vsd/standard/grunt_second
 	suit_store = /obj/item/weapon/gun/rifle/vsd_rifle/standard
@@ -97,9 +94,6 @@
 	l_pocket_contents = list(
 		/obj/item/ammo_magazine/rifle/vsd_rifle = 2,
 	)
-	suit_contents = list(
-		/obj/item/explosive/grenade/vsd = 2,
-	)
 
 /datum/outfit/job/vsd/standard/grunt_third
 	suit_store = /obj/item/weapon/gun/rifle/vsd_rifle/standard
@@ -113,9 +107,6 @@
 	)
 	l_pocket_contents = list(
 		/obj/item/ammo_magazine/rifle/vsd_rifle = 2,
-	)
-	suit_contents = list(
-		/obj/item/explosive/grenade/vsd = 2,
 	)
 
 /datum/outfit/job/vsd/engineer
@@ -147,7 +138,7 @@
 		/obj/item/explosive/grenade/vsd = 2,
 	)
 	suit_contents = list(
-		/obj/item/explosive/grenade/vsd = 1,
+		/obj/item/explosive/grenade/vsd = 2,
 	)
 
 /datum/outfit/job/vsd/engineer/l26
@@ -243,7 +234,7 @@
 		/obj/item/ammo_magazine/handful/buckshot = 3,
 	)
 	l_pocket_contents = list(
-		/obj/item/ammo_magazine/handful/buckshot = 4,
+		/obj/item/ammo_magazine/handful/buckshot = 7,
 	)
 	suit_contents = list(
 		/obj/item/ammo_magazine/handful/buckshot = 2,
