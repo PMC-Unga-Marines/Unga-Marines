@@ -5,7 +5,6 @@
 #define HEALTH_HUD "health_hud" // a simple line rounding the mob's number health
 #define STATUS_HUD_SIMPLE "status_hud_simple" // basic statuses: dead, asleep, knocked out, sluggish, etc.
 #define STATUS_HUD "status_hud" // medical hud, shows simple status plus defib stages.
-#define WANTED_HUD "wanted_hud" // wanted, released, parroled, security status
 #define XENO_EMBRYO_HUD "xeno_embryo_hud" // xeno larval stage.
 #define HEALTH_HUD_XENO "xeno_health_hud" //health HUD for xenos
 #define SQUAD_HUD_TERRAGOV "squad_hud_terragov" //squad hud showing who's leader, corpsman, etc for each squad.
