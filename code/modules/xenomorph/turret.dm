@@ -181,6 +181,14 @@
 		if(human_occupant.get_xeno_hivenumber() == hivenumber) // what if zombie rides a mech?
 			continue
 		potential_hostiles += nearby_mech
+	for(var/obj/vehicle/sealed/armored/nearby_tank AS in cheap_get_tanks_near(src, range))
+		var/list/driver_list = nearby_tank.return_drivers()
+		if(!length(driver_list))
+			continue
+		var/mob/living/carbon/human/human_occupant = driver_list[1]
+		if(human_occupant.get_xeno_hivenumber() == hivenumber)
+			continue
+		potential_targets += nearby_tank
 	return potential_hostiles
 
 ///Signal handler to make the turret shoot at its target
