@@ -188,7 +188,7 @@
 		var/mob/living/carbon/human/human_occupant = driver_list[1]
 		if(human_occupant.get_xeno_hivenumber() == hivenumber)
 			continue
-		potential_targets += nearby_tank
+		potential_hostiles += nearby_tank
 	return potential_hostiles
 
 ///Signal handler to make the turret shoot at its target
