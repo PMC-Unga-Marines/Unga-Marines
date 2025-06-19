@@ -28,7 +28,7 @@
 	. = ..()
 
 	if(SSticker.mode?.round_type_flags & MODE_SILOS_SPAWN_MINIONS)
-		SSspawning.registerspawner(src, INFINITY, GLOB.xeno_ai_spawnable, 0, 0, CALLBACK(src, PROC_REF(on_spawn)))
+		SSspawning.registerspawner(src, INFINITY, GLOB.xeno_ai_spawnable, 0, 1, CALLBACK(src, PROC_REF(on_spawn)))
 		SSspawning.spawnerdata[src].required_increment = 2 * max(45 SECONDS, 3 MINUTES - SSmonitor.maximum_connected_players_count * SPAWN_RATE_PER_PLAYER)/SSspawning.wait
 		SSspawning.spawnerdata[src].max_allowed_mobs = max(1, MAX_SPAWNABLE_MOB_PER_PLAYER * SSmonitor.maximum_connected_players_count * 0.5)
 	update_minimap_icon()
