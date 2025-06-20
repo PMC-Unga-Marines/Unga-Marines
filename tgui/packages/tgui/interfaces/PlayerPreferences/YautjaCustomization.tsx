@@ -24,7 +24,7 @@ export const YautjaCustomization = () => {
   } = data;
 
   const rgbToHex = (red: number, green: number, blue: number) => {
-    const convert = (comp: { toString: (arg0: number) => any; }) => {
+    const convert = (comp: { toString: (arg0: number) => any }) => {
       const hex = comp.toString(16);
       return hex.length === 1 ? `0${hex}` : hex;
     };
