@@ -368,8 +368,7 @@
 
 	if(ismovableatom(A))
 		if(isxeno(src) && ishuman(A))
-			var/datum/action/bump_attack_toggle/bump_action = actions_by_path[/datum/action/bump_attack_toggle] // there should be a better way to do this
-			if(a_intent != INTENT_DISARM && !bump_action.attacking)
+			if(a_intent != INTENT_DISARM)
 				return
 			var/mob/living/carbon/human/H = A
 			if(!COOLDOWN_CHECK(H, xeno_push_delay))
