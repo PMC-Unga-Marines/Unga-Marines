@@ -399,13 +399,6 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 			client.prefs.ghost_hud ^= GHOST_HUD_MED
 			client.prefs.save_preferences()
 			to_chat(src, span_boldnotice("[hud_choice] [ghost_medhud ? "Enabled" : "Disabled"]"))
-		if("Security HUD")
-			ghost_sechud = !ghost_sechud
-			H = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
-			ghost_sechud ? H.add_hud_to(src) : H.remove_hud_from(src)
-			client.prefs.ghost_hud ^= GHOST_HUD_SEC
-			client.prefs.save_preferences()
-			to_chat(src, span_boldnotice("[hud_choice] [ghost_sechud ? "Enabled": "Disabled"]"))
 		if("Squad HUD")
 			ghost_squadhud = !ghost_squadhud
 			H = GLOB.huds[DATA_HUD_SQUAD_TERRAGOV]

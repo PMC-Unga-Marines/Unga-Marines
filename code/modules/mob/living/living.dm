@@ -530,7 +530,6 @@
 
 	alpha = 5 // bah, let's make it better, it's a disposable device anyway
 
-	GLOB.huds[DATA_HUD_SECURITY_ADVANCED].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_INFECTION].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_REAGENTS].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_DEBUFF].remove_from_hud(src)
@@ -546,7 +545,6 @@
 
 	alpha = initial(alpha)
 
-	GLOB.huds[DATA_HUD_SECURITY_ADVANCED].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_INFECTION].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_REAGENTS].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_DEBUFF].add_to_hud(src)

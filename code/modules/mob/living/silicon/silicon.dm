@@ -104,9 +104,6 @@
 	switch(hud_choice)
 		if("Medical HUD")
 			H = GLOB.huds[DATA_HUD_MEDICAL_OBSERVER]
-		if("Security HUD")
-			H = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
-			HUD_nbr = 2
 		if("Squad HUD")
 			if(GLOB.huds[faction] == FACTION_TERRAGOV)
 				H = DATA_HUD_SQUAD_TERRAGOV
