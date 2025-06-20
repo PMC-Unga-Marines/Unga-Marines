@@ -122,7 +122,6 @@
 	else
 		dat += "<b><font color=red>NONE!</font></b> <a href='byond://?src=[text_ref(src)];operation=set_secondary'>\[Set\]</a><br>"
 	dat += "<br>"
-	dat += "<A href='byond://?src=[text_ref(src)];operation=insubordination'>Report a marine for insubordination</a><BR>"
 	dat += "<A href='byond://?src=[text_ref(src)];operation=squad_transfer'>Transfer a marine to another squad</a><BR><BR>"
 	dat += "<a href='byond://?src=[text_ref(src)];operation=monitor'>Squad Monitor</a><br>"
 	dat += "----------------------<br>"
