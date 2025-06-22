@@ -255,6 +255,30 @@ ADMIN_VERB(spatial_agent, R_FUN, "Spatial Agent", "Become a spatial agent", ADMI
 		log_admin("[key_name(H)] became a spatial agent.")
 		message_admins("[ADMIN_TPMONTY(H)] became a spatial agent.")
 
+ADMIN_VERB(military_policeman, R_FUN, "Military Policeman", "Become a marine law-enforcing MRP retard", ADMIN_CATEGORY_DEBUG)
+	var/mob/M = user
+	var/mob/living/carbon/human/H
+	var/spatial = FALSE
+	if(ishuman(M))
+		H = M
+		var/datum/job/J = H.job
+		spatial = istype(J, /datum/job/terragov/command/military_police)
+
+	if(spatial)
+		log_admin("[key_name(M)] stopped being a debug military policeman.")
+		message_admins("[ADMIN_TPMONTY(M)] stopped being a debug military policeman.")
+		qdel(M)
+	else
+		H = new(get_turf(M))
+		M.client.prefs.copy_to(H)
+		M.mind.transfer_to(H, TRUE)
+		var/datum/job/J = SSjob.GetJobType(/datum/job/terragov/command/military_police)
+		H.apply_assigned_role_to_spawn(J)
+		qdel(M)
+
+		log_admin("[key_name(H)] became a debug military policeman.")
+		message_admins("[ADMIN_TPMONTY(H)] became a debug military policeman.")
+
 ADMIN_VERB(profiler, R_DEBUG|R_RUNTIME, "Profiler", "Inspect the procs that take most of cpu or world time", ADMIN_CATEGORY_DEBUG)
 	winset(usr, null, "command=.profile")
 

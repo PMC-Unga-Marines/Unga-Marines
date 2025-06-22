@@ -1,4 +1,4 @@
-ADMIN_VERB(game_panel, R_ADMIN, "Game Panel", "View the game panel", ADMIN_CATEGORY_FUN)
+ADMIN_VERB(game_panel, R_ADMIN, "Game Panel", "View the game panel", ADMIN_CATEGORY_MAIN)
 
 	var/ref = "[REF(user.holder)];[HrefToken()]"
 	var/dat = {"
