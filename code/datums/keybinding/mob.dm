@@ -98,7 +98,6 @@
 	full_name = "Drop Item"
 	description = ""
 	keybind_signal = COMSIG_KB_MOB_DROPITEM_DOWN
-	weight = WEIGHT_LIVING
 
 /datum/keybinding/mob/drop_item/down(client/user)
 	. = ..()
