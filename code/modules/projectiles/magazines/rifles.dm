@@ -205,7 +205,7 @@
 	icon_state_mini = "mag_rifle"
 	bonus_overlay = "ak47_ex"
 	max_rounds = 50
-	wield_delay_mod = 0.1 SECONDS
+	wield_delay_mod = 1 SECONDS
 
 // RPD
 
