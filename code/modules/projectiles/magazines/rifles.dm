@@ -186,8 +186,7 @@
 	default_ammo = /datum/ammo/bullet/rifle/kalashnikov
 	max_rounds = 40
 	scatter_mod = 2
-	aim_speed_mod = 0.1
-	wield_delay_mod = 1 SECONDS
+	wield_delay_mod = 0.5 SECONDS
 
 /obj/item/ammo_magazine/rifle/zarya/carbine
 	name = "\improper Type-16 сarbine magazine (6.02x41)"
@@ -197,7 +196,6 @@
 	bonus_overlay = "ak_30_black"
 	max_rounds = 30
 	scatter_mod = 0
-	aim_speed_mod = 0
 	wield_delay_mod = 0
 
 /obj/item/ammo_magazine/rifle/zarya/extended
@@ -207,8 +205,7 @@
 	icon_state_mini = "mag_rifle"
 	bonus_overlay = "ak47_ex"
 	max_rounds = 50
-	aim_speed_mod = 0.2
-	wield_delay_mod = 0.2 SECONDS
+	wield_delay_mod = 0.1 SECONDS
 
 // RPD
 
