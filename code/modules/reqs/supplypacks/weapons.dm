@@ -267,9 +267,9 @@
 	cost = 30 //50 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/zarya_extended_mag
+/datum/supply_packs/weapons/type16_extended_mag
 	name = "Type-16 extended magazine"
-	contains = list(/obj/item/ammo_magazine/rifle/zarya/extended)
+	contains = list(/obj/item/ammo_magazine/rifle/type16/extended)
 	cost = 15
 	containertype = /obj/structure/closet/crate/ammo
 
