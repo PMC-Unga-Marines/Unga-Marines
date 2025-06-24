@@ -17,7 +17,7 @@
 	l_pocket = /obj/item/flashlight/combat
 	r_hand = /obj/item/weapon/combat_knife
 
-	belt_contents = list(
+	backpack_contents = list(
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
 	)
 

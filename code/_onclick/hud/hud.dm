@@ -66,7 +66,10 @@
 	var/list/datum/plane_master_group/master_groups = list()
 	/// see "appearance_flags" in the ref, assoc list of "[plane]" = object
 	var/list/atom/movable/screen/plane_master/plane_masters = list()
-
+	// List of weakrefs to objects that we add to our screen that we don't expect to DO anything
+	// They typically use * in their render target. They exist solely so we can reuse them,
+	// and avoid needing to make changes to all idk 300 consumers if we want to change the appearance
+	var/list/asset_refs_for_reuse = list()
 	var/atom/movable/screen/pred_power_icon
 
 /datum/hud/New(mob/owner)
@@ -319,6 +322,22 @@
 	if (!usr.client?.prefs?.tooltips)
 		return
 	closeToolTip(usr)
+
+/datum/hud/proc/register_reuse(atom/movable/screen/reuse)
+	asset_refs_for_reuse += WEAKREF(reuse)
+	mymob?.client?.screen += reuse
+
+/datum/hud/proc/unregister_reuse(atom/movable/screen/reuse)
+	asset_refs_for_reuse -= WEAKREF(reuse)
+	mymob?.client?.screen -= reuse
+
+/datum/hud/proc/update_reuse(mob/show_to)
+	for(var/datum/weakref/screen_ref as anything in asset_refs_for_reuse)
+		var/atom/movable/screen/reuse = screen_ref.resolve()
+		if(isnull(reuse))
+			asset_refs_for_reuse -= screen_ref
+			continue
+		show_to.client?.screen += reuse
 
 //Triggered when F12 is pressed (Unless someone changed something in the DMF)
 /mob/verb/button_pressed_F12()

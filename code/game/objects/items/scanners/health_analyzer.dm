@@ -116,7 +116,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 		"total_burn" = round(patient.get_fire_loss()),
 		"toxin" = round(patient.get_tox_loss()),
 		"oxy" = round(patient.get_oxy_loss()),
-		"clone" = round(patient.get_clone_Loss()),
+		"clone" = round(patient.get_clone_loss()),
 
 		"blood_type" = patient.blood_type,
 		"blood_amount" = patient.blood_volume,
@@ -385,7 +385,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 					"icon" = "plug",
 					"color" = "orange"
 				))
-		if(patient.get_clone_Loss() > 5)
+		if(patient.get_clone_loss() > 5)
 			advice += list(list(
 				"advice" = organic_patient ? "Patient should sleep or seek cryo treatment - cellular damage." : "Patient should seek a robotic cradle - integrity damage.",
 				"tooltip" = "[organic_patient ? "Cellular damage" : "Integrity damage"] is sustained from psychic draining, special chemicals and special weapons. It can only be healed through the aforementioned methods.",

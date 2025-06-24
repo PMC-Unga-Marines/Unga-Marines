@@ -78,7 +78,7 @@
 			implant_owner.set_drugginess(10)
 			implant_owner.hallucination += 10
 			if(time_on > 3.6 SECONDS)
-				implant_owner.adjust_clone_Loss(1)
+				implant_owner.adjust_clone_loss(1)
 				implant_owner.adjust_fire_loss(1)
 			else
 				implant_owner.adjust_fire_loss(2)

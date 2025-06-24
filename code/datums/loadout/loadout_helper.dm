@@ -8,14 +8,19 @@
 
 ///Return true if the item was found in a linked vendor and successfully bought
 /proc/buy_item_in_vendor(obj/item/item_to_buy_type, datum/loadout_seller/seller, mob/living/user)
+	if(!item_to_buy_type)
+		CRASH("/proc/buy_item_in_vendor called without item_to_buy_type, seller = [seller], user = [user]")
 	var/user_job = user.job.title
 	user_job = replacetext(user_job, "Fallen ", "") //So that jobs in valhalla can vend their job-appropriate gear.
 	//If we can find it for in a shared vendor, we buy it
-	for(var/type in (GLOB.loadout_linked_vendor[seller.faction] + GLOB.loadout_linked_vendor[user_job]))
+	for(var/type AS in (GLOB.loadout_linked_vendor[seller.faction] + GLOB.loadout_linked_vendor[user_job]))
 		for(var/datum/vending_product/item_datum AS in GLOB.vending_records[type])
-			if(item_datum.product_path == item_to_buy_type && item_datum.amount != 0)
-				item_datum.amount--
-				return TRUE
+			if(item_datum.product_path != item_to_buy_type)
+				continue
+			if(item_datum.amount == 0)
+				continue
+			item_datum.amount--
+			return TRUE
 
 	var/list/job_specific_list = GLOB.loadout_role_essential_set[user_job]
 

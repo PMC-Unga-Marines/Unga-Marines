@@ -1,8 +1,3 @@
-// the types of priority announcements
-#define ANNOUNCEMENT_REGULAR 1
-#define ANNOUNCEMENT_PRIORITY 2
-#define ANNOUNCEMENT_COMMAND 3
-
 // Do not use these macros outside of here (unless you absolutely have to or something), this is mainly to make sure they appear consistent
 // The best way to use these for to_chats or something would be assemble_alert()
 
@@ -123,7 +118,7 @@
 			if(playing_sound)
 				SEND_SOUND(M, s)
 
-
+///Spawns a paper at each communications printer
 /proc/print_command_report(papermessage, papertitle = "paper", announcemessage = "Отчет был загружен и распечатан на всех консолях связи.", announcetitle = "Входящее зашифрованное сообщение", announce = TRUE)
 	if(announce)
 		priority_announce(announcemessage, announcetitle, sound = 'sound/AI/commandreport.ogg')

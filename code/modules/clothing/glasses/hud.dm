@@ -5,6 +5,9 @@
 	var/hud_type
 	var/mob/living/carbon/human/affected_user
 
+/obj/item/clothing/glasses/hud/examine_descriptor(mob/user)
+	return "HUD"
+
 /obj/item/clothing/glasses/hud/Destroy()
 	if(affected_user)
 		deactivate_hud()
@@ -153,7 +156,6 @@
 	icon_state = "securityhud"
 	deactive_state = "deactivated_sec" // there are differences in mob sprite
 	toggleable = TRUE
-	hud_type = DATA_HUD_SECURITY_ADVANCED
 
 /obj/item/clothing/glasses/hud/xenohud
 	name = "XenoMate HUD"
@@ -177,7 +179,7 @@
 	worn_icon_state = "sunglasses"
 	eye_protection = 2
 	darkness_view = 8
-	hud_type = list(DATA_HUD_MEDICAL_OBSERVER, DATA_HUD_XENO_STATUS, DATA_HUD_SECURITY_ADVANCED, DATA_HUD_SQUAD_TERRAGOV, DATA_HUD_ORDER)
+	hud_type = list(DATA_HUD_MEDICAL_OBSERVER, DATA_HUD_XENO_STATUS, DATA_HUD_SQUAD_TERRAGOV, DATA_HUD_ORDER)
 	vision_flags = SEE_TURFS|SEE_MOBS|SEE_OBJS
 	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 	activation_sound = null

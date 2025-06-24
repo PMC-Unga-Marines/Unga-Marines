@@ -498,7 +498,7 @@
 		/obj/item/ammo_magazine/pistol/som/extended = 6,
 		/obj/item/weapon/gun/pistol/som/burst = 1,
 	)
-	belt_contents = list(
+	suit_contents = list(
 		/obj/item/explosive/grenade/som = 2,
 		/obj/item/explosive/grenade/rad = 2,
 		/obj/item/explosive/grenade/incendiary/som = 1,

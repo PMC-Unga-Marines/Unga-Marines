@@ -246,7 +246,7 @@
 	user.mob.balloon_alert(user.mob, "You can [user.mob.do_self_harm ? "now" : "no longer"] hit yourself")
 
 /datum/keybinding/mob/prevent_movement
-	hotkey_keys = list("")
+	hotkey_keys = list("Ctrl")
 	name = "block_movement"
 	full_name = "Block movement"
 	description = "Prevents you from moving"

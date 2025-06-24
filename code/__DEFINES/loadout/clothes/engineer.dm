@@ -5,7 +5,7 @@ GLOBAL_LIST_INIT(engineer_clothes_listed_products, list(
 	/obj/item/clothing/under/marine/gorka_eng = list(CAT_UNI, "Engineer Gorka", 0, "black"),
 	/obj/item/clothing/under/marine/jaeger = list(CAT_UNI, "TGMC jaeger undersuit", 0, "black"),
 	/obj/item/clothing/shoes/marine/full = list(CAT_SHO, "Marine Combat Boots", 0, "black"),
-	/obj/item/clothing/shoes/marine/brown  = list(CAT_SHO, "Brown Marine Combat Boots", 0, "black"),
+	/obj/item/clothing/shoes/marine/brown/full = list(CAT_SHO, "Brown Marine Combat Boots", 0, "black"),
 	/obj/item/clothing/glasses/welding = list(CAT_GLA, "Welding Goggles", 0, "white"),
 	/obj/item/clothing/glasses/meson = list(CAT_GLA, "Optical Meson Scanner", 0, "white"),
 	/obj/effect/vendor_bundle/xenonauten_light = list(CAT_AMR, "Xenonauten light armor kit", 0, "orange"),
