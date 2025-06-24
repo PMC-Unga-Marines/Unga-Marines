@@ -255,7 +255,7 @@
 		var/area/A = get_area(T)
 		if(!A)
 			return FALSE
-		if(A.ceiling == CEILING_NONE || A.ceiling == CEILING_GLASS || A.ceiling ==CEILING_METAL)
+		if(A.ceiling == CEILING_NONE || A.ceiling == CEILING_GLASS || A.ceiling == CEILING_METAL)
 			continue
 		return FALSE
 	return TRUE
