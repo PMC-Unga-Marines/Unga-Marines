@@ -5,7 +5,6 @@
 #define HEALTH_HUD "health_hud" // a simple line rounding the mob's number health
 #define STATUS_HUD_SIMPLE "status_hud_simple" // basic statuses: dead, asleep, knocked out, sluggish, etc.
 #define STATUS_HUD "status_hud" // medical hud, shows simple status plus defib stages.
-#define WANTED_HUD "wanted_hud" // wanted, released, parroled, security status
 #define XENO_EMBRYO_HUD "xeno_embryo_hud" // xeno larval stage.
 #define HEALTH_HUD_XENO "xeno_health_hud" //health HUD for xenos
 #define SQUAD_HUD_TERRAGOV "squad_hud_terragov" //squad hud showing who's leader, corpsman, etc for each squad.
@@ -36,21 +35,20 @@
 
 //data HUD defines
 #define DATA_HUD_BASIC 1
-#define DATA_HUD_SECURITY_ADVANCED 2
-#define DATA_HUD_MEDICAL_BASIC 3
-#define DATA_HUD_MEDICAL_ADVANCED 4
-#define DATA_HUD_MEDICAL_ADVANCED_SYNTH 5
-#define DATA_HUD_MEDICAL_OBSERVER 6
-#define DATA_HUD_XENO_INFECTION 7
-#define DATA_HUD_XENO_REAGENTS 8
-#define DATA_HUD_XENO_STATUS 9
-#define DATA_HUD_SQUAD_TERRAGOV 10
-#define DATA_HUD_ORDER 11
-#define DATA_HUD_MEDICAL_PAIN 12
-#define DATA_HUD_XENO_DEBUFF 13
-#define DATA_HUD_XENO_HEART 14
-#define DATA_HUD_HUNTER 15
-#define DATA_HUD_HUNTER_CLAN 16
+#define DATA_HUD_MEDICAL_BASIC 2
+#define DATA_HUD_MEDICAL_ADVANCED 3
+#define DATA_HUD_MEDICAL_ADVANCED_SYNTH 4
+#define DATA_HUD_MEDICAL_OBSERVER 5
+#define DATA_HUD_XENO_INFECTION 6
+#define DATA_HUD_XENO_REAGENTS 7
+#define DATA_HUD_XENO_STATUS 8
+#define DATA_HUD_SQUAD_TERRAGOV 9
+#define DATA_HUD_ORDER 10
+#define DATA_HUD_MEDICAL_PAIN 11
+#define DATA_HUD_XENO_DEBUFF 12
+#define DATA_HUD_XENO_HEART 13
+#define DATA_HUD_HUNTER 14
+#define DATA_HUD_HUNTER_CLAN 15
 
 
 // Notification action types

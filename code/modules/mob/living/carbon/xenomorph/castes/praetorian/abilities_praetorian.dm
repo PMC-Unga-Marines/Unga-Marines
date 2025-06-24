@@ -226,7 +226,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	succeed_activate()
 
 	playsound(xeno_owner.loc, 'sound/effects/refill.ogg', 50, 1)
-	var/turflist = getline(xeno_owner, target)
+	var/turflist = get_traversal_line(xeno_owner, target)
 	spray_turfs(turflist)
 	add_cooldown()
 
@@ -410,9 +410,6 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 /// Automatically bumps living non-xenos if bump attacks are on.
 /datum/action/ability/xeno_action/dodge/proc/on_move(datum/source)
 	if(owner.stat == DEAD)
-		return FALSE
-	var/datum/action/bump_attack_toggle/bump_attack_action = owner.actions_by_path[/datum/action/bump_attack_toggle]
-	if(bump_attack_action == null || bump_attack_action.attacking) // Bump attacks are off if attacking is true, apparently.
 		return FALSE
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_BUMP_ATTACK) || owner.next_move > world.time)
 		return FALSE

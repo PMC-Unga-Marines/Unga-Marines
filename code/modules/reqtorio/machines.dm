@@ -151,6 +151,7 @@
 	anchored = FALSE // start off unanchored so its easier to move
 	resistance_flags = XENO_DAMAGEABLE
 	atom_flags = PREVENT_CONTENTS_EXPLOSION
+	faction = FACTION_TERRAGOV
 	///Curent items being processed
 	var/item_to_fabricate = /obj/item/stack/sheet/metal/large_stack
 	///Icon state displayed while something is being processed in the machine
@@ -161,7 +162,6 @@
 	var/ground_spawn_ticks = 24 //tick every 5 seconds
 	///Last time points balance was checked
 	var/ticks = 0
-	var/faction = FACTION_TERRAGOV
 	var/points_per_tick = 2
 
 /obj/machinery/fabricator/Initialize(mapload)

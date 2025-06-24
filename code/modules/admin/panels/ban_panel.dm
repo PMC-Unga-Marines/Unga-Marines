@@ -48,9 +48,7 @@
 	if(!force)
 		log_admin_private("[key_name(usr)] has [muteunmute] [key_name(C)] from [mute_string].")
 		message_admins("[ADMIN_TPMONTY(usr)] has [muteunmute] [ADMIN_TPMONTY(C.mob)] from [mute_string].")
-
-		usr.client.holder.show_player_panel(C.mob)
-
+		SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/show_player_panel, C.mob)
 
 //checks client ban cache or DB ban table if ckey is banned from one or more roles
 //doesn't return any details, use only for if statements
@@ -157,16 +155,8 @@
 			C.ban_cache[query_build_ban_cache.item[1]] = TRUE
 		qdel(query_build_ban_cache)
 
-
-/datum/admins/proc/ban_panel()
-	set name = "Ban Panel"
-	set category = "Admin"
-
-	if(!check_rights(R_BAN))
-		return
-
-	usr.client.holder.banpanel()
-
+ADMIN_VERB(ban_panel, R_BAN, "Ban Panel", "Opens the Ban panel.", ADMIN_CATEGORY_MAIN)
+	user.holder.banpanel()
 
 /datum/admins/proc/banpanel(player_key, player_ip, player_cid, role, duration = 1440, applies_to_admins, reason, edit_id, page, admin_key)
 	if(!check_rights(R_BAN))
@@ -178,7 +168,7 @@
 		panel_height = 240
 	var/datum/browser/panel = new(usr.client.mob, "banpanel", "Ban Panel", 910, panel_height)
 	panel.add_stylesheet("banpanelcss", 'html/browser/banpanel.css')
-	var/list/output = list("<form method='get' action='?src=[REF(usr.client.holder)];[HrefToken()]'>[HrefTokenFormField()]")
+	var/list/output = list("<form method='get' action='byond://?src=[REF(usr.client.holder)];[HrefToken()]'>[HrefTokenFormField()]")
 	output += {"<input type='hidden' name='src' value='[REF(usr.client.holder)];[HrefToken()]'>
 	<label class='inputlabel checkbox'>Key:
 	<input type='checkbox' id='keycheck' name='keycheck' value='1'[player_key ? " checked": ""]>
@@ -601,16 +591,8 @@
 			if(roles_to_ban[1] == "Server" && (!is_admin || (is_admin && applies_to_admins)))
 				qdel(i)
 
-
-/datum/admins/proc/unban_panel()
-	set name = "Unban Panel"
-	set category = "Admin"
-
-	if(!check_rights(R_BAN))
-		return
-
-	usr.client.holder.unbanpanel()
-
+ADMIN_VERB(unban_panel, R_BAN, "Unban Panel", "Opens the Ban panel.", ADMIN_CATEGORY_MAIN)
+	user.holder.unbanpanel()
 
 /datum/admins/proc/unbanpanel(player_key, admin_key, player_ip, player_cid, page = 0)
 	if(!check_rights(R_BAN))
@@ -623,7 +605,7 @@
 	var/datum/browser/panel = new(usr.client.mob, "unbanpanel", "Unban Panel", 850, 600)
 	panel.add_stylesheet("unbanpanelcss", 'html/browser/unbanpanel.css')
 	var/list/output = list("<div class='searchbar'>")
-	output += {"<form method='get' action='?src=[REF(usr.client.holder)];[HrefToken()]'>[HrefTokenFormField()]
+	output += {"<form method='get' action='byond://?src=[REF(usr.client.holder)];[HrefToken()]'>[HrefTokenFormField()]
 	<input type='hidden' name='src' value='[REF(usr.client.holder)];[HrefToken()]'>
 	Key:<input type='text' name='searchunbankey' size='18' value='[player_key]'>
 	Admin Key:<input type='text' name='searchunbanadminkey' size='18' value='[admin_key]'>
@@ -663,7 +645,7 @@
 			var/pagecount = 1
 			var/list/pagelist = list()
 			while(bancount > 0)
-				pagelist += "<a href='?src=[REF(usr.client.holder)];[HrefToken()];unbanpagecount=[pagecount - 1];unbankey=[player_key];unbanadminkey=[admin_key];unbanip=[player_ip];unbancid=[player_cid]'>[pagecount == page ? "<b>\[[pagecount]\]</b>" : "\[[pagecount]\]"]</a>"
+				pagelist += "<a href='byond://?src=[REF(usr.client.holder)];[HrefToken()];unbanpagecount=[pagecount - 1];unbankey=[player_key];unbanadminkey=[admin_key];unbanip=[player_ip];unbancid=[player_cid]'>[pagecount == page ? "<b>\[[pagecount]\]</b>" : "\[[pagecount]\]"]</a>"
 				bancount -= bansperpage
 				pagecount++
 			output += pagelist.Join(" | ")
@@ -723,7 +705,7 @@
 			var/ban_round_id = query_unban_search_bans.item[3]
 			var/role = query_unban_search_bans.item[4]
 			//make the href for unban here so only the search parameters are passed
-			var/unban_href = "<a href='?src=[REF(usr.client.holder)];[HrefToken()];unbanid=[ban_id];unbankey=[player_key];unbanadminkey=[admin_key];unbanip=[player_ip];unbancid=[player_cid];unbanrole=[role];unbanpage=[page]'>Unban</a>"
+			var/unban_href = "<a href='byond://?src=[REF(usr.client.holder)];[HrefToken()];unbanid=[ban_id];unbankey=[player_key];unbanadminkey=[admin_key];unbanip=[player_ip];unbancid=[player_cid];unbanrole=[role];unbanpage=[page]'>Unban</a>"
 			var/expiration_time = query_unban_search_bans.item[5]
 			//we don't cast duration as num because if the duration is large enough to be converted to scientific notation by byond then the + character gets lost when passed through href causing SQL to interpret '4.321e 007' as '4'
 			var/duration = query_unban_search_bans.item[6]
@@ -748,9 +730,9 @@
 				output += "<br>Unbanned by <b>[unban_key]</b> on <b>[unban_datetime]</b> during round <b>#[unban_round_id]</b>."
 			output += "</div><div class='container'><div class='reason'>[reason]</div><div class='edit'>"
 			if(!expired && !unban_datetime)
-				output += "<a href='?src=[REF(usr.client.holder)];[HrefToken()];editbanid=[ban_id];editbankey=[player_key];editbanip=[player_ip];editbancid=[player_cid];editbanrole=[role];editbanduration=[duration];editbanadmins=[applies_to_admins];editbanreason=[url_encode(reason)];editbanpage=[page];editbanadminkey=[admin_key]'>Edit</a><br>[unban_href]"
+				output += "<a href='byond://?src=[REF(usr.client.holder)];[HrefToken()];editbanid=[ban_id];editbankey=[player_key];editbanip=[player_ip];editbancid=[player_cid];editbanrole=[role];editbanduration=[duration];editbanadmins=[applies_to_admins];editbanreason=[url_encode(reason)];editbanpage=[page];editbanadminkey=[admin_key]'>Edit</a><br>[unban_href]"
 			if(edits)
-				output += "<br><a href='?src=[REF(usr.client.holder)];[HrefToken()];unbanlog=[ban_id]'>Edit log</a>"
+				output += "<br><a href='byond://?src=[REF(usr.client.holder)];[HrefToken()];unbanlog=[ban_id]'>Edit log</a>"
 			output += "</div></div></div>"
 		qdel(query_unban_search_bans)
 		output += "</div>"
@@ -793,8 +775,7 @@
 		if(i.address == player_ip || i.computer_id == player_cid)
 			build_ban_cache(i)
 			to_chat(i, span_boldannounce("[usr.client.key] has removed a ban from [role] for your IP or CID."))
-	usr.client.holder.unban_panel(player_key, admin_key, player_ip, player_cid, page)
-
+	SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/unban_panel, player_key, admin_key, player_ip, player_cid, page)
 
 /datum/admins/proc/edit_ban(ban_id, player_key, ip_check, player_ip, cid_check, player_cid, use_last_connection, applies_to_admins, duration, interval, reason, mirror_edit, old_key, old_ip, old_cid, old_applies, admin_key, page, list/changes)
 	if(!check_rights(R_BAN))
@@ -926,7 +907,7 @@
 		if(i.address == old_ip || i.computer_id == old_cid)
 			build_ban_cache(i)
 			to_chat(i, span_boldannounce("[usr.client.key] has edited the [changes_keys_text] of a ban for your IP or CID."))
-	unban_panel(player_key, null, null, null, page)
+	SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/unban_panel, player_key, null, null, null, page)
 
 
 /datum/admins/proc/ban_log(ban_id)

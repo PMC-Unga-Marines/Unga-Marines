@@ -15,6 +15,10 @@
 GLOBAL_VAR_INIT(magic_appearance_detecting_image, new /image) // appearances are awful to detect safely, but this seems to be the best way ~ninjanomnom
 #define isappearance(thing) (!isimage(thing) && !ispath(thing) && istype(GLOB.magic_appearance_detecting_image, thing))
 
+// The filters list has the same ref type id as a filter, but isnt one and also isnt a list, so we have to check if the thing has Cut() instead
+GLOBAL_VAR_INIT(refid_filter, TYPEID(filter(type="angular_blur")))
+#define isfilter(thing) (!hascall(thing, "Cut") && TYPEID(thing) == GLOB.refid_filter)
+
 #define isgenerator(A) (istype(A, /generator))
 
 //Turfs
@@ -74,6 +78,7 @@ GLOBAL_VAR_INIT(magic_appearance_detecting_image, new /image) // appearances are
 //Job/role helpers
 #define ismarinefaction(H) (H.faction == "TerraGov")
 #define isterragovjob(J) (istype(J, /datum/job/terragov))
+#define isspatialagentjob(J) (istype(J, /datum/job/spatial_agent))
 #define ismedicaljob(J) (istype(J, /datum/job/terragov/medical))
 #define ismarinejob(J) (istype(J, /datum/job/terragov/squad))
 #define ismarinespecjob(J) (istype(J, /datum/job/terragov/squad/specialist))

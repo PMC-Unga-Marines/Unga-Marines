@@ -27,6 +27,7 @@
 	layer = ABOVE_MOB_LAYER
 	resistance_flags = RESIST_ALL | DROPSHIP_IMMUNE
 	allow_pass_flags = PASS_PROJECTILE|PASS_AIR
+	faction = FACTION_TERRAGOV
 	///How many sheets of material we have stored
 	var/stored_mineral = 0
 	///Current status of the miner
@@ -45,8 +46,6 @@
 	var/max_miner_integrity = 100
 	///What type of upgrade it has installed , used to change the icon of the miner.
 	var/miner_upgrade_type
-	///What faction secured that miner
-	var/faction = FACTION_TERRAGOV
 	var/obj/machinery/camera/miner/camera
 
 /obj/machinery/miner/damaged	//mapping and all that shebang

@@ -7,7 +7,6 @@
 	var/datum/outfit_manager/ui = new(usr)
 	ui.ui_interact(usr)
 
-
 /datum/outfit_manager
 	var/client/owner
 

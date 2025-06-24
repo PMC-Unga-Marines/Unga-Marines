@@ -114,7 +114,7 @@ Contains most of the procs that are called when a mob is attacked by something
 	if(affecting.limb_status & LIMB_DESTROYED)
 		var/list/limb_list = GLOB.human_body_parts.Copy()
 		for(var/datum/limb/our_limb AS in limb_list)
-			if(!(our_limb.limb_status & LIMB_DESTROYED))
+			if(!(our_limb?.limb_status & LIMB_DESTROYED))
 				continue
 			limb_list -= our_limb
 		target_zone = pick(limb_list)

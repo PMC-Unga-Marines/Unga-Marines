@@ -59,9 +59,6 @@
 /datum/atom_hud/xeno_heart
 	hud_icons = list(HEART_STATUS_HUD)
 
-/datum/atom_hud/security
-	hud_icons = list(WANTED_HUD)
-
 /datum/atom_hud/squad
 	hud_icons = list(SQUAD_HUD_TERRAGOV, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD)
 

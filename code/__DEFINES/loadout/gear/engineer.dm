@@ -1,9 +1,9 @@
 GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 	/obj/effect/vendor_bundle/engi = list(CAT_ESS, "Essential Engineer Set", 0, "white"),
-	/obj/item/implanter/implantator/combat/firearms = list(CAT_ENGSUP, "Aiming support implanter", 25, "cyan2"),
-	/obj/item/implanter/implantator/combat/melee = list(CAT_ENGSUP, "Close combat codex implanter", 25, "cyan2"),
-	/obj/item/implanter/implantator/codex/engineer = list(CAT_ENGSUP, "Engineering support system implanter", 20, "cyan2"),
-	/obj/item/implanter/implantator/codex/construct = list(CAT_ENGSUP, "Construction support system implanter", 20, "cyan2"),
+	/obj/item/implanter/skill/firearms = list(CAT_ENGSUP, "Firearms skills implanter", 25, "cyan2"),
+	/obj/item/implanter/skill/melee = list(CAT_ENGSUP, "CQC skills implanter", 25, "cyan2"),
+	/obj/item/implanter/skill/engineer = list(CAT_ENGSUP, "Engineering skills implanter", 20, "cyan2"),
+	/obj/item/implanter/skill/construct = list(CAT_ENGSUP, "Construction skills implanter", 20, "cyan2"),
 	/obj/item/stack/sheet/metal/small_stack = list(CAT_ENGSUP, "Metal x10", METAL_PRICE_IN_GEAR_VENDOR, "orange"),
 	/obj/item/stack/sheet/plasteel/small_stack = list(CAT_ENGSUP, "Plasteel x10", PLASTEEL_PRICE_IN_GEAR_VENDOR, "orange"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_ENGSUP, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "orange"),
