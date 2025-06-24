@@ -153,7 +153,7 @@
 	desc = "A box of 100 high-velocity 20mm rounds for the ATR-22 mounted autocannon. Will pierce people and cover."
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/obj/items/ammo/stationary.dmi'
-	icon_state = "ac_mag"
+	icon_state = "ac"
 	worn_icon_state = "ac"
 	magazine_flags = NONE
 	caliber = CALIBER_20
@@ -164,7 +164,7 @@
 /obj/item/ammo_magazine/atr22/flak
 	name = "autocannon smart-detonating magazine(20mm)"
 	desc = "A box of 80 smart-detonating 20mm rounds for the ATR-22 mounted autocannon. Will detonate upon hitting a target."
-	icon_state = "ac_mag_flak"
+	icon_state = "ac_flak"
 	worn_icon_state = "ac_flak"
 	default_ammo = /datum/ammo/bullet/auto_cannon/flak
 
