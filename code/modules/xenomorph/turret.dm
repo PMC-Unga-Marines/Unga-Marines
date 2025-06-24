@@ -147,34 +147,10 @@
 
 ///Look for the closest human in range and in light of sight. If no human is in range, will look for xenos of other hives
 /obj/structure/xeno/turret/proc/get_target()
-	var/list/turf/path = list()
 	for(var/atom/nearby_hostile AS in potential_hostiles)
-		path = getline(src, nearby_hostile)
-		path -= get_turf(src)
-		var/blocked = FALSE //LoF Broken; stop checking; we can't proceed further.
-		for(var/turf/T AS in path)
-			if(IS_OPAQUE_TURF(T) || T.density && !(T.allow_pass_flags & PASS_PROJECTILE))
-				blocked = TRUE
-				break
-
-			for(var/obj/machinery/MA in T)
-				if(!MA.opacity)
-					continue
-				if(!MA.density && MA.allow_pass_flags & PASS_PROJECTILE)
-					continue
-				blocked = TRUE
-				break
-
-			for(var/obj/structure/S in T)
-				if(!S.opacity)
-					continue
-				if(!S.density && S.allow_pass_flags & PASS_PROJECTILE)
-					continue
-				blocked = TRUE
-				break
-		if(blocked)
+		if(check_path(get_step_towards(src, nearby_hostile), nearby_hostile, PASS_PROJECTILE) != get_turf(nearby_hostile)) //xeno turret seems to not care about actual sight, for whatever reason
 			continue
-		return nearby_hostile
+		. = nearby_hostile
 
 ///Checks the nearby mobs for eligability. If they can be targets it stores them in potential_targets. Returns TRUE if there are targets, FALSE if not.
 /obj/structure/xeno/turret/proc/scan()
@@ -205,6 +181,14 @@
 		if(human_occupant.get_xeno_hivenumber() == hivenumber) // what if zombie rides a mech?
 			continue
 		potential_hostiles += nearby_mech
+	for(var/obj/vehicle/sealed/armored/nearby_tank AS in cheap_get_tanks_near(src, range))
+		var/list/driver_list = nearby_tank.return_drivers()
+		if(!length(driver_list))
+			continue
+		var/mob/living/carbon/human/human_occupant = driver_list[1]
+		if(human_occupant.get_xeno_hivenumber() == hivenumber)
+			continue
+		potential_hostiles += nearby_tank
 	return potential_hostiles
 
 ///Signal handler to make the turret shoot at its target

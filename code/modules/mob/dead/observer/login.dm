@@ -13,9 +13,6 @@
 	if(ghost_medhud)
 		H = GLOB.huds[DATA_HUD_MEDICAL_OBSERVER]
 		H.add_hud_to(src)
-	if(ghost_sechud)
-		H = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
-		H.add_hud_to(src)
 	if(ghost_squadhud)
 		H = GLOB.huds[DATA_HUD_SQUAD_TERRAGOV]
 		H.add_hud_to(src)

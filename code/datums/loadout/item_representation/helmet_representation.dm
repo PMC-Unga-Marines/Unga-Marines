@@ -11,7 +11,7 @@
 		return
 	if(!ishat(item_to_copy))
 		CRASH("/datum/item_representation/hat created from an item that is not an hat")
-	..()
+	. = ..()
 	var/obj/item/clothing/head/helmet_to_copy = item_to_copy
 	for(var/key in helmet_to_copy.attachments_by_slot)
 		if(!isitem(helmet_to_copy.attachments_by_slot[key]))
@@ -41,11 +41,11 @@
 	else
 		icon_to_convert = icon(initial(item_type.icon), icon_state, SOUTH)
 	tgui_data["icons"] += list(list(
-				"icon" = icon2base64(icon_to_convert),
-				"translateX" = NO_OFFSET,
-				"translateY" = "40%",
-				"scale" = 1.4,
-				))
+		"icon" = icon2base64(icon_to_convert),
+		"translateX" = NO_OFFSET,
+		"translateY" = "40%",
+		"scale" = 1.4,
+	))
 	for(var/datum/item_representation/armor_module/module AS in attachments)
 		if(!initial(module.item_type.icon_state))
 			continue
@@ -64,15 +64,13 @@
 			scale = 0.5
 
 		tgui_data["icons"] += list(list(
-				"icon" = icon2base64(icon_to_convert),
-				"translateX" = translatex,
-				"translateY" = translatey,
-				"scale" = scale,
-				))
+			"icon" = icon2base64(icon_to_convert),
+			"translateX" = translatex,
+			"translateY" = translatey,
+			"scale" = scale,
+		))
 
 	return tgui_data
-
-
 
 /////////////////////////////////////
 
@@ -89,7 +87,7 @@
 		return
 	if(!ismodularhelmet(item_to_copy))
 		CRASH("/datum/item_representation/hat/modular_helmet created from an item that is not an modular helmet")
-	..()
+	. = ..()
 	if(colors)
 		return
 	var/obj/item/clothing/head/modular/helmet_to_copy = item_to_copy
@@ -116,11 +114,11 @@
 	else
 		icon_to_convert = icon(initial(item_type.icon), icon_state, SOUTH)
 	tgui_data["icons"] += list(list(
-				"icon" = icon2base64(icon_to_convert),
-				"translateX" = NO_OFFSET,
-				"translateY" = "40%",
-				"scale" = 1.4,
-				))
+		"icon" = icon2base64(icon_to_convert),
+		"translateX" = NO_OFFSET,
+		"translateY" = "40%",
+		"scale" = 1.4,
+	))
 	for(var/datum/item_representation/armor_module/module AS in attachments)
 		if(!initial(module.item_type.icon_state))
 			continue
@@ -139,9 +137,9 @@
 			scale = 0.5
 
 		tgui_data["icons"] += list(list(
-				"icon" = icon2base64(icon_to_convert),
-				"translateX" = translatex,
-				"translateY" = translatey,
-				"scale" = scale,
-				))
+			"icon" = icon2base64(icon_to_convert),
+			"translateX" = translatex,
+			"translateY" = translatey,
+			"scale" = scale,
+		))
 	return tgui_data

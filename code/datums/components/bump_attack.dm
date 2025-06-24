@@ -6,7 +6,7 @@
 	///Action used to turn bump attack on/off manually
 	var/datum/action/bump_attack_toggle/toggle_action
 
-/datum/component/bump_attack/Initialize(enabled = TRUE, has_button = TRUE, silent_activation = FALSE)
+/datum/component/bump_attack/Initialize(enabled = TRUE, has_button = FALSE, silent_activation = FALSE)
 	. = ..()
 	if(!isliving(parent))
 		return COMPONENT_INCOMPATIBLE

@@ -8,14 +8,12 @@
 	///Icon_state suffix for the saved icon_state varient.
 	var/current_variant
 
-
-
 /datum/item_representation/uniform_representation/New(obj/item/item_to_copy)
 	if(!item_to_copy)
 		return
 	if(!isuniform(item_to_copy))
 		CRASH("/datum/item_representation/uniform_representation created from an item that is not an uniform")
-	..()
+	. = ..()
 	var/obj/item/clothing/under/uniform_to_copy = item_to_copy
 	current_variant = uniform_to_copy.current_variant
 	for(var/key in uniform_to_copy.attachments_by_slot)
@@ -51,7 +49,7 @@
 		"translateX" = NO_OFFSET,
 		"translateY" = NO_OFFSET,
 		"scale" = 1,
-		))
+	))
 	for(var/datum/item_representation/armor_module/attachment AS in attachments)
 		if(!initial(attachment.item_type.icon_state))
 			continue
@@ -65,6 +63,6 @@
 			"translateX" = NO_OFFSET,
 			"translateY" = NO_OFFSET,
 			"scale" = 1,
-			))
+		))
 	tgui_data["name"] = initial(item_type.name)
 	return tgui_data

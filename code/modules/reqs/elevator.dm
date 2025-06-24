@@ -26,10 +26,9 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	height = 5
 	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0)
 	use_ripples = FALSE
+	faction = FACTION_TERRAGOV
 	var/list/gears = list()
 	var/list/obj/machinery/door/poddoor/railing/railings = list()
-	///The faction of this docking port (aka, on which ship it is located)
-	var/faction = FACTION_TERRAGOV
 	/// Id of the home docking port
 	var/home_id = "supply_home"
 	///prefix for railings and gear todo should probbaly be defines instead?

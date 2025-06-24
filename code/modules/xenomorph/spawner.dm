@@ -18,7 +18,7 @@
 /obj/structure/xeno/spawner/Initialize(mapload, _hivenumber)
 	. = ..()
 	LAZYADDASSOC(GLOB.xeno_spawners_by_hive, hivenumber, src)
-	SSspawning.registerspawner(src, INFINITY, GLOB.xeno_ai_spawnable, 0, 0, CALLBACK(src, PROC_REF(on_spawn)))
+	SSspawning.registerspawner(src, INFINITY, GLOB.xeno_ai_spawnable, 0, 1, CALLBACK(src, PROC_REF(on_spawn)), list(COMSIG_QDELETING, COMSIG_MOB_DEATH))
 	SSspawning.spawnerdata[src].required_increment = max(45 SECONDS, 3 MINUTES - SSmonitor.maximum_connected_players_count * SPAWN_RATE_PER_PLAYER)/SSspawning.wait
 	SSspawning.spawnerdata[src].max_allowed_mobs = max(2, MAX_SPAWNABLE_MOB_PER_PLAYER * SSmonitor.maximum_connected_players_count)
 	set_light(2, 2, LIGHT_COLOR_GREEN)

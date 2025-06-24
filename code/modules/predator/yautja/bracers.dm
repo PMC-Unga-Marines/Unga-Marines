@@ -516,8 +516,6 @@
 		playsound(M.loc,'sound/effects/pred_cloakon.ogg', 30)
 		animate(M, alpha = new_alpha, time = 1.5 SECONDS, easing = SINE_EASING|EASE_OUT)
 
-		var/datum/atom_hud/security/SA = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
-		SA.remove_from_hud(M)
 		var/datum/atom_hud/xeno_infection/XI = GLOB.huds[DATA_HUD_XENO_INFECTION]
 		XI.remove_from_hud(M)
 		anim(M.loc,M,'icons/mob/mob.dmi',,"cloak",,M.dir)
@@ -629,7 +627,7 @@
 		playsound(src, 'sound/voice/predator/deathlaugh.ogg', 100, 0, 17)
 
 	playsound(src, 'sound/effects/pred_countdown.ogg', 100, 0, 17)
-	message_admins(font_size_xl("<a href='?_src_=holder;[HrefToken(TRUE)];admincancelpredsd=1;bracer=[REF(src)];victim=[REF(victim)]'>CLICK TO CANCEL THIS PRED SD</a>"))
+	message_admins(font_size_xl("<a href='byond://?_src_=holder;[HrefToken(TRUE)];admincancelpredsd=1;bracer=[REF(src)];victim=[REF(victim)]'>CLICK TO CANCEL THIS PRED SD</a>"))
 
 	our_socialistic_do_after(victim, rand(72, 80))
 
@@ -1139,8 +1137,6 @@
 		user.see_invisible = initial(user.see_invisible)
 	cloak_timer = world.time + 5 SECONDS
 
-	var/datum/atom_hud/security/SA = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
-	SA.add_to_hud(user)
 	var/datum/atom_hud/xeno_infection/XI = GLOB.huds[DATA_HUD_XENO_INFECTION]
 	XI.add_to_hud(user)
 

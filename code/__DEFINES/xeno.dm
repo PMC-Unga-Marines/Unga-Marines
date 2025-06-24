@@ -145,11 +145,11 @@ GLOBAL_LIST_INIT(panther_toxin_type_list, list(
 #define UPGRADE_FLAG_ONETIME (1<<0)
 
 GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
-	/mob/living/carbon/xenomorph/beetle/ai,
-	/mob/living/carbon/xenomorph/mantis/ai,
-	/mob/living/carbon/xenomorph/scorpion/ai,
-	/mob/living/carbon/xenomorph/nymph/ai,
-	/mob/living/carbon/xenomorph/baneling/ai,
+	/mob/living/carbon/xenomorph/beetle/ai = 1,
+	/mob/living/carbon/xenomorph/mantis/ai = 1,
+	/mob/living/carbon/xenomorph/scorpion/ai = 1,
+	/mob/living/carbon/xenomorph/nymph/ai = 1,
+	/mob/living/carbon/xenomorph/baneling/ai = 1,
 ))
 
 /// Used by the is_valid_for_resin_structure proc.

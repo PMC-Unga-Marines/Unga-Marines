@@ -4,10 +4,10 @@
  * @license MIT
  */
 
-import { EventEmitter } from 'common/events';
-import { render } from 'react-dom';
-import { Tooltip } from 'tgui/components';
+import { createRoot } from 'react-dom/client';
 import { createLogger } from 'tgui/logging';
+import { Tooltip } from 'tgui-core/components';
+import { EventEmitter } from 'tgui-core/events';
 
 import {
   COMBINE_MAX_MESSAGES,
@@ -82,6 +82,9 @@ const handleImageError = (e) => {
   setTimeout(() => {
     /** @type {HTMLImageElement} */
     const node = e.target;
+    if (!node) {
+      return;
+    }
     const attempts = parseInt(node.getAttribute('data-reload-n'), 10) || 0;
     if (attempts >= IMAGE_RETRY_LIMIT) {
       logger.error(`failed to load an image after ${attempts} attempts`);
@@ -164,7 +167,7 @@ class ChatRenderer {
     // Find scrollable parent
     this.scrollNode = findNearestScrollableParent(this.rootNode);
     this.scrollNode.addEventListener('scroll', this.handleScroll);
-    setImmediate(() => {
+    setTimeout(() => {
       this.scrollToBottom();
     });
     // Flush the queue
@@ -409,14 +412,16 @@ class ChatRenderer {
             childNode.removeChild(childNode.firstChild);
           }
           const Element = TGUI_CHAT_COMPONENTS[targetName];
+
+          const reactRoot = createRoot(childNode);
+
           /* eslint-disable react/no-danger */
-          render(
+          reactRoot.render(
             <Element {...outputProps}>
               <span dangerouslySetInnerHTML={oldHtml} />
             </Element>,
             childNode,
           );
-          /* eslint-enable react/no-danger */
         }
 
         // Highlight text
@@ -451,15 +456,9 @@ class ChatRenderer {
       message.node = node;
       // Query all possible selectors to find out the message type
       if (!message.type) {
-        // IE8: Does not support querySelector on elements that
-        // are not yet in the document.
-
-        const typeDef =
-          !Byond.IS_LTE_IE8 &&
-          MESSAGE_TYPES.find(
-            (typeDef) =>
-              typeDef.selector && node.querySelector(typeDef.selector),
-          );
+        const typeDef = MESSAGE_TYPES.find(
+          (typeDef) => typeDef.selector && node.querySelector(typeDef.selector),
+        );
         message.type = typeDef?.type || MESSAGE_TYPE_UNKNOWN;
       }
       updateMessageBadge(message);
@@ -482,7 +481,7 @@ class ChatRenderer {
         this.rootNode.appendChild(fragment);
       }
       if (this.scrollTracking) {
-        setImmediate(() => this.scrollToBottom());
+        setTimeout(() => this.scrollToBottom());
       }
     }
     // Notify listeners that we have processed the batch
@@ -586,6 +585,14 @@ class ChatRenderer {
     if (Byond.IS_LTE_IE10) {
       return;
     }
+    // Remove pruned messages from the message array
+    this.messages = this.messages.filter(
+      (message) => message.node !== 'pruned',
+    );
+    logger.log(`Cleared chat`);
+  }
+
+  saveToDisk() {
     // Compile currently loaded stylesheets as CSS text
     let cssText = '';
     const styleSheets = document.styleSheets;
@@ -624,13 +631,13 @@ class ChatRenderer {
       '</body>\n' +
       '</html>\n';
     // Create and send a nice blob
-    const blob = new Blob([pageHtml]);
+    const blob = new Blob([pageHtml], { type: 'text/plain' });
     const timestamp = new Date()
       .toISOString()
       .substring(0, 19)
       .replace(/[-:]/g, '')
       .replace('T', '-');
-    window.navigator.msSaveBlob(blob, `ss13-chatlog-${timestamp}.html`);
+    Byond.saveBlob(blob, `ss13-chatlog-${timestamp}.html`, '.html');
   }
 }
 

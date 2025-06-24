@@ -132,7 +132,7 @@
 /datum/game_mode/infestation/crash/proc/crash_shuttle(obj/docking_port/stationary/target)
 	shuttle_landed = TRUE
 	shuttle.crashing = FALSE
-
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CANTERBURRY_LANDING)
 	generate_nuke_disk_spawners()
 
 /datum/game_mode/infestation/crash/check_finished(force_end)

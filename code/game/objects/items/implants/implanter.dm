@@ -1,5 +1,6 @@
 /obj/item/implanter
 	name = "implanter"
+	desc = "A sterile implant injector."
 	icon = 'icons/obj/items/implants.dmi'
 	icon_state = "implanter0"
 	worn_icon_list = list(

@@ -138,12 +138,12 @@ SUBSYSTEM_DEF(points)
 	if(!fast_delivery_is_active)
 		to_chat(user, span_warning("Fast delivery is not ready"))
 		return FALSE
+	if(!iscrashgamemode(SSticker.mode)) // no RO on crash
+		if(FAST_DELIVERY_COST > supply_points[our_order.faction])
+			to_chat(user, span_warning("Cargo does not have enough points for fast delivery."))
+			return
 
-	if(FAST_DELIVERY_COST > supply_points[our_order.faction])
-		to_chat(user, span_warning("Cargo does not have enough points for fast delivery."))
-		return
-
-	supply_points[user.faction] -= FAST_DELIVERY_COST
+		supply_points[user.faction] -= FAST_DELIVERY_COST
 
 	//Same checks as for supply console
 	if(!supply_beacon)

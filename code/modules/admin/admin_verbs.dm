@@ -1,12 +1,20 @@
-/datum/admins/proc/admin_ghost()
-	set category = "Admin"
-	set name = "Aghost"
-	set desc = "Allows you to ghost and re-enter body at will."
+/client/proc/add_admin_verbs()
+	control_freak = CONTROL_FREAK_SKIN | CONTROL_FREAK_MACROS
+	SSadmin_verbs.assosciate_admin(src)
 
-	if(!check_rights(R_ADMIN|R_MENTOR))
-		return
+/client/proc/remove_admin_verbs()
+	control_freak = initial(control_freak)
+	SSadmin_verbs.deassosciate_admin(src)
 
-	var/mob/M = usr
+ADMIN_VERB(hide_verbs, R_NONE, "Adminverbs - Hide All", "Hide most of your admin verbs.", ADMIN_CATEGORY_MAIN)
+	user.remove_admin_verbs()
+	add_verb(user, /client/proc/show_verbs)
+
+	to_chat(user, span_interface("Almost all of your adminverbs have been hidden."))
+
+ADMIN_VERB(aghost, R_ADMIN|R_MENTOR, "Aghost", "Allows you to ghost and re-enter body at will.", ADMIN_CATEGORY_MAIN)
+
+	var/mob/M = user.mob
 
 	if(isnewplayer(M))
 		return
@@ -22,16 +30,8 @@
 	if(M.stat != DEAD)
 		message_admins("[ADMIN_TPMONTY(ghost)] admin ghosted.")
 
-/datum/admins/proc/invisimin()
-	set name = "Invisimin"
-	set category = "Admin"
-	set desc = "Toggles ghost-like invisibility."
-
-	if(!check_rights(R_ADMIN))
-		return
-
-	var/mob/M = usr
-
+ADMIN_VERB(invisimin, R_ADMIN, "Invisimin", "Toggles ghost-like invisibility.", ADMIN_CATEGORY_MAIN)
+	var/mob/M = user.mob
 	if(M.invisibility == INVISIBILITY_MAXIMUM)
 		M.invisibility = initial(M.invisibility)
 		M.alpha = initial(M.alpha)
@@ -43,66 +43,30 @@
 		M.remove_from_all_mob_huds()
 		M.name = null
 
-	M.client.holder.invisimined = !M.client.holder.invisimined
+	user.holder.invisimined = !user.holder.invisimined
 
 	log_admin("[key_name(M)] has [(M.invisibility == INVISIBILITY_MAXIMUM) ? "enabled" : "disabled"] invisimin.")
 	if(!check_rights(R_DBRANKS))
 		message_admins("[ADMIN_TPMONTY(M)] has [(M.invisibility == INVISIBILITY_MAXIMUM) ? "enabled" : "disabled"] invisimin.")
 
-/datum/admins/proc/stealth_mode()
-	set category = "Admin"
-	set name = "Stealth Mode"
-	set desc = "Allows you to change your ckey for non-admins to see."
-
-	if(!check_rights(R_ADMIN))
-		return
-
-	var/mob/M = usr
-
-	if(M.client.holder.fakekey)
-		M.client.holder.fakekey = null
+ADMIN_VERB(stealth_mode, R_ADMIN, "Stealth Mode", "Allows you to change your ckey for non-admins to see.", ADMIN_CATEGORY_MAIN)
+	if(user.holder.fakekey)
+		user.holder.fakekey = null
 	else
-		var/new_key = ckeyEx(stripped_input(usr, "Enter your desired display name.", "Stealth Mode", M.client.key, 26))
+		var/new_key = ckeyEx(stripped_input(user, "Enter your desired display name.", "Stealth Mode", user.key, 26))
 		if(!new_key)
 			return
 		if(length(new_key) >= 26)
 			new_key = copytext(new_key, 1, 26)
-		M.client.holder.fakekey = new_key
-		M.client.create_stealth_key()
+		user.holder.fakekey = new_key
+		user.create_stealth_key()
 
-	log_admin("[key_name(M)] has turned stealth mode [M.client.holder.fakekey ? "on - [M.client.holder.fakekey]" : "off"].")
+	log_admin("[key_name(user)] has turned stealth mode [user.holder.fakekey ? "on - [user.holder.fakekey]" : "off"].")
 	if(!check_rights(R_DBRANKS))
-		message_admins("[ADMIN_TPMONTY(M)] has turned stealth mode [M.client.holder.fakekey ? "on - [M.client.holder.fakekey]" : "off"].")
+		message_admins("[ADMIN_TPMONTY(user.mob)] has turned stealth mode [user.holder.fakekey ? "on - [user.holder.fakekey]" : "off"].")
 
-/// Will apply on every xeno a multiplicative buff on health, regen and damage.
-/datum/admins/proc/set_xeno_stat_buffs()
-	set category = "Debug"
-	set name = "Set Xeno Buffs"
-	set desc = "Allows you to change stats for all xenos. It is a multiplicator buff, so input 100 to put everything back to normal"
-
-	if(!check_rights(R_FUN))
-		return
-
-	var/multiplicator_buff_wanted = tgui_input_number(usr, "Input the factor in percentage that will multiply xeno stat", "100 is normal stat, 200 is doubling health, regen and melee attack")
-
-	if(!multiplicator_buff_wanted)
-		return
-	GLOB.xeno_stat_multiplicator_buff = (multiplicator_buff_wanted * 0.01)
-	SSmonitor.is_automatic_balance_on = FALSE
-	SSmonitor.apply_balance_changes()
-
-	var/logging = "[usr.ckey] has multiplied all health, melee damage and regen of xeno by [multiplicator_buff_wanted]%"
-	log_admin(logging)
-	message_admins(logging)
-
-/datum/admins/proc/give_mob(mob/living/given_living in GLOB.mob_living_list)
-	set category = null
-	set name = "Give Mob"
-
-	if(!check_rights(R_ADMIN))
-		return
-
-	var/mob/mob_received = usr.client.holder.apicker("Who do you want to give it to:", "Give Mob", list(APICKER_CLIENT, APICKER_MOB))
+ADMIN_VERB_AND_CONTEXT_MENU(give_mob, R_ADMIN, "Give Mob", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEGORY_MAIN, mob/living/given_living in GLOB.mob_living_list)
+	var/mob/mob_received = user.holder.apicker("Who do you want to give it to:", "Give Mob", list(APICKER_CLIENT, APICKER_MOB))
 	if(!istype(mob_received))
 		return
 
@@ -113,124 +77,40 @@
 			mob_received.ghostize()
 
 	if(!istype(given_living))
-		to_chat(usr, span_warning("Target is no longer valid."))
+		to_chat(user, span_warning("Target is no longer valid."))
 		return
 
-	log_admin("[key_name(usr)] gave [key_name(given_living)] to [key_name(mob_received)].")
-	message_admins("[ADMIN_TPMONTY(usr)] gave [ADMIN_TPMONTY(given_living)] to [ADMIN_TPMONTY(mob_received)].")
+	log_admin("[key_name(user)] gave [key_name(given_living)] to [key_name(mob_received)].")
+	message_admins("[ADMIN_TPMONTY(user.mob)] gave [ADMIN_TPMONTY(given_living)] to [ADMIN_TPMONTY(mob_received)].")
 
 	given_living.take_over(mob_received, TRUE)
 
-/datum/admins/proc/give_mob_panel()
-	set category = "Admin"
-	set name = "Give  Mob"
-
-	if(!check_rights(R_ADMIN))
-		return
-
-	var/mob/living/given_living = usr.client.holder.apicker("Who do you want to give:", "Give Mob", list(APICKER_CLIENT, APICKER_LIVING))
-	if(!istype(given_living))
-		return
-
-	var/mob/mob_received = usr.client.holder.apicker("Who do you want to give it to:", "Give Mob", list(APICKER_CLIENT, APICKER_MOB))
-	if(!istype(mob_received))
-		return
-
-	if(isliving(mob_received) && mob_received.client && alert("[key_name(mob_received)] is already playing, do you want to proceed?", "Give Mob", "Yes", "No") != "Yes")
-		return
-
-	if(!istype(given_living))
-		to_chat(usr, span_warning("Target is no longer valid."))
-		return
-
-	log_admin("[key_name(usr)] gave [key_name(given_living)] to [key_name(mob_received)].")
-	message_admins("[ADMIN_TPMONTY(usr)] gave [ADMIN_TPMONTY(given_living)] to [ADMIN_TPMONTY(mob_received)].")
-
-	given_living.take_over(mob_received, TRUE)
-
-/datum/admins/proc/rejuvenate(mob/living/L in GLOB.mob_living_list)
-	set category = null
-	set name = "Rejuvenate"
-
-	if(!check_rights(R_ADMIN))
-		return
-
-	if(alert("Are you sure you want to rejuvenate [key_name(L)]?", "Rejuvenate", "Yes", "No") != "Yes")
+ADMIN_VERB_AND_CONTEXT_MENU(rejuvenate, R_ADMIN, "Rejuvenate", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEGORY_MAIN, mob/living/L in world)
+	if(tgui_alert(user, "Are you sure you want to rejuvenate [key_name(L)]?", "Confirm", list("Yes", "No")) != "Yes")
 		return
 
 	if(!istype(L))
-		to_chat(usr, span_warning("Target is no longer valid."))
+		to_chat(user, span_warning("Target is no longer valid."))
 		return
 
 	L.revive(TRUE)
 
-	log_admin("[key_name(usr)] revived [key_name(L)].")
-	message_admins("[ADMIN_TPMONTY(usr)] revived [ADMIN_TPMONTY(L)].")
+	log_admin("[key_name(user)] revived [key_name(L)].")
+	message_admins("[ADMIN_TPMONTY(user.mob)] revived [ADMIN_TPMONTY(L)].")// todo we really need more key_name_admin and less admintpmonty
 
-/datum/admins/proc/rejuvenate_panel()
-	set category = "Admin"
-	set name = "Rejuvenate Mob"
-
-	if(!check_rights(R_ADMIN))
-		return
-
-	var/mob/living/L = usr.client.holder.apicker("Rejuvenate by:", "Rejuvenate", list(APICKER_CLIENT, APICKER_MOB))
-	if(!istype(L))
-		return
-
-	if(alert("Are you sure you want to rejuvenate [key_name(L)]?", "Rejuvenate", "Yes", "No") != "Yes")
-		return
-
-	if(!istype(L))
-		to_chat(usr, span_warning("Target is no longer valid."))
-		return
-
-	L.revive(TRUE)
-
-	log_admin("[key_name(usr)] revived [key_name(L)].")
-	message_admins("[ADMIN_TPMONTY(usr)] revived [ADMIN_TPMONTY(L)].")
-
-/datum/admins/proc/toggle_sleep(mob/living/L in GLOB.mob_living_list)
-	set category = null
-	set name = "Toggle Sleeping"
-
-	if(!check_rights(R_ADMIN))
-		return
-
+ADMIN_VERB_AND_CONTEXT_MENU(toggle_sleep, R_ADMIN, "Toggle Sleeping", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEGORY_MAIN, mob/living/L in GLOB.mob_living_list)
 	if(L.IsAdminSleeping())
 		L.ToggleAdminSleep()
 	else if(!istype(L))
-		to_chat(usr, span_warning("Target is no longer valid."))
+		to_chat(user, span_warning("Target is no longer valid."))
 		return
 	else
 		L.ToggleAdminSleep()
 
-	log_admin("[key_name(usr)] has [L.IsAdminSleeping() ? "enabled" : "disabled"] sleeping on [key_name(L)].")
-	message_admins("[ADMIN_TPMONTY(usr)] has [L.IsAdminSleeping() ? "enabled" : "disabled"] sleeping on [ADMIN_TPMONTY(L)].")
+	log_admin("[key_name(user)] has [L.IsAdminSleeping() ? "enabled" : "disabled"] sleeping on [key_name(L)].")
+	message_admins("[ADMIN_TPMONTY(user.mob)] has [L.IsAdminSleeping() ? "enabled" : "disabled"] sleeping on [ADMIN_TPMONTY(L)].")
 
-/datum/admins/proc/toggle_sleep_panel()
-	set category = "Admin"
-	set name = "Toggle Sleeping Mob"
-
-	if(!check_rights(R_ADMIN))
-		return
-
-	var/mob/living/L = usr.client.holder.apicker("Toggle sleeping by:", "Toggle Sleeping", list(APICKER_CLIENT, APICKER_MOB))
-	if(!istype(L))
-		return
-
-	L.ToggleAdminSleep()
-
-	log_admin("[key_name(usr)] has [L.IsAdminSleeping() ? "enabled" : "disabled"] sleeping on [key_name(L)].")
-	message_admins("[ADMIN_TPMONTY(usr)] has [L.IsAdminSleeping() ? "enabled" : "disabled"] sleeping on [ADMIN_TPMONTY(L)].")
-
-/datum/admins/proc/toggle_sleep_area()
-	set category = "Admin"
-	set name = "Toggle Sleeping Area"
-
-	if(!check_rights(R_ADMIN))
-		return
-
+ADMIN_VERB(toggle_sleep_area, R_ADMIN, "Toggle Sleeping Area", "Sleeps everyone in view.", ADMIN_CATEGORY_MAIN)
 	switch(alert("Sleep or unsleep everyone?", "Toggle Sleeping Area", "Sleep", "Unsleep", "Cancel"))
 		if("Sleep")
 			for(var/mob/living/L in view())
@@ -243,41 +123,21 @@
 			log_admin("[key_name(usr)] has unslept everyone in view.")
 			message_admins("[ADMIN_TPMONTY(usr)] has unslept everyone in view.")
 
-/datum/admins/proc/logs_server()
-	set category = "Admin"
-	set name = "Get Server Logs"
+ADMIN_VERB(logs_server, R_LOG, "Get Server Logs", "Browse the server logs", ADMIN_CATEGORY_MAIN)
+	user.holder.browse_server_logs()
 
-	if(!check_rights(R_LOG))
+ADMIN_VERB(logs_current, R_LOG, "Get Current Logs", "View/retrieve logfiles for the current round.", ADMIN_CATEGORY_MAIN)
+	user.holder.browse_server_logs("[GLOB.log_directory]/")
+
+ADMIN_VERB(logs_folder, R_LOG, "Get Server Logs Folder", "Please use responsibly.", ADMIN_CATEGORY_MAIN)
+	if(alert(user, "Due to the way BYOND handles files, you WILL need a click macro. This function is also recurive and prone to fucking up, especially if you select the wrong folder. Are you absolutely sure you want to proceed?", "WARNING", "Yes", "No") != "Yes")
 		return
 
-	usr.client.holder.browse_server_logs()
-
-/datum/admins/proc/logs_current()
-	set category = "Admin"
-	set name = "Get Current Logs"
-	set desc = "View/retrieve logfiles for the current round."
-
-	if(!check_rights(R_LOG))
-		return
-
-	usr.client.holder.browse_server_logs("[GLOB.log_directory]/")
-
-/datum/admins/proc/logs_folder()
-	set category = "Admin"
-	set name = "Get Server Logs Folder"
-	set desc = "Please use responsibly."
-
-	if(!check_rights(R_LOG))
-		return
-
-	if(alert("Due to the way BYOND handles files, you WILL need a click macro. This function is also recurive and prone to fucking up, especially if you select the wrong folder. Are you absolutely sure you want to proceed?", "WARNING", "Yes", "No") != "Yes")
-		return
-
-	var/path = usr.client.holder.browse_folders()
+	var/path = user.holder.browse_folders()
 	if(!path)
 		return
 
-	usr.client.holder.recursive_download(path)
+	user.holder.recursive_download(path)
 
 /datum/admins/proc/browse_server_logs(path = "data/logs/")
 	if(!check_rights(R_LOG))
@@ -289,7 +149,7 @@
 
 	switch(tgui_alert(usr, "View (in game), Open (in your system's text editor), Download", path, list("View", "Open", "Download"), 0))
 		if("View")
-			DIRECT_OUTPUT(usr, browse("<pre style='word-wrap: break-word;'>[html_encode(file2text(file(path)))]</pre>", list2params(list("window" = "viewfile.[path]"))))
+			usr << browse(HTML_SKELETON("<pre style='word-wrap: break-word;'>[html_encode(file2text(file(path)))]</pre>"), list2params(list("window" = "viewfile.[path]")))
 		if("Open")
 			DIRECT_OUTPUT(usr, run(file(path)))
 		if("Download")
@@ -454,23 +314,15 @@
 	if(selected_type == log_type && selected_src == log_src)
 		slabel = "<b><font color='#ff8c8c'>\[[label]\]</font></b>"
 
-	return "<a href='?src=[REF(usr.client.holder)];[HrefToken()];individuallog=[REF(M)];log_type=[log_type];log_src=[log_src]'>[slabel]</a>"
+	return "<a href='byond://?src=[REF(usr.client.holder)];[HrefToken()];individuallog=[REF(M)];log_type=[log_type];log_src=[log_src]'>[slabel]</a>"
 
 
 /client/proc/get_asay()
 	var/msg = input(src, null, "asay \"text\"") as text|null
-	asay(msg)
+	SSadmin_verbs.dynamic_invoke_verb(src, /datum/admin_verb/asay, msg)
 
-
-/client/proc/asay(msg as text)
-	set category = "Admin"
-	set name = "asay"
-	set hidden = TRUE
-
+ADMIN_VERB(asay, R_ASAY, "asay", "Speak in the private admin channel", ADMIN_CATEGORY_MAIN, msg as text)
 	if(!msg)
-		return
-
-	if(!check_rights(R_ASAY))
 		return
 
 	msg = emoji_parse(copytext_char(sanitize(msg), 1, MAX_MESSAGE_LEN))
@@ -487,13 +339,13 @@
 		window_flash(iter_admin_client)
 		SEND_SOUND(iter_admin_client.mob, sound('sound/misc/bloop.ogg'))
 
-	mob.log_talk(msg, LOG_ASAY)
+	user.mob.log_talk(msg, LOG_ASAY)
 
 	var/color = "asay"
-	if(check_other_rights(src, R_DBRANKS, FALSE))
+	if(check_other_rights(user, R_DBRANKS, FALSE))
 		color = "headminasay"
 
-	msg = "<span class='[color]'>[span_prefix("ADMIN:")] [ADMIN_TPMONTY(mob)]: <span class='message linkify'>[msg]</span></span>"
+	msg = "<span class='[color]'>[span_prefix("ADMIN:")] [ADMIN_TPMONTY(user.mob)]: <span class='message linkify'>[msg]</span></span>"
 	for(var/client/C in GLOB.admins)
 		if(check_other_rights(C, R_ASAY, FALSE))
 			to_chat(C,
@@ -502,42 +354,35 @@
 
 /client/proc/get_msay()
 	var/msg = input(src, null, "msay \"text\"") as text|null
-	msay(msg)
+	SSadmin_verbs.dynamic_invoke_verb(src, /datum/admin_verb/msay, msg)
 
-/client/proc/msay(msg as text)
-	set category = "Admin"
-	set name = "msay"
-	set hidden = TRUE
-
-	if(!check_rights(R_ADMIN|R_MENTOR))
-		return
-
+ADMIN_VERB(msay, R_ADMIN|R_MENTOR, "msay", "Speak in the private mentor channel", ADMIN_CATEGORY_MAIN, msg as text)
 	msg = emoji_parse(copytext_char(sanitize(msg), 1, MAX_MESSAGE_LEN))
 
 	if(!msg)
 		return
 
-	mob.log_talk(msg, LOG_MSAY)
+	user.mob.log_talk(msg, LOG_MSAY)
 
 	var/color = "msay"
-	if(check_other_rights(src, R_DBRANKS, FALSE))
-		color = "adminmsay"
-	else if(check_other_rights(src, R_ADMIN, FALSE))
+	if(check_other_rights(user, R_DBRANKS, FALSE))
 		color = "headminmsay"
+	else if(check_other_rights(user, R_ADMIN, FALSE))
+		color = "adminmsay"
 
 	for(var/client/C in GLOB.admins)
 		if(check_other_rights(C, R_ADMIN, FALSE))
 			to_chat(C,
 				type = MESSAGE_TYPE_MENTORCHAT,
-				html = "<span class='[color]'>[span_prefix("[holder.rank.name]:")] [ADMIN_TPMONTY(mob)]: <span class='message linkify'>[msg]</span></span>")
-		else if(is_mentor(C) && mob.stat == DEAD)
+				html = "<span class='[color]'>[span_prefix("[span_tooltip(user.holder.rank.name, "MENTOR:")]")] [ADMIN_TPMONTY(user.mob)]: <span class='message linkify'>[msg]</span></span>")
+		else if(is_mentor(C) && user.mob.stat == DEAD)
 			to_chat(C,
 				type = MESSAGE_TYPE_MENTORCHAT,
-				html = "<span class='[color]'>[span_prefix("[holder.rank.name]:")] [key_name_admin(src, TRUE, TRUE, FALSE)] [ADMIN_JMP(mob)] [ADMIN_FLW(mob)]: <span class='message linkify'>[msg]</span></span>")
+				html = "<span class='[color]'>[span_prefix("[span_tooltip(user.holder.rank.name, "MENTOR:")]")] [key_name_admin(user, TRUE, TRUE, FALSE)] [ADMIN_JMP(user.mob)] [ADMIN_FLW(user.mob)]: <span class='message linkify'>[msg]</span></span>")
 		else if(is_mentor(C))
 			to_chat(C,
 				type = MESSAGE_TYPE_MENTORCHAT,
-				html = "<span class='[color]'>[span_prefix("[holder.rank.name]:")] [key_name_admin(src, TRUE, FALSE, FALSE)] [ADMIN_JMP(mob)] [ADMIN_FLW(mob)]: <span class='message linkify'>[msg]</span></span>")
+				html = "<span class='[color]'>[span_prefix("[span_tooltip(user.holder.rank.name, "MENTOR:")]")] [key_name_admin(user, TRUE, FALSE, FALSE)] [ADMIN_JMP(user.mob)] [ADMIN_FLW(user.mob)]: <span class='message linkify'>[msg]</span></span>")
 
 	var/list/pinged_admin_clients = check_admin_pings(msg)
 	if(length(pinged_admin_clients) && pinged_admin_clients[ADMINSAY_PING_UNDERLINE_NAME_INDEX])
@@ -553,41 +398,29 @@
 
 /client/proc/get_dsay()
 	var/msg = input(src, null, "dsay \"text\"") as text|null
-	dsay(msg)
+	SSadmin_verbs.dynamic_invoke_verb(src, /datum/admin_verb/dsay, msg)
 
-/client/proc/dsay(msg as text)
-	set category = "Admin"
-	set name = "dsay"
-	set hidden = TRUE
-
-	if(!check_rights(R_ADMIN|R_MENTOR))
-		return
-
+ADMIN_VERB(dsay, R_ADMIN, "dsay", "Speak as an admin in deadchat.", ADMIN_CATEGORY_MAIN, msg as text)
 	msg = copytext_char(sanitize(msg), 1, MAX_MESSAGE_LEN)
 
 	if(!msg)
 		return
 
-	if(is_mentor(src) && mob.stat != DEAD)
-		to_chat(src, span_warning("You must be an observer to use dsay."))
-		return
-
-	if(!(prefs.toggles_chat & CHAT_DEAD))
+	if(!(user.prefs.toggles_chat & CHAT_DEAD))
 		to_chat(src, span_warning("You have deadchat muted."))
 		return
 
-	if(handle_spam_prevention(msg, MUTE_DEADCHAT))
+	if(user.handle_spam_prevention(msg, MUTE_DEADCHAT))
 		return
 
-	mob.log_talk(msg, LOG_DSAY)
+	user.mob.log_talk(msg, LOG_DSAY)
 
 	var/rank_name = ""
-	if(holder.fakekey)
+	if(user.holder.fakekey)
 		rank_name = "Administrator"
 	else
-		rank_name += holder.rank.name
-		rank_name += " "
-		rank_name += key
+		rank_name += span_tooltip(user.holder.rank.name, "(STAFF)")
+		rank_name += user.key
 	rank_name = span_name(rank_name)
 
 	for(var/i in GLOB.clients)
@@ -603,42 +436,36 @@
 			type = MESSAGE_TYPE_DEADCHAT,
 			html = span_game("<span class='deadsay'>[span_prefix("DEAD: [rank_name]")] says, [span_message(msg)]</span>"))
 
-/datum/admins/proc/jump()
-	set category = "Admin"
-	set name = "Jump To"
+ADMIN_VERB_ONLY_CONTEXT_MENU(object_say, R_ADMIN, "Osay", atom/movable/target in world)
+	var/message = tgui_input_text(user, "What do you want the message to be?", "Make Sound", encode = FALSE)
+	if(!message)
+		return
+	target.say(message, sanitize = FALSE)
+	log_admin("[key_name(user)] made [target] at [AREACOORD(target)] say \"[message]\"")
+	message_admins(span_adminnotice("[key_name_admin(user)] made [target] at [AREACOORD(target)]. say \"[message]\""))
 
-	if(!check_rights(R_ADMIN))
+ADMIN_VERB(jump, R_ADMIN, "Jump To", "Teleports you to a location", ADMIN_CATEGORY_MAIN)
+	if(isnewplayer(user.mob))
 		return
 
-	var/mob/N = usr
-
-	if(isnewplayer(N))
-		return
-
-	var/atom/A = usr.client.holder.apicker("Jump to:", "Jump", list(APICKER_AREA, APICKER_TURF, APICKER_COORDS, APICKER_MOB, APICKER_CLIENT))
+	var/atom/A = user.holder.apicker("Jump to:", "Jump", list(APICKER_AREA, APICKER_TURF, APICKER_COORDS, APICKER_MOB, APICKER_CLIENT))
 	if(!istype(A))
 		return
 
 	var/turf/T = get_turf(A)
-	usr.forceMove(T)
+	user.mob.forceMove(T)
 
-	log_admin("[key_name(usr)] jumped to [A] at [AREACOORD(T)].")
-	if(!isobserver(N))
+	log_admin("[key_name(user.mob)] jumped to [A] at [AREACOORD(T)].")
+	if(!isobserver(user.mob))
 		message_admins("[ADMIN_TPMONTY(usr)] jumped to [A] at [ADMIN_TPMONTY(T)].")
 
-/datum/admins/proc/get_mob()
-	set category = "Admin"
-	set name = "Get Mob"
+ADMIN_VERB_AND_CONTEXT_MENU(get_mob, R_ADMIN, "Get Mob", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEGORY_MAIN, mob/living/M in world)
 
-	if(!check_rights(R_ADMIN))
-		return
-
-	var/mob/N = usr
+	var/mob/N = user.mob
 
 	if(isnewplayer(N))
 		return
 
-	var/mob/M = usr.client.holder.apicker("Get by:", "Get Mob", list(APICKER_CLIENT, APICKER_MOB))
 	if(!istype(M))
 		return
 
@@ -646,21 +473,14 @@
 
 	M.forceMove(T)
 
-	log_admin("[key_name(usr)] teleported [key_name(M)] to themselves [AREACOORD(M.loc)].")
-	message_admins("[ADMIN_TPMONTY(usr)] teleported [ADMIN_TPMONTY(M)] to themselves.")
+	log_admin("[key_name(user)] teleported [key_name(M)] to themselves [AREACOORD(M.loc)].")
+	message_admins("[ADMIN_TPMONTY(user.mob)] teleported [ADMIN_TPMONTY(M)] to themselves.")
 
-/datum/admins/proc/send_mob()
-	set category = "Admin"
-	set name = "Send Mob"
-
-	if(!check_rights(R_ADMIN))
-		return
-
-	var/mob/M = usr.client.holder.apicker("Send by:", "Send Mob", list(APICKER_CLIENT, APICKER_MOB))
+ADMIN_VERB_AND_CONTEXT_MENU(send_mob, R_ADMIN, "Send Mob", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEGORY_MAIN, mob/living/M in GLOB.mob_living_list)
 	if(!istype(M))
 		return
 
-	var/atom/target = usr.client.holder.apicker("Where do you want to send it to?", "Send Mob", list(APICKER_AREA, APICKER_MOB, APICKER_CLIENT))
+	var/atom/target = user.holder.apicker("Where do you want to send it to?", "Send Mob", list(APICKER_AREA, APICKER_MOB, APICKER_CLIENT))
 	if(!istype(target) || !istype(M))
 		return
 
@@ -668,7 +488,7 @@
 
 	M.forceMove(T)
 
-	log_admin("[key_name(usr)] teleported [key_name(M)] to [AREACOORD(T)].")
+	log_admin("[key_name(user)] teleported [key_name(M)] to [AREACOORD(T)].")
 	message_admins("[ADMIN_TPMONTY(usr)] teleported [ADMIN_TPMONTY(M)] to [ADMIN_VERBOSEJMP(T)].")
 
 /datum/admins/proc/jump_area()
@@ -775,28 +595,15 @@
 	if(!isobserver(N))
 		message_admins("[ADMIN_TPMONTY(usr)] jumped to [ADMIN_TPMONTY(T)].")
 
-/client/proc/private_message_context(mob/M in GLOB.player_list)
-	set category = null
-	set name = "Private Message"
+ADMIN_VERB_ONLY_CONTEXT_MENU(private_message_context, R_ADMIN|R_MENTOR, "Admin PM Mob", mob/target in GLOB.player_list)
+	user.private_message(target.client, null)
 
-	if(!check_rights(R_ADMIN|R_MENTOR))
-		return
-
-	private_message(M.client, null)
-
-/client/proc/private_message_panel()
-	set category = "Admin"
-	set name = "Private Message Mob"
-
-	if(!check_rights(R_ADMIN|R_MENTOR))
-		return
-
-	var/mob/picked = holder.apicker("Select target:", "Private Message", list(APICKER_MOB, APICKER_CLIENT))
+ADMIN_VERB(private_message_panel, R_ADMIN|R_MENTOR, "Private Message", "Private message a mob or client", ADMIN_CATEGORY_MAIN)
+	var/mob/picked = user.holder.apicker("Select target:", "Private Message", list(APICKER_MOB, APICKER_CLIENT))
 	if(!istype(picked))
 		return
 
-	private_message(picked.client, null)
-
+	user.private_message(picked.client, null)
 
 /client/proc/ticket_reply(whom)
 	if(prefs.muted & MUTE_ADMINHELP || is_banned_from(ckey, "Adminhelp"))
@@ -964,10 +771,10 @@
 
 				to_chat(recipient,
 					type = MESSAGE_TYPE_ADMINPM,
-					html = "<font size='3' span class='staffpmin'>Staff PM from-<b>[key_name(src, recipient, TRUE)]</b>: [span_linkify("[keywordparsedmsg]")]</span>")
+					html = "<font size='4' color='red'><b>-- Staff private message --</b></font>\n[span_adminsay("PM from- [key_name(src, recipient, TRUE)]: [span_linkify("[keywordparsedmsg]")]")]")
 				to_chat(src,
 					type = MESSAGE_TYPE_ADMINPM,
-					html = "<font size='3' span class='staffpmout'>Staff PM to-<b>[key_name(recipient, src, TRUE)]</b>: [span_linkify("[keywordparsedmsg]")]</span>")
+					html = "<font size='4' color='red'><b>-- Staff private message --</b></font>\n[span_adminsay("PM to- [key_name(recipient, src, TRUE)]: [span_linkify("[keywordparsedmsg]")]")]")
 
 				window_flash(recipient, TRUE)
 				window_flash(src, TRUE)
@@ -982,7 +789,7 @@
 				admin_ticket_log(src, "<font color='#ff8c8c'>Reply PM from-<b>[key_name(src, recipient, TRUE)]</b>: [span_linkify("[keywordparsedmsg]")]</font>")
 				to_chat(recipient,
 					type = MESSAGE_TYPE_ADMINPM,
-					html = "<font size='3' span class='staffpmin'>Staff PM from-<b>[key_name(src, recipient, TRUE)]</b>: [span_linkify("[keywordparsedmsg]")]</span>")
+					html = "<font size='4' color='red'><b>-- Private message --</b></font>\n[span_adminsay("Reply from- <b>[key_name(src, recipient, TRUE)]</b>: [span_linkify("[keywordparsedmsg]")]")]")
 				to_chat(src,
 					type = MESSAGE_TYPE_ADMINPM,
 					html = span_notice("PM to-<b>Staff</b>: [span_linkify("[msg]")]"))
@@ -1003,13 +810,13 @@
 				if(check_rights(R_ADMINTICKET, FALSE))
 					to_chat(recipient,
 						type = MESSAGE_TYPE_ADMINPM,
-						html = "<font color='red' size='4'><b>-- Private Message --</b></font>")
+						html = "<font color='red' size='4'><b>-- Administrator private message --</b></font>")
 					to_chat(recipient,
 						type = MESSAGE_TYPE_ADMINPM,
-						html = "<font color='red'>[holder.fakekey ? "Administrator" : holder.rank.name] PM from-<b>[key_name(src, recipient, FALSE)]</b>: [span_linkify("[msg]")]</font>")
+						html = span_adminsay("[holder.fakekey ? "Administrator" : holder.rank.name] PM from- <b>[key_name(src, recipient, FALSE)]</b>: [span_linkify("[msg]")]"))
 					to_chat(recipient,
 						type = MESSAGE_TYPE_ADMINPM,
-						html = "<font color='red'><i>Click on the staff member's name to reply.</i></font>")
+						html = "<font color='red'><b><i>Click on the staff member's name to reply.</i></b></font>")
 					to_chat(src,
 						type = MESSAGE_TYPE_ADMINPM,
 						html = span_notice("<b>[holder.fakekey ? "Administrator" : holder.rank.name] PM</b> to-<b>[key_name(recipient, src, TRUE)]</b>: [span_linkify("[msg]")]"))
@@ -1018,10 +825,10 @@
 				else if(is_mentor(src))
 					to_chat(recipient,
 						type = MESSAGE_TYPE_ADMINPM,
-						html = "<font color='blue' size='2'><b>-- Mentor Message --</b></font>")
+						html = span_mentorsay("<size='4'></b>-- Mentor private message --</b></font>"))
 					to_chat(recipient,
 						type = MESSAGE_TYPE_ADMINPM,
-						html = span_notice("[holder.rank.name] PM from-<b>[key_name(src, recipient, FALSE)]</b>: [span_linkify("[msg]")]"))
+						html = span_mentorsay("[holder.rank.name] PM from- <b>[key_name(src, recipient, FALSE)]</b>: [span_linkify("[msg]")]"))
 					to_chat(recipient,
 						type = MESSAGE_TYPE_ADMINPM,
 						html = span_notice("<i>Click on the mentor's name to reply.</i>"))
@@ -1183,7 +990,7 @@
 		html = "<font color='red' size='4'><b>-- Administrator private message --</b></font>")
 	to_chat(C,
 		type = MESSAGE_TYPE_ADMINPM,
-		html = "<font color='red'>Admin PM from-<b><a href='?priv_msg=[stealthkey]'>[adminname]</A></b>: [msg]</font>")
+		html = "<font color='red'>Admin PM from-<b><a href='byond://?priv_msg=[stealthkey]'>[adminname]</A></b>: [msg]</font>")
 	to_chat(C,
 		type = MESSAGE_TYPE_ADMINPM,
 		html = "<font color='red'><i>Click on the administrator's name to reply.</i></font>")
@@ -1197,27 +1004,16 @@
 
 	return "Message Successful"
 
-
-/datum/admins/proc/remove_from_tank()
-	set category = "Admin"
-	set name = "Remove From Tank"
-
-	if(!check_rights(R_ADMIN))
+ADMIN_VERB(remove_from_tank, R_ADMIN, "Remove From Tank", "Force all mobs to leave all tanks", ADMIN_CATEGORY_MAIN)
+	if(tgui_alert(user, "Are you sure you want to remove all tank occupants from their tanks?", "Confirm", list("Yes", "No")) != "Yes")
 		return
-
 	for(var/obj/vehicle/sealed/armored/armor AS in GLOB.tank_list)
 		armor.dump_mobs(TRUE)
 
-		log_admin("[key_name(usr)] forcibly removed all players from [armor].")
-		message_admins("[ADMIN_TPMONTY(usr)] forcibly removed all players from [armor].")
+		log_admin("[key_name(user)] forcibly removed all players from [armor].")
+		message_admins("[ADMIN_TPMONTY(user.mob)] forcibly removed all players from [armor].")
 
-/datum/admins/proc/job_slots()
-	set category = "Admin"
-	set name = "Job Slots"
-
-	if(!check_rights(R_ADMIN))
-		return
-
+ADMIN_VERB(job_slots, R_ADMIN, "Job Slots", "Open Job slot management panel", ADMIN_CATEGORY_MAIN)
 	var/datum/browser/browser = new(usr, "jobmanagement", "Manage Free Slots", 700)
 	var/list/dat = list()
 	var/count = 0
@@ -1228,11 +1024,11 @@
 	dat += "<table>"
 	if(SSjob.initialized && (!SSticker.HasRoundStarted()))
 		if(SSjob.ssjob_flags & SSJOB_OVERRIDE_JOBS_START)
-			dat += "<A href='?src=[REF(usr.client.holder)];[HrefToken()];overridejobsstart=false'>Do Not Override Game Mode Settings</A> (game mode settings deal with job scaling and roundstart-only jobs cleanup, which will require manual editing if used while overriden)"
+			dat += "<A href='byond://?src=[REF(usr.client.holder)];[HrefToken()];overridejobsstart=false'>Do Not Override Game Mode Settings</A> (game mode settings deal with job scaling and roundstart-only jobs cleanup, which will require manual editing if used while overriden)"
 		else
-			dat += "<A href='?src=[REF(usr.client.holder)];[HrefToken()];overridejobsstart=true'>Override Game Mode Settings</A> (if not selected, changes will be erased at roundstart)"
+			dat += "<A href='byond://?src=[REF(usr.client.holder)];[HrefToken()];overridejobsstart=true'>Override Game Mode Settings</A> (if not selected, changes will be erased at roundstart)"
 		dat += "<br /><hr />" // Add a clear new line
-	dat += "<A href='?src=[REF(usr.client.holder)];[HrefToken()];clearalljobslots=1'>Remove all job slots</A><br />"
+	dat += "<A href='byond://?src=[REF(usr.client.holder)];[HrefToken()];clearalljobslots=1'>Remove all job slots</A><br />"
 	for(var/j in SSjob.joinable_occupations)
 		var/datum/job/job = j
 		count++
@@ -1244,41 +1040,31 @@
 		dat += "</td>"
 		dat += "<td>"
 		if(job.total_positions >= 0)
-			dat += "<A href='?src=[REF(usr.client.holder)];[HrefToken()];filljobslot=[job.title]'>Fill</A> | "
-			dat += "<A href='?src=[REF(usr.client.holder)];[HrefToken()];freejobslot=[job.title]'>Free</A> | "
-			dat += "<A href='?src=[REF(usr.client.holder)];[HrefToken()];addjobslot=[job.title]'>Add</A> | "
-			dat += "<A href='?src=[REF(usr.client.holder)];[HrefToken()];removejobslot=[job.title]'>Remove</A> | "
-			dat += "<A href='?src=[REF(usr.client.holder)];[HrefToken()];clearjobslots=[job.title]'>Remove all</A> | "
-			dat += "<A href='?src=[REF(usr.client.holder)];[HrefToken()];unlimitjobslot=[job.title]'>Unlimit</A></td>"
+			dat += "<A href='byond://?src=[REF(usr.client.holder)];[HrefToken()];filljobslot=[job.title]'>Fill</A> | "
+			dat += "<A href='byond://?src=[REF(usr.client.holder)];[HrefToken()];freejobslot=[job.title]'>Free</A> | "
+			dat += "<A href='byond://?src=[REF(usr.client.holder)];[HrefToken()];addjobslot=[job.title]'>Add</A> | "
+			dat += "<A href='byond://?src=[REF(usr.client.holder)];[HrefToken()];removejobslot=[job.title]'>Remove</A> | "
+			dat += "<A href='byond://?src=[REF(usr.client.holder)];[HrefToken()];clearjobslots=[job.title]'>Remove all</A> | "
+			dat += "<A href='byond://?src=[REF(usr.client.holder)];[HrefToken()];unlimitjobslot=[job.title]'>Unlimit</A></td>"
 		else
-			dat += "<A href='?src=[REF(usr.client.holder)];[HrefToken()];limitjobslot=[job.title]'>Limit</A></td>"
+			dat += "<A href='byond://?src=[REF(usr.client.holder)];[HrefToken()];limitjobslot=[job.title]'>Limit</A></td>"
 
 	browser.height = min(100 + count * 25, 700)
 	browser.set_content(dat.Join())
 	browser.open()
 
 
-/datum/admins/proc/mcdb()
-	set category = "Admin"
-	set name = "Open MCDB"
-
+ADMIN_VERB(mcdb, R_BAN, "Open MCDB", "Opens the MCDB in your browser", ADMIN_CATEGORY_MAIN)
 	if(!CONFIG_GET(string/dburl))
-		to_chat(usr, span_warning("Database URL not set."))
+		to_chat(user, span_warning("Database URL not set."))
 		return
 
 	if(alert("This will open the MCDB in your browser. Are you sure?", "MCDB", "Yes", "No") != "Yes")
 		return
 
-	DIRECT_OUTPUT(usr, link(CONFIG_GET(string/dburl)))
+	DIRECT_OUTPUT(user, link(CONFIG_GET(string/dburl)))
 
-
-/datum/admins/proc/check_fingerprints(atom/A)
-	set category = null
-	set name = "Check Fingerprints"
-
-	if(!check_rights(R_ADMIN))
-		return
-
+ADMIN_VERB_ONLY_CONTEXT_MENU(check_fingerprints, R_ADMIN, "Check Fingerprints", atom/A)
 	var/dat = "<br>"
 
 	if(!A.fingerprints)
@@ -1292,20 +1078,10 @@
 	browser.open(FALSE)
 
 
-/client/proc/get_togglebuildmode()
-	set name = "Toggle Build Mode"
-	set category = "Admin.Fun"
-	if(!check_rights(R_SPAWN))
-		return
-	togglebuildmode(mob)
+ADMIN_VERB(get_togglebuildmode, R_SPAWN, "Toggle Build mode", "Toggles build mode", ADMIN_CATEGORY_FUN)
+	togglebuildmode(user.mob)
 
-/client/proc/toggle_admin_tads()
-	set category = "Admin.Fun"
-	set name = "Toggle Tadpole Restrictions"
-
-	if(!check_rights(R_FUN))
-		return
-
+ADMIN_VERB(toggle_admin_tads, R_FUN, "Toggle Tadpole Restrictions", "Toggles ability to spawn meme tadpole models", ADMIN_CATEGORY_FUN)
 	if(SSticker.mode.enable_fun_tads)
 		message_admins("[ADMIN_TPMONTY(usr)] toggled Tadpole restrictions off.")
 		log_admin("[key_name(usr)] toggled Tadpole restrictions off.")
@@ -1348,7 +1124,6 @@
 
 	message_admins(span_adminnotice("[key_name_admin(usr)] has put [frommob.key] in control of [tomob.name]."))
 	log_admin("[key_name(usr)] stuffed [frommob.key] into [tomob.name].")
-	SSblackbox.record_feedback(FEEDBACK_TALLY, "admin_verb", 1, "Ghost Drag Control")
 
 	tomob.ckey = frommob.ckey
 	tomob.client?.init_verbs()
@@ -1356,15 +1131,11 @@
 
 	return TRUE
 
-/client/proc/mass_replace()
-	set name = "Mass replace atom"
-	set category = "Admin.Fun"
-	if(!check_rights(R_SPAWN))
-		return
-	var/to_replace = pick_closest_path(tgui_input_text(usr, "Pick a movable atom path to be replaced", "Enter path as text", timeout = 0))
-	var/to_place = pick_closest_path(tgui_input_text(usr, "Pick atom path to replace with", "Enter path as text", timeout = 0))
+ADMIN_VERB(mass_replace, R_SPAWN, "Mass replace atom", "Mass replace an atom", ADMIN_CATEGORY_FUN)
+	var/to_replace = pick_closest_path(input("Pick a movable atom path to be replaced", "Enter path as text") as text)
+	var/to_place = pick_closest_path(input("Pick atom path to replace with", "Enter path as text") as text)
 	var/current_caller = GLOB.AdminProcCaller
-	var/ckey = usr ? usr.client.ckey : GLOB.AdminProcCaller
+	var/ckey = user.ckey
 	if(!ckey)
 		CRASH("mass replace with no ckey")
 
@@ -1393,11 +1164,8 @@
 	log_admin(afterlogging)
 	message_admins(afterlogging)
 
-/client/proc/smite(mob/living/target as mob) //select a living mob as a target and smite them with a choice with a selection from global smites
-	set category = "Admin"
-	set name = "Smite"
-
-	var/punishment = tgui_input_list(usr, "Choose a punishment", "DIVINE SMITING", GLOB.smites, timeout = 0)//Choose a smite if any exist from global smites
+ADMIN_VERB_AND_CONTEXT_MENU(admin_smite, R_ADMIN|R_FUN, "Smite", "Smite a player with divine power.", ADMIN_CATEGORY_FUN, mob/living/target in world)
+	var/punishment = tgui_input_list(user, "Choose a punishment", "DIVINE SMITING", GLOB.smites, timeout = 0)
 
 	if(QDELETED(target) || !punishment)
 		return
@@ -1407,7 +1175,7 @@
 	var/configuration_success = smite.configure(usr)
 	if (configuration_success == FALSE)
 		return
-	smite.effect(src, target)
+	smite.effect(user, target)
 
 /client/proc/punish_log(whom, punishment) //log and push to chat the smite victim and punishing admin
 	var/msg = "[key_name_admin(src)] punished [key_name_admin(whom)] with [punishment]."
@@ -1415,109 +1183,32 @@
 	admin_ticket_log(whom, msg)
 	log_admin("[key_name(src)] punished [key_name(whom)] with [punishment].")
 
-/client/proc/show_traitor_panel(mob/target_mob in GLOB.mob_list)
-	set category = "Admin"
-	set name = "Show Objective Panel"
+ADMIN_VERB_AND_CONTEXT_MENU(show_traitor_panel, R_ADMIN, "Show Objective Panel", "Show a mobs objective panel.", ADMIN_CATEGORY_FUN, mob/target_mob in GLOB.mob_list)
 	var/datum/mind/target_mind = target_mob.mind
 	if(!target_mind)
-		to_chat(usr, "This mob has no mind!", confidential = TRUE)
+		to_chat(user, "This mob has no mind!", confidential = TRUE)
 		return
 	if(!istype(target_mob) && !istype(target_mind))
-		to_chat(usr, "This can only be used on instances of type /mob and /mind", confidential = TRUE)
+		to_chat(user, "This can only be used on instances of type /mob and /mind", confidential = TRUE)
 		return
 	target_mind.traitor_panel()
-	SSblackbox.record_feedback(FEEDBACK_TALLY, "admin_verb", 1, "Objective Panel") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/validate_objectives()
-	set category = "Debug"
-	set name = "Check All Objectives Completion"
-	for(var/datum/antagonist/A in GLOB.antagonists)
-		if(!A.owner)
-			continue
+ADMIN_VERB(set_xeno_stat_buffs, R_ADMIN, "Set Xeno Buffs", "Allows you to change stats for all xenos. It is a multiplicator buff, so input 100 to put everything back to normal", ADMIN_CATEGORY_MAIN)
+	var/multiplicator_buff_wanted = tgui_input_number(user, "Input the factor in percentage that will multiply xeno stat", "100 is normal stat, 200 is doubling health, regen and melee attack")
 
-		to_chat(usr,"[A.owner.key]")
-		to_chat(usr,"[A.owner.name]")
-		to_chat(usr,"[A.type]")
-		to_chat(usr,"[A.name]")
-
-		if(length(A.objectives))
-			for(var/datum/objective/O in A.objectives)
-				var/result = O.check_completion() ? "SUCCESS" : "FAIL"
-				to_chat(usr,"--------------------------------")
-				to_chat(usr,"[O.type]")
-				to_chat(usr,"---------------------------------")
-				to_chat(usr,"[O.explanation_text] = [result]")
-				to_chat(usr,"----------------------------------")
-
-/datum/admins/proc/military_policeman()
-	set category = "Debug"
-	set name = "Military Policeman"
-
-	if(!check_rights(R_FUN))
+	if(!multiplicator_buff_wanted)
 		return
+	GLOB.xeno_stat_multiplicator_buff = (multiplicator_buff_wanted / 100)
+	SSmonitor.is_automatic_balance_on = FALSE
+	SSmonitor.apply_balance_changes()
+	var/logging = "[usr.ckey] has multiplied all health, melee damage and regen of xeno by [multiplicator_buff_wanted]%"
+	log_admin(logging)
+	message_admins(logging)
 
-	var/mob/M = usr
-	var/mob/living/carbon/human/H
-	var/spatial = FALSE
-	if(ishuman(M))
-		H = M
-		var/datum/job/J = H.job
-		spatial = istype(J, /datum/job/terragov/command/military_police)
-
-	if(spatial)
-		log_admin("[key_name(M)] stopped being a debug military policeman.")
-		message_admins("[ADMIN_TPMONTY(M)] stopped being a debug military policeman.")
-		qdel(M)
-	else
-		H = new(get_turf(M))
-		M.client.prefs.copy_to(H)
-		M.mind.transfer_to(H, TRUE)
-		var/datum/job/J = SSjob.GetJobType(/datum/job/terragov/command/military_police)
-		H.apply_assigned_role_to_spawn(J)
-		qdel(M)
-
-		log_admin("[key_name(H)] became a debug military policeman.")
-		message_admins("[ADMIN_TPMONTY(H)] became a debug military policeman.")
-
-/client/proc/cmd_admin_create_predator_report()
-	set name = "Report: Yautja AI"
-	set category = "Admin"
-
-	if(!check_rights(R_ADMIN))
-		to_chat(src, "Only administrators may use this command.")
-		return
-	var/input = input(usr, "This is a message from the predator ship's AI. Check with online staff before you send this.", "What?", "") as message|null
+ADMIN_VERB(cmd_admin_create_predator_report, R_ADMIN, "Report: Yautja AI", "Create a predator ship AI report", ADMIN_CATEGORY_MAIN)
+	var/input = tgui_input_text(user, "This is a message from the predator ship's AI. Check with online staff before you send this.", "What?", timeout = 0)
 	if(!input)
 		return FALSE
 	yautja_announcement(span_yautjaboldbig(input))
 	message_admins("[key_name_admin(src)] has created a predator ship AI report")
 	log_admin("[key_name_admin(src)] predator ship AI report: [input]")
-
-/datum/admins/proc/force_predator_round()
-	set category = "Server.Round"
-	set name = "Toggle Predator Round"
-	set desc = "Force-toggle a predator round for the round type. Only works on maps that support Predator spawns."
-
-	if(!check_rights(R_SERVER))
-		return
-
-	var/datum/game_mode/predator_round = SSticker.mode
-	if(!predator_round)
-		to_chat(usr, span_adminnotice("Wait until round start!"))
-		return
-
-	if(alert("Are you sure you want to force-toggle a predator round? Predators currently: [(predator_round.round_type_flags & MODE_PREDATOR) ? "Enabled" : "Disabled"]",, "Yes", "No") != "Yes")
-		return
-
-	if(!(predator_round.round_type_flags & MODE_PREDATOR))
-		var/datum/job/PJ = SSjob.GetJobType(/datum/job/predator)
-		var/new_pred_max = min(max(round(length(GLOB.clients) * PREDATOR_TO_TOTAL_SPAWN_RATIO), 1), 4)
-		PJ.total_positions = new_pred_max
-		PJ.max_positions = new_pred_max
-		predator_round.round_type_flags |= MODE_PREDATOR
-	else
-		predator_round.round_type_flags &= ~MODE_PREDATOR
-
-	log_admin("[key_name_admin(usr)] has [(predator_round.round_type_flags & MODE_PREDATOR) ? "allowed predators to spawn" : "prevented predators from spawning"].")
-	message_admins("[ADMIN_TPMONTY(usr)] has [(predator_round.round_type_flags & MODE_PREDATOR) ? "allowed predators to spawn" : "prevented predators from spawning"].")
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_PREDATOR_ROUND_TOGGLED)

@@ -1,9 +1,7 @@
-/datum/admins/proc/delete_all()
-	set category = "Debug"
-	set name = "Delete Instances"
+ADMIN_VERB(delete_all, R_DEBUG, "Delete Instances", "Delete all instances of something", ADMIN_CATEGORY_DEBUG) // todo why does this exist instead of sdql
 
 	var/blocked = list(/obj, /obj/item, /obj/effect, /obj/machinery, /mob, /mob/living, /mob/living/carbon, /mob/living/carbon/xenomorph, /mob/living/carbon/human, /mob/dead, /mob/dead/observer, /mob/living/silicon, /mob/living/silicon/ai)
-	var/chosen_deletion = input(usr, "Type the path of the object you want to delete", "Delete:") as null|text
+	var/chosen_deletion = input(user, "Type the path of the object you want to delete", "Delete:") as null|text
 
 	if(!chosen_deletion)
 		return
@@ -13,12 +11,12 @@
 		return
 
 	if(!ispath(/mob) && !ispath(/obj))
-		to_chat(usr,
+		to_chat(user,
 			type = MESSAGE_TYPE_DEBUG,
 			html = span_warning("Only works for types of /obj or /mob."))
 		return
 
-	var/hsbitem = input(usr, "Choose an object to delete.", "Delete:") as null|anything in typesof(chosen_deletion)
+	var/hsbitem = input(user, "Choose an object to delete.", "Delete:") as null|anything in typesof(chosen_deletion)
 	if(!hsbitem)
 		return
 
@@ -36,34 +34,23 @@
 			del_amt++
 			qdel(O)
 
-	log_admin("[key_name(usr)] deleted all instances of [hsbitem] ([del_amt]).")
-	message_admins("[ADMIN_TPMONTY(usr)] deleted all instances of [hsbitem] ([del_amt]).")
+	log_admin("[key_name(user)] deleted all instances of [hsbitem] ([del_amt]).")
+	message_admins("[ADMIN_TPMONTY(user.mob)] deleted all instances of [hsbitem] ([del_amt]).")
 
-
-/datum/admins/proc/generate_powernets()
-	set category = "Debug"
-	set name = "Generate Powernets"
-	set desc = "Regenerate all powernets."
-
-	if(!check_rights(R_DEBUG))
-		return
-
+ADMIN_VERB(generate_powernets, R_DEBUG, "Generate Powernets", "Regenerate all powernets.", ADMIN_CATEGORY_DEBUG)
 	SSmachines.makepowernets()
 
-	log_admin("[key_name(usr)] has remade powernets.")
-	message_admins("[ADMIN_TPMONTY(usr)] has remade powernets.")
+	log_admin("[key_name(user)] has remade powernets.")
+	message_admins("[ADMIN_TPMONTY(user.mob)] has remade powernets.")
 
 
-/datum/admins/proc/debug_mob_lists()
-	set category = "Debug"
-	set name = "Debug Mob Lists"
-
-	var/dat
-
-	var/choice = input("Which list?") as null|anything in list("Players", "Observers", "New Players", "Admins", "Clients", "Mobs", "Living Mobs", "Alive Living Mobs", "Dead Mobs", "Xenos", "Alive Xenos", "Dead Xenos", "Humans", "Alive Humans", "Dead Humans")
+ADMIN_VERB(debug_mob_lists, R_DEBUG, "Debug Mob Lists", "Debug mob globals", ADMIN_CATEGORY_DEBUG)
+	var/list/options = list("Players", "Observers", "New Players", "Admins", "Clients", "Mobs", "Living Mobs", "Alive Living Mobs", "Dead Mobs", "Xenos", "Alive Xenos", "Dead Xenos", "Humans", "Alive Humans", "Dead Humans")
+	var/choice = tgui_input_list(user, "Which list?", "Global Mob List debugging", options)
 	if(!choice)
 		return
 
+	var/dat
 	switch(choice)
 		if("Players")
 			for(var/i in GLOB.player_list)
@@ -126,22 +113,17 @@
 				var/mob/M = i
 				dat += "[M] [ADMIN_VV(M)]<br>"
 
-	var/datum/browser/browser = new(usr, "moblists", "<div align='center'>[choice]</div>")
+	var/datum/browser/browser = new(user, "moblists", "<div align='center'>[choice]</div>")
 	browser.set_content(dat)
 	browser.open(FALSE)
 
-	log_admin("[key_name(usr)] is debugging the [choice] list.")
-	message_admins("[ADMIN_TPMONTY(usr)] is debugging the [choice] list.")
+	log_admin("[key_name(user)] is debugging the [choice] list.")
+	message_admins("[ADMIN_TPMONTY(user.mob)] is debugging the [choice] list.")
 
 
-/datum/admins/proc/spawn_atom(object as text)
-	set category = "Debug"
-	set desc = "(atom path) Spawn an atom"
-	set name = "Spawn"
-
-	if(!check_rights(R_SPAWN) || !object)
+ADMIN_VERB(spawn_atom, R_SPAWN, "Spawn", "(atom path) Spawn an atom", ADMIN_CATEGORY_DEBUG, object as text)
+	if(!object)
 		return
-
 	var/list/preparsed = splittext(object,":")
 	var/path = preparsed[1]
 	var/amount = 1
@@ -151,7 +133,7 @@
 	var/chosen = pick_closest_path(path)
 	if(!chosen)
 		return
-	var/turf/T = get_turf(usr)
+	var/turf/T = get_turf(user.mob)
 
 	if(ispath(chosen, /turf))
 		T.change_turf(chosen)
@@ -160,61 +142,39 @@
 			var/atom/A = new chosen(T)
 			A.atom_flags |= ADMIN_SPAWNED
 
-	log_admin("[key_name(usr)] spawned [amount] x [chosen] at [AREACOORD(usr)]")
-	SSblackbox.record_feedback(FEEDBACK_TALLY, "admin_verb", 1, "Spawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	log_admin("[key_name(user)] spawned [amount] x [chosen] at [AREACOORD(user.mob)]")
 
-/datum/admins/proc/delete_atom(atom/A as obj|mob|turf in world)
-	set category = null
-	set name = "Delete"
-
-	if(!check_rights(R_DEBUG))
+ADMIN_VERB_AND_CONTEXT_MENU(delete_atom, R_DEBUG, "Delete", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEGORY_HIDDEN, atom/target as obj|mob|turf in world)
+	if(alert(user, "Are you sure you want to delete: [target]?", "Delete", "Yes", "No") != "Yes")
 		return
 
-	if(alert(src, "Are you sure you want to delete: [A]?", "Delete", "Yes", "No") != "Yes")
+	if(QDELETED(target))
 		return
 
-	if(QDELETED(A))
-		return
+	var/turf/T = get_turf(target)
 
-	var/turf/T = get_turf(A)
+	log_admin("[key_name(user)] deleted [target]([target.type]) at [AREACOORD(T)].")
+	message_admins("[ADMIN_TPMONTY(user.mob)] deleted [target]([target.type]) at [ADMIN_VERBOSEJMP(T)].")
 
-	log_admin("[key_name(usr)] deleted [A]([A.type]) at [AREACOORD(T)].")
-	message_admins("[ADMIN_TPMONTY(usr)] deleted [A]([A.type]) at [ADMIN_VERBOSEJMP(T)].")
-
-	if(isturf(A))
-		var/turf/deleting_turf = A
+	if(isturf(target))
+		var/turf/deleting_turf = target
 		deleting_turf.scrape_away()
 		return
 
-	qdel(A)
+	qdel(target)
 
-
-/datum/admins/proc/restart_controller(controller in list("Master", "Failsafe"))
-	set category = "Debug"
-	set name = "Restart Controller"
-	set desc = "Restart one of the various periodic loop controllers for the game (be careful!)"
-
-	if(!check_rights(R_DEBUG))
-		return
-
+ADMIN_VERB(restart_controller, R_DEBUG, "Restart Controller", "Restart one of the various periodic loop controllers for the game (be careful!)", ADMIN_CATEGORY_DEBUG, controller in list("Master", "Failsafe"))
 	switch(controller)
 		if("Master")
 			Recreate_MC()
+			BLACKBOX_LOG_ADMIN_VERB("Restart Master Controller")
 		if("Failsafe")
 			new /datum/controller/failsafe()
+			BLACKBOX_LOG_ADMIN_VERB("Restart Failsafe Controller")
 
-	log_admin("[key_name(usr)] has restarted the [controller] controller.")
-	message_admins("[ADMIN_TPMONTY(usr)] has restarted the [controller] controller.")
+	message_admins("Admin [key_name_admin(user)] has restarted the [controller] controller.")
 
-
-/client/proc/debug_controller()
-	set category = "Debug"
-	set name = "Debug Controller"
-	set desc = "Debug the various periodic loop controllers for the game (be careful!)"
-
-	if(!check_rights(R_DEBUG))
-		return
-
+ADMIN_VERB(debug_controller, R_DEBUG, "Debug Controller", "Debug the various periodic loop controllers for the game (be careful!)", ADMIN_CATEGORY_DEBUG)
 	var/list/controllers = list()
 	var/list/controller_choices = list()
 
@@ -224,48 +184,17 @@
 		controllers["[controller] (controller.type)"] = controller //we use an associated list to ensure clients can't hold references to controllers
 		controller_choices += "[controller] (controller.type)"
 
-	var/datum/controller/controller_string = input("Select controller to debug", "Debug Controller") as null|anything in controller_choices
+	var/datum/controller/controller_string = input(user, "Select controller to debug", "Debug Controller") as null|anything in controller_choices
 	var/datum/controller/controller = controllers[controller_string]
 
 	if(!istype(controller))
 		return
-	debug_variables(controller)
+	SSadmin_verbs.dynamic_invoke_verb(user, /datum/admin_verb/debug_variables, controller)
 
-	log_admin("[key_name(usr)] is debugging the [controller] controller.")
-	message_admins("Admin [key_name_admin(usr)] is debugging the [controller] controller.")
+	log_admin("[key_name(user)] is debugging the [controller] controller.")
+	message_admins("Admin [key_name_admin(user)] is debugging the [controller] controller.")
 
-/datum/admins/proc/check_contents()
-	set category = "Debug"
-	set name = "Check Contents"
-
-	if(!check_rights(R_DEBUG))
-		return
-
-	var/mob/living/L = usr.client.holder.apicker("Check contents of:", "Check Contents", list(APICKER_CLIENT, APICKER_LIVING))
-	if(!istype(L))
-		return
-
-	var/dat = "<br>"
-	for(var/i in L.GetAllContents())
-		var/atom/A = i
-		dat += "[A] [ADMIN_VV(A)]<br>"
-
-	var/datum/browser/popup = new(usr, "contents_[key_name(L)]", "<div align='center'>Contents of [key_name(L)]</div>")
-	popup.set_content(dat)
-	popup.open(FALSE)
-
-	log_admin("[key_name(usr)] checked the contents of [key_name(L)].")
-	message_admins("[ADMIN_TPMONTY(usr)] checked the contents of [ADMIN_TPMONTY(L)].")
-
-
-
-/datum/admins/proc/reestablish_db_connection()
-	set category = "Debug"
-	set name = "Reestablish DB Connection"
-
-	if(!check_rights(R_DEBUG))
-		return
-
+ADMIN_VERB(reestablish_db_connection, R_DEBUG, "Reestablish DB Connection", "Attempts to (re)establish the DB Connection", ADMIN_CATEGORY_SERVER)
 	if(!CONFIG_GET(flag/sql_enabled))
 		to_chat(usr, span_adminnotice("The Database is not enabled!"))
 		return
@@ -290,27 +219,20 @@
 		log_admin("Database connection re-established!")
 		message_admins("Database connection re-established!")
 
-/datum/admins/proc/view_runtimes()
-	set category = "Debug"
-	set name = "View Runtimes"
-	set desc = "Open the runtime Viewer"
+ADMIN_VERB(view_runtimes, R_DEBUG, "View Runtimes", "Opens the runtime viewer.", ADMIN_CATEGORY_DEBUG)
+	GLOB.error_cache.show_to(user)
 
-	if(!check_rights(R_RUNTIME|R_DEBUG))
-		return
+	// The runtime viewer has the potential to crash the server if there's a LOT of runtimes
+	// this has happened before, multiple times, so we'll just leave an alert on it
+	if(GLOB.total_runtimes >= 50000) // arbitrary number, I don't know when exactly it happens
+		var/warning = "There are a lot of runtimes, clicking any button (especially \"linear\") can have the potential to lag or crash the server"
+		if(GLOB.total_runtimes >= 100000)
+			warning = "There are a TON of runtimes, clicking any button (especially \"linear\") WILL LIKELY crash the server"
+		// Not using TGUI alert, because it's view runtimes, stuff is probably broken
+		alert(user, "[warning]. Proceed with caution. If you really need to see the runtimes, download the runtime log and view it in a text editor.", "HEED THIS WARNING CAREFULLY MORTAL")
 
-	GLOB.error_cache.show_to(usr.client)
-
-	log_admin("[key_name(usr)] viewed the runtimes.")
-
-
-/datum/admins/proc/spatial_agent()
-	set category = "Debug"
-	set name = "Spatial Agent"
-
-	if(!check_rights(R_FUN))
-		return
-
-	var/mob/M = usr
+ADMIN_VERB(spatial_agent, R_FUN, "Spatial Agent", "Become a spatial agent", ADMIN_CATEGORY_DEBUG)
+	var/mob/M = user.mob
 	var/mob/living/carbon/human/H
 	var/spatial = FALSE
 	if(ishuman(M))
@@ -333,26 +255,40 @@
 		log_admin("[key_name(H)] became a spatial agent.")
 		message_admins("[ADMIN_TPMONTY(H)] became a spatial agent.")
 
-/datum/admins/proc/profiler()
-	set category = "Debug"
-	set name = "Profiler"
+ADMIN_VERB(military_policeman, R_FUN, "Military Policeman", "Become a marine law-enforcing MRP retard", ADMIN_CATEGORY_DEBUG)
+	var/mob/M = user
+	var/mob/living/carbon/human/H
+	var/spatial = FALSE
+	if(ishuman(M))
+		H = M
+		var/datum/job/J = H.job
+		spatial = istype(J, /datum/job/terragov/command/military_police)
 
-	if(!check_rights(R_DEBUG|R_RUNTIME))
-		return
+	if(spatial)
+		log_admin("[key_name(M)] stopped being a debug military policeman.")
+		message_admins("[ADMIN_TPMONTY(M)] stopped being a debug military policeman.")
+		qdel(M)
+	else
+		H = new(get_turf(M))
+		M.client.prefs.copy_to(H)
+		M.mind.transfer_to(H, TRUE)
+		var/datum/job/J = SSjob.GetJobType(/datum/job/terragov/command/military_police)
+		H.apply_assigned_role_to_spawn(J)
+		qdel(M)
 
+		log_admin("[key_name(H)] became a debug military policeman.")
+		message_admins("[ADMIN_TPMONTY(H)] became a debug military policeman.")
+
+ADMIN_VERB(profiler, R_DEBUG|R_RUNTIME, "Profiler", "Inspect the procs that take most of cpu or world time", ADMIN_CATEGORY_DEBUG)
 	winset(usr, null, "command=.profile")
 
-/datum/admins/proc/wipe_color_and_text(list/atom/wiping)
+/proc/wipe_color_and_text(list/atom/wiping)
 	for(var/i in wiping)
 		var/atom/atom_to_clean = i
 		atom_to_clean.color = null
 		atom_to_clean.maptext = ""
 
-/client/proc/cmd_display_del_log()
-	set category = "Debug"
-	set name = "Display del() Log"
-	set desc = "Display del's log of everything that's passed through it."
-
+ADMIN_VERB(cmd_display_del_log, R_DEBUG, "Display del() Log", "Display del's log of everything that's passed through it.", ADMIN_CATEGORY_DEBUG)
 	var/list/dellog = list("<B>List of things that have gone through qdel this round</B><BR><BR><ol>")
 	sortTim(SSgarbage.items, cmp=/proc/cmp_qdel_item_time, associative = TRUE)
 	for(var/path in SSgarbage.items)
@@ -380,10 +316,12 @@
 
 	dellog += "</ol>"
 
-	usr << browse(dellog.Join(), "window=dellog")
+	var/datum/browser/browser = new(usr, "dellog", "Del Log", 00, 400)
+	browser.set_content(dellog.Join())
+	browser.open()
 
-/client/proc/debugstatpanel()
-	set name = "Debug Stat Panel"
-	set category = "Debug"
+ADMIN_VERB(debug_statpanel, R_DEBUG, "Debug Stat Panel", "Toggles local debug of the stat panel", ADMIN_CATEGORY_DEBUG)
+	user.stat_panel.send_message("create_debug")
 
-	src.stat_panel.send_message("create_debug")
+ADMIN_VERB(display_sendmaps, R_DEBUG, "Send Maps Profile", "View the profile.", ADMIN_CATEGORY_DEBUG)
+	user << link("?debug=profile&type=sendmaps&window=test")
