@@ -1,6 +1,3 @@
-
-
-
 /obj/machinery/dropship_part_fabricator
 	name = "dropship part fabricator"
 	desc = "A large automated 3D printer for producing new dropship parts."
