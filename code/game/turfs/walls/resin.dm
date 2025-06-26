@@ -196,7 +196,7 @@
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
 	soft_armor = list(MELEE = 0, BULLET = 120, LASER = 100, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0) //You aren't damaging this with bullets without alot of AP.
-	max_upgradable_health = 200
+	max_upgradable_health = 100
 
 /turf/closed/wall/resin/regenerating/fireproof
 	name = RESIN_WALL_FIRE
