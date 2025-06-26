@@ -128,7 +128,6 @@
 			data["ui_style_alpha"] = ui_style_alpha
 			data["windowflashing"] = windowflashing
 			data["auto_fit_viewport"] = auto_fit_viewport
-			data["mute_xeno_health_alert_messages"] = mute_xeno_health_alert_messages
 			data["accessible_tgui_themes"] = accessible_tgui_themes
 			data["tgui_fancy"] = tgui_fancy
 			data["tgui_input"] = tgui_input
@@ -154,6 +153,7 @@
 			data["pixel_size"] = pixel_size
 			data["parallax"] = parallax
 			data["fullscreen_mode"] = fullscreen_mode
+			data["show_status_bar"] = show_status_bar
 			data["fast_mc_refresh"] = fast_mc_refresh
 			data["split_admin_tabs"] = split_admin_tabs
 		if(KEYBIND_SETTINGS)
@@ -746,11 +746,7 @@
 
 		if("auto_fit_viewport")
 			auto_fit_viewport = !auto_fit_viewport
-			if(auto_fit_viewport && parent)
-				parent.fit_viewport()
-
-		if("mute_xeno_health_alert_messages")
-			mute_xeno_health_alert_messages = !mute_xeno_health_alert_messages
+			parent?.attempt_auto_fit_viewport()
 
 		if("accessible_tgui_themes")
 			accessible_tgui_themes = !accessible_tgui_themes
@@ -845,6 +841,10 @@
 		if("fullscreen_mode")
 			fullscreen_mode = !fullscreen_mode
 			user.client?.set_fullscreen(fullscreen_mode)
+
+		if("show_status_bar")
+			show_status_bar = !show_status_bar
+			user.client?.toggle_status_bar(show_status_bar)
 
 		if("set_keybind")
 			var/kb_name = params["keybind_name"]

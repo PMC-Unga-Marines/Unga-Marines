@@ -140,7 +140,7 @@
 
 /obj/item/clothing/gloves/yautja/proc/owner_teleported()
 	SIGNAL_HANDLER
-	
+
 	if(cloaked)
 		decloak(owner)
 	update_minimap_icon()
@@ -516,8 +516,6 @@
 		playsound(M.loc,'sound/effects/pred_cloakon.ogg', 30)
 		animate(M, alpha = new_alpha, time = 1.5 SECONDS, easing = SINE_EASING|EASE_OUT)
 
-		var/datum/atom_hud/security/SA = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
-		SA.remove_from_hud(M)
 		var/datum/atom_hud/xeno_infection/XI = GLOB.huds[DATA_HUD_XENO_INFECTION]
 		XI.remove_from_hud(M)
 		anim(M.loc,M,'icons/mob/mob.dmi',,"cloak",,M.dir)
@@ -629,7 +627,7 @@
 		playsound(src, 'sound/voice/predator/deathlaugh.ogg', 100, 0, 17)
 
 	playsound(src, 'sound/effects/pred_countdown.ogg', 100, 0, 17)
-	message_admins(font_size_xl("<a href='?_src_=holder;[HrefToken(TRUE)];admincancelpredsd=1;bracer=[REF(src)];victim=[REF(victim)]'>CLICK TO CANCEL THIS PRED SD</a>"))
+	message_admins(font_size_xl("<a href='byond://?_src_=holder;[HrefToken(TRUE)];admincancelpredsd=1;bracer=[REF(src)];victim=[REF(victim)]'>CLICK TO CANCEL THIS PRED SD</a>"))
 
 	our_socialistic_do_after(victim, rand(72, 80))
 
@@ -866,8 +864,8 @@
 		s.start()
 		M.visible_message(span_warning("[src] beeps and sends a shock through [M]'s body!"))
 		//Stun and knock out, scream in pain
-		M.apply_effect(2, STUN)
-		M.apply_effect(2, WEAKEN)
+		M.apply_effect(2, EFFECT_STUN)
+		M.apply_effect(2, EFFECT_PARALYZE)
 		if(!M.species || !(M.species.species_flags & NO_PAIN))
 			M.emote("scream")
 		//Apply a bit of burn damage
@@ -1060,9 +1058,8 @@
 	. = ..()
 	if(slot != SLOT_GLOVES)
 		move_chip_to_bracer()
-	else
-		if(embedded_id?.registered_name)
-			embedded_id.set_user_data(user)
+	else if(embedded_id?.registered_name)
+		embedded_id.set_user_data(user)
 
 /obj/item/clothing/gloves/yautja/hunter/process()
 	if(!ishuman(loc))
@@ -1140,8 +1137,6 @@
 		user.see_invisible = initial(user.see_invisible)
 	cloak_timer = world.time + 5 SECONDS
 
-	var/datum/atom_hud/security/SA = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
-	SA.add_to_hud(user)
 	var/datum/atom_hud/xeno_infection/XI = GLOB.huds[DATA_HUD_XENO_INFECTION]
 	XI.add_to_hud(user)
 

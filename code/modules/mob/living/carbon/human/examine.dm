@@ -1,3 +1,6 @@
+/mob/living/carbon/human/get_examine_icon(mob/user)
+	return null // carbon human icons either don't work or are super fucked up
+
 /mob/living/carbon/human/examine(mob/user)
 	SHOULD_CALL_PARENT(FALSE)
 	var/skipgloves = 0
@@ -32,18 +35,10 @@
 	var/t_has = p_have()
 	var/t_is = p_are()
 
-	var/msg = "<big><span class='info'>This is "
+	var/msg = ""
 
-	if(icon)
-		msg += "[icon2html(icon, user)] " //fucking BYOND: this should stop dreamseeker crashing if we -somehow- examine somebody before their icon is generated
-
-	msg += "<EM>[src.name]!</EM></big></span>\n"
-	if(flavor_text)
-		msg += EXAMINE_SECTION_BREAK
-		msg += "[flavor_text]\n"
-
-	msg += EXAMINE_SECTION_BREAK
 	msg += "<span class='info'>"
+	msg += separator_hr("Outfit")
 
 	//uniform
 	if(w_uniform && !skipjumpsuit)
@@ -177,7 +172,7 @@
 	if(wear_id)
 		msg += "[t_He] [t_is] wearing [icon2html(wear_id, user)] \a [wear_id].\n"
 
-	msg += EXAMINE_SECTION_BREAK
+	msg += separator_hr("Status")
 
 	//jitters
 	if(stat != DEAD)
@@ -235,11 +230,11 @@
 			if(isxeno(user))
 				msg += "[span_xenowarning("[t_He] [p_do()]n't seem responsive.")]\n"
 			else
-				msg += "[span_deadsay("[t_He] [t_is] completely unresponsive to anything and has fallen asleep, as if affected by Space Sleep Disorder. [t_He] may snap out of it soon.")]\n"
+				msg += "[span_deadsay("[t_He] [t_is] completely unresponsive to anything and [t_has] fallen asleep, as if affected by Space Sleep Disorder. [t_He] may snap out of it soon.")]\n"
 
 	var/total_brute = get_brute_loss()
 	var/total_burn = get_fire_loss()
-	var/total_clone = get_clone_Loss()
+	var/total_clone = get_clone_loss()
 	if(total_brute)
 		if (total_brute < 25)
 			if(species.species_flags & ROBOTIC_LIMBS)
@@ -277,9 +272,9 @@
 	if(total_clone)
 		if(total_clone < 25)
 			if(isrobot(src))
-				msg += "[span_tinydeadsay("<i>[t_He] has minor structural damage, with some solder visibly frayed...</i>")]\n"
+				msg += "[span_tinydeadsay("<i>[t_He] [t_has] minor structural damage, with some solder visibly frayed...</i>")]\n"
 			else
-				msg += "<span class='tinydeadsay'><i>[t_He] [t_is] slightly disfigured, with light signs of cellular damage...</i></span>\n"
+				msg += "[span_tinydeadsay("<i>[t_He] [t_is] slightly disfigured, with light signs of cellular damage...</i>")]\n"
 		else if (total_clone < 50)
 			if(isrobot(src))
 				msg += "[span_deadsay("<i>[t_He] look[p_s()] very shaky, with significant damage to [t_his] overall structure...</i>")]\n"
@@ -508,11 +503,11 @@
 		msg += "[span_boldwarning("[t_He] [t_has] \a [embedded] sticking out of [t_his] flesh!")]\n"
 
 	if(hasHUD(user,"medical"))
-		msg += EXAMINE_SECTION_BREAK
+		msg += separator_hr("Medical HUD")
 		var/cardcolor = holo_card_color
 		if(!cardcolor)
 			cardcolor = "none"
-		msg += "[span_deptradio("Triage holo card:")] <a href='?src=[text_ref(src)];medholocard=1'>\[[cardcolor]\]</a> | "
+		msg += "[span_deptradio("Triage holo card:")] <a href='byond://?src=[text_ref(src)];medholocard=1'>\[[cardcolor]\]</a> | "
 
 		// scan reports
 		var/datum/data/record/N = null
@@ -524,16 +519,17 @@
 			if(!(N.fields["last_scan_time"]))
 				msg += "[span_deptradio("No body scan report on record")]\n"
 			else
-				msg += "[span_deptradio("<a href='?src=[text_ref(src)];scanreport=1'>Body scan from [N.fields["last_scan_time"]]</a>")]\n"
+				msg += "[span_deptradio("<a href='byond://?src=[text_ref(src)];scanreport=1'>Body scan from [N.fields["last_scan_time"]]</a>")]\n"
 
 	if(hasHUD(user,"squadleader"))
-		msg += EXAMINE_SECTION_BREAK
+		msg += separator_hr("SL Utilities")
 		var/mob/living/carbon/human/H = user
 		if(assigned_squad) //examined mob is a marine in a squad
 			if(assigned_squad == H.assigned_squad) //same squad
-				msg += "<a href='?src=[text_ref(src)];squadfireteam=1'>\[Assign to a fireteam.\]</a>\n"
+				msg += "<a href='byond://?src=[text_ref(src)];squadfireteam=1'>\[Assign to a fireteam.\]</a>\n"
 
 	if(isxeno(user))
+		msg += separator_hr("Xeno Info")
 		if(species.species_flags & IS_SYNTHETIC)
 			msg += "[span_xenowarning("You sense [t_he] [t_is] not organic.")]\n"
 		if(status_flags & XENO_HOST)
@@ -549,28 +545,27 @@
 		if(reagents.get_reagent_amount(/datum/reagent/toxin/xeno_sanguinal))
 			msg += "Sanguinal: Causes brute damage and bleeding from the brute damage. Does additional damage types in the presence of other xeno-based toxins. Toxin damage for Neuro, Stamina damage for Hemodile, and Burn damage for Transvitox.\n"
 
-	if(has_status_effect(STATUS_EFFECT_ADMINSLEEP))
-		msg += span_highdanger("<b>This player has been slept by staff. Best to leave them be.</b>\n")
-
-//RUTGMC EDIT
 	if(isyautja(user))
 		var/obj/item/clothing/gloves/yautja/hunter/bracers = gloves
 		if(istype(bracers) && bracers.name_active)
 			msg += span_blue("Their bracers identifies them as <b>[real_name]</b>.")
 		msg += span_blue("[src] has the scent of [life_kills_total] defeated prey.")
-		if(src.hunter_data.hunted)
-			msg += span_orange("[src] is being hunted by [src.hunter_data.hunter.real_name].")
+		if(hunter_data.hunted)
+			msg += span_orange("[src] is being hunted by [hunter_data.hunter.real_name].")
 
-		if(src.hunter_data.dishonored)
-			msg += span_red("[src] was marked as dishonorable for '[src.hunter_data.dishonored_reason]'.")
-		else if(src.hunter_data.honored)
-			msg += span_green("[src] was honored for '[src.hunter_data.honored_reason]'.")
+		if(hunter_data.dishonored)
+			msg += span_red("[src] was marked as dishonorable for '[hunter_data.dishonored_reason]'.")
+		else if(hunter_data.honored)
+			msg += span_green("[src] was honored for '[hunter_data.honored_reason]'.")
 
-		if(src.hunter_data.thralled)
-			msg += span_green("[src] was thralled by [src.hunter_data.thralled_set.real_name] for '[src.hunter_data.thralled_reason]'.")
-		else if(src.hunter_data.gear)
-			msg += span_red("[src] was marked as carrying gear by [src.hunter_data.gear_set].")
-//RUTGMC EDIT
+		if(hunter_data.thralled)
+			msg += span_green("[src] was thralled by [hunter_data.thralled_set.real_name] for '[hunter_data.thralled_reason]'.")
+		else if(hunter_data.gear)
+			msg += span_red("[src] was marked as carrying gear by [hunter_data.gear_set].")
+
+	if(has_status_effect(STATUS_EFFECT_ADMINSLEEP))
+		msg += separator_hr("[span_boldwarning("Admin Slept")]")
+		msg += span_userdanger("This player has been slept by staff. Best to leave them be.\n")
 
 	msg += "</span>"
 	return list(msg)

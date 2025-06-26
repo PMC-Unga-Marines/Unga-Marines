@@ -56,14 +56,11 @@
 		state = 4
 	update_icon()
 
-/obj/machinery/washing_machine/verb/climb_out()
-	set name = "Climb out"
-	set category = "IC.Object"
-	set src in usr.loc
-
-	sleep(2 SECONDS)
+/obj/machinery/washing_machine/resisted_against(mob/living/source)
+	if(!do_after(source, 2 SECONDS, NONE, src))
+		return
 	if(state in list(1,3,6))
-		usr.loc = src.loc
+		source.forceMove(loc)
 
 /obj/machinery/washing_machine/update_icon_state()
 	. = ..()

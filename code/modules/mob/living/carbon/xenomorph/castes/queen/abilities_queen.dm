@@ -33,7 +33,7 @@
 
 	log_game("[key_name(xeno_owner)] has messaged the hive with: \"[input]\"")
 	deadchat_broadcast(" has messaged the hive: \"[input]\"", xeno_owner, xeno_owner)
-	var/queens_word = "<span class='maptext' style=font-size:18pt;text-align:center valign='top'><u>ПРИКАЗ УЛЬЮ:</u><br></span>" + input
+	var/queens_word = HUD_ANNOUNCEMENT_FORMATTING("СООБЩЕНИЕ УЛЬЮ", input, CENTER_ALIGN_TEXT)
 
 	var/sound/queen_sound = sound(SFX_QUEEN, channel = CHANNEL_ANNOUNCEMENTS)
 	var/sound/king_sound = sound('sound/voice/alien/xenos_roaring.ogg', channel = CHANNEL_ANNOUNCEMENTS)
@@ -90,7 +90,7 @@
 	add_cooldown()
 
 	playsound(xeno_owner.loc, 'sound/voice/alien/queen/screech.ogg', 75, 0)
-	xeno_owner.visible_message(span_xenohighdanger("\The [xeno_owner] emits an ear-splitting guttural roar!"))
+	xeno_owner.visible_message(span_xenouserdanger("\The [xeno_owner] emits an ear-splitting guttural roar!"))
 	GLOB.round_statistics.queen_screech++
 	SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "queen_screech")
 	xeno_owner.create_shriekwave() //Adds the visual effect. Wom wom wom
@@ -153,7 +153,7 @@
 		affected_xeno.apply_status_effect(/datum/status_effect/plasma_surge, affected_xeno.xeno_caste.plasma_max / 3, bonus_regen, duration)
 
 	playsound(xeno_owner.loc, 'sound/voice/alien/queen/screech_plasma.ogg', 75, 0)
-	xeno_owner.visible_message(span_xenohighdanger("\The [xeno_owner] emits an ear-splitting guttural roar!"))
+	xeno_owner.visible_message(span_xenouserdanger("\The [xeno_owner] emits an ear-splitting guttural roar!"))
 
 	succeed_activate()
 	add_cooldown()
@@ -187,7 +187,7 @@
 		affected_xeno.apply_status_effect(/datum/status_effect/frenzy_screech, buff_duration, buff_damage_modifier)
 
 	playsound(xeno_owner.loc, 'sound/voice/alien/queen/screech_frenzy.ogg', 75, 0)
-	xeno_owner.visible_message(span_xenohighdanger("\The [xeno_owner] emits an ear-splitting guttural roar!"))
+	xeno_owner.visible_message(span_xenouserdanger("\The [xeno_owner] emits an ear-splitting guttural roar!"))
 
 	succeed_activate()
 	add_cooldown()

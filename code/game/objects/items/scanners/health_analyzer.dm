@@ -77,7 +77,9 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 	START_PROCESSING(SSobj, src)
 
 /obj/item/healthanalyzer/ui_state(mob/user)
-	return GLOB.not_incapacitated_state
+	if(!isobserver(user))
+		return GLOB.not_incapacitated_state
+	return GLOB.observer_state
 
 /obj/item/healthanalyzer/process()
 	if(get_turf(src) != get_turf(current_user) || get_dist(get_turf(current_user), get_turf(patient)) > track_distance || patient == current_user)
@@ -114,7 +116,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 		"total_burn" = round(patient.get_fire_loss()),
 		"toxin" = round(patient.get_tox_loss()),
 		"oxy" = round(patient.get_oxy_loss()),
-		"clone" = round(patient.get_clone_Loss()),
+		"clone" = round(patient.get_clone_loss()),
 
 		"blood_type" = patient.blood_type,
 		"blood_amount" = patient.blood_volume,
@@ -383,7 +385,7 @@ GLOBAL_LIST_INIT(known_implants, subtypesof(/obj/item/implant))
 					"icon" = "plug",
 					"color" = "orange"
 				))
-		if(patient.get_clone_Loss() > 5)
+		if(patient.get_clone_loss() > 5)
 			advice += list(list(
 				"advice" = organic_patient ? "Patient should sleep or seek cryo treatment - cellular damage." : "Patient should seek a robotic cradle - integrity damage.",
 				"tooltip" = "[organic_patient ? "Cellular damage" : "Integrity damage"] is sustained from psychic draining, special chemicals and special weapons. It can only be healed through the aforementioned methods.",

@@ -264,7 +264,7 @@
 		var/mob/living/L = target
 		L.attack_animal(src)
 		if(prob(5))
-			L.apply_effect(3, WEAKEN)
+			L.apply_effect(3, EFFECT_PARALYZE)
 			L.visible_message(span_danger("\The [src] viciously slashes at \the [L]!"))
 			log_attack("[key_name(L)] was knocked down by [src]")
 		log_attack("[key_name(L)] was attacked by [src]")

@@ -8,7 +8,7 @@
 	cost = 50
 
 /datum/supply_packs/armor/riot
-	name = "Heavy Riot Armor Set"
+	name = "Heavy riot armor set"
 	contains = list(
 		/obj/item/clothing/suit/storage/marine/riot,
 		/obj/item/clothing/head/helmet/marine/riot,
@@ -16,17 +16,17 @@
 	cost = 120
 
 /datum/supply_packs/armor/marine_shield
-	name = "TL-172 Defensive Shield"
+	name = "TL-172 defensive shield"
 	contains = list(/obj/item/weapon/shield/riot/marine)
 	cost = 100
 
 /datum/supply_packs/armor/marine_shield/deployable
-	name = "TL-182 Deployable Shield"
+	name = "TL-182 deployable shield"
 	contains = list(/obj/item/weapon/shield/riot/marine/deployable)
 	cost = 30
 
 /datum/supply_packs/armor/b18
-	name = "B18 Armor Set"
+	name = "B18 armor set"
 	contains = list(
 		/obj/item/clothing/suit/storage/marine/specialist,
 		/obj/item/clothing/head/helmet/marine/specialist,
@@ -36,7 +36,7 @@
 	crash_restricted = TRUE
 
 /datum/supply_packs/armor/b17
-	name = "B17 Armor Set"
+	name = "B17 armor set"
 	contains = list(
 		/obj/item/clothing/suit/storage/marine/B17,
 		/obj/item/clothing/head/helmet/marine/grenadier,
@@ -45,29 +45,29 @@
 	crash_restricted = TRUE
 
 /datum/supply_packs/armor/scout_cloak
-	name = "Scout Cloak"
+	name = "Scout cloak"
 	contains = list(/obj/item/storage/backpack/marine/satchel/scout_cloak)
 	cost = 500
 
 /datum/supply_packs/armor/sniper_cloak
-	name = "Sniper Cloak"
+	name = "Sniper cloak"
 	contains = list(/obj/item/storage/backpack/marine/satchel/scout_cloak/sniper)
 	cost = 500
 
 /datum/supply_packs/armor/grenade_belt
-	name = "High Capacity Grenade Belt"
+	name = "High capacity grenade belt"
 	contains = list(/obj/item/storage/belt/grenade/b17)
 	cost = 200
 
 /datum/supply_packs/armor/modular/attachments/valkyrie_autodoc
-	name = "Valkyrie autodoc armor module"
+	name = "Valkyrie automedical system"
 	contains = list(
 		/obj/item/armor_module/module/valkyrie_autodoc,
 	)
 	cost = 200
 
 /datum/supply_packs/armor/modular/attachments/fire_proof
-	name = "Surt fireproof module set"
+	name = "Surt thermal insulation system"
 	contains = list(
 		/obj/item/armor_module/module/fire_proof,
 		/obj/item/armor_module/module/fire_proof_helmet,
@@ -75,7 +75,7 @@
 	cost = 120
 
 /datum/supply_packs/armor/modular/attachments/tyr_extra_armor
-	name = "Tyr mark 2 armor module"
+	name = "Tyr Mk.2 armor reinforcement system"
 	contains = list(
 		/obj/item/armor_module/module/tyr_extra_armor,
 		/obj/item/armor_module/module/tyr_head/mark2,
@@ -83,7 +83,7 @@
 	cost = 120
 
 /datum/supply_packs/armor/modular/attachments/mimir_extra_armor
-	name = "Mimir mark 2 armor module"
+	name = "Mimir Mk.2 environmental resistance system"
 	contains = list(
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
 		/obj/item/armor_module/module/mimir_environment_protection,
@@ -91,14 +91,14 @@
 	cost = 160
 
 /datum/supply_packs/armor/modular/attachments/artemis_mark_two
-	name = "Freyr Mark 2 helmet module"
+	name = "Freyr Mk.2 visual assistance helmet system"
 	contains = list(
 		/obj/item/armor_module/module/binoculars/artemis_mark_two,
 	)
 	cost = 40
 
 /datum/supply_packs/armor/imager_goggle
-	name = "Optical Imager Goggles"
+	name = "Optical imager goggles"
 	contains = list(/obj/item/clothing/glasses/night/imager_goggles)
 	cost = 50
 

@@ -2,6 +2,10 @@
 #define IGNORE_WEED_REMOVAL (1<<0)
 #define CRITICAL_STRUCTURE (1<<1)
 #define DEPART_DESTRUCTION_IMMUNE (1<<2)
+///Structure will warn when hostiles are nearby
+#define XENO_STRUCT_WARNING_RADIUS (1<<3)
+///Structure will warn when damaged
+#define XENO_STRUCT_DAMAGE_ALERT (1<<4)
 
 //Weeds defines
 #define WEED "weed sac"
@@ -139,11 +143,11 @@ GLOBAL_LIST_INIT(panther_toxin_type_list, list(
 #define UPGRADE_FLAG_ONETIME (1<<0)
 
 GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
-	/mob/living/carbon/xenomorph/beetle/ai,
-	/mob/living/carbon/xenomorph/mantis/ai,
-	/mob/living/carbon/xenomorph/scorpion/ai,
-	/mob/living/carbon/xenomorph/nymph/ai,
-	/mob/living/carbon/xenomorph/baneling/ai,
+	/mob/living/carbon/xenomorph/beetle/ai = 1,
+	/mob/living/carbon/xenomorph/mantis/ai = 1,
+	/mob/living/carbon/xenomorph/scorpion/ai = 1,
+	/mob/living/carbon/xenomorph/nymph/ai = 1,
+	/mob/living/carbon/xenomorph/baneling/ai = 1,
 ))
 
 /// Used by the is_valid_for_resin_structure proc.
@@ -213,3 +217,12 @@ GLOBAL_LIST_INIT(xeno_utility_upgrades, list(
 
 /// Life runs every 2 seconds, but we don't want to multiply all healing by 2 due to seconds_per_tick
 #define XENO_PER_SECOND_LIFE_MOD 0.5
+
+//How long the alert directional pointer lasts when structures are damaged
+#define XENO_STRUCTURE_DAMAGE_POINTER_DURATION 10 SECONDS
+///How frequently the damage alert can go off
+#define XENO_STRUCTURE_HEALTH_ALERT_COOLDOWN 30 SECONDS
+///How frequently the proximity alert can go off
+#define XENO_STRUCTURE_DETECTION_COOLDOWN 30 SECONDS
+///Proxy detection radius
+#define XENO_STRUCTURE_DETECTION_RANGE 10

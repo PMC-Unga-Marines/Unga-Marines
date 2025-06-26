@@ -68,6 +68,7 @@
 		"_cargo" = 'icons/ui_icons/dropshippicker/_cargo.png',
 		"_barge" = 'icons/ui_icons/dropshippicker/_barge.png',
 		"_voidraider" = 'icons/ui_icons/dropshippicker/_voidraider.png',
+		"_urbantower" = 'icons/ui_icons/dropshippicker/_urbantower.png',
 	)
 
 /obj/machinery/computer/dropship_picker/ui_act(action, list/params, datum/tgui/ui)

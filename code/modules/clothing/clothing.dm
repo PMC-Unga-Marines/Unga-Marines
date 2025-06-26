@@ -62,6 +62,9 @@
 /obj/item/clothing/proc/on_hugger_damage()
 	return
 
+/obj/item/clothing/examine_descriptor(mob/user)
+	return "clothing item"
+
 /obj/item/clothing/update_greyscale()
 	. = ..()
 	if(!greyscale_config)
@@ -188,8 +191,8 @@
 	blood_sprite_state = "bloodyhands"
 	armor_protection_flags = HANDS
 	equip_slot_flags = ITEM_SLOT_GLOVES
-	attack_verb = list("challenged")
-	var/wired = 0
+	attack_verb = list("challenges")
+	//var/wired = 0
 	var/obj/item/cell/cell = 0
 	var/clipped = 0
 	var/transfer_prints = TRUE
@@ -249,6 +252,16 @@
 	if (ismob(loc))
 		var/mob/M = loc
 		M.update_inv_wear_mask()
+
+/obj/item/clothing/mask/examine_descriptor(mob/user)
+	return "mask"
+
+/obj/item/clothing/mask/examine_tags(mob/user)
+	. = ..()
+	if(anti_hug)
+		.["larval hugger proof"] = "It will protect the wearer from [anti_hug] larval hugger attack\s."
+	else if(initial(anti_hug) > 0 && !anti_hug)
+		.[span_warning("not larval hugger protective")] = "It won't protect the wearer from larval hugger attacks anymore. Replace it as soon as possible."
 
 ////////////////////////////////////////////////////////////////////////
 //Shoes

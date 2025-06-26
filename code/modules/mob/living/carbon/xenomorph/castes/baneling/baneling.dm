@@ -12,10 +12,11 @@
 	tier = XENO_TIER_MINION
 	upgrade = XENO_UPGRADE_BASETYPE
 	pixel_x = -16
+	gib_chance = 100
 
 /mob/living/carbon/xenomorph/baneling/UnarmedAttack(atom/A, has_proximity, modifiers)
 	/// We dont wanna be able to slash while balling
-	if(m_intent == MOVE_INTENT_RUN)
+	if((m_intent == MOVE_INTENT_RUN) && !isxenostructure(A))
 		return
 	return ..()
 

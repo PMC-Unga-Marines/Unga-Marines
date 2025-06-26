@@ -231,11 +231,11 @@
 		equip_to_slot_if_possible(W, slot, FALSE) // equiphere
 
 
-///Attempts to put an item in either hand
+///Attempts to put an item in either hand, prioritizing the active hand
 /mob/proc/put_in_any_hand_if_possible(obj/item/W as obj, del_on_fail = FALSE, warning = FALSE, redraw_mob = TRUE)
-	if(equip_to_slot_if_possible(W, SLOT_L_HAND, TRUE, del_on_fail, warning, redraw_mob))
+	if(equip_to_slot_if_possible(W, (hand ? SLOT_L_HAND : SLOT_R_HAND), TRUE, del_on_fail, warning, redraw_mob))
 		return TRUE
-	else if(equip_to_slot_if_possible(W, SLOT_R_HAND, TRUE, del_on_fail, warning, redraw_mob))
+	else if(equip_to_slot_if_possible(W, (hand ? SLOT_R_HAND : SLOT_L_HAND), TRUE, del_on_fail, warning, redraw_mob))
 		return TRUE
 	return FALSE
 
@@ -365,7 +365,38 @@
 /mob/vv_get_dropdown()
 	. = ..()
 	. += "---"
-	.["Player Panel"] = "?_src_=vars;[HrefToken()];playerpanel=[REF(src)]"
+	VV_DROPDOWN_OPTION(VV_HK_PLAYER_PANEL, "Show player panel")
+
+/mob/vv_edit_var(var_name, var_value)
+	switch(var_name)
+		if(NAMEOF(src, control_object))
+			var/obj/O = var_value
+			if(!istype(O) || (O.obj_flags & DANGEROUS_POSSESSION))
+				return FALSE
+		if(NAMEOF(src, machine))
+			set_machine(var_value)
+			. = TRUE
+		if(NAMEOF(src, focus))
+			set_focus(var_value)
+			. = TRUE
+		if(NAMEOF(src, stat))
+			set_stat(var_value)
+			. = TRUE
+
+	if(!isnull(.))
+		datum_flags |= DF_VAR_EDITED
+		return
+
+	var/slowdown_edit = (var_name == NAMEOF(src, cached_multiplicative_slowdown))
+	var/diff
+	if(slowdown_edit && isnum(cached_multiplicative_slowdown) && isnum(var_value))
+		remove_movespeed_modifier(MOVESPEED_ID_ADMIN_VAREDIT)
+		diff = var_value - cached_multiplicative_slowdown
+
+	. = ..()
+
+	if(. && slowdown_edit && isnum(diff))
+		update_movespeed()
 
 /client/verb/changes()
 	set name = "Changelog"
@@ -378,6 +409,13 @@
 		prefs.lastchangelog = GLOB.changelog_hash
 		prefs.save_preferences()
 		winset(src, "infowindow.changelog", "font-style=;")
+
+/client/verb/hotkeys_help()
+	set name = "Hotkeys"
+	set category = "Preferences"
+
+	prefs.tab_index = KEYBIND_SETTINGS
+	prefs.ShowChoices(mob)
 
 /mob/Topic(href, href_list)
 	. = ..()
@@ -572,7 +610,7 @@
 /mob/proc/get_idcard(hand_first)
 	return
 
-/mob/proc/slip(slip_source_name, stun_level, weaken_level, run_only, override_noslip, slide_steps, slip_xeno)
+/mob/proc/slip(slip_source_name, stun_level, paralyze_level, run_only, override_noslip, slide_steps, slip_xeno)
 	return FALSE
 
 /mob/forceMove(atom/destination)

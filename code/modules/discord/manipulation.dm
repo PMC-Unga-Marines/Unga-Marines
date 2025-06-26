@@ -1,13 +1,6 @@
 // Verb to manipulate IDs and ckeys
-/client/proc/discord_id_manipulation()
-	set name = "Discord Manipulation"
-	set category = "Admin"
-
-	if(!check_rights(R_ADMIN))
-		return
-
-	holder.discord_manipulation()
-
+ADMIN_VERB(discord_id_manipulation, R_ADMIN, "Discord Manipulation", "Manipulate with verified discord users and their ckey", ADMIN_CATEGORY_MAIN)
+	user.holder.discord_manipulation()
 
 /datum/admins/proc/discord_manipulation()
 	if(!usr.client.holder)

@@ -165,8 +165,8 @@
 	if(!prob(severity * 0.3))
 		return
 
-	for(var/atom/movable/our_atom as mob|obj in src)
-		our_atom.loc = src.loc
+	for(var/atom/movable/our_atom AS in src)
+		our_atom.loc = loc
 		ex_act(severity)
 	qdel(src)
 
@@ -234,7 +234,7 @@
 		if(!(R.fields["last_scan_time"]))
 			. += span_deptradio("No scan report on record")
 		else
-			. += span_deptradio("<a href='?src=[text_ref(src)];scanreport=1'>It contains [occupant]: Scan from [R.fields["last_scan_time"]].</a>")
+			. += span_deptradio("<a href='byond://?src=[text_ref(src)];scanreport=1'>It contains [occupant]: Scan from [R.fields["last_scan_time"]].</a>")
 		break
 
 ///Wrapper to guarantee connected bodyscanner references are properly nulled and avoid hard deletes.

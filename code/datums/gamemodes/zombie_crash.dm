@@ -36,7 +36,7 @@
 
 /datum/game_mode/infestation/crash/zombie/proc/count_humans_and_zombies(list/z_levels = SSmapping.levels_by_any_trait(list(ZTRAIT_MARINE_MAIN_SHIP, ZTRAIT_GROUND, ZTRAIT_RESERVED)), count_flags)
 	var/num_humans = 0
-	var/num_zombies
+	var/num_zombies = 0
 
 	for(var/z in z_levels)
 		for(var/i in GLOB.humans_by_zlevel["[z]"])

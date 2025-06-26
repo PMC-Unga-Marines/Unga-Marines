@@ -157,8 +157,6 @@
 	var/lights_on = FALSE
 	/// boolean: is mech suffering from emp?
 	var/mech_emped = FALSE
-	///Current owning faction
-	var/faction
 	///holds the EMP timer
 	var/emp_timer
 

@@ -1,4 +1,3 @@
-import { useBackend } from '../../backend';
 import {
   Box,
   Button,
@@ -6,39 +5,26 @@ import {
   Flex,
   LabeledList,
   Section,
-} from '../../components';
+} from 'tgui-core/components';
+
+import { useBackend } from '../../backend';
 import { SelectFieldPreference, TextFieldPreference } from './FieldPreferences';
 import { ProfilePicture } from './ProfilePicture';
 
-export const YautjaCustomization = (props) => {
+export const YautjaCustomization = () => {
   const { act, data } = useBackend<YautjaCustomizationData>();
   const {
     has_wl,
     legacy,
-    predator_name,
-    predator_gender,
-    predator_age,
-    predator_h_style,
-    predator_skin_color,
-    predator_translator_type,
-    predator_mask_type,
-    predator_armor_type,
-    predator_boot_type,
-    predator_armor_material,
-    predator_mask_material,
-    predator_greave_material,
-    predator_caster_material,
-    predator_cape_type,
     predator_cape_color,
-    predator_flavor_text,
     pred_r_eyes,
     pred_g_eyes,
     pred_b_eyes,
     yautja_status,
   } = data;
 
-  const rgbToHex = (red, green, blue) => {
-    const convert = (comp) => {
+  const rgbToHex = (red: number, green: number, blue: number) => {
+    const convert = (comp: { toString: (arg0: number) => any }) => {
       const hex = comp.toString(16);
       return hex.length === 1 ? `0${hex}` : hex;
     };

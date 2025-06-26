@@ -2,6 +2,8 @@
 	layer = OBJ_LAYER
 	glide_size = 8
 	appearance_flags = TILE_BOUND|PIXEL_SCALE|LONG_GLIDE
+	///The faction this AM is associated with, if any
+	var/faction = null
 	var/last_move = null
 	var/last_move_time = 0
 	var/anchored = FALSE
@@ -20,13 +22,12 @@
 	var/turf/throw_source = null
 	var/throw_speed = 2
 	var/throw_range = 7
+	///AM that is pulling us
 	var/mob/pulledby = null
+	///AM we are pulling
 	var/atom/movable/pulling
 	var/atom/movable/moving_from_pull		//attempt to resume grab after moving instead of before.
 	var/glide_modifier_flags = NONE
-/* RU TGMC EDIT
-	var/status_flags = CANSTUN|CANKNOCKDOWN|CANKNOCKOUT|CANPUSH|CANUNCONSCIOUS|CANCONFUSE	//bitflags defining which status effects can be inflicted (replaces canweaken, canstun, etc)
-RU TGMC EDIT */
 	var/generic_canpass = TRUE
 	///What things this atom can move past, if it has the corrosponding flag
 	var/pass_flags = NONE
@@ -657,15 +658,15 @@ RU TGMC EDIT */
 
 ///Clean up all throw vars
 /atom/movable/proc/stop_throw(flying = FALSE, original_layer)
-	SEND_SIGNAL(src, COMSIG_MOVABLE_POST_THROW)
-	if(loc)
-		SEND_SIGNAL(loc, COMSIG_TURF_THROW_ENDED_HERE, src)
 	set_throwing(FALSE)
 	if(flying)
 		set_flying(FALSE, original_layer)
 	thrower = null
 	thrown_speed = 0
 	throw_source = null
+	SEND_SIGNAL(src, COMSIG_MOVABLE_POST_THROW)
+	if(loc)
+		SEND_SIGNAL(loc, COMSIG_TURF_THROW_ENDED_HERE, src)
 
 /atom/movable/proc/handle_buckled_mob_movement(newloc, direct, glide_size_override)
 	for(var/m in buckled_mobs)
@@ -767,14 +768,133 @@ RU TGMC EDIT */
 
 /atom/movable/vv_get_dropdown()
 	. = ..()
-	. += "---"
-	.["Follow"] = "?_src_=holder;[HrefToken()];observefollow=[REF(src)]"
-	.["Get"] = "?_src_=vars;[HrefToken()];getatom=[REF(src)]"
-	.["Send"] = "?_src_=vars;[HrefToken()];sendatom=[REF(src)]"
-	.["Delete All Instances"] = "?_src_=vars;[HrefToken()];delall=[REF(src)]"
-	.["Update Icon"] = "?_src_=vars;[HrefToken()];updateicon=[REF(src)]"
-	.["Edit Particles"] = "?_src_=vars;[HrefToken()];modify_particles=[REF(src)]"
+	VV_DROPDOWN_OPTION("", "---------")
+	VV_DROPDOWN_OPTION(VV_HK_FOLLOW, "Follow")
+	VV_DROPDOWN_OPTION(VV_HK_GET, "Get")
+	VV_DROPDOWN_OPTION(VV_HK_SEND, "Send")
+	VV_DROPDOWN_OPTION(VV_HK_DELETE_ALL_INSTANCES, "Delete All Instances")
+	VV_DROPDOWN_OPTION(VV_HK_UPDATE_ICONS, "Update Icon")
+	VV_DROPDOWN_OPTION(VV_HK_EDIT_PARTICLES, "Edit Particles")
 
+/atom/movable/vv_do_topic(list/href_list)
+	. = ..()
+
+	if(!.)
+		return
+
+	if(href_list[VV_HK_FOLLOW])
+		if(!check_rights(NONE))
+			return
+		var/client/C = usr.client
+		if(isnewplayer(C.mob) || isnewplayer(src))
+			return
+		var/message
+		if(!isobserver(C.mob))
+			SSadmin_verbs.dynamic_invoke_verb(C, /datum/admin_verb/aghost)
+			message = TRUE
+		var/mob/dead/observer/O = C.mob
+		O.ManualFollow(src)
+		if(message)
+			log_admin("[key_name(O)] jumped to follow [key_name(src)].")
+			message_admins("[ADMIN_TPMONTY(O)] jumped to follow [ADMIN_TPMONTY(src)].")
+
+	if(href_list[VV_HK_GET])
+		if(!check_rights(R_DEBUG))
+			return
+		if(!istype(src))
+			return
+		var/turf/T = get_turf(usr)
+		if(!istype(T))
+			return
+		forceMove(T)
+		log_admin("[key_name(usr)] has sent atom [src] to themselves.")
+		message_admins("[ADMIN_TPMONTY(usr)] has sent atom [src] to themselves.")
+
+	if(href_list[VV_HK_SEND])
+		if(!check_rights(R_DEBUG))
+			return
+		if(!istype(src))
+			return
+		var/atom/target
+		switch(input("Where do you want to send it to?", "Send Mob") as null|anything in list("Area", "Mob", "Key", "Coords"))
+			if("Area")
+				var/area/AR = input("Pick an area.", "Pick an area") as null|anything in GLOB.sorted_areas
+				if(!AR || !src)
+					return
+				target = pick(get_area_turfs(AR))
+			if("Mob")
+				var/mob/N = input("Pick a mob.", "Pick a mob") as null|anything in sortList(GLOB.mob_list)
+				if(!N || !src)
+					return
+				target = get_turf(N)
+			if("Key")
+				var/client/C = input("Pick a key.", "Pick a key") as null|anything in sortKey(GLOB.clients)
+				if(!C || !src)
+					return
+				target = get_turf(C.mob)
+			if("Coords")
+				var/X = input("Select coordinate X", "Coordinate X") as null|num
+				var/Y = input("Select coordinate Y", "Coordinate Y") as null|num
+				var/Z = input("Select coordinate Z", "Coordinate Z") as null|num
+				if(isnull(X) || isnull(Y) || isnull(Z) || !src)
+					return
+				target = locate(X, Y, Z)
+		if(!target)
+			return
+		forceMove(target)
+		log_admin("[key_name(usr)] has sent atom [src] to [AREACOORD(target)].")
+		message_admins("[ADMIN_TPMONTY(usr)] has sent atom [src] to [ADMIN_VERBOSEJMP(target)].")
+
+	if(href_list[VV_HK_DELETE_ALL_INSTANCES])
+		if(!check_rights(R_DEBUG|R_SERVER))
+			return
+		var/obj/O = src
+		if(!isobj(O))
+			return
+		var/action_type = alert("Strict type ([O.type]) or type and all subtypes?", "Type", "Strict type", "Type and subtypes", "Cancel")
+		if(action_type == "Cancel" || !action_type)
+			return
+		if(alert("Are you really sure you want to delete all objects of type [O.type]?", "Warning", "Yes", "No") != "Yes")
+			return
+		if(alert("Second confirmation required. Delete?", "Warning", "Yes", "No") != "Yes")
+			return
+		var/O_type = O.type
+		var/i = 0
+		var/strict
+		switch(action_type)
+			if("Strict type")
+				strict = TRUE
+				for(var/obj/Obj in world)
+					if(Obj.type == O_type)
+						i++
+						qdel(Obj)
+					CHECK_TICK
+				if(!i)
+					to_chat(usr, "No objects of this type exist")
+					return
+			if("Type and subtypes")
+				for(var/obj/Obj in world)
+					if(istype(Obj,O_type))
+						i++
+						qdel(Obj)
+					CHECK_TICK
+				if(!i)
+					to_chat(usr, "No objects of this type exist")
+					return
+		log_admin("[key_name(usr)] deleted all objects of type[strict ? "" : " and subtypes"] of [O_type] ([i] objects deleted).")
+		message_admins("[ADMIN_TPMONTY(usr)] deleted all objects of type[strict ? "" : " and subtypes"] of [O_type] ([i] objects deleted).")
+
+	if(href_list[VV_HK_UPDATE_ICONS])
+		if(!check_rights(R_DEBUG))
+			return
+		update_icon()
+		log_admin("[key_name(usr)] updated the icon of [src].")
+
+	if(href_list[VV_HK_EDIT_PARTICLES])
+		if(!check_rights(R_VAREDIT))
+			return
+		var/client/C = usr.client
+		C?.open_particle_editor(src)
 
 /atom/movable/proc/get_language_holder(shadow = TRUE)
 	if(language_holder)
@@ -1102,11 +1222,15 @@ RU TGMC EDIT */
 
 ///Toggles AM between throwing states
 /atom/movable/proc/set_throwing(new_throwing)
+	if(throwing == new_throwing)
+		return
 	throwing = new_throwing
 	if(throwing)
 		pass_flags |= PASS_THROW
+		add_nosubmerge_trait(THROW_TRAIT)
 	else
 		pass_flags &= ~PASS_THROW
+		REMOVE_TRAIT(src, TRAIT_NOSUBMERGE, THROW_TRAIT)
 
 ///Toggles AM between flying states
 /atom/movable/proc/set_flying(flying, new_layer)
@@ -1294,3 +1418,11 @@ GLOBAL_LIST_EMPTY(submerge_filter_timer_list)
 	SIGNAL_HANDLER
 	UnregisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_NOSUBMERGE))
 	set_submerge_level(loc, duration = 0.1)
+
+/**
+* A wrapper for setDir that should only be able to fail by living mobs.
+*
+* Called from [/atom/movable/proc/keyLoop], this exists to be overwritten by living mobs with a check to see if we're actually alive enough to change directions
+*/
+/atom/movable/proc/keybind_face_direction(direction)
+	setDir(direction)

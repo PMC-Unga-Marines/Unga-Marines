@@ -68,7 +68,7 @@
 	accurate_range_min = 0
 
 /datum/ammo/bullet/sniper/martini/on_hit_mob(mob/target_mob, obj/projectile/proj)
-	staggerstun(target_mob, proj, weaken = 0.5 SECONDS, stagger = 1 SECONDS, knockback = 2, slowdown = 0.5, max_range = 12)
+	staggerstun(target_mob, proj, paralyze = 0.5 SECONDS, stagger = 1 SECONDS, knockback = 2, slowdown = 0.5, max_range = 12)
 
 /datum/ammo/bullet/sniper/martini/white
 	handful_icon_state = "crude heavy sniper bullet white"

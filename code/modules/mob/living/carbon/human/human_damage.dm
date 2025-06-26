@@ -14,7 +14,7 @@
 
 	var/oxy_l = get_oxy_loss()
 	var/tox_l = ((species.species_flags & NO_POISON) ? 0 : get_tox_loss())
-	var/clone_l = get_clone_Loss()
+	var/clone_l = get_clone_loss()
 
 	health = maxHealth - oxy_l - tox_l - clone_l - total_burn - total_brute
 
@@ -141,7 +141,7 @@
 				O.heal_limb_damage(burn = -amount, robo_repair = (O.limb_status & LIMB_ROBOT))
 			break
 
-/mob/living/carbon/human/get_clone_Loss()
+/mob/living/carbon/human/get_clone_loss()
 	if(species.species_flags & (IS_SYNTHETIC|NO_SCAN))
 		cloneloss = 0
 	return ..()
@@ -152,7 +152,7 @@
 		return
 	return ..()
 
-/mob/living/carbon/human/adjust_clone_Loss(amount)
+/mob/living/carbon/human/adjust_clone_loss(amount)
 	. = ..()
 
 	if(species.species_flags & (IS_SYNTHETIC|NO_SCAN))
@@ -338,7 +338,7 @@ This function restores all limbs.
 	if(status_flags & (GODMODE))
 		return
 
-	last_damage_source = usr //where my cause_data??? no cause_data? https://media.discordapp.net/attachments/1059662710217908245/1128315728081211412/65939r.png?width=842&height=917
+	last_damage_source = usr //where my cause_data??? no cause_data?
 
 	return species.apply_damage(damage, damagetype, def_zone, blocked, sharp, edge, updating_health, penetration, src)
 

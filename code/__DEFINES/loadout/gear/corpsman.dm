@@ -1,9 +1,9 @@
 GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 	/obj/effect/vendor_bundle/medic = list(CAT_ESS, "Essential Medic Set", 0, "white"),
-	/obj/item/implanter/implantator/combat/firearms = list(CAT_MEDSUP, "Aiming support implanter", 25, "cyan2"),
-	/obj/item/implanter/implantator/combat/melee = list(CAT_MEDSUP, "Close combat codex implanter", 25, "cyan2"),
-	/obj/item/implanter/implantator/codex/medical = list(CAT_MEDSUP, "Medtech implanter", 20, "cyan2"),
-	/obj/item/implanter/implantator/codex/surgery = list(CAT_MEDSUP, "Surgery assisting system implanter", 20, "cyan2"),
+	/obj/item/implanter/skill/firearms = list(CAT_MEDSUP, "Firearms skills implanter", 25, "cyan2"),
+	/obj/item/implanter/skill/melee = list(CAT_MEDSUP, "CQC skills implanter", 25, "cyan2"),
+	/obj/item/implanter/skill/medical = list(CAT_MEDSUP, "Medical skills implanter", 20, "cyan2"),
+	/obj/item/implanter/skill/surgery = list(CAT_MEDSUP, "Surgery skills implanter", 20, "cyan2"),
 	/obj/item/reagent_containers/glass/bottle/lemoline/doctor = list(CAT_MEDSUP, "Lemoline bottle", 14, "orange"),
 	/obj/item/storage/pill_bottle/meralyne = list(CAT_MEDSUP, "Meralyne pills", 14, "orange"),
 	/obj/item/storage/pill_bottle/dermaline = list(CAT_MEDSUP, "Dermaline pills", 14, "orange"),

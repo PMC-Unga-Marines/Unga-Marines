@@ -15,7 +15,7 @@
 	resistance_flags = UNACIDABLE
 
 /turf/closed/wall/resin/add_debris_element()
-	AddElement(/datum/element/debris, null, -15, 8, 0.7)
+	AddElement(/datum/element/debris, null, -40, 8, 0.7)
 
 /turf/closed/wall/resin/fire_act(burn_level, flame_color)
 	take_damage(burn_level * 1.25, BURN, FIRE)

@@ -39,6 +39,7 @@
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	oxyloss = clamp(oxyloss + amount, 0, maxHealth * 2)
+	return TRUE
 
 /mob/living/proc/set_oxy_loss(amount)
 	if(status_flags & GODMODE)
@@ -125,10 +126,10 @@
 	SIGNAL_HANDLER
 	add_stamina_regen_modifier(SKILL_STAMINA, skills.getRating(SKILL_STAMINA) * STAMINA_SKILL_REGEN_MOD)
 
-/mob/living/proc/get_clone_Loss()
+/mob/living/proc/get_clone_loss()
 	return cloneloss
 
-/mob/living/proc/adjust_clone_Loss(amount)
+/mob/living/proc/adjust_clone_loss(amount)
 	if(status_flags & GODMODE)
 		return FALSE	//godmode
 	cloneloss = clamp(cloneloss+amount,0,maxHealth*2)

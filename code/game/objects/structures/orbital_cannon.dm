@@ -173,19 +173,21 @@
 	update_icon()
 
 /// Handles the playing of the Orbital Bombardment incoming sound and other visual and auditory effects of the cannon, usually a spiraling whistle noise but can be overridden.
-/obj/structure/orbital_cannon/proc/handle_ob_firing_effects(target, ob_sound = 'sound/effects/OB_incoming.ogg')
+/obj/structure/orbital_cannon/proc/handle_ob_firing_effects(turf/target, ob_sound = 'sound/effects/OB_incoming.ogg')
 	flick("OBC_firing",src)
 	for(var/mob/living/current_mob AS in GLOB.mob_living_list)
-		if(!current_mob || !is_mainship_level(current_mob.z))
+		if(current_mob.z == z)
+			if(get_dist(src, current_mob) > 20)
+				current_mob.playsound_local(current_mob, 'sound/effects/obalarm.ogg', 25)
+			shake_camera(current_mob, 0.7 SECONDS)
+			to_chat(current_mob, span_warning("The deck of the [SSmapping.configs[SHIP_MAP].map_name] shudders as her orbital cannon opens fire."))
 			continue
-		if(get_dist(src, current_mob) > 20)
-			current_mob.playsound_local(current_mob, 'sound/effects/obalarm.ogg', 25)
-		shake_camera(current_mob, 0.7 SECONDS)
-		to_chat(current_mob, span_warning("The deck of the [SSmapping.configs[SHIP_MAP].map_name] shudders as her orbital cannon opens fire."))
-	playsound(loc, 'sound/effects/obfire.ogg', 100, FALSE, 20, 4)
-	for(var/mob/M AS in hearers(WARHEAD_FALLING_SOUND_RANGE, target))
-		M.playsound_local(target, ob_sound, falloff = 2)
-
+		playsound(loc, 'sound/effects/obfire.ogg', 100, FALSE, 20, 4)
+		if(current_mob.z != target.z)
+			continue
+		if(get_dist(current_mob, target) > WARHEAD_FALLING_SOUND_RANGE)
+			continue
+		current_mob.playsound_local(target, ob_sound, falloff = 2)
 	new /obj/effect/temp_visual/ob_impact(target, tray.warhead)
 
 /obj/structure/orbital_cannon/proc/fire_ob_cannon(turf/T, mob/user)
@@ -230,7 +232,7 @@
 	)
 	var/list/receivers = (GLOB.alive_human_list + GLOB.ai_list + GLOB.observer_list)
 	for(var/mob/living/screentext_receiver AS in receivers)
-		screentext_receiver.play_screen_text("<span class='maptext' style=font-size:36pt;text-align:center valign='top'><u><b>ОРБИТАЛЬНЫЙ УДАР</b></u></span><br>ТИП СНАРЯДА: [uppertext(tray.warhead.warhead_kind_rus)]", /atom/movable/screen/text/screen_text/command_order)
+		screentext_receiver.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING("ОРБИТАЛЬНЫЙ УДАР", "ТИП СНАРЯДА: [uppertext(tray.warhead.warhead_kind_rus)]", LEFT_ALIGN_TEXT), new /atom/movable/screen/text/screen_text/picture/potrait/custom_mugshot(null, null, user))
 	playsound(target, 'sound/effects/OB_warning_announce_novoiceover.ogg', 125, FALSE, 30, 10) //VOX-less version for xenomorphs
 
 	var/impact_time = 10 SECONDS + (WARHEAD_FLY_TIME * (GLOB.current_orbit/3))
@@ -238,7 +240,7 @@
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/structure/orbital_cannon, handle_ob_firing_effects), target), impact_time - (0.5 SECONDS))
 	var/impact_timerid = addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/structure/orbital_cannon, impact_callback), target, inaccurate_fuel), impact_time, TIMER_STOPPABLE)
 
-	var/canceltext = "Warhead: [tray.warhead.warhead_kind]. Impact at [ADMIN_VERBOSEJMP(target)] <a href='?_src_=holder;[HrefToken(TRUE)];cancelob=[impact_timerid]'>\[CANCEL OB\]</a>"
+	var/canceltext = "Warhead: [tray.warhead.warhead_kind]. Impact at [ADMIN_VERBOSEJMP(target)] <a href='byond://?_src_=holder;[HrefToken(TRUE)];cancelob=[impact_timerid]'>\[CANCEL OB\]</a>"
 	message_admins("[span_prefix("OB FIRED:")] <span class='message linkify'> [canceltext]</span>")
 	log_game("OB fired by [user] at [AREACOORD(src)], OB type: [tray.warhead.warhead_kind], timerid to cancel: [impact_timerid]")
 	notify_ghosts("<b>[user]</b> has just fired \the <b>[src]</b> !", source = T, action = NOTIFY_JUMP)
@@ -374,8 +376,8 @@
 			relative_dir = 0
 		else
 			relative_dir = get_dir(our_mob, target)
-		our_mob.show_message(span_highdanger("Небо вспыхнуло <u>[relative_dir ? ("с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_VISIBLE,
-			span_highdanger("Громкий шум слышно из неба <u>[relative_dir ? ("примерно с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_AUDIBLE)
+		our_mob.show_message(span_userdanger("Небо вспыхнуло <u>[relative_dir ? ("с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_VISIBLE,
+			span_userdanger("Громкий шум слышно из неба <u>[relative_dir ? ("примерно с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_AUDIBLE)
 
 	sleep(impact_time / 3)
 	for(var/mob/living/our_mob in range(25, target))
@@ -383,13 +385,13 @@
 			relative_dir = 0
 		else
 			relative_dir = get_dir(our_mob, target)
-		our_mob.show_message(span_highdanger("Небо ревет все громче <u>[relative_dir ? ("с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_VISIBLE,
-			span_highdanger("Шум становится громче <u>[relative_dir ? ("где-то с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_AUDIBLE)
+		our_mob.show_message(span_userdanger("Небо ревет все громче <u>[relative_dir ? ("с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_VISIBLE,
+			span_userdanger("Шум становится громче <u>[relative_dir ? ("где-то с " + dir2rutext(relative_dir) + "а от тебя") : "прямо над тобой"]</u>!"), EMOTE_AUDIBLE)
 
 	sleep(impact_time / 3)
 	for(var/mob/living/our_mob in range(15, target))
-		our_mob.show_message(span_highdanger("О БОЖЕ, НЕБО СЕЙЧАС ВЗОРВЕТСЯ!!!"), EMOTE_VISIBLE,
-			span_highdanger("СМАТЫВАЙСЯ ОТСЮДА!"), EMOTE_AUDIBLE)
+		our_mob.show_message(span_userdanger("О БОЖЕ, НЕБО СЕЙЧАС ВЗОРВЕТСЯ!!!"), EMOTE_VISIBLE,
+			span_userdanger("СМАТЫВАЙСЯ ОТСЮДА!"), EMOTE_AUDIBLE)
 
 /obj/structure/ob_ammo/warhead/explosive
 	name = "\improper HE orbital warhead"
@@ -513,7 +515,7 @@
 			dat += "- Cluster Orbital Warhead: <b>[GLOB.marine_main_ship?.ob_type_fuel_requirements[3]] Solid Fuel blocks.</b><BR>"
 			dat += "- Plasma drain Orbital Warhead: <b>[GLOB.marine_main_ship?.ob_type_fuel_requirements[4]] Solid Fuel blocks.</b><BR>"
 
-			dat += "<BR><BR><A href='?src=[text_ref(src)];back=1'><font size=3>Back</font></A><BR>"
+			dat += "<BR><BR><A href='byond://?src=[text_ref(src)];back=1'><font size=3>Back</font></A><BR>"
 		else
 			var/tray_status = "unloaded"
 			if(GLOB.marine_main_ship.orbital_cannon.chambered_tray)
@@ -527,12 +529,12 @@
 				dat += "No Warhead Detected<BR>"
 			dat += "[GLOB.marine_main_ship.orbital_cannon.tray.fuel_amt] Solid Fuel Block\s Detected<BR><HR>"
 
-			dat += "<A href='?src=[text_ref(src)];load_tray=1'><font size=3>Load Tray</font></A><BR>"
-			dat += "<A href='?src=[text_ref(src)];unload_tray=1'><font size=3>Unload Tray</font></A><BR>"
-			dat += "<A href='?src=[text_ref(src)];chamber_tray=1'><font size=3>Chamber Tray Payload</font></A><BR>"
-			dat += "<BR><A href='?src=[text_ref(src)];check_req=1'><font size=3>Check Fuel Requirements</font></A><BR>"
+			dat += "<A href='byond://?src=[text_ref(src)];load_tray=1'><font size=3>Load Tray</font></A><BR>"
+			dat += "<A href='byond://?src=[text_ref(src)];unload_tray=1'><font size=3>Unload Tray</font></A><BR>"
+			dat += "<A href='byond://?src=[text_ref(src)];chamber_tray=1'><font size=3>Chamber Tray Payload</font></A><BR>"
+			dat += "<BR><A href='byond://?src=[text_ref(src)];check_req=1'><font size=3>Check Fuel Requirements</font></A><BR>"
 
-		dat += "<HR><BR><A href='?src=[text_ref(src)];close=1'><font size=3>Close</font></A><BR>"
+		dat += "<HR><BR><A href='byond://?src=[text_ref(src)];close=1'><font size=3>Close</font></A><BR>"
 
 
 	var/datum/browser/popup = new(user, "orbital_console", "<div align='center'>Orbital Cannon System Control Console</div>", 500, 350)

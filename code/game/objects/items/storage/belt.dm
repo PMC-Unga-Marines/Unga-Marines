@@ -6,7 +6,7 @@
 	worn_icon_state = "utility"
 	worn_icon_state_worn = TRUE
 	equip_slot_flags = ITEM_SLOT_BELT
-	attack_verb = list("whipped", "lashed", "disciplined")
+	attack_verb = list("whips", "lashes", "disciplines")
 	w_class = WEIGHT_CLASS_BULKY
 	storage_type = /datum/storage/belt
 
@@ -95,25 +95,25 @@
 	new /obj/item/healthanalyzer(src)
 
 /obj/item/storage/belt/lifesaver/quick/PopulateContents()  //quick load for combat patrol
-	new /obj/item/stack/medical/heal_pack/advanced/bruise_pack(src)
-	new /obj/item/stack/medical/heal_pack/advanced/bruise_pack(src)
-	new /obj/item/stack/medical/heal_pack/advanced/burn_pack(src)
-	new /obj/item/stack/medical/heal_pack/advanced/burn_pack(src)
-	new /obj/item/stack/medical/splint(src)
-	new /obj/item/stack/medical/splint(src)
-	new /obj/item/stack/medical/splint(src)
 	new /obj/item/storage/pill_bottle/bicaridine(src)
 	new /obj/item/storage/pill_bottle/kelotane(src)
-	new /obj/item/storage/pill_bottle/dylovene(src)
 	new /obj/item/storage/pill_bottle/tramadol(src)
 	new /obj/item/storage/pill_bottle/tricordrazine(src)
+	new /obj/item/storage/pill_bottle/dylovene(src)
 	new /obj/item/storage/pill_bottle/inaprovaline(src)
-	new /obj/item/storage/pill_bottle/quickclot(src)
 	new /obj/item/storage/pill_bottle/imialky(src)
+	new /obj/item/storage/pill_bottle/quickclot(src)
+	new /obj/item/storage/pill_bottle/hypervene(src)
 	new /obj/item/storage/pill_bottle/meralyne(src)
 	new /obj/item/storage/pill_bottle/dermaline(src)
-	new /obj/item/storage/pill_bottle/hypervene(src)
 	new /obj/item/reagent_containers/hypospray/autoinjector/dexalinplus(src)
+	new /obj/item/stack/medical/heal_pack/advanced/bruise_pack(src)
+	new /obj/item/stack/medical/heal_pack/advanced/bruise_pack(src)
+	new /obj/item/stack/medical/heal_pack/advanced/burn_pack(src)
+	new /obj/item/stack/medical/heal_pack/advanced/burn_pack(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/stack/medical/splint(src)
 	new /obj/item/healthanalyzer(src)
 
 /obj/item/storage/belt/lifesaver/beginner/PopulateContents() //For beginner vendor
@@ -129,14 +129,14 @@
 	new /obj/item/storage/pill_bottle/spaceacillin(src)
 	new /obj/item/storage/pill_bottle/imialky(src)
 	new /obj/item/storage/pill_bottle/hypervene(src)
-	new /obj/item/stack/medical/splint(src)
-	new /obj/item/stack/medical/splint(src)
-	new /obj/item/stack/medical/splint(src)
-	new /obj/item/stack/medical/splint(src)
-	new /obj/item/stack/medical/splint(src)
-	new /obj/item/stack/medical/splint(src)
 	new /obj/item/stack/medical/heal_pack/advanced/burn_pack(src)
 	new /obj/item/stack/medical/heal_pack/advanced/bruise_pack(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/stack/medical/splint(src)
+	new /obj/item/stack/medical/splint(src)
 	new /obj/item/healthanalyzer(src)
 
 /obj/item/storage/belt/lifesaver/full/upp
@@ -329,6 +329,15 @@
 	icon_state = "swatbelt"
 	worn_icon_state = "swatbelt"
 	storage_type = /datum/storage/belt/security/tactical
+
+/obj/item/storage/belt/security/mp/PopulateContents()
+	new /obj/item/explosive/grenade/flashbang(src)
+	new /obj/item/explosive/grenade/chem_grenade/teargas(src)
+	new /obj/item/reagent_containers/spray/pepper(src)
+	new /obj/item/restraints/handcuffs(src)
+	new /obj/item/restraints/handcuffs(src)
+	new /obj/item/flash(src)
+	new /obj/item/weapon/baton(src)
 
 /obj/item/storage/belt/marine
 	name = "\improper M276 pattern ammo load rig"

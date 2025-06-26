@@ -50,7 +50,7 @@
 	damage_falloff = 4
 
 /datum/ammo/bullet/shotgun/mech/on_hit_mob(mob/target_mob, obj/projectile/proj)
-	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
+	staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
 
 /datum/ammo/tx54/mech
 	name = "30mm fragmentation grenade"

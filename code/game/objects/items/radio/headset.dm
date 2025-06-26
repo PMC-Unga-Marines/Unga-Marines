@@ -164,13 +164,12 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	frequency = FREQ_COMMON
 	atom_flags = CONDUCT | PREVENT_CONTENTS_EXPLOSION
 	freerange = TRUE
+	faction = FACTION_TERRAGOV
 	var/obj/machinery/camera/camera
 	var/datum/atom_hud/squadhud = null
 	var/mob/living/carbon/human/wearer = null
 	var/headset_hud_on = FALSE
 	var/sl_direction = FALSE
-	///The faction this headset belongs to. Used for hudtype, minimap and safety protocol
-	var/faction = FACTION_TERRAGOV
 	///The type of minimap this headset gives access to
 	var/datum/action/minimap/minimap_type = /datum/action/minimap/marine
 
@@ -387,9 +386,9 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		return
 
 	var/dat = {"
-	<b><A href='?src=[text_ref(src)];headset_hud_on=1'>Squad HUD: [headset_hud_on ? "On" : "Off"]</A></b><BR>
+	<b><A href='byond://?src=[text_ref(src)];headset_hud_on=1'>Squad HUD: [headset_hud_on ? "On" : "Off"]</A></b><BR>
 	<BR>
-	<b><A href='?src=[text_ref(src)];sl_direction=1'>Squad Leader Directional Indicator: [sl_direction ? "On" : "Off"]</A></b><BR>
+	<b><A href='byond://?src=[text_ref(src)];sl_direction=1'>Squad Leader Directional Indicator: [sl_direction ? "On" : "Off"]</A></b><BR>
 	<BR>"}
 
 	var/datum/browser/popup = new(user, "radio")
@@ -494,6 +493,11 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	icon_state = "headset_marine_generic"
 	keyslot = /obj/item/encryptionkey/mcom/ai
 	item_flags = DELONDROP
+
+/obj/item/radio/headset/mainship/service
+	name = "service radio headset"
+	icon_state = "headset_marine_xray"
+	keyslot = /obj/item/encryptionkey/general
 
 /obj/item/radio/headset/mainship/marine
 	keyslot = /obj/item/encryptionkey/general

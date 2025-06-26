@@ -325,7 +325,6 @@
 /obj/machinery/power/apc/proc/report()
 	return "[area.name] : [equipment]/[lighting]/[environ] ([lastused_equip+lastused_light+lastused_environ]) : [cell? cell.percent() : "N/C"] ([charging])"
 
-
 /obj/machinery/power/apc/proc/update()
 	if(operating && !shorted)
 		area.power_light = (lighting > 1)
@@ -336,7 +335,6 @@
 		area.power_equip = 0
 		area.power_environ = 0
 	area.power_change()
-
 
 /obj/machinery/power/apc/proc/reset(wire)
 	switch(wire)
@@ -407,7 +405,16 @@
 	else
 		main_status = APC_EXTERNAL_POWER_GOOD
 
-	if(cell && !shorted)
+	if(!cell || shorted)
+		// no cell, switch everything off
+		charging = APC_NOT_CHARGING
+		chargecount = 0
+		equipment = autoset(equipment, 0)
+		lighting = autoset(lighting, 0)
+		environ = autoset(environ, 0)
+		area.poweralert(0, src)
+
+	else
 		// draw power from cell as before to power the area
 		var/cellused = min(cell.charge, GLOB.CELLRATE * lastused_total)	// clamp deduction to a max, amount left in cell
 		cell.use(cellused)
@@ -416,7 +423,6 @@
 										// by the same amount just used
 			cell.give(cellused)
 			add_load(cellused / GLOB.CELLRATE)		// add the load used to recharge the cell
-
 
 		else		// no excess, and not enough per-apc
 			if((cell.charge / GLOB.CELLRATE + excess) >= lastused_total)		// can we draw enough from cell+grid to cover last usage?
@@ -431,7 +437,6 @@
 				equipment = autoset(equipment, 0)
 				lighting = autoset(lighting, 0)
 				environ = autoset(environ, 0)
-
 
 		// set channels depending on how much charge we have left
 
@@ -497,14 +502,6 @@
 			charging = APC_NOT_CHARGING
 			chargecount = 0
 
-	else // no cell, switch everything off
-		charging = APC_NOT_CHARGING
-		chargecount = 0
-		equipment = autoset(equipment, 0)
-		lighting = autoset(lighting, 0)
-		environ = autoset(environ, 0)
-		area.poweralert(0, src)
-
 	// update icon & area power if anything changed
 	if(last_lt != lighting || last_eq != equipment || last_en != environ)
 		queue_icon_update()
@@ -512,11 +509,9 @@
 	else if(last_ch != charging)
 		queue_icon_update()
 
-//val 0 = off, 1 = off(auto) 2 = on, 3 = on(auto)
-//on 0 = off, 1 = auto-on, 2 = auto-off
-
+///val 0 = off, 1 = off(auto) 2 = on, 3 = on(auto)
+///on 0 = off, 1 = auto-on, 2 = auto-off
 /proc/autoset(val, on)
-
 	switch(on)
 		if(0) //Turn things off
 			switch(val)
@@ -534,7 +529,6 @@
 				return 1
 	return val
 
-
 /obj/machinery/power/apc/emp_act(severity)
 	. = ..()
 	if(cell)
@@ -549,7 +543,8 @@
 /obj/machinery/power/apc/ex_act(severity)
 	if(severity >= EXPLODE_HEAVY)
 		qdel(src)
-	else if(prob(severity * 0.5))
+		return
+	if(prob(severity * 0.5))
 		set_broken()
 		if(cell)
 			cell.ex_act(severity)
@@ -568,24 +563,23 @@
 
 //Overload all the lights in this APC area
 /obj/machinery/power/apc/proc/overload_lighting()
-	if(!operating || shorted)
+	if(!operating || shorted || !cell)
 		return
-	if(cell?.charge >= 20)
-		cell.use(20)
-		INVOKE_ASYNC(src, PROC_REF(break_lights))
-
+	if(cell.charge < 20)
+		return
+	cell.use(20)
+	INVOKE_ASYNC(src, PROC_REF(break_lights))
 
 /obj/machinery/power/apc/proc/break_lights()
 	for(var/obj/machinery/light/L in get_area(src))
 		L.broken()
 		stoplag()
 
-
 /obj/machinery/power/apc/disconnect_terminal()
-	if(terminal)
-		terminal.master = null
-		terminal = null
-
+	if(!terminal)
+		return
+	terminal.master = null
+	terminal = null
 
 /obj/machinery/power/apc/proc/toggle_breaker(mob/user)
 	if(machine_stat & (NOPOWER|BROKEN|MAINT))

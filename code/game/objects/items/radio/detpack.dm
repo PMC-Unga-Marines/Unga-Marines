@@ -114,7 +114,7 @@
 			return
 
 		if(prob((SKILL_ENGINEER_METAL - user.skills.getRating(SKILL_ENGINEER)) * 20))
-			to_chat(user, span_highdanger("After several seconds of your clumsy meddling the [src] buzzes angrily as if offended. You have a <b>very</b> bad feeling about this."))
+			to_chat(user, span_userdanger("After several seconds of your clumsy meddling the [src] buzzes angrily as if offended. You have a <b>very</b> bad feeling about this."))
 			timer = 0 //Oops. Now you fucked up. Immediate detonation.
 
 	user.visible_message(span_notice("[user] begins disarming [src] with [I]."),
@@ -212,9 +212,9 @@
 		return
 
 	var/dat = {"
-		<A href='?src=[text_ref(src)];power=1'>Turn [on ? "Off" : "On"]</A><BR>
+		<A href='byond://?src=[text_ref(src)];power=1'>Turn [on ? "Off" : "On"]</A><BR>
 		<B>Current Detonation Mode:</B> [det_mode ? "Demolition" : "Breach"]<BR>
-		<A href='?src=[text_ref(src)];det_mode=1'><B>Set Detonation Mode:</B> [det_mode ? "Breach" : "Demolition"]</A><BR>
+		<A href='byond://?src=[text_ref(src)];det_mode=1'><B>Set Detonation Mode:</B> [det_mode ? "Breach" : "Demolition"]</A><BR>
 		<B>Frequency/Code for Detpack:</B><BR>
 		<A href='byond://?src=[text_ref(src)];freq=-10'>-</A>
 		<A href='byond://?src=[text_ref(src)];freq=-2'>-</A>

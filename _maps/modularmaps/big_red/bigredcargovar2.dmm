@@ -225,7 +225,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "nD" = (
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "nH" = (
@@ -431,7 +431,7 @@
 /area/bigredv2/outside/cargo)
 "BJ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/structure/barricade/wooden,
+/obj/structure/barricade/wood,
 /obj/structure/cable,
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
@@ -560,7 +560,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "Jd" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -714,7 +714,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "Zk" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,

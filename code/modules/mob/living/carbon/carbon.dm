@@ -87,7 +87,7 @@
 		return
 
 	if(IsAdminSleeping())
-		to_chat(shaker, span_highdanger("This player has been admin slept, do not interfere with them."))
+		to_chat(shaker, span_userdanger("This player has been admin slept, do not interfere with them."))
 		return
 
 	if(lying_angle || has_status_effect(STATUS_EFFECT_SLEEPING))
@@ -180,7 +180,7 @@
 		inertia_dir = get_dir(target, src)
 		step(src, inertia_dir)
 
-	visible_message(span_warning("[src] has thrown [thrown_thing]."), null, null, 5)
+	visible_message(span_warning("[src] throws [thrown_thing]."), null, null, 5)
 
 	playsound(src, 'sound/effects/throw.ogg', 30, 1)
 
@@ -254,12 +254,33 @@
 			if(!lying_angle)
 				break
 
-
 /mob/living/carbon/vv_get_dropdown()
 	. = ..()
-	. += "---"
-	. -= "Update Icon"
-	.["Regenerate Icons"] = "?_src_=vars;[HrefToken()];regenerateicons=[REF(src)]"
+	VV_DROPDOWN_OPTION("", "---------")
+	VV_DROPDOWN_OPTION(VV_HK_REGENERATE_ICON, "Regenerate Icons")
+
+/mob/living/carbon/vv_do_topic(list/href_list)
+	. = ..()
+
+	if(!.)
+		return
+
+	if(href_list[VV_HK_REGENERATE_ICON])
+		if(!check_rights(NONE))
+			return
+		regenerate_icons()
+
+/mob/living/carbon/vv_edit_var(var_name, var_value)
+	switch(var_name)
+		if(NAMEOF(src, nutrition))
+			set_nutrition(var_value)
+			. = TRUE
+
+	if(!isnull(.))
+		datum_flags |= DF_VAR_EDITED
+		return
+
+	return ..()
 
 /mob/living/carbon/update_tracking(mob/living/carbon/C)
 	var/atom/movable/screen/LL_dir = hud_used.SL_locator

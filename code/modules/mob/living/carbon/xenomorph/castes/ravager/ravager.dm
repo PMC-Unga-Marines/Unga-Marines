@@ -121,8 +121,8 @@
 	. = ..()
 	if(stat)
 		return
-	if(pass_flags & PASS_FIRE) // RUTGMC ADDITION START
-		return FALSE // RUTGMC ADDITION END
+	if(pass_flags & PASS_FIRE)
+		return FALSE
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_RAVAGER_FLAMER_ACT))
 		return FALSE
 	gain_plasma(50)
@@ -149,6 +149,16 @@
 	return endure_ability.endure_threshold
 
 /mob/living/carbon/xenomorph/ravager/med_hud_set_health()
+	if(hud_used?.healths)
+		if(stat != DEAD)
+			if(health < 0)
+				hud_used.healths.icon_state = "health0"
+			else
+				var/amount = round(health * 100 / maxHealth, 5)
+				hud_used.healths.icon_state = "health[amount]"
+		else
+			hud_used.healths.icon_state = "health_dead"
+
 	var/image/holder = hud_list[HEALTH_HUD_XENO]
 	if(!holder)
 		return

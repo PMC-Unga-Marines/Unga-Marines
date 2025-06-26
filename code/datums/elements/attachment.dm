@@ -20,7 +20,7 @@
 			CAN_ATTACH = can_attach, //Callback that is called on attach to determine by the attachment whether or not it can attach to the item.
 			PIXEL_SHIFT_X = pixel_shift_x, //Pixel shift on X Axis for the attachments overlay.
 			PIXEL_SHIFT_Y = pixel_shift_y, //Pixel shift on Y Axis for the attachments overlay.
-			ATTACH_FEATURES_flags = attach_features_flags, //Flags for how the attachment functions.
+			FLAGS_ATTACH_FEATURES = attach_features_flags, //Flags for how the attachment functions.
 			ATTACH_DELAY = attach_delay, //Delay for attaching.
 			DETACH_DELAY = detach_delay, //Delay for detaching.
 			ATTACH_SKILL = attach_skill, //Skill used in attaching and detaching. Can be null. If user does not meet the skill requirement the attach delay and detach delay is doubled.

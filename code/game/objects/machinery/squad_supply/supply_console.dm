@@ -7,6 +7,7 @@
 	screen_overlay = "supplydrop_screen"
 	interaction_flags = INTERACT_MACHINE_TGUI
 	circuit = /obj/item/circuitboard/computer/supplydrop
+	faction = FACTION_TERRAGOV
 	///Time between two supply drops
 	var/launch_cooldown = 30 SECONDS
 	///The beacon we will send the supplies
@@ -19,8 +20,6 @@
 	var/x_offset = 0
 	///Y offset of the drop, relative to the supply beacon loc
 	var/y_offset = 0
-	///Faction of this drop console
-	var/faction = FACTION_TERRAGOV
 	COOLDOWN_DECLARE(next_fire)
 	///Reference to the balloon vis obj effect
 	var/atom/movable/vis_obj/fulton_balloon/balloon

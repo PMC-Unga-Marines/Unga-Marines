@@ -128,7 +128,7 @@
 	icon = 'icons/obj/items/crayons.dmi'
 	icon_state = "crayonred"
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb = list("attacked", "coloured")
+	attack_verb = list("attacks", "colours")
 	///RGB
 	var/colour = "#FF0000"
 	///RGB
@@ -350,7 +350,7 @@
 	throw_speed = 1
 	throw_range = 20
 
-/obj/item/toy/beach_ball/afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
+/obj/item/toy/beach_ball/afterattack(atom/target, mob/user)
 	user.drop_held_item()
 	throw_at(target, throw_range, throw_speed, user)
 
@@ -361,7 +361,7 @@
 	icon_state = "d66"
 	w_class = WEIGHT_CLASS_TINY
 	var/sides = 6
-	attack_verb = list("diced")
+	attack_verb = list("dices")
 
 /obj/item/toy/dice/Initialize(mapload)
 	. = ..()
@@ -381,7 +381,7 @@
 	else if(sides == 20 && result == 1)
 		comment = "Ouch, bad luck."
 	icon_state = "[name][result]"
-	user.visible_message(span_notice("[user] has thrown [src]. It lands on [result]. [comment]"), \
+	user.visible_message(span_notice("[user] throws [src]. It lands on [result]. [comment]"), \
 						span_notice("You throw [src]. It lands on a [result]. [comment]"), \
 						span_notice("You hear [src] landing on a [result]. [comment]"))
 
@@ -395,7 +395,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 3
 	throw_range = 15
-	attack_verb = list("HONKED")
+	attack_verb = list("HONKS")
 
 /obj/item/toy/bikehorn/Initialize(mapload)
 	. = ..()

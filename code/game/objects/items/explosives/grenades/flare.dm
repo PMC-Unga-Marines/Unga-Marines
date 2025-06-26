@@ -21,6 +21,11 @@
 /obj/item/explosive/grenade/flare/dissolvability(acid_strength)
 	return 2
 
+/obj/item/explosive/grenade/flare/acid_spray_act(mob/living/carbon/xenomorph/X)
+	if(!active)
+		return
+	turn_off()
+
 /obj/item/explosive/grenade/flare/Initialize(mapload)
 	. = ..()
 	fuel = rand(lower_fuel_limit, upper_fuel_limit) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.

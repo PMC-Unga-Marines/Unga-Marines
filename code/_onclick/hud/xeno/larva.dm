@@ -1,5 +1,5 @@
 /datum/hud/larva/New(mob/living/carbon/xenomorph/larva/owner, ui_style, ui_color, ui_alpha = 230)
-	..()
+	. = ..()
 	var/atom/movable/screen/using
 
 	using = new /atom/movable/screen/mov_intent/alien(null, src)

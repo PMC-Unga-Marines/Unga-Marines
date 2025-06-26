@@ -17,7 +17,7 @@
 	atom_flags = CONDUCT
 	hitsound = 'sound/items/trayhit1.ogg'
 	storage_type = /datum/storage/kitchen_tray
-	attack_verb = list("attacked", "slammed", "slapped")
+	attack_verb = list("attacks", "slams", "slaps")
 	/// Shield bash cooldown. based on world.time
 	var/cooldown = 0
 

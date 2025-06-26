@@ -15,7 +15,7 @@
 	additional_xeno_penetration = 20
 
 /datum/ammo/bullet/shotgun/slug/on_hit_mob(mob/target_mob,obj/projectile/proj)
-	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 1, slowdown = 2)
+	staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 2 SECONDS, knockback = 1, slowdown = 2)
 
 /datum/ammo/bullet/shotgun/beanbag
 	name = "beanbag slug"
@@ -29,7 +29,7 @@
 	accuracy = 5
 
 /datum/ammo/bullet/shotgun/beanbag/on_hit_mob(mob/target_mob, obj/projectile/proj)
-	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 4 SECONDS, knockback = 1, slowdown = 2, hard_size_threshold = 1)
+	staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 4 SECONDS, knockback = 1, slowdown = 2, hard_size_threshold = 1)
 
 /datum/ammo/bullet/shotgun/incendiary
 	name = "incendiary slug"
@@ -43,7 +43,7 @@
 	bullet_color = COLOR_TAN_ORANGE
 
 /datum/ammo/bullet/shotgun/incendiary/on_hit_mob(mob/target_mob, obj/projectile/proj)
-	staggerstun(target_mob, proj, weaken = 1 SECONDS, knockback = 1, slowdown = 1)
+	staggerstun(target_mob, proj, paralyze = 1 SECONDS, knockback = 1, slowdown = 1)
 
 /datum/ammo/bullet/shotgun/flechette
 	name = "shotgun flechette shell"
@@ -95,7 +95,7 @@
 	damage_falloff = 4
 
 /datum/ammo/bullet/shotgun/buckshot/on_hit_mob(mob/target_mob,obj/projectile/proj)
-	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
+	staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
 
 /datum/ammo/bullet/hefa_buckshot
 	name = "hefa fragment"
@@ -190,7 +190,7 @@
 	damage_falloff = 4
 
 /datum/ammo/bullet/shotgun/heavy_buckshot/on_hit_mob(mob/target_mob, obj/projectile/proj)
-	staggerstun(target_mob, proj, weaken = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
+	staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 2 SECONDS, knockback = 2, slowdown = 0.5, max_range = 3)
 
 /datum/ammo/bullet/shotgun/barrikada_slug
 	name = "heavy metal slug"
