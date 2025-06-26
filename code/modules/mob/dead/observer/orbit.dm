@@ -120,6 +120,7 @@
 
 		if(isAI(mob_poi))
 			serialized["job"] = "AI"
+			serialized["icon"] = job.minimap_icon
 			humans += list(serialized)
 			continue
 
