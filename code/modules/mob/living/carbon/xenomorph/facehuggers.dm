@@ -166,7 +166,7 @@
 			return
 	if(!try_attach(M))
 		go_idle()
-	user.update_icons()
+	user.update_inv_head()
 
 /obj/item/clothing/mask/facehugger/attack_self(mob/user)
 	if(isxenocarrier(user))
