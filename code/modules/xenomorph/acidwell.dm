@@ -39,7 +39,7 @@
 	return ..()
 
 /obj/structure/xeno/acidwell/process()
-	if(charges >= XENO_ACID_WELL_MAX_CHARGES)
+	if(charges >= XENO_ACID_WELL_MAX_AUTOCHARGES)
 		return PROCESS_KILL
 	if(nextstage <= recharge_rate)
 		nextstage++
