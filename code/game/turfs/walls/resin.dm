@@ -211,7 +211,7 @@
 /turf/closed/wall/resin/regenerating/hardy
 	name = RESIN_WALL_HARDY
 	desc = "Weird slime solidified into a wall. Looks like it could be resistant to melee attacks and explosives."
-	icon = 'icons/obj/smooth_objects/resin-wall-bomb.dmi'
+	icon = 'icons/obj/smooth_objects/resin-wall-hardy.dmi'
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
