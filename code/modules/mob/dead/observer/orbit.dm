@@ -118,12 +118,6 @@
 			xenos += list(serialized)
 			continue
 
-		if(isAI(mob_poi))
-			serialized["job"] = "AI"
-			serialized["icon"] = job.minimap_icon
-			humans += list(serialized)
-			continue
-
 		if(ishuman(mob_poi))
 			var/mob/living/carbon/human/human = poi
 			var/datum/job/job = human.job
