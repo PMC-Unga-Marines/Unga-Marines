@@ -245,7 +245,7 @@
 /// Checks if the currently hovered area is accessible by the shuttle
 /obj/machinery/computer/camera_advanced/shuttle_docker/proc/check_hovering_spot(turf/next_turf)
 	if(!next_turf)
-		return
+		return FALSE
 	var/mob/camera/aiEye/remote/shuttle_docker/the_eye = eyeobj
 	var/list/image_cache = the_eye.placement_images
 	for(var/i in 1 to length(image_cache))
@@ -255,7 +255,7 @@
 		var/area/A = get_area(T)
 		if(!A)
 			return FALSE
-		if(A.ceiling == CEILING_NONE || A.ceiling == CEILING_GLASS || A.ceiling ==CEILING_METAL)
+		if(A.ceiling == CEILING_NONE || A.ceiling == CEILING_GLASS || A.ceiling == CEILING_METAL)
 			continue
 		return FALSE
 	return TRUE

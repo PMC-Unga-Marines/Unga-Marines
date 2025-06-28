@@ -208,7 +208,7 @@ ADMIN_VERB(sdql2_query, R_DEBUG, "SDQL2 Query", "Run a SDQL2 query.", ADMIN_CATE
 	if(length(results) == 3)
 		for(var/I in 1 to 3)
 			to_chat(user, span_admin(results[I]))
-	SSblackbox.record_feedback("nested tally", "SDQL query", 1, list(user.ckey, query_text))
+	SSblackbox.record_feedback(FEEDBACK_NESTED_TALLY, "SDQL query", 1, list(user.ckey, query_text))
 
 /world/proc/SDQL2_query(query_text, log_entry1, log_entry2)
 	var/query_log = "executed SDQL query(s): \"[query_text]\"."

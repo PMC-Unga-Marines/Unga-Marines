@@ -131,7 +131,9 @@ SUBSYSTEM_DEF(atoms)
 				if(mapload_source)
 					set_tracked_initalized(INITIALIZATION_INNEW_MAPLOAD, mapload_source)
 
+	#ifdef TESTING
 	testing("Initialized [count] atoms")
+	#endif
 
 /// Init this specific atom
 /datum/controller/subsystem/atoms/proc/InitAtom(atom/A, from_template = FALSE, list/arguments)

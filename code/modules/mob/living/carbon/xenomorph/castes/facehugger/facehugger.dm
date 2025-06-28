@@ -79,7 +79,7 @@
 /mob/living/carbon/xenomorph/facehugger/proc/try_attach(mob/living/carbon/human/host)
 	var/obj/item/clothing/mask/facehugger/larval/mask = new /obj/item/clothing/mask/facehugger/larval(host, src.hivenumber, src)
 	if(host.can_be_facehugged(mask, provoked = TRUE) && mask.try_attach(host, FALSE)) //Attach hugger-mask
-		src.forceMove(host) //Moving sentient hugger inside host
+		forceMove(host) //Moving sentient hugger inside host
 		if(client && isnormalhive(hive))
 			client.facehugger_exp_update(1)
 		return TRUE

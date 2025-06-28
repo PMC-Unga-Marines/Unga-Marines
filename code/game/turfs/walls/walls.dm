@@ -330,6 +330,9 @@
 
 /turf/closed/wall/welder_act(mob/living/user, obj/item/tool/weldingtool/WT)
 	. = ..()
+	if(resistance_flags & INDESTRUCTIBLE)
+		to_chat(user, span_warning("This wall seems too tough for you to do something with it!"))
+		return
 	if(!ishuman(user))
 		to_chat(user, span_warning("You don't have the dexterity to do this!"))
 		return
@@ -405,6 +408,9 @@
 
 /turf/closed/wall/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
+	if(resistance_flags & INDESTRUCTIBLE)
+		to_chat(user, span_warning("This wall seems too tough for you to do something with it!"))
+		return
 	if(!ishuman(user))
 		to_chat(user, span_warning("You don't have the dexterity to do this!"))
 		return
@@ -426,6 +432,9 @@
 
 /turf/closed/wall/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
+	if(resistance_flags & INDESTRUCTIBLE)
+		to_chat(user, span_warning("This wall seems too tough for you to do something with it!"))
+		return
 	if(!ishuman(user))
 		to_chat(user, span_warning("You don't have the dexterity to do this!"))
 		return
@@ -461,6 +470,9 @@
 
 /turf/closed/wall/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
+	if(resistance_flags & INDESTRUCTIBLE)
+		to_chat(user, span_warning("This wall seems too tough for you to do something with it!"))
+		return
 	if(!ishuman(user))
 		to_chat(user, span_warning("You don't have the dexterity to do this!"))
 		return
@@ -482,6 +494,9 @@
 
 /turf/closed/wall/wirecutter_act(mob/living/user, obj/item/I)
 	. = ..()
+	if(resistance_flags & INDESTRUCTIBLE)
+		to_chat(user, span_warning("This wall seems too tough for you to do something with it!"))
+		return
 	if(!ishuman(user))
 		to_chat(user, span_warning("You don't have the dexterity to do this!"))
 		return

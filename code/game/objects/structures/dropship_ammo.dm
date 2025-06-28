@@ -30,8 +30,8 @@
 	var/fire_range = 0
 	///Type of CAS dot indicator effect to be used
 	var/cas_effect = /obj/effect/overlay/blinking_laser
-	///CAS impact prediction type to use. Explosive, incendiary, etc
-	var/prediction_type = CAS_AMMO_HARMLESS
+	///CAS impact prediction type used for codex. Explosive, incendiary, etc
+	var/prediction_type
 
 /obj/structure/ship_ammo/attack_powerloader(mob/living/user, obj/item/powerloader_clamp/attached_clamp)
 	. = ..()
@@ -363,6 +363,7 @@
 	travelling_time = 4 SECONDS
 	point_cost = 0
 	ammo_type = CAS_MISSILE
+	prediction_type = CAS_AMMO_EXPLOSIVE
 
 /obj/structure/ship_ammo/cas/rocket/detonate_on(turf/impact, attackdir = NORTH)
 	qdel(src)
@@ -377,7 +378,6 @@
 	point_cost = 195
 	explosion_power = 320
 	explosion_falloff = 80
-	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/widowmaker
 
 /obj/structure/ship_ammo/cas/rocket/widowmaker/detonate_on(turf/impact, attackdir = NORTH)
@@ -413,7 +413,6 @@
 	point_cost = 250
 	explosion_power = 550
 	explosion_falloff = 145
-	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/keeper
 
 /obj/structure/ship_ammo/cas/rocket/keeper/detonate_on(turf/impact, attackdir = NORTH)
@@ -430,7 +429,6 @@
 	point_cost = 350
 	explosion_power = 450
 	explosion_falloff = 120
-	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/fatty
 
 /obj/structure/ship_ammo/cas/rocket/fatty/detonate_on(turf/impact, attackdir = NORTH)

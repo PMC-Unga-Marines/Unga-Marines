@@ -183,7 +183,6 @@
 		/obj/item/stack/medical/heal_pack/ointment = 1,
 		/obj/item/explosive/plastique = 1,
 		/obj/item/explosive/grenade/vsd = 2,
-		/obj/item/ammo_magazine/rifle/vsd_rifle = 1,
 	)
 
 /datum/outfit/job/vsd/medic

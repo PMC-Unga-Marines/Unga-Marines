@@ -137,7 +137,7 @@ GLOBAL_LIST_INIT(playable_icons, list(
 	"assault_crew",
 	"predalien",
 	"robot",
-	"ai"
+	"ai",
 ))
 
 GLOBAL_LIST_EMPTY(human_ethnicities_list)

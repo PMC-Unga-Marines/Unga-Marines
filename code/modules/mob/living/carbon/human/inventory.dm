@@ -523,6 +523,8 @@
 	M.dropItemToGround(I)
 	if(istype(I, /obj/item/clothing/mask/facehugger))
 		GLOB.round_statistics.failed_impregnations++
+		var/obj/item/clothing/mask/facehugger/facehugger = I
+		facehugger.reset_attach_status(FALSE)
 	log_combat(src, M, "removed [key_name(I)] ([slot_to_process])")
 	if(isidcard(I))
 		message_admins("[ADMIN_TPMONTY(src)] took the [I] of [ADMIN_TPMONTY(M)].")
