@@ -48,6 +48,10 @@
 	INVOKE_ASYNC(outfit, TYPE_PROC_REF(/datum/outfit, equip), src)
 	a_intent = INTENT_HARM
 
+/mob/living/carbon/human/species/zombie/set_undefibbable(affects_synth = FALSE)
+	if(hud_list)
+		med_hud_set_status()
+
 /mob/living/carbon/human/species/robot
 	race = "Combat Robot"
 	bubble_icon = "robot"
