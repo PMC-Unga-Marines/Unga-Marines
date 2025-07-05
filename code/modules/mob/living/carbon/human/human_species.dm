@@ -26,10 +26,6 @@
 /mob/living/carbon/human/species/moth
 	race = "Moth"
 
-/datum/species/moth/handle_post_spawn(mob/living/carbon/human/H)
-	. = ..()
-	H.moth_wings = pick(GLOB.moth_wings_list - "Burnt Off")
-
 /mob/living/carbon/human/species/vatgrown
 	race = "Vat-Grown Human"
 
