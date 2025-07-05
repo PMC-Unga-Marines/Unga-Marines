@@ -542,6 +542,7 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define XENO_DEFAULT_ACID_PUDDLE_DAMAGE 14 //Standard damage dealt by acid puddles
 #define XENO_ACID_WELL_FILL_TIME 2 SECONDS //How long it takes to add a charge to an acid pool
 #define XENO_ACID_WELL_FILL_COST 150 //Cost in plasma to apply a charge to an acid pool
+#define XENO_ACID_WELL_MAX_AUTOCHARGES 3 //Maximum number of autocharges for the acid well
 #define XENO_ACID_WELL_MAX_CHARGES 5 //Maximum number of charges for the acid well
 #define XENO_ACID_CHARGE_DAMAGE 30
 

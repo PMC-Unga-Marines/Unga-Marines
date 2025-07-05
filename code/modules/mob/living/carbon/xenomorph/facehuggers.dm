@@ -51,7 +51,7 @@
 	///The timer to go active
 	var/activetimer
 	///Time to become active after impacting on a direct thrown hit
-	var/impact_time = 0.1 SECONDS
+	var/impact_time = 1.25 SECONDS
 	///Time to become active again
 	var/activate_time = 2 SECONDS
 	///Time to recover after jumping
@@ -734,6 +734,7 @@
 
 /obj/item/clothing/mask/facehugger/combat/chem_injector
 	desc = "This strange creature has a single prominent sharp proboscis."
+	impact_time = 0.1 SECONDS
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.25 SECONDS
@@ -776,6 +777,7 @@
 	name = "acid hugger"
 	desc = "This repulsive looking thing is bloated with throbbing, putrescent green sacks of flesh."
 	color = COLOR_GREEN
+	impact_time = 0.1 SECONDS
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.25 SECONDS
@@ -804,6 +806,7 @@
 	name = "resin hugger"
 	desc = "This truly bizzare, bloated creature drips with purple, viscous resin."
 	color = COLOR_STRONG_VIOLET
+	impact_time = 0.5 SECONDS
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.25 SECONDS
@@ -832,7 +835,7 @@
 	else
 		var/mob/living/victim = M
 		playsound(victim, 'sound/effects/vegetation_hit.ogg', 25, 1)
-		victim.apply_damage(80, STAMINA, BODY_ZONE_HEAD, BIO, updating_health = TRUE) //This should prevent sprinting
+		victim.apply_damage(60, STAMINA, BODY_ZONE_HEAD, BIO, updating_health = TRUE) //This should prevent sprinting
 		victim.visible_message(span_danger("[src] hastily claws at [victim]!"), span_danger("[src] hastily claws at you, making you feel weaker!"))
 
 	leaping = FALSE
@@ -844,6 +847,7 @@
 	name = "clawed hugger"
 	desc = "This nasty little creature is a nightmarish scrabble of muscle and sharp, long claws."
 	color = COLOR_RED
+	impact_time = 0.1 SECONDS
 	activate_time = 1 SECONDS
 	jump_cooldown = 1 SECONDS
 	proximity_time = 0.5 SECONDS
