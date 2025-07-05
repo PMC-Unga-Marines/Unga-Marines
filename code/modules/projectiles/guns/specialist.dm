@@ -852,18 +852,17 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	equip_slot_flags = ITEM_SLOT_BELT
 	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_WIELDED_STABLE_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_SMOKE_PARTICLES
 	attachable_allowed = list(/obj/item/attachable/magnetic_harness)
-	/// Indicates extension state of the launcher. True: Fireable and unable to fit in storage. False: Able to fit in storage but must be extended to fire.
-	var/extended = FALSE
-
 	dry_fire_sound = 'sound/weapons/guns/fire/launcher_empty.ogg'
 	reload_sound = 'sound/weapons/guns/interact/launcher_reload.ogg'
 	unload_sound = 'sound/weapons/guns/interact/launcher_reload.ogg'
 	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 19, "under_x" = 19, "under_y" = 14, "stock_x" = 19, "stock_y" = 14)
 	fire_delay = 1 SECONDS
 	scatter = -100
+	/// Indicates extension state of the launcher. True: Fireable and unable to fit in storage. False: Able to fit in storage but must be extended to fire.
+	var/extended = FALSE
 
 /obj/item/weapon/gun/launcher/rocket/oneuse/Initialize(mapload, spawn_empty)
-	. = ..(mapload, FALSE)
+	return ..(mapload, FALSE)
 
 // Do a short windup, swap the extension status of the rocket if successful, then swap the flags.
 /obj/item/weapon/gun/launcher/rocket/oneuse/unique_action(mob/living/user)

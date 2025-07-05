@@ -156,9 +156,10 @@
 /// Toggle the vision between small nightvision and turf vision
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/proc/toggle_nvg()
 	if(!check_hovering_spot(eyeobj?.loc))
-		to_chat(ui_user, span_warning("Can not toggle night vision mode in caves"))
+		to_chat(ui_user, span_warning("Can't toggle night vision mode in caves!"))
 		return
 	nvg_vision_mode = !nvg_vision_mode
+	ui_user?.update_sight()
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
 	. = ..()

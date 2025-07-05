@@ -163,10 +163,10 @@ GLOBAL_LIST_EMPTY(blood_particles)
 
 /obj/effect/temp_visual/order
 	icon = 'icons/effects/blips.dmi'
-	var/icon_state_on
 	hud_possible = list(SQUAD_HUD_TERRAGOV, SQUAD_HUD_SOM)
 	duration = CIC_ORDER_DURATION
 	layer = TURF_LAYER
+	var/icon_state_on
 
 /obj/effect/temp_visual/order/Initialize(mapload, faction)
 	. = ..()

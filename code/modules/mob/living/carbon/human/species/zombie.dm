@@ -26,7 +26,9 @@
 	var/revive_time = 1 MINUTES
 	///How much burn and burn damage can you heal every Life tick (half a sec)
 	var/heal_rate = 10
+	///Our faction
 	var/faction = FACTION_ZOMBIE
+	///A claw type that we spawn in hands of the zombie
 	var/claw_type = /obj/item/weapon/zombie_claw
 
 /datum/species/zombie/on_species_gain(mob/living/carbon/human/H, datum/species/old_species)
@@ -65,26 +67,19 @@
 		action.remove_action(H)
 
 /datum/species/zombie/handle_unique_behavior(mob/living/carbon/human/H)
+	if(H.stat == DEAD)
+		return
 	if(prob(10))
 		playsound(get_turf(H), pick(sounds), 50)
 
 	if(H.health != total_health)
 		H.heal_limbs(heal_rate)
-
-	for(var/organ_slot in has_organ)
-		var/datum/internal_organ/internal_organ = H.get_organ_slot(organ_slot)
-		internal_organ?.heal_organ_damage(1)
 	H.update_health()
 
 /datum/species/zombie/handle_death(mob/living/carbon/human/H)
-	if(H.on_fire)
+	if(H.on_fire || !H.has_working_organs())
 		addtimer(CALLBACK(src, PROC_REF(fade_out_and_qdel_in), H), 1 MINUTES)
 		return
-	if(!H.has_working_organs())
-		SSmobs.stop_processing(H) // stopping the processing extinguishes the fire that is already on, so that's a hack around
-		addtimer(CALLBACK(src, PROC_REF(fade_out_and_qdel_in), H), 1 MINUTES)
-		return
-	SSmobs.stop_processing(H)
 	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, revive_to_crit), TRUE, FALSE), revive_time)
 
 /// We start fading out the human and qdel them in set time
@@ -102,7 +97,7 @@
 
 /datum/species/zombie/fast/post_species_loss(mob/living/carbon/human/H)
 	. = ..()
-	H.transform = matrix().Scale(1/(0.8), 1/(0.8))
+	H.transform = matrix().Scale(1.25, 1.25)
 
 /datum/species/zombie/tank
 	name = "Tank zombie"
@@ -116,7 +111,7 @@
 
 /datum/species/zombie/tank/post_species_loss(mob/living/carbon/human/H)
 	. = ..()
-	H.transform = matrix().Scale(1/(1.2), 1/(1.2))
+	H.transform = matrix().Scale(0.8, 0.8)
 
 /datum/species/zombie/strong
 	name = "Strong zombie" //These are zombies created from marines, they are stronger, but of course rarer

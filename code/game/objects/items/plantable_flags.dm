@@ -69,15 +69,7 @@
 	lift_flag(user)
 
 /obj/item/plantable_flag/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(500, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(150, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(75, BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(15, BRUTE, BOMB)
+	take_damage(severity, BRUTE, BOMB)
 
 /obj/item/plantable_flag/fire_act(burn_level)
 	take_damage(burn_level * 3, BURN, FIRE)
@@ -173,15 +165,7 @@
 	icon_state = "[current_internal_item.icon_state]_planted"
 
 /obj/structure/plantable_flag/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(500, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(150, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(75, BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(15, BRUTE, BOMB)
+	take_damage(severity, BRUTE, BOMB)
 
 /obj/structure/plantable_flag/fire_act(burn_level)
 	take_damage(burn_level, BURN, FIRE)
@@ -197,3 +181,9 @@
 		return
 	disassemble(user)
 	log_game("[key_name(user)] has undeployed the flag at [AREACOORD(src)].")
+
+#undef FLAG_AURA_RANGE
+#undef FLAG_AURA_DEPLOYED_RANGE
+#undef FLAG_WARCRY_RANGE
+#undef FLAG_AURA_STRENGTH
+#undef LOST_FLAG_AURA_STRENGTH

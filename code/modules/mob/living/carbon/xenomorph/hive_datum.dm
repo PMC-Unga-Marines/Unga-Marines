@@ -1392,7 +1392,7 @@ to_chat will check for valid clients itself already so no need to double check f
 	var/rated_xeno = active_humans * (LARVA_POINTS_REGULAR / xeno_job.job_points_needed)
 
 	//length(psychictowers) are still in the formula for admin spawn or something
-	tier3_xeno_limit = max(threes, FLOOR(max(rated_xeno - threes,zeros + ones + twos + fours) / 3 + length(psychictowers) + 1 - SSticker.mode.tier_three_penalty, 1))
+	tier3_xeno_limit = max(threes, FLOOR(max(rated_xeno - threes,zeros + ones + twos + fours) / 3 + length(psychictowers) + 1 - SSticker?.mode?.tier_three_penalty, 1))
 	tier2_xeno_limit = max(twos, FLOOR(max(rated_xeno - twos - threes,zeros + ones + fours) + length(psychictowers) * 2 + 1 - threes, 1))
 
 // ***************************************

@@ -317,10 +317,10 @@
 	explosion_smoke.particles.count = 0
 	sparks.particles.count = 0
 	large_kickup.particles.count = 0
-	falling_debris.particles.count = 0
+	falling_debris?.particles.count = 0
 
 /obj/effect/temp_visual/explosion/proc/set_count_long()
-	dirt_kickup.particles.count = 0
+	dirt_kickup?.particles.count = 0
 
 /obj/effect/temp_visual/explosion/Destroy()
 	QDEL_NULL(smoke_wave)

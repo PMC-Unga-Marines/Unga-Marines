@@ -512,7 +512,7 @@
 
 /obj/structure/dropship_equipment/shuttle/weapon_holder/CanAllowThrough(atom/movable/mover, turf/target)
 	. = ..()
-	if(held_deployable.loc != src)
+	if(held_deployable?.loc != src)
 		return TRUE
 
 /obj/structure/dropship_equipment/shuttle/weapon_holder/machinegun
