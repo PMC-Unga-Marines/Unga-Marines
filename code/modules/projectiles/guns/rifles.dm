@@ -404,6 +404,63 @@
 /obj/item/weapon/gun/rifle/br64/standard
 	starting_attachment_types = list(/obj/item/attachable/stock/br64stock, /obj/item/weapon/gun/grenade_launcher/underslung/br64, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel)
 
+/obj/item/weapon/gun/rifle/br64/custom //RUTGMC EDIT
+	name = "\improper BR-64 SCA battle rifle"
+	desc = "Custom San Cristo Arms BR-64 fitted with shortened barrel and piccatiny underbarrel rail to reduce weight and optimize it for CQC. Uses 10x26.5smm caseless caliber."
+	icon_state = "t64custom"
+	worn_icon_state = "t64custom"
+	icon = 'icons/obj/items/gun/marksman64.dmi'
+	worn_icon_list = list(
+		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_64.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_64.dmi',
+	)
+	inhand_x_dimension = 64
+	inhand_y_dimension = 32
+	wield_delay = 0.6 SECONDS
+	aim_slowdown = 0.45
+	attachable_allowed = list(
+		/obj/item/attachable/stock/br64stock,
+		/obj/item/weapon/gun/grenade_launcher/underslung/br64,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/angledgrip,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/motiondetector,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/attachable/buildasentry,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/attachable/burstfire_assembly,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam, //RUTGMC EDIT
+	)
+	starting_attachment_types = list(/obj/item/attachable/stock/br64stock, /obj/item/weapon/gun/grenade_launcher/underslung)
+
+	attachable_offset = list("muzzle_x" = 40, "muzzle_y" = 19,"rail_x" = 19, "rail_y" = 23, "under_x" = 25, "under_y" = 14, "stock_x" = 11, "stock_y" = 14)
+
+	fire_delay = 0.3 SECONDS
+	burst_amount = 3
+	burst_delay = 0.10 SECONDS
+	extra_delay = 0.25 SECONDS
+
 //-------------------------------------------------------
 //PR-412 Pulse Rifle
 

@@ -212,6 +212,11 @@
 	desc = "A specialized stock for the BR-64."
 	icon_state = "t64stock"
 
+/obj/item/attachable/stock/br64customstock
+	name = "\improper BR-64 custom stock"
+	desc = "A custom stock for the BR-64."
+	icon_state = "t64customstock"
+
 //You can remove the stock on the Magnum. So it has stats and is removeable.
 
 /obj/item/attachable/stock/t76

@@ -37,6 +37,11 @@
 	contains = list(/obj/item/weapon/gun/rifle/m412l1_hpr)
 	cost = 150
 
+/datum/supply_packs/imports/br64custom
+	name = "Custom BR-64"
+	contains = list(/obj/item/weapon/gun/rifle/br64/custom)
+	cost = 150
+
 /datum/supply_packs/imports/m412l1/ammo
 	name = "PR-412L1 Heavy Pulse Rifle Ammo"
 	contains = list(/obj/item/ammo_magazine/m412l1_hpr)
