@@ -92,9 +92,9 @@
 	icon_state = "miniscope"
 	desc = "A small rail mounted zoom sight scope. Allows zoom by activating the attachment."
 	wield_delay_mod = 0.2 SECONDS
-	aim_speed_mod = 0.2
+	aim_speed_mod = 0
 	scoped_accuracy_mod = SCOPE_RAIL_MINI
-	zoom_slowdown = 0.3
+	zoom_slowdown = 0
 	zoom_tile_offset = 5
 	zoom_viewsize = 0
 
@@ -210,12 +210,12 @@
 	slot = ATTACHMENT_SLOT_RAIL
 	wield_delay_mod = 0.2 SECONDS
 	accuracy_unwielded_mod = -0.05
-	aim_speed_mod = 0.2
+	aim_speed_mod = 0
 	scoped_accuracy_mod = SCOPE_RAIL_MINI
 	scope_zoom_mod = TRUE
 	has_nightvision = FALSE
 	zoom_allow_movement = TRUE
-	zoom_slowdown = 0.3
+	zoom_slowdown = 0
 	zoom_tile_offset = 5
 	zoom_viewsize = 0
 	variants_by_parent_type = list(/obj/item/weapon/gun/rifle/som = "")
