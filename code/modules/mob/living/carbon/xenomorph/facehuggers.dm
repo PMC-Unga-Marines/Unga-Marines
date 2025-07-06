@@ -161,7 +161,7 @@
 		return ..()
 	user.visible_message(span_warning("\ [user] attempts to plant [src] on [M]'s face!"), \
 	span_warning("We attempt to plant [src] on [M]'s face!"))
-	if(!do_after(user, 1 SECONDS, NONE, M, BUSY_ICON_DANGER)
+	if(!do_after(user, 1 SECONDS, NONE, M, BUSY_ICON_DANGER))
 		return
 	if(!try_attach(M))
 		go_idle()
