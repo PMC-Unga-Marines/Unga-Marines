@@ -406,7 +406,7 @@
 
 /obj/item/weapon/gun/rifle/br64/custom //RUTGMC EDIT
 	name = "\improper BR-64 SCA battle rifle"
-	desc = "Custom San Cristo Arms BR-64 fitted with shortened barrel and piccatiny underbarrel rail to reduce weight and optimize it for CQC. Uses 10x26.5smm caseless caliber."
+	desc = "Custom San Cristo Arms BR-64 fitted with shortened barrel and piccatiny underbarrel rail to reduce weight and optimize it for CQC. Uses 10x26.5smm caseless caliber. Half-erased inscription on the receiver says: «C днём рождения, Тимур»"
 	icon_state = "t64custom"
 	worn_icon_state = "t64custom"
 	icon = 'icons/obj/items/gun/marksman64.dmi'
