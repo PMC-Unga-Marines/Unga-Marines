@@ -37,9 +37,6 @@
 
 	if(istype(I, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/AM = I
-		if(!isturf(loc))
-			to_chat(user, span_warning("[src] must be on the ground to be used."))
-			return
 		if(AM.magazine_flags & MAGAZINE_REFILLABLE)
 			if(default_ammo != AM.default_ammo)
 				to_chat(user, span_warning("Those aren't the same rounds. Better not mix them up."))
@@ -50,10 +47,6 @@
 			if(AM.current_rounds == AM.max_rounds)
 				to_chat(user, span_warning("[AM] is already full."))
 				return
-
-			if(!do_after(user, 15, NONE, src, BUSY_ICON_GENERIC))
-				return
-
 			playsound(loc, 'sound/weapons/guns/interact/revolver_load.ogg', 25, 1)
 			var/S = min(bullet_amount, AM.max_rounds - AM.current_rounds)
 			AM.current_rounds += S
