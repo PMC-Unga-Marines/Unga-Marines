@@ -33,6 +33,7 @@
 			/obj/item/ammo_magazine/smg/mp19 = -1,
 	),
 		"Снайперские винтовки" = list(
+			/obj/item/weapon/gun/rifle/dmr37 -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
 			/obj/item/weapon/gun/rifle/sr127= -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
@@ -484,6 +485,8 @@
 			/obj/item/ammo_magazine/smg/mp19 = -1,
 		),
 		"Снайперские винтовки" = list(
+			/obj/item/ammo_magazine/rifle/dmr37 = -1,
+			/obj/item/weapon/gun/rifle/dmr37= -1,
 			/obj/item/ammo_magazine/rifle/dmr37 = -1,
 			/obj/item/weapon/gun/rifle/sr127= -1,
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
