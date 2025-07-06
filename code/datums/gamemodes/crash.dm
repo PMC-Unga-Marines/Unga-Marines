@@ -36,11 +36,13 @@
 	// Shuttle details
 	var/shuttle_id = SHUTTLE_CANTERBURY
 	var/obj/docking_port/mobile/crashmode/shuttle
+	var/LZ_dock = FALSE
 
 	///How long between two larva check
 	var/larva_check_interval = 2 MINUTES
 	///Last time larva balance was checked
 	var/last_larva_check
+
 
 /datum/game_mode/infestation/crash/pre_setup()
 	. = ..()
@@ -67,14 +69,20 @@
 	GLOB.latejoin_gateway = shuttle.latejoins
 	// Launch shuttle
 	var/list/valid_docks = list()
-	for(var/obj/docking_port/stationary/crashmode/potential_crash_site in SSshuttle.stationary_docking_ports)
-		if(!shuttle.check_dock(potential_crash_site, silent = TRUE))
-			continue
-		valid_docks += potential_crash_site
+	if(!LZ_dock)
+		for(var/obj/docking_port/stationary/crashmode/potential_crash_site in SSshuttle.stationary_docking_ports)
+			if(!shuttle.check_dock(potential_crash_site, silent = TRUE))
+				continue
+			valid_docks += potential_crash_site
+	else
+		if(locate(/obj/docking_port/stationary/marine_dropship/lz1) in SSshuttle.stationary_docking_ports)
+			valid_docks += locate(/obj/docking_port/stationary/marine_dropship/lz1) in SSshuttle.stationary_docking_ports
+		if(locate(/obj/docking_port/stationary/marine_dropship/lz2) in SSshuttle.stationary_docking_ports)
+			valid_docks += locate(/obj/docking_port/stationary/marine_dropship/lz2) in SSshuttle.stationary_docking_ports
 
 	if(!length(valid_docks))
 		CRASH("No valid crash sides found!")
-	var/obj/docking_port/stationary/crashmode/actual_crash_site = pick(valid_docks)
+	var/obj/docking_port/stationary/actual_crash_site = pick(valid_docks)
 
 	shuttle.crashing = TRUE
 	SSshuttle.moveShuttleToDock(shuttle.shuttle_id, actual_crash_site, TRUE) // FALSE = instant arrival

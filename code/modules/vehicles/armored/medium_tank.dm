@@ -17,3 +17,10 @@
 
 /obj/vehicle/sealed/armored/multitile/medium/enter_locations(atom/movable/entering_thing)
 	return list(get_step(src, REVERSE_DIR(dir)))
+
+/obj/vehicle/sealed/armored/multitile/medium/crash/Initialize(mapload)
+	. = ..()
+	var/obj/item/armored_weapon/secondary_weapon/gun_1 = new(src)
+	var/obj/item/armored_weapon/gun_2 = new(src)
+	gun_1.attach(src, FALSE)
+	gun_2.attach(src, TRUE)

@@ -9,6 +9,7 @@
 	larva_check_interval = 15 SECONDS
 	tier_three_penalty = 0
 	restricted_castes = list()
+	LZ_dock = TRUE
 
 	var/siloless_hive_timer
 
@@ -16,6 +17,8 @@
 	. = ..()
 	predator_round()
 	SSpoints.add_psy_points(XENO_HIVE_NORMAL, 2 * SILO_PRICE + 4 * XENO_TURRET_PRICE)
+
+	new /obj/vehicle/sealed/armored/multitile/medium/crash(get_turf(shuttle))
 
 /datum/game_mode/infestation/crash/distro/scale_roles(initial_players_assigned)
 	. = ..()
