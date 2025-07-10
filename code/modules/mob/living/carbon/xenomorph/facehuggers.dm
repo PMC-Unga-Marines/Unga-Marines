@@ -153,7 +153,7 @@
 			go_idle()
 	return FALSE // Else you can't pick.
 
-/obj/item/clothing/mask/facehugger/attack(mob/M, mob/user)
+/obj/item/clothing/mask/facehugger/attack(mob/living/carbon/M, mob/user)
 	if(stat != CONSCIOUS)
 		return ..()
 	if(!M.can_be_facehugged(src, provoked = TRUE))
@@ -161,12 +161,10 @@
 		return ..()
 	user.visible_message(span_warning("\ [user] attempts to plant [src] on [M]'s face!"), \
 	span_warning("We attempt to plant [src] on [M]'s face!"))
-	if(M.client && !M.stat) //Delay for conscious cliented mobs, who should be resisting.
-		if(!do_after(user, 1 SECONDS, NONE, M, BUSY_ICON_DANGER))
-			return
+	if(!do_after(user, 1 SECONDS, NONE, M, BUSY_ICON_DANGER))
+		return
 	if(!try_attach(M))
 		go_idle()
-	user.update_icons()
 
 /obj/item/clothing/mask/facehugger/attack_self(mob/user)
 	if(isxenocarrier(user))

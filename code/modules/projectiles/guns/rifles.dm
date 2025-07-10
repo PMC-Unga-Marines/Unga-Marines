@@ -3024,6 +3024,7 @@
 	burst_delay = 0.15 SECONDS
 	scatter = 0
 	fire_delay = 0.2 SECONDS
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 
 /obj/item/weapon/gun/rifle/vsd_rifle/standard
 	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/verticalgrip, /obj/item/attachable/extended_barrel)
