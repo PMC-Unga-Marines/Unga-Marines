@@ -340,7 +340,7 @@
 			to_chat(user, span_warning("[src]'s defibrillator recharge unit does not have a power cell installed!"))
 	else if(istype(W, /obj/item/cell))
 		if(user.drop_held_item())
-			W.loc = src
+			W.loc = null
 			var/replace_install = "You replace the cell in [src]'s defibrillator recharge unit."
 			if(!cell)
 				replace_install = "You install a cell in [src]'s defibrillator recharge unit."
