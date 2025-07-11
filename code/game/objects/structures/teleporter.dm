@@ -1,4 +1,5 @@
 #define TELEPORTING_COST 650
+
 /obj/machinery/deployable/teleporter
 	density = FALSE
 	max_integrity = 200
@@ -21,7 +22,11 @@
 	if(!kit?.cell)
 		. += span_notice("It currently lacks a power cell.")
 	else
-		. += span_notice("It has charge left for [round(kit.cell.charge / TELEPORTING_COST)] teleportations.")
+		var/charges_left = round(kit.cell.charge / TELEPORTING_COST)
+		if(charges_left <= 0)
+			. += span_notice("It doesn't have any charge for the teleportations left!")
+		else
+			. += span_notice("It has charge left for [charges_left] teleportations.")
 	if(kit?.linked_teleporter)
 		. += span_notice("It is currently linked to a Teleporter #[kit.linked_teleporter.self_tele_tag] at [get_area(kit.linked_teleporter)].")
 	else
@@ -121,11 +126,22 @@
 /obj/machinery/deployable/teleporter/attackby(obj/item/I, mob/user, params)
 	if(!ishuman(user))
 		return FALSE
-	if(!istype(I, /obj/item/cell))
-		return FALSE
 	var/obj/item/teleporter_kit/kit = get_internal_item()
 	if(!istype(kit))
 		CRASH("A teleporter didn't have an internal item, or it was of the wrong type.")
+
+	if(istype(I, /obj/item/teleporter_kit))
+		if(kit.linked_teleporter)
+			balloon_alert(user, "The teleporter is already linked with another!")
+			return
+		balloon_alert(user, "You link both teleporters to each others.")
+
+		var/obj/item/teleporter_kit/gadget = I
+		kit.set_linked_teleporter(gadget)
+		gadget.set_linked_teleporter(kit)
+
+	if(!istype(I, /obj/item/cell))
+		return FALSE
 	if(kit?.cell)
 		to_chat(user , span_warning("There is already a cell inside, use a crowbar to remove it."))
 		return FALSE
@@ -206,12 +222,10 @@
 	if(linked_teleporter == src)
 		balloon_alert(user, "You can't link the teleporter with itself!")
 		return
-	linked_teleporter = linked_teleporter
 	balloon_alert(user, "You link both teleporters to each others.")
 
 	set_linked_teleporter(gadget)
 	gadget.set_linked_teleporter(src)
-	return
 
 /obj/item/teleporter_kit/attack_self(mob/user)
 	do_unique_action(user)
@@ -233,3 +247,4 @@
 	teleporter_b.set_linked_teleporter(teleporter_a)
 	qdel(src)
 
+#undef TELEPORTING_COST
