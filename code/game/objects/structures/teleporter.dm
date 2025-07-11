@@ -89,11 +89,15 @@
 		use_power(TELEPORTING_COST * 100)
 	else
 		kit.cell.charge -= TELEPORTING_COST
+		balloon_alert_to_viewers("internal charge used")
+		playsound(src, 'sound/machines/twobeep.ogg', 15, 1)
 	update_icon()
 	if(deployed_linked_teleporter.powered())
 		deployed_linked_teleporter.use_power(TELEPORTING_COST * 100)
 	else
 		linked_kit.cell.charge -= TELEPORTING_COST
+		deployed_linked_teleporter.balloon_alert_to_viewers("internal charge used")
+		playsound(deployed_linked_teleporter, 'sound/machines/twobeep.ogg', 15, 1)
 	deployed_linked_teleporter.update_icon()
 	for(var/atom/movable/thing_to_teleport AS in teleporting)
 		thing_to_teleport.forceMove(get_turf(deployed_linked_teleporter))
