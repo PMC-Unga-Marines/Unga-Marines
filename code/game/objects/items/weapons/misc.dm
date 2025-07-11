@@ -70,21 +70,19 @@
 
 /obj/item/weapon/powerfist/examine(user)
 	. = ..()
-	. += span_notice("Use it <b>In-Hand</b> to change power settings.")
-	. += span_notice("<b>Click</b> on the gauntlet to pop out the cell.")
-	var/powerused = setting * 20
-	. += span_notice("It's power setting is set to <b>[setting]</b>.")
+	. += span_notice("Use it <b>In-Hand</b> to change power settings. It's power setting is set to <b>[setting]</b>.")
 	if(cell)
-		. += span_notice("It has <b>[round(cell.charge / powerused, 1)]</b> level <b>[setting]</b> punches remaining.")
+		. += span_notice("<b>Click</b> on the gauntlet to pop out the cell.")
+		. += span_notice("It has <b>[round(cell.charge / (setting * 20), 1)]</b> level <b>[setting]</b> punches remaining.")
 	else
 		. += span_notice("There is no <b>cell</b> installed!")
 
 /obj/item/weapon/powerfist/attack_self(mob/user)
 	. = ..()
-	if(setting == 3)
+	if(setting >= 3)
 		setting = 1
 	else
-		setting += 1
+		setting++
 	balloon_alert(user, "Power level [setting].")
 
 /obj/item/weapon/powerfist/attack(mob/living/carbon/M, mob/living/carbon/user)
