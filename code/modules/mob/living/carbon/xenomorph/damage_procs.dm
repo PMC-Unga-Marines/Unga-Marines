@@ -34,7 +34,8 @@
 	if(severity >= max(health, EXPLOSION_THRESHOLD_GIB + get_soft_armor(BOMB) * 2))
 		var/oldloc = loc
 		gib()
-		create_shrapnel(oldloc, rand(8, 16), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/xeno)
+		if(mob_size > MOB_SIZE_SMALL) // cause the size is 0 and will cause errors
+			create_shrapnel(oldloc, rand(4, 8) * mob_size, direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/xeno)
 		return
 
 	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
