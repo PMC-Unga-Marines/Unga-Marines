@@ -41,7 +41,7 @@
 		weapon_strings += general_entry.mechanics_text + "<br>"
 
 	weapon_strings += "Melee damage: [force]"
-	if(item_flags & TWOHANDED)
+	if(CHECK_BITFIELD(item_flags, TWOHANDED))
 		var/obj/item/weapon/twohanded/our_weapon = src // yeah...
 		weapon_strings += "Melee damage while wielded: [our_weapon.force_wielded]"
 	weapon_strings += "Time between attacks: [attack_speed] milliseconds."
