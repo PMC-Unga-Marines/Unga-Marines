@@ -431,7 +431,7 @@
 
 /obj/item/weapon/twohanded/rocketsledge
 	name = "rocket sledge"
-	desc = "Fitted with a rocket booster at the head, the rocket sledge would deliver a tremendously powerful impact, easily crushing your enemies. Uses fuel to power itself. Press AltClick to tighten your grip. Press Spacebar to change modes."
+	desc = "Fitted with a rocket booster at the head, the rocket sledge would deliver a tremendously powerful impact, easily crushing your enemies. Uses fuel to power itself."
 	icon_state = "rocketsledge"
 	worn_icon_state = "rocketsledge"
 	force = 30
@@ -485,7 +485,8 @@
 
 /obj/item/weapon/twohanded/rocketsledge/examine(mob/user)
 	. = ..()
-	. += "It contains [reagents.get_reagent_amount(/datum/reagent/fuel)]/[max_fuel] units of fuel!"
+	. += span_notice("Press <b>Unique Action</b> to change modes.")
+	. += span_notice("It contains <b>[reagents.get_reagent_amount(/datum/reagent/fuel)]/[max_fuel]</b> units of fuel!")
 
 /obj/item/weapon/twohanded/rocketsledge/wield(mob/user)
 	. = ..()

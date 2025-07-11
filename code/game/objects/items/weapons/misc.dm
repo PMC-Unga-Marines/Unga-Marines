@@ -43,12 +43,13 @@
 
 /obj/item/weapon/powerfist
 	name = "powerfist"
-	desc = "A metal gauntlet with a energy-powered fist to throw back enemies. Altclick to clamp it around your hand, use it to change power settings and click with an empty off-hand or right click to pop out the cell."
+	desc = "A metal gauntlet with a energy-powered fist to throw back enemies."
 	icon_state = "powerfist"
 	worn_icon_state = "powerfist"
 	equip_slot_flags = ITEM_SLOT_BELT
 	force = 10
 	attack_verb = list("smashes", "rams", "power-fists")
+	///Our inner cell
 	var/obj/item/cell/cell
 	///the higher the power level the harder it hits
 	var/setting = 1
@@ -69,12 +70,14 @@
 
 /obj/item/weapon/powerfist/examine(user)
 	. = ..()
+	. += span_notice("Use it <b>In-Hand</b> to change power settings.")
+	. += span_notice("<b>Click</b> on the gauntlet to pop out the cell.")
 	var/powerused = setting * 20
-	. += "It's power setting is set to [setting]."
+	. += span_notice("It's power setting is set to <b>[setting]</b>.")
 	if(cell)
-		. += "It has [round(cell.charge / powerused, 1)] level [setting] punches remaining."
+		. += span_notice("It has <b>[round(cell.charge / powerused, 1)]</b> level <b>[setting]</b> punches remaining.")
 	else
-		. += "There is no cell installed!"
+		. += span_notice("There is no <b>cell</b> installed!")
 
 /obj/item/weapon/powerfist/attack_self(mob/user)
 	. = ..()
