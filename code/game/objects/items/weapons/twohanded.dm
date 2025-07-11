@@ -3,10 +3,13 @@
 		slot_l_hand_str = 'icons/mob/inhands/weapons/twohanded_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/twohanded_right.dmi',
 	)
-	var/force_wielded = 0
-	var/wieldsound
-	var/unwieldsound
 	item_flags = TWOHANDED
+	/// How much damage we deal when the weapon in wielded
+	var/force_wielded = 0
+	/// What sound do we make when we wield the weapon
+	var/wieldsound
+	/// What sound do we make when we unwield the weapon
+	var/unwieldsound
 
 /obj/item/weapon/twohanded/mob_can_equip(mob/user, slot, warning = TRUE, override_nodrop = FALSE, bitslot = FALSE)
 	unwield(user)
