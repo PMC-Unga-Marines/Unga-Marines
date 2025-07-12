@@ -149,6 +149,9 @@
 
 	.["xeno_info"] = list()
 	for(var/mob/living/carbon/xenomorph/xeno AS in get_all_xenos())
+		if(!xeno)
+			stack_trace("Tried parsing a xeno [xeno] without a xeno to Hive UI!")
+			continue
 		if(initial(xeno.tier) == XENO_TIER_MINION)
 			continue // Skipping minions
 		var/datum/xeno_caste/caste = xeno.xeno_caste
