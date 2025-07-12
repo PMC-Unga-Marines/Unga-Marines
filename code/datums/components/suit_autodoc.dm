@@ -228,7 +228,7 @@
 		var/datum/reagent/R = chem
 		var/stomach_reagents = 0
 		var/datum/internal_organ/stomach/belly = H.get_organ_slot(ORGAN_SLOT_STOMACH)
-		if(R == /datum/reagent/medicine/tramadol && belly.reagents.get_reagent(/datum/reagent/medicine/paracetamol))
+		if(R == /datum/reagent/medicine/tramadol && (belly.reagents.get_reagent(/datum/reagent/medicine/paracetamol) || H.reagents.get_reagent(/datum/reagent/medicine/paracetamol)))
 			R = /datum/reagent/medicine/paracetamol
 		if(belly)
 			stomach_reagents = belly.reagents.get_reagent_amount(R)
