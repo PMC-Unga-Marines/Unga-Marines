@@ -54,7 +54,8 @@
 		/datum/reagent/medicine/tricordrazine)
 	var/static/list/default_pain_chems = list(
 		/datum/reagent/medicine/hydrocodone,
-		/datum/reagent/medicine/tramadol)
+		/datum/reagent/medicine/tramadol,
+		/datum/reagent/medicine/paracetamol)
 
 	var/datum/action/suit_autodoc/toggle/toggle_action
 	var/datum/action/suit_autodoc/scan/scan_action
@@ -227,6 +228,8 @@
 		var/datum/reagent/R = chem
 		var/stomach_reagents = 0
 		var/datum/internal_organ/stomach/belly = H.get_organ_slot(ORGAN_SLOT_STOMACH)
+		if(treatment_message == "Painkiller" && belly.reagents.get_reagent(/datum/reagent/medicine/paracetamol))
+			R = /datum/reagent/medicine/paracetamol
 		if(belly)
 			stomach_reagents = belly.reagents.get_reagent_amount(R)
 		var/amount_to_administer = clamp(\
