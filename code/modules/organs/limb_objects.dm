@@ -46,6 +46,7 @@
 	bone_type = /obj/item/armor_module/limb/skeleton/l_arm
 
 /obj/item/limb/l_arm/robotic
+	name = "robotic left arm"
 	icon = 'icons/mob/human_races/r_robot.dmi'
 
 /obj/item/limb/l_foot
@@ -54,6 +55,7 @@
 	bone_type = /obj/item/armor_module/limb/skeleton/l_foot
 
 /obj/item/limb/l_foot/robotic
+	name = "robotic left foot"
 	icon = 'icons/mob/human_races/r_robot.dmi'
 
 /obj/item/limb/l_hand
@@ -62,6 +64,7 @@
 	bone_type = /obj/item/armor_module/limb/skeleton/l_hand
 
 /obj/item/limb/l_hand/robotic
+	name = "robotic left hand"
 	icon = 'icons/mob/human_races/r_robot.dmi'
 
 /obj/item/limb/l_leg
@@ -70,6 +73,7 @@
 	bone_type = /obj/item/armor_module/limb/skeleton/l_leg
 
 /obj/item/limb/l_leg/robotic
+	name = "robotic left leg"
 	icon = 'icons/mob/human_races/r_robot.dmi'
 
 /obj/item/limb/r_arm
@@ -78,6 +82,7 @@
 	bone_type = /obj/item/armor_module/limb/skeleton/r_arm
 
 /obj/item/limb/r_arm/robotic
+	name = "robotic right arm"
 	icon = 'icons/mob/human_races/r_robot.dmi'
 
 /obj/item/limb/r_foot
@@ -86,6 +91,7 @@
 	bone_type = /obj/item/armor_module/limb/skeleton/r_foot
 
 /obj/item/limb/r_foot/robotic
+	name = "robotic right foot"
 	icon = 'icons/mob/human_races/r_robot.dmi'
 
 /obj/item/limb/r_hand
@@ -94,6 +100,7 @@
 	bone_type = /obj/item/armor_module/limb/skeleton/r_hand
 
 /obj/item/limb/r_hand/robotic
+	name = "robotic right hand"
 	icon = 'icons/mob/human_races/r_robot.dmi'
 
 /obj/item/limb/r_leg
@@ -102,6 +109,7 @@
 	bone_type = /obj/item/armor_module/limb/skeleton/r_leg
 
 /obj/item/limb/r_leg/robotic
+	name = "robotic right leg"
 	icon = 'icons/mob/human_races/r_robot.dmi'
 
 /obj/item/limb/head
