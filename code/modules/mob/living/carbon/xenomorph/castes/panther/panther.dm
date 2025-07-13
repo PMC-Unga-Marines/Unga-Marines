@@ -19,13 +19,6 @@
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
 
-/mob/living/carbon/xenomorph/panther/set_stat()
-	. = ..()
-	if(isnull(.))
-		return
-	if(. == CONSCIOUS && layer != initial(layer))
-		layer = MOB_LAYER
-
 /mob/living/carbon/xenomorph/panther/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(adrenalin)), 1 SECONDS, TIMER_LOOP)
