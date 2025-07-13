@@ -298,7 +298,7 @@
 	handful_icon_state = "40mm_grenade"
 	handful_amount = 1
 	max_range = 21
-	nade_type = /obj/item/explosive/grenade/ags
+	nade_type = /obj/item/explosive/grenade/agls
 
 /datum/ammo/grenade_container/agls37/flare
 	hud_state = "grenade_dummy"
@@ -306,7 +306,7 @@
 
 /datum/ammo/grenade_container/agls37/cloak
 	hud_state = "grenade_hide"
-	nade_type = /obj/item/explosive/grenade/smokebomb/cloak/ags
+	nade_type = /obj/item/explosive/grenade/smokebomb/cloak/agls
 
 /datum/ammo/grenade_container/agls37/tanglefoot
 	hud_state = "grenade_drain"
