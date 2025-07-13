@@ -95,15 +95,17 @@
 ///Triggers the hugger trap
 /obj/structure/xeno/trap/proc/trigger_trap(datum/source, atom/movable/AM, oldloc, oldlocs)
 	SIGNAL_HANDLER
-	if(!trap_type)
-		return
 	if(AM && (hivenumber == AM.get_xeno_hivenumber()))
 		return
 	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 	if(iscarbon(AM))
+		if(CHECK_BITFIELD(AM.pass_flags, PASS_LOW_STRUCTURE))
+			return
 		var/mob/living/carbon/crosser = AM
 		crosser.visible_message(span_warning("[crosser] trips on [src]!"), span_danger("You trip on [src]!"))
 		crosser.ParalyzeNoChain(4 SECONDS)
+	if(!trap_type)
+		return
 	switch(trap_type)
 		if(TRAP_HUGGER_LARVAL, TRAP_HUGGER_NEURO, TRAP_HUGGER_ACID, TRAP_HUGGER_RESIN, TRAP_HUGGER_SLASH, TRAP_HUGGER_OZELOMELYN)
 			if(!AM)
