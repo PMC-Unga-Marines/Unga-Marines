@@ -628,8 +628,8 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	caliber = CALIBER_40MM
 	icon = 'icons/obj/items/gun/hmg.dmi'
-	icon_state = "ags"
-	fire_sound = 'sound/weapons/guns/fire/ags.ogg'
+	icon_state = "agls"
+	fire_sound = 'sound/weapons/guns/fire/agls.ogg'
 	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/agls37
 	scatter = 0
