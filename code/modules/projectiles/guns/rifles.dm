@@ -751,6 +751,7 @@
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
+		/obj/item/attachable/b7_scope,
 	)
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_AUTOMATIC)
@@ -809,6 +810,7 @@
 		/obj/item/attachable/motiondetector,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
+		/obj/item/attachable/b7_scope,
 	)
 	equip_slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
