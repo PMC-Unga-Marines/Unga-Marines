@@ -428,44 +428,37 @@
 /obj/item/toy/plush/farwa
 	name = "Farwa plush doll"
 	desc = "A Farwa plush doll. It's soft and comforting!"
-	w_class = WEIGHT_CLASS_TINY
 	icon_state = "farwaplush"
 
 /obj/item/toy/plush/therapy_red
 	name = "red therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is red."
 	icon_state = "therapyred"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/therapy_purple
 	name = "purple therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is purple."
 	icon_state = "therapypurple"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/therapy_blue
 	name = "blue therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is blue."
 	icon_state = "therapyblue"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/therapy_yellow
 	name = "yellow therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is yellow."
 	icon_state = "therapyyellow"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/therapy_orange
 	name = "orange therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is orange."
 	icon_state = "therapyorange"
-	w_class = WEIGHT_CLASS_TINY
-
+	
 /obj/item/toy/plush/therapy_green
 	name = "green therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is green."
 	icon_state = "therapygreen"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/carp
 	name = "carp plushie"

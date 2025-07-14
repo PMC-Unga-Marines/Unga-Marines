@@ -448,6 +448,10 @@ GLOBAL_LIST_INIT(xenoheavystep, list(
 
 //claw footsteps lists
 GLOBAL_LIST_INIT(xenostompy, list(
+	FOOTSTEP_GENERIC_HEAVY = list(list(
+		'sound/effects/footstep/alien/large1.ogg',
+		'sound/effects/footstep/alien/large2.ogg',
+		'sound/effects/footstep/alien/large3.ogg'), 100, 2),
 	FOOTSTEP_WOOD = list(list(
 		'sound/effects/footstep/alien/large1.ogg',
 		'sound/effects/footstep/alien/large2.ogg',
@@ -480,6 +484,10 @@ GLOBAL_LIST_INIT(xenostompy, list(
 		'sound/effects/footstep/alien/large1.ogg',
 		'sound/effects/footstep/alien/large2.ogg',
 		'sound/effects/footstep/alien/large3.ogg'), 65, 1),
+	FOOTSTEP_WET = list(list(
+		'sound/effects/footstep/waterstep1.ogg',
+		'sound/effects/footstep/waterstep2.ogg',
+		'sound/effects/footstep/water3.ogg'), 100, 1),
 	FOOTSTEP_WATER = list(list(
 		'sound/effects/footstep/water1.ogg',
 		'sound/effects/footstep/water2.ogg',
@@ -520,6 +528,10 @@ GLOBAL_LIST_INIT(xenostompy, list(
 	))
 
 GLOBAL_LIST_INIT(predalienstompy, list(
+	FOOTSTEP_GENERIC_HEAVY = list(list(
+		'sound/effects/footstep/alien/medium1.ogg',
+		'sound/effects/footstep/alien/medium2.ogg',
+		'sound/effects/footstep/alien/medium3.ogg'), 100, 2),
 	FOOTSTEP_WOOD = list(list(
 		'sound/effects/footstep/alien/medium1.ogg',
 		'sound/effects/footstep/alien/medium2.ogg',
@@ -552,6 +564,10 @@ GLOBAL_LIST_INIT(predalienstompy, list(
 		'sound/effects/footstep/alien/medium1.ogg',
 		'sound/effects/footstep/alien/medium2.ogg',
 		'sound/effects/footstep/alien/medium3.ogg'), 65, 1),
+	FOOTSTEP_WET = list(list(
+		'sound/effects/footstep/waterstep1.ogg',
+		'sound/effects/footstep/waterstep2.ogg',
+		'sound/effects/footstep/water3.ogg'), 100, 1),
 	FOOTSTEP_WATER = list(list(
 		'sound/effects/footstep/water1.ogg',
 		'sound/effects/footstep/water2.ogg',

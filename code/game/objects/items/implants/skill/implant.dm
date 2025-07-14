@@ -30,7 +30,7 @@
 	if(!.)
 		return
 	for(var/skill in max_skills)
-		if(user.skills.getRating(skill) >= max_skills[skill])
+		if(target.skills.getRating(skill) >= max_skills[skill])
 			balloon_alert(user, "Nothing to learn!")
 			return FALSE
 	return TRUE
@@ -57,7 +57,7 @@
 		if(implanter.spent)
 			balloon_alert(user, "Already spent!")
 			return
-		implanter.internal_implant = src
 		forceMove(implanter)
+		implanter.internal_implant = src
 		implanter.icon_state = "cargo_full"
 		implanter.spent = TRUE

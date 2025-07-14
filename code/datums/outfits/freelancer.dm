@@ -154,7 +154,7 @@
 		/obj/item/reagent_containers/food/drinks/flask/marine = 1,
 		/obj/item/stack/sheet/metal/medium_stack = 1,
 		/obj/item/stack/sheet/plasteel/medium_stack = 1,
-		/obj/item/ammo_magazine/pistol/g22 = 3,
+		/obj/item/ammo_magazine/pistol/g22 = 2,
 		/obj/item/tool/extinguisher/mini = 1,
 		/obj/item/ammo_magazine/rifle/alf_machinecarbine = 2,
 	)
@@ -278,6 +278,7 @@
 	suit_store = /obj/item/weapon/gun/rifle/tx55/freelancer
 	r_pocket = /obj/item/storage/pouch/magazine/large
 
+	suit_contents = null
 	belt_contents = list(
 		/obj/item/ammo_magazine/rifle/ar12 = 2,
 		/obj/item/ammo_magazine/rifle/tx54 = 2,

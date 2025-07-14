@@ -140,7 +140,7 @@
  * Operation Vars
 */
 
-	///Innate carateristics of that gun
+	///Innate charateristics of that gun
 	var/gun_features_flags = GUN_CAN_POINTBLANK
 	///Current selected firemode of the gun.
 	var/gun_firemode = GUN_FIREMODE_SEMIAUTO

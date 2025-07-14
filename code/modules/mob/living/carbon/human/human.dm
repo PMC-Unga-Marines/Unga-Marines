@@ -541,13 +541,11 @@
 	return number
 
 /mob/living/carbon/human/abiotic(full_body = 0)
-	if(full_body && ((src.l_hand && !( src.l_hand.item_flags & ITEM_ABSTRACT)) || (src.r_hand && !( src.r_hand.item_flags & ITEM_ABSTRACT)) || (src.back || src.wear_mask || src.head || src.shoes || src.w_uniform || src.wear_suit || src.glasses || src.wear_ear || src.gloves)))
-		return 1
-
-	if( (src.l_hand && !(src.l_hand.item_flags & ITEM_ABSTRACT)) || (src.r_hand && !(src.r_hand.item_flags & ITEM_ABSTRACT)) )
-		return 1
-
-	return 0
+	if(full_body && ((l_hand && !(l_hand.item_flags & ITEM_ABSTRACT)) || (r_hand && !(r_hand.item_flags & ITEM_ABSTRACT)) || (back || wear_mask || head || shoes || w_uniform || wear_suit || glasses || wear_ear || gloves)))
+		return TRUE
+	if((l_hand && !(l_hand.item_flags & ITEM_ABSTRACT)) || (r_hand && !(r_hand.item_flags & ITEM_ABSTRACT)) )
+		return TRUE
+	return FALSE
 
 /mob/living/carbon/human/get_species()
 

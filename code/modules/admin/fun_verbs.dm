@@ -501,7 +501,7 @@ ADMIN_VERB(drop_ob, R_FUN, "Drop OB", "Cause an OB explosion of varying strength
 			warhead = new choice
 		if("Custom HE")
 			var/obj/structure/ob_ammo/warhead/explosive/OBShell = new
-			OBShell.explosion_power = tgui_input_number(src, "How much explosive power should the wall clear blast have?", "Set clear power", 1425, EXPLOSION_MAX_POWER, 1)
+			OBShell.explosion_power = tgui_input_number(user, "How much explosive power should the wall clear blast have?", "Set clear power", 1425, EXPLOSION_MAX_POWER, 1)
 			if(isnull(OBShell.explosion_power))
 				return
 			OBShell.explosion_falloff = tgui_input_number(user, "How much falloff should the wall clear blast have?", "Set clear falloff", 90, EXPLOSION_MAX_POWER, 1)

@@ -92,7 +92,7 @@
 		counter += 2.5 //Doubles larval growth progress. Burst time in ~3 min.
 		adjust_boost_timer(-1)
 
-	if(stage < 5 && counter >= 100)
+	if(stage < 5 && counter >= 120)
 		counter = 0
 		stage++
 		log_combat(affected_mob, null, "had their embryo advance to stage [stage]")
