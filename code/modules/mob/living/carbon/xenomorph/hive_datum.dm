@@ -531,30 +531,30 @@
 	return TRUE
 
 // helper function
-/datum/hive_status/proc/remove_from_lists(mob/living/carbon/xenomorph/X)
+/datum/hive_status/proc/remove_from_lists(mob/living/carbon/xenomorph/removed_xeno)
 	// Remove() returns 1 if it removes an element from a list
 
-	if(!xenos_by_tier[X.tier].Remove(X))
+	if(!xenos_by_tier[removed_xeno.tier].Remove(removed_xeno))
 		stack_trace("failed to remove a xeno from hive status tier list, nothing was removed!?")
 		return FALSE
 
-	if(!xenos_by_upgrade[X.upgrade].Remove(X))
+	if(!xenos_by_upgrade[removed_xeno.upgrade].Remove(removed_xeno))
 		stack_trace("trying to remove a xeno from hivestatus upgrade list, nothing was removed!?")
 		return FALSE
 
-	if(!xenos_by_typepath[X.xeno_caste.get_base_caste_type()])
+	if(!xenos_by_typepath[removed_xeno.xeno_caste.get_base_caste_type()])
 		stack_trace("trying to remove an invalid typepath from hivestatus list")
 		return FALSE
 
-	if(!xenos_by_typepath[X.xeno_caste.get_base_caste_type()].Remove(X))
+	if(!xenos_by_typepath[removed_xeno.xeno_caste.get_base_caste_type()].Remove(removed_xeno))
 		stack_trace("failed to remove a xeno from hive status typepath list, nothing was removed!?")
 		return FALSE
 
-	LAZYREMOVE(xenos_by_zlevel["[X.z]"], X)
+	LAZYREMOVE(xenos_by_zlevel["[removed_xeno.z]"], removed_xeno)
 
-	UnregisterSignal(X, COMSIG_MOVABLE_Z_CHANGED)
+	UnregisterSignal(removed_xeno, COMSIG_MOVABLE_Z_CHANGED)
 
-	remove_leader(X)
+	remove_leader(removed_xeno)
 	update_tier_limits() //Update our tier limits.
 
 	return TRUE
