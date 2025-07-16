@@ -207,7 +207,7 @@
 		qdel(src)
 		return
 
-/mob/living/simple_animal/hostile/smartdisc/death()
+/mob/living/simple_animal/hostile/smartdisc/death(gibbing = FALSE, deathmessage = "seizes up and falls limp...", silent = FALSE)
 	visible_message("\The [src] stops whirring and spins out onto the floor.")
 	drop_real_disc()
 	. = ..()

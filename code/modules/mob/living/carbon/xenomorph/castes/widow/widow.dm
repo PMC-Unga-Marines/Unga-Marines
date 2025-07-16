@@ -41,7 +41,7 @@
 		return
 	return ..()
 
-/mob/living/carbon/xenomorph/widow/death(gibbing, deathmessage, silent)
+/mob/living/carbon/xenomorph/widow/death(gibbing, deathmessage = "lets out a waning guttural screech, green blood bubbling from its maw.", silent)
 	unbuckle_all_mobs(TRUE) //RELEASE THE HORDE
 	return ..()
 
