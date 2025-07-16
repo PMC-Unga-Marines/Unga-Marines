@@ -770,7 +770,8 @@
 	return ..()
 
 /datum/action/ability/activable/xeno/xeno_spit/update_button_icon()
-	action_icon_state = "[initial(xeno_owner.ammo.icon_state)]"
+	if(xeno_owner)
+		action_icon_state = "[initial(xeno_owner.ammo.icon_state)]"
 	return ..()
 
 /datum/action/ability/activable/xeno/xeno_spit/action_activate()
