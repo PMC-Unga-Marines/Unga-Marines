@@ -277,8 +277,9 @@
 	return ..()
 
 /datum/action/ability/activable/xeno/secrete_resin/update_button_icon()
-	var/atom/A = xeno_owner.selected_resin
-	action_icon_state = initial(A.name)
+	if(xeno_owner)
+		var/atom/A = xeno_owner.selected_resin
+		action_icon_state = initial(A.name)
 	if(!is_gameplay_level(xeno_owner.loc.z))
 		return ..() // prevents runtimes
 	if(SSmonitor.gamestate == SHUTTERS_CLOSED && CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
