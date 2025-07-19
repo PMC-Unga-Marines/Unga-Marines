@@ -614,7 +614,10 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	if(turf_to_scan.density) //Handle wall hit.
 		ammo.on_hit_turf(turf_to_scan, src)
 		turf_to_scan.bullet_act(src)
-		return !(ammo.ammo_behavior_flags & AMMO_PASS_THROUGH_TURF)
+		for(var/atom/movable/thing_to_hit in turf_to_scan)
+			if(CHECK_BITFIELD(ammo.ammo_behavior_flags, AMMO_PASS_THROUGH_TURF) && !CHECK_BITFIELD(thing_to_hit.resistance_flags, BLOCK_PASSTHROUGH_PROJECTILES))
+				return FALSE
+			return TRUE
 
 	for(var/atom/movable/thing_to_hit in turf_to_scan)
 		if(!PROJECTILE_HIT_CHECK(thing_to_hit, src, cardinal_move, FALSE, hit_atoms))
@@ -622,7 +625,11 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 
 		thing_to_hit.do_projectile_hit(src)
 
-		if(ismob(thing_to_hit) && CHECK_BITFIELD(ammo.ammo_behavior_flags, AMMO_PASS_THROUGH_MOB) || CHECK_BITFIELD(ammo.ammo_behavior_flags, AMMO_PASS_THROUGH_MOVABLE) && !CHECK_BITFIELD(thing_to_hit.resistance_flags, BLOCK_PASSTHROUGH_PROJECTILES))
+		if(ismob(thing_to_hit) && CHECK_BITFIELD(ammo.ammo_behavior_flags, AMMO_PASS_THROUGH_MOB))
+			hit_atoms += thing_to_hit
+			return FALSE
+
+		if(CHECK_BITFIELD(ammo.ammo_behavior_flags, AMMO_PASS_THROUGH_MOVABLE) && !CHECK_BITFIELD(thing_to_hit.resistance_flags, BLOCK_PASSTHROUGH_PROJECTILES))
 			hit_atoms += thing_to_hit
 			return FALSE
 
