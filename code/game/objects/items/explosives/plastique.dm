@@ -168,11 +168,12 @@
 
 ///Triggers a warning beep prior to the actual detonation, while also setting the actual detonation timer
 /obj/item/explosive/plastique/proc/warning_sound()
-	if(armed)
-		playsound(plant_target, 'sound/items/countdown.ogg', 20, TRUE, 5)
-		detonation_pending = addtimer(CALLBACK(src, PROC_REF(detonate)), 27, TIMER_STOPPABLE)
-		alarm_sounded = TRUE
-		update_icon()
+	if(!armed)
+		return
+	playsound(plant_target, 'sound/items/countdown.ogg', 20, TRUE, 5)
+	detonation_pending = addtimer(CALLBACK(src, PROC_REF(detonate)), 27, TIMER_STOPPABLE)
+	alarm_sounded = TRUE
+	update_icon()
 
 ///Handles the effect of c4 on the atom - overridden as needed
 /atom/proc/plastique_act()
