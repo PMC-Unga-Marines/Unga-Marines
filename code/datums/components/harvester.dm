@@ -10,7 +10,7 @@
 	<b>Tips:</b><BR>\
 	> Needs to be connected to the Vali system to collect green blood. You can connect it though the Vali system's configurations menu.<BR>\
 	> Filled by liquid reagent containers. Emptied by using an empty liquid reagent container. Can also be filled by pills.<BR>\
-	> Press your unique action key (SPACE by default) to load a single-use of the reagent effect after the blade has been filled up.<BR>"
+	> Press your unique action key (SPACE by default) to load a single-use of the reagent effect after the blade has been filled up.<BR><BR>"
 
 /datum/component/harvester
 	///reagent selected for actions
@@ -81,7 +81,7 @@
 
 	examine_list += "<b>Compatible chemicals:</b>"
 	for(var/datum/reagent/reagent AS in loadable_reagents)
-		examine_list += "<span style='color:[initial(reagent.color)];font-weight:bold'>[initial(reagent.name)]</span>\n"
+		examine_list += "<span style='color:[initial(reagent.color)];font-weight:bold'>[initial(reagent.name)]</span>"
 
 
 ///Adds mechanics info to the weapon
