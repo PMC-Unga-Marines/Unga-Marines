@@ -28,13 +28,6 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_LIGHT_STEP, XENO_TRAIT)
 
-/mob/living/carbon/xenomorph/runner/set_stat()
-	. = ..()
-	if(isnull(.))
-		return
-	if(. == CONSCIOUS && layer != initial(layer))
-		layer = MOB_LAYER
-
 /mob/living/carbon/xenomorph/runner/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
 	if(!ishuman(over))
