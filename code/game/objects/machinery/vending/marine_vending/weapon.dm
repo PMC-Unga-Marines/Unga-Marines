@@ -45,6 +45,7 @@
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
 			/obj/item/weapon/gun/rifle/sniper/svd = -1,
 			/obj/item/ammo_magazine/sniper/svd = -1,
+			/obj/item/ammo_magazine/rifle/br64 = -1,
 		),
 		"Энергетическое" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
@@ -202,6 +203,7 @@
 			/obj/item/ammo_magazine/packet/groza = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm = -1,
 			/obj/item/ammo_magazine/packet/p10x26mm = -1,
+			/obj/item/ammo_magazine/packet/p10x265mm = -1,
 			/obj/item/ammo_magazine/packet/p10x27mm = -1,
 			/obj/item/ammo_magazine/packet/p86x70mm = -1,
 			/obj/item/ammo_magazine/packet/p602x41 = -1,
@@ -295,6 +297,7 @@
 			/obj/item/ammo_magazine/rifle/sr127 = -1,
 			/obj/item/weapon/gun/rifle/sniper/svd = -1,
 			/obj/item/ammo_magazine/sniper/svd = -1,
+			/obj/item/ammo_magazine/rifle/br64 = -1,
 		),
 		"Дробовики" = list(
 			/obj/item/weapon/gun/shotgun/pump/t35 = -1,
@@ -427,6 +430,7 @@
 			/obj/item/ammo_magazine/packet/groza = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm = -1,
 			/obj/item/ammo_magazine/packet/p10x26mm = -1,
+			/obj/item/ammo_magazine/packet/p10x265mm = -1,
 			/obj/item/ammo_magazine/packet/p10x27mm = -1,
 			/obj/item/ammo_magazine/packet/p86x70mm = -1,
 			/obj/item/ammo_magazine/packet/p602x41 = -1,
@@ -512,6 +516,7 @@
 			/obj/item/ammo_magazine/sniper/svd = -1,
 			/obj/item/weapon/gun/revolver/r44/coltrifle = -1,
 			/obj/item/ammo_magazine/revolver/rifle = -1,
+			/obj/item/ammo_magazine/rifle/br64 = -1,
 		),
 		"Энергетическое" = list(
 			/obj/item/cell/lasgun/lasrifle = -1,
@@ -687,6 +692,7 @@
 			/obj/item/ammo_magazine/packet/groza = -1,
 			/obj/item/ammo_magazine/packet/p10x25mm = -1,
 			/obj/item/ammo_magazine/packet/p10x26mm = -1,
+			/obj/item/ammo_magazine/packet/p10x265mm = -1,
 			/obj/item/ammo_magazine/packet/p10x27mm = -1,
 			/obj/item/ammo_magazine/packet/p86x70mm = -1,
 			/obj/item/ammo_magazine/packet/p602x41 = -1,
