@@ -1,12 +1,13 @@
 /datum/job/predator
 	title = JOB_PREDATOR
-	job_category = JOB_PREDATOR
+	job_category = JOB_CAT_YAUTJA
 	job_flags = JOB_FLAG_OVERRIDELATEJOINSPAWN|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_SHOW_OPEN_POSITIONS
 	supervisors = "Ancients"
 	outfit = /datum/outfit/job/yautja/blooded
 	skills_type = /datum/skills/yautja/warrior
 	faction = FACTION_YAUTJA
 	minimap_icon = "predator"
+	display_order = JOB_DISPLAY_ORDER_PREDATOR
 
 	total_positions = 0
 	max_positions = 0
