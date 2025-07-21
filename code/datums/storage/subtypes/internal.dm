@@ -358,6 +358,12 @@
 	storage_slots = null
 	max_storage_space = 15
 	max_w_class = WEIGHT_CLASS_NORMAL
+	access_delay = 1.5 SECONDS
+
+/datum/storage/internal/integrated/should_access_delay(obj/item/item, mob/user, taking_out) //defaults to 0
+	if(!taking_out) // Always allow items to be tossed in instantly
+		return FALSE
+	return TRUE
 
 /datum/storage/internal/grenade
 	max_storage_space = 12
