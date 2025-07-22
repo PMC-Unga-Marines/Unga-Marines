@@ -12,7 +12,8 @@
 	bullet_color = COLOR_VERY_SOFT_YELLOW
 
 /datum/ammo/mortar/drop_nade(turf/target_turf)
-	cell_explosion(target_turf, 90, 30)
+	cell_explosion(target_turf, 200, 50)
+	create_shrapnel(target_turf, 15, shrapnel_type = /datum/ammo/bullet/shrapnel/metal)
 
 /datum/ammo/mortar/do_at_max_range(turf/target_turf, obj/projectile/proj)
 	drop_nade(target_turf)
@@ -28,7 +29,7 @@
 	shell_speed = 0.75
 
 /datum/ammo/mortar/knee/drop_nade(turf/target_turf)
-	cell_explosion(target_turf, 80, 30)
+	cell_explosion(target_turf, 120, 30)
 
 /datum/ammo/mortar/smoke
 	///the smoke effect at the point of detonation
@@ -53,7 +54,7 @@
 	icon_state = "howi"
 
 /datum/ammo/mortar/howi/drop_nade(turf/target_turf)
-	cell_explosion(target_turf, 200, 100)
+	cell_explosion(target_turf, 375, 50)
 
 /datum/ammo/mortar/howi/incend/drop_nade(turf/target_turf)
 	cell_explosion(target_turf, 45, 30)
