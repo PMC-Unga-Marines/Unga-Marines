@@ -129,7 +129,7 @@
 	worn_icon_state = "helmet"
 	species_exception = list(/datum/species/robot)
 	item_map_variant_flags = (ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_PRISON_VARIANT)
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
+	soft_armor = MARINE_ARMOR_HEAVY
 
 	colorable_colors = ARMOR_PALETTES_LIST
 	colorable_allowed = PRESET_COLORS_ALLOWED
@@ -176,7 +176,7 @@
 	name = "XN-1-L upper armor plating"
 	desc = "Light armor plating designed for self mounting on the upper half of TerraGov combat robotics. It has self-sealing bolts for mounting on robotic owners inside."
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/armor/visor/marine/robot/light)
-	soft_armor = list(MELEE = 40, BULLET = 55, LASER = 55, ENERGY = 50, BOMB = 40, BIO = 45, FIRE = 45, ACID = 50)
+	soft_armor = MARINE_ARMOR_HEAVY
 	greyscale_config = /datum/greyscale_config/robot/light
 
 /obj/item/clothing/head/modular/robot/light/motion_detector
@@ -186,7 +186,7 @@
 	name = "XN-1-H upper armor plating"
 	desc = "Heavy armor plating designed for self mounting on the upper half of TerraGov combat robotics. It has self-sealing bolts for mounting on robotic owners inside."
 	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/armor/visor/marine/robot/heavy)
-	soft_armor = list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 55, BOMB = 50, BIO = 50, FIRE = 50, ACID = 55)
+	soft_armor = MARINE_ARMOR_HEAVY
 	greyscale_config = /datum/greyscale_config/robot/heavy
 
 /obj/item/clothing/head/modular/robot/heavy/tyr

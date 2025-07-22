@@ -216,7 +216,7 @@
 	name = "\improper M10X pattern marine helmet"
 	desc = "A standard M10 Pattern Helmet with attach points. It reads on the label, 'The difference between an open-casket and closed-casket funeral. Wear on head for best results.'."
 	worn_icon_state_worn = TRUE
-	soft_armor = MARINE_ARMOR_MEDIUM
+	soft_armor = MARINE_ARMOR_HEAVY
 	starting_attachments = list(/obj/item/armor_module/storage/helmet)
 	item_map_variant_flags = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_DESERT_VARIANT
 
