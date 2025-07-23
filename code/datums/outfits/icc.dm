@@ -213,7 +213,6 @@
 		/obj/item/storage/box/m94 = 1,
 		/obj/item/weapon/gun/pistol/icc_dpistol = 1,
 		/obj/item/ammo_magazine/pistol/icc_dpistol = 1,
-		/obj/item/ammo_magazine/smg/icc_machinepistol = 3,
 	)
 
 /datum/outfit/job/icc/medic/icc_sharpshooter
