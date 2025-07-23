@@ -35,22 +35,6 @@
 		return "wounded_crest_[severity]"
 
 // ***************************************
-// *********** Life overrides
-// ***************************************
-/mob/living/carbon/xenomorph/defender/set_stat()
-	. = ..()
-	if(isnull(.))
-		return
-	if(. == CONSCIOUS && fortify) //No longer conscious.
-		//Fortify prevents dragging due to the anchor component. // TODO: Unshitcode me
-		if(actions_by_path[/datum/action/ability/xeno_action/fortify])
-			var/datum/action/ability/xeno_action/fortify/FT = actions_by_path[/datum/action/ability/xeno_action/fortify]
-			FT.set_fortify(FALSE)
-		else if(actions_by_path[/datum/action/ability/xeno_action/fortify/steel_crest])
-			var/datum/action/ability/xeno_action/fortify/FT = actions_by_path[/datum/action/ability/xeno_action/fortify/steel_crest]
-			FT.set_fortify(FALSE)
-
-// ***************************************
 // *********** Mob overrides
 // ***************************************
 

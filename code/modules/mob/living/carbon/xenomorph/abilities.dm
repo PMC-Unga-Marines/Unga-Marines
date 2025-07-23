@@ -914,7 +914,7 @@
 	)
 
 /datum/action/ability/xeno_action/xenohide/remove_action(mob/living/L)
-	UnregisterSignal(L, COMSIG_XENOMORPH_POUNCE)
+	UnregisterSignal(L, list(COMSIG_XENOMORPH_POUNCE, COMSIG_MOB_CRIT, COMSIG_MOB_DEATH))
 	return ..()
 
 /datum/action/ability/xeno_action/xenohide/can_use_action(silent, override_flags)
@@ -926,15 +926,22 @@
 
 /datum/action/ability/xeno_action/xenohide/action_activate()
 	if(xeno_owner.layer != XENO_HIDING_LAYER)
-		RegisterSignal(xeno_owner, COMSIG_XENOMORPH_POUNCE, PROC_REF(action_activate))
+		RegisterSignals(xeno_owner, list(COMSIG_XENOMORPH_POUNCE, COMSIG_MOB_CRIT, COMSIG_MOB_DEATH), PROC_REF(unhide))
 		xeno_owner.layer = XENO_HIDING_LAYER
 		to_chat(xeno_owner, span_notice("We are now hiding."))
 		button.add_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE))
 	else
-		UnregisterSignal(xeno_owner, COMSIG_XENOMORPH_POUNCE)
+		UnregisterSignal(xeno_owner, list(COMSIG_XENOMORPH_POUNCE, COMSIG_MOB_CRIT, COMSIG_MOB_DEATH))
 		xeno_owner.layer = MOB_LAYER
 		to_chat(xeno_owner, span_notice("We have stopped hiding."))
 		button.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE))
+
+/datum/action/ability/xeno_action/xenohide/proc/unhide()
+	SIGNAL_HANDLER
+	UnregisterSignal(xeno_owner, list(COMSIG_XENOMORPH_POUNCE, COMSIG_MOB_CRIT, COMSIG_MOB_DEATH))
+	xeno_owner.layer = MOB_LAYER
+	to_chat(xeno_owner, span_notice("We have stopped hiding."))
+	button.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE))
 
 //Neurotox Sting
 /datum/action/ability/activable/xeno/neurotox_sting

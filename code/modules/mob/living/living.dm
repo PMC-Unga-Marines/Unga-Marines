@@ -762,6 +762,8 @@
 		if(CONSCIOUS) //From unconscious to conscious.
 			REMOVE_TRAIT(src, TRAIT_IMMOBILE, STAT_TRAIT)
 			REMOVE_TRAIT(src, TRAIT_FLOORED, STAT_TRAIT)
+		if(UNCONSCIOUS)
+			SEND_SIGNAL(src, COMSIG_MOB_CRIT)
 		if(DEAD)
 			on_death()
 

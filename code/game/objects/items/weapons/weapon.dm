@@ -27,3 +27,39 @@
 	if(target == user && !user.do_self_harm)
 		return
 	return ..()
+
+/obj/item/weapon/get_mechanics_info()
+	. = ..()
+	if(isgun(src))
+		return // no melee weapon info for guns
+
+	var/list/weapon_strings = list()
+
+	var/list/entries = SScodex.retrieve_entries_for_string(name)
+	var/datum/codex_entry/general_entry = LAZYACCESS(entries, 1)
+	if(general_entry?.mechanics_text)
+		weapon_strings += general_entry.mechanics_text + "<br>"
+
+	weapon_strings += "Melee damage: [force]"
+	if(CHECK_BITFIELD(item_flags, TWOHANDED))
+		var/obj/item/weapon/twohanded/our_weapon = src // yeah...
+		weapon_strings += "Melee damage while wielded: [our_weapon.force_wielded]"
+	weapon_strings += "Time between attacks: [attack_speed] milliseconds."
+	weapon_strings += "Armor penetration: [penetration]"
+	weapon_strings += "On throw damage: [throwforce]"
+	weapon_strings += "Maximum throw range: [throw_range]"
+	weapon_strings += "Throwing speed: [throw_speed]"
+	weapon_strings += "Attack distance: [reach] tiles."
+	var/sharpness = "dull"
+	switch(sharp)
+		if(IS_SHARP_ITEM_SIMPLE)
+			sharpness = "almost dull"
+		if(IS_SHARP_ITEM_ACCURATE)
+			sharpness = "sharp"
+		if(IS_SHARP_ITEM_BIG)
+			sharpness = "very sharp"
+	weapon_strings += "It is [sharpness]."
+	if(edge)
+		weapon_strings += "It has a sharp edge."
+
+	. += jointext(weapon_strings, "<br>")

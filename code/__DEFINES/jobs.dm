@@ -27,6 +27,7 @@
 #define JOB_DISPLAY_ORDER_CORPORATE_LIAISON 23
 #define JOB_DISPLAY_ORDER_CLOWN 24
 #define JOB_DISPLAY_ORDER_MILITARY_POLICE 25
+#define JOB_DISPLAY_ORDER_PREDATOR 26
 
 #define JOB_FLAG_SPECIALNAME (1<<0)
 #define JOB_FLAG_LATEJOINABLE (1<<1) //Can this job be selected for prefs to join as?
@@ -81,6 +82,7 @@
 #define JOB_CAT_CIVILIAN "Civilian"
 #define JOB_CAT_MARINE "Marine"
 #define JOB_CAT_XENO "Xenomorph"
+#define JOB_CAT_YAUTJA "Yautja"
 #define JOB_CAT_UNASSIGNED "Unassigned"
 
 #define JOB_COMM_TITLE_SQUAD_LEADER "SL"
