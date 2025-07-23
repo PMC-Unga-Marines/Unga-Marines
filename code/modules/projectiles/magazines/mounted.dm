@@ -58,7 +58,7 @@
 	desc = "A box holding 30 40mm caseless HE grenades for the AGLS-37 automatic grenade launcher."
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/obj/items/ammo/stationary.dmi'
-	icon_state = "ags"
+	icon_state = "agls"
 	magazine_flags = NONE
 	caliber = CALIBER_40MM
 	max_rounds = 30
@@ -68,31 +68,31 @@
 /obj/item/ammo_magazine/agls37/fragmentation
 	name = "AGLS-37 Frag magazine (40mm Caseless)"
 	desc = "A box holding 30 40mm caseless Fragmentation grenades for the AGLS-37 automatic grenade launcher."
-	icon_state = "ags_frag"
+	icon_state = "agls_frag"
 	default_ammo = /datum/ammo/ags_shrapnel
 
 /obj/item/ammo_magazine/agls37/incendiary
 	name = "AGLS-37 WP magazine (40mm Caseless)"
 	desc = "A box holding 30 40mm caseless White Phosphorous grenades for the AGLS-37 automatic grenade launcher."
-	icon_state = "ags_incend"
+	icon_state = "agls_incend"
 	default_ammo = /datum/ammo/ags_shrapnel/incendiary
 
 /obj/item/ammo_magazine/agls37/flare
 	name = "AGLS-37 Flare magazine (40mm Caseless)"
 	desc = "A box holding 30 40mm caseless Flare grenades for the AGLS-37 automatic grenade launcher."
-	icon_state = "ags_flare"
+	icon_state = "agls_flare"
 	default_ammo = /datum/ammo/grenade_container/agls37/flare
 
 /obj/item/ammo_magazine/agls37/cloak
 	name = "AGLS-37 Cloak magazine (40mm Caseless)"
 	desc = "A box holding 30 40mm caseless Cloak grenades for the AGLS-37 automatic grenade launcher."
-	icon_state = "ags_cloak"
+	icon_state = "agls_cloak"
 	default_ammo = /datum/ammo/grenade_container/agls37/cloak
 
 /obj/item/ammo_magazine/agls37/tanglefoot
 	name = "AGLS-37 Tanglefoot magazine (40mm Caseless)"
 	desc = "A box holding 30 40mm caseless Tanglefoot grenades for the AGLS-37 automatic grenade launcher."
-	icon_state = "ags_pgas"
+	icon_state = "agls_pgas"
 	default_ammo = /datum/ammo/grenade_container/agls37/tanglefoot
 
 /obj/item/ammo_magazine/at36

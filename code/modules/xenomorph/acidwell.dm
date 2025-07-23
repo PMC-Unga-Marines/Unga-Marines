@@ -155,7 +155,7 @@
 
 /obj/structure/xeno/acidwell/proc/on_cross(datum/source, atom/movable/A, oldloc, oldlocs)
 	SIGNAL_HANDLER
-	if(CHECK_MULTIPLE_BITFIELDS(A.allow_pass_flags, HOVERING))
+	if(CHECK_BITFIELD(A.pass_flags, PASS_LOW_STRUCTURE) && !isxeno(A))
 		return
 	if(iscarbon(A))
 		HasProximity(A)

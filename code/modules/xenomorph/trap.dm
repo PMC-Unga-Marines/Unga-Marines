@@ -101,6 +101,8 @@
 		return
 	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 	if(iscarbon(AM))
+		if(CHECK_BITFIELD(AM.pass_flags, PASS_LOW_STRUCTURE))
+			return
 		var/mob/living/carbon/crosser = AM
 		crosser.visible_message(span_warning("[crosser] trips on [src]!"), span_danger("You trip on [src]!"))
 		crosser.ParalyzeNoChain(4 SECONDS)

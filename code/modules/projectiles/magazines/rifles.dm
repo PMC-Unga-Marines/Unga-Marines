@@ -175,6 +175,38 @@
 	aim_speed_mod = 0.2
 	wield_delay_mod = 0.2
 
+// Marine mags for AK
+/obj/item/ammo_magazine/rifle/type16
+	name = "\improper Type-16 rifle magazine (6.02x41)"
+	desc = "A 40 round 6.02x41mm magazine."
+	caliber = CALIBER_602X41
+	icon_state = "ak_40"
+	icon_state_mini = "mag_rifle_brown"
+	bonus_overlay = "ak_40"
+	default_ammo = /datum/ammo/bullet/rifle/type16
+	max_rounds = 40
+	scatter_mod = 2
+	wield_delay_mod = 0.5 SECONDS
+
+/obj/item/ammo_magazine/rifle/type16/m2
+	name = "\improper Type-16 сarbine magazine (6.02x41)"
+	desc = "A 30 round 6.02x41mm cal magazine."
+	icon_state = "ak_30_black"
+	icon_state_mini = "mag_rifle"
+	bonus_overlay = "ak_30_black"
+	max_rounds = 30
+	scatter_mod = 0
+	wield_delay_mod = 0
+
+/obj/item/ammo_magazine/rifle/type16/extended
+	name = "\improper Type-16 extended magazine (6.02x41)"
+	desc = "A 50 round 6.02x41mm cal magazine."
+	icon_state = "ak47_ext"
+	icon_state_mini = "mag_rifle"
+	bonus_overlay = "ak47_ex"
+	max_rounds = 50
+	wield_delay_mod = 1 SECONDS
+
 // RPD
 
 /obj/item/ammo_magazine/rifle/lmg_d
