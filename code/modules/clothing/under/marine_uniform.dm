@@ -586,6 +586,16 @@
 		"Down" = "_d",
 	)
 
+/obj/item/clothing/under/marine/bravo_havai
+	name = "\improper Bravo Hawaiian shirt"
+	desc = "A comfortable shirt for drinking beer on the beaches of LV, the label on the back says: 'Exclusive to Bravo, made by Chinese Children'"
+	icon_state = "bhavai"
+	worn_icon_state = "bhavai"
+	adjustment_variants = list(
+		"Rolled Sleeves" = "_h",
+		"No Sleeves" = "_d",
+	)
+
 /obj/item/clothing/under/marine/whites/blacks
 	name = "\improper TGMC black dress uniform"
 	desc = "A standard-issue TerraGov Marine Corps black dress uniform. The starch in the fabric chafes a small amount but it pales in comparison to the pride you feel when you first put it on during graduation from boot camp. Doesn't seem to fit perfectly around the waist though."
