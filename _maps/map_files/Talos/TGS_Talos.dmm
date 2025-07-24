@@ -11037,6 +11037,7 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
 	},
+/obj/machinery/vending/boozeomat/gold,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
 "gyt" = (
