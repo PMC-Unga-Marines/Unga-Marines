@@ -280,7 +280,7 @@
 	if(xeno_owner)
 		var/atom/A = xeno_owner.selected_resin
 		action_icon_state = initial(A.name)
-	if(!is_gameplay_level(xeno_owner?.loc.z))
+	if(!is_gameplay_level(xeno_owner?.loc?.z))
 		return ..() // prevents runtimes
 	if(SSmonitor.gamestate == SHUTTERS_CLOSED && CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
 		button.cut_overlay(visual_references[VREF_MUTABLE_BUILDING_COUNTER])
