@@ -420,7 +420,8 @@
 
 /datum/action/ability/xeno_action/sow/update_button_icon()
 	button.overlays.Cut()
-	button.overlays += image('icons/Xeno/actions/hivelord.dmi', button, initial(xeno_owner.selected_plant.name))
+	if(xeno_owner)
+		button.overlays += image('icons/Xeno/actions/hivelord.dmi', button, initial(xeno_owner.selected_plant.name))
 	return ..()
 
 ///Shows a radial menu to pick the plant they wish to put down when they use the ability
