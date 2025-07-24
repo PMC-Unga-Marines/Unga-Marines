@@ -543,6 +543,7 @@
 	l_pocket_contents = list(
 		/obj/item/ammo_magazine/rifle/vsd_rifle = 2,
 	)
+	head_contents = null
 
 /datum/outfit/job/vsd/leader/two
 	head = /obj/item/clothing/head/helmet/marine/vsd

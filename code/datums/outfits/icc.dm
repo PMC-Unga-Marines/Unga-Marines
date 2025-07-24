@@ -142,6 +142,7 @@
 	l_pocket_contents = list(
 		/obj/item/ammo_magazine/rifle/icc_autoshotgun/frag = 3,
 	)
+	backpack_contents = null
 
 /datum/outfit/job/icc/guard/icc_bagmg
 	wear_suit = /obj/item/clothing/suit/storage/marine/icc/guard/heavy
