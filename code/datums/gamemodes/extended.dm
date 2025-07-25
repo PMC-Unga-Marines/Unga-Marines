@@ -1,7 +1,7 @@
 /datum/game_mode/extended
 	name = "Extended"
 	config_tag = "Extended"
-	xeno_abilities_flags = ABILITY_NUCLEARWAR
+	xeno_abilities_flags = ABILITY_DISTRESS
 	valid_job_types = list(
 		/datum/job/terragov/command/captain = 1,
 		/datum/job/terragov/command/fieldcommander = 1,
