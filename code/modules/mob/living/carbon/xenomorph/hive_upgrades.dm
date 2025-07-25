@@ -179,7 +179,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	desc = "Constructs a silo that generates xeno larvas over time."
 	psypoint_cost = SILO_PRICE
 	icon = "larvasilo"
-	upgrade_flags = ABILITY_DISTRESS
+	gamemode_flags = ABILITY_DISTRESS
 	building_type = /obj/structure/xeno/silo
 
 /datum/hive_upgrade/building/silo/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
@@ -210,10 +210,9 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/building/evotower
 	name = "Evolution Tower"
-	desc = "Constructs a tower that increases the rate of evolution point and maturity point generation by 1.5 per tower."
+	desc = "Constructs a tower that increases the rate of evolution point generation by 1.5 per tower."
 	psypoint_cost = 300
 	icon = "evotower"
-	upgrade_flags = ABILITY_DISTRESS
 	building_type = /obj/structure/xeno/evotower
 
 /datum/hive_upgrade/building/psychictower
@@ -221,7 +220,6 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	desc = "Constructs a tower that increases the number of available slots of higher tier castes."
 	psypoint_cost = 300
 	icon = "maturitytower"
-	upgrade_flags = ABILITY_DISTRESS
 	building_type = /obj/structure/xeno/psychictower
 
 /datum/hive_upgrade/building/pherotower
@@ -229,20 +227,17 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	desc = "Constructs a tower that emanates a selectable type of pheromone."
 	psypoint_cost = 150
 	icon = "pherotower"
-	upgrade_flags = ABILITY_DISTRESS
 	building_type = /obj/structure/xeno/pherotower
 	building_time = 5 SECONDS
 
 /datum/hive_upgrade/building/spawner
 	name = "Spawner"
-	desc = "Constructs a spawner that generates ai xenos over time"
+	desc = "Constructs a spawner that spawns minions over time."
 	psypoint_cost = 600
 	icon = "spawner"
-	upgrade_flags = ABILITY_DISTRESS
 	building_type = /obj/structure/xeno/spawner
 
 /datum/hive_upgrade/building/upgrade_chamber
-	upgrade_flags = ABILITY_DISTRESS
 	var/max_chambers = 3
 
 /datum/hive_upgrade/building/upgrade_chamber/shell
