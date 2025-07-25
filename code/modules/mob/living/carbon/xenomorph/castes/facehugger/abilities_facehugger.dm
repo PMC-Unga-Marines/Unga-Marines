@@ -30,7 +30,7 @@
 	xeno_owner.pass_flags = initial(xeno_owner.pass_flags)
 	xeno_owner.icon_state = "[xeno_owner.xeno_caste.caste_name] Walking"
 	xeno_owner.set_throwing(FALSE)
-	UnregisterSignal(owner, list(COMSIG_XENO_OBJ_THROW_HIT, COMSIG_MOVABLE_POST_THROW, COMSIG_XENO_LIVING_THROW_HIT))
+	UnregisterSignal(owner, list(COMSIG_XENO_OBJ_THROW_HIT, COMSIG_MOVABLE_POST_THROW, COMSIG_XENOMORPH_LEAP_BUMP))
 
 /datum/action/ability/activable/xeno/pounce_hugger/proc/obj_hit(datum/source, obj/target, speed)
 	SIGNAL_HANDLER

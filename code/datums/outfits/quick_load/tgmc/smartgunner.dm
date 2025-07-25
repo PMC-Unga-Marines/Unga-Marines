@@ -70,7 +70,7 @@
 	backpack_contents = list(
 		/obj/item/ammo_magazine/rifle/sg153/incendiary = 2,
 		/obj/item/ammo_magazine/rifle/sg153/tungsten = 2,
-		/obj/item/ammo_magazine/pistol/vp70 = 3,
+		/obj/item/ammo_magazine/pistol/vp70 = 2,
 		/obj/item/weapon/gun/pistol/vp70/tactical = 1,
 	)
 	webbing_contents = list(

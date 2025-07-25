@@ -27,7 +27,7 @@
 /mob/proc/dust_animation()
 	return
 
-/mob/proc/death(gibbing, deathmessage = "seizes up and falls limp...", silent)
+/mob/proc/death(gibbing = FALSE, deathmessage = "seizes up and falls limp...", silent = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
 	if(SEND_SIGNAL(src, COMSIG_MOB_PRE_DEATH, FALSE) & COMPONENT_CANCEL_DEATH)
 		return FALSE

@@ -78,7 +78,7 @@ GLOBAL_LIST_INIT(strippable_parrot_items, create_strippable_list(list(/datum/str
 
 	AddElement(/datum/element/strippable, GLOB.strippable_parrot_items)
 
-/mob/living/simple_animal/parrot/death(gibbing, deathmessage, silent)
+/mob/living/simple_animal/parrot/death(gibbing = FALSE, deathmessage = "seizes up and falls limp...", silent = FALSE)
 	if(stat == DEAD)
 		return ..()
 	if(held_item)
