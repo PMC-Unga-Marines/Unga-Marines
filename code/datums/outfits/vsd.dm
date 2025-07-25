@@ -441,12 +441,12 @@
 	)
 
 /datum/outfit/job/vsd/spec/uslspec_one
-	w_uniform = /obj/item/clothing/under/vsd/upp
+	w_uniform = /obj/item/clothing/under/vsd/upp/webbing
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor/upp
 	head = /obj/item/clothing/head/helmet/marine/vsd/upp
 	mask = /obj/item/clothing/mask/gas/vsd
 	suit_store = /obj/item/weapon/gun/rifle/type71/flamer
-	l_pocket = /obj/item/storage/pouch/magazine
+	l_pocket = /obj/item/storage/pouch/general/large
 
 	webbing_contents = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 1,
@@ -463,7 +463,7 @@
 		/obj/item/explosive/plastique = 2,
 	)
 	l_pocket_contents = list(
-		/obj/item/ammo_magazine/flamer_tank/mini = 2,
+		/obj/item/ammo_magazine/flamer_tank/mini = 3,
 	)
 	belt_contents = list(
 		/obj/item/ammo_magazine/pistol/vsd_pistol = 6,
@@ -471,7 +471,7 @@
 	)
 
 /datum/outfit/job/vsd/spec/uslspec_two
-	w_uniform = /obj/item/clothing/under/vsd/upp
+	w_uniform = /obj/item/clothing/under/vsd/upp/webbing
 	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor/upp
 	head = /obj/item/clothing/head/uppcap/beret
 	glasses = /obj/item/clothing/glasses/sunglasses/fake

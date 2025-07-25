@@ -272,6 +272,7 @@
 		/obj/item/explosive/grenade = 4,
 		/obj/item/explosive/grenade/incendiary = 2,
 	)
+	suit_contents = null
 
 /datum/outfit/job/freelancer/leader/three
 	wear_suit = /obj/item/clothing/suit/storage/faction/freelancer/leader/three
