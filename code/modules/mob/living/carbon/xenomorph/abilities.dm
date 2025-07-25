@@ -1192,7 +1192,7 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HEADBITE,
 	)
-	gamemode_flags = ABILITY_NUCLEARWAR
+	gamemode_flags = ABILITY_DISTRESS|ABILITY_CRASH
 	ability_cost = 100
 	///How much larva points it gives (8 points for one larva in distress)
 	var/larva_point_reward = 1
@@ -1265,16 +1265,21 @@
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_HIVE_TARGET_DRAINED, xeno_owner)
 		psy_points_reward = psy_points_reward * 3
 	SSpoints.add_psy_points(xeno_owner.hivenumber, psy_points_reward)
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
-	xeno_job.add_job_points(larva_point_reward)
-	xeno_owner.hive.update_tier_limits()
-	GLOB.round_statistics.larva_from_psydrain +=larva_point_reward / xeno_job.job_points_needed
+
+	if(SSticker.mode && !CHECK_BITFIELD(SSticker.mode.xeno_abilities_flags, ABILITY_CRASH))
+		var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+		xeno_job.add_job_points(larva_point_reward)
+		xeno_owner.hive.update_tier_limits()
+		GLOB.round_statistics.larva_from_psydrain += larva_point_reward / xeno_job.job_points_needed
 
 	if(owner.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.drained++
 	log_combat(victim, owner, "was drained.")
 	log_game("[key_name(victim)] was drained at [AREACOORD(victim.loc)].")
+
+/datum/action/ability/activable/xeno/psydrain/free
+	ability_cost = 0
 
 /////////////////////////////////
 // Cocoon
@@ -1289,7 +1294,7 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_REGURGITATE,
 	)
 	ability_cost = 100
-	gamemode_flags = ABILITY_NUCLEARWAR
+	gamemode_flags = ABILITY_DISTRESS|ABILITY_CRASH
 	///In how much time the cocoon will be ejected
 	var/cocoon_production_time = 3 SECONDS
 
