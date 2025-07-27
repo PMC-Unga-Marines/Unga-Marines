@@ -588,7 +588,7 @@
 
 /obj/item/clothing/under/marine/bravo_havai
 	name = "\improper Bravo Hawaiian shirt"
-	desc = "A comfortable shirt for drinking beer on the beaches of LV, the label on the back says: 'Exclusive to Bravo, made by Chinese Children'"
+	desc = "A comfortable shirt for drinking beer on the beaches of LV, the label on the back says: 'Exclusive to Bravo, made by Chinese Colonian Children'"
 	icon_state = "bhavai"
 	worn_icon_state = "bhavai"
 	adjustment_variants = list(
