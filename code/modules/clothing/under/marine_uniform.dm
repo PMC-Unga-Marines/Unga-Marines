@@ -586,7 +586,7 @@
 		"Down" = "_d",
 	)
 
-/obj/item/clothing/under/marine/bravo_havai
+new /obj/item/clothing/under/marine/bravo_hawaii
 	name = "\improper Bravo Hawaiian shirt"
 	desc = "A comfortable shirt for drinking beer on the beaches of LV, the label on the back says: 'Exclusive to Bravo, made by Chinese Children'"
 	icon_state = "bhavai"
