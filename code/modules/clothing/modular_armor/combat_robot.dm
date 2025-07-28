@@ -11,7 +11,7 @@
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 
 	colorable_colors = ARMOR_PALETTES_LIST
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	colorable_allowed = CUSTOM_COLOR_ALLOWED|PRESET_COLORS_ALLOWED
 	greyscale_config = /datum/greyscale_config/robot
 	greyscale_colors = ARMOR_PALETTE_DRAB
 
@@ -132,7 +132,7 @@
 	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 55, BIO = 55, FIRE = 55, ACID = 60)
 
 	colorable_colors = ARMOR_PALETTES_LIST
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	colorable_allowed = CUSTOM_COLOR_ALLOWED|PRESET_COLORS_ALLOWED
 	greyscale_config = /datum/greyscale_config/robot
 	greyscale_colors = ARMOR_PALETTE_DRAB
 

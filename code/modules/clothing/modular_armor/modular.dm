@@ -357,7 +357,7 @@
 	)
 
 	colorable_colors = ARMOR_PALETTES_LIST
-	colorable_allowed = PRESET_COLORS_ALLOWED|HAIR_CONCEALING_CHANGE_ALLOWED
+	colorable_allowed = CUSTOM_COLOR_ALLOWED|PRESET_COLORS_ALLOWED|HAIR_CONCEALING_CHANGE_ALLOWED
 
 	///Pixel offset on the X axis for how the helmet sits on the mob without a visor.
 	var/visorless_offset_x = 0

@@ -142,7 +142,7 @@
 	attach_features_flags = ATTACH_REMOVABLE|ATTACH_SAME_ICON|ATTACH_APPLY_ON_MOB
 	item_map_variant_flags = ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_PRISON_VARIANT
 	colorable_colors = ARMOR_PALETTES_LIST
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	colorable_allowed = CUSTOM_COLOR_ALLOWED|PRESET_COLORS_ALLOWED
 	///If TRUE, this armor piece can be recolored when its parent is right clicked by facepaint.
 	var/secondary_color = FALSE
 

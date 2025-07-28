@@ -1424,6 +1424,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	var/list/selection_list = list()
 	if(colorable_allowed & COLOR_WHEEL_ALLOWED)
 		selection_list += COLOR_WHEEL
+	if(colorable_allowed & CUSTOM_COLOR_ALLOWED)
+		selection_list += CUSTOM_COLOR
 	if(colorable_allowed & PRESET_COLORS_ALLOWED && length(colorable_colors)>1)
 		selection_list += PRESET_COLORS
 	if(colorable_allowed & ICON_STATE_VARIANTS_ALLOWED && (length(icon_state_variants)>1))
@@ -1473,6 +1475,70 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				new_color = colorable_colors[color_selection]
 		if(COLOR_WHEEL)
 			new_color = input(user, "Pick a color", "Pick color") as null|color
+		if(CUSTOM_COLOR)
+			var/expected_length = 0
+			if("Default Armor" in colorable_colors)
+				expected_length = 35
+			if("Default Visors" in colorable_colors)
+				expected_length = 21
+			if("Default Colors" in colorable_colors)
+				expected_length = 28
+			var/example_str = ""
+			for(var/i = 1; i <= expected_length / 7; i++)
+				example_str += "#RRGGBB"
+			var/input_str = tgui_input_text(usr, "Введите цвет по образцу, от темного до светлого: [example_str]", "Укажите цвет", max_length = expected_length + 1)
+			if(!input_str)
+				return
+			if(length(input_str) != expected_length)
+				to_chat(usr, span_notice("Введите цвет по образцу."))
+				return
+			var/colors = list()
+			for(var/i = 1; i <= expected_length / 7; i++)
+				var/start = (i - 1) * 7 + 1
+				var/color_str = copytext(input_str, start, start + 7)
+				if(copytext(color_str, 1, 2) != "#")
+					to_chat(usr, span_notice("Введите цвет по образцу."))
+					return
+				colors += color_str
+			var/unique = list()
+			for(var/c in colors)
+				if(c in unique)
+					to_chat(usr, span_notice("Цвета не должны повторяться."))
+					return
+				unique += c
+			var/last_brightness = -1
+			var/min_diff = 5
+			var/min_brightness = 10
+			for(var/i = 1; i <= expected_length / 7; i++)
+				var/c = colors[i]
+				var/r = text2num(copytext(c, 2, 4), 16)
+				var/g = text2num(copytext(c, 4, 6), 16)
+				var/b = text2num(copytext(c, 6, 8), 16)
+				var/brightness = (r + g + b) / 3
+				if(i == 1 && brightness < min_brightness)
+					to_chat(usr, span_notice("Первый цвет слишком тёмный (яркость должна быть не меньше [min_brightness])."))
+					return
+				if(i > 1)
+					if(brightness < last_brightness + min_diff)
+						to_chat(usr, span_notice("Разница яркости между цветами должна быть минимум [min_diff]."))
+						return
+				last_brightness = brightness
+			var/max_component_diff = 100
+			for(var/i = 2; i <= expected_length / 7; i++)
+				var/prev_color = colors[i-1]
+				var/curr_color = colors[i]
+				var/pr = text2num(copytext(prev_color, 2, 4), 16)
+				var/pg = text2num(copytext(prev_color, 4, 6), 16)
+				var/pb = text2num(copytext(prev_color, 6, 8), 16)
+				var/cr = text2num(copytext(curr_color, 2, 4), 16)
+				var/cg = text2num(copytext(curr_color, 4, 6), 16)
+				var/cb = text2num(copytext(curr_color, 6, 8), 16)
+				if(abs(cr - pr) > max_component_diff || abs(cg - pg) > max_component_diff || abs(cb - pb) > max_component_diff)
+					to_chat(usr, span_notice("Разница между цветами №[i-1] и №[i] слишком большая."))
+					return
+			new_color = ""
+			for(var/c in colors)
+				new_color += c
 
 		if(HAIR_CONCEALING_CHANGE)
 			var/concealment_variant = tgui_input_list(user, "Choose how much hair you want to conceal?", "Hair Concealment", hair_concealing_variants)

@@ -11,8 +11,7 @@
 
 	greyscale_config = /datum/greyscale_config/armor_mk1/infantry
 	greyscale_colors = ARMOR_PALETTE_DRAB
-	colorable_allowed = PRESET_COLORS_ALLOWED|HAIR_CONCEALING_CHANGE_ALLOWED
-	colorable_allowed = PRESET_COLORS_ALLOWED
+	colorable_allowed = CUSTOM_COLOR_ALLOWED|PRESET_COLORS_ALLOWED|HAIR_CONCEALING_CHANGE_ALLOWED
 
 
 	starting_attachments = list(/obj/item/armor_module/armor/visor/marine/old, /obj/item/armor_module/storage/helmet)
