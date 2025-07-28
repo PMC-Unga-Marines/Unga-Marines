@@ -80,6 +80,9 @@
 	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_CRASH), PROC_REF(open))
 	return ..()
 
+/obj/machinery/door/poddoor/shutters/timed_late/open()
+	. = ..()
+	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_CRASH))
 
 /obj/machinery/door/poddoor/shutters/opened
 	icon_state = "shutter0"
