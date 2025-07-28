@@ -24838,15 +24838,7 @@
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
 "oBT" = (
-/obj/item/radio/intercom/general{
-	dir = 8;
-	pixel_y = -18
-	},
-/obj/effect/landmark/start/latejoin_squad/bravo,
-/obj/structure/sign/semiotic/intercom{
-	pixel_x = 32;
-	pixel_y = 7
-	},
+/obj/structure/prop/golden_sclupture,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/bravo)
 "oCA" = (
@@ -32001,10 +31993,9 @@
 /area/mainship/command/cic)
 "sME" = (
 /obj/machinery/light/mainship{
-	dir = 8
+	dir = 4
 	},
-/obj/effect/landmark/start/latejoin_squad/bravo,
-/turf/open/floor/plating/plating_catwalk/dark,
+/turf/closed/wall/mainship/talos,
 /area/mainship/squads/bravo)
 "sMG" = (
 /obj/machinery/light/mainship/small{
@@ -40382,18 +40373,12 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "xZX" = (
-/obj/structure/cable,
+/obj/effect/soundplayer,
 /obj/structure/sign/semiotic/cryo{
 	pixel_x = 8;
 	pixel_y = -32
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
-	dir = 8
-	},
-/turf/open/floor/plating/plating_catwalk/dark,
+/turf/closed/wall/mainship/talos,
 /area/mainship/squads/bravo)
 "yah" = (
 /obj/machinery/marine_selector/clothes/engi,
@@ -83494,7 +83479,7 @@ xCk
 xCk
 hGt
 lxj
-pcY
+cTD
 gnC
 jPy
 oxl
@@ -83749,10 +83734,10 @@ fbW
 qvu
 qvu
 aWB
-xZX
-cfb
-jPy
-jPy
+qTj
+lxj
+pcY
+gnC
 jPy
 fsP
 bhH
@@ -84007,9 +83992,9 @@ rIQ
 pnv
 dVw
 qTj
-lxj
+xZX
 sME
-gnC
+jPy
 jPy
 kqX
 wmC
@@ -84264,9 +84249,9 @@ oRo
 gQV
 sqs
 qTj
-lxj
-cTD
-gnC
+sXV
+oBT
+sXV
 jPy
 epe
 bhH
@@ -84521,9 +84506,9 @@ mbR
 fMe
 xCk
 knx
-lxj
-oBT
-gnC
+sXV
+gIr
+sXV
 jPy
 epe
 bhH

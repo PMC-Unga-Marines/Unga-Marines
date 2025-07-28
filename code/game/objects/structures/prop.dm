@@ -2236,6 +2236,16 @@
 	density = TRUE
 	resistance_flags = RESIST_ALL
 
+/obj/structure/prop/golden_sclupture
+	name = "Golden Sclupture"
+	desc = "A large sculpture made of gold depicting three members of Bravo Squad. The engraved inscription reads 'SKIBIDI LORDS 15.11'"
+	icon = 'icons/obj/structures/goldensculpture.dmi'
+	icon_state = "golden"
+	anchored = TRUE
+	bound_height = 64
+	bound_width = 64
+	density = TRUE
+	resistance_flags = RESIST_ALL
 
 #undef VENDOR_BROKEN
 #undef VENDOR_BLANK
