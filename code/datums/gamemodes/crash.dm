@@ -38,7 +38,7 @@
 	var/obj/docking_port/mobile/crashmode/shuttle
 
 	///How long between two larva check
-	var/larva_check_interval = 2 MINUTES
+	var/larva_check_interval = 1 MINUTES
 	///Last time larva balance was checked
 	var/last_larva_check
 
@@ -192,12 +192,10 @@
 	// Spawn more xenos to help maintain the ratio.
 	var/xenomorphs_below_ratio = get_jobpoint_difference() / xeno_job.job_points_needed
 	if(xenomorphs_below_ratio >= 1)
-		xeno_job.add_job_positions(1)
+		xeno_job.add_job_positions(trunc(xenomorphs_below_ratio))
 		xeno_hive.update_tier_limits()
 		return
-	// Make sure there is at least one xeno regardless of ratio.
-	var/total_xenos = xeno_hive.get_total_xeno_number() + (xeno_job.total_positions - xeno_job.current_positions)
-	if(!total_xenos)
+	if(!xeno_job.total_positions)
 		xeno_job.add_job_positions(1)
 		xeno_hive.update_tier_limits()
 
@@ -205,21 +203,11 @@
 /datum/game_mode/infestation/crash/proc/get_jobpoint_difference()
 	var/datum/hive_status/normal/xeno_hive = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
-	var/total_xenos = xeno_hive.get_total_xeno_number() + (xeno_job.total_positions - xeno_job.current_positions)
-	return get_total_joblarvaworth() - (total_xenos * xeno_job.job_points_needed)
-
-/datum/game_mode/infestation/crash/get_total_joblarvaworth(list/z_levels, count_flags)
-	. = 0
-
-	for(var/mob/living/carbon/human/H AS in GLOB.human_mob_list)
-		if(!H.job)
-			continue
-		if(isspaceturf(H.loc))
-			continue
-		. += H.job.jobworth[/datum/job/xenomorph]
+	return get_total_joblarvaworth() - (xeno_job.total_positions * xeno_job.job_points_needed)
 
 /datum/game_mode/infestation/crash/get_adjusted_jobworth_list(list/jobworth_list)
 	var/list/adjusted_jobworth_list = deep_copy_list(jobworth_list)
+	var/jobpoint_difference = get_jobpoint_difference()
 	for(var/index in jobworth_list)
 		var/datum/job/scaled_job = SSjob.GetJobType(index)
 		if(!(index in SSticker.mode.valid_job_types))
@@ -227,6 +215,5 @@
 		if(!isxenosjob(scaled_job))
 			continue
 		var/amount = jobworth_list[index]
-		var/jobpoint_difference = get_jobpoint_difference() + amount
-		adjusted_jobworth_list[index] = clamp(jobpoint_difference, 0, amount)
+		adjusted_jobworth_list[index] = clamp(jobpoint_difference + amount, 0, amount)
 	return adjusted_jobworth_list
