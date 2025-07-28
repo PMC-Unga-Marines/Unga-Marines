@@ -41,6 +41,7 @@
 
 /obj/structure/cocoon/process()
 	SSpoints.add_psy_points(hivenumber, COCOON_PSY_POINTS_REWARD)
+	GLOB.round_statistics.psypoints_from_cocoon += COCOON_PSY_POINTS_REWARD
 	//Gives marine cloneloss for a total of 30.
 	victim.adjust_clone_loss(0.5)
 
