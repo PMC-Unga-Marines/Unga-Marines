@@ -203,7 +203,7 @@
 /datum/game_mode/infestation/crash/proc/get_jobpoint_difference()
 	var/datum/hive_status/normal/xeno_hive = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
-	return get_total_joblarvaworth() - (xeno_job.total_positions * xeno_job.job_points_needed)
+	return get_total_joblarvaworth(count_flags = COUNT_IGNORE_HUMAN_SSD) - (xeno_job.total_positions * xeno_job.job_points_needed)
 
 /datum/game_mode/infestation/crash/get_adjusted_jobworth_list(list/jobworth_list)
 	var/list/adjusted_jobworth_list = deep_copy_list(jobworth_list)
