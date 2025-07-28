@@ -453,6 +453,7 @@
 	#define COMSIG_GRAB_SUCCESSFUL_SELF_ATTACK (1<<0)
 
 // /mob signals
+#define COMSIG_MOB_CRIT "mob_crit"
 #define COMSIG_MOB_DEATH "mob_death"							//from base of mob/death(): (gibbing)
 #define COMSIG_MOB_PRE_DEATH "mob_pre_death"
 	#define COMPONENT_CANCEL_DEATH (1<<0)						//interrupt death
@@ -623,8 +624,6 @@
 
 #define COMSIG_XENOMORPH_POUNCE "xenomorph_pounce"
 #define COMSIG_XENOMORPH_POUNCE_END "xenomorph_pounce_end"
-
-#define COMSIG_XENOMORPH_HEADBITE "headbite"
 
 #define COMSIG_XENOMORPH_GIBBING "xenomorph_gibbing"
 #define COMSIG_XENOMORPH_POSTEVOLVING "xenomorph_evolving"

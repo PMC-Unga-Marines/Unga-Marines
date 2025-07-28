@@ -27,7 +27,8 @@
 
 /mob/living/carbon/xenomorph/carrier/get_status_tab_items()
 	. = ..()
-	. += "Reserved Huggers: [xeno_caste.huggers_reserved] / [xeno_caste.huggers_max]"
+	. += "Stored Facehuggers: [huggers] / [xeno_caste.huggers_max]"
+	. += "Reserved Facehuggers: [xeno_caste.huggers_reserved] / [xeno_caste.huggers_max]"
 
 /mob/living/carbon/xenomorph/carrier/update_icons()
 	. = ..()

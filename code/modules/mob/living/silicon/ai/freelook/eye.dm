@@ -25,8 +25,8 @@
 //This is the one actually used by AI in ai.dm
 /mob/camera/aiEye/hud
 	icon_state = "nothing"
-	var/icon_state_on = "ai_camera"
 	hud_possible = list(SQUAD_HUD_TERRAGOV)
+	var/icon_state_on = "ai_camera"
 
 /mob/camera/aiEye/hud/Initialize(mapload)
 	. = ..()

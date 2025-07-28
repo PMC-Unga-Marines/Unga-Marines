@@ -81,8 +81,6 @@
 	traits += "Examine the ammo holders or ammunition for more info."
 
 	traits += "----------------------------------------------------------"
-	if(w_class)
-		traits += "Size: [w_class]"
 	if(fire_delay)
 		traits += "Time between single-fire: [fire_delay * 0.1] seconds"
 	if(burst_amount > 1)
@@ -203,7 +201,7 @@
 		thanks to their ability to disable human targets easily and even on the military thanks to their ability to recharge using \
 		traditional chargers and their capability to switch their lens, allowing more flexibility, something that a ballistic weapon \
 		aren't capable of."
-		
+
 /datum/codex_entry/plasma_weapons
 	display_name = "plasma weapons"
 	mechanics_text = "This weapon is a plasma weapon; it fires bursts of superheated gas that have been ionized and electrically charged. You can \

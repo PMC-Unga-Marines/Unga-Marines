@@ -3,10 +3,13 @@
 		slot_l_hand_str = 'icons/mob/inhands/weapons/twohanded_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/twohanded_right.dmi',
 	)
-	var/force_wielded = 0
-	var/wieldsound
-	var/unwieldsound
 	item_flags = TWOHANDED
+	/// How much damage we deal when the weapon in wielded
+	var/force_wielded = 0
+	/// What sound do we make when we wield the weapon
+	var/wieldsound
+	/// What sound do we make when we unwield the weapon
+	var/unwieldsound
 
 /obj/item/weapon/twohanded/mob_can_equip(mob/user, slot, warning = TRUE, override_nodrop = FALSE, bitslot = FALSE)
 	unwield(user)
@@ -431,7 +434,7 @@
 
 /obj/item/weapon/twohanded/rocketsledge
 	name = "rocket sledge"
-	desc = "Fitted with a rocket booster at the head, the rocket sledge would deliver a tremendously powerful impact, easily crushing your enemies. Uses fuel to power itself. Press AltClick to tighten your grip. Press Spacebar to change modes."
+	desc = "Fitted with a rocket booster at the head, the rocket sledge would deliver a tremendously powerful impact, easily crushing your enemies. Uses fuel to power itself."
 	icon_state = "rocketsledge"
 	worn_icon_state = "rocketsledge"
 	force = 30
@@ -485,7 +488,8 @@
 
 /obj/item/weapon/twohanded/rocketsledge/examine(mob/user)
 	. = ..()
-	. += "It contains [reagents.get_reagent_amount(/datum/reagent/fuel)]/[max_fuel] units of fuel!"
+	. += span_notice("Press <b>Unique Action</b> to change modes.")
+	. += span_notice("It contains <b>[reagents.get_reagent_amount(/datum/reagent/fuel)]/[max_fuel]</b> units of fuel!")
 
 /obj/item/weapon/twohanded/rocketsledge/wield(mob/user)
 	. = ..()
