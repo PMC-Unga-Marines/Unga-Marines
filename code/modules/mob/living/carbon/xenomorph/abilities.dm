@@ -767,6 +767,7 @@
 	owner.AddComponent(/datum/component/automatedfire/autofire, get_cooldown(), _fire_mode = GUN_FIREMODE_AUTOMATIC,  _callback_reset_fire = CALLBACK(src, PROC_REF(reset_fire)), _callback_fire = CALLBACK(src, PROC_REF(fire)))
 
 /datum/action/ability/activable/xeno/xeno_spit/remove_action(mob/living/L)
+	clean_target()
 	qdel(owner.GetComponent(/datum/component/automatedfire/autofire))
 	return ..()
 
@@ -880,7 +881,7 @@
 ///Cleans the current target in case of Hardel
 /datum/action/ability/activable/xeno/xeno_spit/proc/clean_target()
 	SIGNAL_HANDLER
-	current_target = get_turf(current_target)
+	current_target = null
 
 ///Stops the Autofire component and resets the current cursor.
 /datum/action/ability/activable/xeno/xeno_spit/proc/stop_fire()
