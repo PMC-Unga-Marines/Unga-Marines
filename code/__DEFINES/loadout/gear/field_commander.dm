@@ -60,6 +60,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/ammo_magazine/packet/scout_rifle = list(CAT_FCSUP, "BR-8 scout rifle ammo box", 3, "orange2"),
 	/obj/item/ammo_magazine/rifle/tx8/impact = list(CAT_FCSUP, "BR-8 scout rifle impact magazine", 3, "orange2"),
 	/obj/item/ammo_magazine/rifle/tx8/incendiary = list(CAT_FCSUP, "BR-8 scout rifle incendiary magazine", 3, "orange2"),
+	/obj/item/weapon/gun/rifle/br64/custom = list(CAT_FCSUP, "Custom BR-64", 10, "blue"),
 	/obj/item/storage/holster/backholster/rlquad/full = list(CAT_FCSUP, "RL-57 Thermobaric Launcher", 23, "red"),
 	/obj/item/ammo_magazine/rocket/m57a4 = list(CAT_FCSUP, "RL-57 Thermobaric WP rocket array", 5, "orange2"),
 	/obj/item/weapon/gun/rifle/m412l1_hpr = list(CAT_FCSUP, "PR-412L1 Heavy Pulse Rifle", 15, "red"),
