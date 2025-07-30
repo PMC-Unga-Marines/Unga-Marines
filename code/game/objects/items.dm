@@ -1355,9 +1355,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 ///The fancy trick. Woah.
 /obj/item/proc/throw_catch_trick(mob/living/carbon/human/user)
+	set waitfor = 0
 	if(HAS_TRAIT(src, TRAIT_NODROP))
 		return basic_spin_trick(user, pick(1, 1, -1))
-	set waitfor = 0
 	user.visible_message("[user] deftly flicks [src] and tosses it into the air!", span_notice("You flick and toss [src] into the air!"))
 	var/img_layer = MOB_LAYER + 0.1
 	var/image/trick = image(icon,user, icon_state, img_layer)
