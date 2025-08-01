@@ -19,8 +19,7 @@
 		/obj/item/armor_module/armor/cape_highlight,
 		/obj/item/armor_module/armor/cape_highlight/kama,
 	)
-	colorable_allowed = PRESET_COLORS_ALLOWED|ICON_STATE_VARIANTS_ALLOWED
-	current_variant = "long"
+	colorable_allowed = CUSTOM_COLOR_ALLOWED|PRESET_COLORS_ALLOWED|ICON_STATE_VARIANTS_ALLOWED
 	icon_state_variants = list(
 		"long" = list(
 			HOOD = TRUE,
@@ -44,6 +43,7 @@
 			),
 		),
 	)
+	current_variant = "long"
 
 	///True if the hood is up, false if not.
 	var/hood = FALSE
@@ -68,12 +68,10 @@
 	update_greyscale()
 	user.update_inv_w_uniform()
 
-
 /obj/item/armor_module/armor/cape/examine(user)
 	. = ..()
 	. += span_notice("Interact with <b>facepaint</b> to color or change the variant.")
 	. += span_notice("Attaches to <b>uniform</b>.")
-
 
 /obj/item/armor_module/armor/cape/color_item(obj/item/facepaint/paint, mob/user)
 	var/old_variant = current_variant
@@ -146,17 +144,17 @@
 	icon_state = "highlight"
 	slot = ATTACHMENT_SLOT_CAPE_HIGHLIGHT
 	attach_features_flags = ATTACH_SAME_ICON|ATTACH_APPLY_ON_MOB|ATTACH_NO_HANDS
-	colorable_allowed = PRESET_COLORS_ALLOWED|ICON_STATE_VARIANTS_ALLOWED|COLOR_WHEEL_ALLOWED
+	colorable_allowed = COLOR_WHEEL_ALLOWED|CUSTOM_COLOR_ALLOWED|PRESET_COLORS_ALLOWED|ICON_STATE_VARIANTS_ALLOWED
 	greyscale_config = /datum/greyscale_config/cape_highlight
 	secondary_color = TRUE
 	item_map_variant_flags = NONE
-	current_variant = "none"
 	greyscale_colors = CAPE_PALETTE_GOLD
 	colorable_colors = CAPE_PALETTES_LIST
 	icon_state_variants = list(
 		"long",
 		"none",
 	)
+	current_variant = "none"
 
 /obj/item/armor_module/armor/cape_highlight/update_icon_state()
 	. = ..()
@@ -168,16 +166,11 @@
 	else
 		icon_state = initial(icon_state) + "_[current_variant]"
 
-
 /obj/item/armor_module/armor/cape_highlight/handle_color(datum/source, mob/user, list/obj/item/secondaries)
 	if(current_variant == "none" && (length(icon_state_variants) == 1))
 		return
 	return ..()
 
-
-
 /obj/item/armor_module/armor/cape_highlight/kama
-	greyscale_config = /datum/greyscale_config/cape_highlight
-	colorable_allowed = PRESET_COLORS_ALLOWED
-	current_variant = "kama"
 	icon_state_variants = list()
+	current_variant = "kama"
