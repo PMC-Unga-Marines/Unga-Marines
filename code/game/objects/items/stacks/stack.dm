@@ -11,12 +11,9 @@
 	var/singular_name
 	var/stack_name = "stack"
 	var/amount = 1
-	///Also see stack recipes initialisation, param "max_res_amount" must be equal to this max_amount
-	var/max_amount = 50
-	///This path and its children should merge with this stack, defaults to src.type
-	var/merge_type
-	///Determines whether the item should update it's sprites based on amount.
-	var/number_of_extra_variants = 0
+	var/max_amount = 50 //also see stack recipes initialisation, param "max_res_amount" must be equal to this max_amount
+	var/merge_type // This path and its children should merge with this stack, defaults to src.type
+	var/number_of_extra_variants = 0 //Determines whether the item should update it's sprites based on amount.
 
 /obj/item/stack/Initialize(mapload, new_amount)
 	. = ..()
@@ -128,7 +125,7 @@
 
 		if(istype(E, /datum/stack_recipe_list))
 			var/datum/stack_recipe_list/srl = E
-			t1 += "<a href='?src=[REF(src)];sublist=[i]'>[srl.title]</a>"
+			t1 += "<a href='byond://?src=[REF(src)];sublist=[i]'>[srl.title]</a>"
 
 		if(istype(E, /datum/stack_recipe))
 			var/datum/stack_recipe/recipe = E
@@ -143,7 +140,7 @@
 				title += "[recipe.title]"
 			title += " ([recipe.req_amount] [singular_name]\s)"
 			if(can_build)
-				t1 += "<A href='?src=[REF(src)];sublist=[recipes_sublist];make=[i];multiplier=1'>[title]</A>  "
+				t1 += "<A href='byond://?src=[REF(src)];sublist=[recipes_sublist];make=[i];multiplier=1'>[title]</A>  "
 			else
 				t1 += "[title]"
 				continue
@@ -153,9 +150,9 @@
 				var/list/multipliers = list(5,10,25)
 				for(var/n in multipliers)
 					if(max_multiplier >= n)
-						t1 += " <A href='?src=[REF(src)];make=[i];multiplier=[n]'>[n * recipe.res_amount]x</A>"
+						t1 += " <A href='byond://?src=[REF(src)];make=[i];multiplier=[n]'>[n * recipe.res_amount]x</A>"
 				if(!(max_multiplier in multipliers))
-					t1 += " <A href='?src=[REF(src)];make=[i];multiplier=[max_multiplier]'>[max_multiplier * recipe.res_amount]x</A>"
+					t1 += " <A href='byond://?src=[REF(src)];make=[i];multiplier=[max_multiplier]'>[max_multiplier * recipe.res_amount]x</A>"
 
 	var/datum/browser/popup = new(user, "stack", name, 400, 400)
 	popup.set_content(t1)

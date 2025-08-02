@@ -497,17 +497,6 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define TASTE_DULL 30 //anything below 30%
 #define TASTE_NUMB 101 //no taste
 
-
-//defins for datum/hud
-
-#define HUD_STYLE_STANDARD 1
-#define HUD_STYLE_REDUCED 2
-#define HUD_STYLE_NOHUD 3
-#define HUD_VERSIONS 3
-#define HUD_SL_LOCATOR_COOLDOWN 0.5 SECONDS
-#define HUD_SL_LOCATOR_PROCESS_COOLDOWN 10 SECONDS
-
-
 //Blood levels
 #define BLOOD_VOLUME_MAXIMUM 600
 #define BLOOD_VOLUME_NORMAL 560
@@ -553,6 +542,7 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define XENO_DEFAULT_ACID_PUDDLE_DAMAGE 14 //Standard damage dealt by acid puddles
 #define XENO_ACID_WELL_FILL_TIME 2 SECONDS //How long it takes to add a charge to an acid pool
 #define XENO_ACID_WELL_FILL_COST 150 //Cost in plasma to apply a charge to an acid pool
+#define XENO_ACID_WELL_MAX_AUTOCHARGES 3 //Maximum number of autocharges for the acid well
 #define XENO_ACID_WELL_MAX_CHARGES 5 //Maximum number of charges for the acid well
 #define XENO_ACID_CHARGE_DAMAGE 30
 

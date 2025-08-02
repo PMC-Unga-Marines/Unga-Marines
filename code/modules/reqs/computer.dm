@@ -6,14 +6,12 @@
 	screen_overlay = "supply"
 	req_access = list(ACCESS_MARINE_CARGO)
 	circuit = /obj/item/circuitboard/computer/supplycomp
+	faction = FACTION_TERRAGOV
 	var/datum/supply_ui/supply_ui
 	///Id of the shuttle controlled
 	var/shuttle_id = SHUTTLE_SUPPLY
 	/// Id of the home docking port
 	var/home_id = "supply_home"
-	/// Faction of the computer
-	var/faction = FACTION_TERRAGOV
-
 /obj/machinery/computer/supplycomp/crash
 	req_access = list() //So marines can access cargo stuff without relying on synth spawn
 	desc = "A console for an Automated Storage and Retrieval System. This version somehow does not require special access."

@@ -181,6 +181,8 @@
 		return TRUE
 	var/adir = get_dir(A, B)
 	var/rdir = get_dir(B, A)
+	if(A.density && (!istype(A, /turf/closed/wall/resin) || !(pass_flags_checked & PASS_XENO)))
+		return TRUE
 	if(B.density && (!istype(B, /turf/closed/wall/resin) || !(pass_flags_checked & PASS_XENO))) //TODO: Unsnowflake this check here and in DirBlocked()
 		return TRUE
 	if(adir & (adir - 1))//is diagonal direction
@@ -787,7 +789,7 @@ GLOBAL_LIST_INIT(wallitems, typecacheof(list(
 /proc/format_text(text)
 	return replacetext(replacetext(text,"\proper ",""),"\improper ","")
 
-///Returns a string based on the weight class define used as argument
+///Returns a string based on the weight class define used as argument.
 /proc/weight_class_to_text(w_class)
 	switch(w_class)
 		if(WEIGHT_CLASS_TINY)
@@ -802,8 +804,27 @@ GLOBAL_LIST_INIT(wallitems, typecacheof(list(
 			. = "huge"
 		if(WEIGHT_CLASS_GIGANTIC)
 			. = "gigantic"
+		if(WEIGHT_CLASS_GIGANTIC + 1 to INFINITY)
+			. = "titanic"
 		else
-			. = ""
+			. = "unknown size"
+
+///Returns an assoc list of WEIGHT CLASS TEXT = DESCRIPTION based on the arg you provide.
+///Used by examine tags for giving each weight class a special description.
+/proc/weight_class_data(w_class)
+	. = list()
+	.[WEIGHT_CLASS_TEXT] = weight_class_to_text(w_class)
+	switch(w_class)
+		if(WEIGHT_CLASS_TINY, WEIGHT_CLASS_SMALL)
+			.[WEIGHT_CLASS_TOOLTIP] = "Fits virtually anywhere; in pockets, backpacks/satchels, and most other containers. Takes up little space in containers."
+		if(WEIGHT_CLASS_NORMAL)
+			.[WEIGHT_CLASS_TOOLTIP] = "Fits in some standard containers and backpacks/satchels. Takes up some space."
+		if(WEIGHT_CLASS_BULKY)
+			.[WEIGHT_CLASS_TOOLTIP] = "Does not fit in standard containers."
+		if(WEIGHT_CLASS_HUGE to INFINITY)
+			.[WEIGHT_CLASS_TOOLTIP] = "Often can't be stored at all, except in uncommon specialized containers, like holsters for weapons."
+		else
+			.[WEIGHT_CLASS_TOOLTIP] = "Yell at coders, this isn't supposed to happen."
 
 /// Converts a semver string into a list of numbers
 /proc/semver_to_list(semver_string)
@@ -816,62 +837,6 @@ GLOBAL_LIST_INIT(wallitems, typecacheof(list(
 		text2num(semver_regex.group[2]),
 		text2num(semver_regex.group[3]),
 	)
-
-//Reasonably Optimized Bresenham's Line Drawing
-/proc/getline(atom/start, atom/end)
-	var/x = start.x
-	var/y = start.y
-	var/z = start.z
-
-	//horizontal and vertical lines special case
-	if(y == end.y)
-		return x <= end.x ? block(locate(x,y,z), locate(end.x,y,z)) : reverseRange(block(locate(end.x,y,z), locate(x,y,z)))
-	if(x == end.x)
-		return y <= end.y ? block(locate(x,y,z), locate(x,end.y,z)) : reverseRange(block(locate(x,end.y,z), locate(x,y,z)))
-
-	//let's compute these only once
-	var/abs_dx = abs(end.x - x)
-	var/abs_dy = abs(end.y - y)
-	var/sign_dx = SIGN(end.x - x)
-	var/sign_dy = SIGN(end.y - y)
-
-	var/list/turfs = list(locate(x,y,z))
-
-	//diagonal special case
-	if(abs_dx == abs_dy)
-		for(var/j = 1 to abs_dx)
-			x += sign_dx
-			y += sign_dy
-			turfs += locate(x,y,z)
-		return turfs
-
-	/*x_error and y_error represents how far we are from the ideal line.
-	Initialized so that we will check these errors against 0, instead of 0.5 * abs_(dx/dy)*/
-
-	//We multiply every check by the line slope denominator so that we only handles integers
-	if(abs_dx > abs_dy)
-		var/y_error = -(abs_dx >> 1)
-		var/steps = abs_dx
-		while(steps--)
-			y_error += abs_dy
-			if(y_error > 0)
-				y_error -= abs_dx
-				y += sign_dy
-			x += sign_dx
-			turfs += locate(x,y,z)
-	else
-		var/x_error = -(abs_dy >> 1)
-		var/steps = abs_dy
-		while(steps--)
-			x_error += abs_dx
-			if(x_error > 0)
-				x_error -= abs_dy
-				x += sign_dx
-			y += sign_dy
-			turfs += locate(x,y,z)
-
-	. = turfs
-
 
 // Makes a call in the context of a different usr
 // Use sparingly
@@ -1240,7 +1205,7 @@ GLOBAL_LIST_INIT(survivor_outfits, typecacheof(/datum/outfit/job/survivor))
  * Returns the last turf in the list it can successfully path to
 */
 /proc/check_path(atom/start, atom/end, pass_flags_checked = NONE)
-	var/list/path_to_target = getline(start, end)
+	var/list/path_to_target = get_line(start, end) //we don't use traversal because link blocked checks both diags as needed
 	var/line_count = 1
 	while(line_count < length(path_to_target))
 		if(LinkBlocked(path_to_target[line_count], path_to_target[line_count + 1], pass_flags_checked))

@@ -254,10 +254,18 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	if(SEND_SIGNAL(src, COMSIG_ATOM_GET_EXAMINE_NAME, user, override) & COMPONENT_EXNAME_CHANGED)
 		. = override.Join("")
 
-/obj/item/examine(mob/user)
-	. = ..()
-	. += EXAMINE_SECTION_BREAK
-	. += "[gender == PLURAL ? "They are" : "It is"] a [weight_class_to_text(w_class)] item."
+/obj/item/examine_tags(mob/user)
+	var/list/parent_tags = ..()
+	var/list/weight_class_data = weight_class_data(w_class)
+	parent_tags.Insert(1, weight_class_data[WEIGHT_CLASS_TEXT]) // to make size display first, otherwise it looks goofy
+	. = parent_tags
+	.[weight_class_data[WEIGHT_CLASS_TEXT]] = "[gender == PLURAL ? "They're" : "It's"] a [weight_class_data[WEIGHT_CLASS_TEXT]] [examine_descriptor(user)]. [weight_class_data[WEIGHT_CLASS_TOOLTIP]]"
+	if(atom_flags & CONDUCT)
+		.["conductive"] = "It's conductive. If this is an oversuit item, like armor, it will prevent defibrillation while worn. \
+							Some conductive tools also have special interactions and dangers when being used."
+
+/obj/item/examine_descriptor(mob/user)
+	return "item"
 
 /obj/item/attack_ghost(mob/dead/observer/user)
 	. = ..()
@@ -848,7 +856,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 	var/obj/item/I = get_active_held_item()
 	if(I && !(I.item_flags & ITEM_ABSTRACT))
-		visible_message("[src] holds up [I]. <a HREF=?src=[REF(usr)];lookitem=[REF(I)]>Take a closer look.</a>")
+		visible_message("[src] holds up [I]. <a href=?byond://src=[REF(usr)];lookitem=[REF(I)]>Take a closer look.</a>")
 
 /*
 For zooming with scope or binoculars. This is called from
@@ -1306,21 +1314,16 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	var/obj/item/double = user.get_inactive_held_item()
 	if(prob(chance))
-		switch(rand(1,7))
-			if(1)
-				basic_spin_trick(user, -1)
-			if(2)
-				basic_spin_trick(user, 1)
-			if(3)
-				throw_catch_trick(user)
+		switch(rand(1, 7))
+			if(1 to 3)
+				basic_spin_trick(user, pick(1, 1, -1))
 			if(4)
-				basic_spin_trick(user, 1)
-			if(5)
-				var/arguments[] = istype(double) ? list(user, 1, double) : list(user, -1)
-				basic_spin_trick(arglist(arguments))
-			if(6)
-				var/arguments[] = istype(double) ? list(user, -1, double) : list(user, 1)
-				basic_spin_trick(arglist(arguments))
+				throw_catch_trick(user)
+			if(5 to 6)
+				if(istype(double))
+					basic_spin_trick(user, pick(1, -1), double)
+				else
+					basic_spin_trick(user, pick(1, -1))
 			if(7)
 				if(istype(double))
 					INVOKE_ASYNC(double, PROC_REF(throw_catch_trick), user)
@@ -1342,10 +1345,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	set waitfor = 0
 	playsound(user, 'sound/effects/spin.ogg', 25, 1)
 	if(double)
-		user.visible_message("[user] deftly flicks and spins [src] and [double]!",span_notice(" You flick and spin [src] and [double]!"))
+		user.visible_message("[user] deftly flicks and spins [src] and [double]!", span_notice("You flick and spin [src] and [double]!"))
 		animation_wrist_flick(double, 1)
 	else
-		user.visible_message("[user] deftly flicks and spins [src]!",span_notice(" You flick and spin [src]!"))
+		user.visible_message("[user] deftly flicks and spins [src]!", span_notice("You flick and spin [src]!"))
 	animation_wrist_flick(src, direction)
 	sleep(0.3 SECONDS)
 	if(loc && user) playsound(user, 'sound/effects/thud.ogg', 25, 1)
@@ -1353,12 +1356,16 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 ///The fancy trick. Woah.
 /obj/item/proc/throw_catch_trick(mob/living/carbon/human/user)
 	set waitfor = 0
-	user.visible_message("[user] deftly flicks [src] and tosses it into the air!",span_notice(" You flick and toss [src] into the air!"))
-	var/img_layer = MOB_LAYER+0.1
-	var/image/trick = image(icon,user,icon_state,img_layer)
-	switch(pick(1,2))
-		if(1) animation_toss_snatch(trick)
-		if(2) animation_toss_flick(trick, pick(1,-1))
+	if(HAS_TRAIT(src, TRAIT_NODROP))
+		return basic_spin_trick(user, pick(1, 1, -1))
+	user.visible_message("[user] deftly flicks [src] and tosses it into the air!", span_notice("You flick and toss [src] into the air!"))
+	var/img_layer = MOB_LAYER + 0.1
+	var/image/trick = image(icon,user, icon_state, img_layer)
+
+	if(prob(50))
+		animation_toss_snatch(trick)
+	else
+		animation_toss_flick(trick, pick(1, -1))
 
 	invisibility = 100
 	for(var/mob/M in viewers(user))
@@ -1374,9 +1381,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return
 
 	if(user.get_inactive_held_item())
-		user.visible_message("[user] catches [src] with the same hand!",span_notice(" You catch [src] as it spins in to your hand!"))
+		user.visible_message("[user] catches [src] with the same hand!", span_notice("You catch [src] as it spins in to your hand!"))
 		return
-	user.visible_message("[user] catches [src] with his other hand!",span_notice(" You snatch [src] with your other hand! Awesome!"))
+	user.visible_message("[user] catches [src] with his other hand!", span_notice("You snatch [src] with your other hand! Awesome!"))
 	user.temporarilyRemoveItemFromInventory(src)
 	user.put_in_inactive_hand(src)
 	user.swap_hand()

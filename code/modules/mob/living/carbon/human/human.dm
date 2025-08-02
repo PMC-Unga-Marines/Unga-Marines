@@ -22,7 +22,7 @@
 	randomize_appearance()
 
 	AddComponent(/datum/component/personal_crafting)
-	AddComponent(/datum/component/bump_attack, FALSE, FALSE)
+	AddComponent(/datum/component/bump_attack, FALSE)
 	AddElement(/datum/element/footstep, isrobot(src) ? FOOTSTEP_MOB_SHOE : FOOTSTEP_MOB_HUMAN, 1)
 	AddElement(/datum/element/ridable, /datum/component/riding/creature/human)
 	AddElement(/datum/element/strippable, GLOB.strippable_human_items, GLOB.strippable_human_layout)
@@ -34,12 +34,28 @@
 	LAZYREMOVE(GLOB.humans_by_zlevel["[old_z]"], src)
 	LAZYADD(GLOB.humans_by_zlevel["[new_z]"], src)
 
+/mob/living/carbon/human/vv_edit_var(var_name, var_value)
+	return ..()
+
 /mob/living/carbon/human/vv_get_dropdown()
 	. = ..()
-	. += "---"
-	.["Drop Everything"] = "?_src_=vars;[HrefToken()];dropeverything=[REF(src)]"
-	.["Copy Outfit"] = "?_src_=vars;[HrefToken()];copyoutfit=[REF(src)]"
+	VV_DROPDOWN_OPTION("", "---------")
+	VV_DROPDOWN_OPTION(VV_HK_SET_SPECIES, "Set Species")
 
+/mob/living/carbon/human/vv_do_topic(list/href_list)
+	. = ..()
+
+	if(!.)
+		return
+
+	if(href_list[VV_HK_SET_SPECIES])
+		if(!check_rights(R_SPAWN))
+			return
+		var/result = input(usr, "Please choose a new species","Species") as null|anything in GLOB.all_species
+		if(result)
+			var/newtype = GLOB.all_species[result]
+			admin_ticket_log("[key_name_admin(usr)] has modified the bodyparts of [src] to [result]")
+			set_species(newtype)
 
 /mob/living/carbon/human/prepare_huds()
 	. = ..()
@@ -353,7 +369,7 @@
 				to_chat(usr, "<b>Major Disabilities:</b> [medical_record.fields["ma_dis"]]")
 				to_chat(usr, "<b>Details:</b> [medical_record.fields["ma_dis_d"]]")
 				to_chat(usr, "<b>Notes:</b> [medical_record.fields["notes"]]")
-				to_chat(usr, "<a href='?src=[text_ref(src)];medrecordComment=`'>\[View Comment Log\]</a>")
+				to_chat(usr, "<a href='byond://?src=[text_ref(src)];medrecordComment=`'>\[View Comment Log\]</a>")
 				return
 
 		to_chat(usr, span_warning("Unable to locate a data core entry for this person."))
@@ -386,7 +402,7 @@
 					counter++
 				if(counter == 1)
 					to_chat(usr, "No comment found")
-				to_chat(usr, "<a href='?src=[text_ref(src)];medrecordadd=`'>\[Add comment\]</a>")
+				to_chat(usr, "<a href='byond://?src=[text_ref(src)];medrecordadd=`'>\[Add comment\]</a>")
 				return
 
 		to_chat(usr, span_warning("Unable to locate a data core entry for this person."))
@@ -525,13 +541,11 @@
 	return number
 
 /mob/living/carbon/human/abiotic(full_body = 0)
-	if(full_body && ((src.l_hand && !( src.l_hand.item_flags & ITEM_ABSTRACT)) || (src.r_hand && !( src.r_hand.item_flags & ITEM_ABSTRACT)) || (src.back || src.wear_mask || src.head || src.shoes || src.w_uniform || src.wear_suit || src.glasses || src.wear_ear || src.gloves)))
-		return 1
-
-	if( (src.l_hand && !(src.l_hand.item_flags & ITEM_ABSTRACT)) || (src.r_hand && !(src.r_hand.item_flags & ITEM_ABSTRACT)) )
-		return 1
-
-	return 0
+	if(full_body && ((l_hand && !(l_hand.item_flags & ITEM_ABSTRACT)) || (r_hand && !(r_hand.item_flags & ITEM_ABSTRACT)) || (back || wear_mask || head || shoes || w_uniform || wear_suit || glasses || wear_ear || gloves)))
+		return TRUE
+	if((l_hand && !(l_hand.item_flags & ITEM_ABSTRACT)) || (r_hand && !(r_hand.item_flags & ITEM_ABSTRACT)) )
+		return TRUE
+	return FALSE
 
 /mob/living/carbon/human/get_species()
 
@@ -613,13 +627,18 @@
 		new_species = race
 	return ..()
 
+/// Turns our human into a selected species `new_species`
+/// new_species must be either a string or a species datum
 /mob/living/carbon/human/proc/set_species(new_species, default_colour)
+	// Here we'll convert the species into a string. It's a bandaid fix
+	if(istype(new_species, /datum/species))
+		var/datum/species/old_type = new_species
+		new_species = old_type.name
 
 	if(!new_species)
 		new_species = "Human"
 
 	if(species)
-
 		if(species.name && species.name == new_species) //we're already that species.
 			return
 
@@ -627,7 +646,6 @@
 		species.remove_inherent_abilities(src)
 
 	var/datum/species/oldspecies = species
-
 	species = GLOB.all_species[new_species]
 
 	if(oldspecies)

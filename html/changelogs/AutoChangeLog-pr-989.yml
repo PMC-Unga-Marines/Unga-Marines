@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - code_imp: "Добавил сигнал COMSIG_CRIT_MOB."

@@ -30,8 +30,6 @@
 		w_class = WEIGHT_CLASS_HUGE
 		heat = 0
 
-
-
 /obj/item/weapon/energy/sword
 	name = "energy sword"
 	desc = "May the force be within you."

@@ -773,7 +773,7 @@
 		xeno_message("By [user]'s will, [target] has been banished from the hive!\n[reason]", "xenobanishannonce", 5, target.hivenumber)
 		to_chat(target, span_xenouserdanger("The [user] has banished you from the hive! Other xenomorphs may now attack you freely, but your link to the hivemind remains, preventing you from harming other sisters."))
 		log_game("[key_name(user)] has banish [key_name(target)]. Reason: [reason]")
-		message_admins("[ADMIN_TPMONTY(user)] has banish/(<a href='?_src_=holder;[HrefToken(TRUE)];adminunbanish=1;target=[REF(target)]'>unbanish</a>) [ADMIN_TPMONTY(target)]. Reason: [reason].")
+		message_admins("[ADMIN_TPMONTY(user)] has banish/(<a href='byond://?_src_=holder;[HrefToken(TRUE)];adminunbanish=1;target=[REF(target)]'>unbanish</a>) [ADMIN_TPMONTY(target)]. Reason: [reason].")
 		return
 
 	REMOVE_TRAIT(target, TRAIT_BANISHED, TRAIT_BANISHED)
@@ -1392,7 +1392,7 @@ to_chat will check for valid clients itself already so no need to double check f
 	var/rated_xeno = active_humans * (LARVA_POINTS_REGULAR / xeno_job.job_points_needed)
 
 	//length(psychictowers) are still in the formula for admin spawn or something
-	tier3_xeno_limit = max(threes, FLOOR(max(rated_xeno - threes,zeros + ones + twos + fours) / 3 + length(psychictowers) + 1 - SSticker.mode.tier_three_penalty, 1))
+	tier3_xeno_limit = max(threes, FLOOR(max(rated_xeno - threes,zeros + ones + twos + fours) / 3 + length(psychictowers) + 1 - SSticker?.mode?.tier_three_penalty, 1))
 	tier2_xeno_limit = max(twos, FLOOR(max(rated_xeno - twos - threes,zeros + ones + fours) + length(psychictowers) * 2 + 1 - threes, 1))
 
 // ***************************************

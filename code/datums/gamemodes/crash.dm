@@ -3,7 +3,7 @@
 	config_tag = "Crash"
 	required_players = 2
 	round_type_flags = MODE_INFESTATION|MODE_XENO_SPAWN_PROTECT|MODE_DEAD_GRAB_FORBIDDEN|MODE_DISALLOW_RAILGUN|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_SILOS_SPAWN_MINIONS
-	xeno_abilities_flags = ABILITY_NUCLEARWAR
+	xeno_abilities_flags = ABILITY_CRASH
 	valid_job_types = list(
 		/datum/job/terragov/squad/standard = -1,
 		/datum/job/terragov/squad/robot = -1,
@@ -132,7 +132,7 @@
 /datum/game_mode/infestation/crash/proc/crash_shuttle(obj/docking_port/stationary/target)
 	shuttle_landed = TRUE
 	shuttle.crashing = FALSE
-
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CANTERBURRY_LANDING)
 	generate_nuke_disk_spawners()
 
 /datum/game_mode/infestation/crash/check_finished(force_end)

@@ -220,6 +220,8 @@ GLOBAL_LIST_INIT(loadout_instantiate_default_contents, typecacheof(list(
 	/obj/item/storage/box/m94,
 	/obj/item/storage/fancy/chemrettes,
 	/obj/item/storage/fancy/cigarettes,
+	/obj/item/storage/pouch/surgery,
+	/obj/item/armor_module/storage/uniform/surgery_webbing,
 )))
 
 //Defines use for the visualisation of loadouts

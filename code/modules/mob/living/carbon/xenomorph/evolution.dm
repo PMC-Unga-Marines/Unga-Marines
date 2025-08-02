@@ -128,11 +128,15 @@
 	if(HAS_TRAIT(src, TRAIT_CASTE_SWAP))
 		GLOB.key_to_time_of_caste_swap[key] = world.time
 
+	var/keep_evolution_stored = FALSE
+	if(HAS_TRAIT(src, TRAIT_CASTE_SWAP) || HAS_TRAIT(src, TRAIT_STRAIN_SWAP))
+		keep_evolution_stored = TRUE
+
 	SStgui.close_user_uis(src) //Force close all UIs upon evolution.
-	finish_evolve(new_mob_type)
+	finish_evolve(new_mob_type, keep_evolution_stored)
 
 ///Actually changes the xenomorph to another caste
-/mob/living/carbon/xenomorph/proc/finish_evolve(new_mob_type)
+/mob/living/carbon/xenomorph/proc/finish_evolve(new_mob_type, keep_evolution_stored = FALSE)
 	var/mob/living/carbon/xenomorph/new_xeno = new new_mob_type(get_turf(src), TRUE)
 
 	if(!istype(new_xeno))
@@ -186,6 +190,9 @@
 
 	if(lighting_alpha != new_xeno.lighting_alpha)
 		new_xeno.toggle_nightvision(lighting_alpha)
+
+	if(keep_evolution_stored) // don't screw yourself over for using the feature
+		new_xeno.evolution_stored = evolution_stored
 
 	new_xeno.update_spits() //Update spits to new/better ones
 

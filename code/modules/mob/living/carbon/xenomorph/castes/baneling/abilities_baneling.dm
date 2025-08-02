@@ -19,7 +19,7 @@
 	. = ..()
 	handle_smoke(ability = TRUE)
 	xeno_owner.record_tactical_unalive()
-	xeno_owner.death(FALSE)
+	xeno_owner.death(TRUE)
 
 /// This proc defines, and sets up and then lastly starts the smoke, if ability is false we divide range by 4.
 /datum/action/ability/xeno_action/baneling_explode/proc/handle_smoke(datum/source, ability = FALSE)

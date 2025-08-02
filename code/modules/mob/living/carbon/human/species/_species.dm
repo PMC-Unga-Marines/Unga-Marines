@@ -250,7 +250,7 @@
 		if(OXY)
 			victim.adjust_oxy_loss(damage)
 		if(CLONE)
-			victim.adjust_clone_Loss(damage)
+			victim.adjust_clone_loss(damage)
 		if(STAMINA)
 			if(species_flags & NO_STAMINA)
 				return

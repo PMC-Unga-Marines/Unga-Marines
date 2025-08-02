@@ -28,8 +28,7 @@
 	throw_speed = 1
 	throw_range = 2
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 50, ACID = 50)
-	///The faction this belongs to
-	var/faction = FACTION_TERRAGOV
+	faction = FACTION_TERRAGOV
 	///Aura emitter
 	var/datum/aura_bearer/current_aura
 	///Start point for it to return to when called
@@ -70,15 +69,7 @@
 	lift_flag(user)
 
 /obj/item/plantable_flag/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(500, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(150, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(75, BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(15, BRUTE, BOMB)
+	take_damage(severity, BRUTE, BOMB)
 
 /obj/item/plantable_flag/fire_act(burn_level)
 	take_damage(burn_level * 3, BURN, FIRE)
@@ -174,15 +165,7 @@
 	icon_state = "[current_internal_item.icon_state]_planted"
 
 /obj/structure/plantable_flag/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(500, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(150, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(75, BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(15, BRUTE, BOMB)
+	take_damage(severity, BRUTE, BOMB)
 
 /obj/structure/plantable_flag/fire_act(burn_level)
 	take_damage(burn_level, BURN, FIRE)
@@ -198,3 +181,9 @@
 		return
 	disassemble(user)
 	log_game("[key_name(user)] has undeployed the flag at [AREACOORD(src)].")
+
+#undef FLAG_AURA_RANGE
+#undef FLAG_AURA_DEPLOYED_RANGE
+#undef FLAG_WARCRY_RANGE
+#undef FLAG_AURA_STRENGTH
+#undef LOST_FLAG_AURA_STRENGTH

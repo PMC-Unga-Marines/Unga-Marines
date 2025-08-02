@@ -24,8 +24,6 @@
 
 	var/list/categories
 	var/list/listed_products
-	///The faction of that vendor, can be null
-	var/faction
 
 /obj/machinery/marine_selector/Initialize(mapload)
 	. = ..()

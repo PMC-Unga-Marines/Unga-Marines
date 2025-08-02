@@ -140,7 +140,7 @@
  * Operation Vars
 */
 
-	///Innate carateristics of that gun
+	///Innate charateristics of that gun
 	var/gun_features_flags = GUN_CAN_POINTBLANK
 	///Current selected firemode of the gun.
 	var/gun_firemode = GUN_FIREMODE_SEMIAUTO
@@ -588,9 +588,10 @@
 		. += "[dat.Join(" ")]"
 
 	examine_ammo_count(user)
+	if(!CHECK_BITFIELD(item_flags, IS_DEPLOYABLE))
+		return
 	if(!CHECK_BITFIELD(item_flags, IS_DEPLOYED))
-		if(CHECK_BITFIELD(item_flags, IS_DEPLOYABLE))
-			. += span_notice("Use Ctrl-Click on a tile to deploy.")
+		. += span_notice("Use Ctrl-Click on a tile to deploy.")
 		return
 	if(!CHECK_BITFIELD(item_flags, DEPLOYED_NO_ROTATE))
 		. += span_notice("Left or Right Click on a nearby tile to aim towards it.")

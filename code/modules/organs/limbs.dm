@@ -6,7 +6,9 @@
 /datum/limb
 	///Actual name of the limb
 	var/name = "limb"
+	///Our icon_state
 	var/icon_name = null
+	///What body part are we?
 	var/body_part = null
 	///Whether the icon created for this limb is LEFT, RIGHT or 0. Currently utilised for legs and feet
 	var/icon_position = 0
@@ -19,22 +21,29 @@
 	var/max_damage = 0
 	///Amount of damage this limb regenerates per tick while treated before multi-limb regen penalty
 	var/base_regen = 2
-	var/max_size = 0
+	///Saves the current damage to decide if we need to update the limb later
 	var/last_dam = -1
-	var/supported = FALSE
 	///How many instances of damage the limb can take before its splints fall off
 	var/splint_health = 0
 
+	///Our soft armor
 	var/datum/armor/soft_armor
+	///Our hard armor
 	var/datum/armor/hard_armor
 
+	///The name that we display in surgery actions and etc.
 	var/display_name
+	///The list of our wounds
 	var/list/wounds = list()
-	var/number_wounds = 0 // cache the number of wounds, which is NOT length(wounds)!
+	/// Cache the number of wounds, which is NOT length(wounds)!
+	var/number_wounds = 0
 
+	///With how much will we break?
 	var/min_broken_damage = 30
 
+	///The limb that we are connected to
 	var/datum/limb/parent
+	///The limbs that are connected to us
 	var/list/datum/limb/children
 
 	///List of Internal organs of this body part
@@ -42,6 +51,7 @@
 
 	/// Message that displays when you feel pain from this limb
 	var/damage_msg = span_warning("You feel an intense pain")
+	///We keep the description of how are we broken here
 	var/broken_description
 
 	var/surgery_open_stage = 0
@@ -53,16 +63,19 @@
 	///Whether someone is currently doing surgery on this limb
 	var/in_surgery_op = FALSE
 
-	var/encased       // Needs to be opened with a saw to access the organs.
+	/// Needs to be opened with a saw to access the organs.
+	var/encased
 
 	var/obj/item/hidden = null
 	///[/obj/item/implant] Implants contained within this specific limb
 	var/list/implants = list()
 
-	///how often wounds should be updated, a higher number means less often
+	///Jow often wounds should be updated, a higher number means less often
 	var/wound_update_accuracy = 1
-	var/limb_status = NONE //limb status flags
-	var/limb_wound_status = NONE //for wound treatment flags
+	///Limb status flags
+	var/limb_status = NONE
+	///For wound treatment flags
+	var/limb_wound_status = NONE
 
 	///Human owner mob of this limb
 	var/mob/living/carbon/human/owner = null
@@ -676,40 +689,48 @@ Note that amputating the affected organ does in fact remove the infection from t
 			owner.update_hair()
 		if(ARM_RIGHT)
 			if(limb_status & LIMB_ROBOT)
-				organ = new /obj/item/robot_parts/r_arm(owner.loc)
+				organ = new /obj/item/limb/r_arm/robotic(owner.loc)
 			else
 				organ = new /obj/item/limb/r_arm(owner.loc, owner)
 		if(ARM_LEFT)
 			if(limb_status & LIMB_ROBOT)
-				organ = new /obj/item/robot_parts/l_arm(owner.loc)
+				organ = new /obj/item/limb/l_arm/robotic(owner.loc, owner)
 			else
 				organ = new /obj/item/limb/l_arm(owner.loc, owner)
 		if(LEG_RIGHT)
 			if(limb_status & LIMB_ROBOT)
-				organ = new /obj/item/robot_parts/r_leg(owner.loc)
+				organ = new /obj/item/limb/r_leg/robotic(owner.loc, owner)
 			else
 				organ = new /obj/item/limb/r_leg(owner.loc, owner)
 		if(LEG_LEFT)
 			if(limb_status & LIMB_ROBOT)
-				organ = new /obj/item/robot_parts/l_leg(owner.loc)
+				organ = new /obj/item/limb/l_leg/robotic(owner.loc, owner)
 			else
 				organ = new /obj/item/limb/l_leg(owner.loc, owner)
 		if(HAND_RIGHT)
-			if(!(limb_status & LIMB_ROBOT))
-				organ= new /obj/item/limb/r_hand(owner.loc, owner)
+			if(limb_status & LIMB_ROBOT)
+				organ = new /obj/item/limb/r_hand/robotic(owner.loc, owner)
+			else
+				organ = new /obj/item/limb/r_hand(owner.loc, owner)
 			owner.dropItemToGround(owner.gloves, force = TRUE)
 			owner.dropItemToGround(owner.r_hand, force = TRUE)
 		if(HAND_LEFT)
-			if(!(limb_status & LIMB_ROBOT))
-				organ= new /obj/item/limb/l_hand(owner.loc, owner)
+			if(limb_status & LIMB_ROBOT)
+				organ = new /obj/item/limb/l_hand/robotic(owner.loc, owner)
+			else
+				organ = new /obj/item/limb/l_hand(owner.loc, owner)
 			owner.dropItemToGround(owner.gloves, force = TRUE)
 			owner.dropItemToGround(owner.l_hand, force = TRUE)
 		if(FOOT_RIGHT)
-			if(!(limb_status & LIMB_ROBOT))
-				organ= new /obj/item/limb/r_foot/(owner.loc, owner)
+			if(limb_status & LIMB_ROBOT)
+				organ = new /obj/item/limb/r_foot/robotic(owner.loc, owner)
+			else
+				organ = new /obj/item/limb/r_foot(owner.loc, owner)
 			owner.dropItemToGround(owner.shoes, force = TRUE)
 		if(FOOT_LEFT)
-			if(!(limb_status & LIMB_ROBOT))
+			if(limb_status & LIMB_ROBOT)
+				organ = new /obj/item/limb/l_foot/robotic(owner.loc, owner)
+			else
 				organ = new /obj/item/limb/l_foot(owner.loc, owner)
 			owner.dropItemToGround(owner.shoes, force = TRUE)
 
@@ -952,3 +973,5 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/datum/armor/scaled_armor = removed_armor.scaleAllRatings(cover_index * 0.01, 1)
 	if(owner)
 		owner.hard_armor = owner.hard_armor.detachArmor(scaled_armor)
+		
+#undef LIMB_MAX_DAMAGE_SEVER_RATIO

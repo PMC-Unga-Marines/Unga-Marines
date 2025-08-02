@@ -7,6 +7,7 @@
 	health = 150
 	maxHealth = 150
 	plasma_stored = 200
+	mob_size = MOB_SIZE_HUMAN
 	tier = XENO_TIER_MINION
 	upgrade = XENO_UPGRADE_BASETYPE
 	pull_speed = -2

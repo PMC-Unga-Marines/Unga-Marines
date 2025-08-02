@@ -349,6 +349,11 @@
 	set category = "Emotes.Signal"
 	usr.emote("signal 10", intentional = TRUE)
 
+/mob/living/carbon/human/verb/trick()
+	set name = "Trick"
+	set category = "Emotes.Action"
+	usr.emote("trick", intentional = TRUE)
+
 //Xeno
 
 /mob/living/carbon/xenomorph/verb/emote_growl()

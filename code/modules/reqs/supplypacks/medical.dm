@@ -154,7 +154,7 @@
 /datum/supply_packs/medical/implanter
 	name = "Implanter"
 	notes = "contains an implanter for reinsertion of the implant."
-	contains = list(/obj/item/implanter/implantator/cargo)
+	contains = list(/obj/item/implanter/skill/cargo)
 	cost = 90
 
 /datum/supply_packs/medical/defibrillator_gloves

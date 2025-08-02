@@ -40,11 +40,11 @@
 	else
 		icon_to_convert = icon(initial(item_type.icon), icon_state, SOUTH)
 	tgui_data["icons"] += list(list(
-				"icon" = icon2base64(icon_to_convert),
-				"translateX" = NO_OFFSET,
-				"translateY" = MODULAR_ARMOR_OFFSET_Y,
-				"scale" = MODULAR_ARMOR_SCALING,
-				))
+		"icon" = icon2base64(icon_to_convert),
+		"translateX" = NO_OFFSET,
+		"translateY" = MODULAR_ARMOR_OFFSET_Y,
+		"scale" = MODULAR_ARMOR_SCALING,
+	))
 	for(var/datum/item_representation/armor_module/module AS in attachments)
 		if(!initial(module.item_type.icon_state))
 			continue
@@ -63,11 +63,11 @@
 			scale = 0.5
 
 		tgui_data["icons"] += list(list(
-				"icon" = icon2base64(icon_to_convert),
-				"translateX" = translatex,
-				"translateY" = translatey,
-				"scale" = scale,
-				))
+			"icon" = icon2base64(icon_to_convert),
+			"translateX" = translatex,
+			"translateY" = translatey,
+			"scale" = scale,
+		))
 
 	return tgui_data
 
@@ -82,7 +82,7 @@
 	var/current_variant
 
 /datum/item_representation/armor_suit/modular_armor/New(obj/item/item_to_copy)
-	..()
+	. = ..()
 	if(!item_to_copy)
 		return
 	if(!ismodularsuit(item_to_copy))
@@ -103,7 +103,6 @@
 	modular_armor.current_variant = (current_variant in modular_armor.icon_state_variants) ? current_variant : initial(modular_armor.current_variant)
 	modular_armor.update_icon()
 
-
 /datum/item_representation/armor_suit/modular_armor/get_tgui_data()
 	var/list/tgui_data = list()
 	tgui_data["name"] = initial(item_type.name)
@@ -115,11 +114,11 @@
 	else
 		icon_to_convert = icon(initial(item_type.icon), icon_state, SOUTH)
 	tgui_data["icons"] += list(list(
-				"icon" = icon2base64(icon_to_convert),
-				"translateX" = NO_OFFSET,
-				"translateY" = MODULAR_ARMOR_OFFSET_Y,
-				"scale" = MODULAR_ARMOR_SCALING,
-				))
+		"icon" = icon2base64(icon_to_convert),
+		"translateX" = NO_OFFSET,
+		"translateY" = MODULAR_ARMOR_OFFSET_Y,
+		"scale" = MODULAR_ARMOR_SCALING,
+	))
 	for(var/datum/item_representation/armor_module/module AS in attachments)
 		if(!initial(module.item_type.icon_state))
 			continue
@@ -138,11 +137,11 @@
 			scale = 0.5
 
 		tgui_data["icons"] += list(list(
-				"icon" = icon2base64(icon_to_convert),
-				"translateX" = translatex,
-				"translateY" = translatey,
-				"scale" = scale,
-				))
+			"icon" = icon2base64(icon_to_convert),
+			"translateX" = translatex,
+			"translateY" = translatey,
+			"scale" = scale,
+		))
 	return tgui_data
 
 /**
@@ -158,7 +157,7 @@
 		return
 	if(!ismodulararmormodule(item_to_copy))
 		CRASH("/datum/item_representation/armor_module created from an item that is not a jaeger module")
-	..()
+	.  = ..()
 	var/obj/item/armor_module/module_to_copy = item_to_copy
 	for(var/key in module_to_copy.attachments_by_slot)
 		if(!isitem(module_to_copy.attachments_by_slot[key]))
@@ -200,9 +199,15 @@
 	if(!item_to_copy)
 		return
 	if(!ismodulararmorstoragemodule(item_to_copy))
-		CRASH("/datum/item_representation/armor_module created from an item that is not a jaeger storage module")
+		CRASH("/datum/item_representation/armor_module created from an item that is not an armor storage module")
 	. = ..()
-	storage = new(item_to_copy)
+	for(var/atom/thing_in_content AS in item_to_copy.contents)
+		if(!isitem(thing_in_content))
+			continue
+		var/item_representation_type = item2representation_type(thing_in_content.type)
+		if(item_representation_type == /datum/item_representation/storage) //Storage nested in storage tends to be erased by jatum, so just give the default content
+			item_representation_type = /datum/item_representation
+		contents += new item_representation_type(thing_in_content)
 
 /datum/item_representation/armor_module/storage/instantiate_object(datum/loadout_seller/seller, master, mob/living/user)
 	. = ..()
@@ -213,4 +218,4 @@
 		return
 	if(!storage)
 		return
-	storage_module = storage.instantiate_current_storage_datum(seller, storage_module, user)
+	storage.instantiate_current_storage_datum(seller, storage_module, user)

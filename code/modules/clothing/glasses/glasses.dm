@@ -31,6 +31,14 @@
 	///Color to use for the HUD tint; leave null if no tint
 	var/tint
 
+/obj/item/clothing/glasses/examine_descriptor(mob/user)
+	return "eyewear"
+
+/obj/item/clothing/glasses/examine_tags(mob/user)
+	. = ..()
+	if(prescription)
+		.["prescription"] = "It will help reduce symptoms of nearsightedness when worn."
+
 /obj/item/clothing/glasses/Initialize(mapload)
 	if(toggleable)
 		actions_types = list(/datum/action/item_action/toggle)
@@ -377,20 +385,6 @@
 	name = "HUDSunglasses"
 	desc = "Sunglasses with a HUD."
 	icon_state = "sunhud"
-	var/hud_type = DATA_HUD_SECURITY_ADVANCED
-
-/obj/item/clothing/glasses/sunglasses/sechud/equipped(mob/living/carbon/human/user, slot)
-	if(slot == SLOT_GLASSES)
-		var/datum/atom_hud/H = GLOB.huds[hud_type]
-		H.add_hud_to(user)
-	return ..()
-
-/obj/item/clothing/glasses/sunglasses/sechud/dropped(mob/living/carbon/human/user)
-	if(istype(user))
-		if(src == user.glasses) //dropped is called before the inventory reference is updated.
-			var/datum/atom_hud/H = GLOB.huds[hud_type]
-			H.remove_hud_from(user)
-	return ..()
 
 /obj/item/clothing/glasses/sunglasses/sechud/mp/Initialize()
 	. = ..()

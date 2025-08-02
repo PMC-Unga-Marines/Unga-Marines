@@ -41,13 +41,13 @@
  * First, it tries to find that object in a vendor with enough supplies.
  * If it finds one vendor with that item in reserve, it sells it and instantiate that item.
  * If it fails to find a vendor, it will add that item to a list on seller to warns him that it failed
- * Seller: The datum in charge of checking for points and buying_flags
- * Master: used for modules, when the item need to be installed on master. Can be null
- * User: The human trying to equip this item
- * Return the instantatiated item if it was successfully sold, and return null otherwise
+ ** Seller: The datum in charge of checking for points and buying_flags
+ ** Master: used for modules, when the item need to be installed on master. Can be null
+ ** User: The human trying to equip this item
+ ** Return the instantatiated item if it was successfully sold, and return null otherwise
  */
 /datum/item_representation/proc/instantiate_object(datum/loadout_seller/seller, master = null, mob/living/user)
-	if(seller && !bypass_vendor_check && !buy_item_in_vendor(item_type, seller, user))
+	if(!bypass_vendor_check && seller && !buy_item_in_vendor(item_type, seller, user))
 		return
 	if(!text2path("[item_type]"))
 		to_chat(user, span_warning("[item_type] in your loadout is an invalid item, it has probably been changed or removed."))
@@ -77,11 +77,11 @@
 	else
 		icon_to_convert = icon(initial(item_type.icon), icon_state, SOUTH)
 	tgui_data["icons"] = list(list(
-				"icon" = icon2base64(icon_to_convert),
-				"translateX" = NO_OFFSET,
-				"translateY" = NO_OFFSET,
-				"scale" = 1,
-				))
+		"icon" = icon2base64(icon_to_convert),
+		"translateX" = NO_OFFSET,
+		"translateY" = NO_OFFSET,
+		"scale" = 1,
+	))
 	tgui_data["name"] = initial(item_type.name)
 	return tgui_data
 
@@ -100,11 +100,10 @@
 	//Internal storage are not in vendors. They should always be available for the loadout vendors, because they are instantiated like any other object
 	if(istype(item_to_copy, /obj/item/storage/internal))
 		bypass_vendor_check = TRUE
-	var/item_representation_type
 	for(var/atom/thing_in_content AS in item_to_copy.contents)
 		if(!isitem(thing_in_content))
 			continue
-		item_representation_type = item2representation_type(thing_in_content.type)
+		var/item_representation_type = item2representation_type(thing_in_content.type)
 		if(item_representation_type == /datum/item_representation/storage) //Storage nested in storage tends to be erased by jatum, so just give the default content
 			item_representation_type = /datum/item_representation
 		contents += new item_representation_type(thing_in_content)
@@ -133,7 +132,7 @@
 				stack_representation.amount = amount_to_remove
 			starting_items[item_representation.item_type] = starting_items[item_representation.item_type] - amount_to_remove
 			item_representation.bypass_vendor_check = TRUE
-		var/obj/item/item_to_insert = item_representation.instantiate_object(seller, null, user)
+		var/obj/item/item_to_insert = item_representation.instantiate_object(seller, item_representation.item_type, user)
 		if(!item_to_insert)
 			continue
 		if(current_storage_datum.can_be_inserted(item_to_insert, user))
@@ -153,7 +152,7 @@
 		return
 	if(!isitemstack(item_to_copy))
 		CRASH("/datum/item_representation/stack created from an item that is not a stack of items")
-	..()
+	. = ..()
 	var/obj/item/stack/stack_to_copy = item_to_copy
 	amount = stack_to_copy.amount
 
@@ -180,7 +179,7 @@
 		return
 	if(!isidcard(item_to_copy))
 		CRASH("/datum/item_representation/id created from an item that is not an id card")
-	..()
+	. = ..()
 	var/obj/item/card/id/id_to_copy = item_to_copy
 	access = id_to_copy.access
 	iff_signal = id_to_copy.iff_signal
@@ -203,7 +202,7 @@
 		return
 	if(!istype(item_to_copy, /obj/item/clothing/shoes))
 		CRASH("/datum/item_representation/boot created from an item that is not a shoe")
-	..()
+	. = ..()
 	var/obj/item/clothing/shoes/footwear = item_to_copy
 
 	for(var/key in footwear.attachments_by_slot)

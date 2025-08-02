@@ -67,12 +67,12 @@
 	falloff = 25
 	overlay_type = "yellow"
 
-/obj/item/explosive/grenade/ags
+/obj/item/explosive/grenade/agls
 	name = "\improper AGLS-37 HEDP grenade"
 	desc = "A small tiny smart grenade, it is about to blow up in your face, unless you found it inert. Otherwise a pretty normal grenade, other than it is somehow in a primeable state."
 	w_class = WEIGHT_CLASS_SMALL
-	icon_state = "ags_grenade"
-	worn_icon_state = "ags_grenade"
+	icon_state = "agls_grenade"
+	worn_icon_state = "agls_grenade"
 	det_time = 1 SECONDS
 	power = 80
 	falloff = 20
