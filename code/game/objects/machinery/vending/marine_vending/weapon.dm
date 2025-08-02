@@ -618,6 +618,7 @@
 			/obj/item/ammo_magazine/flamer_tank/large = -1,
 			/obj/item/ammo_magazine/flamer_tank/large/G = -1,
 			/obj/item/ammo_magazine/flamer_tank/backtank = -1,
+			/obj/item/ammo_magazine/flamer_tank/water = -1,
 			/obj/item/jetpack_marine = -1,
 			/obj/item/bodybag/tarp = -1,
 			/obj/item/mortar_kit/knee = 4,
