@@ -4,6 +4,7 @@
 		slot_l_hand_str = 'icons/mob/inhands/items/bodyparts_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items/bodyparts_right.dmi',
 	)
+	atom_flags = PREVENT_CONTENTS_EXPLOSION|DIRLOCK
 	///Predators can flay limbs to eventually turn them into bones for their armor
 	var/flayed = FALSE
 	///What bone would be in this limb?

@@ -195,6 +195,8 @@
 
 	if(maxcharge < amount)
 		return FALSE
+	if(!rechargable)
+		return FALSE
 	var/amount_used = min(maxcharge-charge,amount)
 	charge += amount_used
 	return amount_used

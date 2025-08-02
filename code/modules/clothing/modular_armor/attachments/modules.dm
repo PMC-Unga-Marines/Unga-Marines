@@ -117,7 +117,7 @@
 */
 
 /obj/item/armor_module/module/tyr_extra_armor
-	name = "\improper Tyr armor reinforcement system"
+	name = "\improper Tyr Mk.2 armor reinforcement system"
 	desc = "Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This newer version has improved protection. Will definitely impact mobility."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_armor"
@@ -147,7 +147,7 @@
 	slot = ATTACHMENT_SLOT_MODULE
 
 /obj/item/armor_module/module/tyr_head
-	name = "\improper Tyr armor reinforcement system helmet module"
+	name = "\improper Tyr Mk.1 armor reinforcement system helmet module"
 	desc = "Designed for mounting on a modular helmet. A substantial amount of all-around armour plating designed to grant the user extra protection against any kind of threat."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "tyr_head_xn")
@@ -157,7 +157,7 @@
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 
 /obj/item/armor_module/module/tyr_head/mark2
-	name = "Tyr 2 Helmet System"
+	name = "\improper Tyr Mk.2 armor reinforcement system helmet module"
 	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most damaging hazards, ranging from xeno slashes to friendly fire incidents."
 	soft_armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = -5, FIRE = 0, ACID = -5)
 

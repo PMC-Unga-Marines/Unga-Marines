@@ -96,15 +96,15 @@
 
 /proc/Get_Angle(atom/start, atom/end)//For beams.
 	if(!start || !end)
-		CRASH("Get_Angle called for inexisting atoms: [isnull(start) ? "null" : start] to [isnull(end) ? "null" : end].")
+		CRASH("Get_Angle called for inexisting atoms: [isnull(start) ? "null" : start] to [isnull(end) ? "null" : end]")
 	if(!start.z)
 		start = get_turf(start)
 		if(!start)
-			CRASH("Get_Angle called for inexisting atoms (start): start loc = [isnull(start?.loc) ? "null loc" : start.loc], start = [start], end loc = [isnull(end?.loc) ? "null loc" : end.loc], end = [end].") //Atoms are not on turfs.
+			CRASH("Get_Angle called for inexisting atoms (start): start loc = [isnull(start?.loc) ? "null loc" : start.loc], start = [isnull(start) ? "null" : start], end loc = [isnull(end?.loc) ? "null loc" : end.loc], end = [isnull(end) ? "null" : end].") //Atoms are not on turfs.
 	if(!end.z)
 		end = get_turf(end)
 		if(!end)
-			CRASH("Get_Angle called for inexisting atoms (end): start loc = [isnull(start?.loc) ? "null loc" : start.loc], start = [start], end loc = [isnull(end?.loc) ? "null loc" : end.loc], end = [end].") //Atoms are not on turfs.
+			CRASH("Get_Angle called for inexisting atoms (end): start loc = [isnull(start?.loc) ? "null loc" : start.loc], start = [isnull(start) ? "null" : start], end loc = [isnull(end?.loc) ? "null loc" : end.loc], end = [isnull(end) ? "null" : end].") //Atoms are not on turfs.
 	var/dy = (32 * end.y + end.pixel_y) - (32 * start.y + start.pixel_y)
 	var/dx = (32 * end.x + end.pixel_x) - (32 * start.x + start.pixel_x)
 	if(!dy)
