@@ -493,7 +493,7 @@ GLOBAL_LIST_INIT(bitfields, list(
 		"IS_SENTRY" = IS_SENTRY,
 		"IN_STORAGE" = IN_STORAGE,
 	),
-	deploy_flags = list(
+	"deploy_flags" = list(
 		"IS_DEPLOYABLE" = IS_DEPLOYABLE,
 		"DEPLOY_ON_INITIALIZE" = DEPLOY_ON_INITIALIZE,
 		"IS_DEPLOYED" = IS_DEPLOYED,

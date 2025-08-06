@@ -108,7 +108,6 @@
 ///This item is hand
 #define HAND_ITEM (1<<16)
 
-
 ///Item can be deployed into a machine
 #define IS_DEPLOYABLE (1<<0)
 ///Item deploys on initialize
