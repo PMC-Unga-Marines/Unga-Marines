@@ -182,7 +182,7 @@
 	))
 
 /datum/storage/belt/marine/auto_catch
-	storage_slots = 4
+	storage_slots = 5
 
 /datum/storage/belt/marine/sectoid/New(atom/parent)
 	. = ..()
