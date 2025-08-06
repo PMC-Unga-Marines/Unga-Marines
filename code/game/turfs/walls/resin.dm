@@ -10,7 +10,8 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_XENO_STRUCTURES)
 	canSmoothWith = list(SMOOTH_GROUP_XENO_STRUCTURES)
-	soft_armor = list(MELEE = 30, BULLET = 70, LASER = 60, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 0, BULLET = 80, LASER = 75, ENERGY = 75, BOMB = 20, BIO = 0, FIRE = 0, ACID = 0)
+	hard_armor = list(MELEE = 0, BULLET = 15, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	resistance_flags = UNACIDABLE
 
 /turf/closed/wall/resin/add_debris_element()
@@ -187,24 +188,14 @@
 /turf/closed/wall/resin/regenerating/thick
 	max_integrity = 250
 
-/turf/closed/wall/resin/regenerating/bombproof
-	name = RESIN_WALL_BOMB
-	desc = "Weird slime solidified into a wall. Looks like it could be resistant to explosions."
-	icon = 'icons/obj/smooth_objects/resin-wall-bomb.dmi'
-	icon_state = "resin-wall-0"
-	walltype = "resin-wall"
-	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 15, BULLET = 35, LASER = 30, ENERGY = 0, BOMB = 100, BIO = 0, FIRE = 0, ACID = 0)
-	max_upgradable_health = 200
-
 /turf/closed/wall/resin/regenerating/bulletproof
 	name = RESIN_WALL_BULLET
-	desc = "Weird slime solidified into a wall. Looks like it could be resistant to bullets and lasers."
+	desc = "Weird slime solidified into a wall. Looks like it could be resistant to bullets and energy weaponry."
 	icon = 'icons/obj/smooth_objects/resin-wall-bullet.dmi'
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 15, BULLET = 150, LASER = 150, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 0, BULLET = 120, LASER = 100, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0) //You aren't damaging this with bullets without alot of AP.
 	max_upgradable_health = 200
 
 /turf/closed/wall/resin/regenerating/fireproof
@@ -214,15 +205,14 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 15, BULLET = 35, LASER = 30, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 0)
+	soft_armor = list(MELEE = 0, BULLET = 65, LASER = 75, ENERGY = 75, BOMB = 0, BIO = 0, FIRE = 200, ACID = 0)
 	max_upgradable_health = 200
 
-/turf/closed/wall/resin/regenerating/meleeproof
-	name = RESIN_WALL_MELEE
-	desc = "Weird slime solidified into a wall. Looks like it could be resistant to melee attacks."
-	icon = 'icons/obj/smooth_objects/resin-wall-melee.dmi'
+/turf/closed/wall/resin/regenerating/hardy
+	name = RESIN_WALL_HARDY
+	desc = "Weird slime solidified into a wall. Looks like it could be resistant to melee attacks and explosives."
+	icon = 'icons/obj/smooth_objects/resin-wall-hardy.dmi'
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 100, BULLET = 35, LASER = 30, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
-	max_upgradable_health = 200
+	soft_armor = list(MELEE = 80, BULLET = 30, LASER = 25, ENERGY = 25, BOMB = 80, BIO = 0, FIRE = 0, ACID = 0)

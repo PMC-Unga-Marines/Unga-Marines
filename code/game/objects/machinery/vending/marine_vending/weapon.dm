@@ -70,6 +70,8 @@
 			/obj/item/storage/holster/belt/ts34/full = 5,
 		),
 		"Пулемёты" = list(
+			/obj/item/weapon/gun/rifle/mg42 = -1,
+			/obj/item/ammo_magazine/mg42 = -1,
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/mg27 = 5,
@@ -310,6 +312,8 @@
 			/obj/item/storage/holster/belt/ts34/full = 5,
 		),
 		"Пулемёты" = list(
+			/obj/item/weapon/gun/rifle/mg42 = -1,
+			/obj/item/ammo_magazine/mg42 = -1,
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/mg27 = 5,
@@ -542,6 +546,8 @@
 			/obj/item/storage/holster/belt/ts34/full = -1,
 		),
 		"Пулемёты" = list(
+			/obj/item/weapon/gun/rifle/mg42 = -1,
+			/obj/item/ammo_magazine/mg42 = -1,
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/mg27 = -1,

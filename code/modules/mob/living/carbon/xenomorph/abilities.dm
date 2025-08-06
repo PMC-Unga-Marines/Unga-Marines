@@ -212,14 +212,13 @@
 	///Minimum time to build a resin structure
 	var/base_wait = 0.5 SECONDS
 	///Multiplicator factor to add to the building time, depends on the health of the structure built
-	var/scaling_wait = 0.5 SECONDS
+	var/scaling_wait = 1.5 SECONDS
 	///List of buildable structures. Order corresponds with resin_images_list.
 	var/list/buildable_structures = list(
 		/turf/closed/wall/resin/regenerating,
-		/turf/closed/wall/resin/regenerating/bombproof,
 		/turf/closed/wall/resin/regenerating/bulletproof,
 		/turf/closed/wall/resin/regenerating/fireproof,
-		/turf/closed/wall/resin/regenerating/meleeproof,
+		/turf/closed/wall/resin/regenerating/hardy,
 		/obj/alien/resin/sticky,
 		/obj/structure/mineral_door/resin,
 		/obj/structure/bed/nest,
@@ -248,7 +247,7 @@
 	SIGNAL_HANDLER
 	dragging = FALSE
 	UnregisterSignal(owner, list(COMSIG_MOB_MOUSEDRAG, COMSIG_MOB_MOUSEUP, COMSIG_MOB_MOUSEDOWN))
-	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND,COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ,COMSIG_GLOB_DROPPOD_LANDED))
+	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ,COMSIG_GLOB_DROPPOD_LANDED))
 
 /// Extra handling for adding the action for draggin functionality (for instant building)
 /datum/action/ability/activable/xeno/secrete_resin/give_action(mob/living/L)
@@ -265,14 +264,14 @@
 	RegisterSignal(owner, COMSIG_MOB_MOUSEDOWN, PROC_REF(start_resin_drag))
 	RegisterSignal(owner, COMSIG_MOB_MOUSEDRAG, PROC_REF(preshutter_resin_drag))
 	RegisterSignal(owner, COMSIG_MOB_MOUSEUP, PROC_REF(stop_resin_drag))
-	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND,COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ,COMSIG_GLOB_DROPPOD_LANDED), PROC_REF(end_resin_drag))
+	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ,COMSIG_GLOB_DROPPOD_LANDED), PROC_REF(end_resin_drag))
 
 /// Extra handling to remove the stuff needed for dragging
 /datum/action/ability/activable/xeno/secrete_resin/remove_action(mob/living/carbon/xenomorph/X)
 	if(!CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD))
 		return ..()
 	UnregisterSignal(owner, list(COMSIG_MOB_MOUSEDRAG, COMSIG_MOB_MOUSEUP, COMSIG_MOB_MOUSEDOWN))
-	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND,COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ,COMSIG_GLOB_DROPPOD_LANDED))
+	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ,COMSIG_GLOB_DROPPOD_LANDED))
 	update_button_icon() //reason for the double return ..() here is owner gets unassigned in one of the parent procs, so we can't call parent before unregistering signals here
 	return ..()
 
@@ -1192,7 +1191,7 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HEADBITE,
 	)
-	gamemode_flags = ABILITY_NUCLEARWAR
+	gamemode_flags = ABILITY_DISTRESS|ABILITY_CRASH
 	ability_cost = 100
 	///How much larva points it gives (8 points for one larva in distress)
 	var/larva_point_reward = 1
@@ -1265,16 +1264,22 @@
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_HIVE_TARGET_DRAINED, xeno_owner)
 		psy_points_reward = psy_points_reward * 3
 	SSpoints.add_psy_points(xeno_owner.hivenumber, psy_points_reward)
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
-	xeno_job.add_job_points(larva_point_reward)
-	xeno_owner.hive.update_tier_limits()
-	GLOB.round_statistics.larva_from_psydrain +=larva_point_reward / xeno_job.job_points_needed
+	GLOB.round_statistics.psypoints_from_psydrain += psy_points_reward
+
+	if(SSticker.mode && !CHECK_BITFIELD(SSticker.mode.xeno_abilities_flags, ABILITY_CRASH))
+		var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+		xeno_job.add_job_points(larva_point_reward)
+		xeno_owner.hive.update_tier_limits()
+		GLOB.round_statistics.larva_from_psydrain += larva_point_reward / xeno_job.job_points_needed
 
 	if(owner.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.drained++
 	log_combat(victim, owner, "was drained.")
 	log_game("[key_name(victim)] was drained at [AREACOORD(victim.loc)].")
+
+/datum/action/ability/activable/xeno/psydrain/free
+	ability_cost = 0
 
 /////////////////////////////////
 // Cocoon
@@ -1289,7 +1294,7 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_REGURGITATE,
 	)
 	ability_cost = 100
-	gamemode_flags = ABILITY_NUCLEARWAR
+	gamemode_flags = ABILITY_DISTRESS|ABILITY_CRASH
 	///In how much time the cocoon will be ejected
 	var/cocoon_production_time = 3 SECONDS
 

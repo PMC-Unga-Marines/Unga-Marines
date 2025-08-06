@@ -16,7 +16,7 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RECYCLE,
 	)
 	ability_cost = 750
-	gamemode_flags = ABILITY_NUCLEARWAR
+	gamemode_flags = ABILITY_DISTRESS|ABILITY_CRASH
 
 /datum/action/ability/activable/xeno/recycle/can_use_ability(atom/target, silent = FALSE, override_flags)
 	. = ..()
@@ -64,10 +64,9 @@
 	ability_cost = 100
 	buildable_structures = list(
 		/turf/closed/wall/resin/regenerating/thick,
-		/turf/closed/wall/resin/regenerating/bombproof,
 		/turf/closed/wall/resin/regenerating/bulletproof,
 		/turf/closed/wall/resin/regenerating/fireproof,
-		/turf/closed/wall/resin/regenerating/meleeproof,
+		/turf/closed/wall/resin/regenerating/hardy,
 		/obj/alien/resin/sticky,
 		/obj/structure/mineral_door/resin/thick,
 		/obj/structure/bed/nest,
