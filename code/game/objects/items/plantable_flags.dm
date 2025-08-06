@@ -78,7 +78,7 @@
 /obj/item/plantable_flag/proc/update_aura()
 	if(!current_aura)
 		return
-	current_aura.range = item_flags & IS_DEPLOYED ? FLAG_AURA_DEPLOYED_RANGE : FLAG_AURA_RANGE
+	current_aura.range = deploy_flags & IS_DEPLOYED ? FLAG_AURA_DEPLOYED_RANGE : FLAG_AURA_RANGE
 	if(isturf(loc))
 		current_aura.strength = LOST_FLAG_AURA_STRENGTH
 		return
