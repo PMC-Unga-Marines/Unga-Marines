@@ -476,6 +476,7 @@
 		"Винтовки" = list(
 			/obj/item/weapon/gun/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12 = -1,
+			/obj/item/ammo_magazine/rifle/ar12/incendiary = -1,
 			/obj/item/weapon/gun/rifle/ar18 = -1,
 			/obj/item/ammo_magazine/rifle/ar18 = -1,
 			/obj/item/weapon/gun/rifle/ar11 = -1,
@@ -497,6 +498,7 @@
 		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
+			/obj/item/ammo_magazine/smg/vector/incendiary = -1,
 			/obj/item/weapon/gun/smg/smg90 = -1,
 			/obj/item/ammo_magazine/smg/smg90 = -1,
 			/obj/item/weapon/gun/smg/mp19 = -1,
