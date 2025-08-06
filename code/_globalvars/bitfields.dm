@@ -492,6 +492,7 @@ GLOBAL_LIST_INIT(bitfields, list(
 		"ITEM_PREDATOR"= ITEM_PREDATOR,
 		"IS_SENTRY" = IS_SENTRY,
 		"IN_STORAGE" = IN_STORAGE,
+		"HAND_ITEM" = HAND_ITEM,
 	),
 	"deploy_flags" = list(
 		"IS_DEPLOYABLE" = IS_DEPLOYABLE,
