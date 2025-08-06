@@ -115,9 +115,9 @@
 ///If this is on an item, said item is currently deployed
 #define IS_DEPLOYED (1<<2)
 ///Disables deployed item pickup
-#define DEPLOYED_NO_PICKUP  (1<3)
+#define DEPLOYED_NO_PICKUP (1<<3)
 ///Disables deployed item rotation abilities to rotate.
-#define DEPLOYED_NO_ROTATE  (1<<4)
+#define DEPLOYED_NO_ROTATE (1<<4)
 ///Disables deployed item rotation if anchored.
 #define DEPLOYED_NO_ROTATE_ANCHORED (1<<5)
 ///If this is on an item, the item can only be disassembled using a wrench once deployed.
