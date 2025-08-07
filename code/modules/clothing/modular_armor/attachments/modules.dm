@@ -766,6 +766,11 @@
 	. = ..()
 	parent.AddComponent(/datum/component/blur_protection)
 
+/obj/item/armor_module/module/artemis/on_detach(obj/item/detaching_from, mob/user)
+	. = ..()
+	var/datum/component/blur_protection/blur_p = parent?.GetComponent(/datum/component/blur_protection)
+	blur_p?.RemoveComponent()
+
 /obj/item/armor_module/module/antenna
 	name = "\improper HM-9 antenna helmet module"
 	desc = "Designed for mounting on a modular Helmet. This module is able to provide a readout of the user's coordinates and connect to the shipside supply console and shield against the interference of caves, allowing for normal messaging in shallow caves, and only minor interference when deep."
