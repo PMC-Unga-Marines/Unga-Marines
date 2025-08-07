@@ -714,8 +714,8 @@
 	if(active == zoom) //Zooming failed for some reason and didn't change
 		return
 	active = zoom
-	to_chat(user, span_notice("You toggle \the [src] [active ? "enabling" : "disabling"] it."))
-	icon_state = initial(icon_state) + "[active ? "_active" : ""]"
+	to_chat(user, span_notice("You toggle \the [src], [active ? "enabling" : "disabling"] it."))
+	icon_state = base_icon + "[active ? "_active" : ""]"
 	worn_icon_state = icon_state + "_a"
 	parent.update_icon()
 	user.update_inv_head()
@@ -734,7 +734,7 @@
 /obj/item/armor_module/module/binoculars/artemis_mark_two // a little cheating with subtypes
 	name = "\improper Freyr Mk.2 visual assistance helmet system"
 	desc = "Designed for mounting on a modular helmet. The Freyr module is designed with an overlay visor that clarifies the user's vision, allowing them to see clearly even in the harshest of circumstances. This version is enhanced and allows the marine to peer through the visor, akin to binoculars."
-	icon_state = "artemis_head"
+	icon_state = "artemis_head_mk2"
 	worn_icon_state = "artemis_head_mk2_a"
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_mk2_xn")
 	var/eye_protection_mod = 1
