@@ -634,10 +634,12 @@
 	toggle_signal = COMSIG_KB_HELMETMODULE
 	///Mod for extra eye protection when activated.
 	var/eye_protection_mod = 2
+	///What variant of tint are we adding with the component?
+	var/tint_mode = TINT_5
 
 /obj/item/armor_module/module/welding/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
-	parent.AddComponent(/datum/component/clothing_tint, TINT_5, active)
+	parent.AddComponent(/datum/component/clothing_tint, tint_mode, active)
 	if(active)
 		parent.eye_protection += eye_protection_mod // reset to the users base eye
 
@@ -687,10 +689,7 @@
 	attach_features_flags = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	active = FALSE
 	prefered_slot = SLOT_HEAD
-
-/obj/item/armor_module/module/welding/superior/on_attach(obj/item/attaching_to, mob/user)
-	. = ..()
-	parent.AddComponent(/datum/component/clothing_tint, TINT_4, active)
+	tint_mode = TINT_4
 
 /obj/item/armor_module/module/binoculars
 	name = "\improper HM-6 binocular helmet module"
@@ -715,7 +714,7 @@
 	if(active == zoom) //Zooming failed for some reason and didn't change
 		return
 	active = zoom
-	to_chat(user, span_notice("You toggle \the [src]. [active ? "enabling" : "disabling"] it."))
+	to_chat(user, span_notice("You toggle \the [src] [active ? "enabling" : "disabling"] it."))
 	icon_state = initial(icon_state) + "[active ? "_active" : ""]"
 	worn_icon_state = icon_state + "_a"
 	parent.update_icon()
