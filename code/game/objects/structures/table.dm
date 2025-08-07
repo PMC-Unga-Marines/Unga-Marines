@@ -28,8 +28,6 @@
 	var/table_status = TABLE_STATUS_FIRM
 	/// What type of resource will we drop on destroy?
 	var/sheet_type = /obj/item/stack/sheet/metal
-	/// Used for table flip icons
-	var/table_prefix = ""
 	/// Is the table reinforced?
 	var/reinforced = FALSE
 	/// Is the table flipped?
@@ -82,7 +80,7 @@
 			ttype++
 			tabledirs |= direction
 
-	icon_state = "[table_prefix]flip[ttype]"
+	icon_state = "[base_icon_state]_flip_[ttype]"
 	if(ttype == 1)
 		if(tabledirs & turn(dir, 90))
 			icon_state += "-"
@@ -335,7 +333,6 @@
 	sheet_type = /obj/item/stack/sheet/wood
 	parts = /obj/item/frame/table/wood
 	base_icon_state = "wood_table_reinforced"
-	table_prefix = "wood"
 	hit_sound = 'sound/effects/woodhit.ogg'
 	max_integrity = 20
 
@@ -351,7 +348,6 @@
 	icon = 'icons/obj/smooth_objects/fancy_table.dmi'
 	icon_state = "fancy_table-0"
 	base_icon_state = "fancy_table"
-	table_prefix = "fwood"
 	parts = /obj/item/frame/table/fancywood
 
 /obj/structure/table/wood/rustic
@@ -360,7 +356,6 @@
 	icon = 'icons/obj/smooth_objects/rustic_table.dmi'
 	icon_state = "rustic_table-0"
 	base_icon_state = "rustic_table"
-	table_prefix = "pwood"
 	parts = /obj/item/frame/table/rusticwood
 
 /obj/structure/table/black
@@ -369,7 +364,6 @@
 	icon = 'icons/obj/smooth_objects/black_table.dmi'
 	icon_state = "black_table-0"
 	base_icon_state = "black_table"
-	table_prefix = "black"
 	parts = /obj/item/frame/table
 
 /*
@@ -383,7 +377,6 @@
 	base_icon_state = "pool_table"
 	sheet_type = /obj/item/stack/sheet/wood
 	parts = /obj/item/frame/table/gambling
-	table_prefix = "gamble"
 	hit_sound = 'sound/effects/woodhit.ogg'
 	max_integrity = 20
 
@@ -398,7 +391,6 @@
 	base_icon_state = "table_reinforced"
 	max_integrity = 100
 	reinforced = TRUE
-	table_prefix = "reinf"
 	parts = /obj/item/frame/table/reinforced
 
 /obj/structure/table/reinforced/flipped
@@ -460,7 +452,6 @@
 	icon = 'icons/obj/smooth_objects/prison_table.dmi'
 	icon_state = "prison_table-0"
 	base_icon_state = "prison_table"
-	table_prefix = "prison"
 
 /obj/structure/table/reinforced/fabric
 	name = "cloth table"
@@ -468,7 +459,6 @@
 	icon = 'icons/obj/smooth_objects/table_fabric.dmi'
 	icon_state = "table_fabric-0"
 	base_icon_state = "table_fabric"
-	table_prefix = "fabric"
 	parts = /obj/item/frame/table
 	reinforced = TRUE
 
@@ -476,7 +466,6 @@
 	icon = 'icons/obj/smooth_objects/mainship_table.dmi'
 	icon_state = "mainship_table-0"
 	base_icon_state = "mainship_table"
-	table_prefix = "ship"
 	parts = /obj/item/frame/table/mainship
 
 /obj/structure/table/mainship/nometal
