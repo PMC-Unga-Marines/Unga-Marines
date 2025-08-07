@@ -305,19 +305,18 @@
 		return min(obj_integrity, 40)
 	return 0
 
+/// The flip() proc HAS to be run after smooth_icon() is completed or else we will get runtimes.
+/obj/structure/table/proc/on_icon_smoothed()
+	SIGNAL_HANDLER
+	flip(dir, TRUE)
+	UnregisterSignal(src, COMSIG_ATOM_SMOOTHED_ICON)
+
 /obj/structure/table/flipped
-	flipped = TRUE //Just not to get the icon updated on Initialize()
 	coverage = 60
 
 /obj/structure/table/flipped/Initialize(mapload)
 	. = ..()
-	flipped = FALSE //We'll properly flip it in LateInitialize()
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/structure/table/flipped/LateInitialize()
-	. = ..()
-	if(!flipped)
-		flip(dir, TRUE)
+	RegisterSignal(src, COMSIG_ATOM_SMOOTHED_ICON, PROC_REF(on_icon_smoothed))
 
 /*
 * Wooden tables
@@ -391,18 +390,11 @@
 	parts = /obj/item/frame/table/reinforced
 
 /obj/structure/table/reinforced/flipped
-	flipped = TRUE
 	table_status = TABLE_STATUS_WEAKENED
 
 /obj/structure/table/reinforced/flipped/Initialize(mapload)
 	. = ..()
-	flipped = FALSE
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/structure/table/reinforced/flipped/LateInitialize()
-	. = ..()
-	if(!flipped)
-		flip(dir, TRUE)
+	RegisterSignal(src, COMSIG_ATOM_SMOOTHED_ICON, PROC_REF(on_icon_smoothed))
 
 /obj/structure/table/reinforced/flip(direction, forced)
 	if(!forced && table_status == TABLE_STATUS_FIRM)
