@@ -118,39 +118,36 @@
 		M.Paralyze(2 SECONDS)
 		to_chat(M, span_warning("You topple as \the [src] moves under you!"))
 
-		if(prob(25))
+		if(!prob(25))
+			return
 
-			var/damage = rand(15,30)
-			if(!ishuman(M))
-				to_chat(M, span_danger("You land heavily!"))
-				M.apply_damage(damage, BRUTE)
-				UPDATEHEALTH(M)
-				return
+		var/damage = rand(15,30)
+		if(!ishuman(M))
+			to_chat(M, span_danger("You land heavily!"))
+			M.apply_damage(damage, BRUTE, updating_health = TRUE)
+			return
 
-			var/mob/living/carbon/human/H = M
-			var/datum/limb/affecting
+		var/mob/living/carbon/human/H = M
+		var/datum/limb/affecting
 
-			switch(pick(list("ankle","wrist","head","knee","elbow")))
-				if("ankle")
-					affecting = H.get_limb(pick("l_foot", "r_foot"))
-				if("knee")
-					affecting = H.get_limb(pick("l_leg", "r_leg"))
-				if("wrist")
-					affecting = H.get_limb(pick("l_hand", "r_hand"))
-				if("elbow")
-					affecting = H.get_limb(pick("l_arm", "r_arm"))
-				if("head")
-					affecting = H.get_limb("head")
+		switch(pick(list("ankle","wrist","head","knee","elbow")))
+			if("ankle")
+				affecting = H.get_limb(pick("l_foot", "r_foot"))
+			if("knee")
+				affecting = H.get_limb(pick("l_leg", "r_leg"))
+			if("wrist")
+				affecting = H.get_limb(pick("l_hand", "r_hand"))
+			if("elbow")
+				affecting = H.get_limb(pick("l_arm", "r_arm"))
+			if("head")
+				affecting = H.get_limb("head")
 
-			if(affecting)
-				to_chat(M, span_danger("You land heavily on your [affecting.display_name]!"))
-				affecting.take_damage_limb(damage)
-			else
-				to_chat(H, span_danger("You land heavily!"))
-				H.apply_damage(damage, BRUTE)
-
-			UPDATEHEALTH(H)
-			H.UpdateDamageIcon()
+		if(affecting)
+			to_chat(M, span_danger("You land heavily on your [affecting.display_name]!"))
+			affecting.take_damage_limb(damage, updating_health = TRUE)
+		else
+			to_chat(H, span_danger("You land heavily!"))
+			H.apply_damage(damage, BRUTE, updating_health = TRUE)
 
 /obj/structure/can_interact(mob/user)
 	. = ..()
