@@ -189,9 +189,9 @@
 	var/datum/hive_status/normal/xeno_hive = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
 	// Spawn more xenos to help maintain the ratio.
-	var/xenomorphs_below_ratio = get_jobpoint_difference() / xeno_job.job_points_needed
+	var/xenomorphs_below_ratio = trunc(get_jobpoint_difference() / xeno_job.job_points_needed)
 	if(xenomorphs_below_ratio >= 1)
-		xeno_job.add_job_positions(trunc(xenomorphs_below_ratio))
+		xeno_job.add_job_positions(xenomorphs_below_ratio)
 		xeno_hive.update_tier_limits()
 		return
 	if(xeno_hive.total_xenos_for_evolving() <= 0)
