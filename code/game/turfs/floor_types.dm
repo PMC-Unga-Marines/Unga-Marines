@@ -1212,6 +1212,9 @@
 	icon = 'icons/turf/industrial.dmi'
 	icon_state = "industrial"
 
+/turf/open/floor/industrial/broken_states()
+	return icon_state
+
 //Kutjevo turfs
 
 /turf/open/floor/plating/kutjevo
