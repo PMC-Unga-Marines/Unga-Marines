@@ -194,7 +194,7 @@
 		xeno_job.add_job_positions(trunc(xenomorphs_below_ratio))
 		xeno_hive.update_tier_limits()
 		return
-	if(!xeno_hive.total_xenos_for_evolving())
+	if(xeno_hive.total_xenos_for_evolving() <= 0)
 		xeno_job.add_job_positions(1)
 		xeno_hive.update_tier_limits()
 
