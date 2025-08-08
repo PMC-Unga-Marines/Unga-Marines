@@ -178,7 +178,7 @@
 
 	backpack_contents = list(
 		/obj/item/tool/crowbar/red = 1,
-		/obj/item/explosive/grenade/som = 6,
+		/obj/item/explosive/grenade/som = 5,
 		/obj/item/defibrillator = 1,
 		/obj/item/storage/box/m94 = 1,
 		/obj/item/weapon/gun/pistol/icc_dpistol = 1,

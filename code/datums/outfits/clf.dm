@@ -254,6 +254,7 @@
 	suit_store = /obj/item/weapon/gun/clf_heavyrifle
 	back = /obj/item/shotgunbox/clf_heavyrifle
 	belt = /obj/item/storage/belt/utility/full
+	backpack_contents = null
 
 /datum/outfit/job/clf/specialist/clf_heavymachinegun
 	suit_store = /obj/item/weapon/gun/kord

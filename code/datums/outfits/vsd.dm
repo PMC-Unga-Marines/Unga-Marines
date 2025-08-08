@@ -94,6 +94,7 @@
 	l_pocket_contents = list(
 		/obj/item/ammo_magazine/rifle/vsd_rifle = 2,
 	)
+	head_contents = null
 
 /datum/outfit/job/vsd/standard/grunt_third
 	suit_store = /obj/item/weapon/gun/rifle/vsd_rifle/standard
@@ -160,7 +161,6 @@
 		/obj/item/stack/medical/heal_pack/ointment = 1,
 		/obj/item/explosive/plastique = 1,
 		/obj/item/explosive/grenade/vsd = 2,
-		/obj/item/stack/sheet/metal/large_stack = 1,
 	)
 
 /datum/outfit/job/vsd/engineer/vsd_rifle
@@ -184,6 +184,7 @@
 		/obj/item/explosive/plastique = 1,
 		/obj/item/explosive/grenade/vsd = 2,
 	)
+	head_contents = null
 
 /datum/outfit/job/vsd/medic
 	name = "VSD Medic"
