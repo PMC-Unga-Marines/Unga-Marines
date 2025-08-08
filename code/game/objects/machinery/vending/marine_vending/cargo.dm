@@ -5,7 +5,6 @@
 	icon_vend = "requisitionop-vend"
 	icon_deny = "requisitionop-deny"
 	wrenchable = FALSE
-	req_one_access = list(ACCESS_MARINE_CARGO, ACCESS_MARINE_LOGISTICS)
 	products = list(
 		"Surplus Special Equipment" = list(
 			/obj/item/pinpointer = 1,

@@ -21,8 +21,7 @@
 	desc = "A square piece of wood standing on four wooden legs. It can not move."
 	icon = 'icons/obj/smooth_objects/wood_table_reinforced.dmi'
 	base_icon_state = "wood_table_reinforced"
-	icon_state = "woodtable-0"
-	table_prefix = "wood"
+	icon_state = "wood_table_reinforced-0"
 
 /obj/structure/holowindow
 	name = "reinforced window"

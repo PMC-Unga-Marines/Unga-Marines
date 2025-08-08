@@ -106,7 +106,7 @@
 	jobtype = /datum/job/survivor/security
 
 	w_uniform = /obj/item/clothing/under/rank/security
-	wear_suit = /obj/item/clothing/suit/armor/patrol
+	wear_suit = /obj/item/clothing/suit/storage/marine/specops
 	head = /obj/item/clothing/head/securitycap
 	shoes = /obj/item/clothing/shoes/marine/full
 	back = /obj/item/storage/backpack/security
@@ -200,7 +200,7 @@
 	gloves = /obj/item/clothing/gloves/insulated
 	belt = /obj/item/storage/belt/utility/full
 	head = /obj/item/clothing/head/hardhat/white
-	glasses = /obj/item/clothing/glasses/welding
+	glasses = /obj/item/clothing/glasses/welding/flipped
 	r_pocket = /obj/item/storage/pouch/electronics/full
 	l_pocket = /obj/item/storage/pouch/construction
 	ears = /obj/item/radio/headset/survivor
@@ -396,14 +396,28 @@
 	name = "Overpowered Survivor"
 	jobtype = /datum/job/survivor/rambo
 	w_uniform = /obj/item/clothing/under/marine/striped
-	wear_suit = /obj/item/clothing/suit/armor/patrol
+	wear_suit = /obj/item/clothing/suit/storage/marine/specops
 	shoes = /obj/item/clothing/shoes/marine/clf/full
 	back = /obj/item/storage/holster/blade/machete/full
 	gloves = /obj/item/clothing/gloves/ruggedgloves
 	suit_store = /obj/item/weapon/gun/rifle/alf_machinecarbine/freelancer
 	belt = /obj/item/storage/belt/marine/alf_machinecarbine
-	l_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
-	r_pocket = /obj/item/flashlight/combat
-	glasses = /obj/item/clothing/glasses/m42_goggles
+	l_pocket = /obj/item/storage/ai2
+	r_pocket = /obj/item/storage/pouch/survival/full
+	glasses = /obj/item/clothing/glasses/welding/flipped
 	head = /obj/item/clothing/head/headband
 	ears = /obj/item/radio/headset/survivor
+
+	suit_contents = list(
+		/obj/item/explosive/grenade/m15 = 2,
+	)
+	shoe_contents = list(
+		/obj/item/weapon/combat_knife = 1, // an extra knife
+	)
+
+
+/datum/outfit/job/survivor/rambo/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	H.makeup_style = "black" // we are cosplaying rambo, aren't we?
+	H.alpha = max(0, initial(H.alpha) - 1)
+	H.update_body()

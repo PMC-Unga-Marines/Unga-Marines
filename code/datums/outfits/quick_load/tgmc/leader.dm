@@ -149,7 +149,7 @@
 		/obj/item/storage/box/mre = 1,
 		/obj/item/ammo_magazine/pistol/vp70 = 2,
 		/obj/item/weapon/gun/pistol/vp70/tactical = 1,
-		/obj/item/tool/extinguisher = 1,
+		/obj/item/tool/extinguisher/mini = 1,
 	)
 	webbing_contents = list(
 		/obj/item/explosive/grenade/m15 = 2,

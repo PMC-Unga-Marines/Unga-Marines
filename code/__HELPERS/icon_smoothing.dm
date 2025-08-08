@@ -143,7 +143,7 @@
 		bitmask_smooth()
 	else
 		CRASH("smooth_icon called for [src] with smoothing_flags == [smoothing_flags]")
-
+	SEND_SIGNAL(src, COMSIG_ATOM_SMOOTHED_ICON)
 
 /atom/proc/corners_diagonal_smooth(adjacencies)
 	switch(adjacencies)

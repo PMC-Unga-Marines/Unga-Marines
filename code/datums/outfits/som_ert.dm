@@ -241,7 +241,7 @@
 
 /datum/outfit/job/som/ert/veteran/breacher_vet
 	head = /obj/item/clothing/head/modular/som/lorica
-	glasses = /obj/item/clothing/glasses/welding
+	glasses = /obj/item/clothing/glasses/welding/flipped
 	wear_suit = /obj/item/clothing/suit/modular/som/heavy/lorica
 	suit_store = /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger/somvet
 	l_hand = /obj/item/weapon/shield/riot/marine/som

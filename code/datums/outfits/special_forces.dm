@@ -154,3 +154,4 @@
 		/obj/item/ammo_magazine/handful/buckshot = 3,
 		/obj/item/ammo_magazine/handful/incendiary = 4,
 	)
+	head_contents = null

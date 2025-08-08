@@ -18,6 +18,7 @@
 	head_contents = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
 	)
+	shoe_contents = null
 
 /datum/outfit/quick/beginner/robot/laser_rifle
 	name = "Laser Rifleman"

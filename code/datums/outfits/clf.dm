@@ -65,7 +65,7 @@
 		/obj/item/radio = 1,
 		/obj/item/tool/crowbar/red = 1,
 		/obj/item/storage/box/mre = 1,
-		/obj/item/explosive/grenade/incendiary/molotov = 2,
+		/obj/item/explosive/grenade/incendiary/molotov = 3,
 		/obj/item/storage/box/m94 = 2,
 		/obj/item/explosive/plastique = 1,
 		/obj/item/stack/sheet/metal/medium_stack = 1,
@@ -76,7 +76,11 @@
 	suit_store = /obj/item/weapon/gun/shotgun/pump/standard
 
 	backpack_contents = list(
-		/obj/item/storage/box/m94 = 1,
+		/obj/item/radio = 1,
+		/obj/item/tool/crowbar/red = 1,
+		/obj/item/storage/box/mre = 1,
+		/obj/item/explosive/grenade/incendiary/molotov = 3,
+		/obj/item/storage/box/m94 = 2,
 		/obj/item/explosive/plastique = 1,
 		/obj/item/stack/sheet/metal/medium_stack = 1,
 	)
@@ -250,6 +254,7 @@
 	suit_store = /obj/item/weapon/gun/clf_heavyrifle
 	back = /obj/item/shotgunbox/clf_heavyrifle
 	belt = /obj/item/storage/belt/utility/full
+	backpack_contents = null
 
 /datum/outfit/job/clf/specialist/clf_heavymachinegun
 	suit_store = /obj/item/weapon/gun/kord

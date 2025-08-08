@@ -93,6 +93,8 @@
 /datum/hud/Destroy()
 	if(mymob.hud_used == src)
 		mymob.hud_used = null
+	if(mymob.hud_type == src)
+		mymob.hud_type = null
 	if(length(static_inventory))
 		for(var/thing in static_inventory)
 			qdel(thing)

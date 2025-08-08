@@ -247,7 +247,6 @@
 	scatter_mod = -3
 	scatter_unwielded_mod = 3
 	recoil_unwielded_mod = 1
-	size_mod = 1
 	pixel_shift_x = 0
 	pixel_shift_y = 0
 
@@ -263,4 +262,3 @@
 	recoil_unwielded_mod = -1
 	accuracy_mod = 0
 	accuracy_unwielded_mod = 0.15
-	size_mod = 0.5

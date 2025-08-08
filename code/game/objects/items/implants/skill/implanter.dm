@@ -38,3 +38,11 @@
 	empty_icon = "cargo_full_s"
 	/// Was implanter already spent?
 	var/spent = FALSE
+
+/obj/item/implanter/skill/cargo/attack_hand(mob/living/user)
+	if(user.get_inactive_held_item() != src || !internal_implant)
+		return ..()
+	user.put_in_hands(internal_implant)
+	internal_implant = null
+	icon_state = initial(icon_state)
+	spent = FALSE

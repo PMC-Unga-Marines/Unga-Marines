@@ -317,10 +317,10 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/storage/holster/backholster/rpg/full = 2,
 		/obj/item/ammo_magazine/rocket/recoilless = 4,
 		/obj/item/ammo_magazine/rocket/recoilless/light = 4,
-		/obj/item/ammo_magazine/rocket/recoilless/heat = 16,
-		/obj/item/ammo_magazine/rocket/recoilless/cloak = 16,
-		/obj/item/ammo_magazine/rocket/recoilless/smoke = 16,
-		/obj/item/ammo_magazine/rocket/recoilless/plasmaloss = 16,
+		/obj/item/ammo_magazine/rocket/recoilless/heat = 4,
+		/obj/item/ammo_magazine/rocket/recoilless/cloak = 4,
+		/obj/item/ammo_magazine/rocket/recoilless/smoke = 4,
+		/obj/item/ammo_magazine/rocket/recoilless/plasmaloss = 4,
 	)
 
 /datum/season_datum/weapons/guns/heavy_ff
@@ -354,8 +354,8 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/storage/holster/backholster/rpg/full = 2,
 		/obj/item/ammo_magazine/rocket/recoilless = 4,
 		/obj/item/ammo_magazine/rocket/recoilless/light = 4,
-		/obj/item/ammo_magazine/rocket/recoilless/heat = 16,
-		/obj/item/ammo_magazine/rocket/recoilless/cloak = 16,
-		/obj/item/ammo_magazine/rocket/recoilless/smoke = 16,
-		/obj/item/ammo_magazine/rocket/recoilless/plasmaloss = 16,
+		/obj/item/ammo_magazine/rocket/recoilless/heat = 4,
+		/obj/item/ammo_magazine/rocket/recoilless/cloak = 4,
+		/obj/item/ammo_magazine/rocket/recoilless/smoke = 4,
+		/obj/item/ammo_magazine/rocket/recoilless/plasmaloss = 4,
 	)

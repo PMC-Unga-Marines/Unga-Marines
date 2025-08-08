@@ -62,7 +62,6 @@
 	user.visible_message(span_notice("[user] carefully applies [src] on [H]'s face."), \
 		span_notice("You apply [src]."))
 	H.makeup_style = colour
-	H.makeup_style = colour
 	H.alpha = max(0, initial(H.alpha) - 1) // decreases your alpha by 1
 	H.update_body()
 	uses--

@@ -18,6 +18,7 @@
 /datum/ai_behavior/xeno/start_ai()
 	RegisterSignal(mob_parent, COMSIG_OBSTRUCTED_MOVE, TYPE_PROC_REF(/datum/ai_behavior, deal_with_obstacle))
 	RegisterSignals(mob_parent, list(ACTION_GIVEN, ACTION_REMOVED), PROC_REF(refresh_abilities))
+	RegisterSignal(mob_parent, COMSIG_QDELETING, PROC_REF(cut_abilities))
 	RegisterSignal(mob_parent, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(check_for_critical_health))
 	return ..()
 
@@ -28,6 +29,11 @@
 	for(var/datum/action/action AS in mob_parent.actions)
 		if(action.ai_should_start_consider())
 			ability_list += action
+
+///Cut abilities-to-consider list
+/datum/ai_behavior/xeno/proc/cut_abilities()
+	SIGNAL_HANDLER
+	ability_list.Cut()
 
 /datum/ai_behavior/xeno/process()
 	if(mob_parent.do_actions) //No activating more abilities if they're already in the progress of doing one
@@ -154,9 +160,13 @@
 
 /datum/ai_behavior/xeno/cleanup_signals()
 	. = ..()
-	UnregisterSignal(mob_parent, COMSIG_OBSTRUCTED_MOVE)
-	UnregisterSignal(mob_parent, list(ACTION_GIVEN, ACTION_REMOVED))
-	UnregisterSignal(mob_parent, COMSIG_XENOMORPH_TAKING_DAMAGE)
+	UnregisterSignal(mob_parent, list(
+		COMSIG_OBSTRUCTED_MOVE,
+		ACTION_GIVEN,
+		ACTION_REMOVED,
+		COMSIG_QDELETING,
+		COMSIG_XENOMORPH_TAKING_DAMAGE,
+	))
 
 ///Signal handler to try to attack our target
 /datum/ai_behavior/xeno/proc/attack_target(datum/source, atom/attacked)
