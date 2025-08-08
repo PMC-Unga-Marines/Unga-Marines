@@ -75,7 +75,7 @@
 	desc = "Heavy armored breaching configuration. Equipped with a volkite charger configured for better one handed use, heavy armor upgraded with 'Lorica' armor reinforcements, a boarding shield and a good selection of grenades. Premier protection and deadly close range firepower."
 
 	head = /obj/item/clothing/head/modular/som/lorica
-	glasses = /obj/item/clothing/glasses/welding
+	glasses = /obj/item/clothing/glasses/welding/flipped
 	wear_suit = /obj/item/clothing/suit/modular/som/heavy/lorica
 	suit_store = /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger/somvet
 	belt = /obj/item/storage/belt/marine/som/volkite

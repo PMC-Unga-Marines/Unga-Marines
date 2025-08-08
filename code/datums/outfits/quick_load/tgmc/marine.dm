@@ -306,7 +306,7 @@
 	desc = "Professional bullet catcher. Equipped with an SMG-25 submachine gun, a TL-172 defensive shield and heavy armor reinforced with a 'Tyr' module. Designed to absorb as much incoming damage as possible to protect your squishier comrades, however your mobility and damage output are notably diminished. Also of note: the excellent thermal mass of the TL-172 means it is unusually effective against the SOM's volkite weaponry."
 
 	head = /obj/item/clothing/head/modular/m10x/tyr
-	glasses = /obj/item/clothing/glasses/welding
+	glasses = /obj/item/clothing/glasses/welding/flipped
 	wear_suit = /obj/item/clothing/suit/modular/xenonauten/heavy/tyr_two
 	suit_store = /obj/item/weapon/gun/smg/m25/magharness
 	belt = /obj/item/storage/belt/marine/secondary
