@@ -133,7 +133,7 @@ const ObservableContent = (props) => {
       <ObservableSection color="blue" section={marines} title="Marines" />
       <ObservableSection color="teal" section={humans} title="Humans" />
       <ObservableSection color="good" section={survivors} title="Survivors" />
-      <ObservableSection color="darkred" section={yautja} title="Predators" />
+      <ObservableSection color="red" section={yautja} title="Predators" />
       <ObservableSection section={dead} title="Dead" />
       <ObservableSection section={ghosts} title="Ghosts" />
       <ObservableSection section={valhalla} title="Valhalla" />
