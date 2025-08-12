@@ -806,6 +806,7 @@
 		/obj/item/toy/deck,
 		/obj/item/paper,
 		/obj/item/clipboard,
+		/obj/item/pinpointer,
 	))
 
 /obj/item/storage/pouch/field_pouch/full/PopulateContents()
