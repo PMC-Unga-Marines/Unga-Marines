@@ -248,7 +248,7 @@
 	ammo_datum_type = /datum/ammo/bullet/turret/gauss
 	sentry_iff_signal = TGMC_LOYALIST_IFF
 	item_flags = TWOHANDED
-	deploy_flags = IS_DEPLOYABLE|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKU
+	deploy_flags = IS_DEPLOYABLE|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
 	turret_flags = TURRET_HAS_CAMERA|TURRET_IMMOBILE
 	density = FALSE
 
