@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - balance: "Уменьшил время роста и дозревания клонов с 15 минут до 7.5"
