@@ -79,7 +79,11 @@
 	prefs.toggles_sound ^= SOUND_MIDI
 	prefs.save_preferences()
 
-	to_chat(src, span_notice("You will [(prefs.toggles_sound & SOUND_MIDI) ? "now" : "no longer"] hear admin music."))
+	if(prefs.toggles_sound & SOUND_MIDI)
+		to_chat(src, span_notice("You will now hear admin music."))
+	else
+		to_chat(src, span_notice("You will no longer hear admin music."))
+		mob.stop_sound_channel(CHANNEL_MIDI)
 
 /client/verb/toggle_radial_medical()
 	set category = "Preferences"

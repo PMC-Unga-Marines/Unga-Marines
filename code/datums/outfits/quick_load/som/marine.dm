@@ -151,7 +151,7 @@
 	name = "V-21 Breacher"
 	desc = "Heavy armored breaching configuration. Equipped with a V-21 submachine gun with variable firerate allowing for extreme rates of fire when properly wielded, heavy armor, a boarding shield and a good selection of grenades. Offers outstanding protection although damage may be lacking, particular at longer range."
 
-	glasses = /obj/item/clothing/glasses/welding
+	glasses = /obj/item/clothing/glasses/welding/flipped
 	wear_suit = /obj/item/clothing/suit/modular/som/heavy/shield
 	suit_store = /obj/item/weapon/gun/smg/som/one_handed
 	belt = /obj/item/storage/belt/marine/som/som_smg

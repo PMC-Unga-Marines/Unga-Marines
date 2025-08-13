@@ -21,7 +21,7 @@
 
 ///HSG-102, now with full auto. It is not a superclass of deployed guns, however there are a few varients.
 /obj/item/weapon/gun/hsg102
-	name = "\improper HSG-102 mounted heavy smartgun"
+	name = "\improper HSG-102 mounted heavy smartmachinegun"
 	desc = "The HSG-102 heavy machinegun, it's too heavy to be wielded or operated without the tripod. IFF capable. No extra work required, just deploy it with Ctrl-Click. Can be repaired with a blowtorch once deployed."
 
 	w_class = WEIGHT_CLASS_HUGE
@@ -324,9 +324,8 @@
 
 ///This is my meme version, the first version of the HSG-102 to have auto-fire, revel in its presence.
 /obj/item/weapon/gun/hsg102/death
-	name = "\improper \"Death incarnate\" heavy machine gun"
+	name = "\improper \"Death incarnate\" heavy smartmachinegun"
 	desc = "It looks like a regular HSG-102, however glowing archaeic writing glows faintly on its sides and top. It beckons for blood."
-	icon = 'icons/obj/items/gun/hmg.dmi'
 
 	aim_slowdown = 3
 	scatter = 30

@@ -86,8 +86,8 @@
 	to_chat(src, "<span style='color: red;'>Hellhounds are fiercely protective of their masters and will never leave their side if under attack.</span>")
 	to_chat(src, "<span style='color: red;'>Note that ANY Predator can give you orders. If they conflict, follow the latest one. If they dislike your performance they can ask for another ghost and everyone will mock you. So do a good job!</span>")
 
-/mob/living/carbon/xenomorph/hellhound/death(cause, gibbed)
-	. = ..(cause, gibbed, "lets out a horrible roar as it collapses and stops moving...")
+/mob/living/carbon/xenomorph/hellhound/death(gibbing, deathmessage = "lets out a horrible roar as it collapses and stops moving...", silent)
+	. = ..()
 	if(!.)
 		return
 	emote("roar")

@@ -505,25 +505,27 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		thing.pixel_x += rand(-8, 8)
 		thing.pixel_y += rand(-8, 8)
 
-/datum/storage/verb/toggle_gathering_mode()
+/atom/movable/proc/toggle_gathering_mode()
 	set name = "Switch Gathering Method"
 	set category = "IC.Object"
 
-	collection_mode = !collection_mode
-	if(collection_mode)
-		to_chat(usr, span_notice("\The [parent.name] now picks up all items in a tile at once."))
+	var/datum/storage/our_storage = storage_datum
+	our_storage.collection_mode = !our_storage.collection_mode
+	if(our_storage.collection_mode)
+		to_chat(usr, span_notice("\The [our_storage.parent.name] now picks up all items in a tile at once."))
 	else
-		to_chat(usr, span_notice("\The [parent.name] now picks up one item at a time."))
+		to_chat(usr, span_notice("\The [our_storage.parent.name] now picks up one item at a time."))
 
-/datum/storage/verb/toggle_draw_mode()
+/atom/movable/proc/toggle_draw_mode()
 	set name = "Switch Storage Drawing Method"
 	set category = "IC.Object"
 
-	draw_mode = !draw_mode
-	if(draw_mode)
-		to_chat(usr, "Clicking [parent.name] with an empty hand now puts the last stored item in your hand.")
+	var/datum/storage/our_storage = storage_datum
+	our_storage.draw_mode = !our_storage.draw_mode
+	if(our_storage.draw_mode)
+		to_chat(usr, span_notice("Clicking [our_storage.parent.name] with an empty hand now puts the last stored item in your hand."))
 	else
-		to_chat(usr, "Clicking [parent.name] with an empty hand now opens the pouch storage menu.")
+		to_chat(usr, span_notice("Clicking [our_storage.parent.name] with an empty hand now opens the pouch storage menu."))
 
 /**
  * Gets the inventory of a storage
@@ -1120,15 +1122,15 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	var/obj/item/parent_item = parent
 	if(allow_quick_gather)
 		if(parent_item.item_flags & IN_INVENTORY)
-			parent.verbs += /datum/storage/verb/toggle_gathering_mode
+			parent.verbs += /atom/movable/proc/toggle_gathering_mode
 		else
-			parent.verbs -= /datum/storage/verb/toggle_gathering_mode
+			parent.verbs -= /atom/movable/proc/toggle_gathering_mode
 
 	if(allow_drawing_method)
 		if(parent_item.item_flags & IN_INVENTORY)
-			parent.verbs += /datum/storage/verb/toggle_draw_mode
+			parent.verbs += /atom/movable/proc/toggle_draw_mode
 		else
-			parent.verbs -= /datum/storage/verb/toggle_draw_mode
+			parent.verbs -= /atom/movable/proc/toggle_draw_mode
 
 /**
  * Attempts to get the first possible object from this container

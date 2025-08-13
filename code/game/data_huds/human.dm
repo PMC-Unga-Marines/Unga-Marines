@@ -39,6 +39,7 @@
 /mob/living/carbon/human/proc/set_status_hud()
 	var/image/status_hud = hud_list[STATUS_HUD]
 	status_hud.icon_state = ""
+	status_hud.overlays.Cut()
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
 		status_hud.icon_state = "dead"
 		return TRUE
@@ -102,6 +103,7 @@
 /mob/living/carbon/human/species/robot/set_status_hud()
 	var/image/status_hud = hud_list[STATUS_HUD]
 	status_hud.icon_state = ""
+	status_hud.overlays.Cut()
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
 		status_hud.icon_state = "dead_robot"
 		return TRUE
@@ -153,6 +155,7 @@
 /mob/living/carbon/human/species/synthetic/set_status_hud()
 	var/image/status_hud = hud_list[STATUS_HUD]
 	status_hud.icon_state = ""
+	status_hud.overlays.Cut()
 	if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
 		status_hud.icon_state = "synth_dnr"
 		return TRUE
@@ -177,6 +180,7 @@
 /mob/living/carbon/human/species/early_synthetic/set_status_hud() //copypaste
 	var/image/status_hud = hud_list[STATUS_HUD]
 	status_hud.icon_state = ""
+	status_hud.overlays.Cut()
 	if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
 		status_hud.icon_state = "synth_dnr"
 		return TRUE

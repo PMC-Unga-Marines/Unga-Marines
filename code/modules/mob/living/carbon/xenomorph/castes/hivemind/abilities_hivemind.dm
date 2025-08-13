@@ -211,5 +211,6 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 /datum/action/ability/xeno_action/psy_gain/hivemind/action_activate()
 	if(length_char(GLOB.humans_by_zlevel["2"]) > 0.2 * length_char(GLOB.alive_human_list))
 		SSpoints.add_psy_points("[xeno_owner.hivenumber]", 100)
+		GLOB.round_statistics.psypoints_from_hivemind += 100
 	succeed_activate()
 	add_cooldown()
