@@ -189,6 +189,7 @@
 	opacity = TRUE
 	locked = TRUE
 	aiControlDisabled = TRUE
+	hackProof = TRUE
 	var/linked_to_shuttle = FALSE
 
 /obj/machinery/door/airlock/evacuation/proc/force_open()
