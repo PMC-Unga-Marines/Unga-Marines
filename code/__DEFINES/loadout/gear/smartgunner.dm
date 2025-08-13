@@ -20,5 +20,4 @@ GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 	/obj/item/ammo_magazine/rifle/sg153/plasmaloss = list(CAT_SGSUP, "SG-153 Spotting Rifle Tanglefoot Magazine", 3, "orange2"),
 	/obj/item/ammo_magazine/rifle/sg153/incendiary = list(CAT_SGSUP, "SG-153 Spotting Rifle Incendiary Magazine", 3, "orange2"),
 	/obj/item/ammo_magazine/pistol/p14/smart_pistol = list(CAT_SGSUP, "SP-13 smart pistol ammo", 2, "orange2"),
-	/obj/item/storage/belt/marine/auto_catch = list(CAT_SGSUP, "M344 pattern ammo load rig", 10, "orange"),
 ))
