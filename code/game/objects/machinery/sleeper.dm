@@ -309,7 +309,8 @@
 	visible_message("[user] puts [grabbed_mob] into the sleeper.", 3)
 	occupant = grabbed_mob
 	start_processing()
-	connected.start_processing()
+	if(connected)
+		connected.start_processing()
 	update_icon()
 	return TRUE
 
@@ -365,7 +366,8 @@
 	stasis = FALSE
 	occupant = null
 	stop_processing()
-	connected.stop_processing()
+	if(connected)
+		connected.stop_processing()
 	update_icon()
 
 /obj/machinery/sleeper/proc/inject_chemical(mob/living/user as mob, chemical, amount)
@@ -446,7 +448,8 @@
 	occupant = target
 
 	start_processing()
-	connected.start_processing()
+	if(connected)
+		connected.start_processing()
 	update_icon()
 
 	for(var/obj/O in src)

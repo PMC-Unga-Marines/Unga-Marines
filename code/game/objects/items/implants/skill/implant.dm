@@ -50,13 +50,14 @@
 	-engineer, -construction, -leadership, -medical, -surgery, -pilot, -police, -powerloader, -large_vehicle, -mech_pilot, -stamina))
 	return ..()
 
-/obj/item/implant/skill/attackby(obj/item/I, mob/user, params)
+/obj/item/implant/skill/afterattack(atom/target, mob/user, has_proximity, click_parameters)
 	. = ..()
-	if(istype(I, /obj/item/implanter/skill/cargo))
-		var/obj/item/implanter/skill/cargo/implanter = I
+	if(istype(target, /obj/item/implanter/skill/cargo))
+		var/obj/item/implanter/skill/cargo/implanter = target
 		if(implanter.spent)
 			balloon_alert(user, "Already spent!")
 			return
+		user?.temporarilyRemoveItemFromInventory(src)
 		forceMove(implanter)
 		implanter.internal_implant = src
 		implanter.icon_state = "cargo_full"

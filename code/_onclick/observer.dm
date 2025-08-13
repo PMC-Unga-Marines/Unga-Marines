@@ -8,7 +8,7 @@
 			return									// seems legit.
 
 	// Things you might plausibly want to follow
-	if(ismovableatom(A))
+	if(ismovableatom(A) && !istype(A, /obj/alien/weeds))
 		ManualFollow(A)
 
 	// Otherwise jump

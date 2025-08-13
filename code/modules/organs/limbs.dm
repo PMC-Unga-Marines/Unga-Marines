@@ -689,7 +689,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			owner.update_hair()
 		if(ARM_RIGHT)
 			if(limb_status & LIMB_ROBOT)
-				organ = new /obj/item/limb/r_arm/robotic(owner.loc)
+				organ = new /obj/item/limb/r_arm/robotic(owner.loc, owner)
 			else
 				organ = new /obj/item/limb/r_arm(owner.loc, owner)
 		if(ARM_LEFT)
@@ -973,5 +973,5 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/datum/armor/scaled_armor = removed_armor.scaleAllRatings(cover_index * 0.01, 1)
 	if(owner)
 		owner.hard_armor = owner.hard_armor.detachArmor(scaled_armor)
-		
+
 #undef LIMB_MAX_DAMAGE_SEVER_RATIO

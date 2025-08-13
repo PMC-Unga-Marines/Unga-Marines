@@ -43,8 +43,8 @@
 
 ///Cleans references to prevent hard deletes.
 /obj/item/explosive/grenade/sticky/proc/clean_refs()
-	stuck_to.cut_overlay(saved_overlay)
 	SIGNAL_HANDLER
+	stuck_to.cut_overlay(saved_overlay)
 	UnregisterSignal(stuck_to, COMSIG_QDELETING)
 	stuck_to = null
 	saved_overlay = null
