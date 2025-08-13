@@ -132,7 +132,7 @@
 	desc = "Designed for mounting on modular armor. A decent amount of additional all-around armor plating designed to grant the user extra protection against any kind of threat. This older version has worse protection. Will greatly impact mobility."
 	icon_state = "mod_armor_lower"
 	worn_icon_state = "mod_armor_lower_a"
-	soft_armor = list(MELEE = 5, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, FIRE = 10, ACID = 0)
+	soft_armor = list(MELEE = 5, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, FIRE = 10, ACID = 0)
 	slowdown = 0.4
 
 /obj/item/armor_module/module/tyr_extra_armor/som
@@ -142,7 +142,7 @@
 	icon_state = "lorica_armor"
 	worn_icon_state = "lorica_armor_a"
 	attachment_layer = null
-	soft_armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 15, FIRE = 15, ACID = 5)
+	soft_armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 5, FIRE = 15, ACID = 5)
 	slowdown = 0.2
 	slot = ATTACHMENT_SLOT_MODULE
 
@@ -153,13 +153,13 @@
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "tyr_head_xn")
 	icon_state = "tyr_head"
 	worn_icon_state = "tyr_head_a"
-	soft_armor = list(MELEE = 5, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, FIRE = 10, ACID = 0)
+	soft_armor = list(MELEE = 5, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 0, FIRE = 10, ACID = 0)
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 
 /obj/item/armor_module/module/tyr_head/mark2
 	name = "Tyr 2 Helmet System"
 	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most damaging hazards, ranging from xeno slashes to friendly fire incidents."
-	soft_armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 15, FIRE = 15, ACID = 5)
+	soft_armor = list(MELEE = 10, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 15, BIO = 5, FIRE = 15, ACID = 5)
 
 /obj/item/armor_module/module/tyr_extra_armor/som
 	name = "\improper Lorica armor reinforcement system"
