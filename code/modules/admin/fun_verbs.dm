@@ -532,19 +532,19 @@ ADMIN_VERB(drop_ob, R_FUN, "Drop OB", "Cause an OB explosion of varying strength
 			OBShell.flame_colour = tgui_input_list(user, "Select the fire color:", "Fire color", fire_colors, "blue")
 			if(isnull(OBShell.flame_colour))
 				return
-			OBShell.smoke_radius = tgui_input_number(user, "How far should the smoke go?", "Set smoke radius", 17)
+			OBShell.smoke_radius = tgui_input_number(user, "How far should the smoke go?", "Set smoke radius", 17, 255, 1, 0)
 			if(isnull(OBShell.smoke_radius))
 				return
-			OBShell.smoke_duration = tgui_input_number(user, "How long should the smoke last?", "Set smoke duration", 20)
+			OBShell.smoke_duration = tgui_input_number(user, "How long should the smoke last?", "Set smoke duration", 20, 360, 1, 0)
 			if(isnull(OBShell.smoke_duration))
 				return
 			warhead = OBShell
 		if("Custom Plasmaloss")
 			var/obj/structure/ob_ammo/warhead/plasmaloss/OBShell = new
-			OBShell.smoke_radius = tgui_input_number(user, "How many tiles radius should the smoke be?", "Set smoke radius", 25)
+			OBShell.smoke_radius = tgui_input_number(user, "How many tiles radius should the smoke be?", "Set smoke radius", 25, 255, 1, 0)
 			if(isnull(OBShell.smoke_radius))
 				return
-			OBShell.smoke_duration = tgui_input_number(user, "How long should the fire last? (In deci-seconds)", "Set smoke duration", 30)
+			OBShell.smoke_duration = tgui_input_number(user, "How long should the smoke last?", "Set smoke duration", 30, 360, 1, 0)
 			if(isnull(OBShell.smoke_duration))
 				return
 			warhead = OBShell

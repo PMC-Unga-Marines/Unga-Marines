@@ -108,7 +108,7 @@
 		for(var/atom/movable/content in src)
 			INVOKE_ASYNC(content, TYPE_PROC_REF(/atom/movable, handle_airdrop), get_step(target_turf, rand(1, 8)))
 		break_open()
-	..()
+	return ..()
 
 /obj/item/handle_airdrop(turf/target_turf)
 	. = ..()

@@ -542,7 +542,7 @@
 	corpseuniform = /obj/item/clothing/under/color/grey
 	corpseback = /obj/item/storage/backpack
 	corpsemask = /obj/item/clothing/mask/gas
-	corpseglasses = /obj/item/clothing/glasses/welding
+	corpseglasses = /obj/item/clothing/glasses/welding/flipped
 	corpsehelmet = /obj/item/clothing/head/soft/grey
 	corpsegloves = /obj/item/clothing/gloves/yellow
 	corpseshoes = /obj/item/clothing/shoes/black

@@ -89,6 +89,9 @@ GLOBAL_LIST_INIT(string_equip_flags, list(
 	if(!isnull(min_cold_protection_temperature) && min_cold_protection_temperature <= ICE_PLANET_MIN_COLD_PROTECTION_TEMPERATURE)
 		armor_strings += "It provides protection against cold temperatures."
 
+	if(CHECK_BITFIELD(armor_features_flags, ARMOR_NO_DECAP))
+		armor_strings += "It provides protection against getting decapitated."
+
 	var/list/covers = list()
 	var/list/slots = list()
 	for(var/name in GLOB.string_part_flags)

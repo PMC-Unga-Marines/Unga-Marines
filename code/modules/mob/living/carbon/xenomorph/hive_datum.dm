@@ -149,6 +149,9 @@
 
 	.["xeno_info"] = list()
 	for(var/mob/living/carbon/xenomorph/xeno AS in get_all_xenos())
+		if(!xeno)
+			stack_trace("Tried parsing a xeno [xeno] without a xeno to Hive UI!")
+			continue
 		if(initial(xeno.tier) == XENO_TIER_MINION)
 			continue // Skipping minions
 		var/datum/xeno_caste/caste = xeno.xeno_caste
@@ -528,30 +531,30 @@
 	return TRUE
 
 // helper function
-/datum/hive_status/proc/remove_from_lists(mob/living/carbon/xenomorph/X)
+/datum/hive_status/proc/remove_from_lists(mob/living/carbon/xenomorph/removed_xeno)
 	// Remove() returns 1 if it removes an element from a list
 
-	if(!xenos_by_tier[X.tier].Remove(X))
-		stack_trace("failed to remove a xeno from hive status tier list, nothing was removed!?")
+	if(!xenos_by_tier[removed_xeno.tier].Remove(removed_xeno))
+		stack_trace("failed to remove a xeno from hive status tier list, nothing was removed!? removed_xeno = [removed_xeno], tier = [removed_xeno.tier]")
 		return FALSE
 
-	if(!xenos_by_upgrade[X.upgrade].Remove(X))
-		stack_trace("trying to remove a xeno from hivestatus upgrade list, nothing was removed!?")
+	if(!xenos_by_upgrade[removed_xeno.upgrade].Remove(removed_xeno))
+		stack_trace("trying to remove a xeno from hivestatus upgrade list, nothing was removed!? removed_xeno = [removed_xeno], tier = [removed_xeno.upgrade]")
 		return FALSE
 
-	if(!xenos_by_typepath[X.xeno_caste.get_base_caste_type()])
-		stack_trace("trying to remove an invalid typepath from hivestatus list")
+	if(!xenos_by_typepath[removed_xeno.xeno_caste.get_base_caste_type()])
+		stack_trace("trying to remove an invalid typepath from hivestatus list, removed_xeno = [removed_xeno], caste = [removed_xeno.xeno_caste], base caste type = [removed_xeno.xeno_caste.get_base_caste_type()]")
 		return FALSE
 
-	if(!xenos_by_typepath[X.xeno_caste.get_base_caste_type()].Remove(X))
-		stack_trace("failed to remove a xeno from hive status typepath list, nothing was removed!?")
+	if(!xenos_by_typepath[removed_xeno.xeno_caste.get_base_caste_type()].Remove(removed_xeno))
+		stack_trace("failed to remove a xeno from hive status typepath list, nothing was removed!? removed_xeno = [removed_xeno], caste = [removed_xeno.xeno_caste], base caste type = [removed_xeno.xeno_caste.get_base_caste_type()]")
 		return FALSE
 
-	LAZYREMOVE(xenos_by_zlevel["[X.z]"], X)
+	LAZYREMOVE(xenos_by_zlevel["[removed_xeno.z]"], removed_xeno)
 
-	UnregisterSignal(X, COMSIG_MOVABLE_Z_CHANGED)
+	UnregisterSignal(removed_xeno, COMSIG_MOVABLE_Z_CHANGED)
 
-	remove_leader(X)
+	remove_leader(removed_xeno)
 	update_tier_limits() //Update our tier limits.
 
 	return TRUE

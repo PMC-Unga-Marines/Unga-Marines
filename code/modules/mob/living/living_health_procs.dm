@@ -360,12 +360,12 @@
 	return ..()
 
 /mob/living/carbon/xenomorph/revive(admin_revive = FALSE)
+	if(stat == DEAD)
+		hive?.on_xeno_revive(src)
 	. = ..()
 	set_plasma(xeno_caste.plasma_max)
 	sunder = 0
 	hud_update_primo()
-	if(stat == DEAD)
-		hive?.on_xeno_revive(src)
 
 ///Revive the human up to X health points
 /mob/living/carbon/human/proc/revive_to_crit(should_offer_to_ghost = FALSE, should_zombify = FALSE)

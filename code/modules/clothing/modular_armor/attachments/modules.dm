@@ -117,7 +117,7 @@
 */
 
 /obj/item/armor_module/module/tyr_extra_armor
-	name = "\improper Tyr armor reinforcement system"
+	name = "\improper Tyr Mk.2 armor reinforcement system"
 	desc = "Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This newer version has improved protection. Will definitely impact mobility."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	icon_state = "mod_armor"
@@ -147,7 +147,7 @@
 	slot = ATTACHMENT_SLOT_MODULE
 
 /obj/item/armor_module/module/tyr_head
-	name = "\improper Tyr armor reinforcement system helmet module"
+	name = "\improper Tyr Mk.1 armor reinforcement system helmet module"
 	desc = "Designed for mounting on a modular helmet. A substantial amount of all-around armour plating designed to grant the user extra protection against any kind of threat."
 	icon = 'icons/mob/modular/modular_armor_modules.dmi'
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "tyr_head_xn")
@@ -157,7 +157,7 @@
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 
 /obj/item/armor_module/module/tyr_head/mark2
-	name = "Tyr 2 Helmet System"
+	name = "\improper Tyr Mk.2 armor reinforcement system helmet module"
 	desc = "Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most damaging hazards, ranging from xeno slashes to friendly fire incidents."
 	soft_armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = -5, FIRE = 0, ACID = -5)
 
@@ -634,10 +634,12 @@
 	toggle_signal = COMSIG_KB_HELMETMODULE
 	///Mod for extra eye protection when activated.
 	var/eye_protection_mod = 2
+	///What variant of tint are we adding with the component?
+	var/tint_mode = TINT_5
 
 /obj/item/armor_module/module/welding/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
-	parent.AddComponent(/datum/component/clothing_tint, TINT_5, active)
+	parent.AddComponent(/datum/component/clothing_tint, tint_mode, active)
 	if(active)
 		parent.eye_protection += eye_protection_mod // reset to the users base eye
 
@@ -687,10 +689,7 @@
 	attach_features_flags = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	active = FALSE
 	prefered_slot = SLOT_HEAD
-
-/obj/item/armor_module/module/welding/superior/on_attach(obj/item/attaching_to, mob/user)
-	. = ..()
-	parent.AddComponent(/datum/component/clothing_tint, TINT_4, active)
+	tint_mode = TINT_4
 
 /obj/item/armor_module/module/binoculars
 	name = "\improper HM-6 binocular helmet module"
@@ -715,8 +714,8 @@
 	if(active == zoom) //Zooming failed for some reason and didn't change
 		return
 	active = zoom
-	to_chat(user, span_notice("You toggle \the [src]. [active ? "enabling" : "disabling"] it."))
-	icon_state = initial(icon_state) + "[active ? "_active" : ""]"
+	to_chat(user, span_notice("You toggle \the [src], [active ? "enabling" : "disabling"] it."))
+	icon_state = base_icon + "[active ? "_active" : ""]"
 	worn_icon_state = icon_state + "_a"
 	parent.update_icon()
 	user.update_inv_head()
@@ -735,7 +734,7 @@
 /obj/item/armor_module/module/binoculars/artemis_mark_two // a little cheating with subtypes
 	name = "\improper Freyr Mk.2 visual assistance helmet system"
 	desc = "Designed for mounting on a modular helmet. The Freyr module is designed with an overlay visor that clarifies the user's vision, allowing them to see clearly even in the harshest of circumstances. This version is enhanced and allows the marine to peer through the visor, akin to binoculars."
-	icon_state = "artemis_head"
+	icon_state = "artemis_head_mk2"
 	worn_icon_state = "artemis_head_mk2_a"
 	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "artemis_head_mk2_xn")
 	var/eye_protection_mod = 1
@@ -765,6 +764,11 @@
 /obj/item/armor_module/module/artemis/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
 	parent.AddComponent(/datum/component/blur_protection)
+
+/obj/item/armor_module/module/artemis/on_detach(obj/item/detaching_from, mob/user)
+	. = ..()
+	var/datum/component/blur_protection/blur_p = parent?.GetComponent(/datum/component/blur_protection)
+	blur_p?.RemoveComponent()
 
 /obj/item/armor_module/module/antenna
 	name = "\improper HM-9 antenna helmet module"

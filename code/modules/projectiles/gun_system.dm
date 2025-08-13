@@ -1799,14 +1799,15 @@
 		gun_scatter += akimbo_scatter_mod
 
 	if(gun_user)
-		//firearm skills modifiers
-		if(gun_user.skills.getRating(SKILL_FIREARMS) < SKILL_FIREARMS_DEFAULT) //lack of general firearms skill
-			gun_accuracy_mult += -0.15
-			gun_scatter += 10
-		else
-			var/skill_level = gun_user.skills.getRating(gun_skill_category) //specific weapon type skill modifiers
-			gun_accuracy_mult += skill_level * 0.15
-			gun_scatter -= skill_level * 2
+		if(gun_user.skills)
+			//firearm skills modifiers
+			if(gun_user.skills.getRating(SKILL_FIREARMS) < SKILL_FIREARMS_DEFAULT) //lack of general firearms skill
+				gun_accuracy_mult += -0.15
+				gun_scatter += 10
+			else
+				var/skill_level = gun_user.skills.getRating(gun_skill_category) //specific weapon type skill modifiers
+				gun_accuracy_mult += skill_level * 0.15
+				gun_scatter -= skill_level * 2
 
 		if(isliving(gun_user))
 			var/mob/living/living_user = gun_user
