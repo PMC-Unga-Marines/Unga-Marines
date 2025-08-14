@@ -358,7 +358,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/autosmooth/alt
 	icon = 'icons/turf/floors/asphalt-sunbleached.dmi'
 	base_icon_state = "asphalt-sunbleached"
-	
+
 //CAVE
 /turf/open/floor/plating/ground/desertdam/cave
 	name = "cave"
@@ -431,6 +431,9 @@
 	mediumxenofootstep = FOOTSTEP_CATWALK
 	barefootstep = FOOTSTEP_CATWALK
 	shoefootstep = FOOTSTEP_CATWALK
+
+/turf/open/floor/plating/rivergrate/broken_states()
+	return "shallow_grate"
 
 ///These are entirely for decoration purposes, do not make them functional, it will cause salt.
 /turf/open/floor/chasm
