@@ -318,6 +318,50 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 	speed = 3
 	layer = 30
 
+/atom/movable/screen/parallax_layer/planet/Initialize(mapload, datum/hud/hud_owner, view)
+	. = ..()
+	switch(SSmapping.configs[GROUND_MAP].map_name)
+		if(MAP_BIG_RED)
+			icon_state = "redrock"
+		if(MAP_ICE_COLONY)
+			icon_state = "ice"
+		if(MAP_ICY_CAVES)
+			icon_state = "ice"
+		if(MAP_LV_624)
+			icon_state = "jungle"
+		if(MAP_PRISON_STATION)
+			icon_state = "jungle"
+		if(MAP_RESEARCH_OUTPOST)
+			icon_state = "redrock"
+		if(MAP_BARRENQUILLA_MINING)
+			icon_state = "rock"
+		if(MAP_WHISKEY_OUTPOST)
+			icon_state = "jungle"
+		if(MAP_LAST_STAND)
+			icon_state = "jungle"
+		if(MAP_MAGMOOR_DIGSITE)
+			icon_state = "lava"
+		if(MAP_GELIDA_IV)
+			icon_state = "ice"
+		if(MAP_DELTA_STATION)
+			icon_state = "planet"
+		if(MAP_OSCAR_OUTPOST)
+			icon_state = "jungle"
+		if(MAP_KUTJEVO_REFINERY)
+			icon_state = "redrock"
+		if(MAP_DESPARITY)
+			icon_state = "jungle"
+		if(MAP_LAWANKA)
+			icon_state = "jungle"
+		if(MAP_ORION_OUTPOST)
+			icon_state = "jungle"
+		if(MAP_SLUMBRIDGE)
+			icon_state = "planet"
+		if(MAP_VAPOR_PROCESSING)
+			icon_state = "jungle"
+		else
+			icon_state = "planet"
+
 /atom/movable/screen/parallax_layer/planet/update_status(mob/M)
 	var/client/C = M.client
 	var/turf/posobj = get_turf(C.eye)
