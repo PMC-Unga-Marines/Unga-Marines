@@ -416,6 +416,10 @@
 		if(!silent)
 			owner.balloon_alert(owner, "Nothing to toss")
 		return FALSE
+	if(!owner.issamexenohive(owner.pulling)) //xenos should be able to fling xenos into xeno passable areas!
+		for(var/obj/effect/forcefield/fog/fog in owner.loc)
+			owner.pulling.balloon_alert(owner, "Cannot, fog")
+			return fail_activate()
 	if(!owner.Adjacent(owner.pulling))
 		if(!silent)
 			owner.balloon_alert(owner, "Target not adjacent")
