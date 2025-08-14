@@ -58,7 +58,6 @@
 		if(build_cost)
 			dat += "<a href='byond://?src=[text_ref(src)];choice=[build_type]'>[build_name] ([build_cost])</a><br>"
 
-
 	dat += "<h3>Fabricating:</h3>"
 	dat += "- " + (printing ? "[initial(printing.name)]" : "Nothing") + "<br>"
 
@@ -70,7 +69,6 @@
 	var/datum/browser/popup = new(user, "dropship_part_fab", "<div align='center'>Dropship Part Fabricator</div>")
 	popup.set_content(dat)
 	popup.open()
-
 
 /// Starts the printing process, does point calculations
 /obj/machinery/dropship_part_fabricator/proc/build_dropship_part(part_type, mob/user)
@@ -168,3 +166,39 @@
 
 		build_dropship_part(build_type, usr)
 		return
+
+/obj/machinery/dropship_part_fabricator/attack_powerloader(mob/living/user, obj/item/powerloader_clamp/attached_clamp)
+	if(busy)
+		balloon_alert(user, "Busy!")
+		playsound(src, 'sound/machines/buzz-two.ogg', 40, 1)
+		return
+	if(istype(attached_clamp.loaded, /obj/structure/dropship_equipment/cas))
+		var/obj/structure/dropship_equipment/equipment = attached_clamp.loaded
+		if(!equipment.point_cost)
+			balloon_alert(user, "Worthless!")
+			playsound(src, 'sound/machines/buzz-sigh.ogg', 40, 1)
+			return
+		balloon_alert(user, "Recycled for [equipment.point_cost]")
+		SSpoints.dropship_points += equipment.point_cost
+		equipment.moveToNullspace()
+		qdel(equipment)
+		attached_clamp.loaded = null
+		attached_clamp.update_icon()
+		playsound(src, 'sound/machines/ding.ogg', 40, 1)
+	if(istype(attached_clamp.loaded, /obj/structure/ship_ammo/cas))
+		var/obj/structure/ship_ammo/ammo = attached_clamp.loaded
+		if(!ammo.point_cost)
+			balloon_alert(user, "Worthless!")
+			playsound(src, 'sound/machines/buzz-sigh.ogg', 40, 1)
+			return
+		if(ammo.max_ammo_count != ammo.ammo_count)
+			balloon_alert(user, "Not full!")
+			playsound(src, 'sound/machines/buzz-sigh.ogg', 40, 1)
+			return
+		balloon_alert(user, "Recycled for [ammo.point_cost]")
+		SSpoints.dropship_points += ammo.point_cost
+		ammo.moveToNullspace()
+		qdel(ammo)
+		attached_clamp.loaded = null
+		attached_clamp.update_icon()
+		playsound(src, 'sound/machines/ding.ogg', 40, 1)
