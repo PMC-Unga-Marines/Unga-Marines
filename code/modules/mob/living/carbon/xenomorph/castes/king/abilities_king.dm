@@ -424,7 +424,7 @@
 				obj_victim.take_damage(15 * damage_mult, BURN, ENERGY, armour_penetration = 60)
 			else if(isstructure(victim) || ismachinery(victim))
 				var/obj/obj_victim = victim
-				obj_victim.take_damage(25, BURN, ENERGY, armour_penetration = 50)
+				obj_victim.take_damage(20, BURN, ENERGY, armour_penetration = 50)
 	timer_ref = addtimer(CALLBACK(src, PROC_REF(execute_attack)), ZEROFORM_TICK_RATE, TIMER_STOPPABLE)
 
 ///ends and cleans up beam
