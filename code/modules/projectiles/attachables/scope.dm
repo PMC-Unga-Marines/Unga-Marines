@@ -126,7 +126,7 @@
 			zoom(user)
 		return TRUE
 
-	if(!(master_gun.deploy_flags & WIELDED) && !CHECK_BITFIELD(master_gun.deploy_flags, IS_DEPLOYED))
+	if(!(master_gun.item_flags & WIELDED) && !CHECK_BITFIELD(master_gun.deploy_flags, IS_DEPLOYED))
 		if(user)
 			to_chat(user, span_warning("You must hold [master_gun] with two hands to use [src]."))
 		return FALSE
