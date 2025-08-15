@@ -47,6 +47,8 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	var/inventory_flags = NONE
 	/// This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.
 	var/inv_hide_flags = NONE
+	/// This flag is used to determine if an item is deployable and how exactly will it deploy
+	var/deploy_flags = NONE
 	var/obj/item/master = null
 	/// See setup.dm for appropriate bit flags
 	var/armor_protection_flags = NONE
@@ -1393,9 +1395,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 ///Handles registering if an item is flagged as deployed or not
 /obj/item/proc/toggle_deployment_flag(deployed)
 	if(deployed)
-		ENABLE_BITFIELD(item_flags, IS_DEPLOYED)
+		ENABLE_BITFIELD(deploy_flags, IS_DEPLOYED)
 	else
-		DISABLE_BITFIELD(item_flags, IS_DEPLOYED)
+		DISABLE_BITFIELD(deploy_flags, IS_DEPLOYED)
 
 ///Called by vendors when vending an item. Allows the item to specify what happens when it is given to the player.
 /obj/item/proc/on_vend(mob/user, faction, fill_container = FALSE, auto_equip = FALSE)

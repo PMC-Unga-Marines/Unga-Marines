@@ -6,7 +6,7 @@
 	icon_state = "light_uv_folded"
 	w_class = WEIGHT_CLASS_NORMAL
 	slowdown = 0.3
-	item_flags = IS_DEPLOYABLE
+	deploy_flags = IS_DEPLOYABLE
 	max_integrity = IGUANA_MAX_INTEGRITY
 	///The vehicle this deploys into
 	var/deployable_item = /obj/vehicle/unmanned/deployable
@@ -27,7 +27,7 @@
 	name = "UV-L Iguana"
 	desc = "A small remote-controllable vehicle, usually owned by the TGMC and other major armies. This one is configured to be foldable for portability."
 	///Whether this item can be deployed or undeployed
-	var/item_flags = IS_DEPLOYABLE
+	var/deploy_flags = IS_DEPLOYABLE
 	///What it deploys into. typecast version of internal_item
 	var/obj/item/deployable_vehicle/internal_item
 

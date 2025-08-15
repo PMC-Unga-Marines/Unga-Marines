@@ -4,7 +4,7 @@
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table_deployable"
 	max_integrity = 300
-	item_flags = IS_DEPLOYABLE
+	deploy_flags = IS_DEPLOYABLE
 	w_class = WEIGHT_CLASS_NORMAL
 	var/deployable_item = /obj/machinery/optable/deployable
 
@@ -51,7 +51,7 @@
 
 ///Dissassembles the device
 /obj/machinery/optable/deployable/disassemble(mob/user)
-	if(CHECK_BITFIELD(internal_item.item_flags, DEPLOYED_NO_PICKUP))
+	if(CHECK_BITFIELD(internal_item.deploy_flags, DEPLOYED_NO_PICKUP))
 		balloon_alert(user, "cannot be disassembled")
 		return FALSE
 	if(anes_tank)
