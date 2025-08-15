@@ -22,7 +22,7 @@
 	var/list/environment_traits = list()
 	///Which disk sets this map has, key-value = name - weight for choosing.
 	var/list/disk_sets = list()
-	var/parallax_icon = ""
+	var/parallax_icon = "planet"
 	var/armor_style = "default"
 	var/quickbuilds = 1000
 	var/list/gamemodes = list()
