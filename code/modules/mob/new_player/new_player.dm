@@ -303,12 +303,6 @@
 		return "Human"
 	return chosen_species
 
-
-/mob/new_player/get_gender()
-	if(!client?.prefs)
-		. = ..()
-	return client.prefs.gender
-
 /mob/new_player/proc/create_character()
 	if(!assigned_role)
 		CRASH("create_character called for [key] without an assigned_role")
