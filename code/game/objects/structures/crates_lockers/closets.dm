@@ -228,15 +228,13 @@
 		return FALSE
 
 	if(opened)
-		if(!welder.use_tool(src, user, 2 SECONDS, 1, 50))
-			balloon_alert(user, "Need more welding fuel")
+		if(!welder.use_tool(src, user, 10 SECONDS, 1, 50, CALLBACK(src, PROC_REF(check_opened))))
 			return TRUE
 		balloon_alert_to_viewers("\The [src] is cut apart by [user]!")
 		deconstruct()
 		return TRUE
 
-	if(!welder.use_tool(src, user, 2 SECONDS, 1, 50))
-		balloon_alert(user, "Need more welding fuel")
+	if(!welder.use_tool(src, user, 10 SECONDS, 1, 50, CALLBACK(src, PROC_REF(check_closed))))
 		return TRUE
 	welded = !welded
 	update_icon()
@@ -380,6 +378,12 @@
 
 /obj/structure/closet/proc/closet_special_handling(mob/living/mob_to_stuff)
 	return TRUE //We are permisive by default.
+
+/obj/structure/closet/proc/check_opened()
+	return opened
+
+/obj/structure/closet/proc/check_closed()
+	return !opened
 
 //Redefined procs for closets
 

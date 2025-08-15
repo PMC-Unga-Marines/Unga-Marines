@@ -3,7 +3,7 @@
 	config_tag = "Distress Signal"
 	silo_scaling = 2
 	round_type_flags = MODE_INFESTATION|MODE_LATE_OPENING_SHUTTER_TIMER|MODE_XENO_RULER|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_DEAD_GRAB_FORBIDDEN|MODE_HIJACK_POSSIBLE|MODE_SILO_RESPAWN|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD|MODE_HAS_EXCAVATION
-	xeno_abilities_flags = ABILITY_NUCLEARWAR //actually ABILITY_DISTRESS
+	xeno_abilities_flags = ABILITY_DISTRESS
 	valid_job_types = list(
 		/datum/job/terragov/command/captain = 1,
 		/datum/job/terragov/command/fieldcommander = 1,

@@ -74,6 +74,8 @@
 	else if(a_intent == INTENT_HELP || restrained())
 		if(move_force > target.move_resist)
 			return SWAPPING
+		else if(target.notransform || HAS_TRAIT(target, TRAIT_STOPS_TANK_COLLISION))
+			return NO_SWAP
 		else if(target.a_intent == INTENT_HELP || target.restrained())
 			return SWAPPING
 	return NO_SWAP

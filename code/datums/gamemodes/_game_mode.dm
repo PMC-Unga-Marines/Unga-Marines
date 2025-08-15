@@ -473,16 +473,14 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.hunter_silence_targets] number of targets silenced by Hunters."
 	if(GLOB.round_statistics.larva_from_psydrain)
 		parts += "[GLOB.round_statistics.larva_from_psydrain] larvas came from psydrain."
+	if(GLOB.round_statistics.larva_from_cocoon)
+		parts += "[GLOB.round_statistics.larva_from_cocoon] larvas came from cocoons."
 	if(GLOB.round_statistics.larva_from_silo)
 		parts += "[GLOB.round_statistics.larva_from_silo] larvas came from silos."
 	if(GLOB.round_statistics.larva_from_xeno_core)
 		parts += "[GLOB.round_statistics.larva_from_xeno_core] larvas came from infestation towers."
-	if(GLOB.round_statistics.larva_from_cocoon)
-		parts += "[GLOB.round_statistics.larva_from_cocoon] larvas came from cocoons."
 	if(GLOB.round_statistics.larva_from_marine_spawning)
 		parts += "[GLOB.round_statistics.larva_from_marine_spawning] larvas came from marine spawning."
-	if(GLOB.round_statistics.larva_from_siloing_body)
-		parts += "[GLOB.round_statistics.larva_from_siloing_body] larvas came from siloing bodies."
 	if(GLOB.round_statistics.psy_crushes)
 		parts += "[GLOB.round_statistics.psy_crushes] number of times Warlocks used Psychic Crush."
 	if(GLOB.round_statistics.psy_blasts)
@@ -501,6 +499,16 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.points_from_research] requisitions points gained from research."
 	if(GLOB.round_statistics.points_from_xenos)
 		parts += "[GLOB.round_statistics.points_from_xenos] requisitions points gained from xenomorph sales."
+	if(GLOB.round_statistics.psypoints_from_psydrain)
+		parts += "[GLOB.round_statistics.psypoints_from_psydrain] psy points gained from psydrain."
+	if(GLOB.round_statistics.psypoints_from_cocoon)
+		parts += "[GLOB.round_statistics.psypoints_from_cocoon] psy points gained from cocoons."
+	if(GLOB.round_statistics.psypoints_from_burst)
+		parts += "[GLOB.round_statistics.psypoints_from_burst] psy points gained from larva bursting on the nest."
+	if(GLOB.round_statistics.psypoints_from_hivemind)
+		parts += "[GLOB.round_statistics.psypoints_from_hivemind] psy points gained from Hivemind's psy gain."
+	if(GLOB.round_statistics.psypoints_from_generator)
+		parts += "[GLOB.round_statistics.psypoints_from_generator] psy points gained from corrupted geothermal generators."
 	if(GLOB.round_statistics.runner_items_stolen)
 		parts += "[GLOB.round_statistics.runner_items_stolen] items stolen by runners."
 

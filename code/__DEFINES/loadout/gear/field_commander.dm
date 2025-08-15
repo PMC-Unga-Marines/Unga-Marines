@@ -19,7 +19,6 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/armor_module/module/night_vision = list(CAT_FCSUP, "BE-35 night vision kit", 18, "blue"),
 	/obj/item/clothing/glasses/night_vision = list(CAT_FCSUP, "BE-47 night vision goggles", 26, "blue"),
 	/obj/item/cell/night_vision_battery = list(CAT_FCSUP, "night vision battery", 4, "blue"),
-	/obj/item/storage/belt/marine/auto_catch = list(CAT_FCSUP, "M344 pattern ammo load rig", 10, "orange"),
 	/obj/item/explosive/plastique = list(CAT_FCSUP, "Plastique explosive", 2, "orange3"),
 	/obj/item/detpack = list(CAT_FCSUP, "Detonation pack", 2, "orange3"),
 	/obj/item/storage/box/visual/grenade/sticky = list(CAT_FCSUP, "M40 adhesive charge grenade box", 15, "blue"),

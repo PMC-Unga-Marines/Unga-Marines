@@ -191,9 +191,8 @@
 #define ARMOR_SQUAD_OVERLAY (1<<0)
 #define ARMOR_LAMP_OVERLAY (1<<1)
 #define ARMOR_LAMP_ON (1<<2)
-#define ARMOR_IS_REINFORCED (1<<3)
-#define ARMOR_NO_DECAP (1<<4)
-#define ARMOR_FIRE_RESISTANT (1<<5)
+#define ARMOR_NO_DECAP (1<<3)
+#define ARMOR_FIRE_RESISTANT (1<<4)
 //===========================================================================================
 
 //===========================================================================================

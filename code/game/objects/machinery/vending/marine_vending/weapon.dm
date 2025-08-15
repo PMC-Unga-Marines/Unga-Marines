@@ -70,6 +70,8 @@
 			/obj/item/storage/holster/belt/ts34/full = 5,
 		),
 		"Пулемёты" = list(
+			/obj/item/weapon/gun/rifle/mg42 = -1,
+			/obj/item/ammo_magazine/mg42 = -1,
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/mg27 = 5,
@@ -310,6 +312,8 @@
 			/obj/item/storage/holster/belt/ts34/full = 5,
 		),
 		"Пулемёты" = list(
+			/obj/item/weapon/gun/rifle/mg42 = -1,
+			/obj/item/ammo_magazine/mg42 = -1,
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/mg27 = 5,
@@ -476,6 +480,7 @@
 		"Винтовки" = list(
 			/obj/item/weapon/gun/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12 = -1,
+			/obj/item/ammo_magazine/rifle/ar12/incendiary = -1,
 			/obj/item/weapon/gun/rifle/ar18 = -1,
 			/obj/item/ammo_magazine/rifle/ar18 = -1,
 			/obj/item/weapon/gun/rifle/ar11 = -1,
@@ -497,6 +502,7 @@
 		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
 			/obj/item/ammo_magazine/smg/vector = -1,
+			/obj/item/ammo_magazine/smg/vector/incendiary = -1,
 			/obj/item/weapon/gun/smg/smg90 = -1,
 			/obj/item/ammo_magazine/smg/smg90 = -1,
 			/obj/item/weapon/gun/smg/mp19 = -1,
@@ -542,6 +548,8 @@
 			/obj/item/storage/holster/belt/ts34/full = -1,
 		),
 		"Пулемёты" = list(
+			/obj/item/weapon/gun/rifle/mg42 = -1,
+			/obj/item/ammo_magazine/mg42 = -1,
 			/obj/item/weapon/gun/rifle/mg60 = -1,
 			/obj/item/ammo_magazine/mg60 = -1,
 			/obj/item/weapon/gun/mg27 = -1,
@@ -618,6 +626,7 @@
 			/obj/item/ammo_magazine/flamer_tank/large = -1,
 			/obj/item/ammo_magazine/flamer_tank/large/G = -1,
 			/obj/item/ammo_magazine/flamer_tank/backtank = -1,
+			/obj/item/ammo_magazine/flamer_tank/water = -1,
 			/obj/item/jetpack_marine = -1,
 			/obj/item/bodybag/tarp = -1,
 			/obj/item/mortar_kit/knee = 4,

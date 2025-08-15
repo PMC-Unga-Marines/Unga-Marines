@@ -41,6 +41,7 @@
 			if(auto_observe && !QDELETED(owner?.orbiting?.parent))
 				owner.do_observe(owner.orbiting.parent)
 			else
+				owner.clean_observetarget()
 				owner.reset_perspective(null)
 			. = TRUE
 
