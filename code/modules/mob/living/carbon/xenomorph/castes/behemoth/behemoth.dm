@@ -17,7 +17,6 @@
 	pixel_x = -28.5
 	footstep_type = FOOTSTEP_XENO_HEAVY
 
-
 // ***************************************
 // *********** Special States
 // ***************************************
@@ -53,5 +52,26 @@
 		return FALSE
 	return TRUE
 
-/mob/living/carbon/xenomorph/crusher/resisted_against(datum/source)
+/mob/living/carbon/xenomorph/behemoth/resisted_against(datum/source)
 	user_unbuckle_mob(source, source)
+
+/mob/living/carbon/xenomorph/behemoth/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/behemoth/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/behemoth/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/behemoth/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/behemoth/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/behemoth/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/behemoth/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

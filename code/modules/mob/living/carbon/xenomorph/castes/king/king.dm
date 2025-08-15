@@ -59,3 +59,24 @@
 
 /mob/living/carbon/xenomorph/king/death_cry()
 	playsound(loc, 'sound/voice/alien/king_died.ogg', 75, 0)
+
+/mob/living/carbon/xenomorph/king/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/king/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/king/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/king/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/king/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/king/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/king/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

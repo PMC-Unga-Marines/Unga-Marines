@@ -84,9 +84,6 @@
 		/datum/action/ability/activable/xeno/command_minions,
 	)
 
-/datum/xeno_caste/queen/young
-	upgrade = XENO_UPGRADE_NORMAL
-
 /datum/xeno_caste/queen/primordial
 	upgrade_name = "Primordial"
 	caste_desc = "A fearsome Xeno hulk of titanic proportions. Nothing can stand in it's way."
