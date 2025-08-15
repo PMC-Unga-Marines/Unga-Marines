@@ -312,11 +312,14 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/parallax_home)
 	icon_state = "asteroids"
 
 /atom/movable/screen/parallax_layer/planet
-	icon_state = "planet"
 	blend_mode = BLEND_OVERLAY
 	absolute = TRUE //Status of seperation
 	speed = 3
 	layer = 30
+
+/atom/movable/screen/parallax_layer/planet/Initialize(mapload, datum/hud/hud_owner, view)
+	. = ..()
+	icon_state = SSmapping.configs[GROUND_MAP].parallax_icon
 
 /atom/movable/screen/parallax_layer/planet/update_status(mob/M)
 	var/client/C = M.client
