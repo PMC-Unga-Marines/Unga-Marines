@@ -346,6 +346,15 @@
 	alpha = 0
 	animate(src, alpha = 255, time = ZEROFORM_CHARGE_TIME)
 
+/datum/action/ability/xeno_action/zero_form_beam/can_use_action(silent, override_flags)
+	. = ..()
+	if(!.)
+		return
+	if(is_ground_level(owner.z) && CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
+		if(!silent)
+			owner.balloon_alert(owner, "too early")
+		return FALSE
+
 /datum/action/ability/xeno_action/zero_form_beam/action_activate()
 	if(timer_ref)
 		stop_beaming()
