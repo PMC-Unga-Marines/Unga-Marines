@@ -325,12 +325,6 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		else if((direct & WEST) && x > 1)
 			x--
 
-
-
-/mob/dead/observer/can_use_hands()
-	return FALSE
-
-
 /mob/dead/observer/get_status_tab_items()
 	. = ..()
 
