@@ -49,7 +49,10 @@
 	vent_enter_speed = LARVA_VENT_CRAWL_TIME
 	vent_exit_speed = LARVA_VENT_CRAWL_TIME
 	silent_vent_crawl = TRUE
-	
+
+/datum/xeno_caste/larva/young
+	upgrade = XENO_UPGRADE_INVALID
+
 /datum/xeno_caste/larva_predalien
 	caste_name = "Predalien Larva"
 	display_name = "Predalien Bloody Larva"
