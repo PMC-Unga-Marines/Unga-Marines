@@ -324,7 +324,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/evolution_stored = 0
 	///How much upgrade points they have stored.
 	//var/upgrade_stored = 0 // RUTGMC DELETION
-	///This will track their upgrade level.
+	///This will track their upgrade level. Do not even change this directly, without updating hive.
 	var/upgrade = XENO_UPGRADE_INVALID
 	///sunder affects armour values and does a % removal before dmg is applied. 50 sunder == 50% effective armour values
 	var/sunder = 0
