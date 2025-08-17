@@ -25,7 +25,8 @@
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	deployable_item = /obj/machinery/deployable/mounted/sentry
-	item_flags = IS_DEPLOYABLE|TWOHANDED|IS_SENTRY
+	item_flags = TWOHANDED|IS_SENTRY
+	deploy_flags = IS_DEPLOYABLE
 	deploy_time = 5 SECONDS
 
 	allowed_ammo_types = list(/obj/item/ammo_magazine/sentry)
@@ -136,7 +137,7 @@
 	desc = "Развёртываемая автоматическая турель со встроенным ИИ. Не имеет каких-либо модификаций. Ведёт эффективный и точный огонь."
 	icon_state = "podsentry"
 	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS|TURRET_RADIAL
-	item_flags = IS_DEPLOYABLE|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
+	deploy_flags = IS_DEPLOYABLE|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
 	sentry_iff_signal = TGMC_LOYALIST_IFF
 	turret_range = 10
 	knockdown_threshold = 500
@@ -170,7 +171,8 @@
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING|GUN_ENERGY|GUN_SMOKE_PARTICLES
 	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_DO_NOT_EJECT_HANDFULS|AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE //doesn't autoeject its recharging battery
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
-	item_flags = IS_DEPLOYABLE|TWOHANDED
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE
 
 	max_shots = 150
 	rounds_per_shot = 12
@@ -228,21 +230,25 @@
 	do_deploy(user)
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/cope/predeployed
-	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
 
 /obj/item/weapon/gun/sentry/basic/premade
 	sentry_iff_signal = TGMC_LOYALIST_IFF
-	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOY_ON_INITIALIZE
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE|DEPLOY_ON_INITIALIZE
 
 /obj/item/weapon/gun/sentry/basic/premade/radial
 	turret_range = 9
 	turret_flags = TURRET_HAS_CAMERA|TURRET_ALERTS|TURRET_RADIAL
-	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
 
 /obj/item/weapon/gun/sentry/basic/dropship
 	ammo_datum_type = /datum/ammo/bullet/turret/gauss
 	sentry_iff_signal = TGMC_LOYALIST_IFF
-	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
 	turret_flags = TURRET_HAS_CAMERA|TURRET_IMMOBILE
 	density = FALSE
 
@@ -251,7 +257,7 @@
 	fire_delay = 0.2 SECONDS
 	ammo_datum_type = /datum/ammo/bullet/turret/gauss
 	sentry_iff_signal = TGMC_LOYALIST_IFF
-	item_flags = IS_DEPLOYABLE|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
+	deploy_flags = IS_DEPLOYABLE|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_PICKUP
 	turret_flags = TURRET_IMMOBILE|TURRET_RADIAL|TURRET_LOCKED|TURRET_ON
 	default_ammo_type = /obj/item/ammo_magazine/sentry/fob_sentry
 	allowed_ammo_types = list(/obj/item/ammo_magazine/sentry/fob_sentry)
@@ -296,7 +302,8 @@
 	allowed_ammo_types = list(/obj/item/ammo_magazine/sentry)
 
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST)
-	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 
 /obj/item/weapon/gun/sentry/premade/dumb
 	name = "\improper Modified ST-571 sentry gun"

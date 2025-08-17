@@ -126,11 +126,11 @@
 			zoom(user)
 		return TRUE
 
-	if(!(master_gun.item_flags & WIELDED) && !CHECK_BITFIELD(master_gun.item_flags, IS_DEPLOYED))
+	if(!(master_gun.item_flags & WIELDED) && !CHECK_BITFIELD(master_gun.deploy_flags, IS_DEPLOYED))
 		if(user)
 			to_chat(user, span_warning("You must hold [master_gun] with two hands to use [src]."))
 		return FALSE
-	if(CHECK_BITFIELD(master_gun.item_flags, IS_DEPLOYED) && user.dir != master_gun.loc.dir)
+	if(CHECK_BITFIELD(master_gun.deploy_flags, IS_DEPLOYED) && user.dir != master_gun.loc.dir)
 		user.setDir(master_gun.loc.dir)
 	if(!do_after(user, scope_delay, NONE, src, BUSY_ICON_BAR))
 		return FALSE
@@ -150,7 +150,7 @@
 		RegisterSignal(user, COMSIG_CARBON_SWAPPED_HANDS, PROC_REF(zoom_item_turnoff))
 	else
 		RegisterSignals(user, list(COMSIG_MOVABLE_MOVED, COMSIG_CARBON_SWAPPED_HANDS), PROC_REF(zoom_item_turnoff))
-	if(!CHECK_BITFIELD(master_gun.item_flags, IS_DEPLOYED))
+	if(!CHECK_BITFIELD(master_gun.deploy_flags, IS_DEPLOYED))
 		RegisterSignal(user, COMSIG_MOB_FACE_DIR, PROC_REF(change_zoom_offset))
 	RegisterSignals(master_gun, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNWIELD, COMSIG_ITEM_DROPPED), PROC_REF(zoom_item_turnoff))
 	master_gun.accuracy_mult += scoped_accuracy_mod
