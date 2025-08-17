@@ -126,15 +126,13 @@
 		else
 			return 0
 
-//Managing the number of facehuggers in the hive
 /mob/living/carbon/xenomorph/facehugger/add_to_hive(datum/hive_status/HS, force)
 	. = ..()
-
 	HS.facehuggers += src
 
 /mob/living/carbon/xenomorph/facehugger/remove_from_hive()
 	var/datum/hive_status/hive_removed_from = hive
-
+	
 	. = ..()
 
 	hive_removed_from.facehuggers -= src

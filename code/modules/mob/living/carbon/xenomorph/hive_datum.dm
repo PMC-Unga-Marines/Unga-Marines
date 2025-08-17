@@ -450,60 +450,6 @@
 	SSdirection.start_tracking(HS.hivenumber, src)
 	hive.update_tier_limits() //Update our tier limits.
 
-/mob/living/carbon/xenomorph/queen/add_to_hive(datum/hive_status/HS, force=FALSE, prevent_ruler=FALSE) // override to ensure proper queen/hive behaviour
-	. = ..()
-	if(HS.living_xeno_queen) // theres already a queen
-		return
-
-	HS.living_xeno_queen = src
-
-	if(prevent_ruler)
-		return
-
-	HS.update_ruler()
-
-
-/mob/living/carbon/xenomorph/shrike/add_to_hive(datum/hive_status/HS, force = FALSE, prevent_ruler=FALSE) // override to ensure proper queen/hive behaviour
-	. = ..()
-
-	if(HS.living_xeno_ruler)
-		return
-	if(prevent_ruler)
-		return
-
-	HS.update_ruler()
-
-/mob/living/carbon/xenomorph/hivemind/add_to_hive(datum/hive_status/HS, force = FALSE, prevent_ruler=FALSE)
-	. = ..()
-	if(!GLOB.xeno_structures_by_hive[HS.hivenumber])
-		GLOB.xeno_structures_by_hive[HS.hivenumber] = list()
-
-	var/obj/structure/xeno/hivemindcore/hive_core = get_core()
-
-	if(!hive_core) //how are you even alive then?
-		qdel(src)
-		return
-
-	GLOB.xeno_structures_by_hive[HS.hivenumber] |= hive_core
-
-	if(!GLOB.xeno_critical_structures_by_hive[HS.hivenumber])
-		GLOB.xeno_critical_structures_by_hive[HS.hivenumber] = list()
-
-	GLOB.xeno_critical_structures_by_hive[HS.hivenumber] |= hive_core
-	hive_core.hivenumber = HS.hivenumber
-	hive_core.name = "[HS.hivenumber == XENO_HIVE_NORMAL ? "" : "[HS.name] "]hivemind core"
-	hive_core.color = HS.color
-
-/mob/living/carbon/xenomorph/king/add_to_hive(datum/hive_status/HS, force = FALSE, prevent_ruler=FALSE)
-	. = ..()
-
-	if(HS.living_xeno_ruler)
-		return
-	if(prevent_ruler)
-		return
-
-	HS.update_ruler()
-
 /mob/living/carbon/xenomorph/proc/add_to_hive_by_hivenumber(hivenumber, force=FALSE, prevent_ruler=FALSE) // helper function to add by given hivenumber
 	if(!GLOB.hive_datums[hivenumber])
 		CRASH("add_to_hive_by_hivenumber called with invalid hivenumber")
@@ -586,44 +532,6 @@
 /datum/hive_status/Destroy(force)
 	. = ..()
 	UnregisterSignal(SSdcs, COMSIG_GLOB_NUKE_START)
-
-/mob/living/carbon/xenomorph/queen/remove_from_hive() // override to ensure proper queen/hive behaviour
-	var/datum/hive_status/hive_removed_from = hive
-	if(hive_removed_from.living_xeno_queen == src)
-		hive_removed_from.living_xeno_queen = null
-
-	. = ..()
-
-	if(hive_removed_from.living_xeno_ruler == src)
-		hive_removed_from.set_ruler(null)
-		hive_removed_from.update_ruler() //Try to find a successor.
-
-/mob/living/carbon/xenomorph/shrike/remove_from_hive()
-	var/datum/hive_status/hive_removed_from = hive
-
-	. = ..()
-
-	if(hive_removed_from.living_xeno_ruler == src)
-		hive_removed_from.set_ruler(null)
-		hive_removed_from.update_ruler() //Try to find a successor.
-
-/mob/living/carbon/xenomorph/king/remove_from_hive()
-	var/datum/hive_status/hive_removed_from = hive
-
-	. = ..()
-
-	if(hive_removed_from.living_xeno_ruler == src)
-		hive_removed_from.set_ruler(null)
-		hive_removed_from.update_ruler() //Try to find a successor.
-
-/mob/living/carbon/xenomorph/hivemind/remove_from_hive()
-	var/obj/structure/xeno/hivemindcore/hive_core = get_core()
-	GLOB.xeno_structures_by_hive[hivenumber] -= hive_core
-	GLOB.xeno_critical_structures_by_hive[hivenumber] -= hive_core
-	. = ..()
-	if(!QDELETED(src)) //if we aren't dead, somehow?
-		hive_core.name = "banished hivemind core"
-		hive_core.color = null
 
 // ***************************************
 // *********** Xeno leaders
@@ -1095,19 +1003,6 @@ to_chat will check for valid clients itself already so no need to double check f
 		return FALSE
 
 	return TRUE
-
-//Managing the number of facehuggers in the hive
-/mob/living/carbon/xenomorph/facehugger/add_to_hive(datum/hive_status/HS, force)
-	. = ..()
-
-	HS.facehuggers += src
-
-/mob/living/carbon/xenomorph/facehugger/remove_from_hive()
-	var/datum/hive_status/hive_removed_from = hive
-
-	. = ..()
-
-	hive_removed_from.facehuggers -= src
 
 // This proc checks for available spawn points and offers a choice if there's more than one.
 /datum/hive_status/proc/attempt_to_spawn_larva(client/xeno_candidate, larva_already_reserved = FALSE)

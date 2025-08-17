@@ -119,6 +119,29 @@
 	if(!incapacitated(TRUE))
 		mothers += src //Adding us to the list.
 
+/mob/living/carbon/xenomorph/queen/add_to_hive(datum/hive_status/HS, force=FALSE, prevent_ruler=FALSE) // override to ensure proper queen/hive behaviour
+	. = ..()
+	if(HS.living_xeno_queen) // theres already a queen
+		return
+
+	HS.living_xeno_queen = src
+
+	if(prevent_ruler)
+		return
+
+	HS.update_ruler()
+
+/mob/living/carbon/xenomorph/queen/remove_from_hive() // override to ensure proper queen/hive behaviour
+	var/datum/hive_status/hive_removed_from = hive
+	if(hive_removed_from.living_xeno_queen == src)
+		hive_removed_from.living_xeno_queen = null
+
+	. = ..()
+
+	if(hive_removed_from.living_xeno_ruler == src)
+		hive_removed_from.set_ruler(null)
+		hive_removed_from.update_ruler() //Try to find a successor.
+
 /mob/living/carbon/xenomorph/queen/primordial
 	upgrade = XENO_UPGRADE_PRIMO
 
