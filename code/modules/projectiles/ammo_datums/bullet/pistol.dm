@@ -53,6 +53,9 @@
 	shrapnel_chance = 15
 	additional_xeno_penetration = 12.5
 
+/datum/ammo/bullet/pistol/ap/smart
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_IFF
+
 /datum/ammo/bullet/pistol/heavy
 	name = "heavy pistol bullet"
 	hud_state = "pistol_heavy"

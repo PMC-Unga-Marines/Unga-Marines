@@ -9,7 +9,7 @@
 	bullet_color = COLOR_SOFT_RED
 	hud_state = "rifle"
 	hud_state_empty = "rifle_empty"
-	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SENTRY
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SENTRY|AMMO_IFF
 	accurate_range = 10
 	damage = 20
 	penetration = 20
@@ -25,10 +25,9 @@
 
 /datum/ammo/bullet/turret/mini
 	name = "small caliber autocannon bullet"
-	damage = 12
-	penetration = 10
+	damage = 20
+	penetration = 20
 	damage_falloff = 0.5
-	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SENTRY
 
 /datum/ammo/bullet/turret/sniper
 	name = "antimaterial bullet"
@@ -63,12 +62,6 @@
 	damage = 20
 	penetration = 40
 	damage_falloff = 1
-
-/datum/ammo/bullet/turret/mini
-	name = "small caliber autocannon bullet"
-	damage = 20
-	penetration = 20
-	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SENTRY
 
 /*
 //================================================

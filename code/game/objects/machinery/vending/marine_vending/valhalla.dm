@@ -309,6 +309,9 @@
 			/obj/item/ammo_magazine/rocket/vsd/chemical = -1,
 		),
 		"Smartguns/IFF" = list(
+			/obj/item/weapon/gun/rifle/t25 = -1,
+			/obj/item/ammo_magazine/rifle/t25 = -1,
+			/obj/item/ammo_magazine/rifle/t25/extended = -1,
 			/obj/item/weapon/gun/rifle/sg29 = -1,
 			/obj/item/ammo_magazine/sg29 = -1,
 			/obj/item/weapon/gun/minigun/smart_minigun = -1,
