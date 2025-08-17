@@ -191,7 +191,7 @@
 	// Spawn more xenos to help maintain the ratio.
 	var/xenomorphs_below_ratio = trunc(get_jobpoint_difference() / xeno_job.job_points_needed)
 	if(xenomorphs_below_ratio >= 1)
-		xeno_job.add_job_positions(1)
+		xeno_job.add_job_positions(xenomorphs_below_ratio)
 		xeno_hive.update_tier_limits()
 		return
 	if(xeno_hive.total_xenos_for_evolving() <= 0)
