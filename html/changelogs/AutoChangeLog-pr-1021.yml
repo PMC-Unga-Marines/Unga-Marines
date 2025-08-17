@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - bugfix: "Исправил работу storage_type_limits, которая влияла на то что ты не мог вместить 4 садара в сумке для 1-ого садара."
