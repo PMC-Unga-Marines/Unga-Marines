@@ -766,11 +766,11 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 			hit_chance = min(100, hit_chance) //excess accuracy doesn't help within minimum accurate range
 			hit_chance -= (proj.ammo.accurate_range_min - proj.distance_travelled) * 10 //The further inside minimum accurate range, the greater the penalty
 	else
-		BULLET_DEBUG("Too far (+[((proj.distance_travelled - proj.ammo.accurate_range )* 5)])")
-		hit_chance -= ((proj.distance_travelled - proj.ammo.accurate_range )* 5) //Every tile travelled past accurate_range reduces accuracy
+		BULLET_DEBUG("Too far (+[((proj.distance_travelled - proj.ammo.accurate_range) * 5)])")
+		hit_chance -= ((proj.distance_travelled - proj.ammo.accurate_range) * 5) //Every tile travelled past accurate_range reduces accuracy
 
-	BULLET_DEBUG("Hit zone penalty (-[GLOB.base_miss_chance[proj.def_zone]]) ([proj.def_zone])")
-	hit_chance -= GLOB.base_miss_chance[proj.def_zone] //Reduce accuracy based on body part targeted.
+	BULLET_DEBUG("Hit zone penalty (-[get_base_miss_chance(proj.def_zone)]) ([proj.def_zone])")
+	hit_chance -= get_base_miss_chance(proj.def_zone)
 
 	if(last_move_intent > world.time - 2 SECONDS) //You're harder to hit if you're moving
 		///accumulated movement related evasion bonus
@@ -807,6 +807,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 			playsound_local(get_turf(src), proj.ammo.sound_miss, 75, TRUE, frequency = pitch)
 	return FALSE
 
+/// Reduce accuracy based on body part targeted. Returns 0 for xenos
+/mob/living/proc/get_base_miss_chance(bodypart)
+	return GLOB.base_miss_chance[bodypart]
 
 /mob/living/do_projectile_hit(obj/projectile/proj)
 	proj.ammo.on_hit_mob(src, proj)
@@ -841,6 +844,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	if(is_charging >= CHARGE_ON)
 		proj.damage -= proj.damage * (0.2 * get_sunder())
 	return ..()
+
+/mob/living/carbon/xenomorph/get_base_miss_chance(bodypart)
+	return 0
 
 /obj/projectile/proc/play_damage_effect(mob/M)
 	if(ammo.sound_hit)

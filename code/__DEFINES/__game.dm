@@ -17,6 +17,11 @@
 #define MAP_DELTA_STATION "Delta Station"
 #define MAP_OSCAR_OUTPOST "Oscar Outpost"
 #define MAP_KUTJEVO_REFINERY "Kutjevo Refinery"
+#define MAP_DESPARITY "Desparity"
+#define MAP_LAWANKA "Lawanka Outpost"
+#define MAP_ORION_OUTPOST "Orion Military Outpost"
+#define MAP_SLUMBRIDGE "Slumbridge"
+#define MAP_VAPOR_PROCESSING "Vapor Processing"
 #define MAP_TALOS "Talos"
 
 #define SEE_INVISIBLE_MINIMUM 5
