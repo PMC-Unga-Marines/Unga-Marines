@@ -5,7 +5,6 @@
 	item_flags = NOBLUDGEON
 	singular_name = "length"
 	w_class = WEIGHT_CLASS_SMALL
-	force = 0
 	throwforce = 5
 	throw_speed = 5
 	throw_range = 20

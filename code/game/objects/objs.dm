@@ -440,7 +440,7 @@
 	var/obj/item/internal_item = get_internal_item()
 	if(!internal_item)
 		return FALSE
-	if(internal_item.item_flags & DEPLOYED_NO_PICKUP)
+	if(internal_item.deploy_flags & DEPLOYED_NO_PICKUP)
 		if(user)
 			balloon_alert(user, "Cannot disassemble")
 		return FALSE

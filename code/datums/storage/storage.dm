@@ -775,6 +775,8 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 /datum/storage/proc/can_be_inserted(obj/item/item_to_insert, mob/user, warning = TRUE)
 	if(!istype(item_to_insert) || HAS_TRAIT(item_to_insert, TRAIT_NODROP))
 		return //Not an item
+	if(item_to_insert.item_flags & (ITEM_ABSTRACT|HAND_ITEM))
+		return FALSE
 
 	if(parent.loc == item_to_insert)
 		return FALSE //Means the item is already in the storage item

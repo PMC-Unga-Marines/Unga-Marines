@@ -881,6 +881,7 @@
 #include "code\game\objects\items\flashlight.dm"
 #include "code\game\objects\items\floor_painter.dm"
 #include "code\game\objects\items\gift_wrappaper.dm"
+#include "code\game\objects\items\hand_items.dm"
 #include "code\game\objects\items\handcuffs.dm"
 #include "code\game\objects\items\jetpack.dm"
 #include "code\game\objects\items\lightreplacer.dm"

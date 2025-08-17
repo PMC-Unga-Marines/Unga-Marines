@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - rscadd: "Добавлена переработка снаряжения КАС-а в очки для фабрикатора."
