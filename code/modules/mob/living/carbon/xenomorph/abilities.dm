@@ -1253,7 +1253,7 @@
 	playsound(xeno_owner, 'sound/magic/end_of_psy_drain.ogg', 40)
 
 	xeno_owner.visible_message(span_xenodanger("\The [victim]'s life force is drained by \the [xeno_owner]!"), \
-	span_xenodanger("We suddenly feel \the [victim]'s life force streaming into us!"))
+	span_xenodanger("We feel \the [victim]'s life force streaming into us!"))
 
 	victim.do_jitter_animation(2)
 	victim.adjust_clone_loss(20)
