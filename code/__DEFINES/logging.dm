@@ -76,6 +76,7 @@
 #define LOG_CATEGORY_SPEECH_INDICATOR "speech-indicator"
 #define LOG_CATEGORY_TELECOMMS "telecomms"
 #define LOG_CATEGORY_TOOL "tool"
+#define LOG_CATEGORY_CRASH_BALANCE "crash-balance"
 
 // Admin categories
 #define LOG_CATEGORY_ADMIN "admin"
