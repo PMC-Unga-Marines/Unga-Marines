@@ -18,3 +18,24 @@
 /mob/living/carbon/xenomorph/gorger/Initialize(mapload)
 	. = ..()
 	GLOB.huds[DATA_HUD_XENO_HEART].add_hud_to(src)
+
+/mob/living/carbon/xenomorph/gorger/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/gorger/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/gorger/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/gorger/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/gorger/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/gorger/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/gorger/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

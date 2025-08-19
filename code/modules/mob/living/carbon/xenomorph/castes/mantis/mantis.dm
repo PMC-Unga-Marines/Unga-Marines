@@ -14,3 +14,21 @@
 	pull_speed = -2
 	life_value = 0
 	default_honor_value = 0
+
+/mob/living/carbon/xenomorph/mantis/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/mantis/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/mantis/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/mantis/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/mantis/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/mantis/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

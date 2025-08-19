@@ -101,60 +101,23 @@
 		return 0
 	return 1
 
-/datum/xeno_caste/larva_predalien
-	caste_name = "Predalien Larva"
-	display_name = "Predalien Bloody Larva"
-	upgrade_name = ""
-	caste_desc = "D'awwwww, so cute!"
-	caste_type_path = /mob/living/carbon/xenomorph/larva/predalien
-	tier = XENO_TIER_ZERO
-	upgrade = XENO_UPGRADE_BASETYPE
-	wound_type = "larva" //used to match appropriate wound overlays
+/mob/living/carbon/xenomorph/larva/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
 
-	gib_anim = "larva_gib_corpse"
-	gib_flick = "predalien_larva_gibbed"
+/mob/living/carbon/xenomorph/larva/Alpha
+	hivenumber = XENO_HIVE_ALPHA
 
-	// *** Melee Attacks *** //
-	melee_damage = 0
+/mob/living/carbon/xenomorph/larva/Beta
+	hivenumber = XENO_HIVE_BETA
 
-	// *** Speed *** //
-	speed = -1.6
+/mob/living/carbon/xenomorph/larva/Zeta
+	hivenumber = XENO_HIVE_ZETA
 
-	// *** Plasma *** //
-	plasma_gain = 1
+/mob/living/carbon/xenomorph/larva/admeme
+	hivenumber = XENO_HIVE_ADMEME
 
-	// *** Health *** //
-	max_health = 50
-	crit_health = -25
-
-	// *** Evolution *** //
-	evolution_threshold = 50
-
-	// *** Flags *** //
-	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_INNATE_HEALING
-	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_RIDE_CRUSHER
-	caste_traits = list(TRAIT_CAN_VENTCRAWL)
-
-	// *** Defense *** //
-	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
-
-	// *** Minimap Icon *** //
-	minimap_icon = "predalien_larva"
-
-	// *** Abilities *** //
-	actions = list(
-		/datum/action/ability/xeno_action/xeno_resting,
-		/datum/action/ability/xeno_action/watch_xeno,
-		/datum/action/ability/xeno_action/xenohide,
-	)
-
-	// *** Vent Crawl Parameters *** //
-	vent_enter_speed = LARVA_VENT_CRAWL_TIME
-	vent_exit_speed = LARVA_VENT_CRAWL_TIME
-	silent_vent_crawl = TRUE
-
-/datum/xeno_caste/larva_predalien/young
-	upgrade = XENO_UPGRADE_INVALID
+/mob/living/carbon/xenomorph/larva/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN
 
 /mob/living/carbon/xenomorph/larva/predalien
 	icon = 'icons/Xeno/castes/predalien_larva.dmi'
@@ -207,3 +170,21 @@
 	if(HAS_TRAIT(src, TRAIT_CASTE_SWAP) || HAS_TRAIT(src, TRAIT_REGRESSING))
 		return
 	return list(/datum/xeno_caste/predalien)
+
+/mob/living/carbon/xenomorph/predalien/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/predalien/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/predalien/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/predalien/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/predalien/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/predalien/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN
