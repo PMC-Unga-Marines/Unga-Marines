@@ -189,12 +189,15 @@
 	var/datum/hive_status/normal/xeno_hive = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
 	// Spawn more xenos to help maintain the ratio.
+	log_crash_balance("get_jobpoint_difference() = [get_jobpoint_difference()], get_total_joblarvaworth() = [get_total_joblarvaworth(count_flags = COUNT_IGNORE_HUMAN_SSD)]")
 	var/xenomorphs_below_ratio = trunc(get_jobpoint_difference() / xeno_job.job_points_needed)
 	if(xenomorphs_below_ratio >= 1)
+		log_crash_balance("Added [xenomorphs_below_ratio] xenomorph slots")
 		xeno_job.add_job_positions(xenomorphs_below_ratio)
 		xeno_hive.update_tier_limits()
 		return
 	if(xeno_hive.total_xenos_for_evolving() <= 0)
+		log_crash_balance("Added 1 xenomorph slot, due to xeno-genocide.")
 		xeno_job.add_job_positions(1)
 		xeno_hive.update_tier_limits()
 
