@@ -158,14 +158,19 @@
 
 /datum/storage/internal/holster/New(atom/parent)
 	. = ..()
-	set_holdable(can_hold_list = list(
-		/obj/item/weapon/gun/pistol,
-		/obj/item/ammo_magazine/pistol,
-		/obj/item/weapon/gun/revolver,
-		/obj/item/ammo_magazine/revolver,
-		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
-		/obj/item/cell/lasgun/lasrifle,
-	))
+	set_holdable(
+		can_hold_list = list(
+			/obj/item/weapon/gun/pistol,
+			/obj/item/ammo_magazine/pistol,
+			/obj/item/weapon/gun/revolver,
+			/obj/item/ammo_magazine/revolver,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
+			/obj/item/cell/lasgun/lasrifle,
+		),
+		cant_hold_list = list(
+			/obj/item/weapon/gun/revolver/coltrifle,
+		)
+	)
 	storage_type_limits_max = list(/obj/item/weapon/gun = 1)
 
 /datum/storage/internal/modular
