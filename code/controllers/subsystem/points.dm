@@ -4,6 +4,7 @@
 
 /// How much points we charge for fast delivery
 #define FAST_DELIVERY_COST 150
+#define FAST_DELIVERY_TAX_FACTOR 0.15
 
 SUBSYSTEM_DEF(points)
 	name = "Points"
@@ -138,12 +139,18 @@ SUBSYSTEM_DEF(points)
 	if(!fast_delivery_is_active)
 		to_chat(user, span_warning("Fast delivery is not ready"))
 		return FALSE
-	if(!iscrashgamemode(SSticker.mode)) // no RO on crash
-		if(FAST_DELIVERY_COST > supply_points[our_order.faction])
-			to_chat(user, span_warning("Cargo does not have enough points for fast delivery."))
-			return
 
-		supply_points[user.faction] -= FAST_DELIVERY_COST
+	if(!iscrashgamemode(SSticker.mode)) // no RO on crash
+		if(user.real_name == our_order.orderer) //Self delivery via personal points
+			if(personal_supply_points[user.ckey] * FAST_DELIVERY_TAX_FACTOR > personal_supply_points[user.ckey])
+				to_chat(user, span_warning("You do not have enough points for fast delivery."))
+				return
+			personal_supply_points[user.ckey] -= personal_supply_points[user.ckey] * FAST_DELIVERY_TAX_FACTOR
+		else
+			if(FAST_DELIVERY_COST > supply_points[our_order.faction])
+				to_chat(user, span_warning("Cargo does not have enough points for fast delivery."))
+				return
+			supply_points[user.faction] -= FAST_DELIVERY_COST
 
 	//Same checks as for supply console
 	if(!supply_beacon)
