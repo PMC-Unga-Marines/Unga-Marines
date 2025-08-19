@@ -44,7 +44,7 @@
 		/obj/item/ammo_magazine/packet/p4570 = 7,
 		/obj/item/tool/extinguisher/mini = 1,
 	)
-	r_pocket_contents = list(
+	l_pocket_contents = list(
 		/obj/item/ammo_magazine/handful/repeater = 7,
 	)
 

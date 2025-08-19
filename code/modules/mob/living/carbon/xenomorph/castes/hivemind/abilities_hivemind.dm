@@ -1,10 +1,9 @@
 //List of Hivemind resin structure images
 GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 	RESIN_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL),
-	RESIN_WALL_BOMB = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_BOMB),
 	RESIN_WALL_BULLET = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_BULLET),
 	RESIN_WALL_FIRE = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_FIRE),
-	RESIN_WALL_MELEE = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_MELEE),
+	RESIN_WALL_HARDY = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_HARDY),
 	STICKY_RESIN = image('icons/Xeno/actions/construction.dmi', icon_state = STICKY_RESIN),
 	RESIN_DOOR = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_DOOR),
 	ALIEN_NEST = image('icons/Xeno/actions/construction.dmi', icon_state = ALIEN_NEST),
@@ -169,10 +168,9 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 /datum/action/ability/activable/xeno/secrete_resin/hivemind
 	buildable_structures = list(
 		/turf/closed/wall/resin/regenerating,
-		/turf/closed/wall/resin/regenerating/bombproof,
 		/turf/closed/wall/resin/regenerating/bulletproof,
 		/turf/closed/wall/resin/regenerating/fireproof,
-		/turf/closed/wall/resin/regenerating/meleeproof,
+		/turf/closed/wall/resin/regenerating/hardy,
 		/obj/alien/resin/sticky,
 		/obj/structure/mineral_door/resin,
 		/obj/structure/bed/nest,
@@ -213,5 +211,6 @@ GLOBAL_LIST_INIT(hivemind_resin_images_list, list(
 /datum/action/ability/xeno_action/psy_gain/hivemind/action_activate()
 	if(length_char(GLOB.humans_by_zlevel["2"]) > 0.2 * length_char(GLOB.alive_human_list))
 		SSpoints.add_psy_points("[xeno_owner.hivenumber]", 100)
+		GLOB.round_statistics.psypoints_from_hivemind += 100
 	succeed_activate()
 	add_cooldown()

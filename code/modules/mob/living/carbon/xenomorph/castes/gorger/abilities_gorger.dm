@@ -1,6 +1,3 @@
-/datum/action/ability/activable/xeno/psydrain/free
-	ability_cost = 0
-
 /////////////////////////////////
 // Devour
 /////////////////////////////////

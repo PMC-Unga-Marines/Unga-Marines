@@ -1,24 +1,26 @@
-Умирать - это часть игры.
-Не держа ничего в активной руке, нажмите на горящего человека с намерением помочь. Это касается как ксеносов, так и людей.
-Вы можете выбирать места на таргет-кукле в вашем HUD с помощью нум-пада.
-Пока у вас активен режим броска, вы можете автоматически ловить брошенные в вас предметы. Включая лицехватов.
-Иногда вам не удастся избежать смерти, как бы хороши вы ни были в игре. Артиллерия, воздушная поддержка и люди с базуками слишком непредсказуемы.
-Когда раунд заканчивается, почти все, что в нем было, теряется навсегда. Оставляйте свою соль вместе с ним.
-Некоторые люди не читают текст в игре, половина которой основана на тексте.
-Это игра, которая постоянно совершенствуется. Ожидайте, что ежедневно в нее будут добавляться, удаляться, исправляться, устаревать и ломаться новые вещи. Как минимум, пользуйтесь этим ради веселья.
-На картах, где есть вода, просто нырните в водоём, чтобы потушиться.
-На экране настройки персонажа можно гораздо удобнее настроить привязки клавиш для управления действиями.
-Если вы горите, используйте команду «Resist» (по умолчанию: B), чтобы остановиться, упасть и перекатиться. Люди также могут использовать команду «Resist», чтобы вырваться из захвата Вариора или просто отстегнуться от стула.
-Намерение помочь (по умолчанию: 1) позволяет вам поменяться позициями с другим мобом, у которого активно намерение помочь. Другие намерения (обезоружить, схватить или нанести вред) отталкивают мобов в сторону.
-В сомнительных случаях: Adminhelp для проблем с людьми, нарушающими правила. Mentorhelp для вопросов, на которые вы хотите узнать ответ.
-После того как вы вышли из игры (либо в результате смерти, либо в криокамере, либо вручную), вы можете снова появиться в игре, подождав 15 минут (в роли морпеха) или если доступна лярва(в роли ксеноморфа).
-Чтобы спеть, добавьте «%» перед любым текстом. Пение по радио не работает, но работает пение по интеркому.
-Вы можете переродиться во время End-Of-Round Deathmatch во вкладке OOC. Постреляйте от души!
-Сандеринг снижает эффективность брони ксеносов на какой-то процент. Некоторые касты ксеноморфов могут исцелять сандер. Отдых лечит сандер, но медленно.
-Если вы мертвы и вы хотите поиграть за Т0 касты ксеноморфов или ССД-игроков, то сделайте это прямо сейчас! Будучи в госте изучите кнопки в верхнем левом углу экрана.
-Вы можете настроить своего призрака с помощью команды Ghost Customization на вкладке Preferences.
-Будучи морпехом или ксеносом, вы умрете быстро и ужасно, если окажетесь в среде без давления (она же - космос).
-Макросов не существует, есть только привязки клавиш. Ещё есть читы, но не советую...
-Общение, будь то от морпеха к морпеху, от дрона к королеве или от команды ко всем, жизненно важно, и информация о флангах может изменить ход всего раунда.
-Следите за флангом, независимо от того, идет ли натиск хорошо или застопорился.
-Половина успеха - это умение быть агрессивным. Другая половина - знать, когда не стоит проявлять агрессию.
+Dying is part of the game.
+While holding nothing in your active hand, click a person on fire with help intent to put the fire out. This applies both xenos and humans.
+You can select locations on the targeting doll in your HUD by using the number pad.
+While you have your throw mode active, you can automatically catch things that are thrown at you, if you are able to hold the item as a species.
+Sometimes you won't be able to avoid dying no matter how good you are at the game. Try not to stress too much about it.
+When a round ends, nearly everything about it is lost forever. Leave your salt behind with it.
+Some people are unable to read text on a game where half of it is based on text.
+This is a game that is constantly being developed. Expect things to be added, removed, fixed, oudated and broken on a daily basis.
+In maps where there is water, you can simply run to rivers or areas where there is water to extinguish yourself while on fire.
+In the character setup screen, you can set your keybinds to control actions much more easily.
+While alive, use 'resist' (Default: B) to stop, drop and roll when on fire. Humans can also use the resist command to struggle out of warrior grabs or to simply unbuckle from a chair.
+Help Intent (Default: 1) allows you to exchange positions with another mob with their help intent active. Other intents (Disarm, Grab or Harm) will push mobs aside.
+When in doubt: Adminhelp for problems with people violating the rules, Mentorhelp for questions that you want to know the answer to.
+Check the SS13 Webmap to learn the layout of the ship or the map currently in play.
+After you have ghosted out of the game (either from dying, cryo or manual ghost), you can respawn back into the game after waiting for 30 minutes (as a marine) or if there is a larva available (as a xenomorph).
+To sing, add "%" before any text. Singing on radios will not work, but singing on intercomms will.
+You can respawn during End-Of-Round Deathmatch in the OOC tab.
+Sundering reduces the effectiveness of xeno armor by percentage. Some xenomorph castes can heal and decrease sunder. Resting heals sunder, but slowly.
+When you want to claim a mob, claim it now! Others will claim it as soon as they are available.
+You can customize your ghost using the Ghost Customization command under the Preferences tab.
+As either a marine or a xeno, you will die quickly and horribly if you find yourself in a pressureless enviroment (a.k.a spess).
+There are no such things as macros, only keybinds.
+Communication, be it from a marine to a marine, a drone to the queen, or command to everyone, is vital and information on flanks can change how the entire round plays out.
+As an alien or marine, be careful of the flank, regardless of if the push is going well or stalling out.
+Half of getting good is knowing to be aggressive. The other half is knowing when not to be aggressive.
+When talking, surround what you type (without the quotes) with "__", "++" or "||" to underline, bold, or italicize what you say. You combine these modifiers too!

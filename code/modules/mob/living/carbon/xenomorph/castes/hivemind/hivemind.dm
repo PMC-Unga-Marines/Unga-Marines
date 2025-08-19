@@ -362,3 +362,53 @@
 
 /mob/living/carbon/xenomorph/hivemind/remove_inherent_verbs()
 	return
+
+/mob/living/carbon/xenomorph/hivemind/add_to_hive(datum/hive_status/HS, force = FALSE, prevent_ruler=FALSE)
+	. = ..()
+	if(!GLOB.xeno_structures_by_hive[HS.hivenumber])
+		GLOB.xeno_structures_by_hive[HS.hivenumber] = list()
+
+	var/obj/structure/xeno/hivemindcore/hive_core = get_core()
+
+	if(!hive_core) //how are you even alive then?
+		qdel(src)
+		return
+
+	GLOB.xeno_structures_by_hive[HS.hivenumber] |= hive_core
+
+	if(!GLOB.xeno_critical_structures_by_hive[HS.hivenumber])
+		GLOB.xeno_critical_structures_by_hive[HS.hivenumber] = list()
+
+	GLOB.xeno_critical_structures_by_hive[HS.hivenumber] |= hive_core
+	hive_core.hivenumber = HS.hivenumber
+	hive_core.name = "[HS.hivenumber == XENO_HIVE_NORMAL ? "" : "[HS.name] "]hivemind core"
+	hive_core.color = HS.color
+
+/mob/living/carbon/xenomorph/hivemind/remove_from_hive()
+	var/obj/structure/xeno/hivemindcore/hive_core = get_core()
+	GLOB.xeno_structures_by_hive[hivenumber] -= hive_core
+	GLOB.xeno_critical_structures_by_hive[hivenumber] -= hive_core
+	. = ..()
+	if(!QDELETED(src)) //if we aren't dead, somehow?
+		hive_core.name = "banished hivemind core"
+		hive_core.color = null
+
+/mob/living/carbon/xenomorph/hivemind/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/hivemind/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/hivemind/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/hivemind/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/hivemind/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/hivemind/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN
+
+#undef TIME_TO_TRANSFORM

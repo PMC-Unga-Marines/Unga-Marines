@@ -551,6 +551,7 @@
 	desc = "It's an individual medical kit with rare and useful reagents."
 	icon = 'icons/obj/items/storage/firstaid.dmi'
 	icon_state = "ai2"
+	equip_slot_flags = ITEM_SLOT_POCKET
 	w_class = WEIGHT_CLASS_NORMAL
 	storage_type = /datum/storage/ai2
 	var/is_open = FALSE
@@ -586,10 +587,6 @@
 			continue
 		add_overlay(types_and_overlays[W.type])
 		types_and_overlays -= W.type
-
-/obj/item/storage/ai2/attackby(obj/item/I, mob/user, params)
-	. = ..()
-	update_icon()
 
 /obj/item/storage/pill_bottle/penal
 	icon = 'icons/obj/items/storage/firstaid.dmi'

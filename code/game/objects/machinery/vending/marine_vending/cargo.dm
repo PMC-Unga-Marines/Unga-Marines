@@ -5,7 +5,6 @@
 	icon_vend = "requisitionop-vend"
 	icon_deny = "requisitionop-deny"
 	wrenchable = FALSE
-	req_one_access = list(ACCESS_MARINE_CARGO, ACCESS_MARINE_LOGISTICS)
 	products = list(
 		"Surplus Special Equipment" = list(
 			/obj/item/pinpointer = 1,
@@ -62,6 +61,7 @@
 			/obj/item/storage/box/visual/magazine/compact/sh15/slug/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/dmr37/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/sr127/full = -1,
+			/obj/item/storage/box/visual/magazine/compact/mg42/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/mg60/full = -1,
 			/obj/item/storage/box/visual/magazine/compact/mg27/full = -1,
 		),

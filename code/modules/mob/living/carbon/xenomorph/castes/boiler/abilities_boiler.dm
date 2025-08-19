@@ -196,6 +196,8 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 		return FALSE
 
 /datum/action/ability/activable/xeno/bombard/on_selection()
+	if(!xeno_owner)
+		return
 	var/current_ammo = xeno_owner.corrosive_ammo
 	if(current_ammo <= 0)
 		to_chat(xeno_owner, span_notice("We have nothing prepared to fire."))

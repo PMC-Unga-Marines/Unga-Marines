@@ -35,22 +35,6 @@
 		return "wounded_crest_[severity]"
 
 // ***************************************
-// *********** Life overrides
-// ***************************************
-/mob/living/carbon/xenomorph/defender/set_stat()
-	. = ..()
-	if(isnull(.))
-		return
-	if(. == CONSCIOUS && fortify) //No longer conscious.
-		//Fortify prevents dragging due to the anchor component. // TODO: Unshitcode me
-		if(actions_by_path[/datum/action/ability/xeno_action/fortify])
-			var/datum/action/ability/xeno_action/fortify/FT = actions_by_path[/datum/action/ability/xeno_action/fortify]
-			FT.set_fortify(FALSE)
-		else if(actions_by_path[/datum/action/ability/xeno_action/fortify/steel_crest])
-			var/datum/action/ability/xeno_action/fortify/FT = actions_by_path[/datum/action/ability/xeno_action/fortify/steel_crest]
-			FT.set_fortify(FALSE)
-
-// ***************************************
 // *********** Mob overrides
 // ***************************************
 
@@ -78,3 +62,27 @@
 	if((cardinal_move & REVERSE_DIR(dir)))
 		proj.damage -= proj.damage * (0.2 * get_sunder())
 	return ..()
+
+/mob/living/carbon/xenomorph/defender/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/defender/steel_crest/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/defender/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/defender/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/defender/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/defender/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/defender/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/defender/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

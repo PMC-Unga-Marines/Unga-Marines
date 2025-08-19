@@ -5,7 +5,6 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/item/implanter/skill/engineer = list(CAT_MARINE, "Engineering skills implanter", 20, "cyan2"),
 	/obj/item/implanter/skill/construct = list(CAT_MARINE, "Construction skills implanter", 20, "cyan2"),
 	/obj/item/storage/backpack/marine/radiopack = list(CAT_MARINE, "Radio Pack", 5, "orange"),
-	/obj/item/storage/belt/marine/auto_catch = list(CAT_MARINE, "M344 pattern ammo load rig", 10, "orange"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_MARINE, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "orange"),
 	/obj/item/fulton_extraction_pack = list(CAT_MARINE, "Fulton Extraction Pack", 5, "orange"),
 	/obj/item/explosive/grenade = list(CAT_MARINE, "M40 HEDP grenade", 2, "orange3"),
@@ -20,7 +19,7 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/item/reagent_containers/hypospray/autoinjector/oxycodone = list(CAT_MARINE, "Oxycodone autoinjector", 10, "cyan"),
 	/obj/item/reagent_containers/hypospray/autoinjector/synaptizine	 = list(CAT_MARINE, "Synaptizine autoinjector", 14, "cyan"),
 	/obj/vehicle/ridden/motorbike = list(CAT_MARINE, "Bike", 30, "blue"),
-	/obj/item/sidecar = list(CAT_MARINE, "Bike sidecar", 8, "blue"),
+	/obj/item/sidecar = list(CAT_MARINE, "Bike sidecar", 15, "blue"),
 	/obj/item/ammo_magazine/rifle/ar21/extended = list(CAT_MARINE, "AR-21 extended magazine", 14, "blue"),
 	/obj/item/storage/briefcase/standard_magnum = list(CAT_MARINE, "R-76 crate", 22, "blue"),
 ))

@@ -12,6 +12,9 @@
 	penetration = 50
 	sundering = 15
 
+/datum/ammo/bullet/sniper/smart
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_IFF
+
 /datum/ammo/bullet/sniper/incendiary
 	name = "incendiary sniper bullet"
 	hud_state = "sniper_fire"
@@ -24,6 +27,9 @@
 	penetration = 30
 	sundering = 5
 
+/datum/ammo/bullet/sniper/incendiary/smart
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_SNIPER|AMMO_IFF
+
 /datum/ammo/bullet/sniper/flak
 	name = "flak sniper bullet"
 	hud_state = "sniper_flak"
@@ -35,6 +41,9 @@
 /datum/ammo/bullet/sniper/flak/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	staggerstun(target_mob, proj,  max_range = 30)
 	airburst(target_mob, proj)
+
+/datum/ammo/bullet/sniper/flak/smart
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_IFF
 
 /datum/ammo/bullet/sniper/svd
 	name = "crude sniper bullet"
@@ -85,7 +94,7 @@
 /datum/ammo/bullet/sniper/elite
 	name = "supersonic sniper bullet"
 	hud_state = "sniper_supersonic"
-	ammo_behavior_flags = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_IFF
 	accuracy = 20
 	damage = 100
 	penetration = 60
@@ -120,7 +129,7 @@
 /datum/ammo/bullet/sniper/auto
 	name = "low velocity high caliber rifle bullet"
 	hud_state = "sniper_auto"
-	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SNIPER|AMMO_IFF
 	damage = 50
 	penetration = 30
 	sundering = 2

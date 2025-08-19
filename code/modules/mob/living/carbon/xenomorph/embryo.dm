@@ -92,7 +92,7 @@
 		counter += 2.5 //Doubles larval growth progress. Burst time in ~3 min.
 		adjust_boost_timer(-1)
 
-	if(stage < 5 && counter >= 100)
+	if(stage < 5 && counter >= 120)
 		counter = 0
 		stage++
 		log_combat(affected_mob, null, "had their embryo advance to stage [stage]")
@@ -189,12 +189,13 @@
 
 	var/nestburst_message = pick("You feel hive's psychic power getting stronger, after host [victim.name] gave birth on a nest!", "You feel hive's psychic power getting stronger, after breeding host [victim.name] on a nest!")
 	if(CHECK_BITFIELD(victim.restrained_flags, RESTRAINED_XENO_NEST))
+		var/psy_points_amount = MARINE_BURST_PSY_POINTS_REWARD
 		if(victim.job == null)
-			SSpoints.add_psy_points(hivenumber, 10)
+			psy_points_amount = 10
 		else if(victim.job.type == /datum/job/survivor/rambo)
-			SSpoints.add_psy_points(hivenumber, 50)
-		else
-			SSpoints.add_psy_points(hivenumber, 200)
+			psy_points_amount = 50
+		SSpoints.add_psy_points(hivenumber, psy_points_amount)
+		GLOB.round_statistics.psypoints_from_burst += psy_points_amount
 		xeno_message(nestburst_message, "xenoannounce", 5, hivenumber)
 
 /mob/living/carbon/xenomorph/larva/proc/burst(mob/living/carbon/human/victim)

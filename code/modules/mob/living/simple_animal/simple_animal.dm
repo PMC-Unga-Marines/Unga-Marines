@@ -114,7 +114,7 @@
 /mob/living/simple_animal/set_blurriness()
 	return
 
-/mob/living/simple_animal/death(gibbing, deathmessage, silent)
+/mob/living/simple_animal/death(gibbing = FALSE, deathmessage = "seizes up and falls limp...", silent = FALSE)
 	if(stat == DEAD)
 		return ..()
 	if(!silent && !gibbing && !del_on_death && !deathmessage && src.deathmessage)

@@ -542,6 +542,7 @@
 	pixel_x = -1;
 	pixel_y = 8
 	},
+/obj/item/stack/sheet/mineral/phoron,
 /turf/open/floor/mainship/sterile/side{
 	dir = 4
 	},

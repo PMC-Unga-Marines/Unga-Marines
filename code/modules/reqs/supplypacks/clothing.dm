@@ -22,11 +22,6 @@
 	contains = list(/obj/item/storage/backpack/marine/radiopack)
 	cost = 20
 
-/datum/supply_packs/clothing/auto_catch_belt
-	name = "M344 pattern ammo load rig"
-	contains = list(/obj/item/storage/belt/marine/auto_catch)
-	cost = 50
-
 /datum/supply_packs/clothing/technician_pack
 	name = "Engineering technician pack"
 	contains = list(/obj/item/storage/backpack/marine/tech)

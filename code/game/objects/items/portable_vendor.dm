@@ -171,7 +171,7 @@
 /obj/item/portable_vendor/proc/malfunction()
 	var/turf/T = get_turf(src)
 	T.visible_message(span_warning("[src] shudders as its internal components break apart!"))
-	broken = 1
+	broken = TRUE
 	STOP_PROCESSING(SSobj, src)
 	update_appearance()
 

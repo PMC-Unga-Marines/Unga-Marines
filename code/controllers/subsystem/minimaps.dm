@@ -522,8 +522,8 @@ SUBSYSTEM_DEF(minimaps)
 		locator.update(tracking)
 		locator.RegisterSignal(tracking, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/atom/movable/screen/minimap_locator, update))
 	else
-		owner.client.screen -= map
-		owner.client.screen -= locator
+		owner.client?.screen -= map
+		owner.client?.screen -= locator
 		map.stop_polling -= owner
 		locator.UnregisterSignal(tracking, COMSIG_MOVABLE_MOVED)
 	minimap_displayed = force_state

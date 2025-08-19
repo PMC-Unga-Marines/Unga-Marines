@@ -4,7 +4,8 @@
 	icon_state = "mortar_db"
 	icon = 'icons/obj/artillery/mortar_double.dmi'
 	max_integrity = 400
-	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	w_class = WEIGHT_CLASS_HUGE
 	deployable_item = /obj/machinery/deployable/mortar/double
 

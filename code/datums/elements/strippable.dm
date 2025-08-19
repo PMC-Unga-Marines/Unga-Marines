@@ -287,6 +287,8 @@
 
 	if(istype(item, /obj/item/clothing/mask/facehugger))
 		GLOB.round_statistics.failed_impregnations++
+		var/obj/item/clothing/mask/facehugger/facehugger = item
+		facehugger.reset_attach_status(FALSE)
 
 	source.log_message("[key_name(source)] has been stripped of [item] by [key_name(user)]", LOG_ATTACK, color="red")
 	user.log_message("[key_name(source)] has been stripped of [item] by [key_name(user)]", LOG_ATTACK, color="red", log_globally=FALSE)

@@ -227,10 +227,15 @@
 
 /datum/storage/holster/belt/m44/New(atom/parent)
 	. = ..()
-	set_holdable(can_hold_list = list(
-		/obj/item/weapon/gun/revolver,
-		/obj/item/ammo_magazine/revolver,
-	))
+	set_holdable(
+		can_hold_list = list(
+			/obj/item/weapon/gun/revolver,
+			/obj/item/ammo_magazine/revolver,
+		),
+		cant_hold_list = list(
+			/obj/item/weapon/gun/revolver/coltrifle,
+		)
+	)
 
 /datum/storage/holster/belt/mateba
 	max_storage_space = 16

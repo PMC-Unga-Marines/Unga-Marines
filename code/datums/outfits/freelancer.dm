@@ -133,6 +133,7 @@
 	l_pocket_contents = list(
 		/obj/item/ammo_magazine/rifle/famas = 3,
 	)
+	suit_contents = null
 
 /datum/outfit/job/freelancer/veteran
 	name = "Freelancer Veteran"
@@ -154,7 +155,7 @@
 		/obj/item/reagent_containers/food/drinks/flask/marine = 1,
 		/obj/item/stack/sheet/metal/medium_stack = 1,
 		/obj/item/stack/sheet/plasteel/medium_stack = 1,
-		/obj/item/ammo_magazine/pistol/g22 = 3,
+		/obj/item/ammo_magazine/pistol/g22 = 2,
 		/obj/item/tool/extinguisher/mini = 1,
 		/obj/item/ammo_magazine/rifle/alf_machinecarbine = 2,
 	)
@@ -168,6 +169,7 @@
 /datum/outfit/job/freelancer/veteran/two
 	belt = /obj/item/storage/belt/sparepouch
 	suit_store = /obj/item/weapon/gun/rifle/m412l1_hpr/freelancer
+	r_pocket = /obj/item/storage/pouch/grenade
 
 	belt_contents = list(
 		/obj/item/ammo_magazine/m412l1_hpr = 3,
@@ -180,7 +182,7 @@
 		/obj/item/reagent_containers/food/drinks/flask/marine = 1,
 		/obj/item/ammo_magazine/pistol/g22 = 3,
 		/obj/item/tool/extinguisher/mini = 1,
-		/obj/item/ammo_magazine/m412l1_hpr = 4,
+		/obj/item/ammo_magazine/m412l1_hpr = 3,
 	)
 
 	r_pocket_contents = list(
@@ -204,7 +206,7 @@
 		/obj/item/storage/box/m94 = 1,
 		/obj/item/reagent_containers/food/snacks/burger/tofu = 1,
 		/obj/item/reagent_containers/food/drinks/flask/marine = 1,
-		/obj/item/ammo_magazine/pistol/g22 = 2,
+		/obj/item/ammo_magazine/pistol/g22 = 1,
 		/obj/item/tool/extinguisher/mini = 1,
 		/obj/item/ammo_magazine/rifle/tx54 = 2,
 		/obj/item/ammo_magazine/rifle/tx54/incendiary = 2,
@@ -250,6 +252,7 @@
 	r_pocket_contents = list(
 		/obj/item/ammo_magazine/handful/buckshot = 7,
 	)
+	suit_contents = null
 
 ///ar11
 /datum/outfit/job/freelancer/leader/two
@@ -272,12 +275,14 @@
 		/obj/item/explosive/grenade = 4,
 		/obj/item/explosive/grenade/incendiary = 2,
 	)
+	suit_contents = null
 
 /datum/outfit/job/freelancer/leader/three
 	wear_suit = /obj/item/clothing/suit/storage/faction/freelancer/leader/three
 	suit_store = /obj/item/weapon/gun/rifle/tx55/freelancer
 	r_pocket = /obj/item/storage/pouch/magazine/large
 
+	suit_contents = null
 	belt_contents = list(
 		/obj/item/ammo_magazine/rifle/ar12 = 2,
 		/obj/item/ammo_magazine/rifle/tx54 = 2,

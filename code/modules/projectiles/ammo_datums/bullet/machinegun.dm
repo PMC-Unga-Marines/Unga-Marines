@@ -11,6 +11,9 @@
 	barricade_clear_distance = 2
 	sundering = 5
 
+/datum/ammo/bullet/machinegun/smart
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_IFF
+
 /datum/ammo/bullet/minigun
 	name = "minigun bullet"
 	hud_state = "minigun"
@@ -39,7 +42,7 @@
 	name = "autocannon high-velocity bullet"
 	hud_state = "minigun"
 	hud_state_empty = "smartgun_empty"
-	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE|AMMO_IFF
 	accurate_range_min = 6
 	accuracy_var_low = 3
 	accuracy_var_high = 3
@@ -97,7 +100,7 @@
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun_minigun"
 	hud_state_empty = "smartgun_empty"
-	ammo_behavior_flags = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_IFF
 	accurate_range = 12
 	damage = 12
 	penetration = 20

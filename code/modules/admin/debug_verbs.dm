@@ -256,7 +256,7 @@ ADMIN_VERB(spatial_agent, R_FUN, "Spatial Agent", "Become a spatial agent", ADMI
 		message_admins("[ADMIN_TPMONTY(H)] became a spatial agent.")
 
 ADMIN_VERB(military_policeman, R_FUN, "Military Policeman", "Become a marine law-enforcing MRP retard", ADMIN_CATEGORY_DEBUG)
-	var/mob/M = user
+	var/mob/M = user.mob
 	var/mob/living/carbon/human/H
 	var/spatial = FALSE
 	if(ishuman(M))

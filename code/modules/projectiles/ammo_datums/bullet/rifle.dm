@@ -19,7 +19,7 @@
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun"
 	hud_state_empty = "smartgun_empty"
-	ammo_behavior_flags = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_IFF
 	accurate_range = 20
 	damage = 20
 	penetration = 15
@@ -126,7 +126,7 @@
 	hud_state = "hivelo"
 	hud_state_empty = "hivelo_empty"
 	damage_falloff = 0
-	ammo_behavior_flags = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_IFF
 	accurate_range = 15
 	damage = 35
 	penetration = 20
@@ -136,7 +136,7 @@
 /datum/ammo/bullet/rifle/tx8/incendiary
 	name = "high velocity incendiary bullet"
 	hud_state = "hivelo_fire"
-	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_PASS_THROUGH_MOB
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_PASS_THROUGH_MOB|AMMO_IFF
 	damage = 25
 	penetration = 20
 	additional_xeno_penetration = 15
@@ -159,6 +159,13 @@
 	damage = 30
 	penetration = 15
 	additional_xeno_penetration = 12.5
+
+/datum/ammo/bullet/rifle/type16
+	name = "crude rifle bullet"
+	hud_state = "rifle_crude"
+	damage = 30
+	penetration = 10
+	additional_xeno_penetration = 15
 
 /datum/ammo/bullet/rifle/dmr37
 	name = "marksman bullet"
@@ -201,7 +208,7 @@
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "smartgun"
 	hud_state_empty = "smartgun_empty"
-	ammo_behavior_flags = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_IFF
 	damage = 40
 	max_range = 40
 	penetration = 17.5
@@ -216,7 +223,7 @@
 	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
 	hud_state = "spotrifle"
 	hud_state_empty = "smartgun_empty"
-	ammo_behavior_flags = AMMO_BALLISTIC
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_IFF
 	damage = 50
 	penetration = 25
 	sundering = 5

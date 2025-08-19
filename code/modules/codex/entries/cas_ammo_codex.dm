@@ -12,16 +12,14 @@
 
 	if(explosion_falloff)
 		. += "Explosion will lose [explosion_falloff] power per turf.<br>"
-
-	var/prediction_type_string
+	if(!prediction_type)
+		return
+	var/prediction_type_string = "ERROR"
 	switch(prediction_type)
 		if(CAS_AMMO_EXPLOSIVE)
-			prediction_type_string = "Explosive"
-			. += "Ammo type = [prediction_type_string] rocket.<br>"
+			prediction_type_string = "high-explosive rocket."
 		if(CAS_AMMO_INCENDIARY)
-			prediction_type_string = "Incendiary"
-			. += "Ammo type = [prediction_type_string] rocket.<br>"
-			. += "Radius of fire  = [fire_range] tiles.<br>"
+			prediction_type_string = "incendiary rocket. Radius of fire  = [fire_range] tiles."
 		if(CAS_AMMO_HARMLESS)
-			prediction_type_string = "Harmless"
-			. += "Ammo type = [prediction_type_string] rocket. It doesn't deal any damage.<br>"
+			prediction_type_string = "harmless rocket. It doesn't deal any damage."
+	. += "Ammo type: [prediction_type_string]<br>"
