@@ -79,17 +79,15 @@
 	var/turf/consolespot = get_turf(loc)
 	switch(mattype)
 		if(EJECT_METAL)
-			var/obj/item/stack/sheet/metal/stack = /obj/item/stack/sheet/metal
 			while(metal_remaining > 0)
 				var/amount = min(metal_remaining, 50)
-				stack = new /obj/item/stack/sheet/metal(consolespot, amount)
+				new /obj/item/stack/sheet/metal(consolespot, amount)
 				metal_remaining -= amount
 			return
 		if(EJECT_PLASTEEL)
-			var/obj/item/stack/sheet/plasteel/stack = /obj/item/stack/sheet/plasteel
 			while(plasteel_remaining > 0)
 				var/amount = min(plasteel_remaining, 50)
-				stack = new /obj/item/stack/sheet/plasteel(consolespot, amount)
+				new /obj/item/stack/sheet/plasteel(consolespot, amount)
 				plasteel_remaining -= amount
 
 /obj/machinery/computer/camera_advanced/remote_fob/interact(mob/living/user)
