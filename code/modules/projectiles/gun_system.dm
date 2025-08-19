@@ -1749,7 +1749,7 @@
 	projectile_to_fire.damage_falloff *= max(0, damage_falloff_mult)
 	projectile_to_fire.projectile_speed = projectile_to_fire.ammo.shell_speed
 	projectile_to_fire.projectile_speed += shell_speed_mod
-	if(gun_features_flags & GUN_IFF || HAS_TRAIT(src, TRAIT_GUN_IS_AIMING) || projectile_to_fire.ammo.ammo_behavior_flags & AMMO_IFF)
+	if(HAS_TRAIT(src, TRAIT_GUN_IS_AIMING) || projectile_to_fire.ammo.ammo_behavior_flags & AMMO_IFF)
 		var/iff_signal
 		if(ishuman(firer))
 			var/mob/living/carbon/human/_firer = firer
