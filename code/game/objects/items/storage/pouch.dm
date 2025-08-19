@@ -215,15 +215,20 @@
 	storage_datum.sprite_slots = 1
 	storage_datum.max_w_class = WEIGHT_CLASS_BULKY
 	storage_datum.draw_mode = FALSE
-	storage_datum.set_holdable(can_hold_list = list(
-		/obj/item/weapon/gun/pistol,
-		/obj/item/ammo_magazine/pistol,
-		/obj/item/weapon/gun/revolver,
-		/obj/item/ammo_magazine/revolver,
-		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
-		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
-		/obj/item/cell/lasgun/lasrifle,
-	))
+	storage_datum.set_holdable(
+		can_hold_list = list(
+			/obj/item/weapon/gun/pistol,
+			/obj/item/ammo_magazine/pistol,
+			/obj/item/weapon/gun/revolver,
+			/obj/item/ammo_magazine/revolver,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
+			/obj/item/cell/lasgun/lasrifle,
+		),
+		cant_hold_list = list(
+			/obj/item/weapon/gun/revolver/coltrifle,
+		)
+	)
 
 /obj/item/storage/pouch/pistol/vp70/PopulateContents()
 	new /obj/item/weapon/gun/pistol/vp70(src)
