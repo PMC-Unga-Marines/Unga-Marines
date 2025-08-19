@@ -125,8 +125,8 @@
 	. = ..()
 
 	if(world.time > last_larva_check + larva_check_interval)
+		last_larva_check = world.time // It should stand first, so the check updates not after the balance_scales() gets completed
 		balance_scales()
-		last_larva_check = world.time
 
 /datum/game_mode/infestation/crash/proc/crash_shuttle(obj/docking_port/stationary/target)
 	shuttle_landed = TRUE
