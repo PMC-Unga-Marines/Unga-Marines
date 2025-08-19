@@ -364,7 +364,8 @@
 		var/obj/new_gun = new sentry_type(src)
 		deployed_turret = new_gun.loc
 		RegisterSignal(deployed_turret, COMSIG_QDELETING, PROC_REF(clean_refs))
-	deployed_turret.set_on(FALSE)
+	if(istype(deployed_turret, /obj/machinery/deployable/mounted/sentry)) // fuck this runtime
+		deployed_turret.set_on(FALSE)
 
 /obj/structure/dropship_equipment/shuttle/sentry_holder/Destroy()
 	deployed_turret = null

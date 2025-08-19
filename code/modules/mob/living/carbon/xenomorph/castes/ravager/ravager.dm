@@ -171,3 +171,24 @@
 	if(!amount && health < 0)
 		amount = -1 //don't want the 'zero health' icon when we are crit
 	holder.icon_state = "ravagerhealth[amount]"
+
+/mob/living/carbon/xenomorph/ravager/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/ravager/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/ravager/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/ravager/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/ravager/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/ravager/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/ravager/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

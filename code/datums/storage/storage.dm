@@ -505,25 +505,27 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		thing.pixel_x += rand(-8, 8)
 		thing.pixel_y += rand(-8, 8)
 
-/datum/storage/verb/toggle_gathering_mode()
+/atom/movable/proc/toggle_gathering_mode()
 	set name = "Switch Gathering Method"
 	set category = "IC.Object"
 
-	collection_mode = !collection_mode
-	if(collection_mode)
-		to_chat(usr, span_notice("\The [parent.name] now picks up all items in a tile at once."))
+	var/datum/storage/our_storage = storage_datum
+	our_storage.collection_mode = !our_storage.collection_mode
+	if(our_storage.collection_mode)
+		to_chat(usr, span_notice("\The [our_storage.parent.name] now picks up all items in a tile at once."))
 	else
-		to_chat(usr, span_notice("\The [parent.name] now picks up one item at a time."))
+		to_chat(usr, span_notice("\The [our_storage.parent.name] now picks up one item at a time."))
 
-/datum/storage/verb/toggle_draw_mode()
+/atom/movable/proc/toggle_draw_mode()
 	set name = "Switch Storage Drawing Method"
 	set category = "IC.Object"
 
-	draw_mode = !draw_mode
-	if(draw_mode)
-		to_chat(usr, "Clicking [parent.name] with an empty hand now puts the last stored item in your hand.")
+	var/datum/storage/our_storage = storage_datum
+	our_storage.draw_mode = !our_storage.draw_mode
+	if(our_storage.draw_mode)
+		to_chat(usr, span_notice("Clicking [our_storage.parent.name] with an empty hand now puts the last stored item in your hand."))
 	else
-		to_chat(usr, "Clicking [parent.name] with an empty hand now opens the pouch storage menu.")
+		to_chat(usr, span_notice("Clicking [our_storage.parent.name] with an empty hand now opens the pouch storage menu."))
 
 /**
  * Gets the inventory of a storage
@@ -773,6 +775,8 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 /datum/storage/proc/can_be_inserted(obj/item/item_to_insert, mob/user, warning = TRUE)
 	if(!istype(item_to_insert) || HAS_TRAIT(item_to_insert, TRAIT_NODROP))
 		return //Not an item
+	if(item_to_insert.item_flags & (ITEM_ABSTRACT|HAND_ITEM))
+		return FALSE
 
 	if(parent.loc == item_to_insert)
 		return FALSE //Means the item is already in the storage item
@@ -932,6 +936,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 			continue
 		M.client.screen -= item
 
+	if(!QDELETED(item))
+		UnregisterSignal(item, COMSIG_MOVABLE_MOVED)
+		item.on_exit_storage(src)
+		item.mouse_opacity = initial(item.mouse_opacity)
+
 	if(new_location)
 		if(ismob(new_location))
 			item.layer = ABOVE_HUD_LAYER
@@ -950,11 +959,6 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	for(var/i in can_see_content())
 		var/mob/M = i
 		show_to(M)
-
-	if(!QDELETED(item))
-		UnregisterSignal(item, COMSIG_MOVABLE_MOVED)
-		item.on_exit_storage(src)
-		item.mouse_opacity = initial(item.mouse_opacity)
 
 	for(var/limited_type in storage_type_limits_max)
 		if(istype(item, limited_type))
@@ -1120,15 +1124,15 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	var/obj/item/parent_item = parent
 	if(allow_quick_gather)
 		if(parent_item.item_flags & IN_INVENTORY)
-			parent.verbs += /datum/storage/verb/toggle_gathering_mode
+			parent.verbs += /atom/movable/proc/toggle_gathering_mode
 		else
-			parent.verbs -= /datum/storage/verb/toggle_gathering_mode
+			parent.verbs -= /atom/movable/proc/toggle_gathering_mode
 
 	if(allow_drawing_method)
 		if(parent_item.item_flags & IN_INVENTORY)
-			parent.verbs += /datum/storage/verb/toggle_draw_mode
+			parent.verbs += /atom/movable/proc/toggle_draw_mode
 		else
-			parent.verbs -= /datum/storage/verb/toggle_draw_mode
+			parent.verbs -= /atom/movable/proc/toggle_draw_mode
 
 /**
  * Attempts to get the first possible object from this container

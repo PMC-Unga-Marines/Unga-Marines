@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - rscadd: "Варриор теперь не может прокидывать маров за туман краша."

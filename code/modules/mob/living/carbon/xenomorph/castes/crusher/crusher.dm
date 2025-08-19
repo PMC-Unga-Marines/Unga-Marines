@@ -24,7 +24,6 @@
 		return TRUE
 	return FALSE
 
-
 /mob/living/carbon/xenomorph/crusher/handle_special_wound_states(severity)
 	. = ..()
 	if(is_charging >= CHARGE_ON)
@@ -48,3 +47,24 @@
 
 /mob/living/carbon/xenomorph/crusher/resisted_against(datum/source)
 	user_unbuckle_mob(source, source)
+
+/mob/living/carbon/xenomorph/crusher/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/crusher/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/crusher/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/crusher/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/crusher/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/crusher/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/crusher/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

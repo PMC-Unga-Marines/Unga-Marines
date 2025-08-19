@@ -325,12 +325,6 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		else if((direct & WEST) && x > 1)
 			x--
 
-
-
-/mob/dead/observer/can_use_hands()
-	return FALSE
-
-
 /mob/dead/observer/get_status_tab_items()
 	. = ..()
 
@@ -609,7 +603,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 
 /mob/dead/observer/verb/follow()
 	set category = "Ghost"
-	set name = "Follow"
+	set name = "Orbit"
 
 	if(!orbit_menu)
 		orbit_menu = new(src)

@@ -1,4 +1,0 @@
-author: "homexp13"
-delete-after: True
-changes:
-  - bugfix: "Исправлено странное поведение батареек при их замене в Corpsman backpack."

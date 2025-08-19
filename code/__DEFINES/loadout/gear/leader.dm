@@ -36,7 +36,6 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/item/jetpack_marine = list(CAT_LEDSUP, "Jetpack", 5, "yellow"),
 	/obj/item/storage/belt/grenade/b17 = list(CAT_LEDSUP, "High Capacity Grenade Belt", 5, "yellow"),
 	/obj/structure/closet/bodybag/tarp = list(CAT_LEDSUP, "V1 thermal-dampening tarp", 2, "yellow"),
-	/obj/item/storage/belt/marine/auto_catch = list(CAT_LEDSUP, "M344 pattern ammo load rig", 10, "orange"),
 	/obj/item/weapon/gun/flamer/big_flamer/marinestandard = list(CAT_LEDSUP, "FL-84 flamethrower", 6, "red"),
 	/obj/item/ammo_magazine/flamer_tank/large = list(CAT_LEDSUP, "Flamethrower tank", 2, "orange2"),
 	/obj/item/storage/holster/belt/revolver/mateba/full = list(CAT_LEDSUP, "Mateba Autorevolver belt", 10, "red"),

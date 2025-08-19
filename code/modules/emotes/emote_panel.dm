@@ -354,6 +354,11 @@
 	set category = "Emotes.Action"
 	usr.emote("trick", intentional = TRUE)
 
+/mob/living/carbon/human/verb/circle()
+	set name = "Circle"
+	set category = "Emotes.Action"
+	usr.emote("circle", intentional = TRUE)
+
 //Xeno
 
 /mob/living/carbon/xenomorph/verb/emote_growl()
