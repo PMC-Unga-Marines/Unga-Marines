@@ -49,11 +49,11 @@ GLOBAL_VAR_INIT(rollovercheck_last_timeofday, 0)
 
 
 /proc/gameTimestamp(format = "hh:mm:ss", wtime = world.time)
-	return time2text(wtime, format, 0)
+	return time2text(wtime, format)
 
 
 /proc/stationTimestamp(format = "hh:mm:ss", wtime = world.time)
-	return time2text(wtime + (12 * 36000), format, 0)
+	return time2text(wtime + (12 * 36000), format)
 
 
 //returns timestamp in a sql and a not-quite-compliant ISO 8601 friendly format
