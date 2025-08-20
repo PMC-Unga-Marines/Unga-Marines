@@ -958,6 +958,7 @@
 	icon_state = "shuttle_glass1"
 
 /obj/structure/dropship_piece/glassone/tadpole
+	max_integrity = 600
 	icon = 'icons/turf/tadpole.dmi'
 	resistance_flags = XENO_DAMAGEABLE|DROPSHIP_IMMUNE
 	opacity = FALSE
@@ -968,12 +969,14 @@
 	icon_state = "shuttle_glass2"
 
 /obj/structure/dropship_piece/glasstwo/tadpole
+	max_integrity = 600
 	icon = 'icons/turf/tadpole.dmi'
 	resistance_flags = XENO_DAMAGEABLE|DROPSHIP_IMMUNE
 	opacity = FALSE
 	allow_pass_flags = PASS_GLASS
 
 /obj/structure/dropship_piece/singlewindow/tadpole
+	max_integrity = 600
 	icon = 'icons/turf/tadpole.dmi'
 	icon_state = "shuttle_single_window"
 	allow_pass_flags = PASS_GLASS
@@ -982,7 +985,7 @@
 
 /obj/structure/dropship_piece/tadpole/cockpit
 	desc = "The nose part of the tadpole, able to be destroyed."
-	max_integrity = 500
+	max_integrity = 600
 	resistance_flags = XENO_DAMAGEABLE | DROPSHIP_IMMUNE
 	opacity = FALSE
 	layer = BELOW_OBJ_LAYER
