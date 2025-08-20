@@ -443,7 +443,7 @@
 			display_name = "[span_tooltip("Stealth key", "'[holder.fakekey]'")] ([display_name])"
 
 		if(C.prefs.toggles_chat & CHAT_LOOC)
-			to_chat(C, span_looc_heard_staff("<span class='prefix'>[span_tooltip("You are seeing this because you are staff and have hearing OOC channels from anywhere enabled.", "LOOC")]: [display_name]: [span_message("[msg]")]"))
+			to_chat(C, span_ooc("<span class='prefix'>[span_tooltip("You are seeing this because you are staff and have hearing OOC channels from anywhere enabled.", "LOOC")]: [display_name]: [span_message("[msg]")]"))
 
 /client/verb/motd()
 	set name = "MOTD"
