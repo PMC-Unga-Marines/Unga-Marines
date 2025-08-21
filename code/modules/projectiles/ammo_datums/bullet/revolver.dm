@@ -18,7 +18,6 @@
 	damage = 55
 	penetration = 30
 	additional_xeno_penetration = 10
-	damage_falloff = 0
 	shell_speed = 3.5
 
 /datum/ammo/bullet/revolver/t500
