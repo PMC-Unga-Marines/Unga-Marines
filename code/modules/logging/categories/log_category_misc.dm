@@ -31,6 +31,3 @@
 	category = LOG_CATEGORY_QDEL
 	// We want this human readable so it's easy to see at a glance
 	entry_flags = ENTRY_USE_DATA_W_READABLE
-
-/datum/log_category/crash_balance
-	category = LOG_CATEGORY_CRASH_BALANCE
