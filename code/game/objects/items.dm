@@ -909,7 +909,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return
 
 	TIMER_COOLDOWN_START(user, COOLDOWN_ZOOM, 2 SECONDS)
-	if(SEND_SIGNAL(user, COMSIG_ITEM_ZOOM) &  COMSIG_ITEM_ALREADY_ZOOMED)
+	if(SEND_SIGNAL(user, COMSIG_ITEM_ZOOM) & COMSIG_ITEM_ALREADY_ZOOMED)
 		to_chat(user, span_warning("You are already looking through another zoom device.."))
 		return
 
