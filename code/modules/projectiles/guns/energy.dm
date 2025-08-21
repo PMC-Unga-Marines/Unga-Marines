@@ -869,6 +869,7 @@
 	fire_mode = GUN_FIREMODE_SEMIAUTO
 	icon_state = "tes"
 	radial_icon_state = "laser_sniper_overcharge"
+	description = "Fires a powerful overcharged laser pulse. Deals heavy damage with superior penetration at the cost of slower fire rate."
 
 // TE Standard MG
 
