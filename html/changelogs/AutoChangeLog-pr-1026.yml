@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - balance: "Имиалки больше не лечит токс урон."
