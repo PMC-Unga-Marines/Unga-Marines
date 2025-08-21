@@ -16,7 +16,6 @@
 	l_pocket = /obj/item/storage/pouch/grenade/som/ert
 	back = /obj/item/storage/backpack/lightpack/som
 
-
 	r_pocket_contents = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 1,
@@ -240,6 +239,7 @@
 	)
 
 /datum/outfit/job/som/ert/veteran/breacher_vet
+	name = "SOM Breacher"
 	head = /obj/item/clothing/head/modular/som/lorica
 	glasses = /obj/item/clothing/glasses/welding/flipped
 	wear_suit = /obj/item/clothing/suit/modular/som/heavy/lorica
@@ -251,7 +251,8 @@
 		/obj/item/tool/weldingtool/largetank = 1,
 		/obj/item/explosive/plastique = 6,
 		/obj/item/tool/crowbar/red = 1,
-		/obj/item/explosive/grenade/som = 1,
+		/obj/item/explosive/grenade/som = 3,
+		/obj/item/explosive/grenade/incendiary/som = 2,
 	)
 	webbing_contents = list(
 		/obj/item/explosive/grenade/som = 2,
@@ -479,6 +480,7 @@
 // Breacher ert
 
 /datum/outfit/job/som/ert/veteran/breacher_melee
+	name = "SOM Melee Breacher"
 	head = /obj/item/clothing/head/modular/som/lorica
 	wear_suit = /obj/item/clothing/suit/modular/som/heavy/lorica
 	suit_store = /obj/item/weapon/twohanded/fireaxe/som
@@ -498,13 +500,21 @@
 		/obj/item/ammo_magazine/pistol/som/extended = 6,
 		/obj/item/weapon/gun/pistol/som/burst = 1,
 	)
-	suit_contents = list(
+	webbing_contents = list(
 		/obj/item/explosive/grenade/som = 2,
 		/obj/item/explosive/grenade/rad = 2,
 		/obj/item/explosive/grenade/incendiary/som = 1,
 	)
+	suit_contents = list(
+		/obj/item/stack/medical/heal_pack/gauze = 1,
+		/obj/item/stack/medical/heal_pack/ointment = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/isotonic = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclot = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
+	)
 
 /datum/outfit/job/som/ert/veteran/breacher_rpg
+	name = "SOM Breacher RPG Specialist"
 	head = /obj/item/clothing/head/modular/som/lorica
 	wear_suit = /obj/item/clothing/suit/modular/som/heavy/lorica
 	suit_store = /obj/item/weapon/twohanded/fireaxe/som
@@ -532,6 +542,7 @@
 	)
 
 /datum/outfit/job/som/ert/veteran/breacher_flamer
+	name = "SOM Breacher Flamer Specialist"
 	head = /obj/item/clothing/head/modular/som/hades
 	wear_suit = /obj/item/clothing/suit/modular/som/heavy/pyro
 	suit_store = /obj/item/weapon/twohanded/fireaxe/som
@@ -550,6 +561,7 @@
 	)
 
 /datum/outfit/job/som/ert/veteran/breacher_culverin
+	name = "SOM Breacher Culverin Specialist"
 	head = /obj/item/clothing/head/modular/som/lorica
 	wear_suit = /obj/item/clothing/suit/modular/som/heavy/lorica
 	belt = /obj/item/weapon/gun/shotgun/double/sawn
@@ -563,15 +575,10 @@
 		/obj/item/weapon/energy/sword/som = 1,
 	)
 
-/datum/job/som/ert/medic/breacher
-	title = "SOM Breacher Medic"
-	paygrade = "SOM_E5"
-	skills_type = /datum/skills/som_veteran/medic
-	outfit = /datum/outfit/job/som/ert/medic/breacher
-	multiple_outfits = FALSE
-
 /datum/outfit/job/som/ert/medic/breacher
+	name = "SOM Breacher Medic"
 	head = /obj/item/clothing/head/modular/som/lorica
+	w_uniform = /obj/item/clothing/under/som/medic/webbing
 	wear_suit = /obj/item/clothing/suit/modular/som/heavy/lorica
 	suit_store = /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger/somvet
 	l_hand = /obj/item/weapon/shield/riot/marine/som
@@ -589,11 +596,20 @@
 		/obj/item/explosive/grenade/incendiary/som = 1,
 		/obj/item/tool/crowbar/red = 1,
 	)
+	suit_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus = 1,
+	)
 	r_pocket_contents = list(
 		/obj/item/cell/lasgun/volkite = 3,
 	)
+	head_contents = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/neuraline = 2,
+	)
 
 /datum/outfit/job/som/ert/leader/breacher_melee
+	name = "SOM Melee Breacher Leader"
 	suit_store = /obj/item/weapon/twohanded/fireaxe/som
 	belt = /obj/item/storage/holster/belt/pistol/m4a3/som
 
@@ -603,6 +619,7 @@
 		/obj/item/explosive/plastique = 3,
 		/obj/item/tool/extinguisher = 1,
 		/obj/item/explosive/grenade/som = 2,
+		/obj/item/explosive/grenade/rad = 2,
 		/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 1,
@@ -618,6 +635,7 @@
 	)
 
 /datum/outfit/job/som/ert/leader/breacher_ranged
+	name = "SOM Ranged Breacher Leader"
 	suit_store = /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger/somvet
 	l_hand = /obj/item/weapon/shield/riot/marine/som
 
