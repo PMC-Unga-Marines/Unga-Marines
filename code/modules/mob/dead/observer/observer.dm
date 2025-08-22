@@ -325,12 +325,6 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		else if((direct & WEST) && x > 1)
 			x--
 
-
-
-/mob/dead/observer/can_use_hands()
-	return FALSE
-
-
 /mob/dead/observer/get_status_tab_items()
 	. = ..()
 
@@ -376,7 +370,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		to_chat(src, span_warning("Another consciousness is in your body...It is resisting you."))
 		return FALSE
 
-	client.view_size.set_default(get_screen_size(client.prefs.widescreenpref))//Let's reset so people can't become allseeing gods
+	client.view_size?.set_default(get_screen_size(client.prefs.widescreenpref))//Let's reset so people can't become allseeing gods
 	mind.transfer_to(old_mob, TRUE)
 	return TRUE
 
@@ -609,7 +603,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 
 /mob/dead/observer/verb/follow()
 	set category = "Ghost"
-	set name = "Follow"
+	set name = "Orbit"
 
 	if(!orbit_menu)
 		orbit_menu = new(src)

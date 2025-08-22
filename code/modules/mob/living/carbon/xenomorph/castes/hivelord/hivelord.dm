@@ -23,7 +23,27 @@
 	. = ..()
 	update_spits()
 
-
 /mob/living/carbon/xenomorph/hivelord/get_status_tab_items()
 	. = ..()
 	. += "Active Tunnel Sets: [LAZYLEN(tunnels)] / [HIVELORD_TUNNEL_SET_LIMIT]"
+
+/mob/living/carbon/xenomorph/hivelord/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/hivelord/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/hivelord/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/hivelord/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/hivelord/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/hivelord/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/hivelord/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

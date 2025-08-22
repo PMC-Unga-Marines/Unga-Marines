@@ -38,7 +38,7 @@
 	. = ..()
 	origin_point = get_turf(src)
 	if(isturf(loc))
-		item_flags |= DEPLOY_ON_INITIALIZE
+		deploy_flags |= DEPLOY_ON_INITIALIZE
 	AddComponent(/datum/component/deployable_item, /obj/structure/plantable_flag, 1 SECONDS, 3 SECONDS)
 	AddComponent(/datum/component/shield, SHIELD_PURE_BLOCKING, list(MELEE = 35, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0))
 	current_aura = SSaura.add_emitter(src, AURA_HUMAN_FLAG, FLAG_AURA_RANGE, FLAG_AURA_STRENGTH, -1, faction)
@@ -69,15 +69,7 @@
 	lift_flag(user)
 
 /obj/item/plantable_flag/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(500, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(150, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(75, BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(15, BRUTE, BOMB)
+	take_damage(severity, BRUTE, BOMB)
 
 /obj/item/plantable_flag/fire_act(burn_level)
 	take_damage(burn_level * 3, BURN, FIRE)
@@ -86,7 +78,7 @@
 /obj/item/plantable_flag/proc/update_aura()
 	if(!current_aura)
 		return
-	current_aura.range = item_flags & IS_DEPLOYED ? FLAG_AURA_DEPLOYED_RANGE : FLAG_AURA_RANGE
+	current_aura.range = deploy_flags & IS_DEPLOYED ? FLAG_AURA_DEPLOYED_RANGE : FLAG_AURA_RANGE
 	if(isturf(loc))
 		current_aura.strength = LOST_FLAG_AURA_STRENGTH
 		return
@@ -173,15 +165,7 @@
 	icon_state = "[current_internal_item.icon_state]_planted"
 
 /obj/structure/plantable_flag/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(500, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(150, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(75, BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(15, BRUTE, BOMB)
+	take_damage(severity, BRUTE, BOMB)
 
 /obj/structure/plantable_flag/fire_act(burn_level)
 	take_damage(burn_level, BURN, FIRE)
@@ -197,3 +181,9 @@
 		return
 	disassemble(user)
 	log_game("[key_name(user)] has undeployed the flag at [AREACOORD(src)].")
+
+#undef FLAG_AURA_RANGE
+#undef FLAG_AURA_DEPLOYED_RANGE
+#undef FLAG_WARCRY_RANGE
+#undef FLAG_AURA_STRENGTH
+#undef LOST_FLAG_AURA_STRENGTH

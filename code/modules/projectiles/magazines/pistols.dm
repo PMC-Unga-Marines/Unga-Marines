@@ -273,7 +273,7 @@
 	icon_state_mini = "mag_pistol_tube"
 	max_rounds = 30
 	w_class = WEIGHT_CLASS_SMALL
-	default_ammo = /datum/ammo/bullet/pistol/ap
+	default_ammo = /datum/ammo/bullet/pistol/ap/smart
 
 //-------------------------------------------------------
 // knife

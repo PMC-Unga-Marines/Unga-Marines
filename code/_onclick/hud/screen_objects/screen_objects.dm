@@ -144,7 +144,7 @@
 
 /atom/movable/screen/inventory/hand/Click(location, control, params)
 	. = ..()
-	if(.)
+	if(. && iscarbon(usr))
 		var/mob/living/carbon/C = usr
 		C.activate_hand(hand_tag)
 

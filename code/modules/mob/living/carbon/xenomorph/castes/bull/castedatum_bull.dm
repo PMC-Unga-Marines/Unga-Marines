@@ -65,4 +65,3 @@
 		/datum/action/ability/xeno_action/gore,
 		/datum/action/ability/xeno_action/tolerate,
 	)
-

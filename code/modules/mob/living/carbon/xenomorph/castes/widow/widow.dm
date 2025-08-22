@@ -41,7 +41,7 @@
 		return
 	return ..()
 
-/mob/living/carbon/xenomorph/widow/death(gibbing, deathmessage, silent)
+/mob/living/carbon/xenomorph/widow/death(gibbing, deathmessage = "lets out a waning guttural screech, green blood bubbling from its maw.", silent)
 	unbuckle_all_mobs(TRUE) //RELEASE THE HORDE
 	return ..()
 
@@ -58,3 +58,24 @@
 	for(var/mob/living/carbon/xenomorph/spider AS in create_spiderling_action.spiderlings)
 		spider.revive(TRUE)
 		spider.forceMove(destination)
+
+/mob/living/carbon/xenomorph/widow/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/widow/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/widow/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/widow/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/widow/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/widow/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/widow/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

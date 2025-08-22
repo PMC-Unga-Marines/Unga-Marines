@@ -7,6 +7,7 @@
 	health = 150
 	maxHealth = 150
 	plasma_stored = 200
+	mob_size = MOB_SIZE_HUMAN
 	tier = XENO_TIER_MINION
 	upgrade = XENO_UPGRADE_BASETYPE
 	pull_speed = -2
@@ -48,6 +49,24 @@
 		return
 	if(get_dist(src, spidermother) > SPIDERLING_WITHER_RANGE)
 		adjust_brute_loss(25)
+
+/mob/living/carbon/xenomorph/spiderling/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/spiderling/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/spiderling/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/spiderling/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/spiderling/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/spiderling/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN
 
 // ***************************************
 // *********** Spiderling AI Section

@@ -83,7 +83,7 @@
 		/datum/action/ability/xeno_action/rally_hive,
 		/datum/action/ability/activable/xeno/command_minions,
 	)
-
+	
 /datum/xeno_caste/queen/young
 	upgrade = XENO_UPGRADE_NORMAL
 

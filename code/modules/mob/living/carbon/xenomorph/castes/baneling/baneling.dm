@@ -34,3 +34,21 @@
 	. = ..()
 	if(m_intent == MOVE_INTENT_RUN)
 		return "wounded_running_[severity]"
+
+/mob/living/carbon/xenomorph/baneling/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/baneling/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/baneling/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/baneling/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/baneling/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/baneling/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN
