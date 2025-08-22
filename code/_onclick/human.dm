@@ -96,6 +96,8 @@
 		return FALSE
 	if(restrained())
 		return FALSE
+	if(buckled)
+		return FALSE
 	if(pulledby)
 		return FALSE
 	if(has_status_effect(STATUS_EFFECT_PARALYZED) || has_status_effect(STATUS_EFFECT_STUN))
