@@ -271,7 +271,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 
 /datum/ammo/xeno/acid/medium
 	name = "acid spatter"
-	damage = 30
+	damage = 35
 	ammo_behavior_flags = AMMO_XENO
 	icon_state = "xeno_acid_normal"
 	bullet_color = COLOR_VERY_PALE_LIME_GREEN
@@ -286,9 +286,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 
 /datum/ammo/xeno/acid/auto
 	name = "light acid spatter"
-	damage = 10
-	damage_falloff = 0.3
-	spit_cost = 25
+	damage = 12
+	damage_falloff = 0.2
+	spit_cost = 20
 	added_spit_delay = 0
 	ammo_behavior_flags = AMMO_XENO|AMMO_TARGET_TURF|AMMO_SKIPS_ALIENS
 
@@ -306,14 +306,14 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 
 /datum/ammo/xeno/acid/passthrough
 	name = "acid spittle"
-	damage = 20
+	damage = 22
 	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS
 
 /datum/ammo/xeno/acid/heavy
 	name = "acid splash"
 	added_spit_delay = 2
 	spit_cost = 70
-	damage = 30
+	damage = 40
 	icon_state = "xeno_acid_strong"
 	bullet_color = COLOR_ASSEMBLY_YELLOW
 
@@ -500,7 +500,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 	danger_message = span_danger("A glob of acid lands with a splat and explodes into corrosive bile!")
 	damage = 50
 	damage_type = BURN
-	penetration = 40
+	penetration = 50
 	bullet_color = BOILER_LUMINOSITY_AMMO_CORROSIVE_COLOR
 	hit_paralyze_time = 1 SECONDS
 	hit_eye_blur = 1
@@ -528,9 +528,9 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 	///As opposed to normal globs, this will pass by the target tile if they hit nothing.
 	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_LEAVE_TURF
 	danger_message = span_danger("A pressurized glob of acid lands with a nasty splat and explodes into noxious fumes!")
-	max_range = 40
+	max_range = 16
 	damage = 75
-	penetration = 60
+	penetration = 70
 	reagent_transfer_amount = 55
 	passed_turf_smoke_type = /datum/effect_system/smoke_spread/xeno/neuro/light
 	hit_paralyze_time = 2 SECONDS
@@ -548,16 +548,15 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 	///As opposed to normal globs, this will pass by the target tile if they hit nothing.
 	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_LEAVE_TURF
 	danger_message = span_danger("A pressurized glob of acid lands with a concerning hissing sound and explodes into corrosive bile!")
-	max_range = 40
+	max_range = 16
 	damage = 75
-	penetration = 60
+	penetration = 70
 	passed_turf_smoke_type = /datum/effect_system/smoke_spread/xeno/acid/light
-	hit_paralyze_time = 1.5 SECONDS
+	hit_paralyze_time = 2 SECONDS
 	hit_eye_blur = 4
 	hit_drowsyness = 2
 	fixed_spread_range = 2
 	accuracy = 100
-	accurate_range = 30
 	shell_speed = 1.5
 
 /datum/ammo/xeno/hugger

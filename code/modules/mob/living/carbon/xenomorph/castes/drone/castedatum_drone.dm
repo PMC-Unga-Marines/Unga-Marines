@@ -12,10 +12,10 @@
 	gib_flick = "gibbed-a-small"
 
 	// *** Melee Attacks *** //
-	melee_damage = 18
+	melee_damage = 19
 
 	// *** Speed *** //
-	speed = -1.2
+	speed = -1.1
 	weeds_speed_mod = -0.4
 
 	// *** Plasma *** //
@@ -23,7 +23,7 @@
 	plasma_gain = 75
 
 	// *** Health *** //
-	max_health = 300
+	max_health = 380
 
 	// *** Evolution *** //
 	evolution_threshold = 100
@@ -35,7 +35,7 @@
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 30, BULLET = 25, LASER = 25, ENERGY = 30, BOMB = 0, BIO = 15, FIRE = 10, ACID = 15)
+	soft_armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 15, FIRE = 30, ACID = 15)
 
 	// *** Pheromones *** //
 	aura_strength = 2 //Drone's aura is the weakest.

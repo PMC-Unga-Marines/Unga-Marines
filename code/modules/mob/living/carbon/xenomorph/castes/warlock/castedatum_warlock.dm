@@ -12,12 +12,12 @@
 	speed = -0.5
 	plasma_max = 1700
 	plasma_gain = 60
-	max_health = 375
+	max_health = 325
 	spit_types = list(/datum/ammo/energy/xeno/psy_blast)
 
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER
 	caste_traits = null
-	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 40, ENERGY = 40, BOMB = 10, BIO = 35, FIRE = 10, ACID = 35)
+	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 40, ENERGY = 40, BOMB = 10, BIO = 35, FIRE = 35, ACID = 35)
 	shield_strength = 650
 	crush_strength = 50
 	blast_strength = 45

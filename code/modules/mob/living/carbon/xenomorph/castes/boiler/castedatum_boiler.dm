@@ -23,7 +23,7 @@
 	plasma_gain = 50
 
 	// *** Health *** //
-	max_health = 325
+	max_health = 380
 
 	// *** Darksight *** ///
 	conscious_see_in_dark = 20
@@ -34,7 +34,7 @@
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 45, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 0, BIO = 35, FIRE = 15, ACID = 35)
+	soft_armor = list(MELEE = 45, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 0, BIO = 35, FIRE = 35, ACID = 35)
 
 	// *** Ranged Attack *** //
 	spit_delay = 1 SECONDS
@@ -49,8 +49,8 @@
 	bomb_delay = 27 SECONDS
 
 	acid_spray_duration = 10 SECONDS
-	acid_spray_damage = 16
-	acid_spray_damage_on_hit = 35
+	acid_spray_damage = 30
+	acid_spray_damage_on_hit = 60
 	acid_spray_structure_damage = 45
 
 	actions = list(

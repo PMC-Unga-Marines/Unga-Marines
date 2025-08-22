@@ -67,7 +67,7 @@
 	particle_holder = new(owner, /particles/toxic_slash)
 	particle_holder.pixel_x = 9
 	particle_holder.pixel_y = 2
-	xeno_owner.soft_armor = xeno_owner.soft_armor.modifyRating(bullet = 60)
+	xeno_owner.soft_armor = xeno_owner.soft_armor.modifyRating(bullet = 20)
 	succeed_activate()
 	add_cooldown()
 

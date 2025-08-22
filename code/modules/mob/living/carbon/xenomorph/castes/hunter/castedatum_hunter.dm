@@ -13,7 +13,7 @@
 	gib_flick = "Hunter Gibbed"
 
 	// *** Melee Attacks *** //
-	melee_damage = 24
+	melee_damage = 25
 	attack_delay = 7
 
 	// *** Speed *** //
@@ -22,10 +22,10 @@
 
 	// *** Plasma *** //
 	plasma_max = 200
-	plasma_gain = 18
+	plasma_gain = 20
 
 	// *** Health *** //
-	max_health = 290
+	max_health = 310
 
 	// *** Evolution *** //
 	evolution_threshold = 225
@@ -36,7 +36,7 @@
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 80, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 20, FIRE = 5, ACID = 20)
+	soft_armor = list(MELEE = 35, BULLET = 35, LASER = 35, ENERGY = 35, BOMB = 0, BIO = 20, FIRE = 30, ACID = 20)
 
 	// *** Stealth ***
 	stealth_break_threshold = 25

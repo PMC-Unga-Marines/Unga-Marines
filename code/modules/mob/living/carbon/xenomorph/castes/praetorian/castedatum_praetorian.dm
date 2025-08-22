@@ -19,7 +19,7 @@
 	plasma_gain = 80
 
 	// *** Health *** //
-	max_health = 570
+	max_health = 390
 
 	// *** Flags *** //
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
@@ -27,17 +27,17 @@
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_ACID_BLOOD
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 45, BULLET = 25, LASER = 15, ENERGY = 50, BOMB = 10, BIO = 40, FIRE = 20, ACID = 40)
+	soft_armor = list(MELEE = 45, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 40, FIRE = 50, ACID = 40)
 
 	// *** Ranged Attack *** //
 	spit_delay = 1 SECONDS
 	spit_types = list(/datum/ammo/xeno/acid/heavy/passthrough, /datum/ammo/xeno/tox_loss/heavy)
 	acid_spray_duration = 6 SECONDS
-	acid_spray_damage = 8
+	acid_spray_damage = 15
 	acid_spray_duration = 10 SECONDS
 	acid_spray_range = 5
-	acid_spray_damage = 16
-	acid_spray_damage_on_hit = 47
+	acid_spray_damage = 25
+	acid_spray_damage_on_hit = 55
 	acid_spray_structure_damage = 69
 
 	// *** Minimap Icon *** //

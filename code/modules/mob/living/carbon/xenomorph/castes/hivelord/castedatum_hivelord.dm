@@ -21,7 +21,7 @@
 	plasma_icon_state = "hivelord_plasma"
 
 	// *** Health *** //
-	max_health = 350
+	max_health = 410
 
 	// *** Evolution *** //
 	evolution_threshold = 225
@@ -33,7 +33,7 @@
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 0, BIO = 20, FIRE = 5, ACID = 20)
+	soft_armor = list(MELEE = 35, BULLET = 35, LASER = 35, ENERGY = 35, BOMB = 0, BIO = 20, FIRE = 30, ACID = 20)
 
 	// *** Ranged Attack *** //
 	spit_delay = 1.3 SECONDS
@@ -47,7 +47,7 @@
 
 	// *** Abilities *** //
 
-	resin_max_range = 2 //Hivelord can place resin structures from 2 tile away
+	resin_max_range = 1 //Hivelord can place resin structures from 1 tile away
 
 	actions = list(
 		/datum/action/ability/xeno_action/xeno_resting,

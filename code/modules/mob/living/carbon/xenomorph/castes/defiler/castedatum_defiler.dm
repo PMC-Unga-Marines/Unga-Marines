@@ -23,9 +23,6 @@
 	// *** Health *** //
 	max_health = 400
 
-	// *** Sunder *** //
-	sunder_multiplier = 0.8
-
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED
 	can_hold_eggs = CAN_HOLD_ONE_HAND
@@ -33,7 +30,7 @@
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 55, BULLET = 60, LASER = 60, ENERGY = 55, BOMB = 30, BIO = 40, FIRE = 20, ACID = 40)
+	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 40, FIRE = 40, ACID = 40)
 	// *** Minimap Icon *** //
 	minimap_icon = "defiler"
 

@@ -12,14 +12,14 @@
 	melee_damage = 20
 
 	// *** Speed *** //
-	speed = -0.7
+	speed = -0.6
 
 	// *** Plasma *** //
 	plasma_max = 925
-	plasma_gain = 50
+	plasma_gain = 40
 
 	// *** Health *** //
-	max_health = 450
+	max_health = 360
 
 	// *** Evolution *** //
 	evolution_threshold = 225
@@ -30,7 +30,7 @@
 	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 25, BULLET = 20, LASER = 10, ENERGY = 35, BOMB = 0, BIO = 20, FIRE = 10, ACID = 20)
+	soft_armor = list(MELEE = 25, BULLET = 35, LASER = 35, ENERGY = 35, BOMB = 0, BIO = 20, FIRE = 35, ACID = 20)
 
 	// *** Minimap Icon *** //
 	minimap_icon = "spitter"

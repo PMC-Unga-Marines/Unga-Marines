@@ -22,13 +22,22 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 
 /datum/action/ability/xeno_action/toggle_long_range
 	name = "Toggle Long Range Sight"
-	desc = "Activates your weapon sight in the direction you are facing. Must remain stationary to use."
 	action_icon_state = "toggle_long_range"
 	action_icon = 'icons/Xeno/actions/boiler.dmi'
+	desc = "Extend your sight off into the distance. Must remain stationary to use."
 	ability_cost = 20
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_LONG_RANGE_SIGHT,
 	)
+	use_state_flags = ABILITY_USE_LYING
+	/// The offset in a direction for zoom_in
+	var/tile_offset = 7
+	/// The size of the zoom for zoom_in
+	var/view_size = 4
+
+/datum/action/ability/xeno_action/toggle_long_range/bull
+	tile_offset = 11
+	view_size = 12
 
 /datum/action/ability/xeno_action/toggle_long_range/action_activate()
 	if(xeno_owner.xeno_flags & XENO_ZOOMED)
@@ -38,10 +47,10 @@ GLOBAL_LIST_INIT(boiler_glob_image_list, list(
 	else
 		xeno_owner.visible_message(span_notice("[xeno_owner] starts looking off into the distance."), \
 			span_notice("We start focusing your sight to look off into the distance."), null, 5)
-		if(!do_after(xeno_owner, 1 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_GENERIC) || xeno_owner.xeno_flags & XENO_ZOOMED)
+		if(!do_after(xeno_owner, 1 SECONDS, IGNORE_HELD_ITEM, null, BUSY_ICON_GENERIC) || (xeno_owner.xeno_flags & XENO_ZOOMED))
 			return
-		xeno_owner.zoom_in(11)
-		return ..()
+		xeno_owner.zoom_in(tile_offset, view_size)
+		..()
 
 // ***************************************
 // *********** Gas type toggle

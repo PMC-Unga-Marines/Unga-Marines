@@ -194,7 +194,7 @@
 						continue
 					xeno_owner.visible_message(span_danger("[xeno_owner] runs [victim] over!"),
 						span_danger("We run [victim] over!"), null, 5)
-					victim.apply_damage(CHARGE_SPEED(src) * 40, BRUTE, BODY_ZONE_CHEST, MELEE, updating_health = TRUE, penetration = 30)
+					victim.apply_damage(CHARGE_SPEED(src) * 10, BRUTE, MELEE, max_limbs = 3, updating_health = TRUE)
 					animation_flash_color(victim)
 			if(CHARGE_BULL, CHARGE_BULL_HEADBUTT, CHARGE_BULL_GORE) //Xeno Bull
 				if(MODULUS(valid_steps_taken, 4) == 0)
@@ -259,7 +259,7 @@
 		if(precrush > 0)
 			log_combat(xeno_owner, crushed_living, "xeno charged")
 			//There is a chance to do enough damage here to gib certain mobs. Better update immediately.
-			crushed_living.apply_damage(precrush * 1.7, BRUTE, BODY_ZONE_CHEST, MELEE, updating_health = TRUE, penetration = 15)
+			crushed_living.apply_damage(precrush, BRUTE, BODY_ZONE_CHEST, MELEE, updating_health = TRUE)
 			if(QDELETED(crushed_living))
 				xeno_owner.visible_message(span_danger("[xeno_owner] annihilates [preserved_name]!"),
 				span_xenodanger("We annihilate [preserved_name]!"))
@@ -311,7 +311,7 @@
 	speed_per_step = 0.15
 	steps_for_charge = 5
 	max_steps_buildup = 10
-	crush_living_damage = 15
+	crush_living_damage = 37
 	plasma_use_multiplier = 2
 
 /datum/action/ability/xeno_action/ready_charge/bull_charge/give_action(mob/living/L)

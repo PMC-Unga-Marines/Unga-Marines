@@ -448,6 +448,9 @@
 		if(species?.species_flags & (IS_SYNTHETIC|ROBOTIC_LIMBS))
 			return FALSE
 
+	if(on_fire)
+		return FALSE
+
 	if(check_mask)
 		if(wear_mask)
 			var/obj/item/W = wear_mask
@@ -652,8 +655,6 @@
 //  DAMAGE STUFF
 ///////////////////////////////
 /obj/item/clothing/mask/facehugger/fire_act(burn_level, flame_color)
-	if(leaping || throwing) // no dying because of jumping over fire
-		return
 	kill_hugger()
 
 /obj/item/clothing/mask/facehugger/ex_act(severity)

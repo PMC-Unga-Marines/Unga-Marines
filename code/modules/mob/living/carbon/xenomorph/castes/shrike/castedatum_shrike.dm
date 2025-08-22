@@ -11,14 +11,14 @@
 	wound_type = "shrike" //used to match appropriate wound overlays
 
 	// *** Melee Attacks *** //
-	melee_damage = 23
+	melee_damage = 25
 
 	// *** Speed *** //
 	speed = -0.6
 
 	// *** Plasma *** //
 	plasma_max = 925
-	plasma_gain = 55
+	plasma_gain = 60
 
 	// *** Health *** //
 	max_health = 400
@@ -33,7 +33,7 @@
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 45, BULLET = 50, LASER = 50, ENERGY = 45, BOMB = 20, BIO = 25, FIRE = 15, ACID = 20)
+	soft_armor = list(MELEE = 45, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 20, BIO = 25, FIRE = 45, ACID = 20)
 
 	// *** Pheromones *** //
 	aura_strength = 4.5 //The Shrike's aura is decent.
@@ -54,7 +54,6 @@
 		/datum/action/ability/activable/xeno/secrete_resin,
 		/datum/action/ability/xeno_action/place_acidwell,
 		/datum/action/ability/activable/xeno/corrosive_acid/strong,
-		/datum/action/ability/xeno_action/create_jelly,
 		/datum/action/ability/activable/xeno/psychic_cure,
 		/datum/action/ability/activable/xeno/transfer_plasma/drone,
 		/datum/action/ability/xeno_action/psychic_whisper,
@@ -91,7 +90,6 @@
 		/datum/action/ability/activable/xeno/secrete_resin,
 		/datum/action/ability/xeno_action/place_acidwell,
 		/datum/action/ability/activable/xeno/corrosive_acid/strong,
-		/datum/action/ability/xeno_action/create_jelly,
 		/datum/action/ability/activable/xeno/psychic_cure,
 		/datum/action/ability/activable/xeno/transfer_plasma/drone,
 		/datum/action/ability/xeno_action/sow,
@@ -106,5 +104,5 @@
 		/datum/action/ability/xeno_action/rally_hive,
 		/datum/action/ability/xeno_action/rally_minion,
 		/datum/action/ability/xeno_action/blessing_menu,
-		/datum/action/ability/activable/xeno/psychic_grab,
+		/datum/action/ability/activable/xeno/psychic_vortex,
 	)

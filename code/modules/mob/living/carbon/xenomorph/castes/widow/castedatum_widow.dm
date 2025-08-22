@@ -9,7 +9,7 @@
 	wound_type = "widow"
 
 	// *** Melee Attacks *** //
-	melee_damage = 18
+	melee_damage = 20
 
 	// *** Speed *** //
 	speed = -0.5
@@ -19,7 +19,7 @@
 	plasma_gain = 55
 
 	// *** Health *** //
-	max_health = 550
+	max_health = 450
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED
@@ -48,6 +48,10 @@
 		/datum/action/ability/activable/xeno/leash_ball,
 		/datum/action/ability/xeno_action/create_spiderling,
 		/datum/action/ability/xeno_action/attach_spiderlings,
+		/datum/action/ability/xeno_action/pheromones,
+		/datum/action/ability/xeno_action/pheromones/emit_recovery,
+		/datum/action/ability/xeno_action/pheromones/emit_warding,
+		/datum/action/ability/xeno_action/pheromones/emit_frenzy,
 	)
 
 /datum/xeno_caste/widow/on_caste_applied(mob/xenomorph)
@@ -80,5 +84,9 @@
 		/datum/action/ability/activable/xeno/leash_ball,
 		/datum/action/ability/xeno_action/create_spiderling,
 		/datum/action/ability/xeno_action/attach_spiderlings,
+		/datum/action/ability/xeno_action/pheromones,
+		/datum/action/ability/xeno_action/pheromones/emit_recovery,
+		/datum/action/ability/xeno_action/pheromones/emit_warding,
+		/datum/action/ability/xeno_action/pheromones/emit_frenzy,
 		/datum/action/ability/xeno_action/spider_venom,
 	)

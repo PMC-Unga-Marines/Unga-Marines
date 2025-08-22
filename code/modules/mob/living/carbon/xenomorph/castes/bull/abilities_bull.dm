@@ -185,7 +185,7 @@
 	if(target.stat == DEAD)
 		return
 
-	damage = xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier * 2.6
+	damage = xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier * 1.25
 	target.apply_damage(damage, BRUTE, xeno_owner.zone_selected, MELEE)
 	playsound(target,'sound/weapons/alien_tail_attack.ogg', 75, 1)
 	target.emote_gored()
