@@ -40,6 +40,10 @@
 
 /mob/living/carbon/human/UnarmedAttack(atom/A, proximity, list/modifiers)
 	if(lying_angle) //No attacks while laying down
+		if(isopenturf(A)) // shitcode
+			crawl(A)
+		if(isopenturf(A.loc))
+			crawl(A.loc)
 		return FALSE
 	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
 		return
@@ -52,7 +56,7 @@
 	if(proximity && istype(G) && G.Touch(A, 1))
 		return
 
-	var/datum/limb/temp = get_limb(hand ? "l_hand" : "r_hand")
+	var/datum/limb/temp = get_limb(hand ? BODY_ZONE_PRECISE_L_HAND : BODY_ZONE_PRECISE_R_HAND)
 	if(temp && !temp.is_usable())
 		to_chat(src, span_notice("You try to move your [temp.display_name], but cannot!"))
 		return
@@ -67,3 +71,33 @@
 	if(species?.spec_unarmedattack(src, A)) //Because species like monkeys dont use attack hand
 		return
 	A.attack_hand(src)
+
+/mob/living/carbon/human/proc/crawl(turf/crawled_turf)
+	if(!crawl_checks(crawled_turf))
+		return
+	if(do_actions)
+		return
+	var/crawling_time = 0.5 SECONDS
+	for(var/datum/limb/limb AS in limbs)
+		if(limb.vital) // ignore limbs like groin, torso or head
+			continue
+		if(!(limb.limb_status & (LIMB_BROKEN|LIMB_DESTROYED|LIMB_AMPUTATED)))
+			continue
+		crawling_time += 0.5 SECONDS // crawling time gets increased for each limb not functioning
+	if(!do_after(src, crawling_time, NONE, src, extra_checks = CALLBACK(src, PROC_REF(crawl_checks), crawled_turf)))
+		return
+	var/direction = REVERSE_DIR(get_dir(crawled_turf, src))
+	Move(crawled_turf, direction)
+	setDir(direction)
+	playsound(src, 'sound/effects/footstep/crawl.ogg', 50, 1)
+
+/mob/living/carbon/human/proc/crawl_checks(turf/crawled_turf)
+	if(crawled_turf == loc)
+		return FALSE
+	if(restrained())
+		return FALSE
+	if(pulledby)
+		return FALSE
+	if(has_status_effect(STATUS_EFFECT_PARALYZED) || has_status_effect(STATUS_EFFECT_STUN))
+		return FALSE
+	return TRUE
