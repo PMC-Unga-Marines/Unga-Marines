@@ -21,6 +21,9 @@
 	damage_falloff = 0.5
 	shell_speed = 3.5
 
+/datum/ammo/bullet/revolver/rifle/on_hit_mob(mob/target_mob,obj/projectile/proj)
+	staggerstun(target_mob, proj, knockback = 1)
+
 /datum/ammo/bullet/revolver/t500
 	name = ".500 Nigro Express revolver bullet"
 	handful_icon_state = "nigro"
