@@ -53,7 +53,6 @@
 			/obj/item/clothing/suit/modular = -1,
 			/obj/item/clothing/suit/modular/rownin = -1,
 			/obj/item/clothing/suit/armor/bulletproof = -1,
-			/obj/item/clothing/suit/modular/xenonauten/pilot = -1,
 			/obj/item/facepaint/green = -1,
 			/obj/item/facepaint/sniper = -1,
 			/obj/item/facepaint/black = -1,
