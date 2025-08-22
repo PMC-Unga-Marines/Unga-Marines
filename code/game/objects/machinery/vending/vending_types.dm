@@ -202,6 +202,13 @@
 			/obj/item/storage/reagent_tank/tricordrazine = 1,
 			/obj/item/storage/reagent_tank/bktt = 1,
 		),
+		"Heal Pack" = list(
+			/obj/item/stack/medical/heal_pack/advanced/bruise_pack = -1,
+			/obj/item/stack/medical/heal_pack/advanced/burn_pack = -1,
+			/obj/item/stack/medical/heal_pack/ointment = -1,
+			/obj/item/stack/medical/heal_pack/gauze = -1,
+			/obj/item/stack/medical/splint = -1,
+		),
 		"Misc" = list(
 			/obj/item/tool/research/xeno_analyzer = -1,
 			/obj/item/tool/research/excavation_tool = -1,
@@ -210,7 +217,7 @@
 			/obj/item/reagent_containers/spray/surgery = -1,
 			/obj/item/tool/soap = -1,
 			/obj/item/clothing/glasses/hud/health = -1,
-			/obj/item/roller = 10,
+			/obj/item/roller = 6,
 		),
 	)
 	idle_power_usage = 211
@@ -341,13 +348,14 @@
 	density = FALSE
 	wrenchable = FALSE
 	products = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/bicaridine = 3,
-		/obj/item/reagent_containers/hypospray/autoinjector/kelotane = 3,
-		/obj/item/reagent_containers/hypospray/autoinjector/tramadol = 3,
-		/obj/item/reagent_containers/hypospray/autoinjector/tricordrazine = 3,
-		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 3,
-		/obj/item/reagent_containers/hypospray/autoinjector/combat = 3,
+		/obj/item/reagent_containers/hypospray/autoinjector/bicaridine = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/kelotane = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/tramadol = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/tricordrazine = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/combat = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/hypervene = 1,
+		/obj/
 		/obj/item/stack/medical/heal_pack/gauze = 2,
 		/obj/item/stack/medical/heal_pack/ointment = 2,
 		/obj/item/healthanalyzer = 1,
@@ -372,12 +380,12 @@
 	layer = ABOVE_OBJ_LAYER
 	products = list(
 		"Autoinjectors" = list(
-			/obj/item/reagent_containers/hypospray/autoinjector/bicaridine = 3,
-			/obj/item/reagent_containers/hypospray/autoinjector/kelotane = 3,
-			/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 3,
-			/obj/item/reagent_containers/hypospray/autoinjector/tricordrazine = 3,
-			/obj/item/reagent_containers/hypospray/autoinjector/tramadol = 3,
-			/obj/item/reagent_containers/hypospray/autoinjector/combat = 3,
+			/obj/item/reagent_containers/hypospray/autoinjector/bicaridine = 2,
+			/obj/item/reagent_containers/hypospray/autoinjector/kelotane = 2,
+			/obj/item/reagent_containers/hypospray/autoinjector/dylovene = 2,
+			/obj/item/reagent_containers/hypospray/autoinjector/tricordrazine = 2,
+			/obj/item/reagent_containers/hypospray/autoinjector/tramadol = 2,
+			/obj/item/reagent_containers/hypospray/autoinjector/combat = 2,
 			/obj/item/reagent_containers/hypospray/autoinjector/hypervene = 1,
 			/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
 			/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus = 1,
