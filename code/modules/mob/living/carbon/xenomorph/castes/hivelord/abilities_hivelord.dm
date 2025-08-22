@@ -61,6 +61,8 @@
 // *********** Resin building
 // ***************************************
 /datum/action/ability/activable/xeno/secrete_resin/hivelord
+	base_wait = 0.5 SECONDS
+	scaling_wait = 1 SECONDS
 	ability_cost = 100
 	buildable_structures = list(
 		/turf/closed/wall/resin/regenerating/thick,
@@ -71,7 +73,6 @@
 		/obj/structure/mineral_door/resin/thick,
 		/obj/structure/bed/nest,
 	)
-
 
 // ***************************************
 // *********** Resin walker
@@ -228,6 +229,9 @@
 	transfer_delay = 0.5 SECONDS
 	max_range = 7
 
+// ***************************************
+// *********** Fire jelly pod
+// ***************************************
 
 /datum/action/ability/xeno_action/place_jelly_pod
 	name = "Place Resin Jelly pod"
@@ -269,34 +273,6 @@
 	var/obj/structure/xeno/resin_jelly_pod/pod = new(T, owner.get_xeno_hivenumber())
 	to_chat(owner, span_xenonotice("We shape some resin into \a [pod]."))
 	add_cooldown()
-
-/datum/action/ability/xeno_action/create_jelly
-	name = "Create Resin Jelly"
-	desc = "Create a fireproof jelly."
-	action_icon_state = "resin_jelly"
-	action_icon = 'icons/Xeno/actions/hivelord.dmi'
-	ability_cost = 100
-	cooldown_duration = 20 SECONDS
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CREATE_JELLY,
-	)
-	use_state_flags = ABILITY_USE_LYING|ABILITY_USE_BUCKLED
-
-/datum/action/ability/xeno_action/create_jelly/can_use_action(silent = FALSE, override_flags)
-	. = ..()
-	if(!.)
-		return
-	if(owner.l_hand || owner.r_hand)
-		if(!silent)
-			owner.balloon_alert(owner, "Cannot jelly, need empty hands")
-		return FALSE
-
-/datum/action/ability/xeno_action/create_jelly/action_activate()
-	var/obj/item/resin_jelly/jelly = new(owner.loc)
-	owner.put_in_hands(jelly)
-	to_chat(owner, span_xenonotice("We create a globule of resin from our ovipositor.")) // Ewww...
-	add_cooldown()
-	succeed_activate()
 
 // ***************************************
 // *********** Healing Infusion

@@ -16,7 +16,7 @@
 	///If a xeno is charging this well
 	var/charging = FALSE
 	///5 * recharge_rate = 1 stage
-	var/recharge_rate = 5
+	var/recharge_rate = 2
 	///Countdown to the next time we generate acid
 	var/nextstage = 0
 	///What xeno created this well

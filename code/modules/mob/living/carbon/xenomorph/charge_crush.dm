@@ -194,7 +194,7 @@
 						continue
 					xeno_owner.visible_message(span_danger("[xeno_owner] runs [victim] over!"),
 						span_danger("We run [victim] over!"), null, 5)
-					victim.apply_damage(CHARGE_SPEED(src) * 10, BRUTE, MELEE, max_limbs = 3, updating_health = TRUE)
+					victim.take_overall_damage(CHARGE_SPEED(src) * 10, BRUTE, MELEE, updating_health = TRUE, max_limbs = 3)
 					animation_flash_color(victim)
 			if(CHARGE_BULL, CHARGE_BULL_HEADBUTT, CHARGE_BULL_GORE) //Xeno Bull
 				if(MODULUS(valid_steps_taken, 4) == 0)

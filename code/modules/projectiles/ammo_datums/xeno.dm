@@ -528,7 +528,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 	///As opposed to normal globs, this will pass by the target tile if they hit nothing.
 	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_LEAVE_TURF
 	danger_message = span_danger("A pressurized glob of acid lands with a nasty splat and explodes into noxious fumes!")
-	max_range = 16
+	max_range = 20
 	damage = 75
 	penetration = 70
 	reagent_transfer_amount = 55
@@ -548,7 +548,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 	///As opposed to normal globs, this will pass by the target tile if they hit nothing.
 	ammo_behavior_flags = AMMO_XENO|AMMO_SKIPS_ALIENS|AMMO_LEAVE_TURF
 	danger_message = span_danger("A pressurized glob of acid lands with a concerning hissing sound and explodes into corrosive bile!")
-	max_range = 16
+	max_range = 20
 	damage = 75
 	penetration = 70
 	passed_turf_smoke_type = /datum/effect_system/smoke_spread/xeno/acid/light

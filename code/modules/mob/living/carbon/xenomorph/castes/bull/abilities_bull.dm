@@ -153,7 +153,7 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_BULLGORE,
 	)
-	cooldown_duration = 4 SECONDS
+	cooldown_duration = 6 SECONDS
 	ability_cost = 40
 	var/turf/last_turf
 	var/charge_duration
@@ -185,8 +185,8 @@
 	if(target.stat == DEAD)
 		return
 
-	damage = xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier * 1.25
-	target.apply_damage(damage, BRUTE, xeno_owner.zone_selected, MELEE)
+	damage = xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier * 2
+	target.take_overall_damage(damage, BRUTE, MELEE, max_limbs = 1)
 	playsound(target,'sound/weapons/alien_tail_attack.ogg', 75, 1)
 	target.emote_gored()
 	xeno_owner.visible_message(span_danger("[xeno_owner] gores [target]!"),

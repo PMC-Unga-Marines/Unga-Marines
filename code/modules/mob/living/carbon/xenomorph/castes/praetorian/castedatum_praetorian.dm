@@ -94,7 +94,7 @@
 
 	// Loses some common armor (-5) for more speed (-0.3).
 	speed = -0.8
-	soft_armor = list(MELEE = 40, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 10, BIO = 40, FIRE = 15, ACID = 40)
+	soft_armor = list(MELEE = 45, BULLET = 55, LASER = 55, ENERGY = 55, BOMB = 10, BIO = 40, FIRE = 50, ACID = 40)
 
 	// Loses ranged spit abilities for close combat combo abilities.
 	actions = list(

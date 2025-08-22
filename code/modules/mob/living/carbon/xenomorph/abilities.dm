@@ -210,9 +210,9 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SECRETE_RESIN,
 	)
 	///Minimum time to build a resin structure
-	var/base_wait = 0.5 SECONDS
+	var/base_wait = 1 SECONDS
 	///Multiplicator factor to add to the building time, depends on the health of the structure built
-	var/scaling_wait = 1.5 SECONDS
+	var/scaling_wait = 1 SECONDS
 	///List of buildable structures. Order corresponds with resin_images_list.
 	var/list/buildable_structures = list(
 		/turf/closed/wall/resin/regenerating,
@@ -225,7 +225,6 @@
 		)
 	/// Used for the dragging functionality of pre-shuttter building
 	var/dragging = FALSE
-
 
 /// Helper for handling the start of mouse-down and to begin the drag-building
 /datum/action/ability/activable/xeno/secrete_resin/proc/start_resin_drag(mob/user, atom/object, turf/location, control, params)
@@ -621,6 +620,37 @@
 	to_chat(xeno_owner, span_xenodanger("We have transferred [amount] units of plasma to [target]. We now have [xeno_owner.plasma_stored]/[xeno_owner.xeno_caste.plasma_max]."))
 	playsound(xeno_owner, SFX_ALIEN_DROOL, 25)
 
+// ***************************************
+// *********** Fire jelly
+// ***************************************
+
+/datum/action/ability/xeno_action/create_jelly
+	name = "Create Resin Jelly"
+	desc = "Create a fireproof jelly."
+	action_icon_state = "resin_jelly"
+	action_icon = 'icons/Xeno/actions/hivelord.dmi'
+	ability_cost = 200
+	cooldown_duration = 60 SECONDS
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CREATE_JELLY,
+	)
+	use_state_flags = ABILITY_USE_LYING|ABILITY_USE_BUCKLED
+
+/datum/action/ability/xeno_action/create_jelly/can_use_action(silent = FALSE, override_flags)
+	. = ..()
+	if(!.)
+		return
+	if(owner.l_hand || owner.r_hand)
+		if(!silent)
+			owner.balloon_alert(owner, "Cannot jelly, need empty hands")
+		return FALSE
+
+/datum/action/ability/xeno_action/create_jelly/action_activate()
+	var/obj/item/resin_jelly/jelly = new(owner.loc)
+	owner.put_in_hands(jelly)
+	to_chat(owner, span_xenonotice("We create a globule of resin from our ovipositor.")) // Ewww...
+	add_cooldown()
+	succeed_activate()
 
 // ***************************************
 // *********** Corrosive Acid

@@ -19,7 +19,7 @@
 	plasma_gain = 18
 
 	// *** Health *** //
-	max_health = 325
+	max_health = 350
 
 	// *** Sunder *** //
 	sunder_multiplier = 0.8
@@ -33,7 +33,7 @@
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 40, ENERGY = 40, BOMB = 20, BIO = 35, FIRE = 50, ACID = 35)
+	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 40, ENERGY = 40, BOMB = 20, BIO = 35, FIRE = 35, ACID = 35)
 
 	// *** Minimap Icon *** //
 	minimap_icon = "bull"
