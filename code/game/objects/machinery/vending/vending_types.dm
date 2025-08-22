@@ -210,7 +210,7 @@
 			/obj/item/reagent_containers/spray/surgery = -1,
 			/obj/item/tool/soap = -1,
 			/obj/item/clothing/glasses/hud/health = -1,
-			/obj/item/roller = -1,
+			/obj/item/roller = 10,
 		),
 	)
 	idle_power_usage = 211
