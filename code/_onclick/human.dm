@@ -77,14 +77,7 @@
 		return
 	if(do_actions)
 		return
-	var/crawling_time = 0.5 SECONDS
-	for(var/datum/limb/limb AS in limbs)
-		if(limb.vital) // ignore limbs like groin, torso or head
-			continue
-		if(!(limb.limb_status & (LIMB_BROKEN|LIMB_DESTROYED|LIMB_AMPUTATED)))
-			continue
-		crawling_time += 0.5 SECONDS // crawling time gets increased for each limb not functioning
-	if(!do_after(src, crawling_time, NONE, src, extra_checks = CALLBACK(src, PROC_REF(crawl_checks), crawled_turf)))
+	if(!do_after(src, cached_multiplicative_slowdown * 2, NONE, src, extra_checks = CALLBACK(src, PROC_REF(crawl_checks), crawled_turf)))
 		return
 	var/direction = REVERSE_DIR(get_dir(crawled_turf, src))
 	Move(crawled_turf, direction)
@@ -97,7 +90,7 @@
 	for(var/mob/living/mob in crawled_turf)
 		if(mob.lying_angle || mob.stat != CONSCIOUS)
 			continue
-		if(mob.faction != faction && mob.move_resist >= move_force)
+		if(mob.faction != faction && mob.move_resist >= move_force) // no crawling under xenos
 			return FALSE
 	if(restrained())
 		return FALSE
