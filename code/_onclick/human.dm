@@ -94,6 +94,11 @@
 /mob/living/carbon/human/proc/crawl_checks(turf/crawled_turf)
 	if(crawled_turf == loc)
 		return FALSE
+	for(var/mob/living/mob in crawled_turf)
+		if(mob.lying_angle || mob.stat != CONSCIOUS)
+			continue
+		if(mob.faction != faction && mob.move_resist >= move_force)
+			return FALSE
 	if(restrained())
 		return FALSE
 	if(buckled)
