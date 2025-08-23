@@ -148,7 +148,7 @@ SUBSYSTEM_DEF(points)
 				var/datum/supply_packs/our_pack = P
 				cost += our_pack.cost
 			if(cost * FAST_DELIVERY_TAX_FACTOR > personal_supply_points[user.ckey])
-				to_chat(user, span_warning("You do not have enough ([cost * FAST_DELIVERY_TAX_FACTOR - personal_supply_points[user.ckey]]) personal points for fast delivery."))
+				to_chat(user, span_warning("You lack ([cost * FAST_DELIVERY_TAX_FACTOR - personal_supply_points[user.ckey]]) personal points for fast delivery."))
 				return
 			personal_supply_points[user.ckey] -= cost * FAST_DELIVERY_TAX_FACTOR
 		else
