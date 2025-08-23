@@ -149,6 +149,7 @@
 			/obj/item/ammo_magazine/flamer_tank/large/G = 8,
 			/obj/item/ammo_magazine/flamer_tank/backtank = 4,
 			/obj/item/ammo_magazine/flamer_tank/water = -1,
+			/obj/item/weapon/gun/flamer/hydro_cannon = -1,
 			/obj/item/jetpack_marine = 3,
 			/obj/item/bodybag/tarp = 10,
 			/obj/item/mortar_kit/knee = 4,
@@ -379,6 +380,7 @@
 			/obj/item/ammo_magazine/flamer_tank/large/G = 15,
 			/obj/item/ammo_magazine/flamer_tank/backtank = 4,
 			/obj/item/ammo_magazine/flamer_tank/water = -1,
+			/obj/item/weapon/gun/flamer/hydro_cannon = -1,
 			/obj/item/jetpack_marine = 3,
 		),
 		"Модули" = list(
@@ -628,6 +630,7 @@
 			/obj/item/ammo_magazine/flamer_tank/large = -1,
 			/obj/item/ammo_magazine/flamer_tank/large/G = -1,
 			/obj/item/ammo_magazine/flamer_tank/backtank = -1,
+			/obj/item/weapon/gun/flamer/hydro_cannon = -1,
 			/obj/item/ammo_magazine/flamer_tank/water = -1,
 			/obj/item/jetpack_marine = -1,
 			/obj/item/bodybag/tarp = -1,
