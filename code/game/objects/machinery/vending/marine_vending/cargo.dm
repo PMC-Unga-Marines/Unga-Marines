@@ -40,9 +40,10 @@
 			/obj/item/storage/box/visual/grenade/trailblazer = 1,
 		),
 		"Ammo Boxes" = list(
-			/obj/item/big_ammo_box = -1,
-			/obj/item/big_ammo_box/smg = -1,
-			/obj/item/big_ammo_box/mg = -1,
+			/obj/item/matter_ammo_box/light = -1,
+			/obj/item/matter_ammo_box = -1,
+			/obj/item/matter_ammo_box/big = -1,
+			/obj/item/matter_ammo_box/giant = -1,
 			/obj/item/shotgunbox = -1,
 			/obj/item/shotgunbox/buckshot = -1,
 			/obj/item/shotgunbox/flechette = -1,

@@ -548,6 +548,9 @@
 	product.amount--
 	vend_ready = TRUE
 
+	if(istype(new_item, /obj/item/matter_ammo_box/giant))
+		return
+
 	if(!user || !istype(new_item))
 		return
 	new_item.on_vend(user, faction, fill_container = TRUE)

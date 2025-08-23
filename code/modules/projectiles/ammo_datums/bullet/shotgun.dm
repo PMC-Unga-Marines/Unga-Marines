@@ -242,6 +242,7 @@
 	max_range = 15
 	damage = 40
 	penetration = 20
+	matter_cost = 10
 
 /datum/ammo/bullet/shotgun/sx16_slug/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	staggerstun(target_mob, proj, slowdown = 1, knockback = 1)
@@ -260,6 +261,7 @@
 	damage_falloff = 0.25
 	penetration = 17
 	additional_xeno_penetration = 20
+	matter_cost = 10
 
 /datum/ammo/bullet/shotgun/sh15_flechette/spread
 	name = "additional flechette"

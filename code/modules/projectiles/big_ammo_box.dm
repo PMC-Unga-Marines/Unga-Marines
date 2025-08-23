@@ -1,125 +1,151 @@
-/obj/item/big_ammo_box
-	name = "big ammo box (10x24mm)"
-	desc = "A large ammo box. It comes with a leather strap."
+/obj/item/matter_ammo_box
+	name = "medium matter ammo box"
+	desc = "A large matter storage box that can convert stored matter into various types of ammunition. It comes with a leather strap for easy carrying."
 	w_class = WEIGHT_CLASS_HUGE
 	icon = 'icons/obj/items/ammo/box.dmi'
-	icon_state = "big_ammo_box"
-	worn_icon_state = "big_ammo_box"
+	icon_state = "matter_ammo_box"
+	worn_icon_state = "matter_ammo_box"
 	equip_slot_flags = ITEM_SLOT_BACK
-	base_icon_state = "big_ammo_box"
-	///Ammunition type
-	var/default_ammo = /datum/ammo/bullet/rifle
-	///Current stored rounds
-	var/bullet_amount = 2400
-	///Maximum stored rounds
-	var/max_bullet_amount = 2400
-	///Caliber of the rounds stored.
-	var/caliber = CALIBER_10X24_CASELESS
+	base_icon_state = "matter_ammo_box"
+	///Current stored matter
+	var/matter_amount = 8000
+	///Maximum stored matter
+	var/max_matter_amount = 8000
+	///Whether the box requires being on the ground to use
+	var/requires_ground = TRUE
+	///Whether using the box has a delay
+	var/use_delay = 1 SECONDS
 
-/obj/item/big_ammo_box/update_icon_state()
+/obj/item/matter_ammo_box/update_icon_state()
 	. = ..()
-	if(bullet_amount)
+	if(matter_amount)
 		icon_state = base_icon_state
 		return
 	icon_state = "[base_icon_state]_e"
 
-/obj/item/big_ammo_box/examine(mob/user)
+/obj/item/matter_ammo_box/examine(mob/user)
 	. = ..()
-	if(bullet_amount)
-		. += "It contains [bullet_amount] round\s."
+	if(matter_amount)
+		. += "It contains [matter_amount] unit\s of matter."
 	else
 		. += "It's empty."
 
-/obj/item/big_ammo_box/attackby(obj/item/I, mob/user, params)
+/obj/item/matter_ammo_box/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	if(.)
 		return
 
 	if(istype(I, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/AM = I
-		if(!isturf(loc))
+		// Check if box needs to be on ground
+		if(requires_ground && !isturf(loc))
 			to_chat(user, span_warning("[src] must be on the ground to be used."))
 			return
+
+		if(!AM.default_ammo || AM.default_ammo.matter_cost <= 0)
+			to_chat(user, span_warning("This ammunition type cannot be converted to matter."))
+			return
+
 		if(AM.magazine_flags & MAGAZINE_REFILLABLE)
-			if(default_ammo != AM.default_ammo)
-				to_chat(user, span_warning("Those aren't the same rounds. Better not mix them up."))
-				return
-			if(caliber != AM.caliber)
-				to_chat(user, span_warning("The rounds don't match up. Better not mix them up."))
-				return
 			if(AM.current_rounds == AM.max_rounds)
 				to_chat(user, span_warning("[AM] is already full."))
 				return
 
-			if(!do_after(user, 15, NONE, src, BUSY_ICON_GENERIC))
+			// Add use delay if configured
+			if(use_delay && !do_after(user, use_delay, NONE, src, BUSY_ICON_GENERIC))
 				return
 
 			playsound(loc, 'sound/weapons/guns/interact/revolver_load.ogg', 25, 1)
-			var/S = min(bullet_amount, AM.max_rounds - AM.current_rounds)
-			AM.current_rounds += S
-			bullet_amount -= S
+			var/rounds_to_add = min(matter_amount / AM.default_ammo.matter_cost, AM.max_rounds - AM.current_rounds)
+			var/matter_used = rounds_to_add * AM.default_ammo.matter_cost
+
+			AM.current_rounds += rounds_to_add
+			matter_amount -= matter_used
 			AM.update_icon()
 			update_icon()
+
 			if(AM.current_rounds == AM.max_rounds)
-				to_chat(user, span_notice("You refill [AM]."))
+				to_chat(user, span_notice("You refill [AM] using [matter_used] matter units."))
 			else
-				to_chat(user, span_notice("You put [S] rounds in [AM]."))
+				to_chat(user, span_notice("You add [rounds_to_add] rounds to [AM] using [matter_used] matter units."))
+
 		else if(AM.magazine_flags & MAGAZINE_HANDFUL)
-			if(caliber != AM.caliber)
-				to_chat(user, span_warning("The rounds don't match up. Better not mix them up."))
-				return
-			if(bullet_amount == max_bullet_amount)
+			if(matter_amount == max_matter_amount)
 				to_chat(user, span_warning("[src] is full!"))
 				return
+
 			playsound(loc, 'sound/weapons/guns/interact/revolver_load.ogg', 25, 1)
-			var/S = min(AM.current_rounds, max_bullet_amount - bullet_amount)
-			AM.current_rounds -= S
-			bullet_amount += S
+			var/rounds_to_remove = min(AM.current_rounds, (max_matter_amount - matter_amount) / AM.default_ammo.matter_cost)
+			var/matter_gained = rounds_to_remove * AM.default_ammo.matter_cost
+
+			AM.current_rounds -= rounds_to_remove
+			matter_amount += matter_gained
 			AM.update_icon()
-			to_chat(user, span_notice("You put [S] rounds in [src]."))
+			update_icon()
+
+			to_chat(user, span_notice("You convert [rounds_to_remove] rounds into [matter_gained] matter units."))
+
 			if(AM.current_rounds <= 0)
 				user.temporarilyRemoveItemFromInventory(AM)
 				qdel(AM)
 
 //explosion when using flamer procs.
-/obj/item/big_ammo_box/fire_act(burn_level, flame_color)
+/obj/item/matter_ammo_box/fire_act(burn_level, flame_color)
 	if(QDELETED(src))
 		return
-	if(!bullet_amount)
+	if(!matter_amount)
 		return
 	var/turf/explosion_loc = loc // we keep it so we don't runtime on src deletion
 	var/power = 5
-	for(var/obj/item/big_ammo_box/box in explosion_loc)
-		if(!box.bullet_amount)
+	for(var/obj/item/matter_ammo_box/box in explosion_loc)
+		if(!box.matter_amount)
 			continue
 		power++
 		qdel(box)
 	cell_explosion(explosion_loc, power, power)
 
-/obj/item/big_ammo_box/ap
-	name = "big ammo box (10x24mm AP)"
-	icon_state = "big_ammo_box_ap"
-	base_icon_state = "big_ammo_box_ap"
-	default_ammo = /datum/ammo/bullet/rifle/ap
-	bullet_amount = 400 //AP is OP
-	max_bullet_amount = 400
+/obj/item/matter_ammo_box/attack_self(mob/user)
+	user.dropItemToGround(src)
 
-/obj/item/big_ammo_box/smg
-	name = "big ammo box (10x20mm)"
-	caliber = CALIBER_10X20
-	icon_state = "big_ammo_box_m25"
-	base_icon_state = "big_ammo_box_m25"
-	default_ammo = /datum/ammo/bullet/smg
-	bullet_amount = 4500
-	max_bullet_amount = 4500
-	caliber = CALIBER_10X20_CASELESS
+/obj/item/matter_ammo_box/light
+	name = "lightweight matter ammo box"
+	desc = "A compact matter storage box that can convert stored matter into various types of ammunition. It's designed for quick field use. It comes with a leather strap for easy carrying."
+	icon_state = "light_matter_ammo_box"
+	base_icon_state = "light_matter_ammo_box"
+	matter_amount = 4000
+	max_matter_amount = 4000
+	requires_ground = FALSE
+	use_delay = 0 SECONDS
 
-/obj/item/big_ammo_box/mg
-	name = "big ammo box (10x26mm)"
-	default_ammo = /datum/ammo/bullet/rifle/machinegun
-	caliber = CALIBER_10X26_CASELESS
-	bullet_amount = 3200 //a backpack holds 8 MG-60 box mags, which is 1600 rounds
-	max_bullet_amount = 3200
+/obj/item/matter_ammo_box/big
+	name = "big matter ammo box"
+	desc = "A massive matter storage box that can convert stored matter into various types of ammunition."
+	icon_state = "big_matter_ammo_box"
+	base_icon_state = "big_matter_ammo_box"
+	equip_slot_flags = NONE // Cannot be carried on the back
+	matter_amount = 16000
+	max_matter_amount = 16000
+	requires_ground = TRUE
+	use_delay = 0.5 SECONDS
+
+/obj/item/matter_ammo_box/giant
+	name = "giant matter ammo box"
+	desc = "A massive matter storage box that can convert stored matter into various types of ammunition. It's too large to be carried on one's back and must be deployed in place."
+	icon_state = "giant_matter_ammo_box"
+	base_icon_state = "giant_matter_ammo_box"
+	w_class = WEIGHT_CLASS_GIGANTIC
+	equip_slot_flags = NONE // Cannot be carried on the back
+	matter_amount = 32000
+	max_matter_amount = 32000
+	requires_ground = TRUE
+	use_delay = 0 SECONDS
+
+//just grab it
+/obj/item/matter_ammo_box/giant/attack_hand(mob/user)
+	if(isliving(user))
+		to_chat(user, span_warning("[src] is too heavy to carry! You need to drag it."))
+		return
+	return ..()
 
 //Deployable shotgun ammo box
 /obj/item/shotgunbox
