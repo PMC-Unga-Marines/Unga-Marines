@@ -125,7 +125,6 @@
 	equip_slot_flags = NONE // Cannot be carried on the back
 	matter_amount = 16000
 	max_matter_amount = 16000
-	requires_ground = TRUE
 	use_delay = 0.5 SECONDS
 
 /obj/item/matter_ammo_box/giant
