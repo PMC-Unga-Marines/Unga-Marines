@@ -293,6 +293,9 @@
 	if(!user)
 		CRASH("switch_modes called with no user.")
 
+	if(!in_chamber)
+		return ..()
+
 	if(bump_fire)
 		fire_delay = initial(fire_delay)
 		damage_mult = initial(damage_mult)
