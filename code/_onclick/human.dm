@@ -40,10 +40,6 @@
 
 /mob/living/carbon/human/UnarmedAttack(atom/A, proximity, list/modifiers)
 	if(lying_angle) //No attacks while laying down
-		if(isopenturf(A)) // shitcode
-			crawl(A)
-		if(isopenturf(A.loc))
-			crawl(A.loc)
 		return FALSE
 	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
 		return
@@ -71,33 +67,3 @@
 	if(species?.spec_unarmedattack(src, A)) //Because species like monkeys dont use attack hand
 		return
 	A.attack_hand(src)
-
-/mob/living/carbon/human/proc/crawl(turf/crawled_turf)
-	if(!crawl_checks(crawled_turf))
-		return
-	if(do_actions)
-		return
-	if(!do_after(src, cached_multiplicative_slowdown * 2, NONE, src, extra_checks = CALLBACK(src, PROC_REF(crawl_checks), crawled_turf)))
-		return
-	var/direction = REVERSE_DIR(get_dir(crawled_turf, src))
-	Move(crawled_turf, direction)
-	setDir(direction)
-	playsound(src, 'sound/effects/footstep/crawl.ogg', 50, 1)
-
-/mob/living/carbon/human/proc/crawl_checks(turf/crawled_turf)
-	if(crawled_turf == loc)
-		return FALSE
-	for(var/mob/living/mob in crawled_turf)
-		if(mob.lying_angle || mob.stat != CONSCIOUS)
-			continue
-		if(mob.faction != faction && mob.move_resist >= move_force) // no crawling under xenos
-			return FALSE
-	if(restrained())
-		return FALSE
-	if(buckled)
-		return FALSE
-	if(pulledby)
-		return FALSE
-	if(has_status_effect(STATUS_EFFECT_PARALYZED) || has_status_effect(STATUS_EFFECT_STUN))
-		return FALSE
-	return TRUE
