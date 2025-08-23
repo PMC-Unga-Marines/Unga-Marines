@@ -188,6 +188,8 @@
 			set_lying_angle(90)
 		else if(direction & WEST)
 			set_lying_angle(270)
+		if(!crawl_begin(newloc))
+			return FALSE
 
 	. = ..()
 
@@ -198,9 +200,42 @@
 			var/mob/living/living_puller = pulledby
 			living_puller.set_pull_offsets(src)
 
+	if(crawling)
+		crawl_finish(newloc)
+
 	if(active_storage)
 		if(!(active_storage.parent in contents) && !CanReach(active_storage.parent))
 			active_storage.close(src)
+
+/mob/living/proc/crawl_begin(turf/crawled_turf)
+	if(moving_from_pull)
+		return TRUE
+	if(pulledby)
+		return TRUE
+	if(!can_crawl)
+		return FALSE
+	if(!crawl_checks(crawled_turf))
+		return FALSE
+	if(do_actions)
+		return FALSE
+	if(!do_after(src, cached_multiplicative_slowdown * 2, NONE, src, extra_checks = CALLBACK(src, PROC_REF(crawl_checks), crawled_turf)))
+		return FALSE
+	crawling = TRUE
+	return TRUE
+
+/mob/living/proc/crawl_finish(turf/crawled_turf)
+	crawling = FALSE
+	var/direction = REVERSE_DIR(get_dir(crawled_turf, src))
+	setDir(direction)
+	playsound(src, 'sound/effects/footstep/crawl.ogg', 50, 1)
+
+/mob/living/proc/crawl_checks(turf/crawled_turf)
+	for(var/mob/living/mob in crawled_turf)
+		if(mob.lying_angle || mob.stat != CONSCIOUS)
+			continue
+		if(mob.faction != faction && mob.move_resist >= move_force) // no crawling under xenos or enemy humans
+			return FALSE
+	return TRUE
 
 /mob/living/Moved(atom/old_loc, movement_dir, forced = FALSE, list/old_locs)
 	. = ..()
