@@ -83,7 +83,7 @@
 			AM.update_icon()
 			update_icon()
 
-			to_chat(user, span_notice("You convert [rounds_to_remove] rounds into [matter_gained] matter units."))
+			to_chat(user, span_notice("You convert [AM] into [matter_gained] matter units."))
 
 			if(AM.current_rounds <= 0)
 				user.temporarilyRemoveItemFromInventory(AM)
