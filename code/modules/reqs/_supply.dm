@@ -5,6 +5,7 @@
 	var/orderer_ckey
 	var/reason
 	var/authorised_by
+	var/ispersonal = FALSE
 	var/list/datum/supply_packs/pack
 	///What faction ordered this
 	var/faction = FACTION_TERRAGOV

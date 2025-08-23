@@ -332,7 +332,7 @@ const OrderList = (props) => {
                     onClick={() => act('delivery', { id: id })}
                     icon="luggage-cart"
                     content="Delivery"
-                    tooltip="It will cost 150 points to use!"
+                    tooltip={data.selfdelivery ? "It will cost personal points to use!" : "It will cost 150 points to use!"}
                     disabled={!data.beacon}
                   />
                 )}

@@ -53,6 +53,7 @@
 	.["categories"] = GLOB.all_supply_groups
 	.["supplypacks"] = SSpoints.supply_packs_ui
 	.["supplypackscontents"] = SSpoints.supply_packs_contents
+	.["selfdelivery"] = FALSE
 	.["elevator_size"] = supply_shuttle?.return_number_of_turfs()
 
 /datum/supply_ui/ui_data(mob/living/user)
