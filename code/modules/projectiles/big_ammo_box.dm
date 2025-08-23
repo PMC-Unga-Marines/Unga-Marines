@@ -136,7 +136,7 @@
 	equip_slot_flags = NONE // Cannot be carried on the back
 	matter_amount = 32000
 	max_matter_amount = 32000
-	use_delay = 0 SECONDS
+	use_delay = 0
 
 //just grab it
 /obj/item/matter_ammo_box/giant/attack_hand(mob/user)
