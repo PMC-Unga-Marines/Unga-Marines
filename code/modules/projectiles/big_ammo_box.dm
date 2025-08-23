@@ -83,7 +83,7 @@
 			AM.update_icon()
 			update_icon()
 
-			to_chat(user, span_notice("You convert [rounds_to_remove] rounds into [matter_gained] matter units."))
+			to_chat(user, span_notice("You convert [AM] into [matter_gained] matter units."))
 
 			if(AM.current_rounds <= 0)
 				user.temporarilyRemoveItemFromInventory(AM)
@@ -115,7 +115,7 @@
 	matter_amount = 4000
 	max_matter_amount = 4000
 	requires_ground = FALSE
-	use_delay = 0 SECONDS
+	use_delay = 0
 
 /obj/item/matter_ammo_box/big
 	name = "big matter ammo box"
@@ -125,7 +125,6 @@
 	equip_slot_flags = NONE // Cannot be carried on the back
 	matter_amount = 16000
 	max_matter_amount = 16000
-	requires_ground = TRUE
 	use_delay = 0.5 SECONDS
 
 /obj/item/matter_ammo_box/giant
@@ -137,7 +136,6 @@
 	equip_slot_flags = NONE // Cannot be carried on the back
 	matter_amount = 32000
 	max_matter_amount = 32000
-	requires_ground = TRUE
 	use_delay = 0 SECONDS
 
 //just grab it
