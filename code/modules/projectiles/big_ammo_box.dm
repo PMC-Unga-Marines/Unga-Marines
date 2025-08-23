@@ -5,6 +5,7 @@
 	icon = 'icons/obj/items/ammo/box.dmi'
 	icon_state = "matter_ammo_box"
 	worn_icon_state = "matter_ammo_box"
+	worn_icon_state_worn = "matter_ammo_box"
 	equip_slot_flags = ITEM_SLOT_BACK
 	base_icon_state = "matter_ammo_box"
 	///Current stored matter
