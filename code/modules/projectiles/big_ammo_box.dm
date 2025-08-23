@@ -137,7 +137,6 @@
 	equip_slot_flags = NONE // Cannot be carried on the back
 	matter_amount = 32000
 	max_matter_amount = 32000
-	requires_ground = TRUE
 	use_delay = 0 SECONDS
 
 //just grab it
