@@ -35,7 +35,6 @@
 	name = "ammunition supplies"
 	supply = list(
 		/obj/structure/largecrate/supply/ammo/m41a = 4,
-		/obj/structure/largecrate/supply/ammo/m41a_box = 4,
 		/obj/structure/largecrate/supply/ammo/shotgun = 4,
 		/obj/structure/largecrate/supply/ammo/smg90 = 4,
 		/obj/structure/largecrate/supply/ammo/pistol = 4,

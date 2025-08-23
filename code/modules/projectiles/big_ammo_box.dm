@@ -36,19 +36,19 @@
 		return
 
 	if(istype(I, /obj/item/ammo_magazine))
-		var/obj/item/ammo_magazine/AM = I
+		var/obj/item/ammo_magazine/ammo_magazine = I
 		// Check if box needs to be on ground
 		if(requires_ground && !isturf(loc))
 			to_chat(user, span_warning("[src] must be on the ground to be used."))
 			return
 
-		if(!AM.default_ammo || AM.default_ammo.matter_cost <= 0)
+		if(!ammo_magazine.default_ammo || ammo_magazine.default_ammo.matter_cost <= 0)
 			to_chat(user, span_warning("This ammunition type cannot be converted to matter."))
 			return
 
-		if(AM.magazine_flags & MAGAZINE_REFILLABLE)
-			if(AM.current_rounds == AM.max_rounds)
-				to_chat(user, span_warning("[AM] is already full."))
+		if(ammo_magazine.magazine_flags & MAGAZINE_REFILLABLE)
+			if(ammo_magazine.current_rounds == ammo_magazine.max_rounds)
+				to_chat(user, span_warning("[ammo_magazine] is already full."))
 				return
 
 			// Add use delay if configured
@@ -56,38 +56,38 @@
 				return
 
 			playsound(loc, 'sound/weapons/guns/interact/revolver_load.ogg', 25, 1)
-			var/rounds_to_add = min(matter_amount / AM.default_ammo.matter_cost, AM.max_rounds - AM.current_rounds)
-			var/matter_used = rounds_to_add * AM.default_ammo.matter_cost
+			var/rounds_to_add = min(matter_amount / ammo_magazine.default_ammo.matter_cost, ammo_magazine.max_rounds - ammo_magazine.current_rounds)
+			var/matter_used = rounds_to_add * ammo_magazine.default_ammo.matter_cost
 
-			AM.current_rounds += rounds_to_add
+			ammo_magazine.current_rounds += rounds_to_add
 			matter_amount -= matter_used
-			AM.update_icon()
+			ammo_magazine.update_icon()
 			update_icon()
 
-			if(AM.current_rounds == AM.max_rounds)
-				to_chat(user, span_notice("You refill [AM] using [matter_used] matter units."))
+			if(ammo_magazine.current_rounds == ammo_magazine.max_rounds)
+				to_chat(user, span_notice("You refill [ammo_magazine] using [matter_used] matter units."))
 			else
-				to_chat(user, span_notice("You add [rounds_to_add] rounds to [AM] using [matter_used] matter units."))
+				to_chat(user, span_notice("You add [rounds_to_add] rounds to [ammo_magazine] using [matter_used] matter units."))
 
-		else if(AM.magazine_flags & MAGAZINE_HANDFUL)
+		else if(ammo_magazine.magazine_flags & MAGAZINE_HANDFUL)
 			if(matter_amount == max_matter_amount)
 				to_chat(user, span_warning("[src] is full!"))
 				return
 
 			playsound(loc, 'sound/weapons/guns/interact/revolver_load.ogg', 25, 1)
-			var/rounds_to_remove = min(AM.current_rounds, (max_matter_amount - matter_amount) / AM.default_ammo.matter_cost)
-			var/matter_gained = rounds_to_remove * AM.default_ammo.matter_cost
+			var/rounds_to_remove = min(ammo_magazine.current_rounds, (max_matter_amount - matter_amount) / ammo_magazine.default_ammo.matter_cost)
+			var/matter_gained = rounds_to_remove * ammo_magazine.default_ammo.matter_cost
 
-			AM.current_rounds -= rounds_to_remove
+			ammo_magazine.current_rounds -= rounds_to_remove
 			matter_amount += matter_gained
-			AM.update_icon()
+			ammo_magazine.update_icon()
 			update_icon()
 
-			to_chat(user, span_notice("You convert [AM] into [matter_gained] matter units."))
+			to_chat(user, span_notice("You convert [ammo_magazine] into [matter_gained] matter units."))
 
-			if(AM.current_rounds <= 0)
-				user.temporarilyRemoveItemFromInventory(AM)
-				qdel(AM)
+			if(ammo_magazine.current_rounds <= 0)
+				user.temporarilyRemoveItemFromInventory(ammo_magazine)
+				qdel(ammo_magazine)
 
 //explosion when using flamer procs.
 /obj/item/matter_ammo_box/fire_act(burn_level, flame_color)
