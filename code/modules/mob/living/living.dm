@@ -212,6 +212,8 @@
 		return TRUE
 	if(pulledby)
 		return TRUE
+	if(throwing)
+		return TRUE
 	if(!can_crawl)
 		return FALSE
 	if(!crawl_checks(crawled_turf))
