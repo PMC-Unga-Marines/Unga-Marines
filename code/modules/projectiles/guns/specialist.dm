@@ -877,8 +877,6 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 		w_class = WEIGHT_CLASS_NORMAL
 		gun_features_flags |= GUN_DEPLOYED_FIRE_ONLY
 	else
-		if(!in_chamber)
-			cycle()
 		w_class = WEIGHT_CLASS_BULKY
 		gun_features_flags &= ~GUN_DEPLOYED_FIRE_ONLY
 	update_icon()

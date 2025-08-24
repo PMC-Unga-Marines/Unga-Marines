@@ -1303,6 +1303,8 @@
 		if(istype(new_mag, /obj/item/ammo_magazine))
 			var/obj/item/ammo_magazine/magazine = new_mag
 			magazine.on_inserted(src)
+		if(!in_chamber && (istype(src, /obj/item/weapon/gun/minigun) || istype(src, /obj/item/weapon/gun/launcher/rocket)))
+			cycle(user, FALSE)
 		update_ammo_count()
 		update_icon()
 		to_chat(user, span_notice("You reload [src] with [new_mag]."))
