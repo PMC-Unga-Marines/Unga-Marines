@@ -197,7 +197,7 @@
 		if(!plasteel_stack.use(50))
 			return FALSE
 
-		unwreck_vehicle(TRUE)
+		unwreck_vehicle()
 
 		user.visible_message(span_notice("[user] successfully reinforces and repairs [src] with plasteel!"),
 		span_notice("You successfully reinforce and repair [src] with plasteel!"))
