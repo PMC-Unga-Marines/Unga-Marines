@@ -450,60 +450,6 @@
 	SSdirection.start_tracking(HS.hivenumber, src)
 	hive.update_tier_limits() //Update our tier limits.
 
-/mob/living/carbon/xenomorph/queen/add_to_hive(datum/hive_status/HS, force=FALSE, prevent_ruler=FALSE) // override to ensure proper queen/hive behaviour
-	. = ..()
-	if(HS.living_xeno_queen) // theres already a queen
-		return
-
-	HS.living_xeno_queen = src
-
-	if(prevent_ruler)
-		return
-
-	HS.update_ruler()
-
-
-/mob/living/carbon/xenomorph/shrike/add_to_hive(datum/hive_status/HS, force = FALSE, prevent_ruler=FALSE) // override to ensure proper queen/hive behaviour
-	. = ..()
-
-	if(HS.living_xeno_ruler)
-		return
-	if(prevent_ruler)
-		return
-
-	HS.update_ruler()
-
-/mob/living/carbon/xenomorph/hivemind/add_to_hive(datum/hive_status/HS, force = FALSE, prevent_ruler=FALSE)
-	. = ..()
-	if(!GLOB.xeno_structures_by_hive[HS.hivenumber])
-		GLOB.xeno_structures_by_hive[HS.hivenumber] = list()
-
-	var/obj/structure/xeno/hivemindcore/hive_core = get_core()
-
-	if(!hive_core) //how are you even alive then?
-		qdel(src)
-		return
-
-	GLOB.xeno_structures_by_hive[HS.hivenumber] |= hive_core
-
-	if(!GLOB.xeno_critical_structures_by_hive[HS.hivenumber])
-		GLOB.xeno_critical_structures_by_hive[HS.hivenumber] = list()
-
-	GLOB.xeno_critical_structures_by_hive[HS.hivenumber] |= hive_core
-	hive_core.hivenumber = HS.hivenumber
-	hive_core.name = "[HS.hivenumber == XENO_HIVE_NORMAL ? "" : "[HS.name] "]hivemind core"
-	hive_core.color = HS.color
-
-/mob/living/carbon/xenomorph/king/add_to_hive(datum/hive_status/HS, force = FALSE, prevent_ruler=FALSE)
-	. = ..()
-
-	if(HS.living_xeno_ruler)
-		return
-	if(prevent_ruler)
-		return
-
-	HS.update_ruler()
-
 /mob/living/carbon/xenomorph/proc/add_to_hive_by_hivenumber(hivenumber, force=FALSE, prevent_ruler=FALSE) // helper function to add by given hivenumber
 	if(!GLOB.hive_datums[hivenumber])
 		CRASH("add_to_hive_by_hivenumber called with invalid hivenumber")
@@ -586,49 +532,6 @@
 /datum/hive_status/Destroy(force)
 	. = ..()
 	UnregisterSignal(SSdcs, COMSIG_GLOB_NUKE_START)
-
-/mob/living/carbon/xenomorph/queen/remove_from_hive() // override to ensure proper queen/hive behaviour
-	var/datum/hive_status/hive_removed_from = hive
-	if(hive_removed_from.living_xeno_queen == src)
-		hive_removed_from.living_xeno_queen = null
-
-	. = ..()
-
-	if(hive_removed_from.living_xeno_ruler == src)
-		hive_removed_from.set_ruler(null)
-		hive_removed_from.update_ruler() //Try to find a successor.
-
-
-
-/mob/living/carbon/xenomorph/shrike/remove_from_hive()
-	var/datum/hive_status/hive_removed_from = hive
-
-	. = ..()
-
-	if(hive_removed_from.living_xeno_ruler == src)
-		hive_removed_from.set_ruler(null)
-		hive_removed_from.update_ruler() //Try to find a successor.
-
-
-
-/mob/living/carbon/xenomorph/king/remove_from_hive()
-	var/datum/hive_status/hive_removed_from = hive
-
-	. = ..()
-
-	if(hive_removed_from.living_xeno_ruler == src)
-		hive_removed_from.set_ruler(null)
-		hive_removed_from.update_ruler() //Try to find a successor.
-
-/mob/living/carbon/xenomorph/hivemind/remove_from_hive()
-	var/obj/structure/xeno/hivemindcore/hive_core = get_core()
-	GLOB.xeno_structures_by_hive[hivenumber] -= hive_core
-	GLOB.xeno_critical_structures_by_hive[hivenumber] -= hive_core
-	. = ..()
-	if(!QDELETED(src)) //if we aren't dead, somehow?
-		hive_core.name = "banished hivemind core"
-		hive_core.color = null
-
 
 // ***************************************
 // *********** Xeno leaders
@@ -927,12 +830,6 @@
 		SEND_SIGNAL(successor, COMSIG_HIVE_BECOME_RULER)
 	living_xeno_ruler = successor
 
-
-/mob/living/carbon/xenomorph/queen/proc/on_becoming_ruler()
-	SIGNAL_HANDLER
-	hive.update_leader_pheromones()
-
-
 /datum/hive_status/proc/handle_ruler_timer()
 	return
 
@@ -1107,19 +1004,6 @@ to_chat will check for valid clients itself already so no need to double check f
 
 	return TRUE
 
-//Managing the number of facehuggers in the hive
-/mob/living/carbon/xenomorph/facehugger/add_to_hive(datum/hive_status/HS, force)
-	. = ..()
-
-	HS.facehuggers += src
-
-/mob/living/carbon/xenomorph/facehugger/remove_from_hive()
-	var/datum/hive_status/hive_removed_from = hive
-
-	. = ..()
-
-	hive_removed_from.facehuggers -= src
-
 // This proc checks for available spawn points and offers a choice if there's more than one.
 /datum/hive_status/proc/attempt_to_spawn_larva(client/xeno_candidate, larva_already_reserved = FALSE)
 	if(isnull(xeno_candidate))
@@ -1150,7 +1034,6 @@ to_chat will check for valid clients itself already so no need to double check f
 		return FALSE
 
 	return spawn_larva(xeno_candidate, chosen_mother, larva_already_reserved)
-
 
 /datum/hive_status/proc/attempt_to_spawn_larva_in_silo(client/xeno_candidate, possible_silos, larva_already_reserved = FALSE)
 	xeno_candidate.mob.playsound_local(xeno_candidate, 'sound/ambience/votestart.ogg', 50)
@@ -1206,7 +1089,6 @@ to_chat will check for valid clients itself already so no need to double check f
 		return FALSE
 	return do_spawn_larva(xeno_candidate, get_turf(mother), larva_already_reserved)
 
-
 /datum/hive_status/proc/do_spawn_larva(client/xeno_candidate, turf/spawn_point, larva_already_reserved = FALSE)
 	if(is_banned_from(xeno_candidate.ckey, ROLE_XENOMORPH))
 		to_chat(xeno_candidate.mob, span_warning("You are jobbaned from the [ROLE_XENOMORPH] role."))
@@ -1248,7 +1130,6 @@ to_chat will check for valid clients itself already so no need to double check f
 
 	if(SSticker.mode?.round_type_flags & MODE_PSY_POINTS_ADVANCED)
 		SSpoints.xeno_points_by_hive[hivenumber] = SILO_PRICE + XENO_TURRET_PRICE //Give a free silo when going shipside and a turret
-
 
 /datum/hive_status/normal/proc/on_hijack_depart(datum/source, new_mode)
 	SIGNAL_HANDLER
@@ -1399,7 +1280,7 @@ to_chat will check for valid clients itself already so no need to double check f
 	tier2_xeno_limit = max(twos, FLOOR(max(rated_xeno - twos - threes,zeros + ones + fours) + length(psychictowers) * 2 + 1 - threes, 1))
 
 // ***************************************
-// *********** Corrupted Xenos
+// *********** Corrupted Hive
 // ***************************************
 /datum/hive_status/corrupted
 	name = "Corrupted"
@@ -1419,74 +1300,8 @@ to_chat will check for valid clients itself already so no need to double check f
 /datum/hive_status/corrupted/can_xeno_message()
 	return TRUE // can always talk in hivemind
 
-/mob/living/carbon/xenomorph/queen/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/boiler/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/bull/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/carrier/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/crusher/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/gorger/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/defender/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/defiler/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/drone/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/hivelord/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/hivemind/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/hunter/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/larva/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/praetorian/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/ravager/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/runner/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/sentinel/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/shrike/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/spitter/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/warrior/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/king/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
-/mob/living/carbon/xenomorph/behemoth/Corrupted
-	hivenumber = XENO_HIVE_CORRUPTED
-
 // ***************************************
-// *********** Misc Xenos
+// *********** Misc Hives
 // ***************************************
 /datum/hive_status/alpha
 	name = "Alpha"
@@ -1494,143 +1309,11 @@ to_chat will check for valid clients itself already so no need to double check f
 	prefix = "Alpha"
 	color = "#cccc00"
 
-/mob/living/carbon/xenomorph/queen/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/boiler/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/bull/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/carrier/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/crusher/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/gorger/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/defender/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/defiler/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/drone/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/hivelord/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/hivemind/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/hunter/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/larva/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/praetorian/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/ravager/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/runner/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/sentinel/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/shrike/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/spitter/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/warrior/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/king/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
-/mob/living/carbon/xenomorph/behemoth/Alpha
-	hivenumber = XENO_HIVE_ALPHA
-
 /datum/hive_status/beta
 	name = "Beta"
 	hivenumber = XENO_HIVE_BETA
 	prefix = "Beta"
 	color = "#9999ff"
-
-/mob/living/carbon/xenomorph/queen/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/boiler/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/bull/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/carrier/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/crusher/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/gorger/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/defender/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/defiler/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/drone/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/hivelord/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/hivemind/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/hunter/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/larva/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/praetorian/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/ravager/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/runner/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/sentinel/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/shrike/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/spitter/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/warrior/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/king/Beta
-	hivenumber = XENO_HIVE_BETA
-
-/mob/living/carbon/xenomorph/behemoth/Beta
-	hivenumber = XENO_HIVE_BETA
 
 /datum/hive_status/zeta
 	name = "Zeta"
@@ -1638,82 +1321,10 @@ to_chat will check for valid clients itself already so no need to double check f
 	prefix = "Zeta"
 	color = "#606060"
 
-/mob/living/carbon/xenomorph/queen/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/boiler/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/bull/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/carrier/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/crusher/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/gorger/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/defender/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/defiler/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/drone/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/hivelord/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/hivemind/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/hunter/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/larva/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/praetorian/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/ravager/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/runner/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/sentinel/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/shrike/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/spitter/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/warrior/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/king/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
-/mob/living/carbon/xenomorph/behemoth/Zeta
-	hivenumber = XENO_HIVE_ZETA
-
 /datum/hive_status/admeme
 	name = "Admeme"
 	hivenumber = XENO_HIVE_ADMEME
 	prefix = "Admeme"
-
-/mob/living/carbon/xenomorph/queen/admeme
-	hivenumber = XENO_HIVE_ADMEME
-
-/mob/living/carbon/xenomorph/king/admeme
-	hivenumber = XENO_HIVE_ADMEME
 
 /datum/hive_status/corrupted/fallen
 	name = "Fallen"
@@ -1723,12 +1334,6 @@ to_chat will check for valid clients itself already so no need to double check f
 
 /datum/hive_status/corrupted/fallen/can_xeno_message()
 	return FALSE
-
-/mob/living/carbon/xenomorph/queen/Corrupted/fallen
-	hivenumber = XENO_HIVE_FALLEN
-
-/mob/living/carbon/xenomorph/king/Corrupted/fallen
-	hivenumber = XENO_HIVE_FALLEN
 
 /datum/hive_status/yautja
 	name = "Yautja"

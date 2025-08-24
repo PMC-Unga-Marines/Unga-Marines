@@ -84,17 +84,19 @@
 #define GUN_WIELDED_FIRING_ONLY (1<<3)
 #define GUN_ALLOW_SYNTHETIC (1<<4)
 #define GUN_WIELDED_STABLE_FIRING_ONLY (1<<5)
-#define GUN_IFF (1<<6)
-#define GUN_DEPLOYED_FIRE_ONLY (1<<7)
-#define GUN_IS_ATTACHMENT (1<<8)
-#define GUN_ATTACHMENT_FIRE_ONLY (1<<9)
-#define GUN_ENERGY (1<<10)
-#define GUN_AMMO_COUNT_BY_PERCENTAGE (1<<11)
-#define GUN_AMMO_COUNT_BY_SHOTS_REMAINING (1<<12)
-#define GUN_NO_PITCH_SHIFT_NEAR_EMPTY (1<<13)
-#define GUN_SHOWS_AMMO_REMAINING (1<<14) //Whether the mob sprite reflects the ammo level
-#define GUN_SHOWS_LOADED (1<<15) //Whether the mob sprite as loaded or unloaded, a binary version of the above
-#define GUN_SMOKE_PARTICLES (1<<16) //Whether the gun has smoke particles
+#define GUN_DEPLOYED_FIRE_ONLY (1<<6)
+#define GUN_IS_ATTACHMENT (1<<7)
+#define GUN_ATTACHMENT_FIRE_ONLY (1<<8)
+#define GUN_ENERGY (1<<9)
+#define GUN_AMMO_COUNT_BY_PERCENTAGE (1<<10)
+#define GUN_AMMO_COUNT_BY_SHOTS_REMAINING (1<<11)
+#define GUN_NO_PITCH_SHIFT_NEAR_EMPTY (1<<12)
+///Whether the mob sprite reflects the ammo level
+#define GUN_SHOWS_AMMO_REMAINING (1<<13)
+///Whether the mob sprite as loaded or unloaded, a binary version of the above
+#define GUN_SHOWS_LOADED (1<<14)
+///Whether the gun has smoke particles
+#define GUN_SMOKE_PARTICLES (1<<15)
 
 //reciever_flags. Used to determin how the gun cycles, what kind of ammo it uses, etc.
 #define AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION (1<<0)

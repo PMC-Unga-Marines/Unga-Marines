@@ -669,10 +669,15 @@
 	storage_datum.storage_type_limits = list(
 		/obj/item/weapon/gun/revolver,
 	)
-	storage_datum.set_holdable(can_hold_list = list(
-		/obj/item/weapon/gun/revolver,
-		/obj/item/ammo_magazine/revolver,
-	))
+	storage_datum.set_holdable(
+		can_hold_list = list(
+			/obj/item/weapon/gun/revolver,
+			/obj/item/ammo_magazine/revolver,
+		),
+		cant_hold_list = list(
+			/obj/item/weapon/gun/revolver/coltrifle,
+		)
+	)
 
 /obj/item/storage/holster/belt/revolver/t500
 	name = "\improper BM500 pattern BF revolver holster rig"

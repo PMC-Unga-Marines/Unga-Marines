@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - code_imp: "Удален флаг AMMO_IFF. Теперь смарт пушки стреляют смарт патронами, а не превращают патроны в смарт."

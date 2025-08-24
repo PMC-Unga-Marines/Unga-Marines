@@ -126,5 +126,31 @@
 		else
 			return 0
 
+/mob/living/carbon/xenomorph/facehugger/add_to_hive(datum/hive_status/HS, force)
+	. = ..()
+	HS.facehuggers += src
 
+/mob/living/carbon/xenomorph/facehugger/remove_from_hive()
+	var/datum/hive_status/hive_removed_from = hive
+	
+	. = ..()
 
+	hive_removed_from.facehuggers -= src
+
+/mob/living/carbon/xenomorph/facehugger/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/facehugger/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/facehugger/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/facehugger/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/facehugger/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/facehugger/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

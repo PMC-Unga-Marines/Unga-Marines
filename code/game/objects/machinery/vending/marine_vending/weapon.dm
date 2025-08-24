@@ -9,28 +9,30 @@
 	isshared = TRUE
 
 	products = list(
-		"Винтовки" = list(
+		"Автоматы" = list(
 			/obj/item/weapon/gun/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12 = -1,
 			/obj/item/weapon/gun/rifle/ar18 = -1,
 			/obj/item/ammo_magazine/rifle/ar18 = -1,
 			/obj/item/weapon/gun/rifle/ar11 = -1,
 			/obj/item/ammo_magazine/rifle/ar11 = -1,
+			/obj/item/weapon/gun/rifle/type71 = -1,
+			/obj/item/ammo_magazine/rifle/type71 = -1,
+			/obj/item/weapon/gun/rifle/ar21 = -1,
+			/obj/item/ammo_magazine/rifle/ar21 = -1,
+			/obj/item/weapon/gun/rifle/type16 = -1,
+			/obj/item/ammo_magazine/rifle/type16 = -1,
+			/obj/item/weapon/gun/rifle/type16/m2 = -1,
+			/obj/item/ammo_magazine/rifle/type16/m2 = -1,
+		),
+		"Винтовки" = list(
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
 			/obj/item/ammo_magazine/rifle/martini = -1,
 			/obj/item/ammo_magazine/rifle/martini/white = -1,
-			/obj/item/weapon/gun/rifle/type71 = -1,
-			/obj/item/ammo_magazine/rifle/type71 = -1,
-			/obj/item/weapon/gun/rifle/ar21 = -1,
-			/obj/item/ammo_magazine/rifle/ar21 = -1,
 			/obj/item/weapon/gun/revolver/coltrifle = -1,
 			/obj/item/ammo_magazine/revolver/rifle = -1,
-			/obj/item/weapon/gun/rifle/type16 = -1,
-			/obj/item/ammo_magazine/rifle/type16 = -1,
-			/obj/item/weapon/gun/rifle/type16/m2 = -1,
-			/obj/item/ammo_magazine/rifle/type16/m2 = -1,
 		),
 		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
@@ -151,6 +153,7 @@
 			/obj/item/ammo_magazine/flamer_tank/large/G = 8,
 			/obj/item/ammo_magazine/flamer_tank/backtank = 4,
 			/obj/item/ammo_magazine/flamer_tank/water = -1,
+			/obj/item/weapon/gun/flamer/hydro_cannon = -1,
 			/obj/item/jetpack_marine = 3,
 			/obj/item/bodybag/tarp = 10,
 			/obj/item/mortar_kit/knee = 4,
@@ -254,28 +257,30 @@
 
 /obj/machinery/vending/weapon/crash
 	products = list(
-		"Винтовки" = list(
+		"Автоматы" = list(
 			/obj/item/weapon/gun/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12 = -1,
 			/obj/item/weapon/gun/rifle/ar18 = -1,
 			/obj/item/ammo_magazine/rifle/ar18 = -1,
 			/obj/item/weapon/gun/rifle/ar11 = -1,
 			/obj/item/ammo_magazine/rifle/ar11 = -1,
+			/obj/item/weapon/gun/rifle/type71 = -1,
+			/obj/item/ammo_magazine/rifle/type71 = -1,
+			/obj/item/weapon/gun/rifle/ar21 = -1,
+			/obj/item/ammo_magazine/rifle/ar21 = -1,
+			/obj/item/weapon/gun/rifle/type16 = -1,
+			/obj/item/ammo_magazine/rifle/type16 = -1,
+			/obj/item/weapon/gun/rifle/type16/m2 = -1,
+			/obj/item/ammo_magazine/rifle/type16/m2 = -1,
+		),
+		"Винтовки" = list(
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
 			/obj/item/ammo_magazine/rifle/martini = -1,
 			/obj/item/ammo_magazine/rifle/martini/white = -1,
-			/obj/item/weapon/gun/rifle/type71 = -1,
-			/obj/item/ammo_magazine/rifle/type71 = -1,
-			/obj/item/weapon/gun/rifle/ar21 = -1,
-			/obj/item/ammo_magazine/rifle/ar21 = -1,
 			/obj/item/weapon/gun/revolver/coltrifle = -1,
 			/obj/item/ammo_magazine/revolver/rifle = -1,
-			/obj/item/weapon/gun/rifle/type16 = -1,
-			/obj/item/ammo_magazine/rifle/type16 = -1,
-			/obj/item/weapon/gun/rifle/type16/m2 = -1,
-			/obj/item/ammo_magazine/rifle/type16/m2 = -1,
 		),
 		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
@@ -384,6 +389,7 @@
 			/obj/item/ammo_magazine/flamer_tank/large/G = 15,
 			/obj/item/ammo_magazine/flamer_tank/backtank = 4,
 			/obj/item/ammo_magazine/flamer_tank/water = -1,
+			/obj/item/weapon/gun/flamer/hydro_cannon = -1,
 			/obj/item/jetpack_marine = 3,
 		),
 		"Модули" = list(
@@ -485,7 +491,7 @@
 	resistance_flags = INDESTRUCTIBLE
 	use_power = NO_POWER_USE
 	products = list(
-		"Винтовки" = list(
+		"Автоматы" = list(
 			/obj/item/weapon/gun/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12 = -1,
 			/obj/item/ammo_magazine/rifle/ar12/incendiary = -1,
@@ -493,21 +499,23 @@
 			/obj/item/ammo_magazine/rifle/ar18 = -1,
 			/obj/item/weapon/gun/rifle/ar11 = -1,
 			/obj/item/ammo_magazine/rifle/ar11 = -1,
+			/obj/item/weapon/gun/rifle/type71 = -1,
+			/obj/item/ammo_magazine/rifle/type71 = -1,
+			/obj/item/weapon/gun/rifle/ar21 = -1,
+			/obj/item/ammo_magazine/rifle/ar21 = -1,
+			/obj/item/weapon/gun/rifle/type16 = -1,
+			/obj/item/ammo_magazine/rifle/type16 = -1,
+			/obj/item/weapon/gun/rifle/type16/m2 = -1,
+			/obj/item/ammo_magazine/rifle/type16/m2 = -1,
+		),
+		"Винтовки" = list(
 			/obj/item/weapon/gun/shotgun/pump/lever/repeater = -1,
 			/obj/item/ammo_magazine/packet/p4570 = -1,
 			/obj/item/weapon/gun/shotgun/double/martini = -1,
 			/obj/item/ammo_magazine/rifle/martini = -1,
 			/obj/item/ammo_magazine/rifle/martini/white = -1,
-			/obj/item/weapon/gun/rifle/type71 = -1,
-			/obj/item/ammo_magazine/rifle/type71 = -1,
-			/obj/item/weapon/gun/rifle/ar21 = -1,
-			/obj/item/ammo_magazine/rifle/ar21 = -1,
 			/obj/item/weapon/gun/revolver/coltrifle = -1,
 			/obj/item/ammo_magazine/revolver/rifle = -1,
-			/obj/item/weapon/gun/rifle/type16 = -1,
-			/obj/item/ammo_magazine/rifle/type16 = -1,
-			/obj/item/weapon/gun/rifle/type16/m2 = -1,
-			/obj/item/ammo_magazine/rifle/type16/m2 = -1,
 		),
 		"Пистолеты-пулемёты" = list(
 			/obj/item/weapon/gun/smg/vector = -1,
@@ -636,6 +644,7 @@
 			/obj/item/ammo_magazine/flamer_tank/large = -1,
 			/obj/item/ammo_magazine/flamer_tank/large/G = -1,
 			/obj/item/ammo_magazine/flamer_tank/backtank = -1,
+			/obj/item/weapon/gun/flamer/hydro_cannon = -1,
 			/obj/item/ammo_magazine/flamer_tank/water = -1,
 			/obj/item/jetpack_marine = -1,
 			/obj/item/bodybag/tarp = -1,

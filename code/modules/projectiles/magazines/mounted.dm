@@ -8,7 +8,7 @@
 	magazine_flags = NONE
 	caliber = CALIBER_10X30
 	max_rounds = 300
-	default_ammo = /datum/ammo/bullet/machinegun
+	default_ammo = /datum/ammo/bullet/machinegun/smart
 	reload_delay = 5 SECONDS
 	icon_state_mini = "mag_hmg"
 
