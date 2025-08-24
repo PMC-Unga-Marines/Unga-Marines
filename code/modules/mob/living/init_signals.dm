@@ -12,8 +12,8 @@
 	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_FLOORED), PROC_REF(on_floored_trait_gain))
 	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_FLOORED), PROC_REF(on_floored_trait_loss))
 
-//	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_IMMOBILE), PROC_REF(on_immobile_trait_gain))
-//	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_IMMOBILE), PROC_REF(on_immobile_trait_loss))
+	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_IMMOBILE), PROC_REF(on_immobile_trait_gain))
+	RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_IMMOBILE), PROC_REF(on_immobile_trait_loss))
 
 	RegisterSignal(src, COMSIG_AURA_STARTED, PROC_REF(add_emitted_auras))
 	RegisterSignal(src, COMSIG_AURA_FINISHED, PROC_REF(remove_emitted_auras))
@@ -68,12 +68,12 @@
 		set_lying_angle(0)
 	record_time_lying_down()
 
-/* Commented out, instead of deleting, in case someone needs it
 ///Called when TRAIT_LEGLESS is added to the mob.
 /mob/living/proc/on_immobile_trait_gain(datum/source)
 	SIGNAL_HANDLER
+	set_canmove(FALSE)
 
 ///Called when TRAIT_LEGLESS is removed from the mob.
 /mob/living/proc/on_immobile_trait_loss(datum/source)
 	SIGNAL_HANDLER
-*/
+	set_canmove(TRUE)
