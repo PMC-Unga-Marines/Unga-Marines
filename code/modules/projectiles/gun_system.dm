@@ -1303,7 +1303,8 @@
 		if(istype(new_mag, /obj/item/ammo_magazine))
 			var/obj/item/ammo_magazine/magazine = new_mag
 			magazine.on_inserted(src)
-		if(!in_chamber && (istype(src, /obj/item/weapon/gun/minigun) || istype(src, /obj/item/weapon/gun/launcher/rocket)))
+		if(!in_chamber && !istype(src, /obj/item/weapon/gun/rifle))
+			playsound(src, cocked_sound, 25, 1)
 			cycle(user, FALSE)
 		update_ammo_count()
 		update_icon()
