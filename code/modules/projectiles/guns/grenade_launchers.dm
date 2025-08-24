@@ -64,7 +64,6 @@
 	reciever_flags = NONE
 	actions_types = list(/datum/action/item_action/overhead_grenade_launcher)
 
-
 	///the maximum range the launcher can fling the grenade, by default 15 tiles
 	var/max_range = 15
 	///if the grenade launcher over mode is active
