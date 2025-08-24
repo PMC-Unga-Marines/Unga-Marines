@@ -132,6 +132,9 @@ Note that this means that snipers will have a slowdown of 3, due to the scope
 	return TRUE
 
 /obj/item/weapon/gun/rifle/sniper/antimaterial/unique_action(mob/user)
+	if(!in_chamber)
+		return ..()
+
 	if(!targetmarker_primed && !targetmarker_on)
 		return laser_on(user)
 	return laser_off(user)

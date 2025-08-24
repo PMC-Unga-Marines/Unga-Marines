@@ -12,6 +12,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	gun_features_flags = GUN_CAN_POINTBLANK||GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_AUTO_EJECT|AMMO_RECIEVER_REQUIRES_CYCLE_FIRST_ROUND
 	load_method = MAGAZINE //codex
 	aim_slowdown = 0.35
 	wield_delay = 0.8 SECONDS
@@ -294,6 +295,9 @@
 /obj/item/weapon/gun/rifle/dmr37/unique_action(mob/user)
 	if(!user)
 		CRASH("switch_modes called with no user.")
+
+	if(!in_chamber)
+		return ..()
 
 	if(bump_fire)
 		fire_delay = initial(fire_delay)
