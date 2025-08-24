@@ -10,6 +10,36 @@
 	firearms = 1
 	max_skills = list(SKILL_FIREARMS = SKILL_FIREARMS_TRAINED)
 
+/obj/item/implant/skill/combat/pistols
+	name = "pistol mastery implant system"
+	desc = "Integrated pistol handling support system! Update pistol skills!"
+	pistols = 1
+	max_skills = list(SKILL_PISTOLS = SKILL_PISTOLS_TRAINED)
+
+/obj/item/implant/skill/combat/smgs
+	name = "SMG mastery implant system"
+	desc = "Integrated SMG handling support system! Update SMG skills!"
+	smgs = 1
+	max_skills = list(SKILL_SMGS = SKILL_SMGS_TRAINED)
+
+/obj/item/implant/skill/combat/rifles
+	name = "rifle mastery implant system"
+	desc = "Integrated rifle handling support system! Update rifle skills!"
+	rifles = 1
+	max_skills = list(SKILL_RIFLES = SKILL_RIFLES_TRAINED)
+
+/obj/item/implant/skill/combat/shotguns
+	name = "shotgun mastery implant system"
+	desc = "Integrated shotgun handling support system! Update shotgun skills!"
+	shotguns = 1
+	max_skills = list(SKILL_SHOTGUNS = SKILL_SHOTGUNS_TRAINED)
+
+/obj/item/implant/skill/combat/heavy_weapons
+	name = "heavy weapons mastery implant system"
+	desc = "Integrated heavy weapons handling support system! Update heavy weapons skills!"
+	heavy_weapons = 1
+	max_skills = list(SKILL_HEAVY_WEAPONS = SKILL_HEAVY_WEAPONS_TRAINED)
+
 /obj/item/implant/skill/combat/melee
 	name = "close combat codex implant system"
 	desc = "Integrated hit support system! Update melee skills!"

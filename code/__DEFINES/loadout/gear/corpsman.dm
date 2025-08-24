@@ -1,6 +1,11 @@
 GLOBAL_LIST_INIT(medic_gear_listed_products, list(
 	/obj/effect/vendor_bundle/medic = list(CAT_ESS, "Essential Medic Set", 0, "white"),
 	/obj/item/implanter/skill/firearms = list(CAT_MEDSUP, "Firearms skills implanter", 25, "cyan2"),
+	/obj/item/implanter/skill/pistols = list(CAT_MEDSUP, "Pistol skills implanter", 25, "cyan2"),
+	/obj/item/implanter/skill/smgs = list(CAT_MEDSUP, "SMG skills implanter", 25, "cyan2"),
+	/obj/item/implanter/skill/rifles = list(CAT_MEDSUP, "Rifle skills implanter", 25, "cyan2"),
+	/obj/item/implanter/skill/shotguns = list(CAT_MEDSUP, "Shotgun skills implanter", 25, "cyan2"),
+	/obj/item/implanter/skill/heavy_weapons = list(CAT_MEDSUP, "Heavy weapons skills implanter", 25, "cyan2"),
 	/obj/item/implanter/skill/melee = list(CAT_MEDSUP, "CQC skills implanter", 25, "cyan2"),
 	/obj/item/implanter/skill/medical = list(CAT_MEDSUP, "Medical skills implanter", 20, "cyan2"),
 	/obj/item/implanter/skill/surgery = list(CAT_MEDSUP, "Surgery skills implanter", 20, "cyan2"),

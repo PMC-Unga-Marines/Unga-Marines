@@ -1,5 +1,10 @@
 GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/item/implanter/skill/firearms = list(CAT_MARINE, "Firearms skills implanter", 35, "cyan2"),
+	/obj/item/implanter/skill/pistols = list(CAT_MARINE, "Pistol skills implanter", 35, "cyan2"),
+	/obj/item/implanter/skill/smgs = list(CAT_MARINE, "SMG skills implanter", 35, "cyan2"),
+	/obj/item/implanter/skill/rifles = list(CAT_MARINE, "Rifle skills implanter", 35, "cyan2"),
+	/obj/item/implanter/skill/shotguns = list(CAT_MARINE, "Shotgun skills implanter", 35, "cyan2"),
+	/obj/item/implanter/skill/heavy_weapons = list(CAT_MARINE, "Heavy weapons skills implanter", 35, "cyan2"),
 	/obj/item/implanter/skill/melee = list(CAT_MARINE, "CQC skills implanter", 25, "cyan2"),
 	/obj/item/implanter/skill/medical = list(CAT_MARINE, "Medical skills implanter", 20, "cyan2"),
 	/obj/item/implanter/skill/engineer = list(CAT_MARINE, "Engineering skills implanter", 20, "cyan2"),
