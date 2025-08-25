@@ -76,7 +76,7 @@
 				return
 
 			playsound(loc, 'sound/weapons/guns/interact/revolver_load.ogg', 25, 1)
-			var/rounds_to_remove = min(ammo_magazine.current_rounds, (max_matter_amount - matter_amount) / ammo_magazine.default_ammo.matter_cost)
+			var/rounds_to_remove = min(ammo_magazine.current_rounds, trunc((max_matter_amount - matter_amount) / ammo_magazine.default_ammo.matter_cost))
 			var/matter_gained = rounds_to_remove * ammo_magazine.default_ammo.matter_cost
 
 			ammo_magazine.current_rounds -= rounds_to_remove
