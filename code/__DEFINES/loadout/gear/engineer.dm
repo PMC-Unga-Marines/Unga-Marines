@@ -1,10 +1,6 @@
 GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 	/obj/effect/vendor_bundle/engi = list(CAT_ESS, "Essential Engineer Set", 0, "white"),
 	/obj/item/implanter/skill/firearms = list(CAT_ENGSUP, "Firearms skills implanter", 25, "cyan2"),
-	/obj/item/implanter/skill/pistols = list(CAT_ENGSUP, "Pistol skills implanter", 25, "cyan2"),
-	/obj/item/implanter/skill/smgs = list(CAT_ENGSUP, "SMG skills implanter", 25, "cyan2"),
-	/obj/item/implanter/skill/rifles = list(CAT_ENGSUP, "Rifle skills implanter", 25, "cyan2"),
-	/obj/item/implanter/skill/shotguns = list(CAT_ENGSUP, "Shotgun skills implanter", 25, "cyan2"),
 	/obj/item/implanter/skill/heavy_weapons = list(CAT_ENGSUP, "Heavy weapons skills implanter", 25, "cyan2"),
 	/obj/item/implanter/skill/melee = list(CAT_ENGSUP, "CQC skills implanter", 25, "cyan2"),
 	/obj/item/implanter/skill/engineer = list(CAT_ENGSUP, "Engineering skills implanter", 20, "cyan2"),

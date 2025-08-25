@@ -16,7 +16,6 @@
 	movement_acc_penalty_mult = 2
 	wield_delay = 0.4 SECONDS
 	type_of_casings = "bullet"
-	gun_skill_category = SKILL_PISTOLS
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/reddot,
@@ -776,7 +775,6 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 8
 	type_of_casings = null
-	gun_skill_category = SKILL_PISTOLS
 	attachable_allowed = list()
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 
@@ -807,7 +805,6 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 	default_ammo_type = /obj/item/ammo_magazine/pistol/knife
 	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/knife)
 	type_of_casings = "bullet"
-	gun_skill_category = SKILL_PISTOLS
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 14,"rail_x" = 9, "rail_y" = 17, "under_x" = 23, "under_y" = 11, "stock_x" = 23, "stock_y" = 10)
 	attachable_allowed = list(
 		/obj/item/attachable/quickfire,

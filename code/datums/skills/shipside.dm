@@ -44,7 +44,6 @@
 	surgery = SKILL_SURGERY_EXPERT
 	pilot = SKILL_PILOT_TRAINED
 	melee_weapons = SKILL_MELEE_WEAK
-	pistols = SKILL_PISTOLS_TRAINED
 	police = SKILL_POLICE_MP
 	powerloader = SKILL_POWERLOADER_MASTER
 
@@ -58,7 +57,6 @@
 	surgery = SKILL_SURGERY_PROFESSIONAL
 	pilot = SKILL_PILOT_TRAINED
 	melee_weapons = SKILL_MELEE_WEAK
-	pistols = SKILL_PISTOLS_TRAINED
 	police = SKILL_POLICE_MP
 	powerloader = SKILL_POWERLOADER_MASTER
 
@@ -149,9 +147,7 @@
 	cqc = SKILL_CQC_TRAINED
 	police = SKILL_POLICE_MP
 	medical = SKILL_MEDICAL_PRACTICED
-	pistols = SKILL_PISTOLS_TRAINED
 	firearms = SKILL_FIREARMS_TRAINED
-	shotguns = SKILL_SHOTGUNS_TRAINED
 
 /datum/skills/clown
 	name = CLOWN

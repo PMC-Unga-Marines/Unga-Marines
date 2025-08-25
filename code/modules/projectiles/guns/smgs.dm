@@ -23,7 +23,6 @@
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
-	gun_skill_category = SKILL_SMGS
 
 	fire_delay = 0.3 SECONDS
 	burst_amount = 3

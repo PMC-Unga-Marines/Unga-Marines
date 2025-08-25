@@ -5,7 +5,6 @@
 		slot_r_hand_str = 'icons/mob/inhands/gun/special_righthand_1.dmi',
 	)
 	w_class = WEIGHT_CLASS_BULKY
-	gun_skill_category = SKILL_FIREARMS
 	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	reciever_flags = NONE
 	throw_speed = 2
@@ -306,7 +305,7 @@
 	fire_sound = 'sound/weapons/guns/fire/flare.ogg'
 	w_class = WEIGHT_CLASS_SMALL
 	gun_features_flags = NONE
-	gun_skill_category = SKILL_PISTOLS
+
 	fire_delay = 0.5 SECONDS
 	wield_delay = 0.4 SECONDS
 	default_ammo_type = /obj/item/explosive/grenade/flare

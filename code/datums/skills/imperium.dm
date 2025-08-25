@@ -4,7 +4,6 @@
 	melee_weapons = SKILL_MELEE_TRAINED
 
 	firearms = SKILL_FIREARMS_TRAINED
-	rifles = SKILL_RIFLES_TRAINED
 
 /datum/skills/imperial/sl
 	name = "Guardsman Sergeant"
@@ -30,10 +29,6 @@
 	melee_weapons = SKILL_MELEE_SUPER
 
 	firearms = SKILL_FIREARMS_TRAINED
-	pistols = SKILL_PISTOLS_TRAINED
-	shotguns = SKILL_SHOTGUNS_TRAINED
-	rifles = SKILL_RIFLES_TRAINED
-	smgs = SKILL_SMGS_TRAINED
 	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
 	smartgun = SKILL_SMART_TRAINED
 

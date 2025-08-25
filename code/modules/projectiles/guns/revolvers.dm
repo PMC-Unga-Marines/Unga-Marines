@@ -19,7 +19,6 @@
 	aim_speed_modifier = 0.75
 	aim_fire_delay = 0.25 SECONDS
 	wield_delay = 0.4 SECONDS
-	gun_skill_category = SKILL_PISTOLS
 
 	reciever_flags = AMMO_RECIEVER_HANDFULS|AMMO_RECIEVER_ROTATES_CHAMBER|AMMO_RECIEVER_TOGGLES_OPEN|AMMO_RECIEVER_TOGGLES_OPEN_EJECTS
 	max_chamber_items = 7
@@ -471,7 +470,6 @@
 	)
 	fire_animation = "coltrifle_fire"
 	fire_sound = 'sound/weapons/guns/fire/mateba.ogg'
-	gun_skill_category = SKILL_RIFLES
 	equip_slot_flags = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	caliber = CALIBER_44LS

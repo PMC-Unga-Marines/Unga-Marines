@@ -15,7 +15,6 @@
 	load_method = MAGAZINE //codex
 	aim_slowdown = 0.35
 	wield_delay = 0.8 SECONDS
-	gun_skill_category = SKILL_RIFLES
 
 	burst_amount = 3
 	burst_delay = 0.2 SECONDS
@@ -1477,7 +1476,6 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	starting_attachment_types = list(/obj/item/attachable/stock/sh15)
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 16,"rail_x" = 12, "rail_y" = 17, "under_x" = 20, "under_y" = 13, "stock_x" = 26, "stock_y" = 13)
-	gun_skill_category = SKILL_SHOTGUNS
 
 	fire_delay = 1 SECONDS
 	accuracy_mult = 1.15
@@ -2863,7 +2861,6 @@
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES //Its a shotgun type weapon effectively, most shotgun type weapons shouldn't be able to point blank 1 handed.
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 26,"rail_x" = 26, "rail_y" = 24, "under_x" = 40, "under_y" = 16, "stock_x" = 26, "stock_y" = 13)
-	gun_skill_category = SKILL_SHOTGUNS
 
 	fire_delay = 0.9 SECONDS
 	accuracy_mult = 1.15

@@ -1,9 +1,5 @@
 GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/implanter/skill/firearms = list(CAT_FCSUP, "Firearms skills implanter", 15, "cyan2"),
-	/obj/item/implanter/skill/pistols = list(CAT_FCSUP, "Pistol skills implanter", 15, "cyan2"),
-	/obj/item/implanter/skill/smgs = list(CAT_FCSUP, "SMG skills implanter", 15, "cyan2"),
-	/obj/item/implanter/skill/rifles = list(CAT_FCSUP, "Rifle skills implanter", 15, "cyan2"),
-	/obj/item/implanter/skill/shotguns = list(CAT_FCSUP, "Shotgun skills implanter", 15, "cyan2"),
 	/obj/item/implanter/skill/heavy_weapons = list(CAT_FCSUP, "Heavy weapons skills implanter", 15, "cyan2"),
 	/obj/item/implanter/skill/melee = list(CAT_FCSUP, "CQC skills implanter", 15, "cyan2"),
 	/obj/item/implanter/skill/medical = list(CAT_FCSUP, "Medical skills implanter", 15, "cyan2"),
