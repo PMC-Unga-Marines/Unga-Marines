@@ -36,12 +36,17 @@
 	if(.)
 		return
 
+	// Check if box needs to be on ground
+	if(requires_ground && !isturf(loc))
+		to_chat(user, span_warning("[src] must be on the ground to be used."))
+		return
+
+	if(!matter_amount)
+		to_chat(user, span_warning("[src] is empty."))
+		return
+
 	if(istype(I, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/ammo_magazine = I
-		// Check if box needs to be on ground
-		if(requires_ground && !isturf(loc))
-			to_chat(user, span_warning("[src] must be on the ground to be used."))
-			return
 
 		if(!ammo_magazine.default_ammo || ammo_magazine.default_ammo.matter_cost <= 0)
 			to_chat(user, span_warning("This ammunition type cannot be converted to matter."))
@@ -89,6 +94,28 @@
 			if(ammo_magazine.current_rounds <= 0)
 				user.temporarilyRemoveItemFromInventory(ammo_magazine)
 				qdel(ammo_magazine)
+
+	else if(istype(I, /obj/item/matter_ammo_box))
+		var/obj/item/matter_ammo_box/other_box = I
+
+		if(other_box.matter_amount >= other_box.max_matter_amount)
+			to_chat(user, span_warning("[other_box] is full."))
+			return
+
+		if(!do_after(user, 5 SECONDS, NONE, src, BUSY_ICON_GENERIC))
+			return
+
+		var/transfer_amount = min(matter_amount, other_box.max_matter_amount - other_box.matter_amount)
+		other_box.matter_amount += transfer_amount
+		matter_amount -= transfer_amount
+		playsound(loc, 'sound/weapons/guns/interact/revolver_load.ogg', 25, 1)
+		to_chat(user, span_notice("You transfer [transfer_amount] matter units from [src] to [other_box]."))
+		other_box.update_icon()
+		update_icon()
+
+/obj/item/matter_ammo_box/examine(mob/user, distance, infix, suffix)
+	. = ..()
+	. += span_notice("Left click [src] [requires_ground ? "on the ground" : ""] with ammo box or packet, magazine, matter box to restore ammo.")
 
 //explosion when using flamer procs.
 /obj/item/matter_ammo_box/fire_act(burn_level, flame_color)
