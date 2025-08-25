@@ -1,7 +1,7 @@
 /obj/item/matter_ammo_box
 	name = "medium matter ammo box"
 	desc = "A large matter storage box that can convert stored matter into various types of ammunition. It comes with a leather strap for easy carrying."
-	w_class = WEIGHT_CLASS_HUGE
+	w_class = 7
 	icon = 'icons/obj/items/ammo/box.dmi'
 	icon_state = "matter_ammo_box"
 	worn_icon_state = "matter_ammo_box"
@@ -133,11 +133,13 @@
 	desc = "A massive matter storage box that can convert stored matter into various types of ammunition. It's too large to be carried on one's back and must be deployed in place."
 	icon_state = "giant_matter_ammo_box"
 	base_icon_state = "giant_matter_ammo_box"
-	w_class = WEIGHT_CLASS_GIGANTIC
 	equip_slot_flags = NONE // Cannot be carried on the back
-	matter_amount = 32000
-	max_matter_amount = 32000
+	matter_amount = 64000
+	max_matter_amount = 64000
 	use_delay = 0
+
+/obj/item/matter_ammo_box/giant/on_vend(mob/user, faction, fill_container = FALSE, auto_equip = FALSE)
+	return
 
 //just grab it
 /obj/item/matter_ammo_box/giant/attack_hand(mob/user)
