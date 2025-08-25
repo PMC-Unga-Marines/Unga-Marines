@@ -1,4 +1,5 @@
 GLOBAL_LIST_INIT(marine_gear_listed_products, list(
+	/obj/item/clothing/suit/modular/xenonauten/pilot = list(CAT_MARINE, "TerraGov standard flak jacket", 20, "red"),
 	/obj/item/implanter/skill/firearms = list(CAT_MARINE, "Firearms skills implanter", 35, "cyan2"),
 	/obj/item/implanter/skill/melee = list(CAT_MARINE, "CQC skills implanter", 25, "cyan2"),
 	/obj/item/implanter/skill/medical = list(CAT_MARINE, "Medical skills implanter", 20, "cyan2"),
