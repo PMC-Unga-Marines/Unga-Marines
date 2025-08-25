@@ -14,19 +14,20 @@
 		to_chat(H, span_warning("You can't bite your hand again yet..."))
 		return
 
-	if (!H.handcuffed)
+	if(!H.handcuffed)
 		return
-	if (H.a_intent != INTENT_HARM)
+	if(H.a_intent != INTENT_HARM)
 		return
-	if (H.zone_selected != "mouth")
+	if(H.zone_selected != BODY_ZONE_PRECISE_MOUTH)
 		return
-	if (H.wear_mask)
+	if(H.wear_mask)
 		return
-	if (istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
+	if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
 		return
 
-	var/datum/limb/O = H.get_limb(H.hand?"l_hand":"r_hand")
-	if (!O) return
+	var/datum/limb/O = H.get_limb(H.hand? BODY_ZONE_PRECISE_L_HAND : BODY_ZONE_PRECISE_R_HAND)
+	if(!O)
+		return
 
 	var/s = span_warning("[H.name] chews on [H.p_their()] [O.display_name]!")
 	H.visible_message(s, span_warning("You chew on your [O.display_name]!"))
@@ -36,7 +37,6 @@
 		H.UpdateDamageIcon()
 
 	TIMER_COOLDOWN_START(src, COOLDOWN_CHEW, 7.5 SECONDS)
-
 
 /mob/living/carbon/human/UnarmedAttack(atom/A, proximity, list/modifiers)
 	if(lying_angle) //No attacks while laying down
@@ -52,7 +52,7 @@
 	if(proximity && istype(G) && G.Touch(A, 1))
 		return
 
-	var/datum/limb/temp = get_limb(hand ? "l_hand" : "r_hand")
+	var/datum/limb/temp = get_limb(hand ? BODY_ZONE_PRECISE_L_HAND : BODY_ZONE_PRECISE_R_HAND)
 	if(temp && !temp.is_usable())
 		to_chat(src, span_notice("You try to move your [temp.display_name], but cannot!"))
 		return
