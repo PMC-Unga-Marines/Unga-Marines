@@ -10,6 +10,7 @@
 	damage_falloff = 1
 	additional_xeno_penetration = 10
 	penetration = 5
+	matter_cost = 2
 
 /datum/ammo/bullet/smg/ap
 	name = "armor-piercing submachinegun bullet"
@@ -30,6 +31,7 @@
 	penetration = 0
 	additional_xeno_penetration = 10
 	shrapnel_chance = 25
+	matter_cost = 4
 
 /datum/ammo/bullet/smg/acp/incendiary
 	name = "incendiary submachinegun ACP bullet"
