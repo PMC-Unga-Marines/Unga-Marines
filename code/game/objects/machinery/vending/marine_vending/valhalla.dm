@@ -133,6 +133,7 @@
 			/obj/item/implanter/chem = -1,
 			/obj/item/implanter/neurostim = -1,
 			/obj/item/implanter/skill/firearms = -1,
+			/obj/item/implanter/skill/heavy_weapons = -1,
 			/obj/item/implanter/skill/melee = -1,
 			/obj/item/implanter/skill/medical = -1,
 			/obj/item/implanter/skill/surgery = -1,

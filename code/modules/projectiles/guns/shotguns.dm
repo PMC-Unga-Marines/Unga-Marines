@@ -22,7 +22,6 @@
 	allowed_ammo_types = list()
 	aim_slowdown = 0.35
 	wield_delay = 0.8 SECONDS //Shotguns are really easy to put up to fire, since they are designed for CQC (at least compared to a rifle)
-	gun_skill_category = SKILL_SHOTGUNS
 	item_map_variant_flags = NONE
 
 	fire_delay = 0.6 SECONDS
@@ -469,7 +468,6 @@
 	max_chamber_items = 4 //codex
 	default_ammo_type = /datum/ammo/bullet/sniper/svd
 	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/boltclip)
-	gun_skill_category = SKILL_RIFLES
 	cocked_sound = 'sound/weapons/guns/interact/working_the_bolt.ogg'
 	cocked_message = "You work the bolt."
 	attachable_allowed = list(
@@ -537,7 +535,6 @@
 	max_chamber_items = 1 //codex
 	ammo_datum_type = /datum/ammo/bullet/sniper/martini
 	default_ammo_type = /datum/ammo/bullet/sniper/martini
-	gun_skill_category = SKILL_RIFLES
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_martinihenry.ogg'
 	reload_sound = 'sound/weapons/guns/interact/martini_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/martini_cocked.ogg'
@@ -595,7 +592,6 @@
 	type_of_casings = null
 	ammo_datum_type = /datum/ammo/bullet/sniper/musket
 	default_ammo_type = /datum/ammo/bullet/sniper/musket
-	gun_skill_category = SKILL_RIFLES
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_martinihenry.ogg'
 	reload_sound = 'sound/weapons/guns/interact/martini_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/martini_cocked.ogg'
@@ -643,7 +639,6 @@
 	type_of_casings = null
 	ammo_datum_type = /datum/ammo/bullet/sniper/musket
 	default_ammo_type = /datum/ammo/bullet/sniper/musket
-	gun_skill_category = SKILL_PISTOLS
 	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_martinihenry.ogg'
 	reload_sound = 'sound/weapons/guns/interact/martini_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/martini_cocked.ogg'
@@ -686,7 +681,6 @@
 		slot_l_hand_str = 'icons/mob/inhands/gun/pistol_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/pistol_righthand_1.dmi',
 	)
-	gun_skill_category = SKILL_PISTOLS
 	w_class = WEIGHT_CLASS_TINY
 	caliber = CALIBER_41RIM //codex
 	muzzle_flash_lum = 5
@@ -730,7 +724,6 @@
 	load_method = SINGLE_CASING //codex
 	max_chamber_items = 9 //codex
 	default_ammo_type = /datum/ammo/bullet/revolver/r44
-	gun_skill_category = SKILL_RIFLES
 	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'//good enough for now.
 	cocked_message = "You work the lever."
 	item_map_variant_flags = NONE
@@ -779,7 +772,6 @@
 	load_method = SINGLE_CASING //codex
 	max_chamber_items = 13 //codex
 	default_ammo_type = /datum/ammo/bullet/rifle/repeater
-	gun_skill_category = SKILL_RIFLES
 	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'//good enough for now.
 	item_map_variant_flags = NONE
 	attachable_allowed = list(
@@ -826,7 +818,6 @@
 	load_method = SINGLE_CASING
 	max_chamber_items = 9
 	default_ammo_type = /datum/ammo/bullet/shotgun/mbx900_buckshot
-	gun_skill_category = SKILL_SHOTGUNS
 	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
 
 	attachable_allowed = list(

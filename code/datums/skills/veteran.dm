@@ -9,7 +9,6 @@
 	powerloader = SKILL_POWERLOADER_TRAINED
 	cqc = SKILL_CQC_AMATEUR
 	firearms = SKILL_FIREARMS_TRAINED
-	rifles = SKILL_RIFLES_TRAINED
 
 /datum/skills/veteran_captain
 	name = "TGMC Retired Veteran Expedition Leader"
@@ -21,5 +20,4 @@
 	construction = SKILL_CONSTRUCTION_ADVANCED
 	powerloader = SKILL_POWERLOADER_MASTER
 	firearms = SKILL_FIREARMS_TRAINED
-	rifles = SKILL_RIFLES_TRAINED
 	smartgun = SKILL_SMART_TRAINED

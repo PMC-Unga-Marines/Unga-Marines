@@ -4,6 +4,12 @@
 	icon_state = "weapon"
 	internal_implant = /obj/item/implant/skill/combat/firearms
 
+/obj/item/implanter/skill/heavy_weapons
+	name = "heavy weapons skill implanter"
+	desc = "A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your heavy weapons skills."
+	icon_state = "weapon"
+	internal_implant = /obj/item/implant/skill/combat/heavy_weapons
+
 /obj/item/implanter/skill/melee
 	name = "CQC skill implanter"
 	desc = "A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your CQC skills."

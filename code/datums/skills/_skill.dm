@@ -1,9 +1,9 @@
 #define SKILLSID "skills-[cqc]-[melee_weapons]\
--[firearms]-[pistols]-[shotguns]-[rifles]-[smgs]-[heavy_weapons]-[smartgun]\
+-[firearms]-[heavy_weapons]-[smartgun]\
 -[engineer]-[construction]-[leadership]-[medical]-[surgery]-[pilot]-[police]-[powerloader]-[large_vehicle]-[mech_pilot]-[stamina]"
 
 #define SKILLSIDSRC(S) "skills-[S.cqc]-[S.melee_weapons]\
--[S.firearms]-[S.pistols]-[S.shotguns]-[S.rifles]-[S.smgs]-[S.heavy_weapons]-[S.smartgun]\
+-[S.firearms]-[S.heavy_weapons]-[S.smartgun]\
 -[S.engineer]-[S.construction]-[S.leadership]-[S.medical]-[S.surgery]-[S.pilot]-[S.police]-[S.powerloader]-[S.large_vehicle]-[mech_pilot]-[S.stamina]"
 
 /proc/getSkills(
@@ -59,10 +59,6 @@
 	var/cqc = initial(new_skill.cqc)
 	var/melee_weapons = initial(new_skill.melee_weapons)
 	var/firearms = initial(new_skill.firearms)
-	var/pistols = initial(new_skill.pistols)
-	var/shotguns = initial(new_skill.shotguns)
-	var/rifles = initial(new_skill.rifles)
-	var/smgs = initial(new_skill.smgs)
 	var/heavy_weapons = initial(new_skill.heavy_weapons)
 	var/smartgun = initial(new_skill.smartgun)
 	var/engineer = initial(new_skill.engineer)
@@ -87,10 +83,6 @@
 	var/melee_weapons = SKILL_MELEE_DEFAULT
 
 	var/firearms = SKILL_FIREARMS_DEFAULT
-	var/pistols = SKILL_PISTOLS_DEFAULT
-	var/shotguns = SKILL_SHOTGUNS_DEFAULT
-	var/rifles = SKILL_RIFLES_DEFAULT
-	var/smgs = SKILL_SMGS_DEFAULT
 	var/heavy_weapons = SKILL_HEAVY_WEAPONS_DEFAULT
 	var/smartgun = SKILL_SMART_DEFAULT
 
@@ -112,10 +104,6 @@
 	cqc,
 	melee_weapons,
 	firearms,
-	pistols,
-	shotguns,
-	rifles,
-	smgs,
 	heavy_weapons,
 	smartgun,
 	engineer,
@@ -136,14 +124,6 @@
 		src.melee_weapons = melee_weapons
 	if(!isnull(firearms))
 		src.firearms = firearms
-	if(!isnull(pistols))
-		src.pistols = pistols
-	if(!isnull(shotguns))
-		src.shotguns = shotguns
-	if(!isnull(rifles))
-		src.rifles = rifles
-	if(!isnull(smgs))
-		src.smgs = smgs
 	if(!isnull(heavy_weapons))
 		src.heavy_weapons = heavy_weapons
 	if(!isnull(smartgun))
@@ -177,10 +157,6 @@
 	cqc,
 	melee_weapons,
 	firearms,
-	pistols,
-	shotguns,
-	rifles,
-	smgs,
 	heavy_weapons,
 	smartgun,
 	engineer,
@@ -199,10 +175,6 @@
 		src.cqc + cqc,
 		src.melee_weapons + melee_weapons,
 		src.firearms + firearms,
-		src.pistols + pistols,
-		src.shotguns + shotguns,
-		src.rifles + rifles,
-		src.smgs + smgs,
 		src.heavy_weapons + heavy_weapons,
 		src.smartgun + smartgun,
 		src.engineer + engineer,
@@ -224,10 +196,6 @@
 		cqc + difference,
 		melee_weapons + difference,
 		firearms + difference,
-		pistols + difference,
-		shotguns + difference,
-		rifles  +  difference,
-		smgs + difference,
 		heavy_weapons + difference,
 		smartgun + difference,
 		engineer + difference,
@@ -248,10 +216,6 @@
 	cqc,
 	melee_weapons,
 	firearms,
-	pistols,
-	shotguns,
-	rifles,
-	smgs,
 	heavy_weapons,
 	smartgun,
 	engineer,
@@ -270,10 +234,6 @@
 		(isnull(cqc) ? src.cqc : cqc),
 		(isnull(melee_weapons) ? src.melee_weapons : melee_weapons),
 		(isnull(firearms) ? src.firearms : firearms),
-		(isnull(pistols) ? src.pistols : pistols),
-		(isnull(shotguns) ? src.shotguns : shotguns),
-		(isnull(rifles) ? src.rifles : rifles),
-		(isnull(smgs) ? src.smgs : smgs),
 		(isnull(heavy_weapons) ? src.heavy_weapons : heavy_weapons),
 		(isnull(smartgun) ? src.smartgun : smartgun),
 		(isnull(engineer) ? src.engineer : engineer),
@@ -312,10 +272,6 @@
 		SKILL_CQC = cqc,
 		SKILL_MELEE_WEAPONS = melee_weapons,
 		SKILL_FIREARMS = firearms,
-		SKILL_PISTOLS = pistols,
-		SKILL_SHOTGUNS = shotguns,
-		SKILL_RIFLES = rifles,
-		SKILL_SMGS = smgs,
 		SKILL_HEAVY_WEAPONS = heavy_weapons,
 		SKILL_SMARTGUN = smartgun,
 		SKILL_ENGINEER = engineer,

@@ -8,10 +8,6 @@
 	medical = SKILL_MEDICAL_NOVICE
 	surgery = SKILL_SURGERY_AMATEUR
 	melee_weapons = SKILL_MELEE_TRAINED
-	pistols = SKILL_PISTOLS_TRAINED
-	smgs = SKILL_SMGS_TRAINED
-	rifles = SKILL_RIFLES_TRAINED
-	shotguns = SKILL_SHOTGUNS_TRAINED
 	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
 
 /datum/skills/commando/medic

@@ -1,6 +1,7 @@
 GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/effect/vendor_bundle/leader = list(CAT_ESS, "Essential SL Set", 0, "white"),
 	/obj/item/implanter/skill/firearms = list(CAT_LEDSUP, "Firearms skills implanter", 15, "cyan2"),
+	/obj/item/implanter/skill/heavy_weapons = list(CAT_LEDSUP, "Heavy weapons skills implanter", 15, "cyan2"),
 	/obj/item/implanter/skill/melee = list(CAT_LEDSUP, "CQC skills implanter", 15, "cyan2"),
 	/obj/item/implanter/skill/medical = list(CAT_LEDSUP, "Medical skills implanter", 15, "cyan2"),
 	/obj/item/implanter/skill/engineer = list(CAT_LEDSUP, "Engineering skills implanter", 15, "cyan2"),

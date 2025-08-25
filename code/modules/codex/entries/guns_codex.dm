@@ -182,10 +182,7 @@
 
 /obj/item/weapon/gun/shotgun/pump/get_mechanics_info()
 	. = ..()
-	if(gun_skill_category == SKILL_RIFLES)
-		. += "<br><br>To work the weapon press spacebar.<br>"
-	else
-		. += "<br><br>To pump it press spacebar.<br>"
+	. += "<br><br>To work or pump the weapon press spacebar.<br>"
 
 /datum/codex_entry/energy_weapons
 	display_name = "energy weapons"

@@ -22,7 +22,6 @@
 /datum/skills/sl/icc
 	name = "ICC Leader"
 	firearms = SKILL_FIREARMS_TRAINED
-	shotguns = SKILL_SHOTGUNS_TRAINED
 	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
 	construction = SKILL_CONSTRUCTION_PLASTEEL
 	engineer = SKILL_ENGINEER_ENGI
@@ -37,10 +36,6 @@
 	medical = SKILL_MEDICAL_NOVICE
 	surgery = SKILL_SURGERY_AMATEUR
 	melee_weapons = SKILL_MELEE_TRAINED
-	pistols = SKILL_PISTOLS_TRAINED
-	smgs = SKILL_SMGS_TRAINED
-	rifles = SKILL_RIFLES_TRAINED
-	shotguns = SKILL_SHOTGUNS_TRAINED
 	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
 
 /datum/skills/spatial_agent
@@ -55,10 +50,6 @@
 	melee_weapons = SKILL_MELEE_MASTER
 	leadership = SKILL_LEAD_MASTER
 	pilot = SKILL_PILOT_TRAINED
-	pistols = SKILL_PISTOLS_TRAINED
-	smgs = SKILL_SMGS_TRAINED
-	rifles = SKILL_RIFLES_TRAINED
-	shotguns = SKILL_SHOTGUNS_TRAINED
 	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
 	police = SKILL_POLICE_MP
 	powerloader = SKILL_POWERLOADER_MASTER
@@ -75,10 +66,6 @@
 	medical = SKILL_MEDICAL_COMPETENT
 	surgery = SKILL_SURGERY_EXPERT//how else will they probe marines?
 	melee_weapons = SKILL_MELEE_WEAK
-	pistols = SKILL_PISTOLS_TRAINED
-	smgs = SKILL_SMGS_TRAINED
-	rifles = SKILL_RIFLES_TRAINED
-	shotguns = SKILL_SHOTGUNS_TRAINED
 	heavy_weapons = SKILL_HEAVY_WEAPONS_TRAINED
 
 /datum/skills/skeleton
@@ -96,6 +83,4 @@
 	cqc = SKILL_CQC_MASTER
 	surgery = SKILL_SURGERY_EXPERT
 	melee_weapons = SKILL_MELEE_MASTER
-	pistols = SKILL_PISTOLS_TRAINED
-	rifles = SKILL_RIFLES_TRAINED
 	police = SKILL_POLICE_MP

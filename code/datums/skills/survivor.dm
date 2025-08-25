@@ -20,7 +20,6 @@
 	construction = SKILL_CONSTRUCTION_ADVANCED
 	engineer = SKILL_ENGINEER_ENGI
 	powerloader = SKILL_POWERLOADER_MASTER
-	rifles = SKILL_RIFLES_TRAINED
 	melee_weapons = SKILL_MELEE_TRAINED
 	stamina = SKILL_STAMINA_TRAINED
 
@@ -54,7 +53,6 @@
 /datum/skills/civilian/survivor/marshal
 	name = "Survivor Marshal"
 	cqc = SKILL_CQC_TRAINED
-	firearms = SKILL_FIREARMS_DEFAULT
+	firearms = SKILL_FIREARMS_TRAINED
 	melee_weapons = SKILL_MELEE_DEFAULT
-	pistols = SKILL_PISTOLS_TRAINED
 	police = SKILL_POLICE_MP

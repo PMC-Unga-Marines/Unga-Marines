@@ -10,6 +10,12 @@
 	firearms = 1
 	max_skills = list(SKILL_FIREARMS = SKILL_FIREARMS_TRAINED)
 
+/obj/item/implant/skill/combat/heavy_weapons
+	name = "heavy weapons mastery implant system"
+	desc = "Integrated heavy weapons handling support system! Update heavy weapons skills!"
+	heavy_weapons = 1
+	max_skills = list(SKILL_HEAVY_WEAPONS = SKILL_HEAVY_WEAPONS_TRAINED)
+
 /obj/item/implant/skill/combat/melee
 	name = "close combat codex implant system"
 	desc = "Integrated hit support system! Update melee skills!"

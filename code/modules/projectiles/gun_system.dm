@@ -148,7 +148,7 @@
 	var/list/gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
 
 	///Skill used to operate this gun.
-	var/gun_skill_category = SKILL_RIFLES
+	var/gun_skill_category = SKILL_FIREARMS
 
 	///the default gun icon_state. change to reskin the gun
 	var/base_gun_icon

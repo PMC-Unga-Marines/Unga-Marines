@@ -195,7 +195,6 @@
 	desc = "The PL-51 Plasma SMG is another experimental addition to the TGMC plasma weapon lineup, speculated by some to be part of a scheme to have AI design and generate weapon schematics and profiles. It shares the same cooling system as other plasma weapons, preventing sustained fire. In contrast to others in it's lineup, it is much lighter, easier to handle and can be fired one handed. Has two fire modes, Standard which is capable of ricochetting off walls and solid objects and Overcharge which is slower firing, but causes a small moderately damaging explosion on contact with a target."
 	icon_state = "plasma_smg"
 	worn_icon_state = "plasma_smg"
-	gun_skill_category = SKILL_SMGS
 	fire_sound = 'sound/weapons/guns/fire/plasma_fire_fast.ogg'
 	unload_sound = 'sound/weapons/guns/interact/plasma_unload_3.ogg'
 	reload_sound = 'sound/weapons/guns/interact/plasma_reload_3.ogg'

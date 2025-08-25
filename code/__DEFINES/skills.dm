@@ -1,35 +1,11 @@
 ///Firearms skill; Increase or decrase accuracy, recoil, damage, and firing delay of most guns; ability to tac reload
 #define SKILL_FIREARMS "firearms"
-#define SKILL_FIREARMS_UNTRAINED 0
-#define SKILL_FIREARMS_DEFAULT 1
-#define SKILL_FIREARMS_TRAINED 2
+#define SKILL_FIREARMS_UNTRAINED -1
+#define SKILL_FIREARMS_DEFAULT 0
+#define SKILL_FIREARMS_TRAINED 1
 
 ///Damage mod for having the weapon specific skill above 0
 #define FIREARM_SKILL_DAM_MOD 0.05
-
-///Pistols skill; Increase accuracy, recoil, and damage of pistols and revolvers.
-#define SKILL_PISTOLS "pistols"
-
-#define SKILL_PISTOLS_DEFAULT 0
-#define SKILL_PISTOLS_TRAINED 1
-
-///SMG skill; Increase accuracy, recoil, and damage of SMGs.
-#define SKILL_SMGS "smgs"
-
-#define SKILL_SMGS_DEFAULT 0
-#define SKILL_SMGS_TRAINED 1
-
-///Rifles skill; Increase accuracy, recoil, and damage of rifles.
-#define SKILL_RIFLES "rifles"
-
-#define SKILL_RIFLES_DEFAULT 0
-#define SKILL_RIFLES_TRAINED 1
-
-///Shotgun skill; Increase accuracy, recoil, and damage of shotguns.
-#define SKILL_SHOTGUNS "shotguns"
-
-#define SKILL_SHOTGUNS_DEFAULT 0
-#define SKILL_SHOTGUNS_TRAINED 1
 
 ///Heavy weapons skill; Increase accuracy, recoil, damage, and firing delay of heavy weapons (eg. machineguns, pulse rifles, flamethrower).
 #define SKILL_HEAVY_WEAPONS "heavy_weapons"
