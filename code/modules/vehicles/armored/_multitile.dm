@@ -174,35 +174,29 @@
 	if(.)
 		return
 
-	if(istype(I, /obj/item/stack/sheet/plasteel) && (armored_flags & ARMORED_IS_WRECK))
-		var/obj/item/stack/sheet/plasteel/plasteel_stack = I
+	if(!(istype(I, /obj/item/stack/sheet/plasteel) && (armored_flags & ARMORED_IS_WRECK)))
+		return
 
-		if(plasteel_stack.get_amount() < 50)
-			balloon_alert(user, "You need at least 50 plasteel sheets to repair this vehicle!")
+	var/obj/item/stack/sheet/plasteel/plasteel_stack = I
+	if(plasteel_stack.get_amount() < 50)
+		balloon_alert(user, "You need at least 50 plasteel sheets to repair this vehicle!")
+		return FALSE
+	if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_PLASTEEL)
+		user.visible_message(span_notice("[user] fumbles around figuring out how to use plasteel for [src]."),
+		span_notice("You fumble around figuring out how to use plasteel for [src]."))
+		var/fumbling_time = 30 SECONDS - 2 SECONDS * user.skills.getRating(SKILL_ENGINEER)
+		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED))
 			return FALSE
-
-		if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_PLASTEEL)
-			user.visible_message(span_notice("[user] fumbles around figuring out how to use plasteel for [src]."),
-			span_notice("You fumble around figuring out how to use plasteel for [src]."))
-			var/fumbling_time = 30 SECONDS - 2 SECONDS * user.skills.getRating(SKILL_ENGINEER)
-			if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED))
-				return FALSE
-
-		balloon_alert_to_viewers("Applying plasteel reinforcement...")
-		playsound(loc, 'sound/items/screwdriver.ogg', 25, TRUE)
-
-		if(!do_after(user, 30 SECONDS - 2 SECONDS * user.skills.getRating(SKILL_ENGINEER), NONE, src, BUSY_ICON_BUILD))
-			return FALSE
-
-		if(!plasteel_stack.use(50))
-			return FALSE
-
-		unwreck_vehicle()
-
-		user.visible_message(span_notice("[user] successfully reinforces and repairs [src] with plasteel!"),
-		span_notice("You successfully reinforce and repair [src] with plasteel!"))
-
-		return TRUE
+	balloon_alert_to_viewers("Applying plasteel reinforcement...")
+	playsound(loc, 'sound/items/screwdriver.ogg', 25, TRUE)
+	if(!do_after(user, 30 SECONDS - 2 SECONDS * user.skills.getRating(SKILL_ENGINEER), NONE, src, BUSY_ICON_BUILD))
+		return FALSE
+	if(!plasteel_stack.use(50))
+		return FALSE
+	unwreck_vehicle()
+	user.visible_message(span_notice("[user] successfully reinforces and repairs [src] with plasteel!"),
+	span_notice("You successfully reinforce and repair [src] with plasteel!"))
+	return TRUE
 
 /obj/vehicle/sealed/armored/multitile/examine(mob/user)
 	. = ..()
