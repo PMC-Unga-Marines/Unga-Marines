@@ -182,7 +182,7 @@
 
 /obj/item/weapon/gun/shotgun/pump/get_mechanics_info()
 	. = ..()
-	. += "<br><br>To work or pump the weapon press spacebar.<br>"
+	. += "<br><br>To work or pump the weapon press <b>Unique-Action</b> (Spacebar by default).<br>"
 
 /datum/codex_entry/energy_weapons
 	display_name = "energy weapons"
