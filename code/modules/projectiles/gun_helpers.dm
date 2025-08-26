@@ -117,7 +117,7 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 		to_chat(user, span_warning("You don't know how to do tactical reloads."))
 		return
 	to_chat(user, span_notice("You start a tactical reload."))
-	var/tac_reload_time = max(0.25 SECONDS, 0.75 SECONDS - user.skills.getRating(SKILL_FIREARMS) * 5)
+	var/tac_reload_time = max(0.25 SECONDS, 0.75 SECONDS - (user.skills.getRating(SKILL_FIREARMS) + 1) * 5)
 	if(length(chamber_items))
 		if(!do_after(user, tac_reload_time, IGNORE_USER_LOC_CHANGE, new_magazine) && loc == user)
 			return
