@@ -145,7 +145,7 @@
 	var/skill_upper_threshold = attachment_data[ATTACH_SKILL_UPPER_THRESHOLD]
 
 	if(skill_used) //This is so we can make many attachments with different skills used to attach.
-		if(user.skills.getRating(skill_used))
+		if(user.skills.getRating(skill_used) >= SKILL_FIREARMS_DEFAULT)
 			user.visible_message(span_notice("[user] begins attaching [attachment] to [parent]."),
 			span_notice("You begin attaching [attachment] to [parent]."), null, 4)
 			if(skill_upper_threshold && user.skills.getRating(skill_used) >= skill_upper_threshold) //See if the attacher is super skilled/panzerelite born to defeat never retreat etc
