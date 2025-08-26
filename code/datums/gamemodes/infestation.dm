@@ -159,13 +159,13 @@
 		to_chat(M, assemble_alert(
 			title = "Биосканирование Завершено",
 			message = {"[numXenosPlanet] ксеносов на земле.
-			[numXenosShip] ксеносов на корабле.
-			[numXenosTransit] ксено на шаттлах.
+		[numXenosShip] ксеносов на корабле.
+		[numXenosTransit] ксеносов на шаттлах.
 
-			[numHostsPlanet] людей на земле.
-			[numHostsShip] людей на корабле.
-			[numHostsTransit] людей на шаттлах. "},
-			color_override = "purple"
+		[numHostsPlanet] людей на земле.
+		[numHostsShip] людей на корабле.
+		[numHostsTransit] людей на шаттлах. "},
+		color_override = "purple"
 		))
 
 	message_admins("Bioscan - Humans: [numHostsPlanet] on the planet[host_location_planetside ? ". Location:[host_location_planetside]":""]. [hosts_shipside] on the ship.[host_location_shipside ? " Location: [host_location_shipside].":""]. [hosts_transit] in transit.")

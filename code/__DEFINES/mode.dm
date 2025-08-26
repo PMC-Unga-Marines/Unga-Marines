@@ -52,17 +52,17 @@
 #define MODE_XENO_DEN (1<<15)
 #define MODE_HAS_EXCAVATION (1<<16)
 
-#define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
-#define MODE_INFESTATION_M_MAJOR "Marine Major Victory"
-#define MODE_INFESTATION_X_MINOR "Xenomorph Minor Victory"
-#define MODE_INFESTATION_M_MINOR "Marine Minor Victory"
+#define MODE_INFESTATION_X_MAJOR "Полная Победа Ксеноморфов"
+#define MODE_INFESTATION_M_MAJOR "Полная Победа Морпехов"
+#define MODE_INFESTATION_X_MINOR "Частичная Победа Ксеноморфов"
+#define MODE_INFESTATION_M_MINOR "Частичная Победа Морпехов"
 
-#define MODE_ZOMBIE_Z_MAJOR "Zombie Major Victory"
-#define MODE_ZOMBIE_Z_MINOR "Zombie Minor Victory"
+#define MODE_ZOMBIE_Z_MAJOR "Полная Победа Зомби"
+#define MODE_ZOMBIE_Z_MINOR "Частичная Победа Зомби"
 
-#define MODE_INFESTATION_DRAW_DEATH "DRAW: Mutual Annihilation"
+#define MODE_INFESTATION_DRAW_DEATH "НИЧЬЯ: Никто Не Выжил"
 
-#define MODE_GENERIC_DRAW_NUKE "DRAW: Nuclear Explosion"
+#define MODE_GENERIC_DRAW_NUKE "НИЧЬЯ: Ядерный Взрыв"
 
 #define CRASH_EVAC_NONE "CRASH_EVAC_NONE"
 #define CRASH_EVAC_INPROGRESS "CRASH_EVAC_INPROGRESS"
@@ -204,6 +204,6 @@
 // make sure you don't turn 0 into a false positive
 #define BIOSCAN_DELTA(count, delta) count ? max(0, count + rand(-delta, delta)) : 0
 
-#define BIOSCAN_LOCATION(show_locations, location) ((show_locations && location) ? ", including one in [location]" : "")
+#define BIOSCAN_LOCATION(show_locations, location) ((show_locations && location) ? ", включая в [location]" : "")
 
 #define AI_SCAN_DELAY 15 SECONDS
