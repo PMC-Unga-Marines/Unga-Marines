@@ -8,10 +8,6 @@
 	var/cqc
 	var/melee_weapons
 	var/firearms
-	var/pistols
-	var/shotguns
-	var/rifles
-	var/smgs
 	var/heavy_weapons
 	var/smartgun
 	var/engineer
@@ -37,7 +33,7 @@
 			return
 	if(!do_after(user, 5 SECONDS, NONE, user))
 		return
-	user.set_skills(user.skills.modifyRating(cqc, melee_weapons, firearms, pistols, shotguns, rifles, smgs, heavy_weapons, smartgun,\
+	user.set_skills(user.skills.modifyRating(cqc, melee_weapons, firearms, heavy_weapons, smartgun,\
 	engineer, construction, leadership, medical, surgery, pilot, police, powerloader, large_vehicle, mech_pilot, stamina))
 	user.temporarilyRemoveItemFromInventory(src)
 	qdel(src)

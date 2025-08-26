@@ -7,10 +7,6 @@
 	var/cqc
 	var/melee_weapons
 	var/firearms
-	var/pistols
-	var/shotguns
-	var/rifles
-	var/smgs
 	var/heavy_weapons
 	var/smartgun
 	var/engineer
@@ -39,14 +35,14 @@
 	. = ..()
 	if(!.)
 		return
-	target.set_skills(target.skills.modifyRating(cqc, melee_weapons, firearms, pistols, shotguns, rifles, smgs, heavy_weapons, smartgun,\
+	target.set_skills(target.skills.modifyRating(cqc, melee_weapons, firearms, heavy_weapons, smartgun,\
 	engineer, construction, leadership, medical, surgery, pilot, police, powerloader, large_vehicle, mech_pilot, stamina))
 	return TRUE
 
 /obj/item/implant/skill/unimplant()
 	if(!implanted)
 		return FALSE
-	implant_owner.set_skills(implant_owner.skills.modifyRating(-cqc, -melee_weapons, -firearms, -pistols, -shotguns, -rifles, -smgs, -heavy_weapons, -smartgun,\
+	implant_owner.set_skills(implant_owner.skills.modifyRating(-cqc, -melee_weapons, -firearms, -heavy_weapons, -smartgun,\
 	-engineer, -construction, -leadership, -medical, -surgery, -pilot, -police, -powerloader, -large_vehicle, -mech_pilot, -stamina))
 	return ..()
 
