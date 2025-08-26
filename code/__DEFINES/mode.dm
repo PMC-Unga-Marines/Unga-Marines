@@ -52,15 +52,15 @@
 #define MODE_XENO_DEN (1<<15)
 #define MODE_HAS_EXCAVATION (1<<16)
 
-#define MODE_INFESTATION_X_MAJOR "Полная Победа Ксеноморфов"
-#define MODE_INFESTATION_M_MAJOR "Полная Победа Морпехов"
-#define MODE_INFESTATION_X_MINOR "Частичная Победа Ксеноморфов"
-#define MODE_INFESTATION_M_MINOR "Частичная Победа Морпехов"
+#define MODE_INFESTATION_X_MAJOR "Безоговорочная Победа Ксеноморфов"
+#define MODE_INFESTATION_M_MAJOR "Безоговорочная Победа Морпехов"
+#define MODE_INFESTATION_X_MINOR "Незначительная Победа Ксеноморфов"
+#define MODE_INFESTATION_M_MINOR "Незначительная Победа Морпехов"
 
-#define MODE_ZOMBIE_Z_MAJOR "Полная Победа Зомби"
-#define MODE_ZOMBIE_Z_MINOR "Частичная Победа Зомби"
+#define MODE_ZOMBIE_Z_MAJOR "Безоговорочная Победа Зомби"
+#define MODE_ZOMBIE_Z_MINOR "Незначительная Победа Зомби"
 
-#define MODE_INFESTATION_DRAW_DEATH "НИЧЬЯ: Никто Не Выжил"
+#define MODE_INFESTATION_DRAW_DEATH "НИЧЬЯ: Никто не выжил"
 
 #define MODE_GENERIC_DRAW_NUKE "НИЧЬЯ: Ядерный Взрыв"
 
