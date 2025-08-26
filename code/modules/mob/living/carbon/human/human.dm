@@ -496,7 +496,7 @@
 
 //src is the user that will be carrying, target is the mob to be carried
 /mob/living/carbon/human/proc/can_be_firemanned(mob/living/carbon/target)
-	return (ishuman(target) && target.lying_angle)
+	return (ishuman(target) && !target.canmove)
 
 /mob/living/carbon/human/proc/fireman_carry(mob/living/carbon/target)
 	if(!can_be_firemanned(target) || incapacitated(restrained_flags = RESTRAINED_NECKGRAB))

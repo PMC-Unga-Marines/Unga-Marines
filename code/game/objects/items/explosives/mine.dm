@@ -127,6 +127,9 @@ Stepping directly on the mine will also blow it up
 		return
 	if(CHECK_MULTIPLE_BITFIELDS(A.pass_flags, HOVERING))
 		return
+	var/mob/living/L = A
+	if(L.lying_angle) ///so dragged corpses don't trigger mines.
+		return
 	trip_mine(A)
 
 /obj/item/explosive/mine/proc/trip_mine(atom/movable/victim)
