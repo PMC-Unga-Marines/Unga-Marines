@@ -83,7 +83,7 @@
 
 	var/turf/open/target = mystery_turf
 
-	if(!check_blocked_turf(target)) //check if blocked
+	if(check_blocked_turf(target)) //check if blocked
 		to_chat(user, span_warning("There is insufficient room to deploy [src]!"))
 		return
 
