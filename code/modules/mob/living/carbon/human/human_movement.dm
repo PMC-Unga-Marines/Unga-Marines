@@ -4,7 +4,7 @@
 		return
 	if(interactee)// moving stops any kind of interaction
 		unset_interaction()
-	if(shoes && !buckled)
+	if(shoes && !buckled && !lying_angle)
 		var/obj/item/clothing/shoes/S = shoes
 		S.step_action()
 	ToTracks(direction)
