@@ -588,8 +588,8 @@
 //TypeSh12-Saiga12
 
 /obj/item/weapon/gun/rifle/saiga12
-	name = "TypeSh12-Святогор"
-	desc = "Experimental 25-round automatic shotgun with a new generation feed system."
+	name = "Святогор"
+	desc = "Experimental automatic rifle "Saiga-12" with 25 rounds and a new generation feeding system."
 	icon_state = "typesh12"
 	worn_icon_state = "typesh12"
 	icon = 'icons/obj/items/gun/rifle64.dmi'
