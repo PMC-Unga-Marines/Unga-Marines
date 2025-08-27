@@ -115,7 +115,7 @@
 
 // TypeSh12-Saiga 6
 /obj/item/ammo_magazine/rifle/typesh12
-	name = "Typesh12 buckshot"
+	name = "Typesh12 buckshot magazine"
 	desc = "25 A buckshot magazine."
 	icon_state = "typesh12b"
 	caliber = CALIBER_12G
@@ -126,8 +126,8 @@
 	wield_delay_mod = 0.5 SECONDS
 
 /obj/item/ammo_magazine/rifle/typesh12/slug
-	name = "Typesh12 slug"
-	desc = "25 A buckshot magazine."
+	name = "Typesh12 slug magazine"
+	desc = "25 A slug magazine."
 	icon_state = "typesh12s"
 	caliber = CALIBER_12G
 	bonus_overlay = "typesh12"
@@ -138,7 +138,7 @@
 
 /obj/item/ammo_magazine/rifle/typesh12/flechette
 	name = "Typesh12 flechette"
-	desc = "25 A buckshot magazine."
+	desc = "25 A flechette magazine."
 	icon_state = "typesh12f"
 	caliber = CALIBER_12G
 	bonus_overlay = "typesh12"
