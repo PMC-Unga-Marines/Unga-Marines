@@ -129,7 +129,6 @@
 	name = "Typesh12 slug magazine"
 	desc = "25 A slug magazine."
 	icon_state = "typesh12s"
-	caliber = CALIBER_12G
 	bonus_overlay = "typesh12"
 	default_ammo = /datum/ammo/bullet/shotgun/slug
 
