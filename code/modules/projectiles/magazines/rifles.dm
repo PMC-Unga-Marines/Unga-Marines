@@ -132,20 +132,15 @@
 	caliber = CALIBER_12G
 	bonus_overlay = "typesh12"
 	default_ammo = /datum/ammo/bullet/shotgun/slug
-	max_rounds = 25
-	scatter_mod = 2
-	wield_delay_mod = 0.5 SECONDS
+
 
 /obj/item/ammo_magazine/rifle/typesh12/flechette
 	name = "Typesh12 flechette"
 	desc = "25 A flechette magazine."
 	icon_state = "typesh12f"
-	caliber = CALIBER_12G
 	bonus_overlay = "typesh12"
 	default_ammo = /datum/ammo/bullet/shotgun/flechette
-	max_rounds = 25
-	scatter_mod = 2
-	wield_delay_mod = 0.5 SECONDS
+
 
 //-------------------------------------------------------
 //Kalashnikov rifles
