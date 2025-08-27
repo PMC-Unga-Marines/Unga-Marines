@@ -2,6 +2,26 @@
 	group = "Weapons"
 	containertype = /obj/structure/closet/crate/weapon
 
+/datum/supply_packs/weapons/saiga12
+	name = "СВЯТОГОР"
+	contains = list(
+		/obj/item/weapon/gun/rifle/saiga12,
+		/obj/item/ammo_magazine/rifle/typesh12/slug,
+		/obj/item/ammo_magazine/rifle/typesh12/slug,
+		/obj/item/ammo_magazine/rifle/typesh12/flechette,
+		)
+	cost = 1230
+
+/datum/supply_packs/weapons/typesh12
+	name = "Magazine Святогора 3шт"
+	contains = list(
+		/obj/item/ammo_magazine/rifle/typesh12,
+		/obj/item/ammo_magazine/rifle/typesh12,
+		/obj/item/ammo_magazine/rifle/typesh12,
+		)
+	cost = 230	
+
+
 /datum/supply_packs/weapons/tesla
 	name = "Tesla shock rifle"
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla)

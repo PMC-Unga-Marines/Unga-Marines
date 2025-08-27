@@ -7,6 +7,12 @@
 	products = list(
 		"Weapon" = list(
 			/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = -1,
+			/obj/item/weapon/gun/rifle/saiga12 = -1,
+			/obj/item/ammo_magazine/rifle/typesh12/flechette = -1,
+			/obj/item/ammo_magazine/rifle/typesh12/slug = -1,
+			/obj/item/ammo_magazine/rifle/typesh12 = -1,
+			/obj/item/cell/lasgun/lasrifle/recharger = -1,
+			/obj/item/weapon/gun/rifle/railgun = -1,
 			/obj/item/cell/lasgun/lasrifle/recharger = -1,
 			/obj/item/weapon/gun/rifle/railgun = -1,
 			/obj/item/ammo_magazine/railgun = -1,
