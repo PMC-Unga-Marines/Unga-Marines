@@ -201,7 +201,10 @@
 			living_puller.set_pull_offsets(src)
 
 	if(crawling)
-		crawl_finish(newloc)
+		crawling = FALSE
+		var/direction = REVERSE_DIR(get_dir(newloc, src))
+		setDir(direction)
+		playsound(src, 'sound/effects/footstep/crawl.ogg', 50, 1)
 
 	if(active_storage)
 		if(!(active_storage.parent in contents) && !CanReach(active_storage.parent))
@@ -224,12 +227,6 @@
 		return FALSE
 	crawling = TRUE
 	return TRUE
-
-/mob/living/proc/crawl_finish(turf/crawled_turf)
-	crawling = FALSE
-	var/direction = REVERSE_DIR(get_dir(crawled_turf, src))
-	setDir(direction)
-	playsound(src, 'sound/effects/footstep/crawl.ogg', 50, 1)
 
 /mob/living/proc/crawl_checks(turf/crawled_turf)
 	for(var/mob/living/mob in crawled_turf)
