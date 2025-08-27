@@ -290,6 +290,8 @@
 		return FALSE
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_RESIST))
 		return FALSE
+	if(lying_angle) // no escaping from grab while crawling, because walance
+		return FALSE
 	TIMER_COOLDOWN_START(src, COOLDOWN_RESIST, CLICK_CD_RESIST)
 	if(pulledby.grab_state >= GRAB_AGGRESSIVE)
 		visible_message(span_danger("[src] struggles to break free of [pulledby]'s grip!"), null, null, 5)
