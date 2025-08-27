@@ -1,7 +1,7 @@
 /obj/item/matter_ammo_box
 	name = "medium matter ammo box"
 	desc = "A large matter storage box that can convert stored matter into various types of ammunition. It comes with a leather strap for easy carrying."
-	w_class = 7
+	w_class = WEIGHT_CLASS_HUGE
 	icon = 'icons/obj/items/ammo/box.dmi'
 	icon_state = "matter_ammo_box"
 	worn_icon_state = "matter_ammo_box"
