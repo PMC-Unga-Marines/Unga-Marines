@@ -52,17 +52,17 @@
 #define MODE_XENO_DEN (1<<15)
 #define MODE_HAS_EXCAVATION (1<<16)
 
-#define MODE_INFESTATION_X_MAJOR "Безоговорочная Победа Ксеноморфов"
-#define MODE_INFESTATION_M_MAJOR "Безоговорочная Победа Морпехов"
-#define MODE_INFESTATION_X_MINOR "Незначительная Победа Ксеноморфов"
-#define MODE_INFESTATION_M_MINOR "Незначительная Победа Морпехов"
+#define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
+#define MODE_INFESTATION_M_MAJOR "Marine Major Victory"
+#define MODE_INFESTATION_X_MINOR "Xenomorph Minor Victory"
+#define MODE_INFESTATION_M_MINOR "Marine Minor Victory"
 
-#define MODE_ZOMBIE_Z_MAJOR "Безоговорочная Победа Зомби"
-#define MODE_ZOMBIE_Z_MINOR "Незначительная Победа Зомби"
+#define MODE_ZOMBIE_Z_MAJOR "Zombie Major Victory"
+#define MODE_ZOMBIE_Z_MINOR "Zombie Minor Victory"
 
-#define MODE_INFESTATION_DRAW_DEATH "НИЧЬЯ: Никто не выжил"
+#define MODE_INFESTATION_DRAW_DEATH "DRAW: Mutual Annihilation"
 
-#define MODE_GENERIC_DRAW_NUKE "НИЧЬЯ: Ядерный Взрыв"
+#define MODE_GENERIC_DRAW_NUKE "DRAW: Nuclear Explosion"
 
 #define CRASH_EVAC_NONE "CRASH_EVAC_NONE"
 #define CRASH_EVAC_INPROGRESS "CRASH_EVAC_INPROGRESS"
