@@ -615,16 +615,16 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 57, "muzzle_y" = 23,"rail_x" = 22, "rail_y" = 26, "under_x" = 23, "under_y" = 17, "stock_x" = 28, "stock_y" = 17)
 
-	fire_delay = 0.6 SECONDS
+	fire_delay = 0.3 SECONDS
 	burst_delay = 0.5 SECONDS
 	accuracy_mult_unwielded = 0.9
 	scatter = 3
-	scatter_unwielded = 3
+	scatter_unwielded = -2
 	accuracy_mult = 1.15
 	aim_slowdown = 2
 	damage_falloff_mult = 8
 	recoil = 0.5
-	movement_acc_penalty_mult = 3
+	movement_acc_penalty_mult = 2
 
 //-------------------------------------------------------
 
