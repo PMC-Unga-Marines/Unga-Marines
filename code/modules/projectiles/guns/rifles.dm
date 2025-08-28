@@ -605,6 +605,7 @@
 		/obj/item/ammo_magazine/rifle/typesh12/flechette,
 	)
 	attachable_allowed = list(
+		/obj/item/attachable/scope/marine,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
