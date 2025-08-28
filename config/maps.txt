@@ -96,3 +96,7 @@ endmap
 map kutjevo
 	minplayers 35
 endmap
+
+map bluemoon
+	maxplayers 40
+endmap
