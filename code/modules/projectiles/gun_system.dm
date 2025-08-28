@@ -1304,6 +1304,9 @@
 			var/obj/item/ammo_magazine/magazine = new_mag
 			magazine.on_inserted(src)
 		if(!in_chamber && !CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION) && !CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE))
+			spawn()
+				sleep(1 SECONDS)
+				playsound(src, cocked_sound, 25, 1)
 			cycle(user, FALSE)
 		update_ammo_count()
 		update_icon()
