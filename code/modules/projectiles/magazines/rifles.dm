@@ -114,6 +114,41 @@
 	max_rounds = 95
 
 
+
+// TypeSh12-Saiga12
+/obj/item/ammo_magazine/rifle/typesh12
+	name = "Typesh12 buckshot"
+	desc = "25 A buckshot magazine."
+	icon_state = "typesh12b"
+	caliber = CALIBER_12G
+	bonus_overlay = "typesh12"
+	default_ammo = /datum/ammo/bullet/shotgun/buckshot
+	max_rounds = 25
+	scatter_mod = 2
+	wield_delay_mod = 0.5 SECONDS
+
+/obj/item/ammo_magazine/rifle/typesh12/slug
+	name = "Typesh12 slug"
+	desc = "25 A buckshot magazine."
+	icon_state = "typesh12s"
+	caliber = CALIBER_12G
+	bonus_overlay = "typesh12"
+	default_ammo = /datum/ammo/bullet/shotgun/slug
+	max_rounds = 25
+	scatter_mod = 2
+	wield_delay_mod = 0.5 SECONDS
+
+/obj/item/ammo_magazine/rifle/typesh12/flechette
+	name = "Typesh12 flechette"
+	desc = "25 A buckshot magazine."
+	icon_state = "typesh12f"
+	caliber = CALIBER_12G
+	bonus_overlay = "typesh12"
+	default_ammo = /datum/ammo/bullet/shotgun/flechette
+	max_rounds = 25
+	scatter_mod = 2
+	wield_delay_mod = 0.5 SECONDS
+
 //-------------------------------------------------------
 //Kalashnikov rifles
 

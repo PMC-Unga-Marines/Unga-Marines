@@ -584,6 +584,50 @@
 		/obj/item/weapon/gun/grenade_launcher/underslung/invisible,
 	)
 
+
+//-------------------------------------------------------
+//TypeSh12-Saiga12
+
+/obj/item/weapon/gun/rifle/saiga12
+	name = "TypeSh12-Святогор"
+	desc = "Experimental saiga12 and typesh12 magazne 25-round automatic shotgun with a new generation feed system."
+	icon_state = "typesh12"
+	worn_icon_state = "typesh12"
+	icon = 'icons/obj/items/gun/rifle64.dmi'
+	max_shells = 25 //codex
+	fire_sound = 'sound/weapons/guns/fire/howitzer_fire.ogg'
+	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/ak47_reload.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
+	default_ammo_type = /obj/item/ammo_magazine/rifle/typesh12
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/typesh12,
+		/obj/item/ammo_magazine/rifle/typesh12/slug,
+		/obj/item/ammo_magazine/rifle/typesh12/flechette,
+	)
+	attachable_allowed = list(
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/scope,
+	)
+
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+	attachable_offset = list("muzzle_x" = 57, "muzzle_y" = 23,"rail_x" = 22, "rail_y" = 26, "under_x" = 23, "under_y" = 17, "stock_x" = 28, "stock_y" = 17)
+
+	fire_delay = 0.6 SECONDS
+	burst_delay = 0.5 SECONDS
+	accuracy_mult_unwielded = 0.9
+	scatter = 3
+	scatter_unwielded = 3
+	accuracy_mult = 1.15
+	aim_slowdown = 2
+	damage_falloff_mult = 8
+	recoil = 0.5
+	movement_acc_penalty_mult = 3
+
 //-------------------------------------------------------
 
 /obj/item/weapon/gun/rifle/mpi_km

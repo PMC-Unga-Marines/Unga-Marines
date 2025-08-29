@@ -7,6 +7,25 @@
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla)
 	cost = 600
 
+/datum/supply_packs/weapons/saiga12
+	name = "СВЯТОГОР"
+	contains = list(
+		/obj/item/weapon/gun/rifle/saiga12,
+		/obj/item/ammo_magazine/rifle/typesh12/slug,
+		/obj/item/ammo_magazine/rifle/typesh12/slug,
+		/obj/item/ammo_magazine/rifle/typesh12/flechette,
+		)
+	cost = 1300
+
+/datum/supply_packs/weapons/typesh12
+	name = "Magazine Святогора 3шт"
+	contains = list(
+		/obj/item/ammo_magazine/rifle/typesh12,
+		/obj/item/ammo_magazine/rifle/typesh12,
+		/obj/item/ammo_magazine/rifle/typesh12,
+		)
+	cost = 230
+	
 /datum/supply_packs/weapons/tx55
 	name = "AR-55 OICW rifle"
 	contains = list(/obj/item/weapon/gun/rifle/tx55)
