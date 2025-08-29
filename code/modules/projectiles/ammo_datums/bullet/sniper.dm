@@ -54,6 +54,7 @@
 	penetration = 35
 	sundering = 0
 	additional_xeno_penetration = 15
+	matter_cost = 12
 	///shatter effection duration when hitting mobs
 	var/shatter_duration = 8 SECONDS
 
@@ -109,6 +110,7 @@
 	sundering = 0
 	additional_xeno_penetration = 0
 	damage_falloff = 0.25
+	matter_cost = 12
 
 /datum/ammo/bullet/sniper/pfc/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	staggerstun(target_mob, proj, slowdown = 1, max_range = 17)
@@ -122,6 +124,7 @@
 	additional_xeno_penetration = 0
 	sundering = 10
 	damage_falloff = 0.25
+	matter_cost = 0
 
 /datum/ammo/bullet/sniper/pfc/flak/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	staggerstun(target_mob, proj, knockback = 4, slowdown = 1.5, stagger = 2 SECONDS, max_range = 17)

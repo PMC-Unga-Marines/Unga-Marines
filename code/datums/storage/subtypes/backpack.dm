@@ -67,6 +67,12 @@
 	max_w_class = WEIGHT_CLASS_GIGANTIC
 	max_storage_space = 48
 
+/datum/storage/backpack/dispenser/New(atom/parent)
+	. = ..()
+	set_holdable(
+		cant_hold_list = list(/obj/item/matter_ammo_box)
+	)
+
 /datum/storage/backpack/dispenser/open(mob/user)
 	var/obj/item/dispenser = parent
 	if(CHECK_BITFIELD(dispenser.deploy_flags, IS_DEPLOYED))
