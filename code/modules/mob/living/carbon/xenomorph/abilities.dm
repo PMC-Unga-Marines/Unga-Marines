@@ -1269,6 +1269,9 @@
 	SSpoints.add_psy_points(xeno_owner.hivenumber, psy_points_reward)
 	GLOB.round_statistics.psypoints_from_psydrain += psy_points_reward
 
+	if(xeno_owner.hivenumber != XENO_HIVE_NORMAL)
+		return
+
 	if(SSticker.mode && !CHECK_BITFIELD(SSticker.mode.xeno_abilities_flags, ABILITY_CRASH))
 		var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
 		xeno_job.add_job_points(larva_point_reward)
