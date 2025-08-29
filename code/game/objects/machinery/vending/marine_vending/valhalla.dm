@@ -449,7 +449,4 @@
 			/obj/item/ammo_magazine/tank/icc_lowvel_cannon = -1,
 			/obj/item/ammo_magazine/tank/icc_lowvel_cannon/high_explosive = -1,
 		),
-		"Skill pamphlet" = list(
-			/obj/item/pamphlet/tank_crew = -1,
-		),
 	)
