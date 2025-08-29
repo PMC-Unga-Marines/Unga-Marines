@@ -88,7 +88,7 @@ SUBSYSTEM_DEF(evacuation)
 	priority_announce(
 		type = ANNOUNCEMENT_PRIORITY,
 		title = "[sec_level_changed ? "Объявлена чрезвычайная ситуация Код Дельта. " : ""]Запуск капсул состоится через [EVACUATION_AUTOMATIC_DEPARTURE/600] минут.",
-		message = "Процесс экстренной эвакуации был запущен. Пожалуйста, проследуйте к спасательным капсулам.[sec_level_changed ? "\n\n[CONFIG_GET(string/alert_delta)]" : ""]",
+		message = "Процесс экстренной эвакуации был запущен. Пожалуйста, проследуйте к спасательным капсулам.[sec_level_changed ? "\n\nКонтроль над ситуацией утерян. Всему персоналу приготовиться к неминуемуму. Это НЕ учебная тревога." : ""]",
 		sound = 'sound/AI/evacuate.ogg',
 		color_override = sec_level_changed ? "purple" : "orange"
 	)
