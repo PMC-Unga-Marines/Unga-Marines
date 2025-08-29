@@ -4,6 +4,7 @@
 
 GLOBAL_DATUM(orbital_cannon, /obj/structure/orbital_cannon)
 GLOBAL_DATUM(rail_gun, /obj/structure/ship_rail_gun)
+GLOBAL_LIST_EMPTY(ob_type_fuel_requirements)
 
 /obj/structure/orbital_cannon
 	name = "\improper Orbital Cannon"
@@ -28,13 +29,10 @@ GLOBAL_DATUM(rail_gun, /obj/structure/ship_rail_gun)
 	if(!GLOB.orbital_cannon)
 		GLOB.orbital_cannon = src
 
-	if(!GLOB.marine_main_ship.ob_type_fuel_requirements)
-		GLOB.marine_main_ship.ob_type_fuel_requirements = list()
-		var/list/L = list(3,4,5,6)
-		var/amt
+	if(!length(GLOB.ob_type_fuel_requirements))
+		var/list/L = list(3, 4, 5, 6)
 		for(var/i in 1 to 4)
-			amt = pick_n_take(L)
-			GLOB.marine_main_ship?.ob_type_fuel_requirements += amt
+			GLOB.ob_type_fuel_requirements |= pick_n_take(L)
 
 	var/turf/T = locate(x+1,y+1,z)
 	var/obj/structure/orbital_tray/O = new(T)
@@ -208,13 +206,13 @@ GLOBAL_DATUM(rail_gun, /obj/structure/ship_rail_gun)
 
 	switch(tray.warhead.warhead_kind)
 		if("explosive")
-			inaccurate_fuel = abs(GLOB.marine_main_ship?.ob_type_fuel_requirements[1] - tray.fuel_amt)
+			inaccurate_fuel = abs(GLOB.ob_type_fuel_requirements[1] - tray.fuel_amt)
 		if("incendiary")
-			inaccurate_fuel = abs(GLOB.marine_main_ship?.ob_type_fuel_requirements[2] - tray.fuel_amt)
+			inaccurate_fuel = abs(GLOB.ob_type_fuel_requirements[2] - tray.fuel_amt)
 		if("cluster")
-			inaccurate_fuel = abs(GLOB.marine_main_ship?.ob_type_fuel_requirements[3] - tray.fuel_amt)
+			inaccurate_fuel = abs(GLOB.ob_type_fuel_requirements[3] - tray.fuel_amt)
 		if("plasma")
-			inaccurate_fuel = abs(GLOB.marine_main_ship?.ob_type_fuel_requirements[4] - tray.fuel_amt)
+			inaccurate_fuel = abs(GLOB.ob_type_fuel_requirements[4] - tray.fuel_amt)
 
 	var/turf/target = locate(T.x + inaccurate_fuel * pick(-2, 2),T.y + inaccurate_fuel * pick(-2, 2),T.z)
 
@@ -513,10 +511,10 @@ GLOBAL_DATUM(rail_gun, /obj/structure/ship_rail_gun)
 	else
 		if(orbital_window_page == 1)
 			dat += "<font size=3>Warhead Fuel Requirements:</font><BR>"
-			dat += "- HE Orbital Warhead: <b>[GLOB.marine_main_ship.ob_type_fuel_requirements[1]] Solid Fuel blocks.</b><BR>"
-			dat += "- Incendiary Orbital Warhead: <b>[GLOB.marine_main_ship.ob_type_fuel_requirements[2]] Solid Fuel blocks.</b><BR>"
-			dat += "- Cluster Orbital Warhead: <b>[GLOB.marine_main_ship?.ob_type_fuel_requirements[3]] Solid Fuel blocks.</b><BR>"
-			dat += "- Plasma drain Orbital Warhead: <b>[GLOB.marine_main_ship?.ob_type_fuel_requirements[4]] Solid Fuel blocks.</b><BR>"
+			dat += "- HE Orbital Warhead: <b>[GLOB.ob_type_fuel_requirements[1]] Solid Fuel blocks.</b><BR>"
+			dat += "- Incendiary Orbital Warhead: <b>[GLOB.ob_type_fuel_requirements[2]] Solid Fuel blocks.</b><BR>"
+			dat += "- Cluster Orbital Warhead: <b>[GLOB.ob_type_fuel_requirements[3]] Solid Fuel blocks.</b><BR>"
+			dat += "- Plasma drain Orbital Warhead: <b>[GLOB.ob_type_fuel_requirements[4]] Solid Fuel blocks.</b><BR>"
 
 			dat += "<BR><BR><A href='byond://?src=[text_ref(src)];back=1'><font size=3>Back</font></A><BR>"
 		else
