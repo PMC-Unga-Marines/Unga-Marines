@@ -600,15 +600,13 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	var/mob/target = dead[selected]
 	ManualFollow(target)
 
-
 /mob/dead/observer/verb/follow()
 	set category = "Ghost.Follow"
-	set name = "Follow"
+	set name = "Orbit"
 
 	if(!orbit_menu)
 		orbit_menu = new(src)
 	orbit_menu.ui_interact(src)
-
 
 /mob/dead/observer/verb/offered_mobs()
 	set category = "Ghost"
