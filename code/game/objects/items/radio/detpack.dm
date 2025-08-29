@@ -1,6 +1,6 @@
 /obj/item/detpack
 	name = "detonation pack"
-	desc = "Programmable remotely triggered 'smart' explosive controlled via a signaler, used for demolitions and impromptu booby traps. Can be set to breach or demolition detonation patterns. Unique action to arm. Click on it with a signaler to copy over the signal code."
+	desc = "Programmable remotely triggered 'smart' explosive controlled via a signaler, used for demolitions and impromptu booby traps. Can be set to breach or demolition detonation patterns."
 	gender = PLURAL
 	icon = 'icons/obj/det.dmi'
 	icon_state = "detpack_off"
@@ -36,17 +36,19 @@
 
 /obj/item/detpack/examine(mob/user)
 	. = ..()
+	. += span_info("<b>Unique-Action</b> (Space by default) to arm.")
+	. += span_info("<b>LMB</b> it with a signaler to copy over the signal code.")
 	if(on)
-		. += "It's turned on."
+		. += span_warning("It's turned on.")
 	if(timer)
-		. += "Its timer has [timer] seconds left."
+		. += span_warning("Its timer has [timer] seconds left.")
 	if(det_mode)
-		. += "It appears set to demolition mode, providing a wider explosion with little damage to walls."
+		. += span_warning("It appears set to demolition mode, providing a wider explosion with little damage to walls.")
 	else
-		. += "It appears set to breaching mode, providing a focused explosion which breaches through walls."
+		. += span_warning("It appears set to breaching mode, providing a focused explosion which breaches through walls.")
 
 	if(armed)
-		. += "<b>It is armed!</b>"
+		. += span_warning("<b>It is armed!</b>")
 
 /obj/item/detpack/Destroy()
 	if(sound_timer)
