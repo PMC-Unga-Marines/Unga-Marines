@@ -12,6 +12,25 @@
 	contains = list(/obj/item/shotgunbox/clf_heavyrifle)
 	cost = 100
 
+/datum/supply_packs/imports/icc_heavyshotgun
+    name = "6 Gauge KS-23 heavy shotgun"
+	contains = list(/obj/item/weapon/gun/icc_heavyshotgun)
+	cost = 350
+
+/datum/supply_packs/imports/heavy_buckshot
+    name = "6 Gauge Buckshot shells"
+	contains = list(/obj/item/ammo/bullet/shotgun/heavy_buckshot
+	/obj/item/ammo/bullet/shotgun/heavy_buckshot
+	/obj/item/ammo/bullet/shotgun/heavy_buckshot)
+	cost = 40
+
+/datum/supply_packs/imports/barrikada_slug
+    name = "6 Gauge Barrikada slugs"
+	contains = list(/obj/item/ammo/bullet/shotgun/barrikada_slug
+	/obj/item/ammo/bullet/shotgun/barrikada_slug
+	/obj/item/ammo/bullet/shotgun/barrikada_slug)
+	cost = 40
+
 /datum/supply_packs/imports/m41a
 	name = "PR-11 Pulse Rifle"
 	contains = list(/obj/item/weapon/gun/rifle/m41a)
