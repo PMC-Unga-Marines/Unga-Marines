@@ -1,12 +1,12 @@
 ///Cycles through and heals the normal damage types
 /datum/ai_behavior/human/proc/heal_damage(mob/living/carbon/human/patient)
 	var/list/dam_list = list(
-		BRUTE = patient.getBruteLoss(),
-		BURN = patient.getFireLoss(),
-		TOX = patient.getToxLoss(),
-		OXY = patient.getOxyLoss(),
-		CLONE = patient.getCloneLoss(),
-		PAIN = patient.getShock_Stage() * 3, //pain is pretty important, but has low numbers and takes time to change
+		BRUTE = patient.get_brute_loss(),
+		BURN = patient.get_fire_loss(),
+		TOX = patient.get_tox_loss(),
+		OXY = patient.get_oxy_loss(),
+		CLONE = patient.get_clone_loss(),
+		PAIN = patient.painloss * 3, //pain is pretty important, but has low numbers and takes time to change
 	)
 
 	dam_list = sortTim(dam_list, /proc/cmp_numeric_dsc, TRUE)
