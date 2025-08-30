@@ -766,7 +766,7 @@
 	force = 20
 	burst_amount = 2
 	autoburst_delay = 0.1 SECONDS
-	fire_delay = 0.2 SECONDS
+	fire_delay = 0.23 SECONDS
 	placed_overlay_iconstate = "ak47"
 
 /obj/item/weapon/gun/rifle/type16/m2
@@ -809,9 +809,7 @@
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/scope/marine,
 		/obj/item/attachable/angledgrip,
-		/obj/item/weapon/gun/shotgun/combat/masterkey,
 		/obj/item/weapon/gun/flamer/mini_flamer,
-		/obj/item/weapon/gun/grenade_launcher/underslung,
 		/obj/item/attachable/motiondetector,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
@@ -824,7 +822,7 @@
 	starting_attachment_types = list(/obj/item/attachable/foldable/som_carbine)
 	force = 10
 	burst_amount = 1
-	fire_delay = 0.15 SECONDS
+	fire_delay = 0.23 SECONDS
 	accuracy_mult = 0.75
 	scatter = 12
 	recoil = 2
@@ -832,7 +830,7 @@
 	movement_acc_penalty_mult = 4
 	burst_amount = 3
 	autoburst_delay = 0.10 SECONDS
-	damage_falloff_mult = 2.5
+	damage_falloff_mult = 2.2
 	akimbo_additional_delay = 2
 	akimbo_scatter_mod = 24
 	akimbo_additional_delay = 20
