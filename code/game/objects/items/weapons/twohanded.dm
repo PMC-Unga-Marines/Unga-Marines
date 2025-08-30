@@ -590,14 +590,14 @@
 	desc = "A heavy hammer that's good at smashing rocks, but would probably make a good weapon considering the circumstances."
 	icon_state = "sledgehammer"
 	worn_icon_state = "sledgehammer"
-	force = 50
+	force = 30
 	equip_slot_flags = ITEM_SLOT_BACK
 	atom_flags = CONDUCT
 	item_flags = TWOHANDED
 	hitsound = 'sound/weapons/heavyhit.ogg'
-	force_wielded = 75
-	penetration = 70
-	attack_speed = 23
+	force_wielded = 100
+	penetration = 50
+	attack_speed = 20
 	attack_verb = list("attacks", "wallops", "smashes", "shatters", "bashes")
 
 	var/datum/action/ability/activable/weapon_skill/sledgehammer_sweep/special_attack
