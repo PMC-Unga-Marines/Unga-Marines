@@ -13,7 +13,7 @@
 	cost = 750
 
 /datum/supply_packs/weapons/typesh12s
-	name = "Magazine Святогора тип пуля 3шт"
+	name = "СВЯТОГОР slug magazine x3"
 	contains = list(
 		/obj/item/ammo_magazine/rifle/typesh12/slug,
 		/obj/item/ammo_magazine/rifle/typesh12/slug,
@@ -22,7 +22,7 @@
 	cost = 230	
 
 /datum/supply_packs/weapons/typesh12b
-	name = "Magazine Святогора тип картечь 3шт"
+	name = "СВЯТОГОР buckshot magazine x3"
 	contains = list(
 		/obj/item/ammo_magazine/rifle/typesh12,
 		/obj/item/ammo_magazine/rifle/typesh12,
@@ -31,7 +31,7 @@
 	cost = 230	
 
 /datum/supply_packs/weapons/typesh12f
-	name = "Magazine Святогора дротик 3шт"
+	name = "СВЯТОГОР flechette magazine x3"
 	contains = list(
 		/obj/item/ammo_magazine/rifle/typesh12/flechette,
 		/obj/item/ammo_magazine/rifle/typesh12/flechette,
