@@ -1111,12 +1111,12 @@
 	starting_attachment_types = null
 	attachable_offset = list("muzzle_x" = 52, "muzzle_y" = 20,"rail_x" = 24, "rail_y" = 22, "under_x" = 35, "under_y" = 14, "stock_x" = 13, "stock_y" = 13)
 
-	fire_delay = 3 //one shot every 0.3 seconds.
+	fire_delay = 4 //one shot every 0.4 seconds.
 	accuracy_mult = 1.05
 	scatter = 3
-	damage_mult = 0.6  //40% less damage.
+	damage_mult = 0.65  //35% less damage.
 	recoil = 0.5
-	wield_delay = 0.8 SECONDS
+	wield_delay = 0.6 SECONDS
 	aim_slowdown = 0.2
 
 //It's very fast shogun, it's made to prevent stagger/weaken spam.
@@ -1127,8 +1127,8 @@
 			return /datum/ammo/bullet/shotgun/buckshot/shq6
 		if(/datum/ammo/bullet/shotgun/slug)
 			return /datum/ammo/bullet/shotgun/slug/shq6
-		if(/datum/ammo/bullet/shotgun/flechette)
-			return /datum/ammo/bullet/shotgun/flechette/shq6
+		//if(/datum/ammo/bullet/shotgun/flechette)
+		//	return /datum/ammo/bullet/shotgun/flechette/shq6
 		if(/datum/ammo/bullet/shotgun/incendiary)
 			return /datum/ammo/bullet/shotgun/incendiary/shq6
 
