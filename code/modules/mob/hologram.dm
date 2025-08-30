@@ -45,7 +45,7 @@ GLOBAL_LIST_EMPTY(hologram_list)
 		qdel(src)
 
 /mob/hologram/proc/handle_move(mob/M, NewLoc, direct)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 
 	Move(get_step(loc, direct), direct)
 	return COMPONENT_MOVABLE_BLOCK_PRE_MOVE

@@ -353,7 +353,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
  * Attempts to draw an object from our storage
  */
 /datum/storage/proc/on_attack_hand_alternate(datum/source, mob/living/user)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	if(parent.Adjacent(user))
 		INVOKE_ASYNC(src, PROC_REF(attempt_draw_object), user)
 
@@ -582,7 +582,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 /// Signal handler for whenever a mob walks away with us, close if they can't reach us.
 /datum/storage/proc/close_distance(datum/source)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	for(var/mob/user in can_see_content())
 		if(user.CanReach(parent))
 			continue

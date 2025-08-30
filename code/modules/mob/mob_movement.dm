@@ -117,11 +117,8 @@
 		return O.relaymove(L, direction)
 
 	var/add_delay = mob.cached_multiplicative_slowdown + mob.next_move_slowdown
-	//Preds
-	if(mob.shield_slowdown)
-		add_delay += mob.shield_slowdown
 	mob.next_move_slowdown = 0
-	mob.set_glide_size(DELAY_TO_GLIDE_SIZE(add_delay * ( (NSCOMPONENT(direction) && EWCOMPONENT(direction)) ? DIAG_MOVEMENT_ADDED_DELAY_MULTIPLIER : 1 ) )) // set it now in case of pulled objects
+	mob.set_glide_size(DELAY_TO_GLIDE_SIZE(add_delay * ((NSCOMPONENT(direction) && EWCOMPONENT(direction)) ? DIAG_MOVEMENT_ADDED_DELAY_MULTIPLIER : 1))) // set it now in case of pulled objects
 	//If the move was recent, count using old_move_delay
 	//We want fractional behavior and all
 	if(old_move_delay + world.tick_lag > world.time)
@@ -132,6 +129,17 @@
 		move_delay = world.time
 
 	L.last_move_intent = world.time + 1 SECONDS
+
+	if(L.lying_angle)
+		if(!L.can_crawl)
+			return
+		if(!L.crawl_checks(newloc))
+			return
+		if(L.do_actions)
+			return
+		if(!do_after(L, add_delay * 2, NONE, L, extra_checks = CALLBACK(L, TYPE_PROC_REF(/mob/living, crawl_checks), newloc)))
+			return
+		L.crawling = TRUE
 
 	if(L.has_status_effect(STATUS_EFFECT_CONFUSED))
 		var/newdir = 0
