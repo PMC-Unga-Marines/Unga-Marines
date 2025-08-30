@@ -220,16 +220,16 @@ GLOBAL_LIST_INIT(ai_brain_heal_items, list(
 GLOBAL_LIST_INIT(ai_ib_heal_items, list(
 	/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus,
 	/obj/item/reagent_containers/hypospray/advanced/quickclotplus,
-	/obj/item/reagent_containers/hypospray/advanced/quickclotplus_medkit,
 	/obj/item/reagent_containers/hypospray/advanced/big/quickclot,
 	/obj/item/reagent_containers/hypospray/autoinjector/quickclot,
 	/obj/item/reagent_containers/pill/quickclot,
 ))
 
 GLOBAL_LIST_INIT(ai_organ_heal_items, list(
+	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon,
 	/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus,
+	/obj/item/reagent_containers/hypospray/advanced/peridaxon,
 	/obj/item/reagent_containers/hypospray/advanced/peridaxonplus,
-	/obj/item/reagent_containers/hypospray/advanced/peridaxonplus_medkit,
 ))
 
 GLOBAL_LIST_INIT(ai_infection_heal_items, list(

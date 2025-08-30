@@ -69,7 +69,7 @@
 		set_stat(UNCONSCIOUS)
 		on_crit()
 
-	else if(HAS_TRAIT(src, TRAIT_KNOCKEDOUT) || getOxyLoss() > CARBON_KO_OXYLOSS)
+	else if(HAS_TRAIT(src, TRAIT_KNOCKEDOUT) || get_oxy_loss() > CARBON_KO_OXYLOSS)
 		if(stat == UNCONSCIOUS)
 			return
 		set_stat(UNCONSCIOUS)
@@ -86,7 +86,7 @@
 	if(damage_dealt < 1)
 		death()
 		return
-	adjustOxyLoss(damage_dealt)
+	adjust_oxy_loss(damage_dealt)
 	death()
 
 /mob/living/carbon/handle_status_effects()

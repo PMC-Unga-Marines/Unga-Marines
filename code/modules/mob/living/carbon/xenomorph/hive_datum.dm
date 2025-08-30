@@ -499,11 +499,11 @@
 		return FALSE
 
 	if(!xenos_by_typepath[get_base_caste_type(removed_xeno.xeno_caste.type)])
-		stack_trace("trying to remove an invalid typepath from hivestatus list, removed_xeno = [removed_xeno], caste = [removed_xeno.xeno_caste], base caste type = [removed_xeno.xeno_caste.get_base_caste_type()]")
+		stack_trace("trying to remove an invalid typepath from hivestatus list, removed_xeno = [removed_xeno], caste = [removed_xeno.xeno_caste], base caste type = [removed_xeno.xeno_caste.type]")
 		return FALSE
 
 	if(!xenos_by_typepath[get_base_caste_type(removed_xeno.xeno_caste.type)].Remove(removed_xeno))
-		stack_trace("failed to remove a xeno from hive status typepath list, nothing was removed!? removed_xeno = [removed_xeno], caste = [removed_xeno.xeno_caste], base caste type = [removed_xeno.xeno_caste.get_base_caste_type()]")
+		stack_trace("failed to remove a xeno from hive status typepath list, nothing was removed!? removed_xeno = [removed_xeno], caste = [removed_xeno.xeno_caste], base caste type = [removed_xeno.xeno_caste.type]")
 		return FALSE
 
 	LAZYREMOVE(xenos_by_zlevel["[removed_xeno.z]"], removed_xeno)
