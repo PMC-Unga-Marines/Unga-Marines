@@ -209,7 +209,7 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 	var/turf/target = locate(target_x, target_y, target_z)
 	if(user)
 		log_game("[key_name(user)] launched pod [src] at [AREACOORD(target)]")
-	deadchat_broadcast(" has been launched", src, turf_target = target)
+	deadchat_broadcast("has been launched", src, turf_target = target)
 	for(var/mob/living/silicon/ai/AI AS in GLOB.ai_list)
 		to_chat(AI, span_notice("[user ? user : "unknown"] has launched [src] towards [target.loc] at X:[target_x] Y:[target_y]"))
 	reserved_area = SSmapping.request_turf_block_reservation(3,3)
@@ -273,7 +273,7 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 
 ///Do the stuff when it "hits the ground"
 /obj/structure/droppod/proc/dodrop(turf/targetturf, mob/user)
-	deadchat_broadcast(" has landed at [get_area(targetturf)]!", src, user ? user : null, targetturf)
+	deadchat_broadcast("has landed at [get_area(targetturf)]!", src, user ? user : null, targetturf)
 	cell_explosion(targetturf, 30, 15)
 	playsound(targetturf, 'sound/effects/droppod_impact.ogg', 100)
 	QDEL_NULL(reserved_area)
@@ -285,7 +285,6 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 	for(var/atom/movable/deployed AS in contents)
 		deployed.forceMove(loc)
 	update_icon()
-
 
 /obj/structure/droppod/leader
 	name = "\improper TGMC Zeus command drop pod"
@@ -498,7 +497,7 @@ GLOBAL_LIST_INIT(blocked_droppod_tiles, typecacheof(list(/turf/open/space/transi
 	load_package(mecha_clicker, user)
 
 /obj/structure/droppod/nonmob/mech_pod/dodrop(turf/targetturf, mob/user)
-	deadchat_broadcast(" has landed at [get_area(targetturf)]!", src, stored_object ? stored_object : null)
+	deadchat_broadcast("has landed at [get_area(targetturf)]!", src, stored_object ? stored_object : null)
 	cell_explosion(targetturf, 100, 50) //A mech just dropped onto your head from orbit
 	playsound(targetturf, 'sound/effects/droppod_impact.ogg', 100)
 	QDEL_NULL(reserved_area)

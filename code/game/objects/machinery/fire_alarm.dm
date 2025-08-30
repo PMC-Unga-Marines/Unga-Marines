@@ -119,7 +119,7 @@
 		return
 	if(buildstage != 2)
 		return
-	user.visible_message(span_warning(" [user] has cut the wires inside \the [src]!"), "You have cut the wires inside \the [src].")
+	user.visible_message(span_warning("[user] has cut the wires inside \the [src]!"), "You have cut the wires inside \the [src].")
 	playsound(loc, 'sound/items/wirecutter.ogg', 25, 1)
 	buildstage = 1
 	update_icon()
