@@ -5922,6 +5922,10 @@
 "Df" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/machinery/barsign{
+	dir = 1;
+	chosen_sign = /datum/barsign/thedrunkcarp
+	},
 /turf/open/floor/wood,
 /area/icy_caves/caves/underground_cafeteria)
 "Dg" = (
@@ -8501,10 +8505,6 @@
 	dir = 8
 	},
 /area/icy_caves/caves/east)
-"OU" = (
-/obj/structure/sign/double/barsign/carp,
-/turf/closed/mineral/smooth/darkfrostwall,
-/area/icy_caves/caves/rock)
 "OZ" = (
 /obj/structure/cargo_container/gorg,
 /turf/open/floor/plating,
@@ -19294,7 +19294,7 @@ ym
 Be
 ym
 ZP
-OU
+ZP
 PE
 Df
 be
