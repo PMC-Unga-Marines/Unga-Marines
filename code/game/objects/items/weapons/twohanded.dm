@@ -596,7 +596,7 @@
 	item_flags = TWOHANDED
 	hitsound = 'sound/weapons/heavyhit.ogg'
 	force_wielded = 100
-	penetration = 50
+	penetration = 15
 	attack_speed = 20
 	attack_verb = list("attacks", "wallops", "smashes", "shatters", "bashes")
 
