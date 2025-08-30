@@ -3,9 +3,9 @@
 	///A list of mobs that might need healing
 	var/list/heal_list = list()
 	///Chat lines for trying to heal
-	var/list/healing_chat = list("Healing you.", "Healing you, hold still.", "Stop moving!", "Fixing you up.", "Healing.", "Treating wounds.", "I'll have you patched up in no time.", "Quit your complaining, it's just a fleshwound.", "Cover me!", "Give me some room!")
+	var/list/healing_chat = list("Лечу тебя.", "Лечу тебя, стой на месте.", "Прекращай двигаться!", "Подлатаю тебя.", "Лечу.", "Штопаю раны.", "Заштопаю тебя в миг.", "Прекращай жаловаться, это всего лишь царапина.", "Прикройте меня!", "Мне нужно больше места!")
 	///Chat lines for trying to heal
-	var/list/self_heal_chat = list("Healing, cover me!", "Healing over here.", "Where's the damn medic?", "Medic!", "Treating wounds.", "It's just a flesh wound.", "Need a little help here!", "Cover me!.")
+	var/list/self_heal_chat = list("Лечусь, прикройте!", "Я тут подлечусь.", "Где медика черти носят?", "Медик!", "Штопаю раны.", "Это всего лишь царапина.", "Мне нужна помощь!", "Прикройте меня!.")
 
 /datum/ai_behavior/human/late_initialize()
 	if(human_ai_state_flags & HUMAN_AI_ANY_HEALING)
