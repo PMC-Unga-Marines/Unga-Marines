@@ -84,8 +84,6 @@
 ///handles pre-jump checks and setup of additional jump behavior.
 /datum/component/jump/proc/start_jump(atom/movable/jumper)
 	SIGNAL_HANDLER
-	if(jumper == external_user)
-		jumper = parent
 	if(!can_jump(jumper))
 		return
 

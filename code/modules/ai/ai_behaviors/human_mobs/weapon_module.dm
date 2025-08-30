@@ -226,7 +226,7 @@
 	if(!line_of_sight(mob_parent, target)) //todo: This doesnt check if we can actually shoot past stuff in the line, but also checking path seems excessive
 		return AI_FIRE_NO_LOS
 
-	if((human_ai_behavior_flags & HUMAN_AI_NO_FF) && !(gun.gun_features_flags & GUN_IFF) && !(gun.ammo_datum_type::ammo_behavior_flags & AMMO_IFF)) //ammo_datum_type is always populated, with the last loaded ammo type. This shouldnt be an issue since we check ammo first
+	if((human_ai_behavior_flags & HUMAN_AI_NO_FF) && !(gun.ammo_datum_type::ammo_behavior_flags & AMMO_IFF)) //ammo_datum_type is always populated, with the last loaded ammo type. This shouldnt be an issue since we check ammo first
 		var/list/turf_line = get_traversal_line(mob_parent, target)
 		turf_line.Cut(1, 2) //don't count our own turf
 		for(var/turf/line_turf AS in turf_line)
@@ -281,7 +281,7 @@
 	return 2
 
 /obj/item/weapon/gun/get_ai_combat_range()
-	if((gun_features_flags & GUN_IFF) || (ammo_datum_type::ammo_behavior_flags & AMMO_IFF))
+	if(ammo_datum_type::ammo_behavior_flags & AMMO_IFF)
 		return list(5, 7)
 	return list(4, 5)
 

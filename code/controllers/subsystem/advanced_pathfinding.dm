@@ -214,7 +214,7 @@ GLOBAL_LIST_EMPTY(goal_nodes)
 	faction = FACTION_ICC
 
 /obj/effect/ai_node/goal/alien
-	faction = FACTION_ALIEN
+	faction = FACTION_XENO
 
 /obj/effect/ai_node/goal/specops
 	faction = FACTION_SPECFORCE

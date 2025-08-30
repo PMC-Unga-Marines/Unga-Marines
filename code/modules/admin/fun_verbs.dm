@@ -926,7 +926,7 @@ ADMIN_VERB(ai_squad, R_FUN, "Spawn AI squad", "Spawns a AI squad of your choice"
 		mob_list += new_human
 		var/datum/job/new_job = SSjob.GetJob(GLOB.ai_squad_presets[squad_choice][i])
 		var/squad_to_insert_into
-		if(ismarinejob(new_job) || issommarinejob(new_job))
+		if(ismarinejob(new_job))
 			squad_to_insert_into = pick(SSjob.active_squads[new_job.faction])
 		new_human.apply_assigned_role_to_spawn(new_job, new_human.client, squad_to_insert_into, admin_action = TRUE)
 		stoplag()

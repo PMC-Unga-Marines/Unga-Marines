@@ -1417,6 +1417,7 @@
 #include "code\modules\ai\ai_behaviors\human_mobs\self_heal.dm"
 #include "code\modules\ai\ai_behaviors\human_mobs\weapon_module.dm"
 #include "code\modules\ai\ai_behaviors\xeno\xeno_illusion.dm"
+#include "code\modules\ai\ai_behaviors\xeno\xeno.dm"
 #include "code\modules\ai\ai_behaviors\xeno\zombie.dm"
 #include "code\modules\ai\presets\basic_ai.dm"
 #include "code\modules\ai\presets\xeno_presets.dm"

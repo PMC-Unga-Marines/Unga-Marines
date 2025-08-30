@@ -102,7 +102,7 @@
 		return null
 	if((victim.get_soft_armor(BOMB) >= 100))
 		return null
-	return light_impact_range ? light_impact_range : 3
+	return round(power / falloff)
 
 /obj/item/explosive/grenade/smokebomb/get_ai_hazard_radius(mob/living/victim)
 	if(!dangerous)

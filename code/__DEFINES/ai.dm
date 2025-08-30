@@ -148,7 +148,6 @@ GLOBAL_LIST_INIT(ai_burn_heal_items, list(
 ))
 
 GLOBAL_LIST_INIT(ai_tox_heal_items, list(
-	/obj/item/reagent_containers/hypospray/autoinjector/antitox_mix,
 	/obj/item/reagent_containers/pill/dylovene,
 	/obj/item/reagent_containers/hypospray/advanced/dylovene,
 	/obj/item/reagent_containers/hypospray/autoinjector/dylovene,

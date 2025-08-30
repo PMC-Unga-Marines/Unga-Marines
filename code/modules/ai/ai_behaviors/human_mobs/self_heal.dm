@@ -52,7 +52,7 @@
 
 	if(iscarbon(mob_parent))
 		var/mob/living/carbon/carbon_parent = mob_parent
-		dam_list[PAIN] = carbon_parent.getShock_Stage() * 3 //pain is pretty important, but has low numbers and takes time to change
+		dam_list[PAIN] = carbon_parent.painloss * 3 //pain is pretty important, but has low numbers and takes time to change
 
 	var/list/priority_list = sortTim(dam_list.Copy(), /proc/cmp_numeric_dsc, TRUE)
 	for(var/damtype in priority_list)

@@ -209,7 +209,6 @@
 
 	var/on = 1
 
-	var/force_activated = 30
 	var/force_unwielded = 10
 	var/force_storage = 5
 	var/throwforce_base = 32
