@@ -81,6 +81,7 @@
 #define COMSIG_KB_AIMMODE "keybinding_aimmode"
 #define COMSIG_KB_FIREMODE "keybind_firemode"
 #define COMSIG_KB_AUTOEJECT "keybind_autoeject"
+#define COMSIG_KB_OVERHEAD_GRENADE_LAUNCHER "keybinding_overhead_grenade_launcher"
 #define COMSIG_KB_GIVE "keybind_give"
 #define COMSIG_KB_HELMETMODULE "keybinding_helmetmodule"
 #define COMSIG_KB_ARMORMODULE "keybinding_armormodule"
