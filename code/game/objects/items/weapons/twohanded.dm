@@ -596,7 +596,7 @@
 	item_flags = TWOHANDED
 	hitsound = 'sound/weapons/heavyhit.ogg'
 	force_wielded = 100
-	penetration = 15
+	penetration = 0
 	attack_speed = 20
 	attack_verb = list("attacks", "wallops", "smashes", "shatters", "bashes")
 
@@ -627,7 +627,7 @@
 	name = "Sweeping blow"
 	action_icon_state = "axe_sweep"
 	desc = "A powerful sweeping blow that hits foes in the direction you are facing. Cannot stun."
-	ability_cost = 10
+	ability_cost = 70
 	cooldown_duration = 6 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_WEAPONABILITY_AXESWEEP,
