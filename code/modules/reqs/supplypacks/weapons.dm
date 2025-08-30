@@ -10,7 +10,7 @@
 		/obj/item/ammo_magazine/rifle/typesh12/slug,
 		/obj/item/ammo_magazine/rifle/typesh12/flechette,
 		)
-	cost = 1230
+	cost = 750
 
 /datum/supply_packs/weapons/typesh12s
 	name = "Magazine Святогора тип пуля 3шт"
