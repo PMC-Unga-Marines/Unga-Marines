@@ -129,15 +129,13 @@
 	name = "Typesh12 slug magazine"
 	desc = "25 A slug magazine."
 	icon_state = "typesh12s"
-	bonus_overlay = "typesh12"
 	default_ammo = /datum/ammo/bullet/shotgun/slug
 
 
 /obj/item/ammo_magazine/rifle/typesh12/flechette
-	name = "Typesh12 flechette"
+	name = "Typesh12 flechette magazine"
 	desc = "25 A flechette magazine."
 	icon_state = "typesh12f"
-	bonus_overlay = "typesh12"
 	default_ammo = /datum/ammo/bullet/shotgun/flechette
 
 
