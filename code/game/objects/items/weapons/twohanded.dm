@@ -602,12 +602,6 @@
 
 	var/datum/action/ability/activable/weapon_skill/sledgehammer_sweep/special_attack
 
-/obj/item/weapon/twohanded/sledgehammer/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/shield, SHIELD_TOGGLE|SHIELD_PURE_BLOCKING, list(MELEE = 45, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0))
-	AddComponent(/datum/component/stun_mitigation, SHIELD_TOGGLE, shield_cover = list(MELEE = 60, BULLET = 60, LASER = 60, ENERGY = 60, BOMB = 60, BIO = 60, FIRE = 60, ACID = 60))
-	AddElement(/datum/element/strappable)
-	special_attack = new(src, force_wielded, penetration)
 
 /obj/item/weapon/twohanded/sledgehammer/Destroy()
 	QDEL_NULL(special_attack)
