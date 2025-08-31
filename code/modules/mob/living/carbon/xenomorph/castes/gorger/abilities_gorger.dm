@@ -148,7 +148,6 @@
 		var/drain_heal = GORGER_DRAIN_HEAL
 		xeno_owner.heal_xeno_damage(drain_heal, TRUE) // this define shitcoded proc errors if we have a define inside of a define
 		xeno_owner.adjust_overheal(drain_heal)
-		SEND_SIGNAL(target_human, COMSIG_XENO_DRAIN_HIT, xeno_owner.xeno_caste.drain_plasma_gain, xeno_owner);
 		xeno_owner.gain_plasma(xeno_owner.xeno_caste.drain_plasma_gain)
 
 	REMOVE_TRAIT(xeno_owner, TRAIT_HANDS_BLOCKED, src)
