@@ -597,7 +597,7 @@
 	hitsound = 'sound/weapons/heavyhit.ogg'
 	force_wielded = 95
 	penetration = 0
-	attack_speed = 20
+	attack_speed = 30
 	attack_verb = list("attacks", "wallops", "smashes", "shatters", "bashes")
 
 	var/datum/action/ability/activable/weapon_skill/sledgehammer_sweep/special_attack
