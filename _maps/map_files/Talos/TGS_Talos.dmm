@@ -3444,7 +3444,7 @@
 /area/mainship/shipboard/brig)
 "bTX" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/item/flashlight/lantern/turned_on,
+/obj/item/flashlight/lantern/on,
 /turf/open/floor/grass,
 /area/mainship/living/starboard_garden)
 "bUd" = (
@@ -4539,7 +4539,7 @@
 /turf/open/floor/prison/marked,
 /area/mainship/squads/req)
 "cBK" = (
-/obj/item/flashlight/lantern/turned_on,
+/obj/item/flashlight/lantern/on,
 /turf/open/floor/grass,
 /area/mainship/living/starboard_garden)
 "cBM" = (
@@ -7691,7 +7691,7 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "euJ" = (
-/obj/item/flashlight/lantern/turned_on,
+/obj/item/flashlight/lantern/on,
 /obj/machinery/firealarm,
 /turf/open/floor/grass,
 /area/mainship/living/starboard_garden)
@@ -9864,7 +9864,7 @@
 "fEa" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/cable,
-/obj/item/flashlight/lantern/turned_on,
+/obj/item/flashlight/lantern/on,
 /turf/open/floor/grass,
 /area/mainship/living/starboard_garden)
 "fEc" = (
@@ -28898,7 +28898,7 @@
 /turf/open/floor/prison/plate,
 /area/mainship/squads/req)
 "qSd" = (
-/obj/item/flashlight/lantern/turned_on,
+/obj/item/flashlight/lantern/on,
 /obj/effect/ai_node,
 /turf/open/floor/grass,
 /area/mainship/living/starboard_garden)
