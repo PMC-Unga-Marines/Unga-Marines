@@ -136,7 +136,6 @@
 /obj/item/weapon/gun/standard_minigun/nest
 	name = "\improper MG-2005 mounted minigun nest"
 	desc = "A MG-2005 mounted minigun mounted upon a small reinforced post with sandbags."
-	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "minigun_nest"
 
 	item_flags = TWOHANDED
@@ -202,7 +201,7 @@
 
 	w_class = WEIGHT_CLASS_HUGE
 	equip_slot_flags = ITEM_SLOT_BACK
-	icon_state = "heavylaser_deployed"
+	icon_state = "heavylaser_nest"
 	icon = 'icons/obj/items/gun/hmg.dmi'
 	ammo_level_icon = ""
 
@@ -272,9 +271,8 @@
 	radial_icon_state = "laser_ricochet"
 	description = "Fires an experiment laser pulse capable of bouncing off many wall surfaces. The laser increases in potency when bouncing, before collapsing entirely after exceeding its threshold."
 
-
 /obj/item/weapon/gun/energy/lasgun/lasrifle/heavy_laser/deployable
-	icon_state = "heavylaser_deployable"
+	icon_state = "heavylaser"
 	item_flags = TWOHANDED
 	deploy_flags = IS_DEPLOYABLE
 
