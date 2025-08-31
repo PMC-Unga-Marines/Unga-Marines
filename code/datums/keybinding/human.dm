@@ -36,7 +36,6 @@
 	quick_equip_slot = 5
 
 /datum/keybinding/human/interact_other_hand
-	hotkey_keys = list("Unbound")
 	name = "interact_other_hand"
 	full_name = "Interact with other hand"
 	keybind_signal = COMSIG_KB_HUMAN_INTERACT_OTHER_HAND
