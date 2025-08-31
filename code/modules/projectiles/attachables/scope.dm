@@ -122,7 +122,7 @@
 
 /obj/item/attachable/scope/activate(mob/living/carbon/user, turn_off)
 	if(turn_off)
-		if(SEND_SIGNAL(user, COMSIG_ITEM_ZOOM) &  COMSIG_ITEM_ALREADY_ZOOMED)
+		if(SEND_SIGNAL(user, COMSIG_ITEM_ZOOM) & COMSIG_ITEM_ALREADY_ZOOMED)
 			zoom(user)
 		return TRUE
 

@@ -433,8 +433,10 @@
 	if(user.gender == MALE)
 		if(prob(95))
 			return 'sound/voice/human/male/medic.ogg'
-		else
+		else if(prob(95))
 			return 'sound/voice/human/male/medic2.ogg'
+		else
+			return 'sound/voice/human/male/medic_bag.ogg'
 	else
 		return 'sound/voice/human/female/medic.ogg'
 

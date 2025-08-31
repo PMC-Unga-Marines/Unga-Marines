@@ -58,6 +58,9 @@
 /obj/structure/bed/chair/vehicle_crew/buckle_mob(mob/living/buckling_mob, force, check_loc, lying_buckle, hands_needed, target_hands_needed, silent)
 	if(buckling_mob.skills.getRating(SKILL_LARGE_VEHICLE) < skill_req)
 		return FALSE
+	if(SEND_SIGNAL(buckling_mob, COMSIG_ITEM_ZOOM) & COMSIG_ITEM_ALREADY_ZOOMED)
+		to_chat(buckling_mob, span_warning("You can't see the controls!"))
+		return FALSE
 	return ..()
 
 /obj/structure/bed/chair/vehicle_crew/proc/get_vis_range_mod()

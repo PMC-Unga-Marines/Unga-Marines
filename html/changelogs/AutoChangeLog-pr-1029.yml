@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - balance: "Повышен damage_falloff револвинг рифл с 0 до 0.5"
