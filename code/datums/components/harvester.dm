@@ -23,6 +23,7 @@
 		/datum/reagent/medicine/tramadol = 5,
 		/datum/reagent/medicine/kelotane = 5,
 		/datum/reagent/medicine/tricordrazine = 5,
+		/datum/reagent/medicine/dylovene = 5,
 	)
 	///Amount of reagents loaded into the blade
 	var/list/loaded_reagents = list()
@@ -231,6 +232,10 @@
 		if(/datum/reagent/medicine/tricordrazine)
 			target.apply_damage(weapon.force*0.6, BRUTE, user.zone_selected)
 			target.apply_status_effect(/datum/status_effect/shatter, 3 SECONDS)
+
+		if(/datum/reagent/medicine/dylovene)
+			target.apply_damage(weapon.force*0.6, BRUTE, user.zone_selected)
+			target.apply_status_effect(STATUS_EFFECT_MICROWAVE, 3)
 
 	if(!loaded_reagents[loaded_reagent])
 		update_selected_reagent(null)
