@@ -27,7 +27,7 @@
 	max_health = 900
 
 	// *** Flags *** //
-	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_IS_STRONG|CASTE_STAGGER_RESISTANT|CASTE_EVOLUTION_ALLOWED
+	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_IS_STRONG|CASTE_EVOLUTION_ALLOWED
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
 	caste_traits = null
 
@@ -40,8 +40,8 @@
 
 	// *** Gorger Abilities *** //
 	overheal_max = 400 // approximately 45 % of max hp
-	drain_plasma_gain = 75
-	carnage_plasma_gain = 150
+	drain_plasma_gain = 40
+	carnage_plasma_gain = 40
 	feast_plasma_drain = 20
 
 	actions = list(
