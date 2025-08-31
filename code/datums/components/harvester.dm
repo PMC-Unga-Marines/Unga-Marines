@@ -221,20 +221,20 @@
 			INVOKE_ASYNC(src, PROC_REF(attack_bicaridine), source, target, user, weapon)
 
 		if(/datum/reagent/medicine/kelotane)
-			target.apply_damage(weapon.force*0.6, BRUTE, user.zone_selected)
+			target.apply_damage(weapon.force * 0.6, BURN, user.zone_selected)
 			target.adjust_fire_stacks(5)
 			target.IgniteMob()
 
 		if(/datum/reagent/medicine/tramadol)
-			target.apply_damage(weapon.force*0.6, BRUTE, user.zone_selected)
+			target.apply_damage(weapon.force * 0.6, BRUTE, user.zone_selected)
 			target.apply_status_effect(/datum/status_effect/incapacitating/harvester_slowdown, 1 SECONDS)
 
 		if(/datum/reagent/medicine/tricordrazine)
-			target.apply_damage(weapon.force*0.6, BRUTE, user.zone_selected)
+			target.apply_damage(weapon.force * 0.6, BRUTE, user.zone_selected)
 			target.apply_status_effect(/datum/status_effect/shatter, 3 SECONDS)
 
 		if(/datum/reagent/medicine/dylovene)
-			target.apply_damage(weapon.force*0.6, BRUTE, user.zone_selected)
+			target.apply_damage(weapon.force * 0.6, BURN, user.zone_selected)
 			target.apply_status_effect(STATUS_EFFECT_MICROWAVE, 3)
 
 	if(!loaded_reagents[loaded_reagent])
@@ -253,7 +253,7 @@
 /datum/component/harvester/proc/attack_bicaridine(datum/source, mob/living/target, mob/living/user, obj/item/weapon)
 	if(user.a_intent != INTENT_HELP) //Self-heal on attacking
 		new /obj/effect/temp_visual/telekinesis(get_turf(user))
-		target.apply_damage(weapon.force*0.6, BRUTE, user.zone_selected)
+		target.apply_damage(weapon.force * 0.6, BRUTE, user.zone_selected)
 		user.adjust_stamina_loss(-30)
 		user.heal_overall_damage(5, 0, updating_health = TRUE)
 		return
