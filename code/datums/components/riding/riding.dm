@@ -115,7 +115,7 @@
 	SIGNAL_HANDLER
 
 	var/atom/movable/movable_parent = parent
-	if (isnull(dir))
+	if(isnull(dir))
 		dir = movable_parent.dir
 	for(var/mob/buckled_mob AS in movable_parent.buckled_mobs)
 		ride_check(buckled_mob)
