@@ -819,6 +819,7 @@
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
 	slowdown = 0.1
+	toggle_signal = COMSIG_KB_HELMETMODULE
 	/// The goggles this module deploys
 	var/obj/item/clothing/glasses/night_vision/mounted/attached_goggles
 
@@ -909,6 +910,7 @@
 	attach_features_flags = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
 	prefered_slot = SLOT_HEAD
+	toggle_signal = COMSIG_KB_HELMETMODULE
 	/// Who's using this item
 	var/mob/living/carbon/human/operator
 	///The range of this motion detector
