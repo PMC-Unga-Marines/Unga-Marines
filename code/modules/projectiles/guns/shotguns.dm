@@ -1127,8 +1127,8 @@
 			return /datum/ammo/bullet/shotgun/buckshot/shq6
 		if(/datum/ammo/bullet/shotgun/slug)
 			return /datum/ammo/bullet/shotgun/slug/shq6
-		//if(/datum/ammo/bullet/shotgun/flechette)
-		//	return /datum/ammo/bullet/shotgun/flechette/shq6
+		if(/datum/ammo/bullet/shotgun/flechette)
+			return /datum/ammo/bullet/shotgun/flechette/shq6
 		if(/datum/ammo/bullet/shotgun/incendiary)
 			return /datum/ammo/bullet/shotgun/incendiary/shq6
 
