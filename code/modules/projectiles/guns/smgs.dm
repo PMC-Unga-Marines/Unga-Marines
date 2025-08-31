@@ -8,7 +8,6 @@
 	unload_sound = 'sound/weapons/guns/interact/smg_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/smg_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/smg_cocked.ogg'
-	type_of_casings = "bullet"
 	muzzleflash_iconstate = "muzzle_flash_light"
 	load_method = MAGAZINE //codex
 	force = 8
@@ -51,7 +50,6 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST)
 	max_shells = 30 //codex
 	equip_slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
-	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/mp19
 	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/mp19)
 	w_class = WEIGHT_CLASS_NORMAL
@@ -128,7 +126,6 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	wield_delay = 0.7 SECONDS
 	force = 20
-	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/smg90
 	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/smg90)
 	attachable_allowed = list(
@@ -187,7 +184,6 @@
 	unload_sound = 'sound/weapons/guns/interact/mp5_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/mp5_reload.ogg'
 	equip_slot_flags = ITEM_SLOT_BACK
-	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/m25
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/smg/m25,
@@ -451,7 +447,6 @@
 	caliber = CALIBER_10X20_CASELESS
 	max_shells = 50
 	equip_slot_flags = ITEM_SLOT_BACK
-	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/som
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/smg/som,
@@ -557,7 +552,6 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST)
 	max_shells = 32 //codex
 	equip_slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
-	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/icc_machinepistol
 	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/icc_machinepistol, /obj/item/ammo_magazine/smg/icc_machinepistol/hp)
 	fire_sound = SFX_MP38_FIRE
@@ -621,7 +615,6 @@
 	caliber = CALIBER_46X30
 	max_shells = 45
 	equip_slot_flags = ITEM_SLOT_BACK
-	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/icc_pdw
 	allowed_ammo_types = list(/obj/item/ammo_magazine/smg/icc_pdw)
 	fire_sound = 'sound/weapons/guns/fire/vector_fire.ogg'
@@ -691,7 +684,6 @@
 	max_shells = 25 //codex
 	equip_slot_flags = ITEM_SLOT_BACK
 	force = 20
-	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/vector
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/smg/vector,
@@ -761,7 +753,6 @@
 	unload_sound = 'sound/weapons/guns/interact/m16_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/m16_reload.ogg'
 	equip_slot_flags = ITEM_SLOT_BACK
-	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/vsd_pdw
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/smg/vsd_pdw,

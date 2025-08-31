@@ -18,7 +18,6 @@
 	wield_sound = 'sound/weapons/guns/shotgun/Deploy_Wave_SHOTGUN.ogg'
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	reciever_flags = AMMO_RECIEVER_HANDFULS
-	type_of_casings = "shell"
 	allowed_ammo_types = list()
 	aim_slowdown = 0.35
 	wield_delay = 0.8 SECONDS //Shotguns are really easy to put up to fire, since they are designed for CQC (at least compared to a rifle)
@@ -592,7 +591,6 @@
 	caliber = CALIBER_19MM
 	muzzle_flash_lum = 6
 	max_chamber_items = 1
-	type_of_casings = null
 	ammo_datum_type = /datum/ammo/bullet/sniper/musket
 	default_ammo_type = /datum/ammo/bullet/sniper/musket
 	gun_skill_category = SKILL_RIFLES
@@ -640,7 +638,6 @@
 	caliber = CALIBER_19MM
 	muzzle_flash_lum = 3
 	max_chamber_items = 1
-	type_of_casings = null
 	ammo_datum_type = /datum/ammo/bullet/sniper/musket
 	default_ammo_type = /datum/ammo/bullet/sniper/musket
 	gun_skill_category = SKILL_PISTOLS
@@ -1061,7 +1058,6 @@
 	slot = ATTACHMENT_SLOT_STOCK
 	default_ammo_type = /datum/ammo/bullet/micro_rail/airburst
 	caliber = CALIBER_10G_RAIL
-	type_of_casings = null
 
 	fire_delay = 1.5 SECONDS
 	accuracy_mult = 1.1

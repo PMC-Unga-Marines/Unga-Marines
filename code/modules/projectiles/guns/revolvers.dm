@@ -13,7 +13,6 @@
 	unload_sound = 'sound/weapons/guns/interact/revolver_unload.ogg'
 	muzzleflash_iconstate = "muzzle_flash_medium"
 	hand_reload_sound = 'sound/weapons/guns/interact/revolver_load.ogg'
-	type_of_casings = "bullet"
 	load_method = SINGLE_CASING|SPEEDLOADER //codex
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_SMOKE_PARTICLES
 	aim_speed_modifier = 0.75
@@ -601,7 +600,6 @@
 	recoil_unwielded = -1
 	accuracy_mult = 3
 	accuracy_mult_unwielded = 2
-	type_of_casings = null
 	akimbo_additional_delay = 0.6
 	reciever_flags = AMMO_RECIEVER_HANDFULS|AMMO_RECIEVER_TOGGLES_OPEN
 
