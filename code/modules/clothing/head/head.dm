@@ -9,8 +9,14 @@
 	equip_slot_flags = ITEM_SLOT_HEAD
 	w_class = WEIGHT_CLASS_SMALL
 	blood_sprite_state = "helmetblood"
-	attachments_by_slot = list(ATTACHMENT_SLOT_BADGE)
-	attachments_allowed = list(/obj/item/armor_module/armor/badge)
+	attachments_by_slot = list(
+		ATTACHMENT_SLOT_BADGE,
+		ATTACHMENT_SLOT_MODULE
+	)
+	attachments_allowed = list(
+		/obj/item/armor_module/armor/badge,
+		/obj/item/armor_module/module/bioreinforcement_unit/head
+	)
 	soft_armor = MARINE_HAT_ARMOR
 	var/anti_hug = 0
 

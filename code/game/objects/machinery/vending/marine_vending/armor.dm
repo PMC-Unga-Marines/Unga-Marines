@@ -52,6 +52,9 @@
 		"General" = list(
 			/obj/item/clothing/suit/modular = -1,
 			/obj/item/clothing/suit/modular/rownin = -1,
+			/obj/item/armor_module/module/bioreinforcement_unit = -1,
+			/obj/item/armor_module/module/bioreinforcement_unit/light = -1,
+			/obj/item/armor_module/module/bioreinforcement_unit/heavy = -1,
 			/obj/item/clothing/suit/armor/bulletproof = -1,
 			/obj/item/facepaint/green = -1,
 			/obj/item/facepaint/sniper = -1,

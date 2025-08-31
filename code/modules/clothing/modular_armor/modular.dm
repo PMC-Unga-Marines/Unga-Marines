@@ -240,6 +240,11 @@
 
 /obj/item/clothing/suit/modular/rownin/generate_attachments_allowed()
 	attachments_allowed = general_list_of_marine_modules.Copy()
+	attachments_allowed += list(
+		/obj/item/armor_module/module/bioreinforcement_unit,
+		/obj/item/armor_module/module/bioreinforcement_unit/light,
+		/obj/item/armor_module/module/bioreinforcement_unit/heavy,
+	)
 
 /obj/item/clothing/suit/modular/rownin/erp
 	name = "\improper ERP rownin Skeleton"

@@ -99,6 +99,7 @@
 			/obj/item/storage/pouch/general/medium = -1,
 		),
 		"Headwear" = list(
+			/obj/item/armor_module/module/bioreinforcement_unit/head = -1,
 			/obj/item/clothing/head/slouch = -1,
 			/obj/item/clothing/head/headband/red = -1,
 			/obj/item/clothing/head/headband/rambo = -1,
