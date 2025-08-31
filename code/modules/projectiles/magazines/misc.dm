@@ -42,15 +42,6 @@
 	current_rounds = 150
 	max_rounds = 150
 
-/obj/item/ammo_magazine/packet/groza
-	name = "box of 7.62x39mm"
-	desc = "A box containing 120 rounds of 7.62x39mm."
-	caliber = CALIBER_762X39
-	icon_state = "box_76239mm"
-	default_ammo = /datum/ammo/bullet/rifle/mpi_km
-	current_rounds = 120
-	max_rounds = 120
-
 /obj/item/ammo_magazine/packet/p10x265mm
 	name = "box of 10x26.5mm"
 	desc = "A box containing 100 rounds of 10x26.5mm caseless."
@@ -105,7 +96,6 @@
 	caliber = CALIBER_10X26_CASELESS
 	current_rounds = 500
 	max_rounds = 500
-	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/ammo_magazine/packet/scout_rifle
 	name = "Box of A19 high velocity bullets"
@@ -189,16 +179,15 @@
 	desc = "A packet containing 50 rounds of pistol .45 ACP."
 	icon_state = "box_.45acp"
 	default_ammo = /datum/ammo/bullet/smg/acp
-	w_class = WEIGHT_CLASS_NORMAL
 	caliber = CALIBER_45ACP
 	current_rounds = 160
 	max_rounds = 160
 
-/obj/item/ammo_magazine/packet/rifle762X39
+/obj/item/ammo_magazine/packet/rifle762x39
 	name = "box of 7.62X39"
+	desc = "A box containing 150 rounds of 7.62x39mm."
 	icon_state = "box_7.62x39mm"
 	default_ammo = /datum/ammo/bullet/rifle/mpi_km
-	w_class = WEIGHT_CLASS_NORMAL
 	caliber = CALIBER_762X39
 	current_rounds = 150
 	max_rounds = 150
@@ -207,7 +196,6 @@
 	name = "box of 7.62X54"
 	icon_state = "box_7.62x54mm"
 	default_ammo = /datum/ammo/bullet/sniper/svd
-	w_class = WEIGHT_CLASS_NORMAL
 	caliber = CALIBER_762X54
 	current_rounds = 50
 	max_rounds = 50
@@ -391,7 +379,6 @@
 	default_ammo = /datum/ammo/bullet/sniper/musket
 	max_rounds = 54
 	caliber = CALIBER_19MM
-	w_class = WEIGHT_CLASS_NORMAL
 	icon_state_mini = "musket_sack_m"
 
 /obj/item/ammo_magazine/packet/musket/small
