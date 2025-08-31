@@ -236,6 +236,7 @@
 	desc = "A light armor, if you can even call it that, for marines that want to have agility in exchange for protection. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
 	icon_state = "rownin_skeleton"
 	worn_icon_state = "rownin_skeleton"
+	item_flags = IMPEDE_JETPACK
 	allowed_uniform_type = /obj/item/clothing/under
 
 /obj/item/clothing/suit/modular/rownin/generate_attachments_allowed()
