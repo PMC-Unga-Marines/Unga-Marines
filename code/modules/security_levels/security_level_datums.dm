@@ -49,7 +49,7 @@
  */
 /datum/security_level/green
 	name = "green"
-	lowering_body = "All clear."
+	lowering_body = "Ситуация урегулирована."
 	announcement_color = "green"
 	status_display_icon = "default"
 	fire_alarm_light_color = LIGHT_COLOR_EMISSIVE_GREEN
