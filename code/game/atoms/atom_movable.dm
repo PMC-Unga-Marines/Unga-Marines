@@ -253,7 +253,7 @@
 	else
 		if(!loc.Exit(src, direction))
 			return
-		if(!(atom_flags & DIRLOCK))
+		if(dir != direction && !(atom_flags & DIRLOCK))
 			setDir(direction)
 
 	var/enter_return_value = newloc.Enter(src)
