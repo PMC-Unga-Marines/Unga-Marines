@@ -585,6 +585,9 @@
 
 	return ..()
 
+
+	///MGE hammer
+
 /obj/item/weapon/twohanded/sledgehammer
 	name = "sledge hammer"
 	desc = "A heavy hammer that's good at smashing rocks, but would probably make a good weapon considering the circumstances."
@@ -604,8 +607,6 @@
 
 /obj/item/weapon/twohanded/sledgehammer/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/shield, SHIELD_TOGGLE|SHIELD_PURE_BLOCKING, list(MELEE = -5, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0))
-	AddComponent(/datum/component/stun_mitigation, SHIELD_TOGGLE, shield_cover = list(MELEE = -5, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0))
 	AddElement(/datum/element/strappable)
 	special_attack = new(src, force_wielded, penetration)
 
