@@ -595,17 +595,17 @@
 	atom_flags = CONDUCT
 	item_flags = TWOHANDED
 	hitsound = 'sound/weapons/heavyhit.ogg'
-	force_wielded = 95
+	force_wielded = 100
 	penetration = 0
-	attack_speed = 30
+	attack_speed = 20
 	attack_verb = list("attacks", "wallops", "smashes", "shatters", "bashes")
 
 	var/datum/action/ability/activable/weapon_skill/sledgehammer_sweep/special_attack
 
 /obj/item/weapon/twohanded/sledgehammer/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/shield, SHIELD_TOGGLE|SHIELD_PURE_BLOCKING, list(MELEE = -20, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0))
-	AddComponent(/datum/component/stun_mitigation, SHIELD_TOGGLE, shield_cover = list(MELEE = -20, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0))
+	AddComponent(/datum/component/shield, SHIELD_TOGGLE|SHIELD_PURE_BLOCKING, list(MELEE = -5, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0))
+	AddComponent(/datum/component/stun_mitigation, SHIELD_TOGGLE, shield_cover = list(MELEE = -5, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0))
 	AddElement(/datum/element/strappable)
 	special_attack = new(src, force_wielded, penetration)
 
@@ -633,8 +633,8 @@
 	name = "Sweeping blow"
 	action_icon_state = "axe_sweep"
 	desc = "A powerful sweeping blow that hits foes in the direction you are facing. Cannot stun."
-	ability_cost = 20
-	cooldown_duration = 12 SECONDS
+	ability_cost = 15
+	cooldown_duration = 8 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_WEAPONABILITY_AXESWEEP,
 	)
