@@ -11,7 +11,7 @@
 	wound_type = "gorger" //used to match appropriate wound overlays
 
 	// *** Melee Attacks *** //
-	melee_damage = 20
+	melee_damage = 22
 
 	// *** Speed *** //
 	speed = -0.4
@@ -24,21 +24,22 @@
 	plasma_icon_state = "fury"
 
 	// *** Health *** //
-	max_health = 600
+	max_health = 900
 
 	// *** Flags *** //
-	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_EVOLUTION_ALLOWED
+	caste_flags = CASTE_INNATE_PLASMA_REGEN|CASTE_PLASMADRAIN_IMMUNE|CASTE_IS_STRONG|CASTE_STAGGER_RESISTANT|CASTE_EVOLUTION_ALLOWED
 	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
 	caste_traits = null
 
 	// *** Defense *** //
-	soft_armor = list(MELEE = 20, BULLET = 15, LASER = 15, ENERGY = 20, BOMB = 10, BIO = 20, FIRE = 10, ACID = 20)
+	soft_armor = list(MELEE = 20, BULLET = 40, LASER = 40, ENERGY = 20, BOMB = 50, BIO = 50, FIRE = 20, ACID = 50)
+	hard_armor = list(MELEE = 0, BULLET = 12, LASER = 6, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 
 	// *** Minimap Icon *** //
 	minimap_icon = "gorger"
 
 	// *** Gorger Abilities *** //
-	overheal_max = 275
+	overheal_max = 400 // approximately 45 % of max hp
 	drain_plasma_gain = 75
 	carnage_plasma_gain = 150
 	feast_plasma_drain = 20
