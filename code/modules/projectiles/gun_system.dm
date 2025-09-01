@@ -1318,6 +1318,11 @@
 		if(CHECK_BITFIELD(reciever_flags, AMMO_RECIEVER_HANDFULS))
 			var/obj/item/ammo_magazine/mag = new_mag
 			if(CHECK_BITFIELD(mag.magazine_flags, MAGAZINE_HANDFUL))
+				if(mag.reload_delay > 0 && user && !force)
+					to_chat(user, span_notice("You begin reloading [src] with [mag]."))
+					if(!do_after(user, mag.reload_delay, NONE, user))
+						to_chat(user, span_warning("Your reload was interupted!"))
+						return FALSE
 				if(mag.current_rounds > 1)
 					items_to_insert += mag.create_handful(null, 1)
 				else

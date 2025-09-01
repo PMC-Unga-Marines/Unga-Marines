@@ -89,6 +89,8 @@
 	var/incendiary_strength = 10
 	///Embeding shrapnel type
 	var/shrapnel_type = /obj/item/shard/shrapnel
+	///Set a timer for reloading handfuls.
+	var/reload_delay = 0 SECONDS
 
 /datum/ammo/proc/do_at_max_range(turf/target_turf, obj/projectile/proj)
 	return
