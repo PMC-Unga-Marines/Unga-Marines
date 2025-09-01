@@ -219,7 +219,7 @@
 	for(var/i in 1 to 20) // maybe a bit laggy
 		var/obj/projectile/new_proj = new(src)
 		new_proj.generate_bullet(ammo)
-		new_proj.fire_at(null, src, src, range = rand(1, 4), angle = rand(1, 360), recursivity = TRUE)
+		new_proj.fire_at(null, null, src, range = rand(1, 4), angle = rand(1, 360), recursivity = TRUE)
 
 /obj/structure/xeno/turret/facehugger
 	name = "hugger turret"
