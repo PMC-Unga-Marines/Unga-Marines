@@ -379,7 +379,6 @@
 	hive?.xeno_message("[src] has summoned down the metal bird to [port], gather to her now!")
 	priority_announce("Неизвестное вмешательство в управление десантным шаттлом. Выключение автопилота...", "Неисправность Шаттла", type = ANNOUNCEMENT_PRIORITY, color_override = "red", sound = 'sound/AI/dropship_wrong.ogg')
 
-
 #define ALIVE_HUMANS_FOR_CALLDOWN 0.1
 
 /datum/game_mode/proc/can_summon_dropship(mob/user)

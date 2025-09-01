@@ -35,7 +35,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	///The points per faction, assoc list
 	var/list/points_per_faction
 	/// When are the shutters dropping
-	var/shutters_drop_time = 20 MINUTES
+	var/shutters_drop_time = SHUTTERS_DROP_TIME
 	///Time before becoming a zombie when going undefibbable
 	var/zombie_transformation_time = 30 SECONDS
 	/** The time between two rounds of this gamemode. If it's zero, this mode i always votable.
