@@ -1331,7 +1331,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
 	},
-/obj/machinery/telecomms/relay/preset/tower,
+/obj/effect/landmark/tower_relay,
 /turf/open/floor/tile/dark/brown2{
 	dir = 4
 	},
@@ -18522,7 +18522,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/clearing/north)
 "cZI" = (
-/obj/machinery/telecomms/relay/preset/tower,
+/obj/effect/landmark/tower_relay,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/clearing/north)
 "cZK" = (
@@ -21775,7 +21775,7 @@
 	},
 /area/ice_colony/underground/command/center)
 "hIP" = (
-/obj/machinery/telecomms/relay/preset/tower,
+/obj/effect/landmark/tower_relay,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/excavation)
 "hJF" = (
