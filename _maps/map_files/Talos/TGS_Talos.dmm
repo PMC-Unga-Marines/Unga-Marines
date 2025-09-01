@@ -6829,11 +6829,11 @@
 /area/mainship/hallways/hangar)
 "dUj" = (
 /obj/effect/spawner/random/misc/plant,
-/obj/machinery/door_control/ai/exterior{
-	pixel_x = -30
-	},
 /obj/structure/sign/semiotic/opens_up{
 	pixel_x = -17
+	},
+/obj/machinery/door_control/ai/exterior{
+	pixel_y = 25
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/command/airoom)
