@@ -12492,10 +12492,9 @@
 	},
 /area/magmoor/command/conference)
 "jcL" = (
-/obj/effect/landmark/weed_node,
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/magmoor/cave/east)
+/turf/closed/wall/r_wall,
+/area/magmoor/landing/two)
 "jdf" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -14000,6 +13999,11 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/east)
+"kbt" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/mineral/smooth/lavawall/indestructible,
+/area/magmoor/cave/rock)
 "kbE" = (
 /turf/open/floor/plating/icefloor/warnplate,
 /area/magmoor/landing)
@@ -20657,6 +20661,10 @@
 	dir = 5
 	},
 /area/magmoor/compound/east)
+"oTh" = (
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/mineral/smooth/lavawall/indestructible,
+/area/magmoor/cave/rock)
 "oTk" = (
 /obj/structure/girder/reinforced,
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -23794,6 +23802,11 @@
 "rfB" = (
 /turf/closed/mineral/smooth/lavawall/indestructible,
 /area/magmoor/cave/rock)
+"rfN" = (
+/obj/effect/landmark/weed_node,
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/magmoor/cave/southeast)
 "rge" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/plating,
@@ -27733,7 +27746,7 @@
 "tYP" = (
 /obj/effect/landmark/xeno_silo_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/magmoor/cave/east)
+/area/magmoor/cave/southeast)
 "tYY" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating,
@@ -29436,7 +29449,7 @@
 "vdo" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
-/area/magmoor/cave/east)
+/area/magmoor/cave/southeast)
 "vdz" = (
 /obj/effect/landmark/corpsespawner/doctor,
 /obj/effect/decal/cleanable/blood/splatter,
@@ -33990,6 +34003,13 @@
 "yge" = (
 /turf/open/lavaland/basalt/dirt/autosmoothing,
 /area/magmoor/compound/west)
+"ygh" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
+	dir = 2
+	},
+/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/turf/closed/mineral/smooth/lavawall/indestructible,
+/area/magmoor/cave/rock)
 "ygU" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/sand,
@@ -74647,19 +74667,19 @@ eVI
 eVI
 eVI
 eVI
-qGn
-rfB
-xPQ
-tVo
-oGr
-oGr
-oGr
-tVo
-tVo
-tVo
-tVo
-oGr
-oGr
+jcL
+oTh
+ygh
+qNa
+vdo
+vdo
+vdo
+qNa
+qNa
+qNa
+qNa
+vdo
+vdo
 tVo
 tVo
 tVo
@@ -74880,7 +74900,7 @@ dwT
 dwT
 dwT
 cAl
-qGn
+jcL
 rfB
 xPQ
 oGr
@@ -74892,7 +74912,7 @@ tVo
 tVo
 oGr
 oGr
-oGr
+vdo
 tVo
 tVo
 tVo
@@ -75113,7 +75133,7 @@ qGn
 qGn
 qGn
 qGn
-qGn
+jcL
 rfB
 xPQ
 oGr
@@ -75125,7 +75145,7 @@ tVo
 tVo
 oGr
 lKQ
-oGr
+vdo
 tVo
 tVo
 tVo
@@ -75346,7 +75366,7 @@ xPQ
 kae
 kae
 kae
-iPB
+kbt
 iPB
 xPQ
 oGr
@@ -75358,7 +75378,7 @@ tVo
 tVo
 oGr
 oGr
-oGr
+vdo
 tVo
 tVo
 tVo
@@ -75579,6 +75599,7 @@ iPB
 oGr
 oGr
 oGr
+vdo
 oGr
 oGr
 oGr
@@ -75590,8 +75611,7 @@ oGr
 oGr
 oGr
 oGr
-oGr
-tVo
+qNa
 tVo
 tVo
 tVo
@@ -75812,19 +75832,19 @@ tVo
 oGr
 oGr
 oGr
+vdo
+oGr
+lKQ
+oGr
 oGr
 oGr
 lKQ
 oGr
 oGr
 oGr
-lKQ
 oGr
 oGr
-oGr
-oGr
-oGr
-tVo
+qNa
 tVo
 tVo
 tVo
@@ -76045,7 +76065,7 @@ tVo
 oGr
 oGr
 lKQ
-oGr
+vdo
 oGr
 tVo
 oGr
@@ -76057,7 +76077,7 @@ tVo
 oGr
 lKQ
 oGr
-tVo
+qNa
 tVo
 tVo
 tVo
@@ -76278,19 +76298,19 @@ tVo
 lKQ
 oGr
 oGr
-oGr
+vdo
 tVo
 tVo
 tVo
 crp
-oGr
+tYP
 oGr
 oGr
 oGr
 oGr
 oGr
 tVo
-tVo
+qNa
 tVo
 tVo
 tVo
@@ -76511,7 +76531,7 @@ oGr
 oGr
 oGr
 oGr
-tVo
+qNa
 tVo
 tVo
 oGr
@@ -76523,7 +76543,7 @@ oGr
 oGr
 tVo
 tVo
-tVo
+qNa
 tVo
 tVo
 tVo
@@ -76744,7 +76764,7 @@ oGr
 oGr
 oGr
 oGr
-tVo
+qNa
 oGr
 oGr
 oGr
@@ -76756,7 +76776,7 @@ tVo
 tVo
 tVo
 tVo
-tVo
+qNa
 tVo
 tVo
 tVo
@@ -76977,7 +76997,7 @@ oGr
 lKQ
 oGr
 oGr
-oGr
+vdo
 oGr
 oGr
 oGr
@@ -76989,7 +77009,7 @@ tVo
 tVo
 tVo
 tVo
-tVo
+qNa
 tVo
 tVo
 tVo
@@ -77210,7 +77230,7 @@ oGr
 oGr
 oGr
 oGr
-oGr
+vdo
 oGr
 lKQ
 oGr
@@ -77222,7 +77242,7 @@ tVo
 tVo
 tVo
 tVo
-tVo
+qNa
 tVo
 tVo
 tVo
@@ -77383,14 +77403,14 @@ tVo
 tVo
 tVo
 tVo
-qNa
-qNa
-vdo
-vdo
-vdo
-vdo
-vdo
-qNa
+tVo
+tVo
+pet
+pet
+pet
+pet
+pet
+tVo
 tVo
 tVo
 tVo
@@ -77443,7 +77463,7 @@ oGr
 oGr
 oGr
 oGr
-lKQ
+rfN
 oGr
 oGr
 oGr
@@ -77455,7 +77475,7 @@ tVo
 tVo
 tVo
 tVo
-tVo
+qNa
 tVo
 tVo
 tVo
@@ -77616,14 +77636,14 @@ tVo
 tVo
 tVo
 tVo
-qNa
+tVo
 pet
 pet
 pet
 pet
 pet
 tVo
-qNa
+tVo
 tVo
 tVo
 tVo
@@ -77676,18 +77696,18 @@ lKQ
 oGr
 oGr
 oGr
-oGr
-tVo
-tVo
-tVo
-tVo
-tVo
-tVo
-tVo
-tVo
-tVo
-tVo
-tVo
+vdo
+qNa
+qNa
+qNa
+qNa
+qNa
+qNa
+qNa
+qNa
+qNa
+qNa
+qNa
 tVo
 tVo
 tVo
@@ -77849,14 +77869,14 @@ tVo
 tVo
 tVo
 tVo
-qNa
+tVo
 kbo
 pet
 pet
 pet
 tVo
 tVo
-qNa
+tVo
 tVo
 tVo
 tVo
@@ -78082,14 +78102,14 @@ tVo
 tVo
 tVo
 tVo
-qNa
+tVo
 pet
 pet
 pet
 pet
 kbo
 tVo
-qNa
+tVo
 tVo
 tVo
 tVo
@@ -78315,14 +78335,14 @@ tVo
 tVo
 tVo
 tVo
-qNa
+tVo
 pet
 pet
 pet
 pet
 pet
 pet
-qNa
+tVo
 tVo
 tVo
 tVo
@@ -78548,14 +78568,14 @@ tVo
 tVo
 tVo
 tVo
-qNa
+tVo
 pet
 pet
 kbo
-tYP
 pet
 pet
-qNa
+pet
+tVo
 tVo
 tVo
 tVo
@@ -78781,14 +78801,14 @@ tVo
 tVo
 tVo
 tVo
-qNa
+tVo
 pet
 pet
 pet
 pet
 pet
 tVo
-qNa
+tVo
 tVo
 tVo
 tVo
@@ -79014,14 +79034,14 @@ tVo
 tVo
 tVo
 tVo
-qNa
+tVo
 kbo
 pet
 pet
 vew
 pet
 tVo
-qNa
+tVo
 tVo
 tVo
 tVo
@@ -79247,14 +79267,14 @@ tVo
 tVo
 tVo
 tVo
-qNa
+tVo
 tVo
 pet
 pet
 pet
 oFF
 pet
-vdo
+pet
 vew
 tVo
 tVo
@@ -79480,14 +79500,14 @@ tVo
 tVo
 tVo
 tVo
-qNa
 tVo
 tVo
+tVo
 pet
 pet
 pet
 pet
-vdo
+pet
 pet
 kbo
 tVo
@@ -79713,14 +79733,14 @@ tVo
 tVo
 tVo
 tVo
-qNa
+tVo
 tVo
 tVo
 tVo
 pet
 pet
 pet
-vdo
+pet
 pet
 pet
 pet
@@ -79946,14 +79966,14 @@ tVo
 tVo
 tVo
 tVo
-qNa
-qNa
-qNa
-qNa
-qNa
-qNa
-qNa
-jcL
+tVo
+tVo
+tVo
+tVo
+tVo
+tVo
+tVo
+kbo
 vew
 pet
 pet
