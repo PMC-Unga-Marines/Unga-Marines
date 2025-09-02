@@ -70,7 +70,7 @@
 			/obj/item/storage/holster/belt/revolver/t457 = -1,
 			/obj/item/storage/holster/blade/tomahawk/full = -1,
 			/obj/item/storage/holster/blade/machete/full = -1,
-			/obj/item/storage/pouch/machete/full = -1,
+			/obj/item/storage/holster/blade/harvester/full = -1,
 			/obj/item/weapon/twohanded/glaive/harvester = -1,
 			/obj/item/storage/belt/utility/full =-1,
 			/obj/item/storage/belt/medical_small = -1,
