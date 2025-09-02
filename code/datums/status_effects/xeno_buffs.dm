@@ -1414,7 +1414,7 @@
 	particle_holder.pixel_y = -3
 
 	//only slower xenos get better movespeed amplify. No gigaspeed runners
-	var/movespeed_mod =((owner_xeno.xeno_caste.speed <= -1) ? -0.1 : (owner_xeno.xeno_caste.speed <= -0.8) ? -0.2 : -0.4)
+	var/movespeed_mod = ((owner_xeno.xeno_caste.speed <= -1) ? -0.1 : (owner_xeno.xeno_caste.speed <= -0.8) ? -0.2 : -0.4)
 	owner_xeno.add_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS, TRUE, 1, NONE, TRUE, movespeed_mod)
 
 	to_chat(owner, span_notice("We feel on top of the world! Go, go, go!"))
