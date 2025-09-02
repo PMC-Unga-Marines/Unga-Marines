@@ -2096,6 +2096,7 @@
 #include "code\modules\projectiles\gun_system.dm"
 #include "code\modules\projectiles\handful.dm"
 #include "code\modules\projectiles\image.dm"
+#include "code\modules\projectiles\matter_ammo_box.dm"
 #include "code\modules\projectiles\mounted.dm"
 #include "code\modules\projectiles\particles.dm"
 #include "code\modules\projectiles\projectile.dm"

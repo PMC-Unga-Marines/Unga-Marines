@@ -253,6 +253,18 @@
 	internal_organs_by_name -= string
 	internal_organs -= organ
 
+/// Current active hand will interact with the other hand. Uses attackby and attack_hand.
+/mob/living/carbon/human/proc/interact_other_hand()
+	var/atom/active_hand = get_active_held_item()
+	var/atom/inactive_hand = get_inactive_held_item()
+
+	if(!inactive_hand)
+		return
+	if(!active_hand)
+		inactive_hand.attack_hand(src)
+		return
+	inactive_hand.attackby(active_hand, src)
+
 /// Does something. Unshitcode me.
 /mob/living/carbon/human/proc/disable_special_items()
 	set waitfor = FALSE // Scout decloak animation uses sleep(), which is problematic for taser gun
