@@ -514,18 +514,18 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 /datum/action/ability/activable/xeno/impale/proc/determine_buff_mult(mob/living/carbon/human/living_target)
 	var/adjusted_mult = 1.20
 	//tier 1 debuffs
-	if(living_target.IsStaggered())
+	if(living_target.has_status_effect(STATUS_EFFECT_STAGGER))
 		adjusted_mult += 0.25
 	if(living_target.IsSlowed())
 		adjusted_mult += 0.25
 	if(living_target.has_status_effect(STATUS_EFFECT_INTOXICATED))
 		adjusted_mult += 0.25
-	if(living_target.IsConfused())
+	if(living_target.has_status_effect(STATUS_EFFECT_CONFUSED))
 		adjusted_mult += 0.25
-	if(living_target.IsImmobilized())
+	if(living_target.has_status_effect(STATUS_EFFECT_IMMOBILIZED))
 		adjusted_mult += 0.25
 	//big bonus if target has a "helpless" debuff
-	if(living_target.IsParalyzed() || living_target.IsStun() || living_target.IsKnockdown())
+	if(living_target.has_status_effect(STATUS_EFFECT_PARALYZED) || living_target.has_status_effect(STATUS_EFFECT_STUN) || living_target.has_status_effect(STATUS_EFFECT_KNOCKDOWN))
 		adjusted_mult += 0.5
 	return adjusted_mult
 
@@ -670,12 +670,11 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_BATONPASS,
 	)
-
-keybind_flags = ABILITY_KEYBIND_USE_ABILITY
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 
 /datum/action/ability/activable/xeno/baton_pass/use_ability(atom/target)
 
-playsound(xeno_owner,pick('sound/effects/alien/tail_swipe1.ogg','sound/effects/alien/tail_swipe2.ogg','sound/effects/alien/tail_swipe3.ogg'), 25, 1) //Sound effects
+	playsound(xeno_owner,pick('sound/effects/alien/tail_swipe1.ogg','sound/effects/alien/tail_swipe2.ogg','sound/effects/alien/tail_swipe3.ogg'), 25, 1) //Sound effects
 	xeno_owner.visible_message(span_danger("\The [xeno_owner] empowers nearby xenos with increased speed!"))
 
 	for (var/mob/living/carbon/xenomorph/xeno_target in orange(1, xeno_owner))
@@ -685,7 +684,6 @@ playsound(xeno_owner,pick('sound/effects/alien/tail_swipe1.ogg','sound/effects/a
 			continue
 		xeno_target.apply_status_effect(STATUS_EFFECT_XENO_BATONPASS)
 
-	addtimer(CALLBACK(src, PROC_REF(remove_baton), baton), 3 SECONDS)
 	succeed_activate()
 	add_cooldown()
 

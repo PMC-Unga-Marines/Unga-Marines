@@ -132,3 +132,4 @@
 		/datum/action/ability/activable/xeno/tail_trip,
 		/datum/action/ability/activable/xeno/charge/acid_dash,
 		/datum/action/ability/activable/xeno/baton_pass,
+	)
