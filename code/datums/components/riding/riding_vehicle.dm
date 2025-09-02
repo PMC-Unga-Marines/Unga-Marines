@@ -195,9 +195,8 @@
 	set_vehicle_dir_offsets(NORTH, -10, 0)
 	set_vehicle_dir_offsets(SOUTH, 10, 0)
 
-/datum/component/riding/vehicle/motorbike/sidecar/get_offsets(pass_index, mob_type)
-	switch(pass_index)
-		if(1) //first one buckled, so driver
-			return list(TEXT_NORTH = list(9, 3), TEXT_SOUTH = list(-9, 3), TEXT_EAST = list(-2, 3), TEXT_WEST = list(2, 3))
-		if(2) //second one buckled, so sidecar rider
-			return list(TEXT_NORTH = list(-6, 2), TEXT_SOUTH = list(6, 2), TEXT_EAST = list(-3, 0, ABOVE_OBJ_LAYER), TEXT_WEST = list(3, 0, LYING_MOB_LAYER))
+/datum/component/riding/vehicle/motorbike/sidecar/get_offsets(pass_index, mob, mob_type)
+	var/obj/vehicle/bike = parent
+	if(bike.is_driver(mob)) // we check for the driver, and not for index, because what if the driver gets in the bike second?
+		return list(TEXT_NORTH = list(9, 3), TEXT_SOUTH = list(-9, 3), TEXT_EAST = list(-2, 3), TEXT_WEST = list(2, 3))
+	return list(TEXT_NORTH = list(-6, 2), TEXT_SOUTH = list(6, 2), TEXT_EAST = list(-3, 0, ABOVE_OBJ_LAYER), TEXT_WEST = list(3, 0, LYING_MOB_LAYER))
