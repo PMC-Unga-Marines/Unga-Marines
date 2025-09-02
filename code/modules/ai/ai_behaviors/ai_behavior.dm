@@ -16,6 +16,8 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 	var/atom/interact_target
 	///How far should we stay away from atom_to_walk_to. Outer range
 	var/upper_maintain_dist = 1
+	///How far should we stay away from atom_to_walk_to when escorting. Outer range
+	var/escort_upper_maintain_dist = 3
 	///How far should we stay away from atom_to_walk_to. Inner range
 	var/lower_maintain_dist = 1
 	///Range to stay from a hostile target. Outer range
@@ -144,7 +146,7 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 		upper_maintain_dist = 0
 		lower_maintain_dist = 0
 	else if(current_action == ESCORTING_ATOM)
-		upper_maintain_dist = 3 //Don't stay too close //todo: can make this a var to be adjustable
+		upper_maintain_dist = escort_upper_maintain_dist //Don't stay too close
 		lower_maintain_dist = 1
 	else if(islist(special_distance_to_maintain))
 		upper_maintain_dist = max(special_distance_to_maintain)

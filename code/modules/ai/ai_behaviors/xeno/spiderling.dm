@@ -1,6 +1,7 @@
 /datum/ai_behavior/spiderling
 	target_distance = 1
 	upper_maintain_dist = 0
+	escort_upper_maintain_dist = 0
 	lower_maintain_dist = 0
 	base_action = ESCORTING_ATOM
 	identifier = IDENTIFIER_XENO
