@@ -68,7 +68,8 @@
 /datum/ai_behavior/spiderling/register_action_signals(action_type)
 	if(action_type == MOVING_TO_ATOM)
 		RegisterSignal(mob_parent, COMSIG_STATE_MAINTAINED_DISTANCE, PROC_REF(attack_target))
-		RegisterSignals(atom_to_walk_to, list(COMSIG_MOB_DEATH, COMSIG_QDELETING), PROC_REF(look_for_new_state))
+		RegisterSignals(atom_to_walk_to, list(COMSIG_MOB_DEATH, COMSIG_QDELETING), PROC_REF(look_for_new_state), TRUE)
+		return
 	return ..()
 
 ///override for MOVING_TO_ATOM to unregister signals for maintaining distance with our target and attacking
@@ -77,6 +78,7 @@
 		UnregisterSignal(mob_parent, COMSIG_STATE_MAINTAINED_DISTANCE)
 		if(!isnull(atom_to_walk_to))
 			UnregisterSignal(atom_to_walk_to, list(COMSIG_MOB_DEATH, COMSIG_QDELETING))
+		return
 	return ..()
 
 ///attack the first closest human, by moving towards it
@@ -129,8 +131,7 @@
 			if(target)
 				change_action(MOVING_TO_ATOM, target)
 				return TRUE
-			else
-				return seek_and_attack()
+			return seek_and_attack()
 
 ///behavior to deal with obstacles
 /datum/ai_behavior/spiderling/deal_with_obstacle(datum/source, direction)
