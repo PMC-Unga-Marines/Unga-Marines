@@ -179,10 +179,16 @@
 
 /datum/component/riding/vehicle/motorbike/sidecar/Initialize(mob/living/riding_mob, force, ride_check_flags, potion_boost)
 	. = ..()
-	riding_mob.density = FALSE
+	var/obj/vehicle/bike = parent
+	for(var/mob/living/buckled_mob AS in bike.occupants)
+		if(bike.is_driver(buckled_mob)) // we disable density only for a passenger, so xenos can pounce at the bike
+			continue
+		buckled_mob.density = FALSE
 
 /datum/component/riding/vehicle/motorbike/sidecar/vehicle_mob_unbuckle(datum/source, mob/living/former_rider, force = FALSE)
-	former_rider.density = TRUE
+	var/obj/vehicle/bike = parent
+	for(var/mob/living/buckled_mob AS in bike.occupants)
+		buckled_mob.density = TRUE
 	return ..()
 
 //sidecar
