@@ -358,6 +358,7 @@
 	damage = 30
 	penetration = 40
 	sundering = 2.5
+	matter_cost = 0
 
 /datum/ammo/rocket/tank_autocannon
 	name = "autocannon high explosive"
@@ -368,6 +369,7 @@
 	damage = 15
 	penetration = 20
 	sundering = 1.5
+	matter_cost = 0
 
 /datum/ammo/rocket/tank_autocannon/on_hit_mob(mob/target_mob, obj/projectile/proj) // This is so it doesn't knock back on hit.
 	var/target_turf = get_turf(target_mob)
