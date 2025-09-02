@@ -23,6 +23,11 @@
 		RegisterSignal(SSdcs, COMSIG_GLOB_AI_MINION_RALLY, PROC_REF(global_set_escorted_atom))
 	return ..()
 
+/datum/ai_behavior/xeno/ai_do_move()
+	if(mob_parent?.lying_angle)
+		return
+	return ..()
+
 /datum/ai_behavior/xeno/clean_escorted_atom()
 	if(!escorted_atom)
 		return
