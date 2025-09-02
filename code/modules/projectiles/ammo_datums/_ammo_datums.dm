@@ -91,6 +91,8 @@
 	var/shrapnel_type = /obj/item/shard/shrapnel
 	///Set a timer for reloading handfuls.
 	var/reload_delay = 0 SECONDS
+	/// Cost in matter units to produce one round of this ammunition type. If set to 0, this ammo cannot be converted to/from matter.
+	var/matter_cost = 0
 
 /datum/ammo/proc/do_at_max_range(turf/target_turf, obj/projectile/proj)
 	return

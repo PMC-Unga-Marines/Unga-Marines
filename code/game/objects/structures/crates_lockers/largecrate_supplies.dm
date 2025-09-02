@@ -35,7 +35,6 @@
 	name = "ammunition supplies"
 	supply = list(
 		/obj/structure/largecrate/supply/ammo/m41a = 4,
-		/obj/structure/largecrate/supply/ammo/m41a_box = 4,
 		/obj/structure/largecrate/supply/ammo/shotgun = 4,
 		/obj/structure/largecrate/supply/ammo/smg90 = 4,
 		/obj/structure/largecrate/supply/ammo/pistol = 4,
@@ -172,11 +171,6 @@
 	name = "\improper PR-412 magazine case (x20)"
 	desc = "An ammunition case containing 20 PR-412 magazines."
 	supplies = list(/obj/item/ammo_magazine/rifle = 20)
-
-/obj/structure/largecrate/supply/ammo/m41a_box
-	name = "\improper PR-412 ammunition box case (x4)"
-	desc = "An ammunition case containing four PR-412 600 round boxes of ammunition."
-	supplies = list(/obj/item/big_ammo_box = 4)
 
 /obj/structure/largecrate/supply/ammo/shotgun
 	name = "12 Gauge ammunition crate (x20)"
