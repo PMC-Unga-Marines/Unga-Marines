@@ -439,9 +439,7 @@
 			continue
 		if(C.mob == mob)
 			continue
-		if(C.prefs.toggles_chat & CHAT_LOOC)
-			to_chat(C, "<font color='#6699CC'>[span_ooc("<span class='prefix'>LOOC: [ADMIN_TPMONTY(mob)]")]: [span_message("[msg]")]</span></font>")
-
+			
 		var/display_name = "[ADMIN_TPMONTY(mob)]"
 		if(holder?.fakekey) // Show their fakekey in addition to real key + buttons if they have one
 			display_name = "[span_tooltip("Stealth key", "'[holder.fakekey]'")] ([display_name])"
