@@ -236,6 +236,7 @@
 	damage = 40
 	penetration = 40
 	sundering = 3.5
+	matter_cost = 0
 
 /datum/ammo/bullet/sarden/high_explosive
 	name = "heavy autocannon high explosive"
@@ -246,6 +247,7 @@
 	penetration = 30
 	sundering = 0.5
 	max_range = 21
+	matter_cost = 0
 
 /datum/ammo/bullet/sarden/high_explosive/drop_nade(turf/T)
 	cell_explosion(T, 50, 25)
