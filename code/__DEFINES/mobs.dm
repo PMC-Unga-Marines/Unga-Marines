@@ -781,9 +781,12 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define PRAE_CHARGEDISTANCE 6
 
 //Dancer defines
-#define DANCER_IMPALE_PENETRATION 20//armor penetration done by impale to marked targets
-#define DANCER_MAX_IMPALE_MULT 2.5 //the maximum multiplier dancer impale can gain from debuffs
-#define DANCER_NONHUMAN_IMPALE_MULT 1.5//the flat damage multiplier done by impale to non-carbon targets
+/// Armor penetration done by impale to marked targets
+#define DANCER_IMPALE_PENETRATION 20
+/// The maximum multiplier dancer impale can gain from debuffs
+#define DANCER_MAX_IMPALE_MULT 2.5
+/// The flat damage multiplier done by impale to non-carbon targets
+#define DANCER_NONHUMAN_IMPALE_MULT 1.5
 
 // Chimera defines
 //Stagger and slowdown stacks applied to adjacent living hostiles before/after a teleport
