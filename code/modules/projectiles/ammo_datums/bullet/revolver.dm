@@ -7,6 +7,7 @@
 	damage = 40
 	penetration = 10
 	additional_xeno_penetration = 20
+	matter_cost = 0
 
 /datum/ammo/bullet/revolver/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	staggerstun(target_mob, proj, stagger = 2 SECONDS, slowdown = 0.5, knockback = 1)
@@ -20,6 +21,7 @@
 	additional_xeno_penetration = 10
 	damage_falloff = 0.5
 	shell_speed = 3.5
+	matter_cost = 16
 
 /datum/ammo/bullet/revolver/rifle/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	staggerstun(target_mob, proj, slowdown = 0.5, knockback = 1)
@@ -33,6 +35,7 @@
 	penetration = 40
 	max_range = 25
 	additional_xeno_penetration = 0
+	matter_cost = 0
 
 /datum/ammo/bullet/revolver/t500/on_hit_mob(mob/target_mob,obj/projectile/proj)
 	staggerstun(target_mob, proj, stagger = 0, slowdown = 0, knockback = 2)
@@ -65,6 +68,7 @@
 	damage = 100
 	penetration = 40
 	additional_xeno_penetration = 0
+	matter_cost = 0
 
 /datum/ammo/bullet/revolver/t312/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	staggerstun(target_mob, proj, knockback = 1)
@@ -77,6 +81,7 @@
 	penetration = 100
 	shrapnel_chance = 0
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_SKIPS_ALIENS
+	matter_cost = 0
 
 /datum/ammo/bullet/revolver/t312/med/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	return
@@ -129,6 +134,7 @@
 	damage = 35
 	penetration = 15
 	additional_xeno_penetration = 10
+	matter_cost = 8
 
 /datum/ammo/bullet/revolver/r44/on_hit_mob(mob/target_mob,obj/projectile/proj)
 	staggerstun(target_mob, proj, knockback = 1)
@@ -137,6 +143,7 @@
 	name = "small revolver bullet"
 	hud_state = "revolver_small"
 	damage = 30
+	matter_cost = 0
 
 /datum/ammo/bullet/revolver/small/on_hit_mob(mob/target_mob,obj/projectile/proj)
 	staggerstun(target_mob, proj, slowdown = 0.5)
@@ -151,6 +158,7 @@
 	damage = 25
 	penetration = 10
 	additional_xeno_penetration = 20
+	matter_cost = 0
 
 /datum/ammo/bullet/revolver/judge
 	name = "oversized revolver bullet"
@@ -162,6 +170,7 @@
 	damage = 60
 	penetration = 10
 	additional_xeno_penetration = 15
+	matter_cost = 0
 
 /datum/ammo/bullet/revolver/heavy
 	name = "heavy revolver bullet"
@@ -170,10 +179,12 @@
 	penetration = 5
 	accuracy = -10
 	additional_xeno_penetration = 17.5
+	matter_cost = 0
 
 /datum/ammo/bullet/revolver/heavy/incendiary
 	name = "incendiary heavy revolver bullet"
 	ammo_behavior_flags = AMMO_INCENDIARY|AMMO_BALLISTIC
+	matter_cost = 0
 
 /datum/ammo/bullet/revolver/t76
 	name = "magnum 12.7 bullet"
@@ -181,6 +192,7 @@
 	damage = 130
 	penetration = 30
 	additional_xeno_penetration = 15
+	matter_cost = 0
 
 /datum/ammo/bullet/revolver/t76/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 0.5, slowdown = 1)
@@ -192,6 +204,7 @@
 	damage = 45
 	penetration = 20
 	additional_xeno_penetration = 15
+	matter_cost = 0
 
 /datum/ammo/bullet/revolver/highimpact/on_hit_mob(mob/target_mob,obj/projectile/proj)
 	staggerstun(target_mob, proj, paralyze = 2 SECONDS, stagger = 2 SECONDS, slowdown = 1, knockback = 1)
@@ -199,6 +212,7 @@
 /datum/ammo/bullet/revolver/ricochet
 	bonus_projectiles_type = /datum/ammo/bullet/revolver/small
 	bonus_projectiles_scatter = 0
+	matter_cost = 0
 
 /datum/ammo/bullet/revolver/ricochet/one
 	bonus_projectiles_type = /datum/ammo/bullet/revolver/ricochet
