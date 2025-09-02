@@ -27657,10 +27657,10 @@
 /obj/structure/sign/semiotic/terminal{
 	pixel_x = 32
 	},
-/obj/machinery/computer/camera_advanced/overwatch/military,
 /obj/machinery/camera/autoname{
 	dir = 8
 	},
+/obj/machinery/computer/camera_advanced/overwatch/req,
 /turf/open/floor/prison/yellow{
 	dir = 4
 	},
