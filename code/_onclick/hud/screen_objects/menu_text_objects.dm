@@ -143,13 +143,14 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 
 /atom/movable/screen/text/lobby/clickable/ready/Click()
 	. = ..()
-	if(SSticker?.current_state < GAME_STATE_PLAYING)
-		var/mob/new_player/player = hud.mymob
-		player.toggle_ready()
-		icon_state = player.ready ? "ready" : "unready"
-		if(MouseEntered(src))
-			icon_state += "_a"
-		update_text()
+	if(SSticker?.current_state >= GAME_STATE_PLAYING)
+		return
+	var/mob/new_player/player = hud.mymob
+	player.toggle_ready()
+	icon_state = player.ready ? "ready" : "unready"
+	if(MouseEntered(src))
+		icon_state += "_a"
+	update_text()
 
 /atom/movable/screen/text/lobby/clickable/observe
 	maptext = "<span class='lobbytext'>НАБЛЮДАТЬ</span>"
