@@ -2974,10 +2974,6 @@
 	},
 /turf/open/floor/wood,
 /area/magmoor/medical/cmo)
-"cao" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/wood,
-/area/magmoor/civilian/basket)
 "cau" = (
 /turf/open/floor/mainship/purple{
 	dir = 6
@@ -3492,11 +3488,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/southeast)
-"crA" = (
-/obj/effect/turf_decal/warning_stripes/thin,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/wood,
-/area/magmoor/civilian/basket)
 "crS" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
@@ -4280,7 +4271,6 @@
 	id = "basketball";
 	side = "left"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/wood,
 /area/magmoor/civilian/basket)
 "cYH" = (
@@ -5296,7 +5286,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/obj/effect/landmark/xeno_silo_spawn,
 /turf/open/floor/wood,
 /area/magmoor/civilian/basket)
 "dFs" = (
@@ -5537,13 +5526,10 @@
 /turf/open/floor/wood,
 /area/magmoor/civilian/bar)
 "dNJ" = (
-/obj/structure/bed/chair/alt{
-	dir = 1
-	},
-/obj/effect/landmark/weed_node,
+/obj/effect/ai_node,
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/mainship/mono,
-/area/magmoor/civilian/basket)
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/magmoor/cave/southwest)
 "dNW" = (
 /obj/structure/bed/chair/alt{
 	dir = 1
@@ -9528,17 +9514,6 @@
 	},
 /turf/open/floor/mainship/green,
 /area/magmoor/hydroponics/north)
-"gFV" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/floodlight{
-	name = "Spotlight"
-	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/wood,
-/area/magmoor/civilian/basket)
 "gGn" = (
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -11895,7 +11870,6 @@
 /area/magmoor/medical/treatment)
 "iBS" = (
 /obj/structure/window/framed/colony,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/magmoor/civilian/basket)
 "iBV" = (
@@ -15050,12 +15024,9 @@
 /turf/open/floor/plating/ground/concrete,
 /area/magmoor/compound/southeast)
 "kPl" = (
-/obj/structure/bed/chair/alt{
-	dir = 1
-	},
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/mainship/mono,
-/area/magmoor/civilian/basket)
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/magmoor/cave/southwest)
 "kPs" = (
 /obj/structure/window/reinforced/tinted{
 	dir = 4
@@ -15105,7 +15076,6 @@
 /obj/machinery/air_alarm{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/mono,
 /area/magmoor/civilian/basket)
 "kQi" = (
@@ -17087,9 +17057,10 @@
 /turf/open/lavaland/basalt/dirt/autosmoothing,
 /area/magmoor/compound)
 "moc" = (
-/obj/docking_port/stationary/crashmode,
-/turf/closed/wall,
-/area/magmoor/hydroponics/south)
+/obj/effect/ai_node,
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/magmoor/cave/southwest)
 "mof" = (
 /obj/structure/bed/chair{
 	dir = 1;
@@ -17291,9 +17262,9 @@
 	},
 /area/magmoor/civilian/arrival)
 "mxy" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/mainship/mono,
-/area/magmoor/civilian/basket)
+/obj/effect/landmark/xeno_silo_spawn,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/magmoor/cave/southwest)
 "mxC" = (
 /turf/open/floor/tile/red/redtaupe{
 	dir = 8
@@ -18491,14 +18462,6 @@
 	dir = 8
 	},
 /area/magmoor/security/lobby)
-"nrb" = (
-/obj/effect/turf_decal/warning_stripes/thin,
-/obj/machinery/floodlight{
-	name = "Spotlight"
-	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/wood,
-/area/magmoor/civilian/basket)
 "nrd" = (
 /obj/structure/cargo_container/hd_blue{
 	dir = 1
@@ -19122,7 +19085,6 @@
 	dir = 1
 	},
 /obj/machinery/light,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/mono,
 /area/magmoor/civilian/basket)
 "nSX" = (
@@ -20953,7 +20915,6 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/mono,
 /area/magmoor/civilian/basket)
 "pct" = (
@@ -23081,11 +23042,8 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/civilian/arrival/east)
 "qyk" = (
-/obj/effect/turf_decal/warning_stripes/thin{
-	dir = 1
-	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/open/floor/wood,
+/obj/docking_port/stationary/crashmode,
+/turf/closed/wall,
 /area/magmoor/civilian/basket)
 "qys" = (
 /obj/structure/cable,
@@ -23730,7 +23688,6 @@
 /area/magmoor/volcano)
 "rbL" = (
 /obj/structure/table/wood,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/mono,
 /area/magmoor/civilian/basket)
 "rbN" = (
@@ -26050,10 +26007,6 @@
 	dir = 8
 	},
 /area/magmoor/compound/north)
-"sKH" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/wall,
-/area/magmoor/civilian/basket)
 "sKS" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -27148,10 +27101,9 @@
 	},
 /area/magmoor/research/rnd)
 "tzP" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/wall,
-/area/magmoor/civilian/basket)
+/obj/effect/landmark/weed_node,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/magmoor/cave/southwest)
 "tzT" = (
 /turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 4
@@ -29973,7 +29925,6 @@
 "vAn" = (
 /obj/structure/window_frame/colony,
 /obj/item/shard,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/magmoor/civilian/basket)
 "vAK" = (
@@ -33174,7 +33125,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/mono,
 /area/magmoor/civilian/basket)
 "xCd" = (
@@ -37203,24 +37153,24 @@ tVo
 tVo
 tVo
 tVo
-tVo
-tVo
-tVo
-tVo
-tVo
-tVo
-tVo
-tVo
-dwS
-dwS
-dwS
-dwS
-tVo
-tVo
-tVo
-tVo
-tVo
-tVo
+qNa
+qNa
+qNa
+qNa
+qNa
+qNa
+qNa
+qNa
+kPl
+kPl
+kPl
+kPl
+qNa
+qNa
+qNa
+qNa
+qNa
+qNa
 tVo
 tVo
 tVo
@@ -37436,9 +37386,13 @@ tVo
 tVo
 tVo
 tVo
+qNa
 tVo
 tVo
-tVo
+dwS
+dwS
+dwS
+tzP
 dwS
 dwS
 dwS
@@ -37447,13 +37401,9 @@ dwS
 dwS
 dwS
 dwS
-dwS
-dwS
-dwS
-dwS
-tVo
 tVo
 tVo
+qNa
 tVo
 tVo
 tVo
@@ -37669,7 +37619,7 @@ tVo
 tVo
 tVo
 tVo
-tVo
+qNa
 dwS
 dwS
 dwS
@@ -37681,12 +37631,12 @@ dwS
 dwS
 dwS
 dwS
+tzP
 dwS
 dwS
 dwS
 dwS
-dwS
-lAc
+dNJ
 tVo
 tVo
 tVo
@@ -37902,7 +37852,7 @@ tVo
 tVo
 tVo
 tVo
-dwS
+kPl
 dwS
 dwS
 dwS
@@ -37919,7 +37869,7 @@ dwS
 dwS
 dwS
 dwS
-dwS
+kPl
 dwS
 dwS
 tVo
@@ -38135,26 +38085,26 @@ tVo
 tVo
 tVo
 dwS
-dwS
-dwS
-dwS
-tVo
+kPl
 dwS
 dwS
 tVo
-tVo
+dwS
+dwS
 tVo
 tVo
 tVo
 tVo
 tVo
 tVo
+tVo
+tVo
 dwS
 dwS
+tzP
+kPl
 dwS
-dwS
-dwS
-dwS
+tzP
 dwS
 dwS
 tVo
@@ -38368,14 +38318,14 @@ tVo
 dwS
 dwS
 dwS
+kPl
+dwS
+tVo
+tVo
 dwS
 dwS
 tVo
 tVo
-dwS
-dwS
-tVo
-tVo
 tVo
 tVo
 tVo
@@ -38385,7 +38335,7 @@ tVo
 tVo
 dwS
 dwS
-dwS
+kPl
 dwS
 dwS
 dwS
@@ -38599,16 +38549,16 @@ tVo
 tVo
 dwS
 dwS
+tzP
+dwS
+kPl
+dwS
+dwS
+tzP
 dwS
 dwS
 dwS
-dwS
-dwS
-dwS
-dwS
-dwS
-dwS
-dwS
+mxy
 dwS
 tVo
 tVo
@@ -38618,7 +38568,7 @@ tVo
 tVo
 tVo
 dwS
-dwS
+kPl
 dwS
 dwS
 dwS
@@ -38834,7 +38784,7 @@ dwS
 dwS
 dwS
 lAc
-dwS
+kPl
 dwS
 dwS
 dwS
@@ -38851,7 +38801,7 @@ tVo
 tVo
 tVo
 tVo
-dwS
+kPl
 dwS
 dwS
 dwS
@@ -39067,7 +39017,7 @@ tVo
 dwS
 dwS
 dwS
-dwS
+kPl
 dwS
 dwS
 dwS
@@ -39084,10 +39034,10 @@ tVo
 tVo
 tVo
 tVo
+kPl
 dwS
 dwS
-dwS
-dwS
+tzP
 dwS
 dwS
 dwS
@@ -39300,7 +39250,7 @@ dwS
 dwS
 dwS
 dwS
-dwS
+kPl
 dwS
 dwS
 dwS
@@ -39317,7 +39267,7 @@ tVo
 tVo
 dwS
 dwS
-dwS
+kPl
 dwS
 dwS
 dwS
@@ -39533,7 +39483,7 @@ dwS
 dwS
 dwS
 dwS
-dwS
+kPl
 dwS
 dwS
 dwS
@@ -39547,10 +39497,10 @@ dwS
 tVo
 tVo
 dwS
+tzP
 dwS
 dwS
-dwS
-dwS
+kPl
 dwS
 dwS
 dwS
@@ -39762,30 +39712,30 @@ tVo
 tVo
 lAc
 dwS
-dwS
-dwS
-dwS
-lAc
-tVo
-tVo
-tVo
+tzP
 dwS
 dwS
 lAc
-dwS
-dwS
-dwS
-dwS
-dwS
-dwS
-dwS
-dwS
-dwS
+qNa
+tVo
+tVo
 dwS
 dwS
 lAc
 dwS
+tzP
 dwS
+dwS
+dwS
+dwS
+dwS
+dwS
+dwS
+dwS
+dwS
+dNJ
+dwS
+tzP
 dwS
 dwS
 dwS
@@ -39999,21 +39949,7 @@ dwS
 dwS
 tVo
 tVo
-tVo
-tVo
-tVo
-tVo
-tVo
-dwS
-dwS
-dwS
-dwS
-dwS
-dwS
-dwS
-dwS
-dwS
-dwS
+qNa
 tVo
 tVo
 tVo
@@ -40023,7 +39959,21 @@ dwS
 dwS
 dwS
 dwS
-lAc
+tzP
+dwS
+dwS
+dwS
+dwS
+tVo
+tVo
+qNa
+tVo
+dwS
+dwS
+dwS
+dwS
+dwS
+moc
 tVo
 tVo
 tVo
@@ -40232,24 +40182,24 @@ tVo
 tVo
 tVo
 tVo
-tVo
-tVo
-tVo
-tVo
-tVo
-tVo
-tVo
-tVo
-dwS
-dwS
-dwS
-dwS
-tVo
-tVo
-tVo
-tVo
-tVo
-tVo
+qNa
+qNa
+qNa
+qNa
+qNa
+qNa
+qNa
+qNa
+kPl
+kPl
+kPl
+kPl
+qNa
+qNa
+qNa
+qNa
+qNa
+qNa
 tVo
 dwS
 dwS
@@ -40457,7 +40407,7 @@ tVo
 tVo
 tVo
 dwS
-dwS
+tzP
 dwS
 lAc
 tVo
@@ -40722,7 +40672,7 @@ tVo
 tVo
 dwS
 dwS
-dwS
+tzP
 dwS
 dwS
 dwS
@@ -40958,7 +40908,7 @@ dwS
 dwS
 dwS
 dwS
-dwS
+tzP
 dwS
 dwS
 tVo
@@ -41657,7 +41607,7 @@ tVo
 lAc
 dwS
 dwS
-lAc
+moc
 dwS
 dwS
 dwS
@@ -41894,7 +41844,7 @@ dwS
 lAc
 dwS
 dwS
-dwS
+tzP
 dwS
 tVo
 tVo
@@ -42356,7 +42306,7 @@ rfB
 rfB
 rfB
 dwS
-dwS
+tzP
 dwS
 dwS
 rfB
@@ -42514,7 +42464,7 @@ bfP
 xTu
 xTu
 gLy
-moc
+fme
 vrl
 paQ
 bur
@@ -44377,7 +44327,7 @@ eXi
 eXi
 eXi
 eXi
-eXi
+qyk
 eXi
 eXi
 eXi
@@ -44605,17 +44555,17 @@ ybU
 dze
 tky
 ybU
-sKH
-nrb
-cao
-crA
+eXi
+qwM
+dVo
+skU
 cXL
-qyk
-cao
-gFV
+uil
+dVo
+xJr
 rbL
-sKH
-sKH
+eXi
+eXi
 bVz
 lCK
 lCK
@@ -44848,7 +44798,7 @@ aBX
 heD
 gJr
 rkV
-sKH
+eXi
 lCK
 lCK
 lCK
@@ -45081,7 +45031,7 @@ dVo
 heD
 wEQ
 uDZ
-sKH
+eXi
 rPg
 lCK
 nNz
@@ -45304,7 +45254,7 @@ mhS
 fkP
 dze
 alo
-sKH
+eXi
 euS
 nov
 lin
@@ -45314,7 +45264,7 @@ eyk
 eYq
 gJr
 uQS
-sKH
+eXi
 lCK
 lCK
 osD
@@ -45537,7 +45487,7 @@ tDP
 ybU
 bGe
 caN
-sKH
+eXi
 tXn
 dVo
 dVo
@@ -45770,7 +45720,7 @@ mhS
 ybU
 bGe
 tky
-sKH
+eXi
 dVo
 aBX
 dVo
@@ -45780,7 +45730,7 @@ thG
 eNz
 wCU
 wIH
-mxy
+wCU
 lCK
 hyz
 xOp
@@ -46013,7 +45963,7 @@ dVo
 dVo
 wCU
 oVi
-sKH
+eXi
 lCK
 lCK
 udO
@@ -46246,7 +46196,7 @@ kyL
 srX
 tRM
 jba
-sKH
+eXi
 lCK
 lCK
 eYR
@@ -46469,7 +46419,7 @@ tDP
 ybU
 bGe
 tky
-sKH
+eXi
 dVo
 vVM
 lBX
@@ -46479,7 +46429,7 @@ dVo
 eNz
 wCU
 wIH
-sKH
+eXi
 cgv
 lCK
 lCK
@@ -46702,7 +46652,7 @@ qNj
 ybU
 fkP
 dRz
-sKH
+eXi
 hWI
 dVo
 dVo
@@ -46712,7 +46662,7 @@ dVo
 kWY
 uHN
 uGZ
-sKH
+eXi
 bVz
 lCK
 lCK
@@ -46935,7 +46885,7 @@ tDP
 ybU
 ybU
 ybU
-sKH
+eXi
 lsp
 tvO
 ovw
@@ -47178,7 +47128,7 @@ dVo
 heD
 nrP
 wIH
-kPl
+nrP
 bVz
 lCK
 lCK
@@ -47634,7 +47584,7 @@ kkl
 vto
 cJW
 hIT
-sKH
+eXi
 qwM
 dVo
 skU
@@ -47644,7 +47594,7 @@ dVo
 xJr
 nrP
 wIH
-dNJ
+dNW
 bVz
 liW
 lCK
@@ -47867,17 +47817,17 @@ cJW
 aje
 hIT
 hIT
-sKH
-sKH
+eXi
+eXi
 iBS
-sKH
-sKH
-sKH
+eXi
+eXi
+eXi
 iBS
-sKH
-sKH
+eXi
+eXi
 pbS
-tzP
+eXi
 bVz
 liW
 lCK
