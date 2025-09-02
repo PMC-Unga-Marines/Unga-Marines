@@ -621,7 +621,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	var/damage = (xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier) * 0.5
 	var/list/inrange = orange(2, xeno_owner)
 
-	for (var/mob/living/carbon/human/living_target in inrange)
+	for(var/mob/living/carbon/human/living_target in inrange)
 		var/start_turf = get_step(xeno_owner, get_cardinal_dir(xeno_owner, living_target))
 		//no hooking through solid obstacles
 		if(check_path(xeno_owner, start_turf, PASS_THROW) != start_turf)
