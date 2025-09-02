@@ -555,7 +555,6 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	xeno_owner.spin(0.6 SECONDS, 1)
 	xeno_owner.emote("tail")
 	xeno_owner.enable_throw_parry(0.6 SECONDS)
-	playsound(xeno_owner,pick('sound/effects/alien/tail_swipe1.ogg','sound/effects/alien/tail_swipe2.ogg','sound/effects/alien/tail_swipe3.ogg'), 25, 1) //Sound effects
 	xeno_owner.visible_message(span_danger("\The [xeno_owner] sweeps its tail in a low circle!"))
 
 	var/damage = xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier
@@ -614,9 +613,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	xeno_owner.vis_contents += hook
 	xeno_owner.spin(0.8 SECONDS, 1)
 	xeno_owner.enable_throw_parry(0.6 SECONDS)
-
-	playsound(xeno_owner,pick('sound/effects/alien/tail_swipe1.ogg','sound/effects/alien/tail_swipe2.ogg','sound/effects/alien/tail_swipe3.ogg'), 25, 1) //Sound effects
-	xeno_owner.visible_message(span_danger("\The [xeno_owner] swings the hook on its tail through the air!"))
+	xeno_owner.emote("tail")
 
 	var/damage = (xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier) * 0.5
 	var/list/inrange = orange(2, xeno_owner)
@@ -674,7 +671,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 
 /datum/action/ability/activable/xeno/baton_pass/use_ability(atom/target)
 
-	playsound(xeno_owner,pick('sound/effects/alien/tail_swipe2.ogg','sound/effects/alien/tail_swipe3.ogg'), 25, 1) //Sound effects
+	playsound(xeno_owner, SFX_ALIEN_TAIL_SWIPE, 25, 1)
 	xeno_owner.visible_message(span_danger("\The [xeno_owner] empowers nearby xenos with increased speed!"))
 
 	for(var/mob/living/carbon/xenomorph/xeno_target in orange(1, xeno_owner))
