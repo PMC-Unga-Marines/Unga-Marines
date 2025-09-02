@@ -635,7 +635,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 		living_target.spin(2 SECONDS, 1)
 
 		living_target.throw_at(xeno_owner, 1, 3, xeno_owner)
-		living_target.adjust_slowdown(buffed? 0.9 : 0.3)
+		living_target.adjust_slowdown(buffed ? 0.9 : 0.3)
 		if(buffed)
 			living_target.AdjustKnockdown(0.1 SECONDS)
 
