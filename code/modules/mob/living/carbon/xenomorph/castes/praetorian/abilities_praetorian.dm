@@ -671,6 +671,10 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 
 /datum/action/ability/activable/xeno/baton_pass/use_ability(atom/target)
 
+	var/obj/effect/temp_visual/baton_pass/baton = new
+	xeno_owner.vis_contents += baton
+	xeno_owner.spin(0.8 SECONDS, 1)
+
 	playsound(xeno_owner, SFX_ALIEN_TAIL_SWIPE, 25, 1)
 	xeno_owner.visible_message(span_danger("\The [xeno_owner] empowers nearby xenos with increased speed!"))
 
