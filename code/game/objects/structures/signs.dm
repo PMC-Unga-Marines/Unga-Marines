@@ -8,9 +8,6 @@
 	var/directional = TRUE
 	///The icon sign will change on Initialize.
 	var/base_icon = 'icons/obj/decals.dmi'
-	var/directional = TRUE //if true init to a given x/y offset on a wall, if not leave floating in space. used for multiple signs on a wall to prevent them all from moving to the same offset and overlapping/becoming unreadable
-	/// The clean version of the sprite, which we replace in initialize when the sign loads in game
-	var/base_icon = 'icons/obj/decals.dmi'
 	///if true try to automatically find the nearest wall and put ourselves on it
 	var/autoplace = TRUE
 

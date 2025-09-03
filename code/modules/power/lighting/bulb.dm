@@ -135,22 +135,6 @@
 	light_tile.update_icon()
 	to_chat(user, span_notice("You replace the light bulb."))
 
-
-// update the icon state and description of the light
-
-/obj/item/light_bulb/proc/update()
-	switch(status)
-		if(LIGHT_OK)
-			icon_state = base_icon_state
-			desc = "A replacement [name]."
-		if(LIGHT_BURNED)
-			icon_state = "[base_icon_state]_burned"
-			desc = "A burnt-out [name]."
-		if(LIGHT_BROKEN)
-			icon_state = "[base_icon_state]_broken"
-			desc = "A broken [name]."
-
-
 /obj/item/light_bulb/Initialize(mapload)
 	. = ..()
 	switch(name)
@@ -191,12 +175,3 @@
 		return
 
 	shatter()
-
-/obj/item/light_bulb/proc/shatter()
-	if(status == LIGHT_OK || status == LIGHT_BURNED)
-		src.visible_message(span_warning("[name] shatters."),span_warning("You hear a small glass object shatter."))
-		status = LIGHT_BROKEN
-		force = 5
-		sharp = IS_SHARP_ITEM_SIMPLE
-		playsound(src.loc, 'sound/effects/Glasshit.ogg', 25, 1)
-		update()

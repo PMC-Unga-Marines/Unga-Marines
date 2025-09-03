@@ -106,7 +106,7 @@
 /obj/structure/prop/urban/vehicles/proc/explode()
 	src.visible_message(span_danger("<B>[src] blows apart!</B>"), null, null, 1)
 	if(prob(explosion_probability))
-		explosion(loc, light_impact_range = 3, flame_range = 2)
+		cell_explosion(loc, 420, 30)
 	playsound(loc, 'sound/effects/car_crush.ogg', 25)
 	var/turf/Tsec = get_turf(src)
 	new /obj/item/stack/rods(Tsec)

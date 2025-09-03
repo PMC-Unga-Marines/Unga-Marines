@@ -200,7 +200,6 @@
 		/obj/item/tool/shovel/etool,
 		/obj/item/tool/screwdriver,
 	)
->>>>>>> 335e9ca955c (New Map: LV-759 (#15935))
 
 /obj/structure/largecrate/random/case/small/mini/Initialize(mapload)
 	. = ..()
