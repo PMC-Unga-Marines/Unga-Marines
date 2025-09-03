@@ -7,6 +7,7 @@
 	.["categories"] = GLOB.all_supply_groups
 	.["supplypacks"] = SSpoints.supply_packs_ui
 	.["supplypackscontents"] = SSpoints.supply_packs_contents
+	.["selfdelivery"] = TRUE
 
 /datum/supply_ui/requests/ui_data(mob/living/user)
 	. = list()

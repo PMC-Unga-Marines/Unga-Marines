@@ -4,6 +4,7 @@
 
 /// How much points we charge for fast delivery
 #define FAST_DELIVERY_COST 150
+#define FAST_DELIVERY_TAX_FACTOR 0.15
 
 SUBSYSTEM_DEF(points)
 	name = "Points"
@@ -119,6 +120,7 @@ SUBSYSTEM_DEF(points)
 	var/list/datum/supply_order/orders = process_cart(user, ckey_shopping_cart)
 	for(var/i in 1 to length_char(orders))
 		orders[i].authorised_by = user.real_name
+		orders[i].ispersonal = TRUE
 		LAZYADDASSOCSIMPLE(shoppinglist[user.faction], "[orders[i].id]", orders[i])
 	personal_supply_points[user.ckey] -= cost
 	ckey_shopping_cart.Cut()
@@ -138,12 +140,22 @@ SUBSYSTEM_DEF(points)
 	if(!fast_delivery_is_active)
 		to_chat(user, span_warning("Fast delivery is not ready"))
 		return FALSE
-	if(!iscrashgamemode(SSticker.mode)) // no RO on crash
-		if(FAST_DELIVERY_COST > supply_points[our_order.faction])
-			to_chat(user, span_warning("Cargo does not have enough points for fast delivery."))
-			return
 
-		supply_points[user.faction] -= FAST_DELIVERY_COST
+	if(!iscrashgamemode(SSticker.mode)) // no RO on crash
+		if(user.real_name == our_order.orderer && our_order.ispersonal) //Self delivery via personal points
+			var/cost = 0
+			for(var/P in our_order.pack)
+				var/datum/supply_packs/our_pack = P
+				cost += our_pack.cost
+			if(cost * FAST_DELIVERY_TAX_FACTOR > personal_supply_points[user.ckey])
+				to_chat(user, span_warning("You lack ([cost * FAST_DELIVERY_TAX_FACTOR - personal_supply_points[user.ckey]]) personal points for fast delivery."))
+				return
+			personal_supply_points[user.ckey] -= cost * FAST_DELIVERY_TAX_FACTOR
+		else
+			if(FAST_DELIVERY_COST > supply_points[our_order.faction])
+				to_chat(user, span_warning("Cargo does not have enough points for fast delivery."))
+				return
+			supply_points[user.faction] -= FAST_DELIVERY_COST
 
 	//Same checks as for supply console
 	if(!supply_beacon)
@@ -321,6 +333,7 @@ SUBSYSTEM_DEF(points)
 	var/list/datum/supply_order/orders = process_cart(user, shopping_cart)
 	for(var/i in 1 to length(orders))
 		orders[i].authorised_by = user.real_name
+		orders[i].ispersonal = FALSE
 		LAZYADDASSOCSIMPLE(shoppinglist[user.faction], "[orders[i].id]", orders[i])
 	supply_points[user.faction] -= cost
 	shopping_cart.Cut()
