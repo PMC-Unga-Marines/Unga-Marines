@@ -90,9 +90,9 @@ The main purpose of this is to handle cleanup and setting up the initial ai beha
 
 /datum/component/ai_controller/Destroy()
 	clean_up(FALSE)
-	QDEL_NULL(ai_behavior.current_node)
-	QDEL_NULL(ai_behavior.escorted_atom)
-	QDEL_NULL(ai_behavior.mob_parent)
+	ai_behavior.current_node = null
+	ai_behavior.escorted_atom = null
+	ai_behavior.mob_parent = null
 	QDEL_NULL(ai_behavior)
 	return ..()
 
