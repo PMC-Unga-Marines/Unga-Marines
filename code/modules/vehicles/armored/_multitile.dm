@@ -202,7 +202,7 @@
 	. = ..()
 	if(armored_flags & ARMORED_IS_WRECK)
 		. += span_warning("This vehicle is heavily damaged and needs repair.")
-		. += span_info("You can repair it using 50 plasteel sheets.")
+		. += span_info("You can repair it using <b>50 plasteel sheets</b>.")
 
 //THe HvX tank is not balanced at all for HvH
 /obj/vehicle/sealed/armored/multitile/campaign
