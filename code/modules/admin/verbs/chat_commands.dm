@@ -109,5 +109,5 @@
 		var/season_name_first_letter = uppertext(copytext(season_name, 1, 2))
 		var/season_name_remainder = copytext(season_name, 2, length(season_name) + 1)
 		season_name = season_name_first_letter + season_name_remainder
-		messages += "[season_name]: [SSpersistence.season_progress[season_entry][CURRENT_SEASON_NAME]]"
+		messages += "[season_name]: [SSpersistence.season_progress[season_entry][CURRENT_SEASON_NAME]]. [SSpersistence.season_progress[season_entry][CURRENT_SEASON_DESC]]"
 	return new /datum/tgs_message_content(messages.Join("\n"))
