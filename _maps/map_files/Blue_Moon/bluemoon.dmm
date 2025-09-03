@@ -50,12 +50,6 @@
 	},
 /turf/open/floor,
 /area/bluemoon/outside/building/marshal)
-"aev" = (
-/obj/structure/cargo_container/nt{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/bluemoon/outside/building/cargo)
 "aeP" = (
 /obj/effect/spawner/random/misc/structure/stool,
 /obj/item/weapon/baseballbat,
@@ -273,10 +267,6 @@
 	},
 /turf/open/floor,
 /area/bluemoon/outside/building/dorms/plant)
-"aoS" = (
-/obj/effect/landmark/patrol_point/som/som_21,
-/turf/open/ground/sandrock,
-/area/bluemoon/caves/ne)
 "aoY" = (
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
@@ -500,15 +490,6 @@
 	},
 /turf/open/floor/tile/green/whitegreen,
 /area/bluemoon/outside/building/med/icu)
-"axT" = (
-/obj/effect/decal/cleanable/blood,
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
-/turf/open/floor/tile/dark/blue2{
-	dir = 1
-	},
-/area/bluemoon/outside/building/admin)
 "axV" = (
 /obj/effect/spawner/random/engineering/structure/atmospherics_portable/icecolony,
 /obj/effect/ai_node,
@@ -717,11 +698,6 @@
 	dir = 4
 	},
 /area/bluemoon/caves/facility/lambda/n)
-"aKk" = (
-/obj/effect/landmark/weed_node,
-/obj/structure/rock/dark/stalagmite/three,
-/turf/open/urbanshale/layer1,
-/area/bluemoon/caves/ne)
 "aKq" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -771,15 +747,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
 /area/bluemoon/outside/building/dorms/eat)
-"aND" = (
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 8
-	},
-/turf/open/floor,
-/area/bluemoon/outside/building/marshal)
 "aOP" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 2
@@ -875,10 +842,6 @@
 "aXS" = (
 /turf/closed/wall/r_wall,
 /area/bluemoon/caves/s/shallow)
-"aZi" = (
-/obj/structure/prop/mainship/vat/broken/bloody,
-/turf/open/floor/bcircuit/off,
-/area/bluemoon/caves/facility/omicron)
 "baR" = (
 /obj/machinery/light{
 	dir = 8
@@ -1037,9 +1000,6 @@
 	},
 /area/bluemoon/outside/building/admin)
 "bkb" = (
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
 /obj/machinery/light,
 /turf/open/floor/wood/fancy,
 /area/bluemoon/outside/building/dorms/chapel)
@@ -1134,18 +1094,6 @@
 "bow" = (
 /turf/open/floor/urban/carpet/carpetbluedeco,
 /area/bluemoon/outside/building/dorms/rec)
-"boy" = (
-/obj/structure/rack,
-/obj/item/storage/box/MRE{
-	name = "\improper MRE"
-	},
-/obj/item/storage/box/MRE{
-	name = "\improper MRE"
-	},
-/turf/open/floor/prison/darkyellow{
-	dir = 1
-	},
-/area/bluemoon/caves/facility/bunker)
 "boJ" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/white,
@@ -1604,10 +1552,6 @@
 	},
 /turf/open/floor/plating,
 /area/bluemoon/caves/se)
-"bSj" = (
-/obj/item/weapon/gun/rifle/tx11,
-/turf/open/floor/bcircuit/off,
-/area/bluemoon/outside/building/engi)
 "bSv" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/phoron{
@@ -2035,7 +1979,6 @@
 /area/bluemoon/caves/facility/omicron)
 "cpO" = (
 /obj/item/storage/bible,
-/obj/structure/rack/lectern,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -2105,17 +2048,12 @@
 /area/bluemoon/outside/building/virology)
 "cvv" = (
 /obj/structure/table,
-/obj/effect/spawner/random/engineering/toolbox/electricalweighted,
 /turf/open/floor/tile/dark,
 /area/bluemoon/caves/facility/eta)
 "cwD" = (
 /obj/structure/closet/bodybag,
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/building/med)
-"cwL" = (
-/obj/structure/rock/dark/small/three,
-/turf/open/urbanshale/layer2,
-/area/bluemoon/caves/se)
 "cwM" = (
 /obj/structure/bed/chair/office/light{
 	dir = 1
@@ -2384,10 +2322,6 @@
 "cMU" = (
 /turf/open/floor/plating/ground/snow/layer1,
 /area/bluemoon/outside/n)
-"cMY" = (
-/obj/structure/rock/dark/small/three,
-/turf/open/urbanshale/layer1,
-/area/bluemoon/caves/ne)
 "cNf" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/structure/handheld_lighting,
@@ -2532,9 +2466,6 @@
 /turf/open/floor/tile/dark/blue2,
 /area/bluemoon/outside/building/admin)
 "cUt" = (
-/obj/structure/barricade/wooden{
-	dir = 1
-	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -2768,12 +2699,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/e)
-"dgY" = (
-/obj/structure/cargo_container/nt{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/bluemoon/outside/building/cargo)
 "dhc" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -3045,7 +2970,6 @@
 /area/bluemoon/outside/building/med/icu)
 "dvA" = (
 /obj/structure/table,
-/obj/effect/spawner/random/engineering/toolbox/electricalweighted,
 /turf/open/floor/tile/brown{
 	dir = 9
 	},
@@ -3122,12 +3046,6 @@
 	},
 /turf/open/floor/plating,
 /area/bluemoon/outside/building/cargo)
-"dAS" = (
-/obj/structure/cargo_container/nt{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/bluemoon/caves/facility/eta)
 "dBk" = (
 /obj/structure/bed/chair/office/light{
 	dir = 4
@@ -3687,10 +3605,6 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark,
 /area/bluemoon/caves/facility/eta/xeno)
-"ejV" = (
-/obj/structure/prop/urban/vehicles/large/crashedcarsleft,
-/turf/closed/wall/r_wall/urban/invincible,
-/area/bluemoon/caves/facility/omicron)
 "elm" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -3963,10 +3877,6 @@
 	},
 /turf/open/floor/prison,
 /area/bluemoon/caves/facility/omicron)
-"eBL" = (
-/obj/effect/landmark/patrol_point/tgmc_21,
-/turf/open/floor/plating,
-/area/shuttle/drop1/lz1)
 "eCy" = (
 /obj/structure/curtain/medical{
 	dir = 4
@@ -4056,10 +3966,6 @@
 	},
 /turf/open/floor/wood,
 /area/bluemoon/caves/facility/eta/e)
-"eGq" = (
-/obj/structure/prop/urban/vehicles/large/mega_hauler_truck/nt_black,
-/turf/open/floor/tile/dark,
-/area/bluemoon/caves/e/shallow)
 "eGK" = (
 /obj/structure/bed/chair/office/light{
 	dir = 4
@@ -4406,9 +4312,6 @@
 /turf/open/floor/plating,
 /area/bluemoon/outside/building/cargo)
 "fdd" = (
-/obj/structure/prop/mainship/vat/broken/bloody{
-	dir = 8
-	},
 /turf/open/floor/bcircuit/off,
 /area/bluemoon/caves/facility/omicron)
 "fdj" = (
@@ -4428,12 +4331,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/spiralplate,
 /area/bluemoon/outside/building/engi/filt)
-"fff" = (
-/obj/structure/cargo_container/nt{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/bluemoon/caves/facility/omicron)
 "ffy" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/tile/dark,
@@ -4508,7 +4405,6 @@
 /area/bluemoon/caves/se)
 "fjV" = (
 /obj/effect/landmark/corpsespawner/security,
-/obj/item/weapon/gun/pistol/standard_pocketpistol,
 /turf/open/floor/prison/blue/corner,
 /area/bluemoon/caves/facility/eta/e)
 "fld" = (
@@ -4721,10 +4617,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
 /area/bluemoon/outside/building/marshal)
-"fxW" = (
-/obj/structure/rock/dark/large/two,
-/turf/open/urbanshale/layer1,
-/area/bluemoon/caves/se)
 "fyP" = (
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	name = "\improper Chapel"
@@ -5287,9 +5179,6 @@
 /area/bluemoon/caves/se)
 "gjL" = (
 /obj/effect/landmark/corpsespawner/security,
-/obj/item/weapon/gun/pistol/standard_pocketpistol,
-/obj/item/ammo_magazine/pistol/standard_pistol,
-/obj/item/ammo_magazine/pistol/standard_pistol,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
 /area/bluemoon/caves/facility/eta)
@@ -5334,14 +5223,6 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/freezer,
 /area/bluemoon/caves/facility/lambda/n)
-"gkU" = (
-/obj/structure/table,
-/obj/item/spacecash/c10,
-/obj/item/spacecash/c1{
-	pixel_y = 4
-	},
-/turf/open/floor/tile/dark/gray,
-/area/bluemoon/outside/building/cargo/shop)
 "glj" = (
 /obj/structure/table/reinforced,
 /obj/machinery/computer/shuttle/shuttle_control/dropship,
@@ -5551,9 +5432,6 @@
 /area/bluemoon/caves/facility/omicron)
 "gyZ" = (
 /obj/effect/decal/cleanable/blood,
-/obj/item/weapon/gun/pistol/standard_pocketpistol,
-/obj/item/ammo_magazine/pistol/standard_pistol,
-/obj/item/ammo_magazine/pistol/standard_pistol,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
@@ -5637,12 +5515,6 @@
 	dir = 1
 	},
 /area/bluemoon/caves/facility/lambda/s)
-"gCV" = (
-/obj/structure/barricade/wooden{
-	dir = 1
-	},
-/turf/open/floor/wood/fancy,
-/area/bluemoon/outside/building/dorms/chapel)
 "gCW" = (
 /obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -6039,10 +5911,6 @@
 /obj/effect/landmark/xeno_tunnel_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/n)
-"haX" = (
-/obj/structure/rock/dark/large,
-/turf/open/urbanshale/layer0_plate,
-/area/bluemoon/caves/se)
 "hbe" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
@@ -6137,10 +6005,6 @@
 /obj/structure/cargo_container/gorg,
 /turf/open/floor/plating,
 /area/bluemoon/outside/building/cargo)
-"hhp" = (
-/obj/structure/cargo_container/nt,
-/turf/open/floor/plating,
-/area/bluemoon/caves/facility/omicron)
 "hht" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -6216,7 +6080,6 @@
 /turf/open/floor/tile/green/whitegreen,
 /area/bluemoon/outside/building/med)
 "hjR" = (
-/obj/item/weapon/gun/rifle/standard_carbine,
 /obj/effect/landmark/corpsespawner/colonist,
 /turf/open/floor/wood/fancy,
 /area/bluemoon/outside/building/dorms/chapel)
@@ -6606,10 +6469,6 @@
 	},
 /turf/open/floor/plating,
 /area/bluemoon/outside/building/admin)
-"hLW" = (
-/obj/structure/rock/dark/stalagmite/one,
-/turf/open/urbanshale/layer1,
-/area/bluemoon/caves/ne)
 "hMb" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
@@ -6875,18 +6734,8 @@
 /area/bluemoon/outside/building/cargo)
 "idx" = (
 /obj/structure/closet/crate/weapon,
-/obj/item/weapon/gun/rifle/tx11,
-/obj/item/ammo_magazine/rifle/tx11,
-/obj/item/ammo_magazine/rifle/tx11,
-/obj/item/ammo_magazine/rifle/tx11,
-/obj/item/ammo_magazine/rifle/tx11,
-/obj/item/ammo_magazine/rifle/tx11,
 /turf/open/floor/plating,
 /area/bluemoon/outside/building/cargo)
-"idF" = (
-/obj/effect/landmark/xeno_spawner_spawn,
-/turf/open/floor/plating/ground/ice,
-/area/bluemoon/caves/e)
 "ien" = (
 /obj/structure/table/reinforced,
 /obj/item/tool/surgery/hemostat,
@@ -7338,10 +7187,6 @@
 	dir = 1
 	},
 /area/bluemoon/caves/facility/eta/xeno)
-"izI" = (
-/obj/structure/prop/urban/vehicles/large/crashedcarsright,
-/turf/closed/mineral/smooth/darkfrostwall/indestructible,
-/area/bluemoon/caves/rock)
 "izK" = (
 /obj/machinery/shower{
 	dir = 4
@@ -7383,9 +7228,6 @@
 /area/bluemoon/outside/building/marshal)
 "iCb" = (
 /obj/effect/decal/cleanable/blood,
-/obj/structure/barricade/wooden{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/wood,
 /area/bluemoon/outside/building/admin)
@@ -7853,12 +7695,6 @@
 	},
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/e)
-"iYy" = (
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
-/turf/open/floor,
-/area/bluemoon/outside/building/cargo)
 "iYM" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/tile/brown{
@@ -7999,12 +7835,6 @@
 	dir = 8
 	},
 /area/bluemoon/caves/facility/eta)
-"jgT" = (
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
-/turf/open/floor/wood/fancy,
-/area/bluemoon/outside/building/dorms/chapel)
 "jhs" = (
 /obj/machinery/door/airlock/mainship/research/free_access{
 	name = "\improper Virology Lab Decontamination"
@@ -8130,7 +7960,6 @@
 /turf/open/floor/tile/green/whitegreen,
 /area/bluemoon/outside/building/med)
 "jmU" = (
-/obj/structure/prop/mainship/vat/full,
 /turf/open/floor/bcircuit/anim,
 /area/bluemoon/caves/facility/omicron)
 "jni" = (
@@ -8259,12 +8088,6 @@
 	},
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/building/med)
-"jun" = (
-/obj/structure/cable,
-/obj/item/ammo_magazine/rifle/standard_carbine,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/floor/tile/dark,
-/area/bluemoon/caves/facility/eta)
 "juG" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -8366,11 +8189,6 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
-/area/bluemoon/caves/facility/omicron)
-"jBB" = (
-/obj/structure/lattice,
-/obj/structure/prop/urban/vehicles/large/crashedcarsright,
-/turf/open/floor/elevatorshaft,
 /area/bluemoon/caves/facility/omicron)
 "jBS" = (
 /obj/effect/decal/cleanable/blood,
@@ -8771,28 +8589,12 @@
 	dir = 4
 	},
 /area/bluemoon/caves/facility/eta/e)
-"jWr" = (
-/obj/structure/barricade/wooden{
-	desc = "This barricade is heavily reinforced. Nothing short of blasting it open seems like it'll do the trick, that or melting the breams supporting it...";
-	dir = 1;
-	level = 3;
-	pixel_y = 17
-	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/floor/tile/dark/blue2{
-	dir = 4
-	},
-/area/bluemoon/outside/building/admin)
 "jWu" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/s/shallow)
-"jWE" = (
-/obj/structure/rock/dark/small/two,
-/turf/open/urbanshale/layer0_plate,
-/area/bluemoon/caves/se)
 "jWN" = (
 /obj/structure/reagent_dispensers/wallmounted/peppertank{
 	dir = 4
@@ -8834,15 +8636,6 @@
 	dir = 4
 	},
 /area/bluemoon/caves/facility/eta/e)
-"jYv" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
-/turf/open/floor,
-/area/bluemoon/outside/building/marshal)
 "jYD" = (
 /obj/structure/bed/chair/office/light{
 	dir = 4
@@ -9315,9 +9108,6 @@
 /area/bluemoon/caves/e/shallow)
 "kBW" = (
 /obj/effect/landmark/corpsespawner/security,
-/obj/item/weapon/gun/pistol/standard_pocketpistol,
-/obj/item/ammo_magazine/pistol/standard_pistol,
-/obj/item/ammo_magazine/pistol/standard_pistol,
 /turf/open/floor/prison/sterilewhite,
 /area/bluemoon/caves/facility/lambda/s)
 "kCd" = (
@@ -9545,16 +9335,6 @@
 	},
 /turf/open/floor,
 /area/bluemoon/outside/building/marshal)
-"kOc" = (
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/turf/open/floor/wood/fancy,
-/area/bluemoon/outside/building/dorms/chapel)
 "kOf" = (
 /obj/machinery/light,
 /turf/open/floor/marking/asteroidwarning,
@@ -9616,15 +9396,10 @@
 /turf/open/floor,
 /area/bluemoon/outside/building/marshal)
 "kRh" = (
-/obj/effect/landmark/corpsespawner/scientist/regular,
 /obj/item/weapon/gun/pistol/holdout,
 /obj/effect/spawner/gibspawner/generic,
 /turf/open/floor/wood,
 /area/bluemoon/caves/facility/lambda/s)
-"kRI" = (
-/obj/structure/rock/dark/small,
-/turf/open/urbanshale/layer1,
-/area/bluemoon/caves/ne)
 "kRW" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -9634,9 +9409,6 @@
 /turf/open/floor/wood/fancy,
 /area/bluemoon/outside/building/dorms/chapel)
 "kSl" = (
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spawner/random/engineering/wood,
 /turf/open/floor/wood/fancy,
@@ -10166,8 +9938,6 @@
 /area/bluemoon/outside/building/cargo/shop)
 "lyT" = (
 /obj/effect/landmark/corpsespawner/security,
-/obj/item/weapon/gun/pistol/standard_pocketpistol,
-/obj/item/ammo_magazine/pistol/standard_pistol,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark,
 /area/bluemoon/caves/facility/eta)
@@ -10515,10 +10285,6 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/dark,
 /area/bluemoon/caves/facility/eta)
-"lQT" = (
-/obj/structure/rock/dark/stalagmite/four,
-/turf/open/urbanshale/layer1,
-/area/bluemoon/caves/ne)
 "lRe" = (
 /obj/structure/safe,
 /turf/open/floor/tile/brown{
@@ -10592,11 +10358,6 @@
 /obj/item/stack/sheet/mineral/gold,
 /turf/open/floor/rcircuit/off,
 /area/bluemoon/caves/facility/omicron)
-"lUA" = (
-/obj/effect/ai_node,
-/obj/structure/rock/dark/stalagmite/three,
-/turf/open/urbanshale/layer1,
-/area/bluemoon/caves/ne)
 "lUN" = (
 /obj/machinery/light{
 	dir = 8
@@ -11196,10 +10957,6 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/spiralplate,
 /area/bluemoon/outside/building/engi/filt)
-"mGU" = (
-/obj/structure/cargo_container/nt,
-/turf/open/floor/plating,
-/area/bluemoon/outside/building/cargo)
 "mIe" = (
 /obj/machinery/computer/arcade,
 /obj/machinery/light,
@@ -11310,12 +11067,6 @@
 "mND" = (
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/w)
-"mNV" = (
-/obj/structure/prop/mainship/vat/broken{
-	dir = 8
-	},
-/turf/open/floor/bcircuit/off,
-/area/bluemoon/caves/facility/omicron)
 "mOF" = (
 /obj/structure/sign/xenobio{
 	dir = 8
@@ -11454,10 +11205,6 @@
 	dir = 4
 	},
 /area/bluemoon/caves/facility/lambda/s)
-"mUM" = (
-/obj/structure/rock/dark/stalagmite/two,
-/turf/open/urbanshale/layer1,
-/area/bluemoon/caves/ne)
 "mVk" = (
 /obj/effect/ai_node,
 /turf/open/floor,
@@ -11601,7 +11348,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/weapon/gun/rifle/tx11,
 /turf/open/floor/tile/brown{
 	dir = 8
 	},
@@ -11773,7 +11519,6 @@
 /area/bluemoon/outside/s)
 "nnf" = (
 /obj/structure/closet/crate/science,
-/obj/effect/spawner/random/engineering/powercell/empty_or_full,
 /turf/open/floor/plating,
 /area/bluemoon/caves/facility/lambda/s)
 "nni" = (
@@ -11942,10 +11687,6 @@
 	dir = 10
 	},
 /area/bluemoon/outside/building/engi)
-"nwk" = (
-/obj/effect/landmark/patrol_point/som/som_11,
-/turf/open/floor/plating/ground/ice,
-/area/bluemoon/caves/sw)
 "nwA" = (
 /obj/machinery/door/airlock/multi_tile/mainship/secdoor{
 	dir = 1;
@@ -12197,11 +11938,6 @@
 	dir = 10
 	},
 /area/bluemoon/caves/facility/lambda/n)
-"nOB" = (
-/obj/effect/landmark/weed_node,
-/obj/structure/rock/dark/large/three,
-/turf/open/urbanshale/layer1,
-/area/bluemoon/caves/ne)
 "nOI" = (
 /obj/machinery/vending/medical,
 /turf/open/floor/tile/white,
@@ -12957,10 +12693,6 @@
 	dir = 4
 	},
 /area/bluemoon/outside/building/engi)
-"oQP" = (
-/obj/effect/landmark/patrol_point/tgmc_11,
-/turf/open/floor/tile/dark,
-/area/bluemoon/caves/se)
 "oRg" = (
 /obj/structure/bed/roller/hospital_empty/bigrollerbloodempty,
 /obj/effect/decal/cleanable/blood,
@@ -13098,7 +12830,6 @@
 	},
 /area/bluemoon/outside/building/med)
 "oZc" = (
-/obj/effect/landmark/corpsespawner/scientist/regular,
 /obj/effect/landmark/start/job/xenomorph,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -13147,12 +12878,6 @@
 	dir = 5
 	},
 /area/bluemoon/caves/facility/lambda/s)
-"pas" = (
-/obj/structure/prop/urban/vehicles/large/colonycrawlers/mining/mining1{
-	dir = 4
-	},
-/turf/open/floor/plating/ground/ice,
-/area/bluemoon/caves/n)
 "paH" = (
 /obj/structure/bed/chair/sofa{
 	dir = 4
@@ -13505,12 +13230,6 @@
 /obj/item/stack/sheet/mineral/gold,
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/building/mining)
-"pCQ" = (
-/obj/structure/prop/mainship/vat/broken{
-	dir = 1
-	},
-/turf/open/floor/bcircuit/off,
-/area/bluemoon/caves/facility/omicron)
 "pCS" = (
 /obj/structure/powerloader_wreckage,
 /turf/open/floor/prison/plate,
@@ -13619,10 +13338,6 @@
 /obj/structure/closet/l3closet/virology,
 /turf/open/floor/tile/white/warningstripe,
 /area/bluemoon/caves/facility/eta/xeno)
-"pJR" = (
-/obj/structure/rock/dark/small/two,
-/turf/open/urbanshale/layer1,
-/area/bluemoon/caves/ne)
 "pJV" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -13735,13 +13450,6 @@
 	},
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/c)
-"pPz" = (
-/obj/effect/spawner/gibspawner/human,
-/obj/structure/prop/mainship/vat/broken/bloody{
-	dir = 1
-	},
-/turf/open/floor/bcircuit/off,
-/area/bluemoon/caves/facility/omicron)
 "pPB" = (
 /obj/structure/foamedmetal,
 /turf/open/floor/tile/purple/whitepurple,
@@ -13798,11 +13506,6 @@
 	dir = 4
 	},
 /area/bluemoon/outside/building/lz)
-"pVC" = (
-/obj/item/ammo_magazine/pistol/standard_pistol,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
-/turf/open/floor/tile/dark,
-/area/bluemoon/caves/facility/eta)
 "pVQ" = (
 /obj/structure/bed/chair/sofa{
 	dir = 8
@@ -13834,12 +13537,6 @@
 	dir = 6
 	},
 /area/bluemoon/outside/building/med)
-"pZh" = (
-/obj/structure/cargo_container/nt{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/bluemoon/caves/facility/omicron)
 "pZk" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/blood/xeno,
@@ -14030,7 +13727,6 @@
 /turf/open/floor/prison,
 /area/bluemoon/caves/facility/lambda/n)
 "qkX" = (
-/obj/machinery/hydroponics,
 /turf/open/floor/cyantwo,
 /area/bluemoon/outside/building/dorms/plant)
 "qlL" = (
@@ -14559,12 +14255,6 @@
 	dir = 4
 	},
 /area/bluemoon/outside/building/med)
-"qUl" = (
-/obj/structure/cargo_container/nt{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/bluemoon/caves/facility/eta)
 "qUP" = (
 /obj/structure/bed/chair/pew{
 	dir = 10
@@ -14687,9 +14377,6 @@
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/building/marshal)
 "rbE" = (
-/obj/structure/barricade/wooden{
-	dir = 1
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 4
@@ -14725,9 +14412,6 @@
 /turf/open/floor/prison/plate,
 /area/bluemoon/caves/facility/omicron)
 "rcR" = (
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -14859,9 +14543,6 @@
 /area/bluemoon/caves/e)
 "riY" = (
 /obj/effect/landmark/corpsespawner/security,
-/obj/item/weapon/gun/pistol/standard_pocketpistol,
-/obj/item/ammo_magazine/pistol/standard_pistol,
-/obj/item/ammo_magazine/pistol/standard_pistol,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -14875,14 +14556,6 @@
 	dir = 1
 	},
 /area/bluemoon/outside/building/med)
-"rjp" = (
-/obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/scientist/regular,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/turf/open/floor/prison/plate,
-/area/bluemoon/caves/facility/omicron)
 "rjw" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -15034,11 +14707,6 @@
 	dir = 9
 	},
 /area/bluemoon/caves/facility/lambda/sec)
-"rqh" = (
-/obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/corpsespawner/scientist/regular,
-/turf/open/floor/prison/plate,
-/area/bluemoon/caves/facility/omicron)
 "rrB" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp,
@@ -15168,8 +14836,6 @@
 /area/bluemoon/outside/s)
 "rBL" = (
 /obj/effect/landmark/corpsespawner/security,
-/obj/item/weapon/gun/rifle/standard_carbine,
-/obj/item/ammo_magazine/rifle/standard_carbine,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
@@ -15700,14 +15366,6 @@
 /obj/structure/rack,
 /turf/open/floor/tile/dark,
 /area/bluemoon/caves/facility/eta)
-"sgO" = (
-/obj/structure/monorail{
-	dir = 9
-	},
-/obj/structure/lattice,
-/obj/structure/prop/urban/vehicles/large/crashedcarsleft,
-/turf/open/floor/elevatorshaft,
-/area/bluemoon/caves/facility/omicron)
 "sha" = (
 /obj/structure/table,
 /obj/structure/xenoautopsy,
@@ -16036,17 +15694,6 @@
 	},
 /turf/open/floor/tile/dark/gray,
 /area/bluemoon/outside/building/cargo/shop)
-"sDG" = (
-/obj/structure/barricade/wooden{
-	desc = "This barricade is heavily reinforced. Nothing short of blasting it open seems like it'll do the trick, that or melting the breams supporting it...";
-	dir = 1;
-	level = 3;
-	pixel_y = 17
-	},
-/turf/open/floor/tile/dark/blue2{
-	dir = 8
-	},
-/area/bluemoon/outside/building/admin)
 "sDM" = (
 /obj/structure/table/wood/fancy,
 /obj/machinery/computer/security/wooden_tv,
@@ -16414,7 +16061,6 @@
 /area/bluemoon/outside/building/med)
 "tdL" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/cup/glass/drinkingglass/filled/pina_colada,
 /turf/open/floor/wood,
 /area/bluemoon/outside/building/dorms/bar)
 "tdN" = (
@@ -16797,7 +16443,6 @@
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/s)
 "tzJ" = (
-/obj/machinery/hydroponics,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/cyantwo,
 /area/bluemoon/outside/building/dorms/plant)
@@ -16827,10 +16472,6 @@
 	dir = 9
 	},
 /area/bluemoon/caves/facility/omicron)
-"tDS" = (
-/obj/structure/rock/dark/large/three,
-/turf/open/urbanshale/layer1,
-/area/bluemoon/caves/se)
 "tEe" = (
 /obj/item/shard,
 /turf/open/floor/plating/ground/snow/layer0,
@@ -16995,7 +16636,6 @@
 	},
 /obj/item/stack/sheet/mineral/phoron/medium_stack,
 /obj/structure/closet/crate/science,
-/obj/effect/spawner/random/engineering/powercell/empty_or_full,
 /obj/item/circuitboard/machine/pacman,
 /turf/open/floor/plating,
 /area/bluemoon/caves/facility/eta)
@@ -17492,10 +17132,6 @@
 	dir = 1
 	},
 /area/bluemoon/caves/facility/eta/xeno)
-"uur" = (
-/obj/structure/rock/dark/small/two,
-/turf/open/urbanshale/layer0_plate,
-/area/bluemoon/caves/ne)
 "uvf" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/prison/whitepurple,
@@ -17518,11 +17154,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/bluemoon/outside/building/lz)
-"uvB" = (
-/obj/effect/landmark/corpsespawner/scientist/regular,
-/obj/effect/ai_node,
-/turf/open/floor/freezer,
-/area/bluemoon/caves/facility/lambda/n)
 "uvL" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
@@ -17580,10 +17211,6 @@
 /obj/effect/spawner/random/misc/paperbin,
 /obj/item/tool/pen/blue{
 	pixel_x = 5
-	},
-/obj/item/pda/red{
-	pixel_x = -3;
-	pixel_y = 4
 	},
 /obj/machinery/light{
 	dir = 4
@@ -17676,9 +17303,6 @@
 /turf/open/floor/prison/plate,
 /area/bluemoon/caves/facility/omicron)
 "uCw" = (
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark/blue2,
 /area/bluemoon/outside/building/admin)
@@ -17991,10 +17615,6 @@
 	},
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/w)
-"uRA" = (
-/obj/structure/rock/dark/small/three,
-/turf/open/urbanshale/layer1,
-/area/bluemoon/caves/se)
 "uRE" = (
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/prison/darkpurple,
@@ -18107,10 +17727,6 @@
 	},
 /turf/open/floor/plating/warning,
 /area/bluemoon/outside/building/lz)
-"uYG" = (
-/obj/item/instrument/jukebox,
-/turf/open/floor/wood,
-/area/bluemoon/outside/building/dorms/bar)
 "uYX" = (
 /obj/structure/bed/chair/sofa,
 /obj/machinery/light{
@@ -18211,9 +17827,6 @@
 /turf/open/floor/tile/dark,
 /area/bluemoon/caves/e/shallow)
 "vcT" = (
-/obj/structure/barricade/wooden{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
@@ -18316,7 +17929,6 @@
 /area/bluemoon/caves/facility/eta/e)
 "vhT" = (
 /obj/item/paper/crumpled,
-/obj/effect/landmark/corpsespawner/roboticist/regular,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
@@ -19010,10 +18622,6 @@
 	dir = 1
 	},
 /area/bluemoon/caves/facility/eta/e)
-"wbl" = (
-/obj/structure/rock/dark/small/two,
-/turf/open/urbanshale/layer1,
-/area/bluemoon/caves/se)
 "wbo" = (
 /obj/effect/turf_decal/warning_stripes/linethick{
 	dir = 4
@@ -19337,10 +18945,6 @@
 	dir = 4
 	},
 /area/bluemoon/caves/facility/eta)
-"wtA" = (
-/obj/structure/barricade/wooden,
-/turf/open/floor/wood/fancy,
-/area/bluemoon/outside/building/dorms/chapel)
 "wtY" = (
 /obj/machinery/door/airlock/multi_tile/secure{
 	name = "\improper Omicron Lab"
@@ -19446,7 +19050,6 @@
 /area/bluemoon/outside/building/marshal)
 "wAk" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/item/ammo_magazine/rifle/tx11,
 /turf/open/floor/tile/brown{
 	dir = 8
 	},
@@ -19647,13 +19250,6 @@
 	dir = 1
 	},
 /area/bluemoon/caves/facility/omicron)
-"wNF" = (
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor,
-/area/bluemoon/outside/building/cargo)
 "wNM" = (
 /turf/open/floor/tile/dark/blue2{
 	dir = 6
@@ -19691,10 +19287,6 @@
 	dir = 4
 	},
 /area/bluemoon/outside/building/admin)
-"wQP" = (
-/obj/structure/cargo_container/nt,
-/turf/open/floor/plating,
-/area/bluemoon/caves/facility/eta)
 "wRu" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/snow/layer0,
@@ -20024,17 +19616,6 @@
 /obj/effect/landmark/corpsespawner/colonist,
 /turf/open/floor/carpet/edge2,
 /area/bluemoon/outside/building/admin)
-"xoW" = (
-/obj/structure/barricade/wooden{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4
-	},
-/turf/open/floor/tile/brown{
-	dir = 8
-	},
-/area/bluemoon/outside/building/cargo/shop)
 "xpz" = (
 /obj/structure/bed/chair/sofa/right{
 	dir = 8
@@ -20454,9 +20035,6 @@
 /area/bluemoon/caves/facility/lambda/n)
 "xLx" = (
 /obj/structure/rack,
-/obj/item/storage/box/MRE{
-	name = "\improper MRE"
-	},
 /turf/open/floor/prison/darkyellow{
 	dir = 10
 	},
@@ -20600,7 +20178,6 @@
 /turf/open/floor/plating/dmg2,
 /area/bluemoon/outside/building/virology)
 "xSb" = (
-/obj/effect/landmark/corpsespawner/scientist/regular,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/purple/whitepurple{
 	dir = 4
@@ -23196,7 +22773,7 @@ vbq
 sGJ
 sGJ
 sGJ
-eBL
+sGJ
 sGJ
 sGJ
 sGJ
@@ -25753,8 +25330,8 @@ ije
 ije
 ije
 ije
-iYy
-wNF
+tmJ
+rkQ
 tmJ
 qAT
 nzo
@@ -26336,7 +25913,7 @@ aGg
 tXU
 jXS
 muF
-gkU
+rPE
 jYN
 sLi
 buK
@@ -26489,7 +26066,7 @@ aoY
 gGi
 ije
 gxE
-mGU
+gxE
 idx
 izc
 gQQ
@@ -26636,7 +26213,7 @@ xFm
 avv
 ije
 gxE
-dgY
+gxE
 oyl
 izc
 gQQ
@@ -26667,7 +26244,7 @@ uJX
 uJX
 uJX
 mTG
-nwk
+ycd
 ycd
 ycd
 uJX
@@ -26783,7 +26360,7 @@ cRi
 iXt
 ije
 gxE
-aev
+gxE
 oyl
 izc
 gQQ
@@ -27073,7 +26650,7 @@ nIM
 uIC
 ije
 pLe
-xoW
+nXL
 lRe
 jAa
 aPm
@@ -28642,7 +28219,7 @@ htr
 htr
 htr
 nZx
-aND
+wCg
 htr
 mBQ
 kNV
@@ -28983,7 +28560,7 @@ sZQ
 ggv
 qoO
 vwv
-axT
+opf
 jLe
 vwv
 biH
@@ -29164,7 +28741,7 @@ oAh
 hbw
 bkU
 lAw
-wQP
+lAw
 pgg
 ozb
 ozb
@@ -29229,7 +28806,7 @@ htr
 htr
 htr
 htr
-jYv
+nZx
 cRA
 htr
 wrH
@@ -29311,7 +28888,7 @@ qNb
 rTp
 scE
 lAw
-qUl
+lAw
 lAw
 lAw
 cjj
@@ -29458,7 +29035,7 @@ xVG
 rOx
 vru
 lAw
-dAS
+lAw
 lAw
 onW
 okk
@@ -29590,7 +29167,7 @@ snL
 cmx
 aAb
 vFf
-bSj
+aAb
 lHN
 bgU
 bgU
@@ -29713,7 +29290,7 @@ vwv
 wDu
 bkO
 bjX
-sDG
+bjX
 cmq
 bjX
 bjX
@@ -29862,7 +29439,7 @@ dXH
 oyU
 oyU
 lJq
-jWr
+gbG
 gbG
 gbG
 xxz
@@ -31082,14 +30659,14 @@ ron
 lTa
 nQO
 lJp
-jun
+lQG
 tqU
 ron
 axB
 jsO
 mrY
 saa
-pVC
+kKY
 lyT
 ikt
 saa
@@ -32498,7 +32075,7 @@ kcv
 bow
 tNC
 nDc
-uYG
+acn
 kDN
 gqO
 tii
@@ -32894,7 +32471,7 @@ uJX
 uJX
 uJX
 iKK
-pas
+iKK
 iKK
 iPA
 iKK
@@ -35003,7 +34580,7 @@ wXy
 wXy
 mDV
 lsN
-jgT
+jNA
 hyE
 rCl
 jNA
@@ -35150,9 +34727,9 @@ kmS
 wXy
 mDV
 hjR
-jgT
-kOc
-jgT
+jNA
+lYA
+jNA
 jDg
 xjT
 bAw
@@ -35824,7 +35401,7 @@ kwo
 kwo
 ldL
 ldL
-pJR
+lgy
 dNN
 bWi
 lgy
@@ -35884,11 +35461,11 @@ tkp
 tkp
 wXy
 mDV
-gCV
+jNA
 vjj
 cpO
 xLR
-wtA
+jNA
 mDV
 bAw
 vLg
@@ -35971,7 +35548,7 @@ kwo
 kwo
 ldL
 ldL
-kRI
+lgy
 lgy
 lgy
 lgy
@@ -36035,7 +35612,7 @@ jNA
 jNA
 lYA
 jnM
-wtA
+jNA
 mDV
 bAw
 bAw
@@ -36049,7 +35626,7 @@ tVa
 tVa
 tVa
 lKd
-boy
+tdN
 agz
 xdd
 ouG
@@ -36904,7 +36481,7 @@ mZg
 tVa
 tVa
 tVa
-eGq
+bst
 krs
 bst
 tVa
@@ -37736,7 +37313,7 @@ kwo
 ldL
 ldL
 ldL
-pJR
+lgy
 bWi
 lgy
 lgy
@@ -38727,7 +38304,7 @@ gjJ
 fsP
 fsP
 fsP
-wbl
+eyX
 eyX
 eyX
 eyX
@@ -38739,7 +38316,7 @@ fsP
 fsP
 fsP
 vmK
-haX
+vmK
 vmK
 uKB
 eyX
@@ -38767,7 +38344,7 @@ ldL
 ldL
 ldL
 lgy
-nOB
+fGr
 lgy
 lgy
 fsP
@@ -38873,7 +38450,7 @@ gjJ
 fsP
 fsP
 fsP
-jWE
+vmK
 vmK
 eyX
 eyX
@@ -39172,7 +38749,7 @@ vmK
 vmK
 fsP
 fsP
-cwL
+mva
 eyX
 eyX
 eyX
@@ -39512,7 +39089,7 @@ cGR
 cGR
 cGR
 xRN
-kRI
+lgy
 tkW
 dyq
 aJV
@@ -39757,7 +39334,7 @@ sNU
 sNU
 sNU
 sNU
-tDS
+eyX
 eyX
 vmK
 vmK
@@ -39801,7 +39378,7 @@ lgy
 bWi
 bWi
 bWi
-aKk
+fGr
 fsP
 tkW
 kTq
@@ -39952,7 +39529,7 @@ fsP
 fsP
 tkW
 kTq
-uvB
+xNM
 skP
 kTq
 ilo
@@ -40238,7 +39815,7 @@ ldL
 ldL
 ldL
 ldL
-mUM
+lgy
 kFA
 bWi
 lgy
@@ -40504,7 +40081,7 @@ rOE
 omS
 oZj
 qgG
-hhp
+qgG
 rOE
 eFJ
 ndD
@@ -40651,7 +40228,7 @@ rOE
 jPi
 kCZ
 qgG
-pZh
+qgG
 tmW
 uCi
 xxe
@@ -40687,7 +40264,7 @@ fsP
 fsP
 fsP
 fsP
-kRI
+lgy
 lgy
 lgy
 bWi
@@ -40798,7 +40375,7 @@ rOE
 qgG
 qgG
 qgG
-fff
+qgG
 tmW
 qtv
 rcL
@@ -40845,7 +40422,7 @@ fsP
 fsP
 fsP
 fsP
-lQT
+lgy
 lgy
 bWi
 gQH
@@ -40926,7 +40503,7 @@ sAh
 sAh
 sAh
 sAh
-oQP
+sAh
 sAh
 amh
 sAh
@@ -40947,7 +40524,7 @@ mab
 nNJ
 qgG
 gQw
-rjp
+qtv
 pCS
 jNg
 hKt
@@ -40983,7 +40560,7 @@ cGR
 lgy
 lgy
 bWi
-aoS
+bWi
 bWi
 bWi
 lgy
@@ -41107,7 +40684,7 @@ jNg
 hKt
 qti
 hKt
-izI
+ldL
 ldL
 ldL
 kwo
@@ -41191,7 +40768,7 @@ xGy
 uJX
 nkm
 dvW
-idF
+nkm
 nkm
 dvW
 nkm
@@ -41287,7 +40864,7 @@ czE
 lgy
 cGR
 cGR
-cMY
+lgy
 fsP
 fsP
 fsP
@@ -41362,7 +40939,7 @@ fsP
 fsP
 fsP
 mva
-uRA
+eyX
 eyX
 sNU
 eyX
@@ -41401,7 +40978,7 @@ jNg
 fsP
 rcW
 sWa
-ejV
+nfX
 ldL
 ldL
 kwo
@@ -41579,7 +41156,7 @@ cGR
 lgy
 rKl
 fGr
-pJR
+lgy
 fsP
 fsP
 fsP
@@ -42019,7 +41596,7 @@ lgy
 fsP
 fsP
 fRz
-lUA
+xRN
 lgy
 bWi
 kFA
@@ -42135,7 +41712,7 @@ fHH
 jNg
 hKt
 rNo
-sgO
+dby
 nfX
 ldL
 ldL
@@ -42321,7 +41898,7 @@ ldL
 ldL
 ldL
 ldL
-hLW
+lgy
 bWi
 kFA
 bWi
@@ -42429,7 +42006,7 @@ fsP
 jNg
 hKt
 qGZ
-jBB
+hKt
 nfX
 ldL
 ldL
@@ -42544,7 +42121,7 @@ mva
 eyX
 eyX
 eyX
-fxW
+eyX
 eyX
 eyX
 qLd
@@ -42572,7 +42149,7 @@ wIt
 wIt
 uhA
 lLH
-rqh
+lLH
 jNg
 hKt
 qGZ
@@ -42746,11 +42323,11 @@ ldL
 ldL
 ldL
 ldL
-lQT
+lgy
 lgy
 ldL
 ldL
-uur
+cGR
 czE
 ldL
 dFY
@@ -43001,11 +42578,11 @@ kLt
 uRE
 mfX
 pXp
-pPz
-pCQ
+bdj
+fdd
 jmU
-aZi
-mNV
+fdd
+fdd
 nfX
 wNw
 oAo
