@@ -1,0 +1,5 @@
+author: "homexp13"
+delete-after: True
+changes:
+  - rscadd: "Добавлены универсальные ящики с патронами."
+  - rscdel: "Удалены big ammo boxes."
