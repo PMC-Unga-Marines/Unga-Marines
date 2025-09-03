@@ -614,6 +614,7 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 	xeno_owner.spin(0.8 SECONDS, 1)
 	xeno_owner.enable_throw_parry(0.6 SECONDS)
 	xeno_owner.emote("tail")
+	xeno_owner.visible_message(span_danger("\The [xeno_owner] swings the hook on its tail through the air!"))
 
 	var/damage = (xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier) * 0.5
 	var/list/inrange = orange(2, xeno_owner)
