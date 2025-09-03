@@ -398,7 +398,6 @@
 	icon = 'icons/obj/smooth_objects/black_table.dmi'
 	icon_state = "black_table-0"
 	base_icon_state = "black_table"
-	table_prefix = "black"
 	parts = /obj/item/frame/table
 
 /obj/structure/table/urban/shiny_black
@@ -407,7 +406,6 @@
 	icon = 'icons/obj/smooth_objects/urban_table_black.dmi'
 	icon_state = "urban_table_black-0"
 	base_icon_state = "urban_table_black"
-	table_prefix = "urban_table_black"
 	parts = /obj/item/frame/table
 
 /obj/structure/table/urban/shiny_brown
@@ -416,7 +414,6 @@
 	icon = 'icons/obj/smooth_objects/urban_table_brown.dmi'
 	icon_state = "urban_table_brown-0"
 	base_icon_state = "urban_table_brown"
-	table_prefix = "urban_table_brown"
 	parts = /obj/item/frame/table
 
 /obj/structure/table/reinforced
