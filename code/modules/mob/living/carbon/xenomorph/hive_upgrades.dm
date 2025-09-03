@@ -92,7 +92,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	///int of the times we bought this upgrade
 	var/times_bought = 0
 	///string for UI icon in buyable_icons.dmi for this upgrade
-	var/icon = "larvasilo"
+	var/icon = "silo"
 
 /**
  * Buys the upgrade and applies its effects
@@ -178,7 +178,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	name = "Larva Silo"
 	desc = "Constructs a silo that generates xeno larvas over time."
 	psypoint_cost = SILO_PRICE
-	icon = "larvasilo"
+	icon = "silo"
 	gamemode_flags = ABILITY_DISTRESS
 	building_type = /obj/structure/xeno/silo
 
@@ -380,32 +380,32 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/primordial/tier_four
 	name = PRIMORDIAL_TIER_FOUR
-	desc = "Unlocks the primordial for the last tier"
+	desc = "Unlocks the primordial upgrade for the last tier xenomorphs."
 	psypoint_cost = 800
-	icon = "primoqueen"
+	icon = "primo_t4"
 
 /datum/hive_upgrade/primordial/tier_three
 	name = PRIMORDIAL_TIER_THREE
-	desc = "Unlocks the primordial for the third tier"
+	desc = "Unlocks the primordial upgrade for the third tier xenomorphs."
 	psypoint_cost = 1000
-	icon = "primorav"
+	icon = "primo_t3"
 
 /datum/hive_upgrade/primordial/tier_two
 	name = PRIMORDIAL_TIER_TWO
-	desc = "Unlocks the primordial for the second tier"
+	desc = "Unlocks the primordial upgrade for the second tier xenomorphs."
 	psypoint_cost = 800
-	icon = "primowarrior"
+	icon = "primo_t2"
 
 /datum/hive_upgrade/primordial/tier_one
 	name = PRIMORDIAL_TIER_ONE
-	desc = "Unlocks the primordial for the first tier"
+	desc = "Unlocks the primordial upgrade for the first tier xenomorphs."
 	psypoint_cost = 600
-	icon = "primosent"
+	icon = "primo_t1"
 
 /datum/hive_upgrade/defence/oblivion
 	name = "Oblivion"
-	desc = "Destroy the bodies beneath you "
-	icon = "smartminions"
+	desc = "Destroy a single human corpse beneath you, by gibbing it."
+	icon = "oblivion"
 	psypoint_cost = 500
 	gamemode_flags = ABILITY_DISTRESS|ABILITY_CRASH
 
@@ -436,9 +436,9 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 		break
 	return ..()
 
-/datum/hive_upgrade/building/nest
+/datum/hive_upgrade/building/nest // shitcode
 	name = "Thick nest"
-	desc = "A very thick nest, oozing with a thick sticky substance."
+	desc = "A very thick nest, oozing with a thick sticky substance. Becomes avalaible upon infecting a Predator."
 	psypoint_cost = 0
 	icon = "nest"
 	building_type = /obj/structure/xeno/thick_nest
