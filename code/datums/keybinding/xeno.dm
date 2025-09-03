@@ -730,24 +730,28 @@
 	description = "Flood your body with adrenaline, gaining a speed boost upon activation and the ability to pass through mobs. Enemies automatically receive bump attacks when passed."
 	keybind_signal = COMSIG_XENOABILITY_DODGE
 	hotkey_keys = list("Q")
+
 /datum/keybinding/xeno/impale
 	name = "Impale"
 	full_name = "Dancer: Impale"
 	description = "Skewer an object next to you with your tail. The more debuffs on a living target, the greater the damage done. Penetrates the armor of marked targets."
 	keybind_signal = COMSIG_XENOABILITY_IMPALE
 	hotkey_keys = list("Z")
+
 /datum/keybinding/xeno/tail_trip
 	name = "Tail Trip"
 	full_name = "Dancer: Tail Trip"
 	description = "Twirl your tail around low to the ground, knocking over and disorienting any adjacent marines. Marked enemies receive stronger debuffs and are briefly stunned."
 	keybind_signal = COMSIG_XENOABILITY_TAIL_TRIP
 	hotkey_keys = list("R")
+
 /datum/keybinding/xeno/tail_hook
 	name = "Tail Hook"
 	full_name = "Dancer: Tail Hook"
 	description = "Swing your tail high, sending the hooked edge gouging into any targets within 2 tiles. Hooked marines have their movement slowed and are dragged, spinning, towards you. Marked marines are slowed for longer and briefly knocked over."
 	keybind_signal = COMSIG_XENOABILITY_TAILHOOK
 	hotkey_keys = list("F")
+
 /datum/keybinding/xeno/baton_pass
 	name = "Baton Pass"
 	full_name = "Dancer: Baton Pass"
