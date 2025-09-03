@@ -32,7 +32,7 @@
 
 /mob/living/restrained(ignore_checks)
 	. = ..()
-	var/to_check_flags = RESTRAINED_NECKGRAB | RESTRAINED_XENO_NEST | RESTRAINED_STRAIGHTJACKET | RESTRAINED_RAZORWIRE | RESTRAINED_PSYCHICGRAB
+	var/to_check_flags = RESTRAINED_NECKGRAB | RESTRAINED_XENO_NEST | RESTRAINED_STRAIGHTJACKET | RESTRAINED_RAZORWIRE
 	if(ignore_checks)
 		DISABLE_BITFIELD(to_check_flags, ignore_checks)
 	return (. || CHECK_BITFIELD(restrained_flags, to_check_flags))
