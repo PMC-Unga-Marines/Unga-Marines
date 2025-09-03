@@ -14,7 +14,7 @@
 
 ///Toggles strap state
 /datum/element/strappable/proc/on_alt_click(datum/source, mob/user)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	var/obj/item/item_source = source
 	if(!item_source.can_interact(user) \
 		|| !ishuman(user) \

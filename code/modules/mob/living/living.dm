@@ -199,9 +199,23 @@
 			var/mob/living/living_puller = pulledby
 			living_puller.set_pull_offsets(src)
 
+	if(crawling)
+		crawling = FALSE
+		var/crawling_direction = REVERSE_DIR(get_dir(newloc, src))
+		setDir(crawling_direction)
+		playsound(src, 'sound/effects/footstep/crawl.ogg', 50, 1)
+
 	if(active_storage)
 		if(!(active_storage.parent in contents) && !CanReach(active_storage.parent))
 			active_storage.close(src)
+
+/mob/living/proc/crawl_checks(turf/crawled_turf)
+	for(var/mob/living/mob in crawled_turf)
+		if(mob.lying_angle || mob.stat != CONSCIOUS)
+			continue
+		if(mob.faction != faction && mob.move_resist >= move_force) // no crawling under xenos or enemy humans
+			return FALSE
+	return TRUE
 
 /mob/living/Moved(atom/old_loc, movement_dir, forced = FALSE, list/old_locs)
 	. = ..()

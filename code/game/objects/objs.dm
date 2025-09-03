@@ -165,7 +165,13 @@
 		return TRUE
 	if((allow_pass_flags & PASS_GLASS) && (mover.pass_flags & PASS_GLASS))
 		return NONE
-	if(!density || !(atom_flags & ON_BORDER) || !(direction & dir) || (mover.status_flags & INCORPOREAL))
+	if(!density)
+		return NONE
+	if(!(atom_flags & ON_BORDER))
+		return NONE
+	if(mover.status_flags & INCORPOREAL)
+		return NONE
+	if(!(direction & dir))
 		return NONE
 
 	knownblockers += src
