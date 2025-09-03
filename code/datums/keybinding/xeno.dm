@@ -942,6 +942,13 @@
 	keybind_signal = COMSIG_XENOABILITY_SCATTER_SPIT
 	hotkey_keys = list("V")
 
+/datum/keybinding/xeno/slime_grenade
+	name = "slime_grenade"
+	full_name = "Spitter: Slime Grenade"
+	description = "Throws a lump of compressed acid to stick to a target, which will leave a trail of acid behind them."
+	keybind_signal = COMSIG_XENOABILITY_SLIME_GRENADE
+	hotkey_keys = list("Q")
+
 /datum/keybinding/xeno/psychic_shield
 	name = "Psychic Shield"
 	full_name = "Warlock: Psychic Shield"
