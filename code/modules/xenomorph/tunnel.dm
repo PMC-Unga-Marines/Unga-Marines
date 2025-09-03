@@ -21,7 +21,6 @@
 /obj/structure/xeno/tunnel/Initialize(mapload, _hivenumber)
 	. = ..()
 	LAZYADDASSOC(GLOB.xeno_tunnels_by_hive, hivenumber, src)
-	prepare_huds()
 	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "xenotunnel", VERY_HIGH_FLOAT_LAYER))
 	var/area/tunnel_area = get_area(src)
 	if(tunnel_area.area_flavor == AREA_FLAVOR_URBAN && !SSticker.HasRoundStarted())
