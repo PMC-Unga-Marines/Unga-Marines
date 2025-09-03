@@ -72,3 +72,5 @@
 
 //Specific slowdown bitfield
 #define SLOWDOWN_IMPEDE_JETPACK (1<<0) //Reduce the range of jetpack
+
+#define MOVESPEED_ID_YAUTJA_SHIELD "YAUTJA_SHIELD"
