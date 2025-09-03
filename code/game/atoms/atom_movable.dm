@@ -683,18 +683,14 @@
 
 /atom/movable/proc/check_blocked_turf(turf/target)
 	if(target.density)
-		return TRUE //Blocked; we can't proceed further.
-
+		return FALSE
 	for(var/obj/machinery/MA in target)
 		if(MA.density)
-			return TRUE //Blocked; we can't proceed further.
-
+			return FALSE
 	for(var/obj/structure/S in target)
 		if(S.density)
-			return TRUE //Blocked; we can't proceed further.
-
-	return FALSE
-
+			return
+	return TRUE
 
 /atom/movable/proc/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
 	if(!no_effect && (visual_effect_icon || used_item))
