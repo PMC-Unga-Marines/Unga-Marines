@@ -413,30 +413,27 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	. = ..()
 	if(!.)
 		return
-	var/turf/T = get_turf(buyer)
-	var/mob/living/carbon/human/H = locate() in T
-	var/mob/living/carbon/human/species/synthetic = locate() in T
-	if(!H || H.stat != DEAD || synthetic)
-		if(!silent)
-			to_chat(buyer, span_xenowarning("You cannot destroy nothing or alive"))
-		return FALSE
+	for(var/mob/living/carbon/human/gibbed_human in get_turf(buyer))
+		if(gibbed_human.stat != DEAD)
+			continue
+		return TRUE
 
-	return TRUE
+	if(!silent)
+		to_chat(buyer, span_xenowarning("You need someone dead to destroy!"))
+	return FALSE
 
 /datum/hive_upgrade/defence/oblivion/on_buy(mob/living/carbon/xenomorph/buyer)
-
 	if(!can_buy(buyer, FALSE))
 		return FALSE
 
-	var/turf/T = get_turf(buyer)
-	var/mob/living/carbon/human/H = locate() in T
-	xeno_message("[buyer] sent [H] into oblivion!", "xenoannounce", 5, buyer.hivenumber)
-	to_chat(buyer, span_xenowarning("WE HAVE SENT THE [H] INTO OBLIVION"))
-	H.gib()
-
-	log_game("[buyer] sent [H] into oblivion, spending [psypoint_cost] psy points in the process")
-
-
+	for(var/mob/living/carbon/human/gibbed_human in get_turf(buyer))
+		if(gibbed_human.stat != DEAD)
+			continue
+		xeno_message("[buyer] sent [gibbed_human] into oblivion!", "xenoannounce", 5, buyer.hivenumber)
+		to_chat(buyer, span_xenowarning("WE HAVE SENT THE [gibbed_human] INTO OBLIVION!"))
+		gibbed_human.gib()
+		log_game("[buyer] sent [gibbed_human] into oblivion, spending [psypoint_cost] psy points in the process.")
+		break
 	return ..()
 
 /datum/hive_upgrade/building/nest
