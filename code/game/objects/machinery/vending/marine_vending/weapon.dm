@@ -195,6 +195,10 @@
 			/obj/item/attachable/flamer_nozzle/long = -1,
 		),
 		"Коробки" = list(
+			/obj/item/matter_ammo_box/light = -1,
+			/obj/item/matter_ammo_box = -1,
+			/obj/item/matter_ammo_box/big = -1,
+			/obj/item/matter_ammo_box/giant = -1,
 			/obj/item/ammo_magazine/packet/p9mm = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/rifle762X39 = -1,
@@ -428,6 +432,10 @@
 			/obj/item/attachable/flamer_nozzle/long = -1,
 		),
 		"Коробки" = list(
+			/obj/item/matter_ammo_box/light = -1,
+			/obj/item/matter_ammo_box = -1,
+			/obj/item/matter_ammo_box/big = -1,
+			/obj/item/matter_ammo_box/giant = -1,
 			/obj/item/ammo_magazine/packet/p9mm = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/rifle762X39 = -1,
@@ -700,6 +708,10 @@
 			/obj/item/attachable/flamer_nozzle/long = -1,
 		),
 		"Коробки" = list(
+			/obj/item/matter_ammo_box/light = -1,
+			/obj/item/matter_ammo_box = -1,
+			/obj/item/matter_ammo_box/big = -1,
+			/obj/item/matter_ammo_box/giant = -1,
 			/obj/item/ammo_magazine/packet/p9mm = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/rifle762X39 = -1,
