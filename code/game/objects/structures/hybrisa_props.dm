@@ -2254,7 +2254,6 @@
 	name = "wall vent"
 	icon_state = "smallwallvent3"
 
-
 /obj/structure/prop/urban/misc/buildinggreebliessmall/computer
 	name = "machinery"
 	icon = 'icons/obj/structures/prop/urban/urbanrandomprops.dmi'
