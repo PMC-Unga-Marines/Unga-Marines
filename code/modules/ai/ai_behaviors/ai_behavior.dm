@@ -56,6 +56,8 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 	var/registered_for_move = FALSE
 	///Should we lose the escorted atom if we change action
 	var/weak_escort = FALSE
+	var/scheduled_move_timer
+	var/next_node_timer
 
 /datum/ai_behavior/New(loc, mob/parent_to_assign, atom/escorted_atom)
 	. = ..()
@@ -194,7 +196,7 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 	else
 		set_current_node(current_node.get_best_adj_node(list(NODE_LAST_VISITED = -1), identifier))
 	if(!current_node)
-		addtimer(CALLBACK(src, PROC_REF(look_for_next_node)), 1 SECONDS)// Shouldn't happen unless you spam goal nodes
+		next_node_timer = addtimer(CALLBACK(src, PROC_REF(look_for_next_node)), 1 SECONDS, TIMER_STOPPABLE)// Shouldn't happen unless you spam goal nodes
 		return
 	current_node.set_weight(identifier, NODE_LAST_VISITED, world.time)
 	change_action(MOVING_TO_NODE, current_node)
@@ -321,7 +323,7 @@ These are parameter based so the ai behavior can choose to (un)register the sign
 	var/next_move = mob_parent.cached_multiplicative_slowdown + mob_parent.next_move_slowdown
 	if(next_move <= 0)
 		next_move = 1
-	addtimer(CALLBACK(src, PROC_REF(scheduled_move)), next_move, NONE, SSpathfinder)
+	scheduled_move_timer = addtimer(CALLBACK(src, PROC_REF(scheduled_move)), next_move, TIMER_STOPPABLE, SSpathfinder)
 	registered_for_move = TRUE
 
 ///Tries to move the ai toward its atom_to_walk_to
