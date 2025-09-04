@@ -21,7 +21,7 @@
 	cost = 100
 
 /datum/supply_packs/armor/eshield/mk2
-	name = "RaRa energy dispersion system"
+	name = "Ra energy dispersion system"
 	contains = list(/obj/item/armor_module/module/eshield/mk2)
 	cost = 200
 
