@@ -772,7 +772,6 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 		return TRUE
 	return FALSE
 
-
 //bedroll
 /obj/structure/bed/bedroll
 	name = "unfolded bedroll"
