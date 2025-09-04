@@ -1873,7 +1873,6 @@
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "supermartfloor1"
 
-
 /turf/open/floor/urban/tile/supermartfloor1
 	icon_state = "supermartfloor1"
 
