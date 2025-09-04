@@ -289,7 +289,6 @@
 	name = "sandstone temple platform"
 	color = "#b29082"
 
-
 /obj/structure/platform_decoration/mineral/sandstone
 	name = "sandstone platform corner"
 	desc = "A platform corner supporting elevated ground, made of sandstone. Has what seem to be ancient hieroglyphs on its side."
