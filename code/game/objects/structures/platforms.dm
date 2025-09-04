@@ -194,7 +194,6 @@
 	desc = "The corner of what appears to be raised piece of metal, often used to imply the illusion of elevation in non-Euclidean 2d spaces. But you don't know that, you're just a spaceman with a rifle."
 	icon_state = "engineer_platform_platformcorners"
 
-
 /obj/structure/platform/urban/rockdark
 	icon_state = "kutjevo_rockdark"
 	name = "raised rock edges"
