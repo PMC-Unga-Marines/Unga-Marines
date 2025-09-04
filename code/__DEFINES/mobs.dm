@@ -231,14 +231,20 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 //limb_status
 #define LIMB_BLEEDING (1<<0)
 #define LIMB_BROKEN (1<<1)
-#define LIMB_DESTROYED (1<<2) //limb is missing
+/// Limb is missing
+#define LIMB_DESTROYED (1<<2)
 #define LIMB_ROBOT (1<<3)
 #define LIMB_SPLINTED (1<<4)
-#define LIMB_NECROTIZED (1<<5) //necrotizing limb, nerves are dead.
-#define LIMB_AMPUTATED (1<<6) //limb was amputated cleanly or destroyed limb was cleaned up, thus causing no pain
-#define LIMB_REPAIRED (1<<7) //we just repaired the bone, stops the gelling after setting
-#define LIMB_STABILIZED (1<<8) //certain suits will support a broken limb while worn such as the b18
-#define LIMB_BIOTIC (1<<9) //limb is biotic
+/// Necrotizing limb, nerves are dead.
+#define LIMB_NECROTIZED (1<<5)
+/// Limb was amputated cleanly or destroyed limb was cleaned up, thus causing no pain
+#define LIMB_AMPUTATED (1<<6)
+/// We just repaired the bone, stops the gelling after setting
+#define LIMB_REPAIRED (1<<7)
+/// Certain suits will support a broken limb while worn such as the b18
+#define LIMB_STABILIZED (1<<8)
+/// Limb is biotic, gained after limb reattachments, gives 1.3 damage modifier
+#define LIMB_BIOTIC (1<<9)
 
 //limb_wound_status
 #define LIMB_WOUND_BANDAGED (1<<0)
@@ -779,6 +785,14 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 
 //Praetorian defines
 #define PRAE_CHARGEDISTANCE 6
+
+//Dancer defines
+/// Armor penetration done by impale to marked targets
+#define DANCER_IMPALE_PENETRATION 20
+/// The maximum multiplier dancer impale can gain from debuffs
+#define DANCER_MAX_IMPALE_MULT 2.5
+/// The flat damage multiplier done by impale to non-carbon targets
+#define DANCER_NONHUMAN_IMPALE_MULT 1.5
 
 // Chimera defines
 //Stagger and slowdown stacks applied to adjacent living hostiles before/after a teleport
