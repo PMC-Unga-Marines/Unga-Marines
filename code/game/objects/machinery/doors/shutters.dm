@@ -288,16 +288,17 @@
 	open()
 
 /obj/machinery/door/poddoor/shutters/urban/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, isrightclick = FALSE)
-	if(xeno_attacker.a_intent != INTENT_HELP)
-		xeno_attacker.balloon_alert(xeno_attacker, "lifting [src]...")
-		if(!xeno_attacker.mob_size == MOB_SIZE_BIG)
-			if(!do_after(xeno_attacker, lift_time, NONE, src,  BUSY_ICON_HOSTILE))
-				return
-		else
-			if(!do_after(xeno_attacker, 5 SECONDS, NONE, src, BUSY_ICON_HOSTILE))
-				return
-		open()
-		balloon_alert_to_viewers("lifts [src]")
+	if(xeno_attacker.a_intent == INTENT_HELP)
+		return
+	xeno_attacker.balloon_alert(xeno_attacker, "lifting [src]...")
+	if(!xeno_attacker.mob_size == MOB_SIZE_BIG)
+		if(!do_after(xeno_attacker, lift_time, NONE, src,  BUSY_ICON_HOSTILE))
+			return
+	else
+		if(!do_after(xeno_attacker, 5 SECONDS, NONE, src, BUSY_ICON_HOSTILE))
+			return
+	open()
+	balloon_alert_to_viewers("lifts [src]")
 
 /obj/machinery/door/poddoor/shutters/urban/open_shutters
 	icon_state = "almayer_pdoor"
