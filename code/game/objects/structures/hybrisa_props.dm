@@ -127,7 +127,6 @@
 	icon = 'icons/obj/structures/prop/urban/vehiclesexpanded.dmi'
 	icon_state = "MeridianCar_1"
 
-
 // Very Large Vehicles
 
 /obj/structure/prop/urban/vehicles/large_vehicles
@@ -198,7 +197,6 @@
 	max_integrity = 1000 //mega hauler trucks are still tanks that soak up fire
 	coverage = 95
 	soft_armor = list(MELEE = 30, BULLET = 90, LASER = 95, ENERGY = 55, BOMB = 60, BIO = 10, FIRE = 10, ACID = 10)
-
 
 /obj/structure/prop/urban/vehicles/large_vehicles/mega_hauler_truck/kelland
 	icon_state = "longtruck_kellandmining"
