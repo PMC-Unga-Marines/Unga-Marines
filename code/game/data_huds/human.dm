@@ -362,6 +362,7 @@
 	var/static/image/intoxicated_image = image('icons/mob/hud/intoxicated.dmi', icon_state = "intoxicated")
 	var/static/image/intoxicated_amount_image = image('icons/mob/hud/intoxicated.dmi', icon_state = "intoxicated_amount0")
 	var/static/image/intoxicated_high_image = image('icons/mob/hud/intoxicated.dmi', icon_state = "intoxicated_high")
+	var/static/image/dancer_marked_image = image('icons/mob/hud/human_misc.dmi', icon_state = "marked_debuff")
 	var/static/image/hive_target_image = image('icons/mob/hud/human_misc.dmi', icon_state = "hive_target")
 
 	//Xeno debuff section start
@@ -370,6 +371,9 @@
 
 	if(HAS_TRAIT(src, TRAIT_HIVE_TARGET))
 		xeno_debuff.overlays += hive_target_image
+
+	if(has_status_effect(STATUS_EFFECT_DANCER_TAGGED))
+		xeno_debuff.overlays += dancer_marked_image
 
 	if(has_status_effect(STATUS_EFFECT_INTOXICATED))
 		var/datum/status_effect/stacking/intoxicated/debuff = has_status_effect(STATUS_EFFECT_INTOXICATED)
