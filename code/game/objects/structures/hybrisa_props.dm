@@ -1060,6 +1060,7 @@
 	icon = 'icons/obj/structures/prop/urban/supermart.dmi'
 	icon_state = "freezerupper"
 	density = TRUE
+
 /obj/structure/prop/urban/supermart/freezer/supermartfreezer1
 	icon = 'icons/obj/structures/prop/urban/supermart.dmi'
 	icon_state = "freezerupper"
