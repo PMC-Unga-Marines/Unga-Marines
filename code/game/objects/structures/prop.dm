@@ -36,7 +36,6 @@
 	max_integrity = 350
 	resistance_flags = XENO_DAMAGEABLE
 
-
 /obj/machinery/prop/mainship/hangar/dropship_part_fabricator
 
 /obj/machinery/prop/computer
