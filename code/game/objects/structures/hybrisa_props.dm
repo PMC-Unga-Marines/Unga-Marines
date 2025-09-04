@@ -1773,7 +1773,6 @@
 	icon = 'icons/obj/structures/prop/urban/urbanrandomprops.dmi'
 	icon_state = "sensor_comp3"
 
-
 /obj/structure/prop/urban/misc/machinery/computers/computerblack/computer1
 	icon = 'icons/obj/structures/prop/urban/urbanrandomprops.dmi'
 	icon_state = "blackmapping_comp"
