@@ -218,7 +218,6 @@
 	resistance_flags = RESIST_ALL
 	icon_state = "wall-invincible"
 
-
 //new wall for lava maps
 /turf/closed/mineral/smooth/lavawall
 	icon = 'icons/turf/walls/lava_wall.dmi'
