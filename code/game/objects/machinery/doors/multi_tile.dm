@@ -429,7 +429,6 @@
 	opacity = FALSE
 	req_one_access = list(ACCESS_CIVILIAN_RESEARCH)
 
-
 /obj/machinery/door/airlock/multi_tile/urban/personal_solid
 	icon = 'icons/obj/doors/hybrisa/hybrisa_2x1personaldoor.dmi'
 	req_one_access = list(ACCESS_CIVILIAN_RESEARCH)
