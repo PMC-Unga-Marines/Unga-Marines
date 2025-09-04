@@ -60,9 +60,9 @@
 	worn_icon_state = "grenade_phos"
 	det_time = 2 SECONDS
 	hud_state = "grenade_hide"
-	arm_sound = 'sound/weapons/grenade/grenade_pinout4.ogg'
 	icon_state_mini = "grenade_cyan"
 	var/datum/effect_system/smoke_spread/phosphorus/smoke
+	overlay_type = "aqua"
 
 /obj/item/explosive/grenade/phosphorus/Initialize(mapload)
 	. = ..()

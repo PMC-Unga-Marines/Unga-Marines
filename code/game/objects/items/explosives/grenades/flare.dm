@@ -17,6 +17,7 @@
 	var/fuel = 0
 	var/lower_fuel_limit = 60
 	var/upper_fuel_limit = 75
+	overlay_type = null
 
 /obj/item/explosive/grenade/flare/dissolvability(acid_strength)
 	return 2

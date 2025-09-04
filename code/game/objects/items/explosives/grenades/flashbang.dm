@@ -15,6 +15,7 @@
 	var/max_range = 7
 	///Whether this grenade requires skill to use
 	var/mp_only = TRUE
+	overlay_type = "blue"
 
 /obj/item/explosive/grenade/flashbang/attack_self(mob/user)
 	if(mp_only && (user.skills.getRating(SKILL_POLICE) < SKILL_POLICE_MP))
@@ -107,6 +108,7 @@
 	inner_range = 3
 	det_time = 2 SECONDS
 	mp_only = FALSE
+	overlay_type = "blue"
 
 /obj/item/explosive/grenade/flashbang/stun/base_effect(turf/T , mob/living/carbon/M, ear_safety)
 	if(M.ear_damage >= 15)

@@ -22,10 +22,18 @@
 	var/det_time = 4 SECONDS
 	///Does it make a danger overlay for humans? Can synths use it?
 	var/dangerous = TRUE
-	var/arm_sound = 'sound/weapons/grenade/grenade_pinout.ogg'
+	var/throwsound_is_playable = TRUE
+	var/arm_sound = list(
+		'sound/weapons/grenade/grenade_pinout1.ogg',
+		'sound/weapons/grenade/grenade_pinout2.ogg'
+	)
 	var/hud_state = "grenade_he"
 	var/hud_state_empty = "grenade_empty"
 	var/G_throw_sound = 'sound/weapons/grenade/grenade_throw.ogg'
+	var/G_hit_sound = list(
+		'sound/weapons/grenade/grenade_hit1.ogg',
+		'sound/weapons/grenade/grenade_hit2.ogg'
+	)
 	/// Power of the explosion
 	var/power = 105
 	/// Falloff of our explosion, aka distance, by the formula of power / falloff
@@ -88,7 +96,10 @@
 
 	icon_state = initial(icon_state) + "_active"
 	active = TRUE
-	playsound(loc, arm_sound, 30, 1, 6)
+	if(islist(arm_sound))
+		playsound(loc, pick(arm_sound), 30, 1, 6)
+	else
+		playsound(loc, arm_sound, 30, 1, 6)
 	if(dangerous)
 		GLOB.round_statistics.grenades_thrown++
 		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "grenades_thrown")
@@ -121,4 +132,9 @@
 
 /obj/item/explosive/grenade/throw_at(target, range, speed, thrower, spin, flying, targetted_throw)
 	. = ..()
+
 	playsound(thrower, G_throw_sound, 25, 1, 6)
+	sleep(0.3 SECONDS)
+
+	if(throwsound_is_playable)
+		playsound(loc, pick(G_hit_sound), 20, 1, 9)

@@ -14,6 +14,7 @@
 	var/outer_range = 7
 	///The potency of the grenade
 	var/rad_strength = 20
+	overlay_type = "green"
 
 /obj/item/explosive/grenade/rad/prime()
 	var/turf/impact_turf = get_turf(src)
