@@ -2379,6 +2379,7 @@
 	name = "open sign"
 	icon = 'icons/obj/structures/prop/urban/urban64x64_signs.dmi'
 	icon_state = "open_on"
+
 /obj/structure/prop/urban/signs/opensign2
 	name = "open sign"
 	icon = 'icons/obj/structures/prop/urban/urban64x64_signs.dmi'
