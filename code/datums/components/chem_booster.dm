@@ -126,7 +126,8 @@
 		COMSIG_ATOM_EXAMINE,
 		COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT,
 		COMSIG_ITEM_DROPPED,
-		COMSIG_ITEM_EQUIPPED_TO_SLOT))
+		COMSIG_ITEM_EQUIPPED_TO_SLOT,
+	))
 
 ///Shows info on what stats each reagent boosts and how much units they require
 /datum/component/chem_booster/proc/setup_reagent_info()
@@ -169,9 +170,8 @@
 		current_action.remove_action(wearer)
 
 	wearer.overlays -= resource_overlay
-	wearer = null
-
 	UnregisterSignal(wearer, list(COMSIG_XENO_DRAIN_HIT, COMSIG_XENO_CARNAGE_HIT))
+	wearer = null
 
 ///Sets up actions and vars when the suit is equipped
 /datum/component/chem_booster/proc/equipped(datum/source, mob/equipper, slot)
