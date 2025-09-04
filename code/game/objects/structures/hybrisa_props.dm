@@ -2312,8 +2312,6 @@
 	icon_state = "detonator"
 	density = FALSE
 	anchored = TRUE
-	var/id = 1
-	var/range = 15
 
 /obj/structure/prop/urban/misc/firehydrant
 	name = "fire hydrant"
