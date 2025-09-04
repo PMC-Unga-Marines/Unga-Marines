@@ -129,7 +129,7 @@
 
 #define ABOVE_LYING_MOB_LAYER 3.9 //drone (not the xeno)
 
-//#define MOB_LAYER 4
+#define MOB_LAYER 4
 
 #define MOB_JUMP_LAYER 4.05
 

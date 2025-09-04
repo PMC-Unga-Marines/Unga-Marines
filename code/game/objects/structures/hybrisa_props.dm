@@ -1710,7 +1710,7 @@
 	set_bound_height = 32
 	anchored = TRUE
 	density = TRUE
-	layer = 3.2
+	layer = WINDOW_LAYER
 
 /obj/structure/prop/urban/misc/atm
 	name = "\improper NanoTrasen Automatic Teller Machine"
@@ -1721,7 +1721,7 @@
 	set_bound_height = 32
 	anchored = TRUE
 	density = TRUE
-	layer = 3.2
+	layer = WINDOW_LAYER
 
 /obj/structure/prop/urban/misc/slotmachine_broken
 	name = "slot machine"
@@ -1732,7 +1732,7 @@
 	set_bound_height = 32
 	anchored = TRUE
 	density = TRUE
-	layer = 3.2
+	layer = WINDOW_LAYER
 
 /obj/structure/prop/urban/misc/coffeestuff/coffeemachine1
 	name = "coffee machine"
@@ -2349,7 +2349,7 @@
 	icon_state = "seatedbench"
 	set_bound_width = 32
 	set_bound_height = 64
-	layer = 4
+	layer = MOB_LAYER
 	density = FALSE
 	max_integrity = 200
 	anchored = TRUE
