@@ -96,10 +96,7 @@
 
 	icon_state = initial(icon_state) + "_active"
 	active = TRUE
-	if(islist(arm_sound))
-		playsound(loc, pick(arm_sound), 30, 1, 6)
-	else
-		playsound(loc, arm_sound, 30, 1, 6)
+	playsound(loc, pick(arm_sound), 30, 1, 6)
 	if(dangerous)
 		GLOB.round_statistics.grenades_thrown++
 		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "grenades_thrown")
@@ -134,7 +131,6 @@
 	. = ..()
 
 	playsound(thrower, G_throw_sound, 25, 1, 6)
-	sleep(0.3 SECONDS)
 
 	if(throwsound_is_playable)
-		playsound(loc, pick(G_hit_sound), 20, 1, 9)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), src, pick(G_hit_sound), 20, 1, 9), 0.3 SECONDS)

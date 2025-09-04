@@ -5,6 +5,7 @@
 	worn_icon_state = "flashbang2"
 	hud_state = "flashbang"
 	arm_sound = 'sound/weapons/armbombpin_2.ogg'
+	overlay_type = "blue"
 	///This is a cluster weapon, or part of one
 	var/banglet = FALSE
 	///The range where the maximum effects are applied
@@ -15,7 +16,6 @@
 	var/max_range = 7
 	///Whether this grenade requires skill to use
 	var/mp_only = TRUE
-	overlay_type = "blue"
 
 /obj/item/explosive/grenade/flashbang/attack_self(mob/user)
 	if(mp_only && (user.skills.getRating(SKILL_POLICE) < SKILL_POLICE_MP))

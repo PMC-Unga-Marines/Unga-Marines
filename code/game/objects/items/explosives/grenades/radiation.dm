@@ -8,13 +8,13 @@
 	det_time = 40 //default
 	arm_sound = 'sound/weapons/armbomb.ogg' //placeholder
 	hud_state = "grenade_he" //placeholder
+	overlay_type = "green"
 	///The range for the grenade's full effect
 	var/inner_range = 4
 	///The range range for the grenade's weak effect
 	var/outer_range = 7
 	///The potency of the grenade
 	var/rad_strength = 20
-	overlay_type = "green"
 
 /obj/item/explosive/grenade/rad/prime()
 	var/turf/impact_turf = get_turf(src)
