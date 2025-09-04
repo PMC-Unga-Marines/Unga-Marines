@@ -30,7 +30,14 @@
 ///cleans up signals and unregisters obstructed move signal
 /datum/ai_behavior/spiderling/cleanup_signals()
 	. = ..()
-	UnregisterSignal(mob_parent, list(COMSIG_OBSTRUCTED_MOVE,COMSIG_SPIDERLING_CHANGE_ORDER))
+	UnregisterSignal(mob_parent, list(COMSIG_OBSTRUCTED_MOVE, COMSIG_SPIDERLING_CHANGE_ORDER))
+	UnregisterSignal(escorted_atom, list(
+		COMSIG_XENOMORPH_REST,
+		COMSIG_XENOMORPH_UNREST,
+		COMSIG_ELEMENT_JUMP_STARTED,
+		COMSIG_LIVING_DO_RESIST,
+		COMSIG_XENOMORPH_RESIN_JELLY_APPLIED,
+	))
 	var/master = master_ref?.resolve()
 	if(master)
 		UnregisterSignal(master, COMSIG_SPIDERLING_CHANGE_ALL_ORDER)
