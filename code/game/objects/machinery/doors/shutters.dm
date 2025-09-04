@@ -279,14 +279,13 @@
 	///how long it takes xenos to open a shutter by hand
 	var/lift_time = 10 SECONDS
 
-/obj/machinery/door/poddoor/shutters/urban/attackby(obj/item/attacking_item, mob/user, params)
+/obj/machinery/door/poddoor/shutters/urban/crowbar_act(obj/item/attacking_item, mob/user, params)
 	. = ..()
-	if(iscrowbar(attacking_item))
-		user.balloon_alert(user, "lifting [src]...")
-		if(!do_after(user, 15 SECONDS, NONE, src, BUSY_ICON_FRIENDLY))
-			return
-		balloon_alert_to_viewers("lifts [src]")
-		open()
+	user.balloon_alert(user, "lifting [src]...")
+	if(!do_after(user, 15 SECONDS, NONE, src, BUSY_ICON_FRIENDLY))
+		return
+	balloon_alert_to_viewers("lifts [src]")
+	open()
 
 /obj/machinery/door/poddoor/shutters/urban/attack_alien(mob/living/carbon/xenomorph/xeno_attacker, damage_amount = xeno_attacker.xeno_caste.melee_damage, damage_type = BRUTE, armor_type = MELEE, effects = TRUE, isrightclick = FALSE)
 	if(xeno_attacker.a_intent != INTENT_HELP)
