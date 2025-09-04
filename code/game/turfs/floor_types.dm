@@ -1814,12 +1814,10 @@
 
 // Carpet
 
-
 /turf/open/floor/urban/carpet
 	name = "floor"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "carpetred"
-
 
 /turf/open/floor/urban/carpet/carpetfadedred
 	icon_state = "carpetfadedred"
