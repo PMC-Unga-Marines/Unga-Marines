@@ -609,7 +609,7 @@
 		return
 	. = TRUE
 
-	target.playsound_local(target, "sound/machines/dotprinter.ogg", 35)
+	target.playsound_local(target, 'sound/machines/dotprinter.ogg', 35)
 	to_chat(target, span_notice("<b><i>New message from [sender.real_name]:</b> [message]</i>"))
 	target.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING("CIC MESSAGE FROM [sender.real_name]", capitalize(message), LEFT_ALIGN_TEXT), new /atom/movable/screen/text/screen_text/picture/potrait/custom_mugshot(null, null, sender), "#32cd32")
 
