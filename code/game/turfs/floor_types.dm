@@ -866,7 +866,6 @@
 /turf/open/floor/tile/dark/brown3/corner
 	icon_state = "darkbrowncorners3"
 
-
 /turf/open/floor/tile/dark/green2
 	icon_state = "darkgreen2"
 
@@ -1733,28 +1732,23 @@
 
 // Hybrisa tiles
 
-
 /turf/open/hybrisa
 	name = "floor"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "hybrisa"
-
 
 /turf/open/floor/hybrisa
 	name = "floor"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "hybrisa"
 
-
 // Street
-
 
 /turf/open/urban/street
 	name = "floor"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "cement1"
 	baseturfs = /turf/open/urban/street/asphalt
-
 
 /turf/open/urban/street/cement1
 	icon_state = "cement1"
@@ -1820,12 +1814,10 @@
 
 // Carpet
 
-
 /turf/open/floor/urban/carpet
 	name = "floor"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "carpetred"
-
 
 /turf/open/floor/urban/carpet/carpetfadedred
 	icon_state = "carpetfadedred"
@@ -1878,7 +1870,6 @@
 	name = "floor"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "supermartfloor1"
-
 
 /turf/open/floor/urban/tile/supermartfloor1
 	icon_state = "supermartfloor1"
@@ -1982,9 +1973,7 @@
 /turf/open/floor/urban/wood/redwood
 	icon_state = "redwood"
 
-
 // Metal
-
 
 /turf/open/floor/urban/metal
 	name = "floor"
@@ -2053,9 +2042,7 @@
 /turf/open/floor/urban/misc/spaceport2
 	icon_state = "spaceport2"
 
-
 // Dropship
-
 
 /turf/open/urban/dropship
 	name = "floor"
