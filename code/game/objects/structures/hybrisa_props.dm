@@ -1265,7 +1265,6 @@
 	icon_state = "xenocellemptyon"
 	layer = ABOVE_MOB_LAYER
 
-
 /obj/structure/prop/urban/xenobiology/small/empty
 	name = "specimen containment cell"
 	desc = "It's empty."
