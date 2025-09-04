@@ -168,7 +168,6 @@
 /obj/structure/platform_decoration/adobe_deco
 	icon_state = "adobe_deco"
 
-
 /// Hybrisa Platforms
 
 /obj/structure/platform/hybrisa
