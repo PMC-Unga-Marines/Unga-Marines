@@ -991,7 +991,6 @@
 /obj/structure/prop/urban/cavedecor/stalagmite5
 	icon_state = "stalagmite5"
 
-
 // Supermart
 
 /obj/structure/prop/urban/supermart
@@ -1061,6 +1060,7 @@
 	icon = 'icons/obj/structures/prop/urban/supermart.dmi'
 	icon_state = "freezerupper"
 	density = TRUE
+
 /obj/structure/prop/urban/supermart/freezer/supermartfreezer1
 	icon = 'icons/obj/structures/prop/urban/supermart.dmi'
 	icon_state = "freezerupper"
@@ -1265,7 +1265,6 @@
 	icon_state = "xenocellemptyon"
 	layer = ABOVE_MOB_LAYER
 
-
 /obj/structure/prop/urban/xenobiology/small/empty
 	name = "specimen containment cell"
 	desc = "It's empty."
@@ -1382,6 +1381,7 @@
 	set_bound_height = 32
 	set_bound_width = 32
 	density = TRUE
+
 /obj/structure/prop/urban/engineer/engineerpillar
 	icon = 'icons/obj/structures/prop/urban/urbanengineerpillarangled.dmi'
 	icon_state = "engineerpillar_SW1fade"
@@ -1393,22 +1393,27 @@
 	name = "strange pillar"
 	icon = 'icons/obj/structures/prop/urban/urbanengineerpillarangled.dmi'
 	icon_state = "engineerpillar_NW1"
+
 /obj/structure/prop/urban/engineer/engineerpillar/northwestbottom
 	name = "strange pillar"
 	icon = 'icons/obj/structures/prop/urban/urbanengineerpillarangled.dmi'
 	icon_state = "engineerpillar_NW2"
+
 /obj/structure/prop/urban/engineer/engineerpillar/southwesttop
 	name = "strange pillar"
 	icon = 'icons/obj/structures/prop/urban/urbanengineerpillarangled.dmi'
 	icon_state = "engineerpillar_SW1"
+
 /obj/structure/prop/urban/engineer/engineerpillar/southwestbottom
 	name = "strange pillar"
 	icon = 'icons/obj/structures/prop/urban/urbanengineerpillarangled.dmi'
 	icon_state = "engineerpillar_SW2"
+
 /obj/structure/prop/urban/engineer/engineerpillar/smallsouthwest1
 	name = "strange pillar"
 	icon = 'icons/obj/structures/prop/urban/urbanengineerpillarangled.dmi'
 	icon_state = "engineerpillar_SW1fade"
+
 /obj/structure/prop/urban/engineer/engineerpillar/smallsouthwest2
 	name = "strange pillar"
 	icon = 'icons/obj/structures/prop/urban/urbanengineerpillarangled.dmi'
@@ -1489,7 +1494,6 @@
 	set_bound_height = 64
 	set_bound_width = 96
 	layer = BELOW_TABLE_LAYER
-
 
 /obj/structure/prop/urban/airport/refuelinghose2
 	name = "refueling hose"
@@ -2490,7 +2494,6 @@
 	desc = "A large conveyor belt used in industrial factories."
 	icon_state = "factory_conveyer"
 	density = FALSE
-
 
 // Hybrisa Lattice
 
