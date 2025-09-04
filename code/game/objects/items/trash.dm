@@ -338,8 +338,8 @@
 
 /obj/item/trash/cuppa_joes/Initialize()
 	. = ..()
-	pixel_x = rand(-10,10)
-	pixel_y = rand(-10,10)
+	pixel_x = rand(-10, 10)
+	pixel_y = rand(-10, 10)
 
 // Cuppa Joes no random axis
 /obj/item/trash/cuppa_joes_static/lid
