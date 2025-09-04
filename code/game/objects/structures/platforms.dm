@@ -274,7 +274,6 @@
 	name = "raised metal corner"
 	desc = "A raised level of metal, often used to elevate areas above others. You could probably climb it."
 
-
 /obj/structure/platform/mineral
 	icon_state = "stone"
 
