@@ -866,7 +866,6 @@
 /turf/open/floor/tile/dark/brown3/corner
 	icon_state = "darkbrowncorners3"
 
-
 /turf/open/floor/tile/dark/green2
 	icon_state = "darkgreen2"
 
