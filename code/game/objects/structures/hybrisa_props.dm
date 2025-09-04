@@ -30,7 +30,7 @@
 
 /obj/structure/prop/urban/vehicles/Destroy()
 	explode()
-	. = ..()
+	return ..()
 
 /obj/structure/prop/densitychecker
 	name = "NOT VALID"
