@@ -2491,7 +2491,6 @@
 	icon_state = "factory_conveyer"
 	density = FALSE
 
-
 // Hybrisa Lattice
 
 /obj/structure/prop/urban/lattice_prop
