@@ -2042,9 +2042,7 @@
 /turf/open/floor/urban/misc/spaceport2
 	icon_state = "spaceport2"
 
-
 // Dropship
-
 
 /turf/open/urban/dropship
 	name = "floor"
