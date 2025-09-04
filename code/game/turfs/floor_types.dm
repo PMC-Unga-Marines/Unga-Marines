@@ -1732,28 +1732,23 @@
 
 // Hybrisa tiles
 
-
 /turf/open/hybrisa
 	name = "floor"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "hybrisa"
-
 
 /turf/open/floor/hybrisa
 	name = "floor"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "hybrisa"
 
-
 // Street
-
 
 /turf/open/urban/street
 	name = "floor"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "cement1"
 	baseturfs = /turf/open/urban/street/asphalt
-
 
 /turf/open/urban/street/cement1
 	icon_state = "cement1"
