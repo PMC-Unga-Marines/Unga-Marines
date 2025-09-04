@@ -272,8 +272,16 @@
 			return FALSE
 	playsound(loc, 'sound/items/crowbar.ogg', 25, 1)
 	balloon_alert_to_viewers("Starts prying [src]'s fuel bay open")
-	if(!do_after(user, 10 SECONDS - (user.skills.getRating(SKILL_ENGINEER) * 2 SECONDS), NONE, src, BUSY_ICON_BUILD) && buildstate == FUSION_ENGINE_NO_DAMAGE && !is_on && fusion_cell)
+	if(!do_after(user, 10 SECONDS - (user.skills.getRating(SKILL_ENGINEER) * 2 SECONDS), NONE, src, BUSY_ICON_BUILD))
 		return FALSE
+	
+	if(buildstate != FUSION_ENGINE_NO_DAMAGE)
+		return
+	if(is_on)
+		return
+	if(!fusion_cell)
+		return
+
 	balloon_alert_to_viewers("Pries [src]'s fuel bay open and removes the cell")
 	fusion_cell.update_icon()
 	user.put_in_hands(fusion_cell)
