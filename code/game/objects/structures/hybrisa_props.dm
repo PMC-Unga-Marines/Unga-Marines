@@ -1381,6 +1381,7 @@
 	set_bound_height = 32
 	set_bound_width = 32
 	density = TRUE
+
 /obj/structure/prop/urban/engineer/engineerpillar
 	icon = 'icons/obj/structures/prop/urban/urbanengineerpillarangled.dmi'
 	icon_state = "engineerpillar_SW1fade"
