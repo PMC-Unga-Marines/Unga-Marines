@@ -991,7 +991,6 @@
 /obj/structure/prop/urban/cavedecor/stalagmite5
 	icon_state = "stalagmite5"
 
-
 // Supermart
 
 /obj/structure/prop/urban/supermart
