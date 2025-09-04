@@ -1973,9 +1973,7 @@
 /turf/open/floor/urban/wood/redwood
 	icon_state = "redwood"
 
-
 // Metal
-
 
 /turf/open/floor/urban/metal
 	name = "floor"
