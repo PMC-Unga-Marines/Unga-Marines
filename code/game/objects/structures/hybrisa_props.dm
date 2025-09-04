@@ -127,7 +127,6 @@
 	icon = 'icons/obj/structures/prop/urban/vehiclesexpanded.dmi'
 	icon_state = "MeridianCar_1"
 
-
 // Very Large Vehicles
 
 /obj/structure/prop/urban/vehicles/large_vehicles
