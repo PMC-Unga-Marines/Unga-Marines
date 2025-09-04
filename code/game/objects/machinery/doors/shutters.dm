@@ -275,9 +275,9 @@
 	base_icon_state = "almayer_pdoor"
 	desc = "It's a shutter. You can <B>open</b> it with a <B>crowbar</b>, or with <B>claws</b>"
 	openspeed = 4
+	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 15, BIO = 50, FIRE = 50, ACID = 50)
 	///how long it takes xenos to open a shutter by hand
 	var/lift_time = 10 SECONDS
-	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 15, BIO = 50, FIRE = 50, ACID = 50)
 
 /obj/machinery/door/poddoor/shutters/urban/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
