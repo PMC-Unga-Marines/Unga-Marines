@@ -296,6 +296,7 @@
 	item_to_equip.layer = ABOVE_HUD_LAYER
 	item_to_equip.plane = ABOVE_HUD_PLANE
 	item_to_equip.forceMove(src)
+	item_to_equip.update_icon_state()
 
 ///This is just a commonly used configuration for the equip_to_slot_if_possible() proc, used to equip people when the rounds starts and when events happen and such.
 /mob/proc/equip_to_slot_or_del(obj/item/W, slot, override_nodrop = FALSE)
