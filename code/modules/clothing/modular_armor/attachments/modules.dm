@@ -501,6 +501,19 @@
 	name = "\improper Aegis energy dispersion system"
 	desc = "A sophisticated shielding unit, designed to disperse the energy of incoming impacts, rendering them harmless to the user. If it sustains too much it will deactivate, and leave the user vulnerable. It is unclear if this was a purely  SOM designed module, or whether it was reverse engineered from the TGMC's 'Svalinn' shield system which was developed around the same time."
 
+/obj/item/armor_module/module/eshield/mk2
+	name = "\improper Ra energy dispersion system"
+	desc = "A new generation energy shield using a sun reactor"
+	icon_state = "mod_eshieldmk2"
+	worn_icon_state = "mod_eshieldmk2_a"
+	slot = ATTACHMENT_SLOT_MODULE
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	light_mod = 4
+	shield_health = 0
+	max_shield_health = 100
+	recharge_rate = 37
+	shield_color_full = COLOR_YELLOW
+
 /obj/item/armor_module/module/mirage
 	name = "\improper Loki illusion projection system"
 	desc = "Designed for mounting on modular armor. This module creates a holographic projection of the user while simultaneously rendering them invisible for a short duration, which can be used to distract enemies and draw their fire."

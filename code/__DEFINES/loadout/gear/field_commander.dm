@@ -16,6 +16,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/stack/sheet/plasteel/small_stack = list(CAT_FCSUP, "Plasteel x10", PLASTEEL_PRICE_IN_GEAR_VENDOR, "yellow"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_FCSUP, "Sandbags x25", SANDBAG_PRICE_IN_GEAR_VENDOR, "yellow"),
 	/obj/structure/closet/bodybag/tarp = list(CAT_FCSUP, "V1 thermal-dampening tarp", 2, "yellow"),
+	/obj/item/armor_module/module/eshield/mk2 = list(CAT_FCSUP, "Ra energy dispersion system", 20, "blue"),
 	/obj/item/armor_module/module/night_vision = list(CAT_FCSUP, "BE-35 night vision kit", 18, "blue"),
 	/obj/item/clothing/glasses/night_vision = list(CAT_FCSUP, "BE-47 night vision goggles", 26, "blue"),
 	/obj/item/cell/night_vision_battery = list(CAT_FCSUP, "night vision battery", 4, "blue"),

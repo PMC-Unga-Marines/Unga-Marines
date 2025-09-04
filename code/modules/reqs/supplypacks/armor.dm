@@ -20,6 +20,11 @@
 	contains = list(/obj/item/weapon/shield/riot/marine)
 	cost = 100
 
+/datum/supply_packs/armor/eshield/mk2
+	name = "RaRa energy dispersion system"
+	contains = list(/obj/item/armor_module/module/eshield/mk2)
+	cost = 200
+
 /datum/supply_packs/armor/marine_shield/deployable
 	name = "TL-182 deployable shield"
 	contains = list(/obj/item/weapon/shield/riot/marine/deployable)
