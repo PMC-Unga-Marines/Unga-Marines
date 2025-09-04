@@ -1356,7 +1356,7 @@
 	desc = "A strange ancient looking egg, it seems to be inert."
 	icon = 'icons/obj/structures/prop/urban/urbanrandomprops.dmi'
 	icon_state = "inertegg"
-	layer = 2
+	layer = ABOVE_TURF_LAYER
 
 // Engineer
 
@@ -1563,7 +1563,7 @@
 	desc = "A heavily reinforced glass floor panel, this looks almost indestructible."
 	icon = 'icons/obj/structures/prop/urban/urbanrandomprops.dmi'
 	icon_state = "solidgrate3"
-	layer = 2.1
+	ABOVE_TURF_LAYER.1
 
 /obj/structure/prop/urban/misc/floorprops/floorglass3
 	name = "reinforced glass floor"
@@ -1876,23 +1876,23 @@
 	desc = "A small pipe."
 
 /obj/structure/prop/urban/misc/fake/pipes/pipe1
-	layer = 2
+	ABOVE_TURF_LAYER
 	icon_state = "pipe-s"
 
 /obj/structure/prop/urban/misc/fake/pipes/pipe2
-	layer = 2
+	ABOVE_TURF_LAYER
 	icon_state = "pipe-c"
 
 /obj/structure/prop/urban/misc/fake/pipes/pipe3
-	layer = 2
+	ABOVE_TURF_LAYER
 	icon_state = "pipe-j1"
 
 /obj/structure/prop/urban/misc/fake/pipes/pipe4
-	layer = 2
+	ABOVE_TURF_LAYER
 	icon_state = "pipe-y"
 
 /obj/structure/prop/urban/misc/fake/pipes/pipe5
-	layer = 2
+	ABOVE_TURF_LAYER
 	icon_state = "pipe-b"
 
 /obj/structure/prop/urban/misc/fake/wire
@@ -1901,15 +1901,15 @@
 	layer = UNDER_TURF_LAYER
 
 /obj/structure/prop/urban/misc/fake/wire/red
-	layer = 2
+	ABOVE_TURF_LAYER
 	icon_state = "intactred"
 
 /obj/structure/prop/urban/misc/fake/wire/yellow
-	layer = 2
+	ABOVE_TURF_LAYER
 	icon_state = "intactyellow"
 
 /obj/structure/prop/urban/misc/fake/wire/blue
-	layer = 2
+	ABOVE_TURF_LAYER
 	icon_state = "intactblue"
 
 
@@ -1918,23 +1918,23 @@
 	desc = "A heavy duty wire for conducting electricity."
 
 /obj/structure/prop/urban/misc/fake/heavydutywire/heavy1
-	layer = 2
+	ABOVE_TURF_LAYER
 	icon_state = "0-1"
 
 /obj/structure/prop/urban/misc/fake/heavydutywire/heavy2
-	layer = 2
+	ABOVE_TURF_LAYER
 	icon_state = "1-2"
 
 /obj/structure/prop/urban/misc/fake/heavydutywire/heavy3
-	layer = 2
+	ABOVE_TURF_LAYER
 	icon_state = "1-4"
 
 /obj/structure/prop/urban/misc/fake/heavydutywire/heavy4
-	layer = 2
+	ABOVE_TURF_LAYER
 	icon_state = "1-2-4"
 
 /obj/structure/prop/urban/misc/fake/heavydutywire/heavy5
-	layer = 2
+	ABOVE_TURF_LAYER
 	icon_state = "1-2-4-8"
 
 /obj/structure/prop/urban/misc/fake/lattice
@@ -1942,7 +1942,7 @@
 
 /obj/structure/prop/urban/misc/fake/lattice/full
 	icon_state = "latticefull"
-	layer = 2
+	ABOVE_TURF_LAYER
 
 // Barriers
 
@@ -2460,7 +2460,7 @@
 	density = FALSE
 	max_integrity = 200
 	anchored = TRUE
-	layer = 8
+	layer = BILLBOARD_LAYER
 
 /obj/structure/prop/urban/billboardsandsigns/bigroadsigns/road_sign_1
 	icon_state = "roadsign_1"
