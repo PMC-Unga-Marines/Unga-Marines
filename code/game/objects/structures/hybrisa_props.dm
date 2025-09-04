@@ -1393,22 +1393,27 @@
 	name = "strange pillar"
 	icon = 'icons/obj/structures/prop/urban/urbanengineerpillarangled.dmi'
 	icon_state = "engineerpillar_NW1"
+
 /obj/structure/prop/urban/engineer/engineerpillar/northwestbottom
 	name = "strange pillar"
 	icon = 'icons/obj/structures/prop/urban/urbanengineerpillarangled.dmi'
 	icon_state = "engineerpillar_NW2"
+
 /obj/structure/prop/urban/engineer/engineerpillar/southwesttop
 	name = "strange pillar"
 	icon = 'icons/obj/structures/prop/urban/urbanengineerpillarangled.dmi'
 	icon_state = "engineerpillar_SW1"
+
 /obj/structure/prop/urban/engineer/engineerpillar/southwestbottom
 	name = "strange pillar"
 	icon = 'icons/obj/structures/prop/urban/urbanengineerpillarangled.dmi'
 	icon_state = "engineerpillar_SW2"
+
 /obj/structure/prop/urban/engineer/engineerpillar/smallsouthwest1
 	name = "strange pillar"
 	icon = 'icons/obj/structures/prop/urban/urbanengineerpillarangled.dmi'
 	icon_state = "engineerpillar_SW1fade"
+
 /obj/structure/prop/urban/engineer/engineerpillar/smallsouthwest2
 	name = "strange pillar"
 	icon = 'icons/obj/structures/prop/urban/urbanengineerpillarangled.dmi'
