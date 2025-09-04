@@ -817,7 +817,7 @@
 		successor = candidates[1] //First come, first serve.
 
 	var/announce = TRUE
-	if(SSticker.current_state == GAME_STATE_FINISHED || SSticker.current_state == GAME_STATE_SETTING_UP)
+	if(SSticker.current_state == GAME_STATE_FINISHED || SSticker.current_state == GAME_STATE_SETTING_UP || is_centcom_level(successor.loc.z))
 		announce = FALSE
 
 	set_ruler(successor)
@@ -830,7 +830,6 @@
 	if(announce)
 		xeno_message("\A [successor] has risen to lead the Hive! Rejoice!", "xenoannounce", 6)
 		notify_ghosts("\The [successor] has risen to lead the Hive!", source = successor, action = NOTIFY_ORBIT)
-
 
 /datum/hive_status/proc/set_ruler(mob/living/carbon/xenomorph/successor)
 	SSdirection.clear_leader(hivenumber)
