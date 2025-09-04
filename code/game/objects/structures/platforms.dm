@@ -204,7 +204,6 @@
 	desc = "A collection of stones and rocks that cap the edge of some conveniently 1-meter-long lengths of perfectly climbable chest high walls."
 	icon_state = "kutjevo_rock_decodark"
 
-
 /obj/structure/platform/urban/metalplatform1
 	icon_state = "hybrisastone"
 	name = "raised metal edge"
