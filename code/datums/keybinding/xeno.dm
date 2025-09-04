@@ -726,24 +726,39 @@
 
 /datum/keybinding/xeno/dodge
 	name = "Dodge"
-	full_name = "Praetorian: Dodge"
-	description = "Gain a speed boost upon activation and the ability to pass through mobs. Enemies automatically receive bump attacks when passed."
+	full_name = "Dancer: Dodge"
+	description = "Flood your body with adrenaline, gaining a speed boost upon activation and the ability to pass through mobs. Enemies automatically receive bump attacks when passed."
 	keybind_signal = COMSIG_XENOABILITY_DODGE
 	hotkey_keys = list("Q")
 
 /datum/keybinding/xeno/impale
 	name = "Impale"
-	full_name = "Praetorian: Impale"
-	description = "Impale a marine next to you with your tail for moderate damage. Marked enemies are impaled twice."
+	full_name = "Dancer: Impale"
+	description = "Skewer an object next to you with your tail. The more debuffs on a living target, the greater the damage done. Penetrates the armor of marked targets."
 	keybind_signal = COMSIG_XENOABILITY_IMPALE
 	hotkey_keys = list("Z")
 
 /datum/keybinding/xeno/tail_trip
 	name = "Tail Trip"
-	full_name = "Praetorian: Tail Trip"
-	description = "Target a marine within two tiles of you to disorient and slows them. Marked enemies receive stronger debuffs and are stunned for a second."
+	full_name = "Dancer: Tail Trip"
+	description = "Twirl your tail around low to the ground, knocking over and disorienting any adjacent marines. Marked enemies receive stronger debuffs and are briefly stunned."
 	keybind_signal = COMSIG_XENOABILITY_TAIL_TRIP
 	hotkey_keys = list("R")
+
+/datum/keybinding/xeno/tail_hook
+	name = "Tail Hook"
+	full_name = "Dancer: Tail Hook"
+	description = "Swing your tail high, sending the hooked edge gouging into any targets within 2 tiles. Hooked marines have their movement slowed and are dragged, spinning, towards you. Marked marines are slowed for longer and briefly knocked over."
+	keybind_signal = COMSIG_XENOABILITY_TAILHOOK
+	hotkey_keys = list("F")
+
+/datum/keybinding/xeno/baton_pass
+	name = "Baton Pass"
+	full_name = "Dancer: Baton Pass"
+	description = "Inject another xenomorph with your built-up adrenaline, increasing their movement speed considerably for 6 seconds. Puts dodge on cooldown when used. Less effect on quick xenos."
+	keybind_signal = COMSIG_XENOABILITY_BATONPASS
+	hotkey_keys = list("C")
+
 /datum/keybinding/xeno/screech
 	name = "screech"
 	full_name = "Queen: Screech"
@@ -926,6 +941,13 @@
 	description = "Fires a scattershot of 6 acid globules which create acid puddles on impact or at the end of their range."
 	keybind_signal = COMSIG_XENOABILITY_SCATTER_SPIT
 	hotkey_keys = list("V")
+
+/datum/keybinding/xeno/slime_grenade
+	name = "slime_grenade"
+	full_name = "Spitter: Slime Grenade"
+	description = "Throws a lump of compressed acid to stick to a target, which will leave a trail of acid behind them."
+	keybind_signal = COMSIG_XENOABILITY_SLIME_GRENADE
+	hotkey_keys = list("Q")
 
 /datum/keybinding/xeno/psychic_shield
 	name = "Psychic Shield"
