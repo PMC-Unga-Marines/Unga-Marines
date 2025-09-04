@@ -1495,7 +1495,6 @@
 	set_bound_width = 96
 	layer = BELOW_TABLE_LAYER
 
-
 /obj/structure/prop/urban/airport/refuelinghose2
 	name = "refueling hose"
 	desc = "A long refueling hose that connects to various types of dropships."
