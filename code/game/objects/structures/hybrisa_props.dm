@@ -2265,7 +2265,6 @@
 	icon = 'icons/obj/structures/prop/urban/urbanrandomprops.dmi'
 	icon_state = "biggreenmeter1"
 
-
 // MISC
 
 /obj/structure/prop/urban/misc/stoneplanterseats
