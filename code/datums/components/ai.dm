@@ -52,7 +52,14 @@ The main purpose of this is to handle cleanup and setting up the initial ai beha
 	SIGNAL_HANDLER
 	GLOB.ai_instances_active -= src
 	if(!QDELETED(parent))
-		UnregisterSignal(parent, list(COMSIG_MOB_LOGIN, COMSIG_MOB_DEATH, COMSIG_HUMAN_HAS_AI, COMSIG_HUMAN_SET_UNDEFIBBABLE, COMSIG_MOB_REVIVE, COMSIG_QDELETING))
+		UnregisterSignal(parent, list(
+			COMSIG_MOB_LOGIN,
+			COMSIG_MOB_DEATH,
+			COMSIG_HUMAN_HAS_AI,
+			COMSIG_HUMAN_SET_UNDEFIBBABLE,
+			COMSIG_MOB_REVIVE,
+			COMSIG_QDELETING
+		))
 	if(ai_behavior)
 		STOP_PROCESSING(SSprocessing, ai_behavior)
 		ai_behavior.cleanup_signals()
