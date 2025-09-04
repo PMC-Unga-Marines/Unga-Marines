@@ -900,7 +900,7 @@
 	set_bound_height = 64
 	set_bound_width = 64
 	density = TRUE
-	layer = 5
+	layer = FLY_LAYER
 
 /obj/structure/prop/urban/vehicles/crashedcarsright
 	name = "car pileup"
@@ -910,7 +910,7 @@
 	set_bound_height = 64
 	set_bound_width = 64
 	density = TRUE
-	layer = 5
+	layer = FLY_LAYER
 
 // Cave props
 
@@ -1636,7 +1636,7 @@
 	desc = "It's hot, smoking even."
 	icon = 'icons/obj/structures/prop/urban/64x96-urbanrandomprops.dmi'
 	icon_state = "zfire_smoke"
-	layer = 5
+	layer = FLY_LAYER
 	light_on = TRUE
 	light_power = 2
 	light_range = 3
@@ -1646,7 +1646,7 @@
 	desc = "It's hot, smoking even."
 	icon = 'icons/obj/structures/prop/urban/64x96-urbanrandomprops.dmi'
 	icon_state = "zfire_smoke2"
-	layer = 5
+	layer = FLY_LAYER
 	light_on = TRUE
 	light_power = 2
 	light_range = 3
@@ -1656,7 +1656,7 @@
 	desc = "A flaming barrel filled with hazardous substances."
 	icon = 'icons/obj/structures/prop/urban/64x96-urbanrandomprops.dmi'
 	icon_state = "zbarrelfireon"
-	layer = 5
+	layer = FLY_LAYER
 	light_on = TRUE
 	light_power = 2
 	light_range = 3
@@ -2010,7 +2010,7 @@
 	max_integrity = 200
 	opacity = TRUE
 	anchored = TRUE
-	layer = 5
+	layer = FLY_LAYER
 
 /obj/structure/prop/urban/containersextended/blueleft
 	name = "cargo container"
@@ -2203,7 +2203,7 @@
 	density = FALSE
 	max_integrity = 200
 	anchored = TRUE
-	layer = 5
+	layer = FLY_LAYER
 
 /obj/structure/prop/urban/misc/buildinggreeblies/greeble1
 	icon_state = "buildingventbig2"
