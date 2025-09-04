@@ -1794,7 +1794,6 @@
 	icon = 'icons/obj/structures/prop/urban/urbanrandomprops.dmi'
 	icon_state = "blacksensor_comp3"
 
-
 /obj/structure/prop/urban/misc/machinery/screens
 	name = "monitor"
 	desc = "A screen, useful for broadcasting events. It looks like it's seen better days."
