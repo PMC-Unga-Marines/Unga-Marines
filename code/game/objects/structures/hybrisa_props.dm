@@ -1877,25 +1877,21 @@
 /obj/structure/prop/urban/misc/fake/pipes
 	name = "disposal pipe"
 	desc = "A small pipe."
+	layer = ABOVE_TURF_LAYER
 
 /obj/structure/prop/urban/misc/fake/pipes/pipe1
-	layer = ABOVE_TURF_LAYER
 	icon_state = "pipe-s"
 
 /obj/structure/prop/urban/misc/fake/pipes/pipe2
-	layer = ABOVE_TURF_LAYER
 	icon_state = "pipe-c"
 
 /obj/structure/prop/urban/misc/fake/pipes/pipe3
-	layer = ABOVE_TURF_LAYER
 	icon_state = "pipe-j1"
 
 /obj/structure/prop/urban/misc/fake/pipes/pipe4
-	layer = ABOVE_TURF_LAYER
 	icon_state = "pipe-y"
 
 /obj/structure/prop/urban/misc/fake/pipes/pipe5
-	layer = ABOVE_TURF_LAYER
 	icon_state = "pipe-b"
 
 /obj/structure/prop/urban/misc/fake/wire
@@ -1904,40 +1900,34 @@
 	layer = UNDER_TURF_LAYER
 
 /obj/structure/prop/urban/misc/fake/wire/red
-	layer = ABOVE_TURF_LAYER
 	icon_state = "intactred"
 
 /obj/structure/prop/urban/misc/fake/wire/yellow
-	layer = ABOVE_TURF_LAYER
+
 	icon_state = "intactyellow"
 
 /obj/structure/prop/urban/misc/fake/wire/blue
-	layer = ABOVE_TURF_LAYER
 	icon_state = "intactblue"
 
 
 /obj/structure/prop/urban/misc/fake/heavydutywire
 	name = "heavy duty wire"
 	desc = "A heavy duty wire for conducting electricity."
+	layer = ABOVE_TURF_LAYER
 
 /obj/structure/prop/urban/misc/fake/heavydutywire/heavy1
-	layer = ABOVE_TURF_LAYER
 	icon_state = "0-1"
 
 /obj/structure/prop/urban/misc/fake/heavydutywire/heavy2
-	layer = ABOVE_TURF_LAYER
 	icon_state = "1-2"
 
 /obj/structure/prop/urban/misc/fake/heavydutywire/heavy3
-	layer = ABOVE_TURF_LAYER
 	icon_state = "1-4"
 
 /obj/structure/prop/urban/misc/fake/heavydutywire/heavy4
-	layer = ABOVE_TURF_LAYER
 	icon_state = "1-2-4"
 
 /obj/structure/prop/urban/misc/fake/heavydutywire/heavy5
-	layer = ABOVE_TURF_LAYER
 	icon_state = "1-2-4-8"
 
 /obj/structure/prop/urban/misc/fake/lattice
