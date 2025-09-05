@@ -127,3 +127,13 @@
 /datum/action/item_action/aim_mode/action_activate()
 	var/obj/item/weapon/gun/I = target
 	I.toggle_auto_aim_mode(owner)
+
+/datum/action/item_action/overhead_grenade_launcher
+	name = "Overhead Grenade Launcher"
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_KB_OVERHEAD_GRENADE_LAUNCHER,
+	)
+
+/datum/action/item_action/overhead_grenade_launcher/action_activate()
+	var/obj/item/weapon/gun/grenade_launcher/I = target
+	I.toggle_overhead_launcher(owner)
