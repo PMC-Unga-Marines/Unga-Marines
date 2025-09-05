@@ -333,8 +333,12 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	return (stat || (!ignore_restrained && restrained(restrained_flags)))
 
 
-//returns how many non-destroyed legs the mob has (currently only useful for humans)
+/// Returns how many non-destroyed legs the mob has (currently only useful for humans)
 /mob/proc/has_legs()
+	return 2
+
+/// Returns how many non-destroyed arms the mob has (currently only useful for humans)
+/mob/proc/has_arms()
 	return 2
 
 /mob/proc/get_eye_protection()

@@ -581,9 +581,13 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 		if(SLOT_GLOVES)
 			if(H.gloves)
 				return FALSE
+			if(H.has_arms() != 2)
+				return FALSE
 			equip_to_slot = TRUE
 		if(SLOT_SHOES)
 			if(H.shoes)
+				return FALSE
+			if(H.has_legs() != 2)
 				return FALSE
 			equip_to_slot = TRUE
 		if(SLOT_GLASSES)
