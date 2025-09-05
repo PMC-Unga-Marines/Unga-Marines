@@ -87,6 +87,14 @@
 			if(has_status_effect(STATUS_EFFECT_PARALYZED)) //I've fallen and I can't get up.
 				status_hud.icon_state = "knockdown"
 				return TRUE
+			for(var/datum/limb/limb AS in limbs)
+				if(CHECK_BITFIELD(limb.limb_status, LIMB_BROKEN) && !CHECK_BITFIELD(limb.limb_status, LIMB_STABILIZED) && !CHECK_BITFIELD(limb.limb_status, LIMB_SPLINTED))
+					status_hud.icon_state = "fracture"
+					return TRUE
+				for(var/datum/wound/wound in limb.wounds)
+					if(istype(wound, /datum/wound/internal_bleeding))
+						status_hud.icon_state = "blood"
+						return TRUE
 			if(has_status_effect(STATUS_EFFECT_STUN))
 				status_hud.icon_state = "stun"
 				return TRUE
