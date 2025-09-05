@@ -910,7 +910,7 @@
 		'icons/effects/effects.dmi',
 		"thought_bubble",
 		plane = BALLOON_CHAT_PLANE,
-		appearance_flags = KEEP_APART,
+		appearance_flags = KEEP_APART|RESET_TRANSFORM,
 	)
 
 	var/mutable_appearance/pointed_atom_appearance = new(pointed_atom.appearance)
@@ -921,15 +921,14 @@
 	pointed_atom_appearance.pixel_y = 0
 	thought_bubble.overlays += pointed_atom_appearance
 
-	thought_bubble.pixel_x = 16
-	thought_bubble.pixel_y = 32
+	thought_bubble.pixel_w = 16
+	thought_bubble.pixel_z = 32
 	thought_bubble.alpha = 200
 	thought_bubble.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 	var/mutable_appearance/point_visual = mutable_appearance(
 		'icons/mob/screen/generic.dmi',
 		"arrow",
-		plane = thought_bubble.plane,
 	)
 
 	thought_bubble.overlays += point_visual
