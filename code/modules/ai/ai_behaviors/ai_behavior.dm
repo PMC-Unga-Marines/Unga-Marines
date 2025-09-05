@@ -56,7 +56,9 @@ Registers signals, handles the pathfinding element addition/removal alongside ma
 	var/registered_for_move = FALSE
 	///Should we lose the escorted atom if we change action
 	var/weak_escort = FALSE
+	///Timer that is set by recursive scheduled_move proc, so we can stop that timer later.
 	var/scheduled_move_timer
+	///Timer that is set by recursive look_for_next_node proc, so we can stop that timer later.
 	var/next_node_timer
 
 /datum/ai_behavior/New(loc, mob/parent_to_assign, atom/escorted_atom)
