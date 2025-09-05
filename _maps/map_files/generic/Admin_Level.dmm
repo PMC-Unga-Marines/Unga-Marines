@@ -940,8 +940,9 @@
 /turf/open/floor/plating/ground/mars/dirttosand,
 /area/centcom/valhalla)
 "ldg" = (
-/obj/structure/sign/double/barsign/carp{
-	dir = 1
+/obj/machinery/barsign{
+	dir = 1;
+	chosen_sign = /datum/barsign/thedrunkcarp
 	},
 /turf/open/floor/wood,
 /area/tdome/tdomeobserve)
