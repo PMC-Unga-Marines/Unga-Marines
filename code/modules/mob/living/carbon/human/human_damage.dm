@@ -338,6 +338,11 @@ This function restores all limbs.
 	if(status_flags & (GODMODE))
 		return
 
+	var/list/amount_mod = list()
+	SEND_SIGNAL(src, COMSIG_HUMAN_PRE_APPLY_DAMAGE, damage, damagetype, def_zone, blocked, sharp, edge, updating_health, penetration, amount_mod)
+	for(var/i in amount_mod)
+		damage -= i
+
 	last_damage_source = usr //where my cause_data??? no cause_data?
 
 	return species.apply_damage(damage, damagetype, def_zone, blocked, sharp, edge, updating_health, penetration, src)
