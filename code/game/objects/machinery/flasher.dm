@@ -44,9 +44,9 @@
 /obj/machinery/flasher/wirecutter_act(mob/living/user, obj/item/W)
 	disable = !disable
 	if(disable)
-		user.visible_message(span_warning(" [user] has disconnected the [src]'s flashbulb!"), span_warning(" You disconnect the [src]'s flashbulb!"))
+		user.visible_message(span_warning("[user] has disconnected the [src]'s flashbulb!"), span_warning("You disconnect the [src]'s flashbulb!"))
 	if(!disable)
-		user.visible_message(span_warning(" [user] has connected the [src]'s flashbulb!"), span_warning(" You connect the [src]'s flashbulb!"))
+		user.visible_message(span_warning("[user] has connected the [src]'s flashbulb!"), span_warning("You connect the [src]'s flashbulb!"))
 
 /obj/machinery/flasher/attack_ai()
 	if(anchored)

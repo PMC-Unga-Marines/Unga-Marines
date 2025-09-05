@@ -138,6 +138,17 @@
 	id = "sd_lockdown"
 	resistance_flags = RESIST_ALL
 
+/obj/machinery/door/poddoor/shutters/mainship/selfdestruct/Initialize(mapload)
+	. = ..()
+	RegisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED, PROC_REF(on_alert_change))
+
+/// Called when [COMSIG_SECURITY_LEVEL_CHANGED] sends a signal, opens the shutters if the sec level is an "emergency" level
+/obj/machinery/door/poddoor/shutters/mainship/selfdestruct/proc/on_alert_change(datum/source, datum/security_level/next_level, datum/security_level/previous_level)
+	SIGNAL_HANDLER
+	if(!(next_level.sec_level_flags & SEC_LEVEL_FLAG_STATE_OF_EMERGENCY))
+		return
+	open()
+
 /obj/machinery/door/poddoor/shutters/mainship/selfdestruct/get_explosion_resistance()
 	return density ? EXPLOSION_MAX_POWER : 0
 

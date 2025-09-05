@@ -17,7 +17,15 @@
 		C.equip_to_slot_or_del(new /obj/item/clothing/shoes/snow(C), SLOT_SHOES)
 		C.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(C), SLOT_GLOVES)
 
-	var/weapons = pick(SURVIVOR_WEAPONS)
+	var/weapons = pick(list(
+		list(/obj/item/weapon/gun/smg/mp7, /obj/item/ammo_magazine/smg/mp7),
+		list(/obj/item/weapon/gun/shotgun/double/sawn, /obj/item/ammo_magazine/handful/buckshot),
+		list(/obj/item/weapon/gun/smg/uzi, /obj/item/ammo_magazine/smg/uzi),
+		list(/obj/item/weapon/gun/smg/m25, /obj/item/ammo_magazine/smg/m25),
+		list(/obj/item/weapon/gun/rifle/m16, /obj/item/ammo_magazine/rifle/m16),
+		list(/obj/item/weapon/gun/shotgun/pump/bolt, /obj/item/ammo_magazine/rifle/bolt),
+		list(/obj/item/weapon/gun/shotgun/pump/lever, /obj/item/ammo_magazine/packet/magnum),
+	))
 	var/obj/item/weapon/W = weapons[1]
 	var/obj/item/ammo_magazine/A = weapons[2]
 	C.equip_to_slot_or_del(new /obj/item/belt_harness(C), SLOT_BELT)
@@ -93,7 +101,7 @@ Good luck, but do not expect to survive."})
 	outfit = /datum/outfit/job/survivor/botanist
 
 /datum/job/survivor/atmos
-	title = "Atmospherics Technician Survivor"
+	title = "Atmos Technician Survivor"
 	skills_type = /datum/skills/civilian/survivor/atmos
 	outfit = /datum/outfit/job/survivor/atmos
 

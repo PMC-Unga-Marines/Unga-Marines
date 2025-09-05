@@ -87,7 +87,7 @@
 
 	var/spanned = say_quote(say_emphasis(message))
 	var/source = "[span_game("<span class='prefix'>DEAD:")] [span_name("[name]")][alt_name]"
-	var/rendered = " [span_message("[emoji_parse(spanned)]")]</span>"
+	var/rendered = "[span_message("[emoji_parse(spanned)]")]</span>"
 	log_talk(message, LOG_SAY, tag = "DEAD")
 	if(SEND_SIGNAL(src, COMSIG_MOB_DEADSAY, message) & MOB_DEADSAY_SIGNAL_INTERCEPT)
 		return

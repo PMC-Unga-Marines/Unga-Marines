@@ -5,7 +5,7 @@
 	allow_pass_flags = PASSABLE
 	destroy_sound = 'sound/effects/meteorimpact.ogg'
 	var/climbable = FALSE
-	var/climb_delay = 50
+	var/climb_delay = 1 SECONDS
 	var/barrier_flags = NONE
 	/// Similar to machinery's stat BROKEN
 	var/broken = FALSE

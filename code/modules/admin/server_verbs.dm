@@ -56,14 +56,9 @@ ADMIN_VERB(shutdown_server, R_SERVER, "Shutdown Server", "Shuts the server down.
 			to_chat(user, span_danger("[required_state_message] The round start/end is not delayed."))
 			return
 		if(SSticker.current_state == GAME_STATE_PLAYING || SSticker.current_state == GAME_STATE_SETTING_UP)
-			#ifdef TGS_V3_API
 			if(tgui_alert(usr, "The round is currently in progress, continue with shutdown?", "Continue Shutting Down Server?", list("Continue", "Cancel"), 0) != "Continue")
 				return
 			waitforroundend = TRUE
-			#else
-			to_chat(usr, span_danger(usr, "Restarting during the round requires the server toolkit. No server toolkit detected. Please end the round and try again."))
-			return
-			#endif
 
 	to_chat(user, span_danger("Alert: Delayed confirmation required. You will be asked to confirm again in 30 seconds."))
 	message_admins("[ADMIN_TPMONTY(user.mob)] initiated the shutdown process. You may abort this by pressing the shutdown server button again.")
@@ -96,8 +91,6 @@ ADMIN_VERB(shutdown_server, R_SERVER, "Shutdown Server", "Shuts the server down.
 
 	to_chat(world, span_danger("Server shutting down[waitforroundend ? " after this round. " : ""].</span> <span class='notice'>Initiated by: [shuttingdown]"))
 	log_admin("Server shutting down[waitforroundend ? " after this round" : ""]. Initiated by: [shuttingdown]")
-
-#ifdef TGS_V3_API
 	if(GLOB.tgs)
 		var/datum/tgs_api/TA = GLOB.tgs
 		var/tgs3_path = CONFIG_GET(string/tgs3_commandline_path)
@@ -119,7 +112,6 @@ ADMIN_VERB(shutdown_server, R_SERVER, "Shutdown Server", "Shuts the server down.
 		var/msg = "WARNING: Couldn't find tgstation-server3 api object, server could restart after shutdown, but it will very likely be just fine"
 		message_admins(msg)
 		log_admin(msg)
-#endif
 	if (waitforroundend)
 		return
 	sleep(world.tick_lag) //so messages can get sent to players.
@@ -321,7 +313,7 @@ ADMIN_VERB(toggle_synthetic_restrictions, R_FUN, "Toggle Synthetic Restrictions"
 	message_admins("[ADMIN_TPMONTY(user.mob)] has [CONFIG_GET(flag/allow_synthetic_gun_use) ? "enabled" : "disabled"] synthetic weapon use.")
 
 ADMIN_VERB(reload_admins, R_SERVER, "Reload Admins", "Manually load all admins from the .txt", ADMIN_CATEGORY_SERVER)
-	if(alert(user, "Are you sure you want to reload admins?", "Reload admins", list("No", "Yes")) != "Yes")
+	if(alert(user, "Are you sure you want to reload admins?", "Reload admins", "No", "Yes") != "Yes")
 		return
 
 	load_admins()

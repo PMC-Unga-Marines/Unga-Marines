@@ -292,7 +292,7 @@
 /datum/action/ability/xeno_action/evasive_maneuvers/proc/evasion_debuff_check(datum/source, amount)
 	SIGNAL_HANDLER
 
-	if(amount > 0 || !evade_active) //If evasion isn't active we don't care
+	if(amount <= 0 || !evade_active) //If evasion isn't active we don't care
 		return
 	to_chat(xeno_owner, span_userdanger("Our movements have been interrupted!"))
 	xeno_owner.use_plasma(65, TRUE)

@@ -183,7 +183,7 @@
 	if(prob(20))
 		if(carbon_owner)
 			carbon_owner.handle_dreams()
-		if(prob(10) && owner.health > owner.health_threshold_crit)
+		if(prob(10) && owner.health > owner.get_crit_threshold())
 			owner.emote("snore")
 
 ///Basically a temporary self-inflicted shutdown for maintenance
@@ -366,11 +366,8 @@
 
 /datum/status_effect/plasmadrain/tick(delta_time)
 	var/mob/living/carbon/xenomorph/xenoowner = owner
-	if(xenoowner.plasma_stored >= 0)
-		var/remove_plasma_amount = xenoowner.xeno_caste.plasma_max * 0.1
-		xenoowner.plasma_stored -= remove_plasma_amount
-		if(xenoowner.plasma_stored <= 0)
-			xenoowner.plasma_stored = 0
+	// This proc can handle everything and hud updating, use it.
+	xenoowner.use_plasma(xenoowner.xeno_caste.plasma_max * 0.1)
 
 /datum/status_effect/noplasmaregen
 	id = "noplasmaregen"

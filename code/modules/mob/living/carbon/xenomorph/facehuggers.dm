@@ -823,8 +823,11 @@
 		visible_message(span_danger("[src] explodes into a mess of viscous resin!"))
 		playsound(loc, SFX_ALIEN_RESIN_BUILD, 50, 1)
 		for(var/turf/sticky_tile AS in RANGE_TURFS(1, loc))
-			if(!locate(/obj/alien/resin/sticky) in sticky_tile)
-				new /obj/alien/resin/sticky/thin(sticky_tile)
+			if(isclosedturf(sticky_tile))
+				continue
+			if(locate(/obj/alien/resin/sticky) in sticky_tile)
+				continue
+			new /obj/alien/resin/sticky/thin(sticky_tile)
 		for(var/mob/living/target in range(1, loc))
 			if(isxeno(target)) //Xenos aren't affected by sticky resin
 				continue

@@ -22,6 +22,8 @@
 	var/can_block_xeno = FALSE
 	/// 0-100%
 	var/can_block_chance = 30
+	///force level if two handed, activated etc
+	var/force_activated = 0
 
 /obj/item/weapon/melee_attack_chain(mob/user, atom/target, params, rightclick)
 	if(target == user && !user.do_self_harm)
@@ -41,9 +43,8 @@
 		weapon_strings += general_entry.mechanics_text + "<br>"
 
 	weapon_strings += "Melee damage: [force]"
-	if(CHECK_BITFIELD(item_flags, TWOHANDED))
-		var/obj/item/weapon/twohanded/our_weapon = src // yeah...
-		weapon_strings += "Melee damage while wielded: [our_weapon.force_wielded]"
+	if(force_activated)
+		weapon_strings += "Melee damage on wield/activation: [force_activated]"
 	weapon_strings += "Time between attacks: [attack_speed] milliseconds."
 	weapon_strings += "Armor penetration: [penetration]"
 	weapon_strings += "On throw damage: [throwforce]"

@@ -33,9 +33,8 @@
 	// 1. This movable doesn't have a ridable element and can't be ridden, so nothing gets returned, so continue on
 	// 2. There's a ridable element but we failed to mount it for whatever reason (maybe it has no seats left, for example), so we cancel the buckling
 	// 3. There's a ridable element and we were successfully able to mount, so keep it going and continue on with buckling
-	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PREBUCKLE, buckling_mob, force, check_loc, lying_buckle , hands_needed, target_hands_needed, silent) & COMPONENT_BLOCK_BUCKLE)
+	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PREBUCKLE, buckling_mob, force, check_loc, lying_buckle, hands_needed, target_hands_needed, silent) & COMPONENT_BLOCK_BUCKLE)
 		return FALSE
-
 
 	if(buckling_mob.pulledby)
 		if(buckle_flags & BUCKLE_PREVENTS_PULL)

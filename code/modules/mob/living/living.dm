@@ -104,6 +104,7 @@
 /mob/living/Initialize(mapload)
 	. = ..()
 	register_init_signals()
+
 	update_move_intent_effects()
 	GLOB.mob_living_list += src
 	if(stat != DEAD)
@@ -355,20 +356,17 @@
 				var/oldloc = loc
 				var/oldLloc = L.loc
 
-				var/L_passmob = (L.pass_flags & PASS_MOB) // we give PASS_MOB to both mobs to avoid bumping other mobs during swap.
-				var/src_passmob = (pass_flags & PASS_MOB)
-				L.pass_flags |= PASS_MOB
-				pass_flags |= PASS_MOB
+				// we give PASS_MOB to both mobs to avoid bumping other mobs during swap.
+				L.add_pass_flags(PASS_MOB, MOVEMENT_SWAP_TRAIT)
+				add_pass_flags(PASS_MOB, MOVEMENT_SWAP_TRAIT)
 
 				if(!moving_diagonally) //the diagonal move already does this for us
 					Move(oldLloc)
 				if(mob_swap_mode == SWAPPING)
 					L.Move(oldloc)
 
-				if(!src_passmob)
-					pass_flags &= ~PASS_MOB
-				if(!L_passmob)
-					L.pass_flags &= ~PASS_MOB
+				L.remove_pass_flags(PASS_MOB, MOVEMENT_SWAP_TRAIT)
+				remove_pass_flags(PASS_MOB, MOVEMENT_SWAP_TRAIT)
 
 				now_pushing = FALSE
 
@@ -480,7 +478,7 @@
 
 /mob/living/proc/offer_mob()
 	GLOB.offered_mob_list += src
-	notify_ghosts(span_boldnotice("A mob is being offered! Name: [name][job ? " Job: [job.title]" : ""] "), enter_link = "claim=[REF(src)]", source = src, action = NOTIFY_ORBIT)
+	notify_ghosts(span_boldnotice("A mob is being offered! Name: [name][job ? " Job: [job.title]" : ""] "), enter_link = "claim=[REF(src)]", source = src, action = NOTIFY_ORBIT, flashwindow = TRUE)
 
 //used in datum/reagents/reaction() proc
 /mob/living/proc/get_permeability_protection()

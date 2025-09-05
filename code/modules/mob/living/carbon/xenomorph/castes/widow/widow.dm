@@ -23,7 +23,6 @@
 /mob/living/carbon/xenomorph/widow/proc/postattack(mob/living/source, atom/target, damage)
 	SIGNAL_HANDLER
 	SEND_SIGNAL(src, COMSIG_SPIDERLING_CHANGE_ALL_ORDER, SPIDERLING_ATTACK, target)
-	SEND_SIGNAL(src, COMSIG_SPIDERLING_CHANGE_ALL_ORDER, SPIDERLING_ATTACK, target)
 
 /mob/living/carbon/xenomorph/widow/buckle_mob(mob/living/buckling_mob, force = FALSE, check_loc = TRUE, lying_buckle = FALSE, hands_needed = 0, target_hands_needed = 0, silent)
 	if(!force)

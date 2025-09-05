@@ -32,7 +32,7 @@
 		return FALSE
 
 	log_game("[key_name(xeno_owner)] has messaged the hive with: \"[input]\"")
-	deadchat_broadcast(" has messaged the hive: \"[input]\"", xeno_owner, xeno_owner)
+	deadchat_broadcast("has messaged the hive: \"[input]\"", xeno_owner, xeno_owner)
 	var/queens_word = HUD_ANNOUNCEMENT_FORMATTING("СООБЩЕНИЕ УЛЬЮ", input, CENTER_ALIGN_TEXT)
 
 	var/sound/queen_sound = sound(SFX_QUEEN, channel = CHANNEL_ANNOUNCEMENTS)

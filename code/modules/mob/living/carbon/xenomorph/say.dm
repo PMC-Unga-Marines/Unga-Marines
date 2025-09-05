@@ -64,8 +64,7 @@
 
 /mob/living/carbon/xenomorph/proc/receive_hivemind_message(mob/living/carbon/xenomorph/X, message)
 	var/follow_link = X != src ? "<a href='byond://?src=[REF(src)];watch_xeno_name=[REF(X)]'>(F)</a> " : ""
-	show_message("[follow_link][X.hivemind_start()][span_message(" hisses, <b>'[message]'</b>")][X.hivemind_end()]", 2)
-
+	show_message("[follow_link][X.hivemind_start()][span_message("hisses, <b>'[message]'</b>")][X.hivemind_end()]", 2)
 
 /mob/living/carbon/xenomorph/get_saymode(message, talk_key)
 	if(copytext(message, 1, 2) == ";")

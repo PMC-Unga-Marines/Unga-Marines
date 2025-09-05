@@ -11,10 +11,6 @@
 		/datum/xenomorph_skin/warlock/arabian,
 		/datum/xenomorph_skin/warlock,
 	)
-	attacktext = "slashes"
-	attack_sound = null
-	friendly = "nuzzles"
-	wall_smash = FALSE
 	health = 320
 	maxHealth = 320
 	plasma_stored = 1400

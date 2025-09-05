@@ -26,7 +26,7 @@
 	worn_icon_state = "spearhunter"
 	item_flags = TWOHANDED
 	force = 20
-	force_wielded = 45
+	force_activated = 45
 	penetration = 25
 	throwforce = 40
 	sharp = IS_SHARP_ITEM_SIMPLE
@@ -38,7 +38,7 @@
 	icon_state = "glaive"
 	worn_icon_state = "glaive"
 	force = 20
-	force_wielded = 45
+	force_activated = 45
 	reach = 2
 	penetration = 30
 	throwforce = 20
@@ -73,7 +73,7 @@
 	name = "ancient war glaive"
 	desc = "A huge, powerful blade on a metallic pole. Mysterious writing is carved into the weapon. This one is ancient and has suffered serious acid damage, making it near-useless."
 	force = 10
-	force_wielded = 25
+	force_activated = 25
 	penetration = 5
 	throwforce = 10
 	icon_state = "glaive_alt"

@@ -126,7 +126,8 @@
 		COMSIG_ATOM_EXAMINE,
 		COMSIG_ITEM_EQUIPPED_NOT_IN_SLOT,
 		COMSIG_ITEM_DROPPED,
-		COMSIG_ITEM_EQUIPPED_TO_SLOT))
+		COMSIG_ITEM_EQUIPPED_TO_SLOT,
+	))
 
 ///Shows info on what stats each reagent boosts and how much units they require
 /datum/component/chem_booster/proc/setup_reagent_info()
@@ -169,6 +170,7 @@
 		current_action.remove_action(wearer)
 
 	wearer.overlays -= resource_overlay
+	UnregisterSignal(wearer, list(COMSIG_XENO_DRAIN_HIT, COMSIG_XENO_CARNAGE_HIT))
 	wearer = null
 
 ///Sets up actions and vars when the suit is equipped
@@ -183,6 +185,8 @@
 
 	wearer.overlays += resource_overlay
 	update_resource(0)
+
+	RegisterSignals(wearer, list(COMSIG_XENO_DRAIN_HIT, COMSIG_XENO_CARNAGE_HIT), PROC_REF(steal_greenblood))
 
 /datum/component/chem_booster/process()
 	if(resource_storage_current < resource_drain_amount)
@@ -526,6 +530,22 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_KB_VALI_CONNECT,
 	)
+
+///handles xeno abilities mooching our greenblood. Signal is routed through the equipping mob.
+/datum/component/chem_booster/proc/steal_greenblood(owner, drain_plasma_gain, drainer)
+	SIGNAL_HANDLER
+
+	//steals a % of total greenblood held plus a small flat bonus
+	var/drain_value = resource_storage_current * (GORGER_GREENBLOOD_STEAL_PERCENTAGE / 100) + GORGER_GREENBLOOD_STEAL_FLAT
+
+	//if there's only a tiny amount in the tank, we take only that much.
+	if(drain_value > resource_storage_current)
+		drain_value = resource_storage_current
+	to_chat(wearer, span_danger("Unregistered User accessing green blood reserves!"))
+	update_resource(-drain_value)
+
+	var/mob/living/carbon/xenomorph/xeno_drainer = drainer
+	xeno_drainer.gain_plasma(drain_value * GORGER_GREENBLOOD_CONVERSION)
 
 #undef EXTRACT
 #undef LOAD

@@ -26,8 +26,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 	var/list/datum/reagent/spit_reagents
 	///Amount of reagents transferred upon spit impact if any
 	var/reagent_transfer_amount
-	///Amount of stagger stacks imposed on impact if any
-	var/stagger_stacks
+	///Amount of stagger imposed on impact if any
+	var/stagger_duration
 	///Amount of slowdown stacks imposed on impact if any
 	var/slowdown_stacks
 	///These define the reagent transfer strength of the smoke caused by the spit, if any, and its aoe
@@ -49,7 +49,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 	accuracy_var_low = 3
 	accuracy_var_high = 3
 	damage = 40
-	stagger_stacks = 1.1 SECONDS
+	stagger_duration = 1.1 SECONDS
 	slowdown_stacks = 1.5
 	smoke_strength = 0.5
 	smoke_range = 0
@@ -69,7 +69,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 	if(isnestedhost(carbon_victim))
 		return
 
-	carbon_victim.adjust_stagger(stagger_stacks)
+	carbon_victim.adjust_stagger(stagger_duration)
 	carbon_victim.add_slowdown(slowdown_stacks)
 
 	set_reagents()
@@ -140,7 +140,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 	accuracy_var_low = 3
 	accuracy_var_high = 3
 	damage = 15
-	stagger_stacks = 1 SECONDS
+	stagger_duration = 1 SECONDS
 	slowdown_stacks = 1.5
 	bullet_color = COLOR_LIGHT_ORANGE
 	var/toxin_damage = 10
@@ -169,7 +169,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 	damage = 40
 	max_range = 40
 	bullet_color = COLOR_PURPLE
-	stagger_stacks = 2
+	stagger_duration = 1 SECONDS
 	slowdown_stacks = 3
 
 /datum/ammo/xeno/sticky/on_hit_mob(mob/target_mob, obj/projectile/proj)
@@ -178,7 +178,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(
 		var/mob/living/carbon/C = target_mob
 		if(C.issamexenohive(proj.firer))
 			return
-		C.adjust_stagger(stagger_stacks) //stagger briefly; useful for support
+		C.adjust_stagger(stagger_duration) //stagger briefly; useful for support
 		C.add_slowdown(slowdown_stacks) //slow em down
 
 /datum/ammo/xeno/sticky/on_hit_obj(obj/target_object, obj/projectile/proj)

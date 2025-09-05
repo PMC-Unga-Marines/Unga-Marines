@@ -86,7 +86,7 @@
 		/obj/item/weapon/gun/rifle/sniper/svd,
 		/obj/item/weapon/gun/rifle/m412,
 		/obj/item/weapon/gun/rifle/m41a,
-		/obj/item/weapon/gun/rifle/type71/seasonal,
+		/obj/item/weapon/gun/rifle/type71,
 		/obj/item/weapon/gun/rifle/alf_machinecarbine,
 	)
 

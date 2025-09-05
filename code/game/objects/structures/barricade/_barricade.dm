@@ -8,7 +8,7 @@
 	obj_flags = CAN_BE_HIT | IGNORE_DENSITY | BLOCKS_CONSTRUCTION_DIR
 	resistance_flags = XENO_DAMAGEABLE
 	allow_pass_flags = PASS_DEFENSIVE_STRUCTURE|PASSABLE|PASS_WALKOVER
-	climb_delay = 2 SECONDS //Leaping a barricade is universally much faster than clumsily climbing on a table or rack
+	climb_delay = 2 SECONDS
 	interaction_flags = INTERACT_CHECK_INCAPACITATED
 	max_integrity = 100
 	barrier_flags = HANDLE_BARRIER_CHANCE
@@ -32,7 +32,7 @@
 	/// Can this barricade be upgraded?
 	var/can_upgrade = FALSE
 
-/obj/structure/barricade/Initialize(mapload)
+/obj/structure/barricade/Initialize(mapload, mob/user)
 	. = ..()
 	update_icon()
 	var/static/list/connections = list(
@@ -40,9 +40,11 @@
 		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
 	)
 	AddElement(/datum/element/connect_loc, connections)
+	if(user)
+		faction = user.faction
 
 /obj/structure/barricade/handle_barrier_chance(mob/living/M)
-	return prob(max(30,(100.0*obj_integrity)/max_integrity))
+	return prob(max(30, (100 * obj_integrity) / max_integrity))
 
 /obj/structure/barricade/examine(mob/user)
 	. = ..()

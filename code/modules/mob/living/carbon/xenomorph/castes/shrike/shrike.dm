@@ -11,10 +11,6 @@
 		/datum/xenomorph_skin/shrike/joker,
 		/datum/xenomorph_skin/shrike,
 	)
-	attacktext = "bites"
-	attack_sound = null
-	friendly = "nuzzles"
-	wall_smash = FALSE
 	health = 240
 	maxHealth = 240
 	plasma_stored = 300

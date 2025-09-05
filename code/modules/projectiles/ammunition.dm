@@ -205,7 +205,7 @@
 	var/ammo_name = ammo.name
 
 	///sets greyscale for the handful if it has been specified by the ammo datum
-	if (ammo.handful_greyscale_config && ammo.handful_greyscale_colors)
+	if(ammo.handful_greyscale_config && ammo.handful_greyscale_colors)
 		set_greyscale_config(ammo.handful_greyscale_config)
 		set_greyscale_colors(ammo.handful_greyscale_colors)
 
@@ -218,6 +218,8 @@
 		max_rounds = maximum_rounds
 	else
 		max_rounds = ammo.handful_amount
+	if(ammo.reload_delay)
+		reload_delay = ammo.reload_delay
 	current_rounds = new_rounds
 	update_icon()
 

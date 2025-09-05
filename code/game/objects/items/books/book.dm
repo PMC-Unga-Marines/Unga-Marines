@@ -114,7 +114,6 @@
 	unique = TRUE
 	dat = ""
 
-
 /obj/item/book/codebook/Initialize(mapload)
 	. = ..()
 	var/number

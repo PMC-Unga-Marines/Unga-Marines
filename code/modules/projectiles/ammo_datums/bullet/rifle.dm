@@ -395,39 +395,3 @@
 
 /datum/ammo/bullet/coilgun/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	staggerstun(target_mob, proj, paralyze = 0.2 SECONDS, slowdown = 1, knockback = 3)
-
-/datum/ammo/bullet/sarden
-	name = "heavy autocannon armor piercing"
-	hud_state = "alloy_spike"
-	hud_state_empty = "smartgun_empty"
-	ammo_behavior_flags = AMMO_BALLISTIC
-	damage = 40
-	penetration = 40
-	sundering = 3.5
-	matter_cost = 0
-
-/datum/ammo/bullet/sarden/high_explosive
-	name = "heavy autocannon high explosive"
-	hud_state = "alloy_spike"
-	hud_state_empty = "smartgun_empty"
-	ammo_behavior_flags = AMMO_BALLISTIC
-	damage = 25
-	penetration = 30
-	sundering = 0.5
-	max_range = 21
-	matter_cost = 0
-
-/datum/ammo/bullet/sarden/high_explosive/drop_nade(turf/T)
-	cell_explosion(T, 50, 25)
-
-/datum/ammo/bullet/sarden/high_explosive/on_hit_mob(mob/target_mob, obj/projectile/proj)
-	drop_nade(get_turf(target_mob))
-
-/datum/ammo/bullet/sarden/high_explosive/on_hit_obj(obj/target_obj, obj/projectile/proj)
-	drop_nade(target_obj.density ? get_step_towards(target_obj, proj) : target_obj.loc)
-
-/datum/ammo/bullet/sarden/high_explosive/on_hit_turf(turf/target_turf, obj/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
-
-/datum/ammo/bullet/sarden/high_explosive/do_at_max_range(turf/target_turf, obj/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)

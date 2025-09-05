@@ -280,6 +280,8 @@
 	use_state_flags = ABILITY_USE_BUCKLED
 	/// The range of this ability.
 	var/pounce_range = HUNTER_POUNCE_RANGE
+	///pass_flags given when leaping
+	var/leap_pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_XENO
 
 /datum/action/ability/activable/xeno/pounce/on_cooldown_finish()
 	owner.balloon_alert(owner, "Pounce ready")
@@ -300,9 +302,8 @@
 	RegisterSignal(owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(pounce_complete))
 	SEND_SIGNAL(owner, COMSIG_XENOMORPH_POUNCE)
 	xeno_owner.xeno_flags |= XENO_LEAPING
-	xeno_owner.pass_flags |= PASS_LOW_STRUCTURE|PASS_FIRE|PASS_XENO
+	xeno_owner.add_pass_flags(leap_pass_flags, type)
 	xeno_owner.throw_at(A, pounce_range, XENO_POUNCE_SPEED, xeno_owner)
-	addtimer(CALLBACK(src, PROC_REF(reset_pass_flags)), 0.6 SECONDS)
 	succeed_activate()
 	add_cooldown()
 	var/datum/action/ability/activable/xeno/hunter_blink = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/hunter_blink]
@@ -347,9 +348,7 @@
 	SEND_SIGNAL(owner, COMSIG_XENOMORPH_POUNCE_END)
 	xeno_owner.set_throwing(FALSE)
 	xeno_owner.xeno_flags &= ~XENO_LEAPING
-
-/datum/action/ability/activable/xeno/pounce/proc/reset_pass_flags()
-	xeno_owner.pass_flags = initial(xeno_owner.pass_flags)
+	xeno_owner.remove_pass_flags(leap_pass_flags, type)
 
 /datum/action/ability/activable/xeno/pounce/ai_should_start_consider()
 	return TRUE

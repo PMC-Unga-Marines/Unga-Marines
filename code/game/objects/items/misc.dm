@@ -159,7 +159,7 @@
 /obj/item/namaz/proc/deploy_roller(mob/user, atom/location)
 	var/obj/structure/bed/namaz/R = new rollertype(location)
 	user.temporarilyRemoveItemFromInventory(src)
-	user.visible_message(span_notice(" [user] puts [R] down."), span_notice(" You put [R] down."))
+	user.visible_message(span_notice("[user] puts [R] down."), span_notice("You put [R] down."))
 	qdel(src)
 
 /obj/item/storage/bible/koran
