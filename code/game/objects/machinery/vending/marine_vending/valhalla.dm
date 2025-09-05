@@ -114,6 +114,7 @@
 		"Modules" = list(
 			/obj/item/armor_module/module/night_vision = -1,
 			/obj/item/cell/night_vision_battery = -1,
+			/obj/item/armor_module/module/eshield/mk2 = -1,
 			/obj/item/armor_module/module/valkyrie_autodoc = -1,
 			/obj/item/armor_module/module/fire_proof = -1,
 			/obj/item/armor_module/module/fire_proof_helmet = -1,
