@@ -418,33 +418,28 @@
 	if(!recharge_timer)
 		START_PROCESSING(SSobj, src)
 		playsound(equipper, 'sound/items/eshield_recharge.ogg', 40)
-
-	RegisterSignal(equipper, COMSIG_LIVING_SHIELDCALL, PROC_REF(handle_shield))
+	RegisterSignal(equipper, COMSIG_HUMAN_PRE_APPLY_DAMAGE, PROC_REF(handle_damage))
 
 ///Handles removing the shield when the parent is unequipped
 /obj/item/armor_module/module/eshield/proc/handle_unequip(datum/source, mob/unequipper, slot)
 	SIGNAL_HANDLER
 	if(slot != SLOT_WEAR_SUIT || !isliving(unequipper))
 		return
-	UnregisterSignal(unequipper, COMSIG_LIVING_SHIELDCALL)
+	UnregisterSignal(unequipper, COMSIG_HUMAN_PRE_APPLY_DAMAGE)
 	STOP_PROCESSING(SSobj, src)
 	unequipper.remove_filter("eshield")
 	shield_health = 0
 
-///Adds the correct proc callback to the shield list for intercepting damage.
-/obj/item/armor_module/module/eshield/proc/handle_shield(datum/source, list/affecting_shields, dam_type)
+/obj/item/armor_module/module/eshield/proc/handle_damage(datum/source, damage, damagetype, def_zone, blocked, sharp, edge, updating_health, penetration, list/amount_mod)
 	SIGNAL_HANDLER
 	if(!shield_health)
 		return
-	affecting_shields += CALLBACK(src, PROC_REF(intercept_damage))
-
-///Handles the interception of damage.
-/obj/item/armor_module/module/eshield/proc/intercept_damage(attack_type, incoming_damage, damage_type, silent)
-	if(attack_type == COMBAT_TOUCH_ATTACK) //Touch attack so runners can pounce
-		return incoming_damage
+	//so we do not absorb damage frop OD and etc
+	if(blocked != MELEE && blocked != ENERGY && blocked != BOMB && blocked != BULLET)
+		return
 	STOP_PROCESSING(SSobj, src)
 	deltimer(recharge_timer)
-	var/shield_left = shield_health - incoming_damage
+	var/shield_left = shield_health - damage
 	var/mob/living/affected = parent.loc
 	affected.remove_filter("eshield")
 	if(shield_left > 0)
@@ -460,9 +455,9 @@
 	else
 		shield_health = 0
 		recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown + 1, TIMER_STOPPABLE) //Gives it a little extra time for the cooldown.
-		return -shield_left
+		amount_mod += -shield_left
+	amount_mod += damage
 	recharge_timer = addtimer(CALLBACK(src, PROC_REF(begin_recharge)), damaged_shield_cooldown, TIMER_STOPPABLE)
-	return 0
 
 ///Starts the shield recharging after it has been broken.
 /obj/item/armor_module/module/eshield/proc/begin_recharge()
