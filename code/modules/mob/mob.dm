@@ -893,7 +893,7 @@
 	var/turf/tile = get_turf(pointed_atom)
 	if(!tile)
 		return FALSE
-	if (pointed_atom in src)
+	if(pointed_atom in src)
 		create_point_bubble(pointed_atom)
 		return FALSE
 	var/turf/our_tile = get_turf(src)
