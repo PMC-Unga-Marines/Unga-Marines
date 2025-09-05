@@ -22,15 +22,19 @@
 	var/det_time = 4 SECONDS
 	///Does it make a danger overlay for humans? Can synths use it?
 	var/dangerous = TRUE
+	///Будет ли проигрываться звук удара об пол (groundhit_sound)
 	var/throwsound_is_playable = TRUE
-	var/arm_sound = list(
+	///Звук чеки у гранаты
+	var/list/arm_sound = list(
 		'sound/weapons/grenade/grenade_pinout1.ogg',
 		'sound/weapons/grenade/grenade_pinout2.ogg'
 	)
 	var/hud_state = "grenade_he"
 	var/hud_state_empty = "grenade_empty"
-	var/G_throw_sound = 'sound/weapons/grenade/grenade_throw.ogg'
-	var/G_hit_sound = list(
+	///Звук броска гранаты
+	var/throw_sound = 'sound/weapons/grenade/grenade_throw.ogg'
+	///Звук удара гранаты об любой турф
+	var/list/groundhit_sound = list(
 		'sound/weapons/grenade/grenade_hit1.ogg',
 		'sound/weapons/grenade/grenade_hit2.ogg'
 	)
@@ -130,7 +134,7 @@
 /obj/item/explosive/grenade/throw_at(target, range, speed, thrower, spin, flying, targetted_throw)
 	. = ..()
 
-	playsound(thrower, G_throw_sound, 25, 1, 6)
+	playsound(thrower, throw_sound, 25, 1, 6)
 
 	if(throwsound_is_playable)
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), src, pick(G_hit_sound), 20, 1, 9), 0.3 SECONDS)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), src, pick(groundhit_sound), 20, 1, 9), 0.3 SECONDS)
