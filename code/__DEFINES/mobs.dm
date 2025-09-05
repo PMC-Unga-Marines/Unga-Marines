@@ -786,6 +786,14 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 //Praetorian defines
 #define PRAE_CHARGEDISTANCE 6
 
+//Dancer defines
+/// Armor penetration done by impale to marked targets
+#define DANCER_IMPALE_PENETRATION 20
+/// The maximum multiplier dancer impale can gain from debuffs
+#define DANCER_MAX_IMPALE_MULT 2.5
+/// The flat damage multiplier done by impale to non-carbon targets
+#define DANCER_NONHUMAN_IMPALE_MULT 1.5
+
 // Chimera defines
 //Stagger and slowdown stacks applied to adjacent living hostiles before/after a teleport
 #define CHIMERA_TELEPORT_DEBUFF_STAGGER_STACKS 2 SECONDS
