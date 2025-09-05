@@ -9,6 +9,11 @@
 	layer = ABOVE_MOB_LAYER
 	opacity = TRUE
 	density = FALSE
+	///possible sounds we play when opening the curtain
+	var/list/possiblesounds = list(
+		'sound/effects/medcurtain1.ogg',
+		'sound/effects/medcurtain2.ogg',
+	)
 
 /obj/structure/curtain/open
 	icon_state = "medicalcurtain_open"
@@ -19,7 +24,7 @@
 	. = ..()
 	if(.)
 		return
-	playsound(get_turf(loc), SFX_RUSTLE, 15, 1, 6)
+	playsound(get_turf(loc), pick(possiblesounds), 15, 1, 6)
 	toggle()
 
 /obj/structure/curtain/attack_alien(mob/living/carbon/xenomorph/attackingxeno, damage_amount, damage_type, damage_flag, effects, armor_penetration, isrightclick)
@@ -46,7 +51,7 @@
 
 /obj/structure/curtain/black
 	name = "black curtain"
-	color = "#222222"
+	color = "#6d6d6d"
 
 /obj/structure/curtain/medical
 	name = "plastic curtain"
@@ -59,6 +64,9 @@
 	icon_state = "fabric_curtain"
 	initial_icon_state = "fabric_curtain"
 	alpha = 230
+	possiblesounds = list(
+		'sound/effects/clothcurtain.ogg',
+	)
 
 /obj/structure/curtain/open/shower
 	name = "shower curtain"
