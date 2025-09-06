@@ -236,10 +236,16 @@
 	desc = "A light armor, if you can even call it that, for marines that want to have agility in exchange for protection. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
 	icon_state = "rownin_skeleton"
 	worn_icon_state = "rownin_skeleton"
+	item_flags = IMPEDE_JETPACK
 	allowed_uniform_type = /obj/item/clothing/under
 
 /obj/item/clothing/suit/modular/rownin/generate_attachments_allowed()
 	attachments_allowed = general_list_of_marine_modules.Copy()
+	attachments_allowed += list(
+		/obj/item/armor_module/module/bioreinforcement_unit,
+		/obj/item/armor_module/module/bioreinforcement_unit/light,
+		/obj/item/armor_module/module/bioreinforcement_unit/heavy,
+	)
 
 /obj/item/clothing/suit/modular/rownin/erp
 	name = "\improper ERP rownin Skeleton"

@@ -1045,3 +1045,37 @@
 	var/datum/component/health_stealth/health_stealth = parent?.GetComponent(/datum/component/health_stealth)
 	health_stealth?.RemoveComponent()
 	return ..()
+
+/**
+ * rownin
+ */
+/obj/item/armor_module/module/bioreinforcement_unit
+	name = "\improper Rownin bioreinforcement unit"
+	desc = "A sophisticated biomechanical augmentation module designed for integration with rownin modular armor. This module incorporates a dense matrix of organic nano-tubules that bond directly with the wearer's musculoskeletal structure, dramatically enhancing natural durability."
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
+	icon_state = "mod_rownin"
+	worn_icon_state = "mod_rownin_a"
+	attachment_layer = COLLAR_LAYER
+	soft_armor = MARINE_ARMOR_MEDIUM
+	slowdown = SLOWDOWN_ARMOR_MEDIUM
+	slot = ATTACHMENT_SLOT_CHESTPLATE
+
+/obj/item/armor_module/module/bioreinforcement_unit/light
+	name = "\improper Rownin light bioreinforcement unit"
+	soft_armor = MARINE_ARMOR_LIGHT
+	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
+
+/obj/item/armor_module/module/bioreinforcement_unit/heavy
+	name = "\improper Rownin heavy bioreinforcement unit"
+	soft_armor = MARINE_ARMOR_HEAVY
+	slowdown = SLOWDOWN_ARMOR_HEAVY
+
+/**
+ * helmet
+ */
+/obj/item/armor_module/module/bioreinforcement_unit/head
+	name = "\improper Headwear bioreinforcement unit"
+	desc = "A sophisticated biomechanical augmentation module designed for integration with rownin modular armor. This module incorporates a dense matrix of organic nano-tubules that bond directly with the wearer's musculoskeletal structure, dramatically enhancing natural durability."
+	soft_armor = list(MELEE = 40, BULLET = 55, LASER = 55, ENERGY = 45, BOMB = 20, BIO = 45, FIRE = 10, ACID = 40)
+	slowdown = 0
+	slot = ATTACHMENT_SLOT_MODULE
