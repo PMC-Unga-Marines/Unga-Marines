@@ -87,6 +87,14 @@
 			if(has_status_effect(STATUS_EFFECT_PARALYZED)) //I've fallen and I can't get up.
 				status_hud.icon_state = "knockdown"
 				return TRUE
+			if(has_status_effect(STATUS_EFFECT_STUN))
+				status_hud.icon_state = "stun"
+				return TRUE
+			if(has_status_effect(STATUS_EFFECT_STAGGER))
+				return TRUE
+			if(slowdown)
+				status_hud.icon_state = "slowdown"
+				return TRUE
 			for(var/datum/reagent/reagent AS in reagents.reagent_list)
 				if(reagent.overdosed)
 					status_hud.icon_state = "od"
@@ -99,14 +107,6 @@
 					if(istype(wound, /datum/wound/internal_bleeding))
 						status_hud.icon_state = "blood"
 						return TRUE
-			if(has_status_effect(STATUS_EFFECT_STUN))
-				status_hud.icon_state = "stun"
-				return TRUE
-			if(has_status_effect(STATUS_EFFECT_STAGGER))
-				return TRUE
-			if(slowdown)
-				status_hud.icon_state = "slowdown"
-				return TRUE
 			else
 				status_hud.icon_state = "healthy"
 				return TRUE
