@@ -136,5 +136,6 @@
 
 	playsound(thrower, throw_sound, 25, 1, 6)
 
+/obj/item/explosive/grenade/throw_impact(atom/hit_atom, speed, bounce)
 	if(throwsound_is_playable)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), src, pick(groundhit_sound), 20, 1, 9), 0.3 SECONDS)
