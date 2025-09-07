@@ -435,7 +435,7 @@
 	if(!shield_health)
 		return
 	//so we do not absorb damage frop OD and etc
-	if(blocked != MELEE && blocked != ENERGY && blocked != BOMB && blocked != BULLET)
+	if(!blocked || isnum(blocked))
 		return
 	STOP_PROCESSING(SSobj, src)
 	deltimer(recharge_timer)
