@@ -246,6 +246,7 @@
 	fire_sound = 'sound/weapons/guns/fire/tank_flamethrower.ogg'
 	message_to_user = "You set the heavy laser to glob mode."
 	fire_mode = GUN_FIREMODE_SEMIAUTO
+	icon_state = "heavylaser"
 	radial_icon_state = "laser_overcharge"
 	description = "Fires a laser glob that ignites things on hit."
 
