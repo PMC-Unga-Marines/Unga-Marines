@@ -451,7 +451,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 
 ///Sees if theres a target to shoot, then handles firing.
 /obj/machinery/deployable/mounted/sentry/proc/sentry_start_fire()
-	if(isclosedturf(loc))
+	if(isclosedturf(loc) || CHECK_BITFIELD(machine_stat, KNOCKED_DOWN))
 		sentry_stop_fire()
 		return
 	var/obj/item/weapon/gun/gun = get_internal_item()
