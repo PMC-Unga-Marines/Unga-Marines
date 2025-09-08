@@ -18,3 +18,6 @@
 #define MARINE_BASE (1<<4)
 ///radio works even underground
 #define ALWAYS_RADIO (1<<5)
+
+#define AREA_FLAVOR_NONE "area_regular"
+#define AREA_FLAVOR_URBAN "area_urban"
