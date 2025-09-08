@@ -127,7 +127,6 @@
 #define SKILL_LEAD_TRAINED 2
 #define SKILL_LEAD_EXPERT 3
 #define SKILL_LEAD_MASTER 4
-#define SKILL_LEAD_SUPER 5
 
 ///Melee skill; 15% extra damage per skill level, additional abilities at some point
 #define SKILL_MELEE_WEAPONS "melee_weapons"

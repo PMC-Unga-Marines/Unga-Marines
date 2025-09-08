@@ -5,7 +5,6 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/item/implanter/skill/surgery = list(CAT_FCSUP, "Surgery skills implanter", 15, "cyan2"),
 	/obj/item/implanter/skill/engineer = list(CAT_FCSUP, "Engineering skills implanter", 15, "cyan2"),
 	/obj/item/implanter/skill/construct = list(CAT_FCSUP, "Construction skills implanter", 15, "cyan2"),
-	/obj/item/implanter/skill/leadership = list(CAT_FCSUP, "Command leadership skills implanter", 20, "cyan2"),
 	/obj/effect/vendor_bundle/commander = list(CAT_ESS, "Essential FC Set", 0, "white"),
 	/obj/item/supply_beacon = list(CAT_FCSUP, "Supply beacon", 5, "blue"),
 	/obj/item/orbital_bombardment_beacon = list(CAT_FCSUP, "Orbital beacon", 5, "blue"),

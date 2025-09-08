@@ -45,16 +45,3 @@
 	desc = "Working with welding has become much easier! Update construct skills!"
 	construction = 1
 	max_skills = list(SKILL_CONSTRUCTION = SKILL_CONSTRUCTION_EXPERT)
-
-/obj/item/implant/skill/tactical
-	name = "Tactics implant"
-	desc = "An implant from the line of implants that increases knowledge of battle tactics"
-	icon_state = "skill_implant"
-	allowed_limbs = list(BODY_ZONE_HEAD)
-
-/obj/item/implant/skill/tactical/leadership
-	name = "command protocols 'Graiyor' codex"
-	desc = "Uploading knowledge of advanced mnemonics of inspiration and persuasion to the brain so that people around go under bullets even more willingly! Update leadership skills!"
-	icon_state = "leadership_implant"
-	leadership = 1
-	max_skills = list(SKILL_LEADERSHIP = SKILL_LEAD_SUPER)

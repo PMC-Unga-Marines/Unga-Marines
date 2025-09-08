@@ -33,10 +33,3 @@
 	desc = "A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your construction skills."
 	icon_state = "enginering"
 	internal_implant = /obj/item/implant/skill/codex/construct
-
-/obj/item/implanter/skill/leadership
-	name = "command leadership skill implanter"
-	desc = "A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your leadership skills."
-	icon_state = "leadership"
-	empty_icon = "leadership_s"
-	internal_implant = /obj/item/implant/skill/tactical/leadership
