@@ -160,9 +160,7 @@
 			shorter_distance = get_dist(source, nearby_vehicle)
 
 	if(target_flags & TARGET_UNMANNED_VEHICLE)
-		for(var/atom/nearby_unmanned AS in GLOB.unmanned_vehicles)
-			if(source.z != nearby_unmanned.z)
-				continue
+		for(var/atom/nearby_unmanned AS in cheap_get_unmanned_vehicles_near(source, distance))
 			if(get_dist(source, nearby_unmanned) >= shorter_distance)
 				continue
 			if(need_los && !line_of_sight(source, nearby_unmanned))
