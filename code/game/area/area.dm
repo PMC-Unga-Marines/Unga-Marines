@@ -123,7 +123,7 @@
 		return
 	if(!areas_in_z["[z]"])
 		areas_in_z["[z]"] = list()
-	areas_in_z["[z]"] += src
+	areas_in_z["[z]"] |= src
 
 // A hook so areas can modify the incoming args
 /area/proc/PlaceOnTopReact(list/new_baseturfs, turf/fake_turf_type, flags)
