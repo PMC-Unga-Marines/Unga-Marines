@@ -47,6 +47,11 @@
 		unbuckle_bodybag()
 	return ..()
 
+/obj/structure/bed/deconstruct(disassembled, mob/living/blame_mob)
+	if(buildstacktype && dropmetal)
+		new buildstacktype(loc, buildstackamount)
+	return ..()
+
 /obj/structure/bed/post_buckle_mob(mob/buckling_mob)
 	. = ..()
 	buckling_mob.pixel_y = buckling_y
