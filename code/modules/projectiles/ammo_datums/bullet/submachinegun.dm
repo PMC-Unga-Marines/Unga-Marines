@@ -64,6 +64,7 @@
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
 	damage = 18
 	penetration = 0
+	matter_cost = 0
 
 /datum/ammo/bullet/smg/rad
 	name = "radioactive submachinegun bullet"
