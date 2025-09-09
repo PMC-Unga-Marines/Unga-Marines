@@ -1,8 +1,7 @@
 /datum/ai_behavior/spiderling
-	target_distance = 1
-	upper_maintain_dist = 0
+	upper_maintain_dist = 1
 	escort_upper_maintain_dist = 0
-	lower_maintain_dist = 0
+	lower_maintain_dist = 1
 	base_action = ESCORTING_ATOM
 	identifier = IDENTIFIER_XENO
 	///weakref to our mother
@@ -71,52 +70,36 @@
 				change_order(null, SPIDERLING_RECALL)
 	return ..()
 
-///override for MOVING_TO_ATOM to register signals for maintaining distance with our target and attacking
+// xeno ai copypaste
 /datum/ai_behavior/spiderling/register_action_signals(action_type)
 	if(action_type == MOVING_TO_ATOM)
 		RegisterSignal(mob_parent, COMSIG_STATE_MAINTAINED_DISTANCE, PROC_REF(attack_target))
-		RegisterSignals(atom_to_walk_to, list(COMSIG_MOB_DEATH, COMSIG_QDELETING), PROC_REF(look_for_new_state), TRUE)
-		return
+		if(ishuman(atom_to_walk_to))
+			RegisterSignal(atom_to_walk_to, COMSIG_MOB_DEATH, TYPE_PROC_REF(/datum/ai_behavior, look_for_new_state), TRUE)
+			return
+		if(ismachinery(atom_to_walk_to))
+			RegisterSignal(atom_to_walk_to, COMSIG_PREQDELETED, TYPE_PROC_REF(/datum/ai_behavior, look_for_new_state), TRUE)
+			return
 	return ..()
 
 ///override for MOVING_TO_ATOM to unregister signals for maintaining distance with our target and attacking
 /datum/ai_behavior/spiderling/unregister_action_signals(action_type)
 	if(action_type == MOVING_TO_ATOM)
 		UnregisterSignal(mob_parent, COMSIG_STATE_MAINTAINED_DISTANCE)
-		if(!isnull(atom_to_walk_to))
-			UnregisterSignal(atom_to_walk_to, list(COMSIG_MOB_DEATH, COMSIG_QDELETING))
-		return
+		if(ishuman(atom_to_walk_to))
+			UnregisterSignal(atom_to_walk_to, COMSIG_MOB_DEATH)
+			return
+		if(ismachinery(atom_to_walk_to))
+			UnregisterSignal(atom_to_walk_to, COMSIG_PREQDELETED)
+			return
 	return ..()
-
-///attack the first closest human, by moving towards it
-/datum/ai_behavior/spiderling/proc/seek_and_attack_closest(mob/living/source)
-	var/victim = get_nearest_target(mob_parent, target_distance, TARGET_HUMAN, mob_parent.faction)
-	if(!victim)
-		return FALSE
-	change_action(MOVING_TO_ATOM, victim)
-	return TRUE
 
 ///seeks a living humans in a 9 tile range near our parent, picks one, then changes our action to move towards it and attack.
 /datum/ai_behavior/spiderling/proc/seek_and_attack()
-	var/list/possible_victims = list()
-	for(var/mob/living/carbon/human/victim in cheap_get_humans_near(mob_parent, 9))
-		if(victim.stat == DEAD)
-			continue
-		if(HAS_TRAIT(victim, TRAIT_STEALTH))
-			continue
-		possible_victims += victim
-
-	for(var/atom/nearby_turret AS in GLOB.marine_turrets)
-		if(mob_parent.z != nearby_turret.z)
-			continue
-		if(!(get_dist(mob_parent, nearby_turret) < 9))
-			continue
-		possible_victims += nearby_turret
-
-	if(!length(possible_victims))
+	var/victim = get_nearest_target(mob_parent, target_distance, TARGET_HOSTILE, mob_parent.faction, mob_parent.get_xeno_hivenumber())
+	if(!victim)
 		return FALSE
-
-	change_action(MOVING_TO_ATOM, pick(possible_victims))
+	change_action(MOVING_TO_ATOM, victim)
 	return TRUE
 
 ///changes our current behavior with a define (order), optionally with a target, FALSE means fail and TRUE means success
@@ -126,8 +109,6 @@
 		stack_trace("spiderling AI was somehow passed a null order")
 		return FALSE
 	switch(order)
-		if(SPIDERLING_SEEK_CLOSEST) //internal order, to attack closest enemy
-			return seek_and_attack_closest()
 		if(SPIDERLING_RECALL) //reset our escorted atom to master_ref and change our action to escorting it, and turn on recalling if out of range.
 			escorted_atom = master_ref?.resolve()
 			base_action = ESCORTING_ATOM
