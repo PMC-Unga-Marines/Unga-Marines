@@ -115,9 +115,8 @@
 					if(istype(wound, /datum/wound/internal_bleeding))
 						status_hud.icon_state = "blood"
 						return TRUE
-			else
-				status_hud.icon_state = "healthy"
-				return TRUE
+			status_hud.icon_state = "healthy"
+			return TRUE
 	return FALSE
 
 /mob/living/carbon/human/species/robot/set_status_hud()
