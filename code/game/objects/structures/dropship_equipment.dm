@@ -148,8 +148,6 @@
 /obj/effect/attach_point/computer/dropship2
 	ship_tag = SHUTTLE_NORMANDY
 
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////::
 
 //Actual dropship equipments
@@ -286,42 +284,75 @@
 		linked_console.selected_equipment = src
 		to_chat(user, span_notice("You select [src]."))
 
-//////////////////////////////////// flare launcher //////////////////////////////////////
-/obj/structure/dropship_equipment/shuttle/flare_launcher
+//////////////////////////////////// grenade launcher //////////////////////////////////////
+/obj/structure/dropship_equipment/shuttle/grenade_launcher
 	equip_category = DROPSHIP_WEAPON
-	name = "flare launcher system"
-	desc = "A system that deploys flares stronger than the inputted flares. Fits on the weapon attach points of dropships. You need a powerloader to lift it."
-	icon_state = "flare_system"
+	name = "grenade launcher system"
+	desc = "A system that deploys any inputted grenades on console activation. Fits on the weapon attach points of dropships. You need a powerloader to lift it."
+	icon_state = "nade_system"
 	dropship_equipment_flags = IS_INTERACTABLE
 	point_cost = 85
 	///cooldown for deployment
 	COOLDOWN_DECLARE(deploy_cooldown)
-	///amount of loaded flares
-	var/stored_amount = 4
-	///max capacity of flares in system
-	var/max_amount = 4
+	///List of loaded grenades
+	var/list/loaded_grenades
+	///How many grenades we can hold
+	var/grenade_capacity = 3
+	///Cooldown between firing grenades
+	var/fire_cooldown = 2 SECONDS
 
-/obj/structure/dropship_equipment/shuttle/flare_launcher/equipment_interact(mob/user)
-	if(!COOLDOWN_CHECK(src, deploy_cooldown)) //prevents spamming deployment
-		user.balloon_alert(user, "[src] is busy.")
-		return
-	if(stored_amount <= 0) //check for inserted flares
-		user.balloon_alert(user, "No flares remaining.")
-		return
-	deploy_flare()
-	user.balloon_alert(user, "You deploy [src], remaining flares [stored_amount].")
-	COOLDOWN_START(src, deploy_cooldown, 5 SECONDS)
-
-/obj/structure/dropship_equipment/shuttle/flare_launcher/attackby(obj/item/I, mob/user, params)
+/obj/structure/dropship_equipment/shuttle/grenade_launcher/Initialize(mapload)
 	. = ..()
-	if(.)
-		return
-	if(istype(I, /obj/item/explosive/grenade/flare) && stored_amount < max_amount)
-		stored_amount++
-		user.balloon_alert(user, "You insert a flare, remaining flares [stored_amount].")
-		qdel(I)
+	//Populate contents
+	while(length(loaded_grenades) < grenade_capacity)
+		var/obj/item/explosive/grenade/new_grenade = new(src)
+		LAZYADD(loaded_grenades, new_grenade)
 
-/obj/structure/dropship_equipment/shuttle/flare_launcher/update_equipment()
+/obj/structure/dropship_equipment/shuttle/grenade_launcher/Destroy()
+	QDEL_LAZYLIST(loaded_grenades)
+	return ..()
+
+/obj/structure/dropship_equipment/shuttle/grenade_launcher/equipment_interact(mob/user)
+	if(!COOLDOWN_CHECK(src, deploy_cooldown)) //prevents spamming deployment
+		user.balloon_alert(user, "Busy")
+		return
+	if(length(loaded_grenades) <= 0) //check for inserted flares
+		user.balloon_alert(user, "No grenades left")
+		return
+	var/turf/target = get_ranged_target_turf(src, dir, 10)
+	var/obj/item/explosive/grenade/nade_to_launch = loaded_grenades[1]
+	nade_to_launch.activate()
+	nade_to_launch.forceMove(loc)
+	nade_to_launch.throw_at(target, 10, 2)
+	LAZYREMOVE(loaded_grenades, nade_to_launch)
+	COOLDOWN_START(src, deploy_cooldown, fire_cooldown)
+	user.balloon_alert(user, "[LAZYLEN(loaded_grenades)]/[grenade_capacity] remaining")
+	playsound(loc, 'sound/weapons/guns/fire/grenadelauncher.ogg', 40, 1)
+
+/obj/structure/dropship_equipment/shuttle/grenade_launcher/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(!isgrenade(I))
+		return
+	if(LAZYLEN(loaded_grenades) >= grenade_capacity)
+		return
+
+	user.transferItemToLoc(I, src)
+	LAZYADD(loaded_grenades, I)
+	playsound(loc, 'sound/weapons/guns/interact/v51_load.ogg', 40, 1)
+	balloon_alert(user, "[LAZYLEN(loaded_grenades)]/[grenade_capacity] grenades loaded")
+
+/obj/structure/dropship_equipment/shuttle/grenade_launcher/attack_hand(mob/living/user)
+	. = ..()
+	if(!LAZYLEN(loaded_grenades))
+		return
+
+	var/obj/item/explosive/grenade/first_nade = loaded_grenades[1]
+	user.put_in_hands(first_nade)
+	loaded_grenades -= first_nade
+	playsound(loc, 'sound/weapons/flipblade.ogg', 25, 1, 5)
+	balloon_alert(user, "[LAZYLEN(loaded_grenades)]/[grenade_capacity] grenades loaded")
+
+/obj/structure/dropship_equipment/shuttle/grenade_launcher/update_equipment()
 	. = ..()
 	if(ship_base)
 		setDir(ship_base.dir)
@@ -329,21 +360,92 @@
 		setDir(initial(dir))
 	update_icon()
 
-/obj/structure/dropship_equipment/shuttle/flare_launcher/update_icon_state()
+/obj/structure/dropship_equipment/shuttle/grenade_launcher/update_icon_state()
 	. = ..()
 	if(ship_base)
-		icon_state = "flare_system_installed"
+		icon_state = "nade_system_installed"
 	else
-		icon_state = "flare_system"
+		icon_state = "nade_system"
 
-///gets target and deploy the flare launcher
-/obj/structure/dropship_equipment/shuttle/flare_launcher/proc/deploy_flare()
+//////////////////////////////////// tanglefoot emitter //////////////////////////////////////
+
+/obj/structure/dropship_equipment/shuttle/tangle_emitter
+	equip_category = DROPSHIP_WEAPON
+	name = "disposable tanglefoot emitter"
+	desc = "A system that can emit tanglefoot while landing the aircraft to support aggressive landing positions. Can only be used once every ten minutes. Fits on the weapon attach points of dropships. You need a powerloader to lift it."
+	icon_state = "tfoot_system"
+	point_cost = 150
+	dropship_equipment_flags = IS_INTERACTABLE
+	/// Whether the system is currently enabled to activate on landing or not
+	var/enabled = TRUE
+	/// What type of smoke to use
+	var/obj/item/explosive/grenade/smokebomb/drain/pellet/pellet_type
+	/// Cooldown for emitting smoke
+	var/cooldown_length = 10 MINUTES
+	COOLDOWN_DECLARE(use_cooldown)
+
+/obj/structure/dropship_equipment/shuttle/tangle_emitter/equipment_interact(mob/user)
+	if(!enabled)
+		enabled = TRUE
+		update_appearance()
+		user.balloon_alert(user, "Enabled")
+		RegisterSignal(linked_shuttle, COMSIG_SHUTTLE_SETMODE, PROC_REF(drop_pellet_to_location))
+		return
+	enabled = FALSE
+	update_appearance()
+	user.balloon_alert(user, "Disabled")
+	UnregisterSignal(linked_shuttle, COMSIG_SHUTTLE_SETMODE)
+
+/obj/structure/dropship_equipment/shuttle/tangle_emitter/update_equipment()
+	. = ..()
+	if(ship_base)
+		setDir(ship_base.dir)
+		if(enabled)
+			update_appearance()
+			RegisterSignal(linked_shuttle, COMSIG_SHUTTLE_SETMODE, PROC_REF(drop_pellet_to_location))
+	else
+		setDir(initial(dir))
+	update_appearance()
+
+/obj/structure/dropship_equipment/shuttle/tangle_emitter/update_icon_state()
+	. = ..()
+	if(ship_base)
+		if(COOLDOWN_CHECK(src, use_cooldown))
+			icon_state = "tfoot_system_installed"
+			if(enabled)
+				icon_state = "tfoot_system_enabled"
+		else
+			icon_state = "tfoot_system_empty"
+	else
+		icon_state = "tfoot_system"
+
+/// Sets up and activates smoke effect
+/obj/structure/dropship_equipment/shuttle/tangle_emitter/proc/drop_pellet_to_location(datum/source, new_mode)
+	if(!istype(linked_console, /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship))
+		return
+	var/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/console = linked_console
+	var/turf/landing_spot = get_turf(console.eyeobj)
+	if(new_mode != SHUTTLE_PREARRIVAL || console.next_fly_state != SHUTTLE_ON_GROUND || !enabled || !landing_spot)
+		return
+	if(!COOLDOWN_CHECK(src, use_cooldown))
+		console.say("Emitter system recharging. Unable to deploy smoke.")
+		playsound(console, 'sound/machines/buzz-sigh.ogg', 25)
+		return
+
+	pellet_type = new(landing_spot)
+	pellet_type.activate()
+
+	COOLDOWN_START(src, use_cooldown, cooldown_length)
+	update_appearance()
+	addtimer(CALLBACK(src, PROC_REF(on_cooldown_end)), cooldown_length + 1 SECONDS)
 	playsound(loc, 'sound/weapons/guns/fire/tank_smokelauncher.ogg', 40, 1)
-	var/turf/target = get_ranged_target_turf(src, dir, 10)
-	var/obj/item/explosive/grenade/flare/strongerflare/flare_to_launch = new(loc)
-	flare_to_launch.turn_on()
-	flare_to_launch.throw_at(target, 10, 2)
-	stored_amount--
+	console.say("Emitter system deployed successfully.")
+	landing_spot.balloon_alert_to_viewers("A small pellet falls out of the sky!")
+
+/// Special effects for when system cooldown finishes
+/obj/structure/dropship_equipment/shuttle/tangle_emitter/proc/on_cooldown_end()
+	update_appearance()
+	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
 
 //////////////////////////////////// turret holders //////////////////////////////////////
 
@@ -402,7 +504,6 @@
 	else
 		to_chat(user, span_notice("You retract [src]."))
 		undeploy_sentry()
-
 
 /obj/structure/dropship_equipment/shuttle/sentry_holder/update_equipment()
 	if(ship_base)
@@ -630,7 +731,6 @@
 	icon_state = "docking_comp"
 	point_cost = 0
 
-
 ////////////////////////////////////// WEAPONS ///////////////////////////////////////
 
 /obj/structure/dropship_equipment/cas/weapon
@@ -847,7 +947,7 @@
 //////////////// OTHER EQUIPMENT /////////////////
 
 /obj/structure/dropship_equipment/shuttle/operatingtable
-	name = "Dropship Operating Table Deployment System"
+	name = "\improper Dropship Operating Table Deployment System"
 	desc = "Used for advanced medical procedures. Fits on the crewserved weapon attach points of dropships. You need a powerloader to lift it."
 	equip_category = DROPSHIP_CREW_WEAPON
 	icon = 'icons/obj/surgery.dmi'
@@ -880,7 +980,6 @@
 	deployed_table.loc = loc
 	icon_state = "table1"
 
-/* Uncomment when you will actually use it, instead of leaving as invisible piece of shit in fabricator
 // bomb pod
 /obj/structure/dropship_equipment/cas/weapon/bomb_pod
 	name = "bomb pod"
@@ -889,7 +988,7 @@
 	icon = 'icons/obj/structures/mainship_props64.dmi'
 	firing_sound = 'sound/weapons/bombdrop_sound.ogg'
 	firing_delay = 2 SECONDS
-	point_cost = 450
+	point_cost = 0 // 450 or smth
 	dropship_equipment_flags = USES_AMMO|IS_WEAPON|IS_INTERACTABLE
 	ammo_type_used = CAS_BOMB
 
@@ -901,4 +1000,3 @@
 		icon_state = "bomb_pod_installed"
 	else
 		icon_state = "bomb_pod"
-*/

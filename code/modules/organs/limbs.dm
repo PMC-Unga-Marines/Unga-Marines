@@ -682,10 +682,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 				organ = new /obj/item/limb/head/zombie(owner.loc, owner) // why is this like that
 			else
 				organ = new /obj/item/limb/head(owner.loc, owner)
-			owner.dropItemToGround(owner.glasses, force = TRUE)
-			owner.dropItemToGround(owner.head, force = TRUE)
-			owner.dropItemToGround(owner.wear_ear, force = TRUE)
-			owner.dropItemToGround(owner.wear_mask, force = TRUE)
+			owner.dropItemToGround(owner?.glasses, force = TRUE)
+			owner.dropItemToGround(owner?.head, force = TRUE)
+			owner.dropItemToGround(owner?.wear_ear, force = TRUE)
+			owner.dropItemToGround(owner?.wear_mask, force = TRUE)
 			owner.update_hair()
 		if(ARM_RIGHT)
 			if(limb_status & LIMB_ROBOT)

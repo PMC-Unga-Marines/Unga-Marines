@@ -346,71 +346,19 @@
 	max_range = -1
 	damage = 0
 
-/datum/ammo/bullet/shotgun/buckshot/shq6
-	name = "shotgun buckshot shell"
-	handful_icon_state = "shotgun buckshot shell"
-	icon_state = "buckshot"
-	hud_state = "shotgun_buckshot"
-	bonus_projectiles_type = /datum/ammo/bullet/shotgun/spread
-	bonus_projectiles_amount = 5
-	bonus_projectiles_scatter = 3
-	accuracy_var_low = 9
-	accuracy_var_high = 9
-	accurate_range = 4
-	max_range = 10
-	damage = 40
-	damage_falloff = 4
-
+// Проки для SH46
 /datum/ammo/bullet/shotgun/buckshot/shq6/on_hit_mob(mob/target_mob,obj/projectile/proj)
 	staggerstun(target_mob, proj, knockback = 1, slowdown = 1, max_range = 3)
-
-/datum/ammo/bullet/shotgun/slug/shq6
-	name = "shotgun slug"
-	handful_icon_state = "shotgun slug"
-	hud_state = "shotgun_slug"
-	ammo_behavior_flags = AMMO_BALLISTIC
-	shell_speed = 3
-	max_range = 15
-	damage = 85
-	penetration = 30
-	additional_xeno_penetration = 10
-	damage_falloff = 3
 
 /datum/ammo/bullet/shotgun/slug/shq6/on_hit_mob(mob/target_mob,obj/projectile/proj)
 	staggerstun(target_mob, proj, slowdown = 2, max_range = 5)
 
-/datum/ammo/bullet/shotgun/incendiary/shq6
-	name = "incendiary slug"
-	handful_icon_state = "incendiary slug"
-	hud_state = "shotgun_fire"
-	damage_type = BRUTE
-	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
-	max_range = 15
-	damage = 70
-	penetration = 15
-	bullet_color = COLOR_TAN_ORANGE
-
 /datum/ammo/bullet/shotgun/incendiary/shq6/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	staggerstun(target_mob, proj, knockback = 1)
 
-/datum/ammo/bullet/shotgun/flechette/shq6
-	name = "shotgun flechette shell"
-	handful_icon_state = "shotgun flechette shell"
-	icon_state = "flechette"
-	hud_state = "shotgun_flechette"
-	ammo_behavior_flags = AMMO_BALLISTIC
-	bonus_projectiles_type = /datum/ammo/bullet/shotgun/flechette/flechette_spread/shq6
-	bonus_projectiles_amount = 2
-	bonus_projectiles_scatter = 3
-	accuracy_var_low = 8
-	accuracy_var_high = 8
-	max_range = 15
-	damage = 50
-	damage_falloff = 3
-	penetration = 40
+/datum/ammo/bullet/shotgun/flechette/shq6/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(!isliving(target_mob))
+		return
 
-/datum/ammo/bullet/shotgun/flechette/flechette_spread/shq6
-	name = "additional flechette"
-	damage = 40
-	penetration = 40
-	damage_falloff = 3
+	var/mob/living/living_victim = target_mob
+	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, 3 SECONDS)

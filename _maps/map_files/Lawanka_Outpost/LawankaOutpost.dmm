@@ -20524,7 +20524,7 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/north)
 "rlv" = (
-/obj/machinery/telecomms/relay/preset/tower,
+/obj/effect/landmark/tower_relay,
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/cargo)
 "rly" = (
@@ -22763,7 +22763,7 @@
 "tdg" = (
 /obj/item/ammo_casing,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/machinery/telecomms/relay/preset/tower,
+/obj/effect/landmark/tower_relay,
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/marshalls)
 "tdr" = (

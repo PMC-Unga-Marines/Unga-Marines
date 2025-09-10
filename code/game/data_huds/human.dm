@@ -43,6 +43,8 @@
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
 		status_hud.icon_state = "dead"
 		return TRUE
+
+	var/is_bot = has_ai()
 	switch(stat)
 		if(DEAD)
 			if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
@@ -73,7 +75,10 @@
 			return TRUE
 		if(UNCONSCIOUS)
 			if(!client) //Nobody home.
-				status_hud.icon_state = "afk"
+				if(is_bot)
+					status_hud.icon_state = "ai_mob"
+				else
+					status_hud.icon_state = "afk"
 				return TRUE
 			if(has_status_effect(STATUS_EFFECT_UNCONSCIOUS)) //Should hopefully get out of it soon.
 				status_hud.icon_state = "knockout"
@@ -82,7 +87,10 @@
 			return TRUE
 		if(CONSCIOUS)
 			if(!key) //Nobody home. Shouldn't affect aghosting.
-				status_hud.icon_state = "afk"
+				if(is_bot)
+					status_hud.icon_state = "ai_mob"
+				else
+					status_hud.icon_state = "afk"
 				return TRUE
 			if(has_status_effect(STATUS_EFFECT_PARALYZED)) //I've fallen and I can't get up.
 				status_hud.icon_state = "knockdown"
@@ -257,12 +265,16 @@
 	if(species.species_flags & (IS_SYNTHETIC || HEALTH_HUD_ALWAYS_DEAD))
 		return FALSE
 
+	var/is_bot = has_ai()
 	switch(stat)
 		if(DEAD)
 			return FALSE
 		if(UNCONSCIOUS)
 			if(!client) //Nobody home.
-				simple_status_hud.icon_state = "afk"
+				if(is_bot)
+					simple_status_hud.icon_state = "ai_mob"
+				else
+					simple_status_hud.icon_state = "afk"
 				return TRUE
 			if(has_status_effect(STATUS_EFFECT_UNCONSCIOUS)) //Should hopefully get out of it soon.
 				simple_status_hud.icon_state = "knockout"
@@ -271,7 +283,10 @@
 			return TRUE
 		if(CONSCIOUS)
 			if(!key) //Nobody home. Shouldn't affect aghosting.
-				simple_status_hud.icon_state = "afk"
+				if(is_bot)
+					simple_status_hud.icon_state = "ai_mob"
+				else
+					simple_status_hud.icon_state = "afk"
 				return TRUE
 			if(has_status_effect(STATUS_EFFECT_PARALYZED)) //I've fallen and I can't get up.
 				simple_status_hud.icon_state = "knockdown"
