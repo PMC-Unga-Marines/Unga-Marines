@@ -34,7 +34,8 @@
 	if(severity >= max(health, EXPLOSION_THRESHOLD_GIB + get_soft_armor(BOMB) * 2))
 		var/oldloc = loc
 		gib()
-		create_shrapnel(oldloc, rand(8, 16), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/xeno)
+		if(mob_size > MOB_SIZE_SMALL) // cause the size is 0 and will cause errors
+			create_shrapnel(oldloc, rand(4, 8) * mob_size, direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/xeno)
 		return
 
 	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
@@ -93,27 +94,6 @@
 	if(isobj(pulling))
 		stop_pulling()
 
-	if(!COOLDOWN_CHECK(src, xeno_health_alert_cooldown))
-		return
-	//If we're alive and health is less than either the alert threshold, or the alert trigger percent, whichever is greater, and we're not on alert cooldown, trigger the hive alert
-	if(stat == DEAD || (health > max(XENO_HEALTH_ALERT_TRIGGER_THRESHOLD, maxHealth * XENO_HEALTH_ALERT_TRIGGER_PERCENT)) || xeno_caste.caste_flags & CASTE_DO_NOT_ALERT_LOW_LIFE)
-		return
-
-	var/list/filter_list = list()
-	for(var/i in hive.get_all_xenos())
-
-		var/mob/living/carbon/xenomorph/X = i
-		if(!X.client) //Don't bother if they don't have a client; also runtime filters
-			continue
-
-		if(X == src) //We don't need an alert about ourself.
-			filter_list += X //Add the xeno to the filter list
-
-		if(X.client.prefs.mute_xeno_health_alert_messages) //Build the filter list; people who opted not to receive health alert messages
-			filter_list += X //Add the xeno to the filter list
-
-	xeno_message("Our sister [name] is badly hurt with <font color='red'>([health]/[maxHealth])</font> health remaining at [AREACOORD_NO_Z(src)]!", "xenoannounce", 5, hivenumber, FALSE, src, 'sound/voice/alien/help1.ogg', TRUE, filter_list, /atom/movable/screen/arrow/silo_damaged_arrow)
-	COOLDOWN_START(src, xeno_health_alert_cooldown, XENO_HEALTH_ALERT_COOLDOWN) //set the cooldown.
 	return damage
 
 /// Handles overheal for xeno receiving damage

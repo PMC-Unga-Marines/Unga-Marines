@@ -73,6 +73,7 @@
 			GLOB.all_req_one_access[txt_access] = req_one_access
 		else
 			req_one_access = GLOB.all_req_one_access[txt_access]
+
 	add_debris_element()
 
 /obj/Destroy()
@@ -80,6 +81,25 @@
 	soft_armor = null
 	return ..()
 
+/obj/examine_tags(mob/user)
+	. = ..()
+	if(resistance_flags & INDESTRUCTIBLE)
+		.["indestructible"] = "It's completely invulnerable to damage or complete destruction. Some objects still have special interactions for xenos."
+		return // we do not want to say it's indestructible and then list 500 fucktillion things that are implied by the word "indestructible"
+	if(resistance_flags & UNACIDABLE)
+		.["[isxeno(user) ? span_xenonotice("acid-proof") : "acid-proof"]"] = "Acid does not stick to or affect this object."
+	if(resistance_flags & PLASMACUTTER_IMMUNE)
+		.["plasma cutter-proof"] = "Plasma cutters cannot destroy this object."
+	if(!isitem(src) && (resistance_flags & PROJECTILE_IMMUNE))
+		.["projectile immune"] = "Projectiles cannot damage this object."
+	if(!isxeno(user) && !isobserver(user))
+		return // humans can check the codex for most of these- xenos should be able to know them "in the moment"
+	if(resistance_flags & CRUSHER_IMMUNE)
+		.[span_xenonotice("crusher-proof")] = "Charging Crushers can't damage this object."
+	if(resistance_flags & XENO_DAMAGEABLE)
+		.[span_xenonotice("slashable")] = "Xenomorphs can slash this object."
+	else if(!isitem(src))
+		.[span_xenonotice("not slashable")] = "Xenomorphs can't slash this object. Some objects, like airlocks, have special interactions when attacked."
 
 /obj/proc/setAnchored(anchorvalue)
 	SEND_SIGNAL(src, COMSIG_OBJ_SETANCHORED, anchorvalue)
@@ -145,7 +165,13 @@
 		return TRUE
 	if((allow_pass_flags & PASS_GLASS) && (mover.pass_flags & PASS_GLASS))
 		return NONE
-	if(!density || !(atom_flags & ON_BORDER) || !(direction & dir) || (mover.status_flags & INCORPOREAL))
+	if(!density)
+		return NONE
+	if(!(atom_flags & ON_BORDER))
+		return NONE
+	if(mover.status_flags & INCORPOREAL)
+		return NONE
+	if(!(direction & dir))
 		return NONE
 
 	knownblockers += src
@@ -236,6 +262,62 @@
 			setAnchored(var_value)
 			return TRUE
 	return ..()
+
+/obj/vv_get_dropdown()
+	. = ..()
+	VV_DROPDOWN_OPTION("", "---------")
+	VV_DROPDOWN_OPTION(VV_HK_MASS_DEL_TYPE, "Delete all of type")
+	VV_DROPDOWN_OPTION(VV_HK_OSAY, "Object Say")
+
+/obj/vv_do_topic(list/href_list)
+	. = ..()
+
+	if(!.)
+		return
+
+	if(href_list[VV_HK_OSAY])
+		if(check_rights(R_FUN, FALSE))
+			SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/display_tags, src)
+
+	if(href_list[VV_HK_MASS_DEL_TYPE]) // todo why isnt this just invoking the delete all verb? or why have that one exist?
+		if(!check_rights(R_DEBUG|R_SERVER))
+			return
+		var/action_type = tgui_alert(usr, "Strict type ([type]) or type and all subtypes?",,list("Strict type","Type and subtypes","Cancel"))
+		if(action_type == "Cancel" || !action_type)
+			return
+
+		if(tgui_alert(usr, "Are you really sure you want to delete all objects of type [type]?",,list("Yes","No")) != "Yes")
+			return
+
+		if(tgui_alert(usr, "Second confirmation required. Delete?",,list("Yes","No")) != "Yes")
+			return
+
+		var/O_type = type
+		switch(action_type)
+			if("Strict type")
+				var/i = 0
+				for(var/obj/Obj in world)
+					if(Obj.type == O_type)
+						i++
+						qdel(Obj)
+					CHECK_TICK
+				if(!i)
+					to_chat(usr, "No objects of this type exist")
+					return
+				log_admin("[key_name(usr)] deleted all objects of type [O_type] ([i] objects deleted) ")
+				message_admins(span_notice("[key_name(usr)] deleted all objects of type [O_type] ([i] objects deleted) "))
+			if("Type and subtypes")
+				var/i = 0
+				for(var/obj/Obj in world)
+					if(istype(Obj,O_type))
+						i++
+						qdel(Obj)
+					CHECK_TICK
+				if(!i)
+					to_chat(usr, "No objects of this type exist")
+					return
+				log_admin("[key_name(usr)] deleted all objects of type or subtype of [O_type] ([i] objects deleted) ")
+				message_admins(span_notice("[key_name(usr)] deleted all objects of type or subtype of [O_type] ([i] objects deleted) "))
 
 ///Called to return an internally stored item, currently for the deployable element
 /obj/proc/get_internal_item()
@@ -365,9 +447,13 @@
 	var/obj/item/internal_item = get_internal_item()
 	if(!internal_item)
 		return FALSE
-	if(internal_item.item_flags & DEPLOYED_NO_PICKUP)
+	if(internal_item.deploy_flags & DEPLOYED_NO_PICKUP)
 		if(user)
 			balloon_alert(user, "Cannot disassemble")
 		return FALSE
 	SEND_SIGNAL(src, COMSIG_ITEM_UNDEPLOY, user)
+	return TRUE
+
+/// Handles successful disassembly tasks on a deployable, cannot be used for failure checks as disassembly has completed already
+/obj/proc/post_disassemble(mob/user)
 	return TRUE

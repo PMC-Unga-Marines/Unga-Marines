@@ -1,7 +1,42 @@
+/// Datum which stores information about a matrix decomposed with decompose().
+/datum/decompose_matrix
+	///?
+	var/scale_x = 1
+	///?
+	var/scale_y = 1
+	///?
+	var/rotation = 0
+	///?
+	var/shift_x = 0
+	///?
+	var/shift_y = 0
+
+/// Decomposes a matrix into scale, shift and rotation.
+///
+/// If other operations were applied on the matrix, such as shearing, the result
+/// will not be precise.
+///
+/// Negative scales are now supported. =)
+/matrix/proc/decompose()
+	var/datum/decompose_matrix/decompose_matrix = new
+	. = decompose_matrix
+	var/flip_sign = (a*e - b*d < 0)? -1 : 1 // Det < 0 => only 1 axis is flipped - start doing some sign flipping
+	// If both axis are flipped, nothing bad happens and Det >= 0, it just treats it like a 180° rotation
+	// If only 1 axis is flipped, we need to flip one direction - in this case X, so we flip a, b and the x scaling
+	decompose_matrix.scale_x = sqrt(a * a + d * d) * flip_sign
+	decompose_matrix.scale_y = sqrt(b * b + e * e)
+	decompose_matrix.shift_x = c
+	decompose_matrix.shift_y = f
+	if(!decompose_matrix.scale_x || !decompose_matrix.scale_y)
+		return
+	// If only translated, scaled and rotated, a/xs == e/ys and -d/xs == b/xy
+	var/cossine = (a/decompose_matrix.scale_x + e/decompose_matrix.scale_y) / 2
+	var/sine = (b/decompose_matrix.scale_y - d/decompose_matrix.scale_x) / 2 * flip_sign
+	decompose_matrix.rotation = arctan(cossine, sine) * flip_sign
+
 /matrix/proc/TurnTo(old_angle, new_angle)
 	. = new_angle - old_angle
 	Turn(.) //BYOND handles cases such as -270, 360, 540 etc. DOES NOT HANDLE 180 TURNS WELL, THEY TWEEN AND LOOK LIKE SHIT
-
 
 /// Does a jitter animation, with a few settings so as to allow changing the animation as needed:
 /// - jitter: The amount of jitter in this animation. Extremely high values, such as 500 or 1000, are recommended.
@@ -15,7 +50,6 @@
 	var/final_pixel_y = initial(pixel_y)
 	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff , time = jitter_duration, loop = jitter_loops, flags = ANIMATION_PARALLEL)
 	animate(pixel_x = final_pixel_x , pixel_y = final_pixel_y , time = jitter_duration, loop = jitter_loops)
-
 
 /atom/proc/SpinAnimation(speed = 10, loops = -1, clockwise = 1, segments = 3, parallel = TRUE)
 	if(!segments)
@@ -42,6 +76,13 @@
 		//doesn't have an object argument because this is "Stacking" with the animate call above
 		//3 billion% intentional
 
+/**
+ * Shear the transform on either or both axes.
+ * * x - X axis shearing
+ * * y - Y axis shearing
+ */
+/matrix/proc/Shear(x, y)
+	return Multiply(matrix(1, x, 0, y, 1, 0))
 
 //Dumps the matrix data in format a-f
 /matrix/proc/tolist()
@@ -116,17 +157,14 @@ list(-1,0,0,0, 0,-1,0,0, 0,0,-1,0, 0,0,0,1, 1,1,1,0)
 list(0.393,0.349,0.272,0, 0.769,0.686,0.534,0, 0.189,0.168,0.131,0, 0,0,0,1, 0,0,0,0)
 */
 
-
 //Does nothing
 /proc/color_matrix_identity()
 	return list(1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
-
 
 //Adds/subtracts overall lightness
 //0 is identity, 1 makes everything white, -1 makes everything black
 /proc/color_matrix_lightness(power)
 	return list(1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1, power,power,power,0)
-
 
 //Changes distance hues have from grey while maintaining the overall lightness. Greys are unaffected.
 //1 is identity, 0 is greyscale, >1 oversaturates colors
@@ -138,13 +176,11 @@ list(0.393,0.349,0.272,0, 0.769,0.686,0.534,0, 0.189,0.168,0.131,0, 0,0,0,1, 0,0
 
 	return list(R + value,R,R,0, G,G + value,G,0, B,B,B + value,0, 0,0,0,1, 0,0,0,0)
 
-
 //Changes distance colors have from rgb(127,127,127) grey
 //1 is identity. 0 makes everything grey >1 blows out colors and greys
 /proc/color_matrix_contrast(value)
 	var/add = (1 - value) * 0.5
 	return list(value,0,0,0, 0,value,0,0, 0,0,value,0, 0,0,0,1, add,add,add,0)
-
 
 //Moves all colors angle degrees around the color wheel while maintaining intensity of the color and not affecting greys
 //0 is identity, 120 moves reds to greens, 240 moves reds to blues
@@ -160,23 +196,19 @@ round(cos_inv_third+sqrt3_sin, 0.001), round(cos_inv_third-sqrt3_sin, 0.001), ro
 0,0,0,1,
 0,0,0,0)
 
-
 //These next three rotate values about one axis only
 //x is the red axis, y is the green axis, z is the blue axis.
 /proc/color_matrix_rotate_x(angle)
 	var/sinval = round(sin(angle), 0.001); var/cosval = round(cos(angle), 0.001)
 	return list(1,0,0,0, 0,cosval,sinval,0, 0,-sinval,cosval,0, 0,0,0,1, 0,0,0,0)
 
-
 /proc/color_matrix_rotate_y(angle)
 	var/sinval = round(sin(angle), 0.001); var/cosval = round(cos(angle), 0.001)
 	return list(cosval,0,-sinval,0, 0,1,0,0, sinval,0,cosval,0, 0,0,0,1, 0,0,0,0)
 
-
 /proc/color_matrix_rotate_z(angle)
 	var/sinval = round(sin(angle), 0.001); var/cosval = round(cos(angle), 0.001)
 	return list(cosval,sinval,0,0, -sinval,cosval,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
-
 
 //Returns a matrix addition of A with B
 /proc/color_matrix_add(list/A, list/B)
@@ -189,9 +221,6 @@ round(cos_inv_third+sqrt3_sin, 0.001), round(cos_inv_third-sqrt3_sin, 0.001), ro
 	for(var/value in 1 to 20)
 		output[value] = A[value] + B[value]
 	return output
-
-
-
 
 //Returns a matrix multiplication of A with B
 /proc/color_matrix_multiply(list/A, list/B)
@@ -209,34 +238,6 @@ round(cos_inv_third+sqrt3_sin, 0.001), round(cos_inv_third-sqrt3_sin, 0.001), ro
 		for(x in 1 to 4)
 			output[offset+x] = round(A[offset+1]*B[x] + A[offset+2]*B[x+4] + A[offset+3]*B[x+8] + A[offset+4]*B[x+12]+(y==5?B[x+16]:0), 0.001)
 	return output
-
-//word of warning: using a matrix like this as a color value will simplify it back to a string after being set
-/proc/color_hex2color_matrix(string)
-	var/length = length(string)
-	if((length != 7 && length != 9) || length != length_char(string))
-		return color_matrix_identity()
-	var/r = hex2num(copytext(string, 2, 4))/255
-	var/g = hex2num(copytext(string, 4, 6))/255
-	var/b = hex2num(copytext(string, 6, 8))/255
-	var/a = 1
-	if(length == 9)
-		a = hex2num(copytext(string, 8, 10))/255
-	if(!isnum(r) || !isnum(g) || !isnum(b) || !isnum(a))
-		return color_matrix_identity()
-	return list(r, 0, 0, 0, 0, g, 0, 0, 0, 0, b, 0, 0, 0, 0, a, 0, 0, 0, 0)
-
-
-///Converts a hex color string to a color matrix.
-/proc/color_matrix_from_string(string)
-	if(!string || !istext(string))
-		return color_matrix_identity()
-
-	var/string_r = hex2num(copytext(string, 2, 4)) / 255
-	var/string_g = hex2num(copytext(string, 4, 6)) / 255
-	var/string_b = hex2num(copytext(string, 6, 8)) / 255
-
-	return list(string_r, 0, 0, 0, 0, string_g, 0, 0, 0, 0, string_b, 0, 0, 0, 0, 1, 0, 0, 0, 0)
-
 
 /*Changing/updating a mob's client color matrices. These render over the map window and affect most things the player sees, except things like inventory,
 text popups, HUD, and some fullscreens. Code based on atom filter code, since these have similar issues with application order - for ex. if you have

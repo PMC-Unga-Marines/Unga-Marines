@@ -175,6 +175,38 @@
 	aim_speed_mod = 0.2
 	wield_delay_mod = 0.2
 
+// Marine mags for AK
+/obj/item/ammo_magazine/rifle/type16
+	name = "\improper Type-16 rifle magazine (6.02x41)"
+	desc = "A 40 round 6.02x41mm magazine."
+	caliber = CALIBER_602X41
+	icon_state = "ak_40"
+	icon_state_mini = "mag_rifle_brown"
+	bonus_overlay = "ak_40"
+	default_ammo = /datum/ammo/bullet/rifle/type16
+	max_rounds = 40
+	scatter_mod = 2
+	wield_delay_mod = 0.5 SECONDS
+
+/obj/item/ammo_magazine/rifle/type16/m2
+	name = "\improper Type-16 сarbine magazine (6.02x41)"
+	desc = "A 30 round 6.02x41mm cal magazine."
+	icon_state = "ak_30_black"
+	icon_state_mini = "mag_rifle"
+	bonus_overlay = "ak_30_black"
+	max_rounds = 30
+	scatter_mod = 0
+	wield_delay_mod = 0
+
+/obj/item/ammo_magazine/rifle/type16/extended
+	name = "\improper Type-16 extended magazine (6.02x41)"
+	desc = "A 50 round 6.02x41mm cal magazine."
+	icon_state = "ak47_ext"
+	icon_state_mini = "mag_rifle"
+	bonus_overlay = "ak47_ex"
+	max_rounds = 50
+	wield_delay_mod = 1 SECONDS
+
 // RPD
 
 /obj/item/ammo_magazine/rifle/lmg_d
@@ -329,7 +361,7 @@
 //SPOTTING RIFLE AMMUNITION
 
 /obj/item/ammo_magazine/rifle/sg153
-	name = "\improper SG-153 magazine (12x7mm)"
+	name = "\improper SG-153 magazine (12x7mm Smart Magnum)"
 	desc = "A magazine filled with 12x7mm lethal smart rounds, these will do nothing other than pack a big punch."
 	caliber = CALIBER_12X7
 	icon_state = "sg153"
@@ -339,37 +371,37 @@
 	icon_state_mini = "mag_sg29"
 
 /obj/item/ammo_magazine/rifle/sg153/highimpact
-	name = "\improper SG-153 high impact magazine (12x7mm)"
+	name = "\improper SG-153 high impact magazine (12x7mm Smart Magnum)"
 	desc = "A magazine filled with 12x7mm high impact smart rounds, these will likely stagger and slow anything they hit."
 	icon_state = "sg153_hi"
 	default_ammo = /datum/ammo/bullet/sg153/highimpact
 
 /obj/item/ammo_magazine/rifle/sg153/heavyrubber
-	name = "\improper SG-153 heavy rubber magazine (12x7mm)"
+	name = "\improper SG-153 heavy rubber magazine (12x7mm Smart Magnum)"
 	desc = "A magazine filled with 12x7mm heavy rubber smart rounds, these will likely stun and displace anything they hit."
 	icon_state = "sg153_hr"
 	default_ammo = /datum/ammo/bullet/sg153/heavyrubber
 
 /obj/item/ammo_magazine/rifle/sg153/plasmaloss
-	name = "\improper SG-153 tanglefoot magazine (12x7mm)"
+	name = "\improper SG-153 tanglefoot magazine (12x7mm Smart Magnum)"
 	desc = "A magazine filled with 12x7mm smart rounds tipped with 'Tanglefoot' poison, these rounds will drain the energy out of targets they hit."
 	icon_state = "sg153_hr"
 	default_ammo = /datum/ammo/bullet/sg153/plasmaloss
 
 /obj/item/ammo_magazine/rifle/sg153/tungsten
-	name = "\improper SG-153 tungsten magazine (12x7mm)"
+	name = "\improper SG-153 tungsten magazine (12x7mm Smart Magnum)"
 	desc = "A magazine filled with 12x7mm tungsten smart rounds, these rounds will massively knock back any target it hits."
 	icon_state = "sg153_tg"
 	default_ammo = /datum/ammo/bullet/sg153/tungsten
 
 /obj/item/ammo_magazine/rifle/sg153/incendiary
-	name = "\improper SG-153 incendiary magazine (12x7mm)"
+	name = "\improper SG-153 incendiary magazine (12x7mm Smart Magnum)"
 	desc = "A magazine filled with 12x7mm incendiary smart rounds, these rounds will set alight anything they hit."
 	icon_state = "sg153_ic"
 	default_ammo = /datum/ammo/bullet/sg153/incendiary
 
 /obj/item/ammo_magazine/rifle/sg153/flak
-	name = "\improper SG-153 flak magazine (12x7mm)"
+	name = "\improper SG-153 flak magazine (12x7mm Smart Magnum)"
 	desc = "A magazine filled with 12x7mm flak smart rounds, these rounds will airburst on contact with an organic target, causing damage in a small area near the target."
 	icon_state = "sg153_fl"
 	default_ammo = /datum/ammo/bullet/sg153/flak
@@ -722,6 +754,7 @@
 /obj/item/ammo_magazine/icc_mg/packet
 	name = "box of 10x26mm"
 	desc = "A box containing 500 rounds of 10x26mm caseless."
+	icon = 'icons/obj/items/ammo/packet.dmi'
 	icon_state = "box_minimi"
 	current_rounds = 500
 	max_rounds = 500

@@ -65,7 +65,7 @@
 	to_chat(src, span_danger("*BZZZT*"))
 	to_chat(src, span_warning("Warning: Electromagnetic pulse detected."))
 
-/mob/living/silicon/apply_effect(effect = 0, effecttype = STUN, updating_health = FALSE)
+/mob/living/silicon/apply_effect(effect = 0, effect_type = EFFECT_STUN, updating_health = FALSE)
 	return FALSE
 
 /mob/living/silicon/adjust_tox_loss(amount)
@@ -74,7 +74,7 @@
 /mob/living/silicon/set_tox_loss(amount)
 	return FALSE
 
-/mob/living/silicon/adjust_clone_Loss(amount)
+/mob/living/silicon/adjust_clone_loss(amount)
 	return FALSE
 
 /mob/living/silicon/set_clone_loss(amount)
@@ -104,9 +104,6 @@
 	switch(hud_choice)
 		if("Medical HUD")
 			H = GLOB.huds[DATA_HUD_MEDICAL_OBSERVER]
-		if("Security HUD")
-			H = GLOB.huds[DATA_HUD_SECURITY_ADVANCED]
-			HUD_nbr = 2
 		if("Squad HUD")
 			if(GLOB.huds[faction] == FACTION_TERRAGOV)
 				H = DATA_HUD_SQUAD_TERRAGOV

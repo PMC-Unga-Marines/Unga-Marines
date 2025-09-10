@@ -32,10 +32,12 @@
 
 	var/static/list/connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
+		COMSIG_TURF_JUMP_ENDED_HERE = PROC_REF(on_jump_landing),
 	)
 	AddElement(/datum/element/connect_loc, connections)
 	AddComponent(/datum/component/submerge_modifier, 10)
 	set_fire(new_burn_ticks, new_burn_level, f_color, fire_stacks, fire_damage)
+	notify_ai_hazard()
 
 /obj/fire/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -126,6 +128,11 @@
 /obj/fire/proc/on_cross(datum/source, atom/movable/crosser, oldloc, oldlocs)
 	SIGNAL_HANDLER
 	affect_atom(crosser)
+
+///Effects applied to anything that jumps onto the fire
+/obj/fire/proc/on_jump_landing(datum/source, mob/living/jumper)
+	SIGNAL_HANDLER
+	affect_atom(jumper)
 
 ///Applies effects to an atom
 /obj/fire/proc/affect_atom(atom/affected)

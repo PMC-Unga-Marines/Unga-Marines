@@ -7,6 +7,9 @@ $include resources.txt
 ## Server name: This appears at the top of the screen in-game.
 SERVER_NAME Something
 
+## The address shown for the game server in the TGS check command
+# PUBLIC_ADDRESS ss13.example.com:2506
+
 ## Hosted by name for unix platforms.
 HOSTEDBY yournamehere
 

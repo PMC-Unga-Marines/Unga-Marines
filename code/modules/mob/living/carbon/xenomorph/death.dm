@@ -1,7 +1,7 @@
 /mob/living/carbon/xenomorph/proc/death_cry()
 	playsound(loc, prob(50) ? 'sound/voice/alien/death.ogg' : 'sound/voice/alien/death2.ogg', 25, 1)
 
-/mob/living/carbon/xenomorph/death(gibbing, deathmessage = "lets out a waning guttural screech, green blood bubbling from its maw.", silent)
+/mob/living/carbon/xenomorph/death(gibbing = FALSE, deathmessage = "lets out a waning guttural screech, green blood bubbling from its maw.", silent = FALSE)
 	return ..() //we're just changing the death message
 
 /mob/living/carbon/xenomorph/on_death()
@@ -104,6 +104,7 @@
 
 /mob/living/carbon/xenomorph/spawn_gibs()
 	xgibs(get_turf(src))
+	new /obj/effect/temp_visual/gib_particles(get_turf(src), get_blood_color())
 
 /mob/living/carbon/xenomorph/dust_animation()
 	new /obj/effect/overlay/temp/dust_animation(loc, 0, src, "dust-a")

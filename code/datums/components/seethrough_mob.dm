@@ -54,7 +54,12 @@
 	SIGNAL_HANDLER
 
 	var/mob/fool = parent
-	var/icon/current_mob_icon = icon(fool.icon, fool.icon_state)
+	/* TODO: UNCOMMENT ON 516 UPDATE
+	var/datum/hud/our_hud = fool.hud_used
+	for(var/atom/movable/screen/plane_master/seethrough as anything in our_hud.get_true_plane_masters(SEETHROUGH_PLANE))
+		seethrough.unhide_plane(fool)
+	*/
+	var/icon/current_mob_icon = icon(fool.icon, fool.icon_state) // TODO: DELETE ON 516 UPDATE
 	render_source_atom.pixel_x = -fool.pixel_x
 	render_source_atom.pixel_y = ((current_mob_icon.Height() - 32) * 0.5)
 	render_source_atom.name = "seethrough" //So our name is not just "movable" when looking at VVs

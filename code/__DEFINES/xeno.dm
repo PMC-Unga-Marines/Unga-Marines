@@ -2,6 +2,10 @@
 #define IGNORE_WEED_REMOVAL (1<<0)
 #define CRITICAL_STRUCTURE (1<<1)
 #define DEPART_DESTRUCTION_IMMUNE (1<<2)
+///Structure will warn when hostiles are nearby
+#define XENO_STRUCT_WARNING_RADIUS (1<<3)
+///Structure will warn when damaged
+#define XENO_STRUCT_DAMAGE_ALERT (1<<4)
 
 //Weeds defines
 #define WEED "weed sac"
@@ -23,10 +27,9 @@
 #define ALIEN_NEST "alien nest"
 #define GROWTH_WALL "growth wall"
 #define GROWTH_DOOR "growth door"
-#define RESIN_WALL_BOMB "bombproof resin wall"
 #define RESIN_WALL_BULLET "bulletproof resin wall"
 #define RESIN_WALL_FIRE "fireproof resin wall"
-#define RESIN_WALL_MELEE "meleeproof resin wall"
+#define RESIN_WALL_HARDY "hardy resin wall"
 
 //Xeno reagents defines
 #define REAGENT_NEUROTOXIN "Neurotoxin"
@@ -119,10 +122,9 @@ GLOBAL_LIST_INIT(plant_images_list, list(
 //List of resin structure images
 GLOBAL_LIST_INIT(resin_images_list, list(
 	RESIN_WALL = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL),
-	RESIN_WALL_BOMB = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_BOMB),
 	RESIN_WALL_BULLET = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_BULLET),
 	RESIN_WALL_FIRE = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_FIRE),
-	RESIN_WALL_MELEE = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_MELEE),
+	RESIN_WALL_HARDY = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_WALL_HARDY),
 	STICKY_RESIN = image('icons/Xeno/actions/construction.dmi', icon_state = STICKY_RESIN),
 	RESIN_DOOR = image('icons/Xeno/actions/construction.dmi', icon_state = RESIN_DOOR),
 	ALIEN_NEST = image('icons/Xeno/actions/construction.dmi', icon_state = ALIEN_NEST)
@@ -138,14 +140,14 @@ GLOBAL_LIST_INIT(panther_toxin_type_list, list(
 //xeno upgrade flags
 ///Message the hive when we buy this upgrade
 #define UPGRADE_FLAG_MESSAGE_HIVE (1<<0)
-#define UPGRADE_FLAG_ONETIME (1<<0)
+#define UPGRADE_FLAG_ONETIME (1<<1)
 
 GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
-	/mob/living/carbon/xenomorph/beetle/ai,
-	/mob/living/carbon/xenomorph/mantis/ai,
-	/mob/living/carbon/xenomorph/scorpion/ai,
-	/mob/living/carbon/xenomorph/nymph/ai,
-	/mob/living/carbon/xenomorph/baneling/ai,
+	/mob/living/carbon/xenomorph/beetle/ai = 1,
+	/mob/living/carbon/xenomorph/mantis/ai = 1,
+	/mob/living/carbon/xenomorph/scorpion/ai = 1,
+	/mob/living/carbon/xenomorph/nymph/ai = 1,
+	/mob/living/carbon/xenomorph/baneling/ai = 1,
 ))
 
 /// Used by the is_valid_for_resin_structure proc.
@@ -208,10 +210,18 @@ GLOBAL_LIST_INIT(xeno_utility_upgrades, list(
 #define PRECRUSH_ENTANGLED -3
 
 #define SPIDERLING_RECALL "recall spiderling"
-#define SPIDERLING_SEEK_CLOSEST "seeking closest and attack order" //not xeno-usable
 #define SPIDERLING_ATTACK "seek and attack order"
 
 #define SPIDERLING_WITHER_RANGE 15
 
 /// Life runs every 2 seconds, but we don't want to multiply all healing by 2 due to seconds_per_tick
 #define XENO_PER_SECOND_LIFE_MOD 0.5
+
+//How long the alert directional pointer lasts when structures are damaged
+#define XENO_STRUCTURE_DAMAGE_POINTER_DURATION 10 SECONDS
+///How frequently the damage alert can go off
+#define XENO_STRUCTURE_HEALTH_ALERT_COOLDOWN 30 SECONDS
+///How frequently the proximity alert can go off
+#define XENO_STRUCTURE_DETECTION_COOLDOWN 30 SECONDS
+///Proxy detection radius
+#define XENO_STRUCTURE_DETECTION_RANGE 10

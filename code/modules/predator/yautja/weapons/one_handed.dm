@@ -163,10 +163,10 @@
 		if(!line_of_sight(user, target))
 			continue
 
-		user.visible_message(span_highdanger("[user] slices open the guts of [target]!"), span_highdanger("You slice open the guts of [target]!"))
+		user.visible_message(span_userdanger("[user] slices open the guts of [target]!"), span_userdanger("You slice open the guts of [target]!"))
 		target.spawn_gibs()
 		playsound(get_turf(target), 'sound/effects/gibbed.ogg', 30, 1)
-		target.apply_effect(1, WEAKEN)
+		target.apply_effect(1, EFFECT_PARALYZE)
 		target.apply_damage(force * 3, BRUTE, "chest", MELEE, FALSE, FALSE, TRUE, 65)
 
 		log_attack("[key_name(target)] was sliced by [key_name(user)] whirling their scythe.")
@@ -209,7 +209,6 @@
 
 	var/on = 1
 
-	var/force_wielded = 30
 	var/force_unwielded = 10
 	var/force_storage = 5
 	var/throwforce_base = 32
@@ -280,7 +279,7 @@
 	. = ..()
 	if(!.)
 		return
-	force = force_wielded
+	force = force_activated
 	update_icon()
 
 /obj/item/weapon/yautja/combistick/unwield(mob/user)
@@ -422,7 +421,7 @@
 		return TRUE
 
 	if(user.species.name == victim.species.name)
-		to_chat(user, span_highdanger("ARE YOU OUT OF YOUR MIND!?"))
+		to_chat(user, span_userdanger("ARE YOU OUT OF YOUR MIND!?"))
 		return
 
 	if(issynth(victim) || isrobot(victim) || victim.species.species_flags & ROBOTIC_LIMBS)

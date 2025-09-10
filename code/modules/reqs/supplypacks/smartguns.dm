@@ -49,7 +49,7 @@
 	cost = 150
 
 /datum/supply_packs/smartguns/sg62
-	name = "SG-62 Smart Target Rifle"
+	name = "SG-62 smart target rifle"
 	contains = list(/obj/item/weapon/gun/rifle/sg62)
 	cost = 400
 
@@ -61,6 +61,11 @@
 /datum/supply_packs/smartguns/box_10x27mm
 	name = "SG-62 smart target rifle ammo box"
 	contains = list(/obj/item/ammo_magazine/packet/sg62)
+	cost = 50
+
+/datum/supply_packs/smartguns/smartspotting_rifle_ammo_bin
+	name = "SG-153 spotting rifle ammo bin"
+	contains = list(/obj/item/ammo_magazine/packet/sg153)
 	cost = 50
 
 /datum/supply_packs/smartguns/sg153_ammo

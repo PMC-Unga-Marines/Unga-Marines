@@ -27,7 +27,8 @@
 
 /mob/living/carbon/xenomorph/carrier/get_status_tab_items()
 	. = ..()
-	. += "Reserved Huggers: [xeno_caste.huggers_reserved] / [xeno_caste.huggers_max]"
+	. += "Stored Facehuggers: [huggers] / [xeno_caste.huggers_max]"
+	. += "Reserved Facehuggers: [xeno_caste.huggers_reserved] / [xeno_caste.huggers_max]"
 
 /mob/living/carbon/xenomorph/carrier/update_icons()
 	. = ..()
@@ -92,3 +93,24 @@
 	F.ghostize()
 	F.death(deathmessage = "climb on the carrier", silent = TRUE)
 	qdel(F)
+
+/mob/living/carbon/xenomorph/carrier/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/carrier/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/carrier/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/carrier/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/carrier/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/carrier/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/carrier/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

@@ -23,7 +23,6 @@
 /mob/living/carbon/xenomorph/widow/proc/postattack(mob/living/source, atom/target, damage)
 	SIGNAL_HANDLER
 	SEND_SIGNAL(src, COMSIG_SPIDERLING_CHANGE_ALL_ORDER, SPIDERLING_ATTACK, target)
-	SEND_SIGNAL(src, COMSIG_SPIDERLING_CHANGE_ALL_ORDER, SPIDERLING_ATTACK, target)
 
 /mob/living/carbon/xenomorph/widow/buckle_mob(mob/living/buckling_mob, force = FALSE, check_loc = TRUE, lying_buckle = FALSE, hands_needed = 0, target_hands_needed = 0, silent)
 	if(!force)
@@ -41,7 +40,7 @@
 		return
 	return ..()
 
-/mob/living/carbon/xenomorph/widow/death(gibbing, deathmessage, silent)
+/mob/living/carbon/xenomorph/widow/death(gibbing, deathmessage = "lets out a waning guttural screech, green blood bubbling from its maw.", silent)
 	unbuckle_all_mobs(TRUE) //RELEASE THE HORDE
 	return ..()
 
@@ -58,3 +57,24 @@
 	for(var/mob/living/carbon/xenomorph/spider AS in create_spiderling_action.spiderlings)
 		spider.revive(TRUE)
 		spider.forceMove(destination)
+
+/mob/living/carbon/xenomorph/widow/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/widow/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/widow/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/widow/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/widow/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/widow/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/widow/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

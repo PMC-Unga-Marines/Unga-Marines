@@ -6,6 +6,7 @@
 	desc = "A square metal surface resting on four legs. Useful to put stuff on. Can be flipped in emergencies to act as cover."
 	icon = 'icons/obj/smooth_objects/table_regular.dmi'
 	icon_state = "table_regular-0"
+	base_icon_state = "table_regular"
 	density = TRUE
 	anchored = TRUE
 	layer = TABLE_LAYER
@@ -16,7 +17,6 @@
 	hit_sound = 'sound/effects/metalhit.ogg'
 	coverage = 10
 	smoothing_flags = SMOOTH_BITMASK
-	base_icon_state = "table_regular"
 	max_integrity = 40
 	smoothing_groups = list(SMOOTH_GROUP_TABLES_GENERAL)
 	canSmoothWith = list(SMOOTH_GROUP_TABLES_GENERAL)
@@ -28,8 +28,6 @@
 	var/table_status = TABLE_STATUS_FIRM
 	/// What type of resource will we drop on destroy?
 	var/sheet_type = /obj/item/stack/sheet/metal
-	/// Used for table flip icons
-	var/table_prefix = ""
 	/// Is the table reinforced?
 	var/reinforced = FALSE
 	/// Is the table flipped?
@@ -41,11 +39,8 @@
 	. = ..()
 	for(var/obj/structure/table/evil_table in loc)
 		if(evil_table != src)
-			stack_trace("Duplicate table found in ([x], [y], [z])")
+			stack_trace("Duplicate table found in (x = [x], y = [y], z = [z])")
 			qdel(evil_table)
-	if(!flipped)
-		update_icon()
-		update_adjacent()
 	var/static/list/connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
 		COMSIG_ATOM_EXIT = PROC_REF(on_try_exit),
@@ -82,7 +77,7 @@
 			ttype++
 			tabledirs |= direction
 
-	icon_state = "[table_prefix]flip[ttype]"
+	icon_state = "[base_icon_state]_flip_[ttype]"
 	if(ttype == 1)
 		if(tabledirs & turn(dir, 90))
 			icon_state += "-"
@@ -160,7 +155,7 @@
 
 ///Updates connected tables when required
 /obj/structure/table/proc/update_adjacent(location = loc)
-	for(var/direction in CARDINAL_ALL_DIRS)
+	for(var/direction in CARDINAL_DIRS)
 		var/obj/structure/table/table = locate(/obj/structure/table, get_step(location, direction))
 		if(!table)
 			continue
@@ -169,7 +164,7 @@
 ///Snowflake check to let ravagers kill tables
 /obj/structure/table/proc/on_cross(datum/source, atom/movable/O, oldloc, oldlocs)
 	SIGNAL_HANDLER
-	if(!istype(O, /mob/living/carbon/xenomorph/ravager))
+	if(!isxenoravager(O))
 		return
 	var/mob/living/carbon/xenomorph/M = O
 	if(!M.stat) //No dead xenos jumpin on the bed~
@@ -177,19 +172,19 @@
 		deconstruct(FALSE)
 
 /obj/structure/table/proc/straight_table_check(direction)
-	var/obj/structure/table/T
+	var/obj/structure/table/our_table
 	for(var/angle in list(-90, 90))
-		T = locate() in get_step(loc, turn(direction, angle))
-		if(T && !T.flipped)
+		our_table = locate() in get_step(loc, turn(direction, angle))
+		if(our_table && !our_table.flipped)
 			return FALSE
-	T = locate() in get_step(loc, direction)
-	if(!T || T.flipped)
+	our_table = locate() in get_step(loc, direction)
+	if(!our_table || our_table.flipped)
 		return TRUE
-	if(istype(T, /obj/structure/table/reinforced))
-		var/obj/structure/table/reinforced/R = T
-		if(R.table_status == TABLE_STATUS_FIRM)
+	if(istype(our_table, /obj/structure/table/reinforced))
+		var/obj/structure/table/reinforced/our_reinforced_table = our_table
+		if(our_reinforced_table.table_status == TABLE_STATUS_FIRM)
 			return FALSE
-	return T.straight_table_check(direction)
+	return our_table.straight_table_check(direction)
 
 /obj/structure/table/verb/do_flip()
 	set name = "Flip table"
@@ -223,12 +218,12 @@
 	if(direction)
 		L.Add(direction)
 	else
-		L.Add(turn(src.dir,-90))
-		L.Add(turn(src.dir,90))
+		L.Add(turn(dir,-90))
+		L.Add(turn(dir,90))
 	for(var/new_dir in L)
 		var/obj/structure/table/T = locate() in get_step(loc, new_dir)
 		if(T)
-			if(T.flipped && T.dir == src.dir && !T.unflipping_check(new_dir))
+			if(T.flipped && T.dir == dir && !T.unflipping_check(new_dir))
 				return FALSE
 	for(var/obj/structure/S in loc)
 		if((S.atom_flags & ON_BORDER) && S.density && S != src) //We would put back on a structure that wouldn't allow it
@@ -310,19 +305,18 @@
 		return min(obj_integrity, 40)
 	return 0
 
+/// The flip() proc HAS to be run after smooth_icon() is completed or else we will get runtimes.
+/obj/structure/table/proc/on_icon_smoothed()
+	SIGNAL_HANDLER
+	flip(dir, TRUE)
+	UnregisterSignal(src, COMSIG_ATOM_SMOOTHED_ICON)
+
 /obj/structure/table/flipped
-	flipped = TRUE //Just not to get the icon updated on Initialize()
 	coverage = 60
 
 /obj/structure/table/flipped/Initialize(mapload)
 	. = ..()
-	flipped = FALSE //We'll properly flip it in LateInitialize()
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/structure/table/flipped/LateInitialize()
-	. = ..()
-	if(!flipped)
-		flip(dir, TRUE)
+	RegisterSignal(src, COMSIG_ATOM_SMOOTHED_ICON, PROC_REF(on_icon_smoothed))
 
 /*
 * Wooden tables
@@ -335,12 +329,11 @@
 	sheet_type = /obj/item/stack/sheet/wood
 	parts = /obj/item/frame/table/wood
 	base_icon_state = "wood_table_reinforced"
-	table_prefix = "wood"
 	hit_sound = 'sound/effects/woodhit.ogg'
 	max_integrity = 20
 
 /obj/structure/table/wood/add_debris_element()
-	AddElement(/datum/element/debris, DEBRIS_WOOD, -10, 5)
+	AddElement(/datum/element/debris, DEBRIS_WOOD, -40, 5)
 
 /obj/structure/table/wood/footstep_override(atom/movable/source, list/footstep_overrides)
 	footstep_overrides[FOOTSTEP_WOOD] = layer
@@ -351,7 +344,6 @@
 	icon = 'icons/obj/smooth_objects/fancy_table.dmi'
 	icon_state = "fancy_table-0"
 	base_icon_state = "fancy_table"
-	table_prefix = "fwood"
 	parts = /obj/item/frame/table/fancywood
 
 /obj/structure/table/wood/rustic
@@ -360,7 +352,6 @@
 	icon = 'icons/obj/smooth_objects/rustic_table.dmi'
 	icon_state = "rustic_table-0"
 	base_icon_state = "rustic_table"
-	table_prefix = "pwood"
 	parts = /obj/item/frame/table/rusticwood
 
 /obj/structure/table/black
@@ -369,7 +360,6 @@
 	icon = 'icons/obj/smooth_objects/black_table.dmi'
 	icon_state = "black_table-0"
 	base_icon_state = "black_table"
-	table_prefix = "black"
 	parts = /obj/item/frame/table
 
 /*
@@ -383,7 +373,6 @@
 	base_icon_state = "pool_table"
 	sheet_type = /obj/item/stack/sheet/wood
 	parts = /obj/item/frame/table/gambling
-	table_prefix = "gamble"
 	hit_sound = 'sound/effects/woodhit.ogg'
 	max_integrity = 20
 
@@ -398,22 +387,14 @@
 	base_icon_state = "table_reinforced"
 	max_integrity = 100
 	reinforced = TRUE
-	table_prefix = "reinf"
 	parts = /obj/item/frame/table/reinforced
 
 /obj/structure/table/reinforced/flipped
-	flipped = TRUE
 	table_status = TABLE_STATUS_WEAKENED
 
 /obj/structure/table/reinforced/flipped/Initialize(mapload)
 	. = ..()
-	flipped = FALSE
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/structure/table/reinforced/flipped/LateInitialize()
-	. = ..()
-	if(!flipped)
-		flip(dir, TRUE)
+	RegisterSignal(src, COMSIG_ATOM_SMOOTHED_ICON, PROC_REF(on_icon_smoothed))
 
 /obj/structure/table/reinforced/flip(direction, forced)
 	if(!forced && table_status == TABLE_STATUS_FIRM)
@@ -460,7 +441,6 @@
 	icon = 'icons/obj/smooth_objects/prison_table.dmi'
 	icon_state = "prison_table-0"
 	base_icon_state = "prison_table"
-	table_prefix = "prison"
 
 /obj/structure/table/reinforced/fabric
 	name = "cloth table"
@@ -468,7 +448,6 @@
 	icon = 'icons/obj/smooth_objects/table_fabric.dmi'
 	icon_state = "table_fabric-0"
 	base_icon_state = "table_fabric"
-	table_prefix = "fabric"
 	parts = /obj/item/frame/table
 	reinforced = TRUE
 
@@ -476,7 +455,6 @@
 	icon = 'icons/obj/smooth_objects/mainship_table.dmi'
 	icon_state = "mainship_table-0"
 	base_icon_state = "mainship_table"
-	table_prefix = "ship"
 	parts = /obj/item/frame/table/mainship
 
 /obj/structure/table/mainship/nometal

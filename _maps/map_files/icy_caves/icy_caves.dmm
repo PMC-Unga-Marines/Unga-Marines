@@ -445,7 +445,7 @@
 	},
 /area/icy_caves/outpost/refinery)
 "ce" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/tile/dark/red2{
@@ -575,7 +575,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/tile/dark/red2{
@@ -808,6 +808,10 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
+"ee" = (
+/obj/effect/landmark/xeno_tunnel_spawn,
+/turf/open/floor/plating/ground/ice,
+/area/icy_caves/caves/west)
 "ef" = (
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood,
@@ -972,7 +976,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/east)
 "eL" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/snow/layer0,
@@ -1168,7 +1172,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/south)
 "fK" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/snow,
@@ -1221,7 +1225,7 @@
 /turf/open/floor/cult,
 /area/icy_caves/caves/chapel)
 "go" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/LZ2)
 "gp" = (
@@ -1343,7 +1347,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/east)
 "hn" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/snow/layer2,
@@ -1778,7 +1782,7 @@
 /turf/open/floor/mech_bay_recharge_floor,
 /area/icy_caves/outpost/LZ2)
 "jw" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/tile/dark/red2{
@@ -2469,7 +2473,7 @@
 /obj/machinery/light{
 	light_color = "#da2f1b"
 	},
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/tile/dark/yellow2,
 /area/icy_caves/outpost/LZ2)
 "nm" = (
@@ -2495,7 +2499,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -2513,6 +2517,10 @@
 	},
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/morgue)
+"nt" = (
+/obj/effect/landmark/xeno_tunnel_spawn,
+/turf/open/floor/cult,
+/area/icy_caves/caves/chapel)
 "nu" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
@@ -2627,6 +2635,10 @@
 /obj/item/storage/box/gloves,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/research)
+"nW" = (
+/obj/effect/landmark/xeno_tunnel_spawn,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/icy_caves/caves)
 "nZ" = (
 /obj/machinery/light{
 	dir = 4
@@ -3723,7 +3735,7 @@
 /turf/open/floor/plating/mainship,
 /area/icy_caves/caves/crashed_ship)
 "sI" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/snow/layer1,
@@ -3776,7 +3788,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/morgue)
 "ta" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/snow/layer0,
@@ -5136,7 +5148,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
 "zF" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/tile/dark/yellow2{
 	dir = 10
 	},
@@ -5502,6 +5514,10 @@
 	dir = 4
 	},
 /area/icy_caves/caves/northwestmonorail)
+"Bh" = (
+/obj/effect/landmark/xeno_tunnel_spawn,
+/turf/open/floor/plating/ground/ice,
+/area/icy_caves/caves/northern)
 "Bi" = (
 /obj/machinery/vending/boozeomat,
 /turf/open/floor/prison/kitchen,
@@ -6455,7 +6471,7 @@
 	},
 /area/icy_caves/caves/alienstuff)
 "FE" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -6469,6 +6485,10 @@
 	dir = 4
 	},
 /area/icy_caves/outpost/medbay)
+"FH" = (
+/obj/effect/landmark/xeno_tunnel_spawn,
+/turf/open/floor/plating/mainship,
+/area/icy_caves/caves/northwestmonorail/hallway)
 "FI" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -7068,7 +7088,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
 "Iq" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/snow/layer2,
@@ -7451,7 +7471,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/office)
 "Kd" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/tile/dark/red2{
@@ -7497,7 +7517,7 @@
 	},
 /area/icy_caves/caves/weapon_vault)
 "Ko" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/tile/dark/red2{
@@ -9420,7 +9440,6 @@
 /turf/open/floor/plating/ground/snow/layer1,
 /area/icy_caves/outpost/outside)
 "TR" = (
-/obj/structure/table/flipped,
 /obj/structure/nuke_disk_candidate,
 /turf/open/floor/tile/dark/red2{
 	dir = 1
@@ -9797,7 +9816,7 @@
 /turf/open/shuttle/dropship/seven,
 /area/icy_caves/caves/northwestmonorail)
 "VI" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/LZ2)
 "VJ" = (
@@ -9876,7 +9895,7 @@
 /turf/closed/wall/r_wall,
 /area/icy_caves/caves/northwestmonorail/hallway)
 "VT" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/snow/layer1,
@@ -10732,6 +10751,10 @@
 	dir = 1
 	},
 /area/icy_caves/outpost/LZ2)
+"ZO" = (
+/obj/effect/landmark/xeno_tunnel_spawn,
+/turf/open/floor/wood,
+/area/icy_caves/outpost/dorms)
 "ZP" = (
 /turf/closed/mineral/smooth/darkfrostwall,
 /area/icy_caves/caves/rock)
@@ -13315,7 +13338,7 @@ Wn
 vk
 DV
 EX
-jd
+FH
 jd
 Ti
 vk
@@ -13364,7 +13387,7 @@ Na
 ez
 ZU
 ZI
-ZU
+ee
 ZP
 ZP
 ZU
@@ -18718,7 +18741,7 @@ Lj
 Ky
 Hf
 JC
-wZ
+ZO
 Ez
 ND
 DD
@@ -19221,7 +19244,7 @@ SR
 SR
 SR
 SR
-SR
+Bh
 ZP
 ZP
 ZP
@@ -21452,7 +21475,7 @@ ZI
 ZI
 ZI
 BT
-Vn
+nt
 Ig
 dk
 Vn
@@ -24122,7 +24145,7 @@ ZP
 ZP
 ZP
 ym
-TH
+ym
 ym
 ym
 ym
@@ -24427,8 +24450,8 @@ ym
 Xj
 dT
 ym
-ym
 Be
+TH
 ym
 ym
 Be
@@ -27447,7 +27470,7 @@ SC
 Yl
 Yl
 Yl
-Yl
+nW
 ZI
 ZI
 ZP
@@ -29529,7 +29552,7 @@ ZP
 ZP
 Sb
 ZI
-SR
+Bh
 ZI
 ZI
 bl

@@ -4,12 +4,6 @@
 	minimal_access = ALL_ANTAGONIST_ACCESS
 	faction = FACTION_SOM
 
-/datum/outfit/job/som/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.underwear = 10
-	H.undershirt = H.undershirt ? 10 : 0
-	H.regenerate_icons()
-
 //Base job for normal gameplay SOM, not ERT.
 /datum/job/som/squad
 	access = ALL_ANTAGONIST_ACCESS
@@ -43,7 +37,7 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 	minimap_icon = "private"
 	display_order = JOB_DISPLAY_ORDER_SQUAD_MARINE
 	total_positions = -1
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
+	//job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
 	outfit = /datum/outfit/job/som/squad/standard
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
@@ -86,13 +80,6 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 	to_chat(M, {"\nYou are a rank-and-file soldier of the Sons of Mars, and that is your strength.
 What you lack alone, you gain standing shoulder to shoulder with the men and women of the SOM. For Mars!"})
 
-/datum/outfit/job/som/squad/standard
-	name = "SOM Standard"
-	jobtype = /datum/job/som/squad/standard
-
-	id = /obj/item/card/id/dogtag/som
-
-
 /datum/job/som/squad/engineer
 	paygrade = "SOM_E3"
 	comm_title = "Eng"
@@ -100,7 +87,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 	skills_type = /datum/skills/combat_engineer
 	display_order = JOB_DISPLAY_ORDER_SUQAD_ENGINEER
 	outfit = /datum/outfit/job/som/squad/engineer
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
+	//job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
 		/datum/job/som/squad/veteran = VETERAN_POINTS_REGULAR,
@@ -141,13 +128,6 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 	to_chat(M, {"\nYou have the equipment and skill to build fortifications, reroute power lines, and bunker down.
 Your squaddies will look to you when it comes to construction in the field of battle."})
 
-/datum/outfit/job/som/squad/engineer
-	name = "SOM Engineer"
-	jobtype = /datum/job/som/squad/engineer
-
-	id = /obj/item/card/id/dogtag/som
-
-
 /datum/job/som/squad/medic
 	paygrade = "SOM_E3"
 	comm_title = "Med"
@@ -156,7 +136,7 @@ Your squaddies will look to you when it comes to construction in the field of ba
 	skills_type = /datum/skills/combat_medic
 	display_order = JOB_DISPLAY_ORDER_SQUAD_CORPSMAN
 	outfit = /datum/outfit/job/som/squad/medic
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
+	//job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
 		/datum/job/som/squad/veteran = VETERAN_POINTS_REGULAR,
@@ -196,13 +176,6 @@ Your squaddies will look to you when it comes to construction in the field of ba
 	to_chat(M, {"\nYou must tend the wounds of your squad mates and make sure they are healthy and active.
 You may not be a fully-fledged doctor, but you stand between life and death when it matters."})
 
-/datum/outfit/job/som/squad/medic
-	name = "SOM Medic"
-	jobtype = /datum/job/som/squad/medic
-
-	id = /obj/item/card/id/dogtag/som
-
-
 /datum/job/som/squad/veteran
 	paygrade = "SOM_S1"
 	comm_title = "Vet"
@@ -211,7 +184,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	display_order = JOB_DISPLAY_ORDER_SQUAD_SMARTGUNNER
 	minimap_icon = "smartgunner"
 	outfit = /datum/outfit/job/som/squad/veteran
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
+	//job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
 	jobworth = list(/datum/job/xenomorph = LARVA_POINTS_REGULAR)
 	html_description = {"
 		<b>Difficulty</b>: Medium<br /><br />
@@ -247,11 +220,6 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	. = ..()
 	to_chat(M, {"\nYou are the a Veteran among the SOM. With your long experience (and better training and equipment), your job is to provide special weapons support to bolster the line."})
 
-/datum/outfit/job/som/squad/veteran
-	name = "SOM Veteran"
-	jobtype = /datum/job/som/squad/veteran
-	id = /obj/item/card/id/dogtag/som
-
 /datum/job/som/squad/leader
 	req_admin_notify = TRUE
 	paygrade = "SOM_S3"
@@ -264,7 +232,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	outfit = /datum/outfit/job/som/squad/leader
 	exp_requirements = XP_REQ_INTERMEDIATE
 	exp_type = EXP_TYPE_REGULAR_ALL
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
+	//job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
 		/datum/job/som/squad/veteran = VETERAN_POINTS_REGULAR,
@@ -309,8 +277,3 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	. = ..()
 	to_chat(M, {"\nYou are responsible for the men and women of your squad. Make sure they are on task, working together, and communicating.
 You are also in charge of communicating with command and letting them know about the situation first hand. Keep out of harm's way."})
-
-/datum/outfit/job/som/squad/leader
-	name = "SOM Leader"
-	jobtype = /datum/job/som/squad/leader
-	id = /obj/item/card/id/dogtag/som

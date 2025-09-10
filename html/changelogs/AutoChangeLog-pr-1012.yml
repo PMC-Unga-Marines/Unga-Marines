@@ -1,0 +1,4 @@
+author: "MrShlepa"
+delete-after: True
+changes:
+  - image: "Планета на параллаксе изменяется в зависимости от выбранной карты."

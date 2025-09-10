@@ -25,7 +25,7 @@
 	succeed_activate()
 
 	playsound(xeno_owner.loc, 'sound/effects/refill.ogg', 50, 1)
-	var/turflist = getline(xeno_owner, target)
+	var/turflist = get_traversal_line(xeno_owner, target) //todo: use get_traversal_line and change spray_turfs to use get_dist_euclidean for range
 	spray_turfs(turflist)
 	add_cooldown()
 
@@ -144,6 +144,9 @@
 	ability_cost = 75
 	cooldown_duration = 45 SECONDS
 	nade_type = /obj/item/explosive/grenade/sticky/xeno
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SLIME_GRENADE,
+	)
 
 /datum/action/ability/activable/xeno/toxic_grenade/sticky/grenade_act(atom/our_atom)
 	var/obj/item/explosive/grenade/sticky/xeno/nade = new nade_type(get_turf(owner))

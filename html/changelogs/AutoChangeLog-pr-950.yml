@@ -1,5 +1,0 @@
-author: "Helg2"
-delete-after: True
-changes:
-  - rscadd: "В оружейных вендорах теперь доступны СМГ90 и МП17."
-  - rscdel: "Удалил бесплатные патроны+"

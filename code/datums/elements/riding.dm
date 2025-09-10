@@ -25,9 +25,10 @@
 	riding_component_type = component_type
 
 	RegisterSignal(target, COMSIG_MOVABLE_PREBUCKLE, PROC_REF(check_mounting))
+	RegisterSignal(target, COMSIG_MOVABLE_BUCKLE, PROC_REF(on_buckle))
 
 /datum/element/ridable/Detach(datum/target)
-	UnregisterSignal(target, list(COMSIG_MOVABLE_PREBUCKLE, COMSIG_ATOM_ATTACKBY))
+	UnregisterSignal(target, list(COMSIG_MOVABLE_PREBUCKLE, COMSIG_MOVABLE_BUCKLE))
 	return ..()
 
 /// Someone is buckling to this movable, which is literally the only thing we care about (other than speed potions)
@@ -57,7 +58,9 @@
 			span_warning("You can't get a grip on [potential_rider] because your hands are full!"))
 		return COMPONENT_BLOCK_BUCKLE
 
-	target_living.AddComponent(riding_component_type, potential_rider, force, check_loc, lying_buckle, hands_needed, target_hands_needed, silent)
+/datum/element/ridable/proc/on_buckle(atom/movable/target_movable, mob/living/potential_rider, force = FALSE, check_loc, lying_buckle, hands_needed, target_hands_needed, silent)
+	SIGNAL_HANDLER
+	target_movable.AddComponent(riding_component_type, potential_rider, force, check_loc, lying_buckle, hands_needed, target_hands_needed, silent)
 
 /// Try putting the appropriate number of [riding offhand items][/obj/item/riding_offhand] into the target's hands, return FALSE if we can't
 /datum/element/ridable/proc/equip_buckle_inhands(mob/living/carbon/human/user, amount_required = 1, atom/movable/target_movable, riding_target_override = null)
@@ -70,6 +73,9 @@
 		else
 			inhand.rider = riding_target_override
 		inhand.parent = AM
+		for(var/obj/item/I in user.get_held_items()) // delete any hand items like slappers that could still totally be used to grab on
+			if(I.item_flags & HAND_ITEM)
+				qdel(I)
 
 		if(user.put_in_hands(inhand))
 			amount_equipped++
@@ -125,7 +131,7 @@
 	return ..()
 
 /obj/item/riding_offhand/on_thrown(mob/living/carbon/user, atom/target)
-	if(rider == user)
+	if(is_rider(user))
 		return //Piggyback user.
 	user.unbuckle_mob(rider)
 	var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
@@ -133,3 +139,6 @@
 	if(start_T && end_T)
 		log_combat(user, src, "thrown", addition = "from tile at [start_T.x], [start_T.y], [start_T.z] in area [get_area(start_T)] with the target tile at [end_T.x], [end_T.y], [end_T.z] in area [get_area(end_T)]")
 	return rider
+
+/obj/item/riding_offhand/proc/is_rider(mob/living/user)
+	return (rider == user)

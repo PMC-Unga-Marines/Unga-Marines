@@ -339,7 +339,7 @@
 		return
 	new/obj/effect/decal/cleanable/egg_smudge(src.loc)
 	src.reagents.reaction(hit_atom, TOUCH)
-	src.visible_message(span_warning(" [src.name] has been squashed."),span_warning(" You hear a smack."))
+	src.visible_message(span_warning("[src.name] has been squashed."),span_warning("You hear a smack."))
 	qdel(src)
 
 /obj/item/reagent_containers/food/snacks/egg/blue
@@ -419,7 +419,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5)
 	bitesize = 2
 	tastes = list("dirt" = 1)
-	attack_verb = list("touched")
+	attack_verb = list("touches")
 
 /obj/item/reagent_containers/food/snacks/tofu
 	name = "Tofu"

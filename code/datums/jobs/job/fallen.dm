@@ -82,6 +82,13 @@
 	minimal_access = list(ACCESS_MARINE_WO, ACCESS_MARINE_PREP, ACCESS_MARINE_MECH, ACCESS_CIVILIAN_PUBLIC, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO)
 	outfit = /datum/outfit/job/command/mech_pilot/fallen
 
+/datum/job/fallen/marine/assault_crewman
+	title = ROLE_FALLEN(ASSAULT_CREWMAN)
+	skills_type = /datum/skills/assault_crewman
+	access = list(ACCESS_MARINE_WO, ACCESS_MARINE_PREP, ACCESS_MARINE_ARMORED, ACCESS_CIVILIAN_PUBLIC)
+	minimal_access = list(ACCESS_MARINE_WO, ACCESS_MARINE_PREP, ACCESS_MARINE_ARMORED, ACCESS_CIVILIAN_PUBLIC, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO)
+	outfit = /datum/outfit/job/command/assault_crewman/fallen
+
 /datum/job/fallen/marine/fieldcommander
 	title = ROLE_FALLEN(FIELD_COMMANDER)
 	skills_type = /datum/skills/fo
@@ -94,7 +101,7 @@
 	skills_type = /datum/skills/synthetic
 	access = ALL_ACCESS
 	minimal_access = ALL_ACCESS
-	outfit = /datum/outfit/job/civilian/synthetic
+	outfit = /datum/outfit/job/synthetic
 
 /datum/job/fallen/marine/synthetic/get_special_name(client/preference_source)
 	return preference_source.prefs.synthetic_name

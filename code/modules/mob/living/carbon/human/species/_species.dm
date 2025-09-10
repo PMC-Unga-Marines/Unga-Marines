@@ -250,14 +250,14 @@
 		if(OXY)
 			victim.adjust_oxy_loss(damage)
 		if(CLONE)
-			victim.adjust_clone_Loss(damage)
+			victim.adjust_clone_loss(damage)
 		if(STAMINA)
 			if(species_flags & NO_STAMINA)
 				return
 			victim.adjust_stamina_loss(damage)
 
 	// Will set our damageoverlay icon to the next level, which will then be set back to the normal level the next mob.Life().
-	SEND_SIGNAL(victim, COMSIG_HUMAN_DAMAGE_TAKEN, damage)
+	SEND_SIGNAL(victim, COMSIG_HUMAN_DAMAGE_TAKEN, damage, attacker) //add attacker arg everywhere needed
 
 	if(updating_health)
 		victim.update_health()

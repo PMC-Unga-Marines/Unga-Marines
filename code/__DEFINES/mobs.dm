@@ -107,7 +107,7 @@
 #define CARBON_RECOVERY_OXYLOSS -5
 
 #define CARBON_KO_OXYLOSS 50
-#define HUMAN_CRITDRAG_OXYLOSS 3 //the amount of oxyloss taken per tile a human is dragged by a xeno while unconscious
+#define HUMAN_CRITDRAG_OXYLOSS 6 //the amount of oxyloss taken per tile a human is dragged by a xeno while unconscious
 
 #define HEAT_DAMAGE_LEVEL_1 1 //Amount of damage applied when your body temperature just passes the 360.15k safety point
 #define HEAT_DAMAGE_LEVEL_2 2 //Amount of damage applied when your body temperature passes the 400K point
@@ -149,17 +149,24 @@
 #define CUT "cut"
 #define BRUISE "bruise"
 #define STAMINA "stamina"
+#define PAIN "pain"
+#define EYE_DAMAGE "eye_damage"
+#define BRAIN_DAMAGE "brain_damage"
+#define INTERNAL_BLEEDING "internal_bleeding"
+#define ORGAN_DAMAGE "organ_damage"
+#define INFECTION "infection"
+
 //=================================================
 
-#define STUN "stun"
-#define WEAKEN "weaken"
-#define PARALYZE "paralyze"
-#define STAGGER "stagger"
-#define AGONY "agony" // Added in PAIN!
-#define STUTTER "stutter"
-#define EYE_BLUR "eye_blur"
-#define DROWSY "drowsy"
-#define SLUR "slur"
+#define EFFECT_STUN "stun"
+#define EFFECT_PARALYZE "paralyze"
+#define EFFECT_UNCONSCIOUS "unconscious"
+#define EFFECT_STAGGER "stagger"
+#define EFFECT_STAMLOSS "stamloss"
+#define EFFECT_STUTTER "stutter"
+#define EFFECT_EYE_BLUR "eye_blur"
+#define EFFECT_DROWSY "drowsy"
+
 //=================================================
 
 //damagetype
@@ -231,14 +238,20 @@ GLOBAL_LIST_INIT(xenoupgradetiers, list(XENO_UPGRADE_BASETYPE, XENO_UPGRADE_INVA
 //limb_status
 #define LIMB_BLEEDING (1<<0)
 #define LIMB_BROKEN (1<<1)
-#define LIMB_DESTROYED (1<<2) //limb is missing
+/// Limb is missing
+#define LIMB_DESTROYED (1<<2)
 #define LIMB_ROBOT (1<<3)
 #define LIMB_SPLINTED (1<<4)
-#define LIMB_NECROTIZED (1<<5) //necrotizing limb, nerves are dead.
-#define LIMB_AMPUTATED (1<<6) //limb was amputated cleanly or destroyed limb was cleaned up, thus causing no pain
-#define LIMB_REPAIRED (1<<7) //we just repaired the bone, stops the gelling after setting
-#define LIMB_STABILIZED (1<<8) //certain suits will support a broken limb while worn such as the b18
-#define LIMB_BIOTIC (1<<9) //limb is biotic
+/// Necrotizing limb, nerves are dead.
+#define LIMB_NECROTIZED (1<<5)
+/// Limb was amputated cleanly or destroyed limb was cleaned up, thus causing no pain
+#define LIMB_AMPUTATED (1<<6)
+/// We just repaired the bone, stops the gelling after setting
+#define LIMB_REPAIRED (1<<7)
+/// Certain suits will support a broken limb while worn such as the b18
+#define LIMB_STABILIZED (1<<8)
+/// Limb is biotic, gained after limb reattachments, gives 1.3 damage modifier
+#define LIMB_BIOTIC (1<<9)
 
 //limb_wound_status
 #define LIMB_WOUND_BANDAGED (1<<0)
@@ -497,17 +510,6 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define TASTE_DULL 30 //anything below 30%
 #define TASTE_NUMB 101 //no taste
 
-
-//defins for datum/hud
-
-#define HUD_STYLE_STANDARD 1
-#define HUD_STYLE_REDUCED 2
-#define HUD_STYLE_NOHUD 3
-#define HUD_VERSIONS 3
-#define HUD_SL_LOCATOR_COOLDOWN 0.5 SECONDS
-#define HUD_SL_LOCATOR_PROCESS_COOLDOWN 10 SECONDS
-
-
 //Blood levels
 #define BLOOD_VOLUME_MAXIMUM 600
 #define BLOOD_VOLUME_NORMAL 560
@@ -553,6 +555,7 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define XENO_DEFAULT_ACID_PUDDLE_DAMAGE 14 //Standard damage dealt by acid puddles
 #define XENO_ACID_WELL_FILL_TIME 2 SECONDS //How long it takes to add a charge to an acid pool
 #define XENO_ACID_WELL_FILL_COST 150 //Cost in plasma to apply a charge to an acid pool
+#define XENO_ACID_WELL_MAX_AUTOCHARGES 3 //Maximum number of autocharges for the acid well
 #define XENO_ACID_WELL_MAX_CHARGES 5 //Maximum number of charges for the acid well
 #define XENO_ACID_CHARGE_DAMAGE 30
 
@@ -569,15 +572,8 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define XENO_NEURO_AMOUNT_RECURRING 5
 #define XENO_NEURO_CHANNEL_TIME 0.25 SECONDS
 
-#define XENO_HEALTH_ALERT_TRIGGER_PERCENT 0.25 //If a xeno is damaged while its current hit points are less than this percent of its maximum, we send out an alert to the hive
-#define XENO_HEALTH_ALERT_TRIGGER_THRESHOLD 50 //If a xeno is damaged while its current hit points are less than this amount, we send out an alert to the hive
-#define XENO_HEALTH_ALERT_COOLDOWN 60 SECONDS //The cooldown on these xeno damage alerts
-#define XENO_SILO_HEALTH_ALERT_COOLDOWN 30 SECONDS //The cooldown on these xeno damage alerts
 #define XENO_HEALTH_ALERT_POINTER_DURATION 6 SECONDS //How long the alert directional pointer lasts.
 #define XENO_RALLYING_POINTER_DURATION 15 SECONDS //How long the rally hive pointer lasts
-#define XENO_SILO_DAMAGE_POINTER_DURATION 10 SECONDS //How long the alert directional pointer lasts when silos are damaged
-#define XENO_SILO_DETECTION_COOLDOWN 1 MINUTES
-#define XENO_SILO_DETECTION_RANGE 10//How far silos can detect hostiles
 #define XENO_HIVEMIND_DETECTION_RANGE 10 //How far out (in tiles) can the hivemind detect hostiles
 #define XENO_HIVEMIND_DETECTION_COOLDOWN 1 MINUTES
 
@@ -633,26 +629,17 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define CHARGE_MAX 3
 
 //Hunter Defines
-#define HUNTER_STEALTH_COOLDOWN 50 //5 seconds
+#define HUNTER_STEALTH_COOLDOWN 5 SECONDS
 #define HUNTER_STEALTH_WALK_PLASMADRAIN 2
 #define HUNTER_STEALTH_RUN_PLASMADRAIN 5
 #define HUNTER_STEALTH_STILL_ALPHA 12 //95% transparency
 #define HUNTER_STEALTH_WALK_ALPHA 25 //90% transparency
 #define HUNTER_STEALTH_RUN_ALPHA 128 //50% transparency
-#define HUNTER_STEALTH_STEALTH_DELAY 30 //3 seconds before 95% stealth
-#define HUNTER_STEALTH_INITIAL_DELAY 20 //2 seconds before we can increase stealth
-#define HUNTER_POUNCE_SNEAKATTACK_DELAY 30 //3 seconds before we can sneak attack
+#define HUNTER_STEALTH_STEALTH_DELAY 3 SECONDS //time before 95% stealth
+#define HUNTER_STEALTH_INITIAL_DELAY 2 SECONDS //time before we can increase stealth
+#define HUNTER_POUNCE_SNEAKATTACK_DELAY 3 SECONDS //time before we can sneak attack
 #define HUNTER_SNEAK_SLASH_ARMOR_PEN 15 //bonus AP
-#define HUNTER_SNEAK_ATTACK_RUN_DELAY 2 SECONDS
 #define HUNTER_PSYCHIC_TRACE_COOLDOWN 5 SECONDS //Cooldown of the Hunter's Psychic Trace, and duration of its arrow
-#define HUNTER_SILENCE_STAGGER_STACKS 1 //Silence imposes this many stagger stacks
-#define HUNTER_SILENCE_SENSORY_STACKS 7 //Silence imposes this many eyeblur and deafen stacks.
-#define HUNTER_SILENCE_MUTE_DURATION 10 SECONDS //Silence imposes this many seconds of the mute status effect.
-#define HUNTER_SILENCE_RANGE 5 //Range in tiles of the Hunter's Silence.
-#define HUNTER_SILENCE_AOE 2 //AoE size of Silence in tiles
-#define HUNTER_SILENCE_MULTIPLIER 1.5 //Multiplier of stacks vs Hunter's Mark targets
-#define HUNTER_SILENCE_WHIFF_COOLDOWN 3 SECONDS //If we fail to target anyone with Silence, partial cooldown to prevent spam.
-#define HUNTER_SILENCE_COOLDOWN 30 SECONDS //Silence's cooldown
 #define HUNTER_VENT_CRAWL_TIME 2 SECONDS //Hunters can enter vents fast
 
 //Ravager defines:
@@ -665,13 +652,13 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define RAVAGER_ENDURE_DURATION_WARNING		0.7
 #define RAVAGER_ENDURE_HP_LIMIT				-125
 
-#define RAVAGER_RAGE_DURATION							10 SECONDS
-#define RAVAGER_RAGE_WARNING							0.7
-#define RAVAGER_RAGE_MIN_HEALTH_THRESHOLD				0.75 //The maximum % of HP we can have to trigger Rage
-#define RAVAGER_RAGE_STAGGERSTUN_IMMUNE_THRESHOLD		0.5
-#define RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH			2 SECONDS //The amount of time each slash during Rage increases Endure's duration
-#define RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH			20 //Base amount of healing from slash during Rage
-#define RAVAGER_IMMORTALITY_DURATION					5 SECONDS
+#define RAVAGER_RAGE_DURATION 10 SECONDS
+#define RAVAGER_RAGE_WARNING 0.7
+#define RAVAGER_RAGE_MIN_HEALTH_THRESHOLD 0.75 //The maximum % of HP we can have to trigger Rage
+#define RAVAGER_RAGE_STAGGERSTUN_IMMUNE_THRESHOLD 0.5
+#define RAVAGER_RAGE_ENDURE_INCREASE_PER_SLASH 2 SECONDS //The amount of time each slash during Rage increases Endure's duration
+#define RAVAGER_RAGE_HEALTH_RECOVERY_PER_SLASH 20 //Base amount of healing from slash during Rage
+#define RAVAGER_IMMORTALITY_DURATION 5 SECONDS
 
 //crusher defines
 #define CRUSHER_STOMP_LOWER_DMG 40
@@ -702,6 +689,13 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define GORGER_FEAST_DURATION -1 // lasts indefinitely, self-cancelled when insufficient plasma left
 #define GORGER_OPPOSE_COST 80
 #define GORGER_OPPOSE_HEAL 0.2 // in %
+
+/// This many units of greenblood are always stolen
+#define GORGER_GREENBLOOD_STEAL_FLAT 10
+/// bonus % of current greenblood taken from vali on drain
+#define GORGER_GREENBLOOD_STEAL_PERCENTAGE 25
+/// Amount of blood(plasma) gained per unit of greenblood drained from target.
+#define GORGER_GREENBLOOD_CONVERSION 1.25
 
 //carrier defines
 #define CARRIER_HUGGER_THROW_SPEED 2
@@ -797,6 +791,14 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 //Praetorian defines
 #define PRAE_CHARGEDISTANCE 6
 
+//Dancer defines
+/// Armor penetration done by impale to marked targets
+#define DANCER_IMPALE_PENETRATION 20
+/// The maximum multiplier dancer impale can gain from debuffs
+#define DANCER_MAX_IMPALE_MULT 2.5
+/// The flat damage multiplier done by impale to non-carbon targets
+#define DANCER_NONHUMAN_IMPALE_MULT 1.5
+
 // Chimera defines
 //Stagger and slowdown stacks applied to adjacent living hostiles before/after a teleport
 #define CHIMERA_TELEPORT_DEBUFF_STAGGER_STACKS 2 SECONDS
@@ -839,18 +841,19 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define BODY_ZONE_PRECISE_L_FOOT "l_foot"
 #define BODY_ZONE_PRECISE_R_FOOT "r_foot"
 
-GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
-										BODY_ZONE_CHEST,
-										BODY_ZONE_PRECISE_GROIN,
-										BODY_ZONE_L_ARM,
-										BODY_ZONE_PRECISE_L_HAND,
-										BODY_ZONE_R_ARM,
-										BODY_ZONE_PRECISE_R_HAND,
-										BODY_ZONE_L_LEG,
-										BODY_ZONE_PRECISE_L_FOOT,
-										BODY_ZONE_R_LEG,
-										BODY_ZONE_PRECISE_R_FOOT
-										))
+GLOBAL_LIST_INIT(human_body_parts, list(
+	BODY_ZONE_HEAD,
+	BODY_ZONE_CHEST,
+	BODY_ZONE_PRECISE_GROIN,
+	BODY_ZONE_L_ARM,
+	BODY_ZONE_PRECISE_L_HAND,
+	BODY_ZONE_R_ARM,
+	BODY_ZONE_PRECISE_R_HAND,
+	BODY_ZONE_L_LEG,
+	BODY_ZONE_PRECISE_L_FOOT,
+	BODY_ZONE_R_LEG,
+	BODY_ZONE_PRECISE_R_FOOT
+))
 
 //Hostile simple animals
 #define AI_ON 1
@@ -967,7 +970,7 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define ILLUSION_HIT_FILTER "illusion_hit_filter"
 
 #define WARRIOR_PUNCH_SLOWDOWN 3
-#define WARRIOR_PUNCH_STAGGER 3
+#define WARRIOR_PUNCH_STAGGER 3 SECONDS
 #define WARRIOR_PUNCH_EMPOWER_MULTIPLIER 1.8
 #define WARRIOR_PUNCH_GRAPPLED_DAMAGE_MULTIPLIER 1.8
 #define WARRIOR_PUNCH_GRAPPLED_DEBUFF_MULTIPLIER 1.5
@@ -979,3 +982,19 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define CARBON_NO_CHEST_BURST 0
 #define CARBON_IS_CHEST_BURSTING 1
 #define CARBON_CHEST_BURSTED 2
+
+//This is here because the damage defines aren't set before the AI defines and it breaks everything and I don't know where else to put it
+///Assoc list of items to use to treat different damage types
+GLOBAL_LIST_INIT(ai_damtype_to_heal_list, list(
+	BRUTE = GLOB.ai_brute_heal_items,
+	BURN = GLOB.ai_burn_heal_items,
+	TOX = GLOB.ai_tox_heal_items,
+	OXY = GLOB.ai_oxy_heal_items,
+	CLONE = GLOB.ai_clone_heal_items,
+	PAIN = GLOB.ai_pain_heal_items,
+	EYE_DAMAGE = GLOB.ai_eye_heal_items,
+	BRAIN_DAMAGE = GLOB.ai_brain_heal_items,
+	INTERNAL_BLEEDING = GLOB.ai_ib_heal_items,
+	ORGAN_DAMAGE = GLOB.ai_organ_heal_items,
+	INFECTION = GLOB.ai_infection_heal_items,
+))

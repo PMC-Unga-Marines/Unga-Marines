@@ -1388,7 +1388,7 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "ja" = (
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/dirtgrassborder{
@@ -1451,7 +1451,6 @@
 /area/yautja)
 "kA" = (
 /obj/item/weapon/twohanded/dualsaber{
-	force_wielded = 20;
 	anchored = 1
 	},
 /obj/structure/table/reinforced/prison{
@@ -1484,10 +1483,10 @@
 /turf/open/shuttle/dropship/fourteen,
 /area/yautja)
 "lu" = (
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 8
 	},
-/obj/structure/barricade/metal/handrail,
+/obj/structure/barricade/solid/handrail,
 /turf/open/floor/plating/ground/dirtgrassborder/corner{
 	dir = 8
 	},
@@ -1510,10 +1509,10 @@
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "mj" = (
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 4
 	},
-/obj/structure/barricade/metal/handrail,
+/obj/structure/barricade/solid/handrail,
 /turf/open/ground/grass,
 /area/yautja)
 "mv" = (
@@ -1554,10 +1553,10 @@
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "ny" = (
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 1
 	},
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 4
 	},
 /turf/open/ground/grass,
@@ -1632,10 +1631,10 @@
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "pJ" = (
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 1
 	},
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 8
 	},
 /turf/open/floor/plating/ground/dirtgrassborder/corner,
@@ -2114,7 +2113,7 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "GG" = (
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 1
 	},
 /turf/open/ground/grass,
@@ -2168,10 +2167,10 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "Hz" = (
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 1
 	},
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 8
 	},
 /turf/open/ground/grass,
@@ -2310,7 +2309,7 @@
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Ku" = (
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirtgrassborder{
@@ -2453,10 +2452,10 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "Pb" = (
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 8
 	},
-/obj/structure/barricade/metal/handrail,
+/obj/structure/barricade/solid/handrail,
 /turf/open/ground/grass,
 /area/yautja)
 "Pm" = (
@@ -2527,10 +2526,10 @@
 /turf/open/floor/corsat,
 /area/yautja)
 "Qx" = (
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 4
 	},
-/obj/structure/barricade/metal/handrail,
+/obj/structure/barricade/solid/handrail,
 /turf/open/floor/plating/ground/dirtgrassborder/corner{
 	dir = 4
 	},
@@ -2593,7 +2592,7 @@
 /turf/open/shuttle/dropship/fourteen,
 /area/yautja)
 "UG" = (
-/obj/structure/barricade/metal/handrail,
+/obj/structure/barricade/solid/handrail,
 /turf/open/ground/grass,
 /area/yautja)
 "UR" = (
@@ -2700,10 +2699,10 @@
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "Xn" = (
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 1
 	},
-/obj/structure/barricade/metal/handrail{
+/obj/structure/barricade/solid/handrail{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirtgrassborder/corner{

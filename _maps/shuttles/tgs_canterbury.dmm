@@ -175,7 +175,7 @@
 /turf/open/floor/mainship/cargo,
 /area/shuttle/canterbury)
 "aA" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/barricade/wired,
@@ -197,7 +197,7 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "aF" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/barricade/wired,
@@ -377,11 +377,11 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "bw" = (
-/obj/effect/landmark/start/job/crash/squadrobot,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/machinery/door/window/right,
+/obj/effect/landmark/start/job/crash/squadrobot,
 /turf/open/floor/mainship/red,
 /area/shuttle/canterbury)
 "by" = (
@@ -423,13 +423,13 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "bD" = (
-/obj/effect/landmark/start/job/crash/squadsmartgunner,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/machinery/marine_selector/gear/smartgun,
 /turf/open/floor/mainship/red,
 /area/shuttle/canterbury)
 "bE" = (
@@ -542,16 +542,17 @@
 	pixel_x = -1;
 	pixel_y = 8
 	},
+/obj/item/stack/sheet/mineral/phoron,
 /turf/open/floor/mainship/sterile/side{
 	dir = 4
 	},
 /area/shuttle/canterbury/medical)
 "cc" = (
-/obj/effect/landmark/start/job/crash/squadsmartgunner,
 /obj/machinery/door/window/right,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/effect/landmark/start/job/crash/squadsmartgunner,
 /turf/open/floor/mainship/red,
 /area/shuttle/canterbury)
 "cd" = (
@@ -587,7 +588,7 @@
 	name = "General Listening Channel";
 	pixel_y = -28
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/barricade/wired,
@@ -659,10 +660,10 @@
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "cE" = (
-/obj/machinery/marine_selector/gear/smartgun,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/effect/landmark/start/job/crash/squadsmartgunner,
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "cF" = (
@@ -747,7 +748,7 @@
 	name = "General Listening Channel";
 	pixel_y = -28
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /obj/effect/mapping_helpers/barricade/wired,
@@ -758,12 +759,12 @@
 	dir = 8;
 	pixel_y_offset = 5
 	},
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /obj/effect/mapping_helpers/barricade/wired,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "cZ" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /obj/effect/mapping_helpers/barricade/wired,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
@@ -772,7 +773,7 @@
 	dir = 4;
 	pixel_y_offset = 5
 	},
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /obj/machinery/door_control{
 	dir = 8;
 	id = "aft_engine_podlock";
@@ -800,13 +801,13 @@
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "oC" = (
-/obj/effect/landmark/start/job/crash/squadrobot,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/machinery/marine_selector/gear/robo,
 /turf/open/floor/mainship/red,
 /area/shuttle/canterbury)
 "pY" = (
@@ -930,10 +931,10 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "Mr" = (
-/obj/machinery/marine_selector/gear/robo,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/effect/landmark/start/job/crash/squadrobot,
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "Ox" = (
@@ -1109,7 +1110,7 @@ bK
 bK
 bK
 bK
-bK
+cI
 bo
 an
 "}

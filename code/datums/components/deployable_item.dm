@@ -17,7 +17,7 @@
 	deploy_check_callback = _deploy_check_callback
 
 	var/obj/item/attached_item = parent
-	if(CHECK_BITFIELD(attached_item.item_flags, DEPLOY_ON_INITIALIZE))
+	if(CHECK_BITFIELD(attached_item.deploy_flags, DEPLOY_ON_INITIALIZE))
 		finish_deploy(attached_item, null, attached_item.loc, attached_item.dir)
 
 /datum/component/deployable_item/RegisterWithParent()
@@ -189,10 +189,11 @@
 		sentry = deployed_machine
 	sentry?.set_on(FALSE)
 	user.balloon_alert(user, "You start disassembling [undeployed_item]")
-	if(!do_after(user, deploy_time, NONE, deployed_machine, BUSY_ICON_BUILD))
+	if(!do_after(user, undeploy_time, NONE, deployed_machine, BUSY_ICON_BUILD))
 		sentry?.set_on(TRUE)
 		return
 
+	deployed_machine.post_disassemble(user)
 	undeployed_item.toggle_deployment_flag()
 
 	user.unset_interaction()

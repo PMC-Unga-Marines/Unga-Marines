@@ -149,3 +149,8 @@
 		icon_state = "veteran_2"
 	else
 		icon_state = "veteran_1"
+
+/obj/item/clothing/gloves/marine/mp
+	name = "security combat gloves"
+	desc = "Standard issue military police tactical gloves. It reads: 'knit by Marine Widows Association'."
+	soft_armor = list(MELEE = 15, BULLET = 80, LASER = 80, ENERGY = 0, BOMB = 0, BIO = 90, FIRE = 0, ACID = 0)

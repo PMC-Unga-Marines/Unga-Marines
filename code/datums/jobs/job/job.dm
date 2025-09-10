@@ -161,40 +161,17 @@ GLOBAL_PROTECT(exp_specialmap)
 /datum/job/proc/map_check()
 	return TRUE
 
-/datum/job/proc/radio_help_message(mob/M)
-	to_chat(M, {"
-[span_role_header("You are the [title].")]
-[span_role_body("As the <b>[title]</b> you answer to [supervisors]. Special circumstances may change this.")]
-"})
+/// The message you get when spawning in as this job, called by [/datum/job/proc/after_spawn]
+/datum/job/proc/radio_help_message(mob/new_player)
+	var/list/message = list()
+	message += span_role_body("As the <b>[title]</b> you answer to [supervisors]. Special circumstances may change this.")
 	if(!(job_flags & JOB_FLAG_NOHEADSET))
-		to_chat(M, "<span class='role_body'>Prefix your message with ; to speak on the default radio channel. To see other prefixes, look closely at your headset.</span>")
+		message += separator_hr("[span_role_body("<b>Radio</b>")]")
+		message += span_role_body("Prefix your message with <b>;</b> to speak on the default radio channel, in most cases this is your squad radio. For additional prefixes, examine your headset.")
 	if(req_admin_notify)
-		to_chat(M, "<span class='role_body'>You are playing a job that is important for game progression. If you have to disconnect, please head to hypersleep, if you can't make it there, notify the admins via adminhelp.</span>")
-
-/datum/outfit/job
-	var/jobtype
-
-/datum/outfit/job/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	return
-
-/datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	return
-
-/datum/outfit/job/proc/handle_id(mob/living/carbon/human/H, client/override_client)
-	var/datum/job/job = H.job ? H.job : SSjob.GetJobType(jobtype)
-	var/obj/item/card/id/id = H.wear_id
-	if(!istype(id))
-		return
-	id.access = job.get_access()
-	id.iff_signal = GLOB.faction_to_iff[job.faction]
-	shuffle_inplace(id.access) // Shuffle access list to make NTNet passkeys less predictable
-	id.registered_name = H.real_name
-	id.assignment = job.title
-	id.rank = job.title
-	id.paygrade = job.paygrade
-	id.update_label()
-	if(H.mind?.initial_account) // In most cases they won't have a mind at this point.
-		id.associated_account_number = H.mind.initial_account.account_number
+		message += separator_hr("[span_role_header("This is an important job.")]")
+		message += span_role_body("If you have to disconnect, please take a hypersleep pod. If you can't make it there, <b><u>adminhelp</u></b> using F1 or the Adminhelp verb.")
+	to_chat(new_player, fieldset_block("[span_role_header("You are the [title].")]", jointext(message, ""), "examine_block"))
 
 /datum/job/proc/get_special_name(client/preference_source)
 	return
@@ -210,6 +187,8 @@ GLOBAL_PROTECT(exp_specialmap)
 			continue
 		if(isxenosjob(scaled_job))
 			if(respawn && (SSticker.mode?.round_type_flags & MODE_SILO_RESPAWN))
+				continue
+			if(SSticker.mode?.round_type_flags & MODE_XENO_SPAWN_PROTECT)
 				continue
 			GLOB.round_statistics.larva_from_marine_spawning += adjusted_jobworth_list[index] / scaled_job.job_points_needed
 		scaled_job.add_job_points(adjusted_jobworth_list[index])
@@ -336,10 +315,10 @@ GLOBAL_PROTECT(exp_specialmap)
 			job_whitelist = "[job_whitelist][whitelist_status]"
 
 		if(job.gear_preset_whitelist[job_whitelist])
-			job.gear_preset_whitelist[job_whitelist].equip(src, override_client = player)
+			job.gear_preset_whitelist[job_whitelist].equip(src)
 		else
 			equip_role_outfit(job)
-			
+
 	#ifndef TESTING
 	if(SSdiscord.get_boosty_tier(player?.ckey) >= BOOSTY_TIER_2)
 		equip_to_slot_or_del(new /obj/item/facepaint/premium, SLOT_IN_BACKPACK)

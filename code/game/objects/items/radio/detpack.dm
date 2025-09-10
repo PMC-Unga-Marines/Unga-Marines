@@ -36,17 +36,19 @@
 
 /obj/item/detpack/examine(mob/user)
 	. = ..()
+	. += span_info("<b>Unique-Action</b> (Space by default) to arm.")
+	. += span_info("<b>LMB</b> it with a signaler to copy over the signal code.")
 	if(on)
-		. += "It's turned on."
+		. += span_warning("It's turned on.")
 	if(timer)
-		. += "Its timer has [timer] seconds left."
+		. += span_warning("Its timer has [timer] seconds left.")
 	if(det_mode)
-		. += "It appears set to demolition mode."
+		. += span_warning("It appears set to demolition mode, providing a wider explosion with little damage to walls.")
 	else
-		. += "It appears set to breaching mode."
+		. += span_warning("It appears set to breaching mode, providing a focused explosion which breaches through walls.")
 
 	if(armed)
-		. += "<b>It is armed!</b>"
+		. += span_warning("<b>It is armed!</b>")
 
 /obj/item/detpack/Destroy()
 	if(sound_timer)
@@ -86,16 +88,21 @@
 		var/obj/item/assembly/signaler/signaler = I
 		code = signaler.code
 		set_frequency(signaler.frequency)
-		to_chat(user, "You transfer the frequency and code of [signaler] to [src].")
+		balloon_alert(user, "Frequency copied over")
+
+/obj/item/detpack/unique_action(mob/user, special_treatment)
+	. = ..()
+	on = !on
+	update_icon()
 
 /obj/item/detpack/attack_hand(mob/living/user)
 	if(armed)
-		to_chat(user, "<font color='warning'>Active anchor bolts are holding it in place! Disarm [src] first to remove it!</font>")
+		balloon_alert(user, "Disarm it first!")
 		return
 	if(plant_target)
 		user.visible_message(span_notice("[user] begins unsecuring [src] from [plant_target]."),
 		span_notice("You begin unsecuring [src] from [plant_target]."))
-		if(!do_after(user, 30, NONE, src, BUSY_ICON_BUILD))
+		if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
 			return
 		user.visible_message(span_notice("[user] unsecures [src] from [plant_target]."),
 		span_notice("You unsecure [src] from [plant_target]."))
@@ -114,7 +121,7 @@
 			return
 
 		if(prob((SKILL_ENGINEER_METAL - user.skills.getRating(SKILL_ENGINEER)) * 20))
-			to_chat(user, span_highdanger("After several seconds of your clumsy meddling the [src] buzzes angrily as if offended. You have a <b>very</b> bad feeling about this."))
+			to_chat(user, span_userdanger("After several seconds of your clumsy meddling the [src] buzzes angrily as if offended. You have a <b>very</b> bad feeling about this."))
 			timer = 0 //Oops. Now you fucked up. Immediate detonation.
 
 	user.visible_message(span_notice("[user] begins disarming [src] with [I]."),
@@ -151,22 +158,20 @@
 	if(signal.data["code"] != code)
 		return
 
-	if(!armed)
-		if(!plant_target) //has to be planted on something to begin detonating.
-			return
-		armed = TRUE
-		//bombtick()
-		log_bomber(usr, "triggered", src)
-		detonation_pending = addtimer(CALLBACK(src, PROC_REF(do_detonate)), timer SECONDS, TIMER_STOPPABLE)
-		if(timer > 10)
-			sound_timer = addtimer(CALLBACK(src, PROC_REF(do_play_sound_normal)), 1 SECONDS, TIMER_LOOP|TIMER_STOPPABLE)
-			addtimer(CALLBACK(src, PROC_REF(change_to_loud_sound)), timer-10)
-		else
-			sound_timer = addtimer(CALLBACK(src, PROC_REF(do_play_sound_loud)), 1 SECONDS, TIMER_LOOP|TIMER_STOPPABLE)
-		update_icon()
+	if(armed)
+		disarm(FALSE)
+		return
+	if(!plant_target) //has to be planted on something to begin detonating.
+		return
+	armed = TRUE
+	log_bomber(usr, "triggered", src)
+	detonation_pending = addtimer(CALLBACK(src, PROC_REF(do_detonate)), timer SECONDS, TIMER_STOPPABLE)
+	if(timer > 10)
+		sound_timer = addtimer(CALLBACK(src, PROC_REF(do_play_sound_normal)), 1 SECONDS, TIMER_LOOP|TIMER_STOPPABLE)
+		addtimer(CALLBACK(src, PROC_REF(change_to_loud_sound)), timer-10)
 	else
-		armed = FALSE
-		disarm()
+		sound_timer = addtimer(CALLBACK(src, PROC_REF(do_play_sound_loud)), 1 SECONDS, TIMER_LOOP|TIMER_STOPPABLE)
+	update_icon()
 
 /obj/item/detpack/Topic(href, href_list)
 	. = ..()
@@ -212,9 +217,9 @@
 		return
 
 	var/dat = {"
-		<A href='?src=[text_ref(src)];power=1'>Turn [on ? "Off" : "On"]</A><BR>
+		<A href='byond://?src=[text_ref(src)];power=1'>Turn [on ? "Off" : "On"]</A><BR>
 		<B>Current Detonation Mode:</B> [det_mode ? "Demolition" : "Breach"]<BR>
-		<A href='?src=[text_ref(src)];det_mode=1'><B>Set Detonation Mode:</B> [det_mode ? "Breach" : "Demolition"]</A><BR>
+		<A href='byond://?src=[text_ref(src)];det_mode=1'><B>Set Detonation Mode:</B> [det_mode ? "Breach" : "Demolition"]</A><BR>
 		<B>Frequency/Code for Detpack:</B><BR>
 		<A href='byond://?src=[text_ref(src)];freq=-10'>-</A>
 		<A href='byond://?src=[text_ref(src)];freq=-2'>-</A>
@@ -292,8 +297,7 @@
 		notify_ghosts("<b>[user]</b> has planted \a <b>[name]</b> on <b>[target.name]</b> with a <b>[timer]</b> second fuse!", source = user, action = NOTIFY_ORBIT)
 
 		//target.overlays += image('icons/obj/items/assemblies.dmi', "plastic-explosive2")
-		user.visible_message(span_warning("[user] plants [name] on [target]!"),
-		span_warning("You plant [name] on [target]! Timer set for [timer] seconds."))
+		balloon_alert(user, "Timer set for [timer] seconds")
 
 		plant_target = target
 		if(ismovableatom(plant_target))
@@ -319,7 +323,7 @@
 	timer--
 	playsound(loc, 'sound/weapons/mine_tripped.ogg', 160 + (timer-timer*2)*10, FALSE) //Gets louder as we count down to armaggedon
 
-/obj/item/detpack/proc/disarm()
+/obj/item/detpack/proc/disarm(turn_off = TRUE)
 	if(timer < DETPACK_TIMER_MIN) //reset to minimum 5 seconds; no 'cooking' with aborted detonations.
 		timer = DETPACK_TIMER_MIN
 	if(sound_timer)
@@ -329,7 +333,8 @@
 		deltimer(detonation_pending)
 		detonation_pending = null
 	armed = FALSE
-	on = FALSE
+	if(turn_off)
+		on = FALSE
 	update_icon()
 
 /obj/item/detpack/proc/do_detonate()

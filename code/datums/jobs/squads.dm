@@ -276,7 +276,7 @@
 		header = "CIC SQUAD MESSAGE FROM [sender.real_name]:"
 
 	for(var/mob/living/marine AS in marines_list)
-		marine.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>[header]</u></span><br>" + message, /atom/movable/screen/text/screen_text/command_order)
+		marine.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING(header, message, CENTER_ALIGN_TEXT))
 
 /datum/squad/proc/check_entry(datum/job/job)
 	if(!(job.title in current_positions))

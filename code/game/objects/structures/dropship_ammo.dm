@@ -30,8 +30,8 @@
 	var/fire_range = 0
 	///Type of CAS dot indicator effect to be used
 	var/cas_effect = /obj/effect/overlay/blinking_laser
-	///CAS impact prediction type to use. Explosive, incendiary, etc
-	var/prediction_type = CAS_AMMO_HARMLESS
+	///CAS impact prediction type used for codex. Explosive, incendiary, etc
+	var/prediction_type
 
 /obj/structure/ship_ammo/attack_powerloader(mob/living/user, obj/item/powerloader_clamp/attached_clamp)
 	. = ..()
@@ -323,7 +323,7 @@
 	for(var/i = 0 to laze_radius)
 		beginning = get_step(beginning, revdir)
 		end = get_step(end, attackdir)
-	return getline(beginning, end)
+	return get_traversal_line(beginning, end)
 
 /obj/structure/ship_ammo/cas/laser_battery/detonate_on(turf/impact, attackdir = NORTH)
 	var/list/turf/lazertargets = get_turfs_to_impact(impact, attackdir)
@@ -363,6 +363,7 @@
 	travelling_time = 4 SECONDS
 	point_cost = 0
 	ammo_type = CAS_MISSILE
+	prediction_type = CAS_AMMO_EXPLOSIVE
 
 /obj/structure/ship_ammo/cas/rocket/detonate_on(turf/impact, attackdir = NORTH)
 	qdel(src)
@@ -377,7 +378,6 @@
 	point_cost = 195
 	explosion_power = 320
 	explosion_falloff = 80
-	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/widowmaker
 
 /obj/structure/ship_ammo/cas/rocket/widowmaker/detonate_on(turf/impact, attackdir = NORTH)
@@ -413,7 +413,6 @@
 	point_cost = 250
 	explosion_power = 550
 	explosion_falloff = 145
-	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/keeper
 
 /obj/structure/ship_ammo/cas/rocket/keeper/detonate_on(turf/impact, attackdir = NORTH)
@@ -430,7 +429,6 @@
 	point_cost = 350
 	explosion_power = 450
 	explosion_falloff = 120
-	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/fatty
 
 /obj/structure/ship_ammo/cas/rocket/fatty/detonate_on(turf/impact, attackdir = NORTH)
@@ -513,7 +511,7 @@
 
 /obj/structure/ship_ammo/cas/minirocket
 	name = "MGA-112A 'Candies'"
-	desc = "A pack of explosive mini rockets. Moving this will require some sort of lifter."
+	desc = "A pack of explosive mini-rockets. Moving this will require some sort of lifter."
 	icon_state = "minirocket"
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	equipment_type = /obj/structure/dropship_equipment/cas/weapon/minirocket_pod
@@ -544,7 +542,7 @@
 
 /obj/structure/ship_ammo/cas/minirocket/incendiary
 	name = "MGA-110B incendiary"
-	desc = "A pack of incendiary mini rockets. Moving this will require some sort of lifter."
+	desc = "A pack of incendiary mini-rockets. Moving this will require some sort of lifter."
 	icon_state = "minirocket_inc"
 	point_cost = 175
 	travelling_time = 3 SECONDS
@@ -558,7 +556,7 @@
 
 /obj/structure/ship_ammo/cas/minirocket/smoke
 	name = "MGA-108C smoke"
-	desc = "A pack of screening smoke mini rockets. Moving this will require some sort of lifter."
+	desc = "A pack of screening smoke mini-rockets. Moving this will require some sort of lifter."
 	icon_state = "minirocket_smoke"
 	point_cost = 35
 	travelling_time = 2 SECONDS
@@ -575,7 +573,7 @@
 
 /obj/structure/ship_ammo/cas/minirocket/tangle
 	name = "MGA-106D tangle"
-	desc = "A pack of mini rockets loaded with plasma-draining Tanglefoot gas. Moving this will require some sort of lifter."
+	desc = "A pack of mini-rockets loaded with plasma-draining Tanglefoot gas. Moving this will require some sort of lifter."
 	icon_state = "minirocket_tfoot"
 	point_cost = 125
 	travelling_time = 6 SECONDS
@@ -592,7 +590,7 @@
 
 /obj/structure/ship_ammo/cas/minirocket/illumination
 	name = "MGA-104I illuminant"
-	desc = "A pack of mini rockets, each loaded with a payload of white-star illuminant and a parachute, while extremely ineffective at damaging the enemy, it is very effective at lighting the battlefield so marines can damage the enemy. Moving this will require some sort of lifter."
+	desc = "A pack of mini-rockets, each loaded with a payload of white-star illuminant and a parachute, while extremely ineffective at damaging the enemy, it is very effective at lighting the battlefield so marines can damage the enemy. Moving this will require some sort of lifter."
 	icon_state = "minirocket_ilm"
 	point_cost = 25 // Not a real rocket, so its cheap
 	travelling_time = 2 SECONDS

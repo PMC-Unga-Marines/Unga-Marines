@@ -26,7 +26,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	var/attack_speed = 11
 	/// Byond tick delay between right click alternate attacks
 	var/attack_speed_alternate = 11
-	/// Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
+	///Used in attackby() to say how something was attacked "[x] [z.attack_verb] [y] with their [z]!" Should be in simple present tense!
 	var/list/attack_verb
 	/// Whether this item cuts
 	var/sharp = FALSE
@@ -43,10 +43,16 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	/// This is used to determine on which slots an item can fit.
 	/// Since any item can now be a piece of clothing, this has to be put here so all items share it.
 	var/equip_slot_flags = NONE
-	/// This flag is used for various clothing/equipment item stuff
+	///Last slot that item was equipped to (aka sticky slot)
+	var/last_equipped_slot
+
+	//Since any item can now be a piece of clothing, this has to be put here so all items share it.
+	///This flag is used for various clothing/equipment item stuff
 	var/inventory_flags = NONE
 	/// This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.
 	var/inv_hide_flags = NONE
+	/// This flag is used to determine if an item is deployable and how exactly will it deploy
+	var/deploy_flags = NONE
 	var/obj/item/master = null
 	/// See setup.dm for appropriate bit flags
 	var/armor_protection_flags = NONE
@@ -254,10 +260,18 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	if(SEND_SIGNAL(src, COMSIG_ATOM_GET_EXAMINE_NAME, user, override) & COMPONENT_EXNAME_CHANGED)
 		. = override.Join("")
 
-/obj/item/examine(mob/user)
-	. = ..()
-	. += EXAMINE_SECTION_BREAK
-	. += "[gender == PLURAL ? "They are" : "It is"] a [weight_class_to_text(w_class)] item."
+/obj/item/examine_tags(mob/user)
+	var/list/parent_tags = ..()
+	var/list/weight_class_data = weight_class_data(w_class)
+	parent_tags.Insert(1, weight_class_data[WEIGHT_CLASS_TEXT]) // to make size display first, otherwise it looks goofy
+	. = parent_tags
+	.[weight_class_data[WEIGHT_CLASS_TEXT]] = "[gender == PLURAL ? "They're" : "It's"] a [weight_class_data[WEIGHT_CLASS_TEXT]] [examine_descriptor(user)]. [weight_class_data[WEIGHT_CLASS_TOOLTIP]]"
+	if(atom_flags & CONDUCT)
+		.["conductive"] = "It's conductive. If this is an oversuit item, like armor, it will prevent defibrillation while worn. \
+							Some conductive tools also have special interactions and dangers when being used."
+
+/obj/item/examine_descriptor(mob/user)
+	return "item"
 
 /obj/item/attack_ghost(mob/dead/observer/user)
 	. = ..()
@@ -387,15 +401,28 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 /obj/item/proc/do_quick_equip(mob/user)
 	return src
 
+
+///Helper function for updating last_equipped_slot when item is drawn from storage
+/obj/item/proc/set_last_equipped_slot_of_storage(datum/storage/storage_datum)
+	var/obj/item/storage_item = storage_datum.parent
+	if(!isitem(storage_item))
+		return
+
+	while(isitem(storage_item.loc)) // for stuff like armor modules we have to find topmost item
+		storage_item = storage_item.loc
+
+	if(storage_item)
+		last_equipped_slot = slot_to_in_storage_slot(storage_item.last_equipped_slot)
+
 ///called when this item is removed from a storage item, which is passed on as S. The loc variable is already set to the new destination before this is called.
 /obj/item/proc/on_exit_storage(obj/item/storage/S as obj)
 	item_flags &= ~IN_STORAGE
+	set_last_equipped_slot_of_storage(S)
 	return
 
 ///called when this item is added into a storage item, which is passed on as S. The loc variable is already set to the storage item.
 /obj/item/proc/on_enter_storage(obj/item/storage/S as obj)
 	item_flags |= IN_STORAGE
-	return
 
 ///called when "found" in pockets and storage items. Returns 1 if the search should end.
 /obj/item/proc/on_found(mob/finder as mob)
@@ -412,6 +439,9 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 	SHOULD_CALL_PARENT(TRUE) // no exceptions
 	item_flags |= IN_INVENTORY // if it's located after the signal is sent, it doesn't update stuff like verbs for storages
 	SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, slot)
+	SEND_SIGNAL(user, COMSIG_MOB_ITEM_EQUIPPED, src, slot)
+	if (slot != SLOT_R_HAND && slot != SLOT_L_HAND)
+		last_equipped_slot = slot
 
 	var/equipped_to_slot = equip_slot_flags & slotdefine2slotbit(slot)
 	if(equipped_to_slot) // equip_slot_flags is a bitfield
@@ -437,6 +467,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 /obj/item/proc/unequipped(mob/unequipper, slot)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_ITEM_UNEQUIPPED, unequipper, slot)
+	SEND_SIGNAL(unequipper, COMSIG_MOB_ITEM_UNEQUIPPED, src, slot)
 
 	var/equipped_from_slot = equip_slot_flags & slotdefine2slotbit(slot)
 
@@ -550,9 +581,13 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 		if(SLOT_GLOVES)
 			if(H.gloves)
 				return FALSE
+			if(H.has_arms() != 2)
+				return FALSE
 			equip_to_slot = TRUE
 		if(SLOT_SHOES)
 			if(H.shoes)
+				return FALSE
+			if(H.has_legs() != 2)
 				return FALSE
 			equip_to_slot = TRUE
 		if(SLOT_GLASSES)
@@ -848,7 +883,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 
 	var/obj/item/I = get_active_held_item()
 	if(I && !(I.item_flags & ITEM_ABSTRACT))
-		visible_message("[src] holds up [I]. <a HREF=?src=[REF(usr)];lookitem=[REF(I)]>Take a closer look.</a>")
+		visible_message("[src] holds up [I]. <a href=?byond://src=[REF(usr)];lookitem=[REF(I)]>Take a closer look.</a>")
 
 /*
 For zooming with scope or binoculars. This is called from
@@ -899,7 +934,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return
 
 	TIMER_COOLDOWN_START(user, COOLDOWN_ZOOM, 2 SECONDS)
-	if(SEND_SIGNAL(user, COMSIG_ITEM_ZOOM) &  COMSIG_ITEM_ALREADY_ZOOMED)
+	if(SEND_SIGNAL(user, COMSIG_ITEM_ZOOM) & COMSIG_ITEM_ALREADY_ZOOMED)
 		to_chat(user, span_warning("You are already looking through another zoom device.."))
 		return
 
@@ -1306,21 +1341,16 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	var/obj/item/double = user.get_inactive_held_item()
 	if(prob(chance))
-		switch(rand(1,7))
-			if(1)
-				basic_spin_trick(user, -1)
-			if(2)
-				basic_spin_trick(user, 1)
-			if(3)
-				throw_catch_trick(user)
+		switch(rand(1, 7))
+			if(1 to 3)
+				basic_spin_trick(user, pick(1, 1, -1))
 			if(4)
-				basic_spin_trick(user, 1)
-			if(5)
-				var/arguments[] = istype(double) ? list(user, 1, double) : list(user, -1)
-				basic_spin_trick(arglist(arguments))
-			if(6)
-				var/arguments[] = istype(double) ? list(user, -1, double) : list(user, 1)
-				basic_spin_trick(arglist(arguments))
+				throw_catch_trick(user)
+			if(5 to 6)
+				if(istype(double))
+					basic_spin_trick(user, pick(1, -1), double)
+				else
+					basic_spin_trick(user, pick(1, -1))
 			if(7)
 				if(istype(double))
 					INVOKE_ASYNC(double, PROC_REF(throw_catch_trick), user)
@@ -1342,10 +1372,10 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	set waitfor = 0
 	playsound(user, 'sound/effects/spin.ogg', 25, 1)
 	if(double)
-		user.visible_message("[user] deftly flicks and spins [src] and [double]!",span_notice(" You flick and spin [src] and [double]!"))
+		user.visible_message("[user] deftly flicks and spins [src] and [double]!", span_notice("You flick and spin [src] and [double]!"))
 		animation_wrist_flick(double, 1)
 	else
-		user.visible_message("[user] deftly flicks and spins [src]!",span_notice(" You flick and spin [src]!"))
+		user.visible_message("[user] deftly flicks and spins [src]!", span_notice("You flick and spin [src]!"))
 	animation_wrist_flick(src, direction)
 	sleep(0.3 SECONDS)
 	if(loc && user) playsound(user, 'sound/effects/thud.ogg', 25, 1)
@@ -1353,12 +1383,16 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 ///The fancy trick. Woah.
 /obj/item/proc/throw_catch_trick(mob/living/carbon/human/user)
 	set waitfor = 0
-	user.visible_message("[user] deftly flicks [src] and tosses it into the air!",span_notice(" You flick and toss [src] into the air!"))
-	var/img_layer = MOB_LAYER+0.1
-	var/image/trick = image(icon,user,icon_state,img_layer)
-	switch(pick(1,2))
-		if(1) animation_toss_snatch(trick)
-		if(2) animation_toss_flick(trick, pick(1,-1))
+	if(HAS_TRAIT(src, TRAIT_NODROP))
+		return basic_spin_trick(user, pick(1, 1, -1))
+	user.visible_message("[user] deftly flicks [src] and tosses it into the air!", span_notice("You flick and toss [src] into the air!"))
+	var/img_layer = MOB_LAYER + 0.1
+	var/image/trick = image(icon,user, icon_state, img_layer)
+
+	if(prob(50))
+		animation_toss_snatch(trick)
+	else
+		animation_toss_flick(trick, pick(1, -1))
 
 	invisibility = 100
 	for(var/mob/M in viewers(user))
@@ -1374,9 +1408,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return
 
 	if(user.get_inactive_held_item())
-		user.visible_message("[user] catches [src] with the same hand!",span_notice(" You catch [src] as it spins in to your hand!"))
+		user.visible_message("[user] catches [src] with the same hand!", span_notice("You catch [src] as it spins in to your hand!"))
 		return
-	user.visible_message("[user] catches [src] with his other hand!",span_notice(" You snatch [src] with your other hand! Awesome!"))
+	user.visible_message("[user] catches [src] with his other hand!", span_notice("You snatch [src] with your other hand! Awesome!"))
 	user.temporarilyRemoveItemFromInventory(src)
 	user.put_in_inactive_hand(src)
 	user.swap_hand()
@@ -1386,9 +1420,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 ///Handles registering if an item is flagged as deployed or not
 /obj/item/proc/toggle_deployment_flag(deployed)
 	if(deployed)
-		ENABLE_BITFIELD(item_flags, IS_DEPLOYED)
+		ENABLE_BITFIELD(deploy_flags, IS_DEPLOYED)
 	else
-		DISABLE_BITFIELD(item_flags, IS_DEPLOYED)
+		DISABLE_BITFIELD(deploy_flags, IS_DEPLOYED)
 
 ///Called by vendors when vending an item. Allows the item to specify what happens when it is given to the player.
 /obj/item/proc/on_vend(mob/user, faction, fill_container = FALSE, auto_equip = FALSE)

@@ -25,11 +25,11 @@
 	span_danger("We charge towards \the [A]!") )
 	xeno_owner.emote("roar")
 	xeno_owner.xeno_flags |= XENO_LEAPING //This has to come before throw_at, which checks impact. So we don't do end-charge specials when thrown
-	succeed_activate()
 
 	xeno_owner.throw_at(A, charge_range, RAV_CHARGESPEED, xeno_owner)
 
 	add_cooldown()
+	succeed_activate()
 
 /datum/action/ability/activable/xeno/charge/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("Our exoskeleton quivers as we get ready to use [name] again."))
@@ -242,7 +242,7 @@
 /datum/action/ability/xeno_action/endure/proc/endure_warning()
 	if(QDELETED(owner))
 		return
-	to_chat(owner,span_highdanger("We feel the plasma draining from our veins... [initial(name)] will last for only [timeleft(endure_duration) * 0.1] more seconds!"))
+	to_chat(owner,span_userdanger("We feel the plasma draining from our veins... [initial(name)] will last for only [timeleft(endure_duration) * 0.1] more seconds!"))
 	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50, 0, 1)
 
 ///Turns off the Endure buff
@@ -281,7 +281,7 @@
 	endure_duration = initial(endure_duration)
 	endure_warning_duration = initial(endure_warning_duration)
 
-	to_chat(owner,span_highdanger("The last of the plasma drains from our body... We can no longer endure beyond our normal limits!"))
+	to_chat(owner,span_userdanger("The last of the plasma drains from our body... We can no longer endure beyond our normal limits!"))
 	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50, 0, 1)
 
 ///Warns us when our health is critically low and tells us exactly how much more punishment we can take
@@ -432,5 +432,5 @@
 
 	xeno_owner.remove_filter("ravager_immortality_outline")
 
-	to_chat(owner,span_highdanger("We are now mortal again."))
+	to_chat(owner,span_userdanger("We are now mortal again."))
 	owner.playsound_local(owner, 'sound/voice/alien/hiss8.ogg', 50, 0, 1)

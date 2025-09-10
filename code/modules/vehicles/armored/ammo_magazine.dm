@@ -28,15 +28,25 @@
 	icon_state = "ltb_apfds"
 	default_ammo = /datum/ammo/bullet/tank_apfds
 
-/obj/item/ammo_magazine/tank/towlauncher
-	name = "TOW Launcher Magazine"
-	desc = "A primary armament rocket magazine"
+/obj/item/ammo_magazine/tank/tow_missile
+	name = "\improper TOW-III missile"
+	desc = "A TOw-III homing missile for the secondary TOW launcher."
 	caliber = CALIBER_68MM
-	icon_state = "quad_rocket"
-	icon = 'icons/obj/items/ammo/rocket.dmi'
+	icon_state = "seekerammo"
 	w_class = WEIGHT_CLASS_GIGANTIC
-	default_ammo = /datum/ammo/rocket/ap //Fun fact, AP rockets seem to be a straight downgrade from normal rockets. Maybe I'm missing something...
-	max_rounds = 5
+	default_ammo = /datum/ammo/rocket/homing/tow
+	max_rounds = 1
+	loading_sound = 'sound/weapons/guns/interact/launcher_reload.ogg'
+
+/obj/item/ammo_magazine/tank/microrocket_rack
+	name = "microrocket pod rack"
+	desc = "A 3x2 rack containing high explosive homing microrockets."
+	caliber = CALIBER_32MM
+	icon_state = "secondary_rocketpod"
+	w_class = WEIGHT_CLASS_GIGANTIC
+	default_ammo = /datum/ammo/rocket/homing/microrocket
+	max_rounds = 6
+	loading_sound = 'sound/weapons/guns/interact/launcher_reload.ogg'
 
 /obj/item/ammo_magazine/tank/ltb_cannon/canister
 	name = "LTB canister round (105mm)"
@@ -45,7 +55,7 @@
 	default_ammo = /datum/ammo/tx54/tank_cannister
 
 /obj/item/ammo_magazine/tank/ltaap_chaingun
-	name = "\improper LTA-AP chaingun Magazine"
+	name = "\improper LTA-AP chaingun magazine"
 	desc = "A primary armament chaingun magazine."
 	caliber = CALIBER_762X51
 	icon_state = "ltaap"
@@ -53,6 +63,20 @@
 	default_ammo = /datum/ammo/bullet/minigun/ltaap
 	max_rounds = 150
 	loading_sound = 'sound/weapons/guns/interact/working_the_bolt.ogg'
+
+/obj/item/ammo_magazine/tank/autocannon
+	name = "Bushwhacker Autocannon APDS Box (30mm)"
+	desc = "A 100 round box for an autocannon. Loaded with Armor Piercing rounds."
+	caliber = CALIBER_30X17MM
+	icon_state = "tank_autocannon_ap"
+	max_rounds = 100
+	default_ammo = /datum/ammo/bullet/tank_autocannon
+
+/obj/item/ammo_magazine/tank/autocannon/high_explosive
+	name = "Bushwhacker Autocannon High Explosive Box (30mm)"
+	desc = "A 100 round box for an autocannon. Loaded with High Explosive rounds."
+	icon_state = "tank_autocannon_he"
+	default_ammo = /datum/ammo/rocket/tank_autocannon
 
 /obj/item/ammo_magazine/tank/secondary_cupola
 	name = "HSG-102 Cupola Magazine"
@@ -176,3 +200,32 @@
 	max_rounds = 1
 	loading_sound = 'sound/vehicles/weapons/ltb_reload.ogg'
 
+/obj/item/ammo_magazine/tank/tow_missile
+	name = "\improper TOW-III missile"
+	desc = "A TOw-III homing missile for the secondary TOW launcher."
+	caliber = CALIBER_68MM
+	icon_state = "seekerammo"
+	w_class = WEIGHT_CLASS_GIGANTIC
+	default_ammo = /datum/ammo/rocket/homing/tow
+	max_rounds = 1
+	loading_sound = 'sound/weapons/guns/interact/launcher_reload.ogg'
+
+/obj/item/ammo_magazine/tank/microrocket_rack
+	name = "microrocket pod rack"
+	desc = "A 3x2 rack containing high explosive homing microrockets."
+	caliber = CALIBER_32MM
+	icon_state = "secondary_rocketpod"
+	w_class = WEIGHT_CLASS_GIGANTIC
+	default_ammo = /datum/ammo/rocket/homing/microrocket
+	max_rounds = 6
+	loading_sound = 'sound/weapons/guns/interact/launcher_reload.ogg'
+
+/obj/item/ammo_magazine/tank/bfg
+	name = "\improper BFG antimatter container"
+	desc = "An antimatter containment chamber containing antimatter for a BFG glob. Do not open at threat of exploding."
+	icon_state = "bfg"
+	w_class = WEIGHT_CLASS_GIGANTIC
+	caliber = CALIBER_ANTIMATTER
+	default_ammo = /datum/ammo/energy/bfg
+	max_rounds = 1
+	loading_sound = 'sound/vehicles/weapons/ltb_reload.ogg'

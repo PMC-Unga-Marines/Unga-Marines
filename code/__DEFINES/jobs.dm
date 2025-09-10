@@ -25,6 +25,9 @@
 #define JOB_DISPLAY_ORDER_SYNTHETIC 21
 #define JOB_DISPLAY_ORDER_SURVIVOR 22
 #define JOB_DISPLAY_ORDER_CORPORATE_LIAISON 23
+#define JOB_DISPLAY_ORDER_CLOWN 24
+#define JOB_DISPLAY_ORDER_MILITARY_POLICE 25
+#define JOB_DISPLAY_ORDER_PREDATOR 26
 
 #define JOB_FLAG_SPECIALNAME (1<<0)
 #define JOB_FLAG_LATEJOINABLE (1<<1) //Can this job be selected for prefs to join as?
@@ -68,6 +71,8 @@
 #define SQUAD_VATGROWN "Squad VatGrown"
 #define SILICON_AI "AI"
 #define JOB_PREDATOR "Predator"
+#define CLOWN "Ship Clown"
+#define MILITARY_POLICE "Military Policeman"
 
 #define JOB_CAT_COMMAND "Command"
 #define JOB_CAT_SILICON "Silicon"
@@ -77,6 +82,7 @@
 #define JOB_CAT_CIVILIAN "Civilian"
 #define JOB_CAT_MARINE "Marine"
 #define JOB_CAT_XENO "Xenomorph"
+#define JOB_CAT_YAUTJA "Yautja"
 #define JOB_CAT_UNASSIGNED "Unassigned"
 
 #define JOB_COMM_TITLE_SQUAD_LEADER "SL"
@@ -138,7 +144,7 @@ GLOBAL_LIST_INIT(jobs_fallen_marine, typecacheof(list(/datum/job/fallen/marine),
 #define XP_REQ_EXPERT 3600
 
 // how much a job is going to contribute towards burrowed larva. see config for points required to larva. old balance was 1 larva per 3 humans.
-#define LARVA_POINTS_SHIPSIDE 0.5
+#define LARVA_POINTS_SHIPSIDE 1
 #define LARVA_POINTS_SHIPSIDE_STRONG 1.5
 #define LARVA_POINTS_REGULAR 3.25
 #define LARVA_POINTS_STRONG 6

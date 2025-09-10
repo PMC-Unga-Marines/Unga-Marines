@@ -200,12 +200,11 @@
 /datum/action/ability/activable/item_toggle/blink_drive
 	name = "Use Blink Drive"
 	desc = "Teleport a short distance instantly."
-	action_icon = 'icons/mob/actions.dmi'
-	action_icon_state = ""
-	keybind_flags = ABILITY_USE_STAGGERED|ABILITY_USE_BUSY
+	action_icon_state = "123" // for whatever fucking reason, there's no proper icon state without this bullshit
+	use_state_flags = ABILITY_USE_STAGGERED|ABILITY_USE_BUSY
 	keybinding_signals = list(KEYBINDING_NORMAL = COMSIG_ITEM_TOGGLE_BLINKDRIVE)
 
-/datum/action/ability/activable/item_toggle/blink_drive/can_use_ability(silent, override_flags, selecting)
+/datum/action/ability/activable/item_toggle/blink_drive/can_use_ability(atom/A, silent = FALSE, override_flags)
 	var/mob/living/carbon/carbon_owner = owner
 	if(carbon_owner.incapacitated() || carbon_owner.lying_angle)
 		return FALSE
@@ -213,3 +212,30 @@
 		carbon_owner.balloon_alert(carbon_owner, "can't use here")
 		return FALSE
 	return ..()
+
+/datum/action/ability/activable/item_toggle/blink_drive/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/activable/item_toggle/blink_drive/ai_should_use(atom/target)
+	var/obj/item/blink_drive/blink_parent = src.target
+	if(isainode(target))
+		if(blink_parent.charges < 2) //keep one for combat
+			return FALSE
+		if(get_dist(owner, target) > 5)
+			return FALSE
+		if(!can_use_ability(target, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
+			return FALSE
+		return TRUE
+
+	if(!(isliving(target) || ismecha(target) || isarmoredvehicle(target)))
+		return FALSE
+	var/atom/movable/movable_target = target
+	if(movable_target.faction == owner.faction)
+		return FALSE
+	if(!can_use_ability(movable_target, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
+		return FALSE
+	if(!blink_parent.charges)
+		return FALSE
+	if(get_dist(owner, movable_target) > 7)
+		return FALSE
+	return TRUE

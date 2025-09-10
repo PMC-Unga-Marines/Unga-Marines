@@ -1,13 +1,13 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "b" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -20,7 +20,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "f" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /obj/machinery/light/floor{
@@ -34,25 +34,25 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "k" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "m" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "n" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/mainship/mono,
@@ -67,30 +67,30 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "v" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "y" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "A" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "P" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 1
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "W" = (
-/obj/structure/barricade/plasteel,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding,
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -100,7 +100,7 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "Y" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /obj/machinery/light/floor{

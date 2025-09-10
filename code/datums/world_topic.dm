@@ -64,7 +64,7 @@
 
 	.["map_name"] = length(SSmapping.configs) ? "[SSmapping.configs[GROUND_MAP].map_name] ([SSmapping.configs[SHIP_MAP].map_name])" : "Loading..."
 
-	.["security_level"] = GLOB.marine_main_ship?.get_security_level()
+	.["security_level"] = SSsecurity_level.get_current_level_as_text()
 	.["round_duration"] = SSticker ? round((world.time - SSticker.round_start_time) * 0.1) : 0
 
 	.["time_dilation_current"] = SStime_track.time_dilation_current
@@ -76,3 +76,14 @@
 	.["hard_popcap"] = CONFIG_GET(number/hard_popcap) || 0
 	.["extreme_popcap"] = CONFIG_GET(number/extreme_popcap) || 0
 	.["popcap"] = max(CONFIG_GET(number/soft_popcap), CONFIG_GET(number/hard_popcap), CONFIG_GET(number/extreme_popcap)) //generalized field for this concept for use across ss13 codebases
+
+
+/datum/world_topic/ping
+	keyword = "ping"
+	log = FALSE
+
+
+/datum/world_topic/ping/Run(list/input)
+	. = 0
+	for (var/client/C in GLOB.clients)
+		++.

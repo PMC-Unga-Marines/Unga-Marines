@@ -108,7 +108,7 @@
 		for(var/atom/movable/content in src)
 			INVOKE_ASYNC(content, TYPE_PROC_REF(/atom/movable, handle_airdrop), get_step(target_turf, rand(1, 8)))
 		break_open()
-	..()
+	return ..()
 
 /obj/item/handle_airdrop(turf/target_turf)
 	. = ..()
@@ -139,7 +139,7 @@
 	take_overall_damage(300, BRUTE, BOMB, updating_health = TRUE)
 	take_overall_damage(300, BRUTE, MELEE, updating_health = TRUE)
 	spawn_gibs()
-	visible_message(span_warning("[src] falls out of the sky."), span_highdanger("As you fall out of the sky, you plummet towards the ground."))
+	visible_message(span_warning("[src] falls out of the sky."), span_userdanger("As you fall out of the sky, you plummet towards the ground."))
 
 /mob/living/carbon/human/handle_airdrop(turf/target_turf)
 	. = ..()

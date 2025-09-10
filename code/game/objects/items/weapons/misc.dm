@@ -8,7 +8,7 @@
 	force = 10
 	throwforce = 7
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
+	attack_verb = list("flogs", "whips", "lashes", "disciplines")
 
 /obj/item/weapon/cane
 	name = "cane"
@@ -20,7 +20,7 @@
 	force = 5
 	throwforce = 7
 	w_class = WEIGHT_CLASS_SMALL
-	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
+	attack_verb = list("bludgeons", "whacks", "disciplines", "thrashes")
 
 /obj/item/weapon/broken_bottle
 	name = "Broken Bottle"
@@ -32,7 +32,7 @@
 	throw_speed = 3
 	throw_range = 5
 	worn_icon_state = "broken_beer"
-	attack_verb = list("stabbed", "slashed", "attacked")
+	attack_verb = list("stabs", "slashes", "attacks")
 	sharp = IS_SHARP_ITEM_SIMPLE
 	edge = 0
 	var/icon/broken_outline = icon('icons/obj/items/drinks.dmi', "broken")
@@ -43,12 +43,13 @@
 
 /obj/item/weapon/powerfist
 	name = "powerfist"
-	desc = "A metal gauntlet with a energy-powered fist to throw back enemies. Altclick to clamp it around your hand, use it to change power settings and click with an empty off-hand or right click to pop out the cell."
+	desc = "A metal gauntlet with a energy-powered fist to throw back enemies."
 	icon_state = "powerfist"
 	worn_icon_state = "powerfist"
 	equip_slot_flags = ITEM_SLOT_BELT
 	force = 10
-	attack_verb = list("smashed", "rammed", "power-fisted")
+	attack_verb = list("smashes", "rams", "power-fists")
+	///Our inner cell
 	var/obj/item/cell/cell
 	///the higher the power level the harder it hits
 	var/setting = 1
@@ -69,19 +70,19 @@
 
 /obj/item/weapon/powerfist/examine(user)
 	. = ..()
-	var/powerused = setting * 20
-	. += "It's power setting is set to [setting]."
+	. += span_notice("Use it <b>In-Hand</b> to change power settings. It's power setting is set to <b>[setting]</b>.")
 	if(cell)
-		. += "It has [round(cell.charge / powerused, 1)] level [setting] punches remaining."
+		. += span_notice("<b>Click</b> on the gauntlet to pop out the cell.")
+		. += span_notice("It has <b>[round(cell.charge / (setting * 20), 1)]</b> level <b>[setting]</b> punches remaining.")
 	else
-		. += "There is no cell installed!"
+		. += span_notice("There is no <b>cell</b> installed!")
 
 /obj/item/weapon/powerfist/attack_self(mob/user)
 	. = ..()
-	if(setting == 3)
+	if(setting >= 3)
 		setting = 1
 	else
-		setting += 1
+		setting++
 	balloon_alert(user, "Power level [setting].")
 
 /obj/item/weapon/powerfist/attack(mob/living/carbon/M, mob/living/carbon/user)
@@ -178,7 +179,7 @@
 	icon_state = "brick"
 	force = 30
 	throwforce = 40
-	attack_verb = list("smacked", "whacked", "bonked", "bricked", "thwacked", "socked", "donked")
+	attack_verb = list("smacks", "whacks", "bonks", "bricks", "thwacks", "socks", "donks")
 	hitsound = 'sound/weapons/heavyhit.ogg'
 
 /obj/item/stack/throwing_knife/stone
@@ -190,7 +191,7 @@
 	max_amount = 12
 	amount = 12
 	throw_delay = 0.3 SECONDS
-	attack_verb = list("smacked", "whacked", "bonked", "pelted", "thwacked", "cracked")
+	attack_verb = list("smacks", "whacks", "bonks", "pelts", "thwacks", "cracks")
 	hitsound = 'sound/weapons/heavyhit.ogg'
 	singular_name = "stone"
 	atom_flags = DIRLOCK

@@ -84,17 +84,19 @@
 #define GUN_WIELDED_FIRING_ONLY (1<<3)
 #define GUN_ALLOW_SYNTHETIC (1<<4)
 #define GUN_WIELDED_STABLE_FIRING_ONLY (1<<5)
-#define GUN_IFF (1<<6)
-#define GUN_DEPLOYED_FIRE_ONLY (1<<7)
-#define GUN_IS_ATTACHMENT (1<<8)
-#define GUN_ATTACHMENT_FIRE_ONLY (1<<9)
-#define GUN_ENERGY (1<<10)
-#define GUN_AMMO_COUNT_BY_PERCENTAGE (1<<11)
-#define GUN_AMMO_COUNT_BY_SHOTS_REMAINING (1<<12)
-#define GUN_NO_PITCH_SHIFT_NEAR_EMPTY (1<<13)
-#define GUN_SHOWS_AMMO_REMAINING (1<<14) //Whether the mob sprite reflects the ammo level
-#define GUN_SHOWS_LOADED (1<<15) //Whether the mob sprite as loaded or unloaded, a binary version of the above
-#define GUN_SMOKE_PARTICLES (1<<16) //Whether the gun has smoke particles
+#define GUN_DEPLOYED_FIRE_ONLY (1<<6)
+#define GUN_IS_ATTACHMENT (1<<7)
+#define GUN_ATTACHMENT_FIRE_ONLY (1<<8)
+#define GUN_ENERGY (1<<9)
+#define GUN_AMMO_COUNT_BY_PERCENTAGE (1<<10)
+#define GUN_AMMO_COUNT_BY_SHOTS_REMAINING (1<<11)
+#define GUN_NO_PITCH_SHIFT_NEAR_EMPTY (1<<12)
+///Whether the mob sprite reflects the ammo level
+#define GUN_SHOWS_AMMO_REMAINING (1<<13)
+///Whether the mob sprite as loaded or unloaded, a binary version of the above
+#define GUN_SHOWS_LOADED (1<<14)
+///Whether the gun has smoke particles
+#define GUN_SMOKE_PARTICLES (1<<15)
 
 //reciever_flags. Used to determin how the gun cycles, what kind of ammo it uses, etc.
 #define AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION (1<<0)
@@ -147,10 +149,10 @@
 #define SLOWDOWN_ARMOR_VERY_HEAVY 1
 
 //Marine armor defines
-#define MARINE_ARMOR_LIGHT list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 30, BOMB = 10, BIO = 30, FIRE = 5, ACID = 35)
-#define MARINE_ARMOR_MEDIUM list(MELEE = 45, BULLET = 60, LASER = 60, ENERGY = 40, BOMB = 20, BIO = 40, FIRE = 10, ACID = 45)
-#define MARINE_ARMOR_HEAVY list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 50, BOMB = 30, BIO = 50, FIRE = 15, ACID = 55)
-#define MARINE_HAT_ARMOR list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 5)
+#define MARINE_ARMOR_LIGHT list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 40, BOMB = 10, BIO = 40, FIRE = 5, ACID = 40)
+#define MARINE_ARMOR_MEDIUM list(MELEE = 45, BULLET = 60, LASER = 60, ENERGY = 50, BOMB = 20, BIO = 45, FIRE = 10, ACID = 50)
+#define MARINE_ARMOR_HEAVY list(MELEE = 55, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 30, BIO = 50, FIRE = 15, ACID = 60)
+#define MARINE_HAT_ARMOR list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 5, FIRE = 5, ACID = 20)
 
 //=================================================
 
@@ -215,7 +217,6 @@
 #define RESTRAINED_NECKGRAB (1<<1)
 #define RESTRAINED_STRAIGHTJACKET (1<<2)
 #define RESTRAINED_RAZORWIRE (1<<3)
-#define RESTRAINED_PSYCHICGRAB (1<<4)
 
 #define SINGLE_CASING (1 << 0)
 #define SPEEDLOADER (1 << 1)
@@ -283,3 +284,7 @@
 
 /// Time needed to initially configure an antenna module after equipping
 #define ANTENNA_SYNCING_TIME 30 SECONDS
+
+#define CADE_TYPE_BOMB "concussive armor"
+#define CADE_TYPE_MELEE "ballistic armor"
+#define CADE_TYPE_ACID "caustic armor"

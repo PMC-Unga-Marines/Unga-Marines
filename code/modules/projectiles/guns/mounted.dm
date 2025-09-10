@@ -21,7 +21,7 @@
 
 ///HSG-102, now with full auto. It is not a superclass of deployed guns, however there are a few varients.
 /obj/item/weapon/gun/hsg102
-	name = "\improper HSG-102 mounted heavy smartgun"
+	name = "\improper HSG-102 mounted heavy smartmachinegun"
 	desc = "The HSG-102 heavy machinegun, it's too heavy to be wielded or operated without the tripod. IFF capable. No extra work required, just deploy it with Ctrl-Click. Can be repaired with a blowtorch once deployed."
 
 	w_class = WEIGHT_CLASS_HUGE
@@ -45,8 +45,9 @@
 	burst_accuracy_bonus = 1
 	burst_scatter_mult = 0
 
-	item_flags = IS_DEPLOYABLE|TWOHANDED
-	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOMATIC)
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102)
@@ -80,7 +81,8 @@
 		/obj/item/ammo_magazine/hsg102,
 		/obj/item/ammo_magazine/hsg102/hsg_nest,
 	)
-	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 0, ACID = 0)
 
 /obj/item/weapon/gun/hsg102/hsg_nest/sandless
@@ -110,7 +112,8 @@
 	windup_delay = 0.4 SECONDS
 	windup_sound = 'sound/weapons/guns/fire/tank_minigun_start.ogg'
 
-	item_flags = IS_DEPLOYABLE|TWOHANDED
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	actions_types = list(/datum/action/item_action/aim_mode)
@@ -133,10 +136,10 @@
 /obj/item/weapon/gun/standard_minigun/nest
 	name = "\improper MG-2005 mounted minigun nest"
 	desc = "A MG-2005 mounted minigun mounted upon a small reinforced post with sandbags."
-	icon = 'icons/obj/items/gun/hmg.dmi'
 	icon_state = "minigun_nest"
 
-	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
 	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/hsg102/nest)
@@ -165,8 +168,9 @@
 	burst_scatter_mult = 0.65
 	extra_delay = 1.5 SECONDS
 
-	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
-	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
 
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/at36)
@@ -197,7 +201,7 @@
 
 	w_class = WEIGHT_CLASS_HUGE
 	equip_slot_flags = ITEM_SLOT_BACK
-	icon_state = "heavylaser_deployed"
+	icon_state = "heavylaser_nest"
 	icon = 'icons/obj/items/gun/hmg.dmi'
 	ammo_level_icon = ""
 
@@ -211,7 +215,8 @@
 	deployed_scatter_change = -10
 	fire_delay = 0.7 SECONDS
 
-	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES|GUN_AMMO_COUNT_BY_SHOTS_REMAINING
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 
@@ -241,6 +246,7 @@
 	fire_sound = 'sound/weapons/guns/fire/tank_flamethrower.ogg'
 	message_to_user = "You set the heavy laser to glob mode."
 	fire_mode = GUN_FIREMODE_SEMIAUTO
+	icon_state = "heavylaser"
 	radial_icon_state = "laser_overcharge"
 	description = "Fires a laser glob that ignites things on hit."
 
@@ -266,10 +272,10 @@
 	radial_icon_state = "laser_ricochet"
 	description = "Fires an experiment laser pulse capable of bouncing off many wall surfaces. The laser increases in potency when bouncing, before collapsing entirely after exceeding its threshold."
 
-
 /obj/item/weapon/gun/energy/lasgun/lasrifle/heavy_laser/deployable
-	icon_state = "heavylaser_deployable"
-	item_flags = IS_DEPLOYABLE|TWOHANDED
+	icon_state = "heavylaser"
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE
 
 //-------------------------------------------------------
 //FK-88 mounted heavy infantry support gun
@@ -294,7 +300,8 @@
 	deployed_scatter_change = -10
 	fire_delay = 10 SECONDS
 
-	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE|DEPLOYED_ANCHORED_FIRING_ONLY
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE|DEPLOYED_ANCHORED_FIRING_ONLY
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
 
@@ -324,9 +331,8 @@
 
 ///This is my meme version, the first version of the HSG-102 to have auto-fire, revel in its presence.
 /obj/item/weapon/gun/hsg102/death
-	name = "\improper \"Death incarnate\" heavy machine gun"
+	name = "\improper \"Death incarnate\" heavy smartmachinegun"
 	desc = "It looks like a regular HSG-102, however glowing archaeic writing glows faintly on its sides and top. It beckons for blood."
-	icon = 'icons/obj/items/gun/hmg.dmi'
 
 	aim_slowdown = 3
 	scatter = 30
@@ -339,7 +345,7 @@
 	aim_slowdown = 3
 	wield_delay = 5 SECONDS
 
-	gun_features_flags = GUN_AMMO_COUNTER|GUN_IFF|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 
 // This is a deployed IFF-less MACHINEGUN, has 500 rounds, drums do not fit anywhere but your belt slot and your back slot. But it has 500 rounds. That's nice.
 
@@ -370,7 +376,8 @@
 
 	burst_amount = 1
 
-	item_flags = IS_DEPLOYABLE|TWOHANDED
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 
@@ -436,7 +443,8 @@
 	)
 	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 19,"rail_x" = 18, "rail_y" = 24, "under_x" = 28, "under_y" = 13, "stock_x" = 0, "stock_y" = 0)
 
-	item_flags = IS_DEPLOYABLE|TWOHANDED
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	deployable_item = /obj/machinery/deployable/mounted
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
@@ -497,7 +505,8 @@
 	starting_attachment_types = list(/obj/item/attachable/stock/clf_heavyrifle)
 	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 19,"rail_x" = 18, "rail_y" = 24, "under_x" = 28, "under_y" = 13, "stock_x" = 8, "stock_y" = 0)
 
-	item_flags = IS_DEPLOYABLE|TWOHANDED
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY
 	deployable_item = /obj/machinery/deployable/mounted
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
@@ -556,7 +565,8 @@
 	starting_attachment_types = list(/obj/item/attachable/scope/unremovable/at36)
 	attachable_allowed = list(/obj/item/attachable/scope/unremovable/at36)
 
-	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_ROTATE_ANCHORED|DEPLOYED_ANCHORED_FIRING_ONLY
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE|DEPLOYED_NO_ROTATE_ANCHORED|DEPLOYED_ANCHORED_FIRING_ONLY
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
@@ -628,15 +638,16 @@
 	equip_slot_flags = ITEM_SLOT_BACK
 	caliber = CALIBER_40MM
 	icon = 'icons/obj/items/gun/hmg.dmi'
-	icon_state = "ags"
-	fire_sound = 'sound/weapons/guns/fire/ags.ogg'
+	icon_state = "agls"
+	fire_sound = 'sound/weapons/guns/fire/agls.ogg'
 	reload_sound = 'sound/weapons/guns/interact/minigun_cocked.ogg'
 	default_ammo_type = /obj/item/ammo_magazine/agls37
 	scatter = 0
 	fire_delay = 1 SECONDS
 	burst_amount = 0
 	accuracy_mult = 1.2 //it's got a bipod
-	item_flags = IS_DEPLOYABLE|TWOHANDED
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 
@@ -697,7 +708,8 @@
 	default_ammo_type = /obj/item/ammo_magazine/kord
 	allowed_ammo_types = list(/obj/item/ammo_magazine/kord)
 
-	item_flags = IS_DEPLOYABLE|TWOHANDED
+	item_flags = TWOHANDED
+	deploy_flags = IS_DEPLOYABLE
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_DEPLOYED_FIRE_ONLY|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	aim_fire_delay = 0.05 SECONDS

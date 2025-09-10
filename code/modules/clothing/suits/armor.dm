@@ -85,6 +85,10 @@
 		/obj/item/storage/holster/belt/revolver/m44,
 	)
 
+/obj/item/clothing/suit/armor/bulletproof/mp
+	name = "security bulletproof vest"
+	soft_armor = list(MELEE = 35, BULLET = 95, LASER = 95, ENERGY = 0, BOMB = 30, BIO = 95, FIRE = 0, ACID = 15)
+
 /obj/item/clothing/suit/armor/riot
 	name = "riot suit"
 	desc = "A suit of armor with heavy padding to protect against melee attacks. Looks like it might impair movement."

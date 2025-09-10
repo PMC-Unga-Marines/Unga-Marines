@@ -340,7 +340,7 @@
 			to_chat(user, span_warning("[src]'s defibrillator recharge unit does not have a power cell installed!"))
 	else if(istype(W, /obj/item/cell))
 		if(user.drop_held_item())
-			W.loc = src
+			W.loc = null
 			var/replace_install = "You replace the cell in [src]'s defibrillator recharge unit."
 			if(!cell)
 				replace_install = "You install a cell in [src]'s defibrillator recharge unit."
@@ -574,7 +574,6 @@
 	if (M.smokecloaked)
 		M.smokecloaked = FALSE
 	else
-		GLOB.huds[DATA_HUD_SECURITY_ADVANCED].remove_from_hud(M)
 		GLOB.huds[DATA_HUD_BASIC].remove_from_hud(M)
 		GLOB.huds[DATA_HUD_XENO_INFECTION].remove_from_hud(M)
 		GLOB.huds[DATA_HUD_XENO_HEART].remove_from_hud(M)
@@ -615,7 +614,6 @@
 	playsound(user.loc,'sound/effects/cloak_scout_off.ogg', 15, 1)
 	user.alpha = initial(user.alpha)
 
-	GLOB.huds[DATA_HUD_SECURITY_ADVANCED].add_to_hud(user)
 	GLOB.huds[DATA_HUD_BASIC].add_to_hud(user)
 	GLOB.huds[DATA_HUD_XENO_INFECTION].add_to_hud(user)
 	GLOB.huds[DATA_HUD_XENO_HEART].add_to_hud(user)

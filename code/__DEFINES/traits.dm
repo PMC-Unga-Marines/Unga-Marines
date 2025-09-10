@@ -74,6 +74,7 @@
 // common trait
 #define TRAIT_GENERIC "generic"
 #define INNATE_TRAIT "innate"
+#define ADMIN_TRAIT "admin_trait"
 #define ROUNDSTART_TRAIT "roundstart" //cannot be removed without admin intervention
 #define SLEEPER_TRAIT "sleeper"
 #define STASIS_BAG_TRAIT "stasis_bag"
@@ -92,6 +93,7 @@
 #define ENDURE_TRAIT "endure" //Ravager Endure ability.
 #define RAGE_TRAIT "rage" //Ravager Rage ability.
 #define UNMANNED_VEHICLE "unmanned"
+#define MECH_VENDOR_TRAIT "mechvendor"
 #define REVIVE_TO_CRIT_TRAIT "revive_to_crit"
 #define GUN_TRAIT "gun" //Traits related to guns
 #define ZOMBIE_TRAIT "zombie"
@@ -120,6 +122,11 @@
 #define NIGHT_VISION_GOGGLES_TRAIT "night_vision_goggles"
 #define SUBMERGED_TRAIT "submerged_trait"
 #define TRAIT_DWARF "dwarf"
+#define MOVEMENT_SWAP_TRAIT "movement_swap_trait"
+#define MANIFESTED_TRAIT "manifested_trait"
+#define HOVERBIKE_TRAIT "hoverbike_trait"
+/// This trait comes from when a mob is currently typing.
+#define CURRENTLY_TYPING_TRAIT "currently_typing"
 /// Makes you way too tall. Like just too much, dude, it's kind of creepy. Humanoid only.
 #define TRAIT_TOO_TALL "too_tall"
 
@@ -139,7 +146,7 @@
 ///AM will not be submerged. Trait must ALWAYS be added via the add_nosubmerge_trait proc for correct behavior
 #define TRAIT_NOSUBMERGE "trait_nosubmerge"
 
-
+#define TRAIT_HAS_SPAWNED_MECH "has_spawned_mech"
 
 //added b grilling a food
 #define TRAIT_FOOD_GRILLED "food_grilled"
@@ -181,6 +188,19 @@
 #define TRAIT_MEDIUM_PAIN_RESIST "medium_pain_resist"
 ///is currently riding an armored vehicle
 #define TRAIT_TANK_DESANT "tank_desant"
+///Traits for managing AM pass_flags
+#define TRAIT_PASS_LOW_STRUCTURE "pass_low_structure"
+#define TRAIT_PASS_GLASS "pass_glass"
+#define TRAIT_PASS_GRILLE "pass_grille"
+#define TRAIT_PASS_MOB "pass_mob"
+#define TRAIT_PASS_DEFENSIVE_STRUCTURE "pass_defensive_structure"
+#define TRAIT_PASS_FIRE "pass_fire"
+#define TRAIT_PASS_XENO "pass_xeno"
+#define TRAIT_PASS_THROW "pass_throw"
+#define TRAIT_PASS_PROJECTILE "pass_projectile"
+#define TRAIT_PASS_AIR "pass_air"
+#define TRAIT_PASS_WALKOVER "pass_walkover"
+#define TRAIT_PASS_TANK "pass_tank"
 
 /// Prevents usage of manipulation appendages (picking, holding or using items, manipulating storage).
 #define TRAIT_HANDS_BLOCKED "handsblocked"
@@ -193,6 +213,7 @@
 #define TRAIT_NOPLASMAREGEN "noplasmaregen"//xeno plasma wont recharge
 #define TRAIT_UNDEFIBBABLE "undefibbable"//human can't be revived
 #define TRAIT_IMMEDIATE_DEFIB "immediate_defib"//immediately revives when defibbed, rather than just healing
+#define TRAIT_CRIT_IS_DEATH "crit_is_death" ///instantly causes enough oxy damage to kill the user when they hit critical health
 #define TRAIT_HEALING_INFUSION "healing_infusion"//greatly improves natural healing for xenos
 #define TRAIT_PSY_DRAINED "psy_drained"//mob was drained of life force by a xenos
 #define TRAIT_HIVE_TARGET "hive_target"//mob is targeted for draining by the hive
@@ -200,6 +221,9 @@
 #define TRAIT_STAGGERIMMUNE	"stagger_immunity" //Immunity to stagger
 #define TRAIT_STAGGER_RESISTANT	"stagger_resistant" //Resistance to certain sources of stagger
 #define TRAIT_SLOWDOWNIMMUNE "slowdown_immunity" //Immunity to slowdown
+#define TRAIT_EARDAMAGE_IMMUNE "eardmgimmune" //immune to getting deaf through ear dmg
+///massively decreases human MANUAL get up time
+#define TRAIT_QUICK_GETUP "quick_getup"
 #define TRAIT_SEE_IN_DARK "see_in_dark" //Able to see in dark
 #define TRAIT_MUTED "muted" //target is mute and can't speak
 #define TRAIT_STEALTH "stealth" //mob is in stealth, it means that turrets and ai ignore it, also you can't bump it
@@ -213,6 +237,9 @@
  */
 #define TRAIT_AREA_SENSITIVE "area-sensitive"
 #define TRAIT_HEARING_SENSITIVE "hearing_sensitive" //target is hearing sensitive. Every hearing sensitive atom has this trait
+
+/// Trait given to a mob that is currently thinking (giving off the "thinking" icon), used in an IC context
+#define TRAIT_THINKING_IN_CHARACTER "currently_thinking_IC"
 
 #define TRAIT_DROOLING "drooling" //target is drooling
 #define TRAIT_INTOXICATION_IMMUNE "intoxication_immune" // Immune to the Intoxication debuff.
@@ -272,3 +299,18 @@
 #define TRAIT_CASTE_SWAP "caste_swap"
 #define TRAIT_REGRESSING "regressing"
 #define TRAIT_STRAIN_SWAP "strain swap"
+
+GLOBAL_LIST_INIT(traits_to_pass_flags, list(
+	TRAIT_PASS_LOW_STRUCTURE = PASS_LOW_STRUCTURE,
+	TRAIT_PASS_GLASS = PASS_GLASS,
+	TRAIT_PASS_GRILLE = PASS_GRILLE,
+	TRAIT_PASS_MOB = PASS_MOB,
+	TRAIT_PASS_DEFENSIVE_STRUCTURE = PASS_DEFENSIVE_STRUCTURE,
+	TRAIT_PASS_FIRE = PASS_FIRE,
+	TRAIT_PASS_XENO = PASS_XENO,
+	TRAIT_PASS_THROW = PASS_THROW,
+	TRAIT_PASS_PROJECTILE = PASS_PROJECTILE,
+	TRAIT_PASS_AIR = PASS_AIR,
+	TRAIT_PASS_WALKOVER = PASS_WALKOVER,
+	TRAIT_PASS_TANK = PASS_TANK,
+))

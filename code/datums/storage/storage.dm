@@ -353,7 +353,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
  * Attempts to draw an object from our storage
  */
 /datum/storage/proc/on_attack_hand_alternate(datum/source, mob/living/user)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	if(parent.Adjacent(user))
 		INVOKE_ASYNC(src, PROC_REF(attempt_draw_object), user)
 
@@ -505,25 +505,27 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		thing.pixel_x += rand(-8, 8)
 		thing.pixel_y += rand(-8, 8)
 
-/datum/storage/verb/toggle_gathering_mode()
+/atom/movable/proc/toggle_gathering_mode()
 	set name = "Switch Gathering Method"
 	set category = "IC.Object"
 
-	collection_mode = !collection_mode
-	if(collection_mode)
-		to_chat(usr, span_notice("\The [parent.name] now picks up all items in a tile at once."))
+	var/datum/storage/our_storage = storage_datum
+	our_storage.collection_mode = !our_storage.collection_mode
+	if(our_storage.collection_mode)
+		to_chat(usr, span_notice("\The [our_storage.parent.name] now picks up all items in a tile at once."))
 	else
-		to_chat(usr, span_notice("\The [parent.name] now picks up one item at a time."))
+		to_chat(usr, span_notice("\The [our_storage.parent.name] now picks up one item at a time."))
 
-/datum/storage/verb/toggle_draw_mode()
+/atom/movable/proc/toggle_draw_mode()
 	set name = "Switch Storage Drawing Method"
 	set category = "IC.Object"
 
-	draw_mode = !draw_mode
-	if(draw_mode)
-		to_chat(usr, "Clicking [parent.name] with an empty hand now puts the last stored item in your hand.")
+	var/datum/storage/our_storage = storage_datum
+	our_storage.draw_mode = !our_storage.draw_mode
+	if(our_storage.draw_mode)
+		to_chat(usr, span_notice("Clicking [our_storage.parent.name] with an empty hand now puts the last stored item in your hand."))
 	else
-		to_chat(usr, "Clicking [parent.name] with an empty hand now opens the pouch storage menu.")
+		to_chat(usr, span_notice("Clicking [our_storage.parent.name] with an empty hand now opens the pouch storage menu."))
 
 /**
  * Gets the inventory of a storage
@@ -568,11 +570,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 /datum/storage/proc/hide_from(mob/user)
 	if(!user.client)
 		return
-	user.client.screen -= src.boxes
+	user.client.screen -= boxes
 	user.client.screen -= storage_start
 	user.client.screen -= storage_continue
 	user.client.screen -= storage_end
-	user.client.screen -= src.closer
+	user.client.screen -= closer
 	user.client.screen -= parent.contents
 	if(user.active_storage == src)
 		user.active_storage = null
@@ -580,7 +582,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 /// Signal handler for whenever a mob walks away with us, close if they can't reach us.
 /datum/storage/proc/close_distance(datum/source)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	for(var/mob/user in can_see_content())
 		if(user.CanReach(parent))
 			continue
@@ -773,6 +775,8 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 /datum/storage/proc/can_be_inserted(obj/item/item_to_insert, mob/user, warning = TRUE)
 	if(!istype(item_to_insert) || HAS_TRAIT(item_to_insert, TRAIT_NODROP))
 		return //Not an item
+	if(item_to_insert.item_flags & (ITEM_ABSTRACT|HAND_ITEM))
+		return FALSE
 
 	if(parent.loc == item_to_insert)
 		return FALSE //Means the item is already in the storage item
@@ -810,7 +814,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		if(item_to_insert.w_class >= parent_storage.w_class && istype(item_to_insert, /obj/item/storage) && !is_type_in_typecache(item_to_insert.type, typecacheof(storage_type_limits)))
 			if(!istype(src, /obj/item/storage/backpack/holding))	//bohs should be able to hold backpacks again. The override for putting a boh in a boh is in backpack.dm.
 				if(warning)
-					to_chat(user, span_notice("\The [parent.name] cannot hold [item_to_insert] as it's a storage item of the same size."))
+					to_chat(user, span_notice("\The [parent.name] cannot hold \the [item_to_insert] as it's a storage item of the same size."))
 				return FALSE //To prevent the stacking of same sized storage items.
 
 	for(var/limited_type in storage_type_limits_max)
@@ -844,7 +848,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(!alert_user)
 		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, parent)
 
-	to_chat(user, "<span class='notice'>You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] [parent.name]")
+	to_chat(user, "<span class='notice'>You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] \the [parent.name]")
 	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, parent))
 		to_chat(user, span_warning("You fumble [accessed]!"))
 		return FALSE
@@ -869,7 +873,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
  * such as when picking up all the items on a tile with one click.
  * user can be null, it refers to the potential mob doing the insertion.
  */
-/datum/storage/proc/handle_item_insertion(obj/item/item, prevent_warning = FALSE, mob/user)
+/datum/storage/proc/handle_item_insertion(obj/item/item, prevent_warning = FALSE, mob/user) //todo: this isnt called when spawning some populated items. lacking INVOKE_ASYNC(storage_datum, TYPE_PROC_REF(/datum/storage, handle_item_insertion), new_item)
 	if(!istype(item))
 		return FALSE
 	if(!handle_access_delay(item, user, taking_out = FALSE))
@@ -932,6 +936,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 			continue
 		M.client.screen -= item
 
+	if(!QDELETED(item))
+		UnregisterSignal(item, COMSIG_MOVABLE_MOVED)
+		item.on_exit_storage(src)
+		item.mouse_opacity = initial(item.mouse_opacity)
+
 	if(new_location)
 		if(ismob(new_location))
 			item.layer = ABOVE_HUD_LAYER
@@ -951,21 +960,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		var/mob/M = i
 		show_to(M)
 
-	if(!QDELETED(item))
-		UnregisterSignal(item, COMSIG_MOVABLE_MOVED)
-		item.on_exit_storage(src)
-		item.mouse_opacity = initial(item.mouse_opacity)
-
 	for(var/limited_type in storage_type_limits_max)
 		if(istype(item, limited_type))
 			storage_type_limits_max[limited_type] += 1
 	parent.update_icon()
 	return TRUE
-
-///Handles if the item is forcemoved out of storage
-/datum/storage/proc/item_removed_from_storage(obj/item/item)
-	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, PROC_REF(remove_from_storage), item, item.loc, null, FALSE, TRUE, FALSE)
 
 ///Refills the storage from the refill_types item
 /datum/storage/proc/do_refill(obj/item/storage/refiller, mob/user)
@@ -1084,6 +1083,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(isitem(movable_atom))
 		INVOKE_ASYNC(src, PROC_REF(remove_from_storage), movable_atom, null, usr, silent = TRUE, bypass_delay = TRUE)
 
+///Handles if the item is forcemoved out of storage
+/datum/storage/proc/item_removed_from_storage(obj/item/item)
+	SIGNAL_HANDLER
+	INVOKE_ASYNC(src, PROC_REF(remove_from_storage), item, item.loc, null, FALSE, TRUE, FALSE)
+
 ///signal sent from /atom/proc/max_stack_merging()
 /datum/storage/proc/max_stack_merging(datum/source, obj/item/stack/stacks)
 	if(is_type_in_typecache(stacks, typecacheof(storage_type_limits)))
@@ -1120,15 +1124,15 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	var/obj/item/parent_item = parent
 	if(allow_quick_gather)
 		if(parent_item.item_flags & IN_INVENTORY)
-			parent.verbs += /datum/storage/verb/toggle_gathering_mode
+			parent.verbs += /atom/movable/proc/toggle_gathering_mode
 		else
-			parent.verbs -= /datum/storage/verb/toggle_gathering_mode
+			parent.verbs -= /atom/movable/proc/toggle_gathering_mode
 
 	if(allow_drawing_method)
 		if(parent_item.item_flags & IN_INVENTORY)
-			parent.verbs += /datum/storage/verb/toggle_draw_mode
+			parent.verbs += /atom/movable/proc/toggle_draw_mode
 		else
-			parent.verbs -= /datum/storage/verb/toggle_draw_mode
+			parent.verbs -= /atom/movable/proc/toggle_draw_mode
 
 /**
  * Attempts to get the first possible object from this container

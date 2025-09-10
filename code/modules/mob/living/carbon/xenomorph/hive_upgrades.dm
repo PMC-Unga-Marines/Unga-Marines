@@ -1,7 +1,7 @@
-#define PRIMORDIAL_TIER_ONE "Primordial tier one"
-#define PRIMORDIAL_TIER_TWO "Primordial tier two"
-#define PRIMORDIAL_TIER_THREE "Primordial tier three"
-#define PRIMORDIAL_TIER_FOUR "Primordial tier four"
+#define PRIMORDIAL_TIER_ONE "Primordial Tier One"
+#define PRIMORDIAL_TIER_TWO "Primordial Tier Two"
+#define PRIMORDIAL_TIER_THREE "Primordial Tier Three"
+#define PRIMORDIAL_TIER_FOUR "Primordial Tier Four"
 
 GLOBAL_LIST_INIT(upgrade_categories, list("Buildings", "Defences", "Primordial"))//, "Xenos"))//uncomment to unlock globally
 GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
@@ -92,7 +92,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	///int of the times we bought this upgrade
 	var/times_bought = 0
 	///string for UI icon in buyable_icons.dmi for this upgrade
-	var/icon = "larvasilo"
+	var/icon = "silo"
 
 /**
  * Buys the upgrade and applies its effects
@@ -176,10 +176,10 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/building/silo
 	name = "Larva Silo"
-	desc = "Constructs a silo that generates xeno larvas over time. Requires open space and time to place."
+	desc = "Constructs a silo that generates xeno larvas over time."
 	psypoint_cost = SILO_PRICE
-	icon = "larvasilo"
-	upgrade_flags = ABILITY_NUCLEARWAR
+	icon = "silo"
+	gamemode_flags = ABILITY_DISTRESS
 	building_type = /obj/structure/xeno/silo
 
 /datum/hive_upgrade/building/silo/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
@@ -210,18 +210,16 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/building/evotower
 	name = "Evolution Tower"
-	desc = "Constructs a tower that increases the rate of evolution point and maturity point generation by 1.5 times per tower."
+	desc = "Constructs a tower that increases the rate of evolution point generation by 1.5 per tower."
 	psypoint_cost = 300
 	icon = "evotower"
-	upgrade_flags = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/evotower
 
 /datum/hive_upgrade/building/psychictower
 	name = "Psychic Relay"
-	desc = "Constructs a tower that increases the slots of higher tier Xenomorphs."
+	desc = "Constructs a tower that increases the number of available slots of higher tier castes."
 	psypoint_cost = 300
 	icon = "maturitytower"
-	upgrade_flags = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/psychictower
 
 /datum/hive_upgrade/building/pherotower
@@ -229,20 +227,17 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	desc = "Constructs a tower that emanates a selectable type of pheromone."
 	psypoint_cost = 150
 	icon = "pherotower"
-	upgrade_flags = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/pherotower
 	building_time = 5 SECONDS
 
 /datum/hive_upgrade/building/spawner
 	name = "Spawner"
-	desc = "Constructs a spawner that generates ai xenos over time"
+	desc = "Constructs a spawner that spawns minions over time."
 	psypoint_cost = 600
 	icon = "spawner"
-	upgrade_flags = ABILITY_NUCLEARWAR
 	building_type = /obj/structure/xeno/spawner
 
 /datum/hive_upgrade/building/upgrade_chamber
-	upgrade_flags = ABILITY_NUCLEARWAR
 	var/max_chambers = 3
 
 /datum/hive_upgrade/building/upgrade_chamber/shell
@@ -307,11 +302,11 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	category = "Defences"
 
 /datum/hive_upgrade/defence/turret
-	name = "Acid turret"
-	desc = "Places a acid spitting resin turret under you. Must be at least 6 tiles away from other turrets, not near fog and on a weeded area."
+	name = "Acid Turret"
+	desc = "Places a acid spitting resin turret under you. Must be at least 6 tiles away from other turrets, not near fog, and on a weeded area."
 	icon = "acidturret"
 	psypoint_cost = 80
-	gamemode_flags = ABILITY_NUCLEARWAR
+	gamemode_flags = ABILITY_DISTRESS|ABILITY_CRASH
 	///How long to build one turret
 	var/build_time = 10 SECONDS
 	///What type of turret is built
@@ -363,8 +358,8 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	return ..()
 
 /datum/hive_upgrade/defence/turret/sticky
-	name = "Sticky resin turret"
-	desc = "Places a sticky spit spitting resin turret under you. Must be at least 6 tiles away from other turrets, not near fog and on a weeded area."
+	name = "Sticky Resin Turret"
+	desc = "Places a sticky spit spitting resin turret under you. Must be at least 6 tiles away from other turrets, not near fog, and on a weeded area."
 	icon = "resinturret"
 	psypoint_cost = 50
 	turret_type = /obj/structure/xeno/turret/sticky
@@ -385,68 +380,65 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/primordial/tier_four
 	name = PRIMORDIAL_TIER_FOUR
-	desc = "Unlocks the primordial for the last tier"
+	desc = "Unlocks the primordial upgrade for the last tier xenomorphs."
 	psypoint_cost = 800
-	icon = "primoqueen"
+	icon = "primo_t4"
 
 /datum/hive_upgrade/primordial/tier_three
 	name = PRIMORDIAL_TIER_THREE
-	desc = "Unlocks the primordial for the third tier"
+	desc = "Unlocks the primordial upgrade for the third tier xenomorphs."
 	psypoint_cost = 1000
-	icon = "primorav"
+	icon = "primo_t3"
 
 /datum/hive_upgrade/primordial/tier_two
 	name = PRIMORDIAL_TIER_TWO
-	desc = "Unlocks the primordial for the second tier"
+	desc = "Unlocks the primordial upgrade for the second tier xenomorphs."
 	psypoint_cost = 800
-	icon = "primowarrior"
+	icon = "primo_t2"
 
 /datum/hive_upgrade/primordial/tier_one
 	name = PRIMORDIAL_TIER_ONE
-	desc = "Unlocks the primordial for the first tier"
+	desc = "Unlocks the primordial upgrade for the first tier xenomorphs."
 	psypoint_cost = 600
-	icon = "primosent"
+	icon = "primo_t1"
 
 /datum/hive_upgrade/defence/oblivion
 	name = "Oblivion"
-	desc = "Destroy the bodies beneath you "
-	icon = "smartminions"
+	desc = "Destroy a single human corpse beneath you, by gibbing it."
+	icon = "oblivion"
 	psypoint_cost = 500
-	gamemode_flags = ABILITY_NUCLEARWAR
+	gamemode_flags = ABILITY_DISTRESS|ABILITY_CRASH
 
 /datum/hive_upgrade/defence/oblivion/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
 	. = ..()
 	if(!.)
 		return
-	var/turf/T = get_turf(buyer)
-	var/mob/living/carbon/human/H = locate() in T
-	var/mob/living/carbon/human/species/synthetic = locate() in T
-	if(!H || H.stat != DEAD || synthetic)
-		if(!silent)
-			to_chat(buyer, span_xenowarning("You cannot destroy nothing or alive"))
-		return FALSE
+	for(var/mob/living/carbon/human/gibbed_human in get_turf(buyer))
+		if(gibbed_human.stat != DEAD)
+			continue
+		return TRUE
 
-	return TRUE
+	if(!silent)
+		to_chat(buyer, span_xenowarning("You need someone dead to destroy!"))
+	return FALSE
 
 /datum/hive_upgrade/defence/oblivion/on_buy(mob/living/carbon/xenomorph/buyer)
-
 	if(!can_buy(buyer, FALSE))
 		return FALSE
 
-	var/turf/T = get_turf(buyer)
-	var/mob/living/carbon/human/H = locate() in T
-	xeno_message("[buyer] sent [H] into oblivion!", "xenoannounce", 5, buyer.hivenumber)
-	to_chat(buyer, span_xenowarning("WE HAVE SENT THE [H] INTO OBLIVION"))
-	H.gib()
-
-	log_game("[buyer] sent [H] into oblivion, spending [psypoint_cost] psy points in the process")
-
-
+	for(var/mob/living/carbon/human/gibbed_human in get_turf(buyer))
+		if(gibbed_human.stat != DEAD)
+			continue
+		xeno_message("[buyer] sent [gibbed_human] into oblivion!", "xenoannounce", 5, buyer.hivenumber)
+		to_chat(buyer, span_xenowarning("WE HAVE SENT THE [gibbed_human] INTO OBLIVION!"))
+		gibbed_human.gib()
+		log_game("[buyer] sent [gibbed_human] into oblivion, spending [psypoint_cost] psy points in the process.")
+		break
 	return ..()
 
-/datum/hive_upgrade/building/nest
+/datum/hive_upgrade/building/nest // shitcode
 	name = "Thick nest"
-	desc = "A very thick nest, oozing with a thick sticky substance."
+	desc = "A very thick nest, oozing with a thick sticky substance. Becomes avalaible upon infecting a Predator."
 	psypoint_cost = 0
 	icon = "nest"
 	building_type = /obj/structure/xeno/thick_nest

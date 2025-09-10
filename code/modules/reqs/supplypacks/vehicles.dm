@@ -1,51 +1,77 @@
 /datum/supply_packs/vehicles
 	group = "Vehicles"
+	containertype = /obj/structure/closet/crate/weapon
+
+/datum/supply_packs/vehicles/bfg_cannon
+	name = "Tank-mounted BFG 9500"
+	contains = list(/obj/item/armored_weapon/bfg)
+	cost = 1600
+
+/datum/supply_packs/vehicles/bfg_rounds
+	name = "Tank BFG antimatter container"
+	contains = list(/obj/item/ammo_magazine/tank/bfg)
+	cost = 200
 
 /datum/supply_packs/vehicles/ltb_he_shell
-	name = "LTB High Explosive tank shell"
+	name = "LTB high explosive tank shell"
 	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon)
-	cost = 10
-	containertype = /obj/structure/closet/crate/ammo
+	cost = 50
 
 /datum/supply_packs/vehicles/ltb_apfds_shell
 	name = "LTB APFDS tank shell"
 	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon/apfds)
-	cost = 10
-	containertype = /obj/structure/closet/crate/ammo
+	cost = 50
 
 /datum/supply_packs/vehicles/ltaap_rounds
 	name = "LTAAP tank magazine"
 	contains = list(/obj/item/ammo_magazine/tank/ltaap_chaingun)
-	cost = 10
-	containertype = /obj/structure/closet/crate/ammo
+	cost = 50
 
 /datum/supply_packs/weapons/ltb_canister_shell
-	name = "LTB Canister tank shell"
+	name = "LTB canister tank shell"
 	contains = list(/obj/item/ammo_magazine/tank/ltb_cannon/canister)
-	cost = 10
+	cost = 50
+
+/datum/supply_packs/vehicles/autocannon_ap_rounds
+	name = "Bushwhacker Autocannon Armor Piercing ammo box"
+	contains = list(/obj/item/ammo_magazine/tank/autocannon)
+	cost = 50
+
+/datum/supply_packs/vehicles/autocannon_he_rounds
+	name = "Bushwhacker Autocannon High Explosive ammo box"
+	contains = list(/obj/item/ammo_magazine/tank/autocannon/high_explosive)
+	cost = 50
 
 /datum/supply_packs/vehicles/cupola_rounds
 	name = "Cupola tank magazine"
 	contains = list(/obj/item/ammo_magazine/tank/secondary_cupola)
-	cost = 10
-	containertype = /obj/structure/closet/crate/ammo
+	cost = 50
 
 /datum/supply_packs/vehicles/secondary_flamer_tank
 	name = "Spray flamer tank"
 	contains = list(/obj/item/ammo_magazine/tank/secondary_flamer_tank)
-	cost = 10
-	containertype = /obj/structure/closet/crate/ammo
+	cost = 50
 
 /datum/supply_packs/vehicles/tank_glauncher
 	name = "Tank grenade laucnher magazine"
 	contains = list(/obj/item/ammo_magazine/tank/tank_glauncher)
-	cost = 10
-	containertype = /obj/structure/closet/crate/ammo
+	cost = 50
+
+/datum/supply_packs/vehicles/tow_rocket
+	name = "TOW missile"
+	contains = list(/obj/item/ammo_magazine/tank/tow_missile)
+	cost = 25 // marginally cheaper due to being a single loader
+
+/datum/supply_packs/vehicles/microrocket_pod
+	name = "Microrocket pod"
+	contains = list(/obj/item/ammo_magazine/tank/microrocket_rack)
+	cost = 50
 
 /datum/supply_packs/vehicles/motorbike
-	name = "All-Terrain Motorbike"
+	name = "All-terrain motorbike"
 	cost = 400
 	contains = list(/obj/vehicle/ridden/motorbike)
+	containertype = null
 
 /datum/supply_packs/vehicles/sidecar
 	name = "Sidecar motorbike upgrade"
@@ -53,7 +79,7 @@
 	contains = list(/obj/item/sidecar)
 
 /datum/supply_packs/vehicles/jerrycan
-	name = "Jerry Can"
+	name = "Jerry can"
 	cost = 100
 	contains = list(/obj/item/reagent_containers/jerrycan)
 
@@ -61,22 +87,24 @@
 	name = "Combat droid with weapon equipped"
 	contains = list(/obj/vehicle/unmanned/droid)
 	cost = 400
+	containertype = null
 
 /datum/supply_packs/vehicles/droid_scout
 	name = "Scout droid"
 	contains = list(/obj/vehicle/unmanned/droid/scout)
 	cost = 300
+	containertype = null
 
 /datum/supply_packs/vehicles/droid_powerloader
 	name = "Powerloader droid"
 	contains = list(/obj/vehicle/unmanned/droid/ripley)
 	cost = 300
+	containertype = null
 
 /datum/supply_packs/vehicles/droid_weapon
 	name = "Droid weapon"
 	contains = list(/obj/item/uav_turret/droid)
 	cost = 200
-	containertype = /obj/structure/closet/crate/weapon
 
 /datum/supply_packs/vehicles/tiny_uv
 	name = "Tiny unmanned vehicle - Skink"
@@ -129,34 +157,38 @@
 	containertype = /obj/structure/closet/crate
 
 /datum/supply_packs/vehicles/mounted_hsg
-	name = "Mounted HSG"
+	name = "Dropship mounted HSG-102 heavy smartgun"
 	contains = list(/obj/structure/dropship_equipment/shuttle/weapon_holder/machinegun)
 	cost = 500
 
 /datum/supply_packs/vehicles/minigun_nest
-	name = "Mounted Minigun"
+	name = "Dropship mounted MG-2005 minigun"
 	contains = list(/obj/structure/dropship_equipment/shuttle/weapon_holder/minigun)
 	cost = 750
 
 /datum/supply_packs/vehicles/mounted_heavy_laser
-	name = "Mounted Heavy Laser"
+	name = "Dropship mounted TE-9001 heavy laser"
 	contains = list(/obj/structure/dropship_equipment/shuttle/weapon_holder/heavylaser)
 	cost = 900
 
 /datum/supply_packs/vehicles/hsg_ammo
-	name = "Mounted HSG ammo"
+	name = "Dropship mounted HSG-102 mounted heavy smartgun ammo"
 	contains = list(/obj/item/ammo_magazine/hsg102/hsg_nest)
 	cost = 100
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/vehicles/minigun_ammo
-	name = "Mounted Minigun ammo"
+	name = "Dropship mounted MG-2005 minigun ammo"
 	contains = list(/obj/item/ammo_magazine/heavy_minigun)
 	cost = 30
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/vehicles/hl_ammo
-	name = "Mounted Heavy Laser ammo (x3)"
-	contains = list(/obj/item/cell/lasgun/heavy_laser, /obj/item/cell/lasgun/heavy_laser, /obj/item/cell/lasgun/heavy_laser)
+	name = "Dropship mounted TE-9001 heavy laser ammo (x3)"
+	contains = list(
+		/obj/item/cell/lasgun/heavy_laser,
+		/obj/item/cell/lasgun/heavy_laser,
+		/obj/item/cell/lasgun/heavy_laser,
+	)
 	cost = 50
 	containertype = /obj/structure/closet/crate/ammo

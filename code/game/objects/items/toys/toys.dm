@@ -69,7 +69,7 @@
 	if(!.)
 		return
 	if(src.reagents.total_volume >= 1)
-		src.visible_message(span_warning(" The [src] bursts!"),"You hear a pop and a splash.")
+		src.visible_message(span_warning("The [src] bursts!"),"You hear a pop and a splash.")
 		src.reagents.reaction(get_turf(hit_atom), TOUCH)
 		for(var/atom/A in get_turf(hit_atom))
 			src.reagents.reaction(A, TOUCH)
@@ -128,7 +128,7 @@
 	icon = 'icons/obj/items/crayons.dmi'
 	icon_state = "crayonred"
 	w_class = WEIGHT_CLASS_TINY
-	attack_verb = list("attacked", "coloured")
+	attack_verb = list("attacks", "colours")
 	///RGB
 	var/colour = "#FF0000"
 	///RGB
@@ -163,7 +163,7 @@
 	s.set_up(3, 1, src)
 	s.start()
 	new /obj/effect/decal/cleanable/ash(src.loc)
-	src.visible_message(span_warning(" The [src.name] explodes!"),span_warning(" You hear a snap!"))
+	src.visible_message(span_warning("The [src.name] explodes!"),span_warning("You hear a snap!"))
 	playsound(src, 'sound/effects/snap.ogg', 25, 1)
 	qdel(src)
 
@@ -180,7 +180,7 @@
 	s.set_up(2, 0, src)
 	s.start()
 	new /obj/effect/decal/cleanable/ash(src.loc)
-	visible_message(span_warning(" The [src.name] explodes!"),span_warning(" You hear a snap!"))
+	visible_message(span_warning("The [src.name] explodes!"),span_warning("You hear a snap!"))
 	playsound(src, 'sound/effects/snap.ogg', 25, 1)
 	qdel(src)
 
@@ -350,7 +350,7 @@
 	throw_speed = 1
 	throw_range = 20
 
-/obj/item/toy/beach_ball/afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
+/obj/item/toy/beach_ball/afterattack(atom/target, mob/user)
 	user.drop_held_item()
 	throw_at(target, throw_range, throw_speed, user)
 
@@ -361,7 +361,7 @@
 	icon_state = "d66"
 	w_class = WEIGHT_CLASS_TINY
 	var/sides = 6
-	attack_verb = list("diced")
+	attack_verb = list("dices")
 
 /obj/item/toy/dice/Initialize(mapload)
 	. = ..()
@@ -381,7 +381,7 @@
 	else if(sides == 20 && result == 1)
 		comment = "Ouch, bad luck."
 	icon_state = "[name][result]"
-	user.visible_message(span_notice("[user] has thrown [src]. It lands on [result]. [comment]"), \
+	user.visible_message(span_notice("[user] throws [src]. It lands on [result]. [comment]"), \
 						span_notice("You throw [src]. It lands on a [result]. [comment]"), \
 						span_notice("You hear [src] landing on a [result]. [comment]"))
 
@@ -395,7 +395,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 3
 	throw_range = 15
-	attack_verb = list("HONKED")
+	attack_verb = list("HONKS")
 
 /obj/item/toy/bikehorn/Initialize(mapload)
 	. = ..()
@@ -428,44 +428,37 @@
 /obj/item/toy/plush/farwa
 	name = "Farwa plush doll"
 	desc = "A Farwa plush doll. It's soft and comforting!"
-	w_class = WEIGHT_CLASS_TINY
 	icon_state = "farwaplush"
 
 /obj/item/toy/plush/therapy_red
 	name = "red therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is red."
 	icon_state = "therapyred"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/therapy_purple
 	name = "purple therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is purple."
 	icon_state = "therapypurple"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/therapy_blue
 	name = "blue therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is blue."
 	icon_state = "therapyblue"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/therapy_yellow
 	name = "yellow therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is yellow."
 	icon_state = "therapyyellow"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/therapy_orange
 	name = "orange therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is orange."
 	icon_state = "therapyorange"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/therapy_green
 	name = "green therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is green."
 	icon_state = "therapygreen"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/carp
 	name = "carp plushie"

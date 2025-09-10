@@ -238,6 +238,7 @@
 	pixel_x = -1;
 	pixel_y = 8
 	},
+/obj/item/stack/sheet/mineral/phoron,
 /turf/open/floor/mainship/sterile/dark,
 /area/shuttle/canterbury/medical)
 "bg" = (
@@ -256,7 +257,7 @@
 	name = "outer door-control";
 	pixel_y = 32
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/barricade/wired,
@@ -386,7 +387,7 @@
 	name = "outer door-control";
 	pixel_y = 32
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4;
 	is_wired = 1;
 	linked = 1
@@ -543,12 +544,12 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/shuttle/canterbury/medical)
 "gv" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /obj/effect/mapping_helpers/barricade/wired,
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
 "hc" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4;
 	is_wired = 1;
 	linked = 1
@@ -669,7 +670,7 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "pY" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/barricade/wired,
@@ -740,7 +741,7 @@
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "tY" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /obj/machinery/door_control{
 	dir = 8;
 	id = "aft_engine_podlock"

@@ -8,6 +8,7 @@
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	atom_flags = PREVENT_CONTENTS_EXPLOSION
 	resistance_flags = NONE
+	faction = FACTION_NEUTRAL
 
 	//Mob
 	///Whether a mob is alive or dead. TODO: Move this to living - Nodrak
@@ -57,6 +58,10 @@
 	///Mob's angle in BYOND degrees. 0 is north (up/standing for humans), 90 and 270 are east and west respectively (lying horizontally), and 90 is south (upside-down).
 	var/lying_angle = 0
 	var/lying_prev = 0
+	/// Is mob able to crawl?
+	var/can_crawl = FALSE
+	/// Is the mob currently crawling?
+	var/crawling = FALSE
 
 	//Security
 	var/computer_id
@@ -111,8 +116,6 @@
 
 	/// Can they interact with station electronics
 	var/has_unlimited_silicon_privilege = 0
-	///The faction this mob belongs to
-	var/faction = FACTION_NEUTRAL
 
 	/// what icon the mob uses for speechbubbles
 	var/bubble_icon = "default"
@@ -129,8 +132,6 @@
 	/// HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 	var/client/canon_client
 
-	///Slowdown from readying shields
-	var/shield_slowdown = 0
 	///Color matrices to be applied to the client window. Assoc. list.
 	var/list/client_color_matrices
 

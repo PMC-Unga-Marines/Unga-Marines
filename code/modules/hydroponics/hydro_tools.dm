@@ -36,7 +36,6 @@
 	if(fertilizer)
 		reagents.add_reagent(fertilizer,10)
 
-
 /obj/item/reagent_containers/glass/fertilizer/ez
 	name = "bottle of E-Z-Nutrient"
 	icon_state = "bottle16"

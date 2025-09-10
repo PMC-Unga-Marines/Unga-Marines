@@ -177,13 +177,13 @@
 		owner.adjust_fire_loss(healing)
 		owner.adjust_tox_loss(healing * 0.5, TRUE, TRUE)
 		owner.adjust_stamina_loss(healing * 100)
-		owner.adjust_clone_Loss(healing * health_ratio * 0.8)
+		owner.adjust_clone_loss(healing * health_ratio * 0.8)
 	if(human_owner?.drunkenness)
 		human_owner.drunkenness *= 0.997 //reduce drunkenness by 0.3% per tick, 6% per 2 seconds
 	if(prob(20))
 		if(carbon_owner)
 			carbon_owner.handle_dreams()
-		if(prob(10) && owner.health > owner.health_threshold_crit)
+		if(prob(10) && owner.health > owner.get_crit_threshold())
 			owner.emote("snore")
 
 ///Basically a temporary self-inflicted shutdown for maintenance
@@ -366,11 +366,8 @@
 
 /datum/status_effect/plasmadrain/tick(delta_time)
 	var/mob/living/carbon/xenomorph/xenoowner = owner
-	if(xenoowner.plasma_stored >= 0)
-		var/remove_plasma_amount = xenoowner.xeno_caste.plasma_max * 0.1
-		xenoowner.plasma_stored -= remove_plasma_amount
-		if(xenoowner.plasma_stored <= 0)
-			xenoowner.plasma_stored = 0
+	// This proc can handle everything and hud updating, use it.
+	xenoowner.use_plasma(xenoowner.xeno_caste.plasma_max * 0.1)
 
 /datum/status_effect/noplasmaregen
 	id = "noplasmaregen"
@@ -492,7 +489,7 @@
 	var/mob/living/living_owner = owner
 	//Roulette of bad things
 	if(prob(15))
-		living_owner.adjust_clone_Loss(2)
+		living_owner.adjust_clone_loss(2)
 		to_chat(living_owner, span_warning("You feel like you're burning from the inside!"))
 	else
 		living_owner.adjust_tox_loss(3)
@@ -958,3 +955,4 @@
 // ***************************************
 /datum/status_effect/incapacitating/dancer_tagged
 	id = "dancer_tagged"
+	duration = 15 SECONDS

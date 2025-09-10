@@ -229,7 +229,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 		if(burst_delay_mod)
 			master_gun.modify_burst_delay(burst_delay_mod)
 		if(burst_mod)
-			master_gun.modify_burst_amount(burst_mod, user)
+			master_gun.modify_burst_amount(burst_mod, user, TRUE)
 		master_gun.recoil						+= recoil_mod
 		master_gun.recoil_unwielded				+= recoil_unwielded_mod
 		master_gun.force						+= melee_mod
@@ -285,7 +285,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 		if(burst_delay_mod)
 			master_gun.modify_burst_delay(-burst_delay_mod)
 		if(burst_mod)
-			master_gun.modify_burst_amount(-burst_mod, user)
+			master_gun.modify_burst_amount(-burst_mod, user, FALSE)
 		master_gun.recoil						-= recoil_mod
 		master_gun.recoil_unwielded				-= recoil_unwielded_mod
 		master_gun.force						-= melee_mod
@@ -312,7 +312,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 			master_gun.fire_sound = initial(master_gun.fire_sound)
 
 /obj/item/attachable/ui_action_click(mob/living/user, datum/action/item_action/action, obj/item/weapon/gun/G)
-	if(G == user.get_active_held_item() || G == user.get_inactive_held_item() || CHECK_BITFIELD(G.item_flags, IS_DEPLOYED))
+	if(G == user.get_active_held_item() || G == user.get_inactive_held_item() || CHECK_BITFIELD(G.deploy_flags, IS_DEPLOYED))
 		if(activate(user))
 			playsound(user, activation_sound, 15, 1)
 			return TRUE

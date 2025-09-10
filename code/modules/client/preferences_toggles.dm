@@ -79,7 +79,11 @@
 	prefs.toggles_sound ^= SOUND_MIDI
 	prefs.save_preferences()
 
-	to_chat(src, span_notice("You will [(prefs.toggles_sound & SOUND_MIDI) ? "now" : "no longer"] hear admin music."))
+	if(prefs.toggles_sound & SOUND_MIDI)
+		to_chat(src, span_notice("You will now hear admin music."))
+	else
+		to_chat(src, span_notice("You will no longer hear admin music."))
+		mob.stop_sound_channel(CHANNEL_MIDI)
 
 /client/verb/toggle_radial_medical()
 	set category = "Preferences"
@@ -150,10 +154,11 @@
 		mob.stop_sound_channel(CHANNEL_AMBIENCE)
 	usr.client.update_ambience_pref()
 
-/client/verb/toggle_special(role in BE_SPECIAL_FLAGS)
+/client/verb/toggle_special()
 	set category = "Preferences"
 	set name = "Toggle Special Roles"
 
+	var/role = tgui_input_list(usr, "Select a role to toggle", "Toggle Special Roles", BE_SPECIAL_FLAGS)
 	var/role_flag = BE_SPECIAL_FLAGS[role]
 	if(!role_flag)
 		return
@@ -166,7 +171,7 @@
 	set category = "Preferences"
 	set name = "Game Preferences"
 	set desc = "Allows you to access the Setup Character screen. Changes to your character won't take effect until next round, but other changes will."
-	prefs.ShowChoices(usr)
+	prefs.ShowChoices(mob)
 
 GLOBAL_LIST_INIT(ghost_forms, list("Default" = GHOST_DEFAULT_FORM, "Ghost Ian 1" = "ghostian", "Ghost Ian 2" = "ghostian2", "Skeleton" = "skeleghost", "Red" = "ghost_red",\
 							"Black" = "ghost_black", "Blue" = "ghost_blue", "Yellow" = "ghost_yellow", "Green" = "ghost_green", "Pink" = "ghost_pink", \

@@ -1,13 +1,8 @@
-//Some debug variables. Toggle them to 1 in order to see the related debug messages. Helpful when testing out formulas.
-#define DEBUG_HIT_CHANCE 0
-#define DEBUG_HUMAN_DEFENSE 0
-#define DEBUG_XENO_DEFENSE 0
-#define DEBUG_CREST_DEFENSE 0
+//Helpful when testing out formulas.
+//#define DEBUG_HIT_CHANCE
 
-#if DEBUG_HIT_CHANCE
+#ifdef DEBUG_HIT_CHANCE
 #define BULLET_DEBUG(msg) to_chat(world, span_debuginfo("[msg]"))
-#else
-#define BULLET_DEBUG(msg)
 #endif
 
 #define BULLET_FEEDBACK_PEN (1<<0)
@@ -744,7 +739,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 
 	//We want a temporary variable so accuracy doesn't change every time the bullet misses.
 	var/hit_chance = proj.accuracy
-	BULLET_DEBUG("Base accuracy is <b>[hit_chance]; distance:[proj.distance_travelled]</b>")
+	//BULLET_DEBUG("Base accuracy is <b>[hit_chance]; distance:[proj.distance_travelled]</b>")
 
 	hit_chance += (mob_size - 1) * 20 //You're easy to hit when you're swoll, hard to hit when you're a manlet
 
@@ -754,23 +749,23 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 			hit_chance = round(hit_chance*0.85) //You (presumably) aren't trying to shoot your friends
 		var/obj/item/shot_source = proj.shot_from
 		if((!istype(shot_source) || !shot_source.zoom) && !line_of_sight(proj.starting_turf, src, 9)) //if you can't draw LOS within 9 tiles (to accomodate wide screen), AND the source was either not zoomed or not an item(like a xeno)
-			BULLET_DEBUG("Can't see target ([round(hit_chance*0.8)]).")
+			//BULLET_DEBUG("Can't see target ([round(hit_chance*0.8)]).")
 			hit_chance = round(hit_chance*0.8) //Can't see the target (Opaque thing between shooter and target), or out of view range
 
 	if(proj.distance_travelled <= proj.ammo.accurate_range) //If bullet stays within max accurate range.
 		if(proj.distance_travelled <= proj.point_blank_range) //If bullet within point blank range, big accuracy buff.
-			BULLET_DEBUG("Point blank range (+30)")
+			//BULLET_DEBUG("Point blank range (+30)")
 			hit_chance += 30
 		else if(proj.distance_travelled <= proj.ammo.accurate_range_min) //Snipers have accuracy falloff at closer range UNLESS in point blank range
-			BULLET_DEBUG("Sniper ammo, too close (-[min(100, hit_chance) - (proj.ammo.accurate_range_min - proj.distance_travelled) * 10])")
+			//BULLET_DEBUG("Sniper ammo, too close (-[min(100, hit_chance) - (proj.ammo.accurate_range_min - proj.distance_travelled) * 10])")
 			hit_chance = min(100, hit_chance) //excess accuracy doesn't help within minimum accurate range
 			hit_chance -= (proj.ammo.accurate_range_min - proj.distance_travelled) * 10 //The further inside minimum accurate range, the greater the penalty
 	else
-		BULLET_DEBUG("Too far (+[((proj.distance_travelled - proj.ammo.accurate_range )* 5)])")
-		hit_chance -= ((proj.distance_travelled - proj.ammo.accurate_range )* 5) //Every tile travelled past accurate_range reduces accuracy
+		//BULLET_DEBUG("Too far (+[((proj.distance_travelled - proj.ammo.accurate_range) * 5)])")
+		hit_chance -= ((proj.distance_travelled - proj.ammo.accurate_range) * 5) //Every tile travelled past accurate_range reduces accuracy
 
-	BULLET_DEBUG("Hit zone penalty (-[GLOB.base_miss_chance[proj.def_zone]]) ([proj.def_zone])")
-	hit_chance -= GLOB.base_miss_chance[proj.def_zone] //Reduce accuracy based on body part targeted.
+	//BULLET_DEBUG("Hit zone penalty (-[get_base_miss_chance(proj.def_zone)]) ([proj.def_zone])")
+	hit_chance -= get_base_miss_chance(proj.def_zone)
 
 	if(last_move_intent > world.time - 2 SECONDS) //You're harder to hit if you're moving
 		///accumulated movement related evasion bonus
@@ -781,7 +776,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 				evasion_bonus += max(5, (target_human.mobility_aura * 5)) //you get a bonus if you've got an active mobility order effecting you
 		evasion_bonus += (25 - (min(25, cached_multiplicative_slowdown * 5))) //The lower your slowdown, the better your chance to dodge, but it won't make you easier to hit if you have huge slowdown
 		evasion_bonus = (100 - evasion_bonus) * 0.01 //turn it into a multiplier
-		BULLET_DEBUG("Moving (*[evasion_bonus]).")
+		//BULLET_DEBUG("Moving (*[evasion_bonus]).")
 		hit_chance = round(hit_chance * evasion_bonus)
 
 	if(proj.ammo.ammo_behavior_flags & AMMO_UNWIELDY)
@@ -789,7 +784,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 
 	hit_chance = max(5, hit_chance) //It's never impossible to hit
 
-	BULLET_DEBUG("Final accuracy is <b>[hit_chance]</b>")
+	//BULLET_DEBUG("Final accuracy is <b>[hit_chance]</b>")
 
 	var/hit_roll = rand(0, 99) //Our randomly generated roll
 
@@ -807,6 +802,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 			playsound_local(get_turf(src), proj.ammo.sound_miss, 75, TRUE, frequency = pitch)
 	return FALSE
 
+/// Reduce accuracy based on body part targeted. Returns 0 for xenos
+/mob/living/proc/get_base_miss_chance(bodypart)
+	return GLOB.base_miss_chance[bodypart]
 
 /mob/living/do_projectile_hit(obj/projectile/proj)
 	proj.ammo.on_hit_mob(src, proj)
@@ -841,6 +839,9 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	if(is_charging >= CHARGE_ON)
 		proj.damage -= proj.damage * (0.2 * get_sunder())
 	return ..()
+
+/mob/living/carbon/xenomorph/get_base_miss_chance(bodypart)
+	return 0
 
 /obj/projectile/proc/play_damage_effect(mob/M)
 	if(ammo.sound_hit)
@@ -1283,7 +1284,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 		if(feedback_flags & BULLET_FEEDBACK_FIRE)
 			victim_feedback += "You burst into <b>flames!!</b> Stop drop and roll!"
 
-		to_chat(src, span_highdanger("[victim_feedback.Join(" ")]"))
+		to_chat(src, span_userdanger("[victim_feedback.Join(" ")]"))
 
 	if(feedback_flags & BULLET_FEEDBACK_SCREAM && stat == CONSCIOUS && !(species.species_flags & NO_PAIN))
 		emote("scream")
@@ -1321,7 +1322,7 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	if(feedback_flags & BULLET_FEEDBACK_SCREAM && stat == CONSCIOUS)
 		emote(prob(70) ? "hiss" : "roar")
 
-	to_chat(src, span_highdanger("[victim_feedback.Join(" ")]"))
+	to_chat(src, span_userdanger("[victim_feedback.Join(" ")]"))
 
 // Sundering procs
 /mob/living/proc/adjust_sunder(adjustment)
@@ -1386,10 +1387,6 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 #undef BULLET_MESSAGE_NO_SHOOTER
 #undef BULLET_MESSAGE_HUMAN_SHOOTER
 #undef BULLET_MESSAGE_OTHER_SHOOTER
-
-#undef DEBUG_HIT_CHANCE
-#undef DEBUG_HUMAN_DEFENSE
-#undef DEBUG_XENO_DEFENSE
 
 #undef PROJ_ABS_PIXEL_TO_TURF
 #undef PROJ_ANIMATION_SPEED

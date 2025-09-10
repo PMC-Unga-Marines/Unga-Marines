@@ -33,7 +33,7 @@
 	if(stored_larva)
 		RegisterSignals(xeno_owner.hive, list(COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, COMSIG_HIVE_XENO_MOTHER_CHECK), PROC_REF(is_burrowed_larva_host))
 		xeno_owner.hive.give_larva_to_next_in_queue()
-		notify_ghosts("\The <b>[xeno_owner]</b> is calling for the burrowed larvas to wake up!", enter_link = "join_larva=1", enter_text = "Join as Larva", source = xeno_owner, action = NOTIFY_JOIN_AS_LARVA)
+		notify_ghosts("\The <b>[xeno_owner]</b> is calling for the burrowed larvas to wake up!", enter_link = "join_larva=1", enter_text = "Join as Larva", source = xeno_owner, action = NOTIFY_JOIN_AS_LARVA, flashwindow = TRUE)
 		addtimer(CALLBACK(src, PROC_REF(calling_larvas_end), xeno_owner), CALLING_BURROWED_DURATION)
 
 	succeed_activate()
@@ -124,13 +124,15 @@
 	to_chat(owner, span_notice("We gather enough mental strength to fling something again."))
 	return ..()
 
-/datum/action/ability/activable/xeno/psychic_fling/can_use_ability(atom/target, silent = FALSE, override_flags)
+/datum/action/ability/activable/xeno/psychic_fling/can_use_ability(atom/movable/target, silent = FALSE, override_flags)
 	. = ..()
 	if(!.)
 		return FALSE
 	if(QDELETED(target))
 		return FALSE
 	if(!isitem(target) && !ishuman(target) && !isdroid(target))	//only items, droids, and mobs can be flung.
+		return FALSE
+	if(target.move_resist >= MOVE_FORCE_OVERPOWERING)
 		return FALSE
 	var/max_dist = 3 //the distance only goes to 3 now, since this is more of a utility then an attack.
 	if(!line_of_sight(owner, target, max_dist))
@@ -225,11 +227,13 @@
 			if(!ishuman(affected) && !istype(affected, /obj/item) && !isdroid(affected))
 				affected.Shake(duration = 0.5 SECONDS)
 				continue
+			if(affected.move_resist >= MOVE_FORCE_OVERPOWERING)
+				continue
 			if(ishuman(affected))
 				var/mob/living/carbon/human/H = affected
 				if(H.stat == DEAD)
 					continue
-				H.apply_effects(2 SECONDS, 2 SECONDS)
+				H.apply_effects(paralyze = 2 SECONDS)
 				shake_camera(H, 2, 1)
 			things_to_throw += affected
 
@@ -446,7 +450,7 @@
 			var/mob/living/carbon/human/H = movable_victim
 			if(H.stat == DEAD)
 				continue
-			H.apply_effects(1,1)
+			H.apply_effects(paralyze = 0.1 SECONDS)
 			H.adjust_stagger(2 SECONDS)
 			shake_camera(H, 2, 1)
 		else if(isitem(movable_victim))

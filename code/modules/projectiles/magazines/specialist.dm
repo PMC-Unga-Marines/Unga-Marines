@@ -9,21 +9,21 @@
 	icon_state = "t26"
 	w_class = WEIGHT_CLASS_NORMAL
 	max_rounds = 15
-	default_ammo = /datum/ammo/bullet/sniper
+	default_ammo = /datum/ammo/bullet/sniper/smart
 	reload_delay = 3
 	icon_state_mini = "mag_sniper"
 	ammo_band_icon = "t26_band"
 
 /obj/item/ammo_magazine/sniper/incendiary
 	name = "\improper SR-26 incendiary magazine (10x28mm)"
-	default_ammo = /datum/ammo/bullet/sniper/incendiary
+	default_ammo = /datum/ammo/bullet/sniper/incendiary/smart
 	icon_state_mini = "mag_sniper_red"
 	bonus_overlay = "t26_incend"
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
 
 /obj/item/ammo_magazine/sniper/flak
 	name = "\improper SR-26 flak magazine (10x28mm)"
-	default_ammo = /datum/ammo/bullet/sniper/flak
+	default_ammo = /datum/ammo/bullet/sniper/flak/smart
 	icon_state_mini = "mag_sniper_blue"
 	bonus_overlay = "t26_flak"
 	ammo_band_color = AMMO_BAND_COLOR_IMPACT
@@ -309,7 +309,7 @@
 	bonus_overlay = "rpg_thermobaric"
 
 /obj/item/ammo_magazine/rocket/som/rad
-	name = "\improper 84mm  irrad RPG"
+	name = "\improper 84mm irrad RPG"
 	desc = "A irrad warhead for the V-71 rocket launcher. Releases a devastating milisecond burst of radiation, debilitating anything caught in the blast radius."
 	icon_state = "rpg_rad"
 	default_ammo = /datum/ammo/rocket/som/rad
@@ -381,7 +381,7 @@
 
 /obj/item/ammo_magazine/railgun
 	name = "railgun canister (Armor Piercing Discarding Sabot)"
-	desc = "A canister holding a tungsten projectile to be used inside a railgun. APDS is written across the canister, this round will penetrate through most armor, but will not leave much of a hole."
+	desc = "A canister holding a tungsten projectile to be used inside a railgun. APDS is written across the canister. This round will penetrate through most armor, but will not leave much of a hole."
 	caliber = CALIBER_RAILGUN
 	icon = 'icons/obj/items/ammo/misc.dmi'
 	icon_state = "railgun"
@@ -428,7 +428,7 @@
 
 /obj/item/ammo_magazine/minigun_powerpack
 	name = "\improper MG-100 Vindicator powerpack"
-	desc = "A heavy reinforced backpack with support equipment, power cells, and spare rounds for the MG-100 Minigun System.\nClick the icon in the top left to reload your MG-100."
+	desc = "A heavy reinforced backpack with support equipment, power cells, and spare rounds for the MG-100 minigun system.\nClick the icon in the top left to reload your MG-100."
 	icon = 'icons/obj/items/ammo/powerpack.dmi'
 	icon_state = "powerpack"
 	atom_flags = CONDUCT

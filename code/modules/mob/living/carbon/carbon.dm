@@ -32,9 +32,9 @@
 	playsound(loc, SFX_SPARKS, 25, TRUE)
 	if (shock_damage > 10)
 		src.visible_message(
-			span_warning(" [src] was shocked by the [source]!"), \
+			span_warning("[src] was shocked by the [source]!"), \
 			span_danger("You feel a powerful shock course through your body!"), \
-			span_warning(" You hear a heavy electrical crack.") \
+			span_warning("You hear a heavy electrical crack.") \
 		)
 		if(isxeno(src))
 			if(mob_size != MOB_SIZE_BIG)
@@ -43,9 +43,9 @@
 			Paralyze(8 SECONDS)
 	else
 		src.visible_message(
-			span_warning(" [src] was mildly shocked by the [source]."), \
-			span_warning(" You feel a mild shock course through your body."), \
-			span_warning(" You hear a light zapping.") \
+			span_warning("[src] was mildly shocked by the [source]."), \
+			span_warning("You feel a mild shock course through your body."), \
+			span_warning("You hear a light zapping.") \
 		)
 
 	var/datum/effect_system/spark_spread/s = new /datum/effect_system/spark_spread
@@ -87,7 +87,7 @@
 		return
 
 	if(IsAdminSleeping())
-		to_chat(shaker, span_highdanger("This player has been admin slept, do not interfere with them."))
+		to_chat(shaker, span_userdanger("This player has been admin slept, do not interfere with them."))
 		return
 
 	if(lying_angle || has_status_effect(STATUS_EFFECT_SLEEPING))
@@ -141,7 +141,7 @@
 /mob/proc/throw_item(atom/target)
 	return
 
-/mob/living/carbon/throw_item(atom/target)
+/mob/living/carbon/throw_item(atom/target, obj/item/override_item)
 	. = ..()
 	throw_mode_off()
 	if(is_ventcrawling) //NOPE
@@ -152,17 +152,22 @@
 		return
 
 	var/atom/movable/thrown_thing
-	var/obj/item/I = get_active_held_item()
+	var/obj/item/thrown = override_item ? override_item : get_active_held_item()
+	//if(override_item)
+	//	if(get_turf(override_item) != get_turf(src))
+	//		override_item.forceMove(loc)
+	//else
+	//	thrown = get_active_held_item()
 
-	if(!I || HAS_TRAIT(I, TRAIT_NODROP))
+	if(!thrown || HAS_TRAIT(thrown, TRAIT_NODROP))
 		return
 
 	var/spin_throw = TRUE
-	if(isgrabitem(I))
+	if(isgrabitem(thrown))
 		spin_throw = FALSE
 
 	//real item in hand, not a grab
-	thrown_thing = I.on_thrown(src, target)
+	thrown_thing = thrown.on_thrown(src, target)
 
 	//actually throw it!
 	if(!thrown_thing)
@@ -180,7 +185,7 @@
 		inertia_dir = get_dir(target, src)
 		step(src, inertia_dir)
 
-	visible_message(span_warning("[src] has thrown [thrown_thing]."), null, null, 5)
+	visible_message(span_warning("[src] throws [thrown_thing]."), null, null, 5)
 
 	playsound(src, 'sound/effects/throw.ogg', 30, 1)
 
@@ -254,12 +259,33 @@
 			if(!lying_angle)
 				break
 
-
 /mob/living/carbon/vv_get_dropdown()
 	. = ..()
-	. += "---"
-	. -= "Update Icon"
-	.["Regenerate Icons"] = "?_src_=vars;[HrefToken()];regenerateicons=[REF(src)]"
+	VV_DROPDOWN_OPTION("", "---------")
+	VV_DROPDOWN_OPTION(VV_HK_REGENERATE_ICON, "Regenerate Icons")
+
+/mob/living/carbon/vv_do_topic(list/href_list)
+	. = ..()
+
+	if(!.)
+		return
+
+	if(href_list[VV_HK_REGENERATE_ICON])
+		if(!check_rights(NONE))
+			return
+		regenerate_icons()
+
+/mob/living/carbon/vv_edit_var(var_name, var_value)
+	switch(var_name)
+		if(NAMEOF(src, nutrition))
+			set_nutrition(var_value)
+			. = TRUE
+
+	if(!isnull(.))
+		datum_flags |= DF_VAR_EDITED
+		return
+
+	return ..()
 
 /mob/living/carbon/update_tracking(mob/living/carbon/C)
 	var/atom/movable/screen/LL_dir = hud_used.SL_locator

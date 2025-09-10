@@ -121,8 +121,8 @@
 	. = ..()
 	if(stat)
 		return
-	if(pass_flags & PASS_FIRE) // RUTGMC ADDITION START
-		return FALSE // RUTGMC ADDITION END
+	if(pass_flags & PASS_FIRE)
+		return FALSE
 	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_RAVAGER_FLAMER_ACT))
 		return FALSE
 	gain_plasma(50)
@@ -149,6 +149,16 @@
 	return endure_ability.endure_threshold
 
 /mob/living/carbon/xenomorph/ravager/med_hud_set_health()
+	if(hud_used?.healths)
+		if(stat != DEAD)
+			if(health < 0)
+				hud_used.healths.icon_state = "health0"
+			else
+				var/amount = round(health * 100 / maxHealth, 5)
+				hud_used.healths.icon_state = "health[amount]"
+		else
+			hud_used.healths.icon_state = "health_dead"
+
 	var/image/holder = hud_list[HEALTH_HUD_XENO]
 	if(!holder)
 		return
@@ -161,3 +171,24 @@
 	if(!amount && health < 0)
 		amount = -1 //don't want the 'zero health' icon when we are crit
 	holder.icon_state = "ravagerhealth[amount]"
+
+/mob/living/carbon/xenomorph/ravager/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/ravager/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/ravager/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/ravager/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/ravager/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/ravager/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/ravager/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

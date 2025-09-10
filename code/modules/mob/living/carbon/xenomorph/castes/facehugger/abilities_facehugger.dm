@@ -23,6 +23,8 @@
 	use_state_flags = ABILITY_USE_BUCKLED
 	///Where do we start the leap from
 	var/start_turf
+	///List of pass_flags given by this action
+	var/pounce_pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE
 
 // TODO: merge this ability into runner pounce (can't do it right now - the runner's pounce has too many unnecessary sounds/messages)
 /datum/action/ability/activable/xeno/pounce_hugger/proc/pounce_complete()
@@ -30,7 +32,7 @@
 	xeno_owner.pass_flags = initial(xeno_owner.pass_flags)
 	xeno_owner.icon_state = "[xeno_owner.xeno_caste.caste_name] Walking"
 	xeno_owner.set_throwing(FALSE)
-	UnregisterSignal(owner, list(COMSIG_XENO_OBJ_THROW_HIT, COMSIG_MOVABLE_POST_THROW, COMSIG_XENO_LIVING_THROW_HIT))
+	UnregisterSignal(owner, list(COMSIG_XENO_OBJ_THROW_HIT, COMSIG_MOVABLE_POST_THROW, COMSIG_XENOMORPH_LEAP_BUMP))
 
 /datum/action/ability/activable/xeno/pounce_hugger/proc/obj_hit(datum/source, obj/target, speed)
 	SIGNAL_HANDLER
@@ -95,7 +97,7 @@
 	succeed_activate()
 	add_cooldown()
 	xeno_owner.xeno_flags |= XENO_LEAPING // this is needed for throwing code
-	xeno_owner.pass_flags |= PASS_LOW_STRUCTURE|PASS_FIRE
+	xeno_owner.remove_pass_flags(pounce_pass_flags, type)
 	xeno_owner.pass_flags ^= PASS_MOB
 
 	start_turf = get_turf(xeno_owner)
@@ -104,7 +106,6 @@
 	xeno_owner.throw_at(target, HUGGER_POUNCE_RANGE, HUGGER_POUNCE_SPEED, xeno_owner)
 	return TRUE
 
-	//AI stuff
 /datum/action/ability/activable/xeno/pounce_hugger/ai_should_start_consider()
 	return TRUE
 

@@ -250,7 +250,7 @@
 		evasion_deactivate()
 		return TRUE
 	xeno_owner.balloon_alert(xeno_owner, "Begin evasion.")
-	to_chat(xeno_owner, span_highdanger("We take evasive action, making us impossible to hit with projectiles."))
+	to_chat(xeno_owner, span_userdanger("We take evasive action, making us impossible to hit with projectiles."))
 	succeed_activate()
 
 	RegisterSignals(xeno_owner, list(
@@ -292,9 +292,9 @@
 /datum/action/ability/xeno_action/evasive_maneuvers/proc/evasion_debuff_check(datum/source, amount)
 	SIGNAL_HANDLER
 
-	if(amount > 0 || !evade_active) //If evasion isn't active we don't care
+	if(amount <= 0 || !evade_active) //If evasion isn't active we don't care
 		return
-	to_chat(xeno_owner, span_highdanger("Our movements have been interrupted!"))
+	to_chat(xeno_owner, span_userdanger("Our movements have been interrupted!"))
 	xeno_owner.use_plasma(65, TRUE)
 
 ///Where we deactivate evasion and unregister the signals/zero out vars, etc.

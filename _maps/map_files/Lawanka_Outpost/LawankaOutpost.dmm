@@ -1474,7 +1474,7 @@
 /area/lawankaoutpost/colony/recdorms)
 "bkh" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor,
@@ -2870,7 +2870,7 @@
 	},
 /area/shuttle/drop1/lz1)
 "cum" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/white,
 /area/lawankaoutpost/colony/medbay)
@@ -3534,7 +3534,7 @@
 /turf/open/floor/mainship/orange/full,
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "dat" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 8
 	},
 /turf/open/floor/wood,
@@ -4721,7 +4721,7 @@
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/mining)
 "eeu" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
 /area/lawankaoutpost/colony/medbay)
@@ -5313,7 +5313,7 @@
 /turf/open/floor/plating,
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "eCP" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 1
 	},
 /turf/open/floor,
@@ -5373,7 +5373,7 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/colony/hydroponics)
 "eGy" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor,
@@ -6698,7 +6698,7 @@
 	},
 /area/lawankaoutpost/colony/southdorms)
 "fHd" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor,
@@ -9212,7 +9212,7 @@
 /area/lawankaoutpost/colony/operations_hall)
 "hSn" = (
 /obj/structure/cable,
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor,
 /area/lawankaoutpost/colony/landingzoneone)
 "hSp" = (
@@ -9645,7 +9645,7 @@
 /turf/open/floor,
 /area/lawankaoutpost/colony/landingzoneone)
 "ikQ" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor/tile/white,
 /area/lawankaoutpost/colony/medbay)
 "ikS" = (
@@ -9661,7 +9661,7 @@
 	},
 /area/lawankaoutpost/colony/hydroponics)
 "imx" = (
-/obj/structure/barricade/metal,
+/obj/structure/barricade/solid,
 /turf/open/floor,
 /area/lawankaoutpost/colony/landingzoneone)
 "imE" = (
@@ -9999,7 +9999,7 @@
 	},
 /area/lawankaoutpost/colony/operations_storage)
 "iCC" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 4
 	},
 /turf/open/floor/tile/red/whitered{
@@ -12779,7 +12779,7 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/colony/hydroponics)
 "kWI" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor/tile/white,
@@ -15928,7 +15928,7 @@
 /turf/open/floor/tile/dark/brown2/corner,
 /area/lawankaoutpost/colony/cargo)
 "nzj" = (
-/obj/structure/barricade/metal{
+/obj/structure/barricade/solid{
 	dir = 8
 	},
 /turf/open/floor,
@@ -19619,7 +19619,7 @@
 	},
 /area/lawankaoutpost/colony/medbay)
 "qyN" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor,
 /area/lawankaoutpost/colony/landingzonetwo)
 "qyO" = (
@@ -20524,7 +20524,7 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/north)
 "rlv" = (
-/obj/machinery/telecomms/relay/preset/tower,
+/obj/effect/landmark/tower_relay,
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/cargo)
 "rly" = (
@@ -20848,7 +20848,7 @@
 /turf/open/floor/tile/dark,
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "ryM" = (
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor,
@@ -22763,7 +22763,7 @@
 "tdg" = (
 /obj/item/ammo_casing,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/machinery/telecomms/relay/preset/tower,
+/obj/effect/landmark/tower_relay,
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/marshalls)
 "tdr" = (
@@ -23885,7 +23885,7 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/northwest)
 "tWW" = (
-/obj/structure/barricade/plasteel,
+/obj/structure/barricade/folding,
 /turf/open/floor,
 /area/lawankaoutpost/colony/landingzoneone)
 "tXZ" = (
@@ -26325,7 +26325,7 @@
 	},
 /area/lawankaoutpost/colony/biologics)
 "waI" = (
-/obj/structure/barricade/wooden{
+/obj/structure/barricade/wood{
 	dir = 1
 	},
 /turf/open/floor/wood,

@@ -16,9 +16,9 @@
 	for(var/i in 1 to fill_number)
 		new fill_type(src)
 
-/obj/item/storage/pouch/examine(mob/user)
+/obj/item/storage/pouch/examine_tags(mob/user)
 	. = ..()
-	. += "Can be worn by attaching it to a pocket."
+	.["pocket attachable"] = "Can be worn by attaching it to a pocket."
 
 /obj/item/storage/pouch/equipped(mob/user, slot)
 	if(slot == SLOT_L_STORE || slot == SLOT_R_STORE)
@@ -120,22 +120,14 @@
 	storage_datum.sprite_slots = 1
 	storage_datum.storage_slots = 6
 	storage_datum.max_w_class = WEIGHT_CLASS_NORMAL
-	storage_datum.set_holdable(can_hold_list = list(
-		/obj/item/flashlight,
-		/obj/item/reagent_containers/pill,
-		/obj/item/stack/medical/heal_pack/gauze,
-		/obj/item/stack/sheet/metal,
-		/obj/item/stack/sheet/plasteel,
-		/obj/item/tool/weldingtool,
-	))
 
 /obj/item/storage/pouch/survival/full/PopulateContents()
-	new /obj/item/flashlight(src)
-	new /obj/item/reagent_containers/pill/tramadol(src)
-	new /obj/item/stack/medical/heal_pack/gauze(src, 3)
-	new /obj/item/stack/sheet/metal(src, 40)
-	new /obj/item/stack/sheet/plasteel(src, 15)
-	new /obj/item/tool/weldingtool(src)
+	new /obj/item/stack/medical/heal_pack/gauze(src)
+	new /obj/item/stack/sheet/metal/large_stack(src)
+	new /obj/item/stack/sheet/plasteel/medium_stack(src)
+	new /obj/item/stack/barbed_wire/small_stack(src)
+	new /obj/item/tool/weldingtool/largetank(src)
+	new /obj/item/tool/crowbar/red(src)
 
 /obj/item/storage/pouch/firstaid
 	name = "first-aid pouch"
@@ -223,21 +215,29 @@
 	storage_datum.sprite_slots = 1
 	storage_datum.max_w_class = WEIGHT_CLASS_BULKY
 	storage_datum.draw_mode = FALSE
-	storage_datum.set_holdable(can_hold_list = list(
-		/obj/item/weapon/gun/pistol,
-		/obj/item/ammo_magazine/pistol,
-		/obj/item/weapon/gun/revolver,
-		/obj/item/ammo_magazine/revolver,
-		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
-		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
-		/obj/item/cell/lasgun/lasrifle,
-	))
+	storage_datum.set_holdable(
+		can_hold_list = list(
+			/obj/item/weapon/gun/pistol,
+			/obj/item/ammo_magazine/pistol,
+			/obj/item/weapon/gun/revolver,
+			/obj/item/ammo_magazine/revolver,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
+			/obj/item/cell/lasgun/lasrifle,
+		),
+		cant_hold_list = list(
+			/obj/item/weapon/gun/revolver/coltrifle,
+		)
+	)
 
 /obj/item/storage/pouch/pistol/vp70/PopulateContents()
 	new /obj/item/weapon/gun/pistol/vp70(src)
 
 /obj/item/storage/pouch/pistol/rt3/PopulateContents()
 	new /obj/item/weapon/gun/pistol/rt3(src)
+
+/obj/item/storage/pouch/pistol/laserpistol/PopulateContents()
+	new /obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol/tactical(src)
 
 /obj/item/storage/pouch/pistol/som
 	desc = "It can contain a pistol or revolver. Useful for emergencies, and made out of stylish leather in the old SOM tradition."
@@ -299,6 +299,10 @@
 
 /obj/item/storage/pouch/magazine/large/t19full
 	fill_type = /obj/item/ammo_magazine/smg/smg90
+	fill_number = 3
+
+/obj/item/storage/pouch/magazine/large/laser
+	fill_type = /obj/item/cell/lasgun/lasrifle
 	fill_number = 3
 
 /obj/item/storage/pouch/magazine/large/som
@@ -597,11 +601,18 @@
 	. = ..()
 	storage_datum.sprite_slots = null
 
+/obj/item/storage/pouch/medkit/elite/PopulateContents()
+	new /obj/item/storage/pill_bottle/hypervene(src)
+	new /obj/item/storage/pill_bottle/packet/ryetalyn(src)
+	new /obj/item/reagent_containers/hypospray/advanced/oxycodone(src)
+	for(var/i in 1 to 4)
+		new /obj/item/reagent_containers/hypospray/autoinjector/elite(src)
+
 /obj/item/storage/pouch/medical_injectors
 	name = "medical injector pouch"
 	desc = "A specialized medical pouch that can only hold auto-injectors."
 	icon_state = "firstaid_injector"
-	
+
 /obj/item/storage/pouch/medical_injectors/Initialize(mapload, ...)
 	. = ..()
 	storage_datum.sprite_slots = 5
@@ -792,6 +803,7 @@
 		/obj/item/toy/deck,
 		/obj/item/paper,
 		/obj/item/clipboard,
+		/obj/item/pinpointer,
 	))
 
 /obj/item/storage/pouch/field_pouch/full/PopulateContents()
@@ -1012,10 +1024,10 @@
 	desc = "Advanced medkit pouch made by BMSS. It is also capable of holding R-312 ammo and tweezers."
 	icon_state = "t312"
 
-/obj/item/storage/pouch/protein_pack/Initialize(mapload, ...)
+/obj/item/storage/pouch/medkit/t312/Initialize(mapload, ...)
 	. = ..()
 	storage_datum.set_holdable(can_hold_list = list(
-				/obj/item/healthanalyzer,
+		/obj/item/healthanalyzer,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/glass/bottle,

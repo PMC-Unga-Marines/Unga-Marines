@@ -50,7 +50,7 @@
 	last_stealth = world.time
 	stealth = TRUE
 
-	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(handle_stealth))
+	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(handle_stealth_move))
 	RegisterSignal(owner, COMSIG_XENOMORPH_POUNCE_END, PROC_REF(sneak_attack_pounce))
 	RegisterSignal(owner, COMSIG_XENOMORPH_LEAP_BUMP, PROC_REF(mob_hit))
 	RegisterSignals(owner, list(COMSIG_XENOMORPH_ATTACK_LIVING, COMSIG_XENOMORPH_DISARM_HUMAN), PROC_REF(sneak_attack_slash))
@@ -121,24 +121,26 @@
 		return PROCESS_KILL
 	handle_stealth()
 
-/datum/action/ability/xeno_action/stealth/proc/handle_stealth()
+///Handles moving while in stealth
+/datum/action/ability/xeno_action/stealth/proc/handle_stealth_move()
 	SIGNAL_HANDLER
-	//Initial stealth
-	if(last_stealth > world.time - HUNTER_STEALTH_INITIAL_DELAY) //We don't start out at max invisibility
-		animate(xeno_owner, 1.5 SECONDS, alpha = HUNTER_STEALTH_RUN_ALPHA * stealth_alpha_multiplier)
-		return
-	//Stationary stealth
-	else if(xeno_owner.last_move_intent < world.time - HUNTER_STEALTH_STEALTH_DELAY) //If we're standing still for 4 seconds we become almost completely invisible
-		animate(xeno_owner, 0.5 SECONDS, alpha = HUNTER_STEALTH_STILL_ALPHA * stealth_alpha_multiplier)
-	//Walking stealth
-	else if(xeno_owner.m_intent == MOVE_INTENT_WALK)
+	if(xeno_owner.m_intent == MOVE_INTENT_WALK)
 		handle_plasma_usage(xeno_owner, HUNTER_STEALTH_WALK_PLASMADRAIN)
 		animate(xeno_owner, 0.5 SECONDS, alpha = HUNTER_STEALTH_WALK_ALPHA * stealth_alpha_multiplier)
-	//Running stealth
 	else
 		handle_plasma_usage(xeno_owner, HUNTER_STEALTH_RUN_PLASMADRAIN)
 		animate(owner, 0.5 SECONDS, alpha = HUNTER_STEALTH_RUN_ALPHA * stealth_alpha_multiplier)
-	//If we have 0 plasma after expending stealth's upkeep plasma, end stealth.
+	if(!xeno_owner.plasma_stored)
+		to_chat(xeno_owner, span_xenodanger("We lack sufficient plasma to remain camouflaged."))
+		cancel_stealth()
+
+/datum/action/ability/xeno_action/stealth/proc/handle_stealth()
+	SIGNAL_HANDLER
+	if(last_stealth > world.time - HUNTER_STEALTH_INITIAL_DELAY)
+		animate(xeno_owner, 1.5 SECONDS, alpha = HUNTER_STEALTH_RUN_ALPHA * stealth_alpha_multiplier)
+		return
+	if(xeno_owner.last_move_intent < world.time - HUNTER_STEALTH_STEALTH_DELAY)
+		animate(xeno_owner, 0.5 SECONDS, alpha = HUNTER_STEALTH_STILL_ALPHA * stealth_alpha_multiplier)
 	if(!xeno_owner.plasma_stored)
 		to_chat(xeno_owner, span_xenodanger("We lack sufficient plasma to remain camouflaged."))
 		cancel_stealth()
@@ -278,6 +280,8 @@
 	use_state_flags = ABILITY_USE_BUCKLED
 	/// The range of this ability.
 	var/pounce_range = HUNTER_POUNCE_RANGE
+	///pass_flags given when leaping
+	var/leap_pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_XENO
 
 /datum/action/ability/activable/xeno/pounce/on_cooldown_finish()
 	owner.balloon_alert(owner, "Pounce ready")
@@ -298,9 +302,8 @@
 	RegisterSignal(owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(pounce_complete))
 	SEND_SIGNAL(owner, COMSIG_XENOMORPH_POUNCE)
 	xeno_owner.xeno_flags |= XENO_LEAPING
-	xeno_owner.pass_flags |= PASS_LOW_STRUCTURE|PASS_FIRE|PASS_XENO
+	xeno_owner.add_pass_flags(leap_pass_flags, type)
 	xeno_owner.throw_at(A, pounce_range, XENO_POUNCE_SPEED, xeno_owner)
-	addtimer(CALLBACK(src, PROC_REF(reset_pass_flags)), 0.6 SECONDS)
 	succeed_activate()
 	add_cooldown()
 	var/datum/action/ability/activable/xeno/hunter_blink = xeno_owner.actions_by_path[/datum/action/ability/activable/xeno/hunter_blink]
@@ -345,9 +348,7 @@
 	SEND_SIGNAL(owner, COMSIG_XENOMORPH_POUNCE_END)
 	xeno_owner.set_throwing(FALSE)
 	xeno_owner.xeno_flags &= ~XENO_LEAPING
-
-/datum/action/ability/activable/xeno/pounce/proc/reset_pass_flags()
-	xeno_owner.pass_flags = initial(xeno_owner.pass_flags)
+	xeno_owner.remove_pass_flags(leap_pass_flags, type)
 
 /datum/action/ability/activable/xeno/pounce/ai_should_start_consider()
 	return TRUE

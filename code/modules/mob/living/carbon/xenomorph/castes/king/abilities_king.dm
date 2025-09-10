@@ -37,9 +37,11 @@
 // ***************************************
 // *********** Petrify
 // ***************************************
+
 #define PETRIFY_RANGE 7
 #define PETRIFY_DURATION 6 SECONDS
 #define PETRIFY_WINDUP_TIME 2 SECONDS
+
 /datum/action/ability/xeno_action/petrify
 	name = "Petrify"
 	desc = "After a windup, petrifies all humans looking at you. While petrified humans are immune to damage, but also can't attack."
@@ -136,7 +138,9 @@
 // ***************************************
 // *********** Off-Guard
 // ***************************************
+
 #define OFF_GUARD_RANGE 8
+
 /datum/action/ability/activable/xeno/off_guard
 	name = "Off-guard"
 	desc = "Muddles the mind of an enemy, making it harder for them to focus their aim for a while."
@@ -233,7 +237,7 @@
 
 	var/source = get_turf(owner)
 	var/dir_to_target = Get_Angle(source, target)
-	var/list/turf/turfs_to_attack = generate_true_cone(source, SHATTERING_ROAR_RANGE, 1, SHATTERING_ROAR_ANGLE, dir_to_target, bypass_window = TRUE, air_pass = TRUE)
+	var/list/turf/turfs_to_attack = generate_cone(source, SHATTERING_ROAR_RANGE, 1, SHATTERING_ROAR_ANGLE, dir_to_target, pass_flags_checked = PASS_AIR|PASS_GLASS)
 	execute_attack(1, turfs_to_attack, SHATTERING_ROAR_RANGE, target, source)
 
 	add_cooldown()
@@ -268,7 +272,7 @@
 			carbon_victim.adjust_stagger(6 SECONDS * severity)
 			carbon_victim.add_slowdown(6 * severity)
 			shake_camera(carbon_victim, 3 * severity, 3 * severity)
-			carbon_victim.apply_effect(1 SECONDS, WEAKEN)
+			carbon_victim.apply_effect(1 SECONDS, EFFECT_PARALYZE)
 			to_chat(carbon_victim, "You are smashed to the ground!")
 		else if(isvehicle(victim) || ishitbox(victim))
 			var/obj/obj_victim = victim
@@ -302,12 +306,14 @@
 // ***************************************
 // *********** Zero form energy beam
 // ***************************************
+
 #define ZEROFORM_BEAM_RANGE 10
 #define ZEROFORM_CHARGE_TIME 2 SECONDS
 #define ZEROFORM_TICK_RATE 0.3 SECONDS
+
 /datum/action/ability/xeno_action/zero_form_beam
 	name = "Zero-Form Energy Beam"
-	desc = "After a windup, concentrates the hives energy into a forward-facing beam that pierces everything, hurting living beings and vehicles."
+	desc = "After a windup, concentrates the hives energy into a forward-facing beam that pierces everything, but walls, damaging living beings, structures, machinery and vehicles."
 	action_icon_state = "zero_form_beam"
 	action_icon = 'icons/Xeno/actions/king.dmi'
 	ability_cost = 25
@@ -344,7 +350,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(is_ground_level(owner.z) && CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active) // RUTGMC EDIT, tad lasering
+	if(is_ground_level(owner.z) && CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
 		if(!silent)
 			owner.balloon_alert(owner, "too early")
 		return FALSE
@@ -356,7 +362,7 @@
 
 	var/turf/check_turf = get_step(owner, owner.dir)
 	LAZYINITLIST(targets)
-	while(check_turf && length(targets) < ZEROFORM_BEAM_RANGE)
+	while(check_turf && isopenturf(check_turf) && length(targets) < ZEROFORM_BEAM_RANGE)
 		targets += check_turf
 		check_turf = get_step(check_turf, owner.dir)
 	if(!LAZYLEN(targets))
@@ -416,6 +422,9 @@
 				if(ismecha(obj_victim))
 					damage_mult = 5
 				obj_victim.take_damage(15 * damage_mult, BURN, ENERGY, armour_penetration = 60)
+			else if(isstructure(victim) || ismachinery(victim))
+				var/obj/obj_victim = victim
+				obj_victim.take_damage(20, BURN, ENERGY, armour_penetration = 50)
 	timer_ref = addtimer(CALLBACK(src, PROC_REF(execute_attack)), ZEROFORM_TICK_RATE, TIMER_STOPPABLE)
 
 ///ends and cleans up beam
@@ -532,7 +541,7 @@ GLOBAL_LIST_EMPTY(active_summons)
 
 ///Sends a message to admins, prompting them if they want to cancel a psychic summon
 /datum/action/ability/xeno_action/psychic_summon/proc/request_admins()
-	var/canceltext = "[xeno_owner] is using [name] at [AREACOORD(xeno_owner)] [ADMIN_TPMONTY(xeno_owner)] <a href='?_src_=holder;[HrefToken(TRUE)];cancelsummon=[10 SECONDS]'>\[CANCEL SUMMON\]</a>"
+	var/canceltext = "[xeno_owner] is using [name] at [AREACOORD(xeno_owner)] [ADMIN_TPMONTY(xeno_owner)] <a href='byond://?_src_=holder;[HrefToken(TRUE)];cancelsummon=[10 SECONDS]'>\[CANCEL SUMMON\]</a>"
 	message_admins("[span_prefix("PSYCHIC SUMMON:")] <span class='message linkify'> [canceltext]</span>")
 	log_game("psychic summon started by [xeno_owner] at [AREACOORD(xeno_owner)], timerid to cancel: [10 SECONDS]")
 	notify_ghosts("<b>[xeno_owner]</b> has begun to summon at [AREACOORD(xeno_owner)]!", action = NOTIFY_JUMP)
@@ -546,3 +555,16 @@ GLOBAL_LIST_EMPTY(active_summons)
 /datum/action/ability/xeno_action/psychic_summon/succeed_activate()
 	. = ..()
 	GLOB.active_summons -= xeno_owner //Remove ourselves from the list once we have completed our summon
+
+#undef OFF_GUARD_RANGE
+#undef PETRIFY_RANGE
+#undef PETRIFY_DURATION
+#undef PETRIFY_WINDUP_TIME
+#undef SHATTERING_ROAR_RANGE
+#undef SHATTERING_ROAR_ANGLE
+#undef SHATTERING_ROAR_SPEED
+#undef SHATTERING_ROAR_DAMAGE
+#undef SHATTERING_ROAR_CHARGE_TIME
+#undef ZEROFORM_BEAM_RANGE
+#undef ZEROFORM_CHARGE_TIME
+#undef ZEROFORM_TICK_RATE

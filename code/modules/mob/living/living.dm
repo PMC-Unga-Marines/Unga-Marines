@@ -94,7 +94,7 @@
 		health = maxHealth
 		stat = CONSCIOUS
 		return
-	health = maxHealth - get_oxy_loss() - get_tox_loss() - get_fire_loss() - get_brute_loss() - get_clone_Loss()
+	health = maxHealth - get_oxy_loss() - get_tox_loss() - get_fire_loss() - get_brute_loss() - get_clone_loss()
 	update_stat()
 
 /mob/living/update_stat()
@@ -104,6 +104,7 @@
 /mob/living/Initialize(mapload)
 	. = ..()
 	register_init_signals()
+
 	update_move_intent_effects()
 	GLOB.mob_living_list += src
 	if(stat != DEAD)
@@ -198,9 +199,23 @@
 			var/mob/living/living_puller = pulledby
 			living_puller.set_pull_offsets(src)
 
+	if(crawling)
+		crawling = FALSE
+		var/crawling_direction = REVERSE_DIR(get_dir(newloc, src))
+		setDir(crawling_direction)
+		playsound(src, 'sound/effects/footstep/crawl.ogg', 50, 1)
+
 	if(active_storage)
 		if(!(active_storage.parent in contents) && !CanReach(active_storage.parent))
 			active_storage.close(src)
+
+/mob/living/proc/crawl_checks(turf/crawled_turf)
+	for(var/mob/living/mob in crawled_turf)
+		if(mob.lying_angle || mob.stat != CONSCIOUS)
+			continue
+		if(mob.faction != faction && mob.move_resist >= move_force) // no crawling under xenos or enemy humans
+			return FALSE
+	return TRUE
 
 /mob/living/Moved(atom/old_loc, movement_dir, forced = FALSE, list/old_locs)
 	. = ..()
@@ -231,21 +246,11 @@
 /mob/living/proc/do_camera_update(oldLoc)
 	return
 
-
 /mob/living/proc/update_camera_location(oldLoc)
 	return
 
-
-/mob/living/vv_get_dropdown()
-	. = ..()
-	. += "---"
-	.["Add Language"] = "?_src_=vars;[HrefToken()];addlanguage=[REF(src)]"
-	.["Remove Language"] = "?_src_=vars;[HrefToken()];remlanguage=[REF(src)]"
-
-
 /mob/proc/resist_grab()
 	return //returning 1 means we successfully broke free
-
 
 /mob/living/proc/do_resist_grab()
 	if(restrained(RESTRAINED_NECKGRAB))
@@ -351,20 +356,17 @@
 				var/oldloc = loc
 				var/oldLloc = L.loc
 
-				var/L_passmob = (L.pass_flags & PASS_MOB) // we give PASS_MOB to both mobs to avoid bumping other mobs during swap.
-				var/src_passmob = (pass_flags & PASS_MOB)
-				L.pass_flags |= PASS_MOB
-				pass_flags |= PASS_MOB
+				// we give PASS_MOB to both mobs to avoid bumping other mobs during swap.
+				L.add_pass_flags(PASS_MOB, MOVEMENT_SWAP_TRAIT)
+				add_pass_flags(PASS_MOB, MOVEMENT_SWAP_TRAIT)
 
 				if(!moving_diagonally) //the diagonal move already does this for us
 					Move(oldLloc)
 				if(mob_swap_mode == SWAPPING)
 					L.Move(oldloc)
 
-				if(!src_passmob)
-					pass_flags &= ~PASS_MOB
-				if(!L_passmob)
-					L.pass_flags &= ~PASS_MOB
+				L.remove_pass_flags(PASS_MOB, MOVEMENT_SWAP_TRAIT)
+				remove_pass_flags(PASS_MOB, MOVEMENT_SWAP_TRAIT)
 
 				now_pushing = FALSE
 
@@ -378,8 +380,7 @@
 
 	if(ismovableatom(A))
 		if(isxeno(src) && ishuman(A))
-			var/datum/action/bump_attack_toggle/bump_action = actions_by_path[/datum/action/bump_attack_toggle] // there should be a better way to do this
-			if(a_intent != INTENT_DISARM && !bump_action.attacking)
+			if(a_intent != INTENT_DISARM)
 				return
 			var/mob/living/carbon/human/H = A
 			if(!COOLDOWN_CHECK(H, xeno_push_delay))
@@ -477,7 +478,7 @@
 
 /mob/living/proc/offer_mob()
 	GLOB.offered_mob_list += src
-	notify_ghosts(span_boldnotice("A mob is being offered! Name: [name][job ? " Job: [job.title]" : ""] "), enter_link = "claim=[REF(src)]", source = src, action = NOTIFY_ORBIT)
+	notify_ghosts(span_boldnotice("A mob is being offered! Name: [name][job ? " Job: [job.title]" : ""] "), enter_link = "claim=[REF(src)]", source = src, action = NOTIFY_ORBIT, flashwindow = TRUE)
 
 //used in datum/reagents/reaction() proc
 /mob/living/proc/get_permeability_protection()
@@ -541,7 +542,6 @@
 
 	alpha = 5 // bah, let's make it better, it's a disposable device anyway
 
-	GLOB.huds[DATA_HUD_SECURITY_ADVANCED].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_INFECTION].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_REAGENTS].remove_from_hud(src)
 	GLOB.huds[DATA_HUD_XENO_DEBUFF].remove_from_hud(src)
@@ -557,7 +557,6 @@
 
 	alpha = initial(alpha)
 
-	GLOB.huds[DATA_HUD_SECURITY_ADVANCED].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_INFECTION].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_REAGENTS].add_to_hud(src)
 	GLOB.huds[DATA_HUD_XENO_DEBUFF].add_to_hud(src)
@@ -726,33 +725,6 @@
 	else
 		stop_pulling()
 
-
-/mob/living/vv_edit_var(var_name, var_value)
-	switch(var_name)
-		if("maxHealth")
-			if(!isnum(var_value) || var_value <= 0)
-				return FALSE
-		if("stat")
-			if((stat == DEAD) && (var_value < DEAD))//Bringing the dead back to life
-				GLOB.dead_mob_list -= src
-				GLOB.alive_living_list += src
-			if((stat < DEAD) && (var_value == DEAD))//Kill he
-				GLOB.alive_living_list -= src
-				GLOB.dead_mob_list += src
-	. = ..()
-	switch(var_name)
-		if("eye_blind")
-			set_blindness(var_value)
-		if("eye_blurry")
-			set_blurriness(var_value)
-		if("maxHealth")
-			update_health()
-		if("resize")
-			update_transform()
-		if("lighting_alpha")
-			sync_lighting_plane_alpha()
-
-
 /mob/living/can_interact_with(datum/D)
 	return D == src || D.Adjacent(src)
 
@@ -802,6 +774,8 @@
 		if(CONSCIOUS) //From unconscious to conscious.
 			REMOVE_TRAIT(src, TRAIT_IMMOBILE, STAT_TRAIT)
 			REMOVE_TRAIT(src, TRAIT_FLOORED, STAT_TRAIT)
+		if(UNCONSCIOUS)
+			SEND_SIGNAL(src, COMSIG_MOB_CRIT)
 		if(DEAD)
 			on_death()
 
@@ -923,3 +897,114 @@
 		height *= gravity * 0.5
 
 	AddComponent(/datum/component/jump, _jump_duration = duration, _jump_cooldown = cooldown, _stamina_cost = cost, _jump_height = height, _jump_sound = sound, _jump_flags = flags, _jumper_allow_pass_flags = jump_pass_flags)
+
+/mob/living/vv_edit_var(var_name, var_value)
+	switch(var_name)
+		if (NAMEOF(src, maxHealth))
+			if (!isnum(var_value) || var_value <= 0)
+				return FALSE
+		if(NAMEOF(src, health)) //this doesn't work. gotta use procs instead.
+			return FALSE
+		if(NAMEOF(src, stat))
+			if((stat == DEAD) && (var_value < DEAD))//Bringing the dead back to life
+				GLOB.dead_mob_list -= src
+				GLOB.alive_living_list += src
+			if((stat < DEAD) && (var_value == DEAD))//Kill he
+				GLOB.alive_living_list -= src
+				GLOB.dead_mob_list += src
+		if(NAMEOF(src, resting))
+			set_resting(var_value)
+			. = TRUE
+		if(NAMEOF(src, lying_angle))
+			set_lying_angle(var_value)
+			. = TRUE
+		if(NAMEOF(src, eye_blind))
+			set_blindness(var_value)
+		if(NAMEOF(src, eye_blurry))
+			set_blurriness(var_value)
+		if(NAMEOF(src, lighting_alpha))
+			sync_lighting_plane_alpha()
+		if(NAMEOF(src, resize))
+			if(var_value == 0) //prevents divisions of and by zero.
+				return FALSE
+			update_transform(var_value/resize)
+			. = TRUE
+
+	if(!isnull(.))
+		datum_flags |= DF_VAR_EDITED
+		return
+
+	. = ..()
+
+	switch(var_name)
+		if(NAMEOF(src, maxHealth))
+			update_health()
+
+/mob/living/vv_get_header()
+	. = ..()
+	var/refid = REF(src)
+	. += {"
+		<br><font size='1'>[VV_HREF_TARGETREF(refid, VV_HK_GIVE_DIRECT_CONTROL, "[ckey || "no ckey"]")] / [VV_HREF_TARGETREF_1V(refid, VV_HK_BASIC_EDIT, "[real_name || "no real name"]", NAMEOF(src, real_name))]</font>
+		<br><font size='1'>
+			BRUTE:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=brute' id='brute'>[get_brute_loss()]</a>
+			FIRE:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=fire' id='fire'>[get_fire_loss()]</a>
+			TOXIN:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=toxin' id='toxin'>[get_tox_loss()]</a>
+			OXY:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=oxygen' id='oxygen'>[get_oxy_loss()]</a>
+			CLONE:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=clone' id='clone'>[get_clone_loss()]</a>
+			STAMINA:<font size='1'><a href='byond://?_src_=vars;[HrefToken()];mobToDamage=[refid];adjustDamage=stamina' id='stamina'>[get_stamina_loss()]</a>
+		</font>
+	"}
+
+/mob/living/vv_get_dropdown()
+	. = ..()
+	VV_DROPDOWN_OPTION("", "---------")
+	VV_DROPDOWN_OPTION(VV_HK_ADD_LANGUAGE, "Add Language")
+	VV_DROPDOWN_OPTION(VV_HK_REMOVE_LANGUAGE, "Remove Language")
+	VV_DROPDOWN_OPTION(VV_HK_GIVE_SPEECH_IMPEDIMENT, "Impede Speech (Slurring, stuttering, etc)")
+
+/mob/living/vv_do_topic(list/href_list)
+	. = ..()
+
+	if(!.)
+		return
+
+	if(href_list[VV_HK_ADD_LANGUAGE])
+		if(!check_rights(NONE))
+			return
+		var/choice = tgui_input_list(usr, "Grant which language?", "Languages", GLOB.all_languages)
+		if(!choice)
+			return
+		grant_language(choice)
+	if(href_list[VV_HK_REMOVE_LANGUAGE])
+		if(!check_rights(NONE))
+			return
+		var/choice = tgui_input_list(usr, "Remove which language?", "Known Languages", src.language_holder.languages)
+		if(!choice)
+			return
+		remove_language(choice)
+	if(href_list[VV_HK_GIVE_SPEECH_IMPEDIMENT])
+		if(!check_rights(NONE))
+			return
+		admin_give_speech_impediment(usr)
+
+/// Admin only proc for giving a certain speech impediment to this mob
+/mob/living/proc/admin_give_speech_impediment(mob/admin)
+	if(!admin || !check_rights(NONE))
+		return
+
+	var/list/impediments = list()
+	for(var/datum/status_effect/possible as anything in typesof(/datum/status_effect/speech))
+		if(!initial(possible.id))
+			continue
+
+		impediments[initial(possible.id)] = possible
+
+	var/chosen = tgui_input_list(admin, "What speech impediment?", "Impede Speech", impediments)
+	if(!chosen || !ispath(impediments[chosen], /datum/status_effect/speech) || QDELETED(src) || !check_rights(NONE))
+		return
+
+	var/duration = tgui_input_number(admin, "How long should it last (in seconds)? Max is infinite duration.", "Duration", 0, INFINITY, 0 SECONDS)
+	if(!isnum(duration) || duration <= 0 || QDELETED(src) || !check_rights(NONE))
+		return
+
+	adjust_timed_status_effect(duration * 1 SECONDS, impediments[chosen])

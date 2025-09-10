@@ -42,11 +42,6 @@
 	contains = list(/obj/item/ammo_magazine/m412l1_hpr)
 	cost = 25
 
-/datum/supply_packs/imports/type71	//Moff gun
-	name = "Type 71 Pulse Rifle"
-	contains = list(/obj/item/weapon/gun/rifle/type71/seasonal)
-	cost = 50
-
 /datum/supply_packs/imports/type71/ammo
 	name = "Type 71 Pulse Rifle Ammo"
 	contains = list(/obj/item/ammo_magazine/rifle/type71)
@@ -303,7 +298,7 @@
 	cost = 500
 
 /datum/supply_packs/imports/loot_pack
-	name = "TGMC Loot Pack"
+	name = "TGMC loot pack"
 	notes = "Contains a random, but curated set of items, these packs are valued around 150 to 200 points. Some items can only be acquired from these. Spend responsibly."
 	contains = list(/obj/item/loot_box/tgmclootbox)
 	cost = 1000

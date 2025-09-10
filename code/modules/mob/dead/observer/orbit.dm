@@ -41,6 +41,7 @@
 			if(auto_observe && !QDELETED(owner?.orbiting?.parent))
 				owner.do_observe(owner.orbiting.parent)
 			else
+				owner.clean_observetarget()
 				owner.reset_perspective(null)
 			. = TRUE
 
@@ -120,6 +121,9 @@
 
 		if(isAI(mob_poi))
 			serialized["job"] = "AI"
+			var/mob/living/silicon/ai/ai = poi
+			var/datum/job/job = ai.job
+			serialized["icon"] = job.minimap_icon
 			humans += list(serialized)
 			continue
 

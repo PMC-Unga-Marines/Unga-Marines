@@ -1,12 +1,12 @@
-import { useBackend } from '../../backend';
 import {
   Button,
   ColorBox,
   LabeledList,
   Section,
   Stack,
-  Tooltip,
-} from '../../components';
+} from 'tgui-core/components';
+
+import { useBackend } from '../../backend';
 import {
   LoopingSelectionPreference,
   SelectFieldPreference,
@@ -63,25 +63,18 @@ export const GameSettings = (props) => {
                 rightLabel={'Use on both hands'}
               />
               <ToggleFieldPreference
-                label="Mute xeno health alert messages"
-                value="mute_xeno_health_alert_messages"
-                action="mute_xeno_health_alert_messages"
-                leftLabel={'Muted'}
-                rightLabel={'Enabled'}
-              />
-              <Tooltip content="Use more accessible TGUI themes/layouts wherever possible.">
-                <ToggleFieldPreference
-                  label="Accessible TGUI themes"
-                  value="accessible_tgui_themes"
-                  action="accessible_tgui_themes"
-                />
-              </Tooltip>
-              <ToggleFieldPreference
                 label="Fullscreen mode"
                 value="fullscreen_mode"
                 action="fullscreen_mode"
                 leftLabel={'Fullscreen'}
                 rightLabel={'Windowed'}
+              />
+              <ToggleFieldPreference
+                label="Status Bar (Bottom left text)"
+                value="show_status_bar"
+                action="show_status_bar"
+                leftLabel={'Show'}
+                rightLabel={'Hide'}
               />
               <ToggleFieldPreference
                 label="TGUI Window Mode"
@@ -146,6 +139,13 @@ export const GameSettings = (props) => {
                 label="Use directional attacks"
                 value="directional_attacks"
                 action="directional_attacks"
+                leftLabel={'Enabled'}
+                rightLabel={'Disabled'}
+              />
+              <ToggleFieldPreference
+                label="Toggle Click-dragging"
+                value="toggle_clickdrag"
+                action="toggle_clickdrag"
                 leftLabel={'Enabled'}
                 rightLabel={'Disabled'}
               />
@@ -316,6 +316,15 @@ export const GameSettings = (props) => {
                   action="split_admin_tabs"
                   leftLabel={'Enabled'}
                   rightLabel={'Disabled'}
+                  tooltip="When enabled, staff commands will be split into multiple tabs (Admin/Fun/etc). Otherwise, non-debug commands will remain in one statpanel tab."
+                />
+                <ToggleFieldPreference
+                  label="Hear OOC from anywhere"
+                  value="hear_ooc_anywhere_as_staff"
+                  action="hear_ooc_anywhere_as_staff"
+                  leftLabel={'Enabled'}
+                  rightLabel={'Disabled'}
+                  tooltip="Enables hearing OOC channels from anywhere in any situation."
                 />
               </LabeledList>
             </Section>

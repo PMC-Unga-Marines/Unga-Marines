@@ -8,7 +8,7 @@
 /obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 8
 	},
 /turf/open/floor/mainship/mono,
@@ -46,7 +46,7 @@
 /obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"
 	},
-/obj/structure/barricade/plasteel{
+/obj/structure/barricade/folding{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,

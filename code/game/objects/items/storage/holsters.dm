@@ -324,7 +324,7 @@
 	desc = "A large, vibrantly colored katana scabbard used to carry a japanese sword. It can be strapped to the back, waist or armor. Because of the sturdy wood casing of the scabbard, it makes an okay defensive weapon in a pinch."
 	icon_state = "katana_holster"
 	force = 12
-	attack_verb = list("bludgeoned", "struck", "cracked")
+	attack_verb = list("bludgeons", "strikes", "cracks")
 	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	holsterable_allowed = list(/obj/item/weapon/sword/katana)
 
@@ -336,8 +336,8 @@
 	new /obj/item/weapon/sword/katana(src)
 
 /obj/item/storage/holster/blade/officer
-	name = "\improper officer sword scabbard"
-	desc = "A large leather scabbard used to carry a sword. Appears to be a reproduction, rather than original. It can be strapped to the waist or armor."
+	name = "\improper officer's sword scabbard"
+	desc = "A large leather scabbard used to carry a sword. Appears to be a reproduction, rather than an original. It can be strapped to the waist or to armor."
 	icon_state = "officer_sheath"
 	equip_slot_flags = ITEM_SLOT_BELT
 	worn_layer = CAPE_LAYER
@@ -352,7 +352,7 @@
 	desc = "An exquisite ceremonial sheath for an even more expensive rapier."
 	worn_icon_list = list(
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
-		slot_belt_str = 'icons/mob/belt.dmi',
+		slot_belt_str = 'icons/mob/clothing/belt.dmi',
 	)
 	icon_state = "rapier_holster"
 	holsterable_allowed = list(/obj/item/weapon/sword/officer/valirapier)
@@ -369,7 +369,7 @@
 	desc = "An exquisite ceremonial sheath of a high ranking command personel."
 	worn_icon_list = list(
 		slot_s_store_str = 'icons/mob/suit_slot.dmi',
-		slot_belt_str = 'icons/mob/belt.dmi',
+		slot_belt_str = 'icons/mob/clothing/belt.dmi',
 	)
 	icon_state = "saber_holster"
 	holsterable_allowed = list(/obj/item/weapon/sword/officer/sabre)
@@ -452,7 +452,6 @@
 	name = "\improper M276 pattern M25 holster rig"
 	desc = "The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is designed for the M25 SMG, and features a larger frame to support the gun. Due to its unorthodox design, it isn't a very common sight, and is only specially issued."
 	icon_state = "m25_holster"
-	icon = 'icons/obj/clothing/belts.dmi'
 	equip_slot_flags = ITEM_SLOT_BELT
 	holsterable_allowed = list(
 		/obj/item/weapon/gun/smg/m25,
@@ -670,10 +669,15 @@
 	storage_datum.storage_type_limits = list(
 		/obj/item/weapon/gun/revolver,
 	)
-	storage_datum.set_holdable(can_hold_list = list(
-		/obj/item/weapon/gun/revolver,
-		/obj/item/ammo_magazine/revolver,
-	))
+	storage_datum.set_holdable(
+		can_hold_list = list(
+			/obj/item/weapon/gun/revolver,
+			/obj/item/ammo_magazine/revolver,
+		),
+		cant_hold_list = list(
+			/obj/item/weapon/gun/revolver/coltrifle,
+		)
+	)
 
 /obj/item/storage/holster/belt/revolver/t500
 	name = "\improper BM500 pattern BF revolver holster rig"

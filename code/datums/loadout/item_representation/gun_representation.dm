@@ -6,13 +6,12 @@
 	///Flat list of the representations of the attachements on the gun
 	var/list/datum/item_representation/attachments = list()
 
-
 /datum/item_representation/gun/New(obj/item/item_to_copy)
 	if(!item_to_copy)
 		return
 	if(!isgun(item_to_copy))
 		CRASH("/datum/item_representation/gun created from an item that is not a gun")
-	..()
+	. = ..()
 	var/obj/item/weapon/gun/gun_to_copy = item_to_copy
 	for(var/key in gun_to_copy.attachments_by_slot)
 		if(!gun_to_copy.attachments_by_slot[key])
@@ -21,7 +20,6 @@
 			attachments += new /datum/item_representation/gun_attachement(gun_to_copy.attachments_by_slot[key])
 			continue
 		attachments += new /datum/item_representation/gun(gun_to_copy.attachments_by_slot[key])
-
 
 /datum/item_representation/gun/instantiate_object(datum/loadout_seller/seller, master = null, mob/living/user)
 	. = ..()
@@ -36,11 +34,10 @@
 		attachment.install_on_gun(seller, ., user)
 
 ///Instantiates and instals the type onto gun_to_attach
-/datum/item_representation/gun/proc/install_on_gun(seller, obj/item/weapon/gun/gun_to_attach, mob/living/user)
-	var/gun_to_vend
+/datum/item_representation/gun/proc/install_on_gun(datum/loadout_seller/seller, obj/item/weapon/gun/gun_to_attach, mob/living/user)
 	if(item_type in gun_to_attach.starting_attachment_types)
 		bypass_vendor_check = TRUE
-	gun_to_vend = instantiate_object(seller, null, user)
+	var/gun_to_vend = instantiate_object(seller, gun_to_attach, user)
 	if(!gun_to_vend)
 		return
 	SEND_SIGNAL(gun_to_attach, COMSIG_LOADOUT_VENDOR_VENDED_ATTACHMENT_GUN, gun_to_vend)
@@ -55,14 +52,13 @@
 		return
 	if(!isgunattachment(item_to_copy) && !isgun(item_to_copy))
 		CRASH("/datum/item_representation/gun_attachement created from an item that is not a gun attachment")
-	..()
+	return ..()
 
 ///Attach the instantiated attachment to the gun
-/datum/item_representation/gun_attachement/proc/install_on_gun(seller, obj/item/weapon/gun/gun_to_attach, mob/living/user)
-	var/attachment_to_vend
+/datum/item_representation/gun_attachement/proc/install_on_gun(datum/loadout_seller/seller, obj/item/weapon/gun/gun_to_attach, mob/living/user)
 	if(item_type in gun_to_attach.starting_attachment_types)
 		bypass_vendor_check = TRUE
-	attachment_to_vend = instantiate_object(seller, null, user)
+	var/attachment_to_vend = instantiate_object(seller, gun_to_attach, user)
 	if(!attachment_to_vend)
 		return
 	SEND_SIGNAL(gun_to_attach, COMSIG_LOADOUT_VENDOR_VENDED_GUN_ATTACHMENT, attachment_to_vend)
@@ -85,7 +81,7 @@
 		return
 	if(!ishandful(item_to_copy))
 		CRASH("/datum/item_representation/handful_representation created from an item that is not a handful")
-	..()
+	. = ..()
 	var/obj/item/ammo_magazine/handful/handful_to_copy = item_to_copy
 	icon_state = handful_to_copy.icon_state
 	ammo = handful_to_copy.default_ammo

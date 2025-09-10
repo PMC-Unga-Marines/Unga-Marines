@@ -171,18 +171,16 @@
 /datum/action/ability/activable/item_toggle/jetpack
 	name = "Use jetpack"
 	desc = "Briefly fly using your jetpack."
-	action_icon = 'icons/mob/actions.dmi'
-	action_icon_state = ""
-	keybind_flags = ABILITY_USE_STAGGERED|ABILITY_USE_BUSY
+	action_icon_state = "123" // for whatever fucking reason, there's no proper icon state without this bullshit
+	use_state_flags = ABILITY_USE_STAGGERED|ABILITY_USE_BUSY
 	keybinding_signals = list(KEYBINDING_NORMAL = COMSIG_ITEM_TOGGLE_JETPACK)
-	use_state_flags = ABILITY_USE_STAGGERED
 
 /datum/action/ability/activable/item_toggle/jetpack/New(Target, obj/item/holder)
 	. = ..()
 	var/obj/item/jetpack_marine/jetpack = Target
 	cooldown_duration = jetpack.cooldown_time
 
-/datum/action/ability/activable/item_toggle/jetpack/can_use_ability(silent, override_flags, selecting)
+/datum/action/ability/activable/item_toggle/jetpack/can_use_ability(atom/A, silent = FALSE, override_flags)
 	var/mob/living/carbon/carbon_owner = owner
 	if(carbon_owner.incapacitated() || carbon_owner.lying_angle)
 		return FALSE
@@ -191,6 +189,24 @@
 		carbon_owner.balloon_alert(carbon_owner, "No fuel")
 		return
 	return ..()
+
+/datum/action/ability/activable/item_toggle/jetpack/ai_should_start_consider()
+	return TRUE
+
+/datum/action/ability/activable/item_toggle/jetpack/ai_should_use(atom/target)
+	if(!(isliving(target) || ismecha(target) || isarmoredvehicle(target)))
+		return FALSE
+	var/atom/movable/movable_target = target
+	if(movable_target.faction == owner.faction)
+		return FALSE
+	if(!can_use_ability(movable_target, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
+		return FALSE
+	var/obj/item/jetpack_marine/jetpack_parent = src.target
+	if(jetpack_parent.fuel_left < FUEL_USE)
+		return FALSE
+	if(!line_of_sight(owner, movable_target, jetpack_parent.calculate_range(owner)))
+		return FALSE
+	return TRUE
 
 /obj/item/jetpack_marine/heavy
 	name = "heavy lift jetpack"
@@ -214,8 +230,10 @@
 	. = ..()
 	if(!.)
 		return
+	if(!human_user.throwing) //if we instantly run into something, the throw is already over
+		return
 	if(human_user.a_intent != INTENT_HELP)
-		human_user.pass_flags &= ~PASS_MOB //we explicitly want to hit people
+		human_user.remove_pass_flags(PASS_MOB, THROW_TRAIT) //we explicitly want to hit people
 	RegisterSignal(human_user, COMSIG_MOVABLE_PREBUMP_MOVABLE, PROC_REF(mob_hit))
 
 /obj/item/jetpack_marine/heavy/reset_flame(mob/living/carbon/human/human_user)

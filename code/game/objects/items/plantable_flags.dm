@@ -23,13 +23,12 @@
 	w_class = WEIGHT_CLASS_HUGE
 	force = 55
 	attack_speed = 15
-	attack_verb = list("stabbed", "thrust", "smashed", "thumped", "bashed", "attacked", "clubbed", "speared", "jabbed", "torn", "gored")
+	attack_verb = list("stabs", "thrusts", "smashes", "thumps", "bashes", "attacks", "clubs", "spears", "jabs", "tears", "gores")
 	sharp = IS_SHARP_ITEM_BIG
 	throw_speed = 1
 	throw_range = 2
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 100, FIRE = 50, ACID = 50)
-	///The faction this belongs to
-	var/faction = FACTION_TERRAGOV
+	faction = FACTION_TERRAGOV
 	///Aura emitter
 	var/datum/aura_bearer/current_aura
 	///Start point for it to return to when called
@@ -39,7 +38,7 @@
 	. = ..()
 	origin_point = get_turf(src)
 	if(isturf(loc))
-		item_flags |= DEPLOY_ON_INITIALIZE
+		deploy_flags |= DEPLOY_ON_INITIALIZE
 	AddComponent(/datum/component/deployable_item, /obj/structure/plantable_flag, 1 SECONDS, 3 SECONDS)
 	AddComponent(/datum/component/shield, SHIELD_PURE_BLOCKING, list(MELEE = 35, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0))
 	current_aura = SSaura.add_emitter(src, AURA_HUMAN_FLAG, FLAG_AURA_RANGE, FLAG_AURA_STRENGTH, -1, faction)
@@ -70,15 +69,7 @@
 	lift_flag(user)
 
 /obj/item/plantable_flag/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(500, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(150, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(75, BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(15, BRUTE, BOMB)
+	take_damage(severity, BRUTE, BOMB)
 
 /obj/item/plantable_flag/fire_act(burn_level)
 	take_damage(burn_level * 3, BURN, FIRE)
@@ -87,7 +78,7 @@
 /obj/item/plantable_flag/proc/update_aura()
 	if(!current_aura)
 		return
-	current_aura.range = item_flags & IS_DEPLOYED ? FLAG_AURA_DEPLOYED_RANGE : FLAG_AURA_RANGE
+	current_aura.range = deploy_flags & IS_DEPLOYED ? FLAG_AURA_DEPLOYED_RANGE : FLAG_AURA_RANGE
 	if(isturf(loc))
 		current_aura.strength = LOST_FLAG_AURA_STRENGTH
 		return
@@ -152,6 +143,7 @@
 	update_appearance(UPDATE_ICON_STATE)
 	if(deployer)
 		new_internal_item.lift_flag(deployer)
+		log_game("[key_name(deployer)] has deployed the flag at [AREACOORD(src)].")
 
 /obj/structure/plantable_flag/Destroy()
 	clear_internal_item()
@@ -173,15 +165,7 @@
 	icon_state = "[current_internal_item.icon_state]_planted"
 
 /obj/structure/plantable_flag/ex_act(severity)
-	switch(severity)
-		if(EXPLODE_DEVASTATE)
-			take_damage(500, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
-			take_damage(150, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
-			take_damage(75, BRUTE, BOMB)
-		if(EXPLODE_WEAK)
-			take_damage(15, BRUTE, BOMB)
+	take_damage(severity, BRUTE, BOMB)
 
 /obj/structure/plantable_flag/fire_act(burn_level)
 	take_damage(burn_level, BURN, FIRE)
@@ -196,3 +180,10 @@
 	if(!current_internal_item)
 		return
 	disassemble(user)
+	log_game("[key_name(user)] has undeployed the flag at [AREACOORD(src)].")
+
+#undef FLAG_AURA_RANGE
+#undef FLAG_AURA_DEPLOYED_RANGE
+#undef FLAG_WARCRY_RANGE
+#undef FLAG_AURA_STRENGTH
+#undef LOST_FLAG_AURA_STRENGTH

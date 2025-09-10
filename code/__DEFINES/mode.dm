@@ -23,7 +23,8 @@
 #define EVACUATION_STATUS_IN_PROGRESS 2
 #define EVACUATION_STATUS_COMPLETE 3
 
-#define EVACUATION_AUTOMATIC_DEPARTURE 8 MINUTES //All pods automatically depart in 10 minutes, unless they are full or unable to launch for some reason.
+#define EVACUATION_MANUAL_DEPARTURE 7.5 MINUTES
+#define EVACUATION_AUTOMATIC_DEPARTURE 10 MINUTES // All pods automatically depart in 10 minutes, unless they are full or unable to launch for some reason.
 #define EVACUATION_ESTIMATE_DEPARTURE ((evac_time + EVACUATION_AUTOMATIC_DEPARTURE - world.time) * 0.1)
 #define EVACUATION_POD_LAUNCH_COOLDOWN 5 SECONDS
 
@@ -73,28 +74,14 @@
 #define INFESTATION_NUKE_COMPLETED_SHIPSIDE "INFESTATION_NUKE_COMPLETED_SHIPSIDE"
 #define INFESTATION_NUKE_COMPLETED_OTHER "INFESTATION_NUKE_COMPLETED_OTHER"
 
-#define SURVIVOR_WEAPONS list(\
-				list(/obj/item/weapon/gun/smg/mp7, /obj/item/ammo_magazine/smg/mp7),\
-				list(/obj/item/weapon/gun/shotgun/double/sawn, /obj/item/ammo_magazine/handful/buckshot),\
-				list(/obj/item/weapon/gun/smg/uzi, /obj/item/ammo_magazine/smg/uzi),\
-				list(/obj/item/weapon/gun/smg/m25, /obj/item/ammo_magazine/smg/m25),\
-				list(/obj/item/weapon/gun/rifle/m16, /obj/item/ammo_magazine/rifle/m16),\
-				list(/obj/item/weapon/gun/shotgun/pump/bolt, /obj/item/ammo_magazine/rifle/bolt),\
-				list(/obj/item/weapon/gun/shotgun/pump/lever, /obj/item/ammo_magazine/packet/magnum))
+#define SHUTTERS_DROP_TIME 20 MINUTES
 
-//Balance defines
-#define MARINE_GEAR_SCALING 30
-
-#define MAX_TUNNELS_PER_MAP 10
-
-#define FOG_DELAY_INTERVAL 40 MINUTES
-
-#define EVACUATION_TIME_LOCK 30 MINUTES
+#define EVACUATION_TIME_LOCK SHUTTERS_DROP_TIME + 5 MINUTES
 
 //Nuclear war mode collapse duration
 #define NUCLEAR_WAR_ORPHAN_HIVEMIND 5 MINUTES
 
-#define SHUTTLE_HIJACK_LOCK 30 MINUTES
+#define SHUTTLE_HIJACK_LOCK SHUTTERS_DROP_TIME + 5 MINUTES
 
 #define COOLDOWN_COMM_REQUEST 5 MINUTES
 #define COOLDOWN_COMM_MESSAGE 1 MINUTES
@@ -122,10 +109,14 @@
 
 //How many psy points a hive gets if all generators are corrupted
 #define GENERATOR_PSYCH_POINT_OUTPUT 1
-//How many psy points are gave for each marine psy drained
+//How many psy points are given for each marine psy drained
 #define PSY_DRAIN_REWARD 60
-//How many psy points are gave every 5 second by a cocoon
+//How many psy points are given every 5 second by a cocoon
 #define COCOON_PSY_POINTS_REWARD 2
+//How many psy points are given from a Marine bursting on a nest
+#define MARINE_BURST_PSY_POINTS_REWARD 200
+//How many psy points are given by Hivemind's Psy Gain
+#define HIVEMIND_PSY_GAIN_REWARD 100
 
 /// How each alive marine contributes to burrower larva output per minute. So with one pool, 15 marines are giving 0.375 points per minute, so it's a new xeno every 22 minutes
 #define SILO_BASE_OUTPUT_PER_MARINE 0.035
@@ -140,7 +131,7 @@
 #define INFESTATION_MARIN_RUSH_MAJOR 5
 
 #define NUCLEAR_WAR_LARVA_POINTS_NEEDED 8
-#define CRASH_LARVA_POINTS_NEEDED 10
+#define CRASH_LARVA_POINTS_NEEDED 9
 
 #define FREE_XENO_AT_START 2
 

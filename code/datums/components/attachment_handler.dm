@@ -114,7 +114,7 @@
 	SEND_SIGNAL(parent, COMSIG_ATTACHMENT_ATTACHED_TO_ITEM, attachment, attacker)
 
 	update_parent_overlay()
-	if(!CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_APPLY_ON_MOB))
+	if(!CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_APPLY_ON_MOB))
 		return
 
 	if(!ismob(parent_obj.loc))
@@ -132,7 +132,7 @@
 	if(!can_attach(attachment, user, attachment_data))
 		return FALSE
 
-	if(!CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_NO_HANDS))
+	if(!CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_NO_HANDS))
 		var/obj/item/in_hand = user.get_inactive_held_item()
 		if(in_hand != parent)
 			to_chat(user, span_warning("You have to hold [parent] to do that!"))
@@ -170,7 +170,7 @@
 
 	var/slot = attachment_data[SLOT]
 
-	if(!(slot in slots) || (!(attachment.type in attachables_allowed) && !CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_BYPASS_ALLOWED_LIST))) //If theres no slot on parent, or if the attachment type isnt allowed, returns FALSE.
+	if(!(slot in slots) || (!(attachment.type in attachables_allowed) && !CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_BYPASS_ALLOWED_LIST))) //If theres no slot on parent, or if the attachment type isnt allowed, returns FALSE.
 		to_chat(user, span_warning("You cannot attach [attachment] to [parent]!"))
 		return FALSE
 
@@ -179,7 +179,7 @@
 
 	var/list/current_attachment_data = attachment_data_by_slot[slot]
 
-	if(!CHECK_BITFIELD(current_attachment_data[ATTACH_FEATURES_flags], ATTACH_REMOVABLE)) //If the slots attachment is unremovable.
+	if(!CHECK_BITFIELD(current_attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_REMOVABLE)) //If the slots attachment is unremovable.
 		to_chat(user, span_warning("You cannot remove [slots[slot]] from [parent] to make room for [attachment]!"))
 		return FALSE
 
@@ -199,7 +199,7 @@
 		if(!current_attachment)
 			continue
 		var/list/current_attachment_data = attachment_data_by_slot[key]
-		if(!CHECK_BITFIELD(current_attachment_data[ATTACH_FEATURES_flags], ATTACH_REMOVABLE))
+		if(!CHECK_BITFIELD(current_attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_REMOVABLE))
 			continue
 		attachments_to_remove += current_attachment
 
@@ -257,8 +257,8 @@
 	if(!do_after(user, detach_delay, NONE, parent, do_after_icon_type))
 		return
 
-	user.visible_message(span_notice("[user] detaches [attachment_to_remove] to [parent]."),
-	span_notice("You detach [attachment_to_remove] to [parent]."), null, 4)
+	user.visible_message(span_notice("[user] detaches [attachment_to_remove] from [parent]."),
+	span_notice("You detach [attachment_to_remove] from [parent]."), null, 4)
 	playsound(user, attachment_data[ATTACH_SOUND], 15, 1, 4)
 
 	finish_detach(attachment_to_remove, attachment_data, user)
@@ -311,7 +311,7 @@
 			icon_state = attachment.icon_state + "_a"
 		else if(attachment_data[OVERLAY_ICON] == attachment.icon)
 			icon_state = attachment.icon_state + "_a"
-		if(CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_SAME_ICON) || CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_DIFFERENT_MOB_ICON_STATE))
+		if(CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_SAME_ICON) || CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_DIFFERENT_MOB_ICON_STATE))
 			icon_state = attachment.icon_state
 			icon = attachment.icon
 			overlay = image(icon, parent_obj, icon_state)
@@ -351,17 +351,17 @@
 		if(!attachment)
 			continue
 		var/list/attachment_data = attachment_data_by_slot[slot]
-		if(!CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_APPLY_ON_MOB))
+		if(!CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_APPLY_ON_MOB))
 			continue
 		if(attachment_data[ATTACHMENT_LAYER])
 			wearer.remove_overlay(attachment_data[ATTACHMENT_LAYER])
 		var/icon = attachment.icon
 		var/icon_state = attachment.icon_state
 		var/suffix = ""
-		if(CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_DIFFERENT_MOB_ICON_STATE))
+		if(CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_DIFFERENT_MOB_ICON_STATE))
 			suffix = "_m"
-		else if(!CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_SAME_ICON))
-			if(CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_SEPERATE_MOB_OVERLAY))
+		else if(!CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_SAME_ICON))
+			if(CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_SEPERATE_MOB_OVERLAY))
 				if(attachment_data[MOB_OVERLAY_ICON] != attachment_data[OVERLAY_ICON])
 					icon = attachment_data[MOB_OVERLAY_ICON]
 				else
@@ -369,8 +369,8 @@
 			else
 				icon = attachment_data[OVERLAY_ICON]
 				suffix = attachment.icon == icon ? "_a" : ""
-		var/mutable_appearance/new_overlay = mutable_appearance(icon, icon_state + suffix, -attachment_data[ATTACHMENT_LAYER])
-		if(CHECK_BITFIELD(attachment_data[ATTACH_FEATURES_flags], ATTACH_SAME_ICON))
+		var/mutable_appearance/new_overlay = mutable_appearance(icon, icon_state + suffix, attachment_data[ATTACHMENT_LAYER])
+		if(CHECK_BITFIELD(attachment_data[FLAGS_ATTACH_FEATURES], ATTACH_SAME_ICON))
 			new_overlay.overlays += attachment.overlays
 		if(attachment_data[MOB_PIXEL_SHIFT_X])
 			new_overlay.pixel_x += attachment_data[MOB_PIXEL_SHIFT_X]

@@ -10,12 +10,6 @@
 		return M.eye_blind
 	return FALSE
 
-/mob/proc/can_use_hands()
-	return
-
-/mob/proc/get_gender()
-	return gender
-
 /*
 	Miss Chance
 */
@@ -24,46 +18,47 @@
 
 //The base miss chance for the different defence zones
 GLOBAL_LIST_INIT(base_miss_chance, list(
-	"head" = 10,
-	"chest" = 0,
-	"groin" = 5,
-	"l_leg" = 10,
-	"r_leg" = 10,
-	"l_arm" = 10,
-	"r_arm" = 10,
-	"l_hand" = 30,
-	"r_hand" = 30,
-	"l_foot" = 40,
-	"r_foot" = 40,
-	"eyes" = 20,
-	"mouth" = 15,
+	BODY_ZONE_HEAD = 10,
+	BODY_ZONE_CHEST = 0,
+	BODY_ZONE_PRECISE_GROIN = 5,
+	BODY_ZONE_L_LEG = 10,
+	BODY_ZONE_R_LEG = 10,
+	BODY_ZONE_L_ARM = 10,
+	BODY_ZONE_R_ARM = 10,
+	BODY_ZONE_PRECISE_L_HAND = 30,
+	BODY_ZONE_PRECISE_R_HAND = 30,
+	BODY_ZONE_PRECISE_L_FOOT = 40,
+	BODY_ZONE_PRECISE_R_FOOT = 40,
+	BODY_ZONE_PRECISE_EYES = 20,
+	BODY_ZONE_PRECISE_MOUTH = 15,
 ))
 
 //Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).
 //Also used to weight the protection value that armour provides for covering that body part when calculating protection from full-body effects. Totals 102; 2 added to chest for limb loops that don't count mouth/eyes.
 GLOBAL_LIST_INIT(organ_rel_size, list(
-	"head" = 4,
-	"chest" = 32,
-	"groin" = 10,
-	"l_leg" = 12,
-	"r_leg" = 12,
-	"l_arm" = 9,
-	"r_arm" = 9,
-	"l_hand" = 3,
-	"r_hand" = 3,
-	"l_foot" = 3,
-	"r_foot" = 3,
-	"eyes" = 1,
-	"mouth" = 1,
+	BODY_ZONE_HEAD = 4,
+	BODY_ZONE_CHEST = 32,
+	BODY_ZONE_PRECISE_GROIN = 10,
+	BODY_ZONE_L_LEG = 12,
+	BODY_ZONE_R_LEG = 12,
+	BODY_ZONE_L_ARM = 9,
+	BODY_ZONE_R_ARM = 9,
+	BODY_ZONE_PRECISE_L_HAND = 3,
+	BODY_ZONE_PRECISE_R_HAND = 3,
+	BODY_ZONE_PRECISE_L_FOOT = 3,
+	BODY_ZONE_PRECISE_R_FOOT = 3,
+	BODY_ZONE_PRECISE_EYES = 1,
+	BODY_ZONE_PRECISE_MOUTH = 1,
 ))
 
 /proc/check_zone(zone)
-	if(!zone)	return "chest"
+	if(!zone)
+		return BODY_ZONE_CHEST
 	switch(zone)
-		if("eyes")
-			zone = "head"
-		if("mouth")
-			zone = "head"
+		if(BODY_ZONE_PRECISE_EYES)
+			zone = BODY_ZONE_HEAD
+		if(BODY_ZONE_PRECISE_MOUTH)
+			zone = BODY_ZONE_HEAD
 	return zone
 
 // Returns zone with a certain probability. If the probability fails, or no zone is specified, then a random body part is chosen.
@@ -77,18 +72,18 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 	var/ran_zone = zone
 	while (ran_zone == zone)
-		ran_zone = pick (
-			GLOB.organ_rel_size["head"]; "head",
-			GLOB.organ_rel_size["chest"]; "chest",
-			GLOB.organ_rel_size["groin"]; "groin",
-			GLOB.organ_rel_size["l_arm"]; "l_arm",
-			GLOB.organ_rel_size["r_arm"]; "r_arm",
-			GLOB.organ_rel_size["l_leg"]; "l_leg",
-			GLOB.organ_rel_size["r_leg"]; "r_leg",
-			GLOB.organ_rel_size["l_hand"]; "l_hand",
-			GLOB.organ_rel_size["r_hand"]; "r_hand",
-			GLOB.organ_rel_size["l_foot"]; "l_foot",
-			GLOB.organ_rel_size["r_foot"]; "r_foot",
+		ran_zone = pick(
+			GLOB.organ_rel_size[BODY_ZONE_HEAD]; BODY_ZONE_HEAD,
+			GLOB.organ_rel_size[BODY_ZONE_CHEST]; BODY_ZONE_CHEST,
+			GLOB.organ_rel_size[BODY_ZONE_PRECISE_GROIN]; BODY_ZONE_PRECISE_GROIN,
+			GLOB.organ_rel_size[BODY_ZONE_L_ARM]; BODY_ZONE_L_ARM,
+			GLOB.organ_rel_size[BODY_ZONE_R_ARM]; BODY_ZONE_R_ARM,
+			GLOB.organ_rel_size[BODY_ZONE_L_LEG]; BODY_ZONE_L_LEG,
+			GLOB.organ_rel_size[BODY_ZONE_R_LEG]; BODY_ZONE_R_LEG,
+			GLOB.organ_rel_size[BODY_ZONE_PRECISE_L_HAND]; BODY_ZONE_PRECISE_L_HAND,
+			GLOB.organ_rel_size[BODY_ZONE_PRECISE_R_HAND]; BODY_ZONE_PRECISE_R_HAND,
+			GLOB.organ_rel_size[BODY_ZONE_PRECISE_L_FOOT]; BODY_ZONE_PRECISE_L_FOOT,
+			GLOB.organ_rel_size[BODY_ZONE_PRECISE_R_FOOT]; BODY_ZONE_PRECISE_R_FOOT,
 		)
 
 	return ran_zone
@@ -338,8 +333,12 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	return (stat || (!ignore_restrained && restrained(restrained_flags)))
 
 
-//returns how many non-destroyed legs the mob has (currently only useful for humans)
+/// Returns how many non-destroyed legs the mob has (currently only useful for humans)
 /mob/proc/has_legs()
+	return 2
+
+/// Returns how many non-destroyed arms the mob has (currently only useful for humans)
+/mob/proc/has_arms()
 	return 2
 
 /mob/proc/get_eye_protection()
@@ -349,7 +348,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	return BODYTEMP_NORMAL
 
 
-/proc/notify_ghost(mob/dead/observer/ghost, message, ghost_sound = null, enter_link = null, enter_text = null, atom/source = null, mutable_appearance/alert_overlay = null, action = NOTIFY_JUMP, flashwindow = TRUE, ignore_mapload = TRUE, ignore_key, header = null, notify_volume = 100, extra_large = FALSE) //Easy notification of a single ghosts.
+/proc/notify_ghost(mob/dead/observer/ghost, message, ghost_sound = null, enter_link = null, enter_text = null, atom/source = null, mutable_appearance/alert_overlay = null, action = NOTIFY_JUMP, flashwindow = FALSE, ignore_mapload = TRUE, ignore_key, header = null, notify_volume = 100, extra_large = FALSE) //Easy notification of a single ghosts.
 	if(!ghost)
 		return
 	if(ignore_mapload && SSatoms.initialized != INITIALIZATION_INNEW_REGULAR)	//don't notify for objects created during a map load
@@ -368,7 +367,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	to_chat(ghost, "[(extra_large) ? "<br><hr>" : ""][span_deadsay("[message][(enter_link) ? " [full_enter_link]" : ""][track_link]")][(extra_large) ? "<hr><br>" : ""]")
 	if(ghost_sound)
 		SEND_SOUND(ghost, sound(ghost_sound, volume = notify_volume, channel = CHANNEL_NOTIFY))
-	if(flashwindow)
+	if(flashwindow) /* Consider using this only for notifications related to the ghost being able to re-enter the round. */
 		window_flash(ghost.client)
 
 	if(!source)
@@ -400,7 +399,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 	A.add_overlay(alert_overlay)
 
-/proc/notify_ghosts(message, ghost_sound = null, enter_link = null, enter_text = null, atom/source = null, mutable_appearance/alert_overlay = null, action = NOTIFY_JUMP, flashwindow = TRUE, ignore_mapload = TRUE, ignore_key, header = null, notify_volume = 100, extra_large = FALSE) //Easy notification of ghosts.
+/proc/notify_ghosts(message, ghost_sound = null, enter_link = null, enter_text = null, atom/source = null, mutable_appearance/alert_overlay = null, action = NOTIFY_JUMP, flashwindow = FALSE, ignore_mapload = TRUE, ignore_key, header = null, notify_volume = 100, extra_large = FALSE) //Easy notification of ghosts.
 	if(ignore_mapload && SSatoms.initialized != INITIALIZATION_INNEW_REGULAR)	//don't notify for objects created during a map load
 		return
 	for(var/i in GLOB.observer_list)

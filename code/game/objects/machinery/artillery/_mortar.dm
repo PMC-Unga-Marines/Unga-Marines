@@ -459,7 +459,7 @@
 	icon_state = "mortar"
 	max_integrity = 200
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 15, BIO = 100, FIRE = 0, ACID = 0)
-	item_flags = IS_DEPLOYABLE
+	deploy_flags = IS_DEPLOYABLE
 	/// What item is this going to deploy when we put down the mortar?
 	var/deployable_item = /obj/machinery/deployable/mortar
 	resistance_flags = XENO_DAMAGEABLE
@@ -469,7 +469,7 @@
 
 /obj/item/mortar_kit/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/deployable_item, deployable_item, 1 SECONDS)
+	AddComponent(/datum/component/deployable_item, deployable_item, 1 SECONDS, 1 SECONDS)
 
 /obj/item/mortar_kit/attack_self(mob/user)
 	do_unique_action(user)

@@ -44,7 +44,7 @@
 	fire_delay = 100
 	fire_sound = 'sound/weapons/pulse.ogg'
 	message_to_user = "will now fire plasma immobilizers"
-	radial_icon_state = "predator_laser_sniper_overcharge"
+	radial_icon_state = "predator_stun_spheres"
 	muzzle_flash_color = COLOR_MAGENTA
 
 /datum/yautja_energy_weapon_modes/lethal_bolts

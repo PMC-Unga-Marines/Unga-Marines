@@ -115,8 +115,7 @@ These act as a respawn mechanic growning a body and offering it up to ghosts.
 	/// Amount of biomass required to start growing and the amount of reagents that gets removed on successful grow
 	var/biomass_required = 40
 	/// The amount of times it takes for the clone to pop out
-	var/grow_timer = 15 MINUTES
-
+	var/grow_timer = 7.5 MINUTES
 
 /obj/machinery/cloning/vats/Initialize(mapload)
 	. = ..()
@@ -271,8 +270,8 @@ These act as a respawn mechanic growning a body and offering it up to ghosts.
 	occupant.set_blindness(10) // Temp fix until blindness is fixed.
 	// Blindness doenst't trigger with just the disability, you need to set_blindness
 
-	GLOB.offered_mob_list += occupant
-	notify_ghosts(span_boldnotice("A new clone is available! Name: [name]"), enter_link = "claim=[REF(occupant)]", source = src, action = NOTIFY_ORBIT)
+	LAZYOR(GLOB.ssd_living_mobs, occupant)
+	notify_ghosts(span_boldnotice("A new clone is available! Name: [name]"), enter_link = "claim=[REF(occupant)]", source = src, action = NOTIFY_ORBIT, flashwindow = TRUE)
 
 	// Cleanup the timers
 	deltimer(timerid)
@@ -302,7 +301,6 @@ You are weak, best rest up and get your strength before fighting.</span>"})
 	update_icon()
 
 /obj/machinery/cloning/vats/apc
-	grow_timer = 8 MINUTES
 	pixel_y = 16
 	dir = NORTH
 

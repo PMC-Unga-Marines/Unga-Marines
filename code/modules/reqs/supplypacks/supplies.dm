@@ -3,13 +3,13 @@
 	containertype = /obj/structure/closet/crate/supply
 
 /datum/supply_packs/supplies/crayons
-	name = "PFC Jim Special Crayon Pack"
+	name = "PFC Jim special crayon pack"
 	contains = list(/obj/item/storage/fancy/crayons)
 	containertype = /obj/structure/closet/crate/operations
 	cost = 40
 
 /datum/supply_packs/supplies/provision
-	name = "Emergency Provision Crate"
+	name = "Emergency provision crate"
 	notes = "Contains 10 special TGMC MRE racions."
 	contains = list(
 		/obj/item/storage/box/mre,
@@ -27,7 +27,7 @@
 	cost = 65
 
 /datum/supply_packs/supplies/janitor
-	name = "assorted janitorial supplies"
+	name = "Assorted janitorial supplies"
 	contains = list(
 		/obj/item/reagent_containers/glass/bucket,
 		/obj/item/reagent_containers/glass/bucket,
@@ -48,27 +48,27 @@
 	cost = 50
 
 /datum/supply_packs/supplies/carpplush
-	name = "Carp Plushie"
+	name = "Carp plushie"
 	contains = list(/obj/item/toy/plush/carp)
 	cost = 50
 
 /datum/supply_packs/supplies/lizplush
-	name = "Lizard Plushie"
+	name = "Lizard plushie"
 	contains = list(/obj/item/toy/plush/lizard)
 	cost = 50
 
 /datum/supply_packs/supplies/slimeplush
-	name = "Slime Plushie"
+	name = "Slime plushie"
 	contains = list(/obj/item/toy/plush/slime)
 	cost = 50
 
 /datum/supply_packs/supplies/mothplush
-	name = "Moth Plushie"
+	name = "Moth plushie"
 	contains = list(/obj/item/toy/plush/moth)
 	cost = 50
 
 /datum/supply_packs/supplies/rounyplush
-	name = "Rouny Plushie"
+	name = "Rouny plushie"
 	contains = list(/obj/item/toy/plush/rouny)
 	cost = 50
 

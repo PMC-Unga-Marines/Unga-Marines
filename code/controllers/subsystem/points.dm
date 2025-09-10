@@ -91,7 +91,7 @@ SUBSYSTEM_DEF(points)
 				containsname[path] = list("name" = initial(path.name), "count" = 1)
 			else
 				containsname[path]["count"]++
-		supply_packs_contents[pack] = list("name" = P.name, "container_name" = initial(P.containertype.name), "cost" = P.cost, "contains" = containsname)
+		supply_packs_contents[pack] = list("name" = P.name, "item_notes" = P.notes, "container_name" = initial(P.containertype.name), "cost" = P.cost, "contains" = containsname)
 
 /datum/controller/subsystem/points/fire(resumed = FALSE)
 	dropship_points += DROPSHIP_POINT_RATE / (1 MINUTES / wait)
@@ -138,12 +138,12 @@ SUBSYSTEM_DEF(points)
 	if(!fast_delivery_is_active)
 		to_chat(user, span_warning("Fast delivery is not ready"))
 		return FALSE
+	if(!iscrashgamemode(SSticker.mode)) // no RO on crash
+		if(FAST_DELIVERY_COST > supply_points[our_order.faction])
+			to_chat(user, span_warning("Cargo does not have enough points for fast delivery."))
+			return
 
-	if(FAST_DELIVERY_COST > supply_points[our_order.faction])
-		to_chat(user, span_warning("Cargo does not have enough points for fast delivery."))
-		return
-
-	supply_points[user.faction] -= FAST_DELIVERY_COST
+		supply_points[user.faction] -= FAST_DELIVERY_COST
 
 	//Same checks as for supply console
 	if(!supply_beacon)

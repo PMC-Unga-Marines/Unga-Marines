@@ -12,40 +12,18 @@
 		slot_l_hand_str = 'icons/mob/inhands/items_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items_righthand_1.dmi',
 	)
-	attachments_allowed = list(
-// Armor Modules
-		/obj/item/armor_module/module/better_shoulder_lamp,
-		/obj/item/armor_module/module/pluto,
-		/obj/item/armor_module/module/valkyrie_autodoc,
-		/obj/item/armor_module/module/fire_proof,
-		/obj/item/armor_module/module/tyr_extra_armor,
-		/obj/item/armor_module/module/tyr_extra_armor/mark1,
-		/obj/item/armor_module/module/mimir_environment_protection,
-		/obj/item/armor_module/module/mimir_environment_protection/mark1,
-		/obj/item/armor_module/module/ballistic_armor,
-		/obj/item/armor_module/module/chemsystem,
-		/obj/item/armor_module/module/eshield,
-// Storage Modules
-		/obj/item/armor_module/storage/general,
-		/obj/item/armor_module/storage/ammo_mag,
-		/obj/item/armor_module/storage/engineering,
-		/obj/item/armor_module/storage/medical,
-		/obj/item/armor_module/storage/general/som,
-		/obj/item/armor_module/storage/engineering/som,
-		/obj/item/armor_module/storage/medical/som,
-		/obj/item/armor_module/storage/injector,
-		/obj/item/armor_module/storage/grenade,
-		/obj/item/armor_module/storage/integrated,
-		/obj/item/armor_module/armor/badge,
-// Equalizer Modules
-		/obj/item/armor_module/module/style/light_armor,
-		/obj/item/armor_module/module/style/medium_armor,
-		/obj/item/armor_module/module/style/heavy_armor,
-	)
 
 	var/codex_info = {"<BR>This item is part of the <b>Style Line.</b><BR>
 	<BR>The <b>Style Line</b> is a line of equipment designed to provide as much style as possible without compromising the user's protection.
 	This line of equipment accepts <b>Equalizer modules</b>, which allow the user to alter any given piece of equipment's protection according to their preferences.<BR>"}
+
+/obj/item/clothing/suit/modular/style/generate_attachments_allowed()
+	attachments_allowed = general_list_of_marine_modules.Copy()
+	attachments_allowed += list(
+		/obj/item/armor_module/module/style/light_armor,
+		/obj/item/armor_module/module/style/medium_armor,
+		/obj/item/armor_module/module/style/heavy_armor,
+	)
 
 /obj/item/clothing/suit/modular/style/get_mechanics_info()
 	. = ..()
@@ -104,7 +82,7 @@
 
 	inv_hide_flags = NONE
 
-	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
+	soft_armor = MARINE_ARMOR_HEAVY
 	starting_attachments = list(/obj/item/armor_module/storage/helmet)
 
 

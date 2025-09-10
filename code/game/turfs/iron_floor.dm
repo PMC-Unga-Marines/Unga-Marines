@@ -247,6 +247,9 @@
 	icon_state = "reinf_glass-0"
 	base_icon_state = "reinf_glass"
 
+/turf/open/floor/glass/reinforced/broken_states()
+	return pick("reinf_glass-damaged1", "reinf_glass-damaged2", "reinf_glass-damaged3")
+
 /turf/open/floor/glass/plasma
 	name = "plasma glass floor"
 	desc = "Studies by the Nanotrasen Materials Safety Division have not yet determined if this is safe to jump on, do so at your own risk."

@@ -32,6 +32,7 @@
 	max_range = 15
 	accurate_range = 10
 	bullet_color = COLOR_VIVID_YELLOW
+
 /datum/ammo/energy/taser/on_hit_mob(mob/target_mob,obj/projectile/proj)
 	staggerstun(target_mob, proj, stun = 20 SECONDS)
 
@@ -186,7 +187,7 @@
 /datum/ammo/energy/lasgun/marine/sniper_overcharge
 	name = "sniper overcharge bolt"
 	icon_state = "overchargedlaser"
-	hud_state = "laser_sniper_overcharge"
+	hud_state = "laser_impact"
 	shell_speed = 2.5
 	damage = 90
 	penetration = 60
@@ -286,7 +287,7 @@
 	staggerstun(target_mob, proj, max_range = 6, knockback = knockback_dist)
 
 /datum/ammo/energy/lasgun/marine/cripple
-	name = "impact laser blast"
+	name = "crippling laser blast"
 	icon_state = "overchargedlaser"
 	hud_state = "laser_disabler"
 	damage = 20
@@ -632,7 +633,7 @@
 
 	proj.damage *= damage_mult
 	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, PLASMA_CANNON_SHATTER_DURATION)
-	staggerstun(living_victim, proj, PLASMA_CANNON_INNER_STAGGERSTUN_RANGE, weaken = 0.5 SECONDS, knockback = 1, hard_size_threshold = 1)
+	staggerstun(living_victim, proj, PLASMA_CANNON_INNER_STAGGERSTUN_RANGE, paralyze = 0.5 SECONDS, knockback = 1, hard_size_threshold = 1)
 	staggerstun(living_victim, proj, PLASMA_CANNON_STAGGERSTUN_RANGE, stagger = PLASMA_CANNON_STAGGER_DURATION, slowdown = 2, knockback = 1, hard_size_threshold = 2)
 
 /datum/ammo/energy/plasma/cannon_heavy/on_hit_obj(obj/target_object, obj/projectile/proj)
@@ -782,55 +783,9 @@
 /datum/ammo/energy/volkite/medium/custom
 	deflagrate_multiplier = 2
 
-/datum/ammo/energy/volkite/heavy
-	max_range = 35
-	accurate_range = 12
-	damage = 25
-	fire_burst_damage = 20
-
 /datum/ammo/energy/volkite/light
 	max_range = 25
 	accurate_range = 12
 	accuracy_var_low = 3
 	accuracy_var_high = 3
 	penetration = 5
-
-/datum/ammo/energy/particle_lance
-	name = "particle beam"
-	hitscan_effect_icon = "particle_lance"
-	hud_state = "plasma_blast"
-	hud_state_empty = "battery_empty_flash"
-	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_MOVABLE|AMMO_SNIPER
-	bullet_color = LIGHT_COLOR_PURPLE_PINK
-	armor_type = ENERGY
-	max_range = 40
-	accurate_range = 10
-	accuracy = 25
-	damage = 850
-	penetration = 120
-	sundering = 30
-	damage_falloff = 5
-	on_pierce_multiplier = 0.95
-	barricade_clear_distance = 4
-
-/datum/ammo/energy/particle_lance/on_hit_mob(mob/target_mob, obj/projectile/proj)
-	if(!isliving(target_mob))
-		return
-	var/mob/living/living_victim = target_mob
-	living_victim.apply_radiation(living_victim.modify_by_armor(15, BIO, 25), 3)
-
-
-/datum/ammo/energy/particle_lance/on_hit_obj(obj/target_obj, obj/projectile/proj)
-	if(ishitbox(target_obj)) //yes this is annoying.
-		var/obj/hitbox/hitbox = target_obj
-		target_obj = hitbox.root
-
-	if(isvehicle(target_obj))
-		var/obj/vehicle/vehicle_target = target_obj
-		for(var/mob/living/living_victim AS in vehicle_target.occupants)
-			living_victim.apply_radiation(living_victim.modify_by_armor(12, BIO, 25), 3)
-			living_victim.flash_pain()
-
-	if(target_obj.obj_integrity > target_obj.modify_by_armor(proj.damage, ENERGY, proj.penetration, attack_dir = get_dir(target_obj, proj)))
-		proj.proj_max_range = 0
-

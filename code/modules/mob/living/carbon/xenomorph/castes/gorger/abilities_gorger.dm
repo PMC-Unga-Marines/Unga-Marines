@@ -1,6 +1,3 @@
-/datum/action/ability/activable/xeno/psydrain/free
-	ability_cost = 0
-
 /////////////////////////////////
 // Devour
 /////////////////////////////////
@@ -151,6 +148,7 @@
 		var/drain_heal = GORGER_DRAIN_HEAL
 		xeno_owner.heal_xeno_damage(drain_heal, TRUE) // this define shitcoded proc errors if we have a define inside of a define
 		xeno_owner.adjust_overheal(drain_heal)
+		SEND_SIGNAL(target_human, COMSIG_XENO_DRAIN_HIT, xeno_owner.xeno_caste.drain_plasma_gain, xeno_owner);
 		xeno_owner.gain_plasma(xeno_owner.xeno_caste.drain_plasma_gain)
 
 	REMOVE_TRAIT(xeno_owner, TRAIT_HANDS_BLOCKED, src)
@@ -465,13 +463,13 @@
 				personal_statistics.heals++
 		else if(distance == 0) //if we're right on top of them, they take actual damage
 			M.take_overall_damage(20, BRUTE, MELEE, updating_health = TRUE, max_limbs = 3)
-			to_chat(M, span_highdanger("[xeno_owner] slams her fists into you, crushing you to the ground!"))
+			to_chat(M, span_userdanger("[xeno_owner] slams her fists into you, crushing you to the ground!"))
 			M.adjust_stagger(2 SECONDS)
 			M.adjust_slowdown(3)
 			shake_camera(M, 3, 3)
 		else if(distance == 1) //marines will only be staggerslowed if they're one tile away from you
 			shake_camera(M, 2, 2)
-			to_chat(M, span_highdanger("Blood shatters the ground around you!"))
+			to_chat(M, span_userdanger("Blood shatters the ground around you!"))
 			M.adjust_stagger(2 SECONDS)
 			M.adjust_slowdown(3)
 

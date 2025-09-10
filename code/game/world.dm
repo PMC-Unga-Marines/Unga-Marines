@@ -199,31 +199,7 @@ GLOBAL_VAR(restart_counter)
 /world/Topic(T, addr, master, key)
 	TGS_TOPIC	//redirect to server tools if necessary
 
-	var/static/list/bannedsourceaddrs = list()
-
-	var/static/list/lasttimeaddr = list()
 	var/static/list/topic_handlers = TopicHandlers()
-
-	//LEAVE THIS COOLDOWN HANDLING IN PLACE, OR SO HELP ME I WILL MAKE YOU SUFFER
-	if (bannedsourceaddrs[addr])
-		return
-
-	var/list/filtering_whitelist = CONFIG_GET(keyed_list/topic_filtering_whitelist)
-	var/host = splittext(addr, ":")
-	if(!filtering_whitelist[host[1]]) // We only ever check the host, not the port (if provided)
-		if(length(T) >= MAX_TOPIC_LEN)
-			log_admin_private("[addr] banned from topic calls for a round for too long status message")
-			bannedsourceaddrs[addr] = TOPIC_BANNED
-			return
-
-		if(lasttimeaddr[addr])
-			var/lasttime = lasttimeaddr[addr]
-			if(world.time < lasttime)
-				log_admin_private("[addr] banned from topic calls for a round for too frequent messages")
-				bannedsourceaddrs[addr] = TOPIC_BANNED
-				return
-
-		lasttimeaddr[addr] = world.time + 2 SECONDS
 
 	var/list/input = params2list(T)
 	var/datum/world_topic/handler
@@ -367,8 +343,8 @@ GLOBAL_VAR(restart_counter)
 
 	var/new_status = ""
 	new_status += "<b><a href='[discord_url ? discord_url : "#"]'>[server_name]</a></b>"
-	new_status += "<br>Map: <b>[map_name]</b>" //RUTGMC EDIT
-	new_status += "<br>Ship: <b>[shipname]</b>" //RUTGMC EDIT
+	new_status += "<br>Map: <b>[map_name]</b>"
+	new_status += "<br>Ship: <b>[shipname]</b>"
 	new_status += "<br>Mode: <b>[SSticker.mode ? SSticker.mode.name : "Lobby"]</b>"
 	new_status += "<br>Round time: <b>[gameTimestamp("hh:mm")]</b>"
 

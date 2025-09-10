@@ -56,7 +56,51 @@
 		ATTACHMENT_SLOT_BADGE,
 		ATTACHMENT_SLOT_BELT,
 	)
-	attachments_allowed = list(
+	light_range = 5
+
+	///Uniform type that is allowed to be worn with this.
+	var/allowed_uniform_type = /obj/item/clothing/under/marine
+	/// List of all the general marine modules you can put into them
+	var/static/list/general_list_of_marine_modules = list(
+		//Armor modules
+		/obj/item/armor_module/module/better_shoulder_lamp,
+		/obj/item/armor_module/module/pluto,
+		/obj/item/armor_module/module/valkyrie_autodoc,
+		/obj/item/armor_module/module/fire_proof,
+		/obj/item/armor_module/module/tyr_extra_armor,
+		/obj/item/armor_module/module/tyr_extra_armor/mark1,
+		/obj/item/armor_module/module/mimir_environment_protection,
+		/obj/item/armor_module/module/mimir_environment_protection/mark1,
+		/obj/item/armor_module/module/ballistic_armor,
+		/obj/item/armor_module/module/chemsystem,
+		/obj/item/armor_module/module/eshield,
+		/obj/item/armor_module/module/mirage,
+		/obj/item/armor_module/module/armorlock,
+
+		// Storage modules
+		/obj/item/armor_module/storage/general,
+		/obj/item/armor_module/storage/ammo_mag,
+		/obj/item/armor_module/storage/engineering,
+		/obj/item/armor_module/storage/medical,
+		/obj/item/armor_module/storage/general/som,
+		/obj/item/armor_module/storage/engineering/som,
+		/obj/item/armor_module/storage/medical/som,
+		/obj/item/armor_module/storage/injector,
+		/obj/item/armor_module/storage/grenade,
+		/obj/item/armor_module/storage/integrated,
+
+		// Accessories
+		/obj/item/armor_module/armor/badge,
+	)
+
+/obj/item/clothing/suit/modular/Initialize(mapload)
+	generate_attachments_allowed()
+	return ..()
+
+/// A proc in which we can use a static list of marine attachment modules, to avoid copypaste
+/obj/item/clothing/suit/modular/proc/generate_attachments_allowed()
+	attachments_allowed = general_list_of_marine_modules.Copy()
+	attachments_allowed += list(
 		/obj/item/armor_module/armor/chest/marine,
 		/obj/item/armor_module/armor/legs/marine,
 		/obj/item/armor_module/armor/arms/marine,
@@ -104,35 +148,7 @@
 		/obj/item/armor_module/armor/chest/marine/dashe,
 		/obj/item/armor_module/armor/arms/marine/dashe,
 		/obj/item/armor_module/armor/legs/marine/dashe,
-
-		/obj/item/armor_module/module/better_shoulder_lamp,
-		/obj/item/armor_module/module/pluto,
-		/obj/item/armor_module/module/valkyrie_autodoc,
-		/obj/item/armor_module/module/fire_proof,
-		/obj/item/armor_module/module/tyr_extra_armor,
-		/obj/item/armor_module/module/tyr_extra_armor/mark1,
-		/obj/item/armor_module/module/mimir_environment_protection,
-		/obj/item/armor_module/module/mimir_environment_protection/mark1,
-		/obj/item/armor_module/module/ballistic_armor,
-		/obj/item/armor_module/module/chemsystem,
-		/obj/item/armor_module/module/eshield,
-
-		/obj/item/armor_module/storage/general,
-		/obj/item/armor_module/storage/ammo_mag,
-		/obj/item/armor_module/storage/engineering,
-		/obj/item/armor_module/storage/medical,
-		/obj/item/armor_module/storage/general/som,
-		/obj/item/armor_module/storage/engineering/som,
-		/obj/item/armor_module/storage/medical/som,
-		/obj/item/armor_module/storage/injector,
-		/obj/item/armor_module/storage/grenade,
-		/obj/item/armor_module/storage/integrated,
-		/obj/item/armor_module/armor/badge,
 	)
-	light_range = 5
-
-	///Uniform type that is allowed to be worn with this.
-	var/allowed_uniform_type = /obj/item/clothing/under/marine
 
 /obj/item/clothing/suit/modular/apply_custom(mutable_appearance/standing, inhands, icon_used, state_used)
 	if(inhands)
@@ -221,31 +237,9 @@
 	icon_state = "rownin_skeleton"
 	worn_icon_state = "rownin_skeleton"
 	allowed_uniform_type = /obj/item/clothing/under
-	attachments_allowed = list(
-		/obj/item/armor_module/module/better_shoulder_lamp,
-		/obj/item/armor_module/module/pluto,
-		/obj/item/armor_module/module/valkyrie_autodoc,
-		/obj/item/armor_module/module/fire_proof,
-		/obj/item/armor_module/module/tyr_extra_armor,
-		/obj/item/armor_module/module/tyr_extra_armor/mark1,
-		/obj/item/armor_module/module/mimir_environment_protection,
-		/obj/item/armor_module/module/mimir_environment_protection/mark1,
-		/obj/item/armor_module/module/ballistic_armor,
-		/obj/item/armor_module/module/chemsystem,
-		/obj/item/armor_module/module/eshield,
 
-		/obj/item/armor_module/storage/general,
-		/obj/item/armor_module/storage/ammo_mag,
-		/obj/item/armor_module/storage/engineering,
-		/obj/item/armor_module/storage/medical,
-		/obj/item/armor_module/storage/general/som,
-		/obj/item/armor_module/storage/engineering/som,
-		/obj/item/armor_module/storage/medical/som,
-		/obj/item/armor_module/storage/injector,
-		/obj/item/armor_module/storage/grenade,
-		/obj/item/armor_module/storage/integrated,
-		/obj/item/armor_module/armor/badge,
-	)
+/obj/item/clothing/suit/modular/rownin/generate_attachments_allowed()
+	attachments_allowed = general_list_of_marine_modules.Copy()
 
 /obj/item/clothing/suit/modular/rownin/erp
 	name = "\improper ERP rownin Skeleton"
@@ -255,7 +249,7 @@
 	allowed_uniform_type = /obj/item/clothing/under/rank/clown/erp
 
 /obj/item/clothing/suit/modular/hardsuit_exoskeleton
-	name = "FleckTex WY-01 modular exoskeleton"
+	name = "\improper FleckTex WY-01 modular exoskeleton"
 	desc = "FleckTex Dynamics brand new modular hardsuit exoskeleton, designed for full compatiability with jaeger modules. Comes with pre-installed light armour-plating and a shoulder lamp. Mount armor pieces to it by clicking on the frame with the components. Use Alt-Click to remove any attached items."
 	icon_state = "exoskeleton"
 	worn_icon_state = "exoskeleton"
@@ -264,8 +258,10 @@
 	colorable_colors = ARMOR_PALETTES_LIST
 	greyscale_colors = ARMOR_PALETTE_DRAB
 	allowed_uniform_type = /obj/item/clothing/under
-	attachments_allowed = list(
 
+/obj/item/clothing/suit/modular/hardsuit_exoskeleton/generate_attachments_allowed()
+	attachments_allowed = general_list_of_marine_modules.Copy()
+	attachments_allowed += list(
 		/obj/item/armor_module/armor/chest/marine/hardsuit/syndicate_markfive,
 		/obj/item/armor_module/armor/arms/marine/hardsuit_arms/syndicate_markfive,
 		/obj/item/armor_module/armor/legs/marine/hardsuit_legs/syndicate_markfive,
@@ -277,30 +273,6 @@
 		/obj/item/armor_module/armor/chest/marine/hardsuit/syndicate_markone,
 		/obj/item/armor_module/armor/arms/marine/hardsuit_arms/syndicate_markone,
 		/obj/item/armor_module/armor/legs/marine/hardsuit_legs/syndicate_markone,
-
-		/obj/item/armor_module/module/better_shoulder_lamp,
-		/obj/item/armor_module/module/pluto,
-		/obj/item/armor_module/module/valkyrie_autodoc,
-		/obj/item/armor_module/module/fire_proof,
-		/obj/item/armor_module/module/tyr_extra_armor,
-		/obj/item/armor_module/module/tyr_extra_armor/mark1,
-		/obj/item/armor_module/module/mimir_environment_protection,
-		/obj/item/armor_module/module/mimir_environment_protection/mark1,
-		/obj/item/armor_module/module/ballistic_armor,
-		/obj/item/armor_module/module/chemsystem,
-		/obj/item/armor_module/module/eshield,
-
-		/obj/item/armor_module/storage/general,
-		/obj/item/armor_module/storage/ammo_mag,
-		/obj/item/armor_module/storage/engineering,
-		/obj/item/armor_module/storage/medical,
-		/obj/item/armor_module/storage/general/som,
-		/obj/item/armor_module/storage/engineering/som,
-		/obj/item/armor_module/storage/medical/som,
-		/obj/item/armor_module/storage/injector,
-		/obj/item/armor_module/storage/grenade,
-		/obj/item/armor_module/storage/integrated,
-		/obj/item/armor_module/armor/badge,
 	)
 
 /** Core helmet module */
@@ -332,9 +304,11 @@
 		ATTACHMENT_SLOT_BADGE,
 	)
 	attachments_allowed = list(
+		// Modules
 		/obj/item/armor_module/module/tyr_head,
 		/obj/item/armor_module/module/tyr_head/mark2,
 		/obj/item/armor_module/module/fire_proof_helmet,
+		/obj/item/armor_module/module/hod_head,
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1,
 		/obj/item/armor_module/module/welding,
@@ -345,8 +319,41 @@
 		/obj/item/armor_module/module/antenna,
 		/obj/item/armor_module/module/night_vision,
 		/obj/item/armor_module/module/motion_detector,
+
+		// Storage
 		/obj/item/armor_module/storage/helmet,
+
+		// Visors
+		/obj/item/armor_module/armor/visor/marine,
+		/obj/item/armor_module/armor/visor/marine/skirmisher,
+		/obj/item/armor_module/armor/visor/marine/scout,
+		/obj/item/armor_module/armor/visor/marine/eva,
+		/obj/item/armor_module/armor/visor/marine/eva/skull,
+		/obj/item/armor_module/armor/visor/marine/gungnir,
+		/obj/item/armor_module/armor/visor/marine/eod,
+		/obj/item/armor_module/armor/visor/marine/assault,
+		/obj/item/armor_module/armor/visor/marine/helljumper,
+		/obj/item/armor_module/armor/visor/marine/ranger,
+		/obj/item/armor_module/armor/visor/marine/traditional,
+		/obj/item/armor_module/armor/visor/marine/trooper,
+		/obj/item/armor_module/armor/visor/marine/kabuto,
+		/obj/item/armor_module/armor/visor/marine/hotaru,
+		/obj/item/armor_module/armor/visor/marine/dashe,
+		/obj/item/armor_module/armor/visor/marine/fourvisor,
+		/obj/item/armor_module/armor/visor/marine/foureyevisor,
+		/obj/item/armor_module/armor/visor/marine/markonevisor,
+		/obj/item/armor_module/armor/visor/marine/old,
+		/obj/item/armor_module/armor/visor/marine/old/skirmisher,
+		/obj/item/armor_module/armor/visor/marine/old/scout,
+		/obj/item/armor_module/armor/visor/marine/old/eva,
+		/obj/item/armor_module/armor/visor/marine/old/eva/skull,
+		/obj/item/armor_module/armor/visor/marine/old/eod,
+		/obj/item/armor_module/armor/visor/marine/old/assault,
+		/obj/item/armor_module/armor/visor/marine/xenonaut,
+
+		// Accessories
 		/obj/item/armor_module/armor/badge,
+		/obj/item/armor_module/armor/secondary_color/helm,
 	)
 
 	colorable_colors = ARMOR_PALETTES_LIST

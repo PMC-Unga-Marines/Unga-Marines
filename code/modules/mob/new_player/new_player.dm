@@ -171,7 +171,7 @@
 			DIRECT_OUTPUT(usr, browse(null, "window=xenosunbalanced"))
 
 	if(href_list["showpoll"])
-		handle_playeR_DBRANKSing()
+		handle_playeR_POLLSing()
 		return
 
 	if(href_list["viewpoll"])
@@ -302,12 +302,6 @@
 	if(!chosen_species)
 		return "Human"
 	return chosen_species
-
-
-/mob/new_player/get_gender()
-	if(!client?.prefs)
-		. = ..()
-	return client.prefs.gender
 
 /mob/new_player/proc/create_character()
 	if(!assigned_role)

@@ -58,3 +58,7 @@
 	. = ..()
 	H.remove_overlay(MOTH_WINGS_LAYER)
 	H.remove_underlay(MOTH_WINGS_BEHIND_LAYER)
+
+/datum/species/moth/handle_post_spawn(mob/living/carbon/human/H)
+	. = ..()
+	H.moth_wings = pick(GLOB.moth_wings_list - "Burnt Off")

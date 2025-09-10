@@ -1,5 +1,6 @@
 ///This is the proc for gibbing a mob. Cannot gib ghosts.
 /mob/proc/gib()
+	playsound(src, 'sound/effects/gib.ogg', 90, TRUE, 8)
 	gib_animation()
 	spawn_gibs()
 	death(TRUE)
@@ -26,7 +27,7 @@
 /mob/proc/dust_animation()
 	return
 
-/mob/proc/death(gibbing, deathmessage = "seizes up and falls limp...", silent)
+/mob/proc/death(gibbing = FALSE, deathmessage = "seizes up and falls limp...", silent = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
 	if(SEND_SIGNAL(src, COMSIG_MOB_PRE_DEATH, FALSE) & COMPONENT_CANCEL_DEATH)
 		return FALSE
@@ -44,12 +45,12 @@
 			living.life_kills_total += life_kills_total + life_value
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_DEATH, src)
 	SEND_SIGNAL(src, COMSIG_MOB_DEATH, gibbing)
-	log_combat(src, src, "[deathmessage]")
 	if(client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[ckey]
 		personal_statistics.deaths++
 
 	if(deathmessage && !silent && !gibbing)
+		log_combat(src, src, "[deathmessage]")
 		visible_message("<b>\The [name]</b> [deathmessage]")
 
 	if(!QDELETED(src) && gibbing)
@@ -73,9 +74,9 @@
 	timeofdeath = world.time
 	if(mind)
 		mind.store_memory("Time of death: [worldtime2text()]", 0)
-		if(mind.active && is_gameplay_level(z))
+		if(mind.active && is_gameplay_level(loc.z))
 			var/turf/T = get_turf(src)
-			deadchat_broadcast(" has died at <b>[get_area_name(T)]</b>.", "<b>[mind.name]</b>", follow_target = src, turf_target = T, message_type = DEADCHAT_DEATHRATTLE)
+			deadchat_broadcast("has died at <b>[get_area_name(T)]</b>.", "<b>[mind.name]</b>", follow_target = src, turf_target = T, message_type = DEADCHAT_DEATHRATTLE)
 
 	GLOB.dead_mob_list |= src
 	GLOB.offered_mob_list -= src

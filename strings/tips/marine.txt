@@ -1,126 +1,196 @@
-Поместив музыкальный инструмент в слот брони, вы все равно сможете играть на нем, и вступайте в бой с песней!
-На многих картах в ключевых точках можно найти бесплатный металл, пласталь и другие важные предметы. Будучи морпехом, не забывайте ими пользоваться, а будучи ксеносом - переплавлять.
-Обмен вашей жизни на жизнь ксеноморфа почти всегда стоит того. Вас всё равно, скорее всего, поднимут на ноги.
-Мини-карта (зеленая иконка в верхней части экрана) поможет вам узнать, где находится линия фронта, а где - восстанавливаемые морпехи. Вы можете привязать ее к клавишам в игровых настройках.
-Еще ни один раунд не был выигран за баррикадой, сказал бы я. Инжестан - это долгая, скучная, но победа. Наверное...
-Если основной натиск застопорился и территория перегружена, попробуйте скоординироваться с другими морпехами и отправиться в другое место.
-Продвигаясь, следите за флангами. Особенно в пещерах и закрытых помещениях.
-Большинство смоляных конструкций слабы к ударам ближнего боя. Доставайте свои ножи, мечи и штыки!
-По мере продвижения всегда очищайте траву и строения ксеноморфов. Лабиринт из смолы вынуждает морпехов вступать в бой с ксеноморфами в ближнем бою, что снижает вашу выживаемость.
-Всегда проверяйте наличие ловушек под незакрепленными предметами на траве - это может спасти ваше лицо!
-Как человек, вы можете сделать практически все, если приложите к этому усилия. Просто на это нужно время.
-Вы можете соединить баррикады вместе с помощью лома. Нажмите на одну, а затем на соседнюю. Повторяйте действия по мере необходимости.
-Одинокий морпех - это мертвый морпех и счастливый ксенос. Держитесь вместе!
-Будьте внимательны при использовании гранат. Если вы будете оглушены или опрокинуты, она упадет под ваши ноги. Это очень опасно не только для вас, но и для ваших друзей.
-Следите за дружественным огнем и морпехами, не находящимися в режиме прицеливания. Убедитесь, что вы не заходите на чью-то линию огня, и убедитесь, что никто не находится на вашей!
-Некоторые виды оружия позволяют использовать режим прицеливания, который предотвращает дружественный огонь. Используйте это, прикрываясь морпехами, и станьте мини-смартганнером!
-Хотя медики и врачи лучше всего разбираются в своём деле, но любой может использовать дефибриллятор и управлять сканером тела и медицинской системой «Автодок».
-Инженеры и синтетики - лучшие специалисты в своём деле, но каждый может строить баррикады и колючки.
-Стандартные батареи Terra Experimental можно заряжать в APC и в зарядных устройствах, если включены генераторы.
-Если вы морпех, то у вас есть специальная комната в подготовке, где продается специальное снаряжение.
-Вторичное оружие не является полным мусором. В сложной ситуации оно может спасти вам жизнь.
-Револьверы и пистолеты могут стать достойным основным оружием при правильном использовании, хотя из-за небольшой емкости магазина патроны могут быстро закончиться.
-Не существует «лучшего» варианта снаряжения. Экспериментируйте и находите то, что подходит именно вам.
-В автоматических оружейных шкафах есть разнообразное оружие, не бойтесь экспериментировать, какое из них лучше всего подходит для вашего стиля игры.
-Есть и «специализированное» оружие, которое можно заказать через карго. Однако для их заказа требуется довольно большое количество очков. Если пользователь безответственно погибнет при использовании этого оружия, это будет огромной тратой очков.
-Оружием может стать все, что угодно, если приложить к этому усилия.
-Вы можете проверить свои раны, чтобы узнать, были ли они перевязаны или забинтованы, кликнув на себя в намерении помощи.
-Вы можете проверить, в какой части тела идет кровь, нажав на себя. Только не забудьте выключить режим самовреда.
-Удаление травы ксеноморфов за морпеха означает, что они не смогут воспользоваться преимуществами поля боя. Для этого отлично подходит ваш стандартный сапожный нож.
-Зелёная трава и фиолетовая липкая смола замедляют вас. Избавьтесь от них!
-Подготовленный морпех может носить много оружия: в броне, на поясе, даже на спине.
-В Карго есть множество предметов для повышения боевой мощи морпехов: навесное оборудование, боеприпасы и другие игрушки. Спросите у сотрудников карго, что есть в наличии, и вы можете быть приятно удивлены. Наличие дополнительных приспособлений зависит от поставок.
-Будучи морпехом, вы можете перебираться через препятствия высотой по пояс, такие как мешки с песком, оконные рамы или столы, нажимая на них «специальным щелчком» (по умолчанию: CTRL+ЛКМ) или перетаскивая себя на них.
-Вы можете перепрыгивать через препятствия высотой до пояса, такие как платформы, столы и оконные рамы, за небольшую трату выносливости (по умолчанию: пробел).
-Лазерные винтовки Terra Experimental имеют переключатель режимов, который можно переключить с помощью команды Unique Action (по умолчанию: пробел). Некоторые режимы лучше других в определенных обстоятельствах.
-Вы можете снять с боевого экзоскелета XM-02 части брони (части ног, части рук и части груди) и модули брони (Валькирия, Балдур и т. д.), нажав Alt+ЛКМ по экзоскелету.
-Для придания индивидуальности деталям брони и шлему экзоскелета можно использовать любую краску для лица. Покрасьте детали брони перед тем, как поместить их в экзоскелет!
-Если флаер M40 FLDP при броске столкнется с любым мобом, он загорится. Будьте осторожны, бросая флаера.
-Маски SWAT, заказанные в Карго, могут блокировать только одну атаку лицехвата. Если они успешно блокировали попытку нападения, немедленно замените их.
-Трупы ксеноморфов можно продавать в карго. Достаточно поднять их на лифте в карго, либо можно воспользоваться набором Фултона уже на земле.
-Чтобы бросить гранату, активируйте (по умолчанию: Z) гранату, находящуюся в активной руке. Затем просто нажмите на место, куда хотите бросить гранату. Только долго не думайте после активации.
-Чтобы быстро поместить предметы в контейнер (сумки, ранцы, пояса, подсумки), нажмите клавишу Quick Equip (по умолчанию: E), удерживая предмет и имея открытый контейнер.
-Нажмите Quick Equip (по умолчанию: E), когда вы не держите предмет в активной руке, чтобы достать оружие из выбранного вами слота (по умолчанию: Suit Storage, может быть настроено на вкладке Preferences), в противном случае вы достанете любой предмет из контейнера.
-Стазисные мешки не приостанавливают заражение лярвой полностью, они лишь значительно замедляют прогресс.
-Стазисные мешки предотвращают срабатывание таймера DNR (do not revive), а это значит, что если у медиков много пациентов, они могут предотвратить смерть мозга с помощью стазисных мешков.
-В режиме Crash вам предстоит сотрудничать с морпехами! Работайте в отряде, чтобы захватить диски и взорвать ядерную бомбу.
-В режиме Crash помните, что ваша цель - захватить все три диска, поместить их в ядерное устройство и отправиться домой, пока бомба активна. Ксеносы будут возрождаться до тех пор, пока все морпехи не погибнут.
-Во время охраны ФОБа или защиты диска не бродите снаружи! Вы рискуете погибнуть от рук ксеносов, которым удобно осаждать это место.
-Будучи членом группы быстрого реагирования, оставайтесь со своими товарищами по команде! Не бойтесь и не отделяйтесь от них.
-Будучи морпехом, произнесите «*medic», чтобы позвать медика. Вы можете привязать это к клавишам в игровых настройках.
-Будучи морпехом, носите хоть что-то на голове. Это предотвращает обезглавливание и перманентную смерть.
-Вы можете использовать двойное оружие, чтобы стрелять из обоих одновременно. Однако при этом увеличивается разброс и снижается точность.
-Если вы уже заражены, лицехваты будут игнорировать вас. Но вам все равно понадобится медицинская помощь.
-Будучи морпехом, старайтесь не целиться в голову. Ксеноморфы не получают больше урона по голове, а при дружественном огне вы можете сломать своим союзникам череп. Цельтесь в центр массы!
-Будучи морпехом вы можете обращаться почти со всеми видами оружия, представленными в игре. Ну, как минимум, это говорят цифры...
-Будучи морпехом, попав в сложную ситуацию, не геройствуйте! По возможности восстанавливайтесь, перевооружайтесь и не гонитесь за врагами, если вас никто не сможет спасти.
-Будучи морпехом в отряде, не бойтесь рисковать. Видите ксеноса, который почти мертв и медленно отступает? Воспользуйтесь возможностью напасть и убить его! У вас больше шансов выжить, если с вами будет товарищ по отряду.
-Будучи морпехом, вы можете помочь своему отряду, принеся дополнительные боеприпасы и еду.
-Морпех может взять с собой две пушки - одна в слоте костюма, другая на спине. На пояс или карман можно повешать кобуру для пистолета.
-Криокамеры отлично справляются с основными повреждениями. Также они медленно лечат внутренние кровотечения и переломы.
-Будучи врачом, наденьте белую хирургическую разгрузку, в которой можно хранить хирургические инструменты.
-Будучи врачом, вы имеете доступ к химическому раздатчику. Экспериментируйте, чтобы найти лучшие лекарства.
-Будучи инженером, вы можете разбирать баррикады из мешков с песком, используя лопату.
-Будучи инженером, вы можете ремонтировать баррикады с помощью сварочного аппарата и металла.
-Детпакеты можно перевести в режим разрушения для создания взрывной ловушки.
-Будучи инженером, ремонтируйте буры. Буры будут добывать форон или платину, которые можно продать в карго, зарабатывая тем самым больше очков!
-Будучи санитаром, носилки для эвакуации должны быть связаны с активным маяком, чтобы он мог телепортировать пациента.
-Санитар должен сканировать перед лечением. Иначе к вам будут подходить одни и те же люди и жаловаться на боль в пятке.
-Будучи санитаром или врачом, помните, что ваш HUD покажет вам, сколько времени осталось до окончательной смерти пациента. От максимума к минимуму: зелёный, жёлтый и красный.
-Санитару пригодится гипервен. Используйте его, чтобы очистить организм от ядов, алкоголя или передоза лекарствами.
-Броня Б18 из Карго имеет встроенную медицинскую систему. Система Valkyrie Automedical Armor System может сделать то же самое для других доспехов.
-Тарп V1, накрывшись которым, вы станете практически невидимым. Пожалуйста, не используйте его для растягивания раунда.
-Будучи офицером, обращайте внимание на рацию! Кто знает, нужна ли кому-то срочная операция или эвакуация, пока его судьба не стала еще хуже?
-В роли капитана, у вас есть уникальный револьвер «Матеба». Однако вы важны для завершения миссии, поэтому не участвуйте в активных боевых действиях, используя «Матебу»!
-Даже если пациент умирает через секунду после того, как его успешно оживили с помощью дефибриллятора, это сбрасывает время до окончательной смерти мозга.
-ИИ и синтетики могут общаться по собственному каналу, используя префикс :n или .n.
-Вы можете увековечить память погибших морпехов, используя их жетоны на корабельном мемориале! Почившие солдаты будут показаны в конце раунда. К сожалению, на это никто не обращает внимания.
-Если вас лечит медик, постарайтесь не шевелиться и толкаться. Это бесит и не слабо.
-Джетпаки способны быстро перебросить вас через большинство препятствий, в том числе людей и ксеносов. Используйте их, чтобы спастись от неверных решений или для погони за полумёртвым ксеносом.
-Карманные пистолеты можно носить в сапогах.
-Патроны имею свойство заканчиваться. Возьмите с собой ящик.
-Карговцы работают очень усердно. Будьте вежливы с ними. Даже если так не кажется, они просто учатся.
-При использовании режима прицеливания сошки и прицелы с красной точкой позволяют стрелять быстрее.
-Химреактивные сигареты могут быть очень полезны. Но от этого курение не перестаёт убивать.
-Сон будет медленно исцелять клеточный урон.
-В роли мех-пилота скорость не очень важна.
-В роли мех-пилота внимательно следите за своими товарищами по команде. Вы возглавляете фронт!
-В роли мех-пилота единственным оружием с IFF является снайперка, все остальное может вести дружественный огонь по морпехам.
-Будучи мех-пилотом, старайтесь часто ремонтироваться и перезаряжаться.
-Огнемётчики довольно полезные. Они очищают поле от построек ксеносов, спасают от лицехватов и убивают своих товарищей.
-Запасные топливные баки можно пополнить с помощью сварочных баков.
-Батареи для энергетического оружия можно превратить в самодельные гранаты с помощью мультитула.
-Гигачады оставляют автодок на автоматическом режиме. А хороший СМО должен уничтожать его.
-В шлем можно поместить крошечные предметы, как и в сапоги. Например, пиццу!
-Переключение на запасное оружие быстрее, чем перезарядка. Хотя... для кого как.
-Вы можете выполнить тактическую перезарядку, нажав оружием по магазину.
-Вы можете поставить оружие на предохранитель, чтобы потом забыть об этом.
-В зависимости от ситуации дымовые гранаты могут принести больше вреда, чем пользы.
-Бур без турели - легкая добыча.
-Ни при каких обстоятельствах не обнимайте Руню.
-Соберите свой дрип! Люди вокруг однозначно оценят это хотя бы не вслух.
-Любую краску с лица можно стереть листом бумаги.
-Дети Марса живут на марсианском аналоге Кидонии. На самом Марсе они не живут уже много веков.
-USL расшифровывается как United State of Lepidoptera (Объединенное Государство Чешуекрылых), это террористическая группировка, имеющая связи с предполагаемым «народом-мотыльком».
-Люди любят огонь. Ксеноморфы его ненавидят. Но обе стороны одинаково ярко горят.
-КЛ может заказать пиццу с помощью своего факса. Обратитесь к Санфорду.
-Оскорбление своих товарищей по морпехам плохо сказывается на моральном духе. Будьте добры.
-Администраторы, как правило, не пытаются вас достать... ЭТО ЛОЖЬ! НЕ ВЕРЬТЕ! ОНИ ВСЕ ХОТЯТ ВАС УНИ-
-Самая опасная тактика - неожиданная.
-Модуль брони Балдур значительно увеличивает световой поток. Станьте звездой, которой вы всегда хотели стать!
-С пачкой сигарет в руке нацельтесь на рот и нажмите на себя, чтобы мгновенно взять сигарету в рот.
-Раскидка сигнальных ракет может быть невероятно полезным, особенно когда король использует способность тушить фонари. Многие морпехи не видят в темноте, поэтому если осветить сигнальными ракетами полосу обстрела, морпехи смогут лучше стрелять.
-Криокамеры в медблоке исцеляют большинство травм, но не повреждения органов.
-Если сомневаетесь как лечить, бросайте пациентов в автодок. Это надолго, но лучше, чем ничего.
-Doctor's Delight - один из немногих лечебных химикатов, которым невозможно словить передоз.
-Наниты часто не стоят своего риска. Некоторые всё ещё не верят в это.
-15 ед. из стандартного инъектора инапровалина мгновенно исцелят 30% всех повреждений у человека в критическом состоянии. В критическом состоянии они лежат на земле, выглядят спящими и задыхаются!
-Существует множество оружия и тактик. Не бойтесь найти свою нишу!
-Всегда держитесь своего отряда или, по крайней мере, имейте друга. Нет, не в этом смысле...
-В одиночку добираться до ФОБа и обратно - легкий способ умереть.
-Ксеноморфы хорошо бронированы. Есть специальные патроны против брони. Меньше брони - больше урона.
-Если у вас мутнеет в глазах, это не всегда значит, что они повреждены. Возможно, это из-за нехватки крови в организме. Поешьте или попросите у медиков таблетки, что ускорят выработку крови.
-Если у вас сломаны кости в торсе или голове, старайтесь передвигаться как можно меньше. Иначе ваши внутренности будут повреждены и придётся искать того, кто сможет сделать операцию.
-Играя за синтетиков и роботов, вам всё равно на лицехватов. Они не смогут расти внутри вас.
-Не становитесь позади базутчика. Это будет больно. Не становитесь впереди базутчика. Это будет быстро.
-Синтетик понимает язык ксеноморфов и даже может общаться с ними на их языке. Это делает вас ближе.
+Go to Valhalla to experiment with loadouts and weapons. You don't reset your respawn time in Valhalla!
+As a squad marine, you can handle most weapons in the game; your weapons vendor has a wide selection, and the area of operations will have additional firearms you can steal.
+If you have an AI onboard the ship, consider bringing a AI coordinate unit next time you use the artillery. Or just simply ask the AI for scan a tile for your coordinates for your strikes.
+You can jump on tanks and APC's. As long as you have one empty hand you won't be thrown off when it moves.
+You can shoot any target riding on a tank or APC by directly clicking on them. Tanks and APC's often lack methods to deal with hostile riders, and need help from other marines.
+Assault Crewmen can drive APC's, but Transport Crewmen cannot drive tanks. Transport Crewman can still act as a loader for a tank though.
+Acid Jaws must be placed outside in the open. This makes them vulnerable to CAS, OB's, Mortars, or being scouted by the Tadpole. Use the xeno structure pinpointer to locate them, and consider lasing them with tactical binoculars if xenomorphs are putting up a heavy defence.
+Terra Experimental standard weapons, the laser weapons, have different firing modes that have different effects on xenomorphs, making them extremely versatile in any situation!
+Fire disables pheromones, use this information to your advantage.
+Fire does NOT hurt pyrogen, the xenomorph on FIRE!
+When FC or SL are using binoculars, moving them interrupt them. Move around them!
+Don't get left behind, corpsmen! Use your minimap to check where marines are, whether alive or dead!
+Catch larval facehuggers by having an empty hand and throw mode on.
+Fire removes facehugger on marine's face so that the facehugger can't impregnate!
+Standing in a corner on harm intent stops you from behing shuffled, unless you're a marine and a xenomorph on help intent walks into you.
+Jumping will allow you to throw grenades farther, and over allies. Yeet those grenades to xenomorphs!
+Hunger will slow you down. A single protein bar will fill everyone's stomach. Take an extra protein bar too much and you become slower (ironic) and fat.
+If you are low on blood, eating food can help you replenish blood. NanoBlood from corpsmen can also help!
+Roll on snow to instantly extinguish fire.
+Putting an instrument in your armor slot allows you to still be able to play it, charge into battle with song!
+Many maps spawn with free metal, plasteel and other important supplies in key spots. As a marine, remember to grab them and as a xeno, make sure to melt them.
+Trading your life for a Xenomorph's is almost always worth it.
+You do not need to be in harm intent to point blank xenomorphs!
+The mini map (green icon on the top of the screen) helps you know where the frontline is at and where revivable marines are. You can keybind it in game preferences.
+No round has ever been won behind a barricade.
+If you have a fracture, find a corpsman.  You can splint your fracture yourself, but it will break in a single hit.  A corpsman can give you a durable splint.
+You can refill the marine jetpack with flamer tanks.
+Jetpacks can fly over most things. Use them to escape your poor decisions of overextending.
+If the main push is stagnating and the area is congested, try to coordinate with a few others and go to a different area.
+When pushing into an area, check the flanks. Especially so in caves and enclosed spaces.
+Resin structures are weaker to melee than they are to bullets. Take out your knives, swords and bayonets!
+Always clear weeds and alien structures as you advance. A resin maze forces marines to engage in CQC against xenomorphs, which decreases your survival rate. That said, this increases your PB chances!
+Always check for traps beneath loose objects on weeds - it could save your FACE!
+Any marine can link plasteel barricades together using a crowbar. Click one, and then click one adjacent. Repeat as needed.
+A lone marine is a dead marine and a happy xeno. Stick together!
+Be mindful when using hand grenades. Getting stunned or knocked over after priming a grenade will drop it at your feet. This is obviously very dangerous for not only you, but your friends as well.
+Watch out for friendly fire and marines not in aim mode. Make sure you're not walking into anyone's firing line, and make sure no one else is in yours!
+A few weapons permit aim mode, which prevents friendly fire. Use this behind marines and be a smartgunner-lite!
+While medics and doctors are best at it, anyone can use a defibrillator and operate the body scanner and autodoc medical system.
+While engineers and synthetics are best at it, anyone can build barricades and razorsharp obstacles.
+Anyone can make razor wire by using three metal sheets, which is four metal rods and barbed wire from metal sheets. Stop that crusher and bull from charging!
+Terra Experimental standard batteries can be recharged in APCs and power cell rechargers if the generators are on.
+If you aren't a squad marine, then you have a special room in prep with special gear vendors.
+Sidearms aren't complete garbage. They are often faster than reloading if in a very tight situation; it may save your life.
+The Revolver and Service Pistol can be decent primary weapons if used properly, though with the short magazine capacity, expect to run dry on ammo quick!
+There is no "best" loadout. Experiment and find what works for you.
+You have a variety of weaponry inside the Automated Weapon Closets, do not be afraid to experiment which one is best suited for your playstyle.
+There is "specialist" weaponry that can be ordered by Requisitions. However, they take a fairly high amount of points to order them. If the user dies irresponsibly while using these weapons, it will be a massive waste of points.
+Anything can be a weapon if you put your mind to it.
+You can check your wounds to see if they have been bandaged or salved by clicking on yourself while in help intent.
+You can check what part of your body is bleeding by shift-clicking on your person.
+Removing weeds as a marine means that xenomorphs cannot take advantage of the battlefield; your standard boot knife is great for doing this.
+Blue weeds and purple sticky resin slow you down. Get rid of them!
+You can take a deployable floodlight from the weapon vendor in the Utilities tab to have a deployable that lights up massive places of land at a time.
+During Self Destruct, green control rods are armed control rods. Each rods take 3 minutes to rise, forcing marines to hold Self Destruct for a total of 20 minutes. Collect all six!
+A fit marine can carry many weapons: in their armor, belt, even hanging from their back.
+Requisitions has many supplies to enhance the combat power of marine units, such as attachments, ammunition, and other toys; ask their crew what's in store and you may be pleasantly surprised. DISCLAIMER: Extra gears' availability is dependent on supply.
+As a marine, you can climb over waist-high obstacles like sandbags, window frames or tables by CTRL+clicking them or drag-clicking yourself onto them.
+You can jump over waist-high obstacles like platforms, tables, and window frames, for a small stamina cost (Default: C).
+The Terra Experimental laser rifles have a mode selector that can be switched using the Unique Action command (Default: Spacebar). Some modes are better than other modes in specific circumstances.
+You can remove armor pieces (leg pieces, arm pieces and chest pieces) and armor modules (Valkyrie, Baldur, etc.) from the XM-02 Combat Exoskeleton by Alt+clicking the exoskeleton.
+You can customize armor pieces and the exoskeleton helmet using any kind of facepaint for a personal touch. Paint the armor pieces before you put them in the exoskeleton!
+If an M40 FLDP grenade collides with any mob when thrown, the mob will be lit in a light fire. Be careful throwing flares.
+SWAT masks ordered from Requisitions can block only one larval facehugger attack. If they successfully blocked an attempted attack, replace them immediately.
+Sell dead xenomorphs with either fultons that marines carry, the Automated Storage and Retrieval System (ASRS) pad inside requisitions, or the bluespace export pad that is likely in tadpole. Gain requisition points for selling dead xenomorphs!
+To throw a grenade, Activate (Default: Z) the grenade while in the active hand. Then simply click where you want to throw it. Do not take too long!
+Quickly store items to a container (bags, satchels, belts, pouches) by pressing the Quick Equip (Default: E) key while holding an item and having a container open.
+Press Quick Equip (Default: E) while you are not holding an item to the active hand to draw the weapon from whatever preferred slot (Default: Suit Storage, can be customized at the Preferences tab) you selected, otherwise you will pull out any item from a container.
+Stasis bags pause xenomorph infection entirely.
+Stasis bags prevents brain death timer from ticking, meaning that if corpsmen have a lot of patients, they can prevent brain death via stasis bags.
+In the Crash gamemode, cooperate as a marine! Work as a squad to capture the disks and to detonate the nuclear bomb.
+In the Crash gamemode, remember that your objective is to secure all three disks, put the disks into the nuclear device and head home while the bomb is active. Xenos will keep on respawning until all of the marines are dead.
+While securing a FOB or securing a disk site, do not wander around outside! You will risk death by xenos who are comfy in sieging down the place.
+Spaceacillin loses effectiveness against severe wound infections. Polyhexanide will pick where it left off at, at the cost of some toxin damage and drowsiness.
+Russian Red and Neuraline injectors share the same healing property as Inaprovaline, however will also heal severe organ damage.
+Wash your hands before surgery, in the field or shipside.
+An entire MRE can fit in your boot.
+As an ERT member, stay with your teammates! Don't cower or seperate from them.
+As a marine, say '*medic' to call out for medical attention. You can keybind this in game preferences.
+As a human, hold and press Alt key (by default) to sprint, you will drain stamina while doing so.
+As a marine, wear a helmet. It prevents decapitation.
+As a marine, you can dual-wield some weapons to fire both at them at the same time. This will increase spread and decrease accuracy, however.
+As a marine, if you are trained enough to do so, you can perform a tactical reload by drag-clicking a magazine to the weapon in your active hand.
+As a human, when you are already infected, facehuggers will ignore you. But you still need medical attention regardless.
+As a marine, please try not to aim for the head. It benefits the xenomorphs as they will not take more damage on the head and when you commit friendly-fire, you might break their head instead. Aim for the center of mass!
+Not being ready at the start of the round means xenos get more burrowed larva, and that you don't get to play as quickly.
+As a squad marine, you can vend seperate Jaeger Pattern armor pieces and modules for the XM-02 Combat Exoskeleton from a Surplus Equipment Vendor. It is a modular piece of equipment after all.
+As a squad marine, you can practice using your weapons on the Firing Range.
+As a squad marine, when you are in a tight situation, do not be a hero! Whenever possible, recover and re-arm and leave the enemies for another try.
+As a squad marine, do not be afraid to take risks. See a xeno that is almost dead and slowly retreating? Take the chance to charge and kill it! You have better chances to survive with a squadmate with you.
+As a squad marine, you can help out your squad by bringing extra ammunition and food to share.
+As a squad marine, you can take two two-handed guns, one in the suit slot and one on your back.
+As a squad marine, you can get attachments from the weapons vendors, usually in preparations.
+As a corpsman or engineer, your number one priority is NOT hunting down xenomorphs! Leave it to the combat marines. You have more essential and important tasks at hand.
+As a doctor, the cryotubes are excellent at dealing with basic damage and healing internal bleeding and fractures, although slowly.
+As a doctor, surgery time from fastest to slowest is: by hand, Autodoc manual, Autodoc automatic.
+As a doctor, the autodoc drains a lot of energy, this can cause a power outage and prevent medevac beacons from working!
+As a doctor, the white webbing vest fits on your scrubs and can hold surgical tools.
+As a doctor, wear the surgical apron to help prevent infection while doing surgery.
+As a doctor, use the chemistry machine to experiment and finding the best medications.
+As a doctor, hygiene is important! Keep yourself clean to prevent infections.
+As an engineer, you can take sandbag barricades apart with your entrenching tool.
+As an engineer, you can repair barricades with a welder.
+As an engineer, C4 is cheaper but detonation packs are more versatile.
+As an engineer, detonation packs can be set on demolition mode for an explosive trap.
+As an engineer, you build barricades the fastest.
+As an engineer, repair the mining wells. These mining machines will mine phoron or platinum that can be used for requisitions, earning them more points!
+As an engineer, placing turrets on open spaces and without defenses is a poor choice.
+As an engineer, mutitoools can be used to locate a room APC for nuclear disks and intels.
+You can use a Terra experimental cell as a discount power cell!
+You can upgrade metal barricades by clicking them with metal!
+Bring at least 1 cell and 1 power control module to fix APCs for disks or intelligence computers.
+The caustic upgrade prevents xenos from spewing acid all over an undefended barricade.
+You can electrify razor wire, just place wire under razor and connect them to an ACTIVE power source like a phoron generator.
+Razor wire can stop a crusher's charge, but it needs to be fully repaired for it to actually stop one.
+ALWAYS keep a 1-tile distance from barricade you're fixing, unless you want to be a dinner for nearby fishing xenomorph.
+If you are sure a barricade will fail and cause a breach, just make barricade behind that one, and move it forward, no need to risk your life in a breach.
+RO lazy? Lack of materials keeps being a pain in the back? Don't worry any longer, there are plenty of chairs and tables around the area of operation which you can deconstruct for metal!
+You can use a handheld cell charger to recharge both batteries and Terra experimental cells.
+As a corpsman, the MEDEVAC stretcher needs to be linked to an active, powered beacon for it to teleport the patient.
+As a corpsman, you can prevent anyone from moving your MEDEVAC beacon by locking it with your ID.
+As a corpsman, if there's no medbay staff, put the MEDEVAC beacon in the hallway right outside the medbay door since  the autodoc will drain medbay's APC of power, therefore preventing you from MEDEVACing your patient.
+As a corpsman, the marines are counting on you to fix them up.
+As a corpsman, scan before you treat and you can't be beat.
+As a corpsman, if you see nanites in your patient's system, DO NOT give them hypervene.
+As a corpsman or doctor, remember that your HUD will tell you how much time is left to defibrillate a patient. From highest to lowest: yellow, orange and red.
+As a corpsman, remember to bring extra kelotane or dermaline to heal burn damage. Xenos love acid and burning marines.
+As a corpsman, hypervene is useful. Use it to purge deadly xenomorph toxins.
+As a corpsman, locate a place that you won't impede traffic, that way you don't get pushed by marines while aiding marines.
+The B18 armor from Requisitions has an built-in medical system. The Valkyrie Automedical Armor System can do the same for other armors.
+The V1 tarp (available from Requisitions) will blend you into the tile you're on once you cover yourself with it.
+The FL-84 flamethrower has an inbuilt fire extinguisher as an attachment.
+As the PO, pay attention to the radio! Who knows if someone needs immediate surgery or evacuation until their fate becomes worse?
+As the Captain, you have a unique Mateba revolver that takes a chunk of a target's healthpool down. However, you are important for completing the mission, so do not participate in active combat using the Mateba!
+Even if a patient dies a second after being successfully revived by a defibrillator, this resets the time it takes for them to become permanently brain dead.
+Don't forget that xenomorphs spawn infinitely during the Crash gamemode. Don't waste too much time hunting xenomorphs down!
+The AI and synthetics can talk together on their own channel using the :n or .n prefix.
+You can memorialize fallen marines by using their dogtags on the ship's memorial! Memorialized soldiers will be displayed at the end of the round.
+There are water canteens in the vendors. Stay hydrated.
+If a corpsman is tending to you, try and hold still.
+Moving around with broken bones is dangerous. It can cause organ damage, which requires immediate medical attention.
+You can fit pocket pistols in your boots.
+Ammo is infinite, but carrying ammo is finite. Bring a box with you.
+The RO works very hard. Be nice to them.
+While using aim mode, bipods and red-dot-sights allow you to shoot faster.
+Chemrette cigarettes can be very useful.
+Sleeping will slowly heal cloneloss. To faciliate this, a bed and a blanket will increase healing off cloneloss.
+As a mech-pilot, speed is not very important.
+As a mech-pilot, keep a close eye on your teammates. You lead the front!
+As a mech-pilot, the only weapon that has IFF is the sniper, everything else can friendly-fire marines.
+As a mech-pilot, make sure to repair and reload often.
+As a flamer, you are a very valuable target. You clear resin walls and doors for marines to push. Just don't push marines into fire.
+Back fuel-tanks can be refilled via welding kits.
+White Phosphorus is very dangerous.
+Batteries for energy weapons can be primed into makeshift grenades with the help of a multitool.
+Gigachads leave the autodoc on automatic.
+You can fit tiny items into your helmet.
+The time it takes for you to wield your gun can be the difference between life and death.
+Switching to your sidearm is faster than reloading.
+You can perform a tactical reload by clicking or dragging a fresh magazine from your belt towards your gun.
+With your sidearm in hand, right-click a pistol pouch to instantly reload.
+You can turn the safety of your gun on.
+Depending on the tactical situations, smoke grenades can do more harm than good.
+A miner without a turret is a sitting duck.
+Crushers easily get trapped in razorwire.
+Do not under any circuimstances hug the rouny.
+Researchers can instruct Newt to follow them around by clicking Newt with a xenomorph analyzer.
+Dress to impress! Your fellow marines WILL notice how you look.
+You can wipe any bodypaint off your face with a piece of paper.
+The Sons of Mars reside on a Martian analogue called Cydonia. They haven't lived on Mars in centuries.
+The USL stands for the United State of Lepidoptera, a fringe-terrorist group with connections to an alleged "moth-people".
+Humans love fire. Xenomorphs hate it. Except pyrogen.
+The CL can order pizza with their fax-machine.
+Insulting your fellow marines is terrible for morale. Be kind.
+The admins are usually not out to get you.
+The most dangerous tactic is the unexpected.
+As an engineer, the marines are counting on your to reinforce the area.
+A good an engieneer is one that will dismantle everything in the room for extra metal.
+A marine can miss, a turret rarely does.
+The Baldur armor module significantly increases your light output. Become the flashlight you always wanted to be!
+Try not to bump into corpsmen. Your life might depend on it.
+With a cigarette pack in hand, target the mouth and click yourself to instantly take one.
+A firing lane is useless without visibility; use flares to have visibility!
+Spamming flares increase visibility, especially when the King uses Nightfall! Many marines cannot see in darkness, so if you lighten up the firing lane with flares, marines can shoot better.
+The cryopods in medbay heal most types of damage but not organ damage!
+When in doubt, throw them in the autodoc.
+Medbay may sometimes run out of power. To avoid this, scream at your nearest engineer to repair the fusion reactors or replace the power cell in medbay's APC.
+Doctor's Delight is one of the few healing chemicals that cannot be overdosed.
+Nanites are often not worth the risks.
+You can fit more than water in a canteen.
+15u from a standard inaprovaline injector will instantly heal 30% of all damage on someone in critical condition. Marines in a critical state will be laying on the ground, sleeping, and gasping for air!
+There is a bazaar of weapons and tactics. Don't be afraid to find your niche!
+Always stick to your squad, or at least have a buddy.
+Walking by yourself is an easy way to die.
+Xenomorphs are well-armored. Over time, their exoskeleton will wear down by sunder, and they will be very vulnerable.
+You can attach a bullet charger to a BR-127 to become a discount autosniper.
