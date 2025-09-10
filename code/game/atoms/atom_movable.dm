@@ -29,7 +29,7 @@
 	var/atom/movable/moving_from_pull		//attempt to resume grab after moving instead of before.
 	var/glide_modifier_flags = NONE
 	var/generic_canpass = TRUE
-	///What things this atom can move past, if it has the corrosponding flag
+	///What things this atom can move past, if it has the corrosponding flag. Should not be directly modified
 	var/pass_flags = NONE
 	///TRUE if we should not push or shuffle on bump/enter
 	var/moving_diagonally = FALSE
@@ -102,6 +102,9 @@
 		AddElement(/datum/element/light_blocking)
 	if(light_system == MOVABLE_LIGHT)
 		AddComponent(/datum/component/overlay_lighting)
+
+	if(pass_flags)
+		add_pass_flags(pass_flags, INNATE_TRAIT)
 
 /atom/movable/Destroy()
 	QDEL_NULL(proximity_monitor)
@@ -250,7 +253,7 @@
 	else
 		if(!loc.Exit(src, direction))
 			return
-		if(!(atom_flags & DIRLOCK))
+		if(dir != direction && !(atom_flags & DIRLOCK))
 			setDir(direction)
 
 	var/enter_return_value = newloc.Enter(src)
@@ -1198,6 +1201,15 @@
 				moveToNullspace()
 				return TRUE
 			return FALSE
+		if("pass_flags")
+			if(var_value == pass_flags)
+				return FALSE
+			var/new_flags = (var_value &= ~pass_flags)
+			if(new_flags)
+				add_pass_flags(var_value, ADMIN_TRAIT)
+				return TRUE
+			remove_pass_flags(var_value, ADMIN_TRAIT)
+			return TRUE
 	return ..()
 
 
@@ -1222,19 +1234,19 @@
 		return
 	throwing = new_throwing
 	if(throwing)
-		pass_flags |= PASS_THROW
+		add_pass_flags(PASS_THROW, THROW_TRAIT)
 		add_nosubmerge_trait(THROW_TRAIT)
 	else
-		pass_flags &= ~PASS_THROW
 		REMOVE_TRAIT(src, TRAIT_NOSUBMERGE, THROW_TRAIT)
+		remove_pass_flags(PASS_THROW, THROW_TRAIT)
 
 ///Toggles AM between flying states
 /atom/movable/proc/set_flying(flying, new_layer)
 	if(flying)
-		pass_flags |= HOVERING
+		add_pass_flags(HOVERING, THROW_TRAIT)
 		layer = new_layer
 		return
-	pass_flags &= ~HOVERING
+	remove_pass_flags(HOVERING, THROW_TRAIT)
 	layer = new_layer ? new_layer : initial(layer)
 
 ///returns bool for if we want to get forcepushed

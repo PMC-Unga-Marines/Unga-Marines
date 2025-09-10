@@ -18,6 +18,7 @@
 	damage = 15
 	penetration = 30
 	additional_xeno_penetration = 20
+	matter_cost = 0
 
 /datum/ammo/bullet/smg/acp
 	name = "submachinegun ACP bullet"
@@ -42,6 +43,7 @@
 	damage = 10
 	penetration = 0
 	additional_xeno_penetration = 0
+	matter_cost = 0
 
 /datum/ammo/bullet/smg/ap/hv
 	name = "high velocity armor-piercing submachinegun bullet"
@@ -62,6 +64,7 @@
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
 	damage = 18
 	penetration = 0
+	matter_cost = 0
 
 /datum/ammo/bullet/smg/rad
 	name = "radioactive submachinegun bullet"

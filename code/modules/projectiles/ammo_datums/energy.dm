@@ -67,48 +67,6 @@
 			return
 		X.use_plasma(0.3 * X.xeno_caste.plasma_max * X.xeno_caste.plasma_regen_limit) //Drains 30% of max plasma on hit
 
-#define BFG_SOUND_DELAY_SECONDS 1
-
-/datum/ammo/energy/bfg
-	name = "bfg glob"
-	icon_state = "bfg_ball"
-	hud_state = "electrothermal"
-	hud_state_empty = "electrothermal_empty"
-	ammo_behavior_flags = AMMO_ENERGY|AMMO_SPECIAL_PROCESS|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
-	shell_speed = 0.2
-	damage = 150
-	penetration = 50
-	max_range = 20
-	bullet_color = COLOR_PALE_GREEN_GRAY
-
-/datum/ammo/energy/bfg/ammo_process(obj/projectile/proj, damage)
-	if(proj.distance_travelled <= 2)
-		return
-	// range expands as it flies to avoid hitting the shooter and tank riders
-	var/bfg_range = 4
-	if(proj.distance_travelled < bfg_range)
-		bfg_range = (proj.distance_travelled - 2)
-	bfg_beam(proj, bfg_range, damage, penetration)
-
-	//handling for BFG sound. yes it's kinda wierd to use distance traveled and probably will break at high lag
-	//but this is super snowflake and I don't wanna bother something like making looping sounds attachable to projectiles today
-	//feel free to do it though as a TODO?
-	var/sound_delay_time = BFG_SOUND_DELAY_SECONDS/proj.projectile_speed
-	if(proj.distance_travelled % sound_delay_time)
-		playsound(proj, 'sound/weapons/guns/misc/bfg_fly.ogg', 30, FALSE)
-
-/datum/ammo/energy/bfg/on_hit_obj(obj/target_obj, obj/projectile/proj)
-	proj.proj_max_range -= 2
-
-/datum/ammo/energy/bfg/on_hit_turf(turf/target_turf, obj/projectile/proj)
-	proj.proj_max_range -= 2
-
-/datum/ammo/energy/bfg/drop_nade(turf/target_turf)
-	cell_explosion(target_turf, 200, 50)
-
-/datum/ammo/energy/bfg/do_at_max_range(turf/target_turf, obj/projectile/proj)
-	drop_nade(target_turf.density ? get_step_towards(target_turf, proj) : target_turf)
-
 /datum/ammo/energy/lasburster
 	name = "lasburster bolt"
 	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN
@@ -825,55 +783,9 @@
 /datum/ammo/energy/volkite/medium/custom
 	deflagrate_multiplier = 2
 
-/datum/ammo/energy/volkite/heavy
-	max_range = 35
-	accurate_range = 12
-	damage = 25
-	fire_burst_damage = 20
-
 /datum/ammo/energy/volkite/light
 	max_range = 25
 	accurate_range = 12
 	accuracy_var_low = 3
 	accuracy_var_high = 3
 	penetration = 5
-
-/datum/ammo/energy/particle_lance
-	name = "particle beam"
-	hitscan_effect_icon = "particle_lance"
-	hud_state = "plasma_blast"
-	hud_state_empty = "battery_empty_flash"
-	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_MOVABLE|AMMO_SNIPER
-	bullet_color = LIGHT_COLOR_PURPLE_PINK
-	armor_type = ENERGY
-	max_range = 40
-	accurate_range = 10
-	accuracy = 25
-	damage = 850
-	penetration = 120
-	sundering = 30
-	damage_falloff = 5
-	on_pierce_multiplier = 0.95
-	barricade_clear_distance = 4
-
-/datum/ammo/energy/particle_lance/on_hit_mob(mob/target_mob, obj/projectile/proj)
-	if(!isliving(target_mob))
-		return
-	var/mob/living/living_victim = target_mob
-	living_victim.apply_radiation(living_victim.modify_by_armor(15, BIO, 25), 3)
-
-
-/datum/ammo/energy/particle_lance/on_hit_obj(obj/target_obj, obj/projectile/proj)
-	if(ishitbox(target_obj)) //yes this is annoying.
-		var/obj/hitbox/hitbox = target_obj
-		target_obj = hitbox.root
-
-	if(isvehicle(target_obj))
-		var/obj/vehicle/vehicle_target = target_obj
-		for(var/mob/living/living_victim AS in vehicle_target.occupants)
-			living_victim.apply_radiation(living_victim.modify_by_armor(12, BIO, 25), 3)
-			living_victim.flash_pain()
-
-	if(target_obj.obj_integrity > target_obj.modify_by_armor(proj.damage, ENERGY, proj.penetration, attack_dir = get_dir(target_obj, proj)))
-		proj.proj_max_range = 0
-
