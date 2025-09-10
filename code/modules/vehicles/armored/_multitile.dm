@@ -18,8 +18,8 @@
 	pixel_x = -56
 	pixel_y = -48
 	max_integrity = 700
-	soft_armor = list(MELEE = 40, BULLET = 99 , LASER = 99, ENERGY = 60, BOMB = 60, BIO = 60, FIRE = 50, ACID = 40)
-	hard_armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 40, BULLET = 99 , LASER = 99, ENERGY = 60, BOMB = 60, BIO = 100, FIRE = 50, ACID = 40)
+	hard_armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 20, FIRE = 0, ACID = 0)
 	permitted_mods = list(
 		/obj/item/tank_module/overdrive,
 		/obj/item/tank_module/ability/zoom,
@@ -29,6 +29,8 @@
 		/obj/item/armored_weapon,
 		/obj/item/armored_weapon/ltaap,
 		/obj/item/armored_weapon/bfg,
+		/obj/item/armored_weapon/tank_autocannon,
+
 		/obj/item/armored_weapon/secondary_weapon,
 		/obj/item/armored_weapon/secondary_flamer,
 		/obj/item/armored_weapon/tow,
@@ -93,10 +95,10 @@
 	return (loc_override || (entering_mob.loc in enter_locations(entering_mob)))
 
 /obj/vehicle/sealed/armored/multitile/add_desant(mob/living/new_desant)
-	new_desant.pass_flags |= (desant_pass_flags|pass_flags)
+	new_desant.add_pass_flags(desant_pass_flags|pass_flags, VEHICLE_TRAIT)
 
 /obj/vehicle/sealed/armored/multitile/remove_desant(mob/living/old_desant)
-	old_desant.pass_flags &= ~(desant_pass_flags|pass_flags)
+	old_desant.remove_pass_flags(desant_pass_flags|pass_flags, VEHICLE_TRAIT)
 
 /obj/vehicle/sealed/armored/multitile/ex_act(severity)
 	if(QDELETED(src))
@@ -168,6 +170,41 @@
 /obj/vehicle/sealed/armored/multitile/proc/del_smoke()
 	QDEL_NULL(smoke_holder)
 	UnregisterSignal(turret_overlay, COMSIG_ATOM_DIR_CHANGE)
+
+/obj/vehicle/sealed/armored/multitile/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(.)
+		return
+
+	if(!(istype(I, /obj/item/stack/sheet/plasteel) && (armored_flags & ARMORED_IS_WRECK)))
+		return
+
+	var/obj/item/stack/sheet/plasteel/plasteel_stack = I
+	if(plasteel_stack.get_amount() < 50)
+		balloon_alert(user, "You need at least 50 plasteel sheets to repair this vehicle!")
+		return FALSE
+	if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_PLASTEEL)
+		user.visible_message(span_notice("[user] fumbles around figuring out how to use plasteel for [src]."),
+		span_notice("You fumble around figuring out how to use plasteel for [src]."))
+		var/fumbling_time = 30 SECONDS - 2 SECONDS * user.skills.getRating(SKILL_ENGINEER)
+		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED))
+			return FALSE
+	balloon_alert_to_viewers("Applying plasteel reinforcement...")
+	playsound(loc, 'sound/items/screwdriver.ogg', 25, TRUE)
+	if(!do_after(user, 30 SECONDS - 2 SECONDS * user.skills.getRating(SKILL_ENGINEER), NONE, src, BUSY_ICON_BUILD))
+		return FALSE
+	if(!plasteel_stack.use(50))
+		return FALSE
+	unwreck_vehicle()
+	user.visible_message(span_notice("[user] successfully reinforces and repairs [src] with plasteel!"),
+	span_notice("You successfully reinforce and repair [src] with plasteel!"))
+	return TRUE
+
+/obj/vehicle/sealed/armored/multitile/examine(mob/user)
+	. = ..()
+	if(armored_flags & ARMORED_IS_WRECK)
+		. += span_warning("This vehicle is heavily damaged and needs repair.")
+		. += span_info("You can repair it using <b>50 plasteel sheets</b>.")
 
 //THe HvX tank is not balanced at all for HvH
 /obj/vehicle/sealed/armored/multitile/campaign

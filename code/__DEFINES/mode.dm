@@ -74,28 +74,14 @@
 #define INFESTATION_NUKE_COMPLETED_SHIPSIDE "INFESTATION_NUKE_COMPLETED_SHIPSIDE"
 #define INFESTATION_NUKE_COMPLETED_OTHER "INFESTATION_NUKE_COMPLETED_OTHER"
 
-#define SURVIVOR_WEAPONS list(\
-				list(/obj/item/weapon/gun/smg/mp7, /obj/item/ammo_magazine/smg/mp7),\
-				list(/obj/item/weapon/gun/shotgun/double/sawn, /obj/item/ammo_magazine/handful/buckshot),\
-				list(/obj/item/weapon/gun/smg/uzi, /obj/item/ammo_magazine/smg/uzi),\
-				list(/obj/item/weapon/gun/smg/m25, /obj/item/ammo_magazine/smg/m25),\
-				list(/obj/item/weapon/gun/rifle/m16, /obj/item/ammo_magazine/rifle/m16),\
-				list(/obj/item/weapon/gun/shotgun/pump/bolt, /obj/item/ammo_magazine/rifle/bolt),\
-				list(/obj/item/weapon/gun/shotgun/pump/lever, /obj/item/ammo_magazine/packet/magnum))
+#define SHUTTERS_DROP_TIME 20 MINUTES
 
-//Balance defines
-#define MARINE_GEAR_SCALING 30
-
-#define MAX_TUNNELS_PER_MAP 10
-
-#define FOG_DELAY_INTERVAL 40 MINUTES
-
-#define EVACUATION_TIME_LOCK 30 MINUTES
+#define EVACUATION_TIME_LOCK SHUTTERS_DROP_TIME + 5 MINUTES
 
 //Nuclear war mode collapse duration
 #define NUCLEAR_WAR_ORPHAN_HIVEMIND 5 MINUTES
 
-#define SHUTTLE_HIJACK_LOCK 30 MINUTES
+#define SHUTTLE_HIJACK_LOCK SHUTTERS_DROP_TIME + 5 MINUTES
 
 #define COOLDOWN_COMM_REQUEST 5 MINUTES
 #define COOLDOWN_COMM_MESSAGE 1 MINUTES

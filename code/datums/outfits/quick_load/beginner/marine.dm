@@ -183,7 +183,7 @@
 	l_hand = /obj/item/paper/tutorial/beginner_hazmat
 
 	backpack_contents = list(
-		/obj/item/ammo_magazine/packet/groza = 3,
+		/obj/item/ammo_magazine/packet/rifle762x39 = 3,
 		/obj/item/explosive/grenade/m15 = 3,
 	)
 

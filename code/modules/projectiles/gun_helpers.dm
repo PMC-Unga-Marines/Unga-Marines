@@ -54,7 +54,7 @@
 	//Cannot equip wielded items or items burst firing.
 	if(HAS_TRAIT(src, TRAIT_GUN_BURST_FIRING))
 		return
-	unwield(user)
+	//unwield(user) //shouldnt need this, just causes unequips when you fail to even unequip
 	return ..()
 
 /*
@@ -497,14 +497,14 @@ As sniper rifles have both and weapon mods can change them as well. ..() deals w
 	autoburst_delay += value
 	SEND_SIGNAL(src, COMSIG_GUN_AUTO_BURST_SHOT_DELAY_MODIFIED, autoburst_delay)
 
-/obj/item/weapon/gun/proc/modify_burst_amount(value, mob/user)
+/obj/item/weapon/gun/proc/modify_burst_amount(value, mob/user, adding_firemodes = FALSE)
 	burst_amount += value
 	SEND_SIGNAL(src, COMSIG_GUN_BURST_SHOTS_TO_FIRE_MODIFIED, burst_amount)
 
-	if(burst_amount < 2)
-		if(GUN_FIREMODE_BURSTFIRE in gun_firemode_list)
+	if(!adding_firemodes)
+		if((GUN_FIREMODE_BURSTFIRE in gun_firemode_list) && !(GUN_FIREMODE_BURSTFIRE in initial(gun_firemode_list)) && initial(burst_amount) < 2)
 			remove_firemode(GUN_FIREMODE_BURSTFIRE, user)
-		if(GUN_FIREMODE_AUTOBURST in gun_firemode_list)
+		if((GUN_FIREMODE_AUTOBURST in gun_firemode_list) && !(GUN_FIREMODE_AUTOBURST in initial(gun_firemode_list)) && initial(burst_amount) < 2)
 			remove_firemode(GUN_FIREMODE_AUTOBURST, user)
 	else
 		if(!(GUN_FIREMODE_BURSTFIRE in gun_firemode_list))
