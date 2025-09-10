@@ -204,6 +204,6 @@
 // make sure you don't turn 0 into a false positive
 #define BIOSCAN_DELTA(count, delta) count ? max(0, count + rand(-delta, delta)) : 0
 
-#define BIOSCAN_LOCATION(show_locations, location) ((show_locations && location) ? ", включая в [location]" : "")
+#define BIOSCAN_LOCATION(show_locations, location) ((show_locations && location) ? ", включая одного в [location]" : "")
 
 #define AI_SCAN_DELAY 15 SECONDS

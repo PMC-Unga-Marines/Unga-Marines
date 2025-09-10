@@ -121,18 +121,18 @@
 
 	var/name = "[MAIN_AI_SYSTEM] Статус Биосканирования"
 	var/input = {"Биосканирование завершено. Датчики показывают [numXenosShip || "отсуствие"] \
-	неизвестных форм жизни на корабле[BIOSCAN_LOCATION(show_locations, xeno_location_shipside)], [xenos_planetside ? "примерно [xenos_planetside]":"отсуствие"] \
-	сигнатур на земле[BIOSCAN_LOCATION(show_locations, xeno_location_planetside)] и [numXenosTransit || "отсуствие"] неизвестных форм жизни на шаттлах."}
+	неизвестных форм жизни на корабле[BIOSCAN_LOCATION(show_locations, xeno_location_shipside)], [xenos_planetside ? "примерно [xenos_planetside]":"отсутствие"] \
+	сигнатур на земле[BIOSCAN_LOCATION(show_locations, xeno_location_planetside)] и [numXenosTransit || "отсутствие"] неизвестных форм жизни на шаттлах."}
 
 	var/ai_name = "[usr] Статус Биосканирования"
 
 	if(ai_operator)
 		priority_announce(input, ai_name, sound = 'sound/AI/bioscan.ogg', color_override = "grey", receivers = (GLOB.alive_human_list + GLOB.ai_list))
-		log_game("Биосканирование. Люди: [numHostsPlanet] на планете\
-		[host_location_planetside ? " Локация:[host_location_planetside]":""] и [numHostsShip] на корабле.\
-		[host_location_shipside ? " Локация: [host_location_shipside].":""] \
-		Ксеносы: [xenos_planetside] на планете и [numXenosShip] на корабле\
-		[xeno_location_planetside ? " локация:[xeno_location_planetside]":""] и [numXenosTransit] на шаттлах.")
+		log_game("Bioscan. Humans: [numHostsPlanet] on the planet\
+		[host_location_planetside ? " Location:[host_location_planetside]":""] and [numHostsShip] on the ship.\
+		[host_location_shipside ? " Location: [host_location_shipside].":""] \
+		Xenos: [xenos_planetside] on the planet and [numXenosShip] on the ship\
+		[xeno_location_planetside ? " Location:[xeno_location_planetside]":""] and [numXenosTransit] in transit.")
 
 		switch(GLOB.current_orbit)
 			if(1)
@@ -152,20 +152,20 @@
 		var/fax_message = generate_templated_fax("Боевой Информационный Центр", "[MAIN_AI_SYSTEM]: Статус Биосканирования", "", input, "", MAIN_AI_SYSTEM)
 		send_fax(null, null, "Боевой Информационный Центр", "[MAIN_AI_SYSTEM]: Статус Биосканирования", fax_message, FALSE)
 
-	log_game("Биосканирование. Люди: [numHostsPlanet] на земле[host_location_planetside ? " Место:[host_location_planetside]":""] и [numHostsShip] на корабле.[host_location_shipside ? " Место: [host_location_shipside].":""] Ксеноморфы: [xenos_planetside] на земле и [numXenosShip] на корабле[xeno_location_planetside  ? " Место:[xeno_location_planetside]":""] и [numXenosTransit] на шаттлах.")
+	log_game("Bioscan. Humans: [numHostsPlanet] on the planet[host_location_planetside ? " Location:[host_location_planetside]":""] and [numHostsShip] on the ship.[host_location_shipside ? " Location: [host_location_shipside].":""] Xenos: [xenos_planetside] on the planet and [numXenosShip] on the ship[xeno_location_planetside ? " Location:[xeno_location_planetside]":""] and [numXenosTransit] in transit.")
 
 	for(var/i in GLOB.observer_list)
 		var/mob/M = i
 		to_chat(M, assemble_alert(
 			title = "Биосканирование Завершено",
 			message = {"[numXenosPlanet] ксеносов на земле.
-		[numXenosShip] ксеносов на корабле.
-		[numXenosTransit] ксеносов на шаттлах.
+			[numXenosShip] ксеносов на корабле.
+			[numXenosTransit] ксеносов на шаттлах.
 
-		[numHostsPlanet] людей на земле.
-		[numHostsShip] людей на корабле.
-		[numHostsTransit] людей на шаттлах. "},
-		color_override = "purple"
+			[numHostsPlanet] людей на земле.
+			[numHostsShip] людей на корабле.
+			[numHostsTransit] людей на шаттлах. "},
+			color_override = "purple"
 		))
 
 	message_admins("Bioscan - Humans: [numHostsPlanet] on the planet[host_location_planetside ? ". Location:[host_location_planetside]":""]. [hosts_shipside] on the ship.[host_location_shipside ? " Location: [host_location_shipside].":""]. [hosts_transit] in transit.")
@@ -222,13 +222,13 @@
 
 /datum/game_mode/infestation/declare_completion()
 	. = ..()
-	log_game("[round_finished]\nРежим: [name]\nВремя раунда: [duration2text()]\nКоличество игроков в конце раунда: [length(GLOB.clients)]\nРождено ксеноморфов: [GLOB.round_statistics.total_xenos_created]\nПроизведено людей: [GLOB.round_statistics.total_humans_created]")
+	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
 
 /datum/game_mode/infestation/end_round_fluff()
 	send_ooc_announcement(
 		sender_override = "Раунд завершен",
 		title = round_finished,
-		text = "Так и заканчивается история отважных мужчин и женщин и их борьбы на [SSmapping.configs[GROUND_MAP].map_name]...",
+		text = "Так и заканчивается история борьбы отважных мужчин и женщин на [SSmapping.configs[GROUND_MAP].map_name]...",
 		play_sound = FALSE,
 		style = OOC_ALERT_GAME
 	)
@@ -347,7 +347,7 @@
 	SIGNAL_HANDLER
 	var/datum/hive_status/normal/HS = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/area_name = get_area_name(nuke)
-	HS.xeno_message("Волна ужаса прокатывается по улью... Они активировали ядерную бомбу[area_name ? " в [area_name]":""]!")
+	HS.xeno_message("Волна ужаса проходит по улью... Они активировали ядерную бомбу[area_name ? " в [area_name]":""]!")
 	HS.set_all_xeno_trackers(nuke)
 
 /datum/game_mode/infestation/proc/play_cinematic(z_level)
