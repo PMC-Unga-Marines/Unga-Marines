@@ -78,6 +78,12 @@
 			valid_docks += locate(/obj/docking_port/stationary/marine_dropship/lz1) in SSshuttle.stationary_docking_ports
 		if(locate(/obj/docking_port/stationary/marine_dropship/lz2) in SSshuttle.stationary_docking_ports)
 			valid_docks += locate(/obj/docking_port/stationary/marine_dropship/lz2) in SSshuttle.stationary_docking_ports
+		for(var/obj/docking_port/stationary/docking_port in valid_docks)
+			//cuz we use lz landing zone
+			docking_port.width = max(19, docking_port.width)
+			docking_port.height = max(31, docking_port.height)
+			docking_port.dwidth = max(9, docking_port.dwidth)
+			docking_port.dheight = max(15, docking_port.dheight)
 
 	if(!length(valid_docks))
 		CRASH("No valid crash sides found!")
