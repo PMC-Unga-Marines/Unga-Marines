@@ -25,11 +25,11 @@
 	span_danger("We charge towards \the [A]!") )
 	xeno_owner.emote("roar")
 	xeno_owner.xeno_flags |= XENO_LEAPING //This has to come before throw_at, which checks impact. So we don't do end-charge specials when thrown
-	succeed_activate()
 
 	xeno_owner.throw_at(A, charge_range, RAV_CHARGESPEED, xeno_owner)
 
 	add_cooldown()
+	succeed_activate()
 
 /datum/action/ability/activable/xeno/charge/on_cooldown_finish()
 	to_chat(owner, span_xenodanger("Our exoskeleton quivers as we get ready to use [name] again."))

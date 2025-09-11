@@ -257,7 +257,7 @@
 			victim.adjust_stamina_loss(damage)
 
 	// Will set our damageoverlay icon to the next level, which will then be set back to the normal level the next mob.Life().
-	SEND_SIGNAL(victim, COMSIG_HUMAN_DAMAGE_TAKEN, damage)
+	SEND_SIGNAL(victim, COMSIG_HUMAN_DAMAGE_TAKEN, damage, attacker) //add attacker arg everywhere needed
 
 	if(updating_health)
 		victim.update_health()

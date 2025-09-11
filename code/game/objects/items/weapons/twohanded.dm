@@ -4,8 +4,6 @@
 		slot_r_hand_str = 'icons/mob/inhands/weapons/twohanded_right.dmi',
 	)
 	item_flags = TWOHANDED
-	/// How much damage we deal when the weapon in wielded
-	var/force_wielded = 0
 	/// What sound do we make when we wield the weapon
 	var/wieldsound
 	/// What sound do we make when we unwield the weapon
@@ -105,7 +103,7 @@
 	if(wieldsound)
 		playsound(user, wieldsound, 15, 1)
 
-	force = force_wielded
+	force = force_activated
 
 /obj/item/weapon/twohanded/unwield(mob/user)
 	. = ..()
@@ -170,7 +168,7 @@
 	equip_slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	atom_flags = CONDUCT
 	item_flags = TWOHANDED
-	force_wielded = 75
+	force_activated = 75
 	attack_verb = list("attacks", "chops", "cleaves", "tears", "cuts")
 
 /obj/item/weapon/twohanded/fireaxe/wield(mob/user)
@@ -198,7 +196,7 @@
 	inhand_y_dimension = 64
 	worn_icon_state = "som_axe"
 	force = 40
-	force_wielded = 80
+	force_activated = 80
 	penetration = 35
 	equip_slot_flags = ITEM_SLOT_BACK
 	attack_speed = 15
@@ -210,7 +208,7 @@
 	AddComponent(/datum/component/shield, SHIELD_TOGGLE|SHIELD_PURE_BLOCKING, list(MELEE = 45, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0))
 	AddComponent(/datum/component/stun_mitigation, SHIELD_TOGGLE, shield_cover = list(MELEE = 60, BULLET = 60, LASER = 60, ENERGY = 60, BOMB = 60, BIO = 60, FIRE = 60, ACID = 60))
 	AddElement(/datum/element/strappable)
-	special_attack = new(src, force_wielded, penetration)
+	special_attack = new(src, force_activated, penetration)
 
 /obj/item/weapon/twohanded/fireaxe/som/Destroy()
 	QDEL_NULL(special_attack)
@@ -229,7 +227,7 @@
 	if(!.)
 		return
 	toggle_item_bump_attack(user, FALSE)
-	special_attack.remove_action(user)
+	special_attack?.remove_action(user)
 
 //Special attack
 /datum/action/ability/activable/weapon_skill/axe_sweep
@@ -243,6 +241,11 @@
 	)
 	/// Used for particles. Holds the particles instead of the mob. See particle_holder for documentation.
 	var/obj/effect/abstract/particle_holder/particle_holder
+
+/datum/action/ability/activable/weapon_skill/axe_sweep/ai_should_use(atom/target)
+	if(get_dist(owner, target) > 2)
+		return FALSE
+	return ..()
 
 /datum/action/ability/activable/weapon_skill/axe_sweep/use_ability(atom/A)
 	succeed_activate()
@@ -306,7 +309,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL
-	force_wielded = 150
+	force_activated = 150
 	wieldsound = 'sound/weapons/saberon.ogg'
 	unwieldsound = 'sound/weapons/saberoff.ogg'
 	atom_flags = NOBLOODY
@@ -326,7 +329,7 @@
 	force = 40
 	w_class = WEIGHT_CLASS_BULKY
 	equip_slot_flags = ITEM_SLOT_BACK
-	force_wielded = 75
+	force_activated = 75
 	throwforce = 75
 	throw_speed = 3
 	reach = 2
@@ -415,7 +418,7 @@
 	force = 28
 	w_class = WEIGHT_CLASS_BULKY
 	equip_slot_flags = ITEM_SLOT_BACK
-	force_wielded = 90
+	force_activated = 90
 	throwforce = 65
 	throw_speed = 3
 	edge = 1
@@ -430,7 +433,7 @@
 	name = "war glaive"
 	desc = "A huge, powerful blade on a metallic pole. Mysterious writing is carved into the weapon. This one is ancient and has suffered serious acid damage, making it near-useless."
 	force = 18
-	force_wielded = 28
+	force_activated = 28
 
 /obj/item/weapon/twohanded/rocketsledge
 	name = "rocket sledge"
@@ -440,7 +443,7 @@
 	force = 30
 	w_class = WEIGHT_CLASS_BULKY
 	equip_slot_flags = ITEM_SLOT_BACK
-	force_wielded = 75
+	force_activated = 75
 	throwforce = 50
 	throw_speed = 2
 	edge = 1
@@ -600,6 +603,8 @@
 	hitsound = 'sound/weapons/heavyhit.ogg'
 	force_wielded = 100
 	penetration = 0
+	force_activated = 85
+	penetration = 10
 	attack_speed = 20
 	attack_verb = list("attacks", "wallops", "smashes", "shatters", "bashes")
 
@@ -704,7 +709,7 @@
 	atom_flags = TWOHANDED
 	attack_verb = list("gores", "tears", "rips", "shreds", "slashes", "cuts")
 	force = 20
-	force_wielded = 75
+	force_activated = 75
 	throwforce = 30
 	attack_speed = 20
 	///icon when on
@@ -839,24 +844,24 @@
 	return ..()
 
 ///Handle chainsaw attack loop on object
-/obj/item/weapon/twohanded/chainsaw/attack_obj(obj/object, mob/living/user)
+/obj/item/weapon/twohanded/chainsaw/attack_obj(obj/target_object, mob/living/user)
 	. = ..()
 	if(!active)
 		return
 
 	if(user.do_actions)
-		object.balloon_alert(user, "already busy")
+		target_object.balloon_alert(user, "already busy")
 		return TRUE
 
-	if(user.incapacitated() || get_dist(user,object) > 1 || user.resting)  // loop attacking an adjacent object while user is not incapacitated nor resting, mostly here for the one handed chainsword
+	if(user.incapacitated() || get_dist(user, target_object) > 1 || user.resting)  // loop attacking an adjacent object while user is not incapacitated nor resting, mostly here for the one handed chainsword
 		return TRUE
 
 	rip_apart(user)
 
-	if(!do_after(user, src.attack_speed, NONE, object, BUSY_ICON_DANGER, null,PROGRESS_BRASS) || !active) //attack channel to loop attack, and second active check in case fuel ran out.
+	if(!do_after(user, src.attack_speed, NONE, target_object, BUSY_ICON_DANGER, null,PROGRESS_BRASS) || !active) //attack channel to loop attack, and second active check in case fuel ran out.
 		return
 
-	attack_obj(object, user)
+	attack_obj(target_object, user)
 
 /obj/item/weapon/twohanded/chainsaw/sword
 	name = "chainsword"
@@ -869,7 +874,7 @@
 	attack_speed = 12
 	max_fuel = 150
 	force = 60
-	force_wielded = 90
+	force_activated = 90
 	additional_damage = 60
 
 /// Allow the chainsword variant to be activated without being wielded

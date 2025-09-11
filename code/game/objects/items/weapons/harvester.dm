@@ -118,7 +118,7 @@
 	)
 	worn_icon_state = "vali_spear"
 	force = 32
-	force_wielded = 60
+	force_activated = 60
 	throwforce = 60
 
 /obj/item/weapon/twohanded/spear/tactical/harvester/Initialize(mapload)
@@ -140,7 +140,7 @@
 		slot_r_hand_str = 'icons/mob/inhands/weapons/vali_right.dmi',
 	)
 	force = 40
-	force_wielded = 95 //Reminder: putting trama inside deals 60% additional damage
+	force_activated = 95 //Reminder: putting trama inside deals 60% additional damage
 	item_flags = TWOHANDED
 	resistance_flags = 0 //override glavie
 	attack_speed = 10 //Default is 7, this has slower attack

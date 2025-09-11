@@ -379,7 +379,6 @@
 	hive?.xeno_message("[src] has summoned down the metal bird to [port], gather to her now!")
 	priority_announce("Неизвестное вмешательство в управление десантным шаттлом. Выключение автопилота...", "Неисправность Шаттла", type = ANNOUNCEMENT_PRIORITY, color_override = "red", sound = 'sound/AI/dropship_wrong.ogg')
 
-
 #define ALIVE_HUMANS_FOR_CALLDOWN 0.1
 
 /datum/game_mode/proc/can_summon_dropship(mob/user)
@@ -672,9 +671,16 @@
 			var/obj/docking_port/stationary/marine_dropship/crash_target/CT = pick(SSshuttle.crash_targets)
 			if(!CT)
 				return
+			if(SSmonitor.gamestate == SHIPSIDE)
+				to_chat(xeno, span_xenowarning("The shuttle is already at the ship!"))
+				return
+
 			do_hijack(shuttle, CT, xeno)
+
 		if("abduct")
 			var/datum/game_mode/infestation/infestation_mode = SSticker.mode
+			if(!istype(infestation_mode))
+				return
 			if(infestation_mode.round_stage == INFESTATION_MARINE_CRASHING)
 				message_admins("[usr] tried to capture the shuttle after it was already hijacked, possible use of exploits.")
 				return
@@ -958,6 +964,7 @@
 	icon_state = "shuttle_glass1"
 
 /obj/structure/dropship_piece/glassone/tadpole
+	max_integrity = 600
 	icon = 'icons/turf/tadpole.dmi'
 	resistance_flags = XENO_DAMAGEABLE|DROPSHIP_IMMUNE
 	opacity = FALSE
@@ -968,12 +975,14 @@
 	icon_state = "shuttle_glass2"
 
 /obj/structure/dropship_piece/glasstwo/tadpole
+	max_integrity = 600
 	icon = 'icons/turf/tadpole.dmi'
 	resistance_flags = XENO_DAMAGEABLE|DROPSHIP_IMMUNE
 	opacity = FALSE
 	allow_pass_flags = PASS_GLASS
 
 /obj/structure/dropship_piece/singlewindow/tadpole
+	max_integrity = 600
 	icon = 'icons/turf/tadpole.dmi'
 	icon_state = "shuttle_single_window"
 	allow_pass_flags = PASS_GLASS
@@ -982,7 +991,7 @@
 
 /obj/structure/dropship_piece/tadpole/cockpit
 	desc = "The nose part of the tadpole, able to be destroyed."
-	max_integrity = 500
+	max_integrity = 600
 	resistance_flags = XENO_DAMAGEABLE | DROPSHIP_IMMUNE
 	opacity = FALSE
 	layer = BELOW_OBJ_LAYER

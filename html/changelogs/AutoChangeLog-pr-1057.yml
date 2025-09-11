@@ -1,0 +1,4 @@
+author: "fe-ed"
+delete-after: True
+changes:
+  - balance: "SH46 стреляет медленнее, но улучшен урон и дальность."

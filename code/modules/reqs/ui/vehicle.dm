@@ -186,7 +186,7 @@ GLOBAL_LIST_EMPTY(purchased_tanks)
 			var/list/assoc_cast = GLOB.armored_gunammo[newtype]
 			primary_ammo = assoc_cast.Copy()
 			for(var/ammo in primary_ammo)
-				primary_ammo[ammo] = 0
+				primary_ammo[ammo] = trunc(DEFAULT_MAX_ARMORED_AMMO / length(primary_ammo))
 			. = TRUE
 
 		if("setsecondary")
@@ -201,7 +201,7 @@ GLOBAL_LIST_EMPTY(purchased_tanks)
 			var/list/assoc_cast = GLOB.armored_gunammo[newtype]
 			secondary_ammo = assoc_cast.Copy()
 			for(var/ammo in secondary_ammo)
-				secondary_ammo[ammo] = 0
+				secondary_ammo[ammo] = trunc(DEFAULT_MAX_ARMORED_AMMO / length(secondary_ammo))
 			. = TRUE
 
 		if("set_ammo_primary")
