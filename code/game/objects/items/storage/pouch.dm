@@ -1019,6 +1019,23 @@
 	storage_datum.max_w_class = WEIGHT_CLASS_TINY
 	storage_datum.set_holdable(can_hold_list = list(/obj/item/reagent_containers/food/snacks/protein_pack))
 
+/obj/item/storage/pouch/machete
+	name = "'Recon' machete scabbard"
+	desc = "A large pouch designed for the lightweight 'Recon' machete."
+	icon_state = "machete"
+
+/obj/item/storage/pouch/machete/Initialize(mapload, ...)
+	. = ..()
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/weapon/sword/machete/light))
+	storage_datum.max_w_class = WEIGHT_CLASS_BULKY
+	storage_datum.sprite_slots = 1
+	storage_datum.draw_mode = TRUE
+	storage_datum.draw_sound = 'sound/weapons/melee/knife_out.ogg'
+	storage_datum.sheathe_sound = 'sound/weapons/melee/knife_in.ogg'
+
+/obj/item/storage/pouch/machete/full/PopulateContents()
+	new /obj/item/weapon/sword/machete/light(src)
+
 /obj/item/storage/pouch/medkit/t312
 	name = "BMSS medkit pouch"
 	desc = "Advanced medkit pouch made by BMSS. It is also capable of holding R-312 ammo and tweezers."
