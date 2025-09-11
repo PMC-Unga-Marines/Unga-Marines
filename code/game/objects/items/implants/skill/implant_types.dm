@@ -8,7 +8,19 @@
 	name = "aiming support implant system"
 	desc = "Integrated aiming support system! Update weapons skills!"
 	firearms = 1
-	max_skills = list(SKILL_FIREARMS = SKILL_FIREARMS_TRAINED)
+	pistols = 1
+	shotguns = 1
+	rifles = 1
+	smgs = 1
+	heavy_weapons = 1
+	max_skills = list(
+		SKILL_FIREARMS = SKILL_FIREARMS_TRAINED,
+		SKILL_PISTOLS = SKILL_PISTOLS_TRAINED,
+		SKILL_SMGS = SKILL_SMGS_TRAINED,
+		SKILL_RIFLES = SKILL_RIFLES_TRAINED,
+		SKILL_SHOTGUNS = SKILL_SHOTGUNS_TRAINED,
+		SKILL_HEAVY_WEAPONS = SKILL_HEAVY_WEAPONS_TRAINED
+	)
 
 /obj/item/implant/skill/combat/melee
 	name = "close combat codex implant system"

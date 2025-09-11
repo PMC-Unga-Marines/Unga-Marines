@@ -100,14 +100,14 @@
 			msg += "[t_He] [t_has] [icon2html(back, user)] \a [back] on [t_his] back.\n"
 
 	//left hand
-	if(l_hand && !(l_hand.item_flags & HAND_ITEM|ITEM_ABSTRACT))
+	if(l_hand && !(l_hand.item_flags & (HAND_ITEM|ITEM_ABSTRACT)))
 		if(l_hand.blood_overlay)
 			msg += "[span_alert("[t_He] [t_is] holding [icon2html(l_hand, user)] [l_hand.gender==PLURAL?"some":"a"] [(l_hand.blood_color != "#030303") ? "blood" : "oil"]-stained [l_hand.name] in [t_his] left hand!")]\n"
 		else
 			msg += "[t_He] [t_is] holding [icon2html(l_hand, user)] \a [l_hand] in [t_his] left hand.\n"
 
 	//right hand
-	if(r_hand && !(r_hand.item_flags & HAND_ITEM|ITEM_ABSTRACT))
+	if(r_hand && !(r_hand.item_flags & (HAND_ITEM|ITEM_ABSTRACT)))
 		if(r_hand.blood_overlay)
 			msg += "[span_alert("[t_He] [t_is] holding [icon2html(r_hand, user)] [r_hand.gender==PLURAL?"some":"a"] [(r_hand.blood_color != "#030303") ? "blood" : "oil"]-stained [r_hand.name] in [t_his] right hand!")]\n"
 		else
@@ -225,7 +225,8 @@
 
 	if((!species.has_organ[ORGAN_SLOT_BRAIN] || has_brain()) && stat != DEAD)
 		if(!key)
-			msg += "[span_deadsay("[t_He] [t_is] fast asleep. It doesn't look like [t_he] [t_is] waking up anytime soon.")]\n"
+			if(!has_ai())
+				msg += "[span_deadsay("[t_He] [t_is] totally catatonic. The stresses of life in deep-space must have been too much for [t_him]. Any recovery is unlikely.")]\n"
 		else if(!client)
 			if(isxeno(user))
 				msg += "[span_xenowarning("[t_He] [p_do()]n't seem responsive.")]\n"

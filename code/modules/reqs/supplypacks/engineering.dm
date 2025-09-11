@@ -137,3 +137,8 @@
 	name = "Teleporter pads"
 	contains = list(/obj/effect/teleporter_linker)
 	cost = 500
+
+/datum/supply_packs/engineering/tesla_turret
+	name = "Tesla turret"
+	contains = list(/obj/item/tesla_turret)
+	cost = 300

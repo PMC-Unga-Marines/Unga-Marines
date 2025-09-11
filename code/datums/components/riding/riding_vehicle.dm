@@ -88,7 +88,6 @@
 	vehicle_move_delay = 1.8
 
 /datum/component/riding/vehicle/atv/handle_specials()
-	. = ..()
 	set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 4), TEXT_SOUTH = list(0, 4), TEXT_EAST = list(0, 4), TEXT_WEST = list(0, 4)))
 	set_vehicle_dir_layer(SOUTH, ABOVE_MOB_LAYER)
 	set_vehicle_dir_layer(NORTH, OBJ_LAYER)
@@ -100,7 +99,6 @@
 	vehicle_move_delay = 4
 
 /datum/component/riding/vehicle/powerloader/handle_specials()
-	. = ..()
 	set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 2), TEXT_SOUTH = list(0, 2), TEXT_EAST = list(0, 2), TEXT_WEST = list(0, 2)))
 	set_vehicle_dir_layer(SOUTH, POWERLOADER_LAYER)
 	set_vehicle_dir_layer(NORTH, POWERLOADER_LAYER)
@@ -157,7 +155,6 @@
 	return delay_to_add
 
 /datum/component/riding/vehicle/wheelchair/handle_specials()
-	. = ..()
 	set_vehicle_dir_layer(SOUTH, OBJ_LAYER)
 	set_vehicle_dir_layer(NORTH, ABOVE_MOB_LAYER)
 	set_vehicle_dir_layer(EAST, OBJ_LAYER)
@@ -171,7 +168,6 @@
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
 
 /datum/component/riding/vehicle/motorbike/handle_specials()
-	. = ..()
 	set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 3), TEXT_SOUTH = list(0, 3), TEXT_EAST = list(-2, 3), TEXT_WEST = list(2, 3)))
 	set_vehicle_dir_layer(SOUTH, ABOVE_MOB_LAYER)
 	set_vehicle_dir_layer(NORTH, OBJ_LAYER)
@@ -183,10 +179,16 @@
 
 /datum/component/riding/vehicle/motorbike/sidecar/Initialize(mob/living/riding_mob, force, ride_check_flags, potion_boost)
 	. = ..()
-	riding_mob.density = FALSE
+	var/obj/vehicle/bike = parent
+	for(var/mob/living/buckled_mob AS in bike.occupants)
+		if(bike.is_driver(buckled_mob)) // we disable density only for a passenger, so xenos can pounce at the bike
+			continue
+		buckled_mob.density = FALSE
 
 /datum/component/riding/vehicle/motorbike/sidecar/vehicle_mob_unbuckle(datum/source, mob/living/former_rider, force = FALSE)
-	former_rider.density = TRUE
+	var/obj/vehicle/bike = parent
+	for(var/mob/living/buckled_mob AS in bike.occupants)
+		buckled_mob.density = TRUE
 	return ..()
 
 //sidecar
@@ -199,9 +201,8 @@
 	set_vehicle_dir_offsets(NORTH, -10, 0)
 	set_vehicle_dir_offsets(SOUTH, 10, 0)
 
-/datum/component/riding/vehicle/motorbike/sidecar/get_offsets(pass_index, mob_type)
-	switch(pass_index)
-		if(1) //first one buckled, so driver
-			return list(TEXT_NORTH = list(9, 3), TEXT_SOUTH = list(-9, 3), TEXT_EAST = list(-2, 3), TEXT_WEST = list(2, 3))
-		if(2) //second one buckled, so sidecar rider
-			return list(TEXT_NORTH = list(-6, 2), TEXT_SOUTH = list(6, 2), TEXT_EAST = list(-3, 0, ABOVE_OBJ_LAYER), TEXT_WEST = list(3, 0, LYING_MOB_LAYER))
+/datum/component/riding/vehicle/motorbike/sidecar/get_offsets(pass_index, mob, mob_type)
+	var/obj/vehicle/bike = parent
+	if(bike.is_driver(mob)) // we check for the driver, and not for index, because what if the driver gets in the bike second?
+		return list(TEXT_NORTH = list(9, 3), TEXT_SOUTH = list(-9, 3), TEXT_EAST = list(-2, 3), TEXT_WEST = list(2, 3))
+	return list(TEXT_NORTH = list(-6, 2), TEXT_SOUTH = list(6, 2), TEXT_EAST = list(-3, 0, ABOVE_OBJ_LAYER), TEXT_WEST = list(3, 0, LYING_MOB_LAYER))

@@ -377,11 +377,11 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "bw" = (
-/obj/effect/landmark/start/job/crash/squadrobot,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/machinery/door/window/right,
+/obj/effect/landmark/start/job/crash/squadrobot,
 /turf/open/floor/mainship/red,
 /area/shuttle/canterbury)
 "by" = (
@@ -423,13 +423,13 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "bD" = (
-/obj/effect/landmark/start/job/crash/squadsmartgunner,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/machinery/marine_selector/gear/smartgun,
 /turf/open/floor/mainship/red,
 /area/shuttle/canterbury)
 "bE" = (
@@ -548,11 +548,11 @@
 	},
 /area/shuttle/canterbury/medical)
 "cc" = (
-/obj/effect/landmark/start/job/crash/squadsmartgunner,
 /obj/machinery/door/window/right,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/effect/landmark/start/job/crash/squadsmartgunner,
 /turf/open/floor/mainship/red,
 /area/shuttle/canterbury)
 "cd" = (
@@ -660,10 +660,10 @@
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "cE" = (
-/obj/machinery/marine_selector/gear/smartgun,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/effect/landmark/start/job/crash/squadsmartgunner,
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "cF" = (
@@ -801,13 +801,13 @@
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "oC" = (
-/obj/effect/landmark/start/job/crash/squadrobot,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/machinery/marine_selector/gear/robo,
 /turf/open/floor/mainship/red,
 /area/shuttle/canterbury)
 "pY" = (
@@ -931,10 +931,10 @@
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "Mr" = (
-/obj/machinery/marine_selector/gear/robo,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/effect/landmark/start/job/crash/squadrobot,
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
 "Ox" = (
@@ -1110,7 +1110,7 @@ bK
 bK
 bK
 bK
-bK
+cI
 bo
 an
 "}

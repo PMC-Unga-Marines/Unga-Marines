@@ -229,7 +229,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 		if(burst_delay_mod)
 			master_gun.modify_burst_delay(burst_delay_mod)
 		if(burst_mod)
-			master_gun.modify_burst_amount(burst_mod, user)
+			master_gun.modify_burst_amount(burst_mod, user, TRUE)
 		master_gun.recoil						+= recoil_mod
 		master_gun.recoil_unwielded				+= recoil_unwielded_mod
 		master_gun.force						+= melee_mod
@@ -285,7 +285,7 @@ inaccurate. Don't worry if force is ever negative, it won't runtime.
 		if(burst_delay_mod)
 			master_gun.modify_burst_delay(-burst_delay_mod)
 		if(burst_mod)
-			master_gun.modify_burst_amount(-burst_mod, user)
+			master_gun.modify_burst_amount(-burst_mod, user, FALSE)
 		master_gun.recoil						-= recoil_mod
 		master_gun.recoil_unwielded				-= recoil_unwielded_mod
 		master_gun.force						-= melee_mod

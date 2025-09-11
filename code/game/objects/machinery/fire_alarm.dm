@@ -11,6 +11,8 @@
 	idle_power_usage = 2
 	active_power_usage = 6
 	power_channel = ENVIRON
+	mouse_over_pointer = MOUSE_HAND_POINTER
+
 	var/detecting = 1
 	var/working = 1
 	var/time = 10
@@ -42,6 +44,14 @@
 		if(WEST)
 			pixel_x = 32
 
+	if(is_mainship_level(z))
+		RegisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED, PROC_REF(on_alert_change))
+
+	update_icon()
+
+/// wrapper so we can update the icon on [COMSIG_SECURITY_LEVEL_CHANGED]
+/obj/machinery/firealarm/proc/on_alert_change(datum/source, datum/security_level/next_level, datum/security_level/previous_level)
+	SIGNAL_HANDLER
 	update_icon()
 
 /obj/machinery/firealarm/update_icon()
@@ -54,15 +64,7 @@
 	if(A.alarm_state_flags & ALARM_WARNING_FIRE)
 		set_light_color(LIGHT_COLOR_EMISSIVE_ORANGE)
 	else
-		switch(GLOB.marine_main_ship.get_security_level())
-			if("delta")
-				set_light_color(LIGHT_COLOR_PINK)
-			if("red")
-				set_light_color(LIGHT_COLOR_EMISSIVE_RED)
-			if("blue")
-				set_light_color(LIGHT_COLOR_BLUE)
-			else
-				set_light_color(LIGHT_COLOR_EMISSIVE_GREEN)
+		set_light_color(SSsecurity_level?.current_security_level?.fire_alarm_light_color || LIGHT_COLOR_WHITE)
 
 	set_light(initial(light_range))
 
@@ -78,8 +80,8 @@
 		return
 	if(CHECK_BITFIELD(machine_stat, NOPOWER))
 		return
-	. += emissive_appearance(icon, "fire_o[(is_mainship_level(z)) ? GLOB.marine_main_ship.get_security_level() : "green"]")
-	. += mutable_appearance(icon, "fire_o[(is_mainship_level(z)) ? GLOB.marine_main_ship.get_security_level() : "green"]")
+	. += emissive_appearance(icon, "fire_o[(is_mainship_level(z)) ? SSsecurity_level.get_current_level_as_text() : "green"]")
+	. += mutable_appearance(icon, "fire_o[(is_mainship_level(z)) ? SSsecurity_level.get_current_level_as_text() : "green"]")
 	var/area/A = get_area(src)
 	if(A.alarm_state_flags & ALARM_WARNING_FIRE)
 		. += mutable_appearance(icon, "fire_o1")
@@ -119,7 +121,7 @@
 		return
 	if(buildstage != 2)
 		return
-	user.visible_message(span_warning(" [user] has cut the wires inside \the [src]!"), "You have cut the wires inside \the [src].")
+	user.visible_message(span_warning("[user] has cut the wires inside \the [src]!"), "You have cut the wires inside \the [src].")
 	playsound(loc, 'sound/items/wirecutter.ogg', 25, 1)
 	buildstage = 1
 	update_icon()
@@ -207,7 +209,7 @@
 		d2 = "<A href='byond://?src=[text_ref(src)];time=1'>Initiate Time Lock</A>"
 	var/second = round(time) % 60
 	var/minute = (round(time) - second) / 60
-	var/dat = "<B>Fire alarm</B> [d1]\n<HR>The current alert level is: [GLOB.marine_main_ship.get_security_level()]</b><br><br>\nTimer System: [d2]<BR>\nTime Left: [(minute ? "[minute]:" : null)][second] <A href='byond://?src=[text_ref(src)];tp=-30'>-</A> <A href='byond://?src=[text_ref(src)];tp=-1'>-</A> <A href='byond://?src=[text_ref(src)];tp=1'>+</A> <A href='byond://?src=[text_ref(src)];tp=30'>+</A>"
+	var/dat = "<B>Fire alarm</B> [d1]\n<HR>The current alert level is: [SSsecurity_level.get_current_level_as_text()]</b><br><br>\nTimer System: [d2]<BR>\nTime Left: [(minute ? "[minute]:" : null)][second] <A href='byond://?src=[text_ref(src)];tp=-30'>-</A> <A href='byond://?src=[text_ref(src)];tp=-1'>-</A> <A href='byond://?src=[text_ref(src)];tp=1'>+</A> <A href='byond://?src=[text_ref(src)];tp=30'>+</A>"
 
 	var/datum/browser/popup = new(user, "firealarm", "<div align='center'>Fire alarm</div>")
 	popup.set_content(dat)

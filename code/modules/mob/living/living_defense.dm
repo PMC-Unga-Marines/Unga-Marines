@@ -72,7 +72,7 @@
 		O.stop_throw()
 		apply_damage(O.throwforce*(speed * 0.2), O.damtype, BODY_ZONE_CHEST, MELEE, is_sharp(O), has_edge(O), TRUE, O.penetration)
 
-	visible_message(span_warning(" [src] has been hit by [AM]."), null, null, 5)
+	visible_message(span_warning("[src] has been hit by [AM]."), null, null, 5)
 	if(ismob(AM.thrower))
 		var/mob/M = AM.thrower
 		if(M.client)
@@ -85,7 +85,7 @@
 		if(W.sharp && prob(W.embedding.embed_chance))
 			W.embed_into(src)
 	if(AM.throw_source)
-		visible_message(span_warning(" [src] staggers under the impact!"),span_warning(" You stagger under the impact!"), null, 5)
+		visible_message(span_warning("[src] staggers under the impact!"),span_warning("You stagger under the impact!"), null, 5)
 		src.throw_at(get_edge_target_turf(src, get_dir(AM.throw_source, src)), 1, speed * 0.5)
 
 /mob/living/turf_collision(turf/T, speed)
@@ -411,7 +411,7 @@
 	playsound(src, sound_effect, 50, 1)
 	shake_camera(src, 1, 1)
 	add_slowdown(slowdown_stacks)
-	adjust_stagger(stagger_stacks SECONDS)
+	adjust_stagger(stagger_stacks)
 	adjust_blurriness(slowdown_stacks)
 	apply_damage(punch_damage, BRUTE, target_limb ? target_limb : 0, MELEE)
 	apply_damage(punch_damage, STAMINA, updating_health = TRUE)

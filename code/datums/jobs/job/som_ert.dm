@@ -99,3 +99,10 @@
 		/datum/outfit/job/som/ert/leader/breacher_melee,
 		/datum/outfit/job/som/ert/leader/breacher_ranged,
 	)
+
+/datum/job/som/ert/medic/breacher
+	title = "SOM Breacher Medic"
+	paygrade = "SOM_E5"
+	skills_type = /datum/skills/som_veteran/medic
+	outfit = /datum/outfit/job/som/ert/medic/breacher
+	multiple_outfits = FALSE

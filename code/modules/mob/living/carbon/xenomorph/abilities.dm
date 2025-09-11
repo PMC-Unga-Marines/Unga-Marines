@@ -815,7 +815,7 @@
 	return ..()
 
 /datum/action/ability/activable/xeno/xeno_spit/use_ability(atom/A)
-	if(!owner.GetComponent(/datum/component/ai_controller)) //If its not an ai it will register to listen for clicks instead of use this proc. We want to call start_fire from here only if the owner is an ai.
+	if(owner.client) //If its not an ai it will register to listen for clicks instead of use this proc. We want to call start_fire from here only if the owner is an ai.
 		return
 	start_fire(object = A, can_use_ability_flags = ABILITY_IGNORE_SELECTED_ABILITY)
 
@@ -1268,6 +1268,9 @@
 		psy_points_reward = psy_points_reward * 3
 	SSpoints.add_psy_points(xeno_owner.hivenumber, psy_points_reward)
 	GLOB.round_statistics.psypoints_from_psydrain += psy_points_reward
+
+	if(xeno_owner.hivenumber != XENO_HIVE_NORMAL)
+		return
 
 	if(SSticker.mode && !CHECK_BITFIELD(SSticker.mode.xeno_abilities_flags, ABILITY_CRASH))
 		var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)

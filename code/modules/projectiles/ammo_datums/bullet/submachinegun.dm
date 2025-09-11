@@ -10,6 +10,7 @@
 	damage_falloff = 1
 	additional_xeno_penetration = 10
 	penetration = 5
+	matter_cost = 2
 
 /datum/ammo/bullet/smg/ap
 	name = "armor-piercing submachinegun bullet"
@@ -17,6 +18,7 @@
 	damage = 15
 	penetration = 30
 	additional_xeno_penetration = 20
+	matter_cost = 0
 
 /datum/ammo/bullet/smg/acp
 	name = "submachinegun ACP bullet"
@@ -30,6 +32,7 @@
 	penetration = 0
 	additional_xeno_penetration = 10
 	shrapnel_chance = 25
+	matter_cost = 4
 
 /datum/ammo/bullet/smg/acp/incendiary
 	name = "incendiary submachinegun ACP bullet"
@@ -40,6 +43,7 @@
 	damage = 10
 	penetration = 0
 	additional_xeno_penetration = 0
+	matter_cost = 0
 
 /datum/ammo/bullet/smg/ap/hv
 	name = "high velocity armor-piercing submachinegun bullet"
@@ -60,6 +64,7 @@
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
 	damage = 18
 	penetration = 0
+	matter_cost = 0
 
 /datum/ammo/bullet/smg/rad
 	name = "radioactive submachinegun bullet"

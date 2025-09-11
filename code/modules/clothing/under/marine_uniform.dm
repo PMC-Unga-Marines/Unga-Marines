@@ -460,6 +460,9 @@
 /obj/item/clothing/under/som/medic/vest
 	starting_attachments = list(/obj/item/armor_module/storage/uniform/white_vest)
 
+/obj/item/clothing/under/som/medic/webbing
+	starting_attachments = list(/obj/item/armor_module/storage/uniform/brown_vest)
+
 /obj/item/clothing/under/som/veteran
 	name = "\improper SOM veteran uniform"
 	desc = "The standard uniform of SOM military personnel. Its design shows a clear lineage from mining uniforms used in the old mining colonies. This one has markings indicating specialist status."

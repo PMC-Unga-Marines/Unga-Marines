@@ -433,8 +433,10 @@
 	if(user.gender == MALE)
 		if(prob(95))
 			return 'sound/voice/human/male/medic.ogg'
-		else
+		else if(prob(95))
 			return 'sound/voice/human/male/medic2.ogg'
+		else
+			return 'sound/voice/human/male/medic_bag.ogg'
 	else
 		return 'sound/voice/human/female/medic.ogg'
 
@@ -444,6 +446,7 @@
 		return
 	var/image/medic = image('icons/mob/talk.dmi', user, icon_state = "medic")
 	user.add_emote_overlay(medic)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_CALL_MEDIC, user)
 
 /datum/emote/living/carbon/human/pain
 	key = "pain"

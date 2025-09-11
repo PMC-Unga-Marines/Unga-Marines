@@ -35,7 +35,6 @@
 	name = "ammunition supplies"
 	supply = list(
 		/obj/structure/largecrate/supply/ammo/m41a = 4,
-		/obj/structure/largecrate/supply/ammo/m41a_box = 4,
 		/obj/structure/largecrate/supply/ammo/shotgun = 4,
 		/obj/structure/largecrate/supply/ammo/smg90 = 4,
 		/obj/structure/largecrate/supply/ammo/pistol = 4,
@@ -173,11 +172,6 @@
 	desc = "An ammunition case containing 20 PR-412 magazines."
 	supplies = list(/obj/item/ammo_magazine/rifle = 20)
 
-/obj/structure/largecrate/supply/ammo/m41a_box
-	name = "\improper PR-412 ammunition box case (x4)"
-	desc = "An ammunition case containing four PR-412 600 round boxes of ammunition."
-	supplies = list(/obj/item/big_ammo_box = 4)
-
 /obj/structure/largecrate/supply/ammo/shotgun
 	name = "12 Gauge ammunition crate (x20)"
 	desc = "An ammunition case containing eight boxes of slugs, eight boxes of buckshot, and eight boxes of flechette rounds."
@@ -238,7 +232,7 @@
 
 /obj/structure/largecrate/supply/explosives/mines
 	name = "\improper M20 claymore case (x20)"
-	desc = "A case containing five four M20 claymore boxes."
+	desc = "A case containing five four-count M20 claymore boxes."
 	supplies = list(/obj/item/storage/box/explosive_mines = 5)
 
 /obj/structure/largecrate/supply/explosives/grenades
@@ -262,7 +256,7 @@
 	supplies = list(/obj/item/mortal_shell/flare = 25)
 
 /obj/structure/largecrate/supply/explosives/disposable
-	name = "RL-72 disposable rocket launchers (x8)"
+	name = "\improper RL-72 disposable rocket launcher crate (x8)"
 	desc = "A case containing eight RL-72 disposables."
 	supplies = list(/obj/item/weapon/gun/launcher/rocket/oneuse = 8)
 
@@ -271,12 +265,12 @@
 	icon_state = "secure_crate"
 
 /obj/structure/largecrate/supply/supplies/flares
-	name = "Flare supply crate (x100)"
+	name = "flare supply crate (x100)"
 	desc = "A supply crate containing twenty five-flare boxes."
 	supplies = list(/obj/item/storage/box/m94 = 10)
 
 /obj/structure/largecrate/supply/supplies/coifs
-	name = "Heat absorbent coifs supply crate (x25)"
+	name = "heat absorbent coifs supply crate (x25)"
 	desc = "A supply crate containing twenty five heat absorbent coifs."
 	supplies = list(/obj/item/clothing/mask/rebreather/scarf = 25)
 
