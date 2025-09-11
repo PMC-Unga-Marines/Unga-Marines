@@ -108,7 +108,7 @@
 
 /datum/job/fallen/marine/synthetic/return_spawn_type(datum/preferences/prefs)
 	if(prefs?.synthetic_type == "Early Synthetic")
-		return /mob/living/carbon/human/species/early_synthetic
+		return /mob/living/carbon/human/species/synthetic/early
 	return /mob/living/carbon/human/species/synthetic
 
 /datum/job/fallen/marine/synthetic/return_skills_type(datum/preferences/prefs)

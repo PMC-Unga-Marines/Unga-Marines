@@ -449,7 +449,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 			if("synthetic")
 				newmob = M.change_mob_type(/mob/living/carbon/human/species/synthetic, location, null, delmob)
 			if("early_synth")
-				newmob = M.change_mob_type(/mob/living/carbon/human/species/early_synthetic, location, null, delmob)
+				newmob = M.change_mob_type(/mob/living/carbon/human/species/synthetic/early, location, null, delmob)
 			if("sectoid")
 				newmob = M.change_mob_type(/mob/living/carbon/human/species/sectoid, location, null, delmob)
 			if("vatborn")
