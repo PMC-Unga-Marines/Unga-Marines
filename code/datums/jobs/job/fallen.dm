@@ -113,7 +113,7 @@
 
 /datum/job/fallen/marine/synthetic/return_skills_type(datum/preferences/prefs)
 	if(prefs?.synthetic_type == "Early Synthetic")
-		return /datum/skills/early_synthetic
+		return /datum/skills/synthetic/early
 	return ..()
 
 /datum/job/fallen/xenomorph
