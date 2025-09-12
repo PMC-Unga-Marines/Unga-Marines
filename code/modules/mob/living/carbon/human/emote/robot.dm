@@ -1,5 +1,5 @@
 /datum/emote/living/carbon/robot // isn't actually robot only
-	mob_type_allowed_typecache = list(/mob/living/carbon/human/species/robot, /mob/living/carbon/human/species/synthetic, /mob/living/carbon/human/species/early_synthetic)
+	mob_type_allowed_typecache = list(/mob/living/carbon/human/species/robot, /mob/living/carbon/human/species/synthetic)
 
 /datum/emote/living/carbon/robot/dwoop
 	key = "dwoop"
