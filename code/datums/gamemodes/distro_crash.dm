@@ -18,8 +18,7 @@
 	predator_round()
 	SSpoints.add_psy_points(XENO_HIVE_NORMAL, 2 * SILO_PRICE + 4 * XENO_TURRET_PRICE)
 
-	//the fuck?
-	//new /obj/vehicle/sealed/armored/multitile/medium/crash(get_turf(shuttle))
+	new /obj/vehicle/sealed/armored/multitile/icc_lvrt/crash(get_turf(shuttle))
 
 /datum/game_mode/infestation/crash/distro/scale_roles(initial_players_assigned)
 	. = ..()

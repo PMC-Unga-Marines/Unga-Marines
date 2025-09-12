@@ -47,6 +47,11 @@
 	contains = list(/obj/item/ammo_magazine/tank/secondary_cupola)
 	cost = 50
 
+/datum/supply_packs/vehicles/icc_mg
+	name = "ML-41 GPMG box magazine"
+	contains = list(/obj/item/ammo_magazine/icc_mg)
+	cost = 75
+
 /datum/supply_packs/vehicles/secondary_flamer_tank
 	name = "Spray flamer tank"
 	contains = list(/obj/item/ammo_magazine/tank/secondary_flamer_tank)

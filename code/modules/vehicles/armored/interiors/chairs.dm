@@ -103,12 +103,15 @@
 	REMOVE_TRAIT(buckled_mob, TRAIT_SEE_IN_DARK, VEHICLE_TRAIT)
 	buckled_mob.update_sight()
 
+/obj/structure/bed/chair/vehicle_crew/driver/no_skill
+	skill_req = SKILL_LARGE_VEHICLE_DEFAULT
+
 /obj/structure/bed/chair/vehicle_crew/gunner
 	name = "gunner seat"
 	control_flags = VEHICLE_CONTROL_MELEE|VEHICLE_CONTROL_EQUIPMENT
 
-/obj/structure/bed/chair/vehicle_crew/gunner/get_vis_range_mod()
-	return 4
+/obj/structure/bed/chair/vehicle_crew/gunner/no_skill
+	skill_req = SKILL_LARGE_VEHICLE_DEFAULT
 
 /obj/structure/bed/chair/vehicle_crew/driver_gunner
 	name = "apc commander seat"
