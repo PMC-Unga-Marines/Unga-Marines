@@ -189,8 +189,8 @@
 	var/alerting_ghost = isrobot(patient) ? (patient.check_defib() & DEFIB_REVIVABLE_STATES) : (patient.check_defib(issynth(patient) ? 0 : DEFIBRILLATOR_HEALING_TIMES_SKILL(user.skills.getRating(SKILL_MEDICAL), defibrillator_healing)) == DEFIB_POSSIBLE)
 	if(ghost && alerting_ghost)
 		notify_ghost(ghost, assemble_alert(
-			title = "Revival Imminent!",
-			message = "Someone is trying to resuscitate your body! Stay in it if you want to be resurrected!",
+			title = "Возрождение!",
+			message = "Кто-то пытается оживить ваше тело! Оставайтесь в нём, если хотите воскреснуть!",
 			color_override = "purple"
 		), ghost_sound = 'sound/effects/gladosmarinerevive.ogg')
 		ghost.reenter_corpse()
