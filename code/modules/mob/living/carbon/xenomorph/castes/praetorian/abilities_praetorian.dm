@@ -479,7 +479,6 @@ GLOBAL_LIST_INIT(acid_spray_hit, typecacheof(list(/obj/structure/barricade, /obj
 		if(owner.issamexenohive(xenomorph_target))
 			A.balloon_alert(owner, "cannot impale ally")
 			return FALSE
-	var/mob/living/carbon/carbon_target = A
 	if(!A.Adjacent(owner))
 		A.balloon_alert(owner, "too far")
 		return FALSE
