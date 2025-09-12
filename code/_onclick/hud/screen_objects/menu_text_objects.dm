@@ -164,7 +164,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	player.try_to_observe()
 
 /atom/movable/screen/text/lobby/clickable/m_manifest
-	maptext = "<span class='lobbytext'>МАРИН МАНИФЕСТ</span>"
+	maptext = "<span class='lobbytext'>МАНИФЕСТ МОРПЕХОВ</span>"
 	icon_state = "manifest"
 
 /atom/movable/screen/text/lobby/clickable/m_manifest/Click()
