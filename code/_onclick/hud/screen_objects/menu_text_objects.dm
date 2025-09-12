@@ -134,8 +134,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	var/mob/new_player/player = hud.mymob
 	switch(SSticker?.current_state)
 		if(GAME_STATE_PLAYING)
-			maptext = "<span class='lobbytext'>РАУНД ДЛИТСЯ [gameTimestamp(format = "hh:mm")]</span>"
+			maptext = "<span class='lobbytext'>РАУНД ДЛИТСЯ [gameTimestamp(format = "hh:mm", wtime = world.time - SSticker.round_start_time)]</span>"
 			icon_state = "loading"
+			addtimer(CALLBACK(src, PROC_REF(update_text), 0.1 SECONDS))
 		if(GAME_STATE_FINISHED)
 			maptext = "<span class='lobbytext'>РАУНД ОКОНЧЕН</span>"
 			icon_state = "loading"
