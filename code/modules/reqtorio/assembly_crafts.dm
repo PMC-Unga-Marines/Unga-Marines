@@ -197,7 +197,7 @@ EXPLOSIVES
 /datum/assembly_craft/explosives/c4
 	name = "Plastic explosive"
 	input = list(/obj/item/stack/sheet/composite = 4, /obj/item/stack/gun_powder = 2) // 16 + 16 points
-	output = list(/obj/item/deployable_floodlight = 1) //30 points
+	output = list(/obj/item/c4 = 1) //30 points
 
 /datum/assembly_craft/explosives/detpack
 	name = "Detonation pack"
