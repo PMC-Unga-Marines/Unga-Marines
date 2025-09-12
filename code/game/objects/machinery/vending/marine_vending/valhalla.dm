@@ -122,7 +122,7 @@
 			/obj/item/attachable/shoulder_mount = -1,
 			/obj/item/armor_module/module/mimir_environment_protection = -1,
 			/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet = -1,
-			/obj/item/armor_module/module/binoculars/artemis_mark_two = -1,
+			/obj/item/armor_module/module/artemis/mark2 = -1,
 		),
 		"Implants" = list(
 			/obj/item/implanter/sandevistan = -1,

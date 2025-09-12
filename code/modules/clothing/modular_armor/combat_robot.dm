@@ -142,7 +142,7 @@
 		/obj/item/armor_module/module/fire_proof_helmet,
 		/obj/item/armor_module/module/hod_head,
 		/obj/item/armor_module/module/binoculars,
-		/obj/item/armor_module/module/binoculars/artemis_mark_two,
+		/obj/item/armor_module/module/artemis/mark2,
 		/obj/item/armor_module/module/artemis,
 		/obj/item/armor_module/module/antenna,
 		/obj/item/armor_module/module/night_vision,
