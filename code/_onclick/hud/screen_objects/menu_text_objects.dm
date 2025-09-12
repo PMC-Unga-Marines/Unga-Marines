@@ -173,7 +173,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	player.view_manifest()
 
 /atom/movable/screen/text/lobby/clickable/x_manifest
-	maptext = "<span class='lobbytext'>КСЕНО МАНИФЕСТ</span>"
+	maptext = "<span class='lobbytext'>МАНИФЕСТ КСЕНОМОРФОВ</span>"
 	icon_state = "manifest_xeno"
 
 /atom/movable/screen/text/lobby/clickable/x_manifest/Click()
