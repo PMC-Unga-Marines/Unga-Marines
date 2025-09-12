@@ -601,10 +601,8 @@
 	atom_flags = CONDUCT
 	item_flags = TWOHANDED
 	hitsound = 'sound/weapons/heavyhit.ogg'
-	force_wielded = 100
+	force_activated = 100
 	penetration = 0
-	force_activated = 85
-	penetration = 10
 	attack_speed = 20
 	attack_verb = list("attacks", "wallops", "smashes", "shatters", "bashes")
 
@@ -613,7 +611,7 @@
 /obj/item/weapon/twohanded/sledgehammer/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/strappable)
-	special_attack = new(src, force_wielded, penetration)
+	special_attack = new(src, force_activated, penetration)
 
 /obj/item/weapon/twohanded/sledgehammer/Destroy()
 	QDEL_NULL(special_attack)
