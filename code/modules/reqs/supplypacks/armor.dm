@@ -93,9 +93,9 @@
 /datum/supply_packs/armor/modular/attachments/artemis_mark_two
 	name = "Freyr Mk.2 visual assistance helmet system"
 	contains = list(
-		/obj/item/armor_module/module/binoculars/artemis_mark_two,
+		/obj/item/armor_module/module/artemis/mark2,
 	)
-	cost = 40
+	cost = 27
 
 /datum/supply_packs/armor/imager_goggle
 	name = "Optical imager goggles"
