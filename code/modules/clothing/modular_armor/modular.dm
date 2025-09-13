@@ -76,6 +76,7 @@
 		/obj/item/armor_module/module/eshield,
 		/obj/item/armor_module/module/mirage,
 		/obj/item/armor_module/module/armorlock,
+		/obj/item/armor_module/module/eshield/mk2,
 
 		// Storage modules
 		/obj/item/armor_module/storage/general,
