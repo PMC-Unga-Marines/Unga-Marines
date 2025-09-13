@@ -103,9 +103,20 @@
 			if(slowdown)
 				status_hud.icon_state = "slowdown"
 				return TRUE
-			else
-				status_hud.icon_state = "healthy"
-				return TRUE
+			for(var/datum/reagent/reagent AS in reagents.reagent_list)
+				if(reagent.overdosed)
+					status_hud.icon_state = "od"
+					return TRUE
+			for(var/datum/limb/limb AS in limbs)
+				if(CHECK_BITFIELD(limb.limb_status, LIMB_BROKEN) && !CHECK_BITFIELD(limb.limb_status, LIMB_STABILIZED) && !CHECK_BITFIELD(limb.limb_status, LIMB_SPLINTED))
+					status_hud.icon_state = "fracture"
+					return TRUE
+				for(var/datum/wound/wound in limb.wounds)
+					if(istype(wound, /datum/wound/internal_bleeding))
+						status_hud.icon_state = "blood"
+						return TRUE
+			status_hud.icon_state = "healthy"
+			return TRUE
 	return FALSE
 
 /mob/living/carbon/human/species/robot/set_status_hud()
