@@ -231,7 +231,6 @@
 	purge_list = list(
 		/datum/reagent/medicine/ryetalyn,
 		/datum/reagent/medicine/paracetamol,
-		/datum/reagent/medicine/ifosfamide,
 	)
 	purge_rate = 2.5
 	overdose_threshold = REAGENTS_OVERDOSE
@@ -790,7 +789,6 @@
 	purge_list = list(
 		/datum/reagent/medicine/ryetalyn,
 		/datum/reagent/medicine/paracetamol,
-		/datum/reagent/medicine/ifosfamide,
 	)
 	purge_rate = 2.5
 	overdose_threshold = REAGENTS_OVERDOSE
@@ -1399,7 +1397,6 @@
 		/datum/reagent/medicine/tricordrazine,
 		/datum/reagent/medicine/paracetamol,
 		/datum/reagent/medicine/oxycodone,
-		/datum/reagent/medicine/ifosfamide,
 	)
 
 /datum/reagent/medicalnanites/on_mob_add(mob/living/L, metabolism)
@@ -1550,73 +1547,6 @@
 			absorbtion = min(absorbtion + purge, max_absorbtion)
 
 	return ..()
-
-/datum/reagent/histamine
-	name = "Histamine"
-	description = "Histamine is an organic nitrogenous compound involved in local immune responses communication"
-	color = COLOR_REAGENT_BICARIDINE
-	custom_metabolism = 0.4
-	overdose_threshold = REAGENTS_OVERDOSE * 0.5
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
-	purge_list = list(
-		/datum/reagent/medicine/bicaridine,
-		/datum/reagent/medicine/kelotane,
-		/datum/reagent/medicine/tricordrazine,
-		/datum/reagent/medicine/paracetamol,
-	)
-	purge_rate = 5
-
-/datum/reagent/histamine/on_mob_life(mob/living/L, metabolism)
-	if(!L.reagents.get_reagent_amount(/datum/reagent/medicine/ifosfamide))
-		holder.remove_reagent(/datum/reagent/histamine, custom_metabolism * L.metabolism_efficiency)
-
-	L.apply_damage(0.5*effect_str, OXY)
-
-	purge(L)
-	current_cycle++
-	return TRUE
-
-/datum/reagent/histamine/on_mob_add(mob/living/L, metabolism)
-	to_chat(L, span_userdanger("You feel your throat tightening!"))
-
-/datum/reagent/histamine/on_mob_delete(mob/living/L, metabolism)
-	to_chat(L, span_userdanger("You feel how it becomes easier for you to breathe."))
-
-/datum/reagent/histamine/overdose_process(mob/living/L, metabolism)
-	L.apply_damages(1 * effect_str, 1 * effect_str, 1 * effect_str)
-
-/datum/reagent/histamine/overdose_crit_process(mob/living/L, metabolism)
-	L.apply_damages(0, 0, 6 * effect_str)
-
-/datum/reagent/medicine/ifosfamide
-	name = "ifosfamide"
-	description = "Ifosfamide is a cytostatic antitumor drug."
-	color = COLOR_REAGENT_BICARIDINE
-	custom_metabolism = REAGENTS_METABOLISM * 2
-	overdose_threshold = REAGENTS_OVERDOSE * 0.5
-	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
-
-/datum/reagent/medicine/ifosfamide/on_mob_life(mob/living/L, metabolism)
-
-	L.adjust_oxy_loss(-0.5 * effect_str)
-	L.adjust_tox_loss(-0.5 * effect_str)
-	L.heal_overall_damage(4 * effect_str, 4 * effect_str)
-
-	if(volume > 5)
-		L.reagent_pain_modifier -= PAIN_REDUCTION_MEDIUM
-	else
-		L.reagent_pain_modifier -= PAIN_REDUCTION_LIGHT
-
-	L.reagents.add_reagent(/datum/reagent/histamine, 0.4)
-
-	return ..()
-
-/datum/reagent/medicine/ifosfamide/overdose_process(mob/living/L, metabolism)
-	L.adjust_tox_loss(2*effect_str)
-
-/datum/reagent/medicine/ifosfamide/overdose_crit_process(mob/living/L, metabolism)
-	L.adjust_tox_loss(4*effect_str)
-
 
 /datum/reagent/medicine/regrow
 	name = "Re-grow"
