@@ -5062,9 +5062,7 @@
 /turf/open/floor/freezer,
 /area/slumbridge/inside/colony/kitchen)
 "dKE" = (
-/obj/machinery/barsign{
-	chosen_sign = /datum/barsign/thedrunkcarp
-	},
+/obj/machinery/barsign/thedrunkcarp,
 /turf/open/floor/wood,
 /area/slumbridge/inside/colony/bar)
 "dLe" = (
