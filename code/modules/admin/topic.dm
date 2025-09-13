@@ -1861,7 +1861,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 					return
 				H.mind_initialize()
 			if("rank")
-				change = input("Select a rank.", "Edit Rank") as null|anything in sortList(SSjob.name_occupations)
+				change = tgui_input_list(usr, "Select a rank.", "Edit Rank", sortList(SSjob.name_occupations))
 				if(!change || !istype(H))
 					return
 				var/datum/job/J = SSjob.GetJob(change)
@@ -1882,7 +1882,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				for(var/i in skilltypes)
 					var/datum/skills/S = i
 					skillnames[initial(S.name)] = S
-				var/newskillset = input("Select a skillset.", "Edit Rank") as null|anything in sortList(skillnames)
+				var/newskillset = tgui_input_list(usr, "Select a skillset.", "Edit Rank", sortList(skillnames))
 				if(!newskillset)
 					return
 				var/pickedtype = skillnames[newskillset]
@@ -1891,14 +1891,14 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				change = initial(S.name)
 				H.set_skills(getSkillsType(pickedtype))
 			if("commstitle")
-				change = input("Input a comms title - \[Requisitions (Title)\]", "Edit Rank") as null|text
+				change = tgui_input_text(usr, "Input a comms title - \[Requisitions (Title)\]", "Edit Rank")
 				if(!change || !istype(H) || !H.mind)
 					return
 				previous = H.comm_title
 				H.comm_title = change
 			if("chattitle")
 				var/obj/item/card/id/C = locate(href_list["id"]) in GLOB.id_card_list
-				change = input("Input a chat title - Title Jane Doe screams!", "Edit Rank") as null|text
+				change = tgui_input_text(usr, "Input a chat title - Title Jane Doe screams!", "Edit Rank")
 				if(isnull(change) || !istype(H) || !istype(C))
 					return
 				previous = C.paygrade
@@ -1906,7 +1906,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				C.update_label()
 			if("idtitle")
 				var/obj/item/card/id/C = locate(href_list["id"]) in GLOB.id_card_list
-				change = input("Input an ID title - Jane Doe (Title)", "Edit Rank") as null|text
+				change = tgui_input_text(usr, "Input an ID title - Jane Doe (Title)", "Edit Rank")
 				if(isnull(change) || !istype(H) || !istype(C))
 					return
 				previous = C.assignment
@@ -1914,7 +1914,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				C.update_label()
 			if("idname")
 				var/obj/item/card/id/C = locate(href_list["id"]) in GLOB.id_card_list
-				change = input("Input an ID name - Jane Doe (Title)", "Edit Rank") as null|text
+				change = tgui_input_text(usr, "Input an ID name - Jane Doe (Title)", "Edit Rank")
 				if(isnull(change) || !istype(H) || !istype(C))
 					return
 				previous = C.registered_name
@@ -1922,7 +1922,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				C.update_label()
 			if("access")
 				var/obj/item/card/id/C = locate(href_list["id"]) in GLOB.id_card_list
-				change = input("Choose the new access.", "Edit Rank") as null|anything in sortList(SSjob.name_occupations)
+				change = tgui_input_list(usr, "Choose the new access.", "Edit Rank", sortList(SSjob.name_occupations))
 				if(!change || !istype(H) || !istype(C))
 					return
 				var/datum/job/J = SSjob.name_occupations[change]
@@ -1934,7 +1934,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 				H.equip_to_slot_or_del(new /obj/item/card/id(H), SLOT_WEAR_ID)
 			if("squad")
 				previous = H.assigned_squad
-				change = input("Choose the marine's new squad.", "Change Squad") as null|anything in SSjob.squads
+				change = tgui_input_list(usr, "Choose the marine's new squad.", "Change Squad", SSjob.squads)
 				if(!change || !istype(H))
 					return
 				if(!ismarinejob(H.job))
