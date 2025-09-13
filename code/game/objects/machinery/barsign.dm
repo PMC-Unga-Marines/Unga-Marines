@@ -22,7 +22,7 @@
 	if(!chosen_sign)
 		var/random_sign = pick(subtypesof(/datum/barsign))
 		chosen_sign = new random_sign
-		update_appearance()
+	update_appearance()
 
 /obj/machinery/barsign/update_name()
 	. = ..()
@@ -242,3 +242,6 @@
 	icon_state = "neon-flamingo"
 	desc = "A bus for all but the flamboyantly challenged."
 	neon_color = COLOR_PINK
+
+/obj/machinery/barsign/thedrunkcarp
+	chosen_sign = new /datum/barsign/thedrunkcarp

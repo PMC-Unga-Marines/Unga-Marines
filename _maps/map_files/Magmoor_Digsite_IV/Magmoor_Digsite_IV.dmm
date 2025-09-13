@@ -32127,9 +32127,8 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/barsign{
-	dir = 1;
-	chosen_sign = /datum/barsign/thedrunkcarp
+/obj/machinery/barsign/thedrunkcarp{
+	dir = 1
 	},
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 1

@@ -6227,9 +6227,8 @@
 	desc = "Harold Carps Esq. A distant cousin of Glubs from Sorokyne Strata. Proud owner of this here fine establishment.";
 	name = "Harold"
 	},
-/obj/machinery/barsign{
-	dir = 1;
-	chosen_sign = /datum/barsign/thedrunkcarp
+/obj/machinery/barsign/thedrunkcarp{
+	dir = 1
 	},
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/kutjevo/interior/oob/dev_room)
