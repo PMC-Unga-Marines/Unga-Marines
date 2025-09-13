@@ -584,6 +584,7 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 6
 	},
+/obj/structure/prop/golden_sclupture,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/bravo)
 "aoA" = (
@@ -3230,10 +3231,11 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/starboard_umbilical)
 "bOA" = (
-/obj/structure/bed/chair,
-/turf/open/floor/mainship/orange{
-	dir = 4
+/obj/effect/turf_decal/tile/transparent/yellow/diagonal_centre,
+/obj/structure/bed/chair{
+	dir = 1
 	},
+/turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "bON" = (
 /obj/machinery/holopad,
@@ -11035,6 +11037,7 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
 	},
+/obj/machinery/vending/boozeomat/gold,
 /turf/open/floor/mainship/metal/full,
 /area/mainship/squads/bravo)
 "gyt" = (
@@ -16112,13 +16115,11 @@
 /area/mainship/squads/delta)
 "jKo" = (
 /obj/effect/turf_decal/tile/transparent/yellow/diagonal_centre,
-/obj/structure/bed/chair{
-	dir = 1
-	},
 /obj/effect/ai_node,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/table/mainship,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "jKw" = (
@@ -24835,15 +24836,8 @@
 /turf/open/floor/mainship/metal/lino,
 /area/mainship/living/cafeteria)
 "oBT" = (
-/obj/item/radio/intercom/general{
-	dir = 8;
-	pixel_y = -18
-	},
-/obj/effect/landmark/start/latejoin_squad/bravo,
-/obj/structure/sign/semiotic/intercom{
-	pixel_x = 32;
-	pixel_y = 7
-	},
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/structure/closet/marine/bravo,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/bravo)
 "oCA" = (
@@ -29939,9 +29933,6 @@
 /turf/open/floor/mainship/metal/gray,
 /area/mainship/medical/lounge)
 "rBB" = (
-/obj/structure/bed/chair{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk/dark,
@@ -30588,11 +30579,9 @@
 	},
 /area/mainship/squads/alpha)
 "rVy" = (
-/obj/structure/table/mainship,
-/obj/effect/spawner/random/food_or_drink/outdoors_snacks,
-/turf/open/floor/mainship/orange{
-	dir = 1
-	},
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/structure/closet/marine/bravo,
+/turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "rVT" = (
 /obj/machinery/door/poddoor/railing{
@@ -32000,7 +31989,8 @@
 /obj/machinery/light/mainship{
 	dir = 8
 	},
-/obj/effect/landmark/start/latejoin_squad/bravo,
+/obj/effect/turf_decal/warning_stripes/cargo,
+/obj/structure/closet/marine/bravo,
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/bravo)
 "sMG" = (
@@ -34196,12 +34186,10 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/bow_hallway)
 "ujv" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/table/mainship,
 /turf/open/floor/mainship/orange{
 	dir = 8
 	},
@@ -35327,6 +35315,9 @@
 "uTk" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/bed/chair{
+	dir = 8
 	},
 /turf/open/floor/mainship/orange{
 	dir = 4
@@ -38653,10 +38644,11 @@
 /turf/open/floor/mainship/metal,
 /area/mainship/hallways/hangar)
 "wXB" = (
-/obj/structure/table/mainship,
-/obj/effect/spawner/random/food_or_drink/outdoors_snacks,
+/obj/structure/bed/chair{
+	dir = 1
+	},
 /turf/open/floor/mainship/orange{
-	dir = 9
+	dir = 8
 	},
 /area/mainship/squads/bravo)
 "wXF" = (
@@ -38668,9 +38660,6 @@
 /turf/open/floor/mainship/orange,
 /area/mainship/hallways/port_hallway)
 "wYj" = (
-/obj/structure/bed/chair{
-	dir = 8
-	},
 /turf/open/floor/mainship/orange{
 	dir = 5
 	},
@@ -83478,7 +83467,7 @@ seB
 xhq
 xhq
 jPy
-pcn
+tlc
 aoo
 rBB
 kbV
@@ -83735,12 +83724,12 @@ sVl
 sAh
 qPD
 jPy
-pcn
+tlc
 iZV
-wXB
+eEg
 coY
 ujv
-qvu
+wXB
 qvu
 fbW
 fbW
@@ -83994,10 +83983,10 @@ eSp
 jPy
 fap
 iZV
-rVy
+oZG
 iaP
 jKo
-mIx
+bOA
 mIx
 iaP
 iaP
@@ -84005,9 +83994,9 @@ rIQ
 pnv
 dVw
 qTj
-lxj
+rVy
 sME
-gnC
+rVy
 jPy
 kqX
 wmC
@@ -84255,16 +84244,16 @@ wYj
 sWt
 uTk
 pGx
-bOA
+pGx
 oRo
 oRo
 oRo
 gQV
 sqs
 qTj
-lxj
-cTD
-gnC
+sXV
+gIr
+sXV
 jPy
 epe
 bhH
@@ -84519,9 +84508,9 @@ mbR
 fMe
 xCk
 knx
-lxj
+rVy
 oBT
-gnC
+rVy
 jPy
 epe
 bhH

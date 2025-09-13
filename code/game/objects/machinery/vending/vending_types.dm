@@ -67,6 +67,14 @@
 	)
 	idle_power_usage = 211
 
+/obj/machinery/vending/boozeomat/gold
+	name = "Golden Booze-O-Mat"
+	desc = "The beer machine with Bravo squad attributes won by the team 'SKIBIDI_LORDS_1337_BRAVO_GOYDA', it included Timur Livs, Max Bobinchik, Martin Barrett. Robust tournament took place on 11/15/2024 (2524?)"
+	icon_state = "gold-boozeomat"
+	icon_deny = "gold-boozeomat-deny"
+	icon_vend = "gold-boozeomat-vend"
+	product_slogans = "Браво вперде!!;Историю пишут победители!;Никто кроме нас!"
+
 /obj/machinery/vending/assist
 	product_ads = "Only the finest!;Have some tools.;The most robust equipment.;The finest gear in space!"
 	icon_vend = "generic-vend"
