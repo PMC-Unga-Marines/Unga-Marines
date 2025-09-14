@@ -11,3 +11,7 @@
 /datum/xenomorph_skin/drone/cyborg
 	name = "Cyborg"
 	icon = 'icons/Xeno/castes/drone/cyborg.dmi'
+
+/datum/xenomorph_skin/drone/hornet
+	name = "Hornet"
+	icon = 'icons/Xeno/castes/drone/hornet.dmi'
