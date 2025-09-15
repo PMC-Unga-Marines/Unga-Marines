@@ -157,12 +157,6 @@
 						B.linked_beacon.remove_stretcher(src, null, TRUE)
 				qdel(src)
 
-/obj/structure/bed/ex_act(severity)
-	if(prob(severity * 0.25))
-		if(severity <= EXPLODE_HEAVY && buildstacktype && dropmetal)
-			new buildstacktype (loc, buildstackamount)
-		qdel(src)
-
 /obj/structure/bed/wrench_act(mob/living/user, obj/item/I)
 	if(!buildstacktype)
 		return
