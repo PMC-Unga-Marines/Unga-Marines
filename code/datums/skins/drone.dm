@@ -15,3 +15,4 @@
 /datum/xenomorph_skin/drone/hornet
 	name = "Hornet"
 	icon = 'icons/Xeno/castes/drone/hornet.dmi'
+	effects_icon = 'icons/Xeno/castes/drone/hornet_effects.dmi'
