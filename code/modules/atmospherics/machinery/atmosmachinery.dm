@@ -336,4 +336,7 @@
 	user.sight |= (SEE_TURFS|BLIND)
 
 /obj/machinery/atmospherics/proc/update_layer()
-	layer = initial(layer) + (piping_layer - PIPING_LAYER_DEFAULT) * PIPING_LAYER_LCHANGE
+	layer = initial(layer) + get_pipe_layer_offset()
+
+/obj/machinery/atmospherics/proc/get_pipe_layer_offset()
+	return (piping_layer - PIPING_LAYER_DEFAULT) * PIPING_LAYER_LCHANGE

@@ -7,12 +7,9 @@
 	buckle_lying = -1
 	var/datum/pipeline/parent = null
 
-/obj/machinery/atmospherics/pipe/New()
-	. = ..()
-	add_atom_colour(pipe_color, FIXED_COLOR_PRIORITY)
-
 /obj/machinery/atmospherics/pipe/Initialize(mapload)
 	. = ..()
+	add_atom_colour(pipe_color, FIXED_COLOR_PRIORITY)
 	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
 
 /obj/machinery/atmospherics/pipe/nullifyNode(i)
@@ -59,9 +56,10 @@
 
 	var/turf/T = loc
 	for(var/obj/machinery/meter/meter in T)
-		if(meter.target == src)
-			new /obj/item/pipe_meter (T)
-			qdel(meter)
+		if(meter.target != src)
+			continue
+		new /obj/item/pipe_meter (T)
+		qdel(meter)
 	return ..()
 
 /obj/machinery/atmospherics/pipe/update_icon()
@@ -73,9 +71,10 @@
 
 /obj/machinery/atmospherics/pipe/proc/update_node_icon()
 	for(var/i in 1 to device_type)
-		if(nodes[i])
-			var/obj/machinery/atmospherics/N = nodes[i]
-			N.update_icon()
+		if(!nodes[i])
+			continue
+		var/obj/machinery/atmospherics/N = nodes[i]
+		N.update_icon()
 
 /obj/machinery/atmospherics/pipe/returnPipenets()
 	. = list(parent)

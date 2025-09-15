@@ -36,13 +36,13 @@
 
 	var/connected = 0 //Direction bitset
 
-	if(nodes)
-		for(var/i in 1 to device_type) //adds intact pieces
-			if(nodes[i])
-				var/obj/machinery/atmospherics/node = nodes[i]
-				var/image/img = get_pipe_underlay("pipe_intact", get_dir(src, node), node.pipe_color)
-				underlays += img
-				connected |= img.dir
+	for(var/i in 1 to device_type) //adds intact pieces
+		if(!nodes[i])
+			continue
+		var/obj/machinery/atmospherics/node = nodes[i]
+		var/image/img = get_pipe_underlay("pipe_intact", get_dir(src, node), node.pipe_color)
+		underlays += img
+		connected |= img.dir
 
 	for(var/direction in GLOB.cardinals)
 		if((initialize_directions & direction) && !(connected & direction))
@@ -53,7 +53,11 @@
 	return ..()
 
 /obj/machinery/atmospherics/components/update_layer()
-	layer = (showpipe ? initial(layer) : GLASS_FLOOR_LAYER) + (piping_layer - PIPING_LAYER_DEFAULT) * PIPING_LAYER_LCHANGE
+	if(showpipe)
+		layer = initial(layer)
+	else
+		layer = GLASS_FLOOR_LAYER
+	layer += get_pipe_layer_offset()
 
 /obj/machinery/atmospherics/components/proc/get_pipe_underlay(state, dir, color = null)
 	if(color)
@@ -66,18 +70,19 @@
 /obj/machinery/atmospherics/components/nullifyNode(i)
 	if(parents[i])
 		nullifyPipenet(parents[i])
-	..()
+	return ..()
 
 /obj/machinery/atmospherics/components/on_construction()
-	..()
+	. = ..()
 	update_parents()
 
 /obj/machinery/atmospherics/components/build_network()
 	for(var/i in 1 to device_type)
-		if(!parents[i])
-			parents[i] = new /datum/pipeline()
-			var/datum/pipeline/P = parents[i]
-			P.build_pipeline(src)
+		if(parents[i])
+			continue
+		parents[i] = new /datum/pipeline()
+		var/datum/pipeline/P = parents[i]
+		P.build_pipeline(src)
 
 /obj/machinery/atmospherics/components/proc/nullifyPipenet(datum/pipeline/reference)
 	if(!reference)
