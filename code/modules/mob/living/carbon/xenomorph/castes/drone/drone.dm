@@ -11,7 +11,7 @@
 		/datum/xenomorph_skin/drone/king,
 		/datum/xenomorph_skin/drone/cyborg,
 		/datum/xenomorph_skin/drone/hornet,
-		/datum/xenomorph_skin/drone
+		/datum/xenomorph_skin/drone,
 	)
 	health = 120
 	maxHealth = 120
