@@ -186,9 +186,7 @@
 /datum/preferences/ui_static_data(mob/user)
 	. = list()
 	switch(tab_index)
-		if(CHARACTER_CUSTOMIZATION)
-			.["mapRef"] = "player_pref_map"
-		if(PRED_CHARACTER_CUSTOMIZATION)
+		if(CHARACTER_CUSTOMIZATION, PRED_CHARACTER_CUSTOMIZATION)
 			.["mapRef"] = "player_pref_map"
 		if(GEAR_CUSTOMIZATION)
 			.["clothing"] = list(

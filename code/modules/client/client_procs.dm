@@ -531,15 +531,15 @@
 /// Show the dummy in 4 dirs for preferences
 /client/proc/show_character_previews(mutable_appearance/MA, list/dir_list = GLOB.cardinals)
 	var/pos = 0
-	for(var/D in dir_list)
+	for(var/direction in dir_list)
 		pos++
-		var/atom/movable/screen/O = LAZYACCESS(char_render_holders, "[D]")
+		var/atom/movable/screen/O = LAZYACCESS(char_render_holders, "[direction]")
 		if(!O)
 			O = new
-			LAZYSET(char_render_holders, "[D]", O)
+			LAZYSET(char_render_holders, "[direction]", O)
 			screen |= O
 		O.appearance = MA
-		O.dir = D
+		O.dir = direction
 		O.screen_loc = "player_pref_map:[pos],1"
 
 /client/proc/clear_character_previews()
