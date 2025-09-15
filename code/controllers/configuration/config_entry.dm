@@ -26,11 +26,11 @@
 	if(type == abstract_type)
 		CRASH("Abstract config entry [type] instatiated!")
 	name = lowertext(type2top(type))
-	if(islist(default))
-		var/list/L = default
-		config_entry_value = L.Copy()
+	if(islist(config_entry_value))
+		var/list/L = config_entry_value
+		default = L.Copy()
 	else
-		config_entry_value = default
+		default = config_entry_value
 
 /datum/config_entry/Destroy()
 	config.RemoveEntry(src)
