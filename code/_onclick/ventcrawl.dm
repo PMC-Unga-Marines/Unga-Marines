@@ -118,7 +118,7 @@
 	// We're gonna color the lighting plane to make it darker while ventcrawling, so things look nicer
 	var/atom/movable/screen/plane_master/lighting
 	if(hud_used)
-		lighting = hud_used?.plane_masters["[LIGHTING_PLANE]"]
+		lighting = hud_used?.plane_master_controllers["[LIGHTING_PLANE]"]
 
 	// Take away all the pipe images if we're not doing anything with em
 	if(isnull(client) || !is_ventcrawling || !istype(loc, /obj/machinery/atmospherics))

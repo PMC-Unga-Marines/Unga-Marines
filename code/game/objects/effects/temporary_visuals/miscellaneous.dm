@@ -231,7 +231,7 @@ GLOBAL_LIST_EMPTY(blood_particles)
 	name = "blink portal"
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "anom"
-	layer = ABOVE_LYING_MOB_LAYER
+	layer = MOB_BELOW_PIGGYBACK_LAYER
 	duration = 0.5 SECONDS
 
 /obj/effect/temp_visual/acid_splatter

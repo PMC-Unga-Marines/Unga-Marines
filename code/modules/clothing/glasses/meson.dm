@@ -50,8 +50,7 @@
 	worn_icon_list = list(
 		slot_glasses_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
-	darkness_view = 12
-	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_HIGH
 	actions_types = null
 
 /obj/item/clothing/glasses/meson/yautja/Initialize()

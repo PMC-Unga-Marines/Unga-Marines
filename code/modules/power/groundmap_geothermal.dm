@@ -258,7 +258,7 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 		user.visible_message(span_notice("[user] carefully starts burning [src]'s resin off."),
 		span_notice("You carefully start burning [src]'s resin off."))
 
-		if(!I.use_tool(src, user, 20 SECONDS - (user.skills.getRating(SKILL_ENGINEER) * 3 SECONDS), 0, 20), 2, 25, null, BUSY_ICON_BUILD))
+		if(!I.use_tool(src, user, 20 SECONDS - (user.skills.getRating(SKILL_ENGINEER) * 3 SECONDS), 2, 25, null, BUSY_ICON_BUILD))
 			return FALSE
 
 		user.visible_message(span_notice("[user] burns [src]'s resin off."),
@@ -285,7 +285,6 @@ GLOBAL_VAR_INIT(generators_on_ground, 0)
 	if(!I.use_tool(src, user, 20 SECONDS - (user.skills.getRating(SKILL_ENGINEER) * 3 SECONDS), 2, 25, null, BUSY_ICON_BUILD))
 		return FALSE
 
-	buildstate = GENERATOR_MEDIUM_DAMAGE
 	user.visible_message(span_notice("[user] welds [src]'s internal damage."),
 	span_notice("You weld [src]'s internal damage."))
 	update_icon()

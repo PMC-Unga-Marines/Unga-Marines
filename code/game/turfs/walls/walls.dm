@@ -344,7 +344,7 @@
 
 		user.visible_message(span_notice("[user] starts repairing the damage to [src]."),
 		span_notice("You start repairing the damage to [src]."))
-		if(!WT.use_tool(src, user, 5 SECONDS, 1, 25, null, BUSY_ICON_FRIENDLY)|| !iswallturf(src))
+		if(!WT.use_tool(src, user, 5 SECONDS, 1, 25, null, BUSY_ICON_FRIENDLY) || !iswallturf(src))
 			return
 
 		user.visible_message(span_notice("[user] finishes repairing the damage to [src]."),
@@ -357,7 +357,7 @@
 		if(0)
 			user.visible_message(span_notice("[user] begins slicing through the outer plating."),
 			span_notice("You begin slicing through the outer plating."))
-				if(!WT.use_tool(src, user, 6 SECONDS, 1, 25, null, BUSY_ICON_BUILD))
+			if(!WT.use_tool(src, user, 6 SECONDS, 1, 25, null, BUSY_ICON_BUILD))
 				return
 			if(!iswallturf(src) || !WT?.isOn())
 				return
@@ -368,7 +368,7 @@
 		if(2)
 			user.visible_message(span_notice("[user] begins slicing through the metal cover."),
 			span_notice("You begin slicing through the metal cover."))
-				if(!WT.use_tool(src, user, 6 SECONDS, 1, 25, null, BUSY_ICON_BUILD))
+			if(!WT.use_tool(src, user, 6 SECONDS, 1, 25, null, BUSY_ICON_BUILD))
 				return
 			if(!iswallturf(src) || !WT?.isOn())
 				return
@@ -378,7 +378,7 @@
 		if(7)
 			user.visible_message(span_notice("[user] begins slicing through the final layer."),
 			span_notice("You begin slicing through the final layer."))
-				if(!WT.use_tool(src, user, 6 SECONDS, 1, 25, null, BUSY_ICON_BUILD))
+			if(!WT.use_tool(src, user, 6 SECONDS, 1, 25, null, BUSY_ICON_BUILD))
 				return
 			if(!iswallturf(src) || !WT?.isOn())
 				return

@@ -1,3 +1,6 @@
+#define UNUSED_RESERVATION_TURF (1<<0)
+#define RESERVATION_TURF (1<<1)
+
 #define CHANGETURF_DEFER_CHANGE (1<<0)
 #define CHANGETURF_IGNORE_AIR (1<<1) // This flag prevents changeturf from gathering air from nearby turfs to fill the new turf with an approximation of local air
 #define CHANGETURF_FORCEOP (1<<2)

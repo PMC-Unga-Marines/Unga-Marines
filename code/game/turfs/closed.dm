@@ -29,7 +29,7 @@
 	name = "world border"
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "pclosed"
-	layer = ABOVE_TURF_LAYER
+	layer = ABOVE_TREE_LAYER
 	baseturfs = /turf/closed/cordon
 
 /// Used as placeholder turf when something went really wrong, as per /tg/ string lists handler

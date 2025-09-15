@@ -74,7 +74,7 @@
 	for(var/i in engines)
 		var/obj/structure/caspart/internalengine/engine = i
 		engine.cut_overlays()
-		var/image/engine_overlay = image('icons/turf/cas.dmi', engine.loc, "engine_on", ABOVE_MOB_LAYER, pixel_x = engine.x_offset)
+		var/image/engine_overlay = image('icons/obj/structures/cas/engines.dmi', engine.loc, "engine_on", ABOVE_MOB_LAYER, pixel_x = engine.x_offset)
 		engine.add_overlay(engine_overlay)
 
 /obj/docking_port/mobile/marine_dropship/casplane/on_prearrival()
@@ -85,13 +85,13 @@
 	for(var/i in engines)
 		var/obj/structure/caspart/internalengine/engine = i
 		engine.cut_overlays()
-		var/image/engine_overlay = image('icons/turf/cas.dmi', engine.loc, "engine_idle", ABOVE_MOB_LAYER, pixel_x = engine.x_offset)
+		var/image/engine_overlay = image('icons/obj/structures/cas/engines.dmi', engine.loc, "engine_idle", ABOVE_MOB_LAYER, pixel_x = engine.x_offset)
 		engine.add_overlay(engine_overlay)
 
 ///Updates state and overlay to make te engines on
 /obj/docking_port/mobile/marine_dropship/casplane/proc/turn_on_engines()
 	for(var/obj/structure/caspart/internalengine/engine AS in engines)
-		var/image/engine_overlay = image('icons/turf/cas.dmi', engine.loc, "engine_idle", ABOVE_MOB_LAYER, pixel_x = engine.x_offset)
+		var/image/engine_overlay = image('icons/obj/structures/cas/engines.dmi', engine.loc, "engine_idle", ABOVE_MOB_LAYER, pixel_x = engine.x_offset)
 		engine.add_overlay(engine_overlay)
 	engines_on = TRUE
 	update_state()

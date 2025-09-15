@@ -2124,7 +2124,7 @@
 	desc = "A water filter specifically designed to separate micro-organisms, such as viruses and bacteria, from water."
 	icon = 'icons/obj/structures/pipe_multiple.dmi'
 	icon_state = "solo_tank_water"
-	layer = ABOVE_FLY_LAYER
+	layer = ABOVE_TREE_LAYER
 	density = TRUE
 
 /obj/machinery/filtration_pipes/Initialize(mapload)
@@ -2151,7 +2151,7 @@
 
 /obj/machinery/filtration_pipes/multiple/update_overlays()
 	. = ..()
-	. += image(icon, src, "disinfectiontop", layer = ABOVE_FLY_LAYER, pixel_y = 63)
+	. += image(icon, src, "disinfectiontop", layer = ABOVE_TREE_LAYER, pixel_y = 63)
 
 /obj/structure/prop/mainship/errorprop
 	name = "ERROR"

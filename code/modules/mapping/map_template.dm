@@ -156,7 +156,7 @@
 	if(!bounds)
 		return
 
-	repopulate_sorted_areas()
+	require_area_resort()
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds)
 

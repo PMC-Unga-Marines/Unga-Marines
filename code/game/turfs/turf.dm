@@ -748,22 +748,6 @@
 	// Thus, no more balloon alerts for turfs.
 	return
 
-/// Call to move a turf from its current area to a new one
-/turf/proc/change_area(area/old_area, area/new_area)
-	//dont waste our time
-	if(old_area == new_area)
-		return
-
-	//move the turf
-	new_area.contents += src
-
-	//changes to make after turf has moved
-	on_change_area(old_area, new_area)
-
-/// Allows for reactions to an area change without inherently requiring change_area() be called (I hate maploading)
-/turf/proc/on_change_area(area/old_area, area/new_area)
-	transfer_area_lighting(old_area, new_area)
-
 ///cleans any cleanable decals from the turf
 /turf/wash()
 	. = ..()

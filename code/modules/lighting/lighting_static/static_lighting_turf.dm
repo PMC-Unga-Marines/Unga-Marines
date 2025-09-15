@@ -29,7 +29,12 @@
 
 	return !(luminosity || dynamic_lumcount)
 
+/// Call to move a turf from its current area to a new one
 /turf/proc/change_area(area/old_area, area/new_area)
+	//dont waste our time
+	if(old_area == new_area)
+		return
+
 	LISTASSERTLEN(old_area.turfs_to_uncontain_by_zlevel, z, list())
 	LISTASSERTLEN(new_area.turfs_by_zlevel, z, list())
 	old_area.turfs_to_uncontain_by_zlevel[z] += src

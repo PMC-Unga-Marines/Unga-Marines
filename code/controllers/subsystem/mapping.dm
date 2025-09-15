@@ -59,12 +59,7 @@ SUBSYSTEM_DEF(mapping)
 	var/list/datum/space_level/z_list
 	var/datum/space_level/transit
 	var/num_of_res_levels = 1
-	/// True when in the process of adding a new Z-level, global locking
-	var/adding_new_zlevel = FALSE
-
-	/// List of lists of turfs to reserve
-	var/list/lists_to_reserve = list()
-
+	
 	/// True when in the process of adding a new Z-level, global locking
 	var/adding_new_zlevel = FALSE
 	/// list of traits and their associated z leves

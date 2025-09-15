@@ -372,9 +372,8 @@
 	name = "spatial agent's sunglasses"
 	desc = "Glasses worn by a spatial agent."
 	eye_protection = 2
-	darkness_view = 8
 	vision_flags = SEE_TURFS|SEE_MOBS|SEE_OBJS
-	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
 
 /obj/item/clothing/glasses/sunglasses/sa/Initialize(mapload)
 	. = ..()
