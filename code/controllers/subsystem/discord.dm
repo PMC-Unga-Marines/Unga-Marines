@@ -102,9 +102,11 @@ SUBSYSTEM_DEF(discord)
 	return num_only.Replace(input, "")
 
 /datum/controller/subsystem/discord/proc/get_boosty_tier(ckey, silent = TRUE)
+	#ifdef TESTING
 	if(!silent)
 		to_chat(src, span_warning("Test mod gave you tier 3 boost"))
 	return BOOSTY_TIER_3
+	#endif
 
 	// Safety checks
 	if(!CONFIG_GET(flag/sql_enabled))
