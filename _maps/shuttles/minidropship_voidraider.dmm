@@ -10,46 +10,10 @@
 /obj/machinery/light/floor{
 	dir = 8
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8
-	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "ac" = (
 /turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"ad" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8;
-	layer = 3
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"ae" = (
-/obj/machinery/door/poddoor/shutters/transit/nonsmoothing{
-	dir = 2
-	},
-/obj/machinery/door/poddoor/mainship/open{
-	id = "minidropship_podlock";
-	dir = 2
-	},
-/obj/machinery/door_control{
-	id = "minidropship_podlock";
-	name = "inner door-control";
-	dir = 8
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"af" = (
-/obj/structure/closet/walllocker/hydrant/extinguisher{
-	dir = 8
-	},
-/turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "ag" = (
 /obj/effect/turf_decal/warning_stripes/thick{
@@ -58,14 +22,6 @@
 	},
 /obj/structure/closet/walllocker/hydrant/extinguisher{
 	dir = 1
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 4
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
@@ -89,12 +45,6 @@
 "ak" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 4
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"al" = (
-/obj/machinery/vending/nanomed/tadpolemed{
-	dir = 8
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
@@ -127,31 +77,10 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
-"aq" = (
-/obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
-/obj/structure/dropship_piece/tadpole/engine{
-	dir = 1;
-	pixel_x = 23
-	},
-/turf/open/floor/mainship/floor,
-/area/shuttle/minidropship)
-"ar" = (
-/obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
-/turf/open/floor/mainship/floor,
-/area/shuttle/minidropship)
 "as" = (
 /obj/structure/window/reinforced/west,
 /obj/machinery/cic_maptable,
 /turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"at" = (
-/obj/structure/closet/walllocker/hydrant/extinguisher{
-	dir = 4
-	},
-/obj/effect/turf_decal/warning_stripes/thick/corner{
-	dir = 4
-	},
-/turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "au" = (
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
@@ -159,12 +88,6 @@
 	id = "minidropship_podlock"
 	},
 /turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"av" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
 "aw" = (
 /obj/effect/attach_point/weapon/minidropship{
@@ -175,28 +98,6 @@
 	pixel_y = 32
 	},
 /turf/closed/wall/mainship/outer/canterbury,
-/area/shuttle/minidropship)
-"ax" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8;
-	layer = 3
-	},
-/obj/machinery/light,
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
-"ay" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
-"az" = (
-/obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
-/obj/structure/dropship_piece/tadpole/tadpole_nose{
-	dir = 1;
-	pixel_y = 32
-	},
-/turf/open/floor/mainship/floor,
 /area/shuttle/minidropship)
 "aA" = (
 /obj/structure/dropship_piece/tadpole/engine{
@@ -215,34 +116,8 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
-"aD" = (
-/obj/docking_port/mobile/marine_dropship/minidropship,
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 4;
-	layer = 3
-	},
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
-"aE" = (
-/obj/structure/window/reinforced/west,
-/obj/structure/window/reinforced,
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
 "aF" = (
 /obj/machinery/holopad,
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"aG" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship,
-/obj/machinery/camera/autoname/mainship/dropship_two,
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/machinery/door_control{
-	id = "minidropship_podlock";
-	name = "inner door-control";
-	dir = 4
-	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "aH" = (
@@ -251,20 +126,6 @@
 	},
 /obj/machinery/door/window{
 	dir = 2
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"aI" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 4;
-	layer = 3
-	},
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
-"aJ" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 1;
-	layer = 3
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
@@ -291,12 +152,6 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
-"aO" = (
-/obj/effect/turf_decal/warning_stripes/thick/corner{
-	dir = 8
-	},
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
 "aP" = (
 /obj/machinery/door/poddoor/mainship/open{
 	id = "minidropship_podlock"
@@ -307,35 +162,6 @@
 "aQ" = (
 /turf/template_noop,
 /area/template_noop)
-"aR" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8
-	},
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
-"aS" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 4;
-	layer = 3
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"aT" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8;
-	layer = 3
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8
-	},
-/obj/machinery/light,
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
 "aU" = (
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing{
 	dir = 2
@@ -359,15 +185,9 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
-"aX" = (
-/turf/open/space/basic,
-/area/space)
 "aY" = (
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
-"aZ" = (
-/turf/template_noop,
-/area/space)
 "bJ" = (
 /obj/structure/dropship_piece/tadpole/tadpole_nose{
 	dir = 1;
@@ -391,14 +211,6 @@
 	layer = 3
 	},
 /obj/machinery/light/floor,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 1
-	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "rN" = (
@@ -408,48 +220,6 @@
 	id = "minidropship_podlock";
 	name = "inner door-control";
 	dir = 8
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship,
-/obj/machinery/camera/autoname/mainship/dropship_two,
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/machinery/door_control{
-	dir = 4;
-	id = "minidropship_podlock";
-	name = "inner door-control"
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"tT" = (
-/obj/machinery/door/poddoor/shutters/transit/nonsmoothing{
-	dir = 2
-	},
-/obj/machinery/door/poddoor/mainship/open{
-	id = "minidropship_podlock";
-	dir = 2
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/machinery/door/poddoor/shutters/transit/nonsmoothing{
-	dir = 2
-	},
-/obj/machinery/door/poddoor/mainship/open{
-	dir = 2;
-	id = "minidropship_podlock"
-	},
-/obj/machinery/door_control{
-	dir = 8;
-	id = "minidropship_podlock";
-	name = "inner door-control"
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
@@ -492,7 +262,7 @@ aY
 aW
 aN
 ab
-aT
+aN
 aa
 aa
 "}
@@ -508,7 +278,7 @@ aa
 ao
 "}
 (4,1,1) = {"
-tT
+aU
 aK
 aY
 Kp

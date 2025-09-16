@@ -2255,19 +2255,6 @@
 "pU" = (
 /turf/open/floor/mainship/sterile,
 /area/oscar_outpost/base)
-"pX" = (
-/obj/item/ammo_magazine/heavy_isg/he,
-/obj/item/ammo_magazine/heavy_isg/he,
-/obj/item/ammo_magazine/heavy_isg/he,
-/obj/item/ammo_magazine/heavy_isg/he,
-/obj/item/ammo_magazine/heavy_isg/he,
-/obj/structure/barricade/sandbags{
-	dir = 8;
-	name = "trench lining";
-	pixel_y = 1
-	},
-/turf/open/floor/plating/ground/dirt2,
-/area/oscar_outpost/outside/underground)
 "pY" = (
 /obj/structure/barricade/sandbags{
 	dir = 1;
@@ -4485,25 +4472,11 @@
 /turf/open/floor/tile/dark,
 /area/oscar_outpost)
 "Dc" = (
-/obj/structure/table/wood/gambling{
-	layer = 3.1
-	},
 /obj/item/spacecash/bundle/c100{
 	layer = 3.3;
 	pixel_y = 6
 	},
-/obj/item/weapon/gun/revolver/cmb{
-	layer = 3.4
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/table/wood/gambling,
-/obj/item/spacecash/c100{
-	pixel_y = 6
-	},
 /obj/item/weapon/gun/revolver/cmb,
 /turf/open/floor/wood,
 /area/oscar_outpost/village)
@@ -5722,9 +5695,6 @@
 /turf/open/floor,
 /area/oscar_outpost/village)
 "Ir" = (
-/obj/item/weapon/gun/heavy_isg{
-	dir = 4
-	},
 /turf/open/floor/plating/ground/dirt2,
 /area/oscar_outpost/outside/underground)
 "Is" = (
@@ -5818,9 +5788,6 @@
 /area/oscar_outpost/village/fairgrounds)
 "Iv" = (
 /obj/structure/rack,
-/obj/item/big_ammo_box/ap,
-/obj/item/big_ammo_box/ap,
-/obj/item/big_ammo_box/ap,
 /obj/effect/ai_node,
 /turf/open/floor/prison,
 /area/oscar_outpost/base)
@@ -7866,13 +7833,6 @@
 /obj/machinery/vending/coffee,
 /turf/open/floor/tile/dark,
 /area/oscar_outpost)
-"RD" = (
-/obj/structure/rack,
-/obj/item/big_ammo_box/smg,
-/obj/item/big_ammo_box/smg,
-/obj/item/big_ammo_box/smg,
-/turf/open/floor/prison,
-/area/oscar_outpost/base)
 "RE" = (
 /obj/structure/table/wood/rustic,
 /obj/effect/spawner/random/weaponry/ammo/rifle{
@@ -8852,11 +8812,6 @@
 /turf/open/floor/mainship/sterile,
 /area/oscar_outpost/base)
 "Wc" = (
-/obj/item/ammo_magazine/heavy_isg/he,
-/obj/item/ammo_magazine/heavy_isg/he,
-/obj/item/ammo_magazine/heavy_isg/he,
-/obj/item/ammo_magazine/heavy_isg/he,
-/obj/item/ammo_magazine/heavy_isg/he,
 /obj/structure/barricade/sandbags{
 	dir = 8;
 	name = "trench lining";
@@ -22548,7 +22503,7 @@ Tx
 yh
 uq
 XW
-RD
+Gl
 AU
 xl
 Mv
@@ -24566,7 +24521,7 @@ WZ
 WZ
 WZ
 pY
-pX
+wI
 wI
 Rk
 rz

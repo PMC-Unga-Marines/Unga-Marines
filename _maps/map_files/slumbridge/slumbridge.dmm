@@ -2058,7 +2058,7 @@
 "bBL" = (
 /obj/machinery/power/geothermal/bigred,
 /obj/structure/cable,
-/turf/open/floor/plating/catwalk,
+/turf/open/floor/plating,
 /area/slumbridge/inside/engi/engine)
 "bBO" = (
 /obj/structure/cable,
@@ -15095,18 +15095,6 @@
 /obj/effect/spawner/gibspawner/human,
 /turf/open/floor/plating/plating_catwalk,
 /area/slumbridge/caves/mining/dropship)
-"ljc" = (
-/obj/effect/landmark/corpsespawner/engineer/regular,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/landmark/corpsespawner/engineer/regular,
-/obj/machinery/floor_warn_light/toggleable/generator,
-/obj/structure/catwalk,
-/turf/open/floor/plating,
-/area/slumbridge/inside/engi/engine)
 "ljg" = (
 /obj/structure/prop/mainship/holobarrier/passthrough,
 /turf/open/floor/plating/fake_space,
@@ -19262,18 +19250,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/slumbridge/inside/colony/northerndome)
-"odF" = (
-/obj/structure/cable,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/cable,
-/obj/machinery/floor_warn_light/toggleable/generator,
-/obj/structure/catwalk,
-/turf/open/floor/plating,
-/area/slumbridge/inside/engi/engine)
 "odI" = (
 /obj/item/stack/rods,
 /turf/open/floor/plating/dmg3,
@@ -31671,10 +31647,8 @@
 "xfF" = (
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
-/obj/machinery/floor_warn_light/toggleable/generator,
 /obj/structure/catwalk,
 /turf/open/floor/plating,
 /area/slumbridge/inside/engi/engine)
@@ -32809,9 +32783,6 @@
 /obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/slumbridge/inside/colony/northerndome)
-"xXL" = (
-/turf/open/floor/plating/catwalk,
-/area/slumbridge/inside/engi/engine)
 "xXZ" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -50824,16 +50795,16 @@ dHe
 dHe
 xHJ
 xyA
-odF
+iRH
 xHJ
 iRH
 vNM
 iRH
-xfF
+vNM
 iRH
 vNM
 iRH
-xfF
+vNM
 vNM
 vNM
 vNM
@@ -51010,7 +50981,7 @@ emD
 bBL
 jwL
 bBL
-xXL
+jwL
 bBL
 jwL
 bBL
@@ -51191,7 +51162,7 @@ vyr
 bBL
 jwL
 bBL
-xXL
+jwL
 bBL
 jwL
 bBL
@@ -51372,7 +51343,7 @@ hdl
 bBL
 jwL
 bBL
-xXL
+jwL
 bBL
 jwL
 bBL
@@ -51557,7 +51528,7 @@ xfF
 iLp
 vNM
 vNM
-ljc
+uez
 iLp
 vNM
 vNM
