@@ -6,7 +6,7 @@
 	device_type = BINARY
 	layer = GAS_PUMP_LAYER
 
-/obj/machinery/atmospherics/components/binary/SetInitDirections()
+/obj/machinery/atmospherics/components/binary/set_init_directions()
 	switch(dir)
 		if(NORTH, SOUTH)
 			initialize_directions = NORTH|SOUTH
@@ -17,5 +17,5 @@
 	update_icon()
 	..()
 
-/obj/machinery/atmospherics/components/binary/getNodeConnects()
+/obj/machinery/atmospherics/components/binary/get_node_connects()
 	return list(REVERSE_DIR(dir), dir)

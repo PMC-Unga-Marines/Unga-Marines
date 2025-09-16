@@ -129,6 +129,8 @@
 #define CURRENTLY_TYPING_TRAIT "currently_typing"
 /// Makes you way too tall. Like just too much, dude, it's kind of creepy. Humanoid only.
 #define TRAIT_TOO_TALL "too_tall"
+#define TRAIT_MOVE_VENTCRAWLING "move_ventcrawling"
+#define VENTCRAWLING_TRAIT "ventcrawling_trait"
 
 #define ABSTRACT_ITEM_TRAIT "abstract_item"
 /// A trait given by any status effect

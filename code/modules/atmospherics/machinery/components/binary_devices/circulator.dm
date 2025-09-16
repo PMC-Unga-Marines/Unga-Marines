@@ -52,28 +52,28 @@
 		nullifyPipenet(parents[2])
 
 	if(anchored)
-		SetInitDirections()
-		atmosinit()
+		set_init_directions()
+		atmos_init()
 		node1 = nodes[1]
 		if(node1)
-			node1.atmosinit()
+			node1.atmos_init()
 			node1.addMember(src)
 		node2 = nodes[2]
 		if(node2)
-			node2.atmosinit()
+			node2.atmos_init()
 			node2.addMember(src)
 		build_network()
 
 	return TRUE
 
-/obj/machinery/atmospherics/components/binary/circulator/SetInitDirections()
+/obj/machinery/atmospherics/components/binary/circulator/set_init_directions()
 	switch(dir)
 		if(NORTH, SOUTH)
 			initialize_directions = EAST|WEST
 		if(EAST, WEST)
 			initialize_directions = NORTH|SOUTH
 
-/obj/machinery/atmospherics/components/binary/circulator/getNodeConnects()
+/obj/machinery/atmospherics/components/binary/circulator/get_node_connects()
 	if(flipped)
 		return list(turn(dir, 270), turn(dir, 90))
 	return list(turn(dir, 90), turn(dir, 270))
@@ -96,7 +96,7 @@
 	to_chat(user, span_notice("You [CHECK_BITFIELD(machine_stat, PANEL_OPEN)?"open":"close"] the panel on [src]."))
 	return TRUE
 
-/obj/machinery/atmospherics/components/binary/circulator/setPipingLayer(new_layer)
+/obj/machinery/atmospherics/components/binary/circulator/set_piping_layer(new_layer)
 	..()
 	pixel_x = 0
 	pixel_y = 0

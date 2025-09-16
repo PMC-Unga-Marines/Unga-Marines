@@ -17,7 +17,7 @@ Passive gate is similar to the regular pump except:
 	cut_overlays()
 	icon_state = "passgate_off"
 	if(on)
-		add_overlay(getpipeimage(icon, "passgate_on"))
+		add_overlay(get_pipe_image(icon, "passgate_on"))
 
 /obj/machinery/atmospherics/components/binary/passive_gate/can_unwrench(mob/user)
 	. = ..()

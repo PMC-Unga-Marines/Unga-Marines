@@ -61,13 +61,13 @@
 
 /obj/machinery/atmospherics/components/proc/get_pipe_underlay(state, dir, color = null)
 	if(color)
-		. = getpipeimage('icons/obj/atmospherics/components/binary_devices.dmi', state, dir, color, piping_layer = shift_underlay_only ? piping_layer : 2)
+		. = get_pipe_image('icons/obj/atmospherics/components/binary_devices.dmi', state, dir, color, piping_layer = shift_underlay_only ? piping_layer : 2)
 	else
-		. = getpipeimage('icons/obj/atmospherics/components/binary_devices.dmi', state, dir, piping_layer = shift_underlay_only ? piping_layer : 2)
+		. = get_pipe_image('icons/obj/atmospherics/components/binary_devices.dmi', state, dir, piping_layer = shift_underlay_only ? piping_layer : 2)
 
 // Pipenet stuff; housekeeping
 
-/obj/machinery/atmospherics/components/nullifyNode(i)
+/obj/machinery/atmospherics/components/nullify_node(i)
 	if(parents[i])
 		nullifyPipenet(parents[i])
 	return ..()
@@ -96,13 +96,13 @@
 		return list(nodes[parents.Find(reference)])
 	return ..()
 
-/obj/machinery/atmospherics/components/setPipenet(datum/pipeline/reference, obj/machinery/atmospherics/A)
+/obj/machinery/atmospherics/components/set_pipenet(datum/pipeline/reference, obj/machinery/atmospherics/A)
 	parents[nodes.Find(A)] = reference
 
-/obj/machinery/atmospherics/components/returnPipenet(obj/machinery/atmospherics/A = nodes[1]) //returns parents[1] if called without argument
+/obj/machinery/atmospherics/components/return_pipenet(obj/machinery/atmospherics/A = nodes[1]) //returns parents[1] if called without argument
 	return parents[nodes.Find(A)]
 
-/obj/machinery/atmospherics/components/replacePipenet(datum/pipeline/Old, datum/pipeline/New)
+/obj/machinery/atmospherics/components/replace_pipenet(datum/pipeline/Old, datum/pipeline/New)
 	parents[parents.Find(Old)] = New
 
 // Helpers
@@ -115,7 +115,7 @@
 			build_network()
 		parent.update = 1
 
-/obj/machinery/atmospherics/components/returnPipenets()
+/obj/machinery/atmospherics/components/return_pipenets()
 	. = list()
 	for(var/i in 1 to device_type)
-		. += returnPipenet(nodes[i])
+		. += return_pipenet(nodes[i])

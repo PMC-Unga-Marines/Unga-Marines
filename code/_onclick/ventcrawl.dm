@@ -42,7 +42,7 @@
 	if(!ventcrawl_checks(ventcrawl_target))
 		return
 
-	if(!is_ventcrawling)
+	if(!HAS_TRAIT(src, TRAIT_MOVE_VENTCRAWLING))
 		return
 	if(!istype(loc,/obj/machinery/atmospherics))
 		return
@@ -59,7 +59,7 @@
 		playsound(src, get_sfx(SFX_ALIEN_VENTPASS), 35, TRUE)
 	visible_message(span_notice("[src] scrambles out from the ventilation ducts!"), span_notice("You scramble out from the ventilation ducts."))
 	forceMove(ventcrawl_target.loc)
-	is_ventcrawling = FALSE
+	REMOVE_TRAIT(src, TRAIT_MOVE_VENTCRAWLING, VENTCRAWLING_TRAIT)
 	update_pipe_vision()
 
 // VENTCRAWLING
@@ -74,7 +74,7 @@
 
 	if(vent_movement & VENTCRAWL_ENTRANCE_ALLOWED)
 		//Handle the exit here
-		if(is_ventcrawling && istype(loc, /obj/machinery/atmospherics))
+		if(HAS_TRAIT(src, TRAIT_MOVE_VENTCRAWLING) && istype(loc, /obj/machinery/atmospherics))
 			visible_message(span_notice("[src] begins climbing out from the ventilation system..."), span_notice("You begin climbing out from the ventilation system..."))
 			if(!do_after(src, crawl_time, target = ventcrawl_target))
 				return
@@ -84,7 +84,7 @@
 				playsound(src, get_sfx(SFX_ALIEN_VENTPASS), 35, TRUE)
 			visible_message(span_notice("[src] scrambles out from the ventilation ducts!"), span_notice("You scramble out from the ventilation ducts."))
 			forceMove(ventcrawl_target.loc)
-			is_ventcrawling = FALSE
+			REMOVE_TRAIT(src, TRAIT_MOVE_VENTCRAWLING, VENTCRAWLING_TRAIT)
 			update_pipe_vision()
 
 		//Entrance here
@@ -111,7 +111,7 @@
  */
 /mob/living/proc/move_into_vent(obj/machinery/atmospherics/components/ventcrawl_target)
 	forceMove(ventcrawl_target)
-	is_ventcrawling = TRUE
+	ADD_TRAIT(src, TRAIT_MOVE_VENTCRAWLING, VENTCRAWLING_TRAIT)
 	update_pipe_vision()
 
 /mob/living/proc/update_pipe_vision(full_refresh = FALSE)
@@ -121,7 +121,7 @@
 		lighting = hud_used?.plane_master_controllers["[LIGHTING_PLANE]"]
 
 	// Take away all the pipe images if we're not doing anything with em
-	if(isnull(client) || !is_ventcrawling || !istype(loc, /obj/machinery/atmospherics))
+	if(isnull(client) || !HAS_TRAIT(src, TRAIT_MOVE_VENTCRAWLING) || !istype(loc, /obj/machinery/atmospherics))
 		for(var/image/current_image in pipes_shown)
 			client.images -= current_image
 		pipes_shown.len = 0
@@ -133,7 +133,7 @@
 	lighting?.add_atom_colour("#4d4d4d", TEMPORARY_COLOR_PRIORITY)
 
 	var/obj/machinery/atmospherics/current_location = loc
-	var/list/our_pipenets = current_location.returnPipenets()
+	var/list/our_pipenets = current_location.return_pipenets()
 
 	// We on occasion want to do a full rebuild. this lets us do that
 	if(full_refresh)
@@ -163,7 +163,7 @@
 
 	for(var/obj/machinery/atmospherics/pipenet_part as anything in pipes_gained)
 		// If the machinery is not part of our net or is not meant to be seen, continue
-		var/list/thier_pipenets = pipenet_part.returnPipenets()
+		var/list/thier_pipenets = pipenet_part.return_pipenets()
 		if(!length(thier_pipenets & our_pipenets))
 			continue
 		if(!(pipenet_part.vent_movement & VENTCRAWL_CAN_SEE))

@@ -245,7 +245,7 @@
 		balloon_alert(src, "We're busy!")
 		return FALSE
 
-	if(is_ventcrawling)
+	if(HAS_TRAIT(src, TRAIT_MOVE_VENTCRAWLING))
 		balloon_alert(src, "This place is too constraining to evolve")
 		return FALSE
 

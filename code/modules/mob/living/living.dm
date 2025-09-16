@@ -866,7 +866,7 @@
 
 /mob/living/carbon/xenomorph/transfer_mob(mob/candidate)
 	. = ..()
-	if(is_ventcrawling)  //If we are in a vent, fetch a fresh vent map
+	if(HAS_TRAIT(src, TRAIT_MOVE_VENTCRAWLING))  //If we are in a vent, fetch a fresh vent map
 		handle_ventcrawl(loc)
 		get_up()
 

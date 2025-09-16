@@ -191,6 +191,7 @@
 #include "code\__HELPERS\admin.dm"
 #include "code\__HELPERS\ai.dm"
 #include "code\__HELPERS\announce.dm"
+#include "code\__HELPERS\atmos_helpers.dm"
 #include "code\__HELPERS\bitflag_lists.dm"
 #include "code\__HELPERS\chat.dm"
 #include "code\__HELPERS\chat_filter.dm"

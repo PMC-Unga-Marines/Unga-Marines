@@ -43,7 +43,7 @@
 							item.parent = src
 
 					else
-						P.setPipenet(src, borderline)
+						P.set_pipenet(src, borderline)
 						addMachineryMember(P)
 
 			possible_expansions -= borderline
@@ -79,7 +79,7 @@
 			members += P
 			RegisterSignal(P, COMSIG_QDELETING, PROC_REF(clean_members))
 	else
-		A.setPipenet(src, N)
+		A.set_pipenet(src, N)
 		addMachineryMember(A)
 
 /datum/pipeline/proc/merge(datum/pipeline/E)
@@ -89,7 +89,7 @@
 	for(var/obj/machinery/atmospherics/pipe/S in E.members)
 		S.parent = src
 	for(var/obj/machinery/atmospherics/components/C in E.other_atmosmch)
-		C.replacePipenet(E, src)
+		C.replace_pipenet(E, src)
 		addMachineryMember(C)
 	E.members.Cut()
 	E.other_atmosmch.Cut()
@@ -103,7 +103,7 @@
 	parent.addMember(A, src)
 
 /obj/machinery/atmospherics/components/addMember(obj/machinery/atmospherics/A)
-	var/datum/pipeline/P = returnPipenet(A)
+	var/datum/pipeline/P = return_pipenet(A)
 	if(!P)
 		CRASH("null.addMember() called by [type] on [COORD(src)]")
 	P.addMember(A, src)

@@ -1,6 +1,5 @@
 /obj/machinery/atmospherics/pipe
 	level = 1
-	plane = FLOOR_PLANE
 	use_power = NO_POWER_USE
 	can_unwrench = FALSE
 	atom_flags = SHUTTLE_IMMUNE
@@ -12,7 +11,11 @@
 	add_atom_colour(pipe_color, FIXED_COLOR_PRIORITY)
 	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
 
-/obj/machinery/atmospherics/pipe/nullifyNode(i)
+/obj/machinery/atmospherics/pipe/Destroy()
+	QDEL_NULL(parent)
+	return ..()
+
+/obj/machinery/atmospherics/pipe/nullify_node(i)
 	var/obj/machinery/atmospherics/oldN = nodes[i]
 	. = ..()
 	if(oldN)
@@ -22,11 +25,11 @@
 	QDEL_NULL(parent)
 
 /obj/machinery/atmospherics/pipe/build_network()
-	if(QDELETED(parent))
-		parent = new
-		parent.build_pipeline(src)
+	if(!QDELETED(parent))
+		return
+	replace_pipenet(parent, new /datum/pipeline)
 
-/obj/machinery/atmospherics/pipe/atmosinit()
+/obj/machinery/atmospherics/pipe/atmos_init()
 	var/turf/T = loc			// hide if turf is not intact
 	hide(T.intact_tile)
 	return ..()
@@ -45,22 +48,11 @@
 		user.dropItemToGround(meter)
 		meter.setAttachLayer(piping_layer)
 
-/obj/machinery/atmospherics/pipe/returnPipenet()
+/obj/machinery/atmospherics/pipe/return_pipenet()
 	return parent
 
-/obj/machinery/atmospherics/pipe/setPipenet(datum/pipeline/P)
+/obj/machinery/atmospherics/pipe/set_pipenet(datum/pipeline/P)
 	parent = P
-
-/obj/machinery/atmospherics/pipe/Destroy()
-	QDEL_NULL(parent)
-
-	var/turf/T = loc
-	for(var/obj/machinery/meter/meter in T)
-		if(meter.target != src)
-			continue
-		new /obj/item/pipe_meter (T)
-		qdel(meter)
-	return ..()
 
 /obj/machinery/atmospherics/pipe/update_icon()
 	. = ..()
@@ -69,18 +61,8 @@
 /obj/machinery/atmospherics/pipe/proc/update_alpha()
 	alpha = 255
 
-/obj/machinery/atmospherics/pipe/proc/update_node_icon()
-	for(var/i in 1 to device_type)
-		if(!nodes[i])
-			continue
-		var/obj/machinery/atmospherics/N = nodes[i]
-		N.update_icon()
-
-/obj/machinery/atmospherics/pipe/returnPipenets()
+/obj/machinery/atmospherics/pipe/return_pipenets()
 	. = list(parent)
 
-/obj/machinery/atmospherics/pipe/proc/paint(paint_color)
-	add_atom_colour(paint_color, FIXED_COLOR_PRIORITY)
-	pipe_color = paint_color
-	update_node_icon()
-	return TRUE
+/obj/machinery/atmospherics/pipe/update_layer()
+	layer = initial(layer) + get_pipe_layer_offset()

@@ -24,7 +24,7 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/update_icon_nopipes()
 	icon_state = "connector"
 	if(showpipe)
-		var/image/cap = getpipeimage(icon, "connector_cap", initialize_directions, piping_layer = piping_layer)
+		var/image/cap = get_pipe_image(icon, "connector_cap", initialize_directions, piping_layer = piping_layer)
 		add_overlay(cap)
 
 /obj/machinery/atmospherics/components/unary/portables_connector/can_unwrench(mob/user)

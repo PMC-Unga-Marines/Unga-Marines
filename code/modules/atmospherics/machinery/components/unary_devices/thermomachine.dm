@@ -47,7 +47,7 @@
 /obj/machinery/atmospherics/components/unary/thermomachine/update_icon_nopipes()
 	cut_overlays()
 	if(showpipe)
-		add_overlay(getpipeimage(icon, "scrub_cap", initialize_directions))
+		add_overlay(get_pipe_image(icon, "scrub_cap", initialize_directions))
 
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer
 	name = "freezer"

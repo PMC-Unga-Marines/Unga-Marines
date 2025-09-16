@@ -174,14 +174,14 @@
 			missing_nodes = TRUE
 
 	if(missing_nodes)
-		atmosinit()
+		atmos_init()
 		for(var/obj/machinery/atmospherics/A in pipeline_expansion())
-			A.atmosinit()
-			if(A.returnPipenet())
+			A.atmos_init()
+			if(A.return_pipenet())
 				A.addMember(src)
 		build_network()
 	else
-		// atmosinit() calls update_icon(), so we don't need to call it
+		// atmos_init() calls update_icon(), so we don't need to call it
 		update_icon()
 	covered_by_shuttle = FALSE
 

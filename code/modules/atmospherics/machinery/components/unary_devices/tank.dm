@@ -16,7 +16,7 @@
 
 /obj/machinery/atmospherics/components/unary/tank/New()
 	. = ..()
-	setPipingLayer(piping_layer)
+	set_piping_layer(piping_layer)
 
 
 /obj/machinery/atmospherics/components/unary/tank/air
