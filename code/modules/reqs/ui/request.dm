@@ -137,3 +137,86 @@
 
 /datum/supply_ui/requests/get_shopping_cart(mob/user)
 	return SSpoints.request_shopping_cart[user.ckey]
+
+//// delivery.dm (полная реализация)
+/datum/supply_ui/delivery
+	tgui_name = "Delivery"
+
+/datum/supply_ui/delivery/ui_static_data(mob/user)
+	. = list()
+	var/mob/living/account = user
+	.["supplypacks"] = SSpoints.supply_packs_delivery_ui[account.job]
+	.["supplypackscontents"] = SSpoints.supply_packs_contents
+
+/datum/supply_ui/delivery/ui_data(mob/living/user)
+	. = list()
+	.["personalpoints"] = round(SSpoints.personal_supply_points[user.ckey])
+
+	if(!SSpoints.delivery_shopping_cart[user.ckey])
+		SSpoints.delivery_shopping_cart[user.ckey] = list()
+
+	.["shopping_list_cost"] = 0
+	.["shopping_list_items"] = 0
+	.["shopping_list"] = list()
+
+	for(var/i in SSpoints.delivery_shopping_cart[user.ckey])
+		var/datum/supply_packs/our_pack = SSpoints.supply_packs[i]
+		.["shopping_list_items"] += SSpoints.delivery_shopping_cart[user.ckey][i]
+		.["shopping_list_cost"] += our_pack.cost * SSpoints.delivery_shopping_cart[user.ckey][our_pack.type]
+		.["shopping_list"][our_pack.type] = list("count" = SSpoints.delivery_shopping_cart[user.ckey][our_pack.type])
+
+/datum/supply_ui/delivery/get_shopping_cart(mob/user)
+	if(!SSpoints.delivery_shopping_cart[user.ckey])
+		SSpoints.delivery_shopping_cart[user.ckey] = list()
+	return SSpoints.delivery_shopping_cart[user.ckey]
+
+/datum/supply_ui/delivery/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return TRUE
+
+	var/mob/user = ui.user
+	var/list/shopping_cart = get_shopping_cart(user)
+
+	switch(action)
+		if("cart")
+			var/datum/supply_packs/P = SSpoints.supply_packs[text2path(params["id"])]
+			if(!P)
+				return
+
+			switch(params["mode"])
+				if("removeall")
+					shopping_cart -= P.type
+				if("removeone")
+					if(shopping_cart[P.type] > 1)
+						shopping_cart[P.type]--
+					else
+						shopping_cart -= P.type
+				if("addone")
+					var/can_afford = P.cost <= SSpoints.personal_supply_points[user.ckey]
+					if(can_afford && shopping_cart[P.type])
+						shopping_cart[P.type]++
+					else if(can_afford)
+						shopping_cart[P.type] = 1
+				if("addall")
+					var/current_points = SSpoints.personal_supply_points[user.ckey]
+					var/cart_cost = 0
+					for(var/i in shopping_cart)
+						var/datum/supply_packs/SP = SSpoints.supply_packs[i]
+						cart_cost += SP.cost * shopping_cart[SP.type]
+					var/excess_points = current_points - cart_cost
+					var/number_to_buy = min(round(excess_points / P.cost), 20)
+					if(number_to_buy > 0)
+						if(shopping_cart[P.type])
+							shopping_cart[P.type] += number_to_buy
+						else
+							shopping_cart[P.type] = number_to_buy
+			. = TRUE
+
+		if("buycart")
+			SSpoints.buy_delivery_cart(user)
+			. = TRUE
+
+		if("clearcart")
+			shopping_cart.Cut()
+			. = TRUE

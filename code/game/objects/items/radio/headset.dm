@@ -172,6 +172,15 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	var/sl_direction = FALSE
 	///The type of minimap this headset gives access to
 	var/datum/action/minimap/minimap_type = /datum/action/minimap/marine
+	///Var for the window pop-up
+	var/datum/supply_ui/requests/supply_interface
+
+/obj/item/storage/backpack/marine/radiopack/attack_hand_alternate(mob/living/user)
+	if(!allowed(user))
+		return ..()
+	if(!supply_interface)
+		supply_interface = new(src)
+	return supply_interface.interact(user)
 
 /obj/item/radio/headset/mainship/Initialize(mapload)
 	. = ..()
