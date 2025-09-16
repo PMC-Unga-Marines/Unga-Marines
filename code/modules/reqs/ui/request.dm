@@ -138,17 +138,44 @@
 /datum/supply_ui/requests/get_shopping_cart(mob/user)
 	return SSpoints.request_shopping_cart[user.ckey]
 
-//// delivery.dm (полная реализация)
-/datum/supply_ui/delivery
-	tgui_name = "Delivery"
+/datum/delivery
+	interaction_flags = INTERACT_MACHINE_TGUI
+	var/atom/source_object
 
-/datum/supply_ui/delivery/ui_static_data(mob/user)
+/datum/delivery/New(atom/source_object)
+	. = ..()
+	src.source_object = source_object
+	RegisterSignal(source_object, COMSIG_QDELETING, PROC_REF(clean_ui))
+
+/datum/delivery/Destroy(force)
+	source_object = null
+	return ..()
+
+/datum/delivery/ui_host()
+	return source_object
+
+///Signal handler to delete the ui when the source object is deleting
+/datum/delivery/proc/clean_ui()
+	SIGNAL_HANDLER
+	qdel(src)
+
+/datum/delivery/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(ui)
+		return
+	var/mob/living/account = user
+	if(!account.job.type)
+		return
+	ui = new(user, src, "Delivery", "Pig's wings express")
+	ui.open()
+
+/datum/delivery/ui_static_data(mob/user)
 	. = list()
 	var/mob/living/account = user
-	.["supplypacks"] = SSpoints.supply_packs_delivery_ui[account.job]
+	.["supplypacks"] = SSpoints.supply_packs_delivery_ui[account.job.type]
 	.["supplypackscontents"] = SSpoints.supply_packs_contents
 
-/datum/supply_ui/delivery/ui_data(mob/living/user)
+/datum/delivery/ui_data(mob/living/user)
 	. = list()
 	.["personalpoints"] = round(SSpoints.personal_supply_points[user.ckey])
 
@@ -165,12 +192,12 @@
 		.["shopping_list_cost"] += our_pack.cost * SSpoints.delivery_shopping_cart[user.ckey][our_pack.type]
 		.["shopping_list"][our_pack.type] = list("count" = SSpoints.delivery_shopping_cart[user.ckey][our_pack.type])
 
-/datum/supply_ui/delivery/get_shopping_cart(mob/user)
+/datum/delivery/proc/get_shopping_cart(mob/user)
 	if(!SSpoints.delivery_shopping_cart[user.ckey])
 		SSpoints.delivery_shopping_cart[user.ckey] = list()
 	return SSpoints.delivery_shopping_cart[user.ckey]
 
-/datum/supply_ui/delivery/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/datum/delivery/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return TRUE

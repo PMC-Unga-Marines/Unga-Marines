@@ -23,7 +23,7 @@ export const Delivery = () => {
   } = data;
 
   return (
-    <Window width={800} height={600}>
+    <Window width={800} height={600} theme={"pigs_wings"}>
       <Window.Content scrollable>
         <Section title="Personal Delivery System">
           <Flex>
