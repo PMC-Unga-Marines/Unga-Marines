@@ -57,6 +57,22 @@
 
 #define STATUS_EFFECT_UPGRADE_TRAIL /datum/status_effect/upgrade_trail
 
+// Tier 2 upgrade status effects
+#define STATUS_EFFECT_UPGRADE_ENHANCED_CARAPACE /datum/status_effect/upgrade_enhanced_carapace
+#define STATUS_EFFECT_UPGRADE_RAPID_REGENERATION /datum/status_effect/upgrade_rapid_regeneration
+#define STATUS_EFFECT_UPGRADE_ENHANCED_CELERITY /datum/status_effect/upgrade_enhanced_celerity
+#define STATUS_EFFECT_UPGRADE_BERSERKER_RAGE /datum/status_effect/upgrade_berserker_rage
+#define STATUS_EFFECT_UPGRADE_ADVANCED_TOXIN /datum/status_effect/upgrade_advanced_toxin
+#define STATUS_EFFECT_UPGRADE_HIVE_MIND /datum/status_effect/upgrade_hive_mind
+
+// Tier 3 - Ultimate mutations
+#define STATUS_EFFECT_UPGRADE_ULTIMATE_CARAPACE /datum/status_effect/upgrade_ultimate_carapace
+#define STATUS_EFFECT_UPGRADE_ULTIMATE_REGENERATION /datum/status_effect/upgrade_ultimate_regeneration
+#define STATUS_EFFECT_UPGRADE_ULTIMATE_CELERITY /datum/status_effect/upgrade_ultimate_celerity
+#define STATUS_EFFECT_UPGRADE_ULTIMATE_BERSERKER /datum/status_effect/upgrade_ultimate_berserker
+#define STATUS_EFFECT_UPGRADE_ULTIMATE_TOXIN /datum/status_effect/upgrade_ultimate_toxin
+#define STATUS_EFFECT_UPGRADE_ULTIMATE_HIVE_MIND /datum/status_effect/upgrade_ultimate_hive_mind
+
 #define STATUS_EFFECT_MINDMEND /datum/status_effect/mindmeld
 
 #define STATUS_EFFECT_REKNIT_FORM /datum/status_effect/reknit_form

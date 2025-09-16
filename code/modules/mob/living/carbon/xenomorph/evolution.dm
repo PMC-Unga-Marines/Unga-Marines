@@ -166,6 +166,7 @@
 	new_xeno.transfer_to_hive(hivenumber)
 	new_xeno.life_kills_total = life_kills_total
 	new_xeno.biomass = biomass
+	new_xeno.biomass_gain_bonus = biomass_gain_bonus
 	if(new_xeno.hunter_data)
 		new_xeno.hunter_data.clean_data()
 		qdel(new_xeno.hunter_data)

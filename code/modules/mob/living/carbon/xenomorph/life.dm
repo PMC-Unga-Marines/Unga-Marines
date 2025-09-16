@@ -32,6 +32,7 @@
 	handle_living_sunder_updates(seconds_per_tick)
 	handle_living_health_updates(seconds_per_tick)
 	handle_living_plasma_updates(seconds_per_tick)
+	handle_living_biomass_updates(seconds_per_tick)
 	handle_interference()
 	update_action_button_icons()
 	update_icons(FALSE)
@@ -150,6 +151,70 @@
 	plasma_mod[1] = clamp(plasma_mod[1], 0, xeno_caste.plasma_max * xeno_caste.plasma_regen_limit - plasma_stored)
 
 	gain_plasma(plasma_mod[1])
+
+/mob/living/carbon/xenomorph/proc/handle_living_biomass_updates(seconds_per_tick)
+	var/turf/T = loc
+	if(!istype(T)) //Don't accumulate biomass while in things like vents
+		return
+
+	// Minions don't accumulate biomass
+	if(xeno_caste.caste_flags & CASTE_IS_A_MINION)
+		return
+
+	// Check if we're in Valhalla (testing area) - get +50 biomass boost
+	var/area/A = get_area(src)
+	var/is_valhalla = istype(A, /area/centcom/valhalla)
+
+	// Check if generators are corrupted (like psy points system)
+	var/has_corrupted_generators = FALSE
+	if(!GLOB.generators_on_ground) //Prevent division by 0
+		has_corrupted_generators = FALSE
+	else
+		// Count corrupted generators for this hive
+		var/corrupted_count = 0
+		for(var/obj/machinery/power/geothermal/generator in GLOB.machines)
+			if(generator.corrupted == hivenumber && generator.corruption_on)
+				corrupted_count++
+
+		// Only accumulate biomass if we have corrupted generators AND marines on ground (like psy points)
+		if(corrupted_count > 0 && (length(GLOB.humans_by_zlevel["2"]) > 0.2 * length(GLOB.alive_human_list_faction[FACTION_TERRAGOV])))
+			has_corrupted_generators = TRUE
+
+	// Base biomass gain: only from psydrain bonus (if any)
+	var/biomass_gain = (biomass_gain_bonus / 60.0) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
+
+	// Add corrupted generators biomass gain if conditions are met
+	if(has_corrupted_generators)
+		biomass_gain += (1.0 / 60.0) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
+
+	// Hivemind bonus: +0.5 biomass per minute if hivemind is alive
+	var/has_living_hivemind = FALSE
+	for(var/mob/living/carbon/xenomorph/hivemind/hivemind AS in GLOB.alive_xeno_list_hive[hivenumber])
+		if(isxenohivemind(hivemind) && !QDELETED(hivemind))
+			has_living_hivemind = TRUE
+			break
+
+	if(has_living_hivemind)
+		biomass_gain += (0.5 / 60.0) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
+
+	// Valhalla boost: +99.9 biomass per minute
+	if(is_valhalla)
+		biomass_gain += (99.9 / 60.0) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
+
+	// Only accumulate if we have some biomass gain source
+	if(biomass_gain <= 0)
+		return
+
+	// Check for strength trait bonus (1.5x if strength is present)
+	if(HAS_TRAIT(src, TRAIT_SUPER_STRONG))
+		biomass_gain *= 1.5
+
+	// Cap biomass at 50 (same as max_biomass in mutation menu)
+	biomass = min(biomass + biomass_gain, 50)
+
+	// Update HUD if we have a client
+	if(client)
+		hud_set_biomass()
 
 /mob/living/carbon/xenomorph/can_receive_aura(aura_type, atom/source, datum/aura_bearer/bearer)
 	. = ..()

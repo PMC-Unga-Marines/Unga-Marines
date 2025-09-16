@@ -716,6 +716,10 @@
 	set desc = "See current Upgrade Chambers and get mutations for yourself"
 	set category = "Alien"
 
+	if(xeno_caste.caste_flags & CASTE_IS_A_MINION)
+		to_chat(src, span_warning("We are too primitive to understand mutations."))
+		return
+
 	var/datum/mutation_menu/menu = new(src)
 	menu.ui_interact(src)
 
