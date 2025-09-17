@@ -10,15 +10,17 @@
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.7
+	storage_type = /datum/storage/internal/shoes
 	/// The knife we add to the storage on Initialize
 	var/obj/item/knife_to_add
 
 /obj/item/clothing/shoes/marine/Initialize(mapload)
 	. = ..()
-	create_storage(/datum/storage/internal/shoes)
+	update_icon()
+
+/obj/item/clothing/shoes/marine/PopulateContents()
 	if(knife_to_add)
 		new knife_to_add(src)
-	update_icon()
 
 /obj/item/clothing/shoes/marine/update_icon_state()
 	. = ..()
