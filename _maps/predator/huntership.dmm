@@ -1451,7 +1451,6 @@
 /area/yautja)
 "kA" = (
 /obj/item/weapon/twohanded/dualsaber{
-	force_wielded = 20;
 	anchored = 1
 	},
 /obj/structure/table/reinforced/prison{

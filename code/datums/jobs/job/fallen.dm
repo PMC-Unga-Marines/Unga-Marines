@@ -82,6 +82,13 @@
 	minimal_access = list(ACCESS_MARINE_WO, ACCESS_MARINE_PREP, ACCESS_MARINE_MECH, ACCESS_CIVILIAN_PUBLIC, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO)
 	outfit = /datum/outfit/job/command/mech_pilot/fallen
 
+/datum/job/fallen/marine/assault_crewman
+	title = ROLE_FALLEN(ASSAULT_CREWMAN)
+	skills_type = /datum/skills/assault_crewman
+	access = list(ACCESS_MARINE_WO, ACCESS_MARINE_PREP, ACCESS_MARINE_ARMORED, ACCESS_CIVILIAN_PUBLIC)
+	minimal_access = list(ACCESS_MARINE_WO, ACCESS_MARINE_PREP, ACCESS_MARINE_ARMORED, ACCESS_CIVILIAN_PUBLIC, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO)
+	outfit = /datum/outfit/job/command/assault_crewman/fallen
+
 /datum/job/fallen/marine/fieldcommander
 	title = ROLE_FALLEN(FIELD_COMMANDER)
 	skills_type = /datum/skills/fo
@@ -101,12 +108,12 @@
 
 /datum/job/fallen/marine/synthetic/return_spawn_type(datum/preferences/prefs)
 	if(prefs?.synthetic_type == "Early Synthetic")
-		return /mob/living/carbon/human/species/early_synthetic
+		return /mob/living/carbon/human/species/synthetic/early
 	return /mob/living/carbon/human/species/synthetic
 
 /datum/job/fallen/marine/synthetic/return_skills_type(datum/preferences/prefs)
 	if(prefs?.synthetic_type == "Early Synthetic")
-		return /datum/skills/early_synthetic
+		return /datum/skills/synthetic/early
 	return ..()
 
 /datum/job/fallen/xenomorph

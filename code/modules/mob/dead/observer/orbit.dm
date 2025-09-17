@@ -107,12 +107,10 @@
 				serialized["icon"] = caste.minimap_icon
 			if(!isnum(xeno.nicknumber))
 				serialized["nickname"] = xeno.nicknumber
-//RUTGMC EDIT
 			if(istype(xeno, /mob/living/carbon/xenomorph/hellhound))
 				yautja += list(serialized)
 				continue
-//RUTGMC EDIT
-			if(HAS_TRAIT(xeno, TRAIT_VALHALLA_XENO)) // RUTGMC ADDITION
+			if(HAS_TRAIT(xeno, TRAIT_VALHALLA_XENO))
 				valhalla += list(serialized)
 				continue
 
@@ -142,6 +140,9 @@
 				if(human.assigned_squad)
 					serialized["icon"] = lowertext(human.assigned_squad.name) + "_" + job.minimap_icon
 					serialized["job"] = human.assigned_squad.name + " " + job.title
+				else
+					serialized["icon"] = job.minimap_icon
+					serialized["job"] = job.title
 				marines += list(serialized)
 				continue
 

@@ -120,4 +120,11 @@
 	icon_state = "agls_pgas"
 	det_time = 1 SECONDS
 	smokeradius = 2
-	overlay_type = "purple"
+
+/obj/item/explosive/grenade/smokebomb/drain/pellet
+	name = "tanglefoot emitting system pellet"
+	desc = "A small pellet dropped from the sky. Emits tanglefoot on a landing position."
+	icon_state = "pellet_pgas"
+	det_time = 2 SECONDS
+	smokeradius = 10
+	smoke_duration = 15

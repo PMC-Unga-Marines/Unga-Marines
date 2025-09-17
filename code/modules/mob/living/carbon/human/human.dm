@@ -496,7 +496,7 @@
 
 //src is the user that will be carrying, target is the mob to be carried
 /mob/living/carbon/human/proc/can_be_firemanned(mob/living/carbon/target)
-	return (ishuman(target) && !target.canmove)
+	return (ishuman(target) && target.lying_angle)
 
 /mob/living/carbon/human/proc/fireman_carry(mob/living/carbon/target)
 	if(!can_be_firemanned(target) || incapacitated(restrained_flags = RESTRAINED_NECKGRAB))
@@ -556,7 +556,7 @@
 
 
 /mob/living/carbon/human/proc/play_xylophone()
-	visible_message(span_warning(" [src] begins playing his ribcage like a xylophone. It's quite spooky."),span_notice(" You begin to play a spooky refrain on your ribcage."),span_warning(" You hear a spooky xylophone melody."))
+	visible_message(span_warning("[src] begins playing his ribcage like a xylophone. It's quite spooky."),span_notice("You begin to play a spooky refrain on your ribcage."),span_warning("You hear a spooky xylophone melody."))
 	var/song = pick('sound/effects/xylophone1.ogg','sound/effects/xylophone2.ogg','sound/effects/xylophone3.ogg')
 	playsound(loc, song, 25, 1)
 
@@ -596,7 +596,7 @@
 	if(handle_pulse())
 		to_chat(usr, span_notice("[self ? "You have a" : "[src] has a"] pulse! Counting..."))
 	else
-		to_chat(usr, span_warning(" [src] has no pulse!"))
+		to_chat(usr, span_warning("[src] has no pulse!"))
 		return
 
 	to_chat(usr, "You must[self ? "" : " both"] remain still until counting is finished.")
@@ -977,3 +977,7 @@
 		return FALSE
 	user.health_analyzer.analyze_vitals(src, user)
 	return TRUE
+
+///Checks if we have an AI behavior active
+/mob/living/carbon/human/proc/has_ai()
+	return SEND_SIGNAL(src, COMSIG_HUMAN_HAS_AI) & MOB_HAS_AI

@@ -26,7 +26,7 @@
 	var/dat = ""
 	var/one_percent = O.reagents.total_volume / 100
 	for (var/datum/reagent/R in O.reagents.reagent_list)
-		dat += "\n \t [span_notice(" [R.name][details ? ": [R.volume / one_percent]%" : ""]")]"
+		dat += "\n \t [span_notice("[R.name][details ? ": [R.volume / one_percent]%" : ""]")]"
 	to_chat(user, span_notice("Chemicals found: [dat]"))
 
 /obj/item/reagent_scanner/adv

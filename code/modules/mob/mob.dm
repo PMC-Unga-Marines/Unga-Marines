@@ -256,14 +256,14 @@
 		return FALSE
 	if(item_to_equip.equip_delay_self && !ignore_delay)
 		if(!do_after(src, item_to_equip.equip_delay_self, NONE, item_to_equip, BUSY_ICON_FRIENDLY))
-			to_chat(src, "You stop putting on \the [item_to_equip]")
+			to_chat(src, "You stop putting on \the [item_to_equip].")
 			return FALSE
 		//calling the proc again with ignore_delay saves a boatload of copypaste
 		return equip_to_slot_if_possible(item_to_equip, slot, TRUE, del_on_fail, warning, redraw_mob, override_nodrop)
-	equip_to_slot(item_to_equip, slot) //This proc should not ever fail.
 	//This will unwield items -without- triggering lights.
 	if(CHECK_BITFIELD(item_to_equip.item_flags, TWOHANDED))
 		item_to_equip.unwield(src)
+	equip_to_slot(item_to_equip, slot) //This proc should not ever fail.
 	return TRUE
 
 /**
@@ -887,9 +887,14 @@
 		return
 	hud_used.create_parallax(src)
 
+#define POINT_TIME (2.5 SECONDS)
+
 /mob/proc/point_to_atom(atom/pointed_atom)
 	var/turf/tile = get_turf(pointed_atom)
 	if(!tile)
+		return FALSE
+	if(pointed_atom in src)
+		create_point_bubble(pointed_atom)
 		return FALSE
 	var/turf/our_tile = get_turf(src)
 	var/obj/visual = new /obj/effect/overlay/temp/point/big(our_tile, 0)
@@ -897,6 +902,44 @@
 	animate(visual, pixel_x = (tile.x - our_tile.x) * world.icon_size + pointed_atom.pixel_x, pixel_y = (tile.y - our_tile.y) * world.icon_size + pointed_atom.pixel_y, time = 1.7, easing = EASE_OUT)
 	SEND_SIGNAL(src, COMSIG_POINT_TO_ATOM, pointed_atom)
 	return TRUE
+
+/atom/movable/proc/create_point_bubble(atom/pointed_atom)
+	var/obj/effect/thought_bubble_effect = new
+
+	var/mutable_appearance/thought_bubble = mutable_appearance(
+		'icons/effects/effects.dmi',
+		"thought_bubble",
+		plane = BALLOON_CHAT_PLANE,
+		appearance_flags = KEEP_APART|RESET_TRANSFORM,
+	)
+
+	var/mutable_appearance/pointed_atom_appearance = new(pointed_atom.appearance)
+	pointed_atom_appearance.blend_mode = BLEND_INSET_OVERLAY
+	pointed_atom_appearance.plane = thought_bubble.plane
+	pointed_atom_appearance.layer = FLOAT_LAYER
+	pointed_atom_appearance.pixel_x = 0
+	pointed_atom_appearance.pixel_y = 0
+	thought_bubble.overlays += pointed_atom_appearance
+
+	thought_bubble.pixel_w = 16
+	thought_bubble.pixel_z = 32
+	thought_bubble.alpha = 200
+	thought_bubble.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+	var/mutable_appearance/point_visual = mutable_appearance(
+		'icons/mob/screen/generic.dmi',
+		"arrow",
+	)
+
+	thought_bubble.overlays += point_visual
+
+	// vis_contents is used to preserve mouse opacity
+	thought_bubble_effect.appearance = thought_bubble
+	vis_contents += thought_bubble_effect
+
+	QDEL_IN(thought_bubble_effect, POINT_TIME)
+
+#undef POINT_TIME
 
 /// Side effects of being sent to the end of round deathmatch zone
 /mob/proc/on_eord(turf/destination)
