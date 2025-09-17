@@ -379,7 +379,7 @@
 	user.forceMove(target_move)
 	var/list/pipenetdiff = return_pipenets() ^ target_move.return_pipenets()
 	if(pipenetdiff.len)
-		user.update_pipe_vision(full_refresh = TRUE)
+		user.update_pipe_vision(full_refresh = TRUE) // TODO: doesn't work
 
 	//Would be great if this could be implemented when someone alt-clicks the image.
 	if(target_move.vent_movement & VENTCRAWL_ENTRANCE_ALLOWED)

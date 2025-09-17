@@ -114,11 +114,15 @@
 	ADD_TRAIT(src, TRAIT_MOVE_VENTCRAWLING, VENTCRAWLING_TRAIT)
 	update_pipe_vision()
 
+/**
+ * Everything related to pipe vision on ventcrawling is handled by update_pipe_vision().
+ * Called on exit, entrance, and pipenet differences (e.g. moving to a new pipenet).
+ * One important thing to note however is that the movement of the client's eye is handled by the relaymove() proc in /obj/machinery/atmospherics.
+ * We move first and then call update. Dont flip this around
+ */
 /mob/living/proc/update_pipe_vision(full_refresh = FALSE)
-	// We're gonna color the lighting plane to make it darker while ventcrawling, so things look nicer
-	var/atom/movable/screen/plane_master/lighting
-	if(hud_used)
-		lighting = hud_used?.plane_master_controllers["[LIGHTING_PLANE]"]
+	if(isnull(client)) // we don't care about pipe vision if we have no client.
+		return
 
 	// Take away all the pipe images if we're not doing anything with em
 	if(isnull(client) || !HAS_TRAIT(src, TRAIT_MOVE_VENTCRAWLING) || !istype(loc, /obj/machinery/atmospherics))
@@ -126,11 +130,19 @@
 			client.images -= current_image
 		pipes_shown.len = 0
 		pipetracker = null
-		lighting?.remove_atom_colour(TEMPORARY_COLOR_PRIORITY, "#4d4d4d")
+		for(var/atom/movable/screen/plane_master/lighting as anything in hud_used.get_true_plane_masters(LIGHTING_PLANE))
+			lighting.remove_atom_colour(TEMPORARY_COLOR_PRIORITY, "#4d4d4d")
+		for(var/atom/movable/screen/plane_master/pipecrawl as anything in hud_used.get_true_plane_masters(PIPECRAWL_IMAGES_PLANE))
+			pipecrawl.hide_plane(src)
 		return
 
+	// We're gonna color the lighting plane to make it darker while ventcrawling, so things look nicer
 	// This is a bit hacky but it makes the background darker, which has a nice effect
-	lighting?.add_atom_colour("#4d4d4d", TEMPORARY_COLOR_PRIORITY)
+	for(var/atom/movable/screen/plane_master/lighting as anything in hud_used.get_true_plane_masters(LIGHTING_PLANE))
+		lighting.add_atom_colour("#4d4d4d", TEMPORARY_COLOR_PRIORITY)
+
+	for(var/atom/movable/screen/plane_master/pipecrawl as anything in hud_used.get_true_plane_masters(PIPECRAWL_IMAGES_PLANE))
+		pipecrawl.unhide_plane(src)
 
 	var/obj/machinery/atmospherics/current_location = loc
 	var/list/our_pipenets = current_location.return_pipenets()
@@ -170,7 +182,8 @@
 			continue
 
 		if(!pipenet_part.pipe_vision_img)
-			pipenet_part.pipe_vision_img = image(src, loc, dir = dir)
-			SET_PLANE_EXPLICIT(pipenet_part.pipe_vision_img, ABOVE_HUD_PLANE, pipenet_part)
+			var/turf/their_turf = get_turf(pipenet_part)
+			pipenet_part.pipe_vision_img = image(pipenet_part, pipenet_part.loc, dir = pipenet_part.dir)
+			SET_PLANE(pipenet_part.pipe_vision_img, PIPECRAWL_IMAGES_PLANE, their_turf)
 		client.images += pipenet_part.pipe_vision_img
 		pipes_shown += pipenet_part.pipe_vision_img
