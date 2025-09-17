@@ -21,9 +21,9 @@
 
 		var/image/cap
 		if(node)
-			cap = get_pipe_image(icon, "cap", direction, node.pipe_color, piping_layer = piping_layer)
+			cap = get_pipe_image(icon, "cap", direction, node.pipe_color, piping_layer = piping_layer, trinary = TRUE)
 		else
-			cap = get_pipe_image(icon, "cap", direction, piping_layer = piping_layer)
+			cap = get_pipe_image(icon, "cap", direction, piping_layer = piping_layer, trinary = TRUE)
 
 		. += cap
 
