@@ -12,6 +12,7 @@ GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 	/obj/item/weapon/gun/rifle/sg62 = list(CAT_SGSUP, "SG-62 Target Rifle", 25, "red"), //If a SG buys a SG-62, they'll have 15 points left, should be enough to buy some mags and or extra SR ammo.
 	/obj/item/ammo_magazine/rifle/sg62 = list(CAT_SGSUP, "SG-62 Target Rifle Magazine", 3, "orange2"),
 	/obj/item/ammo_magazine/packet/sg62 = list(CAT_SGSUP, "SG-62 smart target rifle ammo box", 5, "orange2"),
+	/obj/item/ammo_magazine/packet/sg153 = list(CAT_SGSUP, "SG-153 Spotting Rifle Ammo Bin", 4, "orange2"),
 	/obj/item/ammo_magazine/rifle/sg153 = list(CAT_SGSUP, "SG-153 Spotting Rifle Magazine", 2, "orange2"),
 	/obj/item/ammo_magazine/rifle/sg153/highimpact = list(CAT_SGSUP, "SG-153 Spotting Rifle High Impact Magazine", 2, "orange2"),
 	/obj/item/ammo_magazine/rifle/sg153/heavyrubber = list(CAT_SGSUP, "SG-153 Spotting Rifle Heavy Rubber Magazine", 2, "orange2"),
@@ -20,5 +21,4 @@ GLOBAL_LIST_INIT(smartgunner_gear_listed_products, list(
 	/obj/item/ammo_magazine/rifle/sg153/plasmaloss = list(CAT_SGSUP, "SG-153 Spotting Rifle Tanglefoot Magazine", 3, "orange2"),
 	/obj/item/ammo_magazine/rifle/sg153/incendiary = list(CAT_SGSUP, "SG-153 Spotting Rifle Incendiary Magazine", 3, "orange2"),
 	/obj/item/ammo_magazine/pistol/p14/smart_pistol = list(CAT_SGSUP, "SP-13 smart pistol ammo", 2, "orange2"),
-	/obj/item/storage/belt/marine/auto_catch = list(CAT_SGSUP, "M344 pattern ammo load rig", 10, "orange"),
 ))

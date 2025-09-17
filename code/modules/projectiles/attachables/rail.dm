@@ -140,7 +140,8 @@
 
 /obj/item/attachable/buildasentry/on_attach(attaching_item, mob/user)
 	. = ..()
-	ENABLE_BITFIELD(master_gun.item_flags, IS_DEPLOYABLE|IS_SENTRY)
+	ENABLE_BITFIELD(master_gun.deploy_flags, IS_DEPLOYABLE)
+	ENABLE_BITFIELD(master_gun.item_flags, IS_SENTRY)
 	master_gun.deployable_item = /obj/machinery/deployable/mounted/sentry/buildasentry
 	master_gun.turret_flags |= TURRET_HAS_CAMERA|TURRET_SAFETY|TURRET_ALERTS
 	master_gun.AddComponent(/datum/component/deployable_item, master_gun.deployable_item, deploy_time, undeploy_time)
@@ -149,7 +150,8 @@
 /obj/item/attachable/buildasentry/on_detach(detaching_item, mob/user)
 	. = ..()
 	var/obj/item/weapon/gun/detaching_gun = detaching_item
-	DISABLE_BITFIELD(detaching_gun.item_flags, IS_DEPLOYABLE|IS_SENTRY)
+	DISABLE_BITFIELD(detaching_gun.deploy_flags, IS_DEPLOYABLE)
+	DISABLE_BITFIELD(detaching_gun.item_flags, IS_SENTRY)
 	qdel(detaching_gun.GetComponent(/datum/component/deployable_item))
 	detaching_gun.deployable_item = null
 	detaching_gun.turret_flags &= ~(TURRET_HAS_CAMERA|TURRET_SAFETY|TURRET_ALERTS)
@@ -191,13 +193,13 @@
 
 /obj/item/attachable/shoulder_mount/activate(mob/user, turn_off)
 	. = ..()
-	if(CHECK_BITFIELD(master_gun.item_flags, IS_DEPLOYED))
-		DISABLE_BITFIELD(master_gun.item_flags, IS_DEPLOYED)
+	if(CHECK_BITFIELD(master_gun.deploy_flags, IS_DEPLOYED))
+		DISABLE_BITFIELD(master_gun.deploy_flags, IS_DEPLOYED)
 		UnregisterSignal(user, COMSIG_MOB_MOUSEDOWN)
 		master_gun.set_gun_user(null)
 		. = FALSE
 	else if(!turn_off)
-		ENABLE_BITFIELD(master_gun.item_flags, IS_DEPLOYED)
+		ENABLE_BITFIELD(master_gun.deploy_flags, IS_DEPLOYED)
 		update_icon()
 		master_gun.set_gun_user(user)
 		RegisterSignal(user, COMSIG_MOB_MOUSEDOWN, PROC_REF(handle_firing))

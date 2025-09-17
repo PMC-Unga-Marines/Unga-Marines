@@ -112,7 +112,7 @@
 
 /obj/item/weapon/shield/riot/marine
 	name = "\improper TL-172 defensive shield"
-	desc = "A heavy shield adept at blocking blunt or sharp objects from connecting with the shield wielder. Looks very robust. Alt click to tighten the strap."
+	desc = "A heavy shield adept at blocking blunt or sharp objects from connecting with the shield wielder. Looks very robust."
 	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "marine_shield"
 	equip_slot_flags = ITEM_SLOT_BACK
@@ -147,7 +147,7 @@
 
 /obj/item/weapon/shield/riot/marine/som
 	name = "\improper S-144 boarding shield"
-	desc = "A robust, heavy shield designed to be shot instead of the person holding it. Commonly employed by the SOM during boarding actions and other close quarter combat scenarios. This one has a SOM flag emblazoned on the front. Alt click to tighten the strap."
+	desc = "A robust, heavy shield designed to be shot instead of the person holding it. Commonly employed by the SOM during boarding actions and other close quarter combat scenarios. This one has a SOM flag emblazoned on the front."
 	icon = 'icons/obj/items/weapons.dmi'
 	icon_state = "som_shield"
 	soft_armor = list(MELEE = 35, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 30, BIO = 50, FIRE = 0, ACID = 15)
@@ -164,7 +164,7 @@
 	integrity_failure = 50
 	soft_armor = list(MELEE = 35, BULLET = 30, LASER = 20, ENERGY = 40, BOMB = 25, BIO = 50, FIRE = 0, ACID = 30)
 	slowdown = 0.3
-	item_flags = IS_DEPLOYABLE
+	deploy_flags = IS_DEPLOYABLE
 	strappable = FALSE
 	///The item this deploys into
 	var/deployable_item = /obj/structure/barricade/solid/deployable
@@ -195,10 +195,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("shoves", "bashes")
 	var/on_force = 10
-
-/obj/item/weapon/shield/energy/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/strappable)
 
 /obj/item/weapon/shield/energy/set_shield()
 	AddComponent(/datum/component/shield, SHIELD_TOGGLE|SHIELD_PURE_BLOCKING)
@@ -237,6 +233,11 @@
 /datum/action/ability/activable/weapon_skill/shield_bash/remove_action(mob/living/carbon/carbon_owner)
 	. = ..()
 	UnregisterSignal(carbon_owner, COMSIG_MOB_MOUSEDOWN)
+
+/datum/action/ability/activable/weapon_skill/shield_bash/ai_should_use(atom/target)
+	if(get_dist(owner, target) > 1)
+		return FALSE
+	return ..()
 
 /datum/action/ability/activable/weapon_skill/shield_bash/use_ability(atom/A)
 	succeed_activate()

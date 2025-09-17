@@ -95,7 +95,7 @@
 
 	id = /obj/item/card/id/dogtag
 	belt = /obj/item/storage/belt/utility/full
-	glasses = /obj/item/clothing/glasses/welding
+	glasses = /obj/item/clothing/glasses/welding/flipped
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/mech
 	wear_suit = /obj/item/clothing/suit/storage/marine/mech_pilot
@@ -112,7 +112,7 @@
 
 	id = /obj/item/card/id/dogtag
 	belt = /obj/item/storage/belt/utility/full
-	glasses = /obj/item/clothing/glasses/welding
+	glasses = /obj/item/clothing/glasses/welding/flipped
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/transport_crewman
 	wear_suit = /obj/item/clothing/suit/storage/marine/transport_crewman
@@ -126,7 +126,7 @@
 
 	id = /obj/item/card/id/dogtag
 	belt = /obj/item/storage/belt/utility/full
-	glasses = /obj/item/clothing/glasses/welding
+	glasses = /obj/item/clothing/glasses/welding/flipped
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/assault_crewman
 	wear_suit = /obj/item/clothing/suit/storage/marine/assault_crewman
@@ -135,13 +135,16 @@
 	gloves = /obj/item/clothing/gloves/marine
 	l_pocket = /obj/item/pamphlet/tank_loader
 
+/datum/outfit/job/command/assault_crewman/fallen
+	ears = null
+
 /datum/outfit/job/command/transport_crewman
 	name = TRANSPORT_CREWMAN
 	jobtype = /datum/job/terragov/command/transport_crewman
 
 	id = /obj/item/card/id/dogtag
 	belt = /obj/item/storage/belt/utility/full
-	glasses = /obj/item/clothing/glasses/welding
+	glasses = /obj/item/clothing/glasses/welding/flipped
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/transport_crewman
 	wear_suit = /obj/item/clothing/suit/storage/marine/transport_crewman

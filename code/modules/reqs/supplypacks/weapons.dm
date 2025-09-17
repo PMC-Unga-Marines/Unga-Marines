@@ -218,7 +218,7 @@
 /datum/supply_packs/weapons/xray_gun
 	name = "Terra Experimental TE-X Laser Rifle"
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/xray)
-	cost = 400
+	cost = 500
 
 /datum/supply_packs/weapons/rocketsledge
 	name = "Rocket sledge"
@@ -267,6 +267,12 @@
 	cost = 30 //50 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
+/datum/supply_packs/weapons/type16_extended_mag
+	name = "Type-16 extended magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/type16/extended)
+	cost = 15
+	containertype = /obj/structure/closet/crate/ammo
+
 /datum/supply_packs/weapons/smg25_ap
 	name = "SMG-25 armor piercing magazine"
 	contains = list(/obj/item/ammo_magazine/smg/m25/ap)
@@ -285,6 +291,26 @@
 	cost = 50 //150 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/xray_gun
-	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/xray)
-	cost = 500
+/datum/supply_packs/weapons/plasma_cells
+	name = "WML plasma energy cell (x3)"
+	contains = list(
+		/obj/item/cell/lasgun/plasma,
+		/obj/item/cell/lasgun/plasma,
+		/obj/item/cell/lasgun/plasma,
+	)
+	cost = 100
+
+/datum/supply_packs/weapons/plasma_smg
+	name = "PL-51 plasma SMG"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/plasma/smg)
+	cost = 400
+
+/datum/supply_packs/weapons/plasma_rifle
+	name = "PL-38 plasma rifle"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/plasma/rifle)
+	cost = 350
+
+/datum/supply_packs/weapons/plasma_cannon
+	name = "PL-96 plasma cannon"
+	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/plasma/cannon)
+	cost = 400

@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 //------------------------------------------------------------------
 //Setup and Deletion
 
-/obj/machinery/deployable/mounted/sentry/Initialize(mapload, _internal_item, deployer)
+/obj/machinery/deployable/mounted/sentry/Initialize(mapload, obj/item/_internal_item, mob/deployer)
 	. = ..()
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	soundloop = new(list(src))
@@ -52,6 +52,8 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 		var/mob/living/carbon/human/_deployer = deployer
 		var/obj/item/card/id/id = _deployer.get_idcard(TRUE)
 		iff_signal = id?.iff_signal
+	if(deployer)
+		faction = deployer.faction
 
 	knockdown_threshold = gun?.knockdown_threshold ? gun.knockdown_threshold : initial(gun.knockdown_threshold)
 	range = CHECK_BITFIELD(gun.turret_flags, TURRET_RADIAL) ?  gun.turret_range - 2 : gun.turret_range
@@ -440,7 +442,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 		return
 	if(CHECK_BITFIELD(internal_gun.reciever_flags, AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION) && length(internal_gun.chamber_items))
 		INVOKE_ASYNC(internal_gun, TYPE_PROC_REF(/obj/item/weapon/gun, do_unique_action))
-	if(!CHECK_BITFIELD(internal_gun.item_flags, IS_DEPLOYED) || get_dist(src, gun_target) > range || (!CHECK_BITFIELD(get_dir(src, gun_target), dir) && !CHECK_BITFIELD(internal_gun.turret_flags, TURRET_RADIAL)) || !check_target_path(gun_target))
+	if(!CHECK_BITFIELD(internal_gun.deploy_flags, IS_DEPLOYED) || get_dist(src, gun_target) > range || (!CHECK_BITFIELD(get_dir(src, gun_target), dir) && !CHECK_BITFIELD(internal_gun.turret_flags, TURRET_RADIAL)) || !check_target_path(gun_target))
 		sentry_stop_fire()
 		return
 	if(internal_gun.gun_firemode != GUN_FIREMODE_SEMIAUTO)
@@ -449,7 +451,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 
 ///Sees if theres a target to shoot, then handles firing.
 /obj/machinery/deployable/mounted/sentry/proc/sentry_start_fire()
-	if(isclosedturf(loc))
+	if(isclosedturf(loc) || CHECK_BITFIELD(machine_stat, KNOCKED_DOWN))
 		sentry_stop_fire()
 		return
 	var/obj/item/weapon/gun/gun = get_internal_item()
@@ -576,7 +578,7 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 	name = "broken build-a-sentry"
 	desc = "You should not be seeing this unless a mapper, coder or admin screwed up."
 
-/obj/machinery/deployable/mounted/sentry/buildasentry/Initialize(mapload, _internal_item, deployer) //I know the istype spam is a bit much, but I don't think there is a better way.
+/obj/machinery/deployable/mounted/sentry/buildasentry/Initialize(mapload, obj/item/_internal_item, mob/deployer) //I know the istype spam is a bit much, but I don't think there is a better way.
 	. = ..()
 	var/obj/item/internal_sentry = get_internal_item()
 	if(internal_sentry)

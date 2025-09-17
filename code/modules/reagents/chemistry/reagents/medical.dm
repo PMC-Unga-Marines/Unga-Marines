@@ -687,7 +687,6 @@
 		var/datum/internal_organ/brain/B = H.get_organ_slot(ORGAN_SLOT_BRAIN)
 		if(B.damage < 30)
 			L.adjust_brain_loss(-1.5*effect_str)
-			L.adjust_tox_loss(-1.5 * effect_str)
 	L.adjust_ear_damage(-2 * effect_str, -2 * effect_str)
 	return ..()
 
@@ -713,7 +712,6 @@
 		var/datum/internal_organ/eyes/E = H.get_organ_slot(ORGAN_SLOT_EYES)
 		if(E.damage < 30)
 			E.heal_organ_damage(effect_str)
-			L.adjust_tox_loss(-1.5 * effect_str)
 	return ..()
 
 /datum/reagent/medicine/imidazoline/overdose_process(mob/living/L, metabolism)

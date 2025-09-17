@@ -23,3 +23,21 @@
 		icon_state = "[xeno_caste.caste_name] Crest"
 		return TRUE
 	return FALSE
+
+/mob/living/carbon/xenomorph/beetle/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/beetle/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/beetle/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/beetle/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/beetle/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/beetle/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

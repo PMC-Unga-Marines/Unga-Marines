@@ -120,22 +120,14 @@
 	storage_datum.sprite_slots = 1
 	storage_datum.storage_slots = 6
 	storage_datum.max_w_class = WEIGHT_CLASS_NORMAL
-	storage_datum.set_holdable(can_hold_list = list(
-		/obj/item/flashlight,
-		/obj/item/reagent_containers/pill,
-		/obj/item/stack/medical/heal_pack/gauze,
-		/obj/item/stack/sheet/metal,
-		/obj/item/stack/sheet/plasteel,
-		/obj/item/tool/weldingtool,
-	))
 
 /obj/item/storage/pouch/survival/full/PopulateContents()
-	new /obj/item/flashlight(src)
-	new /obj/item/reagent_containers/pill/tramadol(src)
-	new /obj/item/stack/medical/heal_pack/gauze(src, 3)
-	new /obj/item/stack/sheet/metal(src, 40)
-	new /obj/item/stack/sheet/plasteel(src, 15)
-	new /obj/item/tool/weldingtool(src)
+	new /obj/item/stack/medical/heal_pack/gauze(src)
+	new /obj/item/stack/sheet/metal/large_stack(src)
+	new /obj/item/stack/sheet/plasteel/medium_stack(src)
+	new /obj/item/stack/barbed_wire/small_stack(src)
+	new /obj/item/tool/weldingtool/largetank(src)
+	new /obj/item/tool/crowbar/red(src)
 
 /obj/item/storage/pouch/firstaid
 	name = "first-aid pouch"
@@ -223,15 +215,20 @@
 	storage_datum.sprite_slots = 1
 	storage_datum.max_w_class = WEIGHT_CLASS_BULKY
 	storage_datum.draw_mode = FALSE
-	storage_datum.set_holdable(can_hold_list = list(
-		/obj/item/weapon/gun/pistol,
-		/obj/item/ammo_magazine/pistol,
-		/obj/item/weapon/gun/revolver,
-		/obj/item/ammo_magazine/revolver,
-		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
-		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
-		/obj/item/cell/lasgun/lasrifle,
-	))
+	storage_datum.set_holdable(
+		can_hold_list = list(
+			/obj/item/weapon/gun/pistol,
+			/obj/item/ammo_magazine/pistol,
+			/obj/item/weapon/gun/revolver,
+			/obj/item/ammo_magazine/revolver,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
+			/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
+			/obj/item/cell/lasgun/lasrifle,
+		),
+		cant_hold_list = list(
+			/obj/item/weapon/gun/revolver/coltrifle,
+		)
+	)
 
 /obj/item/storage/pouch/pistol/vp70/PopulateContents()
 	new /obj/item/weapon/gun/pistol/vp70(src)
@@ -806,6 +803,7 @@
 		/obj/item/toy/deck,
 		/obj/item/paper,
 		/obj/item/clipboard,
+		/obj/item/pinpointer,
 	))
 
 /obj/item/storage/pouch/field_pouch/full/PopulateContents()

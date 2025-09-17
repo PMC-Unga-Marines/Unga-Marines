@@ -77,9 +77,12 @@
 
 
 /obj/machinery/door/poddoor/shutters/timed_late/Initialize(mapload)
-	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_CRASH, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND), PROC_REF(open))
+	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_CRASH), PROC_REF(open))
 	return ..()
 
+/obj/machinery/door/poddoor/shutters/timed_late/open()
+	. = ..()
+	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_CRASH))
 
 /obj/machinery/door/poddoor/shutters/opened
 	icon_state = "shutter0"
@@ -134,6 +137,17 @@
 	name = "Self Destruct Lockdown"
 	id = "sd_lockdown"
 	resistance_flags = RESIST_ALL
+
+/obj/machinery/door/poddoor/shutters/mainship/selfdestruct/Initialize(mapload)
+	. = ..()
+	RegisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED, PROC_REF(on_alert_change))
+
+/// Called when [COMSIG_SECURITY_LEVEL_CHANGED] sends a signal, opens the shutters if the sec level is an "emergency" level
+/obj/machinery/door/poddoor/shutters/mainship/selfdestruct/proc/on_alert_change(datum/source, datum/security_level/next_level, datum/security_level/previous_level)
+	SIGNAL_HANDLER
+	if(!(next_level.sec_level_flags & SEC_LEVEL_FLAG_STATE_OF_EMERGENCY))
+		return
+	open()
 
 /obj/machinery/door/poddoor/shutters/mainship/selfdestruct/get_explosion_resistance()
 	return density ? EXPLOSION_MAX_POWER : 0

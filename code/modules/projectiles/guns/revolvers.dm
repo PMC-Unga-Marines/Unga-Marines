@@ -459,7 +459,7 @@
 //////// Сoltrifle, based on Colt Model 1855 Revolving Rifle. /////////
 ///////////////////////////////////////////////////////////////////////
 
-/obj/item/weapon/gun/revolver/r44/coltrifle
+/obj/item/weapon/gun/revolver/coltrifle
 	name = "\improper M1855 Revolving Rifle"
 	desc = "A revolver and carbine hybrid, designed and manufactured a long time ago by Crowford Armory Union. Popular back then, but completely obsolete today. Still used by some antiquity lovers."
 	icon = 'icons/obj/items/gun/marksman64.dmi'
@@ -468,8 +468,6 @@
 	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/marksman_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/marksman_righthand_1.dmi',
-		slot_s_store_str = 'icons/mob/suit_slot.dmi',
-		slot_back_str = 'icons/mob/clothing/back.dmi',
 	)
 	fire_animation = "coltrifle_fire"
 	fire_sound = 'sound/weapons/guns/fire/mateba.ogg'
@@ -482,12 +480,12 @@
 	allowed_ammo_types = list(/obj/item/ammo_magazine/revolver/rifle)
 	force = 20
 
+	accuracy_mult_unwielded = 0.6
 	scatter = 3
-	recoil = 3
+	recoil = 0.5
 	scatter_unwielded = 10
 	recoil_unwielded = 6
 	recoil_backtime_multiplier = 2
-	recoil_deviation = 360 //real party
 
 	fire_delay = 0.25 SECONDS
 	aim_fire_delay = 0.25 SECONDS
@@ -503,11 +501,6 @@
 		/obj/item/attachable/bayonetknife,
 	)
 	attachable_offset = list("muzzle_x" = 50, "muzzle_y" = 21,"rail_x" = 24, "rail_y" = 22)
-
-/obj/item/weapon/gun/revolver/r44/coltrifle/Initialize(mapload, spawn_empty)
-	. = ..()
-	base_gun_icon = "coltrifle"
-	update_icon()
 
 //////////////////////////////////////////////////////////////////////////
 /////////////////////////// t500 revolver ////////////////////////////////
@@ -529,7 +522,6 @@
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/revolver/t500,
 		/obj/item/ammo_magazine/revolver/t500/slavs,
-		/datum/ammo/bullet/revolver/t500/qk,
 	)
 	force = 20
 	actions_types = null

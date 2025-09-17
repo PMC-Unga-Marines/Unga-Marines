@@ -212,14 +212,13 @@
 	///Minimum time to build a resin structure
 	var/base_wait = 0.5 SECONDS
 	///Multiplicator factor to add to the building time, depends on the health of the structure built
-	var/scaling_wait = 0.5 SECONDS
+	var/scaling_wait = 1.5 SECONDS
 	///List of buildable structures. Order corresponds with resin_images_list.
 	var/list/buildable_structures = list(
 		/turf/closed/wall/resin/regenerating,
-		/turf/closed/wall/resin/regenerating/bombproof,
 		/turf/closed/wall/resin/regenerating/bulletproof,
 		/turf/closed/wall/resin/regenerating/fireproof,
-		/turf/closed/wall/resin/regenerating/meleeproof,
+		/turf/closed/wall/resin/regenerating/hardy,
 		/obj/alien/resin/sticky,
 		/obj/structure/mineral_door/resin,
 		/obj/structure/bed/nest,
@@ -248,38 +247,39 @@
 	SIGNAL_HANDLER
 	dragging = FALSE
 	UnregisterSignal(owner, list(COMSIG_MOB_MOUSEDRAG, COMSIG_MOB_MOUSEUP, COMSIG_MOB_MOUSEDOWN))
-	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND,COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ,COMSIG_GLOB_DROPPOD_LANDED))
+	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ,COMSIG_GLOB_DROPPOD_LANDED))
 
 /// Extra handling for adding the action for draggin functionality (for instant building)
 /datum/action/ability/activable/xeno/secrete_resin/give_action(mob/living/L)
 	. = ..()
-	if(!(CHECK_BITFIELD(SSticker?.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) || !SSresinshaping.active))
+	if(!CHECK_BITFIELD(SSticker?.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD))
 		return
-
+	if(!SSresinshaping.active)
+		return
 	var/mutable_appearance/build_maptext = mutable_appearance(icon = null,icon_state = null, layer = ACTION_LAYER_MAPTEXT)
 	build_maptext.pixel_x = 12
 	build_maptext.pixel_y = -5
 	build_maptext.maptext = MAPTEXT(SSresinshaping.get_building_points(owner))
 	visual_references[VREF_MUTABLE_BUILDING_COUNTER] = build_maptext
-
 	RegisterSignal(owner, COMSIG_MOB_MOUSEDOWN, PROC_REF(start_resin_drag))
 	RegisterSignal(owner, COMSIG_MOB_MOUSEDRAG, PROC_REF(preshutter_resin_drag))
 	RegisterSignal(owner, COMSIG_MOB_MOUSEUP, PROC_REF(stop_resin_drag))
-	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND,COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ,COMSIG_GLOB_DROPPOD_LANDED), PROC_REF(end_resin_drag))
+	RegisterSignals(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ,COMSIG_GLOB_DROPPOD_LANDED), PROC_REF(end_resin_drag))
 
 /// Extra handling to remove the stuff needed for dragging
 /datum/action/ability/activable/xeno/secrete_resin/remove_action(mob/living/carbon/xenomorph/X)
 	if(!CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD))
 		return ..()
 	UnregisterSignal(owner, list(COMSIG_MOB_MOUSEDRAG, COMSIG_MOB_MOUSEUP, COMSIG_MOB_MOUSEDOWN))
-	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND,COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ,COMSIG_GLOB_DROPPOD_LANDED))
+	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE,COMSIG_GLOB_TADPOLE_LANDED_OUT_LZ,COMSIG_GLOB_DROPPOD_LANDED))
 	update_button_icon() //reason for the double return ..() here is owner gets unassigned in one of the parent procs, so we can't call parent before unregistering signals here
 	return ..()
 
 /datum/action/ability/activable/xeno/secrete_resin/update_button_icon()
-	var/atom/A = xeno_owner.selected_resin
-	action_icon_state = initial(A.name)
-	if(!is_gameplay_level(xeno_owner.loc.z))
+	if(xeno_owner)
+		var/atom/A = xeno_owner.selected_resin
+		action_icon_state = initial(A.name)
+	if(!is_gameplay_level(xeno_owner?.loc?.z))
 		return ..() // prevents runtimes
 	if(SSmonitor.gamestate == SHUTTERS_CLOSED && CHECK_BITFIELD(SSticker.mode?.round_type_flags, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
 		button.cut_overlay(visual_references[VREF_MUTABLE_BUILDING_COUNTER])
@@ -766,11 +766,13 @@
 	owner.AddComponent(/datum/component/automatedfire/autofire, get_cooldown(), _fire_mode = GUN_FIREMODE_AUTOMATIC,  _callback_reset_fire = CALLBACK(src, PROC_REF(reset_fire)), _callback_fire = CALLBACK(src, PROC_REF(fire)))
 
 /datum/action/ability/activable/xeno/xeno_spit/remove_action(mob/living/L)
+	clean_target()
 	qdel(owner.GetComponent(/datum/component/automatedfire/autofire))
 	return ..()
 
 /datum/action/ability/activable/xeno/xeno_spit/update_button_icon()
-	action_icon_state = "[initial(xeno_owner.ammo.icon_state)]"
+	if(xeno_owner)
+		action_icon_state = "[initial(xeno_owner.ammo.icon_state)]"
 	return ..()
 
 /datum/action/ability/activable/xeno/xeno_spit/action_activate()
@@ -813,7 +815,7 @@
 	return ..()
 
 /datum/action/ability/activable/xeno/xeno_spit/use_ability(atom/A)
-	if(!owner.GetComponent(/datum/component/ai_controller)) //If its not an ai it will register to listen for clicks instead of use this proc. We want to call start_fire from here only if the owner is an ai.
+	if(owner.client) //If its not an ai it will register to listen for clicks instead of use this proc. We want to call start_fire from here only if the owner is an ai.
 		return
 	start_fire(object = A, can_use_ability_flags = ABILITY_IGNORE_SELECTED_ABILITY)
 
@@ -878,7 +880,7 @@
 ///Cleans the current target in case of Hardel
 /datum/action/ability/activable/xeno/xeno_spit/proc/clean_target()
 	SIGNAL_HANDLER
-	current_target = get_turf(current_target)
+	current_target = null
 
 ///Stops the Autofire component and resets the current cursor.
 /datum/action/ability/activable/xeno/xeno_spit/proc/stop_fire()
@@ -912,7 +914,7 @@
 	)
 
 /datum/action/ability/xeno_action/xenohide/remove_action(mob/living/L)
-	UnregisterSignal(L, COMSIG_XENOMORPH_POUNCE)
+	UnregisterSignal(L, list(COMSIG_XENOMORPH_POUNCE, COMSIG_MOB_CRIT, COMSIG_MOB_DEATH))
 	return ..()
 
 /datum/action/ability/xeno_action/xenohide/can_use_action(silent, override_flags)
@@ -924,15 +926,22 @@
 
 /datum/action/ability/xeno_action/xenohide/action_activate()
 	if(xeno_owner.layer != XENO_HIDING_LAYER)
-		RegisterSignal(xeno_owner, COMSIG_XENOMORPH_POUNCE, PROC_REF(action_activate))
+		RegisterSignals(xeno_owner, list(COMSIG_XENOMORPH_POUNCE, COMSIG_MOB_CRIT, COMSIG_MOB_DEATH), PROC_REF(unhide))
 		xeno_owner.layer = XENO_HIDING_LAYER
 		to_chat(xeno_owner, span_notice("We are now hiding."))
 		button.add_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE))
 	else
-		UnregisterSignal(xeno_owner, COMSIG_XENOMORPH_POUNCE)
+		UnregisterSignal(xeno_owner, list(COMSIG_XENOMORPH_POUNCE, COMSIG_MOB_CRIT, COMSIG_MOB_DEATH))
 		xeno_owner.layer = MOB_LAYER
 		to_chat(xeno_owner, span_notice("We have stopped hiding."))
 		button.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE))
+
+/datum/action/ability/xeno_action/xenohide/proc/unhide()
+	SIGNAL_HANDLER
+	UnregisterSignal(xeno_owner, list(COMSIG_XENOMORPH_POUNCE, COMSIG_MOB_CRIT, COMSIG_MOB_DEATH))
+	xeno_owner.layer = MOB_LAYER
+	to_chat(xeno_owner, span_notice("We have stopped hiding."))
+	button.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE))
 
 //Neurotox Sting
 /datum/action/ability/activable/xeno/neurotox_sting
@@ -1185,7 +1194,7 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HEADBITE,
 	)
-	gamemode_flags = ABILITY_NUCLEARWAR
+	gamemode_flags = ABILITY_DISTRESS|ABILITY_CRASH
 	ability_cost = 100
 	///How much larva points it gives (8 points for one larva in distress)
 	var/larva_point_reward = 1
@@ -1244,7 +1253,7 @@
 	playsound(xeno_owner, 'sound/magic/end_of_psy_drain.ogg', 40)
 
 	xeno_owner.visible_message(span_xenodanger("\The [victim]'s life force is drained by \the [xeno_owner]!"), \
-	span_xenodanger("We suddenly feel \the [victim]'s life force streaming into us!"))
+	span_xenodanger("We feel \the [victim]'s life force streaming into us!"))
 
 	victim.do_jitter_animation(2)
 	victim.adjust_clone_loss(20)
@@ -1258,16 +1267,25 @@
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_HIVE_TARGET_DRAINED, xeno_owner)
 		psy_points_reward = psy_points_reward * 3
 	SSpoints.add_psy_points(xeno_owner.hivenumber, psy_points_reward)
-	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
-	xeno_job.add_job_points(larva_point_reward)
-	xeno_owner.hive.update_tier_limits()
-	GLOB.round_statistics.larva_from_psydrain +=larva_point_reward / xeno_job.job_points_needed
+	GLOB.round_statistics.psypoints_from_psydrain += psy_points_reward
+
+	if(xeno_owner.hivenumber != XENO_HIVE_NORMAL)
+		return
+
+	if(SSticker.mode && !CHECK_BITFIELD(SSticker.mode.xeno_abilities_flags, ABILITY_CRASH))
+		var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+		xeno_job.add_job_points(larva_point_reward)
+		xeno_owner.hive.update_tier_limits()
+		GLOB.round_statistics.larva_from_psydrain += larva_point_reward / xeno_job.job_points_needed
 
 	if(owner.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.drained++
 	log_combat(victim, owner, "was drained.")
 	log_game("[key_name(victim)] was drained at [AREACOORD(victim.loc)].")
+
+/datum/action/ability/activable/xeno/psydrain/free
+	ability_cost = 0
 
 /////////////////////////////////
 // Cocoon
@@ -1282,7 +1300,7 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_REGURGITATE,
 	)
 	ability_cost = 100
-	gamemode_flags = ABILITY_NUCLEARWAR
+	gamemode_flags = ABILITY_DISTRESS|ABILITY_CRASH
 	///In how much time the cocoon will be ejected
 	var/cocoon_production_time = 3 SECONDS
 

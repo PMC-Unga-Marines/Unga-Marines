@@ -363,21 +363,21 @@
 	. += "- Operation information -"
 	. += "Current orbit: [GLOB.current_orbit]"
 
-	if(!GLOB.marine_main_ship?.orbital_cannon?.chambered_tray)
+	if(!GLOB.orbital_cannon?.chambered_tray)
 		. += "Orbital bombardment status: No ammo chambered in the cannon."
 	else
-		. += "Orbital bombardment warhead: [GLOB.marine_main_ship.orbital_cannon.tray.warhead.name] Detected"
+		. += "Orbital bombardment warhead: [GLOB.orbital_cannon.tray.warhead.name] Detected"
 
 	. += "Current supply points: [round(SSpoints.supply_points[FACTION_TERRAGOV])]"
 
 	. += "Current dropship points: [round(SSpoints.dropship_points)]"
 
-	. += "Current alert level: [GLOB.marine_main_ship.get_security_level()]"
+	. += "Current alert level: [SSsecurity_level.get_current_level_as_text()]"
 
 	. += "Number of living marines: [SSticker.mode.count_humans_and_xenos()[1]]"
 
-	if(GLOB.marine_main_ship?.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE > world.time)
-		. += "Railgun status: Cooling down, next fire in [(GLOB.marine_main_ship?.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE - world.time) * 0.1] seconds."
+	if(GLOB.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE > world.time)
+		. += "Railgun status: Cooling down, next fire in [(GLOB.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE - world.time) * 0.1] seconds."
 	else
 		. += "Railgun status: Railgun is ready to fire."
 
@@ -521,11 +521,10 @@
 	owner.playsound_local(owner, 'sound/effects/CIC_order.ogg', 10, 1)
 	TIMER_COOLDOWN_START(owner, COOLDOWN_HUD_ORDER, CIC_ORDER_COOLDOWN)
 	log_game("[key_name(owner)] has broadcasted the hud message [text] at [AREACOORD(owner)]")
-	deadchat_broadcast(" has sent the command order \"[text]\"", owner, owner)
+	deadchat_broadcast("has sent the command order \"[text]\"", owner, owner)
 	for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 		if(human.faction == owner.faction)
 			human.play_screen_text(HUD_ANNOUNCEMENT_FORMATTING("<u>ORDERS UPDATED:</u>", text, CENTER_ALIGN_TEXT), /atom/movable/screen/text/screen_text/command_order)
-
 
 ///takes an atom A and sends an alert, coordinate and for the atom to eligible marine forces if cooldown is over
 /mob/living/silicon/ai/proc/ai_ping(atom/A, cooldown = COOLDOWN_AI_PING_NORMAL)

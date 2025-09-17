@@ -41,6 +41,7 @@
 			if(auto_observe && !QDELETED(owner?.orbiting?.parent))
 				owner.do_observe(owner.orbiting.parent)
 			else
+				owner.clean_observetarget()
 				owner.reset_perspective(null)
 			. = TRUE
 
@@ -106,12 +107,10 @@
 				serialized["icon"] = caste.minimap_icon
 			if(!isnum(xeno.nicknumber))
 				serialized["nickname"] = xeno.nicknumber
-//RUTGMC EDIT
 			if(istype(xeno, /mob/living/carbon/xenomorph/hellhound))
 				yautja += list(serialized)
 				continue
-//RUTGMC EDIT
-			if(HAS_TRAIT(xeno, TRAIT_VALHALLA_XENO)) // RUTGMC ADDITION
+			if(HAS_TRAIT(xeno, TRAIT_VALHALLA_XENO))
 				valhalla += list(serialized)
 				continue
 
@@ -120,6 +119,9 @@
 
 		if(isAI(mob_poi))
 			serialized["job"] = "AI"
+			var/mob/living/silicon/ai/ai = poi
+			var/datum/job/job = ai.job
+			serialized["icon"] = job.minimap_icon
 			humans += list(serialized)
 			continue
 
@@ -138,6 +140,9 @@
 				if(human.assigned_squad)
 					serialized["icon"] = lowertext(human.assigned_squad.name) + "_" + job.minimap_icon
 					serialized["job"] = human.assigned_squad.name + " " + job.title
+				else
+					serialized["icon"] = job.minimap_icon
+					serialized["job"] = job.title
 				marines += list(serialized)
 				continue
 

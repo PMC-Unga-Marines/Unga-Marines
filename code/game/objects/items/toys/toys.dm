@@ -69,7 +69,7 @@
 	if(!.)
 		return
 	if(src.reagents.total_volume >= 1)
-		src.visible_message(span_warning(" The [src] bursts!"),"You hear a pop and a splash.")
+		src.visible_message(span_warning("The [src] bursts!"),"You hear a pop and a splash.")
 		src.reagents.reaction(get_turf(hit_atom), TOUCH)
 		for(var/atom/A in get_turf(hit_atom))
 			src.reagents.reaction(A, TOUCH)
@@ -163,7 +163,7 @@
 	s.set_up(3, 1, src)
 	s.start()
 	new /obj/effect/decal/cleanable/ash(src.loc)
-	src.visible_message(span_warning(" The [src.name] explodes!"),span_warning(" You hear a snap!"))
+	src.visible_message(span_warning("The [src.name] explodes!"),span_warning("You hear a snap!"))
 	playsound(src, 'sound/effects/snap.ogg', 25, 1)
 	qdel(src)
 
@@ -180,7 +180,7 @@
 	s.set_up(2, 0, src)
 	s.start()
 	new /obj/effect/decal/cleanable/ash(src.loc)
-	visible_message(span_warning(" The [src.name] explodes!"),span_warning(" You hear a snap!"))
+	visible_message(span_warning("The [src.name] explodes!"),span_warning("You hear a snap!"))
 	playsound(src, 'sound/effects/snap.ogg', 25, 1)
 	qdel(src)
 
@@ -428,44 +428,37 @@
 /obj/item/toy/plush/farwa
 	name = "Farwa plush doll"
 	desc = "A Farwa plush doll. It's soft and comforting!"
-	w_class = WEIGHT_CLASS_TINY
 	icon_state = "farwaplush"
 
 /obj/item/toy/plush/therapy_red
 	name = "red therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is red."
 	icon_state = "therapyred"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/therapy_purple
 	name = "purple therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is purple."
 	icon_state = "therapypurple"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/therapy_blue
 	name = "blue therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is blue."
 	icon_state = "therapyblue"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/therapy_yellow
 	name = "yellow therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is yellow."
 	icon_state = "therapyyellow"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/therapy_orange
 	name = "orange therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is orange."
 	icon_state = "therapyorange"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/therapy_green
 	name = "green therapy doll"
 	desc = "A toy for therapeutic and recreational purposes. This one is green."
 	icon_state = "therapygreen"
-	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plush/carp
 	name = "carp plushie"

@@ -19,13 +19,6 @@
 		/mob/living/carbon/xenomorph/proc/vent_crawl,
 	)
 
-/mob/living/carbon/xenomorph/panther/set_stat()
-	. = ..()
-	if(isnull(.))
-		return
-	if(. == CONSCIOUS && layer != initial(layer))
-		layer = MOB_LAYER
-
 /mob/living/carbon/xenomorph/panther/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(adrenalin)), 1 SECONDS, TIMER_LOOP)
@@ -58,3 +51,24 @@
 /mob/living/carbon/xenomorph/panther/gib()
 	new /obj/item/reagent_containers/food/drinks/pantherheart(loc)
 	return ..()
+
+/mob/living/carbon/xenomorph/panther/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/panther/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/panther/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/panther/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/panther/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/panther/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/panther/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

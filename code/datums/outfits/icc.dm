@@ -112,7 +112,7 @@
 	back = /obj/item/weapon/gun/rifle/icc_coilgun
 	l_pocket = /obj/item/storage/pouch/explosive/icc
 	r_pocket = /obj/item/storage/pouch/explosive/icc
-
+	backpack_contents = null
 	r_pocket_contents = list(
 		/obj/item/ammo_magazine/rocket/icc = 4,
 	)
@@ -142,6 +142,7 @@
 	l_pocket_contents = list(
 		/obj/item/ammo_magazine/rifle/icc_autoshotgun/frag = 3,
 	)
+	backpack_contents = null
 
 /datum/outfit/job/icc/guard/icc_bagmg
 	wear_suit = /obj/item/clothing/suit/storage/marine/icc/guard/heavy
@@ -152,8 +153,12 @@
 	l_pocket = /obj/item/storage/pouch/magazine/large/icc
 	r_pocket = /obj/item/storage/pouch/magazine/large/icc
 
+	backpack_contents = null
 	l_pocket_contents = list(
-		/obj/item/ammo_magazine/rifle/icc_coilgun = 6,
+		/obj/item/ammo_magazine/rifle/icc_coilgun = 3,
+	)
+	r_pocket_contents = list(
+		/obj/item/ammo_magazine/rifle/icc_coilgun = 3,
 	)
 
 /datum/outfit/job/icc/medic
@@ -173,11 +178,12 @@
 
 	backpack_contents = list(
 		/obj/item/tool/crowbar/red = 1,
-		/obj/item/explosive/grenade/som = 6,
+		/obj/item/explosive/grenade/som = 5,
 		/obj/item/defibrillator = 1,
 		/obj/item/storage/box/m94 = 1,
 		/obj/item/weapon/gun/pistol/icc_dpistol = 1,
 		/obj/item/ammo_magazine/pistol/icc_dpistol = 1,
+		/obj/item/reagent_containers/hypospray/advanced/combat_advanced = 1,
 	)
 
 	webbing_contents = list(
@@ -186,7 +192,6 @@
 		/obj/item/storage/pill_bottle/spaceacillin = 1,
 		/obj/item/reagent_containers/hypospray/advanced/nanoblood = 1,
 		/obj/item/bodybag/cryobag = 1,
-		/obj/item/reagent_containers/hypospray/advanced/combat_advanced = 1,
 	)
 
 /datum/outfit/job/icc/medic/icc_machinepistol
@@ -209,7 +214,6 @@
 		/obj/item/storage/box/m94 = 1,
 		/obj/item/weapon/gun/pistol/icc_dpistol = 1,
 		/obj/item/ammo_magazine/pistol/icc_dpistol = 1,
-		/obj/item/ammo_magazine/smg/icc_machinepistol = 3,
 	)
 
 /datum/outfit/job/icc/medic/icc_sharpshooter

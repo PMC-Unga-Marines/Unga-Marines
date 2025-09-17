@@ -63,13 +63,31 @@
 		death()
 		return
 
-	if(HAS_TRAIT(src, TRAIT_KNOCKEDOUT) || get_oxy_loss() > CARBON_KO_OXYLOSS || health < get_crit_threshold())
+	if(health < get_crit_threshold())
 		if(stat == UNCONSCIOUS)
 			return
 		set_stat(UNCONSCIOUS)
+		on_crit()
+
+	else if(HAS_TRAIT(src, TRAIT_KNOCKEDOUT) || get_oxy_loss() > CARBON_KO_OXYLOSS)
+		if(stat == UNCONSCIOUS)
+			return
+		set_stat(UNCONSCIOUS)
+
 	else if(stat == UNCONSCIOUS)
 		set_stat(CONSCIOUS)
 
+///called just after this mob goes unconscious due to taking too much dmg
+/mob/living/carbon/proc/on_crit()
+	if(!HAS_TRAIT(src, TRAIT_CRIT_IS_DEATH))
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_ON_CRIT, src)
+		return
+	var/damage_dealt = health - get_death_threshold()
+	if(damage_dealt < 1)
+		death()
+		return
+	adjust_oxy_loss(damage_dealt)
+	death()
 
 /mob/living/carbon/handle_status_effects()
 	. = ..()

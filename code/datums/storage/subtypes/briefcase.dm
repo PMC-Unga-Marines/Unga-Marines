@@ -14,9 +14,9 @@
 			/obj/item/attachable/scope/standard_magnum,
 			/obj/item/ammo_magazine/revolver/standard_magnum,
 		),
-		storage_type_limits_list = list(/obj/item/weapon/gun)
+		storage_type_limits_list = list(/obj/item/weapon/gun/revolver/standard_magnum)
 	)
-	storage_type_limits_max = list(/obj/item/weapon/gun = 1)
+	storage_type_limits_max = list(/obj/item/weapon/gun/revolver/standard_magnum = 1)
 
 /datum/storage/briefcase/t500
 	max_w_class = WEIGHT_CLASS_TINY

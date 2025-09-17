@@ -9,7 +9,6 @@
 ///from base of datum/controller/subsystem/mapping/proc/add_new_zlevel(): (list/args)
 #define COMSIG_GLOB_NEW_Z "!new_z"
 #define COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE "!open_timed_shutters_late"
-#define COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND "!open_timed_shutters_xeno_hivemind"
 #define COMSIG_GLOB_OPEN_TIMED_SHUTTERS_CRASH "!open_timed_shutters_crash"
 #define COMSIG_GLOB_OPEN_SHUTTERS_EARLY "!open_shutters_early"
 #define COMSIG_GLOB_TELETOWER "!teletower"
@@ -78,6 +77,17 @@
 
 ///called when an AI is requested by a holopad
 #define COMSIG_GLOB_HOLOPAD_AI_CALLED "!holopad_calling"
+
+///from /atom/notify_ai_hazard()
+#define COMSIG_GLOB_AI_HAZARD_NOTIFIED "!ai_hazard_notified"
+
+///from /mob/living/carbon/proc/on_crit()
+#define COMSIG_GLOB_MOB_ON_CRIT "!mob_on_crit"
+///from /datum/ai_behavior/human/proc/on_take_damage()
+#define COMSIG_GLOB_AI_NEED_HEAL "!ai_need_heal"
+
+///from /datum/emote/living/carbon/human/medic/run_emote()
+#define COMSIG_GLOB_MOB_CALL_MEDIC "!mob_call_medic"
 
 //////////////////////////////////////////////////////////////////
 
@@ -223,6 +233,8 @@
 #define COMSIG_ATOM_UPDATE_OVERLAYS "atom_update_overlays"
 ///from base of [/atom/update_icon]: (signalOut, did_anything)
 #define COMSIG_ATOM_UPDATED_ICON "atom_updated_icon"
+///from base of [/atom/proc/smooth_icon]: ()
+#define COMSIG_ATOM_SMOOTHED_ICON "atom_smoothed_icon"
 
 #define COMSIG_ATOM_EX_ACT "atom_ex_act"						//from base of atom/ex_act(): (severity, target)
 ///from base of atom/contents_explosion(): (severity)
@@ -453,6 +465,7 @@
 	#define COMSIG_GRAB_SUCCESSFUL_SELF_ATTACK (1<<0)
 
 // /mob signals
+#define COMSIG_MOB_CRIT "mob_crit"
 #define COMSIG_MOB_DEATH "mob_death"							//from base of mob/death(): (gibbing)
 #define COMSIG_MOB_PRE_DEATH "mob_pre_death"
 	#define COMPONENT_CANCEL_DEATH (1<<0)						//interrupt death
@@ -522,6 +535,19 @@
 #define MOB_GET_DO_AFTER_COEFFICIENT "mob_get_do_after_coefficient"
 ///From get_zone_with_miss_chance
 #define MOB_GET_MISS_CHANCE_MOD "mob_get_miss_chance_mod"
+///From mob/living/carbon/human/has_ai()
+#define COMSIG_HUMAN_HAS_AI "human_has_ai"
+	#define MOB_HAS_AI (1<<0)
+///AI mob wants to jump
+#define COMSIG_AI_JUMP "ai_jump"
+///AI mob equipped a melee weapon
+#define COMSIG_AI_EQUIPPED_GUN "ai_equipped_gun"
+///AI mob equipped a melee weapon
+#define COMSIG_AI_EQUIPPED_MELEE "ai_equipped_melee"
+///Mob being healed by an AI mob
+#define COMSIG_AI_HEALING_MOB "ai_healing_mob"
+///Mob AI healing finished
+#define COMSIG_AI_HEALING_FINISHED "ai_healing_finished"
 
 //mob/dead/observer
 #define COMSIG_OBSERVER_CLICKON "observer_clickon"				//from mob/dead/observer/ClickOn(): (atom/A, params)
@@ -539,6 +565,9 @@
 ///from /mob/living/proc/set_lying_angle
 #define COMSIG_LIVING_SET_LYING_ANGLE "living_set_lying_angle"
 #define COMSIG_LIVING_IGNITED "living_ignited" //from /mob/living/proc/IgniteMob() : (fire_stacks)
+
+///From /mob/living/can_jump
+#define COMSIG_LIVING_CAN_JUMP "living_can_jump"
 
 /// From mob/living/treat_message(): (list/message_args)
 #define COMSIG_LIVING_TREAT_MESSAGE "living_treat_message"
@@ -624,8 +653,6 @@
 #define COMSIG_XENOMORPH_POUNCE "xenomorph_pounce"
 #define COMSIG_XENOMORPH_POUNCE_END "xenomorph_pounce_end"
 
-#define COMSIG_XENOMORPH_HEADBITE "headbite"
-
 #define COMSIG_XENOMORPH_GIBBING "xenomorph_gibbing"
 #define COMSIG_XENOMORPH_POSTEVOLVING "xenomorph_evolving"
 #define COMSIG_XENOMORPH_ABILITY_ON_UPGRADE "xenomorph_ability_on_upgrade"
@@ -670,6 +697,9 @@
 #define COMSIG_XENO_PSYCHIC_LINK_REMOVED "xeno_psychic_link_removed"
 
 #define COMSIG_XENOMORPH_LEAP_BUMP "xenomorph_leap_bump" //from /mob/living/carbon/xenomorph/bump
+
+#define COMSIG_XENO_DRAIN_HIT "xeno_drain_hit"
+#define COMSIG_XENO_CARNAGE_HIT "xeno_carnage_hit"
 
 //human signals
 #define COMSIG_CLICK_QUICKEQUIP "click_quickequip"
@@ -755,7 +785,6 @@
 
 //Signals for ais
 #define COMSIG_ESCORTING_ATOM_BEHAVIOUR_CHANGED "escorting_behaviour_changed"
-#define COMSIG_ESCORTED_ATOM_CHANGING "escorted_atom_changing"
 #define COMSIG_POINT_TO_ATOM "point_to_atom"
 
 /// From reequip components
@@ -820,3 +849,7 @@
 
 /// Cave comms interference check signal.
 #define COMSIG_CAVE_INTERFERENCE_CHECK "cave_interference_check"
+
+/// From [/datum/controller/subsystem/security_level/proc/set_level]
+/// `/datum/security_level/next_level`, `/datum/security_level/previous_level`
+#define COMSIG_SECURITY_LEVEL_CHANGED "security_level_changed"

@@ -81,7 +81,7 @@
 	if(active)
 		return
 
-	if(user)
+	if(user?.client)
 		log_bomber(user, "primed", src)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[user.ckey]
 		personal_statistics.grenades_primed++
@@ -94,6 +94,7 @@
 		SSblackbox.record_feedback(FEEDBACK_TALLY, "round_statistics", 1, "grenades_thrown")
 		update_icon()
 	addtimer(CALLBACK(src, PROC_REF(prime)), det_time)
+	notify_ai_hazard()
 	return TRUE
 
 /obj/item/explosive/grenade/proc/prime()

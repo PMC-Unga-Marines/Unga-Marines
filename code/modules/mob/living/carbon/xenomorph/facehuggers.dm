@@ -153,7 +153,7 @@
 			go_idle()
 	return FALSE // Else you can't pick.
 
-/obj/item/clothing/mask/facehugger/attack(mob/M, mob/user)
+/obj/item/clothing/mask/facehugger/attack(mob/living/carbon/M, mob/user)
 	if(stat != CONSCIOUS)
 		return ..()
 	if(!M.can_be_facehugged(src, provoked = TRUE))
@@ -161,12 +161,10 @@
 		return ..()
 	user.visible_message(span_warning("\ [user] attempts to plant [src] on [M]'s face!"), \
 	span_warning("We attempt to plant [src] on [M]'s face!"))
-	if(M.client && !M.stat) //Delay for conscious cliented mobs, who should be resisting.
-		if(!do_after(user, 1 SECONDS, NONE, M, BUSY_ICON_DANGER))
-			return
+	if(!do_after(user, 1 SECONDS, NONE, M, BUSY_ICON_DANGER))
+		return
 	if(!try_attach(M))
 		go_idle()
-	user.update_icons()
 
 /obj/item/clothing/mask/facehugger/attack_self(mob/user)
 	if(isxenocarrier(user))
@@ -825,8 +823,11 @@
 		visible_message(span_danger("[src] explodes into a mess of viscous resin!"))
 		playsound(loc, SFX_ALIEN_RESIN_BUILD, 50, 1)
 		for(var/turf/sticky_tile AS in RANGE_TURFS(1, loc))
-			if(!locate(/obj/alien/resin/sticky) in sticky_tile)
-				new /obj/alien/resin/sticky/thin(sticky_tile)
+			if(isclosedturf(sticky_tile))
+				continue
+			if(locate(/obj/alien/resin/sticky) in sticky_tile)
+				continue
+			new /obj/alien/resin/sticky/thin(sticky_tile)
 		for(var/mob/living/target in range(1, loc))
 			if(isxeno(target)) //Xenos aren't affected by sticky resin
 				continue

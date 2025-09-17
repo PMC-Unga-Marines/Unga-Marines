@@ -4563,7 +4563,7 @@
 /turf/open/floor/wood,
 /area/barren/civilian/cook)
 "vg" = (
-/turf/closed/mineral/smooth/indestructible,
+/turf/closed/mineral/smooth/basalt/indestructible,
 /area/barren/cave/lz1)
 "vh" = (
 /obj/machinery/iv_drip,
@@ -5178,7 +5178,7 @@
 /area/barren/misc/eastarmory)
 "yj" = (
 /obj/structure/girder/reinforced,
-/turf/closed/mineral/smooth/indestructible,
+/turf/closed/mineral/smooth/basalt/indestructible,
 /area/template_noop)
 "yk" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7136,7 +7136,7 @@
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "HB" = (
-/turf/closed/mineral/smooth/indestructible,
+/turf/closed/mineral/smooth/basalt/indestructible,
 /area/barren/caves/rock)
 "HC" = (
 /obj/effect/decal/cleanable/blood/writing{
@@ -9082,7 +9082,7 @@
 /area/barren/engie/two)
 "Rf" = (
 /obj/structure/girder/reinforced,
-/turf/closed/mineral/smooth/indestructible,
+/turf/closed/mineral/smooth/basalt/indestructible,
 /area/barren/cave/lz1)
 "Rg" = (
 /obj/structure/closet/secure_closet/engineering_welding,
@@ -9991,7 +9991,7 @@
 /turf/open/floor/vault,
 /area/barren/civilian/laundry)
 "VJ" = (
-/turf/closed/mineral/smooth/indestructible,
+/turf/closed/mineral/smooth/basalt/indestructible,
 /area/template_noop)
 "VK" = (
 /obj/effect/ai_node,

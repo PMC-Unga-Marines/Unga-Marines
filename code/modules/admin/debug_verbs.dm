@@ -256,7 +256,7 @@ ADMIN_VERB(spatial_agent, R_FUN, "Spatial Agent", "Become a spatial agent", ADMI
 		message_admins("[ADMIN_TPMONTY(H)] became a spatial agent.")
 
 ADMIN_VERB(military_policeman, R_FUN, "Military Policeman", "Become a marine law-enforcing MRP retard", ADMIN_CATEGORY_DEBUG)
-	var/mob/M = user
+	var/mob/M = user.mob
 	var/mob/living/carbon/human/H
 	var/spatial = FALSE
 	if(ishuman(M))
@@ -325,3 +325,11 @@ ADMIN_VERB(debug_statpanel, R_DEBUG, "Debug Stat Panel", "Toggles local debug of
 
 ADMIN_VERB(display_sendmaps, R_DEBUG, "Send Maps Profile", "View the profile.", ADMIN_CATEGORY_DEBUG)
 	user << link("?debug=profile&type=sendmaps&window=test")
+
+ADMIN_VERB(allow_browser_inspect, R_DEBUG, "Allow Browser Inspect", "Allow browser debugging via inspect", ADMIN_CATEGORY_DEBUG)
+	if(user.byond_version < 516)
+		to_chat(user, span_warning("You can only use this on 516!"))
+		return
+
+	to_chat(user, span_notice("You can now right click to use inspect on browsers."))
+	winset(user, null, list("browser-options" = "+devtools"))

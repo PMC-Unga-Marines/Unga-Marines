@@ -28,13 +28,6 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_LIGHT_STEP, XENO_TRAIT)
 
-/mob/living/carbon/xenomorph/runner/set_stat()
-	. = ..()
-	if(isnull(.))
-		return
-	if(. == CONSCIOUS && layer != initial(layer))
-		layer = MOB_LAYER
-
 /mob/living/carbon/xenomorph/runner/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	. = ..()
 	if(!ishuman(over))
@@ -62,3 +55,24 @@
 
 /mob/living/carbon/xenomorph/runner/resisted_against(datum/source)
 	user_unbuckle_mob(source, source)
+
+/mob/living/carbon/xenomorph/runner/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/runner/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/runner/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/runner/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/runner/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/runner/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/runner/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

@@ -6,9 +6,6 @@
 	icon_state = "Queen Walking"
 	effects_icon = 'icons/Xeno/castes/queen/effects.dmi'
 	rouny_icon = 'icons/Xeno/castes/queen/rouny.dmi'
-	attacktext = "bites"
-	attack_sound = null
-	friendly = "nuzzles"
 	health = 300
 	maxHealth = 300
 	plasma_stored = 300
@@ -32,6 +29,10 @@
 	hive.RegisterSignal(src, COMSIG_HIVE_XENO_DEATH, TYPE_PROC_REF(/datum/hive_status, on_queen_death))
 	playsound(loc, 'sound/voice/alien/queen/command.ogg', 75, 0)
 
+/mob/living/carbon/xenomorph/queen/proc/on_becoming_ruler()
+	SIGNAL_HANDLER
+	hive.update_leader_pheromones()
+
 // ***************************************
 // *********** Mob overrides
 // ***************************************
@@ -43,7 +44,7 @@
 	return FALSE
 
 /mob/living/carbon/xenomorph/reset_perspective(atom/A)
-	if (!client)
+	if(!client)
 		return
 
 	if(observed_xeno && !stat)
@@ -51,12 +52,12 @@
 		client.eye = observed_xeno
 		return
 
-	if (ismovableatom(A))
+	if(ismovableatom(A))
 		client.perspective = EYE_PERSPECTIVE
 		client.eye = A
 		return
 
-	if (isturf(loc))
+	if(isturf(loc))
 		client.eye = client.mob
 		client.perspective = MOB_PERSPECTIVE
 		return
@@ -98,7 +99,6 @@
 	if(mind)
 		mind.name = name
 
-
 // ***************************************
 // *********** Death
 // ***************************************
@@ -108,7 +108,6 @@
 /mob/living/carbon/xenomorph/queen/xeno_death_alert()
 	return
 
-
 // ***************************************
 // *********** Larva Mother
 // ***************************************
@@ -116,3 +115,47 @@
 /mob/living/carbon/xenomorph/queen/proc/is_burrowed_larva_host(datum/source, list/mothers, list/silos)
 	if(!incapacitated(TRUE))
 		mothers += src //Adding us to the list.
+
+/mob/living/carbon/xenomorph/queen/add_to_hive(datum/hive_status/HS, force=FALSE, prevent_ruler=FALSE) // override to ensure proper queen/hive behaviour
+	. = ..()
+	if(HS.living_xeno_queen) // theres already a queen
+		return
+
+	HS.living_xeno_queen = src
+
+	if(prevent_ruler)
+		return
+
+	HS.update_ruler()
+
+/mob/living/carbon/xenomorph/queen/remove_from_hive() // override to ensure proper queen/hive behaviour
+	var/datum/hive_status/hive_removed_from = hive
+	if(hive_removed_from.living_xeno_queen == src)
+		hive_removed_from.living_xeno_queen = null
+
+	. = ..()
+
+	if(hive_removed_from.living_xeno_ruler == src)
+		hive_removed_from.set_ruler(null)
+		hive_removed_from.update_ruler() //Try to find a successor.
+
+/mob/living/carbon/xenomorph/queen/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/queen/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/queen/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/queen/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/queen/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/queen/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/queen/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

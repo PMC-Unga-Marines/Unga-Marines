@@ -30,12 +30,12 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 	output = list(/obj/item/stack/sheet/plasteel/large_stack = 1) // 400 points. metal is fabricated so it worth it
 
 /datum/assembly_craft/engineering/plas_deconstruction
-	name = "Break plasteel sheets into iron and phoron"
+	name = "Break plasteel sheets into metal and phoron"
 	input = list(/obj/item/stack/sheet/plasteel = 50) // Vice versa
 	output = list(/obj/item/stack/sheet/metal/large_stack = 1, /obj/item/stack/sheet/mineral/phoron/medium_stack = 1)
 
 /datum/assembly_craft/engineering/composite
-	name = "50 iron-copper composite sheets"
+	name = "50 metal-copper composite sheets"
 	input = list(/obj/item/stack/sheet/metal = 25, /obj/item/stack/sheet/mineral/copper = 25) // 200 + 200 points
 	output = list(/obj/item/stack/sheet/composite/large_stack = 1) // 400 points
 
@@ -78,8 +78,8 @@ GLOBAL_LIST_INIT(all_assembly_craft_groups, list("Operations", "Weapons", "Explo
 	output = list(/obj/item/stack/sheet/glass/glass = 3, /obj/item/stack/sheet/mineral/phoron = 1) //that expensive! but automized!
 
 //one in one craft cuz junk is multi use resource
-/datum/assembly_craft/engineering/junk_phoron_iron
-	name = "Clearing junk in iron"
+/datum/assembly_craft/engineering/junk_phoron_metal
+	name = "Clearing junk in metal"
 	craft_time = 15 SECONDS
 	input = list(/obj/item/stack/sheet/mineral/junk = 50) // 300 from cargo
 	output = list(/obj/item/stack/sheet/metal/large_stack = 1) //200 points so what?
@@ -197,19 +197,19 @@ EXPLOSIVES
 /datum/assembly_craft/explosives/c4
 	name = "Plastic explosive"
 	input = list(/obj/item/stack/sheet/composite = 4, /obj/item/stack/gun_powder = 2) // 16 + 16 points
-	output = list(/obj/item/deployable_floodlight = 1) //30 points
+	output = list(/obj/item/explosive/plastique = 1) //30 points
 
 /datum/assembly_craft/explosives/detpack
 	name = "Detonation pack"
 	craft_time = 12 SECONDS
 	input = list(/obj/item/stack/sheet/composite = 4, /obj/item/stack/gun_powder = 3) // 16 + 24 points
-	output = list(/obj/item/deployable_floodlight = 1) //40 points
+	output = list(/obj/item/detpack = 1) //40 points
 
 /datum/assembly_craft/explosives/genghis
 	name = "EX-62 Genghis incendiary charge"
 	craft_time = 18 SECONDS
 	input = list(/obj/item/stack/sheet/composite = 4, /obj/item/stack/gun_powder = 6) // 16 + 48 points
-	output = list(/obj/item/deployable_floodlight = 1) //60 points
+	output = list(/obj/item/explosive/plastique/genghis_charge = 1) //60 points
 
 /*******************************************************************************
 WEAPONS

@@ -17,6 +17,11 @@
 #define MAP_DELTA_STATION "Delta Station"
 #define MAP_OSCAR_OUTPOST "Oscar Outpost"
 #define MAP_KUTJEVO_REFINERY "Kutjevo Refinery"
+#define MAP_DESPARITY "Desparity"
+#define MAP_LAWANKA "Lawanka Outpost"
+#define MAP_ORION_OUTPOST "Orion Military Outpost"
+#define MAP_SLUMBRIDGE "Slumbridge"
+#define MAP_VAPOR_PROCESSING "Vapor Processing"
 #define MAP_TALOS "Talos"
 
 #define SEE_INVISIBLE_MINIMUM 5
@@ -34,11 +39,6 @@
 
 //Object specific defines
 #define CANDLE_LUM 3 //For how bright candles are
-
-#define SEC_LEVEL_GREEN 0
-#define SEC_LEVEL_BLUE 1
-#define SEC_LEVEL_RED 2
-#define SEC_LEVEL_DELTA 3
 
 //=================================================
 //Game mode related defines.

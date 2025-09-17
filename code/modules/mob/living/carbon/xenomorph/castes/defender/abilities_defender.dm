@@ -249,9 +249,14 @@
 	var/last_fortify_bonus = 0
 	var/move_on_fortifed = FALSE
 
-/datum/action/ability/xeno_action/fortify/give_action()
+/datum/action/ability/xeno_action/fortify/give_action(mob/living/L)
 	. = ..()
 	last_fortify_bonus = xeno_owner.xeno_caste.fortify_armor
+	RegisterSignals(L, list(COMSIG_MOB_CRIT, COMSIG_MOB_DEATH), PROC_REF(on_crit))
+
+/datum/action/ability/xeno_action/fortify/remove_action(mob/living/L)
+	UnregisterSignal(L, list(COMSIG_MOB_CRIT, COMSIG_MOB_DEATH))
+	return ..()
 
 /datum/action/ability/xeno_action/fortify/on_xeno_upgrade()
 	if(xeno_owner.fortify)
@@ -321,6 +326,13 @@
 	xeno_owner.anchored = on
 	playsound(xeno_owner.loc, 'sound/effects/stonedoor_openclose.ogg', 30, TRUE)
 	xeno_owner.update_icons()
+
+/datum/action/ability/xeno_action/fortify/proc/on_crit()
+	SIGNAL_HANDLER
+	set_fortify(FALSE, TRUE)
+
+/datum/action/ability/xeno_action/fortify/steel_crest
+	move_on_fortifed = TRUE
 
 // ***************************************
 // *********** Regenerate Skin
@@ -593,6 +605,3 @@
 	enraged_mob.adjust_sunder(-heal_sunder_amount)
 
 	addtimer(CALLBACK(enraged_mob, TYPE_PROC_REF(/datum, remove_filter), "steelcrest_enraged"), 3 SECONDS)
-
-/datum/action/ability/xeno_action/fortify/steel_crest
-	move_on_fortifed = TRUE

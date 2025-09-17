@@ -11,10 +11,6 @@
 		/datum/xenomorph_skin/warlock/arabian,
 		/datum/xenomorph_skin/warlock,
 	)
-	attacktext = "slashes"
-	attack_sound = null
-	friendly = "nuzzles"
-	wall_smash = FALSE
 	health = 320
 	maxHealth = 320
 	plasma_stored = 1400
@@ -33,3 +29,24 @@
 
 /mob/living/carbon/xenomorph/warlock/get_liquid_slowdown()
 	return WARLOCK_WATER_SLOWDOWN
+
+/mob/living/carbon/xenomorph/warlock/primordial
+	upgrade = XENO_UPGRADE_PRIMO
+
+/mob/living/carbon/xenomorph/warlock/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/warlock/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/warlock/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/warlock/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/warlock/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/warlock/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN

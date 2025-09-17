@@ -70,7 +70,7 @@
 	cost = 130
 
 /datum/supply_packs/operations/deployable_camera
-	name = "3 Deployable cameras"
+	name = "3 deployable cameras"
 	contains = list(
 		/obj/item/deployable_camera,
 		/obj/item/deployable_camera,

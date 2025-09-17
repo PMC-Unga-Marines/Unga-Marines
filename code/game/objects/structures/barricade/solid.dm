@@ -283,6 +283,10 @@
 	if(!do_after(user, 2 SECONDS, NONE, src, BUSY_ICON_BUILD))
 		return FALSE
 
+	if(barricade_upgrade_type)
+		balloon_alert(user, "Already upgraded")
+		return FALSE
+
 	if(!metal_sheets.use(CADE_UPGRADE_REQUIRED_SHEETS))
 		return FALSE
 
@@ -313,7 +317,7 @@
 	soft_armor = list(MELEE = 35, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 25, BIO = 100, FIRE = 100, ACID = 30)
 	can_upgrade = FALSE
 	///Whether this item can be deployed or undeployed
-	var/item_flags = IS_DEPLOYABLE
+	var/deploy_flags = IS_DEPLOYABLE
 	///What it deploys into. typecast version of internal_item
 	var/obj/item/weapon/shield/riot/marine/deployable/internal_shield
 

@@ -80,6 +80,7 @@
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -170,6 +171,7 @@
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -384,6 +386,7 @@
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam, //RUTGMC EDIT
+		/obj/item/weapon/gun/flamer/hydro_cannon,
 	)
 
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_CAN_POINTBLANK|GUN_SMOKE_PARTICLES
@@ -455,6 +458,7 @@
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam, //RUTGMC EDIT
+		/obj/item/weapon/gun/flamer/hydro_cannon,
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -695,6 +699,146 @@
 		/obj/item/attachable/reddot,
 	)
 
+//-------------------------------------------------------
+// MPI-KM but for marines
+
+/obj/item/weapon/gun/rifle/type16
+	name = "\improper Type-16 Felon rifle"
+	desc = "Chinese replica of the MPi-KM rifle, made in bakelite with picatinny tactical rail. Uses 6.02x41mm ammo."
+	icon = 'icons/obj/items/gun/rifle64.dmi'
+	unique_reskin = list(
+		"Polymer" = "ak47_black",
+		"Plum" = "ak47",
+	)
+	icon_state = "ak47"
+	worn_icon_state = "ak47"
+	caliber = CALIBER_602X41
+	muzzleflash_iconstate = "muzzle_flash_medium"
+	max_shells = 40
+	fire_sound = 'sound/weapons/guns/fire/ak47.ogg'
+	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/ak47_reload.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
+	default_ammo_type = /obj/item/ammo_magazine/rifle/type16
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/type16,
+		/obj/item/ammo_magazine/rifle/type16/m2,
+		/obj/item/ammo_magazine/rifle/type16/extended,
+	)
+	attachable_allowed = list(
+		/obj/item/attachable/stock/mpi_km,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/burstfire_assembly,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/angledgrip,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/attachable/motiondetector,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
+		/obj/item/attachable/b7_scope,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
+	)
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
+	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_AUTOMATIC)
+	attachable_offset = list("muzzle_x" = 35, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 5, "stock_y" = 12)
+	starting_attachment_types = list(/obj/item/attachable/stock/mpi_km)
+	damage_falloff_mult = 0.4
+	force = 20
+	burst_amount = 2
+	autoburst_delay = 0.1 SECONDS
+	fire_delay = 0.2 SECONDS
+	placed_overlay_iconstate = "ak47"
+
+/obj/item/weapon/gun/rifle/type16/m2
+	name = "\improper Type-16M2 Zarya carbine"
+	desc = "Chinese replica of MPi-KM rifle, made in fashionable polymer with tactical picatinny rail and folding stock. Uses 6.02x41mm ammo."
+	icon = 'icons/obj/items/gun/rifle64.dmi'
+	icon_state = "v34_black"
+	worn_icon_state = "v34_black"
+	unique_reskin = list(
+		"Polymer" = "v34_black",
+		"Plum" = "v34",
+	)
+	muzzleflash_iconstate = "muzzle_flash"
+	max_shells = 30
+	w_class = WEIGHT_CLASS_NORMAL
+	default_ammo_type = /obj/item/ammo_magazine/rifle/type16/m2
+	allowed_ammo_types = list(
+		/obj/item/ammo_magazine/rifle/type16,
+		/obj/item/ammo_magazine/rifle/type16/m2,
+		/obj/item/ammo_magazine/rifle/type16/extended,
+	)
+	attachable_allowed = list(
+		/obj/item/attachable/foldable/som_carbine,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/burstfire_assembly,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/suppressor,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/compensator,
+		/obj/item/attachable/scope,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/scope/marine,
+		/obj/item/attachable/angledgrip,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/attachable/motiondetector,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/attachable/b7_scope,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
+	)
+	equip_slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
+	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 18,"rail_x" = 8, "rail_y" = 20, "under_x" = 17, "under_y" = 13, "stock_x" = -6, "stock_y" = 16)
+	starting_attachment_types = list(/obj/item/attachable/foldable/som_carbine)
+	force = 10
+	burst_amount = 1
+	fire_delay = 0.15 SECONDS
+	accuracy_mult = 0.75
+	scatter = 12
+	recoil = 2
+	wield_delay = 0.5 SECONDS
+	movement_acc_penalty_mult = 4
+	burst_amount = 3
+	autoburst_delay = 0.10 SECONDS
+	damage_falloff_mult = 2.5
+	akimbo_additional_delay = 2
+	akimbo_scatter_mod = 24
+	akimbo_additional_delay = 20
+
+//-------------------------------------------------------
+
 // RPD
 
 /obj/item/weapon/gun/rifle/lmg_d
@@ -851,6 +995,7 @@
 		/obj/item/attachable/buildasentry,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -915,6 +1060,7 @@
 		/obj/item/weapon/gun/flamer/mini_flamer,
 		/obj/item/weapon/gun/grenade_launcher/underslung,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -992,6 +1138,7 @@
 		/obj/item/weapon/gun/grenade_launcher/underslung,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
 	)
 
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -1222,6 +1369,7 @@
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
 		/obj/item/attachable/suppressor/unremovable/invisible,
 		/obj/item/attachable/scope/unremovable,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -1283,9 +1431,6 @@
 	accuracy_mult_unwielded = 0.8
 	damage_mult = 1.3
 
-/obj/item/weapon/gun/rifle/type71/seasonal
-	desc = "The primary rifle of many space pirates and militias, the Type 71 is a reliable rifle chambered in 7.62x39mm, firing in three round bursts to conserve ammunition."
-
 //-------------------------------------------------------
 //SH-15 AUTOMATIC SHOTGUN
 
@@ -1333,6 +1478,7 @@
 		/obj/item/weapon/gun/grenade_launcher/underslung,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam, //RUTGMC EDIT
+		/obj/item/weapon/gun/flamer/hydro_cannon,
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES //Its a shotgun type weapon effectively, most shotgun type weapons shouldn't be able to point blank 1 handed.
@@ -1396,7 +1542,7 @@
 		/obj/item/attachable/shoulder_mount,
 	)
 
-	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	starting_attachment_types = list(/obj/item/attachable/stock/sgstock, /obj/item/attachable/sgbarrel)
 	gun_skill_category = SKILL_SMARTGUN //Uses SG skill for the penalties.
@@ -1457,7 +1603,7 @@
 		/obj/item/attachable/shoulder_mount,
 	)
 
-	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_IFF|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	gun_skill_category = SKILL_SMARTGUN //Uses SG skill for the penalties.
 	attachable_offset = list("muzzle_x" = 12, "muzzle_y" = 22, "rail_x" = 15, "rail_y" = 22, "under_x" = 28, "under_y" = 16, "stock_x" = 12, "stock_y" = 14)
@@ -1499,7 +1645,7 @@
 	attachable_allowed = list()
 	actions_types = list()
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO)
-	gun_features_flags = GUN_IS_ATTACHMENT|GUN_WIELDED_FIRING_ONLY|GUN_ATTACHMENT_FIRE_ONLY|GUN_AMMO_COUNTER|GUN_IFF|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_IS_ATTACHMENT|GUN_WIELDED_FIRING_ONLY|GUN_ATTACHMENT_FIRE_ONLY|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	attach_features_flags = NONE
 	fire_delay = 1 SECONDS
 	accuracy_mult = 1.5
@@ -1669,7 +1815,7 @@
 		/obj/item/attachable/compensator,
 	)
 
-	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_IFF|GUN_SMOKE_PARTICLES
+	gun_features_flags = GUN_WIELDED_FIRING_ONLY|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 48, "muzzle_y" = 18,"rail_x" = 23, "rail_y" = 23, "under_x" = 38, "under_y" = 16, "stock_x" = 9, "stock_y" = 12)
 	starting_attachment_types = list(
@@ -1809,6 +1955,7 @@
 		/obj/item/attachable/motiondetector,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
+		/obj/item/weapon/gun/flamer/hydro_cannon,
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
@@ -2836,7 +2983,7 @@
 		/obj/item/attachable/motiondetector,
 	)
 
-	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_IFF
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_AUTOMATIC)
 	gun_skill_category = SKILL_SMARTGUN //Uses SG skill for the penalties.
 	attachable_offset = list("muzzle_x" = 42, "muzzle_y" = 17,"rail_x" = 15, "rail_y" = 21, "under_x" = 24, "under_y" = 14, "stock_x" = 12, "stock_y" = 13)
@@ -3024,6 +3171,7 @@
 	burst_delay = 0.15 SECONDS
 	scatter = 0
 	fire_delay = 0.2 SECONDS
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 
 /obj/item/weapon/gun/rifle/vsd_rifle/standard
 	starting_attachment_types = list(/obj/item/attachable/reddot, /obj/item/attachable/verticalgrip, /obj/item/attachable/extended_barrel)

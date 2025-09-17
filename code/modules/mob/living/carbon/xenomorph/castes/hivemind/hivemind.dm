@@ -12,11 +12,8 @@
 	effects_icon = 'icons/Xeno/castes/hivemind/effects.dmi'
 	status_flags = GODMODE | INCORPOREAL
 	resistance_flags = RESIST_ALL
-	pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_FIRE //to prevent hivemind eye to catch fire when crossing lava
 	density = FALSE
-
 	a_intent = INTENT_HELP
-
 	health = 1000
 	maxHealth = 1000
 	plasma_stored = 5
@@ -37,6 +34,10 @@
 	var/datum/weakref/core
 	///The minimum health we can have
 	var/minimum_health = -300
+	///pass_flags given when going incorporeal
+	var/incorporeal_pass_flags = PASS_LOW_STRUCTURE|PASS_THROW|PASS_PROJECTILE|PASS_AIR|PASS_FIRE
+	///pass_flags given when manifested
+	var/manifest_pass_flags = PASS_LOW_STRUCTURE|PASS_MOB|PASS_XENO
 
 /mob/living/carbon/xenomorph/hivemind/Initialize(mapload)
 	var/obj/structure/xeno/hivemindcore/new_core = new /obj/structure/xeno/hivemindcore(loc, hivenumber)
@@ -45,6 +46,7 @@
 	new_core.parent = WEAKREF(src)
 	RegisterSignal(src, COMSIG_XENOMORPH_CORE_RETURN, PROC_REF(return_to_core))
 	RegisterSignal(src, COMSIG_XENOMORPH_HIVEMIND_CHANGE_FORM, PROC_REF(change_form))
+	add_pass_flags(incorporeal_pass_flags, INNATE_TRAIT)
 	update_action_buttons()
 
 /mob/living/carbon/xenomorph/hivemind/get_evolution_options()
@@ -133,7 +135,9 @@
 	update_movespeed()
 	if(status_flags & INCORPOREAL)
 		status_flags = NONE
-		pass_flags = PASS_LOW_STRUCTURE|PASS_MOB|PASS_XENO
+		resistance_flags = NONE
+		remove_pass_flags(incorporeal_pass_flags, INNATE_TRAIT)
+		add_pass_flags(manifest_pass_flags, MANIFESTED_TRAIT)
 		density = TRUE
 		hive.xenos_by_upgrade[upgrade] -= src
 		upgrade = XENO_UPGRADE_MANIFESTATION
@@ -145,7 +149,8 @@
 		return
 	status_flags = initial(status_flags)
 	resistance_flags = initial(resistance_flags)
-	pass_flags = initial(pass_flags)
+	remove_pass_flags(manifest_pass_flags, MANIFESTED_TRAIT)
+	add_pass_flags(incorporeal_pass_flags, INNATE_TRAIT)
 	density = FALSE
 	hive.xenos_by_upgrade[upgrade] -= src
 	upgrade = XENO_UPGRADE_BASETYPE
@@ -362,3 +367,53 @@
 
 /mob/living/carbon/xenomorph/hivemind/remove_inherent_verbs()
 	return
+
+/mob/living/carbon/xenomorph/hivemind/add_to_hive(datum/hive_status/HS, force = FALSE, prevent_ruler=FALSE)
+	. = ..()
+	if(!GLOB.xeno_structures_by_hive[HS.hivenumber])
+		GLOB.xeno_structures_by_hive[HS.hivenumber] = list()
+
+	var/obj/structure/xeno/hivemindcore/hive_core = get_core()
+
+	if(!hive_core) //how are you even alive then?
+		qdel(src)
+		return
+
+	GLOB.xeno_structures_by_hive[HS.hivenumber] |= hive_core
+
+	if(!GLOB.xeno_critical_structures_by_hive[HS.hivenumber])
+		GLOB.xeno_critical_structures_by_hive[HS.hivenumber] = list()
+
+	GLOB.xeno_critical_structures_by_hive[HS.hivenumber] |= hive_core
+	hive_core.hivenumber = HS.hivenumber
+	hive_core.name = "[HS.hivenumber == XENO_HIVE_NORMAL ? "" : "[HS.name] "]hivemind core"
+	hive_core.color = HS.color
+
+/mob/living/carbon/xenomorph/hivemind/remove_from_hive()
+	var/obj/structure/xeno/hivemindcore/hive_core = get_core()
+	GLOB.xeno_structures_by_hive[hivenumber] -= hive_core
+	GLOB.xeno_critical_structures_by_hive[hivenumber] -= hive_core
+	. = ..()
+	if(!QDELETED(src)) //if we aren't dead, somehow?
+		hive_core.name = "banished hivemind core"
+		hive_core.color = null
+
+/mob/living/carbon/xenomorph/hivemind/Corrupted
+	hivenumber = XENO_HIVE_CORRUPTED
+
+/mob/living/carbon/xenomorph/hivemind/Alpha
+	hivenumber = XENO_HIVE_ALPHA
+
+/mob/living/carbon/xenomorph/hivemind/Beta
+	hivenumber = XENO_HIVE_BETA
+
+/mob/living/carbon/xenomorph/hivemind/Zeta
+	hivenumber = XENO_HIVE_ZETA
+
+/mob/living/carbon/xenomorph/hivemind/admeme
+	hivenumber = XENO_HIVE_ADMEME
+
+/mob/living/carbon/xenomorph/hivemind/Corrupted/fallen
+	hivenumber = XENO_HIVE_FALLEN
+
+#undef TIME_TO_TRANSFORM

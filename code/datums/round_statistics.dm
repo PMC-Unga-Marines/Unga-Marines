@@ -93,7 +93,6 @@ GLOBAL_DATUM_INIT(round_statistics, /datum/round_statistics, new)
 	var/larva_from_silo = 0
 	var/larva_from_cocoon = 0
 	var/larva_from_psydrain = 0
-	var/larva_from_siloing_body = 0
 	var/req_items_produced = list()
 	var/psy_crushes = 0
 	var/psy_blasts = 0
@@ -103,4 +102,9 @@ GLOBAL_DATUM_INIT(round_statistics, /datum/round_statistics, new)
 	var/chimera_blinks = 0
 	var/larva_from_xeno_core = 0
 	var/points_from_towers = 0
+	var/psypoints_from_psydrain = 0
+	var/psypoints_from_cocoon = 0
+	var/psypoints_from_burst = 0
+	var/psypoints_from_hivemind = 0
+	var/psypoints_from_generator = 0
 	var/runner_items_stolen = 0

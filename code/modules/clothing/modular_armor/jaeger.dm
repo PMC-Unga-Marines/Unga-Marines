@@ -90,7 +90,7 @@
 	icon_state = "helmet"
 	worn_icon_state = "helmet"
 	icon_override = null
-	soft_armor = MARINE_ARMOR_MEDIUM
+	soft_armor = MARINE_ARMOR_HEAVY
 	greyscale_colors = ARMOR_PALETTE_DRAB
 	colorable_allowed = PRESET_COLORS_ALLOWED|HAIR_CONCEALING_CHANGE_ALLOWED
 	colorable_colors = ARMOR_PALETTES_LIST

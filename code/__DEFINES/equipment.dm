@@ -91,36 +91,39 @@
 #define IMPEDE_JETPACK (1<<7)
 ///Item triggers bump attack
 #define CAN_BUMP_ATTACK (1<<8)
-///Item can be deployed into a machine
-#define IS_DEPLOYABLE (1<<9)
-///Item deploys on initialize
-#define DEPLOY_ON_INITIALIZE (1<<10)
-///If this is on an item, said item is currently deployed
-#define IS_DEPLOYED (1<<11)
-///Disables deployed item pickup
-#define DEPLOYED_NO_PICKUP  (1<<12)
-///Disables deployed item rotation abilities to rotate.
-#define DEPLOYED_NO_ROTATE  (1<<13)
-///Disables deployed item rotation if anchored.
-#define DEPLOYED_NO_ROTATE_ANCHORED (1<<14)
-///If this is on an item, the item can only be disassembled using a wrench once deployed.
-#define DEPLOYED_WRENCH_DISASSEMBLE (1<<15)
-///Disables firing deployable if it is not anchored.
-#define DEPLOYED_ANCHORED_FIRING_ONLY (1<<16)
 ///If the item is properly wielded. Used for guns
-#define FULLY_WIELDED (1<<17)
+#define FULLY_WIELDED (1<<9)
 ///If a holster has underlay sprites
-#define HAS_UNDERLAY (1<<18)
+#define HAS_UNDERLAY (1<<10)
 ///is this item equipped into an inventory slot or hand of a mob?
-#define IN_INVENTORY (1<<19)
+#define IN_INVENTORY (1<<11)
 ///ITEM_PREDATOR
-#define ITEM_PREDATOR (1<<20)
+#define ITEM_PREDATOR (1<<12)
 ///This item is used for autobalance calculations or excluded, such as valhalla items
-#define AUTOBALANCE_CHECK (1<<21)
+#define AUTOBALANCE_CHECK (1<<13)
 ///This item is a sentry, so we won't allow to place it nearby other sentries
-#define IS_SENTRY (1<<22)
+#define IS_SENTRY (1<<14)
 ///This item is in any storage
-#define IN_STORAGE (1<<23)
+#define IN_STORAGE (1<<15)
+///This item is hand
+#define HAND_ITEM (1<<16)
+
+///Item can be deployed into a machine
+#define IS_DEPLOYABLE (1<<0)
+///Item deploys on initialize
+#define DEPLOY_ON_INITIALIZE (1<<1)
+///If this is on an item, said item is currently deployed
+#define IS_DEPLOYED (1<<2)
+///Disables deployed item pickup
+#define DEPLOYED_NO_PICKUP (1<<3)
+///Disables deployed item rotation abilities to rotate.
+#define DEPLOYED_NO_ROTATE (1<<4)
+///Disables deployed item rotation if anchored.
+#define DEPLOYED_NO_ROTATE_ANCHORED (1<<5)
+///If this is on an item, the item can only be disassembled using a wrench once deployed.
+#define DEPLOYED_WRENCH_DISASSEMBLE (1<<6)
+///Disables firing deployable if it is not anchored.
+#define DEPLOYED_ANCHORED_FIRING_ONLY (1<<7)
 
 //storage_flags
 ///If a storage container can be restocked into a vendor
@@ -191,9 +194,8 @@
 #define ARMOR_SQUAD_OVERLAY (1<<0)
 #define ARMOR_LAMP_OVERLAY (1<<1)
 #define ARMOR_LAMP_ON (1<<2)
-#define ARMOR_IS_REINFORCED (1<<3)
-#define ARMOR_NO_DECAP (1<<4)
-#define ARMOR_FIRE_RESISTANT (1<<5)
+#define ARMOR_NO_DECAP (1<<3)
+#define ARMOR_FIRE_RESISTANT (1<<4)
 //===========================================================================================
 
 //===========================================================================================
@@ -650,3 +652,26 @@ GLOBAL_LIST_INIT(slot_str_to_slot, list(
 		if(SLOT_IN_STORAGE)
 			return "Active Storage"
 
+///Get appropriate SLOT_IN_X for given slot
+/obj/item/proc/slot_to_in_storage_slot(slot)
+	switch(slot)
+		if(SLOT_SHOES)
+			return SLOT_IN_BOOT
+		if(SLOT_BACK)
+			return SLOT_IN_BACKPACK
+		if(SLOT_WEAR_SUIT)
+			return SLOT_IN_SUIT
+		if(SLOT_W_UNIFORM)
+			return SLOT_IN_ACCESSORY
+		if(SLOT_BELT)
+			return SLOT_IN_BELT
+		if(SLOT_S_STORE)
+			return SLOT_IN_S_HOLSTER
+		if(SLOT_L_STORE)
+			return SLOT_IN_L_POUCH
+		if(SLOT_R_STORE)
+			return SLOT_IN_R_POUCH
+		if(SLOT_HEAD)
+			return SLOT_IN_HEAD
+		else
+			return 0

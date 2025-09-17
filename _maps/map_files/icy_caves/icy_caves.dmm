@@ -808,6 +808,10 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
+"ee" = (
+/obj/effect/landmark/xeno_tunnel_spawn,
+/turf/open/floor/plating/ground/ice,
+/area/icy_caves/caves/west)
 "ef" = (
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood,
@@ -2513,6 +2517,10 @@
 	},
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/morgue)
+"nt" = (
+/obj/effect/landmark/xeno_tunnel_spawn,
+/turf/open/floor/cult,
+/area/icy_caves/caves/chapel)
 "nu" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
@@ -2627,6 +2635,10 @@
 /obj/item/storage/box/gloves,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/research)
+"nW" = (
+/obj/effect/landmark/xeno_tunnel_spawn,
+/turf/open/floor/plating/ground/snow/layer0,
+/area/icy_caves/caves)
 "nZ" = (
 /obj/machinery/light{
 	dir = 4
@@ -5502,6 +5514,10 @@
 	dir = 4
 	},
 /area/icy_caves/caves/northwestmonorail)
+"Bh" = (
+/obj/effect/landmark/xeno_tunnel_spawn,
+/turf/open/floor/plating/ground/ice,
+/area/icy_caves/caves/northern)
 "Bi" = (
 /obj/machinery/vending/boozeomat,
 /turf/open/floor/prison/kitchen,
@@ -6469,6 +6485,10 @@
 	dir = 4
 	},
 /area/icy_caves/outpost/medbay)
+"FH" = (
+/obj/effect/landmark/xeno_tunnel_spawn,
+/turf/open/floor/plating/mainship,
+/area/icy_caves/caves/northwestmonorail/hallway)
 "FI" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -10731,6 +10751,10 @@
 	dir = 1
 	},
 /area/icy_caves/outpost/LZ2)
+"ZO" = (
+/obj/effect/landmark/xeno_tunnel_spawn,
+/turf/open/floor/wood,
+/area/icy_caves/outpost/dorms)
 "ZP" = (
 /turf/closed/mineral/smooth/darkfrostwall,
 /area/icy_caves/caves/rock)
@@ -13314,7 +13338,7 @@ Wn
 vk
 DV
 EX
-jd
+FH
 jd
 Ti
 vk
@@ -13363,7 +13387,7 @@ Na
 ez
 ZU
 ZI
-ZU
+ee
 ZP
 ZP
 ZU
@@ -18717,7 +18741,7 @@ Lj
 Ky
 Hf
 JC
-wZ
+ZO
 Ez
 ND
 DD
@@ -19220,7 +19244,7 @@ SR
 SR
 SR
 SR
-SR
+Bh
 ZP
 ZP
 ZP
@@ -21451,7 +21475,7 @@ ZI
 ZI
 ZI
 BT
-Vn
+nt
 Ig
 dk
 Vn
@@ -24121,7 +24145,7 @@ ZP
 ZP
 ZP
 ym
-TH
+ym
 ym
 ym
 ym
@@ -24426,8 +24450,8 @@ ym
 Xj
 dT
 ym
-ym
 Be
+TH
 ym
 ym
 Be
@@ -27446,7 +27470,7 @@ SC
 Yl
 Yl
 Yl
-Yl
+nW
 ZI
 ZI
 ZP
@@ -29528,7 +29552,7 @@ ZP
 ZP
 Sb
 ZI
-SR
+Bh
 ZI
 ZI
 bl

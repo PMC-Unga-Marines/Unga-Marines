@@ -131,7 +131,7 @@
 			else
 				if(X.nicknumber != xeno_name)
 					continue
-			to_chat(usr,span_notice(" You will now track [X.name]"))
+			to_chat(usr,span_notice("You will now track [X.name]"))
 			set_tracked(X)
 			break
 
@@ -140,7 +140,7 @@
 		for(var/obj/structure/xeno/silo/resin_silo AS in GLOB.xeno_resin_silos_by_hive[hivenumber])
 			if(num2text(resin_silo.number_silo) == silo_number)
 				set_tracked(resin_silo)
-				to_chat(usr,span_notice(" You will now track [resin_silo.name]"))
+				to_chat(usr,span_notice("You will now track [resin_silo.name]"))
 				break
 
 	if(href_list["watch_xeno_name"])
@@ -178,6 +178,84 @@
 
 	var/datum/hive_status/HS = GLOB.hive_datums[hivenumber]
 	HS.xeno_message(message, span_class, size, force, target, sound, apply_preferences, filter_list, arrow_type, arrow_color, report_distance)
+
+/mob/living/carbon/xenomorph/proc/upgrade_xeno(newlevel, silent = FALSE)
+	if(!(newlevel in (GLOB.xenoupgradetiers - XENO_UPGRADE_INVALID)))
+		return FALSE
+	hive.upgrade_xeno(src, upgrade, newlevel)
+	upgrade = newlevel
+	if(!silent)
+		visible_message(span_xenonotice("\The [src] begins to twist and contort."), \
+		span_xenonotice("We begin to twist and contort."))
+		do_jitter_animation(1000)
+	set_datum(FALSE)
+	var/selected_ability_type = selected_ability?.type
+
+	var/list/datum/action/ability/xeno_action/actions_already_added = mob_abilities
+	mob_abilities = list()
+
+	for(var/allowed_action_path in xeno_caste.actions)
+		var/found = FALSE
+		for(var/datum/action/ability/xeno_action/action_already_added AS in actions_already_added)
+			if(action_already_added.type == allowed_action_path)
+				mob_abilities.Add(action_already_added)
+				actions_already_added.Remove(action_already_added)
+				found = TRUE
+				break
+		if(found)
+			continue
+		var/datum/action/ability/xeno_action/action = new allowed_action_path()
+		if(!SSticker.mode || (SSticker.mode.xeno_abilities_flags & action.gamemode_flags))
+			action.give_action(src)
+
+	for(var/datum/action/ability/xeno_action/action_already_added AS in actions_already_added)
+		action_already_added.remove_action(src)
+
+	SEND_SIGNAL(src, COMSIG_XENOMORPH_ABILITY_ON_UPGRADE)
+	if(selected_ability_type)
+		for(var/datum/action/ability/activable/xeno/activable_ability in actions)
+			if(selected_ability_type != activable_ability.type)
+				continue
+			activable_ability.select()
+			break
+
+	if(xeno_flags & XENO_LEADER)
+		give_rally_abilities() //Give them back their rally hive ability
+
+	if(current_aura) //Updates pheromone strength
+		current_aura.range = 6 + xeno_caste.aura_strength * 2
+		current_aura.strength = xeno_caste.aura_strength
+
+	switch(upgrade)
+		if(XENO_UPGRADE_NORMAL)
+			switch(tier)
+				if(XENO_TIER_TWO)
+					SSmonitor.stats.normal_T2++
+				if(XENO_TIER_THREE)
+					SSmonitor.stats.normal_T3++
+				if(XENO_TIER_FOUR)
+					SSmonitor.stats.normal_T4++
+		if(XENO_UPGRADE_PRIMO)
+			switch(tier)
+				if(XENO_TIER_TWO)
+					SSmonitor.stats.primo_T2++
+				if(XENO_TIER_THREE)
+					SSmonitor.stats.primo_T3++
+				if(XENO_TIER_FOUR)
+					SSmonitor.stats.primo_T4++
+			if(!silent)
+				to_chat(src, span_xenoannounce(xeno_caste.primordial_message))
+
+	generate_name() //Give them a new name now
+
+	hud_set_plasma()
+	med_hud_set_health()
+	hud_update_primo()
+
+	hud_set_queen_overwatch() //update the upgrade level insignia on our xeno hud.
+
+	update_spits() //Update spits to new/better ones
+	return TRUE
 
 ///returns TRUE if we are permitted to evo to the next caste FALSE otherwise
 /mob/living/carbon/xenomorph/proc/upgrade_possible()

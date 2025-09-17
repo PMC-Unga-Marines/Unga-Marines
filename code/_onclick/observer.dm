@@ -8,7 +8,7 @@
 			return									// seems legit.
 
 	// Things you might plausibly want to follow
-	if(ismovableatom(A))
+	if(ismovableatom(A) && !istype(A, /obj/alien/weeds))
 		ManualFollow(A)
 
 	// Otherwise jump
@@ -45,18 +45,6 @@
 		return
 
 	A.attack_ghost(src)
-
-
-/mob/dead/observer/MouseWheelOn(atom/A, delta_x, delta_y, params)
-	var/list/modifier = params2list(params)
-	if(modifier["shift"])
-		var/view_change = 0
-		if(delta_y > 0)
-			view_change = -1
-		else
-			view_change = 1
-		add_view_range(view_change)
-
 
 // Oh by the way this didn't work with old click code which is why clicking shit didn't spam you
 /atom/proc/attack_ghost(mob/dead/observer/user)

@@ -149,6 +149,7 @@
 			data["radiallasersgunpref"] = !!(toggles_gameplay & RADIAL_LASERGUNS)
 			data["autointeractdeployablespref"] = !!(toggles_gameplay & AUTO_INTERACT_DEPLOYABLES)
 			data["directional_attacks"] = !!(toggles_gameplay & DIRECTIONAL_ATTACKS)
+			data["toggle_clickdrag"] = !(toggles_gameplay & TOGGLE_CLICKDRAG)
 			data["scaling_method"] = scaling_method
 			data["pixel_size"] = pixel_size
 			data["parallax"] = parallax
@@ -156,6 +157,7 @@
 			data["show_status_bar"] = show_status_bar
 			data["fast_mc_refresh"] = fast_mc_refresh
 			data["split_admin_tabs"] = split_admin_tabs
+			data["hear_ooc_anywhere_as_staff"] = hear_ooc_anywhere_as_staff
 		if(KEYBIND_SETTINGS)
 			data["is_admin"] = user.client?.holder ? TRUE : FALSE
 			data["key_bindings"] = list()
@@ -958,6 +960,9 @@
 		if("directional_attacks")
 			toggles_gameplay ^= DIRECTIONAL_ATTACKS
 
+		if("toggle_clickdrag")
+			toggles_gameplay ^= TOGGLE_CLICKDRAG
+
 		if("pixel_size")
 			switch(pixel_size)
 				if(PIXEL_SCALING_AUTO)
@@ -995,6 +1000,9 @@
 
 		if("split_admin_tabs")
 			split_admin_tabs = !split_admin_tabs
+
+		if("hear_ooc_anywhere_as_staff")
+			hear_ooc_anywhere_as_staff = !hear_ooc_anywhere_as_staff
 
 		else //  Handle the unhandled cases
 			return

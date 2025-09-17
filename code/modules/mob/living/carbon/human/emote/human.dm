@@ -433,8 +433,10 @@
 	if(user.gender == MALE)
 		if(prob(95))
 			return 'sound/voice/human/male/medic.ogg'
-		else
+		else if(prob(95))
 			return 'sound/voice/human/male/medic2.ogg'
+		else
+			return 'sound/voice/human/male/medic_bag.ogg'
 	else
 		return 'sound/voice/human/female/medic.ogg'
 
@@ -444,6 +446,7 @@
 		return
 	var/image/medic = image('icons/mob/talk.dmi', user, icon_state = "medic")
 	user.add_emote_overlay(medic)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_CALL_MEDIC, user)
 
 /datum/emote/living/carbon/human/pain
 	key = "pain"
@@ -589,3 +592,17 @@
 		return
 	var/obj/item/I = user.get_active_held_item()
 	I.do_trick(usr)
+
+/datum/emote/living/carbon/human/circle
+	key = "circle"
+	key_third_person = "circles"
+	emote_flags = EMOTE_RESTRAINT_CHECK|EMOTE_ARMS_CHECK
+
+/datum/emote/living/carbon/human/circle/run_emote(mob/user, params, type_override, intentional, prefix)
+	. = ..()
+	var/obj/item/hand_item/circlegame/circle = new(user)
+	if(user.put_in_hands(circle))
+		to_chat(user, span_notice("You make a circle with your hand."))
+	else
+		to_chat(user, span_warning("You don't have any free hands to make a circle with."))
+

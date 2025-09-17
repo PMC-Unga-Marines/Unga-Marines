@@ -304,12 +304,12 @@
 	tiles_moved = min(tiles_moved++, max_tile_acceleration)
 	setLoc(T)
 
-
 //Version of remote eye that's added to marine HUD. Not visible to xenos but visible to marines
 //This one's for CAS
 /mob/camera/aiEye/remote/hud
 	icon_state = "nothing"
 	faction = FACTION_TERRAGOV
+	resistance_flags = INDESTRUCTIBLE|DROPSHIP_IMMUNE
 	///Visible icon state
 	var/icon_state_on = "cas_camera"
 

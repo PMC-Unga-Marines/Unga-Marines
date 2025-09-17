@@ -104,6 +104,7 @@
 /mob/living/Initialize(mapload)
 	. = ..()
 	register_init_signals()
+
 	update_move_intent_effects()
 	GLOB.mob_living_list += src
 	if(stat != DEAD)
@@ -198,9 +199,23 @@
 			var/mob/living/living_puller = pulledby
 			living_puller.set_pull_offsets(src)
 
+	if(crawling)
+		crawling = FALSE
+		var/crawling_direction = REVERSE_DIR(get_dir(newloc, src))
+		setDir(crawling_direction)
+		playsound(src, 'sound/effects/footstep/crawl.ogg', 50, 1)
+
 	if(active_storage)
 		if(!(active_storage.parent in contents) && !CanReach(active_storage.parent))
 			active_storage.close(src)
+
+/mob/living/proc/crawl_checks(turf/crawled_turf)
+	for(var/mob/living/mob in crawled_turf)
+		if(mob.lying_angle || mob.stat != CONSCIOUS)
+			continue
+		if(mob.faction != faction && mob.move_resist >= move_force) // no crawling under xenos or enemy humans
+			return FALSE
+	return TRUE
 
 /mob/living/Moved(atom/old_loc, movement_dir, forced = FALSE, list/old_locs)
 	. = ..()
@@ -341,20 +356,17 @@
 				var/oldloc = loc
 				var/oldLloc = L.loc
 
-				var/L_passmob = (L.pass_flags & PASS_MOB) // we give PASS_MOB to both mobs to avoid bumping other mobs during swap.
-				var/src_passmob = (pass_flags & PASS_MOB)
-				L.pass_flags |= PASS_MOB
-				pass_flags |= PASS_MOB
+				// we give PASS_MOB to both mobs to avoid bumping other mobs during swap.
+				L.add_pass_flags(PASS_MOB, MOVEMENT_SWAP_TRAIT)
+				add_pass_flags(PASS_MOB, MOVEMENT_SWAP_TRAIT)
 
 				if(!moving_diagonally) //the diagonal move already does this for us
 					Move(oldLloc)
 				if(mob_swap_mode == SWAPPING)
 					L.Move(oldloc)
 
-				if(!src_passmob)
-					pass_flags &= ~PASS_MOB
-				if(!L_passmob)
-					L.pass_flags &= ~PASS_MOB
+				L.remove_pass_flags(PASS_MOB, MOVEMENT_SWAP_TRAIT)
+				remove_pass_flags(PASS_MOB, MOVEMENT_SWAP_TRAIT)
 
 				now_pushing = FALSE
 
@@ -466,7 +478,7 @@
 
 /mob/living/proc/offer_mob()
 	GLOB.offered_mob_list += src
-	notify_ghosts(span_boldnotice("A mob is being offered! Name: [name][job ? " Job: [job.title]" : ""] "), enter_link = "claim=[REF(src)]", source = src, action = NOTIFY_ORBIT)
+	notify_ghosts(span_boldnotice("A mob is being offered! Name: [name][job ? " Job: [job.title]" : ""] "), enter_link = "claim=[REF(src)]", source = src, action = NOTIFY_ORBIT, flashwindow = TRUE)
 
 //used in datum/reagents/reaction() proc
 /mob/living/proc/get_permeability_protection()
@@ -762,6 +774,8 @@
 		if(CONSCIOUS) //From unconscious to conscious.
 			REMOVE_TRAIT(src, TRAIT_IMMOBILE, STAT_TRAIT)
 			REMOVE_TRAIT(src, TRAIT_FLOORED, STAT_TRAIT)
+		if(UNCONSCIOUS)
+			SEND_SIGNAL(src, COMSIG_MOB_CRIT)
 		if(DEAD)
 			on_death()
 
