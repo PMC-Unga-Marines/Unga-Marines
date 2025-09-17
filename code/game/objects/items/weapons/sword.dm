@@ -169,7 +169,7 @@
 	else
 		icon_state = initial(icon_state) + "_b"
 		worn_icon_state = initial(worn_icon_state) + "_b"
-	. = ..()
+	return ..()
 
 /obj/item/weapon/sword/machete/alt
 	name = "machete"
