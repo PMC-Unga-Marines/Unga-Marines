@@ -212,8 +212,6 @@
 				return
 
 			switch(params["mode"])
-				if("removeall")
-					shopping_cart -= P.type
 				if("removeone")
 					if(shopping_cart[P.type] > 1)
 						shopping_cart[P.type]--
@@ -225,19 +223,6 @@
 						shopping_cart[P.type]++
 					else if(can_afford)
 						shopping_cart[P.type] = 1
-				if("addall")
-					var/current_points = SSpoints.personal_supply_points[user.ckey]
-					var/cart_cost = 0
-					for(var/i in shopping_cart)
-						var/datum/supply_packs/SP = SSpoints.supply_packs[i]
-						cart_cost += SP.cost * shopping_cart[SP.type]
-					var/excess_points = current_points - cart_cost
-					var/number_to_buy = min(round(excess_points / P.cost), 20)
-					if(number_to_buy > 0)
-						if(shopping_cart[P.type])
-							shopping_cart[P.type] += number_to_buy
-						else
-							shopping_cart[P.type] = number_to_buy
 			. = TRUE
 
 		if("buycart")

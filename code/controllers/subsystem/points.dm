@@ -108,6 +108,7 @@ SUBSYSTEM_DEF(points)
 	for(var/key in supply_points)
 		supply_points[key] += SUPPLY_POINT_RATE / (1 MINUTES / wait)
 
+	//сделать чтобы срало только в активной фазе
 	for(var/key in supply_points)
 		for(var/mob/living/account in GLOB.alive_human_list_faction[key])
 			if(account.job.title in GLOB.jobs_marines)

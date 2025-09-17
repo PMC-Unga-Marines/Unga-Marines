@@ -96,9 +96,7 @@ export const Delivery = () => {
                             })
                           }
                           disabled={!shopping_list[packId]}
-                        >
-                          -
-                        </Button>
+                        />
                       </Flex.Item>
                       <Flex.Item width="30px" textAlign="center">
                         {shopping_list[packId]?.count || 0}
@@ -113,9 +111,7 @@ export const Delivery = () => {
                             })
                           }
                           disabled={!canAfford}
-                        >
-                          +
-                        </Button>
+                        />
                       </Flex.Item>
                     </Flex>
                   </Table.Cell>

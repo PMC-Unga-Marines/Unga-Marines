@@ -171,16 +171,22 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	var/headset_hud_on = FALSE
 	var/sl_direction = FALSE
 	///The type of minimap this headset gives access to
-	var/datum/action/minimap/minimap_type = /datum/action/minimap/marine
-	///Var for the window pop-up
+	var/datum/action/minimap/minimap_type = /datum/action/minimap/marine	///Var for the window pop-up
+
 	var/datum/delivery/supply_interface
 
-/obj/item/radio/headset/mainship/attack_hand_alternate(mob/living/user)
-	if(!allowed(user))
-		return ..()
+/obj/item/radio/headset/mainship/proc/show_pigs_wings(mob/living/user)
 	if(!supply_interface)
 		supply_interface = new(src)
 	return supply_interface.interact(user)
+
+/datum/action/pig_wings
+	name = "Pig's wings"
+	action_icon_state = "pigs_wings"
+
+/datum/action/pig_wings/action_activate()
+	var/obj/item/radio/headset/mainship/I = target
+	I.show_pigs_wings(owner)
 
 /obj/item/radio/headset/mainship/Initialize(mapload)
 	. = ..()
@@ -246,6 +252,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	if(wearer.mind && wearer.assigned_squad && !sl_direction)
 		enable_sl_direction()
 	add_minimap()
+	add_pigs_wings()
 	balloon_alert(wearer, "toggles squad HUD on")
 	playsound(loc, 'sound/machines/click.ogg', 15, 0, 1)
 
@@ -258,6 +265,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	if(sl_direction)
 		disable_sl_direction()
 	remove_minimap()
+	remove_pigs_wings()
 	balloon_alert(wearer, "toggles squad HUD off")
 	playsound(loc, 'sound/machines/click.ogg', 15, 0, 1)
 
@@ -266,6 +274,11 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	var/datum/action/minimap/mini = new minimap_type
 	mini.give_action(wearer)
 	INVOKE_NEXT_TICK(src, PROC_REF(update_minimap_icon)) //Mobs are spawned inside nullspace sometimes so this is to avoid that hijinks
+
+/obj/item/radio/headset/mainship/proc/add_pigs_wings()
+	remove_pigs_wings()
+	var/datum/action/pig_wings/delivery_action = new /datum/action/pig_wings(src)
+	delivery_action.give_action(wearer)
 
 ///Updates the wearer's minimap icon
 /obj/item/radio/headset/mainship/proc/update_minimap_icon()
@@ -327,6 +340,11 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	SSminimaps.remove_marker(wearer)
 	for(var/datum/action/action AS in wearer.actions)
 		if(istype(action, /datum/action/minimap))
+			action.remove_action(wearer)
+
+/obj/item/radio/headset/mainship/proc/remove_pigs_wings()
+	for(var/datum/action/action AS in wearer.actions)
+		if(istype(action, /datum/action/pig_wings))
 			action.remove_action(wearer)
 
 /obj/item/radio/headset/mainship/proc/enable_sl_direction()
