@@ -16584,6 +16584,17 @@
 /obj/effect/soundplayer,
 /turf/closed/wall/mainship/talos,
 /area/mainship/shipboard/ex_firing_range)
+"jZI" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer3,
+/turf/open/floor/plating/plating_catwalk/dark,
+/area/mainship/hallways/port_hallway)
 "kac" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1/alt{
 	dir = 4
@@ -78350,7 +78361,7 @@ blu
 wow
 jPy
 gFf
-jLr
+jZI
 tlA
 mAA
 mAA
