@@ -172,7 +172,7 @@
 /datum/delivery/ui_static_data(mob/user)
 	. = list()
 	var/mob/living/account = user
-	.["supplypacks"] = SSpoints.supply_packs_delivery_ui[account.job.type]
+	.["supplypacks"] = SSpoints.supply_packs_delivery_ui[account.job.type] ? SSpoints.supply_packs_delivery_ui[account.job.type] : list()
 	.["supplypackscontents"] = SSpoints.supply_packs_contents
 
 /datum/delivery/ui_data(mob/living/user)
