@@ -1829,7 +1829,6 @@
 #include "code\modules\mob\living\carbon\human\life\handle_status_effects.dm"
 #include "code\modules\mob\living\carbon\human\life\life_helpers.dm"
 #include "code\modules\mob\living\carbon\human\species\_species.dm"
-#include "code\modules\mob\living\carbon\human\species\early_synthetic.dm"
 #include "code\modules\mob\living\carbon\human\species\hud_data.dm"
 #include "code\modules\mob\living\carbon\human\species\human.dm"
 #include "code\modules\mob\living\carbon\human\species\monkey.dm"

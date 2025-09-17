@@ -124,6 +124,7 @@
 	desc = "Allows you to see behind your massive body and click through it."
 	action_icon = 'icons/Xeno/actions/general.dmi'
 	action_icon_state = "xenohide"
+	background_icon = 'icons/Xeno/actions/_actions.dmi'
 	action_type = ACTION_TOGGLE
 	/// Spam prevention as mashing the ability breaks a lot of things
 	COOLDOWN_DECLARE(toggle_cooldown)
