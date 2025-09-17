@@ -112,9 +112,10 @@
 					status_hud.icon_state = "fracture"
 					return TRUE
 				for(var/datum/wound/wound in limb.wounds)
-					if(istype(wound, /datum/wound/internal_bleeding))
-						status_hud.icon_state = "blood"
-						return TRUE
+					if(!istype(wound, /datum/wound/internal_bleeding))
+						continue
+					status_hud.icon_state = "blood"
+					return TRUE
 			status_hud.icon_state = "healthy"
 			return TRUE
 	return FALSE
