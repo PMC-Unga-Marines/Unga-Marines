@@ -20,7 +20,7 @@
 	. = ..()
 	center = mutable_appearance(icon, "manifold4w_center")
 
-/obj/machinery/atmospherics/pipe/manifold4w/set_init_directions()
+/obj/machinery/atmospherics/pipe/manifold4w/set_init_directions(init_dir)
 	initialize_directions = initial(initialize_directions)
 
 /obj/machinery/atmospherics/pipe/manifold4w/update_overlays()

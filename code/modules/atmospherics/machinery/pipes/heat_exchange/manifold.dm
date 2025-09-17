@@ -22,7 +22,7 @@
 	icon_state = ""
 	center = mutable_appearance(icon, "manifold_center")
 
-/obj/machinery/atmospherics/pipe/heat_exchanging/manifold/set_init_directions()
+/obj/machinery/atmospherics/pipe/heat_exchanging/manifold/set_init_directions(init_dir)
 	initialize_directions = NORTH|SOUTH|EAST|WEST
 	initialize_directions &= ~dir
 

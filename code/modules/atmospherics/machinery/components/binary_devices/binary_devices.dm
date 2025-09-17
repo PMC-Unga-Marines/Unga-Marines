@@ -6,7 +6,7 @@
 	device_type = BINARY
 	layer = GAS_PUMP_LAYER
 
-/obj/machinery/atmospherics/components/binary/set_init_directions()
+/obj/machinery/atmospherics/components/binary/set_init_directions(init_dir)
 	switch(dir)
 		if(NORTH, SOUTH)
 			initialize_directions = NORTH|SOUTH

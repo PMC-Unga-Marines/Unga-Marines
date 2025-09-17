@@ -9,7 +9,7 @@
 
 	var/flipped = FALSE
 
-/obj/machinery/atmospherics/components/trinary/set_init_directions()
+/obj/machinery/atmospherics/components/trinary/set_init_directions(init_dir)
 	switch(dir)
 		if(NORTH)
 			initialize_directions = EAST|NORTH|SOUTH

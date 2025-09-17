@@ -8,7 +8,7 @@
 	construction_type = /obj/item/pipe/directional
 	pipe_state = "junction"
 
-/obj/machinery/atmospherics/pipe/heat_exchanging/junction/set_init_directions()
+/obj/machinery/atmospherics/pipe/heat_exchanging/junction/set_init_directions(init_dir)
 	switch(dir)
 		if(NORTH, SOUTH)
 			initialize_directions = SOUTH|NORTH

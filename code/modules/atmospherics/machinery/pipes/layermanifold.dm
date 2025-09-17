@@ -69,7 +69,7 @@
 	I.layer = layer - 0.01
 	add_overlay(I)
 
-/obj/machinery/atmospherics/pipe/layer_manifold/set_init_directions()
+/obj/machinery/atmospherics/pipe/layer_manifold/set_init_directions(init_dir)
 	switch(dir)
 		if(NORTH, SOUTH)
 			initialize_directions = NORTH|SOUTH

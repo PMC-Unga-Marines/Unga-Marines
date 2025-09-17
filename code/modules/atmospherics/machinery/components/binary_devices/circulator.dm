@@ -66,7 +66,7 @@
 
 	return TRUE
 
-/obj/machinery/atmospherics/components/binary/circulator/set_init_directions()
+/obj/machinery/atmospherics/components/binary/circulator/set_init_directions(init_dir)
 	switch(dir)
 		if(NORTH, SOUTH)
 			initialize_directions = EAST|WEST

@@ -8,7 +8,7 @@
 	var/uid
 	var/static/gl_uid = 1
 
-/obj/machinery/atmospherics/components/unary/set_init_directions()
+/obj/machinery/atmospherics/components/unary/set_init_directions(init_dir)
 	initialize_directions = dir
 
 /obj/machinery/atmospherics/components/unary/on_construction()
