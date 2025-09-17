@@ -90,6 +90,9 @@
 	else
 		icon = rouny_icon
 
+	if(!rouny_effects_icon)
+		return
+
 /mob/living/carbon/xenomorph/proc/change_skin()
 	if(!length(skins))
 		balloon_alert(src, "Your caste does not have the ability to change appearance.")
