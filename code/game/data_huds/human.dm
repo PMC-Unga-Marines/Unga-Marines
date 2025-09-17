@@ -109,9 +109,10 @@
 				status_hud.icon_state = "od"
 				return TRUE
 			for(var/datum/limb/limb AS in limbs)
-				if(CHECK_BITFIELD(limb.limb_status, LIMB_BROKEN) && !CHECK_BITFIELD(limb.limb_status, LIMB_STABILIZED) && !CHECK_BITFIELD(limb.limb_status, LIMB_SPLINTED))
-					status_hud.icon_state = "fracture"
-					return TRUE
+				if(!CHECK_BITFIELD(limb.limb_status, LIMB_BROKEN) || CHECK_BITFIELD(limb.limb_status, LIMB_STABILIZED) || CHECK_BITFIELD(limb.limb_status, LIMB_SPLINTED))
+					continue
+				status_hud.icon_state = "fracture"
+				return TRUE
 				for(var/datum/wound/wound in limb.wounds)
 					if(!istype(wound, /datum/wound/internal_bleeding))
 						continue
