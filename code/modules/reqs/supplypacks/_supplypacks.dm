@@ -47,6 +47,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(
 	job_type = /datum/job/terragov/squad/corpsman
 	///UI icon for this item
 	ui_icon = "b18" //placeholder
+	containertype = /obj/structure/closet/crate/medical
 
 /datum/supply_packs/personal/medic/advanced_medical
 	name = "Emergency medical supplies"

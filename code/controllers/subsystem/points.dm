@@ -132,7 +132,7 @@ SUBSYSTEM_DEF(points)
 	personal_supply_points[user.ckey] -= cost
 	ckey_shopping_cart.Cut()
 
-/datum/controller/subsystem/points/proc/buy_delivery_cart(datum/supply_order/our_order, mob/living/user)
+/datum/controller/subsystem/points/proc/buy_delivery_cart(mob/living/user)
 	var/list/shopping_cart = delivery_shopping_cart[user.ckey]
 	if(!shopping_cart || !length(shopping_cart))
 		return FALSE
@@ -150,28 +150,32 @@ SUBSYSTEM_DEF(points)
 	// Deduct points and create order
 	personal_supply_points[user.ckey] -= total_cost
 
+	var/datum/supply_order/order = process_cart(user, shopping_cart)[1]
+	/*
 	var/datum/supply_order/O = new()
 	O.orderer = user.real_name
 	O.orderer_rank = user.job
 	O.authorised_by = user.ckey
 	O.faction = user.faction
+	*/
 
+	/*
 	for(var/pack_type in shopping_cart)
 		var/datum/supply_packs/P = supply_packs[pack_type]
 		for(var/i in 1 to shopping_cart[pack_type])
-			O.pack += P
+			order.pack += P*/
 
 	var/turf/TC = locate(user.x, user.y, user.z)
 
 	//spawn crate and clear shoping list
-	delivery_to_turf(our_order, TC)
+	delivery_to_turf(order, TC)
+
+	// Clear the cart
+	shopping_cart.Cut()
 
 	//effects
 	TC.visible_message(span_boldnotice("A supply drop appears suddendly!"))
 	playsound(TC,'sound/effects/tadpolehovering.ogg', 30, TRUE)
-
-	// Clear the cart
-	shopping_cart.Cut()
 
 	return TRUE
 
@@ -216,8 +220,11 @@ SUBSYSTEM_DEF(points)
 
 	var/turf/TC = locate(supply_beacon.drop_location.x, supply_beacon.drop_location.y, supply_beacon.drop_location.z)
 
-	//spawn crate and clear shoping list
+	//spawn crate
 	delivery_to_turf(our_order, TC)
+
+	SSpoints.shoppinglist[our_order.faction] -= "[our_order.id]"
+	SSpoints.shopping_history += our_order
 
 	//effects
 	supply_beacon.drop_location.visible_message(span_boldnotice("A supply drop appears suddendly!"))
@@ -254,9 +261,6 @@ SUBSYSTEM_DEF(points)
 		if(!firstpack.containertype)
 			break
 		new typepath(A)
-
-	SSpoints.shoppinglist[our_order.faction] -= "[our_order.id]"
-	SSpoints.shopping_history += our_order
 
 	//animate delivery
 
