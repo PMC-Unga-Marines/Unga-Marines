@@ -199,31 +199,6 @@
 	if(!client && !get_ghost(TRUE)) // Nobody home, no ghost, must have disconnected while in their body
 		status_hud.overlays += "dead_noclient"
 
-/mob/living/carbon/human/species/early_synthetic/set_status_hud() //copypaste
-	var/image/status_hud = hud_list[STATUS_HUD]
-	status_hud.icon_state = ""
-	status_hud.overlays.Cut()
-	if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
-		status_hud.icon_state = "synth_dnr"
-		return TRUE
-	if(stat != DEAD)
-		status_hud.icon_state = "synth"
-		switch(round(health * 100 / maxHealth)) // special health HUD icons for damaged synthetics
-			if(-29 to 4) // close to overheating: should appear when health is less than 5
-				status_hud.icon_state = "synthsoftcrit"
-			if(-INFINITY to -30) // dying
-				status_hud.icon_state = "synthhardcrit"
-	else
-		status_hud.icon_state = "synth_dead"
-	if(!mind)
-		var/mob/dead/observer/ghost = get_ghost(TRUE)
-		if(!ghost)
-			return TRUE
-		if(!ghost.client) // DC'd ghost detected
-			status_hud.overlays += "dead_noclient"
-	if(!client && !get_ghost(TRUE)) // Nobody home, no ghost, must have disconnected while in their body
-		status_hud.overlays += "dead_noclient"
-
 //Set state of the xeno embryo and other strange stuff
 /mob/living/carbon/human/proc/set_infection_hud()
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
