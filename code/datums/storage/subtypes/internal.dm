@@ -382,12 +382,12 @@
 		/obj/item/reagent_containers/food/drinks/cans,
 	))
 
-/datum/storage/internal/shoes/boot_knife
+/datum/storage/internal/shoes
 	max_storage_space = 4
 	storage_slots = 2
 	draw_mode = TRUE
 
-/datum/storage/internal/shoes/boot_knife/New(atom/parent)
+/datum/storage/internal/shoes/New(atom/parent)
 	. = ..()
 	set_holdable(
 		cant_hold_list = list(
