@@ -845,11 +845,15 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		to_chat(user, span_warning("You are busy doing something else!"))
 		return FALSE
 
+	var/atom/delay_target = parent // if we have a storage inside another item, we won't see the do_after without this
+	if(isitem(parent.loc))
+		delay_target = parent.loc
+
 	if(!alert_user)
-		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, parent)
+		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, delay_target)
 
 	to_chat(user, span_notice("You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] \the [parent.name]"))
-	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, parent))
+	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, delay_target))
 		to_chat(user, span_warning("You fumble [accessed]!"))
 		return FALSE
 	return TRUE
