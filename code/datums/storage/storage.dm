@@ -842,10 +842,10 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		return FALSE
 
 	if(!alert_user)
-		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, parent)
+		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, user)
 
 	to_chat(user, "<span class='notice'>You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] [parent.name]")
-	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, parent))
+	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, user))
 		to_chat(user, span_warning("You fumble [accessed]!"))
 		return FALSE
 	return TRUE
