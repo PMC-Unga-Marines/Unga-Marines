@@ -118,6 +118,7 @@
 	base_icon = selection.icon
 	effects_icon = selection.effects_icon
 	rouny_icon = selection.rouny_icon
+	rouny_effects_icon = selection.rouny_effects_icon
 
 /mob/living/carbon/xenomorph/Topic(href, href_list)
 	. = ..()

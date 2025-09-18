@@ -8,12 +8,8 @@
 	icon = 'icons/Xeno/castes/drone/king.dmi'
 	effects_icon = 'icons/Xeno/castes/drone/king_effects.dmi'
 	rouny_icon = 'icons/Xeno/castes/drone/hornet.dmi'
+	rouny_effects_icon = 'icons/Xeno/castes/drone/hornet_effects.dmi'
 
 /datum/xenomorph_skin/drone/cyborg
 	name = "Cyborg"
 	icon = 'icons/Xeno/castes/drone/cyborg.dmi'
-
-/datum/xenomorph_skin/drone/hornet
-	name = "Hornet"
-	icon = 'icons/Xeno/castes/drone/hornet.dmi'
-	effects_icon = 'icons/Xeno/castes/drone/hornet_effects.dmi'
