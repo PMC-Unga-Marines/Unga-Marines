@@ -3,6 +3,7 @@
 	///If you are going to add an explanation for an ability. don't use stats, give a very brief explanation of how to use it.
 	desc = "This ability can not be found in codex."
 	action_icon = 'icons/Xeno/actions/_actions.dmi'
+	background_icon = 'icons/Xeno/actions/_actions.dmi'
 	///Typecast owner since this is used constantly
 	var/mob/living/carbon/xenomorph/xeno_owner
 
@@ -49,6 +50,7 @@
 
 //activatable
 /datum/action/ability/activable/xeno
+	background_icon = 'icons/Xeno/actions/_actions.dmi'
 	///Typecast owner since this is used constantly
 	var/mob/living/carbon/xenomorph/xeno_owner
 

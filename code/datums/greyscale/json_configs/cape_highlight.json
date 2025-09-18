@@ -20,10 +20,57 @@
 	"highlight_long_h":[
 		{
 			"type": "hyperscale",
-			"icon_state": "long"
+			"icon_state": "long_h"
 		}
 	],
-
+	"highlight_long_line":[
+		{
+			"type": "hyperscale",
+			"icon_state": "long_line"
+		}
+	],
+	"highlight_long_line_h":[
+		{
+			"type": "hyperscale",
+			"icon_state": "long_line_h"
+		}
+	],
+	"highlight_long_medic":[
+		{
+			"type": "hyperscale",
+			"icon_state": "long_medic"
+		}
+	],
+	"highlight_long_medic_h":[
+		{
+			"type": "hyperscale",
+			"icon_state": "long_medic_h"
+		}
+	],
+	"highlight_long_skull":[
+		{
+			"type": "hyperscale",
+			"icon_state": "long_skull"
+		}
+	],
+	"highlight_long_skull_h":[
+		{
+			"type": "hyperscale",
+			"icon_state": "long_skull"
+		}
+	],
+	"highlight_long_arrow":[
+		{
+			"type": "hyperscale",
+			"icon_state": "long_arrow"
+		}
+	],
+	"highlight_long_arrow_h":[
+		{
+			"type": "hyperscale",
+			"icon_state": "long_arrow_h"
+		}
+	],
 	"highlight_regaly":[
 		{
 			"type": "hyperscale",

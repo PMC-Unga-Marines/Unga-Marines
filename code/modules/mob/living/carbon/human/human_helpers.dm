@@ -200,6 +200,13 @@
 	if(has_limb(FOOT_LEFT) && has_limb(LEG_LEFT))
 		.++
 
+/mob/living/carbon/human/has_arms()
+	. = 0
+	if(has_limb(HAND_RIGHT) && has_limb(ARM_RIGHT))
+		.++
+	if(has_limb(HAND_LEFT) && has_limb(ARM_LEFT))
+		.++
+
 /mob/living/carbon/human/get_permeability_protection()
 	// hands = 1 | chest = 2 | groin = 3 | legs = 4 | feet = 5 | arms = 6 | head = 7
 	var/list/prot = list(0,0,0,0,0,0,0)

@@ -43,6 +43,8 @@
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
 		status_hud.icon_state = "dead"
 		return TRUE
+
+	var/is_bot = has_ai()
 	switch(stat)
 		if(DEAD)
 			if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
@@ -73,7 +75,10 @@
 			return TRUE
 		if(UNCONSCIOUS)
 			if(!client) //Nobody home.
-				status_hud.icon_state = "afk"
+				if(is_bot)
+					status_hud.icon_state = "ai_mob"
+				else
+					status_hud.icon_state = "afk"
 				return TRUE
 			if(has_status_effect(STATUS_EFFECT_UNCONSCIOUS)) //Should hopefully get out of it soon.
 				status_hud.icon_state = "knockout"
@@ -82,7 +87,10 @@
 			return TRUE
 		if(CONSCIOUS)
 			if(!key) //Nobody home. Shouldn't affect aghosting.
-				status_hud.icon_state = "afk"
+				if(is_bot)
+					status_hud.icon_state = "ai_mob"
+				else
+					status_hud.icon_state = "afk"
 				return TRUE
 			if(has_status_effect(STATUS_EFFECT_PARALYZED)) //I've fallen and I can't get up.
 				status_hud.icon_state = "knockdown"
@@ -177,31 +185,6 @@
 	if(!client && !get_ghost(TRUE)) // Nobody home, no ghost, must have disconnected while in their body
 		status_hud.overlays += "dead_noclient"
 
-/mob/living/carbon/human/species/early_synthetic/set_status_hud() //copypaste
-	var/image/status_hud = hud_list[STATUS_HUD]
-	status_hud.icon_state = ""
-	status_hud.overlays.Cut()
-	if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
-		status_hud.icon_state = "synth_dnr"
-		return TRUE
-	if(stat != DEAD)
-		status_hud.icon_state = "synth"
-		switch(round(health * 100 / maxHealth)) // special health HUD icons for damaged synthetics
-			if(-29 to 4) // close to overheating: should appear when health is less than 5
-				status_hud.icon_state = "synthsoftcrit"
-			if(-INFINITY to -30) // dying
-				status_hud.icon_state = "synthhardcrit"
-	else
-		status_hud.icon_state = "synth_dead"
-	if(!mind)
-		var/mob/dead/observer/ghost = get_ghost(TRUE)
-		if(!ghost)
-			return TRUE
-		if(!ghost.client) // DC'd ghost detected
-			status_hud.overlays += "dead_noclient"
-	if(!client && !get_ghost(TRUE)) // Nobody home, no ghost, must have disconnected while in their body
-		status_hud.overlays += "dead_noclient"
-
 //Set state of the xeno embryo and other strange stuff
 /mob/living/carbon/human/proc/set_infection_hud()
 	if(species.species_flags & HEALTH_HUD_ALWAYS_DEAD)
@@ -245,12 +228,16 @@
 	if(species.species_flags & (IS_SYNTHETIC || HEALTH_HUD_ALWAYS_DEAD))
 		return FALSE
 
+	var/is_bot = has_ai()
 	switch(stat)
 		if(DEAD)
 			return FALSE
 		if(UNCONSCIOUS)
 			if(!client) //Nobody home.
-				simple_status_hud.icon_state = "afk"
+				if(is_bot)
+					simple_status_hud.icon_state = "ai_mob"
+				else
+					simple_status_hud.icon_state = "afk"
 				return TRUE
 			if(has_status_effect(STATUS_EFFECT_UNCONSCIOUS)) //Should hopefully get out of it soon.
 				simple_status_hud.icon_state = "knockout"
@@ -259,7 +246,10 @@
 			return TRUE
 		if(CONSCIOUS)
 			if(!key) //Nobody home. Shouldn't affect aghosting.
-				simple_status_hud.icon_state = "afk"
+				if(is_bot)
+					simple_status_hud.icon_state = "ai_mob"
+				else
+					simple_status_hud.icon_state = "afk"
 				return TRUE
 			if(has_status_effect(STATUS_EFFECT_PARALYZED)) //I've fallen and I can't get up.
 				simple_status_hud.icon_state = "knockdown"
@@ -362,6 +352,7 @@
 	var/static/image/intoxicated_image = image('icons/mob/hud/intoxicated.dmi', icon_state = "intoxicated")
 	var/static/image/intoxicated_amount_image = image('icons/mob/hud/intoxicated.dmi', icon_state = "intoxicated_amount0")
 	var/static/image/intoxicated_high_image = image('icons/mob/hud/intoxicated.dmi', icon_state = "intoxicated_high")
+	var/static/image/dancer_marked_image = image('icons/mob/hud/human_misc.dmi', icon_state = "marked_debuff")
 	var/static/image/hive_target_image = image('icons/mob/hud/human_misc.dmi', icon_state = "hive_target")
 
 	//Xeno debuff section start
@@ -370,6 +361,9 @@
 
 	if(HAS_TRAIT(src, TRAIT_HIVE_TARGET))
 		xeno_debuff.overlays += hive_target_image
+
+	if(has_status_effect(STATUS_EFFECT_DANCER_TAGGED))
+		xeno_debuff.overlays += dancer_marked_image
 
 	if(has_status_effect(STATUS_EFFECT_INTOXICATED))
 		var/datum/status_effect/stacking/intoxicated/debuff = has_status_effect(STATUS_EFFECT_INTOXICATED)

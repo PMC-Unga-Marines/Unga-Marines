@@ -47,14 +47,11 @@ GLOBAL_VAR_INIT(rollovercheck_last_timeofday, 0)
 		hourT = " and [hour] hour[(hour != 1)? "s":""]"
 	return "[day] day[(day != 1)? "s":""][hourT][minuteT][secondT]"
 
-
 /proc/gameTimestamp(format = "hh:mm:ss", wtime = world.time)
 	return time2text(wtime, format, 0)
 
-
 /proc/stationTimestamp(format = "hh:mm:ss", wtime = world.time)
 	return time2text(wtime + (12 * 36000), format, 0)
-
 
 //returns timestamp in a sql and a not-quite-compliant ISO 8601 friendly format
 /proc/SQLtime(timevar)

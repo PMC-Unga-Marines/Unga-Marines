@@ -425,7 +425,7 @@
 	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	slowdown = -0.1
 	w_class = WEIGHT_CLASS_TINY
-	species_exception = list(/datum/species/robot, /datum/species/synthetic, /datum/species/human, /datum/species/early_synthetic, /datum/species/zombie)
+	species_exception = list(/datum/species/robot, /datum/species/synthetic, /datum/species/human, /datum/species/zombie)
 
 /obj/item/clothing/head/squad_headband/alpha
 	name = "\improper Alpha Squad headband"
