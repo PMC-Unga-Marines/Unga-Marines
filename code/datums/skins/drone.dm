@@ -17,4 +17,3 @@
 	name = "Hornet"
 	icon = 'icons/Xeno/castes/drone/hornet.dmi'
 	effects_icon = 'icons/Xeno/castes/drone/hornet_effects.dmi'
-	rouny_icon =
