@@ -1006,9 +1006,10 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 ///Delete everything that's inside the storage
 /datum/storage/proc/delete_contents()
 	for(var/obj/item/item in parent.contents)
-		if(item.item_flags & IN_STORAGE)
-			item.on_exit_storage(src)
-			qdel(item)
+		if(!(item.item_flags & IN_STORAGE))
+			continue
+		item.on_exit_storage(src)
+		qdel(item)
 
 ///Returns the storage depth of an atom. This is the number of storage items the atom is contained in before reaching toplevel (the area). Returns -1 if the atom was not found on container.
 /datum/storage/proc/storage_depth(atom/container)
