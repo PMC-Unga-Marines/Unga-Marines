@@ -1,0 +1,4 @@
+author: "NikolaTariZzZ"
+delete-after: True
+changes:
+  - bugfix: "При производстве С4 на заводе больше не производятся прожекторы."

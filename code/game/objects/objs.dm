@@ -73,6 +73,7 @@
 			GLOB.all_req_one_access[txt_access] = req_one_access
 		else
 			req_one_access = GLOB.all_req_one_access[txt_access]
+
 	add_debris_element()
 
 /obj/Destroy()
@@ -164,7 +165,13 @@
 		return TRUE
 	if((allow_pass_flags & PASS_GLASS) && (mover.pass_flags & PASS_GLASS))
 		return NONE
-	if(!density || !(atom_flags & ON_BORDER) || !(direction & dir) || (mover.status_flags & INCORPOREAL))
+	if(!density)
+		return NONE
+	if(!(atom_flags & ON_BORDER))
+		return NONE
+	if(mover.status_flags & INCORPOREAL)
+		return NONE
+	if(!(direction & dir))
 		return NONE
 
 	knownblockers += src
@@ -445,4 +452,8 @@
 			balloon_alert(user, "Cannot disassemble")
 		return FALSE
 	SEND_SIGNAL(src, COMSIG_ITEM_UNDEPLOY, user)
+	return TRUE
+
+/// Handles successful disassembly tasks on a deployable, cannot be used for failure checks as disassembly has completed already
+/obj/proc/post_disassemble(mob/user)
 	return TRUE

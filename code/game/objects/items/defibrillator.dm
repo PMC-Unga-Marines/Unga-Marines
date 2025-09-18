@@ -87,9 +87,6 @@
 		return
 	if(!istype(user))
 		return
-	if(!COOLDOWN_CHECK(src, defib_cooldown))
-		balloon_alert(user, "toggled too recently")
-		return
 
 	//Job knowledge requirement
 	var/skill = user.skills.getRating(SKILL_MEDICAL)
@@ -99,7 +96,6 @@
 		if(!do_after(user, SKILL_TASK_AVERAGE - (SKILL_TASK_VERY_EASY * skill), NONE, src, BUSY_ICON_UNSKILLED))
 			return
 
-	COOLDOWN_START(src, defib_cooldown, 2 SECONDS)
 	ready = !ready
 	user.visible_message(span_notice("[user] turns [src] [ready? "on and opens the cover" : "off and closes the cover"]."),
 	span_notice("You turn [src] [ready? "on and open the cover" : "off and close the cover"]."))
@@ -153,8 +149,6 @@
 		balloon_alert(user, "recharging")
 		return
 
-	COOLDOWN_START(src, defib_cooldown, 2 SECONDS) // 2 seconds before you can try again, initially
-
 	//job knowledge requirement
 	var/medical_skill = user.skills.getRating(SKILL_MEDICAL)
 	if(medical_skill < SKILL_MEDICAL_PRACTICED)
@@ -195,8 +189,8 @@
 	var/alerting_ghost = isrobot(patient) ? (patient.check_defib() & DEFIB_REVIVABLE_STATES) : (patient.check_defib(issynth(patient) ? 0 : DEFIBRILLATOR_HEALING_TIMES_SKILL(user.skills.getRating(SKILL_MEDICAL), defibrillator_healing)) == DEFIB_POSSIBLE)
 	if(ghost && alerting_ghost)
 		notify_ghost(ghost, assemble_alert(
-			title = "Revival Imminent!",
-			message = "Someone is trying to resuscitate your body! Stay in it if you want to be resurrected!",
+			title = "Возрождение!",
+			message = "Кто-то пытается оживить ваше тело! Оставайтесь в нём, если хотите воскреснуть!",
 			color_override = "purple"
 		), ghost_sound = 'sound/effects/gladosmarinerevive.ogg')
 		ghost.reenter_corpse()
@@ -213,6 +207,7 @@
 		return
 
 	// do the defibrillation effects now and check revive parameters in a moment
+	. = TRUE
 	sparks.start()
 	dcell.use(charge_cost)
 	update_icon()
@@ -221,7 +216,7 @@
 	span_notice("You shock [patient] with the paddles."))
 	patient.visible_message(span_warning("[patient]'s body convulses a bit."))
 
-	COOLDOWN_START(src, defib_cooldown, 1 SECONDS) // 1 second before you can try again if you finish the do_after
+	COOLDOWN_START(src, defib_cooldown, DEFIBRILLATOR_COOLDOWN)
 
 	var/datum/internal_organ/heart/heart = patient.get_organ_slot(ORGAN_SLOT_HEART)
 	if(!issynth(patient) && !isrobot(patient) && heart && prob(90) && !advanced)

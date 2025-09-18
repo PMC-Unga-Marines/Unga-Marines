@@ -9611,9 +9611,10 @@
 /area/slumbridge/inside/pmcdome)
 "hjs" = (
 /obj/effect/landmark/dropship_start_location,
-/obj/item/toy/plush/therapy_blue,
-/turf/open/floor/plating/ground/mars/random/cave/darker,
-/area/slumbridge/caves/rock)
+/turf/open/floor/plating/ground/snow/layer2{
+	dir = 10
+	},
+/area/slumbridge/outside/southwest)
 "hkn" = (
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning{
@@ -22392,11 +22393,9 @@
 /turf/open/floor/prison/whitegreen/full,
 /area/slumbridge/inside/prison/outerringsouth)
 "qvu" = (
-/obj/machinery/computer/shuttle/shuttle_control/dropship,
 /obj/structure/table/mainship,
-/turf/open/floor/tile/dark/red2{
-	dir = 1
-	},
+/obj/machinery/computer/shuttle/shuttle_control/dropship,
+/turf/open/floor/tile/dark/red2,
 /area/slumbridge/landingzoneone)
 "qvG" = (
 /obj/effect/decal/cleanable/blood/oil/armorblood,
@@ -37385,7 +37384,7 @@ lJL
 jso
 bYh
 bXQ
-qKi
+pXp
 tYb
 ybI
 qUi
@@ -37566,7 +37565,7 @@ lJL
 jso
 bYh
 qKi
-qKi
+eWx
 tYb
 xGy
 bkz
@@ -37747,7 +37746,7 @@ lJL
 jso
 bYh
 qKi
-qKi
+xYJ
 tYb
 xGy
 bkz
@@ -38109,7 +38108,7 @@ lJL
 jso
 bYh
 bXQ
-qKi
+gsR
 tYb
 xGy
 bkz
@@ -38290,7 +38289,7 @@ lJL
 jso
 bYh
 qKi
-gsR
+mfW
 tYb
 xGy
 bkz
@@ -38314,7 +38313,7 @@ bkz
 bkz
 nwg
 aWu
-qvu
+qKi
 qYu
 aTh
 bYh
@@ -38471,7 +38470,7 @@ lJL
 jso
 bYh
 qKi
-qKi
+eWU
 tYb
 xGy
 bkz
@@ -38652,7 +38651,7 @@ lJL
 jso
 bYh
 qKi
-qKi
+heh
 tYb
 xGy
 bkz
@@ -39571,7 +39570,7 @@ qKi
 qKi
 qKi
 qKi
-qKi
+qvu
 qKi
 qKi
 qKi
@@ -39751,9 +39750,9 @@ qKi
 qKi
 lVB
 qKi
-pXp
 qKi
-mfW
+qKi
+qKi
 qKi
 oCu
 qKi
@@ -39932,9 +39931,9 @@ qKi
 qKi
 rjq
 qKi
-eWx
 qKi
-eWU
+qKi
+qKi
 qKi
 uML
 qKi
@@ -40113,9 +40112,9 @@ qKi
 qKi
 wfa
 qKi
-xYJ
 qKi
-heh
+qKi
+qKi
 qKi
 hTO
 qKi
@@ -49797,7 +49796,7 @@ bYo
 qRS
 rfs
 lRi
-lRi
+hjs
 rfs
 uvc
 rfs
@@ -51223,7 +51222,7 @@ lJL
 lJL
 lJL
 pRb
-hjs
+pRb
 lJL
 lJL
 pRb

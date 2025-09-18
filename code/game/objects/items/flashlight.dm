@@ -212,6 +212,6 @@
 	light_range = 6			// luminosity when on
 	raillight_compatible = FALSE
 
-/obj/item/flashlight/lantern/turned_on
-	icon_state = "lantern-on"
-	light_on = TRUE
+/obj/item/flashlight/lantern/on/Initialize(mapload)
+	. = ..()
+	turn_light(null, TRUE)
