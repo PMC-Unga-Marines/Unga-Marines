@@ -192,3 +192,5 @@
 	id.access = access
 	id.iff_signal = iff_signal
 	return id
+
+/datum/item_representation/boot // bruh
