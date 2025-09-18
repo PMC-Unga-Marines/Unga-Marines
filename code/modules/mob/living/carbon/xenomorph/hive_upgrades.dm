@@ -179,7 +179,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	desc = "Constructs a silo that generates xeno larvas over time."
 	psypoint_cost = SILO_PRICE
 	icon = "silo"
-	gamemode_flags = ABILITY_DISTRESS
+	gamemode_flags = ABILITY_ALL_GAMEMODE
 	building_type = /obj/structure/xeno/silo
 
 /datum/hive_upgrade/building/silo/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
