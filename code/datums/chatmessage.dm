@@ -115,9 +115,9 @@
 		if(ishuman(target))
 			var/mob/living/carbon/human/man = target
 			squad = man.assigned_squad
-		if(squad)
-			target.chat_color = squad.color
-			target.chat_color_darkened = squad.color
+		if(squad?.chat_color && squad?.chat_color_darkened)
+			target.chat_color = squad.chat_color
+			target.chat_color_darkened = squad.chat_color_darkened
 			target.chat_color_name = target.name
 		else
 			target.chat_color = colorize_string(target.name)
