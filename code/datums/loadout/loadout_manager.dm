@@ -72,9 +72,10 @@
 				return
 			var/loadout_job = params["loadout_job"]
 			for(var/loadout_data in loadouts_data)
-				if(loadout_data[1] == loadout_job && loadout_data[2] == loadout_name)
-					to_chat(ui.user, span_warning("Loadout [loadout_name] for [loadout_job] already exists. Try another name."))
-					return
+				if(loadout_data[1] != loadout_job || loadout_data[2] != loadout_name)
+					continue
+				to_chat(ui.user, span_warning("Loadout [loadout_name] for [loadout_job] already exists. Try another name."))
+				return
 			var/datum/loadout/loadout = create_empty_loadout(loadout_name, loadout_job)
 			loadout.save_mob_loadout(ui.user)
 			ui.user.client.prefs.save_loadout(loadout)
