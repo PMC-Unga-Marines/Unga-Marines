@@ -35,12 +35,12 @@
 /datum/supply_packs/imports/m412/ammo/extended
 	name = "PR-412 Pulse Rifle Extended Magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/extended)
-	cost = 25
+	cost = 30
 
 /datum/supply_packs/imports/m412/ammo/incendiary
 	name = "PR-412 Pulse Rifle Incendiary Magazine"
 	contains = list(/obj/item/ammo_magazine/rifle/incendiary)
-	cost = 30
+	cost = 25
 
 /datum/supply_packs/imports/m412l1
 	name = "PR-412L1 Heavy Pulse Rifle"
@@ -82,13 +82,13 @@
 	contains = list(/obj/item/ammo_magazine/smg/m25/extended)
 	cost = 40
 
-/datum/supply_packs/weapons/smg25_ap
+/datum/supply_packs/imports/smg25_ap
 	name = "SMG-25 armor piercing magazine"
 	contains = list(/obj/item/ammo_magazine/smg/m25/ap)
 	cost = 30 //60 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/box_10x20mm_ap
+/datum/supply_packs/imports/box_10x20mm_ap
 	name = "10x20mm armor piercing ammo box"
 	contains = list(/obj/item/ammo_magazine/packet/p10x20mm/ap)
 	cost = 50 //150 rounds
