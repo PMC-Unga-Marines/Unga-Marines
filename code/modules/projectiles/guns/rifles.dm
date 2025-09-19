@@ -594,7 +594,7 @@
 	worn_icon_state = "typesh12"
 	icon = 'icons/obj/items/gun/rifle64.dmi'
 	max_shells = 25 //codex
-	fire_sound = 'sound/weapons/guns/fire/howitzer_fire.ogg'
+	fire_sound = 'sound/weapons/guns/fire/Typesh12.ogg'
 	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/ak47_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
