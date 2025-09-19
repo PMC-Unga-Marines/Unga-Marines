@@ -56,9 +56,9 @@
 		normalize_cardinal_directions()
 	if(process)
 		SSair.atmos_machinery += src
+	nodes = new(device_type)
 	set_init_directions()
 
-	nodes = new(device_type)
 	var/turf/turf_loc = null
 	if(isturf(loc))
 		turf_loc = loc
@@ -107,8 +107,8 @@
 /obj/machinery/atmospherics/proc/nullify_node(i)
 	if(!nodes[i])
 		return
-	var/obj/machinery/atmospherics/N = nodes[i]
-	N.disconnect(src)
+	var/obj/machinery/atmospherics/node_machine = nodes[i]
+	node_machine.disconnect(src)
 	nodes[i] = null
 
 /**
@@ -343,6 +343,7 @@
 
 // Handles mob movement inside a pipenet
 /obj/machinery/atmospherics/relaymove(mob/living/user, direction)
+	direction &= initialize_directions
 	if(!direction) //can't go this way.
 		return
 	if(user in buckled_mobs)// fixes buckle ventcrawl edgecase fuck bug
@@ -377,9 +378,9 @@
 	if(!(target_move.vent_movement & VENTCRAWL_ALLOWED))
 		return
 	user.forceMove(target_move)
-	var/list/pipenetdiff = return_pipenets() ^ target_move.return_pipenets()
-	if(pipenetdiff.len)
-		user.update_pipe_vision(full_refresh = TRUE) // TODO: doesn't work
+	//var/list/pipenetdiff = return_pipenets() ^ target_move.return_pipenets()
+	//if(pipenetdiff.len) // TODO: doesn't work
+	user.update_pipe_vision(full_refresh = TRUE)
 
 	//Would be great if this could be implemented when someone alt-clicks the image.
 	if(target_move.vent_movement & VENTCRAWL_ENTRANCE_ALLOWED)
@@ -432,49 +433,6 @@
 /obj/machinery/atmospherics/proc/get_pipe_layer_offset()
 	return (piping_layer - PIPING_LAYER_DEFAULT) * PIPING_LAYER_LCHANGE
 
-/*
-/**
- * Handles cap overlay addition and removal, won't do anything if `has_cap_visuals` is set to `FALSE`
- */
-/obj/machinery/atmospherics/proc/update_cap_visuals()
-	if(!has_cap_visuals)
-		return
-
-	cap_overlay?.moveToNullspace()
-
-	if(!HAS_TRAIT(src, TRAIT_UNDERFLOOR))
-		return
-
-	var/connections = NONE
-	for(var/obj/machinery/atmospherics/node in nodes)
-		if(HAS_TRAIT(node, TRAIT_UNDERFLOOR))
-			continue
-
-		var/turf/node_turf = get_turf(node)
-		if(node_turf.underfloor_accessibility > UNDERFLOOR_HIDDEN)
-			continue
-
-		var/connected_dir = get_dir(src, node)
-		connections |= connected_dir
-
-	if(connections == NONE)
-		return
-
-	var/bitfield = CARDINAL_TO_PIPECAPS(connections) | (~connections) & ALL_CARDINALS
-	var/turf/our_turf = get_turf(src)
-
-	if(isnull(cap_overlay))
-		cap_overlay = new
-
-	SET_PLANE_EXPLICIT(cap_overlay, initial(plane), our_turf)
-
-	cap_overlay.color = pipe_color
-	cap_overlay.layer = initial(layer)
-	cap_overlay.icon_state = "[bitfield]_[piping_layer]"
-
-	cap_overlay.forceMove(our_turf)
-*/
-
 /**
  * Called by the mapping helpers
  * Arguments:
@@ -490,5 +448,5 @@
 	for(var/i in 1 to device_type)
 		if(!nodes[i])
 			continue
-		var/obj/machinery/atmospherics/N = nodes[i]
-		N.update_icon()
+		var/obj/machinery/atmospherics/current_node = nodes[i]
+		current_node.update_icon()

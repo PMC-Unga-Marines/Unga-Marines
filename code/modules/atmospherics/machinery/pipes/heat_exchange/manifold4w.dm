@@ -16,7 +16,7 @@
 
 	var/mutable_appearance/center
 
-/obj/machinery/atmospherics/pipe/heat_exchanging/manifold4w/New()
+/obj/machinery/atmospherics/pipe/heat_exchanging/manifold4w/Initialize(mapload, process, setdir)
 	. = ..()
 	icon_state = ""
 	center = mutable_appearance(icon, "manifold4w_center")
@@ -32,8 +32,9 @@
 
 	//Add non-broken pieces
 	for(var/i in 1 to device_type)
-		if(nodes[i])
-			. += get_pipe_image(icon, "pipe-[piping_layer]", get_dir(src, nodes[i]))
+		if(!nodes[i])
+			continue
+		. += get_pipe_image(icon, "pipe-[piping_layer]", get_dir(src, nodes[i]))
 
 	update_layer()
 	update_alpha()

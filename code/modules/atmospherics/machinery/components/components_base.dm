@@ -8,7 +8,7 @@
 
 	var/list/datum/pipeline/parents
 
-/obj/machinery/atmospherics/components/New()
+/obj/machinery/atmospherics/components/Initialize(mapload, process, setdir)
 	. = ..()
 	parents = new(device_type)
 
@@ -56,7 +56,7 @@
 	if(showpipe)
 		layer = initial(layer)
 	else
-		layer = GLASS_FLOOR_LAYER
+		layer = EXPOSED_ATMOS_LAYER
 	layer += get_pipe_layer_offset()
 
 /obj/machinery/atmospherics/components/proc/get_pipe_underlay(state, dir, color = null)

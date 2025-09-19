@@ -61,6 +61,7 @@
 	forceMove(ventcrawl_target.loc)
 	REMOVE_TRAIT(src, TRAIT_MOVE_VENTCRAWLING, VENTCRAWLING_TRAIT)
 	update_pipe_vision()
+	log_game("[src] crawled out of the [ventcrawl_target] at [AREACOORD(ventcrawl_target)]")
 
 // VENTCRAWLING
 // Handles the entrance and exit on ventcrawling
@@ -72,36 +73,39 @@
 	if(!ventcrawl_checks(ventcrawl_target))
 		return
 
-	if(vent_movement & VENTCRAWL_ENTRANCE_ALLOWED)
-		//Handle the exit here
-		if(HAS_TRAIT(src, TRAIT_MOVE_VENTCRAWLING) && istype(loc, /obj/machinery/atmospherics))
-			visible_message(span_notice("[src] begins climbing out from the ventilation system..."), span_notice("You begin climbing out from the ventilation system..."))
-			if(!do_after(src, crawl_time, target = ventcrawl_target))
-				return
-			if(!client)
-				return
-			if(!stealthy) //Xenos with stealth vent crawling can silently enter/exit vents.
-				playsound(src, get_sfx(SFX_ALIEN_VENTPASS), 35, TRUE)
-			visible_message(span_notice("[src] scrambles out from the ventilation ducts!"), span_notice("You scramble out from the ventilation ducts."))
-			forceMove(ventcrawl_target.loc)
-			REMOVE_TRAIT(src, TRAIT_MOVE_VENTCRAWLING, VENTCRAWLING_TRAIT)
-			update_pipe_vision()
+	if(!(vent_movement & VENTCRAWL_ENTRANCE_ALLOWED))
+		return
+	//Handle the exit here
+	if(HAS_TRAIT(src, TRAIT_MOVE_VENTCRAWLING) && istype(loc, /obj/machinery/atmospherics))
+		visible_message(span_notice("[src] begins climbing out from the ventilation system..."), span_notice("You begin climbing out from the ventilation system..."))
+		if(!do_after(src, crawl_time, target = ventcrawl_target))
+			return
+		if(!client)
+			return
+		if(!stealthy) //Xenos with stealth vent crawling can silently enter/exit vents.
+			playsound(src, get_sfx(SFX_ALIEN_VENTPASS), 35, TRUE)
+		visible_message(span_notice("[src] scrambles out from the ventilation ducts!"), span_notice("You scramble out from the ventilation ducts."))
+		forceMove(ventcrawl_target.loc)
+		REMOVE_TRAIT(src, TRAIT_MOVE_VENTCRAWLING, VENTCRAWLING_TRAIT)
+		update_pipe_vision()
+		log_game("[src] crawled out of the [ventcrawl_target] at [AREACOORD(ventcrawl_target)]")
 
-		//Entrance here
-		else
-			var/datum/pipeline/vent_parent = ventcrawl_target.parents[1]
-			if(vent_parent && (vent_parent.members.len || vent_parent.other_atmosmch))
-				visible_message(span_notice("[src] begins climbing into the ventilation system...") ,span_notice("You begin climbing into the ventilation system..."))
-				if(!do_after(src, crawl_time, target = ventcrawl_target))
-					return
-				if(!client)
-					return
-				if(!stealthy) //Xenos with stealth vent crawling can silently enter/exit vents.
-					playsound(src, get_sfx(SFX_ALIEN_VENTPASS), 35, TRUE)
-				visible_message(span_notice("[src] scrambles into the ventilation ducts!"),span_notice("You climb into the ventilation ducts."))
-				move_into_vent(ventcrawl_target)
-			else
-				to_chat(src, span_warning("This ventilation duct is not connected to anything!"))
+	//Entrance here
+	else
+		var/datum/pipeline/vent_parent = ventcrawl_target.parents[1]
+		if(!(vent_parent && (vent_parent.members.len || vent_parent.other_atmosmch)))
+			to_chat(src, span_warning("This ventilation duct is not connected to anything!"))
+			return
+		visible_message(span_notice("[src] begins climbing into the ventilation system...") ,span_notice("You begin climbing into the ventilation system..."))
+		if(!do_after(src, crawl_time, target = ventcrawl_target))
+			return
+		if(!client)
+			return
+		if(!stealthy) //Xenos with stealth vent crawling can silently enter/exit vents.
+			playsound(src, get_sfx(SFX_ALIEN_VENTPASS), 35, TRUE)
+		visible_message(span_notice("[src] scrambles into the ventilation ducts!"),span_notice("You climb into the ventilation ducts."))
+		move_into_vent(ventcrawl_target)
+		log_game("[src] crawled into the [ventcrawl_target] at [AREACOORD(ventcrawl_target)]")
 
 /**
  * Moves living mob directly into the vent as a ventcrawler

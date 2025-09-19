@@ -197,9 +197,6 @@
 	pixel_x += rand(-3,3)
 	pixel_y += rand(-3,3)
 
-
-
-
 //stairs
 
 /obj/structure/stairs
@@ -208,7 +205,7 @@
 	desc = "Stairs.  You walk up and down them."
 	icon_state = "rampbottom"
 	plane = FLOOR_PLANE // we want this to render below walls if we place them on top
-	layer = ABOVE_OPEN_TURF_LAYER
+	layer = LOWER_RUNE_LAYER
 	density = FALSE
 	opacity = FALSE
 
