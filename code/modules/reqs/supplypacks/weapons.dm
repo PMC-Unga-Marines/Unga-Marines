@@ -2,44 +2,6 @@
 	group = "Weapons"
 	containertype = /obj/structure/closet/crate/weapon
 
-/datum/supply_packs/weapons/saiga12
-	name = "СВЯТОГОР"
-	contains = list(
-		/obj/item/weapon/gun/rifle/saiga12,
-		/obj/item/ammo_magazine/rifle/typesh12/slug,
-		/obj/item/ammo_magazine/rifle/typesh12/slug,
-		/obj/item/ammo_magazine/rifle/typesh12/flechette,
-		)
-	cost = 750
-
-/datum/supply_packs/weapons/typesh12s
-	name = "СВЯТОГОР slug magazine x3"
-	contains = list(
-		/obj/item/ammo_magazine/rifle/typesh12/slug,
-		/obj/item/ammo_magazine/rifle/typesh12/slug,
-		/obj/item/ammo_magazine/rifle/typesh12/slug,
-		)
-	cost = 150	
-
-/datum/supply_packs/weapons/typesh12b
-	name = "СВЯТОГОР buckshot magazine x3"
-	contains = list(
-		/obj/item/ammo_magazine/rifle/typesh12,
-		/obj/item/ammo_magazine/rifle/typesh12,
-		/obj/item/ammo_magazine/rifle/typesh12,
-		)
-	cost = 150	
-
-/datum/supply_packs/weapons/typesh12f
-	name = "СВЯТОГОР flechette magazine x3"
-	contains = list(
-		/obj/item/ammo_magazine/rifle/typesh12/flechette,
-		/obj/item/ammo_magazine/rifle/typesh12/flechette,
-		/obj/item/ammo_magazine/rifle/typesh12/flechette,
-		)
-	cost = 150	
-
-
 /datum/supply_packs/weapons/tesla
 	name = "Tesla shock rifle"
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/tesla)
@@ -352,3 +314,40 @@
 	name = "PL-96 plasma cannon"
 	contains = list(/obj/item/weapon/gun/energy/lasgun/lasrifle/plasma/cannon)
 	cost = 400
+
+/datum/supply_packs/weapons/typesh12
+	name = "СВЯТОГОР"
+	contains = list(
+		/obj/item/weapon/gun/rifle/saiga12,
+		/obj/item/ammo_magazine/rifle/typesh12/slug,
+		/obj/item/ammo_magazine/rifle/typesh12/slug,
+		/obj/item/ammo_magazine/rifle/typesh12/flechette,
+		)
+	cost = 750
+
+/datum/supply_packs/weapons/typesh12s
+	name = "СВЯТОГОР slug magazine x3"
+	contains = list(
+		/obj/item/ammo_magazine/rifle/typesh12/slug,
+		/obj/item/ammo_magazine/rifle/typesh12/slug,
+		/obj/item/ammo_magazine/rifle/typesh12/slug,
+		)
+	cost = 150	
+
+/datum/supply_packs/weapons/typesh12b
+	name = "СВЯТОГОР buckshot magazine x3"
+	contains = list(
+		/obj/item/ammo_magazine/rifle/typesh12,
+		/obj/item/ammo_magazine/rifle/typesh12,
+		/obj/item/ammo_magazine/rifle/typesh12,
+		)
+	cost = 150	
+
+/datum/supply_packs/weapons/typesh12f
+	name = "СВЯТОГОР flechette magazine x3"
+	contains = list(
+		/obj/item/ammo_magazine/rifle/typesh12/flechette,
+		/obj/item/ammo_magazine/rifle/typesh12/flechette,
+		/obj/item/ammo_magazine/rifle/typesh12/flechette,
+		)
+	cost = 150	
