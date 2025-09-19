@@ -587,9 +587,9 @@
 //-------------------------------------------------------
 //TypeSh12-Saiga12
 
-/obj/item/weapon/gun/rifle/saiga12
-	name = "Святогор"
-	desc = "Experimental automatic rifle Saiga-12 with typesh12 25 rounds and a new generation feeding system."
+/obj/item/weapon/gun/rifle/typesh12
+	name = "TypeSh12"
+	desc = "Experimental automatic rifle modification Святогор with 12-caliber cartridges for 25 rounds and a new generation feeding system"
 	icon_state = "typesh12"
 	worn_icon_state = "typesh12"
 	icon = 'icons/obj/items/gun/rifle64.dmi'
@@ -606,7 +606,6 @@
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/scope/marine,
-		/obj/item/attachable/reddot,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope,
