@@ -233,7 +233,7 @@
 	desc = "A bewildering tangle of machinery and pipes linking the hypersleep chambers to the hypersleep bay.."
 	icon = 'icons/obj/machines/cryogenics.dmi'
 	icon_state = "cryo_rear"
-	layer = LOW_OBJ_LAYER
+	layer = ABOVE_WEEDS_LAYER
 	plane = FLOOR_PLANE
 	anchored = TRUE
 	///Flips the sprite.
