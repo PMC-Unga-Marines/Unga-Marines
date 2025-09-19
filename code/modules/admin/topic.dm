@@ -648,17 +648,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 		log_admin("[key_name(usr)] replied to [ADMIN_TPMONTY(H)]'s TGMC message with: [input].")
 		message_admins("[ADMIN_TPMONTY(usr)] replied to [ADMIN_TPMONTY(H)]'s' TGMC message with: [input]")
 
-	if(href_list["deny"])
-		var/mob/M = locate(href_list["deny"])
-
-		if(!istype(M))
-			return
-
-		SSticker.mode.distress_cancelled = TRUE
-		priority_announce("Сигнал бедствия заблокирован. Пусковые трубы перекалибруются.", "Сигнал Бедствия", sound = 'sound/AI/distressbeaconlocked.ogg')
-		log_admin("[key_name(usr)] has denied a distress beacon, requested by [key_name(M)]")
-		message_admins("[ADMIN_TPMONTY(usr)] has denied a distress beacon, requested by [ADMIN_TPMONTY(M)]")
-
 	if(href_list["distress"])
 		var/mob/M = locate(href_list["distress"])
 
@@ -2046,14 +2035,6 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		log_admin("[key_name(usr)] changed [href_list["xeno"]] of [X] from [previous] to [change].")
 		message_admins("[ADMIN_TPMONTY(usr)] changed [href_list["xeno"]] of [ADMIN_TPMONTY(X)] from [previous] to [change].")
-	else if(href_list["adminapproval"])
-		var/approval_id = href_list["adminapproval"] // Already text at this point
-		if(GLOB.admin_approvals[approval_id] != -1)
-			to_chat(usr, span_warning("That approval has already been answered with '[GLOB.admin_approvals[approval_id]]'"))
-			return
-		GLOB.admin_approvals[approval_id] = href_list["option"]
-		log_admin("[key_name(usr)] answered '[href_list["option"]]' to the admin approval ([approval_id]).")
-		message_admins("[key_name(usr)] answered '[href_list["option"]]' to the admin approval ([approval_id]).")
 
 	else if(href_list["reloadpolls"])
 		GLOB.polls.Cut()

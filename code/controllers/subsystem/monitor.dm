@@ -28,6 +28,8 @@ SUBSYSTEM_DEF(monitor)
 	var/is_automatic_balance_on = TRUE
 	///Maximum record of how many players were concurrently playing this round
 	var/maximum_connected_players_count = 0
+	///Used for admin cancellation
+	var/balance_xeno_team_timer
 
 /datum/monitor_statistics
 	var/primo_T4 = 0
@@ -162,15 +164,25 @@ SUBSYSTEM_DEF(monitor)
 	// No need to ask admins every time
 	if(GLOB.xeno_stat_multiplicator_buff != 1)
 		return buff_needed_estimation
-	var/admin_response = admin_approval("<span color='prefix'>AUTO BALANCE SYSTEM:</span> An excessive amount of burrowed was detected, while the balance system consider that marines are winning. [span_boldnotice("Considering the amount of burrowed larvas, a stat buff of [buff_needed_estimation * 100]% will be applied to health, health recovery, and melee damages.")]",
-		options = list("approve" = "approve", "deny" = "deny", "shutdown balance system" = "shutdown balance system"),
-		admin_sound = sound('sound/effects/sos-morse-code.ogg', channel = CHANNEL_ADMIN))
-	if(admin_response != "approve")
-		if(admin_response == "shutdown balance system")
-			is_automatic_balance_on = FALSE
-		return 1
-	return buff_needed_estimation
 
+	message_admins("<span color='prefix'>AUTO BALANCE SYSTEM:</span> An excessive amount of burrowed was detected, while the balance system consider that marines are winning. [span_boldnotice("Considering the amount of burrowed larvas, a stat buff of [buff_needed_estimation * 100]% will be applied to health, health recovery, and melee damages.")] (<a href='byond://?src=[REF(src)];deny=1'>DENY</a>) (<a href='byond://?src=[REF(src)];shutdown_balance_system=1'>SHUTDOWN BALANCE SYSTEM</a>)")
+	send_sound_to_admins('sound/effects/sos-morse-code.ogg')
+	balance_xeno_team_timer = addtimer(CALLBACK(src, PROC_REF(return_needed_buff), buff_needed_estimation), 1 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
+
+/datum/controller/subsystem/monitor/proc/return_needed_buff(amount)
+	return amount
+
+/datum/controller/subsystem/monitor/Topic(href, list/href_list)
+	. = ..()
+	if(href_list["deny"])
+		deltimer(balance_xeno_team_timer)
+		message_admins("[key_name_admin(usr)] cancelled the auto balancing suggestion.")
+		log_admin("[key_name(usr)] cancelled the auto balancing suggestion.")
+	if(href_list["shutdown_balance_system"])
+		deltimer(balance_xeno_team_timer)
+		is_automatic_balance_on = FALSE
+		message_admins("[key_name_admin(usr)] cancelled the auto balancing suggestion and turned it off.")
+		log_admin("[key_name(usr)] cancelled the auto balancing suggestion and turned it off.")
 
 /**
  * Will multiply every base health, regen and melee damage stat on all xeno by GLOB.xeno_stat_multiplicator_buff

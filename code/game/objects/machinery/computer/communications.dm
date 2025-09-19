@@ -37,6 +37,10 @@
 	var/status_display_freq = "1435"
 	var/stat_msg1
 	var/stat_msg2
+	/// The ert squad for distress signal sent, used for admin intervention
+	var/datum/emergency_call/ert_squad
+	/// The timer for distress signal sent, used for admin cancelation
+	var/distress_signal_timer
 
 /obj/machinery/computer/communications/bee
 	machine_stat = BROKEN
@@ -48,6 +52,59 @@
 
 /obj/machinery/computer/communications/Topic(href, href_list)
 	. = ..()
+
+	if(href_list["deny_distress"])
+		if(!ert_squad)
+			to_chat(usr, span_boldnotice("Distress beacon has either already been launched, or cancelled."))
+			return
+		just_called = FALSE
+		deltimer(distress_signal_timer)
+		SSticker.mode.on_distress_cooldown = TRUE
+		ert_squad = null
+		priority_announce("Сигнал бедствия заблокирован. Пусковые трубы перекалибруются.", "Сигнал Бедствия", sound = 'sound/AI/distress_deny.ogg')
+		log_admin("[key_name(usr)] has cancelled a distress beacon.")
+		message_admins("[ADMIN_TPMONTY(usr)] has cancelled a distress beacon.")
+
+	if(href_list["change_ert"])
+		if(!ert_squad)
+			to_chat(usr, span_boldnotice("Distress beacon has either already been launched, or canceled."))
+			return
+		var/list/list_of_calls = list()
+		for(var/datum/emergency_call/L in SSticker.mode.all_calls)
+			if(L.name)
+				list_of_calls += L.name
+
+		list_of_calls += "Randomize"
+
+		var/choice = tgui_input_list(usr, "Which distress do you want to call?", null, list_of_calls)
+		if(!choice)
+			return
+
+		if(choice == "Randomize")
+			ert_squad = SSticker.mode.get_random_call()
+		else
+			for(var/datum/emergency_call/C in SSticker.mode.all_calls)
+				if(C.name != choice)
+					continue
+				ert_squad = C
+				break
+
+		if(!istype(ert_squad))
+			return
+
+		var/max = tgui_input_number(usr, "What should the maximum amount of mobs be?", "Max mobs", ert_squad.mob_max)
+		if(!max || max < 1)
+			return
+		ert_squad.mob_max = max
+
+		var/min = tgui_input_number(usr, "What should the minimum amount of mobs be?", "Min Mobs", ert_squad.mob_min)
+		if(!min || min < 1)
+			min = 0
+		ert_squad.mob_min = min
+
+		log_admin("[key_name(usr)] overrided the distress beacon with a [choice == "Randomize" ? "randomized ":""]distress beacon: [ert_squad.name]. Min: [min], Max: [max].")
+		message_admins("[ADMIN_TPMONTY(usr)] overrided the distress beacon with a [choice == "Randomize" ? "randomized ":""]distress beacon: [ert_squad.name] Min: [min], Max: [max].")
+
 	if(.)
 		return
 
@@ -212,28 +269,15 @@
 					to_chat(usr, span_warning("The sensors aren't picking up enough of a threat to warrant a distress beacon."))
 					return FALSE
 
-				SSticker.mode.distress_cancelled = FALSE
 				just_called = TRUE
 
-				var/datum/emergency_call/E = SSticker.mode.get_random_call()
+				ert_squad = SSticker.mode.get_random_call()
 
-				var/admin_response = admin_approval("<span color='prefix'>DISTRESS:</span> [ADMIN_TPMONTY(usr)] has called a Distress Beacon that was received by [E.name]. Humans: [AllMarines], Xenos: [AllXenos].",
-					user_message = span_boldnotice("A distress beacon will launch in 60 seconds unless High Command responds otherwise."),
-					options = list("approve" = "approve", "deny" = "deny", "deny without annoncing" = "deny without annoncing"),
-					user = usr, admin_sound = sound('sound/effects/sos-morse-code.ogg', channel = CHANNEL_ADMIN))
-				just_called = FALSE
-				cooldown_request = world.time
-				if(admin_response == "deny")
-					SSticker.mode.distress_cancelled = TRUE
-					priority_announce("Сигнал бедствия заблокирован. Пусковые трубы перекалибруются.", "Сигнал Бедствия", sound = 'sound/AI/distress_deny.ogg')
-					return FALSE
-				if(admin_response =="deny without annoncing")
-					SSticker.mode.distress_cancelled = TRUE
-					return FALSE
-				if(SSticker.mode.on_distress_cooldown || SSticker.mode.waiting_for_candidates)
-					return FALSE
-				SSticker.mode.activate_distress(E)
-				E.base_probability = 0
+				to_chat(usr, span_boldnotice("A distress beacon will launch in <b>60 seconds</b> unless High Command responds otherwise."))
+				message_admins("<span color='prefix'>DISTRESS:</span> [ADMIN_TPMONTY(usr)] has called a Distress Beacon that was received by [ert_squad.name]. Humans: [AllMarines], Xenos: [AllXenos]. (<a href='byond://?src=[REF(src)];deny_distress=1'>DENY</a>) (<a href='byond://?src=[REF(src)];change_ert=1'>CHANGE ERT</a>)")
+				send_sound_to_admins('sound/effects/sos-morse-code.ogg')
+
+				distress_signal_timer = addtimer(CALLBACK(src, PROC_REF(distress_setup)), 1 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
 				return TRUE
 			state = STATE_DISTRESS
 
@@ -266,7 +310,6 @@
 			else
 				state = STATE_VIEWMESSAGE
 
-
 		if("status")
 			state = STATE_STATUSDISPLAY
 
@@ -287,20 +330,20 @@
 			stat_msg2 = reject_bad_text(tgui_input_text(usr, "Line 2", "Enter Message Text", stat_msg2, 40, encode = FALSE))
 
 		if("messageTGMC")
-			if(authenticated == 2)
-				if(world.time < cooldown_central + COOLDOWN_COMM_CENTRAL)
-					to_chat(usr, span_warning("Arrays recycling.  Please stand by."))
-					return FALSE
+			if(authenticated != 2)
+				return
+			if(world.time < cooldown_central + COOLDOWN_COMM_CENTRAL)
+				to_chat(usr, span_warning("Arrays recycling.  Please stand by."))
+				return FALSE
 
-				var/msg = tgui_input_text(usr, "Please choose a message to transmit to the TGMC High Command.  Please be aware that this process is very expensive, and abuse will lead to termination.  Transmission does not guarantee a response. There is a small delay before you may send another message. Be clear and concise.", "To abort, send an empty message.", "", encode = FALSE)
-				if(!msg || !usr.Adjacent(src) || authenticated != 2 || world.time < cooldown_central + COOLDOWN_COMM_CENTRAL)
-					return FALSE
+			var/msg = tgui_input_text(usr, "Please choose a message to transmit to the TGMC High Command.  Please be aware that this process is very expensive, and abuse will lead to termination.  Transmission does not guarantee a response. There is a small delay before you may send another message. Be clear and concise.", "To abort, send an empty message.", "", encode = FALSE)
+			if(!msg || !usr.Adjacent(src) || authenticated != 2 || world.time < cooldown_central + COOLDOWN_COMM_CENTRAL)
+				return FALSE
 
-
-				tgmc_message(msg, usr)
-				to_chat(usr, span_notice("Message transmitted."))
-				usr.log_talk(msg, LOG_SAY, tag = "TGMC announcement")
-				cooldown_central = world.time
+			tgmc_message(msg, usr)
+			to_chat(usr, span_notice("Message transmitted."))
+			usr.log_talk(msg, LOG_SAY, tag = "TGMC announcement")
+			cooldown_central = world.time
 
 		if("securitylevel")
 			tmp_alertlevel = SSsecurity_level.text_level_to_number(href_list["newalertlevel"])
@@ -320,6 +363,15 @@
 			return FALSE
 
 	updateUsrDialog()
+
+/obj/machinery/computer/communications/proc/distress_setup()
+	just_called = FALSE
+	cooldown_request = world.time
+	if(SSticker.mode.on_distress_cooldown || SSticker.mode.waiting_for_candidates)
+		return FALSE
+	SSticker.mode.activate_distress(ert_squad)
+	ert_squad.base_probability = 0
+	ert_squad = null
 
 /obj/machinery/computer/communications/proc/evacuation_cancel()
 	if(SSevacuation.evac_status != EVACUATION_STATUS_STANDING_BY) // nothing changed during the wait

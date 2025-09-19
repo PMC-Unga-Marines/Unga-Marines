@@ -23,8 +23,6 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	///Determines whether rounds with the gamemode will be factored in when it comes to persistency
 	var/allow_persistence_save = TRUE
 
-	var/distress_cancelled = FALSE
-
 	var/deploy_time_lock = 10 MINUTES
 	///The respawn time for marines
 	var/respawn_time = 15 MINUTES

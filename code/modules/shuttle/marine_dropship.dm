@@ -1410,6 +1410,8 @@
 	resistance_flags = RESIST_ALL
 	shuttleId = SHUTTLE_CANTERBURY
 	possible_destinations = "canterbury_loadingdock"
+	/// We store the evacuation timer here, so the admins can cancel it later
+	var/evacuation_timer
 
 /obj/machinery/computer/shuttle/shuttle_control/canterbury/ui_interact(mob/user)
 	if(!allowed(user))
@@ -1434,6 +1436,20 @@
 	if(!allowed(usr))
 		to_chat(usr, span_danger("Access denied."))
 		return TRUE
+
+	if(href_list["cancel"])
+		var/obj/docking_port/mobile/M = SSshuttle.getShuttle(shuttleId)
+		if(M.mode == SHUTTLE_IGNITING)
+			to_chat(usr, span_admin("You are too late to cancel the Evacuation"))
+			return
+		message_admins("[key_name_admin(usr)] cancelled Canterbury Evacuation.")
+		log_admin_private("[key_name(usr)] cancelled Canterbury Evacuation.")
+
+		TIMER_COOLDOWN_START(src, COOLDOWN_EVACUATION, 15 SECONDS)
+		priority_announce("Попытка эвакуации заблокирована. Перезапуск двигателей...", "Попытка Эвакуации", type = ANNOUNCEMENT_PRIORITY, color_override = "red")
+		deltimer(evacuation_timer)
+		return TRUE
+
 	if(!href_list["move"] || !iscrashgamemode(SSticker.mode))
 		to_chat(usr, span_warning("[src] is unresponsive."))
 		return FALSE
@@ -1454,21 +1470,16 @@
 		if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_EVACUATION))
 			return TRUE
 		TIMER_COOLDOWN_START(src, COOLDOWN_EVACUATION, 1.5 SECONDS)
+		message_admins("<span color='prefix'>EVACUATION:</span> [ADMIN_TPMONTY(usr)] has started evacuation early. Living Marines: [SSticker.mode.count_humans_and_xenos()[1]]. (<a href='byond://?src=[REF(src)];cancel=1'>CANCEL</a>)")
+		send_sound_to_admins('sound/effects/sos-morse-code.ogg')
 
-		var/admin_response = admin_approval("<span color='prefix'>EVACUATION:</span> [ADMIN_TPMONTY(usr)] has started evacuation early. Living Marines: [SSticker.mode.count_humans_and_xenos()[1]].",
-			list("approve" = "approve", "deny" = "deny", "deny without annoncing" = "deny without annoncing"), "approve", 10 SECONDS,
-			usr, span_boldnotice("Shuttle will launch in 10 seconds unless High Command responds otherwise."),
-			admin_sound = sound('sound/effects/sos-morse-code.ogg', channel = CHANNEL_ADMIN))
+		to_chat(usr, span_boldnotice("Shuttle will launch in <b>10 seconds</b> unless High Command responds otherwise."))
+		evacuation_timer = addtimer(CALLBACK(src, PROC_REF(start_evacuation)), 10 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
+		return TRUE
 
-		if(admin_response == "deny")
-			TIMER_COOLDOWN_START(src, COOLDOWN_EVACUATION, 15 SECONDS)
-			priority_announce("Попытка эвакуации заблокирована. Перезапуск двигателей...", "Попытка Эвакуации", ANNOUNCEMENT_COMMAND)
-			return TRUE
-		if(admin_response =="deny without annoncing")
-			TIMER_COOLDOWN_START(src, COOLDOWN_EVACUATION, 15 SECONDS)
-			return TRUE
-
+/obj/machinery/computer/shuttle/shuttle_control/canterbury/proc/start_evacuation()
 	visible_message(span_notice("Shuttle departing. Please stand away from the doors."))
+	var/obj/docking_port/mobile/M = SSshuttle.getShuttle(shuttleId)
 	M.destination = null
 	M.mode = SHUTTLE_IGNITING
 	M.setTimer(M.ignitionTime)
