@@ -563,11 +563,13 @@
 	// Now their turfs
 	var/list/turfs = list()
 	for(var/area/pull_from as anything in areas_to_pull)
-		if (target_z == 0)
-			for (var/list/zlevel_turfs as anything in pull_from.get_zlevel_turf_lists())
-				turfs += zlevel_turfs
-		else
-			turfs += pull_from.get_turfs_by_zlevel(target_z)
+//		if(target_z == 0)
+//			for(var/list/zlevel_turfs as anything in pull_from.get_zlevel_turf_lists())
+//				turfs += zlevel_turfs
+//		else
+//			turfs += pull_from.get_turfs_by_zlevel(target_z)
+		for(var/turf/turf in pull_from)
+			turfs += turf // TODO: fix with zlevel update?
 	return turfs
 
 
