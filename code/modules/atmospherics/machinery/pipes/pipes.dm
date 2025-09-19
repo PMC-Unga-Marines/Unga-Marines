@@ -6,9 +6,12 @@
 	buckle_lying = -1
 	var/datum/pipeline/parent = null
 
-/obj/machinery/atmospherics/pipe/Initialize(mapload)
+/obj/machinery/atmospherics/pipe/New(loc, process, setdir)
 	. = ..()
 	add_atom_colour(pipe_color, FIXED_COLOR_PRIORITY)
+
+/obj/machinery/atmospherics/pipe/Initialize(mapload)
+	. = ..()
 	AddElement(/datum/element/undertile, TRAIT_T_RAY_VISIBLE)
 
 /obj/machinery/atmospherics/pipe/Destroy()
