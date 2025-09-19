@@ -4,6 +4,8 @@
 	can_unwrench = FALSE
 	atom_flags = SHUTTLE_IMMUNE
 	buckle_lying = -1
+	layer = BELOW_CATWALK_LAYER
+	plane = FLOOR_PLANE
 	var/datum/pipeline/parent = null
 
 /obj/machinery/atmospherics/pipe/New(loc, process, setdir)
