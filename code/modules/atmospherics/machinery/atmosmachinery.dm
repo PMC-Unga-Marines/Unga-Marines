@@ -168,7 +168,6 @@
 
 /obj/machinery/atmospherics/update_icon()
 	update_layer()
-//	update_cap_visuals()
 	return ..()
 
 /**
