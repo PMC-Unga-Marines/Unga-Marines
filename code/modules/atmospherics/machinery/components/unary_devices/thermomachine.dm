@@ -27,7 +27,7 @@
 	initialize_directions = dir
 
 /obj/machinery/atmospherics/components/unary/thermomachine/on_construction()
-	..(dir,dir)
+	return ..(dir,dir)
 
 /obj/machinery/atmospherics/components/unary/thermomachine/RefreshParts()
 	var/B

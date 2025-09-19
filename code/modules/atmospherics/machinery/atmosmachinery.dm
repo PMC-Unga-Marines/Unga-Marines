@@ -335,6 +335,20 @@
 		PIPING_FORWARD_SHIFT(pipe_overlay, piping_layer, 2)
 	return pipe_overlay
 
+/obj/machinery/atmospherics/on_construction(obj_color, set_layer)
+	if(can_unwrench)
+		add_atom_colour(obj_color, FIXED_COLOR_PRIORITY)
+		pipe_color = obj_color
+	set_piping_layer(set_layer)
+	var/turf/T = get_turf(src)
+	level = T.intact_tile ? 2 : 1
+	atmos_init()
+	var/list/nodes = pipeline_expansion()
+	for(var/obj/machinery/atmospherics/A in nodes)
+		A.atmos_init()
+		A.addMember(src)
+	build_network()
+
 /obj/machinery/atmospherics/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	if(isliving(arrived))
 		var/mob/living/L = arrived

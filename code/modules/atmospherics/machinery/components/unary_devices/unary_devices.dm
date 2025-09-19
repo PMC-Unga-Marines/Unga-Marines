@@ -12,9 +12,9 @@
 	initialize_directions = dir
 
 /obj/machinery/atmospherics/components/unary/on_construction()
-	..()
+	. = ..()
 	update_icon()
 
 /obj/machinery/atmospherics/components/unary/hide(intact)
 	update_icon()
-	..(intact)
+	return ..(intact)
