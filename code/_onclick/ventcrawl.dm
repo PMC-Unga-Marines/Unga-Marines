@@ -66,7 +66,6 @@
 // VENTCRAWLING
 // Handles the entrance and exit on ventcrawling
 /mob/living/proc/handle_ventcrawl(obj/machinery/atmospherics/components/ventcrawl_target, crawl_time = 4.5 SECONDS, stealthy = FALSE)
-
 	// Cache the vent_movement bitflag var from atmos machineries
 	var/vent_movement = ventcrawl_target.vent_movement
 

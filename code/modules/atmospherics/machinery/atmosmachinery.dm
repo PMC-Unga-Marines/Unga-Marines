@@ -382,7 +382,7 @@
 
 	if(!target_move)
 		// If we couldn't find a target to move to and we're ventcrawling, try to exit if this vent allows it
-		if(HAS_TRAIT(user, TRAIT_MOVE_VENTCRAWLING) && (vent_movement & VENTCRAWL_ENTRANCE_ALLOWED)) //if(direction & initialize_directions)
+		if(direction & initialize_directions)
 			if(isxeno(user))
 				var/mob/living/carbon/xenomorph/xeno_user = user
 				xeno_user.handle_pipe_exit(src, xeno_user.xeno_caste.vent_enter_speed, xeno_user.xeno_caste.silent_vent_crawl)
