@@ -30,7 +30,8 @@
 /obj/machinery/atmospherics/pipe/build_network()
 	if(!QDELETED(parent))
 		return
-	replace_pipenet(parent, new /datum/pipeline)
+	parent = new
+	parent.build_pipeline(src)
 
 /obj/machinery/atmospherics/pipe/atmos_init()
 	var/turf/T = loc			// hide if turf is not intact
