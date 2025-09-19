@@ -422,6 +422,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 	paygrade = "E3"
 	comm_title = "AC"
 	total_positions = 0
+	max_positions = 2
 	skills_type = /datum/skills/assault_crewman
 	access = list(ACCESS_MARINE_WO, ACCESS_MARINE_PREP, ACCESS_MARINE_ARMORED, ACCESS_CIVILIAN_PUBLIC)
 	minimal_access = list(ACCESS_MARINE_WO, ACCESS_MARINE_PREP, ACCESS_MARINE_ARMORED, ACCESS_CIVILIAN_PUBLIC, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO)
