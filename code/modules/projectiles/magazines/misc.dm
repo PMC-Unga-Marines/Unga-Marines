@@ -366,7 +366,7 @@
 /obj/item/ammo_magazine/packet/sg153
 	name = "box of 12.7mm Smart Magnum"
 	desc = "A box containing 25 rounds of 12.7mm spotting rifle rounds."
-	icon_state = "smartspottingrifle"
+	icon_state = "sg153"
 	default_ammo = /datum/ammo/bullet/sg153
 	caliber = CALIBER_12X7
 	current_rounds = 25

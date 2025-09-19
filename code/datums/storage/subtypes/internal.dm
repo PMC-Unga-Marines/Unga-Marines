@@ -363,6 +363,12 @@
 	storage_slots = null
 	max_storage_space = 15
 	max_w_class = WEIGHT_CLASS_NORMAL
+	access_delay = 1.5 SECONDS
+
+/datum/storage/internal/integrated/should_access_delay(obj/item/item, mob/user, taking_out) //defaults to 0
+	if(!taking_out) // Always allow items to be tossed in instantly
+		return FALSE
+	return TRUE
 
 /datum/storage/internal/grenade
 	max_storage_space = 12
@@ -376,12 +382,12 @@
 		/obj/item/reagent_containers/food/drinks/cans,
 	))
 
-/datum/storage/internal/shoes/boot_knife
+/datum/storage/internal/shoes
 	max_storage_space = 4
 	storage_slots = 2
 	draw_mode = TRUE
 
-/datum/storage/internal/shoes/boot_knife/New(atom/parent)
+/datum/storage/internal/shoes/New(atom/parent)
 	. = ..()
 	set_holdable(
 		cant_hold_list = list(

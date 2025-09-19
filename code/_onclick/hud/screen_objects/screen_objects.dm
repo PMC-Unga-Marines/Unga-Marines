@@ -285,7 +285,7 @@
 	screen_loc = "7,7 to 10,8"
 
 /atom/movable/screen/storage/Click(location, control, params)
-	if(usr.incapacitated(TRUE))
+	if(!ishuman(usr) || usr.incapacitated(TRUE))
 		return
 
 	var/list/modifiers = params2list(params)

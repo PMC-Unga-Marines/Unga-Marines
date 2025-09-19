@@ -817,7 +817,7 @@
 		successor = candidates[1] //First come, first serve.
 
 	var/announce = TRUE
-	if(SSticker.current_state == GAME_STATE_FINISHED || SSticker.current_state == GAME_STATE_SETTING_UP || is_centcom_level(successor.loc.z))
+	if(SSticker.current_state == GAME_STATE_FINISHED || SSticker.current_state == GAME_STATE_SETTING_UP || is_centcom_level(successor?.loc?.z))
 		announce = FALSE
 
 	set_ruler(successor)
