@@ -133,7 +133,6 @@
 	icon_state = "typesh12s"
 	default_ammo = /datum/ammo/bullet/shotgun/slug
 
-
 /obj/item/ammo_magazine/rifle/typesh12/flechette
 	name = "Typesh12 flechette magazine"
 	desc = "25 A flechette magazine."
