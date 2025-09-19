@@ -107,8 +107,8 @@
 	plant_target = target
 	if(ismovableatom(plant_target))
 		var/atom/movable/mover = plant_target
-			mover.vis_contents += src
-			layer = ABOVE_ALL_MOB_LAYER
+		mover.vis_contents += src
+		layer = ABOVE_ALL_MOB_LAYER
 	detonation_pending = addtimer(CALLBACK(src, PROC_REF(warning_sound), target, 'sound/items/countdown.ogg', 20, TRUE), ((timer*10) - 27), TIMER_STOPPABLE)
 	update_icon()
 
