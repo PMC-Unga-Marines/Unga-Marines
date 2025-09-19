@@ -68,64 +68,7 @@
 /turf/open/floor/plating/icefloor/warnplate/corner
 	icon_state = "warnplatecorner"
 
-/turf/open/floor/plating/plating_catwalk
 	name = "catwalk"
-	desc = "Cats really don't like these things."
-	icon = 'icons/turf/mainship.dmi'
-	icon_state = "plating_catwalk"
-	base_icon_state = "catwalk"
-	shoefootstep = FOOTSTEP_CATWALK
-	barefootstep = FOOTSTEP_CATWALK
-	mediumxenofootstep = FOOTSTEP_CATWALK
-	/// Used for post-mapping.
-	var/base_state = "plating"
-	var/covered = TRUE
-
-/turf/open/floor/plating/plating_catwalk/Initialize(mapload)
-	. = ..()
-	icon_state = base_state
-	update_turf_overlay()
-
-/turf/open/floor/plating/plating_catwalk/proc/update_turf_overlay()
-	var/image/I = image(icon, src, base_icon_state, CATWALK_LAYER)
-	SET_PLANE(I, FLOOR_PLANE, src)
-	if(covered)
-		overlays += I
-		return
-	overlays -= I
-	qdel(I)
-
-/turf/open/floor/plating/plating_catwalk/attackby(obj/item/I, mob/user)
-	. = ..()
-	if(.)
-		return
-	if(istype(I, /obj/item/stack/catwalk))
-		if(covered)
-			return
-		var/obj/item/stack/catwalk/E = I
-		E.use(1)
-		covered = TRUE
-
-/turf/open/floor/plating/plating_catwalk/crowbar_act(mob/living/user, obj/item/I)
-	. = ..()
-	if(!covered)
-		return
-	var/obj/item/stack/catwalk/R = new(user.loc)
-	R.add_to_stacks(user)
-	covered = FALSE
-	update_turf_overlay()
-
-/turf/open/floor/plating/plating_catwalk/prison
-	icon = 'icons/turf/prison.dmi'
-
-/turf/open/floor/plating/plating_catwalk/dark
-	icon_state = "plating_catwalk_dark"
-	base_icon_state = "catwalk_dark"
-
-/turf/open/floor/plating/plating_catwalk/light
-	icon_state = "plating_catwalk_light"
-	base_icon_state = "catwalk_light"
-
 /turf/open/floor/plating/ironsand/New()
 	. = ..()
 	name = "Iron Sand"
