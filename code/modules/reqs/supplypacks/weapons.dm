@@ -318,7 +318,7 @@
 /datum/supply_packs/weapons/typesh12
 	name = "СВЯТОГОР"
 	contains = list(
-		/obj/item/weapon/gun/rifle/saiga12,
+		/obj/item/weapon/gun/rifle/typesh12,
 		/obj/item/ammo_magazine/rifle/typesh12/slug,
 		/obj/item/ammo_magazine/rifle/typesh12/slug,
 		/obj/item/ammo_magazine/rifle/typesh12/flechette,
