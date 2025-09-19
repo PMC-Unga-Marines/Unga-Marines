@@ -6,10 +6,6 @@
 	use_power = NO_POWER_USE
 	products = list(
 		"Weapon" = list(
-			/obj/item/weapon/gun/rifle/saiga12 = -1,
-			/obj/item/ammo_magazine/rifle/typesh12/flechette = -1,
-			/obj/item/ammo_magazine/rifle/typesh12/slug = -1,
-			/obj/item/ammo_magazine/rifle/typesh12 = -1,
             /obj/item/weapon/gun/energy/lasgun/lasrifle/tesla = -1,
 			/obj/item/cell/lasgun/lasrifle/recharger = -1,
 			/obj/item/weapon/gun/rifle/railgun = -1,
@@ -59,6 +55,10 @@
 			/obj/item/weapon/gun/rifle/famas = -1,
 			/obj/item/ammo_magazine/rifle/famas = -1,
 			/obj/item/weapon/brick = -1,
+			/obj/item/weapon/gun/rifle/typesh12 = -1,
+			/obj/item/ammo_magazine/rifle/typesh12/flechette = -1,
+			/obj/item/ammo_magazine/rifle/typesh12/slug = -1,
+			/obj/item/ammo_magazine/rifle/typesh12 = -1,
 		),
 		"Mounted" = list(
 			/obj/structure/largecrate/supply/weapons/at36 = -1,
