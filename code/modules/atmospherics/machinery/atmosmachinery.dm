@@ -47,18 +47,19 @@
 	///The bitflag that's being checked on ventcrawling. Default is to allow ventcrawling and seeing pipes.
 	var/vent_movement = VENTCRAWL_ALLOWED | VENTCRAWL_CAN_SEE
 
-/obj/machinery/atmospherics/Initialize(mapload, process = TRUE, setdir)
-	RegisterSignal(src, COMSIG_MOVABLE_SHUTTLE_CRUSH, PROC_REF(shuttle_crush))
-
+/obj/machinery/atmospherics/New(loc, process = TRUE, setdir)
+	. = ..()
 	if(!isnull(setdir))
 		setDir(setdir)
 	if(pipe_flags & PIPING_CARDINAL_AUTONORMALIZE)
 		normalize_cardinal_directions()
+	nodes = new(device_type)
 	if(process)
 		SSair.atmos_machinery += src
-	nodes = new(device_type)
 	set_init_directions()
 
+/obj/machinery/atmospherics/Initialize(mapload)
+	RegisterSignal(src, COMSIG_MOVABLE_SHUTTLE_CRUSH, PROC_REF(shuttle_crush))
 	var/turf/turf_loc = null
 	if(isturf(loc))
 		turf_loc = loc

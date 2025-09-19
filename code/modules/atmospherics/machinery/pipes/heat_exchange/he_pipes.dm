@@ -4,7 +4,7 @@
 	buckle_lying = -1
 	var/icon_temperature = T20C //stop small changes in temperature causing icon refresh
 
-/obj/machinery/atmospherics/pipe/heat_exchanging/Initialize(mapload, process, setdir)
+/obj/machinery/atmospherics/pipe/heat_exchanging/New(loc, process, setdir)
 	. = ..()
 	add_atom_colour("#404040", FIXED_COLOR_PRIORITY)
 
