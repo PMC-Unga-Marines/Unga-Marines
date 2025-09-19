@@ -113,7 +113,7 @@
 	icon_state_mini = "mag_rifle_big_light"
 	max_rounds = 95
 
-// TypeSh12-Saiga 6
+// TypeSh12-Saiga12
 /obj/item/ammo_magazine/rifle/typesh12
 	name = "Typesh12 buckshot magazine"
 	desc = "25 A buckshot magazine."
