@@ -68,7 +68,6 @@
 /turf/open/floor/plating/icefloor/warnplate/corner
 	icon_state = "warnplatecorner"
 
-	name = "catwalk"
 /turf/open/floor/plating/ironsand/New()
 	. = ..()
 	name = "Iron Sand"
