@@ -58,12 +58,9 @@
 	plane = PLANE_SPACE
 
 /turf/open/floor/plating/icefloor
+	name = "plating"
 	icon_state = "plating"
 	name = "ice colony plating"
-
-/turf/open/floor/plating/icefloor/New()
-	. = ..()
-	name = "plating"
 
 /turf/open/floor/plating/icefloor/warnplate
 	icon_state = "warnplate"
@@ -94,21 +91,20 @@
 	SET_PLANE(I, FLOOR_PLANE, src)
 	if(covered)
 		overlays += I
-	else
-		overlays -= I
-		qdel(I)
+		return
+	overlays -= I
+	qdel(I)
 
 /turf/open/floor/plating/plating_catwalk/attackby(obj/item/I, mob/user)
 	. = ..()
 	if(.)
 		return
 	if(istype(I, /obj/item/stack/catwalk))
-		if(!covered)
-			var/obj/item/stack/catwalk/E = I
-			E.use(1)
-			covered = TRUE
-			update_turf_overlay()
+		if(covered)
 			return
+		var/obj/item/stack/catwalk/E = I
+		E.use(1)
+		covered = TRUE
 
 /turf/open/floor/plating/plating_catwalk/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()
