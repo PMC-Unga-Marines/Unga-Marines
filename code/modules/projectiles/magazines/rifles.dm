@@ -113,7 +113,9 @@
 	icon_state_mini = "mag_rifle_big_light"
 	max_rounds = 95
 
+//-------------------------------------------------------
 // TypeSh12-Saiga12
+
 /obj/item/ammo_magazine/rifle/typesh12
 	name = "Typesh12 buckshot magazine"
 	desc = "25 A buckshot magazine."
@@ -137,7 +139,6 @@
 	desc = "25 A flechette magazine."
 	icon_state = "typesh12f"
 	default_ammo = /datum/ammo/bullet/shotgun/flechette
-
 
 //-------------------------------------------------------
 //Kalashnikov rifles
