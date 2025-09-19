@@ -251,6 +251,12 @@ ADMIN_VERB(deadmin, R_NONE, "DeAdmin", "Shed your admin powers.", ADMIN_CATEGORY
 				type = MESSAGE_TYPE_ATTACKLOG,
 				html = msg)
 
+/proc/send_sound_to_admins(sound)
+	var/sound/S = sound('sound/effects/sos-morse-code.ogg', channel = CHANNEL_ADMIN)
+	for(var/client/C in GLOB.admins)
+		if(check_other_rights(C, R_ADMIN, FALSE))
+			SEND_SOUND(C, S)
+
 /client/proc/find_stealth_key(txt)
 	if(txt)
 		for(var/P in GLOB.stealthminID)
