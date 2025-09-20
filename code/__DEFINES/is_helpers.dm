@@ -276,8 +276,6 @@ GLOBAL_VAR_INIT(refid_filter, TYPEID(filter(type="angular_blur")))
 
 #define isreagentcontainer(A) (istype(A, /obj/item/reagent_containers)) //Checks for if something is a reagent container.
 
-#define is_research_product(A) (istype(A, /obj/item/research_product)) //Checks if item is research item
-
 #define isearthpillar(A) (istype(A, /obj/structure/earth_pillar))
 
 #define isfire(A) (istype(A, /obj/fire))
