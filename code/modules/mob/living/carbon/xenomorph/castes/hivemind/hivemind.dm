@@ -299,7 +299,6 @@
 	max_integrity = 600
 	icon = 'icons/Xeno/1x1building.dmi'
 	icon_state = "hivemind_core"
-	plane = FLOOR_PLANE
 	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE|DEPART_DESTRUCTION_IMMUNE|XENO_STRUCT_WARNING_RADIUS|XENO_STRUCT_DAMAGE_ALERT
 	///The weakref to the parent hivemind mob that we're attached to
 	var/datum/weakref/parent

@@ -4,8 +4,6 @@
 	atom_flags = CRITICAL_ATOM
 	max_integrity = 80
 	integrity_failure = 20
-	plane = FLOOR_PLANE
-	layer = ABOVE_WEEDS_LAYER
 	///What maturity stage are we in
 	var/maturity_stage = 1
 	///Time between two maturity stages

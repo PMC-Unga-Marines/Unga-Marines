@@ -2,7 +2,6 @@
 	name = "acid well"
 	desc = "An acid well. It stores acid to put out fires."
 	icon = 'icons/Xeno/acid_well.dmi'
-	plane = FLOOR_PLANE
 	icon_state = "well"
 	density = FALSE
 	opacity = FALSE

@@ -1,6 +1,5 @@
 /obj/structure/xeno/spawner
 	icon = 'icons/Xeno/2x2building.dmi.dmi'
-	plane = FLOOR_PLANE
 	name = "spawner"
 	desc = "A slimy, oozy resin bed filled with foul-looking egg-like ...things."
 	icon_state = "spawner"
