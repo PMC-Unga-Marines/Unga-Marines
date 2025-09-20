@@ -12,7 +12,7 @@
 	buildstacktype = null //can't be disassembled and doesn't drop anything when destroyed
 	resistance_flags = UNACIDABLE|XENO_DAMAGEABLE
 	max_integrity = 100
-	layer = RESIN_STRUCTURE_LAYER
+	layer = BELOW_OBJ_LAYER
 	var/resisting_time = 0
 
 /obj/structure/bed/nest/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)

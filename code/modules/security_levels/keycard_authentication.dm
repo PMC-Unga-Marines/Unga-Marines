@@ -60,7 +60,7 @@
 	. = ..()
 	if(machine_stat & (BROKEN|DISABLED|NOPOWER))
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
+	. += emissive_appearance(icon, "[icon_state]_emissive", src, alpha = src.alpha)
 
 /obj/machinery/keycard_auth/proc/update_emissives()
 	if(icon_state == "auth_on") // aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

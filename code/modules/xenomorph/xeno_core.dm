@@ -26,7 +26,7 @@
 
 /obj/structure/xeno/core/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[threat_warning ? "_warn" : "_passive"]", VERY_HIGH_FLOAT_LAYER))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[threat_warning ? "_warn" : "_passive"]", MINIMAP_LABELS_LAYER))
 
 /obj/structure/xeno/core/obj_destruction(damage_amount, damage_type, damage_flag)
 	if(GLOB.hive_datums[hivenumber])

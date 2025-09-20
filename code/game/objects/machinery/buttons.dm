@@ -55,7 +55,7 @@
 	. = ..()
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive")
+	. += emissive_appearance(icon, "[icon_state]_emissive", src)
 
 /obj/machinery/button/attack_ai(mob/user)
 	return attack_hand(user)

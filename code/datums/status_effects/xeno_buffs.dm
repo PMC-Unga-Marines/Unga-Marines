@@ -1372,7 +1372,7 @@
 
 /datum/status_effect/upgrade_trail/proc/do_acid_trail()
 	SIGNAL_HANDLER
-	if(buff_owner.incapacitated(TRUE) || buff_owner.status_flags & INCORPOREAL || buff_owner.is_ventcrawling)
+	if(buff_owner.incapacitated(TRUE) || buff_owner.status_flags & INCORPOREAL || HAS_TRAIT(buff_owner, TRAIT_MOVE_VENTCRAWLING))
 		return
 	if(prob(base_chance + chance_per_chamber * chamber_scaling))
 		var/turf/T = get_turf(buff_owner)

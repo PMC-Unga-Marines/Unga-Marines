@@ -531,15 +531,15 @@
 /// Show the dummy in 4 dirs for preferences
 /client/proc/show_character_previews(mutable_appearance/MA, list/dir_list = GLOB.cardinals)
 	var/pos = 0
-	for(var/D in dir_list)
+	for(var/direction in dir_list)
 		pos++
-		var/atom/movable/screen/O = LAZYACCESS(char_render_holders, "[D]")
+		var/atom/movable/screen/O = LAZYACCESS(char_render_holders, "[direction]")
 		if(!O)
 			O = new
-			LAZYSET(char_render_holders, "[D]", O)
+			LAZYSET(char_render_holders, "[direction]", O)
 			screen |= O
 		O.appearance = MA
-		O.dir = D
+		O.dir = direction
 		O.screen_loc = "player_pref_map:[pos],1"
 
 /client/proc/clear_character_previews()
@@ -819,6 +819,13 @@
 
 /client/proc/rescale_view(change, min, max)
 	view_size.set_view_radius_to(clamp(change, min, max), clamp(change, min, max))
+
+/client/proc/set_eye(new_eye)
+	if(new_eye == eye)
+		return
+	var/atom/old_eye = eye
+	eye = new_eye
+	SEND_SIGNAL(src, COMSIG_CLIENT_SET_EYE, old_eye, new_eye)
 
 /**
  * Updates the keybinds for special keys

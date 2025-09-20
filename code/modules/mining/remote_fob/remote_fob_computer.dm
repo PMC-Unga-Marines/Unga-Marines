@@ -1,6 +1,3 @@
-
-/////////////////////////////// the camera computer
-
 /obj/machinery/computer/camera_advanced/remote_fob
 	name = "FOB Construction Drone Control"
 	desc = "A computer console equipped with camera screen and controls for a planetside deployed construction drone. Materials or equipment vouchers can be added simply by inserting them into the computer."
@@ -44,7 +41,6 @@
 	eject_mat(EJECT_PLASTEEL)
 	UnregisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_TRANSIT)
 
-
 /obj/machinery/computer/camera_advanced/remote_fob/Destroy()
 	spawn_spot = null
 	QDEL_NULL(metal_cade)
@@ -54,9 +50,7 @@
 	QDEL_NULL(toggle_wiring)
 	QDEL_NULL(eject_metal_action)
 	QDEL_NULL(eject_plasteel_action)
-
 	return ..()
-
 
 /obj/machinery/computer/camera_advanced/remote_fob/examine(mob/user)
 	. = ..()
@@ -68,7 +62,8 @@
 /obj/machinery/computer/camera_advanced/remote_fob/give_eye_control(mob/user)
 	. = ..()
 	icon_state = "fobpc-transfer"
-	user.lighting_alpha = 120
+	user.lighting_cutoff = LIGHTING_CUTOFF_HIGH
+	user.update_sight()
 	eyeobj.name = "Remote Construction Drone"
 	if(eyeobj.eye_initialized)
 		eyeobj.setLoc(get_turf(spawn_spot))

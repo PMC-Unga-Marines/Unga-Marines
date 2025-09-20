@@ -2,12 +2,13 @@
 	name = "acid well"
 	desc = "An acid well. It stores acid to put out fires."
 	icon = 'icons/Xeno/acid_well.dmi'
-	plane = FLOOR_PLANE
 	icon_state = "well"
 	density = FALSE
 	opacity = FALSE
 	anchored = TRUE
 	max_integrity = 5
+	plane = FLOOR_PLANE
+	layer = ABOVE_WEEDS_LAYER
 
 	hit_sound = SFX_ALIEN_RESIN_MOVE
 	destroy_sound = SFX_ALIEN_RESIN_MOVE
@@ -84,7 +85,7 @@
 	if(!charges)
 		return
 	. += mutable_appearance(icon, "[charges]", alpha = src.alpha)
-	. += emissive_appearance(icon, "[charges]", alpha = src.alpha)
+	. += emissive_appearance(icon, "[charges]", src, alpha = src.alpha)
 
 /obj/structure/xeno/acidwell/fire_act(burn_level, flame_color)
 	acid_well_fire_interaction()

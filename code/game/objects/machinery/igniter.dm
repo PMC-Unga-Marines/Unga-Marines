@@ -4,6 +4,7 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "igniter1"
 	plane = FLOOR_PLANE
+	layer = LOWER_RUNE_LAYER
 	anchored = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 2

@@ -905,10 +905,24 @@ GLOBAL_LIST_EMPTY(map_model_default)
 
 		if(!new_z)
 			old_area = crds.loc
+			LISTASSERTLEN(old_area.turfs_to_uncontain_by_zlevel, crds.z, list())
+			LISTASSERTLEN(area_instance.turfs_by_zlevel, crds.z, list())
+			old_area.turfs_to_uncontain_by_zlevel[crds.z] += crds
+			area_instance.turfs_by_zlevel[crds.z] += crds
+		area_instance.contents.Add(crds)
+
+		if(!new_z)
+			old_area = crds.loc
 		area_instance.contents.Add(crds)
 
 		if(GLOB.use_preloader)
 			world.preloader_load(area_instance)
+	// If this isn't template work, we didn't change our turf and we changed area, then we've gotta handle area lighting transfer
+	else if(!no_changeturf && old_area)
+		// Don't do contain/uncontain stuff, this happens a few lines up when the area actally changes
+		crds.on_change_area(old_area, crds.loc)
+
+	//then instance the /turf and, if multiple tiles are presents, simulates the DMM underlays piling effect
 
 	// Index right before /area is /turf
 	index--

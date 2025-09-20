@@ -15,7 +15,6 @@
 #define COOLDOWN_NEST "nest"
 #define COOLDOWN_BUMP_ATTACK "bump_attack"
 #define COOLDOWN_TASTE "taste"
-#define COOLDOWN_VENTSOUND "vendsound"
 #define COOLDOWN_ARMOR_LIGHT "armor_light"
 #define COOLDOWN_ARMOR_ACTION "armor_action"
 #define COOLDOWN_FRIENDLY_FIRE_CAUSED "friendly_fire_caused"

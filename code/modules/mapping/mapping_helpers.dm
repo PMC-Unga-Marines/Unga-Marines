@@ -3,13 +3,11 @@
 	name = "baseturf editor"
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = ""
-
-	/// Replacing a specific turf
+	plane = POINT_PLANE
 	var/list/baseturf_to_replace
 	/// The desired bottom turf
 	var/baseturf
 
-	layer = POINT_LAYER
 
 /obj/effect/baseturf_helper/Initialize(mapload)
 	. = ..()

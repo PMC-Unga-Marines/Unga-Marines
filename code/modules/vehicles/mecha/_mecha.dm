@@ -150,7 +150,7 @@
 	/// Ui size, so you can make the UI bigger if you let it load a lot of stuff
 	var/ui_y = 600
 	/// ref to screen object that displays in the middle of the UI
-	var/atom/movable/screen/mech_view/ui_view
+	var/atom/movable/screen/map_view/ui_view
 	/// boolean: Can someone use the mech without skill? Used for shitspawn
 	var/skill_locked = TRUE
 	/// boolean: are lights on?
@@ -165,7 +165,8 @@
 
 /obj/vehicle/sealed/mecha/Initialize(mapload)
 	. = ..()
-	ui_view = new(null, null, src)
+	ui_view = new()
+	ui_view.generate_view("mech_view_[REF(src)]")
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(play_stepsound))
 
 	spark_system.set_up(2, 0, src)

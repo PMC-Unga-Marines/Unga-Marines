@@ -359,7 +359,7 @@
 ///Change minimap icon if its on or off
 /obj/machinery/nuclearbomb/proc/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, "nuke[timer_enabled ? "_on" : "_off"]", VERY_HIGH_FLOAT_LAYER))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, "nuke[timer_enabled ? "_on" : "_off"]", MINIMAP_LOCATOR_LAYER))
 
 ///Last Stand nuclear bomb
 /obj/structure/nuclearbomb

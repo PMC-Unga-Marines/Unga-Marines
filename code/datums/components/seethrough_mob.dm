@@ -35,9 +35,9 @@
 	uid++
 	src.personal_uid = uid
 
-	render_source_atom.appearance_flags |= ( RESET_COLOR | RESET_TRANSFORM | KEEP_APART)
+	render_source_atom.appearance_flags |= (KEEP_APART|RESET_ALPHA)
 
-	render_source_atom.vis_flags |= (VIS_INHERIT_ID | VIS_INHERIT_PLANE | VIS_INHERIT_LAYER)
+	render_source_atom.vis_flags |= (VIS_INHERIT_ID|VIS_INHERIT_PLANE|VIS_INHERIT_LAYER)
 
 	render_source_atom.render_source = "*transparent_bigmob[personal_uid]"
 
@@ -54,14 +54,13 @@
 	SIGNAL_HANDLER
 
 	var/mob/fool = parent
-	/* TODO: UNCOMMENT ON 516 UPDATE
+	var/icon/current_mob_icon = icon(fool.icon, fool.icon_state)
 	var/datum/hud/our_hud = fool.hud_used
 	for(var/atom/movable/screen/plane_master/seethrough as anything in our_hud.get_true_plane_masters(SEETHROUGH_PLANE))
 		seethrough.unhide_plane(fool)
-	*/
-	var/icon/current_mob_icon = icon(fool.icon, fool.icon_state) // TODO: DELETE ON 516 UPDATE
-	render_source_atom.pixel_x = -fool.pixel_x
-	render_source_atom.pixel_y = ((current_mob_icon.Height() - 32) * 0.5)
+
+	render_source_atom.pixel_x = ((current_mob_icon.Width() - ICON_SIZE_X) * 0.5)
+	render_source_atom.pixel_y = ((current_mob_icon.Height() - ICON_SIZE_Y) * 0.5)
 	render_source_atom.name = "seethrough" //So our name is not just "movable" when looking at VVs
 
 	initial_render_target_value = fool.render_target
@@ -108,6 +107,10 @@
 
 	untrick_mob()
 	action.set_toggle(FALSE)
+	var/mob/fool = parent
+	var/datum/hud/our_hud = fool.hud_used
+	for(var/atom/movable/screen/plane_master/seethrough as anything in our_hud.get_true_plane_masters(SEETHROUGH_PLANE))
+		seethrough.hide_plane(fool)
 	is_active = FALSE
 
 /datum/component/seethrough_mob/proc/toggle_active()

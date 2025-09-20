@@ -12,6 +12,7 @@
 	max_integrity = 1000
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PLASMACUTTER_IMMUNE
 	xeno_structure_flags = IGNORE_WEED_REMOVAL|CRITICAL_STRUCTURE|XENO_STRUCT_WARNING_RADIUS|XENO_STRUCT_DAMAGE_ALERT
+	layer = ABOVE_WEEDS_LAYER
 	plane = FLOOR_PLANE
 	///How many larva points one silo produce in one minute
 	var/larva_spawn_rate = 0.5
@@ -105,7 +106,7 @@
 
 /obj/structure/xeno/silo/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[threat_warning ? "_warn" : "_passive"]", HIGH_FLOAT_LAYER))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "silo[threat_warning ? "_warn" : "_passive"]", MINIMAP_LABELS_LAYER))
 
 /obj/structure/xeno/silo/process()
 	//Regenerate if we're at less than max integrity

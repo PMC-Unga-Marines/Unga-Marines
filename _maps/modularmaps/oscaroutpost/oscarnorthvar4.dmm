@@ -969,7 +969,6 @@
 "jH" = (
 /obj/structure/platform{
 	dir = 4;
-	layer = 2.7
 	},
 /turf/open/floor/mainship_hull/dir{
 	dir = 4
@@ -4122,7 +4121,6 @@
 "Ol" = (
 /obj/structure/platform{
 	dir = 4;
-	layer = 2.7
 	},
 /turf/open/floor/plating/ground/dirt,
 /area/oscar_outpost/outside/north)
@@ -4146,7 +4144,6 @@
 "Or" = (
 /obj/structure/platform{
 	dir = 8;
-	layer = 2.7
 	},
 /turf/open/floor/mainship_hull/dir{
 	dir = 8
@@ -4319,7 +4316,6 @@
 "PK" = (
 /obj/structure/platform{
 	dir = 1;
-	layer = 2.7
 	},
 /turf/open/floor/mainship_hull/dir{
 	dir = 1

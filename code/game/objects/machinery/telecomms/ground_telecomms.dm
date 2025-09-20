@@ -42,7 +42,7 @@
 			marker_icon = "comm_tower_off"
 		if(TOWER_BROKEN)
 			marker_icon= "comm_tower_broken"
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, marker_icon))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, marker_icon, MINIMAP_BLIPS_LAYER))
 
 /obj/machinery/telecomms/relay/preset/tower/update_icon()
 	. = ..()
@@ -54,36 +54,29 @@
 		if(TOWER_BROKEN)
 			icon_state = "comm_tower_broken"
 
-/obj/machinery/telecomms/relay/preset/tower/welder_act(mob/living/user, obj/item/I)
+/obj/machinery/telecomms/relay/preset/tower/welder_act(mob/living/user, obj/item/tool/weldingtool/I)
 	. = ..()
 	if(tower_status != TOWER_BROKEN)
 		return
-	var/obj/item/tool/weldingtool/weldingtool = I
-	if(!weldingtool.remove_fuel(1, user))
+	if(!I.remove_fuel(1, user))
 		to_chat(user, span_warning("You need more welding fuel to complete this task."))
 		return FALSE
 	if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_ENGI)
 		user.visible_message(span_notice("[user] fumbles around figuring out [src]'s internals."),
 		span_notice("You fumble around figuring out [src]'s internals."))
 		var/fumbling_time = 10 SECONDS - 2 SECONDS * user.skills.getRating(SKILL_ENGINEER)
-		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED, extra_checks = CALLBACK(weldingtool, TYPE_PROC_REF(/obj/item/tool/weldingtool, isOn))))
+		if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED, extra_checks = CALLBACK(I, TYPE_PROC_REF(/obj/item/tool/weldingtool, isOn))))
 			return FALSE
-	playsound(loc, 'sound/items/weldingtool_weld.ogg', 25)
 	user.visible_message(span_notice("[user] starts welding [src]'s internal damage."),
 	span_notice("You start welding [src]'s internal damage."))
-	add_overlay(GLOB.welding_sparks)
-	if(!do_after(user, 200, NONE, src, BUSY_ICON_BUILD, extra_checks = CALLBACK(weldingtool, TYPE_PROC_REF(/obj/item/tool/weldingtool, isOn))))
-		cut_overlay(GLOB.welding_sparks)
+	if(!I.use_tool(src, user, 20 SECONDS, 1, 25, null, BUSY_ICON_BUILD))
 		return FALSE
 	if(tower_status != TOWER_BROKEN )
-		cut_overlay(GLOB.welding_sparks)
 		return FALSE
-	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
 	tower_integrity = max_tower_integrity
 	set_tower_status()
 	user.visible_message(span_notice("[user] welds [src]'s internal damage."),
 	span_notice("You weld [src]'s internal damage."))
-	cut_overlay(GLOB.welding_sparks)
 	return TRUE
 
 /obj/machinery/telecomms/relay/preset/tower/examine(mob/user)
@@ -147,7 +140,7 @@
 			tower_status = on ? TOWER_ON : TOWER_OFF
 			marker_icon = "comm_tower[on ? "_on" : "_off"]"
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, marker_icon))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, marker_icon, MINIMAP_BLIPS_LAYER))
 	update_icon()
 
 /obj/machinery/telecomms/relay/preset/tower/attack_ai(mob/user)

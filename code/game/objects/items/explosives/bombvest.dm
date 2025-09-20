@@ -31,7 +31,7 @@
 	if(issynth(activator) && !CONFIG_GET(flag/allow_synthetic_gun_use))
 		balloon_alert(activator, "Can't wear this")
 		return TRUE
-	if(activator.alpha < LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE || HAS_TRAIT(activator, TRAIT_STEALTH))
+	if(HAS_TRAIT(activator, TRAIT_STEALTH))
 		balloon_alert(activator, "Can't, your cloak prevents you")
 		return TRUE
 	if(activator.wear_suit != src)
