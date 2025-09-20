@@ -37,6 +37,11 @@
 	contains = list(/obj/item/storage/backpack/marine/corpsman)
 	cost = 125 // higher price because it has a better cell
 
+/datum/supply_packs/clothing/vali_gloves
+	name = "Y-15 Vali chemical enhancement gloves"
+	contains = list(/obj/item/clothing/gloves/valigloves)
+	cost = 650 // higher price because it has a better cell
+
 /datum/supply_packs/clothing/officer_outfits
 	name = "Officer outfits"
 	contains = list(
