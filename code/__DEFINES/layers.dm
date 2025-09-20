@@ -129,7 +129,7 @@
 
 #define ABOVE_LYING_MOB_LAYER 3.9 //drone (not the xeno)
 
-//#define MOB_LAYER 4
+#define MOB_LAYER 4
 
 #define MOB_JUMP_LAYER 4.05
 
@@ -148,13 +148,15 @@
 
 #define ABOVE_ALL_MOB_LAYER 4.5
 
-//#define FLY_LAYER 5
+#define FLY_LAYER 5
 
 #define WELDING_TOOL_EFFECT_LAYER 5.05
 #define RIPPLE_LAYER 5.1
 
 #define GHOST_LAYER 6
 #define ABOVE_FLY_LAYER 6
+
+#define BILLBOARD_LAYER 8
 
 #define LOW_LANDMARK_LAYER 9
 #define MID_LANDMARK_LAYER 9.1
