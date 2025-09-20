@@ -27,11 +27,6 @@
 	. = ..()
 	init_marker()
 
-/obj/machinery/miner/Destroy()
-	if(src in GLOB.tower_relays)
-		GLOB.tower_relays -= src
-	return ..()
-
 /obj/machinery/telecomms/relay/preset/tower/proc/init_marker()
 
 	var/marker_icon = ""

@@ -315,7 +315,7 @@
 		/obj/item/circuitboard,
 		/obj/item/lightreplacer,
 		/obj/item/tool/surgery/solderingtool,
-		/obj/item/minerupgrade,
+		// /obj/item/minerupgrade, Mining wells removal
 	))
 
 /datum/storage/internal/medical
