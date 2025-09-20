@@ -1,6 +1,6 @@
 /obj/item/clothing/gloves/valigloves
 	name = "Y-15 Vali chemical enhancement gloves"
-	desc = "The advanced technology of the Vali module built into the gloves, unfortunately, due to the reduction in space, the gloves are unable to provide the second level of treatment. Gloves cannot be equipped with the Vali module in armor.."
+	desc = "The advanced technology of the Vali module built into the gloves, unfortunately, due to the reduction in space, the gloves are unable to provide the second level of treatment. Gloves cannot be equipped with the Vali module in armor."
 	icon = 'icons/obj/clothing/gloves.dmi'
 	icon_state = "vali_gloves_unactive"
 	worn_icon_state = "vali_gloves"
