@@ -959,97 +959,138 @@
 
 	qdel(src)
 
-// ***************************************
-// *********** Upgrade Chambers Buffs - Survival
-// ***************************************
-/atom/movable/screen/alert/status_effect/upgrade_carapace
+//
+//	Carapace
+//
+
+/atom/movable/screen/alert/status_effect/carapace
 	name = "Carapace"
-	desc = "Armor increased."
+	desc = "+ 1 soft armor buff"
 	icon_state = "xenobuff_carapace"
 
-/datum/status_effect/upgrade_carapace
+/datum/status_effect/carapace
 	id = "upgrade_carapace"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_carapace
+	alert_type = /atom/movable/screen/alert/status_effect/carapace
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/armor_buff = 2.5
-	var/chamber_scaling = 0
+	var/armor_buff = 1
 
-/datum/status_effect/upgrade_carapace/on_apply()
+/atom/movable/screen/alert/status_effect/carapace/tier2
+	name = "Carapace II"
+	desc = "+ 2.5 soft armor buff"
+	icon_state = "xenobuff_carapace"
+
+/datum/status_effect/carapace/tier2
+	id = "upgrade_carapace_two"
+	alert_type = /atom/movable/screen/alert/status_effect/carapace/tier2
+	armor_buff = 2.5
+
+/atom/movable/screen/alert/status_effect/carapace/tier3
+	name = "Carapace III"
+	desc = "+ 5 soft armor buff"
+	icon_state = "xenobuff_carapace"
+
+/datum/status_effect/carapace/tier3
+	id = "upgrade_carapace_three"
+	alert_type = /atom/movable/screen/alert/status_effect/carapace/tier3
+	armor_buff = 5
+
+/datum/status_effect/carapace/on_apply()
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
 	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(armor_buff)
 	return TRUE
 
-/datum/status_effect/upgrade_carapace/on_remove()
+/datum/status_effect/carapace/on_remove()
 	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(-armor_buff)
 	return ..()
 
+//
+//	Regeneration
+//
 
-// ***************************************
-// ***************************************
-// ***************************************
-/atom/movable/screen/alert/status_effect/upgrade_regeneration
-	name = "Regeneration"
-	desc = "Regeneration increased."
+/atom/movable/screen/alert/status_effect/regeneration
+	name = "Regeneration I"
+	desc = "+ 0.8% health and sunder regen"
 	icon_state = "xenobuff_regeneration"
 
-/datum/status_effect/upgrade_regeneration
+/datum/status_effect/regeneration
 	id = "upgrade_regeneration"
 	duration = -1
 	tick_interval = 5 SECONDS
 	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_regeneration
+	alert_type = /atom/movable/screen/alert/status_effect/regeneration
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/regen_buff = 0.008
 	var/sunder_regen = 0.166
-	var/chamber_scaling = 0
 
-/datum/status_effect/upgrade_regeneration/on_apply()
+/atom/movable/screen/alert/status_effect/regeneration/tier2
+	name = "Regeneration II"
+	desc = "+ 1.6% health and sunder regen"
+	icon_state = "xenobuff_regeneration"
+
+/datum/status_effect/regeneration/tier2
+	id = "upgrade_regeneration_two"
+	tick_interval = 2.5 SECONDS
+	alert_type = /atom/movable/screen/alert/status_effect/regeneration/tier2
+	regen_buff = 0.016
+	sunder_regen = 0.332
+
+/datum/status_effect/regeneration/on_apply()
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
 	return TRUE
 
-/datum/status_effect/upgrade_regeneration/tick(delta_time)
+/datum/status_effect/regeneration/tick(delta_time)
 	var/amount = buff_owner.maxHealth * regen_buff * (1 + buff_owner.recovery_aura * 0.05)
 	buff_owner.heal_xeno_damage(amount, FALSE)
 	buff_owner.adjust_sunder(-sunder_regen)
 	buff_owner.update_health()
 	return ..()
 
-// ***************************************
-// ***************************************
-// ***************************************
-/atom/movable/screen/alert/status_effect/upgrade_vampirism
+//
+//	Vampirism
+//
+
+/atom/movable/screen/alert/status_effect/vampirism
 	name = "Vampirism"
-	desc = "Leech from attacks."
+	desc = "1% HP per slash"
 	icon_state = "xenobuff_vampirism"
 
-/datum/status_effect/upgrade_vampirism
+/datum/status_effect/vampirism
 	id = "upgrade_vampirism"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_vampirism
+	alert_type = /atom/movable/screen/alert/status_effect/vampirism
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/leech_buff = 0.016
-	var/chamber_scaling = 0
+	var/leech_buff = 0.01
 
-/datum/status_effect/upgrade_vampirism/on_apply()
+/atom/movable/screen/alert/status_effect/vampirism/leech
+	name = "Leech"
+	desc = "3% HP per slash"
+	icon_state = "xenobuff_vampirism"
+
+/datum/status_effect/vampirism/leech
+	id = "upgrade_leech"
+	alert_type = /atom/movable/screen/alert/status_effect/vampirism/leech
+	leech_buff = 0.03
+
+/datum/status_effect/vampirism/on_apply()
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
 	RegisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_slash))
 	return TRUE
 
-/datum/status_effect/upgrade_vampirism/on_remove()
+/datum/status_effect/vampirism/on_remove()
 	UnregisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING)
 	return ..()
 
 
-/datum/status_effect/upgrade_vampirism/proc/on_slash(datum/source, mob/living/target)
+/datum/status_effect/vampirism/proc/on_slash(datum/source, mob/living/target)
 	SIGNAL_HANDLER
 	if(target.stat == DEAD)
 		return
@@ -1338,63 +1379,6 @@
 // *********** Tier 2 Upgrade Status Effects
 // ***************************************
 
-// Enhanced Carapace - Tier 2 Survival
-/atom/movable/screen/alert/status_effect/upgrade_enhanced_carapace
-	name = "Enhanced Carapace"
-	desc = "Significantly increased armor and resistance."
-	icon_state = "xenobuff_carapace"
-
-/datum/status_effect/upgrade_enhanced_carapace
-	id = "upgrade_enhanced_carapace"
-	duration = -1
-	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_enhanced_carapace
-	var/mob/living/carbon/xenomorph/buff_owner
-	var/armor_buff = 5.0 // Double the base carapace effect
-	var/chamber_scaling = 0
-
-/datum/status_effect/upgrade_enhanced_carapace/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	buff_owner = owner
-	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(armor_buff)
-	return TRUE
-
-/datum/status_effect/upgrade_enhanced_carapace/on_remove()
-	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(-armor_buff)
-	return ..()
-
-
-// Rapid Regeneration - Tier 2 Survival
-/atom/movable/screen/alert/status_effect/upgrade_rapid_regeneration
-	name = "Rapid Regeneration"
-	desc = "Dramatically increased health regeneration speed."
-	icon_state = "xenobuff_regeneration"
-
-/datum/status_effect/upgrade_rapid_regeneration
-	id = "upgrade_rapid_regeneration"
-	duration = -1
-	tick_interval = 2.5 SECONDS // Faster than base regeneration
-	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_rapid_regeneration
-	var/mob/living/carbon/xenomorph/buff_owner
-	var/regen_buff = 0.016 // Double the base regeneration effect
-	var/sunder_regen = 0.332 // Double the base sunder regen
-	var/chamber_scaling = 0
-
-/datum/status_effect/upgrade_rapid_regeneration/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	buff_owner = owner
-	return TRUE
-
-/datum/status_effect/upgrade_rapid_regeneration/tick(delta_time)
-	var/amount = buff_owner.maxHealth * regen_buff * (1 + buff_owner.recovery_aura * 0.05)
-	buff_owner.heal_xeno_damage(amount, FALSE)
-	buff_owner.adjust_sunder(-sunder_regen)
-	buff_owner.update_health()
-	return ..()
-
 // Enhanced Celerity - Tier 2 Attack
 /atom/movable/screen/alert/status_effect/upgrade_enhanced_celerity
 	name = "Enhanced Celerity"
@@ -1533,51 +1517,6 @@
 
 // ===== TIER 3 - ULTIMATE MUTATIONS =====
 
-// Ultimate Carapace - Maximum armor and damage reduction
-/datum/status_effect/upgrade_ultimate_carapace
-	id = "upgrade_ultimate_carapace"
-	duration = -1
-	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_ultimate_carapace
-	var/mob/living/carbon/xenomorph/buff_owner
-
-/datum/status_effect/upgrade_ultimate_carapace/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	buff_owner = owner
-	// +25 armor
-	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(25)
-	return TRUE
-
-/datum/status_effect/upgrade_ultimate_carapace/on_remove()
-	if(buff_owner)
-		// Remove +25 armor
-		buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(-25)
-	return ..()
-
-// Ultimate Regeneration - Maximum health regen with combat healing
-/datum/status_effect/upgrade_ultimate_regeneration
-	id = "upgrade_ultimate_regeneration"
-	duration = -1
-	tick_interval = 2 SECONDS
-	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_ultimate_regeneration
-	var/mob/living/carbon/xenomorph/buff_owner
-
-/datum/status_effect/upgrade_ultimate_regeneration/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	buff_owner = owner
-	return TRUE
-
-/datum/status_effect/upgrade_ultimate_regeneration/tick()
-	. = ..()
-	if(!isxeno(owner))
-		return
-	var/mob/living/carbon/xenomorph/xeno = owner
-	if(xeno.health < xeno.maxHealth)
-		xeno.heal_overall_damage(2.5, 2.5) // +2.5% health regen per tick
-
 // Ultimate Celerity - Maximum speed with dodge chance
 /datum/status_effect/upgrade_ultimate_celerity
 	id = "upgrade_ultimate_celerity"
@@ -1659,13 +1598,6 @@
 /datum/status_effect/upgrade_ultimate_hive_mind/on_remove()
 	return ..()
 
-// ===== TIER 3 ALERT TYPES =====
-
-/atom/movable/screen/alert/status_effect/upgrade_ultimate_carapace
-	name = "Ultimate Carapace"
-	desc = "Maximum armor and damage reduction"
-	icon_state = "xenobuff_carapace"
-
 /atom/movable/screen/alert/status_effect/upgrade_ultimate_regeneration
 	name = "Ultimate Regeneration"
 	desc = "Maximum health regeneration with combat healing"
@@ -1690,4 +1622,50 @@
 	name = "Ultimate Hive Mind"
 	desc = "Maximum pheromone power with hive coordination"
 	icon_state = "xenobuff_phero"
+
+// Enhancement mutations - caste-specific
+/datum/status_effect/upgrade_drone_mastery
+	id = "upgrade_drone_mastery"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/upgrade_drone_mastery
+	var/mob/living/carbon/xenomorph/buff_owner
+
+/datum/status_effect/upgrade_drone_mastery/on_apply()
+	if(!isxeno(owner))
+		return FALSE
+	buff_owner = owner
+	// Drone mastery - placeholder for now
+	return TRUE
+
+/datum/status_effect/upgrade_drone_mastery/on_remove()
+	return ..()
+
+/datum/status_effect/upgrade_runner_agility
+	id = "upgrade_runner_agility"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/upgrade_runner_agility
+	var/mob/living/carbon/xenomorph/buff_owner
+
+/datum/status_effect/upgrade_runner_agility/on_apply()
+	if(!isxeno(owner))
+		return FALSE
+	buff_owner = owner
+	// Runner agility - placeholder for now
+	return TRUE
+
+/datum/status_effect/upgrade_runner_agility/on_remove()
+	return ..()
+
+// Alert types for enhancement mutations
+/atom/movable/screen/alert/status_effect/upgrade_drone_mastery
+	name = "Drone Mastery"
+	desc = "Enhanced building and repair capabilities"
+	icon_state = "xenobuff_generic"
+
+/atom/movable/screen/alert/status_effect/upgrade_runner_agility
+	name = "Runner Agility"
+	desc = "Enhanced speed and dodge capabilities"
+	icon_state = "xenobuff_generic"
 

@@ -35,7 +35,7 @@
 /// Static data provided once when the ui is opened
 /datum/mutation_menu/ui_static_data(mob/living/carbon/xenomorph/xeno)
 	. = list()
-	.["categories"] = list("Survival", "Attack", "Utility")
+	.["categories"] = list("Survival", "Offensive", "Specialized", "Enhancement")
 
 /// Dynamic data that updates every tick
 /datum/mutation_menu/ui_data(mob/living/carbon/xenomorph/xeno)
@@ -100,82 +100,117 @@
 
 	.["passive_biomass_gain"] = biomass_gain_rate
 
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
 /// Get the mutations data for the UI
 /datum/mutation_menu/proc/get_mutations_data(mob/living/carbon/xenomorph/xeno)
 	var/list/mutations = list()
 
 	mutations += list(
-		// Tier 1 - Base mutations (no dependencies)
+		// Carapace
 		list(
-			"name" = "Carapace",
-			"desc" = "Незначительно увеличивает броню",
+			"name" = "Carapace I",
+			"desc" = "Слабо увеличивает броню всех типов",
 			"category" = "Survival",
 			"cost" = 5,
-			"icon" = "xenobuff_carapace",
+			"icon" = "carapace",
 			"available" = TRUE,
-			"purchased" = (locate(STATUS_EFFECT_UPGRADE_CARAPACE) in xeno.status_effects) || (locate(STATUS_EFFECT_UPGRADE_ENHANCED_CARAPACE) in xeno.status_effects) || (locate(STATUS_EFFECT_UPGRADE_ULTIMATE_CARAPACE) in xeno.status_effects),
+			"purchased" = (locate(STATUS_EFFECT_CARAPACE) in xeno.status_effects) || (locate(STATUS_EFFECT_CARAPACE_TWO) in xeno.status_effects) || (locate(STATUS_EFFECT_CARAPACE_THREE) in xeno.status_effects),
 			"tier" = 1,
 			"parent" = null,
-			"children" = list("Enhanced Carapace"),
+			"children" = list("Carapace II"),
 			"unlocked" = TRUE,
-			"buff_desc" = "+ 2.5 soft armor"
+			"buff_desc" = "1 soft armor"
 		),
 		list(
-			"name" = "Regeneration",
-			"desc" = "Незначительно увеличивает регенерацию от травы.",
-			"category" = "Survival",
-			"cost" = 8,
-			"icon" = "xenobuff_regeneration",
-			"available" = TRUE,
-			"purchased" = (locate(STATUS_EFFECT_UPGRADE_REGENERATION) in xeno.status_effects) || (locate(STATUS_EFFECT_UPGRADE_RAPID_REGENERATION) in xeno.status_effects) || (locate(STATUS_EFFECT_UPGRADE_ULTIMATE_REGENERATION) in xeno.status_effects),
-			"tier" = 1,
-			"parent" = null,
-			"children" = list("Rapid Regeneration"),
-			"unlocked" = TRUE,
-			"buff_desc" = "+0.8% health regen"
-		),
-		// Tier 2 - Advanced mutations (require tier 1)
-		list(
-			"name" = "Enhanced Carapace",
-			"desc" = "Существенно увеличивает броню.",
+			"name" = "Carapace II",
+			"desc" = "Средне увеличивает броню всех типов",
 			"category" = "Survival",
 			"cost" = 15,
-			"icon" = "xenobuff_carapace",
+			"icon" = "carapace_two",
 			"available" = TRUE,
-			"purchased" = (locate(STATUS_EFFECT_UPGRADE_ENHANCED_CARAPACE) in xeno.status_effects) || (locate(STATUS_EFFECT_UPGRADE_ULTIMATE_CARAPACE) in xeno.status_effects),
+			"purchased" = (locate(STATUS_EFFECT_CARAPACE_TWO) in xeno.status_effects) || (locate(STATUS_EFFECT_CARAPACE_THREE) in xeno.status_effects),
 			"tier" = 2,
-			"parent" = "Carapace",
-			"children" = list("Ultimate Carapace"),
-			"unlocked" = (locate(STATUS_EFFECT_UPGRADE_CARAPACE) in xeno.status_effects),
-			"buff_desc" = "+ 5 soft armor"
+			"parent" = "Carapace I",
+			"children" = list("Carapace III"),
+			"unlocked" = (locate(STATUS_EFFECT_CARAPACE) in xeno.status_effects),
+			"buff_desc" = "2.5 soft armor"
 		),
 		list(
-			"name" = "Rapid Regeneration",
-			"desc" = "Существенно увеличивает регенерацию от травы.",
+			"name" = "Carapace III",
+			"desc" = "Сильно увеличивает броню всех типов",
+			"category" = "Survival",
+			"cost" = 25,
+			"icon" = "carapace_three",
+			"available" = TRUE,
+			"purchased" = (locate(STATUS_EFFECT_CARAPACE_THREE) in xeno.status_effects),
+			"tier" = 3,
+			"parent" = "Carapace II",
+			"children" = list(),
+			"unlocked" = (locate(STATUS_EFFECT_CARAPACE_TWO) in xeno.status_effects),
+			"buff_desc" = "5 soft armor"
+		),
+
+		//Regeneration
+		list(
+			"name" = "Regeneration I",
+			"desc" = "Незначительно увеличивает регенерацию.",
+			"category" = "Survival",
+			"cost" = 10,
+			"icon" = "regeneration",
+			"available" = TRUE,
+			"purchased" = ((locate(STATUS_EFFECT_REGENERATION) in xeno.status_effects) || (locate(STATUS_EFFECT_REGENERATION_TWO) in xeno.status_effects)),
+			"tier" = 1,
+			"parent" = null,
+			"children" = list("Regeneration II"),
+			"unlocked" = TRUE,
+			"buff_desc" = "+0.8% health and sunder regen"
+		),
+		list(
+			"name" = "Regeneration II",
+			"desc" = "Существенно увеличивает регенерацию.",
 			"category" = "Survival",
 			"cost" = 20,
-			"icon" = "xenobuff_regeneration",
+			"icon" = "regeneration_two",
 			"available" = TRUE,
-			"purchased" = (locate(STATUS_EFFECT_UPGRADE_RAPID_REGENERATION) in xeno.status_effects) || (locate(STATUS_EFFECT_UPGRADE_ULTIMATE_REGENERATION) in xeno.status_effects),
+			"purchased" = (locate(STATUS_EFFECT_REGENERATION_TWO) in xeno.status_effects),
 			"tier" = 2,
-			"parent" = "Regeneration",
-			"children" = list("Ultimate Regeneration"),
-			"unlocked" = (locate(STATUS_EFFECT_UPGRADE_REGENERATION) in xeno.status_effects),
-			"buff_desc" = "+1.6% health regen"
+			"parent" = "Regeneration I",
+			"children" = list(),
+			"unlocked" = (locate(STATUS_EFFECT_REGENERATION) in xeno.status_effects),
+			"buff_desc" = "+1.6% health and sunder regen"
 		),
+
+		//Vampirism
 		list(
 			"name" = "Vampirism",
 			"desc" = "Регенерирует мизерную часть здоровья при базовой атаке.",
 			"category" = "Survival",
-			"cost" = 12,
-			"icon" = "xenobuff_vampirism",
+			"cost" = 20,
+			"icon" = "vampirism",
 			"available" = TRUE,
-			"purchased" = (locate(STATUS_EFFECT_UPGRADE_VAMPIRISM) in xeno.status_effects),
+			"purchased" = ((locate(STATUS_EFFECT_VAMPIRISM) in xeno.status_effects) || (locate(STATUS_EFFECT_LEECH) in xeno.status_effects)),
 			"tier" = 1,
 			"parent" = null,
-			"children" = list(),
+			"children" = list("Leech"),
 			"unlocked" = TRUE,
-			"buff_desc" = "1.6% HP per slash"
+			"buff_desc" = "1% HP per slash"
+		),
+		list(
+			"name" = "Leech",
+			"desc" = "Значительно регенерирует здоровье при базовых атаках.",
+			"category" = "Survival",
+			"cost" = 40,
+			"icon" = "leech",
+			"available" = TRUE,
+			"purchased" = (locate(STATUS_EFFECT_LEECH) in xeno.status_effects),
+			"tier" = 2,
+			"parent" = "Vampirism",
+			"children" = list(),
+			"unlocked" = (locate(STATUS_EFFECT_VAMPIRISM) in xeno.status_effects),
+			"buff_desc" = "3% HP per slash"
 		)
 	)
 
@@ -185,21 +220,21 @@
 		list(
 			"name" = "Celerity",
 			"desc" = "Незначительно увеличивает скорость.",
-			"category" = "Attack",
+			"category" = "Offensive",
 			"cost" = 6,
 			"icon" = "xenobuff_attack",
 			"available" = TRUE,
 			"purchased" = (locate(STATUS_EFFECT_UPGRADE_CELERITY) in xeno.status_effects) || (locate(STATUS_EFFECT_UPGRADE_ENHANCED_CELERITY) in xeno.status_effects) || (locate(STATUS_EFFECT_UPGRADE_ULTIMATE_CELERITY) in xeno.status_effects),
 			"tier" = 1,
 			"parent" = null,
-			"children" = list("Enhanced Celerity"),
+			"children" = list("Celerity II"),
 			"unlocked" = TRUE,
 			"buff_desc" = "+10% speed"
 		),
 		list(
 			"name" = "Adrenaline",
 			"desc" = "Незначительно увеличивает регенерацию плазмы и максимальную ёмкость",
-			"category" = "Attack",
+			"category" = "Offensive",
 			"cost" = 10,
 			"icon" = "xenobuff_attack",
 			"available" = TRUE,
@@ -212,23 +247,23 @@
 		),
 		// Tier 2 - Advanced mutations
 		list(
-			"name" = "Enhanced Celerity",
+			"name" = "Celerity II",
 			"desc" = "Существенно увеличивает скорость.",
-			"category" = "Attack",
+			"category" = "Offensive",
 			"cost" = 18,
 			"icon" = "xenobuff_attack",
 			"available" = TRUE,
 			"purchased" = (locate(STATUS_EFFECT_UPGRADE_ENHANCED_CELERITY) in xeno.status_effects) || (locate(STATUS_EFFECT_UPGRADE_ULTIMATE_CELERITY) in xeno.status_effects),
 			"tier" = 2,
 			"parent" = "Celerity",
-			"children" = list("Ultimate Celerity"),
+			"children" = list("Celerity III"),
 			"unlocked" = (locate(STATUS_EFFECT_UPGRADE_CELERITY) in xeno.status_effects),
 			"buff_desc" = "+20% speed"
 		),
 		list(
 			"name" = "Berserker Rage",
 			"desc" = "Существенно увеличивает регенерацию плазмы и максимальную ёмкость",
-			"category" = "Attack",
+			"category" = "Offensive",
 			"cost" = 25,
 			"icon" = "xenobuff_attack",
 			"available" = TRUE,
@@ -242,7 +277,7 @@
 		list(
 			"name" = "Crush",
 			"desc" = "Незначительно увеличивает пробитие базовой атаки",
-			"category" = "Attack",
+			"category" = "Offensive",
 			"cost" = 7,
 			"icon" = "xenobuff_generic",
 			"available" = TRUE,
@@ -261,7 +296,7 @@
 		list(
 			"name" = "Toxin",
 			"desc" = "Позволяет вводить небольшое кол-во токсинов при базовой атаке",
-			"category" = "Utility",
+			"category" = "Specialized",
 			"cost" = 4,
 			"icon" = "xenobuff_generic",
 			"available" = TRUE,
@@ -275,7 +310,7 @@
 		list(
 			"name" = "Pheromones",
 			"desc" = "Позволяет выделять слабые феромоны.",
-			"category" = "Utility",
+			"category" = "Specialized",
 			"cost" = 9,
 			"icon" = "xenobuff_phero",
 			"available" = TRUE,
@@ -290,7 +325,7 @@
 		list(
 			"name" = "Advanced Toxin",
 			"desc" = "Позволяет вводить значительное кол-во токсинов при базовой атаке.",
-			"category" = "Utility",
+			"category" = "Specialized",
 			"cost" = 14,
 			"icon" = "xenobuff_generic",
 			"available" = TRUE,
@@ -304,7 +339,7 @@
 		list(
 			"name" = "Hive Mind",
 			"desc" = "Позволяет выделять сильные феромоны.",
-			"category" = "Utility",
+			"category" = "Specialized",
 			"cost" = 22,
 			"icon" = "xenobuff_phero",
 			"available" = TRUE,
@@ -318,7 +353,7 @@
 		list(
 			"name" = "Trail",
 			"desc" = "Оставляет кислотный след с некоторым шансом.",
-			"category" = "Utility",
+			"category" = "Specialized",
 			"cost" = 3,
 			"icon" = "xenobuff_generic",
 			"available" = TRUE,
@@ -333,83 +368,25 @@
 
 	// Tier 3 - Ultimate mutations (require tier 2)
 	mutations += list(
-		// Survival Tier 3
-		list(
-			"name" = "Ultimate Carapace",
-			"desc" = "Максимально увеличивает защиту, делая ксеноморфа практически неуязвимым.",
-			"category" = "Survival",
-			"cost" = 25,
-			"icon" = "xenobuff_carapace",
-			"available" = TRUE,
-			"purchased" = (locate(STATUS_EFFECT_UPGRADE_ULTIMATE_CARAPACE) in xeno.status_effects),
-			"tier" = 3,
-			"parent" = "Enhanced Carapace",
-			"children" = list(),
-			"unlocked" = (locate(STATUS_EFFECT_UPGRADE_ENHANCED_CARAPACE) in xeno.status_effects),
-			"buff_desc" = "+25 armor + 10% damage reduction"
-		),
-		list(
-			"name" = "Ultimate Regeneration",
-			"desc" = "Максимально увеличивает регенерацию, позволяя восстанавливаться даже в бою.",
-			"category" = "Survival",
-			"cost" = 25,
-			"icon" = "xenobuff_survival",
-			"available" = TRUE,
-			"purchased" = (locate(STATUS_EFFECT_UPGRADE_ULTIMATE_REGENERATION) in xeno.status_effects),
-			"tier" = 3,
-			"parent" = "Rapid Regeneration",
-			"children" = list(),
-			"unlocked" = (locate(STATUS_EFFECT_UPGRADE_RAPID_REGENERATION) in xeno.status_effects),
-			"buff_desc" = "+2.5% health regen + combat healing"
-		),
 		// Attack Tier 3
 		list(
-			"name" = "Ultimate Celerity",
+			"name" = "Celerity III",
 			"desc" = "Максимально увеличивает скорость, делая ксеноморфа молниеносным.",
-			"category" = "Attack",
+			"category" = "Offensive",
 			"cost" = 25,
 			"icon" = "xenobuff_attack",
 			"available" = TRUE,
 			"purchased" = (locate(STATUS_EFFECT_UPGRADE_ULTIMATE_CELERITY) in xeno.status_effects),
 			"tier" = 3,
-			"parent" = "Enhanced Celerity",
+			"parent" = "Celerity II",
 			"children" = list(),
 			"unlocked" = (locate(STATUS_EFFECT_UPGRADE_ENHANCED_CELERITY) in xeno.status_effects),
 			"buff_desc" = "+35% speed + dodge chance"
 		),
 		list(
-			"name" = "Ultimate Berserker",
-			"desc" = "Максимально увеличивает урон и скорость атаки, делая ксеноморфа смертоносным.",
-			"category" = "Attack",
-			"cost" = 25,
-			"icon" = "xenobuff_attack",
-			"available" = TRUE,
-			"purchased" = (locate(STATUS_EFFECT_UPGRADE_ULTIMATE_BERSERKER) in xeno.status_effects),
-			"tier" = 3,
-			"parent" = "Berserker Rage",
-			"children" = list(),
-			"unlocked" = (locate(STATUS_EFFECT_UPGRADE_BERSERKER_RAGE) in xeno.status_effects),
-			"buff_desc" = "+50% damage + 25% attack speed"
-		),
-		// Utility Tier 3
-		list(
-			"name" = "Ultimate Toxin",
-			"desc" = "Максимально увеличивает токсичность, делая каждую атаку смертельной.",
-			"category" = "Utility",
-			"cost" = 25,
-			"icon" = "xenobuff_generic",
-			"available" = TRUE,
-			"purchased" = (locate(STATUS_EFFECT_UPGRADE_ULTIMATE_TOXIN) in xeno.status_effects),
-			"tier" = 3,
-			"parent" = "Advanced Toxin",
-			"children" = list(),
-			"unlocked" = (locate(STATUS_EFFECT_UPGRADE_ADVANCED_TOXIN) in xeno.status_effects),
-			"buff_desc" = "2.5 chosen xenotoxin per slash"
-		),
-		list(
 			"name" = "Ultimate Hive Mind",
 			"desc" = "Максимально увеличивает силу феромонов, объединяя весь улей.",
-			"category" = "Utility",
+			"category" = "Specialized",
 			"cost" = 25,
 			"icon" = "xenobuff_phero",
 			"available" = TRUE,
@@ -421,6 +398,49 @@
 			"buff_desc" = "2 pheromone power + hive coordination"
 		)
 	)
+
+	// Enhancement mutations - caste-specific (only add if available for current caste)
+	var/current_caste = lowertext(xeno.xeno_caste.caste_name)
+
+	// Drone Mastery - only for drone and shrike
+	if(current_caste == "drone" || current_caste == "shrike")
+		mutations += list(
+			list(
+				"name" = "Drone Mastery",
+				"desc" = "Улучшает способности строителя, увеличивая скорость постройки и эффективность ремонта.",
+				"category" = "Enhancement",
+				"cost" = 12,
+				"icon" = "xenobuff_generic",
+				"available" = TRUE,
+				"purchased" = (locate(STATUS_EFFECT_UPGRADE_DRONE_MASTERY) in xeno.status_effects),
+				"tier" = 1,
+				"parent" = null,
+				"children" = list(),
+				"unlocked" = TRUE,
+				"caste_restriction" = list("drone", "shrike"),
+				"buff_desc" = "+25% build speed, +15% repair efficiency"
+			)
+		)
+
+	// Runner Agility - only for runner
+	if(current_caste == "runner")
+		mutations += list(
+			list(
+				"name" = "Runner Agility",
+				"desc" = "Максимально увеличивает скорость и маневренность, делая раннера неуловимым.",
+				"category" = "Enhancement",
+				"cost" = 10,
+				"icon" = "xenobuff_generic",
+				"available" = TRUE,
+				"purchased" = (locate(STATUS_EFFECT_UPGRADE_RUNNER_AGILITY) in xeno.status_effects),
+				"tier" = 1,
+				"parent" = null,
+				"children" = list(),
+				"unlocked" = TRUE,
+				"caste_restriction" = list("runner"),
+				"buff_desc" = "+20% speed, +10% dodge chance"
+			)
+		)
 
 	return mutations
 
@@ -467,22 +487,29 @@
 	// Determine which mutation to apply based on name
 	var/datum/status_effect/upgrade_to_apply
 
+	// Какая же это жесть, вайбкод момент
+
 	switch(mutation_name)
 		// Survival mutations
-		if("Carapace")
-			upgrade_to_apply = STATUS_EFFECT_UPGRADE_CARAPACE
-		if("Enhanced Carapace")
-			upgrade_to_apply = STATUS_EFFECT_UPGRADE_ENHANCED_CARAPACE
-		if("Regeneration")
-			upgrade_to_apply = STATUS_EFFECT_UPGRADE_REGENERATION
-		if("Rapid Regeneration")
-			upgrade_to_apply = STATUS_EFFECT_UPGRADE_RAPID_REGENERATION
+		if("Carapace I")
+			upgrade_to_apply = STATUS_EFFECT_CARAPACE
+		if("Carapace II")
+			upgrade_to_apply = STATUS_EFFECT_CARAPACE_TWO
+		if("Carapace III")
+			upgrade_to_apply = STATUS_EFFECT_CARAPACE_THREE
+		if("Regeneration I")
+			upgrade_to_apply = STATUS_EFFECT_REGENERATION
+		if("Regeneration II")
+			upgrade_to_apply = STATUS_EFFECT_REGENERATION_TWO
 		if("Vampirism")
-			upgrade_to_apply = STATUS_EFFECT_UPGRADE_VAMPIRISM
+			upgrade_to_apply = STATUS_EFFECT_VAMPIRISM
+		if("Leech")
+			upgrade_to_apply = STATUS_EFFECT_LEECH
+
 		// Attack mutations
 		if("Celerity")
 			upgrade_to_apply = STATUS_EFFECT_UPGRADE_CELERITY
-		if("Enhanced Celerity")
+		if("Celerity II")
 			upgrade_to_apply = STATUS_EFFECT_UPGRADE_ENHANCED_CELERITY
 		if("Adrenaline")
 			upgrade_to_apply = STATUS_EFFECT_UPGRADE_ADRENALINE
@@ -490,6 +517,7 @@
 			upgrade_to_apply = STATUS_EFFECT_UPGRADE_BERSERKER_RAGE
 		if("Crush")
 			upgrade_to_apply = STATUS_EFFECT_UPGRADE_CRUSH
+
 		// Utility mutations
 		if("Toxin")
 			upgrade_to_apply = STATUS_EFFECT_UPGRADE_TOXIN
@@ -502,11 +530,7 @@
 		if("Trail")
 			upgrade_to_apply = STATUS_EFFECT_UPGRADE_TRAIL
 		// Tier 3 - Ultimate mutations
-		if("Ultimate Carapace")
-			upgrade_to_apply = STATUS_EFFECT_UPGRADE_ULTIMATE_CARAPACE
-		if("Ultimate Regeneration")
-			upgrade_to_apply = STATUS_EFFECT_UPGRADE_ULTIMATE_REGENERATION
-		if("Ultimate Celerity")
+		if("Celerity III")
 			upgrade_to_apply = STATUS_EFFECT_UPGRADE_ULTIMATE_CELERITY
 		if("Ultimate Berserker")
 			upgrade_to_apply = STATUS_EFFECT_UPGRADE_ULTIMATE_BERSERKER
@@ -514,6 +538,11 @@
 			upgrade_to_apply = STATUS_EFFECT_UPGRADE_ULTIMATE_TOXIN
 		if("Ultimate Hive Mind")
 			upgrade_to_apply = STATUS_EFFECT_UPGRADE_ULTIMATE_HIVE_MIND
+		//Individual Mutations
+		if("Drone Mastery")
+			upgrade_to_apply = STATUS_EFFECT_UPGRADE_DRONE_MASTERY
+		if("Runner Agility")
+			upgrade_to_apply = STATUS_EFFECT_UPGRADE_RUNNER_AGILITY
 		else
 			return
 
@@ -523,15 +552,16 @@
 		to_chat(usr, span_xenonotice("Existing mutation chosen. No biomass spent."))
 		return
 
-
 	// Remove tier 1 mutation if purchasing tier 2
 	var/datum/status_effect/tier1_to_remove
 	switch(mutation_name)
-		if("Enhanced Carapace")
-			tier1_to_remove = locate(STATUS_EFFECT_UPGRADE_CARAPACE) in xeno_owner.status_effects
-		if("Rapid Regeneration")
-			tier1_to_remove = locate(STATUS_EFFECT_UPGRADE_REGENERATION) in xeno_owner.status_effects
-		if("Enhanced Celerity")
+		if("Carapace II")
+			tier1_to_remove = locate(STATUS_EFFECT_CARAPACE) in xeno_owner.status_effects
+		if("Regeneration II")
+			tier1_to_remove = locate(STATUS_EFFECT_REGENERATION) in xeno_owner.status_effects
+		if("Leech")
+			tier1_to_remove = locate(STATUS_EFFECT_VAMPIRISM) in xeno_owner.status_effects
+		if("Celerity II")
 			tier1_to_remove = locate(STATUS_EFFECT_UPGRADE_CELERITY) in xeno_owner.status_effects
 		if("Berserker Rage")
 			tier1_to_remove = locate(STATUS_EFFECT_UPGRADE_ADRENALINE) in xeno_owner.status_effects
@@ -543,11 +573,9 @@
 	// Tier 3 mutations remove their tier 2 parent
 	var/datum/status_effect/tier2_to_remove
 	switch(mutation_name)
-		if("Ultimate Carapace")
-			tier2_to_remove = locate(STATUS_EFFECT_UPGRADE_ENHANCED_CARAPACE) in xeno_owner.status_effects
-		if("Ultimate Regeneration")
-			tier2_to_remove = locate(STATUS_EFFECT_UPGRADE_RAPID_REGENERATION) in xeno_owner.status_effects
-		if("Ultimate Celerity")
+		if("Carapace III")
+			tier2_to_remove = locate(STATUS_EFFECT_CARAPACE_TWO) in xeno_owner.status_effects
+		if("Celerity III")
 			tier2_to_remove = locate(STATUS_EFFECT_UPGRADE_ENHANCED_CELERITY) in xeno_owner.status_effects
 		if("Ultimate Berserker")
 			tier2_to_remove = locate(STATUS_EFFECT_UPGRADE_BERSERKER_RAGE) in xeno_owner.status_effects

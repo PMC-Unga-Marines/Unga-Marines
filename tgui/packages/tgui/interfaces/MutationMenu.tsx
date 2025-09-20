@@ -7,7 +7,6 @@ import {
   Flex,
   ProgressBar,
   Section,
-  Stack,
   Tabs,
 } from 'tgui-core/components';
 import { classes } from 'tgui-core/react';
@@ -36,18 +35,21 @@ type MutationEntry = {
   children: string[];
   unlocked: boolean;
   buff_desc: string;
+  caste_restriction?: string[];
 };
 
 const categoryIcons: Record<string, string> = {
   Survival: 'shield-alt',
-  Attack: 'fist-raised',
-  Utility: 'magic',
+  Offensive: 'fist-raised',
+  Specialized: 'magic',
+  Enhancement: 'star',
 };
 
 const categoryColors: Record<string, string> = {
   Survival: 'good',
-  Attack: 'average',
-  Utility: 'blue',
+  Offensive: 'average',
+  Specialized: 'blue',
+  Enhancement: 'purple',
 };
 
 // Icon overlay styles
@@ -143,27 +145,19 @@ export const MutationMenu = (props: any) => {
         {categories.length > 0 && (
           <Section lineHeight={1.75} textAlign="center">
             <Tabs>
-              <Stack wrap="wrap">
-                {categories.map((categoryname) => {
-                  return (
-                    <Stack.Item
-                      m={0.5}
-                      grow={categoryname.length}
-                      basis="content"
-                      key={categoryname}
-                    >
-                      <Tabs.Tab
-                        icon={categoryIcons[categoryname]}
-                        selected={categoryname === selectedCategory}
-                        onClick={() => setSelectedCategory(categoryname)}
-                        color={categoryColors[categoryname]}
-                      >
-                        {categoryname}
-                      </Tabs.Tab>
-                    </Stack.Item>
-                  );
-                })}
-              </Stack>
+              {categories.map((categoryname) => {
+                return (
+                  <Tabs.Tab
+                    key={categoryname}
+                    icon={categoryIcons[categoryname]}
+                    selected={categoryname === selectedCategory}
+                    onClick={() => setSelectedCategory(categoryname)}
+                    color={categoryColors[categoryname]}
+                  >
+                    {categoryname}
+                  </Tabs.Tab>
+                );
+              })}
             </Tabs>
             <Divider />
           </Section>
@@ -180,9 +174,21 @@ const Mutations = (props: { selectedCategory: string | null }) => {
   const { mutations } = data;
   const { selectedCategory } = props;
 
-  const filteredMutations = mutations.filter(
-    (mutation) => mutation.category === selectedCategory,
-  );
+  const filteredMutations = mutations.filter((mutation) => {
+    // Filter by category
+    if (mutation.category !== selectedCategory) {
+      return false;
+    }
+
+    // For Enhancement category, filter by caste restrictions
+    if (selectedCategory === 'Enhancement' && mutation.caste_restriction) {
+      // This would need to be passed from the backend with current caste info
+      // For now, we'll show all enhancement mutations and let the backend handle restrictions
+      return true;
+    }
+
+    return true;
+  });
 
   // Organize mutations into tree structure
   const mutationMap = new Map<string, MutationEntry>();
@@ -198,8 +204,13 @@ const Mutations = (props: { selectedCategory: string | null }) => {
   return (
     <Section title={`${selectedCategory} Mutations`}>
       {filteredMutations.length === 0 ? (
-        <Box color="bad" textAlign="center">
-          No mutations available in this category!
+        <Box
+          color={selectedCategory === 'Enhancement' ? 'average' : 'bad'}
+          textAlign="center"
+        >
+          {selectedCategory === 'Enhancement'
+            ? 'No enhancement mutations available for your caste.'
+            : 'No mutations available in this category!'}
         </Box>
       ) : (
         <Box>
@@ -485,16 +496,6 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
         <Flex.Item grow={1}>
           <Box bold color={getNameColor()}>
             {name}
-            {tier > 1 && (
-              <Box
-                as="span"
-                color={tier === 2 ? 'white' : tier === 3 ? 'white' : 'label'}
-                fontSize="0.8em"
-                ml={1}
-              >
-                (Tier {tier})
-              </Box>
-            )}
           </Box>
           <Box fontSize="0.9em" color="label" mt={0.5}>
             {desc}

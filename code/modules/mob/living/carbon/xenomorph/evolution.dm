@@ -173,8 +173,33 @@
 		new_xeno.hunter_data = hunter_data
 		hunter_data = null
 	new_xeno.upgrades_holder = upgrades_holder
+
+	// Check for incompatible enhancement mutations and refund biomass
+	var/total_refund = 0
+	var/list/incompatible_mutations = list()
+
 	for(var/datum/status_effect/S AS in new_xeno.upgrades_holder)
-		new_xeno.apply_status_effect(S)
+		// Check if this is an enhancement mutation that's incompatible with new caste
+		if(istype(S, /datum/status_effect/upgrade_drone_mastery) && !(istype(new_xeno, /mob/living/carbon/xenomorph/drone) || istype(new_xeno, /mob/living/carbon/xenomorph/shrike)))
+			incompatible_mutations += S
+			total_refund += 6 // 50% of 12 cost
+		else if(istype(S, /datum/status_effect/upgrade_runner_agility) && !istype(new_xeno, /mob/living/carbon/xenomorph/runner))
+			incompatible_mutations += S
+			total_refund += 5 // 50% of 10 cost
+		else
+			new_xeno.apply_status_effect(S)
+
+	// Remove incompatible mutations and refund biomass
+	for(var/datum/status_effect/incompatible AS in incompatible_mutations)
+		new_xeno.upgrades_holder.Remove(incompatible)
+		if(istype(incompatible, /datum/status_effect/upgrade_drone_mastery))
+			to_chat(new_xeno, span_xenonotice("Drone Mastery mutation lost during evolution. +6 biomass refunded."))
+		else if(istype(incompatible, /datum/status_effect/upgrade_runner_agility))
+			to_chat(new_xeno, span_xenonotice("Runner Agility mutation lost during evolution. +5 biomass refunded."))
+
+	if(total_refund > 0)
+		new_xeno.biomass = min(new_xeno.biomass + total_refund, 50)
+		to_chat(new_xeno, span_xenonotice("Total biomass refunded: [total_refund]"))
 	new_xeno.generate_name() // This is specifically for numbered xenos who want to keep their previous number instead of a random new one.
 	new_xeno.hive?.update_ruler() // Since ruler wasn't set during initialization, update ruler now.
 	transfer_observers_to(new_xeno)
