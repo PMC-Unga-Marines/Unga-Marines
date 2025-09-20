@@ -11,6 +11,10 @@
 #define RES_TIER_COMMON "common"
 #define RES_TIER_UNCOMMON "uncommon"
 #define RES_TIER_RARE "rare"
+#define RESEARCH_REWARD_BASIC 50
+#define RESEARCH_REWARD_COMMON 150
+#define RESEARCH_REWARD_UNCOMMON 250
+#define RESEARCH_REWARD_RARE 800
 
 /obj/machinery/researchcomp
 	name = "research console"
@@ -38,38 +42,38 @@
 	var/static/list/rewards_lists = list(
 		RES_MONEY = list(
 			RES_TIER_BASIC = list(
-				50, // Basic credits
-				150, // Common credits
+				RESEARCH_REWARD_BASIC,
+				RESEARCH_REWARD_COMMON,
 			),
 			RES_TIER_COMMON = list(
-				150, // Common credits
-				250, // Uncommon credits
+				RESEARCH_REWARD_COMMON,
+				RESEARCH_REWARD_UNCOMMON,
 			),
 			RES_TIER_UNCOMMON = list(
-				250, // Uncommon credits
+				RESEARCH_REWARD_UNCOMMON,
 				/obj/item/implanter/blade,
 				/obj/item/attachable/shoulder_mount,
 			),
 			RES_TIER_RARE = list(
-				800, // Rare credits
+				RESEARCH_REWARD_RARE,
 			),
 		),
 		RES_XENO = list(
 			RES_TIER_BASIC = list(
-				50, // Basic credits
-				150, // Common credits
+				RESEARCH_REWARD_BASIC,
+				RESEARCH_REWARD_COMMON,
 			),
 			RES_TIER_COMMON = list(
-				250, // Uncommon credits
+				RESEARCH_REWARD_UNCOMMON,
 			),
 			RES_TIER_UNCOMMON = list(
-				250, // Uncommon credits
+				RESEARCH_REWARD_UNCOMMON,
 				/obj/item/implanter/chem/blood,
 				/obj/item/implanter/cloak,
 				/obj/item/attachable/shoulder_mount,
 			),
 			RES_TIER_RARE = list(
-				800, // Rare credits
+				RES_TIER_RARE,
 			),
 		),
 	)
@@ -328,3 +332,7 @@
 	)
 
 
+#undef RESEARCH_REWARD_BASIC
+#undef RESEARCH_REWARD_COMMON
+#undef RESEARCH_REWARD_UNCOMMON
+#undef RESEARCH_REWARD_RARE
