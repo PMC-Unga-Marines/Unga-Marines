@@ -138,7 +138,7 @@
 		)
 
 		var/list/tier_rewards = research_rewards[tier]
-		for(var/reward in tier_rewards)
+		for(var/reward as anything in tier_rewards)
 			if(isnum(reward))
 				// Direct point value
 				reward_tier["rewards_list"] += "[reward] credits"
@@ -217,13 +217,13 @@
 	var/turf/drop_loc = get_turf(rewards_position)
 	var/total_points = 0
 
-	for (var/reward in earned_rewards)
+	for(var/reward as anything in earned_rewards)
 		if(isnum(reward))
 			// Direct point value - add to supply points
 			total_points += reward
 			SSpoints.supply_points[usr.faction] += reward
 			GLOB.round_statistics.points_from_research += reward
-		else if(istype(reward, /obj/item))
+		else if(isitem(reward))
 			// Physical item - drop at location
 			var/obj/item/item = reward
 			item.forceMove(drop_loc)
