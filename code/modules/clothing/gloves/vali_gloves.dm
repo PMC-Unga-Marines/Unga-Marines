@@ -72,6 +72,7 @@
 	if(slot != SLOT_GLOVES)
 		return
 
+	var/obj/item/clothing/gloves/valigloves/vali_gloves = user.gloves
 	if(usr != user)
 		if(istype(vali_gloves, /obj/item/clothing/gloves/valigloves))
 			user.dropItemToGround(vali_gloves)
