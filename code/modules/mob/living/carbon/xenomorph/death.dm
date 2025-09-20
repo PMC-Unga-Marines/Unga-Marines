@@ -115,6 +115,4 @@
 
 	fade_out(src, our_time = 5 SECONDS)
 	sleep(5 SECONDS)
-	if(prob(25))
-		new /obj/item/research_product/money/basic(loc)
 	qdel(src)
