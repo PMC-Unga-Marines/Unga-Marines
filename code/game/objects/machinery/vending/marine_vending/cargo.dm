@@ -17,12 +17,6 @@
 			/obj/item/radio/headset/mainship/marine/charlie = -1,
 			/obj/item/radio/headset/mainship/marine/delta = -1,
 		),
-		// Mining wells removal
-		// "Mining Equipment" = list(
-		// 	/obj/item/minerupgrade/automatic = 1,
-		// 	/obj/item/minerupgrade/reinforcement = 1,
-		// 	/obj/item/minerupgrade/overclock = 1,
-		// ),
 		"Reqtorio Basics" = list(
 			/obj/item/paper/factoryhowto = -1,
 			/obj/machinery/fabricator/gunpowder = 2,

@@ -3831,7 +3831,6 @@
 /turf/open/floor,
 /area/shuttle/drop1/lz1)
 "xq" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/grass,
 /area/lv624/ground/compound/c)
 "xF" = (
@@ -4427,7 +4426,6 @@
 /turf/open/ground,
 /area/lv624/ground/caves/central1)
 "GM" = (
-//obj/machinery/miner/damaged,
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/compound/n)
 "GO" = (
@@ -5013,7 +5011,6 @@
 /turf/closed/mineral/smooth/indestructible,
 /area/space)
 "PI" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/grass,
 /area/vapor_processing/south_compound)
 "PK" = (
@@ -5367,7 +5364,6 @@
 /turf/open/ground,
 /area/lv624/lazarus/quartstorage)
 "Va" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/ground,
 /area/lv624/ground/caves/central1)
 "Vd" = (
@@ -5717,7 +5713,6 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
 "ZJ" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/grass,
 /area/vapor_processing/east_compound)
 "ZM" = (

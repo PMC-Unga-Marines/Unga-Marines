@@ -4,8 +4,6 @@ GLOBAL_LIST_INIT(sentry_ignore_List, set_sentry_ignore_List())
 /proc/set_sentry_ignore_List()
 	. = list(
 		/obj/machinery/deployable/mounted,
-		// Mining wells removal
-		// /obj/machinery/miner,
 	)
 	. += typesof(/obj/hitbox)
 	. += typesof(/obj/vehicle/sealed/armored/multitile)

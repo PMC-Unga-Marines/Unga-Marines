@@ -24,7 +24,6 @@
 	},
 /area/lv624/ground/caves/east1/garbledradio)
 "aaT" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/west1)
 "abc" = (
@@ -60,11 +59,9 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle2)
 "adx" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1)
 "aef" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
 "aeh" = (
@@ -1250,7 +1247,6 @@
 /turf/open/floor/mech_bay_recharge_floor/asteroid,
 /area/lv624/ground/sand2)
 "aGm" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand2)
 "aGH" = (
@@ -1310,7 +1306,6 @@
 /turf/open/liquid/water/river/autosmooth,
 /area/lv624/ground/river2)
 "aHI" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
 "aId" = (
@@ -1787,7 +1782,6 @@
 	},
 /area/lv624/lazarus/engineering)
 "aTd" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand8)
 "aTl" = (
@@ -2023,7 +2017,6 @@
 /turf/open/floor,
 /area/lv624/ground/jungle7)
 "aZd" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1/garbledradio)
 "aZj" = (
@@ -2269,7 +2262,6 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple)
 "bfK" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand9)
 "bfR" = (
@@ -5610,7 +5602,6 @@
 /turf/open/ground/grass/grass2,
 /area/lv624/lazarus/overgrown)
 "evP" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/quartstorage/outdoors)
 "evV" = (
@@ -6697,7 +6688,6 @@
 /turf/open/floor/plating/platebotc,
 /area/lv624/lazarus/quartstorage/outdoors)
 "fLi" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand4)
 "fLY" = (
@@ -6851,7 +6841,6 @@
 	},
 /area/lv624/ground/caves/east1/garbledradio)
 "fXa" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central5/garbledradio)
 "fXk" = (
@@ -12529,7 +12518,6 @@
 	},
 /area/lv624/lazarus/main_hall)
 "miC" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "miY" = (
@@ -14448,7 +14436,6 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
 "ovK" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
 "ovM" = (
@@ -20804,7 +20791,6 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/sw)
 "vqf" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle10)
 "vqx" = (
@@ -23226,7 +23212,6 @@
 /turf/open/floor/grimy,
 /area/lv624/lazarus/bar)
 "xGi" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand7)
 "xGM" = (

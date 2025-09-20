@@ -366,7 +366,6 @@
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/mining)
 "anT" = (
-//obj/machinery/miner/damaged,
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/north)
 "aoe" = (
@@ -534,7 +533,6 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/south)
 "axh" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/northwest)
 "axz" = (
@@ -739,7 +737,6 @@
 /turf/open/floor,
 /area/lawankaoutpost/colony/landingzoneone)
 "aFl" = (
-//obj/machinery/miner/damaged,
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/central)
 "aFs" = (
@@ -15620,7 +15617,6 @@
 /turf/open/floor/tile/dark/purple2,
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "noY" = (
-//obj/machinery/miner/damaged,
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/northwest)
 "npa" = (
@@ -18020,7 +18016,6 @@
 	},
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "pjf" = (
-//obj/machinery/miner/damaged,
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/west)
 "pjz" = (
@@ -18176,7 +18171,6 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/southeast)
 "ppP" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/southwest)
 "ppQ" = (
@@ -20638,7 +20632,6 @@
 /turf/closed/wall,
 /area/lawankaoutpost/outside/east)
 "rqo" = (
-//obj/machinery/miner/damaged,
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/southwest)
 "rqw" = (
@@ -20787,7 +20780,6 @@
 /turf/open/floor,
 /area/lawankaoutpost/colony/biologics)
 "rvV" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/west)
 "rxo" = (

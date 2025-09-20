@@ -135,7 +135,6 @@
 	},
 /area/orion_outpost/ground/outpostnw)
 "aH" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveS/garbledradio)
 "aJ" = (
@@ -641,7 +640,6 @@
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveN/garbledradio)
 "cV" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/concrete/edge{
 	dir = 4
 	},
@@ -3771,7 +3769,6 @@
 /turf/open/floor/mainship/mono,
 /area/orion_outpost/surface/building/cargo)
 "qF" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostcent)
 "qI" = (
@@ -3836,7 +3833,6 @@
 	},
 /area/orion_outpost/surface/building/prep)
 "qV" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveE)
 "qX" = (
@@ -4482,7 +4478,6 @@
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/underground/caveS)
 "tG" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outpostse)
 "tH" = (
@@ -5659,7 +5654,6 @@
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveS)
 "zj" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveN)
 "zk" = (
@@ -6249,7 +6243,6 @@
 	},
 /area/orion_outpost/surface/landing_pad_external)
 "Cc" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveN/garbledradio)
 "Cd" = (
@@ -8002,7 +7995,6 @@
 	},
 /area/orion_outpost/ground/outpostse)
 "JS" = (
-//obj/machinery/miner/damaged,
 /turf/open/ground/grass/weedable/patch/grassyellow,
 /area/orion_outpost/ground/outpostcent)
 "JT" = (
@@ -8909,7 +8901,6 @@
 	},
 /area/orion_outpost/surface/building/medbay)
 "NP" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/outposts)
 "NQ" = (
@@ -11007,7 +10998,6 @@
 /turf/closed/mineral/smooth,
 /area/orion_outpost/ground/outpostsw)
 "Xr" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveE/garbledradio)
 "Xs" = (
@@ -11317,7 +11307,6 @@
 	},
 /area/orion_outpost/surface/building/command)
 "YJ" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/orion_outpost/ground/underground/caveS)
 "YK" = (
@@ -11619,7 +11608,6 @@
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostse)
 "ZX" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/concrete,
 /area/orion_outpost/ground/outpostw)
 "ZY" = (

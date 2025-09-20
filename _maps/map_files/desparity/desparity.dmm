@@ -561,7 +561,6 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle7)
 "dn" = (
-//obj/machinery/miner/damaged,
 /turf/open/ground/grass/weedable,
 /area/lv624/lazarus/overgrown)
 "do" = (
@@ -708,7 +707,6 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/spaceport)
 "dX" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
 "dY" = (
@@ -775,7 +773,6 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle10)
 "en" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "eq" = (
@@ -1083,7 +1080,6 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
 /area/lv624/ground/jungle5)
 "fH" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1)
 "fI" = (
@@ -5374,7 +5370,6 @@
 /turf/closed/shuttle/dropship_regular/top_corner,
 /area/lv624/ground/jungle9)
 "Be" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/west1)
 "Bf" = (
@@ -6401,7 +6396,6 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle9)
 "Go" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
 "Gp" = (
@@ -9397,7 +9391,6 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle10)
 "UE" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle10)
 "UF" = (

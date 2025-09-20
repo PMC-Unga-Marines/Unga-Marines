@@ -2816,7 +2816,6 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "oq" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "os" = (
@@ -5685,7 +5684,6 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
 "Gp" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/ground/jungle,
 /area/whiskey_outpost/outside/west)
 "Gx" = (

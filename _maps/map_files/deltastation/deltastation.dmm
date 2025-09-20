@@ -8279,7 +8279,6 @@
 "bLR" = (
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/effect/turf_decal/box/red,
-//obj/machinery/miner/damaged,
 /turf/open/floor/iron/dark,
 /area/deltastation/service/abandoned_gambling_den)
 "bLU" = (
@@ -29627,7 +29626,6 @@
 /turf/open/floor/iron,
 /area/deltastation/cargo/sorting)
 "fZP" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/engineering/storage/tech)
 "fZT" = (
@@ -38644,7 +38642,6 @@
 /turf/closed/wall/r_wall,
 /area/security/nuke_storage)
 "hUI" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/asteroidcaves/northcaves)
 "hUL" = (
@@ -40887,7 +40884,6 @@
 /turf/open/floor/engine,
 /area/deltastation/science/ordnance/freezerchamber)
 "iww" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/asteroidcaves/securitycaves)
 "iwy" = (
@@ -41617,7 +41613,6 @@
 "iDU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
-//obj/machinery/miner/damaged,
 /turf/open/floor/iron,
 /area/deltastation/engineering/atmos/project)
 "iEb" = (
@@ -50533,7 +50528,6 @@
 /turf/open/floor/iron,
 /area/deltastation/hallway/secondary/exit/departure_lounge)
 "kzE" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/asteroidcaves/westerncaves)
 "kzF" = (
@@ -50806,7 +50800,6 @@
 /area/deltastation/medical/virology)
 "kCh" = (
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
-//obj/machinery/miner/damaged,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 8
@@ -54818,7 +54811,6 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-//obj/machinery/miner/damaged,
 /turf/open/floor/iron/dark,
 /area/deltastation/service/library)
 "luB" = (
@@ -58164,7 +58156,6 @@
 /turf/open/floor/plating,
 /area/deltastation/command/heads_quarters/cmo)
 "mdN" = (
-//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/asteroidcaves/northeastcaves)
 "mdS" = (
@@ -65106,7 +65097,6 @@
 "nCT" = (
 /obj/structure/cable,
 /obj/effect/landmark/start/job/xenomorph,
-//obj/machinery/miner/damaged/platinum,
 /obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/manifold4w/scrubbers,
 /turf/open/floor/iron/grimy,
@@ -68161,7 +68151,6 @@
 /turf/open/floor/plating,
 /area/deltastation/engineering/atmos/storage/gas)
 "ole" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating,
 /area/deltastation/maintenance/port)
 "oll" = (
@@ -71683,7 +71672,6 @@
 /turf/open/floor/iron,
 /area/deltastation/maintenance/port/aft)
 "oYj" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/asteroidcaves/easterntunnel)
 "oYm" = (
@@ -73103,7 +73091,6 @@
 /area/deltastation/hallway/primary/central/fore)
 "pnA" = (
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
-//obj/machinery/miner/damaged,
 /turf/open/floor/iron,
 /area/deltastation/cargo/lobby)
 "pnB" = (
@@ -80071,7 +80058,6 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-//obj/machinery/miner/damaged,
 /turf/open/floor/iron,
 /area/ai_monitored/storage/eva)
 "qEF" = (
@@ -84909,7 +84895,6 @@
 /turf/open/floor/plating,
 /area/deltastation/maintenance/port/aft)
 "rFt" = (
-//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/asteroidcaves/northcaves)
 "rFA" = (
