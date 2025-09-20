@@ -41377,7 +41377,7 @@
 	},
 /area/prison/hangar/main)
 "fES" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/prison/plate,
 /area/prison/recreation/highsec/n)
 "fFS" = (
@@ -42785,7 +42785,7 @@
 /turf/open/space/sea,
 /area/template_noop)
 "iBb" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/wood,
 /area/prison/parole/main)
 "iBj" = (
@@ -43598,7 +43598,7 @@
 /turf/open/floor/plating,
 /area/prison/hangar_storage/research)
 "kcn" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating,
 /area/prison/cellblock/mediumsec/south)
 "kcQ" = (
@@ -44552,7 +44552,7 @@
 /turf/open/floor/plating,
 /area/prison/hangar/civilian)
 "mhw" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/prison/darkred/full,
 /area/prison/cellblock/maxsec/north)
 "miy" = (
@@ -45758,7 +45758,7 @@
 /turf/open/space/sea,
 /area/template_noop)
 "onm" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/prison/red{
 	dir = 4
 	},
@@ -46825,7 +46825,7 @@
 /turf/open/floor/prison/plate,
 /area/prison/cellblock/highsec/south/north)
 "qyq" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating,
 /area/prison/hangar_storage/research)
 "qyJ" = (
@@ -47608,7 +47608,7 @@
 /turf/open/floor/prison/darkred/full,
 /area/prison/visitation)
 "rSZ" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/prison/bright_clean/two,
 /area/prison/yard)
 "rTg" = (
@@ -49540,7 +49540,7 @@
 /turf/open/floor/plating,
 /area/prison/disposal)
 "vOy" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/prison/plate,
 /area/prison/recreation/medsec)
 "vOC" = (
@@ -50717,7 +50717,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/prison/security/monitoring/highsec)
 "yfH" = (

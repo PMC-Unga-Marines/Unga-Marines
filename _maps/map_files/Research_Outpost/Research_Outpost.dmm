@@ -279,7 +279,7 @@
 	},
 /area/outpost/yard/east)
 "bm" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/south)
 "bn" = (
@@ -1719,7 +1719,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/south)
 "hL" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north)
 "hM" = (
@@ -1849,7 +1849,7 @@
 	},
 /area/outpost/yard/central)
 "ik" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/outpost/caves/north)
 "im" = (
@@ -2713,7 +2713,7 @@
 /turf/closed/mineral/smooth/bigred,
 /area/outpost/caves/north_east)
 "lK" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 4
 	},
@@ -3989,7 +3989,7 @@
 	},
 /area/outpost/hallway/northern)
 "rg" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/outpost/yard/central)
 "ri" = (
@@ -4455,7 +4455,7 @@
 /turf/open/floor/tile/dark,
 /area/outpost/science)
 "tg" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
 "ti" = (
@@ -7230,7 +7230,7 @@
 	},
 /area/outpost/engineering)
 "Fw" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
 "Fy" = (
@@ -7487,7 +7487,7 @@
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/outpost/yard/east)
 "GI" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_west)
 "GJ" = (
@@ -7581,7 +7581,7 @@
 /turf/open/floor/plating/ground/mars/random,
 /area/outpost/caves/north_west)
 "Hi" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/outpost/yard/south)
 "Hm" = (
@@ -8056,7 +8056,7 @@
 	},
 /area/outpost/engineering)
 "Jy" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/outpost/caves/south)
 "Jz" = (
@@ -8423,7 +8423,7 @@
 /turf/open/floor/tile/dark/red2,
 /area/outpost/brig)
 "KY" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_west)
 "KZ" = (
@@ -9526,7 +9526,7 @@
 	},
 /area/outpost/hallway/east)
 "PK" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/cavetodirt{
 	dir = 1
 	},
@@ -11220,7 +11220,7 @@
 	},
 /area/outpost/cargo)
 "Xf" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/yard/south_east)
 "Xg" = (

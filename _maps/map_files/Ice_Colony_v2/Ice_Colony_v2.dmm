@@ -16747,7 +16747,7 @@
 /turf/open/floor/tile/white,
 /area/ice_colony/underground/medical/storage)
 "bUj" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/underground/maintenance/central)
 "bUk" = (
@@ -18640,7 +18640,7 @@
 /turf/open/floor/plating/icefloor,
 /area/ice_colony/surface/excavation/storage)
 "dlO" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/valley/southwest)
 "dmv" = (
@@ -19739,7 +19739,7 @@
 	},
 /area/ice_colony/underground/security/armory)
 "eWT" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/hallway/north_west/garbledradio)
 "eXk" = (
@@ -21056,7 +21056,7 @@
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/east)
 "gOB" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/ice_colony/exterior/surface/valley/south/excavation)
 "gOC" = (
@@ -21386,7 +21386,7 @@
 	},
 /area/ice_colony/surface/storage_unit/power)
 "hqp" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/ice_colony/exterior/surface/valley/southeast)
 "hqr" = (
@@ -21721,7 +21721,7 @@
 /turf/open/floor/tile/darkgreen/darkgreen2,
 /area/ice_colony/underground/medical/lobby/garbledradio)
 "hTb" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/underground/maintenance/engineering/garbledradio)
 "hVt" = (
@@ -22063,7 +22063,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/exterior/surface/landing_pad)
 "izd" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/underground/caves/ice_se)
 "izt" = (
@@ -22090,7 +22090,7 @@
 /turf/open/floor/tile/dark/brown2,
 /area/ice_colony/surface/hangar/beta)
 "iBw" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/ice_colony/exterior/surface/clearing/south)
 "iBD" = (
@@ -23041,7 +23041,7 @@
 	},
 /area/ice_colony/underground/hallway/north_west/garbledradio)
 "jPw" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/ice_colony/exterior/surface/clearing/north)
 "jPA" = (
@@ -23444,7 +23444,7 @@
 	},
 /area/ice_colony/underground/requesition)
 "kqC" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/valley/south)
 "kqN" = (
@@ -25011,7 +25011,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/landing_pad2)
 "mxl" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/ice_colony/exterior/surface/clearing/south)
 "mxE" = (
@@ -25099,7 +25099,7 @@
 /turf/open/floor/tile/white,
 /area/ice_colony/underground/medical/treatment/garbledradio)
 "mFk" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/underground/maintenance/east)
 "mFq" = (
@@ -25311,7 +25311,7 @@
 	},
 /area/ice_colony/exterior/surface/taxiway)
 "mTO" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/ice_colony/exterior/surface/clearing/north)
 "mUY" = (
@@ -25757,7 +25757,7 @@
 /turf/open/floor/plating,
 /area/ice_colony/underground/medical/hallway)
 "nyt" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/clearing/north)
 "nyC" = (
@@ -26022,7 +26022,7 @@
 	},
 /area/ice_colony/surface/command)
 "nRj" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/clearing/pass)
 "nRL" = (
@@ -26878,7 +26878,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/hangar)
 "pac" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating,
 /area/ice_colony/exterior/underground/caves/open)
 "pax" = (
@@ -27032,7 +27032,7 @@
 /turf/open/floor/wood,
 /area/ice_colony/surface/bar/bar)
 "pnD" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/north)
 "poW" = (
@@ -27304,7 +27304,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/research)
 "pKn" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/exterior/underground/caves)
 "pLi" = (
@@ -27784,7 +27784,7 @@
 	},
 /area/ice_colony/surface/research)
 "qun" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/requesition)
 "quF" = (
@@ -28182,7 +28182,7 @@
 	},
 /area/ice_colony/underground/hallway/north_west/garbledradio)
 "ram" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/underground/maintenance/south)
 "raD" = (
@@ -29359,7 +29359,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/dorms)
 "stD" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/exterior/underground/caves/open/garbledradio)
 "stS" = (
@@ -31836,7 +31836,7 @@
 /turf/open/floor/tile/dark,
 /area/ice_colony/underground/westroadtunnel)
 "vGy" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/ice_colony/exterior/surface/valley/north)
 "vGO" = (
@@ -33621,7 +33621,7 @@
 /turf/closed/wall/r_wall,
 /area/ice_colony/underground/hallway/south_east)
 "xRR" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/ice_colony/exterior/surface/valley/west)
 "xSc" = (

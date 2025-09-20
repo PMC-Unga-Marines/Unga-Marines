@@ -437,12 +437,13 @@ The alternative is scattering them everywhere under their respective objects whi
 	return TRUE
 
 ///Separate record keeping proc to reduce copy pasta
-/obj/machinery/miner/proc/record_miner_repair(mob/user)
-	if(!user.ckey)
-		return FALSE
-	var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[user.ckey]
-	personal_statistics.miner_repairs_performed++
-	return TRUE
+// Mining wells removal
+// /obj/machinery/miner/proc/record_miner_repair(mob/user)
+// 	if(!user.ckey)
+// 		return FALSE
+// 	var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[user.ckey]
+// 	personal_statistics.miner_repairs_performed++
+// 	return TRUE
 
 ///Record how much time a mob was lying down for
 /mob/living/proc/record_time_lying_down()

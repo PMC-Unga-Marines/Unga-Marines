@@ -91,32 +91,32 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "ectoplasm"
 
-/obj/item/minerupgrade
-	name = "miner upgrade"
-	desc = "Subtype item, should not exist."
-	icon = 'icons/obj/mining_drill.dmi'
-	icon_state = "mining_drill_reinforceddisplay"
-	w_class = WEIGHT_CLASS_NORMAL
+// /obj/item/minerupgrade
+// 	name = "miner upgrade"
+// 	desc = "Subtype item, should not exist."
+// 	icon = 'icons/obj/mining_drill.dmi'
+// 	icon_state = "mining_drill_reinforceddisplay"
+// 	w_class = WEIGHT_CLASS_NORMAL
 	/// Used to determine the type of upgrade the miner is going to receive. Has to be a string which is defined in miner.dm or it won't work.
-	var/uptype
+// 	var/uptype
 
-/obj/item/minerupgrade/reinforcement
-	name = "reinforced components box"
-	desc = "A very folded box of reinforced components, meant to replace weak components used in normal mining wells."
-	icon_state = "mining_drill_reinforceddisplay"
-	uptype = "reinforced components"
+// /obj/item/minerupgrade/reinforcement
+// 	name = "reinforced components box"
+// 	desc = "A very folded box of reinforced components, meant to replace weak components used in normal mining wells."
+// 	icon_state = "mining_drill_reinforceddisplay"
+// 	uptype = "reinforced components"
 
-/obj/item/minerupgrade/overclock
-	name = "high-efficiency drill"
-	desc = "A box with a few pumps and a big drill, meant to replace the standard drill used in normal mining wells for faster extraction."
-	icon_state = "mining_drill_overclockeddisplay"
-	uptype = "high-efficiency drill"
+// /obj/item/minerupgrade/overclock
+// 	name = "high-efficiency drill"
+// 	desc = "A box with a few pumps and a big drill, meant to replace the standard drill used in normal mining wells for faster extraction."
+// 	icon_state = "mining_drill_overclockeddisplay"
+// 	uptype = "high-efficiency drill"
 
-/obj/item/minerupgrade/automatic
-	name = "mining computer"
-	desc = "A small computer that can automate mining wells, reducing the need for oversight."
-	icon_state = "mining_drill_automaticdisplay"
-	uptype = "mining computer"
+// /obj/item/minerupgrade/automatic
+// 	name = "mining computer"
+// 	desc = "A small computer that can automate mining wells, reducing the need for oversight."
+// 	icon_state = "mining_drill_automaticdisplay"
+// 	uptype = "mining computer"
 
 /obj/item/ai_target_beacon
 	name = "AI linked remote targeter"

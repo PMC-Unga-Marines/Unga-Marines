@@ -28,7 +28,7 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/command/lobby/east)
 "aaG" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound/east)
 "aaJ" = (
@@ -10658,7 +10658,7 @@
 /turf/open/floor/wood,
 /area/magmoor/command/office/main)
 "hHW" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound/west)
 "hIg" = (
@@ -15286,7 +15286,7 @@
 /turf/open/floor/wood,
 /area/magmoor/civilian/basket)
 "kXi" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound/north)
 "kXj" = (
@@ -16012,7 +16012,7 @@
 	},
 /area/magmoor/civilian/dorms)
 "lzg" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/northwest)
 "lzj" = (
@@ -17422,7 +17422,7 @@
 	},
 /area/magmoor/civilian/arrival)
 "mCF" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/volcano)
 "mCN" = (
@@ -21333,7 +21333,7 @@
 /turf/closed/wall/r_wall,
 /area/magmoor/command/commandroom)
 "ppN" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound)
 "pqc" = (
@@ -23506,7 +23506,7 @@
 /turf/open/floor/tile/red/full,
 /area/magmoor/security/infocenter)
 "qSZ" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound/northeast)
 "qTD" = (
@@ -24753,7 +24753,7 @@
 /turf/open/floor/plating,
 /area/magmoor/mining/storage)
 "rQl" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/dirttosand,
 /area/magmoor/compound/north)
 "rQD" = (
@@ -31679,7 +31679,7 @@
 	},
 /area/magmoor/landing)
 "wIm" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/north)
 "wIw" = (
