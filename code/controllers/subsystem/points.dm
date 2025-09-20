@@ -43,6 +43,8 @@ SUBSYSTEM_DEF(points)
 	var/psp_limit = 600
 	///Personal supply points base gain per update
 	var/psp_base_gain = 5 //per minute
+	///Assoc list of company points supply
+	var/company_supply_points = list()
 	///Used to delay fast delivery and for animation
 	var/fast_delivery_is_active = TRUE
 	///Reference to the balloon vis obj effect
