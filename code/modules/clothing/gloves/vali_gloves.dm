@@ -1,6 +1,6 @@
 /obj/item/clothing/gloves/valigloves
 	name = "Y-15 Vali chemical enhancement gloves"
-	desc = "The advanced technology of the Vali module built into the gloves, unfortunately, due to the reduction in space, the gloves are unable to provide the second level of treatment. Vali functions disabled when armor module is installed."
+	desc = "The advanced technology of the Vali module built into the gloves, unfortunately, due to the reduction in space, the gloves are unable to provide the second level of treatment. Gloves cannot be equipped with the Vali module in armor.."
 	icon = 'icons/obj/clothing/gloves.dmi'
 	icon_state = "vali_gloves_unactive"
 	worn_icon_state = "vali_gloves"
@@ -13,7 +13,6 @@
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 	var/chemsystem_is_active = FALSE
 	var/datum/component/chem_booster/chemsystem
-	var/mob/living/carbon/human/user
 
 /obj/item/clothing/gloves/valigloves/Initialize(mapload)
 	. = ..()
@@ -38,7 +37,7 @@
 	icon_state = initial(icon_state)
 
 /obj/item/clothing/gloves/valigloves/mob_can_equip(mob/living/carbon/human/user, slot, warning = FALSE, override_nodrop = FALSE, bitslot = FALSE)
-	if(slot == SLOT_GLOVES && user)
+	if(slot == SLOT_GLOVES)
 		var/obj/item/clothing/suit/armor = user.wear_suit
 
 		if(armor && istype(armor, /obj/item/clothing/suit/modular))
@@ -47,8 +46,7 @@
 			if(ATTACHMENT_SLOT_MODULE in modular_armor.attachments_by_slot)
 				var/obj/item/armor_module/module/chemsystem/vali_module = modular_armor.attachments_by_slot[ATTACHMENT_SLOT_MODULE]
 				if(istype(vali_module, /obj/item/armor_module/module/chemsystem))
-					if(warning)
-						user.balloon_alert(user, "<span class='warning'>Вы не можете надеть эти перчатки, пока на вас надета броня с модулем Вали.</span>")
+					user.balloon_alert(user, "<span class='warning'>Вы не можете надеть эти перчатки, пока на вас надета броня с модулем Вали.</span>")
 					return FALSE
 	return ..()
 
@@ -67,4 +65,14 @@
 	var/obj/item/clothing/gloves/valigloves/vali_gloves = user.gloves
 	if(istype(vali_gloves, /obj/item/clothing/gloves/valigloves))
 		user.dropItemToGround(vali_gloves)
-		user.balloon_alert(user, "<span class='warning'>Перчатки Вали сброшены из-за конфликта с модулем брони!</span>")
+		user.balloon_alert(user, "<span class='warning'>Вали перчатки сброшены из-за конфликта с модулем брони!</span>")
+
+/obj/item/clothing/gloves/valigloves/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(slot != SLOT_GLOVES)
+		return
+
+	if(usr != user)
+		if(istype(vali_gloves, /obj/item/clothing/gloves/valigloves))
+			user.dropItemToGround(vali_gloves)
+			user.balloon_alert(user, "<span class='warning'>Другой человек не может надеть на вас перчатки!</span>")
