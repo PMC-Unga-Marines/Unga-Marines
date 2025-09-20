@@ -213,7 +213,7 @@
 	var/turf/drop_loc = get_turf(rewards_position)
 	var/total_points = 0
 
-	for (var/reward in earned_rewards)
+	for(var/reward as anything in earned_rewards)
 		if(isnum(reward))
 			// Direct point value - add to supply points
 			total_points += reward
