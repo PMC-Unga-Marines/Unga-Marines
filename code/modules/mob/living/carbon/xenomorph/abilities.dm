@@ -1088,7 +1088,7 @@
 /datum/action/ability/xeno_action/lay_egg/action_activate(mob/living/carbon/xenomorph/user)
 	var/turf/current_turf = get_turf(xeno_owner)
 
-	if(!current_turf.check_alien_construction(xeno_owner, planned_building = /obj/alien/egg/hugger))
+	if(!current_turf.check_alien_construction(xeno_owner, planned_building = /obj/alien/egg/facehugger))
 		return fail_activate()
 
 	if(!xeno_owner.loc_weeds_type)
@@ -1104,7 +1104,7 @@
 	if(!xeno_owner.loc_weeds_type)
 		return fail_activate()
 
-	new /obj/alien/egg/hugger(current_turf, xeno_owner.hivenumber)
+	new /obj/alien/egg/facehugger(current_turf, xeno_owner.hivenumber)
 	playsound(current_turf, 'sound/effects/splat.ogg', 15, 1)
 
 	succeed_activate()
