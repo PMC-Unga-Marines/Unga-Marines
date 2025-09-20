@@ -219,7 +219,7 @@
 			total_points += reward
 			SSpoints.supply_points[usr.faction] += reward
 			GLOB.round_statistics.points_from_research += reward
-		else if(istype(reward, /obj/item))
+		else if(isitem(reward))
 			// Physical item - drop at location
 			var/obj/item/item = reward
 			item.forceMove(drop_loc)
