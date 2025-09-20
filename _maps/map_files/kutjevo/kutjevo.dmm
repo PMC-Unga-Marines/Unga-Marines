@@ -2065,7 +2065,7 @@
 /turf/open/floor/kutjevo/tan,
 /area/kutjevo/interior/complex/botany/east_tech)
 "ctL" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/stonyfields)
 "ctQ" = (
@@ -2609,7 +2609,7 @@
 /turf/open/floor/kutjevo/tan/grey_edge,
 /area/kutjevo/interior/complex/med/auto_doc)
 "cUi" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/colony_S_East)
 "cUl" = (
@@ -3026,7 +3026,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/interior/construction)
 "dpF" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/kutjevo/exterior/construction)
 "dpH" = (
@@ -11145,7 +11145,7 @@
 /turf/open/floor/kutjevo/colors/green,
 /area/kutjevo/interior/complex/botany)
 "mbt" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/lz_dunes)
@@ -12307,7 +12307,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/colony_central)
 "nmj" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/kutjevo/exterior/complex_border/med_rec)
 "nmw" = (
@@ -12551,7 +12551,7 @@
 /turf/open/floor/kutjevo/multi_tiles,
 /area/kutjevo/interior/power)
 "nyN" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/colony_South)
 "nyY" = (
@@ -13947,7 +13947,7 @@
 /turf/open/floor/kutjevo/tiles,
 /area/kutjevo/exterior/Northwest_Colony)
 "oTD" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/colony_central)
 "oTF" = (
@@ -15967,7 +15967,7 @@
 /turf/open/floor/plating/ground/desertdam/asphalt/autosmooth,
 /area/kutjevo/interior/power)
 "qWL" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/colony_north)
 "qXd" = (
@@ -19045,7 +19045,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/construction)
 "ukW" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/kutjevo/exterior/runoff_dunes)
 "ulo" = (

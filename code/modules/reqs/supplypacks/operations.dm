@@ -24,20 +24,21 @@
 	contains = list(/obj/item/fulton_extraction_pack)
 	cost = 50
 
-/datum/supply_packs/operations/autominer
-	name = "Autominer upgrade"
-	contains = list(/obj/item/minerupgrade/automatic)
-	cost = 50
+// Mining wells removal
+// /datum/supply_packs/operations/autominer
+// 	name = "Autominer upgrade"
+// 	contains = list(/obj/item/minerupgrade/automatic)
+// 	cost = 50
 
-/datum/supply_packs/operations/miningwelloverclock
-	name = "Mining well reinforcement upgrade"
-	contains = list(/obj/item/minerupgrade/reinforcement)
-	cost = 50
+// /datum/supply_packs/operations/miningwelloverclock
+// 	name = "Mining well reinforcement upgrade"
+// 	contains = list(/obj/item/minerupgrade/reinforcement)
+// 	cost = 50
 
-/datum/supply_packs/operations/miningwellresistance
-	name = "Mining well overclock upgrade"
-	contains = list(/obj/item/minerupgrade/overclock)
-	cost = 50
+// /datum/supply_packs/operations/miningwellresistance
+// 	name = "Mining well overclock upgrade"
+// 	contains = list(/obj/item/minerupgrade/overclock)
+// 	cost = 50
 
 /datum/supply_packs/operations/binoculars_tactical
 	name = "Tactical binoculars crate"

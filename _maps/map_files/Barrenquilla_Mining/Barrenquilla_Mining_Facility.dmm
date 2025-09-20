@@ -311,7 +311,7 @@
 /turf/open/floor/tile/dark2,
 /area/barren/engie/engine)
 "bK" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
@@ -1340,7 +1340,7 @@
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "gy" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "gz" = (
@@ -2333,7 +2333,7 @@
 /turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/cave/central)
 "kR" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "kS" = (
@@ -3246,7 +3246,7 @@
 /turf/open/floor/wood,
 /area/barren/cave/lz1)
 "ph" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "pj" = (
@@ -5965,7 +5965,7 @@
 /turf/open/floor/wood,
 /area/barren/civilian/workdorm)
 "BX" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "BY" = (
@@ -7584,7 +7584,7 @@
 /turf/open/floor/wood,
 /area/barren/civilian/cook)
 "JM" = (
-/obj/machinery/miner/damaged,
+//obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "JP" = (
@@ -9352,7 +9352,7 @@
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "Sw" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "Sx" = (
@@ -9582,7 +9582,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
 "TB" = (
-/obj/machinery/miner/damaged/platinum,
+//obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "TC" = (

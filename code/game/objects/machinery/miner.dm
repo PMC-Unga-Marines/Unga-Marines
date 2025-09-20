@@ -1,3 +1,6 @@
+// Mining wells removal
+// THIS FILE IS IGNORED
+
 #define MINER_RUNNING 0
 #define MINER_SMALL_DAMAGE 1
 #define MINER_MEDIUM_DAMAGE 2
