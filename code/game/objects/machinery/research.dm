@@ -134,7 +134,7 @@
 		)
 
 		var/list/tier_rewards = research_rewards[tier]
-		for(var/reward in tier_rewards)
+		for(var/reward as anything in tier_rewards)
 			if(isnum(reward))
 				// Direct point value
 				reward_tier["rewards_list"] += "[reward] credits"
