@@ -114,5 +114,4 @@
 		return
 
 	fade_out(src, our_time = 5 SECONDS)
-	sleep(5 SECONDS)
-	qdel(src)
+	QDEL_IN(src, 5 SECONDS)
