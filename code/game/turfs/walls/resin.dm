@@ -213,4 +213,4 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 80, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 80, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 80, BULLET = 20, LASER = 35, ENERGY = 35, BOMB = 80, BIO = 0, FIRE = 0, ACID = 0)
