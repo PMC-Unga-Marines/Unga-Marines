@@ -5,7 +5,6 @@
 	icon = 'icons/Xeno/castes/hivelord/basic.dmi'
 	icon_state = "Hivelord Walking"
 	effects_icon = 'icons/Xeno/castes/hivelord/effects.dmi'
-	rouny_icon = 'icons/Xeno/castes/hivelord/rouny.dmi'
 	bubble_icon = "alienroyal"
 	health = 250
 	maxHealth = 250
@@ -15,6 +14,11 @@
 	drag_delay = 6 //pulling a big dead xeno is hard
 	tier = XENO_TIER_TWO
 	upgrade = XENO_UPGRADE_NORMAL
+
+	skins = list(
+		/datum/xenomorph_skin/hivelord,
+		/datum/xenomorph_skin/hivelord/rouny,
+	)
 
 // ***************************************
 // *********** Init

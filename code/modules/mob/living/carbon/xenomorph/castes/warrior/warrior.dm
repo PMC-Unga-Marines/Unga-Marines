@@ -5,7 +5,6 @@
 	icon = 'icons/Xeno/castes/warrior/basic.dmi'
 	icon_state = "Warrior Walking"
 	effects_icon = 'icons/Xeno/castes/warrior/effects.dmi'
-	rouny_icon = 'icons/Xeno/castes/warrior/rouny.dmi'
 	bubble_icon = "alienroyal"
 	health = 200
 	maxHealth = 200
@@ -14,6 +13,11 @@
 	tier = XENO_TIER_TWO
 	upgrade = XENO_UPGRADE_NORMAL
 	bubble_icon = "alienroyal"
+
+	skins = list(
+		/datum/xenomorph_skin/warrior,
+		/datum/xenomorph_skin/warrior/rouny,
+	)
 
 /mob/living/carbon/xenomorph/warrior/handle_special_state()
 	var/datum/action/ability/xeno_action/toggle_agility/agility_action = actions_by_path[/datum/action/ability/xeno_action/toggle_agility]
