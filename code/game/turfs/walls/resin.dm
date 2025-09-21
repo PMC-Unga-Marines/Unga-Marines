@@ -195,8 +195,7 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 0, BULLET = 120, LASER = 100, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0) //You aren't damaging this with bullets without alot of AP.
-	max_upgradable_health = 200
+	soft_armor = list(MELEE = -25, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = -25, ACID = 0)
 
 /turf/closed/wall/resin/regenerating/fireproof
 	name = RESIN_WALL_FIRE
@@ -205,8 +204,7 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 0, BULLET = 65, LASER = 75, ENERGY = 75, BOMB = 0, BIO = 0, FIRE = 200, ACID = 0)
-	max_upgradable_health = 200
+	soft_armor = list(MELEE = -25, BULLET = 55, LASER = 50, ENERGY = 50, BOMB = 0, BIO = 0, FIRE = 200, ACID = 0)
 
 /turf/closed/wall/resin/regenerating/hardy
 	name = RESIN_WALL_HARDY
@@ -215,4 +213,4 @@
 	icon_state = "resin-wall-0"
 	walltype = "resin-wall"
 	base_icon_state = "resin-wall"
-	soft_armor = list(MELEE = 80, BULLET = 30, LASER = 25, ENERGY = 25, BOMB = 80, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 80, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 80, BIO = 0, FIRE = 0, ACID = 0)
