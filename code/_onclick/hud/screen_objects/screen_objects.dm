@@ -75,7 +75,7 @@
 
 /atom/movable/screen/proc/on_hud_delete(datum/source)
 	SIGNAL_HANDLER
-	set_new_hud(hud_owner = null)
+	set_new_hud(null)
 
 /atom/movable/screen/swap_hand
 	name = "swap hand"
