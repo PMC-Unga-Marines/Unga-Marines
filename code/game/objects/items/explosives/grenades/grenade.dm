@@ -23,7 +23,7 @@
 	///Does it make a danger overlay for humans? Can synths use it?
 	var/dangerous = TRUE
 	///Будет ли проигрываться звук удара об пол (groundhit_sound)
-	var/throwsound_is_playable = TRUE
+	var/groundhit_sound_is_playable = TRUE
 	///Звук чеки у гранаты
 	var/list/arm_sound = list(
 		'sound/weapons/grenade/grenade_pinout1.ogg',
@@ -138,5 +138,5 @@
 
 /obj/item/explosive/grenade/throw_impact(atom/hit_atom, speed, bounce)
 	. = ..()
-	if(throwsound_is_playable)
+	if(groundhit_sound_is_playable)
 		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), src, pick(groundhit_sound), 20, 1, 9), 0.1 SECONDS)

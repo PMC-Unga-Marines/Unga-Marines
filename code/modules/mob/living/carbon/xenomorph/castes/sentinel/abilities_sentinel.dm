@@ -234,7 +234,7 @@
 	arm_sound = 'sound/voice/alien/yell_alt.ogg'
 	smokeradius = 3
 	overlay_type = null
-	throwsound_is_playable = FALSE
+	groundhit_sound_is_playable = FALSE
 
 /obj/item/explosive/grenade/smokebomb/xeno/update_overlays()
 	. = ..()
