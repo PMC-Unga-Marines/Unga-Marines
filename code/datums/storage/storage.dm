@@ -845,11 +845,15 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		to_chat(user, span_warning("You are busy doing something else!"))
 		return FALSE
 
-	if(!alert_user)
-		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, user)
+	var/atom/delay_target = parent // if we have a storage inside another item, we won't see the do_after without this
+	if(isitem(parent.loc))
+		delay_target = parent.loc
 
-	to_chat(user, "<span class='notice'>You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] \the [parent.name]")
-	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, user))
+	if(!alert_user)
+		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, delay_target)
+
+	to_chat(user, span_notice("You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] \the [parent.name]"))
+	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, delay_target))
 		to_chat(user, span_warning("You fumble [accessed]!"))
 		return FALSE
 	return TRUE
@@ -1002,9 +1006,10 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 ///Delete everything that's inside the storage
 /datum/storage/proc/delete_contents()
 	for(var/obj/item/item in parent.contents)
-		if(item.item_flags & IN_STORAGE)
-			item.on_exit_storage(src)
-			qdel(item)
+		if(!(item.item_flags & IN_STORAGE))
+			continue
+		item.on_exit_storage(src)
+		qdel(item)
 
 ///Returns the storage depth of an atom. This is the number of storage items the atom is contained in before reaching toplevel (the area). Returns -1 if the atom was not found on container.
 /datum/storage/proc/storage_depth(atom/container)

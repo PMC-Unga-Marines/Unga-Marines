@@ -90,6 +90,14 @@
 	else
 		icon = rouny_icon
 
+	if(!rouny_effects_icon)
+		return
+
+	if(effects_icon == rouny_effects_icon)
+		effects_icon = effects_icon
+	else
+		effects_icon = rouny_effects_icon
+
 /mob/living/carbon/xenomorph/proc/change_skin()
 	if(!length(skins))
 		balloon_alert(src, "Your caste does not have the ability to change appearance.")
@@ -115,6 +123,7 @@
 	base_icon = selection.icon
 	effects_icon = selection.effects_icon
 	rouny_icon = selection.rouny_icon
+	rouny_effects_icon = selection.rouny_effects_icon
 
 /mob/living/carbon/xenomorph/Topic(href, href_list)
 	. = ..()
