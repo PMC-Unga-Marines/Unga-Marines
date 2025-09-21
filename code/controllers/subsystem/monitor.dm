@@ -28,8 +28,8 @@ SUBSYSTEM_DEF(monitor)
 	var/is_automatic_balance_on = TRUE
 	///Maximum record of how many players were concurrently playing this round
 	var/maximum_connected_players_count = 0
-	///Used for admin cancellation
-	var/balance_xeno_team_timer
+	///Stores the proposed xeno buff amount, used for admin cancellation
+	var/autobalance_buff_amount
 
 /datum/monitor_statistics
 	var/primo_T4 = 0
@@ -160,26 +160,27 @@ SUBSYSTEM_DEF(monitor)
 		return 1
 	var/datum/hive_status/normal/HN = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	var/xeno_alive_plus_burrowed = HN.total_xenos_for_evolving()
-	var/buff_needed_estimation = min( MAXIMUM_XENO_BUFF_POSSIBLE , 1 + (xeno_job.total_positions-xeno_job.current_positions) / (xeno_alive_plus_burrowed ? xeno_alive_plus_burrowed : 1))
+	var/buff_needed_estimation = min(MAXIMUM_XENO_BUFF_POSSIBLE , 1 + (xeno_job.total_positions-xeno_job.current_positions) / (xeno_alive_plus_burrowed ? xeno_alive_plus_burrowed : 1))
 	// No need to ask admins every time
 	if(GLOB.xeno_stat_multiplicator_buff != 1)
 		return buff_needed_estimation
 
-	message_admins("<span color='prefix'>AUTO BALANCE SYSTEM:</span> An excessive amount of burrowed was detected, while the balance system consider that marines are winning. [span_boldnotice("Considering the amount of burrowed larvas, a stat buff of [buff_needed_estimation * 100]% will be applied to health, health recovery, and melee damages.")] (<a href='byond://?src=[REF(src)];deny=1'>DENY</a>) (<a href='byond://?src=[REF(src)];shutdown_balance_system=1'>SHUTDOWN BALANCE SYSTEM</a>)")
+	message_admins("[span_prefix("AUTO BALANCE SYSTEM:")] An excessive amount of burrowed was detected, while the balance system consider that marines are winning. [span_boldnotice("Considering the amount of burrowed larvas, a stat buff of [buff_needed_estimation * 100]% will be applied to health, health recovery, and melee damages.")] (<a href='byond://?src=[REF(src)];deny=1'>DENY</a>) (<a href='byond://?src=[REF(src)];shutdown_balance_system=1'>SHUTDOWN BALANCE SYSTEM</a>)")
 	send_sound_to_admins('sound/effects/sos-morse-code.ogg')
-	balance_xeno_team_timer = addtimer(CALLBACK(src, PROC_REF(return_needed_buff), buff_needed_estimation), 1 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
+	autobalance_buff_amount = buff_needed_estimation
+	addtimer(CALLBACK(src, PROC_REF(return_needed_buff)), 1 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /datum/controller/subsystem/monitor/proc/return_needed_buff(amount)
-	return amount
+	return autobalance_buff_amount
 
 /datum/controller/subsystem/monitor/Topic(href, list/href_list)
 	. = ..()
 	if(href_list["deny"])
-		deltimer(balance_xeno_team_timer)
+		autobalance_buff_amount = 1
 		message_admins("[key_name_admin(usr)] cancelled the auto balancing suggestion.")
 		log_admin("[key_name(usr)] cancelled the auto balancing suggestion.")
 	if(href_list["shutdown_balance_system"])
-		deltimer(balance_xeno_team_timer)
+		autobalance_buff_amount = 1
 		is_automatic_balance_on = FALSE
 		message_admins("[key_name_admin(usr)] cancelled the auto balancing suggestion and turned it off.")
 		log_admin("[key_name(usr)] cancelled the auto balancing suggestion and turned it off.")
