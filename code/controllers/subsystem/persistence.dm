@@ -360,7 +360,7 @@ SUBSYSTEM_DEF(persistence)
 
 /datum/season_datum/weapons/guns/heavy_unpopular
 	name = "Unpopular cargo guns"
-	description = "PTRS, OICW and FAMAS"
+	description = "PTRS, OICW and FAMAS for roundstart vendors."
 	item_list = list(
 		/obj/item/weapon/gun/clf_heavyrifle/imported = 2,
 		/obj/item/shotgunbox/clf_heavyrifle = 2,
