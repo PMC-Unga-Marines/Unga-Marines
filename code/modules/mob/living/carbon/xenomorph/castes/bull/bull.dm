@@ -5,7 +5,6 @@
 	icon = 'icons/Xeno/castes/bull/basic.dmi'
 	icon_state = "Bull Walking"
 	effects_icon = 'icons/Xeno/castes/bull/effects.dmi'
-	rouny_icon = 'icons/Xeno/castes/bull/rouny.dmi'
 	bubble_icon = "alien"
 	health = 160
 	maxHealth = 160
@@ -15,6 +14,11 @@
 
 	pixel_x = -16
 	pixel_y = -3
+
+	skins = list(
+		/datum/xenomorph_skin/bull,
+		/datum/xenomorph_skin/bull/rouny,
+	)
 
 /mob/living/carbon/xenomorph/bull/handle_special_state()
 	if(is_charging >= CHARGE_ON)

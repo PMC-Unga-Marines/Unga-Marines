@@ -6,7 +6,5 @@
 	var/icon
 	///Icon of our effects to which we switch
 	var/effects_icon
-	///Rouny icon to which we switch
-	var/rouny_icon
-	///Roune icon effects to which we switch
-	var/rouny_effects_icon
+	///The access we need to have to be able to change to this skin
+	var/access_needed = BOOSTY_TIER_2
