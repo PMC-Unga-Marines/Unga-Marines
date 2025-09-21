@@ -291,7 +291,8 @@
 	// Award points to company if user has one, otherwise to faction
 	var/company_name = null
 	if(ishuman(user))
-		company_name = user.get_company_name()
+		var/mob/living/carbon/human/human_user = user
+		company_name = human_user.get_company_name()
 
 	// Прибавление поинтов компании происходит вот тут:
 	if(company_name)
