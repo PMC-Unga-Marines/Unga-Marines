@@ -10,7 +10,7 @@
 	name = "holopad"
 	desc = "It's a floor-mounted device for projecting holographic images."
 	icon_state = "holopad0"
-	layer = MAP_SWITCH(ABOVE_OPEN_TURF_LAYER, LOW_OBJ_LAYER)
+	layer = MAP_SWITCH(LOWER_RUNE_LAYER, LOW_OBJ_LAYER)
 	plane = MAP_SWITCH(FLOOR_PLANE, GAME_PLANE)
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 5
