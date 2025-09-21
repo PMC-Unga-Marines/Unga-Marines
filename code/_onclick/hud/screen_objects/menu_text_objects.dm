@@ -56,16 +56,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 
 /atom/movable/screen/text/lobby/clickable/MouseExited(location, control, params)
 	. = ..()
-	var/mob/new_player/player = hud.mymob
 	remove_atom_colour(TEMPORARY_COLOR_PRIORITY, COLOR_HOVER_MOUSE)
 	update_text()
-	if((SSticker?.current_state >= GAME_STATE_PLAYING) && (initial(icon_state) == "unready"))
-		icon_state = "loading"
-		return
-	if(icon_state != "ready_a")
-		icon_state = initial(icon_state)
-	else
-		icon_state = player.ready ? "ready" : "unready"
+	icon_state = initial(icon_state)
 
 /atom/movable/screen/text/lobby/clickable/Click()
 	if(!(atom_flags & INITIALIZED)) //yes this can happen, fuck me
@@ -107,15 +100,12 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 		if(GAME_STATE_PREGAME, GAME_STATE_STARTUP)
 			maptext = "<span class='lobbytext'>ПРИСОЕДИНИТЬСЯ \[Раунд не начат\]</span>"
 			icon_state = "join"
-			return
 		if(GAME_STATE_SETTING_UP)
 			maptext = "<span class='lobbytext'>ПРИСОЕДИНИТЬСЯ \[Загрузка\]</span>"
 			icon_state = "join"
-			return
 		else
 			maptext = "<span class='lobbytext'>ПРИСОЕДИНИТЬСЯ</span>"
 			icon_state = "join"
-			return
 
 /atom/movable/screen/text/lobby/clickable/join_game/Click()
 	. = ..()
@@ -131,7 +121,6 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	RegisterSignal(SSdcs, COMSIG_GLOB_GAMEMODE_LOADED, TYPE_PROC_REF(/atom/movable/screen/text/lobby, update_text))
 
 /atom/movable/screen/text/lobby/clickable/ready/update_text()
-	var/mob/new_player/player = hud.mymob
 	switch(SSticker?.current_state)
 		if(GAME_STATE_PLAYING)
 			maptext = "<span class='lobbytext'>РАУНД ДЛИТСЯ [gameTimestamp(format = "hh:mm", wtime = world.time - SSticker.round_start_time)]</span>"
@@ -140,6 +129,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 			maptext = "<span class='lobbytext'>РАУНД ОКОНЧЕН</span>"
 			icon_state = "loading"
 		else
+			var/mob/new_player/player = hud.mymob
 			maptext = "<span class='lobbytext'>ВЫ: [player.ready ? "" : "НЕ "]ГОТОВЫ</span>"
 
 /atom/movable/screen/text/lobby/clickable/ready/Click()
@@ -152,6 +142,14 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	if(MouseEntered(src))
 		icon_state += "_a"
 	update_text()
+
+/atom/movable/screen/text/lobby/clickable/ready/MouseExited(location, control, params)
+	. = ..()
+	var/mob/new_player/player = hud.mymob
+	if((SSticker?.current_state >= GAME_STATE_PLAYING))
+		icon_state = "loading"
+		return
+	icon_state = player.ready ? "ready" : "unready"
 
 /atom/movable/screen/text/lobby/clickable/observe
 	maptext = "<span class='lobbytext'>НАБЛЮДАТЬ</span>"
