@@ -547,26 +547,9 @@
 	var/mob/living/carbon/xenomorph/xeno_drainer = drainer
 	xeno_drainer.gain_plasma(drain_value * GORGER_GREENBLOOD_CONVERSION)
 
-///No x2 heal for gloves(
 /datum/component/chem_booster/gloves
 
-/datum/component/chem_booster/gloves/show_radial()
-	var/list/radial_options = list(
-		EXTRACT = image(icon = 'icons/mob/radial.dmi', icon_state = "cboost_extract"),
-		LOAD = image(icon = 'icons/mob/radial.dmi', icon_state = "cboost_load"),
-		VALI_INFO = image(icon = 'icons/mob/radial.dmi', icon_state = "cboost_info"),
-	)
-
-	var/choice = show_radial_menu(wearer, wearer, radial_options, null, 48, null, TRUE, TRUE)
-	switch(choice)
-		if(EXTRACT)
-			extract(10)
-
-		if(LOAD)
-			load_up()
-
-		if(VALI_INFO)
-			to_chat(wearer, span_notice("[reagent_info]"))
+	resource_storage_max = 120
 
 #undef EXTRACT
 #undef LOAD
