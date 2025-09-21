@@ -23,13 +23,6 @@
 
 	change_skin()
 
-/mob/living/carbon/xenomorph/verb/make_rouny()
-	set name = "Make rouny"
-	set desc = "Makes you funny beno."
-	set category = "Alien"
-
-	toggle_rouny()
-
 /mob/living/carbon/xenomorph/verb/tunnel_list()
 	set name = "Tunnel List"
 	set desc = "See all currently active tunnels."
@@ -68,43 +61,27 @@
 
 	return
 
-/mob/living/carbon/xenomorph/proc/toggle_rouny()
-	#ifndef TESTING
-	if(SSdiscord.get_boosty_tier(ckey) < BOOSTY_TIER_3)
-		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
-		return
-	#endif
-
-	if(!rouny_icon)
-		to_chat(usr, span_notice("Sorry, but rouny skin is currently unavailable for this caste."))
-		return
-
-	toggle_rouny_skin()
-
-/mob/living/carbon/xenomorph/proc/toggle_rouny_skin()
-	if(!rouny_icon) // we should check for it before using the proc, but just in case
-		return
-
-	if(icon == rouny_icon)
-		icon = base_icon
-	else
-		icon = rouny_icon
-
 /mob/living/carbon/xenomorph/proc/change_skin()
 	if(!length(skins))
 		balloon_alert(src, "Your caste does not have the ability to change appearance.")
 		return
 
-	#ifndef TESTING
-	if(SSdiscord.get_boosty_tier(ckey) < BOOSTY_TIER_2)
-		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
+	var/boosty_access_tier = SSdiscord.get_boosty_tier(ckey)
+	if(check_other_rights(client, R_ADMIN, FALSE))
+		boosty_access_tier = BOOSTY_TIER_3
+	if(boosty_access_tier < BOOSTY_TIER_2)
+		to_chat(usr, span_notice("You need a higher boosty tier to use this!"))
 		return
-	#endif
 
 	var/datum/xenomorph_skin/selection
-	var/list/available_skins = list() // we do a list of names instead of datums
-	for(var/datum/xenomorph_skin/our_skin AS in skins)
+	var/list/available_skins = list()// we do a list of names instead of datums
+	for(var/datum/xenomorph_skin/our_skin as anything in skins)
+		if(our_skin.access_needed > boosty_access_tier)
+			continue
 		available_skins[our_skin.name] = our_skin
+	if(length(available_skins) < 2)
+		to_chat(usr, span_notice("There aren't any skins that you can access!"))
+		return
 	var/answer = tgui_input_list(src, "Choose a setting appearance", "Choose a setting appearance", available_skins)
 	selection = available_skins[answer]
 
@@ -112,9 +89,7 @@
 		return
 
 	icon = selection.icon
-	base_icon = selection.icon
 	effects_icon = selection.effects_icon
-	rouny_icon = selection.rouny_icon
 
 /mob/living/carbon/xenomorph/Topic(href, href_list)
 	. = ..()
