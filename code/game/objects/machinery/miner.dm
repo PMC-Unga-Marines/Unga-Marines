@@ -121,6 +121,7 @@
 			required_ticks = 60
 		if(MINER_AUTOMATED)
 			if(stored_mineral)
+				// For automated miners, award points to faction (no specific user)
 				SSpoints.supply_points[faction] += mineral_value * stored_mineral
 				SSpoints.dropship_points += dropship_bonus * stored_mineral
 				GLOB.round_statistics.points_from_mining += mineral_value * stored_mineral
@@ -287,7 +288,22 @@
 		to_chat(user, span_warning("[src] is not ready to produce a shipment yet!"))
 		return
 
-	SSpoints.supply_points[faction] += mineral_value * stored_mineral
+	// Award points to company if user has one, otherwise to faction
+	var/company_name = null
+	if(ishuman(user))
+		company_name = user.get_company_name()
+
+	// Прибавление поинтов компании происходит вот тут:
+	if(company_name)
+		// Эта строка добавляет поинты компании:
+		add_company_points(company_name, mineral_value * stored_mineral)
+		to_chat(user, span_notice("Your company [company_name] earned [mineral_value * stored_mineral] points!"))
+		to_chat(user, span_info("Company balance: [get_company_points(company_name)] points"))
+	else
+		// Если у пользователя нет компании, очки идут фракции как раньше.
+		SSpoints.supply_points[faction] += mineral_value * stored_mineral
+		to_chat(user, span_notice("Points awarded to faction budget: [mineral_value * stored_mineral] points"))
+
 	SSpoints.dropship_points += dropship_bonus * stored_mineral
 	GLOB.round_statistics.points_from_mining += mineral_value * stored_mineral
 	do_sparks(5, TRUE, src)
@@ -308,6 +324,7 @@
 			for(var/direction in GLOB.cardinals)
 				if(!isopenturf(get_step(loc, direction))) //Must be open on one side to operate
 					continue
+				// For automated miners, award points to faction (no specific user)
 				SSpoints.supply_points[faction] += mineral_value
 				SSpoints.dropship_points += dropship_bonus
 				GLOB.round_statistics.points_from_mining += mineral_value

@@ -98,6 +98,8 @@ SUBSYSTEM_DEF(points)
 /datum/controller/subsystem/points/fire(resumed = FALSE)
 	dropship_points += DROPSHIP_POINT_RATE / (1 MINUTES / wait)
 
+	// company_supply_points is a list, don't reset it
+
 	for(var/key in supply_points)
 		supply_points[key] += SUPPLY_POINT_RATE / (1 MINUTES / wait)
 
