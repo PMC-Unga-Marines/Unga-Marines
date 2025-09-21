@@ -8,3 +8,5 @@
 	var/effects_icon
 	///Rouny icon to which we switch
 	var/rouny_icon
+	///Roune icon effects to which we switch
+	var/rouny_effects_icon
