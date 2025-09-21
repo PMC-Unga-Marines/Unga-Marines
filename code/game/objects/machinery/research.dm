@@ -73,7 +73,7 @@
 				/obj/item/attachable/shoulder_mount,
 			),
 			RES_TIER_RARE = list(
-				RES_TIER_RARE,
+				RESEARCH_REWARD_RARE,
 			),
 		),
 	)
