@@ -21,6 +21,7 @@
 	name = "Show Hive status"
 	action_icon = 'icons/Xeno/actions/queen.dmi'
 	action_icon_state = "watch_xeno"
+	background_icon = 'icons/Xeno/actions/_actions.dmi'
 
 /datum/action/observer_action/show_hivestatus/action_activate()
 	if(!can_use_action())
@@ -117,6 +118,7 @@
 	name = "Spawn as Facehugger"
 	action_icon = 'icons/Xeno/actions/carrier.dmi'
 	action_icon_state = "hugger_set"
+	background_icon = 'icons/Xeno/actions/_actions.dmi'
 
 /datum/action/observer_action/find_facehugger_spawn/action_activate()
 	var/mob/dead/observer/dead_owner = owner
