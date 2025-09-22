@@ -587,8 +587,8 @@
 //-------------------------------------------------------
 //TypeSh12-Saiga12
 
-/obj/item/weapon/gun/rifle/typesh12
-	name = "TypeSh12"
+/obj/item/weapon/gun/rifle/tash12
+	name = "Type 12-ASH"
 	desc = "Experimental automatic rifle modification Святогор with 12-caliber cartridges for 25 rounds and a new generation feeding system"
 	icon_state = "typesh12"
 	worn_icon_state = "typesh12"
@@ -598,11 +598,11 @@
 	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/ak47_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
-	default_ammo_type = /obj/item/ammo_magazine/rifle/typesh12
+	default_ammo_type = /obj/item/ammo_magazine/rifle/tash12
 	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/typesh12,
-		/obj/item/ammo_magazine/rifle/typesh12/slug,
-		/obj/item/ammo_magazine/rifle/typesh12/flechette,
+		/obj/item/ammo_magazine/rifle/tash12,
+		/obj/item/ammo_magazine/rifle/tash12/slug,
+		/obj/item/ammo_magazine/rifle/tash12/flechette,
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/scope/marine,
