@@ -15,24 +15,6 @@
 		listtoadd["[x]"] = list(y);\
 	}
 
-#ifdef SHADOW_DEBUG
-///Color coded atom debug, note will break when theres planetside lgihting
-#define DEBUG_HIGHLIGHT(x, y, colour) \
-	do { \
-		var/turf/T = locate(x, y, 3); \
-		if(T) { \
-			T.color = colour; \
-		}\
-	} while (FALSE)
-
-//For debugging use when we want to know if a turf is being affected multiple times
-//#define DEBUG_HIGHLIGHT(x, y, colour) do{var/turf/T=locate(x,y,2);if(T){switch(T.color){if("#ff0000"){T.color = "#00ff00"}if("#00ff00"){T.color="#0000ff"}else{T.color="#ff0000"}}}}while(0)
-#define DO_SOMETHING_IF_DEBUGGING_SHADOWS(something) something
-#else
-#define DEBUG_HIGHLIGHT(x, y, colour)
-#define DO_SOMETHING_IF_DEBUGGING_SHADOWS(something)
-#endif
-
 /atom/movable/lighting_mask
 	///Turfs that are being affected by this mask, this is for the sake of luminosity
 	var/list/turf/affecting_turfs
@@ -96,7 +78,6 @@
 
 	//Ceiling the range since we need it in integer form
 	var/range = CEILING(radius, 1)
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(var/timer = TICK_USAGE)
 
 	//Work out our position
 	//Calculate shadow origin offset
@@ -109,12 +90,11 @@
 	var/turf/our_turf = get_turf(attached_atom)	//The mask is in nullspace, so we need the source turf of the container
 
 	//Account for pixel shifting and light offset
-	calculated_position_x = our_turf.x + ((offset_x) / world.icon_size)
-	calculated_position_y = our_turf.y + ((offset_y) / world.icon_size)
+	calculated_position_x = our_turf.x + (offset_x / ICON_SIZE_X)
+	calculated_position_y = our_turf.y + (offset_y / ICON_SIZE_Y)
 
 	//Remove the old shadows
 	overlays.Cut()
-
 
 	//Reset the list
 	if(islist(affecting_turfs))
@@ -148,68 +128,32 @@
 			//At this point we no longer care about
 			//the atom itself, only the position values
 			COORD_LIST_ADD(opaque_atoms_in_view, thing.x, thing.y)
-			DEBUG_HIGHLIGHT(thing.x, thing.y, "#0000FF")
 
 	//We are too small to consider shadows on, luminsoty has been considered at least.
 	if(radius < 2)
 		return
 
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(log_game("[TICK_USAGE_TO_MS(timer)]ms to process view([range], src)."))
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(var/temp_timer = TICK_USAGE)
-
 	//Group atoms together for optimisation
 	var/list/grouped_atoms = group_atoms(opaque_atoms_in_view)
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(log_game("[TICK_USAGE_TO_MS(temp_timer)]ms to process group_atoms"))
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(temp_timer = TICK_USAGE)
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(var/total_coordgroup_time = 0)
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(var/total_cornergroup_time = 0)
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(var/triangle_time = 0)
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(var/culling_time = 0)
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(var/triangle_to_matrix_time = 0)
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(var/matrix_division_time = 0)
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(var/MA_new_time = 0)
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(var/MA_vars_time = 0)
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(var/overlays_add_time = 0)
 
 	var/list/overlays_to_add = list()
-	for(var/group in grouped_atoms)
-		DO_SOMETHING_IF_DEBUGGING_SHADOWS(temp_timer = TICK_USAGE)
-
+	for(var/group as anything in grouped_atoms)
 		var/list/coordgroup = calculate_corners_in_group(group)
-		DO_SOMETHING_IF_DEBUGGING_SHADOWS(total_coordgroup_time += TICK_USAGE_TO_MS(temp_timer))
-		DO_SOMETHING_IF_DEBUGGING_SHADOWS(temp_timer = TICK_USAGE)
-
 		//This is where the lines are made
 		var/list/cornergroup = get_corners_from_coords(coordgroup)
-		DO_SOMETHING_IF_DEBUGGING_SHADOWS(total_cornergroup_time += TICK_USAGE_TO_MS(temp_timer))
-		DO_SOMETHING_IF_DEBUGGING_SHADOWS(temp_timer = TICK_USAGE)
-
 		var/list/culledlinegroup = cull_blocked_in_group(cornergroup, opaque_atoms_in_view)
-		DO_SOMETHING_IF_DEBUGGING_SHADOWS(culling_time += TICK_USAGE_TO_MS(temp_timer))
-		DO_SOMETHING_IF_DEBUGGING_SHADOWS(temp_timer = TICK_USAGE)
 
 		if(!LAZYLEN(culledlinegroup))
 			continue
 
 		var/list/triangles = calculate_triangle_vertices(culledlinegroup)
-		DO_SOMETHING_IF_DEBUGGING_SHADOWS(triangle_time += TICK_USAGE_TO_MS(temp_timer))
-		DO_SOMETHING_IF_DEBUGGING_SHADOWS(temp_timer = TICK_USAGE)
 
 		for(var/triangle in triangles)
 			var/matrix/triangle_matrix = triangle_to_matrix(triangle)
 
-			DO_SOMETHING_IF_DEBUGGING_SHADOWS(triangle_to_matrix_time += TICK_USAGE_TO_MS(temp_timer))
-			DO_SOMETHING_IF_DEBUGGING_SHADOWS(temp_timer = TICK_USAGE)
-
 			triangle_matrix /= transform
 
-			DO_SOMETHING_IF_DEBUGGING_SHADOWS(matrix_division_time += TICK_USAGE_TO_MS(temp_timer))
-			DO_SOMETHING_IF_DEBUGGING_SHADOWS(temp_timer = TICK_USAGE)
-
 			var/mutable_appearance/shadow = new()
-
-			DO_SOMETHING_IF_DEBUGGING_SHADOWS(MA_new_time += TICK_USAGE_TO_MS(temp_timer))
-			DO_SOMETHING_IF_DEBUGGING_SHADOWS(temp_timer = TICK_USAGE)
 
 			shadow.icon = LIGHTING_ICON_BIG
 			shadow.icon_state = "triangle"
@@ -218,32 +162,10 @@
 			shadow.render_target = SHADOW_RENDER_TARGET
 			shadow.blend_mode = BLEND_OVERLAY
 
-			DO_SOMETHING_IF_DEBUGGING_SHADOWS(MA_vars_time += TICK_USAGE_TO_MS(temp_timer))
-			DO_SOMETHING_IF_DEBUGGING_SHADOWS(temp_timer = TICK_USAGE)
-
 			LAZYADD(shadows, shadow)
 			overlays_to_add += shadow
 
-			DO_SOMETHING_IF_DEBUGGING_SHADOWS(overlays_add_time += TICK_USAGE_TO_MS(temp_timer))
-			DO_SOMETHING_IF_DEBUGGING_SHADOWS(temp_timer = TICK_USAGE)
-
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(var/overlay_apply_time = TICK_USAGE)
-
 	overlays += overlays_to_add //batch appearance generation for free lag(tm)
-
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(overlay_apply_time = TICK_USAGE_TO_MS(overlay_apply_time))
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(log_game("total_coordgroup_time: [total_coordgroup_time]ms"))
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(log_game("total_cornergroup_time: [total_cornergroup_time]ms"))
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(log_game("triangle_time calculation: [triangle_time]ms"))
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(log_game("triangle_to_matrix_time: [triangle_to_matrix_time]ms"))
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(log_game("Culling Time: [culling_time]ms"))
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(log_game("matrix_division_time: [matrix_division_time]ms"))
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(log_game("MA_new_time: [MA_new_time]ms"))
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(log_game("MA_vars_time: [MA_vars_time]ms"))
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(log_game("overlays_add_time: [overlays_add_time]ms"))
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(log_game("overlay_apply_time: [overlay_apply_time]ms"))
-	DO_SOMETHING_IF_DEBUGGING_SHADOWS(log_game("[TICK_USAGE_TO_MS(timer)]ms to process total."))
-
 
 /**
  * Converts a triangle into a matrix that can be applied to a standardized triangle
@@ -290,8 +212,7 @@
 	//a,b,d and e can be used to define the shape, C and F can be used for translation god matrices are so beautiful
 	//Completely random offset that I didnt derive, I just trialled and errored for about 4 hours until it randomly worked
 	//var/radius_based_offset = radius * 3 + RADIUS_BASED_OFFSET <-- for 1024x1024 lights DO NOT USE 1024x1024 SHADOWS UNLESS YOU ARE PLAYING WITH RTX200000 OR SOMETHING
-	var/radius_based_offset = RADIUS_BASED_OFFSET
-	var/matrix/M = matrix(a, b, (c * 32) - ((radius_based_offset) * 32), d, e, (f * 32) - ((radius_based_offset) * 32))
+	var/matrix/M = matrix(a, b, (c * 32) - (RADIUS_BASED_OFFSET * 32), d, e, (f * 32) - (RADIUS_BASED_OFFSET * 32))
 	//log_game("[M.a], [M.d], 0")
 	//log_game("[M.b], [M.e], 0")
 	//log_game("[M.c], [M.f], 1")
@@ -313,7 +234,7 @@
 	//The output
 	. = list()
 	//Every line has 2 triangles innit
-	for(var/list/line AS in cornergroup)
+	for(var/list/line as anything in cornergroup)
 		//Get the corner vertices
 		var/vertex1 = line[1]
 		var/vertex2 = line[2]
@@ -516,12 +437,11 @@
 				list(list(xlow, ylow), list(xhigh, ylow)),
 			)
 		//Bottom Middle
-		else
-			return list(
-				list(list(xlow, yhigh), list(xlow, ylow)),
-				list(list(xlow, ylow), list(xhigh, ylow)),
-				list(list(xhigh, ylow), list(xhigh, yhigh))
-			)
+		return list(
+			list(list(xlow, yhigh), list(xlow, yhigh)),
+			list(list(xlow, yhigh), list(xhigh, yhigh)),
+			list(list(xhigh, yhigh), list(xhigh, yhigh))
+		)
 	//The source is below the point (Top quad)
 	else if(oury < ylow)
 		//Top Right
@@ -537,12 +457,11 @@
 				list(list(xlow, yhigh), list(xhigh, yhigh)),
 			)
 		//Top Middle
-		else
-			return list(
-				list(list(xlow, ylow), list(xlow, yhigh)),
-				list(list(xlow, yhigh), list(xhigh, yhigh)),
-				list(list(xhigh, yhigh), list(xhigh, ylow))
-			)
+		return list(
+			list(list(xlow, ylow), list(xlow, yhigh)),
+			list(list(xlow, yhigh), list(xhigh, yhigh)),
+			list(list(xhigh, yhigh), list(xhigh, ylow))
+		)
 	//the source is between the group Middle something
 	else
 		//Middle Right
@@ -560,13 +479,12 @@
 				list(list(xlow, yhigh), list(xhigh, yhigh))
 			)
 		//Middle Middle (Why?????????)
-		else
-			return list(
-				list(list(xhigh, ylow), list(xlow, ylow)),
-				list(list(xlow, ylow), list(xlow, yhigh)),
-				list(list(xlow, yhigh), list(xhigh, yhigh)),
-				list(list(xlow, yhigh), list(xhigh, ylow))
-			)
+		return list(
+			list(list(xhigh, ylow), list(xlow, ylow)),
+			list(list(xlow, ylow), list(xlow, yhigh)),
+			list(list(xlow, yhigh), list(xhigh, yhigh)),
+			list(list(xlow, yhigh), list(xhigh, ylow))
+		)
 
 //Calculates the coordinates of the corner
 //Takes a list of blocks and calculates the bottom left corner and the top right corner.
@@ -588,10 +506,6 @@
 	var/group_direction = NORTH
 	if(first[1] != second[1])
 		group_direction = EAST
-#ifdef SHADOW_DEBUG6
-	else if(first[2] != second[2])
-		message_admins("Major error, group is not 1xN or Nx1")
-#endif
 	var/lowest = INFINITY
 	var/highest = 0
 	for(var/vector in group)
@@ -606,11 +520,10 @@
 			list(first[1] - 0.5, lowest - 0.5),
 			list(first[1] + 0.5, highest + 0.5)
 		)
-	else
-		return list(
-			list(lowest - 0.5, first[2] - 0.5),
-			list(highest + 0.5, first[2] + 0.5)
-		)
+	return list(
+		list(lowest - 0.5, first[2] - 0.5),
+		list(highest + 0.5, first[2] + 0.5)
+	)
 
 ///Groups things into vertical and horizontal lines.
 ///Input: All atoms ungrouped list(atom1, atom2, atom3)
@@ -639,18 +552,15 @@
 				if(length(group) == 1)
 					//Add the element in group to horizontal
 					COORD_LIST_ADD(horizontal_atoms, pointer, text2num(x_key))
-					DEBUG_HIGHLIGHT(text2num(x_key), pointer, "#FFFF00")
 				else
 					//Add the group to the output
 					. += list(group)
 				group = list()
 			group += list(list(text2num(x_key), next))
-			DEBUG_HIGHLIGHT(text2num(x_key), next, "#FF0000")
 			pointer = next
 		if(length(group) == 1)
 			//Add the element in group to horizontal
 			COORD_LIST_ADD(horizontal_atoms, pointer, text2num(x_key))
-			DEBUG_HIGHLIGHT(text2num(x_key), pointer, "#FFFF00")
 		else
 			//Add the group to the output
 			. += list(group)
@@ -666,7 +576,6 @@
 				. += list(group)
 				group = list()
 			group += list(list(next, text2num(y_key)))
-			DEBUG_HIGHLIGHT(next, text2num(y_key), "#00FF00")
 			pointer = next
 		. += list(group)
 
@@ -676,11 +585,9 @@
 		//top or bottom
 		var/proportion = radius / abs(delta_y)
 		return list(delta_x * proportion + offset_x, delta_y * proportion + offset_y)
-	else
-		var/proportion = radius / abs(delta_x)
-		return list(delta_x * proportion + offset_x, delta_y * proportion + offset_y)
+	var/proportion = radius / abs(delta_x)
+	return list(delta_x * proportion + offset_x, delta_y * proportion + offset_y)
 
 #undef LIGHTING_SHADOW_TEX_SIZE
+#undef RADIUS_BASED_OFFSET
 #undef COORD_LIST_ADD
-#undef DEBUG_HIGHLIGHT
-#undef DO_SOMETHING_IF_DEBUGGING_SHADOWS

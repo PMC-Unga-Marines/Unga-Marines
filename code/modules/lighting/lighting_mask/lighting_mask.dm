@@ -59,7 +59,7 @@
 	else
 		transform = to_apply
 
-///Creates a matrix for the lighting mak to use
+///Creates a matrix for the lighting mask to use
 /atom/movable/lighting_mask/proc/get_matrix(radius = 1)
 	var/matrix/new_size_matrix = new()
 	//Scale
