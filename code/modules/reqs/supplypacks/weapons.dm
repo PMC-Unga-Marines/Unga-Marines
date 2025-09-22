@@ -318,36 +318,36 @@
 /datum/supply_packs/weapons/typesh12
 	name = "Typesh12 Modifications СВЯТОГОР"
 	contains = list(
-		/obj/item/weapon/gun/rifle/typesh12,
-		/obj/item/ammo_magazine/rifle/typesh12/slug,
-		/obj/item/ammo_magazine/rifle/typesh12/slug,
-		/obj/item/ammo_magazine/rifle/typesh12/flechette,
+		/obj/item/weapon/gun/rifle/tash12,
+		/obj/item/ammo_magazine/rifle/tash12/slug,
+		/obj/item/ammo_magazine/rifle/tash12/slug,
+		/obj/item/ammo_magazine/rifle/tash12/flechette,
 		)
 	cost = 650
 
 /datum/supply_packs/weapons/typesh12s
 	name = "Typesh12 slug magazine x3"
 	contains = list(
-		/obj/item/ammo_magazine/rifle/typesh12/slug,
-		/obj/item/ammo_magazine/rifle/typesh12/slug,
-		/obj/item/ammo_magazine/rifle/typesh12/slug,
+		/obj/item/ammo_magazine/rifle/tash12/slug,
+		/obj/item/ammo_magazine/rifle/tash12/slug,
+		/obj/item/ammo_magazine/rifle/tash12/slug,
 		)
 	cost = 150	
 
 /datum/supply_packs/weapons/typesh12b
 	name = "Typesh12 buckshot magazine x3"
 	contains = list(
-		/obj/item/ammo_magazine/rifle/typesh12,
-		/obj/item/ammo_magazine/rifle/typesh12,
-		/obj/item/ammo_magazine/rifle/typesh12,
+		/obj/item/ammo_magazine/rifle/tash12,
+		/obj/item/ammo_magazine/rifle/tash12,
+		/obj/item/ammo_magazine/rifle/tash12,
 		)
 	cost = 150	
 
 /datum/supply_packs/weapons/typesh12f
 	name = "Typesh12 flechette magazine x3"
 	contains = list(
-		/obj/item/ammo_magazine/rifle/typesh12/flechette,
-		/obj/item/ammo_magazine/rifle/typesh12/flechette,
-		/obj/item/ammo_magazine/rifle/typesh12/flechette,
+		/obj/item/ammo_magazine/rifle/tash12/flechette,
+		/obj/item/ammo_magazine/rifle/tash12/flechette,
+		/obj/item/ammo_magazine/rifle/tash12/flechette,
 		)
 	cost = 150	
