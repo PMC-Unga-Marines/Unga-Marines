@@ -516,6 +516,7 @@
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/flashlight/under,
+		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/lace,
 	)
 
