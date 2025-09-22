@@ -52,16 +52,6 @@ ADMIN_VERB(queen_report, R_FUN, "Queen Mother Report", "Play a Queen mother repo
 	log_admin("[key_name(user)] created a Queen Mother report: [input]")
 	message_admins("[ADMIN_TPMONTY(user.mob)] created a Queen Mother report.")
 
-ADMIN_VERB(rouny_all, R_FUN, "Toggle Glob Xeno Rouny", "Toggle all living xenos into rouny versions of themselves", ADMIN_CATEGORY_FUN)
-	for(var/mob/living/carbon/xenomorph/xenotorouny in GLOB.xeno_mob_list)
-		if(!isxeno(xenotorouny)) // will it even do something?
-			continue
-		if(!xenotorouny.rouny_icon)
-			continue
-		xenotorouny.toggle_rouny_skin()
-	log_admin("[key_name(user)] toggled global rounification")
-	message_admins("[ADMIN_TPMONTY(user.mob)] toggled global rounification.")
-
 ADMIN_VERB(hive_status, R_FUN, "Check Hive Status", "Check the status of the hive.", ADMIN_CATEGORY_FUN)
 	if(!SSticker)
 		return

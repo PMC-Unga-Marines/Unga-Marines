@@ -38,10 +38,10 @@
 			create_shrapnel(oldloc, rand(4, 8) * mob_size, direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/xeno)
 		return
 
-	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
-
 	var/sunder_amount = severity * 0.125
 	adjust_sunder(sunder_amount)
+
+	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
 
 	var/modified_severity = modify_by_armor(severity, BOMB)
 	explosion_throw(modified_severity, direction)

@@ -332,7 +332,7 @@
 	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_OVERLAY
 
-/atom/movable/screen/plane_master/pipecrawl/Initialize(mapload)
+/atom/movable/screen/plane_master/pipecrawl/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
 	// Makes everything on this plane slightly brighter
 	// Has a nice effect, makes thing stand out

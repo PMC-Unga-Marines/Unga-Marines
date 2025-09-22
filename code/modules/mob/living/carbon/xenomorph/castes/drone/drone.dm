@@ -5,12 +5,13 @@
 	icon = 'icons/Xeno/castes/drone/basic.dmi'
 	icon_state = "Drone Walking"
 	effects_icon = 'icons/Xeno/castes/drone/effects.dmi'
-	rouny_icon = 'icons/Xeno/castes/drone/rouny.dmi'
 	bubble_icon = "alien"
 	skins = list(
+		/datum/xenomorph_skin/drone,
+		/datum/xenomorph_skin/drone/rouny,
 		/datum/xenomorph_skin/drone/king,
 		/datum/xenomorph_skin/drone/cyborg,
-		/datum/xenomorph_skin/drone,
+		/datum/xenomorph_skin/drone/hornet,
 	)
 	health = 120
 	maxHealth = 120
