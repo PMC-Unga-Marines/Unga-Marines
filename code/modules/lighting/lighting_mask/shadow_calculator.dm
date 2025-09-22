@@ -62,7 +62,7 @@
 /atom/movable/lighting_mask/proc/calculate_lighting_shadows()
 	//Check to make sure lighting is actually started
 	//If not count the amount of duplicate requests created.
-	if(!SSlighting.started)
+	if(!SSlighting.initialized)
 		if(awaiting_update)
 			SSlighting.duplicate_shadow_updates_in_init++
 			return
