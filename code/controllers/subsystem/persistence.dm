@@ -42,6 +42,7 @@ SUBSYSTEM_DEF(persistence)
 		/datum/season_datum/weapons/guns/heavy_ff,
 		/datum/season_datum/weapons/guns/heavy_autorail,
 		/datum/season_datum/weapons/guns/heavy_shock,
+		/datum/season_datum/weapons/guns/heavy_unpopular,
 		),
 	)
 	///The saved list of custom outfits names
@@ -201,7 +202,7 @@ SUBSYSTEM_DEF(persistence)
 
 /datum/season_datum/weapons/guns/rifle_seasonal_one
 	name = "Old Earth"
-	description = "Ancient Earth guns. Antique and obsolete, but no less deadly"
+	description = "Ancient Earth guns. Antique and obsolete, but no less deadly."
 	item_list = list(
 		/obj/item/weapon/gun/rifle/mkh = -1,
 		/obj/item/ammo_magazine/rifle/mkh = -1,
@@ -222,20 +223,17 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/ammo_magazine/rifle = -1,
 		/obj/item/weapon/gun/rifle/m41a = -1,
 		/obj/item/ammo_magazine/rifle/m41a = -1,
-		/obj/item/weapon/gun/rifle/type71/seasonal = -1,
-		/obj/item/ammo_magazine/rifle/type71 = -1,
-		/obj/item/ammo_magazine/packet/groza = -1,
 		/obj/item/weapon/gun/rifle/alf_machinecarbine = -1,
 		/obj/item/ammo_magazine/rifle/alf_machinecarbine = -1,
 		)
 
 /datum/season_datum/weapons/guns/rifle_seasonal_three
 	name = "Cold War"
-	description = "Hot guns from the Cold War"
+	description = "Hot guns from the Cold War."
 	item_list = list(
 		/obj/item/weapon/gun/rifle/mpi_km= -1,
 		/obj/item/ammo_magazine/rifle/mpi_km/plum = -1,
-		/obj/item/ammo_magazine/packet/groza = -1,
+		/obj/item/ammo_magazine/packet/rifle762x39 = -1,
 		/obj/item/weapon/gun/rifle/m16 = -1,
 		/obj/item/ammo_magazine/rifle/m16 = -1,
 		/obj/item/ammo_magazine/packet/pnato = -1,
@@ -243,7 +241,7 @@ SUBSYSTEM_DEF(persistence)
 
 /datum/season_datum/weapons/guns/pistol_seasonal_one
 	name = "High Noon"
-	description = "Revolvers? They are yours my friend. Bouncy, single-action, or with buckshot"
+	description = "Revolvers? They are yours my friend. Bouncy, single-action, or with buckshot."
 	item_list = list(
 		/obj/item/weapon/gun/revolver/small = 5,
 		/obj/item/ammo_magazine/revolver/small = -1,
@@ -298,7 +296,7 @@ SUBSYSTEM_DEF(persistence)
 
 /datum/season_datum/weapons/guns/lever_seasonal
 	name = "Lever Actions"
-	description = "Try and win the modern west with these"
+	description = "Try and win the modern west with these."
 	item_list = list(
 		/obj/item/weapon/gun/shotgun/pump/lever = -1,
 		/obj/item/weapon/gun/shotgun/pump/lever/mbx900 = -1,
@@ -358,4 +356,18 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/ammo_magazine/rocket/recoilless/cloak = 4,
 		/obj/item/ammo_magazine/rocket/recoilless/smoke = 4,
 		/obj/item/ammo_magazine/rocket/recoilless/plasmaloss = 4,
+	)
+
+/datum/season_datum/weapons/guns/heavy_unpopular
+	name = "Unpopular cargo guns"
+	description = "PTRS, OICW and FAMAS for roundstart vendors."
+	item_list = list(
+		/obj/item/weapon/gun/clf_heavyrifle/imported = 2,
+		/obj/item/shotgunbox/clf_heavyrifle = 2,
+		/obj/item/weapon/gun/rifle/tx55 = 2,
+		/obj/item/ammo_magazine/rifle/tx54 = 10,
+		/obj/item/ammo_magazine/rifle/tx54/incendiary = 4,
+		/obj/item/ammo_magazine/rifle/tx54/smoke/tangle = 4,
+		/obj/item/weapon/gun/rifle/famas = 2,
+		/obj/item/ammo_magazine/rifle/famas = -1,
 	)

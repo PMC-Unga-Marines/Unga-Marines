@@ -5,9 +5,6 @@
 	icon = 'icons/Xeno/castes/king/basic.dmi'
 	icon_state = "King Walking"
 	effects_icon = 'icons/Xeno/castes/king/effects.dmi'
-	attacktext = "bites"
-	attack_sound = null
-	friendly = "nuzzles"
 	health = 500
 	maxHealth = 500
 	plasma_stored = 300

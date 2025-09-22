@@ -47,6 +47,11 @@
 		unbuckle_bodybag()
 	return ..()
 
+/obj/structure/bed/deconstruct(disassembled, mob/living/blame_mob)
+	if(buildstacktype && dropmetal)
+		new buildstacktype(loc, buildstackamount)
+	return ..()
+
 /obj/structure/bed/post_buckle_mob(mob/buckling_mob)
 	. = ..()
 	buckling_mob.pixel_y = buckling_y
@@ -151,12 +156,6 @@
 						B.linked_beacon.add_stretcher(M, null, TRUE)
 						B.linked_beacon.remove_stretcher(src, null, TRUE)
 				qdel(src)
-
-/obj/structure/bed/ex_act(severity)
-	if(prob(severity * 0.25))
-		if(severity <= EXPLODE_HEAVY && buildstacktype && dropmetal)
-			new buildstacktype (loc, buildstackamount)
-		qdel(src)
 
 /obj/structure/bed/wrench_act(mob/living/user, obj/item/I)
 	if(!buildstacktype)

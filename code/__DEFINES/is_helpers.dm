@@ -60,7 +60,7 @@ GLOBAL_VAR_INIT(refid_filter, TYPEID(filter(type="angular_blur")))
 
 //Human sub-species
 #define isrobot(H) (is_species(H, /datum/species/robot))
-#define issynth(H) (is_species(H, /datum/species/synthetic) || is_species(H, /datum/species/early_synthetic))
+#define issynth(H) (is_species(H, /datum/species/synthetic))
 #define isspeciessynthetic(H) (H.species.species_flags & IS_SYNTHETIC)
 #define ismoth(H) (is_species(H, /datum/species/moth))
 #define issectoid(H) (is_species(H, /datum/species/sectoid))
@@ -275,8 +275,6 @@ GLOBAL_VAR_INIT(refid_filter, TYPEID(filter(type="angular_blur")))
 #define isdroid(A) (istype(A, /obj/vehicle/unmanned/droid))
 
 #define isreagentcontainer(A) (istype(A, /obj/item/reagent_containers)) //Checks for if something is a reagent container.
-
-#define is_research_product(A) (istype(A, /obj/item/research_product)) //Checks if item is research item
 
 #define isearthpillar(A) (istype(A, /obj/structure/earth_pillar))
 

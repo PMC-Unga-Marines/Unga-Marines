@@ -83,6 +83,7 @@ export const changelog_labels = {
 	'Sound': {
 		default_text: 'added/modified/removed audio or sound effects',
 		keywords: ['sound'],
+		add_only: true,
 	},
 	'Feature': {
 		default_text: 'Added new mechanics or gameplay changes',
@@ -96,6 +97,7 @@ export const changelog_labels = {
 	'Sprites': {
 		default_text: 'added/modified/removed some icons or images',
 		keywords: ['image'],
+		add_only: true,
 	},
 	'Grammar and Formatting': {
 		default_text: 'fixed a few typos',
@@ -104,6 +106,7 @@ export const changelog_labels = {
 	'Mapping': {
 		default_text: 'added/modified/removed map content',
 		keywords: ['map', 'mapping'],
+		add_only: true,
 	},
 	'Balance': {
 		default_text: 'rebalanced something',

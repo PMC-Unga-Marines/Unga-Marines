@@ -17,8 +17,8 @@
 	footstep_type = FOOTSTEP_PREDALIEN_STOMPY
 
 	skins = list(
-		/datum/xenomorph_skin/predalien/warrior,
 		/datum/xenomorph_skin/predalien,
+		/datum/xenomorph_skin/predalien/warrior,
 	)
 
 	max_bonus_life_kills = 10

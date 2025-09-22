@@ -170,12 +170,19 @@
 		var/message = pick(";НАЗАД! НАЗАД!", ";ТАКТИЧЕСКОЕ ОТСТУПЛЕНИЕ!", ";НЕ УМРИТЕ! УБЕГАЕМ!", ";БЕГИ ПОКА МОЖЕШЬ!", ";ОТСТУПАЕМ! ПОВТОРЯЮ, ОТСТУПАЕМ!", ";ОТСТУПАЕМ! УХОДИМ!")
 		owner.say(message)
 
+//placeholder, this will end up being split by faction somehow
+GLOBAL_VAR(human_ai_goal)
+
 /datum/action/innate/order/rally_order
 	name = "Send Rally Order"
 	action_icon_state = "rally"
 	verb_name = "<font color='#e3dd24'>СОБРАТЬСЯ</font> в"
 	arrow_type = /atom/movable/screen/arrow/rally_order_arrow
 	visual_type = /obj/effect/temp_visual/order/rally_order
+
+/datum/action/innate/order/rally_order/send_order(atom/target, datum/squad/squad, faction = FACTION_TERRAGOV)
+	. = ..()
+	QDEL_IN(new /obj/effect/ai_node/goal(get_turf(target), owner, owner.faction), CIC_ORDER_COOLDOWN * 2)
 
 /datum/action/innate/order/rally_order/personal
 	keybinding_signals = list(
@@ -190,6 +197,9 @@
 
 /datum/action/innate/order/rally_order/personal/action_activate()
 	var/mob/living/carbon/human/human = owner
-	if(send_order(human, human.assigned_squad, human.faction))
-		var/message = pick("ВСЕ КО МНЕ!", "ПЕРЕГРУППИРОВАТЬСЯ!", "ВСЕМ ЗА МНОЙ!", "СОБРАТЬСЯ ВОЗЛЕ МЕНЯ!")
-		owner.say(message)
+	if(!send_order(human, human.assigned_squad, human.faction))
+		return
+	var/message = pick("ВСЕ КО МНЕ!", "ПЕРЕГРУППИРОВАТЬСЯ!", "ВСЕМ ЗА МНОЙ!", "СОБРАТЬСЯ ВОЗЛЕ МЕНЯ!")
+	owner.say(message)
+
+	QDEL_IN(new /obj/effect/ai_node/goal(get_turf(owner), owner, owner.faction), CIC_ORDER_COOLDOWN * 2)

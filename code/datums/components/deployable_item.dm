@@ -193,6 +193,7 @@
 		sentry?.set_on(TRUE)
 		return
 
+	deployed_machine.post_disassemble(user)
 	undeployed_item.toggle_deployment_flag()
 
 	user.unset_interaction()

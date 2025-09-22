@@ -353,7 +353,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
  * Attempts to draw an object from our storage
  */
 /datum/storage/proc/on_attack_hand_alternate(datum/source, mob/living/user)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	if(parent.Adjacent(user))
 		INVOKE_ASYNC(src, PROC_REF(attempt_draw_object), user)
 
@@ -582,7 +582,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 /// Signal handler for whenever a mob walks away with us, close if they can't reach us.
 /datum/storage/proc/close_distance(datum/source)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	for(var/mob/user in can_see_content())
 		if(user.CanReach(parent))
 			continue
@@ -814,7 +814,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		if(item_to_insert.w_class >= parent_storage.w_class && istype(item_to_insert, /obj/item/storage) && !is_type_in_typecache(item_to_insert.type, typecacheof(storage_type_limits)))
 			if(!istype(src, /obj/item/storage/backpack/holding))	//bohs should be able to hold backpacks again. The override for putting a boh in a boh is in backpack.dm.
 				if(warning)
-					to_chat(user, span_notice("\The [parent.name] cannot hold [item_to_insert] as it's a storage item of the same size."))
+					to_chat(user, span_notice("\The [parent.name] cannot hold \the [item_to_insert] as it's a storage item of the same size."))
 				return FALSE //To prevent the stacking of same sized storage items.
 
 	for(var/limited_type in storage_type_limits_max)
@@ -845,11 +845,15 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		to_chat(user, span_warning("You are busy doing something else!"))
 		return FALSE
 
-	if(!alert_user)
-		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, parent)
+	var/atom/delay_target = parent // if we have a storage inside another item, we won't see the do_after without this
+	if(isitem(parent.loc))
+		delay_target = parent.loc
 
-	to_chat(user, "<span class='notice'>You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] [parent.name]")
-	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, parent))
+	if(!alert_user)
+		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, delay_target)
+
+	to_chat(user, span_notice("You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] \the [parent.name]"))
+	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, delay_target))
 		to_chat(user, span_warning("You fumble [accessed]!"))
 		return FALSE
 	return TRUE
@@ -873,7 +877,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
  * such as when picking up all the items on a tile with one click.
  * user can be null, it refers to the potential mob doing the insertion.
  */
-/datum/storage/proc/handle_item_insertion(obj/item/item, prevent_warning = FALSE, mob/user)
+/datum/storage/proc/handle_item_insertion(obj/item/item, prevent_warning = FALSE, mob/user) //todo: this isnt called when spawning some populated items. lacking INVOKE_ASYNC(storage_datum, TYPE_PROC_REF(/datum/storage, handle_item_insertion), new_item)
 	if(!istype(item))
 		return FALSE
 	if(!handle_access_delay(item, user, taking_out = FALSE))
@@ -966,11 +970,6 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	parent.update_icon()
 	return TRUE
 
-///Handles if the item is forcemoved out of storage
-/datum/storage/proc/item_removed_from_storage(obj/item/item)
-	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, PROC_REF(remove_from_storage), item, item.loc, null, FALSE, TRUE, FALSE)
-
 ///Refills the storage from the refill_types item
 /datum/storage/proc/do_refill(obj/item/storage/refiller, mob/user)
 	if(!length(refiller.contents))
@@ -1007,9 +1006,10 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 ///Delete everything that's inside the storage
 /datum/storage/proc/delete_contents()
 	for(var/obj/item/item in parent.contents)
-		if(item.item_flags & IN_STORAGE)
-			item.on_exit_storage(src)
-			qdel(item)
+		if(!(item.item_flags & IN_STORAGE))
+			continue
+		item.on_exit_storage(src)
+		qdel(item)
 
 ///Returns the storage depth of an atom. This is the number of storage items the atom is contained in before reaching toplevel (the area). Returns -1 if the atom was not found on container.
 /datum/storage/proc/storage_depth(atom/container)
@@ -1087,6 +1087,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	SIGNAL_HANDLER
 	if(isitem(movable_atom))
 		INVOKE_ASYNC(src, PROC_REF(remove_from_storage), movable_atom, null, usr, silent = TRUE, bypass_delay = TRUE)
+
+///Handles if the item is forcemoved out of storage
+/datum/storage/proc/item_removed_from_storage(obj/item/item)
+	SIGNAL_HANDLER
+	INVOKE_ASYNC(src, PROC_REF(remove_from_storage), item, item.loc, null, FALSE, TRUE, FALSE)
 
 ///signal sent from /atom/proc/max_stack_merging()
 /datum/storage/proc/max_stack_merging(datum/source, obj/item/stack/stacks)

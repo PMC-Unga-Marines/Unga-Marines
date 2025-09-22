@@ -5,10 +5,6 @@
 	icon = 'icons/Xeno/castes/queen/basic.dmi'
 	icon_state = "Queen Walking"
 	effects_icon = 'icons/Xeno/castes/queen/effects.dmi'
-	rouny_icon = 'icons/Xeno/castes/queen/rouny.dmi'
-	attacktext = "bites"
-	attack_sound = null
-	friendly = "nuzzles"
 	health = 300
 	maxHealth = 300
 	plasma_stored = 300
@@ -21,6 +17,11 @@
 	footstep_type = FOOTSTEP_XENO_STOMPY
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/hijack,
+	)
+
+	skins = list(
+		/datum/xenomorph_skin/queen,
+		/datum/xenomorph_skin/queen/rouny,
 	)
 
 // ***************************************

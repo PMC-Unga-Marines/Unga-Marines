@@ -585,6 +585,7 @@
 		if(do_after(owner_xeno, KNOCKDOWN_DURATION, IGNORE_HELD_ITEM, target))
 			owner_xeno.gain_plasma(plasma_gain_on_hit)
 			target.adjust_blood_volume(-30)
+			SEND_SIGNAL(target, COMSIG_XENO_CARNAGE_HIT, owner_xeno.xeno_caste.drain_plasma_gain, owner_xeno)
 
 	if(owner_xeno.has_status_effect(STATUS_EFFECT_XENO_FEAST))
 		for(var/mob/living/carbon/xenomorph/target_xeno AS in cheap_get_xenos_near(owner_xeno, 4))
@@ -1669,3 +1670,66 @@
 	desc = "Enhanced speed and dodge capabilities"
 	icon_state = "xenobuff_generic"
 
+//
+//
+
+// *********** Baton Pass
+// ***************************************
+/atom/movable/screen/alert/status_effect/baton_pass
+	name = "Baton Pass"
+	desc = "Adrenaline is pushing your muscles to the limit!"
+	icon_state = "xeno_carnage"
+
+/datum/status_effect/baton_pass
+	id = "xeno_batonpass"
+	alert_type = /atom/movable/screen/alert/status_effect/baton_pass
+	duration = 6 SECONDS
+	status_type = STATUS_EFFECT_REFRESH
+	/// Used for particles. Holds the particles instead of the mob. See particle_holder for documentation.
+	var/obj/effect/abstract/particle_holder/particle_holder
+
+/datum/status_effect/baton_pass/on_apply()
+	if(!isxeno(owner))
+		return FALSE
+	var/mob/living/carbon/xenomorph/owner_xeno = owner
+
+	particle_holder = new(owner_xeno, /particles/baton_pass)
+	var/particle_x = abs(owner_xeno.pixel_x)
+	particle_holder.pixel_x = particle_x
+	particle_holder.pixel_y = -3
+
+	//only slower xenos get better movespeed amplify. No gigaspeed runners
+	var/movespeed_mod = ((owner_xeno.xeno_caste.speed <= -1) ? -0.1 : (owner_xeno.xeno_caste.speed <= -0.8) ? -0.2 : -0.4)
+	owner_xeno.add_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS, TRUE, 1, NONE, TRUE, movespeed_mod)
+
+	to_chat(owner, span_notice("We feel on top of the world! Go, go, go!"))
+	owner_xeno.Shake(duration = 6 SECONDS, shake_interval = 0.08 SECONDS)
+	owner_xeno.emote("roar")
+
+	return ..()
+
+/datum/status_effect/baton_pass/on_remove()
+	. = ..()
+	var/mob/living/carbon/xenomorph/owner_xeno = owner
+	owner_xeno.remove_movespeed_modifier(MOVESPEED_ID_PRAETORIAN_DANCER_BATON_PASS)
+	to_chat(owner, span_notice("We come down from our adrenaline high."))
+	QDEL_NULL(particle_holder)
+
+/particles/baton_pass
+	icon = 'icons/effects/particles/generic_particles.dmi'
+	icon_state = "up_arrow"
+	color = "#77bfe9"
+	width = 100
+	height = 100
+	count = 1000
+	spawning = 3
+	lifespan = 9
+	fade = 12
+	grow = 0.04
+	velocity = list(0, 0)
+	position = generator(GEN_CIRCLE, 16, 16, NORMAL_RAND)
+	drift = generator(GEN_VECTOR, list(0, -0.15), list(0, 0.15))
+	gravity = list(0, 0.8)
+	scale = generator(GEN_VECTOR, list(0.1, 0.1), list(0.6,0.6), NORMAL_RAND)
+	rotation = 0
+	spin = generator(GEN_NUM, 10, 20)

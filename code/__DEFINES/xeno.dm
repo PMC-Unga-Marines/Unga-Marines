@@ -192,7 +192,6 @@ GLOBAL_LIST_INIT(xeno_ai_spawnable, list(
 #define PRECRUSH_ENTANGLED -3
 
 #define SPIDERLING_RECALL "recall spiderling"
-#define SPIDERLING_SEEK_CLOSEST "seeking closest and attack order" //not xeno-usable
 #define SPIDERLING_ATTACK "seek and attack order"
 
 #define SPIDERLING_WITHER_RANGE 15

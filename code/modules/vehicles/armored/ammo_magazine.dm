@@ -64,6 +64,20 @@
 	max_rounds = 150
 	loading_sound = 'sound/weapons/guns/interact/working_the_bolt.ogg'
 
+/obj/item/ammo_magazine/tank/autocannon
+	name = "Bushwhacker Autocannon APDS Box (30mm)"
+	desc = "A 100 round box for an autocannon. Loaded with Armor Piercing rounds."
+	caliber = CALIBER_30X17MM
+	icon_state = "tank_autocannon_ap"
+	max_rounds = 100
+	default_ammo = /datum/ammo/bullet/tank_autocannon
+
+/obj/item/ammo_magazine/tank/autocannon/high_explosive
+	name = "Bushwhacker Autocannon High Explosive Box (30mm)"
+	desc = "A 100 round box for an autocannon. Loaded with High Explosive rounds."
+	icon_state = "tank_autocannon_he"
+	default_ammo = /datum/ammo/rocket/tank_autocannon
+
 /obj/item/ammo_magazine/tank/secondary_cupola
 	name = "HSG-102 Cupola Magazine"
 	desc = "A secondary armament MG magazine"

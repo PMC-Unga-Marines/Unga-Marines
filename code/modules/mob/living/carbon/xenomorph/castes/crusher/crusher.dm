@@ -5,7 +5,6 @@
 	icon = 'icons/Xeno/castes/crusher/basic.dmi'
 	icon_state = "Crusher Walking"
 	effects_icon = 'icons/Xeno/castes/crusher/effects.dmi'
-	rouny_icon = 'icons/Xeno/castes/crusher/rouny.dmi'
 	bubble_icon = "alien"
 	health = 300
 	maxHealth = 300
@@ -17,6 +16,11 @@
 	buckle_flags = CAN_BUCKLE
 	pixel_x = -16
 	pixel_y = -3
+
+	skins = list(
+		/datum/xenomorph_skin/crusher,
+		/datum/xenomorph_skin/crusher/rouny,
+	)
 
 /mob/living/carbon/xenomorph/crusher/handle_special_state()
 	if(is_charging >= CHARGE_ON)
