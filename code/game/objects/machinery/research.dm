@@ -11,6 +11,10 @@
 #define RES_TIER_COMMON "common"
 #define RES_TIER_UNCOMMON "uncommon"
 #define RES_TIER_RARE "rare"
+#define RESEARCH_REWARD_BASIC 50
+#define RESEARCH_REWARD_COMMON 150
+#define RESEARCH_REWARD_UNCOMMON 250
+#define RESEARCH_REWARD_RARE 800
 
 /obj/machinery/researchcomp
 	name = "research console"
@@ -38,38 +42,38 @@
 	var/static/list/rewards_lists = list(
 		RES_MONEY = list(
 			RES_TIER_BASIC = list(
-				/obj/item/research_product/money/basic,
-				/obj/item/research_product/money/common,
+				RESEARCH_REWARD_BASIC,
+				RESEARCH_REWARD_COMMON,
 			),
 			RES_TIER_COMMON = list(
-				/obj/item/research_product/money/common,
-				/obj/item/research_product/money/uncommon,
+				RESEARCH_REWARD_COMMON,
+				RESEARCH_REWARD_UNCOMMON,
 			),
 			RES_TIER_UNCOMMON = list(
-				/obj/item/research_product/money/uncommon,
+				RESEARCH_REWARD_UNCOMMON,
 				/obj/item/implanter/blade,
 				/obj/item/attachable/shoulder_mount,
 			),
 			RES_TIER_RARE = list(
-				/obj/item/research_product/money/rare,
+				RESEARCH_REWARD_RARE,
 			),
 		),
 		RES_XENO = list(
 			RES_TIER_BASIC = list(
-				/obj/item/research_product/money/basic,
-				/obj/item/research_product/money/common,
+				RESEARCH_REWARD_BASIC,
+				RESEARCH_REWARD_COMMON,
 			),
 			RES_TIER_COMMON = list(
-				/obj/item/research_product/money/uncommon,
+				RESEARCH_REWARD_UNCOMMON,
 			),
 			RES_TIER_UNCOMMON = list(
-				/obj/item/research_product/money/uncommon,
+				RESEARCH_REWARD_UNCOMMON,
 				/obj/item/implanter/chem/blood,
 				/obj/item/implanter/cloak,
 				/obj/item/attachable/shoulder_mount,
 			),
 			RES_TIER_RARE = list(
-				/obj/item/research_product/money/rare,
+				RESEARCH_REWARD_RARE,
 			),
 		),
 	)
@@ -133,9 +137,15 @@
 			"rewards_list" = list(),
 		)
 
-		var/list/tier_rewards_typepaths = research_rewards[tier]
-		for(var/obj/typepath AS in tier_rewards_typepaths)
-			reward_tier["rewards_list"] += initial(typepath.name)
+		var/list/tier_rewards = research_rewards[tier]
+		for(var/reward as anything in tier_rewards)
+			if(isnum(reward))
+				// Direct point value
+				reward_tier["rewards_list"] += "[reward] credits"
+			else
+				// Item typepath - cast to proper type for initial()
+				var/obj/item_type = reward
+				reward_tier["rewards_list"] += initial(item_type.name)
 
 		.["init_resource"]["rewards"] += list(reward_tier)
 
@@ -205,8 +215,24 @@
 	generate_research_rewards_list(resource, potential_rewards, earned_rewards)
 
 	var/turf/drop_loc = get_turf(rewards_position)
-	for (var/obj/item AS in earned_rewards)
-		item.forceMove(drop_loc)
+	var/total_points = 0
+
+	for(var/reward as anything in earned_rewards)
+		if(isnum(reward))
+			// Direct point value - add to supply points
+			total_points += reward
+			SSpoints.supply_points[usr.faction] += reward
+			GLOB.round_statistics.points_from_research += reward
+		else if(isitem(reward))
+			// Physical item - drop at location
+			var/obj/item/item = reward
+			item.forceMove(drop_loc)
+
+	// Show message about points earned if any
+	if(total_points > 0)
+		var/datum/export_report/export_report = new /datum/export_report(total_points, "Research: [resource.name]", usr.faction)
+		SSpoints.export_history += export_report
+		visible_message(span_notice("[src] buzzes: Research completed and generated [total_points] point[total_points == 1 ? "" : "s"]."))
 
 ///Generates rewards using the resource's rarity modifiers and a list of potential rewards
 /obj/machinery/researchcomp/proc/generate_research_rewards_list(obj/item/research_resource/resource, list/potential_rewards, list/earned_rewards)
@@ -217,9 +243,16 @@
 
 		var/list/tier_rewards = potential_rewards[tier]
 		//getting random item from the list of items at the tier
-		var/item_typepath = pick(tier_rewards)
-		var/obj/item = new item_typepath
-		earned_rewards += item
+		var/reward = pick(tier_rewards)
+
+		// Handle both direct point values and item typepaths
+		if(isnum(reward))
+			// Direct point value - add to a special list for point tracking
+			earned_rewards += reward
+		else
+			// Item typepath - create the actual item
+			var/obj/item = new reward
+			earned_rewards += item
 
 ///
 ///Research materials
@@ -298,38 +331,8 @@
 		RES_TIER_RARE = 50,
 	)
 
-///
-///Items designed to be products of research
-///It isn't required for a product of research to be subtype of these
-///
 
-/obj/item/research_product
-	name = "money"
-	icon_state = "coin_uranium"
-	///Points provided for exporting the product
-	var/export_points = 1
-
-/obj/item/research_product/supply_export(faction_selling)
-	SSpoints.supply_points[faction_selling] += export_points
-	GLOB.round_statistics.points_from_research += export_points
-	return new /datum/export_report(export_points, name, faction_selling)
-
-/obj/item/research_product/money/basic
-	name = "50 credits coin"
-	desc = "A coin containing rare materials worth for 50 credits."
-	export_points = 50
-
-/obj/item/research_product/money/common
-	name = "150 credits coin"
-	desc = "A coin containing rare materials worth for 150 credits."
-	export_points = 150
-
-/obj/item/research_product/money/uncommon
-	name = "250 credits coin"
-	desc = "A coin containing rare materials worth for 250 credits."
-	export_points = 250
-
-/obj/item/research_product/money/rare
-	name = "800 credits coin"
-	desc = "A coin containing rare materials worth for 800 credits."
-	export_points = 800
+#undef RESEARCH_REWARD_BASIC
+#undef RESEARCH_REWARD_COMMON
+#undef RESEARCH_REWARD_UNCOMMON
+#undef RESEARCH_REWARD_RARE
