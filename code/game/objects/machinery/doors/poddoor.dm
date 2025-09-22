@@ -3,7 +3,7 @@
 	desc = "That looks like it doesn't open easily."
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
 	icon_state = "pdoor1"
-	soft_armor = list(MELEE = 50, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 50, BIO = 100, FIRE = 100, ACID = 70)
+	soft_armor = list(MELEE = 50, BULLET = 90, LASER = 90, ENERGY = 100, BOMB = 50, BIO = 100, FIRE = 100, ACID = 70)
 	layer = BLASTDOOR_LAYER
 	open_layer = BLASTDOOR_LAYER
 	closed_layer = CLOSED_BLASTDOOR_LAYER

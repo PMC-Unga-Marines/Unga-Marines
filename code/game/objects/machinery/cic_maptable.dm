@@ -112,8 +112,8 @@
 	AddElement(/datum/element/connect_loc, connections)
 
 	var/list/atom/movable/screen/actions = list()
-	for(var/path in drawing_tools)
-		actions += new path(null, targetted_zlevel, minimap_flag)
+	for(var/path as anything in drawing_tools)
+		actions += new path(null, null, targetted_zlevel, minimap_flag)
 	drawing_tools = actions
 
 /obj/machinery/cic_maptable/drawable/Destroy()
