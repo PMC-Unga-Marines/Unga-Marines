@@ -127,14 +127,14 @@
 	scatter_mod = 2
 	wield_delay_mod = 0.5 SECONDS
 
-/obj/item/ammo_magazine/rifle/typesh12/slug
+/obj/item/ammo_magazine/rifle/tash12/slug
 	name = "Type 12-ASH slug magazine"
 	desc = "25 A slug magazine."
 	icon_state = "typesh12s"
 	bonus_overlay = "typesh12_s"
 	default_ammo = /datum/ammo/bullet/shotgun/slug
 
-/obj/item/ammo_magazine/rifle/typesh12/flechette
+/obj/item/ammo_magazine/rifle/tash12/flechette
 	name = "Type 12-ASH flechette magazine"
 	desc = "25 A flechette magazine."
 	icon_state = "typesh12f"
