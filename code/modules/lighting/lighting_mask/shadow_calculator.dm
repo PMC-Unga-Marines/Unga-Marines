@@ -121,13 +121,13 @@
 		//The turf is now affected by our light, make it luminous
 		thing.luminosity += 1
 		//Dont consider shadows about our turf.
-		if(!is_on_closed_turf)
-			if(thing == our_turf)
-				continue
-		if(thing.directional_opacity)
-			//At this point we no longer care about
-			//the atom itself, only the position values
-			COORD_LIST_ADD(opaque_atoms_in_view, thing.x, thing.y)
+		if(!is_on_closed_turf && thing == our_turf)
+			continue
+		if(!thing.directional_opacity)
+			continue
+		//At this point we no longer care about
+		//the atom itself, only the position values
+		COORD_LIST_ADD(opaque_atoms_in_view, thing.x, thing.y)
 
 	//We are too small to consider shadows on, luminsoty has been considered at least.
 	if(radius < 2)
