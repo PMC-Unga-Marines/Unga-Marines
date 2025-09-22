@@ -323,7 +323,7 @@
 		/obj/item/ammo_magazine/rifle/typesh12/slug,
 		/obj/item/ammo_magazine/rifle/typesh12/flechette,
 		)
-	cost = 750
+	cost = 650
 
 /datum/supply_packs/weapons/typesh12s
 	name = "Typesh12 slug magazine x3"
