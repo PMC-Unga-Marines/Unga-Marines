@@ -49,7 +49,7 @@
 	silenced_sound = 'sound/weapons/guns/smgs/MP-19/MP19_SIL.ogg'
 	caliber = CALIBER_10X20_CASELESS //codex
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST)
-	max_shells = 30 //codex
+	max_shells = 45 //codex
 	equip_slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_BELT
 	type_of_casings = null
 	default_ammo_type = /obj/item/ammo_magazine/smg/mp19
@@ -91,12 +91,6 @@
 	burst_delay = 0.1 SECONDS
 	akimbo_additional_delay = 20 // Literally do not even bother to try
 
-	burst_amount = 1
-	autoburst_delay = 0.1 SECONDS
-	autoburst_delay = 0.1 SECONDS //this makes it fuller auto
-	burst_accuracy_bonus = -0.3
-	burst_scatter_mult = 25
-
 /obj/item/weapon/gun/smg/mp19/compact
 	starting_attachment_types = list(/obj/item/attachable/foldable/mp19stock, /obj/item/attachable/reddot, /obj/item/attachable/compensator, /obj/item/attachable/lasersight)
 
@@ -124,7 +118,7 @@
 		slot_r_hand_str = 'icons/mob/inhands/gun/submachinegun_righthand_1.dmi',
 	)
 	caliber = CALIBER_10X20_CASELESS //codex
-	max_shells = 50 //codex
+	max_shells = 80 //codex
 	equip_slot_flags = ITEM_SLOT_BACK
 	wield_delay = 0.7 SECONDS
 	force = 20
@@ -677,8 +671,8 @@
 
 /obj/item/weapon/gun/smg/vector
 	name = "\improper Vector storm submachinegun"
-	desc = "The Vector is the TerraGov Marine Corps depelopment to increase assault capability of marines. Lightweight and simple to use. It features delayed blowback system, heavily reducing recoil even with its high ROF. A highly-customizable platform, it is reliable and versatile. Ideal weapon for quick assaults. Uses extended .45 ACP HP magazines"
-	fire_sound = 'sound/weapons/guns/fire/tp23.ogg'
+	desc = "The Vector is the TerraGov Marine Corps heavy SMG with good assault capability for marines. Lightweight and simple to use. It features delayed blowback system, heavily reducing recoil even with its high ROF, however, it suffers at long ranges. A perfect weapon for close quarters. Uses extended .45 ACP magazines"
+	fire_sound = 'sound/weapons/guns/fire/vector_fire.ogg'
 	icon = 'icons/obj/items/gun/submachinegun64.dmi'
 	icon_state = "v45"
 	worn_icon_state = "v45"
@@ -688,7 +682,7 @@
 		slot_back_str = 'icons/mob/clothing/back.dmi',
 	)
 	caliber = CALIBER_45ACP //codex
-	max_shells = 25 //codex
+	max_shells = 40 //codex
 	equip_slot_flags = ITEM_SLOT_BACK
 	force = 20
 	type_of_casings = null
@@ -700,11 +694,15 @@
 	)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/burstfire_assembly,
+		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/bayonet,
@@ -713,35 +711,32 @@
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/buildasentry,
 		/obj/item/attachable/shoulder_mount,
-		/obj/item/weapon/gun/pistol/plasma_pistol,
-		/obj/item/weapon/gun/shotgun/combat/masterkey,
-		/obj/item/weapon/gun/flamer/mini_flamer,
-		/obj/item/weapon/gun/grenade_launcher/underslung,
-		/obj/item/weapon/gun/energy/lasgun/lasrifle/pocket_beam,
 	)
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
-	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
-	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 16, "rail_x" = 22, "rail_y" = 19, "under_x" = 26, "under_y" = 14, "stock_x" = 24, "stock_y" = 10)
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST)
+	attachable_offset = list("muzzle_x" = 36, "muzzle_y" = 15, "rail_x" = 24, "rail_y" = 19, "under_x" = 31, "under_y" = 12, "stock_x" = 24, "stock_y" = 10)
 
-	fire_delay = 0.1 SECONDS
-	damage_mult = 1
-	recoil = -5  // Recoil blowback system
-	recoil_unwielded = -2
-	wield_delay = 0.5 SECONDS
+	fire_delay = 0.2 SECONDS
+	burst_delay =  0.15 SECONDS
+	burst_amount = 4
+	recoil_unwielded = 1 // Recoil blowback system, yes but the recoil is the recoil, especially when it's not 9mm!
+	wield_delay = 0.6 SECONDS
+	damage_falloff_mult = 1.7
+	damage_mult = 0.85
 
 	akimbo_additional_delay = 0.5
 	aim_fire_delay = 0.1 SECONDS
-	aim_speed_modifier = 0 //no slowdown
-	aim_slowdown = 0
+	aim_speed_modifier = 0.65
+	aim_slowdown = 0.2
 
-	accuracy_mult = 1
-	accuracy_mult_unwielded = 0.75 //moving or akimbo yield lower acc
-	scatter = -2
+
+	accuracy_mult = 1.1
+	accuracy_mult_unwielded = 0.9 //moving or akimbo yield lower acc
+	scatter = 3
 	scatter_unwielded = 6 // Not exactly small weapon, and recoil blowback is only for vertical recoil
 
 	movement_acc_penalty_mult = 0.1
-	akimbo_scatter_mod = 10
 
 /obj/item/weapon/gun/smg/vector/beginner
 	starting_attachment_types = list(/obj/item/attachable/compensator, /obj/item/attachable/magnetic_harness, /obj/item/attachable/lasersight)

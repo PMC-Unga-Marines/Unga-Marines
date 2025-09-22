@@ -3,16 +3,16 @@
 	hud_state = "pistol"
 	hud_state_empty = "pistol_empty"
 	ammo_behavior_flags = AMMO_BALLISTIC
-	damage = 15
+	damage = 20
 	penetration = 5
 	accurate_range = 5
 	additional_xeno_penetration = 20
-	matter_cost = 6
+	matter_cost = 4
 
 /datum/ammo/bullet/pistol/tiny
 	name = "light pistol bullet"
 	hud_state = "pistol_light"
-	damage = 12
+	damage = 15
 	penetration = 5
 	additional_xeno_penetration = 17.5
 	matter_cost = 2
@@ -20,11 +20,11 @@
 /datum/ammo/bullet/pistol/tiny/ap
 	name = "light pistol bullet"
 	hud_state = "pistol_lightap"
-	damage = 20
+	damage = 22.5
 	penetration = 15 //So it can actually hurt something.
 	additional_xeno_penetration = 7.5
 	damage_falloff = 1.5
-	matter_cost = 0
+	matter_cost = 8
 
 /datum/ammo/bullet/pistol/tranq
 	name = "tranq bullet"
@@ -41,7 +41,6 @@
 /datum/ammo/bullet/pistol/hollow
 	name = "hollowpoint pistol bullet"
 	hud_state = "pistol_hollow"
-	damage = 12.5
 	accuracy = -10
 	shrapnel_chance = 45
 	additional_xeno_penetration = 30
@@ -53,11 +52,11 @@
 /datum/ammo/bullet/pistol/ap
 	name = "armor-piercing pistol bullet"
 	hud_state = "pistol_ap"
-	damage = 15
+	damage = 20
 	penetration = 12.5
 	shrapnel_chance = 15
 	additional_xeno_penetration = 12.5
-	matter_cost = 0
+	matter_cost = 16
 
 /datum/ammo/bullet/pistol/ap/smart
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_IFF
@@ -65,10 +64,20 @@
 /datum/ammo/bullet/pistol/heavy
 	name = "heavy pistol bullet"
 	hud_state = "pistol_heavy"
-	damage = 25
+	damage = 30
 	penetration = 5
 	shrapnel_chance = 25
-	additional_xeno_penetration = 20
+	additional_xeno_penetration = 12.5
+	matter_cost = 6
+
+/datum/ammo/bullet/pistol/heavy/incendiary
+	name = "incendiary submachinegun ACP bullet"
+	hud_state = "pistol_fire"
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
+	damage_type = BURN
+	damage = 30
+	penetration = 5
+	additional_xeno_penetration = 0
 	matter_cost = 0
 
 /datum/ammo/bullet/pistol/superheavy
@@ -106,7 +115,7 @@
 	name = "squash-head pistol bullet"
 	hud_state = "pistol_squash"
 	accuracy = 5
-	damage = 26
+	damage = 32
 	penetration = 10
 	shrapnel_chance = 25
 	additional_xeno_penetration = 20

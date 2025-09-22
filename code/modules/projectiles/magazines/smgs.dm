@@ -41,7 +41,7 @@
 	caliber = CALIBER_10X20_CASELESS
 	icon_state = "t19"
 	icon_state_mini = "mag_smg"
-	max_rounds = 30
+	max_rounds = 45
 	w_class = WEIGHT_CLASS_SMALL
 
 //-------------------------------------------------------
@@ -52,7 +52,7 @@
 	desc = "A 10x20mm caseless submachine gun magazine."
 	caliber = CALIBER_10X20_CASELESS
 	icon_state = "t90"
-	max_rounds = 50
+	max_rounds = 80
 	w_class = WEIGHT_CLASS_SMALL
 	icon_state_mini = "mag_t90"
 
@@ -208,7 +208,7 @@
 	name = "\improper Vector drum magazine (.45ACP)"
 	desc = "A .45ACP drum magazine for the Vector, with even more dakka."
 	ammo_band_icon = "ppsh_ext_band"
-	default_ammo = /datum/ammo/bullet/smg/acp
+	default_ammo = /datum/ammo/bullet/pistol/heavy
 	w_class = WEIGHT_CLASS_SMALL
 	caliber = CALIBER_45ACP
 	icon_state = "ppsh_ext"
@@ -218,7 +218,7 @@
 	name = "\improper Vector incendiary drum magazine (.45ACP)"
 	desc = "A .45ACP incendiary drum magazine for the Vector, with even more dakka."
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
-	default_ammo = /datum/ammo/bullet/smg/acp/incendiary
+	default_ammo = /datum/ammo/bullet/pistol/heavy/incendiary
 
 //------------------------------------------------------
 //C17 riot PDW
