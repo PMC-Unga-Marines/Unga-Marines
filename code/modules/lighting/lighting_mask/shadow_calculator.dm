@@ -371,7 +371,7 @@
 			var/top = max(vertex1[2], vertex2[2]) - 0.5
 			var/list/current_bottom_vertex = list(vertex1[1], bottom - 0.5)
 			var/list/current_top_vertex = list(vertex1[1], bottom - 0.5)
-			for(var/i in bottom to top)
+			for(var/i as anything in bottom to top)
 				var/list/left_list = sight_blockers["[left]"]
 				var/isLeftBlocked = left_list?.Find(i) ? TRUE : FALSE
 				var/list/right_list = sight_blockers["[right]"]
@@ -392,7 +392,7 @@
 			var/bottom = vertex1[2] - 0.5
 			var/list/current_left_vertex = list(left - 0.5, vertex1[2])
 			var/list/current_right_vertex = list(left - 0.5, vertex1[2])
-			for(var/i in left to right)
+			for(var/i as anything in left to right)
 				var/list/check_list = sight_blockers["[i]"]
 				var/isAboveBlocked = check_list?.Find(top) ? TRUE : FALSE
 				var/isBelowBlocked = check_list?.Find(bottom) ? TRUE : FALSE
