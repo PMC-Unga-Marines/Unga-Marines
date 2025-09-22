@@ -9,6 +9,7 @@
 
 #define COLOR_HOVER_MOUSE COLOR_LOBBY_RED
 #define MAX_CHAR_NAME_DISPLAYED 40
+#define span_
 
 //its a new player yo they join instantly
 INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
@@ -68,7 +69,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	player.playsound_local(player, 'sound/effects/UI/click.ogg', 45)
 
 /atom/movable/screen/text/lobby/clickable/setup_character
-	maptext = "<span class='lobbytext'>ПЕРСОНАЖ</span>"
+	maptext = span_lobbytext("ПЕРСОНАЖ")
 	icon_state = "setup"
 	///Bool, whether we registered to listen for charachter updates already
 	var/registered = FALSE
@@ -81,14 +82,14 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	var/nametouse = hud?.mymob.client ? hud.mymob.client.prefs.real_name : "Unknown Character"
 	if(length(nametouse) > MAX_CHAR_NAME_DISPLAYED)
 		nametouse = trim(nametouse, MAX_CHAR_NAME_DISPLAYED) + "..."
-	maptext = "<span class='lobbytext'>[nametouse]</span>"
+	maptext = span_lobbytext("[nametouse]")
 	if(registered)
 		return
 	RegisterSignal(hud.mymob.client, COMSIG_CLIENT_PREFERENCES_UIACTED, PROC_REF(update_text))
 	registered = TRUE
 
 /atom/movable/screen/text/lobby/clickable/join_game
-	maptext = "<span class='lobbytext'>ПРИСОЕДИНИТЬСЯ</span>"
+	maptext = span_lobbytext("ПРИСОЕДИНИТЬСЯ")
 	icon_state = "join"
 
 /atom/movable/screen/text/lobby/clickable/join_game/Initialize(mapload, datum/hud/hud_owner)
@@ -98,13 +99,13 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 /atom/movable/screen/text/lobby/clickable/join_game/update_text()
 	switch(SSticker?.current_state)
 		if(GAME_STATE_PREGAME, GAME_STATE_STARTUP)
-			maptext = "<span class='lobbytext'>ПРИСОЕДИНИТЬСЯ \[Раунд не начат\]</span>"
+			maptext = span_lobbytext("ПРИСОЕДИНИТЬСЯ \[Раунд не начат\]")
 			icon_state = "join"
 		if(GAME_STATE_SETTING_UP)
-			maptext = "<span class='lobbytext'>ПРИСОЕДИНИТЬСЯ \[Загрузка\]</span>"
+			maptext = span_lobbytext("ПРИСОЕДИНИТЬСЯ \[Загрузка\]")
 			icon_state = "join"
 		else
-			maptext = "<span class='lobbytext'>ПРИСОЕДИНИТЬСЯ</span>"
+			maptext = span_lobbytext("ПРИСОЕДИНИТЬСЯ")
 			icon_state = "join"
 
 /atom/movable/screen/text/lobby/clickable/join_game/Click()
@@ -113,7 +114,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	player.attempt_late_join()
 
 /atom/movable/screen/text/lobby/clickable/ready
-	maptext = "<span class='lobbytext'>ВЫ: НЕ ГОТОВЫ</span>"
+	maptext = span_lobbytext("ВЫ: НЕ ГОТОВЫ")
 	icon_state = "unready"
 
 /atom/movable/screen/text/lobby/clickable/ready/Initialize(mapload, datum/hud/hud_owner)
@@ -123,14 +124,14 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 /atom/movable/screen/text/lobby/clickable/ready/update_text()
 	switch(SSticker?.current_state)
 		if(GAME_STATE_PLAYING)
-			maptext = "<span class='lobbytext'>РАУНД ДЛИТСЯ [gameTimestamp(format = "hh:mm", wtime = world.time - SSticker.round_start_time)]</span>"
+			maptext = span_lobbytext("РАУНД ДЛИТСЯ [gameTimestamp(format = "hh:mm", wtime = world.time - SSticker.round_start_time)]")
 			icon_state = "loading"
 		if(GAME_STATE_FINISHED)
-			maptext = "<span class='lobbytext'>РАУНД ОКОНЧЕН</span>"
+			maptext = span_lobbytext("РАУНД ОКОНЧЕН")
 			icon_state = "loading"
 		else
 			var/mob/new_player/player = hud.mymob
-			maptext = "<span class='lobbytext'>ВЫ: [player.ready ? "" : "НЕ "]ГОТОВЫ</span>"
+			maptext = span_lobbytext("ВЫ: [player.ready ? "" : "НЕ "]ГОТОВЫ")
 
 /atom/movable/screen/text/lobby/clickable/ready/Click()
 	. = ..()
@@ -152,7 +153,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	icon_state = player.ready ? "ready" : "unready"
 
 /atom/movable/screen/text/lobby/clickable/observe
-	maptext = "<span class='lobbytext'>НАБЛЮДАТЬ</span>"
+	maptext = span_lobbytext("НАБЛЮДАТЬ")
 	icon_state = "observe"
 
 /atom/movable/screen/text/lobby/clickable/observe/Click()
@@ -161,7 +162,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	player.try_to_observe()
 
 /atom/movable/screen/text/lobby/clickable/m_manifest
-	maptext = "<span class='lobbytext'>МАНИФЕСТ МОРПЕХОВ</span>"
+	maptext = span_lobbytext("МАНИФЕСТ МОРПЕХОВ")
 	icon_state = "manifest"
 
 /atom/movable/screen/text/lobby/clickable/m_manifest/Click()
@@ -170,7 +171,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	player.view_manifest()
 
 /atom/movable/screen/text/lobby/clickable/x_manifest
-	maptext = "<span class='lobbytext'>МАНИФЕСТ КСЕНОМОРФОВ</span>"
+	maptext = span_lobbytext("МАНИФЕСТ КСЕНОМОРФОВ")
 	icon_state = "manifest_xeno"
 
 /atom/movable/screen/text/lobby/clickable/x_manifest/Click()
@@ -179,7 +180,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	player.view_xeno_manifest()
 
 /atom/movable/screen/text/lobby/clickable/background
-	maptext = "<span class='lobbytext'>ПРЕДЫСТОРИЯ</span>"
+	maptext = span_lobbytext("ПРЕДЫСТОРИЯ")
 	icon_state = "background"
 
 /atom/movable/screen/text/lobby/clickable/background/Click()
@@ -188,7 +189,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	player.view_lore()
 
 /atom/movable/screen/text/lobby/clickable/changelog
-	maptext = "<span class='lobbytext'>ЛОГ ИЗМЕНЕНИЙ</span>"
+	maptext = span_lobbytext("ЛОГ ИЗМЕНЕНИЙ")
 	icon_state = "changelog"
 
 /atom/movable/screen/text/lobby/clickable/changelog/Click()
@@ -196,7 +197,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	hud.mymob.client?.changes()
 
 /atom/movable/screen/text/lobby/clickable/polls
-	maptext = "<span class='lobbytext'>POLLS</span>"
+	maptext = span_lobbytext("POLLS")
 	icon_state = "poll"
 
 /atom/movable/screen/text/lobby/clickable/polls/update_text()
@@ -207,9 +208,9 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
 	var/mob/new_player/player = hud.mymob
 	var/hasnewpolls = player.check_playerpolls()
 	if(isnull(hasnewpolls))
-		maptext = "<span class='lobbytext'>НЕТ БАЗЫ ДАННЫХ!</span>"
+		maptext = span_lobbytext("НЕТ БАЗЫ ДАННЫХ!")
 		return
-	maptext = "<span class='lobbytext'>ПОКАЗАТЬ ОПРОСЫ[hasnewpolls ? " (NEW!)" : ""]</span>"
+	maptext = span_lobbytext("ПОКАЗАТЬ ОПРОСЫ[hasnewpolls ? " (NEW!)" : ""]")
 
 /atom/movable/screen/text/lobby/clickable/polls/Click()
 	. = ..()
