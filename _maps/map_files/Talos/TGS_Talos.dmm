@@ -5579,9 +5579,7 @@
 /turf/open/floor/wood,
 /area/mainship/squads/alpha)
 "dgV" = (
-/obj/machinery/vending/engivend{
-	req_access = null
-	},
+/obj/machinery/vending/engivend,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/charlie)
 "dgX" = (
@@ -15670,9 +15668,7 @@
 /turf/open/floor/plating/plating_catwalk/light,
 /area/mainship/living/cafeteria)
 "jtp" = (
-/obj/machinery/vending/engivend{
-	req_access = null
-	},
+/obj/machinery/vending/engivend,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/delta)
 "jtw" = (
@@ -16769,9 +16765,7 @@
 /turf/open/floor/mainship/metal/green,
 /area/mainship/medical/lounge)
 "kfs" = (
-/obj/machinery/bodyscanner{
-	dir = 4
-	},
+/obj/machinery/bodyscanner,
 /turf/open/floor/mainship/metal/green,
 /area/mainship/medical/lounge)
 "kfv" = (
@@ -18459,9 +18453,7 @@
 /turf/open/floor/mainship/rubber,
 /area/mainship/medical/operating_room_two)
 "lbT" = (
-/obj/machinery/bodyscanner{
-	dir = 4
-	},
+/obj/machinery/bodyscanner,
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 8
 	},
@@ -18699,9 +18691,7 @@
 /turf/open/floor/mainship/metal/gray,
 /area/mainship/medical/surgery_hallway)
 "lla" = (
-/obj/machinery/sleeper{
-	dir = 4
-	},
+/obj/machinery/sleeper,
 /obj/effect/turf_decal/tile/metal/medical{
 	dir = 8
 	},
@@ -21547,9 +21537,7 @@
 /turf/open/floor/mainship/red/full,
 /area/mainship/hallways/hangar)
 "mKS" = (
-/obj/machinery/bodyscanner{
-	dir = 4
-	},
+/obj/machinery/bodyscanner,
 /turf/open/floor/wood,
 /area/mainship/medical/lower_medical)
 "mLc" = (
@@ -28216,9 +28204,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/squads/bravo)
 "qtT" = (
-/obj/machinery/vending/engivend{
-	req_access = null
-	},
+/obj/machinery/vending/engivend,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/bravo)
 "qug" = (
@@ -28430,9 +28416,7 @@
 /turf/open/floor/plating,
 /area/mainship/hull/upper_hull)
 "qBR" = (
-/obj/machinery/vending/engivend{
-	req_access = null
-	},
+/obj/machinery/vending/engivend,
 /turf/open/floor/mainship/metal,
 /area/mainship/squads/alpha)
 "qCv" = (
@@ -34421,6 +34405,7 @@
 /obj/effect/turf_decal/woodsiding{
 	dir = 4
 	},
+/obj/item/clothing/tie/watch/generalskie_kotly,
 /turf/open/floor/carpet,
 /area/mainship/living/numbertwobunks)
 "uoQ" = (
