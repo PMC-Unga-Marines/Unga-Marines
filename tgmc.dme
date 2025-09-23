@@ -1739,6 +1739,7 @@
 #include "code\modules\mining\remote_fob\remote_fob_computer.dm"
 #include "code\modules\mining\remote_fob\remote_fob_fobdrone.dm"
 #include "code\modules\mob\companies.dm"
+#include "code\modules\mob\companies_and_contracts_ui.dm"
 #include "code\modules\mob\contracts.dm"
 #include "code\modules\mob\death.dm"
 #include "code\modules\mob\emote.dm"

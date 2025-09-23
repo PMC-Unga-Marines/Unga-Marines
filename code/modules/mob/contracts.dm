@@ -1,3 +1,16 @@
+// =================== CONTRACTS SYSTEM ===================
+
+// ПРОСТОЙ UI для изучения TGUI
+/mob/living/carbon/human/verb/open_simple_ui()
+	set name = "Simple UI Test"
+	set category = "IC.Contracts"
+
+	if(!ishuman(src))
+		return
+
+	var/datum/simple_contracts_ui/ui = new(src)
+	ui.ui_interact(src)
+
 /mob/living/carbon/human/verb/create_contract()
 	set name = "Create Contract"
 	set category = "IC.Contracts"
