@@ -157,3 +157,8 @@
 /obj/item/clothing/tie/holobadge/attack(mob/living/carbon/human/M, mob/living/user)
 	if(isliving(user))
 		user.visible_message(span_warning("[user] invades [M]'s personal space, thrusting [src] into [M.p_their()] face insistently."), span_warning("You invade [M]'s personal space, thrusting [src] into [M.p_their()] face insistently. You are the law."))
+
+obj/item/clothing/tie/watch/generalskie_kotly
+	name = "Генеральские котлы"
+	desc = "Стрелки давно застыли, по всей видимости давно не было МЕНЫ пружины..."
+	icon_state = "generalksie_kotly"

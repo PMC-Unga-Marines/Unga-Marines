@@ -54,6 +54,7 @@
 		/obj/item/clothing/tie/medal/letter/commendation,
 		/obj/item/clothing/tie/holobadge,
 		/obj/item/clothing/tie/holobadge/cord,
+		/obj/item/clothing/tie/watch/generalskie_kotly,
 	)
 
 	///Assoc list of available slots.
