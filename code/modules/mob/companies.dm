@@ -32,8 +32,8 @@
 
 		// Initialize company points in SSpoints
 		SSpoints.company_supply_points[newname] = 0
-		to_chat(usr, span_debug("DEBUG: Created company [newname] in SSpoints.company_supply_points"))
-		to_chat(usr, span_debug("DEBUG: SSpoints.company_supply_points now contains: [SSpoints.company_supply_points]"))
+		to_chat(usr, span_info("DEBUG: Created company [newname] in SSpoints.company_supply_points"))
+		to_chat(usr, span_info("DEBUG: SSpoints.company_supply_points now contains: [SSpoints.company_supply_points]"))
 
 		to_chat(usr, "<big>You now own <b>100%</b> of the new company [newname].</big>")
 		return
@@ -42,21 +42,21 @@
 
 /// Get the company name that a mob owns
 /mob/living/carbon/human/proc/get_company_name()
-	to_chat(src, span_debug("DEBUG: get_company_name() called for [src.real_name]"))
-	to_chat(src, span_debug("DEBUG: GLOB.custom_companies has [length(GLOB.custom_companies)] entries"))
+	to_chat(src, span_info("DEBUG: get_company_name() called for [src.real_name]"))
+	to_chat(src, span_info("DEBUG: GLOB.custom_companies has [length(GLOB.custom_companies)] entries"))
 	for(var/company_name in GLOB.custom_companies)
 		var/list/company_data = GLOB.custom_companies[company_name]
-		to_chat(src, span_debug("DEBUG: Checking company [company_name], owner: [company_data[1]]"))
+		to_chat(src, span_info("DEBUG: Checking company [company_name], owner: [company_data[1]]"))
 		if(company_data[1] == src) // Check if this mob is the owner
-			to_chat(src, span_debug("DEBUG: Found matching company: [company_name]"))
+			to_chat(src, span_info("DEBUG: Found matching company: [company_name]"))
 			return company_name
-	to_chat(src, span_debug("DEBUG: No company found for [src.real_name]"))
+	to_chat(src, span_info("DEBUG: No company found for [src.real_name]"))
 	return null
 
 /// Check if a mob owns a company
 /mob/living/carbon/human/proc/has_company()
 	var/result = get_company_name() != null
-	to_chat(src, span_debug("DEBUG: has_company() = [result]"))
+	to_chat(src, span_info("DEBUG: has_company() = [result]"))
 	return result
 
 /// Get company points for a specific company
@@ -67,16 +67,16 @@
 
 /// Add points to a company
 /proc/add_company_points(company_name, amount)
-	to_chat(world, span_debug("DEBUG: add_company_points called for [company_name] with amount [amount]"))
-	to_chat(world, span_debug("DEBUG: SSpoints.company_supply_points keys: [SSpoints.company_supply_points]"))
+	to_chat(world, span_info("DEBUG: add_company_points called for [company_name] with amount [amount]"))
+	to_chat(world, span_info("DEBUG: SSpoints.company_supply_points keys: [SSpoints.company_supply_points]"))
 
 	if(!(company_name in SSpoints.company_supply_points))
-		to_chat(world, span_debug("DEBUG: Company [company_name] not found in company_supply_points!"))
+		to_chat(world, span_info("DEBUG: Company [company_name] not found in company_supply_points!"))
 		return FALSE
 
-	to_chat(world, span_debug("DEBUG: Before adding: [company_name] has [SSpoints.company_supply_points[company_name]] points"))
+	to_chat(world, span_info("DEBUG: Before adding: [company_name] has [SSpoints.company_supply_points[company_name]] points"))
 	SSpoints.company_supply_points[company_name] += amount
-	to_chat(world, span_debug("DEBUG: After adding: [company_name] has [SSpoints.company_supply_points[company_name]] points"))
+	to_chat(world, span_info("DEBUG: After adding: [company_name] has [SSpoints.company_supply_points[company_name]] points"))
 	return TRUE
 
 /// Check company balance command
