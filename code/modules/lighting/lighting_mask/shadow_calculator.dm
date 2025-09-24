@@ -145,7 +145,6 @@
 			continue
 
 		var/list/triangles = calculate_triangle_vertices(culledlinegroup)
-
 		for(var/triangle as anything in triangles)
 			var/matrix/triangle_matrix = triangle_to_matrix(triangle)
 
@@ -180,9 +179,6 @@
 	var/translatedPoint2y = triangle[2][2] - oury	//Simultaneous Variable: X
 	var/translatedPoint3x = triangle[3][1] - ourx	//Simultaneous Variable: Y
 	var/translatedPoint3y = triangle[3][2] - oury	//Simultaneous Variable: Z
-	//message_admins("Point 1: ([originx], [originy])")
-	//message_admins("Point 2: ([translatedPoint2x], [translatedPoint2y])")
-	//message_admins("Point 3: ([translatedPoint3x], [translatedPoint3y])")
 	//Assumption that is incorrect
 	//Triangle points are
 	// (-4, -4)
@@ -207,11 +203,7 @@
 	//Matrix time g
 	//a,b,d and e can be used to define the shape, C and F can be used for translation god matrices are so beautiful
 	//Completely random offset that I didnt derive, I just trialled and errored for about 4 hours until it randomly worked
-	//var/radius_based_offset = radius * 3 + RADIUS_BASED_OFFSET <-- for 1024x1024 lights DO NOT USE 1024x1024 SHADOWS UNLESS YOU ARE PLAYING WITH RTX200000 OR SOMETHING
 	var/matrix/M = matrix(a, b, (c * 32) - (RADIUS_BASED_OFFSET * 32), d, e, (f * 32) - (RADIUS_BASED_OFFSET * 32))
-	//log_game("[M.a], [M.d], 0")
-	//log_game("[M.b], [M.e], 0")
-	//log_game("[M.c], [M.f], 1")
 	return M
 
 /**
