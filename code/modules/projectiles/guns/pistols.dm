@@ -846,10 +846,13 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 	allowed_ammo_types = list(/obj/item/ammo_magazine/pistol/p14/smart_pistol)
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
+		/obj/item/attachable/extended_barrel,
+		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/compensator,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/flashlight,
-		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/lace,
@@ -858,12 +861,11 @@ It is a modified Beretta 93R, and can fire three round burst or single fire. Whe
 	gun_features_flags = GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_skill_category = SKILL_SMARTGUN
 	actions_types = list() // Inherits aimmode, but has IFF so..
-	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_SEMIAUTO)
 
 	attachable_offset = list("muzzle_x" = 47, "muzzle_y" = 19,"rail_x" = 17, "rail_y" = 27, "under_x" = 30, "under_y" = 13, "stock_x" = 21, "stock_y" = 17)
 
 	aim_slowdown = 0.2
-	wield_delay = 0.6 SECONDS
+	wield_delay = 0.5 SECONDS
 	fire_delay = 0.2 SECONDS
 	accuracy_mult = 1.2
 	accuracy_mult_unwielded = 0.85

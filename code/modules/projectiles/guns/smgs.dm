@@ -719,7 +719,7 @@
 
 	fire_delay = 0.2 SECONDS
 	burst_delay =  0.15 SECONDS
-	burst_amount = 4
+	burst_amount = 3
 	recoil_unwielded = 1 // Recoil blowback system, yes but the recoil is the recoil, especially when it's not 9mm!
 	wield_delay = 0.6 SECONDS
 	damage_falloff_mult = 1.7
@@ -728,7 +728,7 @@
 	akimbo_additional_delay = 0.5
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 0.65
-	aim_slowdown = 0.2
+	aim_slowdown = 0.25
 
 
 	accuracy_mult = 1.1
