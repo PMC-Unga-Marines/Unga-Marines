@@ -116,18 +116,18 @@
 
 	//Rebuild the list
 	var/is_on_closed_turf = isclosedturf(our_turf)
-	for(var/turf/thing in dview(range, get_turf(attached_atom))) //most expensive part of shadow code is this dview and group_atoms
-		link_turf_to_light(thing)
+	for(var/turf/turf as anything in RANGE_TURFS(range, get_turf(attached_atom)))
+		link_turf_to_light(turf)
 		//The turf is now affected by our light, make it luminous
-		thing.luminosity += 1
+		turf.luminosity += 1
 		//Dont consider shadows about our turf.
-		if(!is_on_closed_turf && thing == our_turf)
+		if(!is_on_closed_turf && turf == our_turf)
 			continue
-		if(!thing.directional_opacity)
+		if(!turf.directional_opacity)
 			continue
 		//At this point we no longer care about
 		//the atom itself, only the position values
-		COORD_LIST_ADD(opaque_atoms_in_view, thing.x, thing.y)
+		COORD_LIST_ADD(opaque_atoms_in_view, turf.x, turf.y)
 
 	//We are too small to consider shadows on, luminsoty has been considered at least.
 	if(radius < 2)
