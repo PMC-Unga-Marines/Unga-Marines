@@ -51,6 +51,12 @@
 	var/allow_explosives = TRUE
 	/// Whether this vehicle is affected by sticky weed slowdown
 	var/affected_by_sticky_weeds = TRUE
+	/// Power cell for vehicle operation
+	var/obj/item/cell/battery = null
+	/// Power consumption per movement action
+	var/power_per_move = 0.1
+	/// Power consumption per shot fired
+	var/power_per_shot = 0.3
 	/// muzzleflash stuff
 	var/atom/movable/vis_obj/effect/muzzle_flash/flash
 	COOLDOWN_DECLARE(fire_cooldown)
@@ -63,6 +69,8 @@
 	flash = new /atom/movable/vis_obj/effect/muzzle_flash(src)
 	if(!is_centcom_level(loc.z))
 		GLOB.unmanned_vehicles += src
+	// Initialize with a charged battery
+	battery = new /obj/item/cell/night_vision_battery(src)
 	prepare_huds()
 	hud_set_machine_health()
 	if(spawn_equipped_type)
@@ -85,6 +93,7 @@
 	GLOB.unmanned_vehicles -= src
 	QDEL_NULL(flash)
 	QDEL_NULL(in_chamber)
+	QDEL_NULL(battery)
 	return ..()
 
 /obj/vehicle/unmanned/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
@@ -126,6 +135,11 @@
 			. += "It is equipped with an explosive weapon system. "
 		if(TURRET_TYPE_DROIDLASER)
 			. += "It is equipped with a droid weapon system. It uses 11x35mm ammo."
+	if(battery)
+		. += "Battery: [round(battery.percent())]% charge remaining."
+	else
+		. += span_warning("No battery installed!")
+	. += "Use a screwdriver to replace the battery."
 
 /obj/vehicle/unmanned/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -137,9 +151,16 @@
 		return equip_turret(I, user)
 	if(istype(I, /obj/item/ammo_magazine))
 		return reload_turret(I, user)
+	if(istype(I, /obj/item/cell/night_vision_battery))
+		return insert_battery(I, user)
 
 /obj/vehicle/unmanned/relaymove(mob/living/user, direction)
 	if(user.incapacitated())
+		return FALSE
+
+	// Check if battery has enough power
+	if(!battery || !battery.use(power_per_move))
+		to_chat(user, span_warning("[src] is out of power!"))
 		return FALSE
 
 	if(world.time < last_move_time + next_move_delay)
@@ -175,6 +196,36 @@
 	update_icon()
 	hud_set_uav_ammo()
 	return
+
+///Insert a new battery into the vehicle
+/obj/vehicle/unmanned/proc/insert_battery(obj/item/cell/night_vision_battery/new_battery, mob/user)
+	if(battery)
+		to_chat(user, span_warning("[src] already has a battery installed!"))
+		return
+	user.visible_message(span_notice("[user] starts to install [new_battery] into [src]."), span_notice("You start to install [new_battery] into [src]."))
+	if(!do_after(user, 3 SECONDS, NONE, src))
+		return
+	battery = new_battery
+	user.transferItemToLoc(new_battery, src)
+	user.visible_message(span_notice("[user] installs [new_battery] into [src]."), span_notice("You install [new_battery] into [src]."))
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+
+///Try to remove/replace the battery with a screwdriver
+/obj/vehicle/unmanned/screwdriver_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(!battery)
+		to_chat(user, span_warning("There is no battery to remove from [src]!"))
+		return
+	user.visible_message(span_notice("[user] starts to remove the battery from [src]."), span_notice("You start to remove the battery from [src]."))
+	if(!do_after(user, 3 SECONDS, NONE, src))
+		return
+	var/obj/item/cell/removed_battery = battery
+	battery = null
+	removed_battery.forceMove(loc)
+	user.visible_message(span_notice("[user] removes [removed_battery] from [src]."), span_notice("You remove [removed_battery] from [src]."))
+	playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
+	if(user.put_in_hands(removed_battery))
+		to_chat(user, span_notice("You take [removed_battery]."))
 
 ///Try to reload the turret of our vehicule
 /obj/vehicle/unmanned/proc/reload_turret(obj/item/ammo_magazine/reload_ammo, mob/user)
@@ -271,6 +322,10 @@
 /obj/vehicle/unmanned/proc/fire_shot(atom/target, mob/user)
 	if(!COOLDOWN_CHECK(src, fire_cooldown))
 		return FALSE
+	// Check if battery has enough power to fire
+	if(!battery || !battery.use(power_per_shot))
+		to_chat(user, span_warning("[src] is out of power!"))
+		return FALSE
 	if(load_into_chamber() && istype(in_chamber, /atom/movable/projectile))
 		//Setup projectile
 		in_chamber.original_target = target
@@ -310,6 +365,7 @@
 	max_integrity = 200
 	soft_armor = list(MELEE = 35, BULLET = 90, LASER = 90, ENERGY = 90, BOMB = 55, BIO = 100, FIRE = 25, ACID = 35)
 	affected_by_sticky_weeds = FALSE
+	power_per_move = 0.2
 
 /obj/vehicle/unmanned/heavy
 	name = "UV-H Komodo"
@@ -319,6 +375,7 @@
 	max_integrity = 250
 	soft_armor = list(MELEE = 55, BULLET = 95, LASER = 95, ENERGY = 95, BOMB = 60, BIO = 100, FIRE = 35, ACID = 55)
 	affected_by_sticky_weeds = FALSE
+	power_per_move = 0.3
 
 /obj/structure/closet/crate/uav_crate
 	name = "\improper UV-L Iguana Crate"
@@ -336,6 +393,7 @@
 	for(var/i in 1 to 3)
 		new /obj/item/ammo_magazine/box11x35mm(src)
 	new /obj/item/unmanned_vehicle_remote(src)
+	new /obj/item/cell/night_vision_battery(src)
 
 /obj/structure/closet/crate/uav_crate/medium
     name = "\improper UV-M Gecko Crate"
