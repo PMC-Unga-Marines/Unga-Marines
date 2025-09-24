@@ -1181,3 +1181,44 @@
 
 /obj/item/weapon/gun/shotgun/pump/ksg/support
 	starting_attachment_types = list(/obj/item/attachable/motiondetector, /obj/item/attachable/flashlight/under, /obj/item/attachable/compensator,)
+
+// Cursed Shotgun
+
+/obj/item/weapon/gun/shotgun/cursed/tenfold
+	name = "\improper tenfold barrel shotgun"
+	desc = "A shotgun that fires all its bullets at once."
+	icon = 'icons/obj/items/gun/shotgun.dmi'
+	icon_state = "tenfold"
+	worn_icon_state = "tenfold"
+	equip_slot_flags = ITEM_SLOT_BACK
+	max_chamber_items = 10 //codex
+	caliber = CALIBER_12G //codex
+	load_method = SINGLE_CASING //codex
+	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
+	reciever_flags = AMMO_RECIEVER_TOGGLES_OPEN|AMMO_RECIEVER_HANDFULS
+	gun_firemode_list = list(GUN_FIREMODE_BURSTFIRE)
+	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
+	aim_slowdown = 0.45
+	attachable_allowed = list(
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/gyro,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/flashlight/under,
+	)
+
+	attachable_offset = list("muzzle_x" = 40, "muzzle_y" = 17,"rail_x" = 12, "rail_y" = 23, "under_x" = 29, "under_y" = 12, "stock_x" = 13, "stock_y" = 15)
+
+	fire_delay = 1.75 SECONDS
+	windup_delay = 0.8 SECONDS
+	damage_mult = 0.9
+	wield_delay = 0.95 SECONDS
+	burst_amount = 10
+	burst_delay = 0.01 SECONDS //basically instantaneous two shots
+	extra_delay = 0.5 SECONDS
+	scatter = 0.5
+	burst_scatter_mult = 10 // 2x10=20
+	accuracy_mult = 1
+	recoil = 4
