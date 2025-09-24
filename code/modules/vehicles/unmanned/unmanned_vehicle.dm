@@ -123,6 +123,8 @@
 			. += image('icons/obj/unmanned_vehicles.dmi', src, "bomb")
 		if(TURRET_TYPE_DROIDLASER)
 			. += image('icons/obj/unmanned_vehicles.dmi', src, "droidlaser")
+		if(TURRET_TYPE_CLAW)
+			. += image('icons/obj/unmanned_vehicles.dmi', src, "claw")
 
 /obj/vehicle/unmanned/examine(mob/user, distance, infix, suffix)
 	. = ..()
@@ -137,6 +139,8 @@
 			. += "It is equipped with an explosive weapon system. "
 		if(TURRET_TYPE_DROIDLASER)
 			. += "It is equipped with a droid weapon system. It uses 11x35mm ammo."
+		if(TURRET_TYPE_CLAW)
+			. += "It is equipped with a mechanical claw system for grabbing and pulling objects and bodies."
 	if(battery)
 		. += "Battery: [round(battery.percent())]% charge remaining."
 	else
@@ -356,6 +360,46 @@
 /obj/vehicle/unmanned/proc/delete_muzzle_flash()
 	vis_contents -= flash
 
+///Uses the claw to grab and pull objects or mobs
+/obj/vehicle/unmanned/proc/use_claw(atom/target, mob/user)
+	if(!COOLDOWN_CHECK(src, fire_cooldown))
+		return FALSE
+	// Check if battery has enough power to operate claw
+	if(!battery || !battery.use(power_per_shot))
+		to_chat(user, span_warning("[src] is out of power!"))
+		return FALSE
+
+	// Check if target is adjacent
+	if(!Adjacent(target))
+		to_chat(user, span_warning("Target is too far away!"))
+		return FALSE
+
+	// Handle pulling different types of targets
+	if(ismob(target))
+		var/mob/M = target
+		if(M.pulledby)
+			M.pulledby.stop_pulling()
+		start_pulling(M)
+		to_chat(user, span_notice("Claw grabs [M] and starts pulling them."))
+		log_attack("[key_name(user)] used claw to pull [key_name(M)] at [AREACOORD(src)]")
+	else if(isobj(target))
+		var/obj/O = target
+		if(O.anchored)
+			to_chat(user, span_warning("[O] is anchored and cannot be moved!"))
+			return FALSE
+		if(O.pulledby)
+			O.pulledby.stop_pulling()
+		start_pulling(O)
+		to_chat(user, span_notice("Claw grabs [O] and starts pulling it."))
+		log_attack("[key_name(user)] used claw to pull [O] at [AREACOORD(src)]")
+	else
+		to_chat(user, span_warning("Claw cannot grab that target!"))
+		return FALSE
+
+	COOLDOWN_START(src, fire_cooldown, fire_delay)
+	playsound(loc, 'sound/machines/click.ogg', 50, 1)
+	return TRUE
+
 /obj/vehicle/unmanned/fire_act(burn_level, flame_color)
 	take_damage(burn_level * 0.5, BURN, FIRE)
 
@@ -395,6 +439,8 @@
 	/// For doing less copy-paste (and make it look prettier) further as we want to expand UAV variations
 	var/vehicle_type = /obj/vehicle/unmanned
 
+// UAVs
+
 /obj/structure/closet/crate/uav_crate/PopulateContents()
 	new vehicle_type(src)
 	new /obj/item/unmanned_vehicle_remote(src)
@@ -407,3 +453,18 @@
 /obj/structure/closet/crate/uav_crate/heavy
     name = "\improper UV-H Komodo Crate"
     vehicle_type = /obj/vehicle/unmanned/heavy
+
+// Weapons
+
+/obj/structure/closet/crate/uav_weapons_crate/light/PopulateContents()
+	new /obj/item/uav_turret(src)
+	for(var/i in 1 to 3)
+		new /obj/item/ammo_magazine/box11x35mm(src)
+
+/obj/structure/closet/crate/uav_weapons_crate/heavy/PopulateContents()
+	new /obj/item/uav_turret/heavy(src)
+	for(var/i in 1 to 3)
+		new /obj/item/ammo_magazine/box12x40mm(src)
+
+/obj/structure/closet/crate/uav_weapons_crate/claw/PopulateContents()
+	new /obj/item/uav_turret/claw(src)

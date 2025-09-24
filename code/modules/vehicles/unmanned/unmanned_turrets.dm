@@ -39,12 +39,10 @@
 	current_rounds = 300
 	max_rounds = 300
 
-/obj/structure/closet/crate/uav_weapons_crate/light/PopulateContents()
-	new /obj/item/uav_turret(src)
-	for(var/i in 1 to 3)
-		new /obj/item/ammo_magazine/box11x35mm(src)
-
-/obj/structure/closet/crate/uav_weapons_crate/heavy/PopulateContents()
-	new /obj/item/uav_turret/heavy(src)
-	for(var/i in 1 to 3)
-		new /obj/item/ammo_magazine/box12x40mm(src)
+/obj/item/uav_turret/claw
+	name = "unmanned vehicle claw"
+	desc = "A mechanical claw attachment for an unmanned vehicle, capable of grabbing and pulling objects and bodies."
+	icon_state = "claw_obj"
+	turret_type = TURRET_TYPE_CLAW
+	turret_pattern = PATTERN_TRACKED
+	fire_delay = 1 SECONDS
