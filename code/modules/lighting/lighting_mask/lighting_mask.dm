@@ -17,8 +17,12 @@
 	appearance_flags = KEEP_TOGETHER|RESET_TRANSFORM
 	move_resist = INFINITY
 
-	bound_width = 256
+	bound_width = 256 // does it do something? i don't know
 	bound_height = 256
+
+	pixel_x = -112 // cringe
+	pixel_y = -112 // TODO: port from tg, this shit is horrible
+
 	///The current angle the item is pointing at
 	var/current_angle = 0
 
@@ -68,12 +72,6 @@
 	//Scale
 	// - Scale to the appropriate radius
 	new_size_matrix.Scale(radius / LIGHTING_MASK_RADIUS)
-	//Translate
-	// - Center the overlay image
-	// - Ok so apparently translate is affected by the scale we already did huh.
-	// ^ Future me here, its because it works as translate then scale since its backwards.
-	// ^ ^ Future future me here, it totally shouldnt since the translation component of a matrix is independant to the scale component.
-	new_size_matrix.Translate(-128 + 16)
 	//Adjust for pixel offsets
 	var/invert_offsets = attached_atom.dir & (NORTH | EAST)
 	var/left_or_right = attached_atom.dir & (EAST | WEST)
