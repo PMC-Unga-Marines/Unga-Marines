@@ -158,7 +158,8 @@
 			var/obj/vehicle/unmanned/unmanned_vehicle = vehicle
 			if(!unmanned_vehicle.affected_by_sticky_weeds)
 				return
-			unmanned_vehicle.next_move_delay += WEED_SLOWDOWN
+			// Add weed slowdown that will be applied in movement calculation
+			unmanned_vehicle.weed_slowdown += WEED_SLOWDOWN
 			return
 		vehicle.last_move_time += WEED_SLOWDOWN
 		return
@@ -340,7 +341,8 @@
 			var/obj/vehicle/unmanned/unmanned_vehicle = vehicle
 			if(!unmanned_vehicle.affected_by_sticky_weeds)
 				return
-			unmanned_vehicle.next_move_delay += WEED_SLOWDOWN
+			// Add weed slowdown that will be applied in movement calculation
+			unmanned_vehicle.weed_slowdown += WEED_SLOWDOWN
 			return
 		vehicle.last_move_time += WEED_SLOWDOWN
 		return

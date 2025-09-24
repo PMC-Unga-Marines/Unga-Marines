@@ -57,6 +57,8 @@
 	var/power_per_move = 0.1
 	/// Power consumption per shot fired
 	var/power_per_shot = 0.3
+	/// Additional slowdown from sticky weeds
+	var/weed_slowdown = 0
 	/// muzzleflash stuff
 	var/atom/movable/vis_obj/effect/muzzle_flash/flash
 	COOLDOWN_DECLARE(fire_cooldown)
@@ -163,7 +165,9 @@
 		to_chat(user, span_warning("[src] is out of power!"))
 		return FALSE
 
-	if(world.time < last_move_time + next_move_delay)
+	// Apply weed slowdown to the movement delay calculation
+	var/total_delay = next_move_delay + weed_slowdown
+	if(world.time < last_move_time + total_delay)
 		return
 
 	. = Move(get_step(src, direction))
@@ -172,6 +176,10 @@
 		next_move_delay = move_delay * DIAG_MOVEMENT_ADDED_DELAY_MULTIPLIER
 	else
 		next_move_delay = move_delay
+
+	// Decay weed slowdown over time
+	if(weed_slowdown > 0)
+		weed_slowdown = max(0, weed_slowdown - 1)
 
 ///Try to desequip the turret
 /obj/vehicle/unmanned/wrench_act(mob/living/user, obj/item/I)
