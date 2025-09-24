@@ -114,17 +114,17 @@
 /datum/supply_packs/vehicles/light_uv
 	name = "Light unmanned vehicle - Iguana"
 	contains = list(/obj/vehicle/unmanned)
-	cost = 300
+	cost = 250
 
 /datum/supply_packs/vehicles/medium_uv
 	name = "Medium unmanned vehicle - Gecko"
 	contains = list(/obj/vehicle/unmanned/medium)
-	cost = 500
+	cost = 350
 
 /datum/supply_packs/vehicles/heavy_uv
 	name = "Heavy unmanned vehicle - Komodo"
 	contains = list(/obj/vehicle/unmanned/heavy)
-	cost = 700
+	cost = 550
 
 /datum/supply_packs/vehicles/uv_light_weapon
 	name = "Light UV weapon"
