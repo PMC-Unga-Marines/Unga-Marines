@@ -49,6 +49,8 @@
 	var/iff_signal = TGMC_LOYALIST_IFF
 	/// If explosives should be usable on the vehicle
 	var/allow_explosives = TRUE
+	/// Whether this vehicle is affected by sticky weed slowdown
+	var/affected_by_sticky_weeds = TRUE
 	/// muzzleflash stuff
 	var/atom/movable/vis_obj/effect/muzzle_flash/flash
 	COOLDOWN_DECLARE(fire_cooldown)
@@ -307,6 +309,7 @@
 	max_rounds = 200
 	max_integrity = 200
 	soft_armor = list(MELEE = 35, BULLET = 90, LASER = 90, ENERGY = 90, BOMB = 55, BIO = 100, FIRE = 25, ACID = 35)
+	affected_by_sticky_weeds = FALSE
 
 /obj/vehicle/unmanned/heavy
 	name = "UV-H Komodo"
@@ -315,6 +318,7 @@
 	max_rounds = 200
 	max_integrity = 250
 	soft_armor = list(MELEE = 55, BULLET = 95, LASER = 95, ENERGY = 95, BOMB = 60, BIO = 100, FIRE = 35, ACID = 55)
+	affected_by_sticky_weeds = FALSE
 
 /obj/structure/closet/crate/uav_crate
 	name = "\improper UV-L Iguana Crate"
