@@ -153,6 +153,11 @@
 
 	if(isvehicle(crosser))
 		var/obj/vehicle/vehicle = crosser
+		// Check if this is an unmanned vehicle and if it's affected by sticky weeds
+		if(istype(vehicle, /obj/vehicle/unmanned))
+			var/obj/vehicle/unmanned/unmanned_vehicle = vehicle
+			if(!unmanned_vehicle.affected_by_sticky_weeds)
+				return
 		vehicle.last_move_time += WEED_SLOWDOWN
 		return
 
@@ -328,6 +333,11 @@
 
 	if(isvehicle(crosser))
 		var/obj/vehicle/vehicle = crosser
+		// Check if this is an unmanned vehicle and if it's affected by sticky weeds
+		if(istype(vehicle, /obj/vehicle/unmanned))
+			var/obj/vehicle/unmanned/unmanned_vehicle = vehicle
+			if(!unmanned_vehicle.affected_by_sticky_weeds)
+				return
 		vehicle.last_move_time += WEED_SLOWDOWN
 		return
 
