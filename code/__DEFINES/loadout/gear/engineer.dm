@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT(engineer_gear_listed_products, list(
 	/obj/structure/closet/crate/uav_crate/medium = list(CAT_ENGSUP, "Gecko Unmanned Vehicle", 35, "blue"),
 	/obj/structure/closet/crate/uav_crate/heavy = list(CAT_ENGSUP, "Komodo Unmanned Vehicle", 45, "blue"),
 	/obj/structure/closet/crate/uav_weapons_crate/light = list(CAT_ENGSUP, "Light UV Machinegun", 10, "blue"),
-	/obj/structure/closet/crate/uav_weapons_crate/heavy = list(CAT_ENGSUP, "Heavy UV Machingegun", 15, "blue"),
+	/obj/structure/closet/crate/uav_weapons_crate/heavy = list(CAT_ENGSUP, "Heavy UV Machinegun", 15, "blue"),
 	/obj/structure/closet/crate/uvt_crate = list(CAT_ENGSUP, "Skink Unmanned Vehicle", 5, "blue"),
 	/obj/effect/teleporter_linker = list(CAT_ENGSUP, "Teleporters", 25, "blue"),
 	/obj/item/tool/pickaxe/plasmacutter = list(CAT_ENGSUP, "Plasma cutter", 23, "blue"),

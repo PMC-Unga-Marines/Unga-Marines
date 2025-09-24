@@ -392,7 +392,7 @@
 	icon_state = "closed_weapons"
 	icon_opened = "open_weapons"
 	icon_closed = "closed_weapons"
-	/// For doing less copy-past (and make it look prettier) further as we want to expand UAV variations
+	/// For doing less copy-paste (and make it look prettier) further as we want to expand UAV variations
 	var/vehicle_type = /obj/vehicle/unmanned
 
 /obj/structure/closet/crate/uav_crate/PopulateContents()
