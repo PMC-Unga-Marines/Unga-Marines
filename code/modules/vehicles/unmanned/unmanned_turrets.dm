@@ -39,12 +39,12 @@
 	current_rounds = 300
 	max_rounds = 300
 
-/obj/structure/closet/crate/uav_weapons_crate/light
+/obj/structure/closet/crate/uav_weapons_crate/light/PopulateContents()
 	new /obj/item/uav_turret(src)
 	for(var/i in 1 to 3)
 		new /obj/item/ammo_magazine/box11x35mm(src)
 
-/obj/structure/closet/crate/uav_weapons_crate/heavy
+/obj/structure/closet/crate/uav_weapons_crate/heavy/PopulateContents()
 	new /obj/item/uav_turret/heavy(src)
 	for(var/i in 1 to 3)
 		new /obj/item/ammo_magazine/box12x40mm(src)
