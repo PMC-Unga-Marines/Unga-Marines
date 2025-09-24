@@ -271,7 +271,7 @@
 	caliber = CALIBER_9X19
 	icon_state = "tx13"
 	icon_state_mini = "mag_pistol_tube"
-	max_rounds = 30
+	max_rounds = 45
 	w_class = WEIGHT_CLASS_SMALL
 	default_ammo = /datum/ammo/bullet/pistol/ap/smart
 

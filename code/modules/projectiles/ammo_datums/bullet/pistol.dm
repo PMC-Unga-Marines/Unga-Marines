@@ -3,18 +3,18 @@
 	hud_state = "pistol"
 	hud_state_empty = "pistol_empty"
 	ammo_behavior_flags = AMMO_BALLISTIC
-	damage = 20
+	damage = 25
 	penetration = 5
 	accurate_range = 5
-	additional_xeno_penetration = 20
+	additional_xeno_penetration = 10
 	matter_cost = 4
 
 /datum/ammo/bullet/pistol/tiny
 	name = "light pistol bullet"
 	hud_state = "pistol_light"
-	damage = 15
+	damage = 27.5
 	penetration = 5
-	additional_xeno_penetration = 17.5
+	additional_xeno_penetration = 7.5
 	matter_cost = 2
 
 /datum/ammo/bullet/pistol/tiny/ap
@@ -53,9 +53,9 @@
 	name = "armor-piercing pistol bullet"
 	hud_state = "pistol_ap"
 	damage = 20
-	penetration = 12.5
+	penetration = 15
 	shrapnel_chance = 15
-	additional_xeno_penetration = 12.5
+	additional_xeno_penetration = 10
 	matter_cost = 16
 
 /datum/ammo/bullet/pistol/ap/smart
