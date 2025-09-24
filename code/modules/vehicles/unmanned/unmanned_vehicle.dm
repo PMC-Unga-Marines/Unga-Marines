@@ -8,7 +8,7 @@
 	light_range = 6
 	light_power = 3
 	light_system = MOVABLE_LIGHT
-	move_delay = 2.5	//set this to limit the speed of the vehicle
+	move_delay = 2	//set this to limit the speed of the vehicle
 	max_integrity = IGUANA_MAX_INTEGRITY
 	hud_possible = list(MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD)
 	atom_flags = BUMP_ATTACKABLE
@@ -306,6 +306,7 @@
 	move_delay = 3
 	max_rounds = 200
 	max_integrity = 200
+	soft_armor = list(MELEE = 35, BULLET = 90, LASER = 90, ENERGY = 90, BOMB = 55, BIO = 100, FIRE = 25, ACID = 35)
 
 /obj/vehicle/unmanned/heavy
 	name = "UV-H Komodo"
@@ -313,6 +314,7 @@
 	move_delay = 4
 	max_rounds = 200
 	max_integrity = 250
+	soft_armor = list(MELEE = 55, BULLET = 95, LASER = 95, ENERGY = 95, BOMB = 60, BIO = 100, FIRE = 35, ACID = 55)
 
 /obj/structure/closet/crate/uav_crate
 	name = "\improper UV-L Iguana Crate"
@@ -321,11 +323,20 @@
 	icon_state = "closed_weapons"
 	icon_opened = "open_weapons"
 	icon_closed = "closed_weapons"
+	/// For doing less copy-past (and make it look prettier) further as we want to expand UAV variations
+	var/vehicle_type = /obj/vehicle/unmanned
 
 /obj/structure/closet/crate/uav_crate/PopulateContents()
-	new /obj/vehicle/unmanned(src)
+	new vehicle_type(src)
 	new /obj/item/uav_turret(src)
-	new /obj/item/ammo_magazine/box11x35mm(src)
-	new /obj/item/ammo_magazine/box11x35mm(src)
-	new /obj/item/ammo_magazine/box11x35mm(src)
+	for(var/i in 1 to 3)
+		new /obj/item/ammo_magazine/box11x35mm(src)
 	new /obj/item/unmanned_vehicle_remote(src)
+
+/obj/structure/closet/crate/uav_crate/medium
+    name = "\improper UV-M Gecko Crate"
+    vehicle_type = /obj/vehicle/unmanned/medium
+
+/obj/structure/closet/crate/uav_crate/heavy
+    name = "\improper UV-H Komodo Crate"
+    vehicle_type = /obj/vehicle/unmanned/heavy
