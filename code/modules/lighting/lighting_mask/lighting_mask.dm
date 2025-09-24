@@ -3,8 +3,9 @@
 ///Lighting mask sprite diameter in pixels
 #define LIGHTING_MASK_SPRITE_SIZE LIGHTING_MASK_RADIUS * 64
 
-/atom/movable/lighting_mask
-	name = ""
+/atom/movable/lighting_mask // why the fuck is this an atom
+	name = "lighting mask"
+	desc = "Yell at coders for you seeing this."
 	icon = LIGHTING_ICON_BIG
 	icon_state = "light_big"
 
@@ -16,6 +17,8 @@
 	appearance_flags = KEEP_TOGETHER|RESET_TRANSFORM
 	move_resist = INFINITY
 
+	bound_width = 256
+	bound_height = 256
 	///The current angle the item is pointing at
 	var/current_angle = 0
 
