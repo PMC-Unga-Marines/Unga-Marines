@@ -115,7 +115,7 @@
 	var/list/opaque_atoms_in_view = list()
 
 	//Rebuild the list
-	var/is_on_closed_turf = istype(our_turf, /turf/closed)
+	var/is_on_closed_turf = isclosedturf(our_turf)
 	for(var/turf/thing in dview(range, get_turf(attached_atom))) //most expensive part of shadow code is this dview and group_atoms
 		link_turf_to_light(thing)
 		//The turf is now affected by our light, make it luminous
@@ -135,8 +135,6 @@
 
 	//Group atoms together for optimisation
 	var/list/grouped_atoms = group_atoms(opaque_atoms_in_view)
-
-	var/list/overlays_to_add = list()
 	for(var/group as anything in grouped_atoms)
 		var/list/coordgroup = calculate_corners_in_group(group)
 		//This is where the lines are made
@@ -148,7 +146,7 @@
 
 		var/list/triangles = calculate_triangle_vertices(culledlinegroup)
 
-		for(var/triangle in triangles)
+		for(var/triangle as anything in triangles)
 			var/matrix/triangle_matrix = triangle_to_matrix(triangle)
 
 			triangle_matrix /= transform
@@ -163,9 +161,7 @@
 			shadow.blend_mode = BLEND_OVERLAY
 
 			LAZYADD(shadows, shadow)
-			overlays_to_add += shadow
-
-	overlays += overlays_to_add //batch appearance generation for free lag(tm)
+			overlays += shadow
 
 /**
  * Converts a triangle into a matrix that can be applied to a standardized triangle
@@ -358,7 +354,7 @@
 ///Takes in the list of lines and sight blockers and returns only the lines that are not blocked
 /atom/movable/lighting_mask/proc/cull_blocked_in_group(list/lines, list/sight_blockers)
 	. = list()
-	for(var/list/line in lines)
+	for(var/list/line as anything in lines)
 		var/vertex1 = line[1]
 		var/vertex2 = line[2]
 		var/list/lines_to_add = list()
@@ -438,9 +434,9 @@
 			)
 		//Bottom Middle
 		return list(
-			list(list(xlow, yhigh), list(xlow, yhigh)),
-			list(list(xlow, yhigh), list(xhigh, yhigh)),
-			list(list(xhigh, yhigh), list(xhigh, yhigh))
+			list(list(xlow, yhigh), list(xlow, ylow)),
+			list(list(xlow, ylow), list(xhigh, ylow)),
+			list(list(xhigh, ylow), list(xhigh, yhigh))
 		)
 	//The source is below the point (Top quad)
 	else if(oury < ylow)
