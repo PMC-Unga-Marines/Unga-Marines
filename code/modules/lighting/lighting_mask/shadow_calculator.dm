@@ -490,20 +490,19 @@
 		)
 	//Group is multiple length, find top left and bottom right
 	var/first = group[1]
-	var/second = group[2]
-	var/group_direction = NORTH
-	if(first[1] != second[1])
-		group_direction = EAST
+	var/group_direction_north = TRUE
+	if(first[1] != group[2])
+		group_direction_north = FALSE
 	var/lowest = INFINITY
 	var/highest = 0
 	for(var/vector in group)
 		var/value_to_comp = vector[1]
-		if(group_direction == NORTH)
+		if(!group_direction_north)
 			value_to_comp = vector[2]
 		lowest = min(lowest, value_to_comp)
 		highest = max(highest, value_to_comp)
 	//done ez
-	if(group_direction == NORTH)
+	if(!group_direction_north)
 		return list(
 			list(first[1] - 0.5, lowest - 0.5),
 			list(first[1] + 0.5, highest + 0.5)
