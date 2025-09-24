@@ -397,9 +397,6 @@
 
 /obj/structure/closet/crate/uav_crate/PopulateContents()
 	new vehicle_type(src)
-	new /obj/item/uav_turret(src)
-	for(var/i in 1 to 3)
-		new /obj/item/ammo_magazine/box11x35mm(src)
 	new /obj/item/unmanned_vehicle_remote(src)
 	new /obj/item/cell/night_vision_battery(src)
 
