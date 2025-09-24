@@ -530,11 +530,11 @@
 	var/list/horizontal_atoms = list()
 	//=================================================
 	//Vertical sorting (X locked)
-	for(var/x_key in ungrouped_things)
+	for(var/x_key as anything in ungrouped_things)
 		var/list/y_components = ungrouped_things[x_key]
 		var/pointer = y_components[1]
 		var/list/group = list(list(text2num(x_key), y_components[1]))
-		for(var/i in 2 to length(y_components))
+		for(var/i as anything in 2 to length(y_components))
 			var/next = y_components[i]
 			if(next != pointer + 1)
 				if(length(group) == 1)
@@ -554,11 +554,11 @@
 			. += list(group)
 	//=================================================
 	//Horizontal sorting (Y locked)
-	for(var/y_key in horizontal_atoms)
+	for(var/y_key as anything in horizontal_atoms)
 		var/list/x_components = horizontal_atoms[y_key]
 		var/pointer = x_components[1]
 		var/list/group = list(list(x_components[1], text2num(y_key)))
-		for(var/i in 2 to length(x_components))
+		for(var/i as anything in 2 to length(x_components))
 			var/next = x_components[i]
 			if(next != pointer + 1)
 				. += list(group)
