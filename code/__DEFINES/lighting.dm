@@ -20,7 +20,7 @@
 // Lighting cutoff defines
 // These are a percentage of how much darkness to cut off (in rgb)
 #define LIGHTING_CUTOFF_VISIBLE 0
-#define LIGHTING_CUTOFF_REAL_LOW 5
+#define LIGHTING_CUTOFF_REAL_LOW 3
 #define LIGHTING_CUTOFF_LOW 15
 #define LIGHTING_CUTOFF_MEDIUM 30
 #define LIGHTING_CUTOFF_HIGH 50
