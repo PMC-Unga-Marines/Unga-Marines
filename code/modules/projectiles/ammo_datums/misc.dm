@@ -193,7 +193,7 @@
 	max_range = 4
 	shell_speed = 3
 	damage = 20
-	penetration = 20
+	penetration = 40
 	damage_falloff = 0
 
 /datum/ammo/bullet/tx54_spread/on_hit_mob(mob/target_mob, obj/projectile/proj)
