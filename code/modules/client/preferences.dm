@@ -33,19 +33,19 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	//Sound Preferences
 	/// Volume setting that sets the volume of adminhelp sound
-	var/volume_adminhelp = 50
+	var/volume_adminhelp = 100
 	/// Volume setting that sets the volume of admin music
-	var/volume_adminmusic = 50
+	var/volume_adminmusic = 100
 	/// Volume setting that sets the volume of ambience
-	var/volume_ambience = 50
+	var/volume_ambience = 100
 	/// Volume setting that sets the volume of lobby music
-	var/volume_lobby = 50
+	var/volume_lobby = 100
 	/// Volume setting that sets the volume of musical instruments
-	var/volume_instruments = 50
+	var/volume_instruments = 100
 	/// Volume setting that sets the volume of weather
-	var/volume_weather = 50
+	var/volume_weather = 100
 	/// Volume setting that sets the volume of end of the round sound
-	var/volume_end_of_round = 50
+	var/volume_end_of_round = 100
 
 	var/ghost_hud = TOGGLES_GHOSTHUD_DEFAULT
 	var/ghost_vision = TRUE
