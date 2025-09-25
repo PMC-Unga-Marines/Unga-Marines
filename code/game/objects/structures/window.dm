@@ -408,6 +408,7 @@
 /obj/structure/window/framed
 	name = "theoretical window"
 	layer = TABLE_LAYER
+	plane = WALL_PLANE
 	static_frame = TRUE
 	atom_flags = NONE //This is not a border object; it takes up the entire tile.
 	explosion_block = 2
