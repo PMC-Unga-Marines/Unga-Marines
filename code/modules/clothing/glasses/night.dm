@@ -88,6 +88,7 @@
 	icon_state = "securityhud"
 	deactive_state = "deactivated_sec" // there are differences in mob sprite
 	toggleable = TRUE
+	lighting_cutoff = LIGHTING_CUTOFF_REAL_LOW
 
 /obj/item/clothing/glasses/night/imager_goggles/sunglasses
 	name = "\improper Optical imager sunglasses"
