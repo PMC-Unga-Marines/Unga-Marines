@@ -1352,6 +1352,7 @@
 #include "code\modules\admin\callproc.dm"
 #include "code\modules\admin\debug_verbs.dm"
 #include "code\modules\admin\fun_verbs.dm"
+#include "code\modules\admin\fun_xeno.dm"
 #include "code\modules\admin\holder.dm"
 #include "code\modules\admin\IsBanned.dm"
 #include "code\modules\admin\outfit_editor.dm"
