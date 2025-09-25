@@ -92,11 +92,13 @@
 	grenade_to_launch.activate(gun_user)
 	if(!overhead_launch_mode)
 		grenade_to_launch.throwforce += grenade_to_launch.launchforce
-	var/offset_x = overhead_launch_mode ? rand(-1, 1) : 0
-	var/offset_y = overhead_launch_mode ? rand(-1, 1) : 0
-	var/turf/target_turf = get_turf(target)
-	var/turf/randomized_target = locate(target_turf.x + offset_x, target_turf.y + offset_y, target_turf.z)
-	grenade_to_launch.throw_at(randomized_target, max_range, 3, (gun_user ? gun_user : loc), flying = overhead_launch_mode)
+		grenade_to_launch.throw_at(target, max_range, 3, (gun_user ? gun_user : loc))
+	else
+		var/offset_x = overhead_launch_mode ? rand(-1, 1) : 0
+		var/offset_y = overhead_launch_mode ? rand(-1, 1) : 0
+		var/turf/target_turf = get_turf(target)
+		var/turf/randomized_target = locate(target_turf.x + offset_x, target_turf.y + offset_y, target_turf.z)
+		grenade_to_launch.throw_at(randomized_target, max_range, 3, (gun_user ? gun_user : loc), flying = TRUE)
 	if(fire_animation)
 		flick("[fire_animation]", src)
 	if(CHECK_BITFIELD(gun_features_flags, GUN_SMOKE_PARTICLES))
