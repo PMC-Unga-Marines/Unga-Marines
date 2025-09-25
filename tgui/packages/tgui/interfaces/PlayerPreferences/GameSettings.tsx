@@ -64,7 +64,7 @@ const PixelSizeNumToString = (integer) => {
 
 export const GameSettings = (props) => {
   const { act, data } = useBackend<GameSettingData>();
-  const { ui_style_color, scaling_method, pixel_size, parallax, is_admin } =
+  const { ui_style_color, scaling_method, pixel_size, parallax, is_admin, volume_adminhelp, volume_adminmusic, volume_ambience, volume_lobby, volume_instruments, volume_weather, volume_end_of_round } =
     data;
   return (
     <Section title="Game Settings">
@@ -250,7 +250,7 @@ export const GameSettings = (props) => {
           </Section>
         </Stack.Item>
       </Stack>
-      <Stack>
+      <Stack fill>
         <Stack.Item grow>
           <Section title="UI settings">
             <LabeledList>
@@ -317,6 +317,49 @@ export const GameSettings = (props) => {
                 label="Parallax"
                 value={ParallaxNumToString(parallax)}
                 action="parallax"
+              />
+            </LabeledList>
+          </Section>
+        </Stack.Item>
+        <Stack.Item grow>
+          <Section title="Sound settings">
+            <LabeledList>
+              {!!is_admin && (
+                <TextFieldPreference
+                  label={'Adminhelp Volume'}
+                  value={volume_adminhelp || 0}
+                  action={'volume_adminhelp'}
+                />
+              )}
+              <TextFieldPreference
+                label={'Admin Music Volume'}
+                value={volume_adminmusic || 0}
+                action={'volume_adminmusic'}
+              />
+              <TextFieldPreference
+                label={'Ambience Volume'}
+                value={volume_ambience || 0}
+                action={'volume_ambience'}
+              />
+              <TextFieldPreference
+                label={'Lobby Music Volume'}
+                value={volume_lobby || 0}
+                action={'volume_lobby'}
+              />
+              <TextFieldPreference
+                label={'Instruments Music Volume'}
+                value={volume_instruments || 0}
+                action={'volume_instruments'}
+              />
+              <TextFieldPreference
+                label={'Weather Volume'}
+                value={volume_weather || 0}
+                action={'volume_weather'}
+              />
+              <TextFieldPreference
+                label={'End of the Round Sound Volume'}
+                value={volume_end_of_round || 0}
+                action={'volume_end_of_round'}
               />
             </LabeledList>
           </Section>
