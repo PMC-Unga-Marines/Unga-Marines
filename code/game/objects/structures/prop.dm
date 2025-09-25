@@ -1673,7 +1673,7 @@
 	desc = "A heavy cable node used for connecting high performance cables between buildings."
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	icon_state = "powerconnector"
-	layer = GAS_PIPE_HIDDEN_LAYER
+	layer = RUNE_LAYER
 	plane = FLOOR_PLANE
 	density = FALSE
 
@@ -1682,7 +1682,7 @@
 	desc = "A heavy cable wire used rapid data transfer between buildings."
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	icon_state = "powercableheavy"
-	layer = GAS_PIPE_HIDDEN_LAYER
+	layer = RUNE_LAYER
 	plane = FLOOR_PLANE
 	density = FALSE
 
@@ -1691,7 +1691,7 @@
 	desc = "A heavy cable wire used rapid data transfer between buildings."
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	icon_state = "powerconnectortwoside"
-	layer = GAS_PIPE_HIDDEN_LAYER
+	layer = RUNE_LAYER
 	plane = FLOOR_PLANE
 	density = FALSE
 
@@ -1700,7 +1700,7 @@
 	desc = "A heavy cable wire used rapid data transfer between buildings."
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	icon_state = "powerconnectortwosidealt"
-	layer = GAS_PIPE_HIDDEN_LAYER
+	layer = RUNE_LAYER
 	plane = FLOOR_PLANE
 	density = FALSE
 
@@ -1709,7 +1709,7 @@
 	desc = "A heavy cable wire used rapid data transfer between buildings."
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	icon_state = "powerconnectorthreeside"
-	layer = GAS_PIPE_HIDDEN_LAYER
+	layer = RUNE_LAYER
 	plane = FLOOR_PLANE
 	density = FALSE
 
@@ -1718,7 +1718,7 @@
 	desc = "A heavy cable wire used rapid data transfer between buildings."
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	icon_state = "powerconnectorfourside"
-	layer = GAS_PIPE_HIDDEN_LAYER
+	layer = RUNE_LAYER
 	plane = FLOOR_PLANE
 	density = FALSE
 
