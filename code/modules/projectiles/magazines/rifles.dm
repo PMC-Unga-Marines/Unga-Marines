@@ -119,9 +119,9 @@
 /obj/item/ammo_magazine/rifle/tash12
 	name = "Type 12-ASH buckshot magazine"
 	desc = "25 A buckshot magazine."
-	icon_state = "typesh12b"
+	icon_state = "tash12b"
 	caliber = CALIBER_12G
-	bonus_overlay = "typesh12_b"
+	bonus_overlay = "tash12_b"
 	default_ammo = /datum/ammo/bullet/shotgun/buckshot
 	max_rounds = 25
 	scatter_mod = 2
@@ -130,15 +130,15 @@
 /obj/item/ammo_magazine/rifle/tash12/slug
 	name = "Type 12-ASH slug magazine"
 	desc = "25 A slug magazine."
-	icon_state = "typesh12s"
-	bonus_overlay = "typesh12_s"
+	icon_state = "tash12s"
+	bonus_overlay = "tash12_s"
 	default_ammo = /datum/ammo/bullet/shotgun/slug
 
 /obj/item/ammo_magazine/rifle/tash12/flechette
 	name = "Type 12-ASH flechette magazine"
 	desc = "25 A flechette magazine."
-	icon_state = "typesh12f"
-	bonus_overlay  = "typesh12_f"
+	icon_state = "tash12f"
+	bonus_overlay  = "tash12_f"
 	default_ammo = /datum/ammo/bullet/shotgun/flechette
 
 //-------------------------------------------------------
