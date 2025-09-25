@@ -373,8 +373,9 @@ SUBSYSTEM_DEF(ticker)
 	///The reference to the end of round sound that we have chosen.
 	var/sound/end_of_round_sound_ref = sound(round_end_sound)
 	for(var/mob/M AS in GLOB.player_list)
-		if(M.client.prefs?.toggles_sound & SOUND_NOENDOFROUND)
+		if(M.client.prefs?.volume_end_of_round <= 0)
 			continue
+		end_of_round_sound_ref.volume = M.client.prefs.volume_end_of_round
 		SEND_SOUND(M.client, end_of_round_sound_ref)
 
 	text2file(login_music, "data/last_round_lobby_music.txt")

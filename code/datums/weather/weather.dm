@@ -111,10 +111,10 @@
 			continue
 		if(telegraph_message)
 			to_chat(impacted_mob, telegraph_message)
-		if(!(impacted_mob?.client?.prefs?.toggles_sound & SOUND_WEATHER))
+		if(impacted_mob?.client?.prefs?.volume_weather <= 0)
 			continue
 		if(telegraph_sound)
-			SEND_SOUND(impacted_mob, sound(telegraph_sound, volume = 60))
+			SEND_SOUND(impacted_mob, sound(telegraph_sound, volume = 60 * (impacted_mob.client.prefs.volume_weather / 100)))
 	addtimer(CALLBACK(src, PROC_REF(start)), telegraph_duration)
 
 /**
@@ -135,10 +135,10 @@
 			continue
 		if(weather_message)
 			to_chat(impacted_mob, weather_message)
-		if(!(impacted_mob?.client?.prefs?.toggles_sound & SOUND_WEATHER))
+		if(impacted_mob?.client?.prefs?.volume_weather <= 0)
 			continue
 		if(weather_sound)
-			SEND_SOUND(impacted_mob, sound(weather_sound))
+			SEND_SOUND(impacted_mob, sound(weather_sound, volume = impacted_mob.client.prefs.volume_weather))
 	addtimer(CALLBACK(src, PROC_REF(wind_down)), weather_duration)
 
 /**
@@ -159,10 +159,10 @@
 			continue
 		if(end_message)
 			to_chat(impacted_mob, end_message)
-		if(!(impacted_mob?.client?.prefs?.toggles_sound & SOUND_WEATHER))
+		if(!(impacted_mob?.client?.prefs?.volume_weather <= 0))
 			continue
 		if(end_sound)
-			SEND_SOUND(impacted_mob, sound(end_sound))
+			SEND_SOUND(impacted_mob, sound(end_sound, volume = impacted_mob.client.prefs.volume_weather))
 	addtimer(CALLBACK(src, PROC_REF(end)), end_duration)
 
 /**

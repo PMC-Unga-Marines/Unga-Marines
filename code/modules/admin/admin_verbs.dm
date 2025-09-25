@@ -796,8 +796,8 @@ ADMIN_VERB(private_message_panel, R_ADMIN|R_MENTOR, "Private Message", "Private 
 				window_flash(recipient, TRUE)
 
 			//Play the bwoink if enabled.
-			if(recipient.prefs.toggles_sound & SOUND_ADMINHELP)
-				SEND_SOUND(recipient, sound('sound/effects/adminhelp.ogg', channel = CHANNEL_ADMIN))
+			if(recipient.prefs.volume_adminhelp > 0)
+				SEND_SOUND(recipient, sound('sound/effects/adminhelp.ogg', channel = CHANNEL_ADMIN, volume = recipient.prefs.volume_adminhelp))
 
 		else  //PM sender is mentor/admin, recipient is not -> big red text
 			if(check_rights(R_ADMINTICKET, FALSE) || is_mentor(src))

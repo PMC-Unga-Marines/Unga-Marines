@@ -73,9 +73,9 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 	for(var/mob/listener AS in listeners|SSmobs.dead_players_by_zlevel[turf_source.z])
 		if(get_dist(listener, turf_source) > sound_range)
 			continue
-		if(ambient_sound && !(listener.client?.prefs?.toggles_sound & SOUND_AMBIENCE))
+		if(ambient_sound && listener.client?.prefs?.volume_ambience <= 0)
 			continue
-		listener.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, channel, S)
+		listener.playsound_local(turf_source, soundin, vol * (listener.client.prefs.volume_ambience / 100), vary, frequency, falloff, is_global, channel, S)
 
 	//We do tanks separately, since they are not actually on the source z, and we need some other stuff to get accurate directional sound
 	for(var/obj/vehicle/sealed/armored/armor AS in GLOB.tank_list)
@@ -92,9 +92,9 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 		for(var/mob/crew AS in armor.interior.occupants)
 			if(!crew.client)
 				continue
-			if(ambient_sound && !(crew.client.prefs.toggles_sound & SOUND_AMBIENCE))
+			if(ambient_sound && crew.client.prefs.volume_ambience <= 0)
 				continue
-			crew.playsound_local(origin_point, soundin, vol*0.5, vary, frequency, falloff, is_global, channel, S)
+			crew.playsound_local(origin_point, soundin, vol * 0.5 * (crew.client.prefs.volume_ambience / 100), vary, frequency, falloff, is_global, channel, S)
 
 /**
  * Plays a sound locally
@@ -165,8 +165,8 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 /client/proc/play_title_music(vol = 85)
 	if(!SSticker?.login_music)
 		return FALSE
-	if(prefs && (prefs.toggles_sound & SOUND_LOBBY))
-		SEND_SOUND(src, sound(SSticker.login_music, repeat = 0, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
+	if(prefs && prefs.volume_lobby > 0)
+		SEND_SOUND(src, sound(SSticker.login_music, repeat = 0, wait = 0, volume = vol * (prefs.volume_lobby / 100), channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 
 
 ///Play sound for all online mobs on a given Z-level. Good for ambient sounds.
@@ -427,7 +427,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 
 		if(SFX_HOVER_TANK)
 			soundin = pick('sound/vehicles/hover_tank/hover_1.ogg', 'sound/vehicles/hover_tank/hover_2.ogg', 'sound/vehicles/hover_tank/hover_3.ogg', 'sound/vehicles/hover_tank/hover_4.ogg')
-				
+
 		if(SFX_REVOLVER_SPIN)
 			soundin = pick('sound/weapons/guns/interact/revolver_spin1.ogg', 'sound/weapons/guns/interact/revolver_spin2.ogg', 'sound/weapons/guns/interact/revolver_spin3.ogg')
 
