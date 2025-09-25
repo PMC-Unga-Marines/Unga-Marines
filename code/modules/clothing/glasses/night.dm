@@ -76,6 +76,7 @@
 	toggleable = TRUE
 	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 0, ENERGY = 15, BOMB = 35, BIO = 10, FIRE = 30, ACID = 30)
 	goggles_layer = TRUE
+	lighting_cutoff = LIGHTING_CUTOFF_REAL_LOW
 
 /obj/item/clothing/glasses/night/optgoggles/prescription
 	name = "\improper Optical imager prescription ballistic goggles"
