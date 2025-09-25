@@ -316,14 +316,11 @@
 	cost = 400
 
 /datum/supply_packs/weapons/tash12
-	name = "Type 12-ASH Modifications СВЯТОГОР"
+	name = "Type 12-ASH Modifications"
 	contains = list(
 		/obj/item/weapon/gun/rifle/tash12,
-		/obj/item/ammo_magazine/rifle/tash12/slug,
-		/obj/item/ammo_magazine/rifle/tash12/slug,
-		/obj/item/ammo_magazine/rifle/tash12/flechette,
 		)
-	cost = 650
+	cost = 500
 
 /datum/supply_packs/weapons/tash12s
 	name = "Type 12-ASH slug magazine x3"
