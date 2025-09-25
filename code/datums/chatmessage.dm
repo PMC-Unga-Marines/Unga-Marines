@@ -111,18 +111,7 @@
 
 	// Calculate target color if not already present
 	if (!target.chat_color || target.chat_color_name != target.name)
-		var/datum/squad/squad
-		if(ishuman(target))
-			var/mob/living/carbon/human/man = target
-			squad = man.assigned_squad
-		if(squad?.chat_color && squad?.chat_color_darkened)
-			target.chat_color = squad.chat_color
-			target.chat_color_darkened = squad.chat_color_darkened
-			target.chat_color_name = target.name
-		else
-			target.chat_color = colorize_string(target.name)
-			target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
-			target.chat_color_name = target.name
+		set_chat_color(target)
 
 	// Get rid of any URL schemes that might cause BYOND to automatically wrap something in an anchor tag
 	var/static/regex/url_scheme = new(@"[A-Za-z][A-Za-z0-9+-\.]*:\/\/", "g")
@@ -166,6 +155,18 @@
 	SSrunechat.message_queue += our_callback
 	return
 
+/datum/chatmessage/proc/set_chat_color(atom/target)
+	if(ishuman(target))
+		var/mob/living/carbon/human/man = target
+		var/datum/squad/squad = man.assigned_squad
+		if(squad?.chat_color && squad?.chat_color_darkened)
+			target.chat_color = squad.chat_color
+			target.chat_color_darkened = squad.chat_color_darkened
+			target.chat_color_name = target.name
+			return
+	target.chat_color = colorize_string(target.name)
+	target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
+	target.chat_color_name = target.name
 
 ///finishes the image generation after the MeasureText() call in generate_image().
 ///necessary because after that call the proc can resume at the end of the tick and cause overtime.
