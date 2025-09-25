@@ -31,7 +31,7 @@
 	SSlighting.mask_queue -= src
 	//Remove from affecting turfs
 	if(affecting_turfs)
-		for(var/turf/thing AS in affecting_turfs)
+		for(var/turf/thing as anything in affecting_turfs)
 			var/area/A = thing.loc
 			LAZYREMOVE(thing.hybrid_lights_affecting, src)
 			if(!A.base_lighting_alpha)
@@ -98,7 +98,7 @@
 
 	//Reset the list
 	if(islist(affecting_turfs))
-		for(var/turf/T AS in affecting_turfs)
+		for(var/turf/T as anything in affecting_turfs)
 			LAZYREMOVE(T?.hybrid_lights_affecting, src)
 			//The turf is no longer affected by any lights, make it non-luminous.
 			var/area/A = T.loc
@@ -495,7 +495,7 @@
 		group_direction_north = FALSE
 	var/lowest = INFINITY
 	var/highest = 0
-	for(var/vector in group)
+	for(var/vector as anything in group)
 		var/value_to_comp = vector[1]
 		if(!group_direction_north)
 			value_to_comp = vector[2]
