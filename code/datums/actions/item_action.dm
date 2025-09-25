@@ -135,5 +135,6 @@
 	)
 
 /datum/action/item_action/overhead_grenade_launcher/action_activate()
+	. = ..()
 	var/obj/item/weapon/gun/grenade_launcher/I = target
 	I.toggle_overhead_launcher(owner)

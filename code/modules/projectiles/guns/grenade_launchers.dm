@@ -120,11 +120,11 @@
 	if(!overhead_launch_mode)
 		balloon_alert(user, "You have activated overhead launcher mode.")
 		overhead_launch_mode = TRUE
-		windup_delay = 0.5 SECONDS
+		windup_delay += 0.5 SECONDS
 	else
 		balloon_alert(user, "You have deactivated overhead launcher mode.")
 		overhead_launch_mode = FALSE
-		windup_delay = 0
+		windup_delay -= 0.5 SECONDS
 
 //-------------------------------------------------------
 //GL-70 Grenade Launcher.
