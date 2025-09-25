@@ -591,9 +591,9 @@
 	name = "Type 12-ASH"
 	desc = "Experimental automatic rifle modification Святогор with 12-caliber cartridges for 25 rounds and a new generation feeding system"
 	icon = 'icons/obj/items/gun/rifle64.dmi'
-	icon_state = "typesh12"
-	worn_icon_state = "typesh12"
-	fire_sound = 'sound/weapons/guns/fire/Typesh12.ogg'
+	icon_state = "tash12"
+	worn_icon_state = "tash12"
+	fire_sound = 'sound/weapons/guns/fire/tash12.ogg'
 	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
 	reload_sound = 'sound/weapons/guns/interact/ak47_reload.ogg'
 	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
