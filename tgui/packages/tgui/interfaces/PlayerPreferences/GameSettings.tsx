@@ -38,6 +38,30 @@ const ParallaxNumToString = (integer) => {
   return returnval;
 };
 
+const PixelSizeNumToString = (integer) => {
+  let returnval = '';
+  switch (integer) {
+    case 0:
+      returnval = 'Auto-Scaling';
+      break;
+    case 1:
+      returnval = 'Scaling 1X';
+      break;
+    case 1.5:
+      returnval = 'Scaling 1.5X';
+      break;
+    case 2:
+      returnval = 'Scaling 2X';
+      break;
+    case 3:
+      returnval = 'Scaling 3X';
+      break;
+    default:
+      returnval = 'Error!';
+  }
+  return returnval;
+};
+
 export const GameSettings = (props) => {
   const { act, data } = useBackend<GameSettingData>();
   const { ui_style_color, scaling_method, pixel_size, parallax, is_admin } =
@@ -286,7 +310,7 @@ export const GameSettings = (props) => {
               />
               <LoopingSelectionPreference
                 label="Pixel Size Scaling"
-                value={pixel_size}
+                value={PixelSizeNumToString(pixel_size)}
                 action="pixel_size"
               />
               <LoopingSelectionPreference
