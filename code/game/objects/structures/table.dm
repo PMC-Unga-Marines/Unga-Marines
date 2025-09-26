@@ -379,6 +379,43 @@
 /*
 * Reinforced tables
 */
+
+/obj/structure/table/wood/gambling/urban
+	icon = 'icons/obj/smooth_objects/urban_table_gambling.dmi'
+	icon_state = "urban_table_gambling-0"
+	base_icon_state = "urban_table_gambling"
+	parts = /obj/item/frame/table/gambling
+
+/obj/structure/table/wood/gambling/urban/black
+	icon = 'icons/obj/smooth_objects/urban_table_gambling_black.dmi'
+	icon_state = "urban_table_gambling_black-0"
+	base_icon_state = "urban_table_gambling_black"
+	parts = /obj/item/frame/table/gambling
+
+/obj/structure/table/black
+	name = "black metal table"
+	desc = "A sleek black metallic surface resting on four legs. Useful to put stuff on. Can be flipped in emergencies to act as cover."
+	icon = 'icons/obj/smooth_objects/black_table.dmi'
+	icon_state = "black_table-0"
+	base_icon_state = "black_table"
+	parts = /obj/item/frame/table
+
+/obj/structure/table/urban/shiny_black
+	name = "shiny black metal table"
+	desc = "A shiny black metallic surface resting on four legs, looks like it belongs in a boardroom. Useful to put stuff on. Can be flipped in emergencies to act as cover."
+	icon = 'icons/obj/smooth_objects/urban_table_black.dmi'
+	icon_state = "urban_table_black-0"
+	base_icon_state = "urban_table_black"
+	parts = /obj/item/frame/table
+
+/obj/structure/table/urban/shiny_brown
+	name = "shiny brown metal table"
+	desc = "A shiny brown metallic surface resting on four legs, looks like it belongs in a boardroom. Useful to put stuff on. Can be flipped in emergencies to act as cover."
+	icon = 'icons/obj/smooth_objects/urban_table_brown.dmi'
+	icon_state = "urban_table_brown-0"
+	base_icon_state = "urban_table_brown"
+	parts = /obj/item/frame/table
+
 /obj/structure/table/reinforced
 	name = "reinforced table"
 	desc = "A square metal surface resting on four legs. This one has side panels, making it useful as a desk, but impossible to flip."
