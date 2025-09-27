@@ -1191,10 +1191,6 @@
 	worn_icon_state = "tenfold"
 	equip_slot_flags = ITEM_SLOT_BACK
 	max_chamber_items = 10 //codex
-	caliber = CALIBER_12G //codex
-	load_method = SINGLE_CASING //codex
-	fire_sound = 'sound/weapons/guns/fire/shotgun.ogg'
-	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_WIELDED_FIRING_ONLY|GUN_SMOKE_PARTICLES
 	reciever_flags = AMMO_RECIEVER_TOGGLES_OPEN|AMMO_RECIEVER_HANDFULS
 	gun_firemode_list = list(GUN_FIREMODE_BURSTFIRE)
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
