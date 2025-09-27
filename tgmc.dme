@@ -808,7 +808,6 @@
 #include "code\game\data_huds\mecha.dm"
 #include "code\game\data_huds\xenomorph.dm"
 #include "code\game\objects\empulse.dm"
-#include "code\game\objects\explosion_recursive.dm"
 #include "code\game\objects\items.dm"
 #include "code\game\objects\items_reskin.dm"
 #include "code\game\objects\machinery.dm"
