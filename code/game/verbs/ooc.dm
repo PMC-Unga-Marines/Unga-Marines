@@ -439,7 +439,7 @@
 			continue
 		if(C.mob == mob)
 			continue
-			
+
 		var/display_name = "[ADMIN_TPMONTY(mob)]"
 		if(holder?.fakekey) // Show their fakekey in addition to real key + buttons if they have one
 			display_name = "[span_tooltip("Stealth key", "'[holder.fakekey]'")] ([display_name])"

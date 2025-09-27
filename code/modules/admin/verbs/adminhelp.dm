@@ -372,15 +372,15 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		var/admin_msg = span_adminnotice("[span_adminhelp("Admin Ticket [TicketHref("#[id]", ref_src)]")]<b>: [LinkedReplyName(ref_src)] [FullMonty(ref_src)]:</b> [span_linkify("[keywords_lookup(msg)]")]")
 		var/mentor_msg = span_adminnotice("[span_adminhelp("Mentor Ticket [TicketHref("#[id]", ref_src)]")]<b>: [LinkedReplyName(ref_src)] [check_other_rights(X, R_ADMINTICKET, FALSE) ? FullMonty(ref_src) : HalfMonty(ref_src)] [check_other_rights(X, R_ADMINTICKET, FALSE) ? ClosureLinks(ref_src) : ClosureLinksMentor(ref_src)]:</b> [span_linkify("[keywords_lookup(msg)]")]")
 		if(tier == TICKET_MENTOR && check_other_rights(X, R_ADMINTICKET|R_MENTOR, FALSE))
-			if(X.prefs.toggles_sound & SOUND_ADMINHELP)
-				SEND_SOUND(X, sound('sound/effects/mentorhelp.ogg', channel = CHANNEL_ADMIN))
+			if(X.prefs.volume_adminhelp)
+				SEND_SOUND(X, sound('sound/effects/mentorhelp.ogg', channel = CHANNEL_ADMIN, volume = X.prefs.volume_adminhelp))
 			window_flash(X)
 			to_chat(X,
 				type = MESSAGE_TYPE_ADMINPM,
 				html = mentor_msg)
 		if(tier == TICKET_ADMIN && check_other_rights(X, R_ADMINTICKET, FALSE))
-			if(X.prefs.toggles_sound & SOUND_ADMINHELP)
-				SEND_SOUND(X, sound('sound/effects/adminhelp.ogg', channel = CHANNEL_ADMIN))
+			if(X.prefs.volume_adminhelp)
+				SEND_SOUND(X, sound('sound/effects/adminhelp.ogg', channel = CHANNEL_ADMIN, volume = X.prefs.volume_adminhelp))
 			window_flash(X)
 			to_chat(X,
 				type = MESSAGE_TYPE_ADMINPM,
@@ -457,8 +457,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 			for(var/client/X in GLOB.admins)
 				if(!is_mentor(X))
 					continue
-				if(X.prefs.toggles_sound & SOUND_ADMINHELP)
-					SEND_SOUND(X, sound('sound/effects/adminhelp.ogg', channel = CHANNEL_ADMIN))
+				if(X.prefs.volume_adminhelp)
+					SEND_SOUND(X, sound('sound/effects/adminhelp.ogg', channel = CHANNEL_ADMIN, volume = X.prefs.volume_adminhelp))
 				window_flash(X)
 	tier_cooldown = world.time + 5 SECONDS
 	log_admin_private("Ticket (#[id]) has been made [msg] by [key_name(usr)].")

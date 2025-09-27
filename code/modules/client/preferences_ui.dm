@@ -161,6 +161,13 @@
 			data["fast_mc_refresh"] = fast_mc_refresh
 			data["split_admin_tabs"] = split_admin_tabs
 			data["hear_ooc_anywhere_as_staff"] = hear_ooc_anywhere_as_staff
+			data["volume_adminhelp"] = volume_adminhelp
+			data["volume_adminmusic"] = volume_adminmusic
+			data["volume_ambience"] = volume_ambience
+			data["volume_lobby"] = volume_lobby
+			data["volume_instruments"] = volume_instruments
+			data["volume_weather"] = volume_weather
+			data["volume_end_of_round"] = volume_end_of_round
 		if(KEYBIND_SETTINGS)
 			data["is_admin"] = user.client?.holder ? TRUE : FALSE
 			data["key_bindings"] = list()
@@ -1029,6 +1036,36 @@
 
 		if("hear_ooc_anywhere_as_staff")
 			hear_ooc_anywhere_as_staff = !hear_ooc_anywhere_as_staff
+
+		if("volume_adminhelp")
+			volume_adminhelp = params["newValue"]
+
+		if("volume_adminmusic")
+			volume_adminmusic = params["newValue"]
+			if(!volume_adminmusic)
+				user.stop_sound_channel(CHANNEL_MIDI)
+
+		if("volume_ambience")
+			volume_ambience = params["newValue"]
+			if(!volume_ambience)
+				user.stop_sound_channel(CHANNEL_AMBIENCE)
+			user.client.update_ambience_pref()
+
+		if("volume_lobby")
+			volume_lobby = params["newValue"]
+			if(volume_lobby && isnewplayer(user))
+				user.client.play_title_music()
+			else
+				user.stop_sound_channel(CHANNEL_LOBBYMUSIC)
+
+		if("volume_instruments")
+			volume_instruments = params["newValue"]
+
+		if("volume_weather")
+			volume_weather = params["newValue"]
+
+		if("volume_end_of_round")
+			volume_end_of_round = params["newValue"]
 
 		else //  Handle the unhandled cases
 			return

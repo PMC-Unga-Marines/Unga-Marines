@@ -198,7 +198,8 @@ ADMIN_VERB(sound_file, R_SOUND, "Play Imported Sound", "Play a sound imported fr
 		if("Global")
 			for(var/i in GLOB.clients)
 				var/client/C = i
-				if(C.prefs.toggles_sound & SOUND_MIDI)
+				if(C.prefs.volume_adminmusic)
+					uploaded_sound.volume = C.prefs.volume_adminmusic
 					SEND_SOUND(C, uploaded_sound)
 					heard_midi++
 		if("Local")
@@ -302,12 +303,12 @@ ADMIN_VERB(sound_web, R_SOUND, "Play Internet Sound", "Play a sound using a link
 				to_show_text = "An admin played: <a href='[data["webpage_url"]]'>[title]</a>"
 		else
 			return
-	for(var/i in targets)
+	for(var/i as anything in targets)
 		var/mob/M = i
 		var/client/C = M?.client
 		if(!C?.prefs)
 			continue
-		if(C.prefs.toggles_sound & SOUND_MIDI)
+		if(C.prefs.volume_adminmusic)
 			C.tgui_panel?.play_music(web_sound_url, music_extra_data)
 			to_chat(C, span_boldannounce(to_show_text))
 

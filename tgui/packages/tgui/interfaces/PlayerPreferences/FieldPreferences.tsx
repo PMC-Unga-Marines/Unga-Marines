@@ -1,4 +1,4 @@
-import { Button, Input, LabeledList } from 'tgui-core/components';
+import { Button, Input, LabeledList, Slider } from 'tgui-core/components';
 
 import { useBackend } from '../../backend';
 
@@ -76,6 +76,31 @@ export const LoopingSelectionPreference = (props) => {
   return (
     <LabeledList.Item label={label}>
       <Button inline content={value} onClick={() => act(action)} />
+    </LabeledList.Item>
+  );
+};
+
+export const SliderInputPreference = (props) => {
+  const { act } = useBackend<PlayerPreferencesData>();
+  const { label, value, action } = props;
+
+  return (
+    <LabeledList.Item label={label}>
+      <Slider
+        width="100%"
+        value={value}
+        unit="%"
+        fillValue={value}
+        minValue={0}
+        maxValue={100}
+        step={1}
+        stepPixelSize={4}
+        onChange={(e, value) =>
+          act(action, {
+            newValue: value,
+          })
+        }
+      />
     </LabeledList.Item>
   );
 };

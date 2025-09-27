@@ -1011,7 +1011,7 @@ GLOBAL_VAR_INIT(automute_on, null)
 
 ///updates with the ambience preferrences of the user
 /client/proc/update_ambience_pref()
-	if(prefs.toggles_sound & SOUND_AMBIENCE)
+	if(prefs.volume_ambience)
 		if(SSambience.ambience_listening_clients[src] > world.time)
 			return // If already properly set we don't want to reset the timer.
 		SSambience.ambience_listening_clients[src] = world.time + 10 SECONDS //Just wait 10 seconds before the next one aight mate? cheers.
