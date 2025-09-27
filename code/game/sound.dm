@@ -61,7 +61,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 
 	if(!frequency)
 		frequency = GET_RANDOM_FREQ
-	var/sound/S = sound(get_sfx(soundin))
+	var/sound/S = isdatum(soundin) ? soundin : sound(get_sfx(soundin))
 
 	var/list/listeners = SSmobs.clients_by_zlevel[turf_source.z].Copy()
 	for(var/mob/ai_eye AS in GLOB.aiEyes)
