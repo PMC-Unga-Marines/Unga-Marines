@@ -210,7 +210,7 @@
 	ammo_band_icon = "ppsh_ext_band"
 	default_ammo = /datum/ammo/bullet/smg/heavy
 	w_class = WEIGHT_CLASS_SMALL
-	caliber = CALIBER_45ACP
+	caliber = CALIBER_41AE
 	icon_state = "ppsh_ext"
 	max_rounds = 55 // Drum mag
 
