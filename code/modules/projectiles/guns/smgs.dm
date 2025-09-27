@@ -738,8 +738,6 @@
 	scatter = 2
 	scatter_unwielded = 6 // Not exactly small weapon, and recoil blowback is only for vertical recoil
 
-	movement_acc_penalty_mult = 0.1
-
 /obj/item/weapon/gun/smg/vector/beginner
 	starting_attachment_types = list(/obj/item/attachable/compensator, /obj/item/attachable/magnetic_harness, /obj/item/attachable/lasersight)
 
