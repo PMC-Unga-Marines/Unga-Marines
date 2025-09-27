@@ -499,7 +499,7 @@ ADMIN_VERB_AND_CONTEXT_MENU(send_mob, R_ADMIN, "Send Mob", ADMIN_VERB_NO_DESCRIP
 		return
 
 	var/mob/M = usr
-	var/chosen = tgui_input_list(usr, "Please, select an area.", "Select an area.", sortNames(GLOB.sorted_areas), timeout = 0)
+	var/chosen = tgui_input_list(usr, "Please, select an area.", "Select an area.", sortNames(get_sorted_areas()), timeout = 0)
 	if(!chosen)
 		return // no tp's to the void
 	var/turf/T = pick(get_area_turfs(chosen))

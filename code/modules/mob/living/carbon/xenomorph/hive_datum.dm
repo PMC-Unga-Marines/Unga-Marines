@@ -609,7 +609,7 @@
 	if(!devolver.check_concious_state())
 		return
 
-	if(target.is_ventcrawling)
+	if(HAS_TRAIT(target, TRAIT_MOVE_VENTCRAWLING))
 		to_chat(devolver, span_xenonotice("Cannot deevolve, [target] is ventcrawling."))
 		return
 
@@ -738,7 +738,7 @@
 	return castedatum
 
 /datum/hive_status/proc/target_status_check(mob/living/carbon/xenomorph/user, mob/living/carbon/xenomorph/target)
-	if(target.is_ventcrawling)
+	if(HAS_TRAIT(target, TRAIT_MOVE_VENTCRAWLING))
 		to_chat(user, span_xenonotice("Cannot punish, [target] is ventcrawling."))
 		return FALSE
 

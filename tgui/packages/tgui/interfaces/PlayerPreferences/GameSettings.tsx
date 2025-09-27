@@ -15,6 +15,27 @@ import {
   ToggleFieldPreference,
 } from './FieldPreferences';
 
+const MultiZPerfToString = (integer) => {
+  let returnval = '';
+  switch (integer) {
+    case -1:
+      returnval = 'Standard';
+      break;
+    case 0:
+      returnval = 'Low';
+      break;
+    case 1:
+      returnval = 'Medium';
+      break;
+    case 2:
+      returnval = 'High';
+      break;
+    default:
+      returnval = 'Error!';
+  }
+  return returnval;
+};
+
 const ParallaxNumToString = (integer) => {
   let returnval = '';
   switch (integer) {
@@ -70,7 +91,7 @@ export const GameSettings = (props) => {
     scaling_method,
     pixel_size,
     parallax,
-    is_admin,
+    multiz_performance,
     volume_adminhelp,
     volume_adminmusic,
     volume_ambience,
@@ -78,6 +99,7 @@ export const GameSettings = (props) => {
     volume_instruments,
     volume_weather,
     volume_end_of_round,
+    is_admin,
   } = data;
   return (
     <Section title="Game Settings">
@@ -105,13 +127,37 @@ export const GameSettings = (props) => {
                 action="fullscreen_mode"
                 leftLabel={'Fullscreen'}
                 rightLabel={'Windowed'}
+                tooltip="Toggles Windowed Borderless mode"
               />
               <ToggleFieldPreference
-                label="Status Bar (Bottom left text)"
+                label="Status Bar"
                 value="show_status_bar"
                 action="show_status_bar"
                 leftLabel={'Show'}
                 rightLabel={'Hide'}
+                tooltip="Whether to show or hide the status bar in the bottom left of the screen"
+              />
+              <ToggleFieldPreference
+                label="Ambient Occlusion"
+                value="ambient_occlusion"
+                action="ambient_occlusion"
+                leftLabel={'On'}
+                rightLabel={'Off'}
+                tooltip="Whether to render ambient occlusion, which adds a shadow-like effect to floors. Increases performance when off."
+              />
+              <ToggleFieldPreference
+                label="Multi-Z (3D) parallax"
+                value="multiz_parallax"
+                action="multiz_parallax"
+                leftLabel={'On'}
+                rightLabel={'Off'}
+                tooltip="Toggles parallax applying through multiple Zs. Increases performance when off."
+              />
+              <LoopingSelectionPreference
+                label="Multi-Z Detail"
+                value={MultiZPerfToString(multiz_performance)}
+                action="multiz_performance"
+                tooltip="How detailed multi-z is. Lower this to improve performance."
               />
               <ToggleFieldPreference
                 label="TGUI Window Mode"

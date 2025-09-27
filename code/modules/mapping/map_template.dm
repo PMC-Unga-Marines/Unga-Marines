@@ -106,7 +106,9 @@
 	var/list/bounds = parsed.bounds
 	if(!bounds)
 		return FALSE
-	repopulate_sorted_areas()
+
+	require_area_resort()
+
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds)
 	SSmodularmapping.load_modular_maps() //must be run after initTemplateBounds so markers have an actual loc
@@ -154,7 +156,7 @@
 	if(!bounds)
 		return
 
-	repopulate_sorted_areas()
+	require_area_resort()
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds)
 

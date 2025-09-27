@@ -105,8 +105,6 @@
 	/// Cell tracker datum we use to manage the pipes around us, for faster ventcrawling
 	/// Should only exist if you're in a pipe
 	var/datum/cell_tracker/pipetracker
-	/// TODO MAKE ME A TRAIT
-	var/is_ventcrawling
 
 	///How much slower or faster this mob drags as a base
 	var/pull_speed = 0
