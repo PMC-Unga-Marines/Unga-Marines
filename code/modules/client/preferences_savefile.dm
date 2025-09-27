@@ -4,7 +4,7 @@
 //	You do not need to raise this if you are adding new values that have sane defaults.
 //	Only raise this value when changing the meaning/format/name/layout of an existing value
 //	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX 47
+#define SAVEFILE_VERSION_MAX 46
 
 /datum/preferences/proc/savefile_needs_update(savefile/S)
 	var/savefile_version
@@ -46,9 +46,6 @@
 				key_bindings[key] += list(kb_path)
 
 		to_chat(parent, span_userdanger("Forced keybindings for say (T), me (M), ooc (O), looc (L) have been applied."))
-
-	if(current_version < 47)
-		to_chat(parent, span_userdanger("Sound preferences were refactored from toggling, to proper value setting, and turned to 100% by default. Be sure to adjust it to whatever values you like!"))
 
 //handles converting savefiles to new formats
 //MAKE SURE YOU KEEP THIS UP TO DATE!
