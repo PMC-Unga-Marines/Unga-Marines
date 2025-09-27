@@ -1187,7 +1187,6 @@
 /obj/item/weapon/gun/shotgun/cursed/tenfold
 	name = "\improper tenfold barrel shotgun"
 	desc = "A shotgun that fires all its bullets at once."
-	icon = 'icons/obj/items/gun/shotgun.dmi'
 	icon_state = "tenfold"
 	worn_icon_state = "tenfold"
 	equip_slot_flags = ITEM_SLOT_BACK
