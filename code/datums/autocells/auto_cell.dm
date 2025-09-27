@@ -11,6 +11,8 @@
 	var/neighbor_type = NEIGHBORS_CARDINAL
 
 /datum/automata_cell/New(turf/our_turf)
+	. = ..()
+
 	if(!istype(our_turf))
 		qdel(src)
 		return
