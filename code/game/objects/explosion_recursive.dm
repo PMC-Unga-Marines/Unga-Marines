@@ -243,20 +243,22 @@ explosion resistance exactly as much as their health
 	return 0
 
 /mob/living/get_explosion_resistance()
-	if(density)
-		switch(mob_size)
-			if(MOB_SIZE_SMALL)
-				return 0
-			if(MOB_SIZE_HUMAN)
-				return 25
-			if(MOB_SIZE_XENO)
-				return 30
-			if(MOB_SIZE_BIG)
-				return 50
-	return 0
+	if(!density)
+		return 0
+	switch(mob_size)
+		if(MOB_SIZE_SMALL)
+			return 0
+		if(MOB_SIZE_HUMAN)
+			return 25
+		if(MOB_SIZE_XENO)
+			return 30
+		if(MOB_SIZE_BIG)
+			return 50
+		else
+			return 0
 
 /obj/proc/explosion_throw(severity, direction, scatter_multiplier = 1)
-	if(!src || anchored || !isturf(loc))
+	if(anchored || !isturf(loc))
 		return
 
 	if(!direction)
