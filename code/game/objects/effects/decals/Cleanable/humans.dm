@@ -200,7 +200,8 @@
 	random_icon_states = list("gibmid1", "gibmid2", "gibmid3")
 
 /obj/effect/decal/cleanable/blood/gibs/proc/streak(list/directions, mapload = FALSE)
-	var/direction = pick(directions)if(!step_to(src, get_step(src, direction), 0))
+	var/direction = pick(directions)
+	if(!step_to(src, get_step(src, direction), 0))
 		return
 
 	if(!mapload)
