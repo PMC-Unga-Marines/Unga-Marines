@@ -34,34 +34,30 @@
 /datum/automata_cell/explosion
 	// Explosions only spread outwards and don't need to know their neighbors to propagate properly
 	neighbor_type = NEIGHBORS_NONE
-	// Power of the explosion at this cell
+	/// Power of the explosion at this cell
 	var/power = 0
-	// How much will the power drop off when the explosion propagates?
+	/// How much will the power drop off when the explosion propagates?
 	var/power_falloff = 20
-	// Falloff shape is used to determines whether or not the falloff will change during the explosion traveling.
+	/// Falloff shape is used to determines whether or not the falloff will change during the explosion traveling.
 	var/falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR
 	// How much power does the explosion gain (or lose) by bouncing off walls?
 	var/reflection_power_multiplier = 0.4
-	//Diagonal cells have a small delay when branching off from a non-diagonal cell. This helps the explosion look circular
+	/// Diagonal cells have a small delay when branching off from a non-diagonal cell. This helps the explosion look circular
 	var/delay = 0
-	// Which direction is the explosion traveling?
-	// Note that this will be null for the epicenter
+	/// Which direction is the explosion traveling?
+	/// Note that this will be null for the epicenter
 	var/direction = null
-	// Whether or not the explosion should merge with other explosions
+	/// Whether or not the explosion should merge with other explosions
 	var/should_merge = TRUE
-	// Workaround to account for the fact that this is subsystemized
-	// See on_turf_entered
+	/// Workaround to account for the fact that this is subsystemized
+	/// See on_turf_entered
 	var/list/atom/exploded_atoms = list()
+	/// The visual effect of our explosion
 	var/obj/effect/particle_effect/shockwave/shockwave = null
 
 // If we're on a fake z teleport, teleport over
 /datum/automata_cell/explosion/birth()
 	shockwave = new(in_turf)
-	var/obj/effect/step_trigger/teleporter/our_tp = locate() in in_turf
-	if(!our_tp)
-		return
-	var/turf/new_turf = locate(in_turf.x + our_tp.teleport_x, in_turf.y + our_tp.teleport_y, in_turf.z)
-	transfer_turf(new_turf)
 
 /datum/automata_cell/explosion/death()
 	exploded_atoms = null
@@ -105,14 +101,13 @@
 
 	return is_stronger
 
-// Get a list of all directions the explosion should propagate to before dying
+/// Get a list of all directions the explosion should propagate to before dying
 /datum/automata_cell/explosion/proc/get_propagation_dirs(reflected)
-	var/list/propagation_dirs = list()
-
 	// If the cell is the epicenter, propagate in all directions
 	if(isnull(direction))
 		return GLOB.alldirs
 
+	var/list/propagation_dirs = list()
 	var/our_dir = reflected ? REVERSE_DIR(direction) : direction
 
 	if(our_dir in GLOB.diagonals)
@@ -122,11 +117,11 @@
 
 	return propagation_dirs
 
-// If you need to set vars on the new cell other than the basic ones
+/// If you need to set vars on the new cell other than the basic ones
 /datum/automata_cell/explosion/proc/setup_new_cell(datum/automata_cell/explosion/our_explosion)
-	if(our_explosion.shockwave)
-		our_explosion.shockwave.alpha = our_explosion.power
-	return
+	if(!our_explosion.shockwave)
+		return
+	our_explosion.shockwave.alpha = our_explosion.power
 
 /datum/automata_cell/explosion/update_state(list/turf/neighbors)
 	if(delay > 0)
@@ -137,8 +132,10 @@
 
 	// Blow stuff up
 	INVOKE_ASYNC(in_turf, TYPE_PROC_REF(/atom, ex_act), power, direction)
-	for(var/atom/our_atom AS in in_turf)
-		if(our_atom.gc_destroyed || (our_atom in exploded_atoms))
+	for(var/atom/our_atom as anything in in_turf)
+		if(our_atom.gc_destroyed)
+			continue
+		if(our_atom in exploded_atoms)
 			continue
 		resistance += max(0, our_atom.get_explosion_resistance())
 		INVOKE_ASYNC(our_atom, TYPE_PROC_REF(/atom, ex_act), power, direction)
@@ -164,7 +161,7 @@
 	var/turf/old_turf = in_turf
 	// Propagate the explosion
 	var/list/to_spread = get_propagation_dirs(reflected)
-	for(var/our_dir AS in to_spread)
+	for(var/our_dir as anything in to_spread)
 		// Diagonals are longer, that should be reflected in the power falloff
 		var/dir_falloff = 1
 		if(our_dir in GLOB.diagonals)
@@ -228,7 +225,6 @@ and blow them up immediately once they do.
 When the cell processes, we simply don't blow up atoms that were tracked
 as having entered the turf.
 */
-
 /datum/automata_cell/explosion/proc/on_turf_entered(atom/movable/our_atom)
 	if(our_atom in exploded_atoms)// Once is enough
 		return
@@ -242,13 +238,17 @@ as having entered the turf.
 
 	INVOKE_ASYNC(our_atom, TYPE_PROC_REF(/atom, ex_act), power, null)
 
-// Spawns a cellular automaton of an explosion
+/// Spawns a cellular automaton of an explosion
 /proc/cell_explosion(turf/epicenter, power, falloff, falloff_shape = EXPLOSION_FALLOFF_SHAPE_LINEAR, orig_range, direction, color, silent, adminlog = TRUE)
 	if(!istype(epicenter))
 		epicenter = get_turf(epicenter)
 
 	if(!epicenter)
 		return
+
+	if(power > EXPLOSION_MAX_POWER)
+		stack_trace("Something exploded with force of [power]. Overriding to capacity of [EXPLOSION_MAX_POWER].")
+		power = EXPLOSION_MAX_POWER
 
 	falloff = max(falloff, power * 0.01)
 	if(adminlog)
@@ -263,8 +263,8 @@ as having entered the turf.
 	var/far_dist = power * 0.1
 	if(!silent)
 		var/frequency = GET_RAND_FREQUENCY
-		var/sound/explosion_sound = SFX_EXPLOSION_LARGE
-		var/sound/far_explosion_sound = SFX_EXPLOSION_LARGE_DISTANT
+		var/sound/explosion_sound
+		var/sound/far_explosion_sound
 
 		//no need to loop this for every mob
 		switch(power)
@@ -273,12 +273,13 @@ as having entered the turf.
 				far_explosion_sound = SFX_EXPLOSION_SMALL_DISTANT
 			if(EXPLODE_LIGHT to EXPLODE_HEAVY)
 				explosion_sound = SFX_EXPLOSION_MED
+				far_explosion_sound = SFX_EXPLOSION_LARGE_DISTANT
 			if(EXPLODE_HEAVY to INFINITY)
 				explosion_sound = SFX_EXPLOSION_LARGE
+				far_explosion_sound = SFX_EXPLOSION_LARGE_DISTANT
 
 		//there should be a use of client_by_zlevel, but due to the nature of explosions this is difficult to implement
-		for(var/MN in GLOB.player_list|GLOB.aiEyes)
-			var/mob/our_mob = MN
+		for(var/mob/our_mob as anything in GLOB.player_list|GLOB.aiEyes)
 			// Double check for client
 			var/turf/mob_turf = get_turf(our_mob)
 			if(mob_turf?.z != epicenter.z)
@@ -299,10 +300,6 @@ as having entered the turf.
 		orig_range = round(power / falloff)
 	new /obj/effect/temp_visual/explosion(epicenter, orig_range, color, power)
 	var/datum/automata_cell/explosion/our_explosion = new /datum/automata_cell/explosion(epicenter)
-	if(power > EXPLOSION_MAX_POWER)
-		log_game("Something exploded with force of [power]. Overriding to capacity of [EXPLOSION_MAX_POWER].") // it should go to debug probably
-		power = EXPLOSION_MAX_POWER
-
 	our_explosion.power = power
 	our_explosion.power_falloff = falloff
 	our_explosion.falloff_shape = falloff_shape
