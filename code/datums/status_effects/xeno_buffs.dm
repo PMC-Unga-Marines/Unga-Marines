@@ -960,13 +960,19 @@
 
 	qdel(src)
 
-//
-//	Carapace
-//
+// ***************************************
+// ***************************************
+// ***************************************
+
+// MUTATIONS
+
+// ***************************************
+// ***************************************
+// ***************************************
 
 /atom/movable/screen/alert/status_effect/carapace
 	name = "Carapace"
-	desc = "+ 1 soft armor buff"
+	desc = "+2.5 soft armor"
 	icon_state = "xenobuff_carapace"
 
 /datum/status_effect/carapace
@@ -975,27 +981,27 @@
 	status_type = STATUS_EFFECT_UNIQUE
 	alert_type = /atom/movable/screen/alert/status_effect/carapace
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/armor_buff = 1
+	var/armor_buff = 2.5
 
 /atom/movable/screen/alert/status_effect/carapace/tier2
 	name = "Carapace II"
-	desc = "+ 2.5 soft armor buff"
+	desc = "+5 soft armor"
 	icon_state = "xenobuff_carapace"
 
 /datum/status_effect/carapace/tier2
 	id = "upgrade_carapace_two"
 	alert_type = /atom/movable/screen/alert/status_effect/carapace/tier2
-	armor_buff = 2.5
+	armor_buff = 5
 
 /atom/movable/screen/alert/status_effect/carapace/tier3
 	name = "Carapace III"
-	desc = "+ 5 soft armor buff"
+	desc = "+10 soft armor"
 	icon_state = "xenobuff_carapace"
 
 /datum/status_effect/carapace/tier3
 	id = "upgrade_carapace_three"
 	alert_type = /atom/movable/screen/alert/status_effect/carapace/tier3
-	armor_buff = 5
+	armor_buff = 10
 
 /datum/status_effect/carapace/on_apply()
 	if(!isxeno(owner))
@@ -1008,9 +1014,9 @@
 	buff_owner.soft_armor = buff_owner.soft_armor.modifyAllRatings(-armor_buff)
 	return ..()
 
-//
-//	Regeneration
-//
+// ***************************************
+// ***************************************
+// ***************************************
 
 /atom/movable/screen/alert/status_effect/regeneration
 	name = "Regeneration I"
@@ -1052,9 +1058,9 @@
 	buff_owner.update_health()
 	return ..()
 
-//
-//	Vampirism
-//
+// ***************************************
+// ***************************************
+// ***************************************
 
 /atom/movable/screen/alert/status_effect/vampirism
 	name = "Vampirism"
@@ -1069,14 +1075,14 @@
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/leech_buff = 0.01
 
-/atom/movable/screen/alert/status_effect/vampirism/leech
+/atom/movable/screen/alert/status_effect/vampirism/tier2
 	name = "Leech"
 	desc = "3% HP per slash"
 	icon_state = "xenobuff_vampirism"
 
-/datum/status_effect/vampirism/leech
+/datum/status_effect/vampirism/tier2
 	id = "upgrade_leech"
-	alert_type = /atom/movable/screen/alert/status_effect/vampirism/leech
+	alert_type = /atom/movable/screen/alert/status_effect/vampirism/tier2
 	leech_buff = 0.03
 
 /datum/status_effect/vampirism/on_apply()
@@ -1089,7 +1095,6 @@
 /datum/status_effect/vampirism/on_remove()
 	UnregisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING)
 	return ..()
-
 
 /datum/status_effect/vampirism/proc/on_slash(datum/source, mob/living/target)
 	SIGNAL_HANDLER
@@ -1104,118 +1109,167 @@
 	buff_owner.update_health()
 
 // ***************************************
-// *********** Upgrade Chambers Buffs - Attack
 // ***************************************
-/atom/movable/screen/alert/status_effect/upgrade_celerity
+// ***************************************
+
+/atom/movable/screen/alert/status_effect/celerity
 	name = "Celerity"
-	desc = "Run faster."
+	desc = "+10% к скорости"
 	icon_state = "xenobuff_attack"
 
-/datum/status_effect/upgrade_celerity
+/datum/status_effect/celerity
 	id = "upgrade_celerity"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_celerity
+	alert_type = /atom/movable/screen/alert/status_effect/celerity
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/speed_buff = 0.1
-	var/chamber_scaling = 0
 
-/datum/status_effect/upgrade_celerity/on_apply()
+/datum/status_effect/celerity/on_apply()
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
 	buff_owner.add_movespeed_modifier(MOVESPEED_ID_CELERITY_BUFF, TRUE, 0, NONE, TRUE, -speed_buff)
 	return TRUE
 
-/datum/status_effect/upgrade_celerity/on_remove()
+/datum/status_effect/celerity/on_remove()
 	buff_owner.remove_movespeed_modifier(MOVESPEED_ID_CELERITY_BUFF)
 	return ..()
 
+// ***************************************
+// ***************************************
+// ***************************************
 
-// ***************************************
-// ***************************************
-// ***************************************
-/atom/movable/screen/alert/status_effect/upgrade_adrenaline
-	name = "Adrenaline"
-	desc = "Regenerate plasma."
+/atom/movable/screen/alert/status_effect/ionize
+	name = "Ionize I"
+	desc = "+5% max plasma"
 	icon_state = "xenobuff_attack"
 
-/datum/status_effect/upgrade_adrenaline
-	id = "upgrade_adrenaline"
+/datum/status_effect/ionize
+	id = "upgrade_ionize"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
 	tick_interval = 5 SECONDS
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_adrenaline
+	alert_type = /atom/movable/screen/alert/status_effect/ionize
 	var/mob/living/carbon/xenomorph/buff_owner
-	var/plasma_regen_buff = 0.12
-	var/percent_buff = 0.02
-	var/chamber_scaling = 0
+	var/plasma_regen_buff = 0
+	var/percent_buff = 0.05
 
-/datum/status_effect/upgrade_adrenaline/on_apply()
+/atom/movable/screen/alert/status_effect/ionize/tier2
+	name = "Ionize II"
+	desc = "+10% max plasma, +10% plasma regen"
+	icon_state = "xenobuff_attack"
+
+/datum/status_effect/ionize/tier2
+	alert_type = /atom/movable/screen/alert/status_effect/ionize/tier2
+	plasma_regen_buff = 0.1
+	percent_buff = 0.1
+
+/datum/status_effect/ionize/on_apply()
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
+	buff_owner.xeno_caste.plasma_max += buff_owner.xeno_caste.plasma_max * percent_buff
 	return TRUE
 
-/datum/status_effect/upgrade_adrenaline/tick(delta_time)
+/datum/status_effect/ionize/on_remove()
+	if(buff_owner)
+		buff_owner.xeno_caste.plasma_max -= buff_owner.xeno_caste.plasma_max * percent_buff / (1 + percent_buff)
+	return ..()
+
+/datum/status_effect/ionize/tier2/tick(delta_time)
 	if(HAS_TRAIT(buff_owner, TRAIT_NOPLASMAREGEN))
 		return
-	buff_owner.gain_plasma(buff_owner.xeno_caste.plasma_gain * plasma_regen_buff * (1 + buff_owner.recovery_aura * 0.05) + (buff_owner.xeno_caste.plasma_max * percent_buff))
+	buff_owner.gain_plasma(buff_owner.xeno_caste.plasma_gain * plasma_regen_buff * (1 + buff_owner.recovery_aura * 0.05))
 
 // ***************************************
 // ***************************************
 // ***************************************
-/atom/movable/screen/alert/status_effect/upgrade_crush
+
+/atom/movable/screen/alert/status_effect/crush
 	name = "Crush"
-	desc = "Additional damage to objects."
+	desc = "+5 penetration"
 	icon_state = "xenobuff_attack"
 
-/datum/status_effect/upgrade_crush
+/datum/status_effect/crush
 	id = "upgrade_crush"
 	duration = -1
 	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_crush
+	alert_type = /atom/movable/screen/alert/status_effect/crush
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/penetration_buff = 5
 
-/datum/status_effect/upgrade_crush/on_apply()
+/datum/status_effect/crush/on_apply()
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
 	RegisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_OBJ, PROC_REF(on_obj_attack))
 	return TRUE
 
-/datum/status_effect/upgrade_crush/on_remove()
+/datum/status_effect/crush/on_remove()
 	UnregisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_OBJ)
 	return ..()
 
-
-/datum/status_effect/upgrade_crush/proc/on_obj_attack(datum/source, obj/attacked)
+/datum/status_effect/crush/proc/on_obj_attack(datum/source, obj/attacked)
 	SIGNAL_HANDLER
 	if(attacked.resistance_flags & XENO_DAMAGEABLE)
 		attacked.take_damage(buff_owner.xeno_caste.melee_damage, armour_penetration = penetration_buff)
 
 // ***************************************
-// *********** Upgrade Chambers Buffs - Utility
 // ***************************************
-/atom/movable/screen/alert/status_effect/upgrade_toxin
-	name = "Toxin"
-	desc = "Inject toxin on attack."
+// ***************************************
+
+/atom/movable/screen/alert/status_effect/toxin
+	name = "Toxin I"
+	desc = "+0.5 toxin per slash"
 	icon_state = "xenobuff_generic"
 
-/atom/movable/screen/alert/status_effect/upgrade_toxin/Click()
-	var/static/list/upgrade_toxin_images_list = list(
+/atom/movable/screen/alert/status_effect/toxin/tier2
+	name = "Toxin II"
+	desc = "+1 toxin per slash, adds sanguinal"
+	icon_state = "xenobuff_generic"
+
+/datum/status_effect/toxin
+	id = "upgrade_toxin"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/toxin
+	var/mob/living/carbon/xenomorph/buff_owner
+	var/toxin_amount = 0.5
+	var/datum/reagent/toxin/injected_reagent = /datum/reagent/toxin/xeno_transvitox
+	var/list/selectable_reagents = list(
+		/datum/reagent/toxin/xeno_ozelomelyn,
+		/datum/reagent/toxin/xeno_hemodile,
+		/datum/reagent/toxin/xeno_transvitox,
+	)
+
+/datum/status_effect/toxin/tier2
+	alert_type = /atom/movable/screen/alert/status_effect/toxin/tier2
+	toxin_amount = 1
+	selectable_reagents = list(
+		/datum/reagent/toxin/xeno_ozelomelyn,
+		/datum/reagent/toxin/xeno_hemodile,
+		/datum/reagent/toxin/xeno_transvitox,
+		/datum/reagent/toxin/xeno_sanguinal
+	)
+
+/atom/movable/screen/alert/status_effect/toxin/Click()
+	var/static/list/toxin_images_list = list(
 		REAGENT_OZELOMELYN = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_OZELOMELYN),
 		REAGENT_HEMODILE = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_HEMODILE),
 		REAGENT_TRANSVITOX = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_TRANSVITOX),
-		REAGENT_SANGUINAL = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_SANGUINAL),
-		REAGENT_ACID = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_ACID),
 	)
-	var/datum/status_effect/upgrade_toxin/effect = attached_effect
+	var/static/list/toxin_images_list_tier = list(
+		REAGENT_OZELOMELYN = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_OZELOMELYN),
+		REAGENT_HEMODILE = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_HEMODILE),
+		REAGENT_TRANSVITOX = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_TRANSVITOX),
+		REAGENT_SANGUINAL = image('icons/Xeno/actions/general.dmi', icon_state = REAGENT_SANGUINAL)
+	)
+	var/datum/status_effect/toxin/effect = attached_effect
 	if(effect.buff_owner.incapacitated(TRUE))
 		to_chat(usr, span_warning("Cant do that right now!"))
 		return
-	var/datum/reagent/toxin/toxin_choice = show_radial_menu(effect.buff_owner, effect.buff_owner, upgrade_toxin_images_list, radius = 35, require_near = TRUE)
+	var/datum/reagent/toxin/toxin_choice = show_radial_menu(effect.buff_owner, effect.buff_owner, effect.toxin_amount != 1 ? toxin_images_list : toxin_images_list_tier, radius = 35, require_near = TRUE)
 	if(!toxin_choice)
 		return
 	for(var/toxin in effect.selectable_reagents)
@@ -1225,36 +1279,19 @@
 			break
 	effect.buff_owner.balloon_alert(effect.buff_owner, "[toxin_choice]")
 
-/datum/status_effect/upgrade_toxin
-	id = "upgrade_toxin"
-	duration = -1
-	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_toxin
-	var/mob/living/carbon/xenomorph/buff_owner
-	var/toxin_amount = 1
-	var/chamber_scaling = 0
-	var/datum/reagent/toxin/injected_reagent = /datum/reagent/toxin/xeno_transvitox
-	var/list/selectable_reagents = list(
-		/datum/reagent/toxin/xeno_ozelomelyn,
-		/datum/reagent/toxin/xeno_hemodile,
-		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_sanguinal,
-		/datum/reagent/toxin/acid,
-	)
-
-/datum/status_effect/upgrade_toxin/on_apply()
+/datum/status_effect/toxin/on_apply()
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
 	RegisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_slash))
 	return TRUE
 
-/datum/status_effect/upgrade_toxin/on_remove()
+/datum/status_effect/toxin/on_remove()
 	UnregisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING)
 	return ..()
 
 
-/datum/status_effect/upgrade_toxin/proc/on_slash(datum/source, mob/living/target)
+/datum/status_effect/toxin/proc/on_slash(datum/source, mob/living/target)
 	SIGNAL_HANDLER
 	if(target.stat == DEAD)
 		return
@@ -1268,13 +1305,46 @@
 // ***************************************
 // ***************************************
 // ***************************************
-/atom/movable/screen/alert/status_effect/upgrade_pheromones
-	name = "Pheromones"
-	desc = "Allows to emit pheromones."
+
+/atom/movable/screen/alert/status_effect/pheromones
+	name = "Pheromones I"
+	desc = "1.5 phero power"
 	icon_state = "xenobuff_phero"
 
-/atom/movable/screen/alert/status_effect/upgrade_pheromones/Click()
-	var/datum/status_effect/upgrade_pheromones/effect = attached_effect
+/datum/status_effect/pheromones
+	id = "upgrade_pheromones"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/pheromones
+	var/mob/living/carbon/xenomorph/buff_owner
+	var/datum/aura_bearer/current_aura
+	var/phero_power = 0.5
+	var/phero_power_base = 1
+	var/emitted_aura
+
+
+/atom/movable/screen/alert/status_effect/pheromones/tier2
+	name = "Pheromones II"
+	desc = "3 phero power"
+	icon_state = "xenobuff_phero"
+
+/datum/status_effect/pheromones/tier2
+	alert_type = /atom/movable/screen/alert/status_effect/pheromones/tier2
+	phero_power = 1
+	phero_power_base = 2
+
+/atom/movable/screen/alert/status_effect/pheromones/tier3
+	name = "Pheromones III"
+	desc = "4.5 phero power"
+	icon_state = "xenobuff_phero"
+
+/datum/status_effect/pheromones/tier3
+	alert_type = /atom/movable/screen/alert/status_effect/pheromones/tier3
+	phero_power = 1.5
+	phero_power_base = 3
+
+/atom/movable/screen/alert/status_effect/pheromones/Click()
+	var/datum/status_effect/pheromones/effect = attached_effect
 	if(effect.buff_owner.incapacitated(TRUE))
 		to_chat(usr, span_warning("Cant do that right now!"))
 		return
@@ -1285,19 +1355,7 @@
 	effect.emitted_aura = phero_choice
 	effect.current_aura = SSaura.add_emitter(effect.buff_owner, phero_choice, 6 + effect.phero_power * 2, effect.phero_power_base + effect.phero_power, -1, FACTION_XENO, effect.buff_owner.hivenumber)
 
-/datum/status_effect/upgrade_pheromones
-	id = "upgrade_pheromones"
-	duration = -1
-	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_pheromones
-	var/mob/living/carbon/xenomorph/buff_owner
-	var/datum/aura_bearer/current_aura
-	var/phero_power = 0.5
-	var/phero_power_base = 1
-	var/chamber_scaling = 0
-	var/emitted_aura = AURA_XENO_RECOVERY
-
-/datum/status_effect/upgrade_pheromones/on_apply()
+/datum/status_effect/pheromones/on_apply()
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
@@ -1305,22 +1363,36 @@
 	// Fixed pheromones without chamber dependency
 	return TRUE
 
-/datum/status_effect/upgrade_pheromones/on_remove()
+/datum/status_effect/pheromones/on_remove()
 	if(current_aura)
 		current_aura.stop_emitting()
 	return ..()
 
+// ***************************************
+// ***************************************
+// ***************************************
 
-// ***************************************
-// ***************************************
-// ***************************************
-/atom/movable/screen/alert/status_effect/upgrade_trail
+/atom/movable/screen/alert/status_effect/trail
 	name = "Trail"
 	desc = "We leave an acid trail behind."
 	icon_state = "xenobuff_generic"
 
-/atom/movable/screen/alert/status_effect/upgrade_trail/Click()
-	var/datum/status_effect/upgrade_trail/effect = attached_effect
+/datum/status_effect/trail
+	id = "upgrade_trail"
+	duration = -1
+	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/trail
+	var/mob/living/carbon/xenomorph/buff_owner
+	var/obj/selected_trail = /obj/effect/xenomorph/spray
+	var/base_chance = 25
+	var/chance = 25
+	var/list/selectable_trails = list(
+		/obj/effect/xenomorph/spray,
+		/obj/alien/resin/sticky/thin/temporary,
+	)
+
+/atom/movable/screen/alert/status_effect/trail/Click()
+	var/datum/status_effect/trail/effect = attached_effect
 	if(effect.buff_owner.incapacitated(TRUE))
 		to_chat(usr, span_warning("Cant do that right now!"))
 		return
@@ -1331,34 +1403,19 @@
 		effect.selected_trail = effect.selectable_trails[i+1]
 	effect.buff_owner.balloon_alert(effect.buff_owner, "[effect.selected_trail.name]")
 
-/datum/status_effect/upgrade_trail
-	id = "upgrade_trail"
-	duration = -1
-	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_trail
-	var/mob/living/carbon/xenomorph/buff_owner
-	var/obj/selected_trail = /obj/effect/xenomorph/spray
-	var/base_chance = 25
-	var/chance = 25
-	var/chamber_scaling = 0
-	var/list/selectable_trails = list(
-		/obj/effect/xenomorph/spray,
-		/obj/alien/resin/sticky/thin/temporary,
-	)
-
-/datum/status_effect/upgrade_trail/on_apply()
+/datum/status_effect/trail/on_apply()
 	if(!isxeno(owner))
 		return FALSE
 	buff_owner = owner
 	RegisterSignal(buff_owner, COMSIG_MOVABLE_MOVED, PROC_REF(do_acid_trail))
 	return TRUE
 
-/datum/status_effect/upgrade_trail/on_remove()
+/datum/status_effect/trail/on_remove()
 	UnregisterSignal(buff_owner, COMSIG_MOVABLE_MOVED)
 	return ..()
 
 
-/datum/status_effect/upgrade_trail/proc/do_acid_trail()
+/datum/status_effect/trail/proc/do_acid_trail()
 	SIGNAL_HANDLER
 	if(buff_owner.incapacitated(TRUE) || buff_owner.status_flags & INCORPOREAL || buff_owner.is_ventcrawling)
 		return
@@ -1377,252 +1434,8 @@
 			new selected_trail(T)
 
 // ***************************************
-// *********** Tier 2 Upgrade Status Effects
 // ***************************************
-
-// Enhanced Celerity - Tier 2 Attack
-/atom/movable/screen/alert/status_effect/upgrade_enhanced_celerity
-	name = "Enhanced Celerity"
-	desc = "Dramatically increased movement speed and agility."
-	icon_state = "xenobuff_attack"
-
-/datum/status_effect/upgrade_enhanced_celerity
-	id = "upgrade_enhanced_celerity"
-	duration = -1
-	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_enhanced_celerity
-	var/mob/living/carbon/xenomorph/buff_owner
-	var/speed_buff = 0.2 // Double the base celerity effect
-	var/chamber_scaling = 0
-
-/datum/status_effect/upgrade_enhanced_celerity/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	buff_owner = owner
-
-	buff_owner.add_movespeed_modifier(MOVESPEED_ID_ENHANCED_CELERITY_BUFF, TRUE, 0, NONE, TRUE, -speed_buff)
-	return TRUE
-
-/datum/status_effect/upgrade_enhanced_celerity/on_remove()
-	buff_owner.remove_movespeed_modifier(MOVESPEED_ID_ENHANCED_CELERITY_BUFF)
-	return ..()
-
-
-// Berserker Rage - Tier 2 Attack
-/atom/movable/screen/alert/status_effect/upgrade_berserker_rage
-	name = "Berserker Rage"
-	desc = "Massive plasma regeneration and damage boost in berserker state."
-	icon_state = "xenobuff_attack"
-
-/datum/status_effect/upgrade_berserker_rage
-	id = "upgrade_berserker_rage"
-	duration = -1
-	status_type = STATUS_EFFECT_UNIQUE
-	tick_interval = 2.5 SECONDS // Faster than base adrenaline
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_berserker_rage
-	var/mob/living/carbon/xenomorph/buff_owner
-	var/plasma_regen_buff = 0.24 // Double the base adrenaline effect
-	var/percent_buff = 0.04 // Double the base adrenaline effect
-	var/chamber_scaling = 0
-
-/datum/status_effect/upgrade_berserker_rage/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	buff_owner = owner
-	return TRUE
-
-/datum/status_effect/upgrade_berserker_rage/tick(delta_time)
-	if(HAS_TRAIT(buff_owner, TRAIT_NOPLASMAREGEN))
-		return
-	buff_owner.gain_plasma(buff_owner.xeno_caste.plasma_gain * plasma_regen_buff * (1 + buff_owner.recovery_aura * 0.05) + (buff_owner.xeno_caste.plasma_max * percent_buff))
-
-// Advanced Toxin - Tier 2 Utility
-/atom/movable/screen/alert/status_effect/upgrade_advanced_toxin
-	name = "Advanced Toxin"
-	desc = "Inject powerful neurotoxin that affects multiple targets."
-	icon_state = "xenobuff_generic"
-
-/datum/status_effect/upgrade_advanced_toxin
-	id = "upgrade_advanced_toxin"
-	duration = -1
-	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_advanced_toxin
-	var/mob/living/carbon/xenomorph/buff_owner
-	var/toxin_amount = 2 // Double the base toxin effect
-	var/chamber_scaling = 0
-	var/datum/reagent/toxin/injected_reagent = /datum/reagent/toxin/xeno_transvitox
-	var/list/selectable_reagents = list(
-		/datum/reagent/toxin/xeno_ozelomelyn,
-		/datum/reagent/toxin/xeno_hemodile,
-		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_sanguinal,
-		/datum/reagent/toxin/acid,
-	)
-
-/datum/status_effect/upgrade_advanced_toxin/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	buff_owner = owner
-	RegisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_UTILITY, PROC_REF(update_buff))
-	RegisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(on_slash))
-	return TRUE
-
-/datum/status_effect/upgrade_advanced_toxin/on_remove()
-	UnregisterSignal(SSdcs, COMSIG_UPGRADE_CHAMBER_UTILITY)
-	UnregisterSignal(buff_owner, COMSIG_XENOMORPH_ATTACK_LIVING)
-	return ..()
-
-/datum/status_effect/upgrade_advanced_toxin/proc/update_buff()
-	SIGNAL_HANDLER
-
-/datum/status_effect/upgrade_advanced_toxin/proc/on_slash(datum/source, mob/living/target)
-	SIGNAL_HANDLER
-	if(target.stat == DEAD)
-		return
-	if(!ishuman(target))
-		return
-	if(!target?.can_sting())
-		return
-	var/mob/living/carbon/carbon_target = target
-	carbon_target.reagents.add_reagent(injected_reagent, 1 + toxin_amount)
-
-// Hive Mind - Tier 2 Utility
-/atom/movable/screen/alert/status_effect/upgrade_hive_mind
-	name = "Hive Mind"
-	desc = "Enhanced pheromone control affecting the entire hive."
-	icon_state = "xenobuff_phero"
-
-/datum/status_effect/upgrade_hive_mind
-	id = "upgrade_hive_mind"
-	duration = -1
-	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_hive_mind
-	var/mob/living/carbon/xenomorph/buff_owner
-	var/datum/aura_bearer/current_aura
-	var/phero_power = 1.0 // Double the base pheromone effect
-	var/phero_power_base = 2 // Double the base pheromone effect
-	var/chamber_scaling = 0
-	var/emitted_aura = AURA_XENO_RECOVERY
-
-/datum/status_effect/upgrade_hive_mind/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	buff_owner = owner
-	current_aura = SSaura.add_emitter(buff_owner, AURA_XENO_RECOVERY, 12 + phero_power * 2, phero_power_base + phero_power, -1, FACTION_XENO, buff_owner.hivenumber)
-	return TRUE
-
-/datum/status_effect/upgrade_hive_mind/on_remove()
-	if(current_aura)
-		current_aura.stop_emitting()
-	return ..()
-
-// ===== TIER 3 - ULTIMATE MUTATIONS =====
-
-// Ultimate Celerity - Maximum speed with dodge chance
-/datum/status_effect/upgrade_ultimate_celerity
-	id = "upgrade_ultimate_celerity"
-	duration = -1
-	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_ultimate_celerity
-	var/mob/living/carbon/xenomorph/buff_owner
-
-/datum/status_effect/upgrade_ultimate_celerity/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	buff_owner = owner
-	// +35% speed
-	buff_owner.add_movespeed_modifier(MOVESPEED_ID_ENHANCED_CELERITY_BUFF, TRUE, 0, NONE, TRUE, 35)
-	return TRUE
-
-/datum/status_effect/upgrade_ultimate_celerity/on_remove()
-	if(buff_owner)
-		// Remove +35% speed
-		buff_owner.remove_movespeed_modifier(MOVESPEED_ID_ENHANCED_CELERITY_BUFF)
-	return ..()
-
-// Ultimate Berserker - Maximum damage and attack speed
-/datum/status_effect/upgrade_ultimate_berserker
-	id = "upgrade_ultimate_berserker"
-	duration = -1
-	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_ultimate_berserker
-	var/mob/living/carbon/xenomorph/buff_owner
-
-/datum/status_effect/upgrade_ultimate_berserker/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	buff_owner = owner
-	// +50% damage
-	buff_owner.xeno_melee_damage_modifier += 0.5
-	return TRUE
-
-/datum/status_effect/upgrade_ultimate_berserker/on_remove()
-	if(buff_owner)
-		// Remove +50% damage
-		buff_owner.xeno_melee_damage_modifier -= 0.5
-	return ..()
-
-// Ultimate Toxin - Maximum toxin damage
-/datum/status_effect/upgrade_ultimate_toxin
-	id = "upgrade_ultimate_toxin"
-	duration = -1
-	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_ultimate_toxin
-	var/mob/living/carbon/xenomorph/buff_owner
-
-/datum/status_effect/upgrade_ultimate_toxin/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	buff_owner = owner
-	// Ultimate toxin - placeholder for now
-	return TRUE
-
-/datum/status_effect/upgrade_ultimate_toxin/on_remove()
-	return ..()
-
-// Ultimate Hive Mind - Maximum pheromone power with hive coordination
-/datum/status_effect/upgrade_ultimate_hive_mind
-	id = "upgrade_ultimate_hive_mind"
-	duration = -1
-	status_type = STATUS_EFFECT_UNIQUE
-	alert_type = /atom/movable/screen/alert/status_effect/upgrade_ultimate_hive_mind
-	var/mob/living/carbon/xenomorph/buff_owner
-	var/datum/aura_bearer/current_aura
-
-/datum/status_effect/upgrade_ultimate_hive_mind/on_apply()
-	if(!isxeno(owner))
-		return FALSE
-	buff_owner = owner
-	// Ultimate hive mind - placeholder for now
-	return TRUE
-
-/datum/status_effect/upgrade_ultimate_hive_mind/on_remove()
-	return ..()
-
-/atom/movable/screen/alert/status_effect/upgrade_ultimate_regeneration
-	name = "Ultimate Regeneration"
-	desc = "Maximum health regeneration with combat healing"
-	icon_state = "xenobuff_survival"
-
-/atom/movable/screen/alert/status_effect/upgrade_ultimate_celerity
-	name = "Ultimate Celerity"
-	desc = "Maximum speed with dodge chance"
-	icon_state = "xenobuff_attack"
-
-/atom/movable/screen/alert/status_effect/upgrade_ultimate_berserker
-	name = "Ultimate Berserker"
-	desc = "Maximum damage and attack speed"
-	icon_state = "xenobuff_attack"
-
-/atom/movable/screen/alert/status_effect/upgrade_ultimate_toxin
-	name = "Ultimate Toxin"
-	desc = "Maximum toxin damage"
-	icon_state = "xenobuff_generic"
-
-/atom/movable/screen/alert/status_effect/upgrade_ultimate_hive_mind
-	name = "Ultimate Hive Mind"
-	desc = "Maximum pheromone power with hive coordination"
-	icon_state = "xenobuff_phero"
+// ***************************************
 
 // Enhancement mutations - caste-specific
 /datum/status_effect/upgrade_drone_mastery
