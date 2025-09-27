@@ -38,13 +38,6 @@
 	shrapnel_chance = 50
 	shrapnel_type = /obj/item/shard/shrapnel/bone_chips/xeno
 
-/datum/ammo/bullet/shrapnel/spall // weak shrapnel
-	name = "spall"
-	icon_state = "shrapnel_light"
-	damage = 10
-	shell_speed = 2.5
-	shrapnel_chance = 0
-
 /datum/ammo/bullet/shrapnel/light/glass
 	name = "glass shrapnel"
 	icon_state = "shrapnel_glass"
