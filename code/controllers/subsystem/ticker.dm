@@ -211,11 +211,12 @@ SUBSYSTEM_DEF(ticker)
 		LAZYADD(round_end_events, cb)
 
 /datum/controller/subsystem/ticker/proc/station_explosion_detonation(atom/bomb)
-	if(bomb)	//BOOM
-		var/turf/epi = bomb.loc
-		qdel(bomb)
-		if(epi)
-			cell_explosion(epi, 3000, 10, silent = TRUE)
+	if(!bomb)	//BOOM
+		return
+	var/turf/epi = bomb.loc
+	qdel(bomb)
+	if(epi)
+		cell_explosion(epi, 3000, 10, silent = TRUE)
 
 /datum/controller/subsystem/ticker/proc/HasRoundStarted()
 	return current_state >= GAME_STATE_PLAYING
