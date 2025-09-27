@@ -170,11 +170,12 @@
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cell/ex_act(severity)
-	if(prob(severity * 0.5))
-		if(severity >= EXPLODE_WEAK)
-			qdel(src)
-		else
-			corrupt()
+	if(!prob(severity * 0.5))
+		return
+	if(severity >= EXPLODE_WEAK)
+		qdel(src)
+	else
+		corrupt()
 
 /obj/item/cell/use(amount) // use power from a cell
 	if(rigged && amount > 0)

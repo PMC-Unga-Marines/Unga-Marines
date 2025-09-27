@@ -57,8 +57,8 @@
 		for(var/obj/item/book/our_book in contents)
 			if(prob(severity * 0.5))
 				qdel(our_book)
-			else
-				our_book.forceMove(get_turf(src))
+				continue
+			our_book.forceMove(get_turf(src))
 		qdel(src)
 
 /obj/structure/bookcase/update_icon_state()

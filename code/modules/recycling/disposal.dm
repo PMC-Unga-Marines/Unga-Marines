@@ -568,12 +568,13 @@
 	density = FALSE
 
 	level = 1			//Underfloor only
-	var/dpdir = 0		//Bitmask of pipe directions
 	dir = 0				//dir will contain dominant direction for junction pipes
 	max_integrity = 10 	//Health points 0-10
 	layer = DISPOSAL_PIPE_LAYER //Slightly lower than wires and other pipes
 	plane = FLOOR_PLANE
 	resistance_flags = RESIST_ALL
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 70, BIO = 0, FIRE = 0, ACID = 0)
+	var/dpdir = 0		//Bitmask of pipe directions
 
 	//New pipe, set the icon_state as on map
 /obj/structure/disposalpipe/Initialize(mapload)
@@ -688,12 +689,6 @@
 					addtimer(CALLBACK(AM, TYPE_PROC_REF(/atom/movable, throw_at), target, 5, 1), 0.1 SECONDS)
 
 			qdel(H)
-
-//Pipe affected by explosion
-/obj/structure/disposalpipe/ex_act(severity)
-	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
-		return
-	take_damage(severity * 0.3, BRUTE, BOMB)
 
 //Attack by item. Weldingtool: unfasten and convert to obj/disposalconstruct
 /obj/structure/disposalpipe/welder_act(mob/living/user, obj/item/tool/weldingtool/W)
