@@ -133,9 +133,9 @@
 	// Blow stuff up
 	INVOKE_ASYNC(in_turf, TYPE_PROC_REF(/atom, ex_act), power, direction)
 	for(var/atom/our_atom as anything in in_turf)
-		if(our_atom.gc_destroyed)
-			continue
 		if(our_atom in exploded_atoms)
+			continue
+		if(our_atom.gc_destroyed)
 			continue
 		resistance += max(0, our_atom.get_explosion_resistance())
 		INVOKE_ASYNC(our_atom, TYPE_PROC_REF(/atom, ex_act), power, direction)
@@ -158,6 +158,7 @@
 	if(power <= 0)
 		qdel(src)
 		return
+
 	var/turf/old_turf = in_turf
 	// Propagate the explosion
 	var/list/to_spread = get_propagation_dirs(reflected)
