@@ -267,16 +267,15 @@ as having entered the turf.
 		var/sound/far_explosion_sound
 
 		//no need to loop this for every mob
-		switch(power)
-			if(0 to EXPLODE_LIGHT)
-				explosion_sound = SFX_EXPLOSION_SMALL
-				far_explosion_sound = SFX_EXPLOSION_SMALL_DISTANT
-			if(EXPLODE_LIGHT to EXPLODE_HEAVY)
-				explosion_sound = SFX_EXPLOSION_MED
-				far_explosion_sound = SFX_EXPLOSION_LARGE_DISTANT
-			if(EXPLODE_HEAVY to INFINITY)
-				explosion_sound = SFX_EXPLOSION_LARGE
-				far_explosion_sound = SFX_EXPLOSION_LARGE_DISTANT
+		if(power > EXPLODE_HEAVY)
+			explosion_sound = SFX_EXPLOSION_LARGE
+			far_explosion_sound = SFX_EXPLOSION_LARGE_DISTANT
+		else if(power > EXPLODE_LIGHT)
+			explosion_sound = SFX_EXPLOSION_MED
+			far_explosion_sound = SFX_EXPLOSION_LARGE_DISTANT
+		else
+			explosion_sound = SFX_EXPLOSION_SMALL
+			far_explosion_sound = SFX_EXPLOSION_SMALL_DISTANT
 
 		//there should be a use of client_by_zlevel, but due to the nature of explosions this is difficult to implement
 		for(var/mob/our_mob as anything in GLOB.player_list|GLOB.aiEyes)
