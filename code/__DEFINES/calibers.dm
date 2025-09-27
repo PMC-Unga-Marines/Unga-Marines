@@ -30,6 +30,7 @@
 #define CALIBER_762X25 "7.62x25mm"
 #define CALIBER_9X21 "9x21mm IMI"
 #define CALIBER_10X20_CASELESS "10x20mm caseless"
+#define CALIBER_41AE ".41 AE"
 
 // --- Rifles ---
 #define CALIBER_10X24_CASELESS "10x24mm caseless"
