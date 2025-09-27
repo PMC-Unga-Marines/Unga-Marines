@@ -280,7 +280,7 @@
 
 ///Generate the particles
 /obj/effect/temp_visual/explosion/proc/generate_particles(radius, power)
-	set_generated_particles()
+	set_generated_particles(power)
 
 	smoke_wave.particles.velocity = generator(GEN_CIRCLE, rand(3, 8) * radius, rand(3, 8) * radius)
 	explosion_smoke.layer = layer + 0.1
@@ -289,7 +289,7 @@
 	addtimer(CALLBACK(src, PROC_REF(set_count_short)), 0.5 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(set_count_long)), 1 SECONDS)
 
-/obj/effect/temp_visual/explosion/proc/set_generated_particles()
+/obj/effect/temp_visual/explosion/proc/set_generated_particles(power)
 	var/turf/turf_type = get_turf(src)
 	if(iswater(turf_type))
 		smoke_wave = new(src, /particles/wave_water)
