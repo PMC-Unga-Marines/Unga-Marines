@@ -1549,6 +1549,7 @@
 #include "code\modules\clothing\gloves\defibrillator_gloves.dm"
 #include "code\modules\clothing\gloves\marine_gloves.dm"
 #include "code\modules\clothing\gloves\miscellaneous.dm"
+#include "code\modules\clothing\gloves\vali_gloves.dm"
 #include "code\modules\clothing\head\collectable.dm"
 #include "code\modules\clothing\head\hardhat.dm"
 #include "code\modules\clothing\head\head.dm"

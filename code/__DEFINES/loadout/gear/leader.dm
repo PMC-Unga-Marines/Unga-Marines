@@ -9,6 +9,7 @@ GLOBAL_LIST_INIT(leader_gear_listed_products, list(
 	/obj/item/armor_module/module/valkyrie_autodoc = list(CAT_LEDSUP, "Valkyrie Automedical Armor System", 25,"white"),
 	/obj/effect/vendor_bundle/tyr/two = list(CAT_LEDSUP, "Tyr 2 extra armor set", 25,"white"),
 	/obj/effect/vendor_bundle/mimir/two = list(CAT_LEDSUP, "Mimir 2 extra armor set", 25,"white"),
+	/obj/item/clothing/gloves/valigloves = list(CAT_LEDSUP, "Y-15 Vali chemical enhancement gloves", 25,"white"),
 	/obj/item/armor_module/module/night_vision = list(CAT_LEDSUP, "BE-35 night vision kit", 20, "blue"),
 	/obj/item/clothing/glasses/night_vision = list(CAT_LEDSUP, "BE-47 night vision goggles", 30, "blue"),
 	/obj/item/cell/night_vision_battery = list(CAT_LEDSUP, "night vision battery", 5, "blue"),
