@@ -128,9 +128,8 @@
 		severity *= EXPLOSION_PRONE_MULTIPLIER
 
 	if(severity >= EXPLOSION_THRESHOLD_GIB + (get_soft_armor(BOMB) * 2))
-		var/oldloc = loc
+		create_shrapnel(loc, rand(9, 15), direction, 40, /datum/ammo/bullet/shrapnel/light/human)
 		gib()
-		create_shrapnel(oldloc, rand(9, 15), direction, 40, /datum/ammo/bullet/shrapnel/light/human)
 		return
 
 	var/modified_severity = modify_by_armor(severity, BOMB)
