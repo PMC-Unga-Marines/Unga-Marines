@@ -73,7 +73,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 	for(var/mob/listener AS in listeners|SSmobs.dead_players_by_zlevel[turf_source.z])
 		if(get_dist(listener, turf_source) > sound_range)
 			continue
-		if(!ambient_sound && listener.client?.prefs?.volume_ambience)
+		if(ambient_sound && !listener.client?.prefs?.volume_ambience)
 			continue
 		listener.playsound_local(turf_source, soundin, vol * (listener.client.prefs.volume_ambience / 100), vary, frequency, falloff, is_global, channel, S)
 
@@ -92,7 +92,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 		for(var/mob/crew AS in armor.interior.occupants)
 			if(!crew.client)
 				continue
-			if(ambient_sound && crew.client.prefs.volume_ambience <= 0)
+			if(ambient_sound && !crew.client.prefs.volume_ambience)
 				continue
 			crew.playsound_local(origin_point, soundin, vol * 0.5 * (crew.client.prefs.volume_ambience / 100), vary, frequency, falloff, is_global, channel, S)
 
