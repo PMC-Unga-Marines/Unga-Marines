@@ -262,7 +262,8 @@
 /obj/effect/temp_visual/explosion/Initialize(mapload, radius, color, power)
 	. = ..()
 	set_light(radius, radius, color)
-	generate_particles(radius, power)
+	set_generated_particles(power)
+	generate_particles(radius)
 	if(iswater(get_turf(src)))
 		icon_state = null
 		return
@@ -279,9 +280,7 @@
 	icon_state = null
 
 ///Generate the particles
-/obj/effect/temp_visual/explosion/proc/generate_particles(radius, power)
-	set_generated_particles(power)
-
+/obj/effect/temp_visual/explosion/proc/generate_particles(radius)
 	smoke_wave.particles.velocity = generator(GEN_CIRCLE, rand(3, 8) * radius, rand(3, 8) * radius)
 	explosion_smoke.layer = layer + 0.1
 
