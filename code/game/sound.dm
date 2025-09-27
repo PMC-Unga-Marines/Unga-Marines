@@ -74,8 +74,9 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 		if(get_dist(listener, turf_source) > sound_range)
 			continue
 		if(ambient_sound && !listener.client?.prefs?.volume_ambience)
+			listener.playsound_local(turf_source, soundin, vol * (listener.client.prefs.volume_ambience / 100), vary, frequency, falloff, is_global, channel, S)
 			continue
-		listener.playsound_local(turf_source, soundin, vol * (listener.client.prefs.volume_ambience / 100), vary, frequency, falloff, is_global, channel, S)
+		listener.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, channel, S)
 
 	//We do tanks separately, since they are not actually on the source z, and we need some other stuff to get accurate directional sound
 	for(var/obj/vehicle/sealed/armored/armor AS in GLOB.tank_list)
