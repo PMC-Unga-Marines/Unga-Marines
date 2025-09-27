@@ -254,9 +254,6 @@
 		to_chat(source, span_warning("No active weapon selected!"))
 		return
 	var/area/A = get_area(target)
-	if(A.ceiling >= CEILING_UNDERGROUND)
-		to_chat(source, span_warning("That target is too deep underground!"))
-		return
 	if(A.area_flags & OB_CAS_IMMUNE)
 		to_chat(source, span_warning("Our payload won't reach this target!"))
 		return
