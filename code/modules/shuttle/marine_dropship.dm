@@ -72,7 +72,7 @@
 	var/turf/left = locate(C.x - leftright, C.y, C.z)
 	var/turf/right = locate(C.x + leftright, C.y, C.z)
 
-	for(var/turf/T in range(3, rear)+range(3, left)+range(3, right)+range(2, front))
+	for(var/turf/T AS in RANGE_TURFS(3, rear) + RANGE_TURFS(3, left) + RANGE_TURFS(3, right) + RANGE_TURFS(2, front))
 		T.empty(/turf/open/floor/plating, ignore_typecache = typecacheof(/mob))
 
 	SSmonitor.process_human_positions()
