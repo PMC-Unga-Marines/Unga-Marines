@@ -139,7 +139,7 @@
 	if(!istype(wear_ear, /obj/item/clothing/ears/earmuffs))
 		adjust_ear_damage(powerfactor_value, powerfactor_value * 4)
 
-	if(severity >= EXPLODE_LIGHT)
+	if(severity >= EXPLODE_WEAK)
 		flash_act()
 
 	adjust_stagger(powerfactor_value SECONDS * 0.5)
