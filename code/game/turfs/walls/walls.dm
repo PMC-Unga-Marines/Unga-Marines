@@ -199,14 +199,15 @@
 
 	wall_integrity = max(0, wall_integrity - damage_amount)
 
-	if(wall_integrity <= 0)
-		// Xenos used to be able to crawl through the wall, should suggest some structural damage to the girder
-		if (acided_hole)
-			dismantle_wall(1)
-		else
-			dismantle_wall()
-	else
+	if(wall_integrity > 0)
 		update_icon()
+		return
+
+	// Xenos used to be able to crawl through the wall, should suggest some structural damage to the girder
+	if(acided_hole)
+		dismantle_wall(TRUE)
+		return
+	dismantle_wall()
 
 ///Repairs the wall by an amount
 /turf/closed/wall/proc/repair_damage(repair_amount, mob/user)
