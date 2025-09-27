@@ -168,14 +168,32 @@
 	new_xeno.transfer_to_hive(hivenumber)
 	new_xeno.life_kills_total = life_kills_total
 	new_xeno.biomass = biomass
+	new_xeno.biomass_gain_bonus = biomass_gain_bonus
 	if(new_xeno.hunter_data)
 		new_xeno.hunter_data.clean_data()
 		qdel(new_xeno.hunter_data)
 		new_xeno.hunter_data = hunter_data
 		hunter_data = null
 	new_xeno.upgrades_holder = upgrades_holder
-	for(var/datum/status_effect/S AS in new_xeno.upgrades_holder)
-		new_xeno.apply_status_effect(S)
+	new_xeno.purchased_mutations = purchased_mutations.Copy()
+
+	var/total_refund = 0
+	var/list/refunded_mutations = list()
+
+	// Calculate refund for all purchased mutations
+	for(var/mutation_name in new_xeno.purchased_mutations)
+		var/datum/xeno_mutation/mutation_datum = get_xeno_mutation_by_name(mutation_name)
+		if(mutation_datum)
+			total_refund += mutation_datum.cost
+			refunded_mutations += mutation_name
+
+	// Clear all mutations and refund biomass
+	new_xeno.purchased_mutations.Cut()
+	new_xeno.upgrades_holder.Cut()
+
+	if(total_refund > 0)
+		new_xeno.biomass += total_refund
+		to_chat(new_xeno, span_xenonotice("[total_refund] biomass returned."))
 	new_xeno.generate_name() // This is specifically for numbered xenos who want to keep their previous number instead of a random new one.
 	new_xeno.hive?.update_ruler() // Since ruler wasn't set during initialization, update ruler now. // Is this needed?
 	transfer_observers_to(new_xeno)

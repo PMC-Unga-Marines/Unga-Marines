@@ -1,0 +1,155 @@
+/// Get mutation datum by name
+/proc/get_xeno_mutation_by_name(mutation_name)
+	for(var/datum/xeno_mutation/mutation in GLOB.xeno_mutations)
+		if(mutation.name == mutation_name)
+			return mutation
+	return null
+
+/// Datum for handling the xenomorph mutation menu TGUI
+/datum/mutation_menu
+	/// The xenomorph using this menu
+	var/mob/living/carbon/xenomorph/xeno_owner
+
+/datum/mutation_menu/New(mob/living/carbon/xenomorph/xeno)
+	. = ..()
+	xeno_owner = xeno
+
+/datum/mutation_menu/ui_interact(mob/user, datum/tgui/ui)
+	// Xeno only screen
+	if(!isxeno(user))
+		return
+
+	// Minions can't access mutations
+	var/mob/living/carbon/xenomorph/xeno = user
+	if(xeno.xeno_caste.caste_flags & CASTE_IS_A_MINION)
+		to_chat(user, span_warning("We are too primitive to understand mutations."))
+		return
+
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "MutationMenu")
+		ui.open()
+
+/// Checks for xeno access and prevents unconscious / dead xenos from interacting.
+/datum/mutation_menu/ui_state(mob/user)
+	return GLOB.xeno_state
+
+/// Assets for the UI
+/datum/mutation_menu/ui_assets(mob/user)
+	. = ..()
+	. += get_asset_datum(/datum/asset/spritesheet/mutationmenu)
+
+/// Static data provided once when the ui is opened
+/datum/mutation_menu/ui_static_data(mob/living/carbon/xenomorph/xeno)
+	. = list()
+	.["categories"] = list("Survival", "Offensive", "Specialized", "Enhancement")
+
+/// Dynamic data that updates every tick
+/datum/mutation_menu/ui_data(mob/living/carbon/xenomorph/xeno)
+	. = list()
+
+	// Minions don't have biomass or mutations
+	if(xeno.xeno_caste.caste_flags & CASTE_IS_A_MINION)
+		.["biomass"] = 0
+		.["max_biomass"] = 0
+		.["mutations"] = list()
+		.["passive_biomass_gain"] = 0
+		return
+
+	.["biomass"] = xeno.biomass
+	.["max_biomass"] = xeno.biomass > 50 ? xeno.biomass : 50
+	.["mutations"] = get_mutations_data(xeno)
+	.["current_caste"] = lowertext(xeno.xeno_caste.caste_name)
+
+	.["passive_biomass_gain"] = xeno.get_passive_biomass_gain_rate()
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+/datum/mutation_menu/proc/get_mutations_data(mob/living/carbon/xenomorph/xeno)
+	var/list/mutations = list()
+
+	//Конверт всего в лист для тгуи
+	for(var/datum/xeno_mutation/mutation in GLOB.xeno_mutations)
+		if(mutation.is_available(xeno))
+			mutations += list(mutation.to_list(xeno))
+
+	return mutations
+
+/datum/mutation_menu/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+
+	switch(action)
+		if("purchase_mutation")
+			var/mutation_name = params["mutation_name"]
+			purchase_mutation(mutation_name)
+			return TRUE
+
+/datum/mutation_menu/proc/purchase_mutation(mutation_name)
+	var/datum/xeno_mutation/mutation_datum = get_xeno_mutation_by_name(mutation_name)
+
+	if(!xeno_owner)
+		to_chat(usr, span_warning("Invalid xenomorph reference!"))
+		return
+
+	if(xeno_owner.incapacitated(TRUE))
+		to_chat(usr, span_warning("Can't do that right now!"))
+		return
+
+	if(xeno_owner.fortify)
+		to_chat(usr, span_warning("You cannot buy mutations while fortified!"))
+		return
+
+	if(xeno_owner.stat == DEAD)
+		to_chat(usr, span_warning("You're dead!"))
+		return
+
+	if(!mutation_datum)
+		to_chat(usr, span_warning("Invalid mutation name!"))
+		return
+
+	if(!mutation_datum.is_available(xeno_owner))
+		to_chat(usr, span_warning("This mutation is not available for your caste!"))
+		return
+
+	if(!mutation_datum.is_unlocked(xeno_owner))
+		to_chat(usr, span_warning("This mutation is not unlocked yet!"))
+		return
+
+	if(xeno_owner.biomass < mutation_datum.cost)
+		to_chat(usr, span_warning("You don't have enough biomass! You need [mutation_datum.cost] biomass, but you only have [xeno_owner.biomass]."))
+		return
+
+	var/upgrade = locate(mutation_datum.status_effect_type) in xeno_owner.status_effects
+	if(upgrade)
+		to_chat(usr, span_xenonotice("Existing mutation chosen. No biomass spent."))
+		return
+
+	//Remove parent mutations if purchasing higher tier
+	var/datum/status_effect/parent_to_remove
+	if(mutation_datum.parent_name)
+		var/datum/xeno_mutation/parent_mutation = get_xeno_mutation_by_name(mutation_datum.parent_name)
+		if(parent_mutation && parent_mutation.status_effect_type)
+			parent_to_remove = locate(parent_mutation.status_effect_type) in xeno_owner.status_effects
+
+	if(parent_to_remove)
+		xeno_owner.remove_status_effect(parent_to_remove)
+
+	xeno_owner.biomass -= mutation_datum.cost
+	to_chat(usr, span_xenonotice("[mutation_name] mutation gained."))
+
+	//Add to purchase history
+	xeno_owner.purchased_mutations += mutation_name
+
+	//Remove conflicting mutations (only the specific one being replaced)
+	for(var/datum/xeno_mutation/conflicting_mutation in xeno_owner.owned_mutations)
+		if(conflicting_mutation.category == mutation_datum.category)
+			conflicting_mutation.remove_instance()
+
+	xeno_owner.do_jitter_animation(500)
+
+	// Создаем экземпляр мутации для ксеноморфа
+	mutation_datum.create_instance(xeno_owner)
+
+	SStgui.update_uis(src)
