@@ -65,8 +65,20 @@ const PixelSizeNumToString = (integer) => {
 
 export const GameSettings = (props) => {
   const { act, data } = useBackend<GameSettingData>();
-  const { ui_style_color, scaling_method, pixel_size, parallax, is_admin, volume_adminhelp, volume_adminmusic, volume_ambience, volume_lobby, volume_instruments, volume_weather, volume_end_of_round } =
-    data;
+  const {
+    ui_style_color,
+    scaling_method,
+    pixel_size,
+    parallax,
+    is_admin,
+    volume_adminhelp,
+    volume_adminmusic,
+    volume_ambience,
+    volume_lobby,
+    volume_instruments,
+    volume_weather,
+    volume_end_of_round,
+  } = data;
   return (
     <Section title="Game Settings">
       <Stack fill>
@@ -328,38 +340,38 @@ export const GameSettings = (props) => {
               <SliderInputPreference
                 label="Admin Music Volume"
                 value={volume_adminmusic}
-                action='volume_adminmusic'
+                action="volume_adminmusic"
               />
               <SliderInputPreference
                 label="Ambience Volume"
                 value={volume_ambience}
-                action='volume_ambience'
+                action="volume_ambience"
               />
               <SliderInputPreference
                 label="Lobby Music Volume"
                 value={volume_lobby}
-                action='volume_lobby'
+                action="volume_lobby"
               />
               <SliderInputPreference
                 label="Instruments Music Volume"
                 value={volume_instruments}
-                action='volume_instruments'
+                action="volume_instruments"
               />
               <SliderInputPreference
                 label="Weather Volume"
                 value={volume_weather}
-                action='volume_weather'
+                action="volume_weather"
               />
               <SliderInputPreference
                 label="End of the Round Sound Volume"
                 value={volume_end_of_round}
-                action='volume_end_of_round'
+                action="volume_end_of_round"
               />
               {!!is_admin && (
                 <SliderInputPreference
                   label="Adminhelp Volume"
                   value={volume_adminhelp}
-                  action='volume_adminhelp'
+                  action="volume_adminhelp"
                 />
               )}
             </LabeledList>
