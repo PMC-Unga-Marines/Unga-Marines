@@ -43,6 +43,8 @@ SUBSYSTEM_DEF(points)
 	var/psp_limit = 600
 	///Personal supply points base gain per update
 	var/psp_base_gain = 5 //per minute
+	///Assoc list of company points supply
+	var/company_supply_points = list()
 	///Used to delay fast delivery and for animation
 	var/fast_delivery_is_active = TRUE
 	///Reference to the balloon vis obj effect
@@ -95,6 +97,8 @@ SUBSYSTEM_DEF(points)
 
 /datum/controller/subsystem/points/fire(resumed = FALSE)
 	dropship_points += DROPSHIP_POINT_RATE / (1 MINUTES / wait)
+
+	// company_supply_points is a list, don't reset it
 
 	for(var/key in supply_points)
 		supply_points[key] += SUPPLY_POINT_RATE / (1 MINUTES / wait)
