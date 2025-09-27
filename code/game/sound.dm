@@ -73,8 +73,9 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 	for(var/mob/listener AS in listeners|SSmobs.dead_players_by_zlevel[turf_source.z])
 		if(get_dist(listener, turf_source) > sound_range)
 			continue
-		if(ambient_sound && !listener.client?.prefs?.volume_ambience)
-			listener.playsound_local(turf_source, soundin, vol * (listener.client.prefs.volume_ambience / 100), vary, frequency, falloff, is_global, channel, S)
+		if(ambient_sound)
+			if(listener.client?.prefs?.volume_ambience)
+				listener.playsound_local(turf_source, soundin, vol * (listener.client.prefs.volume_ambience / 100), vary, frequency, falloff, is_global, channel, S)
 			continue
 		listener.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, channel, S)
 
