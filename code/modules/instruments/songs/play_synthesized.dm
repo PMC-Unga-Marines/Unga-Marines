@@ -63,9 +63,9 @@
 	for(var/mob/listener AS in hearing_mobs)
 		if(isAIeye(listener)) //isn't there someone you forgot to ask?
 			var/mob/camera/aiEye/listener_eye = listener
-			if(listener_eye.ai?.client?.prefs?.volume_instruments <= 0)
+			if(!listener_eye.ai?.client?.prefs?.volume_instruments)
 				continue
-		if(listener?.client?.prefs?.volume_instruments <= 0)
+		if(!listener?.client?.prefs?.volume_instruments)
 			continue
 		listener.playsound_local(get_turf(parent), null, volume * (listener.client.prefs.volume_instruments / 100), FALSE, K.frequency, null, FALSE, channel, copy)
 		// Could do environment and echo later but not for now

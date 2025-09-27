@@ -73,7 +73,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 	for(var/mob/listener AS in listeners|SSmobs.dead_players_by_zlevel[turf_source.z])
 		if(get_dist(listener, turf_source) > sound_range)
 			continue
-		if(ambient_sound && listener.client?.prefs?.volume_ambience <= 0)
+		if(!ambient_sound && listener.client?.prefs?.volume_ambience)
 			continue
 		listener.playsound_local(turf_source, soundin, vol * (listener.client.prefs.volume_ambience / 100), vary, frequency, falloff, is_global, channel, S)
 
@@ -165,7 +165,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 /client/proc/play_title_music(vol = 85)
 	if(!SSticker?.login_music)
 		return FALSE
-	if(prefs && prefs.volume_lobby > 0)
+	if(prefs && prefs.volume_lobby)
 		SEND_SOUND(src, sound(SSticker.login_music, repeat = 0, wait = 0, volume = vol * (prefs.volume_lobby / 100), channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 
 
