@@ -10,6 +10,7 @@ import { useBackend } from '../../backend';
 import {
   LoopingSelectionPreference,
   SelectFieldPreference,
+  SliderInputPreference,
   TextFieldPreference,
   ToggleFieldPreference,
 } from './FieldPreferences';
@@ -324,43 +325,43 @@ export const GameSettings = (props) => {
         <Stack.Item grow>
           <Section title="Sound settings">
             <LabeledList>
+              <SliderInputPreference
+                label="Admin Music Volume"
+                value={volume_adminmusic}
+                action='volume_adminmusic'
+              />
+              <SliderInputPreference
+                label="Ambience Volume"
+                value={volume_ambience}
+                action='volume_ambience'
+              />
+              <SliderInputPreference
+                label="Lobby Music Volume"
+                value={volume_lobby}
+                action='volume_lobby'
+              />
+              <SliderInputPreference
+                label="Instruments Music Volume"
+                value={volume_instruments}
+                action='volume_instruments'
+              />
+              <SliderInputPreference
+                label="Weather Volume"
+                value={volume_weather}
+                action='volume_weather'
+              />
+              <SliderInputPreference
+                label="End of the Round Sound Volume"
+                value={volume_end_of_round}
+                action='volume_end_of_round'
+              />
               {!!is_admin && (
-                <TextFieldPreference
-                  label={'Adminhelp Volume'}
-                  value={volume_adminhelp || 0}
-                  action={'volume_adminhelp'}
+                <SliderInputPreference
+                  label="Adminhelp Volume"
+                  value={volume_adminhelp}
+                  action='volume_adminhelp'
                 />
               )}
-              <TextFieldPreference
-                label={'Admin Music Volume'}
-                value={volume_adminmusic || 0}
-                action={'volume_adminmusic'}
-              />
-              <TextFieldPreference
-                label={'Ambience Volume'}
-                value={volume_ambience || 0}
-                action={'volume_ambience'}
-              />
-              <TextFieldPreference
-                label={'Lobby Music Volume'}
-                value={volume_lobby || 0}
-                action={'volume_lobby'}
-              />
-              <TextFieldPreference
-                label={'Instruments Music Volume'}
-                value={volume_instruments || 0}
-                action={'volume_instruments'}
-              />
-              <TextFieldPreference
-                label={'Weather Volume'}
-                value={volume_weather || 0}
-                action={'volume_weather'}
-              />
-              <TextFieldPreference
-                label={'End of the Round Sound Volume'}
-                value={volume_end_of_round || 0}
-                action={'volume_end_of_round'}
-              />
             </LabeledList>
           </Section>
         </Stack.Item>

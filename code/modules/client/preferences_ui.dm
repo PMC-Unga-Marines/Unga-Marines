@@ -1019,29 +1019,20 @@
 			volume_adminhelp = clamp(volume, 0, 100)
 
 		if("volume_adminmusic")
-			var/volume = text2num(params["newValue"])
-			if(!isnum(volume) && !isnull(volume))
-				return
-			volume = round(volume)
+			var/volume = round(params["newValue"])
 			volume_adminmusic = clamp(volume, 0, 100)
 			if(!volume)
 				user.stop_sound_channel(CHANNEL_MIDI)
 
 		if("volume_ambience")
-			var/volume = text2num(params["newValue"])
-			if(!isnum(volume) && !isnull(volume))
-				return
-			volume = round(volume)
+			var/volume = round(params["newValue"])
 			volume_ambience = clamp(volume, 0, 100)
 			if(!volume)
 				user.stop_sound_channel(CHANNEL_AMBIENCE)
 			user.client.update_ambience_pref()
 
 		if("volume_lobby")
-			var/volume = text2num(params["newValue"])
-			if(!isnum(volume) && !isnull(volume))
-				return
-			volume = round(volume)
+			var/volume = round(params["newValue"])
 			volume_lobby = clamp(volume, 0, 100)
 			if(volume && isnewplayer(user))
 				user.client.play_title_music()
@@ -1049,24 +1040,15 @@
 				user.stop_sound_channel(CHANNEL_LOBBYMUSIC)
 
 		if("volume_instruments")
-			var/volume = text2num(params["newValue"])
-			if(!isnum(volume) && !isnull(volume))
-				return
-			volume = round(volume)
+			var/volume = round(params["newValue"])
 			volume_instruments = clamp(volume, 0, 100)
 
 		if("volume_weather")
-			var/volume = text2num(params["newValue"])
-			if(!isnum(volume) && !isnull(volume))
-				return
-			volume = round(volume)
+			var/volume = round(params["newValue"])
 			volume_weather = clamp(volume, 0, 100)
 
 		if("volume_end_of_round")
-			var/volume = text2num(params["newValue"])
-			if(!isnum(volume) && !isnull(volume))
-				return
-			volume = round(volume)
+			var/volume = round(params["newValue"])
 			volume_end_of_round = clamp(volume, 0, 100)
 
 		else //  Handle the unhandled cases
