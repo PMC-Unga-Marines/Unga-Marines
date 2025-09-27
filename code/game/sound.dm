@@ -92,7 +92,7 @@ A good representation is: 'byond applies a volume reduction to the sound every X
 		for(var/mob/crew AS in armor.interior.occupants)
 			if(!crew.client)
 				continue
-			if(ambient_sound && !crew.client.prefs.volume_ambience)
+			if(ambient_sound && !crew.client?.prefs.volume_ambience)
 				continue
 			crew.playsound_local(origin_point, soundin, vol * 0.5 * (crew.client.prefs.volume_ambience / 100), vary, frequency, falloff, is_global, channel, S)
 
