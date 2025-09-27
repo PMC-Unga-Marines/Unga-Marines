@@ -689,6 +689,7 @@
 	default_ammo_type = /obj/item/ammo_magazine/smg/vector
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/smg/vector,
+		/obj/item/ammo_magazine/smg/vector/squash,
 		/obj/item/ammo_magazine/smg/vector/incendiary,
 
 	)
@@ -696,19 +697,22 @@
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/heavy_barrel,
+		/obj/item/attachable/compensator,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,
-		/obj/item/attachable/compensator,
+		/obj/item/attachable/scope/mini,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/motiondetector,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/flashlight/under,
-		/obj/item/attachable/bayonet,
-		/obj/item/attachable/bayonetknife,
-		/obj/item/attachable/magnetic_harness,
-		/obj/item/attachable/motiondetector,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
 		/obj/item/attachable/buildasentry,
 		/obj/item/attachable/shoulder_mount,
 	)
@@ -722,8 +726,6 @@
 	burst_amount = 3
 	recoil_unwielded = 1 // Recoil blowback system, yes but the recoil is the recoil, especially when it's not 9mm!
 	wield_delay = 0.6 SECONDS
-	damage_falloff_mult = 1.7
-	damage_mult = 0.85
 
 	akimbo_additional_delay = 0.5
 	aim_fire_delay = 0.1 SECONDS
@@ -733,7 +735,7 @@
 
 	accuracy_mult = 1.1
 	accuracy_mult_unwielded = 0.9 //moving or akimbo yield lower acc
-	scatter = 3
+	scatter = 2
 	scatter_unwielded = 6 // Not exactly small weapon, and recoil blowback is only for vertical recoil
 
 	movement_acc_penalty_mult = 0.1

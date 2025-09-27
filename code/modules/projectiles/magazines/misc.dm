@@ -386,3 +386,20 @@
 	max_rounds = 27
 	w_class = WEIGHT_CLASS_SMALL
 	icon_state_mini = "musket_sack_s"
+
+/obj/item/ammo_magazine/packet/p41ae
+	name = "packet of .41 AE"
+	desc = "A packet containing 165 rounds of .41 AE rounds."
+	caliber = CALIBER_41AE
+	icon_state = "box_41ae"
+	default_ammo = /datum/ammo/bullet/smg/heavy
+	ammo_band_icon = "box_41ae_band"
+	w_class = WEIGHT_CLASS_SMALL
+	current_rounds = 165
+	max_rounds = 165
+
+/obj/item/ammo_magazine/packet/p41ae/squash
+	name = "packet of .41 AE squash-head"
+	desc = "A packet containing 165 rounds of .41 AE squash-head rounds."
+	ammo_band_color = AMMO_BAND_COLOR_SABOT
+	default_ammo = /datum/ammo/bullet/smg/squash

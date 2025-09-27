@@ -205,20 +205,27 @@
 //vector
 
 /obj/item/ammo_magazine/smg/vector
-	name = "\improper Vector drum magazine (.45ACP)"
-	desc = "A .45ACP drum magazine for the Vector, with even more dakka."
+	name = "\improper Vector drum magazine (.41 AE)"
+	desc = "A .41 AE drum magazine for the Vector."
 	ammo_band_icon = "ppsh_ext_band"
-	default_ammo = /datum/ammo/bullet/pistol/heavy
+	default_ammo = /datum/ammo/bullet/smg/heavy
 	w_class = WEIGHT_CLASS_SMALL
 	caliber = CALIBER_45ACP
 	icon_state = "ppsh_ext"
-	max_rounds = 40 // HI-Point .45 ACP Drum mag
+	max_rounds = 55 // Drum mag
+
+/obj/item/ammo_magazine/smg/vector/squash
+	name = "\improper Vector squash-head drum magazine (.41 AE)"
+	desc = "A .41 AE squash-head drum magazine for the Vector, that does a minituare explosion upon contact, will shred the armor off of basically anything."
+	ammo_band_color = AMMO_BAND_COLOR_SABOT
+	default_ammo = /datum/ammo/bullet/smg/squash
+
 
 /obj/item/ammo_magazine/smg/vector/incendiary
-	name = "\improper Vector incendiary drum magazine (.45ACP)"
-	desc = "A .45ACP incendiary drum magazine for the Vector, with even more dakka."
+	name = "\improper Vector incendiary drum magazine (.41 AE)"
+	desc = "A .41 AE incendiary drum magazine for the Vector."
 	ammo_band_color = AMMO_BAND_COLOR_INCENDIARY
-	default_ammo = /datum/ammo/bullet/pistol/heavy/incendiary
+	default_ammo = /datum/ammo/bullet/smg/heavy/incendiary
 
 //------------------------------------------------------
 //C17 riot PDW
