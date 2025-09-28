@@ -44,7 +44,7 @@
 	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
 
 	var/modified_severity = modify_by_armor(severity, BOMB)
-	explosion_throw(modified_severity, direction)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, explosion_throw), modified_severity, direction)
 
 	var/powerfactor_value = modified_severity * 0.01
 	if(mob_size < MOB_SIZE_BIG)

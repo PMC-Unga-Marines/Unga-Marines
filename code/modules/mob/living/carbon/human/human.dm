@@ -146,7 +146,7 @@
 
 	take_overall_damage(modified_severity * 0.5, BRUTE, updating_health = TRUE, max_limbs = 4)
 	take_overall_damage(modified_severity * 0.5, BURN, updating_health = TRUE, max_limbs = 4)
-	explosion_throw(modified_severity, direction)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, explosion_throw), modified_severity, direction)explosion_throw(modified_severity, direction)
 
 	TIMER_COOLDOWN_START(src, COOLDOWN_MOB_EX_ACT, 0.1 SECONDS) // this is to prevent x2 damage from mob getting thrown into the explosions wave
 
