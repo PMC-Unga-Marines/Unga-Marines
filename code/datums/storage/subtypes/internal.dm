@@ -86,6 +86,7 @@
 			/obj/item/stack/sheet,
 			/obj/item/stack/sandbags,
 			/obj/item/stack/snow,
+			/obj/item/cell/lasgun/volkite/powerpack/marine_back,
 		),
 		storage_type_limits_list = list(
 			/obj/item/ammo_magazine/rifle,
@@ -193,6 +194,9 @@
 /datum/storage/internal/pocket/New(atom/parent)
 	. = ..()
 	set_holdable(
+		cant_hold_list = list(
+			/obj/item/cell/lasgun/volkite/powerpack/marine_back,
+		),
 		storage_type_limits_list = list(
 			/obj/item/ammo_magazine/rifle,
 			/obj/item/cell/lasgun,
@@ -201,7 +205,7 @@
 			/obj/item/ammo_magazine/revolver,
 			/obj/item/ammo_magazine/sniper,
 			/obj/item/ammo_magazine/handful,
-		)
+		),
 	)
 
 /datum/storage/internal/pocket/insertion_message(obj/item/item, mob/user)
