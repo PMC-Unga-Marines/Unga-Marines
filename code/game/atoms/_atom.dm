@@ -343,7 +343,7 @@ directive is properly returned.
 /atom/proc/contents_explosion(severity, explosion_direction)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_CONTENTS_EX_ACT, severity)
-	for(var/atom/exploded_atom in contents)
+	for(var/atom/exploded_atom as anything in contents)
 		exploded_atom.ex_act(severity, explosion_direction)
 
 ///This proc is called on the location of an atom when the atom is Destroy()'d
