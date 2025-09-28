@@ -138,8 +138,8 @@
 		if(our_atom.gc_destroyed)
 			continue
 		resistance += max(0, our_atom.get_explosion_resistance())
-		INVOKE_ASYNC(our_atom, TYPE_PROC_REF(/atom, ex_act), power, direction)
 		exploded_atoms += our_atom
+		INVOKE_ASYNC(our_atom, TYPE_PROC_REF(/atom, ex_act), power, direction)
 
 	var/reflected = FALSE
 
