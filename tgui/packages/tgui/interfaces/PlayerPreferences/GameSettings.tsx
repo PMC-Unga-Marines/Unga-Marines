@@ -10,6 +10,7 @@ import { useBackend } from '../../backend';
 import {
   LoopingSelectionPreference,
   SelectFieldPreference,
+  SliderInputPreference,
   TextFieldPreference,
   ToggleFieldPreference,
 } from './FieldPreferences';
@@ -59,6 +60,30 @@ const ParallaxNumToString = (integer) => {
   return returnval;
 };
 
+const PixelSizeNumToString = (integer) => {
+  let returnval = '';
+  switch (integer) {
+    case 0:
+      returnval = 'Auto-Scaling';
+      break;
+    case 1:
+      returnval = 'Scaling 1X';
+      break;
+    case 1.5:
+      returnval = 'Scaling 1.5X';
+      break;
+    case 2:
+      returnval = 'Scaling 2X';
+      break;
+    case 3:
+      returnval = 'Scaling 3X';
+      break;
+    default:
+      returnval = 'Error!';
+  }
+  return returnval;
+};
+
 export const GameSettings = (props) => {
   const { act, data } = useBackend<GameSettingData>();
   const {
@@ -67,9 +92,15 @@ export const GameSettings = (props) => {
     pixel_size,
     parallax,
     multiz_performance,
+    volume_adminhelp,
+    volume_adminmusic,
+    volume_ambience,
+    volume_lobby,
+    volume_instruments,
+    volume_weather,
+    volume_end_of_round,
     is_admin,
   } = data;
-
   return (
     <Section title="Game Settings">
       <Stack fill>
@@ -278,7 +309,7 @@ export const GameSettings = (props) => {
           </Section>
         </Stack.Item>
       </Stack>
-      <Stack>
+      <Stack fill>
         <Stack.Item grow>
           <Section title="UI settings">
             <LabeledList>
@@ -338,7 +369,7 @@ export const GameSettings = (props) => {
               />
               <LoopingSelectionPreference
                 label="Pixel Size Scaling"
-                value={pixel_size}
+                value={PixelSizeNumToString(pixel_size)}
                 action="pixel_size"
               />
               <LoopingSelectionPreference
@@ -346,6 +377,49 @@ export const GameSettings = (props) => {
                 value={ParallaxNumToString(parallax)}
                 action="parallax"
               />
+            </LabeledList>
+          </Section>
+        </Stack.Item>
+        <Stack.Item grow>
+          <Section title="Sound settings">
+            <LabeledList>
+              <SliderInputPreference
+                label="Admin Music Volume"
+                value={volume_adminmusic}
+                action="volume_adminmusic"
+              />
+              <SliderInputPreference
+                label="Ambience Volume"
+                value={volume_ambience}
+                action="volume_ambience"
+              />
+              <SliderInputPreference
+                label="Lobby Music Volume"
+                value={volume_lobby}
+                action="volume_lobby"
+              />
+              <SliderInputPreference
+                label="Instruments Music Volume"
+                value={volume_instruments}
+                action="volume_instruments"
+              />
+              <SliderInputPreference
+                label="Weather Volume"
+                value={volume_weather}
+                action="volume_weather"
+              />
+              <SliderInputPreference
+                label="End of the Round Sound Volume"
+                value={volume_end_of_round}
+                action="volume_end_of_round"
+              />
+              {!!is_admin && (
+                <SliderInputPreference
+                  label="Adminhelp Volume"
+                  value={volume_adminhelp}
+                  action="volume_adminhelp"
+                />
+              )}
             </LabeledList>
           </Section>
         </Stack.Item>
