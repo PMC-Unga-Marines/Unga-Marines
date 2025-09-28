@@ -5,7 +5,7 @@
 	icon_state = "ladder11"
 	anchored = TRUE
 	resistance_flags = RESIST_ALL
-	layer = LADDER_LAYER
+	layer = BELOW_OBJ_LAYER
 	var/id = null
 	/// The 'height' of the ladder. higher numbers are considered physically higher
 	var/height = 0

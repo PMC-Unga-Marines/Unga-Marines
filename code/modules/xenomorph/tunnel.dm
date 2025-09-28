@@ -8,7 +8,7 @@
 	opacity = FALSE
 	anchored = TRUE
 	resistance_flags = UNACIDABLE
-	layer = RESIN_STRUCTURE_LAYER
+	layer = BELOW_TABLE_LAYER
 
 	max_integrity = 140
 
@@ -21,7 +21,7 @@
 /obj/structure/xeno/tunnel/Initialize(mapload, _hivenumber)
 	. = ..()
 	LAZYADDASSOC(GLOB.xeno_tunnels_by_hive, hivenumber, src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "xenotunnel", HIGH_FLOAT_LAYER)) // RU TGMC edit - map blips
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "xenotunnel", MINIMAP_BLIPS_LAYER))
 
 /obj/structure/xeno/tunnel/Destroy()
 	var/turf/drop_loc = get_turf(src)

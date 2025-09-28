@@ -62,9 +62,12 @@
 		/obj/item/explosive/grenade/emp,
 	)
 	reciever_flags = NONE
+	actions_types = list(/datum/action/item_action/overhead_grenade_launcher)
 
 	///the maximum range the launcher can fling the grenade, by default 15 tiles
 	var/max_range = 15
+	///if the grenade launcher over mode is active
+	var/overhead_launch_mode = FALSE
 
 /obj/item/weapon/gun/grenade_launcher/able_to_fire(mob/user)
 	. = ..()
@@ -87,8 +90,15 @@
 	grenade_to_launch.launched_det_time()
 	grenade_to_launch.launched = TRUE
 	grenade_to_launch.activate(gun_user)
-	grenade_to_launch.throwforce += grenade_to_launch.launchforce
-	grenade_to_launch.throw_at(target, max_range, 3, (gun_user ? gun_user : loc))
+	if(!overhead_launch_mode)
+		grenade_to_launch.throwforce += grenade_to_launch.launchforce
+		grenade_to_launch.throw_at(target, max_range, 3, (gun_user ? gun_user : loc))
+	else
+		var/offset_x = overhead_launch_mode ? rand(-1, 1) : 0
+		var/offset_y = overhead_launch_mode ? rand(-1, 1) : 0
+		var/turf/target_turf = get_turf(target)
+		var/turf/randomized_target = locate(target_turf.x + offset_x, target_turf.y + offset_y, target_turf.z)
+		grenade_to_launch.throw_at(randomized_target, max_range, 3, (gun_user ? gun_user : loc), flying = TRUE)
 	if(fire_animation)
 		flick("[fire_animation]", src)
 	if(CHECK_BITFIELD(gun_features_flags, GUN_SMOKE_PARTICLES))
@@ -107,6 +117,16 @@
 		return ..()
 	var/obj/item/explosive/grenade/grenade = in_chamber
 	return list(grenade.hud_state, grenade.hud_state_empty)
+
+/obj/item/weapon/gun/grenade_launcher/proc/toggle_overhead_launcher(mob/living/carbon/human/user)
+	if(!overhead_launch_mode)
+		balloon_alert(user, "You have activated overhead launcher mode.")
+		overhead_launch_mode = TRUE
+		windup_delay += 0.5 SECONDS
+	else
+		balloon_alert(user, "You have deactivated overhead launcher mode.")
+		overhead_launch_mode = FALSE
+		windup_delay -= 0.5 SECONDS
 
 //-------------------------------------------------------
 //GL-70 Grenade Launcher.
