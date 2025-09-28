@@ -212,9 +212,7 @@
 	if(QDELETED(our_turf))
 		return
 
-	// Create the new cell
-	var/datum/automata_cell/explosion/our_cell = new type(our_turf)
-	return our_cell
+	return new /datum/automata_cell/explosion(our_turf)
 
 /*
 The issue is that between the cell being birthed and the cell processing,
