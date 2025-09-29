@@ -18,7 +18,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/east/garbledradio)
 "af" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platimun,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/east/garbledradio)
 "ag" = (
@@ -103,7 +103,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/east/garbledradio)
 "aL" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platimun,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/east)
 "aN" = (

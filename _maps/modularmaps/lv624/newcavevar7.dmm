@@ -98,7 +98,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central3)
 "Fv" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platimun,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
 "Gb" = (

@@ -19,7 +19,7 @@
 /turf/closed/wall/r_wall,
 /area/lv624/ground/caves/central1/garbledradio)
 "gv" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platimun,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
 "hn" = (
