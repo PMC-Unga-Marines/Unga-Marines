@@ -759,13 +759,13 @@
 		/obj/item/weapon/gun/flamer/hydro_cannon,
 	)
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
-	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_AUTOMATIC)
+	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_AUTOBURST)
 	attachable_offset = list("muzzle_x" = 35, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 5, "stock_y" = 12)
 	starting_attachment_types = list(/obj/item/attachable/stock/mpi_km)
 	damage_falloff_mult = 0.6
 	force = 20
 	burst_amount = 2
-	autoburst_delay = 0.1 SECONDS
+	autoburst_delay = 0.10 SECONDS
 	fire_delay = 0.23 SECONDS
 	placed_overlay_iconstate = "ak47"
 
