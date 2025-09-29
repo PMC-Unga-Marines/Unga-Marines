@@ -67,12 +67,6 @@
 	start_processing()
 	RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_HIJACKED, PROC_REF(disable_on_hijack))
 	camera = new /obj/machinery/camera/miner(src)
-	if(mineral_value >= PLATINUM_CRATE_SELL_AMOUNT)
-		GLOB.miners_platinum += src
-		GLOB.miner_platinum_locs += loc
-	else
-		GLOB.miners_phorone += src
-		GLOB.miner_phorone_locs += loc
 
 /**
  * This proc is called during Initialize() and should be used to initially setup the minimap marker of a functional miner.
@@ -379,10 +373,6 @@
 /obj/machinery/miner/Destroy()
 	qdel(camera)
 	camera = null
-	if(mineral_value >= PLATINUM_CRATE_SELL_AMOUNT)
-		GLOB.miners_platinum -= src
-	else
-		GLOB.miners_phorone -= src
 	return ..()
 
 /obj/machinery/miner/attack_ai(mob/user)

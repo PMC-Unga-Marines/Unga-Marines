@@ -51,6 +51,7 @@
 #define MODE_TELETOWER (1<<14)
 #define MODE_XENO_DEN (1<<15)
 #define MODE_HAS_EXCAVATION (1<<16)
+#define MODE_HAS_MINERS (1<<17)
 
 #define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
 #define MODE_INFESTATION_M_MAJOR "Marine Major Victory"
@@ -186,6 +187,9 @@
 #define MODE_PREDATOR (1<<17)
 
 #define MAX_EXCAVATIONS 10
+
+#define MAX_PHORON_MINER_AMOUNT 5
+#define MAX_PLATINUM_MINER_AMOUNT 3
 
 // make sure you don't turn 0 into a false positive
 #define BIOSCAN_DELTA(count, delta) count ? max(0, count + rand(-delta, delta)) : 0
