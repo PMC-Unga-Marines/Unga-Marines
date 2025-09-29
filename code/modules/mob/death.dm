@@ -32,8 +32,9 @@
 	if(SEND_SIGNAL(src, COMSIG_MOB_PRE_DEATH, FALSE) & COMPONENT_CANCEL_DEATH)
 		return FALSE
 	if(stat == DEAD)
-		if(gibbing)
-			qdel(src)
+		if(!gibbing)
+			return
+		qdel(src)
 		return
 	set_stat(DEAD)
 	if(SSticker.current_state != GAME_STATE_FINISHED && !is_centcom_level(z))

@@ -19,10 +19,6 @@
 		return
 	updateUsrDialog()
 
-/obj/machinery/computer/sleep_console/ex_act(severity)
-	if(prob(severity * 0.3))
-		qdel(src)
-
 ///Set the connected var
 /obj/machinery/computer/sleep_console/proc/set_connected(obj/future_connected)
 	if(connected)

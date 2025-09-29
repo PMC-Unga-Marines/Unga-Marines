@@ -354,13 +354,11 @@
 	create_shrapnel(get_turf(src), rand(2, 5), direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
 
 /obj/machinery/door/airlock/get_explosion_resistance()
-	if(density)
-		if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
-			return EXPLOSION_MAX_POWER
-		else
-			return (max_integrity - (max_integrity - obj_integrity)) / EXPLOSION_DAMAGE_MULTIPLIER_DOOR
-	else
-		return FALSE
+	if(!density)
+		return 0
+	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return EXPLOSION_MAX_POWER
+	return (max_integrity - (max_integrity - obj_integrity)) / EXPLOSION_DAMAGE_MULTIPLIER_DOOR
 
 /obj/machinery/door/airlock/attack_facehugger(mob/living/carbon/xenomorph/facehugger/M, isrightclick = FALSE)
 	for(var/atom/movable/AM in get_turf(src))

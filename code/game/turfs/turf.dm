@@ -197,16 +197,17 @@
 
 		if(!isspaceturf(src))
 			M.inertia_dir = 0
-	for(var/datum/automata_cell/explosion/our_explosion in autocells) //Let explosions know that the atom entered
+	for(var/datum/automata_cell/explosion/our_explosion as anything in autocells) //Let explosions know that the atom entered
 		if(!istype(arrived))
 			break
 		our_explosion.on_turf_entered(arrived)
 	return ..()
 
 /turf/proc/get_cell(type)
-	for(var/datum/automata_cell/our_cell in autocells)
-		if(istype(our_cell, type))
-			return our_cell
+	for(var/datum/automata_cell/our_cell as anything in autocells)
+		if(!istype(our_cell, type))
+			continue
+		return our_cell
 	return null
 
 /turf/ex_act()
