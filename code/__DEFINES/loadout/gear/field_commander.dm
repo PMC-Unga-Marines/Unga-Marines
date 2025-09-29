@@ -18,6 +18,7 @@ GLOBAL_LIST_INIT(commander_gear_listed_products, list(
 	/obj/structure/closet/bodybag/tarp = list(CAT_FCSUP, "V1 thermal-dampening tarp", 2, "yellow"),
 	/obj/item/armor_module/module/night_vision = list(CAT_FCSUP, "BE-35 night vision kit", 18, "blue"),
 	/obj/item/clothing/glasses/night_vision = list(CAT_FCSUP, "BE-47 night vision goggles", 26, "blue"),
+	/obj/item/clothing/gloves/valigloves = list(CAT_FCSUP, "Y-15 Vali chemical enhancement gloves", 25, "blue"),
 	/obj/item/cell/night_vision_battery = list(CAT_FCSUP, "night vision battery", 4, "blue"),
 	/obj/item/explosive/plastique = list(CAT_FCSUP, "Plastique explosive", 2, "orange3"),
 	/obj/item/detpack = list(CAT_FCSUP, "Detonation pack", 2, "orange3"),
