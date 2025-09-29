@@ -188,8 +188,8 @@
 
 #define MAX_EXCAVATIONS 10
 
-#define MAX_PHORON_MINER_AMOUNT 5
-#define MAX_PLATINUM_MINER_AMOUNT 3
+#define MIN_PHORON_MINER_AMOUNT 5
+#define MIN_PLATINUM_MINER_AMOUNT 3
 
 // make sure you don't turn 0 into a false positive
 #define BIOSCAN_DELTA(count, delta) count ? max(0, count + rand(-delta, delta)) : 0
