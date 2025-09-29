@@ -590,7 +590,7 @@
 	GLOB.miner_phorone_locs += loc
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/landmark/miner_platimun
+/obj/effect/landmark/miner_platinum
 	name = "damaged platinum miner location"
 	icon = 'icons/obj/mining_drill.dmi'
 	icon_state = "mining_drill_braced_reinforced components"
