@@ -15,7 +15,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "aM" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/south)
 "bN" = (

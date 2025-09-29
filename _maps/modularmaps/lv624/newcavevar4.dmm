@@ -84,7 +84,7 @@
 	},
 /area/lv624/ground/caves/central1)
 "AV" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
 "BU" = (

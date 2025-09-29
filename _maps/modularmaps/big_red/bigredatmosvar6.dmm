@@ -544,7 +544,7 @@
 	},
 /area/bigredv2/outside/se)
 "JB" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/s)
 "Km" = (
