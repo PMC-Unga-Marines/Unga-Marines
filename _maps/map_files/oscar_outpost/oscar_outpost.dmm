@@ -4473,7 +4473,6 @@
 /area/oscar_outpost)
 "Dc" = (
 /obj/item/spacecash/bundle/c100{
-	layer = 3.3;
 	pixel_y = 6
 	},
 /obj/structure/table/wood/gambling,
