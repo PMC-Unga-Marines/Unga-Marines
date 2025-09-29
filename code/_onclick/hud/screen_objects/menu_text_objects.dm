@@ -9,7 +9,6 @@
 
 #define COLOR_HOVER_MOUSE COLOR_LOBBY_RED
 #define MAX_CHAR_NAME_DISPLAYED 40
-#define span_
 
 //its a new player yo they join instantly
 INITIALIZE_IMMEDIATE(/atom/movable/screen/text/lobby)
