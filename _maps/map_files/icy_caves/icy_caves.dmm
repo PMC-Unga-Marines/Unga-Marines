@@ -1168,7 +1168,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/south)
 "fG" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/south)
 "fK" = (
@@ -1353,7 +1353,7 @@
 /turf/open/floor/plating/ground/snow/layer2,
 /area/icy_caves/outpost/LZ1)
 "hq" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/east)
 "hr" = (
@@ -1460,7 +1460,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/morgue)
 "hU" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/west)
 "hW" = (
@@ -1858,7 +1858,7 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/LZ2)
 "jS" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/outside/center)
 "jU" = (
@@ -2318,7 +2318,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/engineering)
 "mq" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northern)
 "mr" = (
@@ -6175,7 +6175,7 @@
 /turf/open/floor/tile/dark/green2,
 /area/icy_caves/caves/alienstuff)
 "Er" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/icy_caves/outpost/outside/center)
 "Et" = (
@@ -6715,7 +6715,7 @@
 /turf/closed/wall,
 /area/icy_caves/caves/west)
 "GH" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
 "GJ" = (
@@ -9415,7 +9415,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
 "TH" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/south)
 "TL" = (
@@ -9575,7 +9575,7 @@
 /turf/open/floor/wood,
 /area/icy_caves/outpost/dorms)
 "UC" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
 "UD" = (

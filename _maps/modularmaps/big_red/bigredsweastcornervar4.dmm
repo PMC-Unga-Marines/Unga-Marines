@@ -12,7 +12,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south/garbledradio)
 "f" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south/garbledradio)
 "h" = (

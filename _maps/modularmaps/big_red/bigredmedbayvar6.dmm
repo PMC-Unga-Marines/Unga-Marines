@@ -330,7 +330,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "gQ" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/c)
 "gT" = (

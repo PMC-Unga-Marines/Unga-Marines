@@ -496,7 +496,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/ne)
 "MC" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/ground/grass,
 /area/lv624/ground/compound/ne)
 "MK" = (

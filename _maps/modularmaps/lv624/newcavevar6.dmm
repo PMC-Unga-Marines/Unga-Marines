@@ -89,7 +89,7 @@
 /turf/closed/wall/r_wall,
 /area/lv624/ground/caves/rock)
 "gk" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
 "gA" = (

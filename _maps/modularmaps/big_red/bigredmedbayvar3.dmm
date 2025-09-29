@@ -473,7 +473,7 @@
 /turf/open/floor/tile/green/whitegreencorner,
 /area/bigredv2/outside/medical)
 "mH" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/c)
 "mQ" = (

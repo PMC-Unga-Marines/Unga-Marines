@@ -16781,7 +16781,7 @@
 /turf/open/floor/tile/white,
 /area/ice_colony/underground/medical/storage)
 "bUj" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/underground/maintenance/central)
 "bUk" = (
@@ -21532,7 +21532,7 @@
 	},
 /area/ice_colony/surface/storage_unit/power)
 "hqp" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/ice_colony/exterior/surface/valley/southeast)
 "hqr" = (
@@ -22217,7 +22217,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/exterior/surface/landing_pad)
 "izd" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/underground/caves/ice_se)
 "izt" = (
@@ -23203,7 +23203,7 @@
 	},
 /area/ice_colony/underground/hallway/north_west/garbledradio)
 "jPw" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/ice_colony/exterior/surface/clearing/north)
 "jPA" = (
@@ -25202,7 +25202,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/landing_pad2)
 "mxl" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/ice_colony/exterior/surface/clearing/south)
 "mxE" = (
@@ -25290,7 +25290,7 @@
 /turf/open/floor/tile/white,
 /area/ice_colony/underground/medical/treatment/garbledradio)
 "mFk" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/underground/maintenance/east)
 "mFq" = (
@@ -25516,7 +25516,7 @@
 	},
 /area/ice_colony/exterior/surface/taxiway)
 "mTO" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/ice_colony/exterior/surface/clearing/north)
 "mUY" = (
@@ -27101,7 +27101,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/hangar)
 "pac" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating,
 /area/ice_colony/exterior/underground/caves/open)
 "pax" = (
@@ -27259,7 +27259,7 @@
 /turf/open/floor/wood,
 /area/ice_colony/surface/bar/bar)
 "pnD" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating,
 /area/ice_colony/underground/maintenance/north)
 "poW" = (
@@ -29592,7 +29592,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/dorms)
 "stD" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/exterior/underground/caves/open/garbledradio)
 "stS" = (
@@ -32138,7 +32138,7 @@
 /turf/open/floor/tile/dark,
 /area/ice_colony/underground/westroadtunnel)
 "vGy" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/ice_colony/exterior/surface/valley/north)
 "vGO" = (
@@ -33945,7 +33945,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/ice_colony/underground/maintenance/engineering)
 "xRR" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/ice_colony/exterior/surface/valley/west)
 "xSc" = (

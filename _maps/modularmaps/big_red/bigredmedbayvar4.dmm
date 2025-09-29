@@ -1191,7 +1191,7 @@
 	},
 /area/bigredv2/outside/medical)
 "GJ" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/c)
 "GY" = (

@@ -93,7 +93,7 @@
 /turf/open/floor,
 /area/lv624/ground/caves/central1)
 "tH" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
 "tU" = (

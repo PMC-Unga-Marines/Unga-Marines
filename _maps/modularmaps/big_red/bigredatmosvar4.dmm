@@ -237,7 +237,7 @@
 	},
 /area/bigredv2/outside/se)
 "vR" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/s)
 "wF" = (

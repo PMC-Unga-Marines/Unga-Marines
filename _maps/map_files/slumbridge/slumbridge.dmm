@@ -3890,7 +3890,7 @@
 /turf/open/floor/tile/bar,
 /area/slumbridge/inside/medical/foyer)
 "cSs" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/slumbridge/caves/northeastcaves)
 "cSH" = (
@@ -4581,7 +4581,7 @@
 /turf/open/floor/tile/dark,
 /area/slumbridge/inside/colony/oreprocess)
 "dxl" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/mainship/silver{
 	dir = 4
 	},
@@ -10320,7 +10320,7 @@
 /turf/open/floor/tile/barber,
 /area/slumbridge/inside/houses/surgery)
 "hOs" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/slumbridge/caves/southeastcaves)
 "hOw" = (
@@ -16167,7 +16167,7 @@
 /turf/closed/mineral/smooth/snowrock,
 /area/slumbridge/caves/rock)
 "lXk" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/slumbridge/outside/southeast)
 "lXF" = (
@@ -16418,7 +16418,7 @@
 /turf/open/floor/asteroidfloor,
 /area/slumbridge/landingzoneone)
 "mgf" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/cult,
 /area/slumbridge/caves/northeastcaves)
 "mgr" = (
@@ -18970,7 +18970,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/slumbridge/caves/mining)
 "nUL" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/ground/grass/weedable/patch,
 /area/slumbridge/outside/northeast)
 "nUU" = (
@@ -19722,7 +19722,7 @@
 	},
 /area/slumbridge/inside/engi/central)
 "ove" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/lavaland/basalt,
 /area/slumbridge/inside/prison/outside)
 "owi" = (
@@ -21031,7 +21031,7 @@
 	},
 /area/slumbridge/inside/prison/outerringnorth)
 "puH" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/concrete/lines,
 /area/slumbridge/outside/northeast)
 "pvf" = (
@@ -23390,7 +23390,7 @@
 	},
 /area/slumbridge/inside/prison/innerring)
 "rfE" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow,
 /area/slumbridge/outside/southwest)
 "rfK" = (
@@ -24016,7 +24016,7 @@
 /turf/open/floor/tile/white,
 /area/slumbridge/inside/pmcdome)
 "rCf" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/asteroidfloor,
 /area/slumbridge/outside/northwest)
 "rCj" = (
@@ -25255,7 +25255,7 @@
 /turf/closed/wall/r_wall,
 /area/slumbridge/inside/pmcdome/nukevault)
 "sxe" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/ground/grass/weedable,
 /area/slumbridge/outside/southeast)
 "sxF" = (
@@ -25395,7 +25395,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/slumbridge/outside/southwest)
 "sCD" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/tile/dark,
 /area/slumbridge/inside/zeta/south)
 "sCG" = (
@@ -25403,7 +25403,7 @@
 /turf/open/floor,
 /area/slumbridge/inside/engi/engineroom)
 "sDd" = (
-/obj/effect/landmark/miner_platimun,
+/obj/machinery/miner/damaged/platinum,
 /turf/open/floor/grass,
 /area/slumbridge/caves/mining)
 "sDj" = (
@@ -27600,7 +27600,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/engi/central)
 "ulM" = (
-/obj/effect/landmark/miner_phoron,
+/obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/slumbridge/outside/southwest)
 "ulT" = (
