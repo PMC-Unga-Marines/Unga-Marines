@@ -187,10 +187,6 @@
 	. = ..()
 	set_connected(locate(/obj/machinery/bodyscanner, get_step(src, REVERSE_DIR(dir))))
 
-/obj/machinery/computer/body_scanconsole/ex_act(severity)
-	if(prob(severity * 0.3))
-		qdel(src)
-
 /obj/machinery/computer/body_scanconsole/can_interact(mob/user)
 	. = ..()
 	if(!.)

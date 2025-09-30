@@ -12,5 +12,4 @@
 	icon = 'icons/turf/decals.dmi'
 
 /obj/effect/turf_decal/ex_act(severity)
-	if(prob(severity * 0.3))
-		qdel(src)
+	qdel(src)
