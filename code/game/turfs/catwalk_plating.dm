@@ -7,6 +7,7 @@
 	shoefootstep = FOOTSTEP_CATWALK
 	barefootstep = FOOTSTEP_CATWALK
 	mediumxenofootstep = FOOTSTEP_CATWALK
+	baseturfs = /turf/open/floor/plating/mainship
 	/// Are we covered by the upper catwalk part?
 	var/covered = TRUE
 
@@ -45,9 +46,13 @@
 	icon_state = "[base_icon_state]_under"
 	update_appearance(UPDATE_OVERLAYS)
 
+/turf/open/floor/plating/plating_catwalk/make_plating()
+	return scrape_away()
+
 /turf/open/floor/plating/plating_catwalk/prison
 	icon_state = "prison_above"
 	base_icon_state = "prison"
+	baseturfs = /turf/open/floor/plating
 
 /turf/open/floor/plating/plating_catwalk/dark
 	icon_state = "dark_above"

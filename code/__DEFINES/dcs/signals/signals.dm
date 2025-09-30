@@ -669,7 +669,6 @@
 #define COMSIG_XENOMORPH_POUNCE "xenomorph_pounce"
 #define COMSIG_XENOMORPH_POUNCE_END "xenomorph_pounce_end"
 
-#define COMSIG_XENOMORPH_GIBBING "xenomorph_gibbing"
 #define COMSIG_XENOMORPH_POSTEVOLVING "xenomorph_evolving"
 #define COMSIG_XENOMORPH_ABILITY_ON_UPGRADE "xenomorph_ability_on_upgrade"
 

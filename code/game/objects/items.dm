@@ -182,7 +182,7 @@
 		return
 
 	if(!prob(severity * 0.3))
-		explosion_throw(severity, explosion_direction)
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, explosion_throw), severity, explosion_direction)
 		return
 
 	if(prob(50)) // a bit less lags

@@ -94,8 +94,8 @@
 /obj/machinery/light/ex_act(severity)
 	if(severity >= EXPLODE_HEAVY)
 		qdel(src)
-	else if(prob(severity * 0.5))
-		broken()
+		return
+	broken()
 
 /obj/machinery/light/fire_act(exposed_temperature, exposed_volume)
 	if(prob(max(0, exposed_temperature - 673))) //0% at <400C, 100% at >500C

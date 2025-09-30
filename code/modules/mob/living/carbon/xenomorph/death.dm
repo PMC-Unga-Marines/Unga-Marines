@@ -90,8 +90,6 @@
 	remains.icon = icon
 	remains.pixel_x = pixel_x //For 2x2.
 
-	SEND_SIGNAL(src, COMSIG_XENOMORPH_GIBBING)
-
 	remains.icon = effects_icon
 	remains.icon_state = xeno_caste.gib_anim
 
