@@ -48,10 +48,14 @@
 	///The Thrall the Hunter marked.
 	var/mob/living/carbon/thrall
 
-/datum/huntdata/New(mob/mob_ref)
-	name = "[mob_ref.real_name]'s Hunter Data"
-	owner = mob_ref
+/datum/huntdata/New(mob/user)
+	name = "[user.real_name]'s Hunter Data"
+	owner = user
 	SShunting.hunter_datas += src
+
+/datum/huntdata/Destroy(force)
+	. = ..()
+	clean_data()
 
 /datum/huntdata/proc/complete_target(mob/user)
 	target_completed = TRUE
@@ -164,4 +168,3 @@
 		owner = null
 
 	SShunting.hunter_datas -= src
-	qdel(src)

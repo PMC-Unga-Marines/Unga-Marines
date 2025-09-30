@@ -26,7 +26,7 @@
 		action_to_remove.remove_action(src)
 	set_focus(null)
 	if(hunter_data)
-		hunter_data.clean_data()
+		qdel(hunter_data)
 	if(last_damage_source)
 		last_damage_source = null
 	return ..()
