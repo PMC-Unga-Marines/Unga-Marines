@@ -94,7 +94,7 @@
 
 /datum/huntdata/proc/clean_data()
 	if(length(targets))
-		for(var/datum/huntdata/data in targets)
+		for(var/datum/huntdata/data as anything in targets)
 			if(target_completed)
 				continue
 			SShunting.hunter_datas += data
@@ -114,7 +114,7 @@
 			dishonored_set = null
 		dishonored_reason = null
 		dishonored = FALSE
-	for(var/mob/living/carbon/M in dishonored_targets)
+	for(var/mob/living/carbon/M as anything in dishonored_targets)
 		M.hunter_data.dishonored_set = null
 		dishonored_targets -= M
 
@@ -133,7 +133,7 @@
 			gear_set.hunter_data.gear_targets -= owner
 			gear_set = null
 		gear = FALSE
-	for(var/mob/living/carbon/M in gear_targets)
+	for(var/mob/living/carbon/M as anything in gear_targets)
 		M.hunter_data.gear_set = null
 		gear_targets -= M
 
