@@ -52,6 +52,7 @@
 #define MODE_XENO_DEN (1<<15)
 #define MODE_HAS_EXCAVATION (1<<16)
 #define MODE_HAS_MINERS (1<<17)
+#define MODE_PREDATOR (1<<18)
 
 #define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
 #define MODE_INFESTATION_M_MAJOR "Marine Major Victory"
@@ -182,9 +183,6 @@
 		return status_limit
 
 	return desired_status
-
-#define MODE_SHIPSIDE_SD (1<<16)
-#define MODE_PREDATOR (1<<17)
 
 #define MAX_EXCAVATIONS 10
 
