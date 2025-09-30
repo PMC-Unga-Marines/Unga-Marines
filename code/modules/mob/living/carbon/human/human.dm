@@ -29,6 +29,10 @@
 	AddComponent(/datum/component/anti_juggling)
 	set_jump_component()
 
+	if(!hunter_data)
+		hunter_data = new /datum/huntdata(src)
+	hud_set_hunter()
+
 /mob/living/carbon/human/proc/human_z_changed(datum/source, old_z, new_z)
 	SIGNAL_HANDLER
 	LAZYREMOVE(GLOB.humans_by_zlevel["[old_z]"], src)
