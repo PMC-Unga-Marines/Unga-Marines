@@ -53,11 +53,10 @@
 	update_movespeed(TRUE)
 	log_mob_tag("\[[tag]\] CREATED: [key_name(src)]")
 	become_hearing_sensitive()
-//RUTGMC EDIT ADDITION BEGIN - Preds
+	
 	if(!hunter_data)
 		hunter_data = new /datum/huntdata(src)
 	hud_set_hunter()
-//RUTGMC EDIT ADDITION END
 
 /mob/proc/show_message(msg, type, alt_msg, alt_type, avoid_highlight)
 	if(!client)
