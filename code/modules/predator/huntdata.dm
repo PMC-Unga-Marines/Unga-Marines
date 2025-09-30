@@ -54,8 +54,8 @@
 	SShunting.hunter_datas += src
 
 /datum/huntdata/Destroy(force)
-	. = ..()
 	clean_data()
+	return ..()
 
 /datum/huntdata/proc/complete_target(mob/user)
 	target_completed = TRUE
