@@ -164,3 +164,4 @@
 		owner = null
 
 	SShunting.hunter_datas -= src
+	qdel(src)
