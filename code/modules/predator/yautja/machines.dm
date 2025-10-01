@@ -53,22 +53,6 @@
 	desc = "For grilling the most delicious prey."
 	icon = 'icons/obj/machines/yautja_machines.dmi'
 
-/obj/machinery/vending/dinnerware/yautja
-	name = "dinnerplate dispenser"
-	icon = 'icons/obj/machines/yautja_machines.dmi'
-	products = list(
-		/obj/item/tool/kitchen/tray = 8,
-		/obj/item/tool/kitchen/utensil/fork = 6,
-		/obj/item/tool/kitchen/knife = 3,
-		/obj/item/reagent_containers/cup/glass/drinking_glass = 8,
-		/obj/item/clothing/suit/storage/chef/classic = 2,
-		/obj/item/clothing/head/chefhat = 1,
-		/obj/item/tool/kitchen/utensil/spoon = 2,
-		/obj/item/tool/kitchen/utensil/knife = 2,
-		/obj/item/tool/kitchen/rollingpin = 2,
-		/obj/item/tool/kitchen/knife/butcher = 2,
-	)
-
 /obj/machinery/vending/engivend/yautja
 	name = "yautja autolathe"
 	desc = "Weird alien industrial fabricator."

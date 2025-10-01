@@ -532,6 +532,10 @@
 		/obj/item/tool/kitchen/knife = -1,
 	)
 
+/obj/machinery/vending/dinnerware/yautja
+	name = "dinnerplate dispenser"
+	icon = 'icons/obj/machines/yautja_machines.dmi'
+
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
 	desc = "An old sweet water vending machine,how did this end up here?"
