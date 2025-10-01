@@ -115,6 +115,7 @@
 
 /obj/machinery/computer/sleep_console/pred
 	icon = 'icons/obj/machines/yautja_machines.dmi'
+
 /////////////////////////////////////////
 // THE SLEEPER ITSELF
 /////////////////////////////////////////
