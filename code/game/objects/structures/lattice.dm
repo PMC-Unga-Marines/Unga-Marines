@@ -32,8 +32,9 @@
 	return ..()
 
 /obj/structure/lattice/ex_act(severity)
-	if(severity >= EXPLODE_HEAVY)
-		qdel(src)
+	if(severity < EXPLODE_HEAVY)
+		return
+	qdel(src)
 
 /obj/structure/lattice/attackby(obj/item/C as obj, mob/user as mob)
 
@@ -108,3 +109,10 @@
 		return
 	if(prob(severity * 0.3))
 		qdel(src)
+
+/obj/structure/catwalk/no_smooth
+	name = "catwalk"
+	icon_state = "catwalk-0"
+	smoothing_flags = NONE
+	smoothing_groups = null
+	canSmoothWith = null

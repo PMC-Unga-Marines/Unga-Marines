@@ -49,15 +49,7 @@
 ///Used to check if a machinery is visible. Called by update_pipe_vision(). On by default for all except cryo.
 #define VENTCRAWL_CAN_SEE	(1<<2)
 
-//HELPERS
-#define PIPING_LAYER_SHIFT(T, PipingLayer) \
-	if(T.dir & (NORTH|SOUTH)) {									\
-		T.pixel_x = (PipingLayer - PIPING_LAYER_DEFAULT) * PIPING_LAYER_P_X;\
-	}																		\
-	if(T.dir & (EAST|WEST)) {										\
-		T.pixel_y = (PipingLayer - PIPING_LAYER_DEFAULT) * PIPING_LAYER_P_Y;\
-	}
+#define PIPE_VISIBLE_LEVEL 2
+#define PIPE_HIDDEN_LEVEL 1
 
-#define PIPING_LAYER_DOUBLE_SHIFT(T, PipingLayer) \
-	T.pixel_x = (PipingLayer - PIPING_LAYER_DEFAULT) * PIPING_LAYER_P_X;\
-	T.pixel_y = (PipingLayer - PIPING_LAYER_DEFAULT) * PIPING_LAYER_P_Y;
+#define VENT_SOUND_DELAY 3 SECONDS

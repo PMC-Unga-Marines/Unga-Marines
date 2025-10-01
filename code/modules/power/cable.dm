@@ -60,8 +60,8 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 
 	if(prob(severity * 0.3))
 		qdel(src)
-	else
-		take_damage(severity, BRUTE, BOMB)
+		return
+	take_damage(severity, BRUTE, BOMB)
 
 ///Set the linked indicator bitflags
 /obj/structure/cable/proc/Connect_cable(clear_before_updating = FALSE)

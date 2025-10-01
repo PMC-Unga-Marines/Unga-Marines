@@ -42,6 +42,7 @@ SUBSYSTEM_DEF(persistence)
 		/datum/season_datum/weapons/guns/heavy_ff,
 		/datum/season_datum/weapons/guns/heavy_autorail,
 		/datum/season_datum/weapons/guns/heavy_shock,
+		/datum/season_datum/weapons/guns/heavy_unpopular,
 		),
 	)
 	///The saved list of custom outfits names
@@ -355,4 +356,18 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/ammo_magazine/rocket/recoilless/cloak = 4,
 		/obj/item/ammo_magazine/rocket/recoilless/smoke = 4,
 		/obj/item/ammo_magazine/rocket/recoilless/plasmaloss = 4,
+	)
+
+/datum/season_datum/weapons/guns/heavy_unpopular
+	name = "Unpopular cargo guns"
+	description = "PTRS, OICW and FAMAS for roundstart vendors."
+	item_list = list(
+		/obj/item/weapon/gun/clf_heavyrifle/imported = 2,
+		/obj/item/shotgunbox/clf_heavyrifle = 2,
+		/obj/item/weapon/gun/rifle/tx55 = 2,
+		/obj/item/ammo_magazine/rifle/tx54 = 10,
+		/obj/item/ammo_magazine/rifle/tx54/incendiary = 4,
+		/obj/item/ammo_magazine/rifle/tx54/smoke/tangle = 4,
+		/obj/item/weapon/gun/rifle/famas = 2,
+		/obj/item/ammo_magazine/rifle/famas = -1,
 	)

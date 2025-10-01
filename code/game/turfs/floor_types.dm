@@ -1,6 +1,7 @@
 /turf/open/floor/mainship
 	icon = 'icons/turf/mainship.dmi'
 	icon_state = "default"
+	baseturfs = /turf/open/floor/plating/mainship
 
 /turf/open/floor/mainship/stripesquare
 	icon_state = "test_floor4"

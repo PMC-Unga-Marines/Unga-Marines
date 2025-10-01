@@ -2,7 +2,6 @@
 #define BM_SWITCHSTATE_MODE 1
 #define BM_SWITCHSTATE_DIR 2
 
-
 /datum/buildmode
 	var/build_dir = SOUTH
 	var/datum/buildmode_mode/mode
@@ -24,7 +23,6 @@
 	var/atom/movable/screen/buildmode/bdir/dirbutton
 	var/list/dirswitch_buttons = list()
 
-
 /datum/buildmode/New(client/c)
 	mode = new /datum/buildmode_mode/basic(src)
 	holder = c
@@ -36,7 +34,6 @@
 	holder.screen += buttons
 	holder.click_intercept = src
 	mode.enter_mode(src)
-
 
 /datum/buildmode/proc/quit()
 	log_admin("[key_name(usr)] has left build mode.")
@@ -67,20 +64,18 @@
 		if(BM_SWITCHSTATE_DIR)
 			open_dirswitch()
 
-
 /datum/buildmode/proc/create_buttons()
 	// keep a reference so we can update it upon mode switch
-	modebutton = new /atom/movable/screen/buildmode/mode(src)
+	modebutton = new /atom/movable/screen/buildmode/mode(null, null, src)
 	buttons += modebutton
-	buttons += new /atom/movable/screen/buildmode/help(src)
+	buttons += new /atom/movable/screen/buildmode/help(null, null, src)
 	// keep a reference so we can update it upon dir switch
-	dirbutton = new /atom/movable/screen/buildmode/bdir(src)
+	dirbutton = new /atom/movable/screen/buildmode/bdir(null, null, src)
 	buttons += dirbutton
-	buttons += new /atom/movable/screen/buildmode/quit(src)
+	buttons += new /atom/movable/screen/buildmode/quit(null, null, src)
 	// build the lists of switching buttons
 	build_options_grid(subtypesof(/datum/buildmode_mode), modeswitch_buttons, /atom/movable/screen/buildmode/modeswitch)
 	build_options_grid(list(SOUTH,EAST,WEST,NORTH,NORTHWEST), dirswitch_buttons, /atom/movable/screen/buildmode/dirswitch)
-
 
 // this creates a nice offset grid for choosing between buildmode options,
 // because going "click click click ah hell" sucks.
@@ -89,12 +84,11 @@
 	for(var/thing in elements)
 		var/x = pos_idx % switch_width
 		var/y = FLOOR(pos_idx / switch_width, 1)
-		var/atom/movable/screen/buildmode/B = new buttontype(src, thing)
+		var/atom/movable/screen/buildmode/B = new buttontype(null, null, src, thing)
 		// extra .5 for a nice offset look
 		B.screen_loc = "NORTH-[(1 + 0.5 + y*1.5)],WEST+[0.5 + x*1.5]"
 		buttonslist += B
 		pos_idx++
-
 
 /datum/buildmode/proc/close_switchstates()
 	switch(switch_state)
@@ -103,7 +97,6 @@
 		if(BM_SWITCHSTATE_DIR)
 			close_dirswitch()
 
-
 /datum/buildmode/proc/toggle_modeswitch()
 	if(switch_state == BM_SWITCHSTATE_MODE)
 		close_modeswitch()
@@ -111,16 +104,13 @@
 		close_switchstates()
 		open_modeswitch()
 
-
 /datum/buildmode/proc/open_modeswitch()
 	switch_state = BM_SWITCHSTATE_MODE
 	holder.screen += modeswitch_buttons
 
-
 /datum/buildmode/proc/close_modeswitch()
 	switch_state = BM_SWITCHSTATE_NONE
 	holder.screen -= modeswitch_buttons
-
 
 /datum/buildmode/proc/toggle_dirswitch()
 	if(switch_state == BM_SWITCHSTATE_DIR)
@@ -129,16 +119,13 @@
 		close_switchstates()
 		open_dirswitch()
 
-
 /datum/buildmode/proc/open_dirswitch()
 	switch_state = BM_SWITCHSTATE_DIR
 	holder.screen += dirswitch_buttons
 
-
 /datum/buildmode/proc/close_dirswitch()
 	switch_state = BM_SWITCHSTATE_NONE
 	holder.screen -= dirswitch_buttons
-
 
 /datum/buildmode/proc/change_mode(newmode)
 	mode.exit_mode(src)
@@ -148,18 +135,15 @@
 	mode.enter_mode(src)
 	modebutton.update_icon()
 
-
 /datum/buildmode/proc/change_dir(newdir)
 	build_dir = newdir
 	close_dirswitch()
 	dirbutton.update_dir()
 	return TRUE
 
-
 /datum/buildmode/InterceptClickOn(mob/user, params, atom/object)
 	mode.handle_click(user.client, params, object)
 	return TRUE // no doing underlying actions
-
 
 /proc/togglebuildmode(mob/M as mob in GLOB.player_list)
 	set name = "Toggle Build Mode"
@@ -173,7 +157,6 @@
 			new /datum/buildmode(M.client)
 			log_admin("[key_name(usr)] has entered build mode.")
 			message_admins("[ADMIN_TPMONTY(usr)] has entered build mode.")
-
 
 #undef BM_SWITCHSTATE_NONE
 #undef BM_SWITCHSTATE_MODE

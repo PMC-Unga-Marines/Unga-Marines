@@ -1,0 +1,7 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - rscdel: "Удалил Toggle Glob Xeno Rouny."
+  - code_imp: "Make Rouny объединен с Change Appearance у ксеносов."
+  - admin: "Админы теперь могут использовать Change Appearance у ксеносов."
+  - admin: "Админы теперь могут менять ксеносам скины через ВВ."

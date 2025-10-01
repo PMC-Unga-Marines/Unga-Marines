@@ -6,7 +6,7 @@
 	hit_sound = 'sound/effects/Glasshit.ogg'
 	density = TRUE
 	anchored = TRUE
-	layer = WINDOW_LAYER
+	layer = ABOVE_WINDOW_LAYER
 	obj_flags = CAN_BE_HIT | BLOCKS_CONSTRUCTION_DIR | IGNORE_DENSITY
 	atom_flags = ON_BORDER|DIRLOCK
 	allow_pass_flags = PASS_GLASS
@@ -338,8 +338,8 @@
 /obj/structure/window/reinforced/Initialize(mapload)
 	. = ..()
 	if(dir == NORTH)
-		add_overlay(image(icon, "rwindow_overlay", layer = WINDOW_LAYER))
-		layer = WINDOW_FRAME_LAYER
+		add_overlay(image(icon, "rwindow_overlay", layer = ABOVE_WINDOW_LAYER))
+		layer = TABLE_LAYER
 	if(dir == WEST || dir == EAST)
 		var/turf/adj = get_step(src, SOUTH)
 		if(isclosedturf(adj))
@@ -408,6 +408,7 @@
 /obj/structure/window/framed
 	name = "theoretical window"
 	layer = TABLE_LAYER
+	plane = WALL_PLANE
 	static_frame = TRUE
 	atom_flags = NONE //This is not a border object; it takes up the entire tile.
 	explosion_block = 2

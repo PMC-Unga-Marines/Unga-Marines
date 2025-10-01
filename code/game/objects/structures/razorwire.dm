@@ -12,7 +12,7 @@
 	resistance_flags = XENO_DAMAGEABLE
 	allow_pass_flags = PASS_DEFENSIVE_STRUCTURE|PASS_GRILLE|PASSABLE
 	max_integrity = RAZORWIRE_MAX_HEALTH
-	soft_armor = list(MELEE = 0, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 35, BIO = 100, FIRE = 80, ACID = 0)
+	soft_armor = list(MELEE = 0, BULLET = 45, LASER = 45, ENERGY = 45, BOMB = 75, BIO = 100, FIRE = 80, ACID = 0)
 	var/list/entangled_list
 	var/sheet_type = /obj/item/stack/barbed_wire
 	var/sheet_type2 = /obj/item/stack/rods
@@ -168,12 +168,6 @@
 	xeno_attacker.apply_damage(RAZORWIRE_BASE_DAMAGE, blocked = MELEE, updating_health = TRUE) //About a third as damaging as actually entering
 	update_icon()
 	return ..()
-
-/obj/structure/razorwire/ex_act(severity)
-	take_damage(severity * 0.5, BRUTE, BOMB)
-	if(severity >= EXPLODE_LIGHT)
-		visible_message(span_danger("[src] is blown apart!"))
-	update_icon()
 
 /obj/structure/razorwire/CanAllowThrough(atom/movable/mover, turf/target)
 	if(mover.throwing && ismob(mover) && !(mover.pass_flags & PASS_DEFENSIVE_STRUCTURE))

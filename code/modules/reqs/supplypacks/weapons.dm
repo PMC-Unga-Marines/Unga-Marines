@@ -273,22 +273,16 @@
 	cost = 15
 	containertype = /obj/structure/closet/crate/ammo
 
-/datum/supply_packs/weapons/smg25_ap
-	name = "SMG-25 armor piercing magazine"
-	contains = list(/obj/item/ammo_magazine/smg/m25/ap)
-	cost = 30 //60 rounds
+/datum/supply_packs/weapons/ar21_extended_mag
+	name = "AR-21 extended magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/ar21/extended)
+	cost = 50 //50 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/p9mm_incendiary
 	name = "9mm incendiary packet"
 	contains = list(/obj/item/ammo_magazine/packet/p9mm/incendiary)
 	cost = 30 //70 rounds
-	containertype = /obj/structure/closet/crate/ammo
-
-/datum/supply_packs/weapons/box_10x20mm_ap
-	name = "10x20mm armor piercing ammo box"
-	contains = list(/obj/item/ammo_magazine/packet/p10x20mm/ap)
-	cost = 50 //150 rounds
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/weapons/plasma_cells

@@ -14,7 +14,6 @@
 		layer = open_layer
 	else
 		layer = PODDOOR_CLOSED_LAYER
-	update_icon_state()
 
 /obj/machinery/door/poddoor/shutters/open()
 	if(operating)
@@ -90,6 +89,7 @@
 	icon_state = "shutter"
 	density = FALSE
 	opacity = FALSE
+	layer = BLASTDOOR_LAYER
 
 /obj/machinery/door/poddoor/shutters/opened/medbay
 	name = "Medbay Lockdown Shutters"
@@ -132,7 +132,7 @@
 	density = FALSE
 	opacity = FALSE
 	layer = PODDOOR_OPEN_LAYER
-	icon_state = "shutter"
+	icon_state = "shutter0"
 
 
 /obj/machinery/door/poddoor/shutters/mainship/selfdestruct
@@ -182,7 +182,7 @@
 	opacity = FALSE
 	resistance_flags = RESIST_ALL|DROPSHIP_IMMUNE
 	layer = PODDOOR_OPEN_LAYER
-	icon_state = "shutter"
+	icon_state = "shutter0"
 
 /obj/machinery/door/poddoor/shutters/barren
 	resistance_flags = UNACIDABLE|DROPSHIP_IMMUNE
@@ -192,7 +192,7 @@
 	density = FALSE
 	opacity = FALSE
 	resistance_flags = RESIST_ALL|DROPSHIP_IMMUNE
-	icon_state = "shutter"
+	icon_state = "shutter0"
 	open_layer = PODDOOR_CLOSED_LAYER
 	closed_layer = PODDOOR_CLOSED_LAYER
 
@@ -200,7 +200,7 @@
 	name = "pressure shutters"
 	density = FALSE
 	opacity = FALSE
-	icon_state = "shutter"
+	icon_state = "shutter0"
 	open_layer = PODDOOR_CLOSED_LAYER
 	closed_layer = PODDOOR_CLOSED_LAYER
 

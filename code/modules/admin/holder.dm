@@ -15,6 +15,7 @@
 	var/datum/filter_editor/filteriffic
 	///Reference to particle editor tgui holder datum
 	var/datum/particle_editor/particle_test
+	var/datum/plane_master_debug/plane_debug
 
 	///Whether this admin is currently deadminned or not
 	var/deadmined = FALSE
@@ -66,6 +67,7 @@
 		return
 	GLOB.deadmins -= target
 	GLOB.admin_datums[target] = src
+	plane_debug = new(src)
 	deadmined = FALSE
 	if(GLOB.directory[target])
 		associate(GLOB.directory[target])	//find the client for a ckey if they are connected and associate them with us
@@ -77,6 +79,7 @@
 		return
 	GLOB.deadmins[target] = src
 	GLOB.admin_datums -= target
+	QDEL_NULL(plane_debug)
 	deadmined = TRUE
 	var/client/C
 	if((C = owner) || (C = GLOB.directory[target]))
@@ -319,7 +322,7 @@ ADMIN_VERB(deadmin, R_NONE, "DeAdmin", "Shed your admin powers.", ADMIN_CATEGORY
 		if(APICKER_LIVING)
 			chosen = tgui_input_list(usr, "Please, select a living mob.", title, sortNames(GLOB.mob_living_list), timeout = 0)
 		if(APICKER_AREA)
-			chosen = tgui_input_list(usr, "Please, select an area.", title, GLOB.sorted_areas, timeout = 0)
+			chosen = tgui_input_list(usr, "Please, select an area.", title, get_sorted_areas(), timeout = 0)
 			chosen = pick(get_area_turfs(chosen))
 		if(APICKER_TURF)
 			chosen = input("Please, select a turf.", title) as null|turf in world

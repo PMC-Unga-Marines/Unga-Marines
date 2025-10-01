@@ -39,7 +39,7 @@
 	. = ..()
 	if(machine_stat & (BROKEN|DISABLED|NOPOWER))
 		return
-	. += emissive_appearance(icon, screen_overlay, alpha = src.alpha)
+	. += emissive_appearance(icon, screen_overlay, src, alpha = src.alpha)
 	. += mutable_appearance(icon, screen_overlay, alpha = src.alpha)
 
 /obj/machinery/cic_maptable/interact(mob/user)
@@ -112,8 +112,8 @@
 	AddElement(/datum/element/connect_loc, connections)
 
 	var/list/atom/movable/screen/actions = list()
-	for(var/path in drawing_tools)
-		actions += new path(null, targetted_zlevel, minimap_flag)
+	for(var/path as anything in drawing_tools)
+		actions += new path(null, null, targetted_zlevel, minimap_flag)
 	drawing_tools = actions
 
 /obj/machinery/cic_maptable/drawable/Destroy()

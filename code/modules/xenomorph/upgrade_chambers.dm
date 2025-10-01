@@ -11,7 +11,7 @@
 
 /obj/structure/xeno/upgrade_chamber/Initialize(mapload, _hivenumber)
 	. = ..()
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "upgrade_chamber", ABOVE_FLOAT_LAYER))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "upgrade_chamber", MINIMAP_BLIPS_LAYER))
 
 /obj/structure/xeno/upgrade_chamber/shell
 	name = "Shell"

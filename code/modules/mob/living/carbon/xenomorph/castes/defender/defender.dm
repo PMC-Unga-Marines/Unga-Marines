@@ -5,7 +5,6 @@
 	icon = 'icons/Xeno/castes/defender/basic.dmi'
 	icon_state = "Defender Walking"
 	effects_icon = 'icons/Xeno/castes/defender/effects.dmi'
-	rouny_icon = 'icons/Xeno/castes/defender/rouny.dmi'
 	bubble_icon = "alienroyal"
 	health = 200
 	maxHealth = 200
@@ -14,6 +13,11 @@
 	tier = XENO_TIER_ONE
 	upgrade = XENO_UPGRADE_NORMAL
 	pull_speed = -2
+
+	skins = list(
+		/datum/xenomorph_skin/defender,
+		/datum/xenomorph_skin/defender/rouny,
+	)
 
 // ***************************************
 // *********** Icon

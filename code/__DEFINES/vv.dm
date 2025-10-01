@@ -141,6 +141,9 @@
 #define VV_HK_COPY_OUTFIT "copy_outfit"
 #define VV_HK_SET_SPECIES "setspecies"
 
+// /mob/living/carbon/xenomorph
+#define VV_HK_SET_XENO_SKIN "set_xeno_skin"
+
 //outfits
 #define VV_HK_TO_OUTFIT_EDITOR "outfit_editor"
 

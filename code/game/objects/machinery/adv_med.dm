@@ -42,7 +42,7 @@
 		return
 	if(!occupant)
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
+	. += emissive_appearance(icon, "[icon_state]_emissive", src, alpha = src.alpha)
 	. += mutable_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 
 /obj/machinery/bodyscanner/relaymove(mob/user)
@@ -186,10 +186,6 @@
 /obj/machinery/computer/body_scanconsole/Initialize(mapload)
 	. = ..()
 	set_connected(locate(/obj/machinery/bodyscanner, get_step(src, REVERSE_DIR(dir))))
-
-/obj/machinery/computer/body_scanconsole/ex_act(severity)
-	if(prob(severity * 0.3))
-		qdel(src)
 
 /obj/machinery/computer/body_scanconsole/can_interact(mob/user)
 	. = ..()
