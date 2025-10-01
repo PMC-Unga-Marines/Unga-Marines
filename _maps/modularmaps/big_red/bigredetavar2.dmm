@@ -82,8 +82,7 @@
 /area/bigredv2/outside/hydroponics)
 "dV" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4;
-	
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/dmg1,
@@ -491,7 +490,7 @@
 "wq" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4;
-	
+
 	},
 /turf/open/floor/plating/scorched,
 /area/bigredv2/outside/ne)
