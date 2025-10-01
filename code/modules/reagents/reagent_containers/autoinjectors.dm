@@ -14,9 +14,9 @@
 	var/base_name
 
 /obj/item/reagent_containers/hypospray/autoinjector/Initialize(mapload)
-	. = ..()
 	base_icon_state = icon_state
 	base_name = name
+	return ..() // some incomprehensible power of shitcode makes penals first update icon_state and only then set base_icon_state, works fine for simple autoinjectors tho
 
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon_state()
 	. = ..()
