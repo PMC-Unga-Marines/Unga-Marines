@@ -221,49 +221,59 @@
 #define BELOW_MOB_LAYER 3.7
 #define LOW_MOB_LAYER 3.75
 #define LYING_MOB_LAYER 3.8
-
-#define ABOVE_LYING_MOB_LAYER 3.9 //drone (not the xeno)
-
-//#define MOB_LAYER 4
-
-#define MOB_JUMP_LAYER 4.05
-
+#define VEHICLE_LAYER 3.9
+#define MOB_BELOW_PIGGYBACK_LAYER 3.94
+//#define MOB_LAYER 4 //For easy recordkeeping; this is a byond define
+#define MOB_SHIELD_LAYER 4.01
+#define MOB_ABOVE_PIGGYBACK_LAYER 4.06
+#define MOB_UPPER_LAYER 4.07
+#define HITSCAN_PROJECTILE_LAYER 4.09
 #define ABOVE_MOB_LAYER 4.1
+#define TANK_DECORATION_LAYER 4.15
+#define TANK_TURRET_LAYER 4.2
+#define ABOVE_MOB_PLATFORM_LAYER 4.23 // todo we may be able to just use above mob for this?
+#define WALL_OBJ_LAYER 4.25
+#define TRAM_SIGNAL_LAYER 4.26
+#define EDGED_TURF_LAYER 4.3
+#define ON_EDGED_TURF_LAYER 4.35
+#define SPACEVINE_LAYER 4.4
+#define LARGE_MOB_LAYER 4.5
+#define SPACEVINE_MOB_LAYER 4.6
+#define FACEHUGGER_LAYER 4.65
 
-///for platform corner structures
-#define ABOVE_MOB_PLATFORM_LAYER 4.11
+// Intermediate layer used by both GAME_PLANE and ABOVE_GAME_PLANE
+#define ABOVE_ALL_MOB_LAYER 4.7
 
-#define ABOVE_MOB_PROP_LAYER 4.2
-
-#define TANK_TURRET_LAYER 4.27
-
-#define TANK_DECORATION_LAYER 4.3
-
-#define FACEHUGGER_LAYER 4.45
-
-#define ABOVE_ALL_MOB_LAYER 4.5
-
-//#define FLY_LAYER 5
-
+// ABOVE_GAME_PLANE layers
+#define NAVIGATION_EYE_LAYER 4.9
+//#define FLY_LAYER 5 //For easy recordkeeping; this is a byond define
+#define ABOVE_TREE_LAYER 5.01
 #define WELDING_TOOL_EFFECT_LAYER 5.05
 #define RIPPLE_LAYER 5.1
 
-#define GHOST_LAYER 6
-#define ABOVE_FLY_LAYER 6
+/**
+ * The layer of the visual overlay used in the submerge element.
+ * The vis overlay inherits the planes of the movables it's attached to (that also have KEEP_TOGETHER added)
+ * We just have to make sure the visual overlay is rendered above all the other overlays of those movables.
+ */
+#define WATER_VISUAL_OVERLAY_LAYER 1000
 
-#define LOW_LANDMARK_LAYER 9
-#define MID_LANDMARK_LAYER 9.1
-#define HIGH_LANDMARK_LAYER 9.2
+// SEETHROUGH_PLANE layers here, tho it has no layer values
 
-#define LIGHTING_LAYER 10 //Drawing layer for lighting overlays
-#define AREAS_LAYER 10 //for areas, so they appear above everything else on map file.
+//---------- LIGHTING -------------
 
-#define POINT_LAYER 12
-
-
-#define CHAT_LAYER 12.0001 // Do not insert layers between these two values
-#define CHAT_LAYER_MAX 12.9999
-
+// LIGHTING_PLANE layers
+// The layer of turf underlays starts at 0.01 and goes up by 0.01
+// Based off the z level. No I do not remember why, should check that
+/// Typically overlays, that "hide" portions of the turf underlay layer
+/// I'm allotting 100 z levels before this breaks. That'll never happen
+/// --Lemon
+#define LIGHTING_MASK_LAYER 10
+/// Misc things that draw on the turf lighting plane
+/// Space, solar beams, etc
+#define LIGHTING_PRIMARY_LAYER 15
+/// Stuff that needs to draw above everything else on this plane
+#define LIGHTING_ABOVE_ALL 20
 
 //---------- EMISSIVES -------------
 //Layering order of these is not particularly meaningful.
