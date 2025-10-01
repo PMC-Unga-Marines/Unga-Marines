@@ -22,8 +22,9 @@
 	var/internal_light = TRUE
 
 /obj/machinery/camera/Initialize(mapload, newDir)
-	. = ..()
 	icon_state = base_icon_state
+
+	. = ..()
 
 	if(newDir)
 		setDir(newDir)
@@ -295,7 +296,7 @@
 	. = ..()
 	if(obj_integrity <= 0)
 		return
-	. += emissive_appearance(icon, "[base_icon_state]_emissive", src)
+	. += emissive_appearance(icon, "[icon_state]_emissive", src)
 
 //This camera type automatically sets it's name to whatever the area that it's in is called.
 /obj/machinery/camera/autoname/Initialize(mapload)
