@@ -377,5 +377,7 @@
 		var/turf/victim_turf = get_turf(victim) //Sneaky people on lockers.
 		if(QDELETED(victim_turf) || victim_turf.z != z_level)
 			continue
-		INVOKE_ASYNC(victim, TYPE_PROC_REF(/mob, gib))
+		//INVOKE_ASYNC(victim, TYPE_PROC_REF(/mob, gib)) // in my dreams it will gib marines
+		victim.adjust_fire_loss(victim.maxHealth * 4)
+		victim.death()
 		CHECK_TICK
