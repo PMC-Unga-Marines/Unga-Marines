@@ -193,7 +193,7 @@
 /turf/open/floor/prison,
 /area/prison/hallway/entrance)
 "acE" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/prison/research/secret/biolab)
 "acF" = (
@@ -209,7 +209,7 @@
 	},
 /area/prison/cellblock/highsec/north/north)
 "acH" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/prison,
 /area/prison/research/secret/biolab)
 "acI" = (
@@ -305,7 +305,7 @@
 	dir = 2;
 	id = "biological_testing_1"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/prison/research/secret/biolab)
 "acV" = (
@@ -319,7 +319,7 @@
 	dir = 2;
 	id = "biological_testing_1"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating,
 /area/prison/research/secret/biolab)
@@ -332,7 +332,7 @@
 	id = "biological_testing_1"
 	},
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/prison/research/secret/biolab)
 "acX" = (
@@ -3500,7 +3500,7 @@
 	dir = 2;
 	name = "Medium-Security Monitoring"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/structure/cable,
 /turf/open/floor/prison/darkred/full,
 /area/prison/security/monitoring/maxsec/panopticon)
@@ -12519,7 +12519,7 @@
 /area/prison/cellblock/lowsec/ne)
 "aNr" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/prison,
 /area/prison/cellblock/lowsec/ne)
 "aNs" = (
@@ -14024,7 +14024,7 @@
 /area/prison/security/checkpoint/highsec/n)
 "aSc" = (
 /obj/machinery/door/airlock/mainship/maint/free_access,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating,
 /area/prison/cellblock/lowsec/nw)
 "aSf" = (
@@ -14056,7 +14056,7 @@
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "Low-Security"
 	},
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/prison/bright_clean,
 /area/prison/hallway/central)
 "aSk" = (
@@ -14905,7 +14905,7 @@
 /area/prison/security/monitoring/highsec)
 "aUU" = (
 /obj/machinery/door/airlock/mainship/maint/free_access,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating,
 /area/prison/security/monitoring/lowsec/ne)
 "aUV" = (
@@ -17518,7 +17518,7 @@
 /area/prison/kitchen)
 "bdv" = (
 /obj/structure/window/framed/prison/reinforced,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/prison/security/monitoring/maxsec/panopticon)
 "bdw" = (
@@ -17545,7 +17545,7 @@
 	dir = 2;
 	name = "Medium-Security Monitoring"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/prison/darkred/full,
@@ -21296,7 +21296,7 @@
 	dir = 2;
 	name = "Low-Security"
 	},
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/prison/bright_clean,
 /area/prison/hallway/central)
 "boz" = (
@@ -24065,7 +24065,7 @@
 /area/prison/yard)
 "bxZ" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/prison,
 /area/prison/cellblock/lowsec/se)
 "bya" = (
@@ -26611,7 +26611,7 @@
 /area/prison/cellblock/lowsec/se)
 "bGx" = (
 /obj/machinery/door/airlock/mainship/maint/free_access,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating,
 /area/prison/cellblock/lowsec/se)
 "bGy" = (
@@ -27337,7 +27337,7 @@
 /area/prison/security/checkpoint/medsec)
 "bIQ" = (
 /obj/item/stack/rods,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/structure/window_frame/prison,
 /turf/open/floor/plating,
 /area/prison/security/monitoring/lowsec/sw)
@@ -38020,7 +38020,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/maint/free_access,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/prison/cellblock/mediumsec/south)
 "csZ" = (
@@ -38093,7 +38093,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/maint/free_access,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/prison/cellblock/mediumsec/south)
 "ctg" = (
@@ -39978,7 +39978,7 @@
 /turf/open/floor/plating,
 /area/prison/hangar/main)
 "cMq" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/prison/residential/south)
 "cMX" = (
@@ -39999,7 +39999,7 @@
 /turf/closed/wall/r_wall/prison,
 /area/prison/maintenance/residential/sw)
 "cOL" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/prison/cellblock/mediumsec/west)
 "cON" = (
@@ -40341,7 +40341,7 @@
 /area/prison/cellblock/highsec/south/south)
 "dBh" = (
 /obj/structure/window/framed/prison/reinforced,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating,
 /area/prison/security/monitoring/lowsec/sw)
 "dBZ" = (
@@ -40460,7 +40460,7 @@
 /obj/machinery/door/airlock/mainship/maint/free_access{
 	dir = 2
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/prison/cellblock/mediumsec/west)
 "dQA" = (
@@ -41377,7 +41377,7 @@
 	},
 /area/prison/hangar/main)
 "fES" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/prison/plate,
 /area/prison/recreation/highsec/n)
 "fFS" = (
@@ -41853,7 +41853,7 @@
 /turf/open/floor/prison/yellow,
 /area/prison/cellblock/mediumsec/north)
 "gIY" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/prison,
 /area/prison/cellblock/mediumsec/west)
 "gJR" = (
@@ -41874,7 +41874,7 @@
 	dir = 2;
 	name = "Residential Apartment"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/wood,
 /area/prison/residential/south)
 "gKC" = (
@@ -42027,7 +42027,7 @@
 /turf/open/floor/prison,
 /area/prison/residential/central)
 "gWy" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/prison,
 /area/prison/cellblock/lowsec/ne)
 "gWR" = (
@@ -42785,7 +42785,7 @@
 /turf/open/space/sea,
 /area/template_noop)
 "iBb" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/wood,
 /area/prison/parole/main)
 "iBj" = (
@@ -43448,7 +43448,7 @@
 /turf/open/floor/plating,
 /area/prison/maintenance/residential/nw)
 "jNw" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/prison,
 /area/prison/cellblock/lowsec/nw)
 "jNB" = (
@@ -43523,7 +43523,7 @@
 /turf/open/floor/prison/bright_clean/two,
 /area/prison/holding/holding1)
 "jSF" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/prison,
 /area/prison/cellblock/mediumsec/east)
 "jTg" = (
@@ -43598,7 +43598,7 @@
 /turf/open/floor/plating,
 /area/prison/hangar_storage/research)
 "kcn" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating,
 /area/prison/cellblock/mediumsec/south)
 "kcQ" = (
@@ -43652,7 +43652,7 @@
 /obj/machinery/door/airlock/mainship/maint/free_access{
 	dir = 2
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/prison/cellblock/mediumsec/east)
 "kjJ" = (
@@ -43677,7 +43677,7 @@
 /turf/open/floor/prison/red/corner,
 /area/prison/cellblock/highsec/south/north)
 "klX" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/prison,
 /area/prison/residential/south)
 "kmq" = (
@@ -43795,7 +43795,7 @@
 /area/prison/yard)
 "kxw" = (
 /obj/structure/window/framed/prison/reinforced,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating,
 /area/prison/security/monitoring/lowsec/ne)
 "kxK" = (
@@ -44310,7 +44310,7 @@
 /turf/open/floor/prison/cleanmarked,
 /area/prison/canteen)
 "lAp" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/prison,
 /area/prison/cellblock/lowsec/sw)
 "lAs" = (
@@ -44552,7 +44552,7 @@
 /turf/open/floor/plating,
 /area/prison/hangar/civilian)
 "mhw" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/prison/darkred/full,
 /area/prison/cellblock/maxsec/north)
 "miy" = (
@@ -44733,7 +44733,7 @@
 /turf/open/floor/prison/bright_clean,
 /area/prison/laundry)
 "myW" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/prison,
 /area/prison/cellblock/lowsec/se)
 "mzx" = (
@@ -44769,7 +44769,7 @@
 /turf/open/floor/prison/red/full,
 /area/prison/cellblock/highsec/south/north)
 "mBf" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/prison/cellblock/mediumsec/south)
 "mBn" = (
@@ -45758,7 +45758,7 @@
 /turf/open/space/sea,
 /area/template_noop)
 "onm" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/prison/red{
 	dir = 4
 	},
@@ -46085,7 +46085,7 @@
 /turf/open/floor/plating,
 /area/prison/hangar/civilian)
 "peP" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/prison/bright_clean,
 /area/prison/hallway/central)
 "pfn" = (
@@ -46154,7 +46154,7 @@
 	dir = 2;
 	id = "biological_testing_1"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/prison/research/secret/biolab)
@@ -46642,7 +46642,7 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/prison/hangar/main)
 "qcr" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/prison/cellblock/mediumsec/east)
 "qcw" = (
@@ -46825,7 +46825,7 @@
 /turf/open/floor/prison/plate,
 /area/prison/cellblock/highsec/south/north)
 "qyq" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating,
 /area/prison/hangar_storage/research)
 "qyJ" = (
@@ -47608,7 +47608,7 @@
 /turf/open/floor/prison/darkred/full,
 /area/prison/visitation)
 "rSZ" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/prison/bright_clean/two,
 /area/prison/yard)
 "rTg" = (
@@ -47708,8 +47708,8 @@
 /turf/open/floor/plating,
 /area/prison/maintenance/hangar_barracks)
 "saw" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/prison/research/secret/biolab)
 "saC" = (
@@ -48105,7 +48105,7 @@
 /turf/open/floor/plating,
 /area/prison/maintenance/staff_research)
 "sMp" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/prison/security/monitoring/maxsec/panopticon)
 "sMr" = (
@@ -49476,7 +49476,7 @@
 	},
 /area/prison/hallway/staff)
 "vFP" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/prison,
 /area/prison/security/monitoring/lowsec/sw)
 "vGa" = (
@@ -49540,7 +49540,7 @@
 /turf/open/floor/plating,
 /area/prison/disposal)
 "vOy" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/prison/plate,
 /area/prison/recreation/medsec)
 "vOC" = (
@@ -49615,7 +49615,7 @@
 /area/prison/hallway/central)
 "vSO" = (
 /obj/structure/window/framed/prison/reinforced,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating,
 /area/prison/hallway/central)
 "vTz" = (
@@ -49846,7 +49846,7 @@
 /area/prison/cellblock/vip)
 "woW" = (
 /obj/machinery/door/airlock/mainship/maint/free_access,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating,
 /area/prison/security/monitoring/lowsec/sw)
 "woY" = (
@@ -50209,7 +50209,7 @@
 /turf/open/floor/prison/sterilewhite,
 /area/prison/research)
 "xar" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/prison,
 /area/prison/cellblock/mediumsec/south)
 "xaR" = (
@@ -50474,7 +50474,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/prison/bright_clean,
 /area/prison/hallway/central)
 "xDJ" = (
@@ -50621,7 +50621,7 @@
 	},
 /area/prison/hallway/staff)
 "xYk" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/prison,
 /area/prison/security/monitoring/lowsec/ne)
 "xYp" = (
@@ -50717,7 +50717,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/prison/security/monitoring/highsec)
 "yfH" = (

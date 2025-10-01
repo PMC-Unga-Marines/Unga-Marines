@@ -79,6 +79,10 @@
 	set_jump_component()
 	AddComponent(/datum/component/seethrough_mob)
 
+	if(!hunter_data)
+		hunter_data = new /datum/huntdata(src)
+	hud_set_hunter()
+
 /mob/living/carbon/xenomorph/register_init_signals()
 	. = ..()
 	RegisterSignal(src, COMSIG_LIVING_WEEDS_ADJACENT_REMOVED, PROC_REF(handle_weeds_adjacent_removed))

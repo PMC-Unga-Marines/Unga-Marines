@@ -168,11 +168,6 @@
 	new_xeno.transfer_to_hive(hivenumber)
 	new_xeno.life_kills_total = life_kills_total
 	new_xeno.biomass = biomass
-	if(new_xeno.hunter_data)
-		new_xeno.hunter_data.clean_data()
-		qdel(new_xeno.hunter_data)
-		new_xeno.hunter_data = hunter_data
-		hunter_data = null
 	new_xeno.upgrades_holder = upgrades_holder
 	for(var/datum/status_effect/S AS in new_xeno.upgrades_holder)
 		new_xeno.apply_status_effect(S)

@@ -41,7 +41,7 @@
 		var/mob/living/living = last_damage_source
 		if(istype(living))
 			hunter_data.death(living)
-			if(ishuman(living) && isyautja(living) && living != src)
+			if(isyautja(living) && living != src)
 				INVOKE_ASYNC(living.client, TYPE_PROC_REF(/client, add_honor), life_kills_total + life_value)
 			living.life_kills_total += life_kills_total + life_value
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_DEATH, src)
