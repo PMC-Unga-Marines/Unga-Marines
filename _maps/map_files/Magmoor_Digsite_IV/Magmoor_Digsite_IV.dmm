@@ -28,7 +28,7 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/command/lobby/east)
 "aaG" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound/east)
 "aaJ" = (
@@ -2252,7 +2252,7 @@
 	},
 /area/magmoor/command/lobby)
 "bAI" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/northwest)
@@ -3173,7 +3173,7 @@
 /area/magmoor/compound/north)
 "chB" = (
 /obj/effect/landmark/corpsespawner/colonist,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/cult,
 /area/magmoor/cave/north)
@@ -3791,7 +3791,7 @@
 /turf/open/floor/mainship,
 /area/magmoor/engi/storage)
 "cFc" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/north)
 "cFo" = (
@@ -5527,7 +5527,7 @@
 /area/magmoor/civilian/bar)
 "dNJ" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/southwest)
 "dNW" = (
@@ -5961,7 +5961,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/northwest)
 "efM" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/cult,
 /area/magmoor/cave/north)
@@ -8591,7 +8591,7 @@
 /turf/open/floor/engine,
 /area/magmoor/engi/atmos)
 "fYi" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/northeast)
@@ -8809,7 +8809,7 @@
 	},
 /area/magmoor/compound/southeast)
 "ghf" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/cult,
 /area/magmoor/cave/north)
@@ -10217,7 +10217,7 @@
 /area/magmoor/cave/north)
 "hpH" = (
 /obj/effect/decal/cleanable/rune,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/cult,
 /area/magmoor/cave/north)
@@ -10633,7 +10633,7 @@
 /turf/open/floor/wood,
 /area/magmoor/command/office/main)
 "hHW" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound/west)
 "hIg" = (
@@ -10892,7 +10892,7 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/engi/storage)
 "hTB" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/north)
@@ -12492,7 +12492,7 @@
 	},
 /area/magmoor/command/conference)
 "jcL" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
 /area/magmoor/landing/two)
 "jdf" = (
@@ -14001,7 +14001,7 @@
 /area/magmoor/cave/east)
 "kbt" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/lavawall/indestructible,
 /area/magmoor/cave/rock)
 "kbE" = (
@@ -15028,7 +15028,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/magmoor/compound/southeast)
 "kPl" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/southwest)
 "kPs" = (
@@ -15260,7 +15260,7 @@
 /turf/open/floor/wood,
 /area/magmoor/civilian/basket)
 "kXi" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound/north)
 "kXj" = (
@@ -15986,7 +15986,7 @@
 	},
 /area/magmoor/civilian/dorms)
 "lzg" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/northwest)
 "lzj" = (
@@ -16153,7 +16153,7 @@
 /area/magmoor/command/commandroom)
 "lFS" = (
 /obj/effect/decal/cleanable/rune,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/cult,
 /area/magmoor/cave/north)
@@ -16490,7 +16490,7 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/civilian/arrival/east)
 "lRD" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/cult,
 /area/magmoor/cave/north)
 "lRV" = (
@@ -16527,7 +16527,7 @@
 	},
 /area/magmoor/compound/north)
 "lST" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/northwest)
 "lTp" = (
@@ -16560,7 +16560,7 @@
 	},
 /area/magmoor/engi/power)
 "lTR" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound/northeast)
 "lTV" = (
@@ -17397,7 +17397,7 @@
 	},
 /area/magmoor/civilian/arrival)
 "mCF" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/volcano)
 "mCN" = (
@@ -20662,7 +20662,7 @@
 	},
 /area/magmoor/compound/east)
 "oTh" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/lavawall/indestructible,
 /area/magmoor/cave/rock)
 "oTk" = (
@@ -21239,7 +21239,7 @@
 /area/magmoor/civilian/arrival)
 "pnM" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound/northeast)
 "pof" = (
@@ -21302,7 +21302,7 @@
 /turf/closed/wall/r_wall,
 /area/magmoor/command/commandroom)
 "ppN" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound)
 "pqc" = (
@@ -21958,7 +21958,7 @@
 	},
 /area/magmoor/research/containment)
 "pMw" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/north)
@@ -23350,7 +23350,7 @@
 /turf/open/floor/mainship,
 /area/magmoor/civilian/arrival)
 "qNa" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/lavawall,
 /area/magmoor/cave/rock)
 "qNj" = (
@@ -23472,7 +23472,7 @@
 /turf/open/floor/tile/red/full,
 /area/magmoor/security/infocenter)
 "qSZ" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/magmoor/compound/northeast)
 "qTD" = (
@@ -23791,8 +23791,8 @@
 /turf/open/floor/mainship/mono,
 /area/magmoor/civilian/arrival/east)
 "rfq" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/lavawall,
 /area/magmoor/cave/rock)
 "rfA" = (
@@ -23804,7 +23804,7 @@
 /area/magmoor/cave/rock)
 "rfN" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/southeast)
 "rge" = (
@@ -24723,7 +24723,7 @@
 /turf/open/floor/plating,
 /area/magmoor/mining/storage)
 "rQl" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/dirttosand,
 /area/magmoor/compound/north)
 "rQD" = (
@@ -25056,7 +25056,7 @@
 /area/magmoor/civilian/dorms)
 "sds" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/northeast)
 "sdx" = (
@@ -26640,7 +26640,7 @@
 	},
 /area/magmoor/security/arrivals/east)
 "tik" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/northeast)
 "tio" = (
@@ -29447,7 +29447,7 @@
 /turf/open/floor/mainship/orange/corner,
 /area/magmoor/cargo/processing/south)
 "vdo" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/southeast)
 "vdz" = (
@@ -31643,7 +31643,7 @@
 	},
 /area/magmoor/landing)
 "wIm" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/north)
 "wIw" = (
@@ -31743,7 +31743,7 @@
 	},
 /area/magmoor/mining)
 "wKg" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/magmoor/cave/north)
@@ -34007,7 +34007,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 2
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/lavawall/indestructible,
 /area/magmoor/cave/rock)
 "ygU" = (

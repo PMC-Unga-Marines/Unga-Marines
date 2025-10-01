@@ -187,7 +187,7 @@
 /turf/open/floor/mainship,
 /area/whiskey_outpost)
 "aL" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/gm/dense,
 /area/whiskey_outpost/outside/rock)
 "aM" = (
@@ -891,7 +891,7 @@
 /turf/open/floor/prison,
 /area/whiskey_outpost)
 "ep" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/ground/jungle,
 /area/whiskey_outpost/outside/south)
 "eq" = (
@@ -2816,7 +2816,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "oq" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "os" = (
@@ -2932,7 +2932,7 @@
 	},
 /area/whiskey_outpost/outside/south)
 "oP" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/structure/flora/jungle/vines,
 /turf/open/ground/jungle,
 /area/whiskey_outpost/outside/south)
@@ -3519,7 +3519,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
 "rx" = (
@@ -3575,7 +3575,7 @@
 	},
 /area/whiskey_outpost/outside/east)
 "sd" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/turf_decal/grassdecal/corner2{
 	dir = 4
 	},
@@ -4101,7 +4101,7 @@
 /turf/open/floor/plating/warning,
 /area/whiskey_outpost/outside/west)
 "vr" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth,
 /area/whiskey_outpost/outside/rock)
 "vs" = (
@@ -4243,7 +4243,7 @@
 	},
 /area/whiskey_outpost/outside/north)
 "vZ" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/structure/flora/jungle/vines,
 /obj/effect/turf_decal/grassdecal{
 	dir = 1
@@ -4491,7 +4491,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/north)
 "xN" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/turf_decal/grassdecal,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
@@ -4828,7 +4828,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/east)
 "Aj" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/turf_decal/grassdecal{
 	dir = 8
 	},
@@ -4858,7 +4858,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost)
 "Ao" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/turf_decal/grassdecal/corner{
 	dir = 1
 	},
@@ -5546,7 +5546,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/east)
 "Fe" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/turf_decal/grassdecal{
 	dir = 4
 	},
@@ -5685,7 +5685,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
 "Gp" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/ground/jungle,
 /area/whiskey_outpost/outside/west)
 "Gx" = (
@@ -5973,7 +5973,7 @@
 /area/whiskey_outpost/outside/rock)
 "IE" = (
 /obj/effect/decal/cleanable/blood/writing,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/ground/jungle,
 /area/whiskey_outpost/outside/south)
 "IF" = (
@@ -6187,7 +6187,7 @@
 /turf/open/ground/coast/corner2,
 /area/whiskey_outpost/outside/east)
 "Kv" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/structure/flora/jungle/planttop1,
 /turf/open/ground/jungle,
 /area/whiskey_outpost/outside/south)
@@ -6228,7 +6228,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/ground/jungle,
 /area/whiskey_outpost/outside/south)
 "KG" = (
@@ -6334,7 +6334,7 @@
 /turf/open/ground/jungle,
 /area/whiskey_outpost/outside/west)
 "Ls" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
 "Lt" = (
@@ -6390,7 +6390,7 @@
 /area/whiskey_outpost/outside/north)
 "LW" = (
 /obj/effect/decal/cleanable/blood/writing,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
 "LX" = (
@@ -6909,7 +6909,7 @@
 /turf/open/ground/grass,
 /area/whiskey_outpost/outside/east)
 "PX" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/structure/flora/jungle/vines,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
@@ -7311,7 +7311,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/north)
 "TE" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/structure/flora/jungle/vines,
 /turf/closed/gm/dense,
 /area/whiskey_outpost/outside/rock)
@@ -7387,7 +7387,7 @@
 /obj/effect/turf_decal/grassdecal{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/whiskey_outpost/outside/south)
 "Uf" = (
@@ -7887,7 +7887,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/whiskey_outpost/outside/east)
 "YL" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth,
 /area/whiskey_outpost/outside/south)
 "YN" = (
@@ -7981,7 +7981,7 @@
 /turf/open/floor/tile/dark,
 /area/whiskey_outpost)
 "Zz" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/structure/flora/jungle/vines,
 /obj/effect/turf_decal/grassdecal,
 /turf/open/floor/plating/ground/dirt,
