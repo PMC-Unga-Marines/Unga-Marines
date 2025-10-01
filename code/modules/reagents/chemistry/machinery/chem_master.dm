@@ -444,3 +444,7 @@
 
 /obj/machinery/chem_master/condimaster/nopower
 	use_power = NO_POWER_USE
+
+/obj/machinery/chem_master/yautja
+	name = "chemical distributor"
+	icon = 'icons/obj/machines/yautja_machines.dmi'
