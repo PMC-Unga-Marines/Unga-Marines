@@ -51,14 +51,13 @@ GLOBAL_LIST_EMPTY(cinematics)
 /datum/cinematic/Destroy()
 	GLOB.cinematics -= src
 	QDEL_NULL(screen)
-	for(var/mob/M in locked)
+	for(var/mob/M as anything in locked)
 		M.notransform = FALSE
 	return ..()
 
 /datum/cinematic/proc/play(watchers)
 	//Check if you can actually play it (stop mob cinematics for global ones) and create screen objects
-	for(var/A in GLOB.cinematics)
-		var/datum/cinematic/C = A
+	for(var/datum/cinematic/C as anything in GLOB.cinematics)
 		if(C == src)
 			continue
 		if(C.is_global || !is_global)
@@ -74,8 +73,7 @@ GLOBAL_LIST_EMPTY(cinematics)
 		ooc_toggled = TRUE
 		GLOB.ooc_allowed = FALSE
 
-	for(var/i in GLOB.mob_list)
-		var/mob/M = i
+	for(var/mob/M as anything  in GLOB.mob_list)
 		if(M in watchers)
 			M.notransform = TRUE //Should this be done for non-global cinematics or even at all ?
 			locked += M
@@ -96,9 +94,9 @@ GLOBAL_LIST_EMPTY(cinematics)
 /datum/cinematic/proc/cinematic_sound(s)
 	if(is_global)
 		SEND_SOUND(world, s)
-	else
-		for(var/C in watching)
-			SEND_SOUND(C, s)
+		return
+	for(var/C as anything in watching)
+		SEND_SOUND(C, s)
 
 ///Fire up special callback for actual effects synchronized with animation (eg real nuke explosion happens midway)
 /datum/cinematic/proc/special()

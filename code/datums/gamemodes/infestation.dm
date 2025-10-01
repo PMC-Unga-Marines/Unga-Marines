@@ -154,8 +154,7 @@
 
 	log_game("Bioscan. Humans: [numHostsPlanet] on the planet[host_location_planetside ? " Location:[host_location_planetside]":""] and [numHostsShip] on the ship.[host_location_shipside ? " Location: [host_location_shipside].":""] Xenos: [xenos_planetside] on the planet and [numXenosShip] on the ship[xeno_location_planetside ? " Location:[xeno_location_planetside]":""] and [numXenosTransit] in transit.")
 
-	for(var/i in GLOB.observer_list)
-		var/mob/M = i
+	for(var/mob/M as anything in GLOB.observer_list)
 		to_chat(M, assemble_alert(
 			title = "Биосканирование Завершено",
 			message = {"[numXenosPlanet] ксеносов на земле.
@@ -219,7 +218,6 @@
 		return TRUE
 	return FALSE
 
-
 /datum/game_mode/infestation/declare_completion()
 	. = ..()
 	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
@@ -265,16 +263,13 @@
 	ghost_track = sound(ghost_track)
 	ghost_track.channel = CHANNEL_CINEMATIC
 
-	for(var/i in GLOB.xeno_mob_list)
-		var/mob/M = i
+	for(var/mob/M as anything in GLOB.xeno_mob_list)
 		SEND_SOUND(M, xeno_track)
 
-	for(var/i in GLOB.human_mob_list)
-		var/mob/M = i
+	for(var/mob/M as anything in GLOB.human_mob_list)
 		SEND_SOUND(M, human_track)
 
-	for(var/i in GLOB.observer_list)
-		var/mob/M = i
+	for(var/mob/M as anything in GLOB.observer_list)
 		if(ishuman(M.mind.current))
 			SEND_SOUND(M, human_track)
 			continue
@@ -321,14 +316,12 @@
 		color_override = "red"
 	)
 
-
 /datum/game_mode/infestation/announce()
 	to_chat(world, span_round_header("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))
 
 /datum/game_mode/infestation/attempt_to_join_as_larva(client/waiter)
 	var/datum/hive_status/normal/HS = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	return HS.add_to_larva_candidate_queue(waiter)
-
 
 /datum/game_mode/infestation/spawn_larva(mob/xeno_candidate, mob/living/carbon/xenomorph/mother)
 	var/datum/hive_status/normal/HS = GLOB.hive_datums[XENO_HIVE_NORMAL]
@@ -356,12 +349,12 @@
 	var/sound/S = sound(pick('sound/theme/nuclear_detonation1.ogg','sound/theme/nuclear_detonation2.ogg'), channel = CHANNEL_CINEMATIC)
 	SEND_SOUND(world, S)
 
-	for(var/x in GLOB.player_list)
-		var/mob/M = x
+	for(var/mob/M as anything in GLOB.player_list)
 		if(isobserver(M) || isnewplayer(M))
 			continue
-		if(M.z == z_level)
-			shake_camera(M, 110, 4)
+		if(M.z != z_level)
+			continue
+		shake_camera(M, 110, 4)
 
 	var/datum/cinematic/nuke/crash/C
 	var/nuketime = initial(C.runtime) + initial(C.cleanup_time)
@@ -380,11 +373,9 @@
 	else
 		planet_nuked = INFESTATION_NUKE_COMPLETED_OTHER
 
-	for(var/i in GLOB.alive_living_list)
-		var/mob/living/victim = i
+	for(var/mob/living/victim as anything in GLOB.alive_living_list)
 		var/turf/victim_turf = get_turf(victim) //Sneaky people on lockers.
 		if(QDELETED(victim_turf) || victim_turf.z != z_level)
 			continue
-		victim.adjust_fire_loss(victim.maxHealth * 4)
-		victim.death()
+		INVOKE_ASYNC(victim, TYPE_PROC_REF(/mob, gib))
 		CHECK_TICK
