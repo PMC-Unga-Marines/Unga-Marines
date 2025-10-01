@@ -276,11 +276,14 @@
 				if(!name)
 					return
 				var/obj/item/reagent_containers/hypospray/autoinjector/fillable/P = new/obj/item/reagent_containers/hypospray/autoinjector/fillable(loc)
-				if(!name) name = reagents.get_master_reagent_name()
+				if(!name)
+					name = reagents.get_master_reagent_name()
 				P.name = "[name] autoinjector"
+				P.base_name = "[name] autoinjector"
 				P.pixel_x = rand(-7, 7) //random position
 				P.pixel_y = rand(-7, 7)
 				P.icon_state = "autoinjector-"+autoinjectorsprite
+				P.base_icon_state = "autoinjector-"+autoinjectorsprite
 				reagents.trans_to(P,30)
 				P.update_icon()
 
