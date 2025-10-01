@@ -169,7 +169,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/undergroundrobotics)
 "hU" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southeast/garbledradio)
 "id" = (
@@ -350,7 +350,7 @@
 /turf/open/ground/grass,
 /area/bigredv2/caves/undergroundrobotics)
 "pN" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southeast)
 "pR" = (
@@ -363,7 +363,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/undergroundrobotics)
 "qj" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "qC" = (
@@ -664,7 +664,7 @@
 /area/bigredv2/caves/undergroundrobotics)
 "Ja" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southeast)
 "Jq" = (
@@ -711,7 +711,7 @@
 	},
 /area/bigredv2/caves/undergroundrobotics)
 "Lr" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southeast)
@@ -816,7 +816,7 @@
 /turf/closed/mineral/smooth/bigred/indestructible,
 /area/space)
 "Qq" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southeast)
@@ -894,7 +894,7 @@
 	},
 /area/bigredv2/caves/undergroundrobotics)
 "Wd" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southeast)
 "WD" = (
