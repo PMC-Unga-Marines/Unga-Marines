@@ -182,6 +182,9 @@
 
 	.["user_evolution"] = isxeno(user) ? xeno_user.evolution_stored : 0
 
+	.["user_biomass"] = isxeno(user) ? xeno_user.biomass : 0
+	.["user_max_biomass"] = isxeno(user) ? (xeno_user.biomass > 50 ? xeno_user.biomass : 50) : 0
+
 	.["user_tracked"] = isxeno(user) && !isnull(xeno_user.tracked) ? REF(xeno_user.tracked) : ""
 
 	.["user_show_empty"] = !!(user.client.prefs.status_toggle_flags & HIVE_STATUS_SHOW_EMPTY)
@@ -264,6 +267,12 @@
 			if(!isxeno(usr))
 				return
 			GLOB.evo_panel.ui_interact(usr)
+		if("Mutations")
+			if(!isxeno(usr))
+				return
+			var/mob/living/carbon/xenomorph/xeno = usr
+			var/datum/mutation_menu/menu = new(xeno)
+			menu.ui_interact(usr)
 		if("Follow")
 			if(isobserver(usr))
 				var/mob/dead/observer/ghost = usr

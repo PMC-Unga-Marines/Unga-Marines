@@ -342,6 +342,8 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/biomass_gain_bonus = 0
 	///Stored upgrade effects, so we reapply them on evolve
 	var/list/upgrades_holder = list()
+	///History of purchased mutations (mutation names)
+	var/list/purchased_mutations = list()
 
 	var/zoom_turf = null
 	var/can_walk_zoomed = FALSE

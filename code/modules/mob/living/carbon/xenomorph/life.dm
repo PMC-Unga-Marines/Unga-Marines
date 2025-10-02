@@ -161,16 +161,32 @@
 	if(xeno_caste.caste_flags & CASTE_IS_A_MINION)
 		return
 
-	// Check if we're in Valhalla (testing area) - get +50 biomass boost
+	// Get biomass gain rate per minute and convert to per-tick
+	var/biomass_gain_rate = get_passive_biomass_gain_rate()
+	var/biomass_gain = biomass_gain_rate * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
+
+	if(biomass_gain <= 0)
+		return
+
+	// Cap passive biomass gain at 50 (but allow refunds to exceed this)
+	if(biomass < 50)
+		biomass = min(biomass + biomass_gain, 50)
+
+	// Update HUD if we have a client
+	if(client)
+		hud_set_biomass()
+
+/// Calculate passive biomass gain rate per minute
+/mob/living/carbon/xenomorph/proc/get_passive_biomass_gain_rate()
+	var/biomass_gain_rate = 0
+
+	// Check if we're in Valhalla (testing area) - get +99.9 biomass boost
 	var/area/A = get_area(src)
 	var/is_valhalla = istype(A, /area/centcom/valhalla)
 
 	// Check if generators are corrupted (like psy points system)
-	var/has_corrupted_generators = FALSE
-	if(!GLOB.generators_on_ground) //Prevent division by 0
-		has_corrupted_generators = FALSE
-	else
-		// Count corrupted generators for this hive
+	var/corrupted_generators_bonus = 0
+	if(GLOB.generators_on_ground > 0)
 		var/corrupted_count = 0
 		for(var/obj/machinery/power/geothermal/generator in GLOB.machines)
 			if(generator.corrupted == hivenumber && generator.corruption_on)
@@ -178,14 +194,13 @@
 
 		// Only accumulate biomass if we have corrupted generators AND marines on ground (like psy points)
 		if(corrupted_count > 0 && (length(GLOB.humans_by_zlevel["2"]) > 0.2 * length(GLOB.alive_human_list_faction[FACTION_TERRAGOV])))
-			has_corrupted_generators = TRUE
+			corrupted_generators_bonus = (corrupted_count / GLOB.generators_on_ground) / 60.0
 
-	// Base biomass gain: only from psydrain bonus (if any)
-	var/biomass_gain = (biomass_gain_bonus / 60.0) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
+	// Calculate biomass gain rate
+	biomass_gain_rate = biomass_gain_bonus / 60.0 // Psydrain bonus (always works)
 
 	// Add corrupted generators biomass gain if conditions are met
-	if(has_corrupted_generators)
-		biomass_gain += (1.0 / 60.0) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
+	biomass_gain_rate += corrupted_generators_bonus
 
 	// Hivemind bonus: +0.5 biomass per minute if hivemind is alive
 	var/has_living_hivemind = FALSE
@@ -195,26 +210,17 @@
 			break
 
 	if(has_living_hivemind)
-		biomass_gain += (0.5 / 60.0) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
+		biomass_gain_rate += 0.5 / 60.0 // Hivemind bonus: +0.5 per minute
 
 	// Valhalla boost: +99.9 biomass per minute
 	if(is_valhalla)
-		biomass_gain += (99.9 / 60.0) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD
+		biomass_gain_rate += 99.9 / 60.0
 
-	// Only accumulate if we have some biomass gain source
-	if(biomass_gain <= 0)
-		return
+	// No passive gain if biomass is already above 50
+	if(biomass > 50)
+		biomass_gain_rate = 0.0
 
-	// Check for strength trait bonus (1.5x if strength is present)
-	if(HAS_TRAIT(src, TRAIT_SUPER_STRONG))
-		biomass_gain *= 1.5
-
-	// Cap biomass at 50 (same as max_biomass in mutation menu)
-	biomass = min(biomass + biomass_gain, 50)
-
-	// Update HUD if we have a client
-	if(client)
-		hud_set_biomass()
+	return biomass_gain_rate
 
 /mob/living/carbon/xenomorph/can_receive_aura(aura_type, atom/source, datum/aura_bearer/bearer)
 	. = ..()
