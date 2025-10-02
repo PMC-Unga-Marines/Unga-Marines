@@ -8,7 +8,7 @@
 	ears = /obj/item/radio/headset/distress/som
 	w_uniform = /obj/item/clothing/under/som/webbing
 	shoes = /obj/item/clothing/shoes/marine/som/knife
-	wear_suit = /obj/item/clothing/suit/modular/som
+	wear_suit = /obj/item/clothing/suit/modular/som/shield
 	gloves = /obj/item/clothing/gloves/marine/som
 	mask = /obj/item/clothing/mask/gas
 	head = /obj/item/clothing/head/modular/som
@@ -16,7 +16,7 @@
 	l_pocket = /obj/item/storage/pouch/grenade/som/ert
 	back = /obj/item/storage/backpack/lightpack/som
 
-	r_pocket_contents = list(
+	head_contents = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 1,
 	)
@@ -41,9 +41,6 @@
 		/obj/item/ammo_magazine/rifle/som = 2,
 		/obj/item/storage/box/m94 = 1,
 	)
-	belt_contents = list(
-		/obj/item/ammo_magazine/rifle/som = 6,
-	)
 	webbing_contents = list(
 		/obj/item/ammo_magazine/handful/micro_grenade = 2,
 		/obj/item/ammo_magazine/handful/micro_grenade/dragonbreath = 1,
@@ -62,9 +59,6 @@
 		/obj/item/tool/crowbar/red = 1,
 		/obj/item/explosive/grenade/som = 5,
 		/obj/item/storage/box/m94 = 1,
-	)
-	belt_contents = list(
-		/obj/item/ammo_magazine/smg/som = 6,
 	)
 	webbing_contents = list(
 		/obj/item/explosive/grenade/som = 2,
@@ -199,7 +193,7 @@
 	ears = /obj/item/radio/headset/distress/som
 	w_uniform = /obj/item/clothing/under/som/veteran/webbing
 	shoes = /obj/item/clothing/shoes/marine/som/knife
-	wear_suit = /obj/item/clothing/suit/modular/som/heavy
+	wear_suit = /obj/item/clothing/suit/modular/som/heavy/lorica
 	gloves = /obj/item/clothing/gloves/marine/som/veteran
 	mask = /obj/item/clothing/mask/gas
 	head = /obj/item/clothing/head/modular/som/veteran
@@ -354,10 +348,6 @@
 		/obj/item/storage/box/mre/som = 1,
 		/obj/item/tool/crowbar/red = 1,
 		/obj/item/ammo_magazine/pistol/som/extended = 2,
-	)
-	suit_contents = list(
-		/obj/item/tool/extinguisher = 1,
-		/obj/item/explosive/grenade/som = 1,
 	)
 
 /datum/outfit/job/som/ert/veteran/shotgunner

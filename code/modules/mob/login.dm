@@ -1,6 +1,8 @@
 /mob/Login()
 	if(!client) //Yes, this can happen. Thanks BYOND.
 		return
+	canon_client = client
+
 	ip_address = client.address
 	computer_id = client.computer_id
 	GLOB.player_list |= src
@@ -36,8 +38,6 @@
 		update_client_color_matrices(time = 0) //This mob has client color matrices set, apply them instantly on login.
 	else
 		update_client_color_matrices(time = 1.5 SECONDS) //Otherwise, fade any matrices from a previous mob.
-
-	canon_client = client
 	clear_important_client_contents(client)
 	enable_client_mobs_in_contents(client)
 

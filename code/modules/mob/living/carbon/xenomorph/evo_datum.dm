@@ -59,7 +59,7 @@
 /datum/evolution_panel/ui_data(mob/living/carbon/xenomorph/xeno)
 	. = list()
 
-	.["can_evolve"] = !xeno.is_ventcrawling && !xeno.incapacitated(TRUE) && xeno.health >= xeno.maxHealth && xeno.plasma_stored >= (xeno.xeno_caste.plasma_max * xeno.xeno_caste.plasma_regen_limit)
+	.["can_evolve"] = !HAS_TRAIT(xeno, TRAIT_MOVE_VENTCRAWLING) && !xeno.incapacitated(TRUE) && xeno.health >= xeno.maxHealth && xeno.plasma_stored >= (xeno.xeno_caste.plasma_max * xeno.xeno_caste.plasma_regen_limit)
 
 	.["evolution"] = list(
 		"current" = xeno.evolution_stored,

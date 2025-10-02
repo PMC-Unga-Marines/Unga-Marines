@@ -19,10 +19,6 @@
 		return
 	updateUsrDialog()
 
-/obj/machinery/computer/sleep_console/ex_act(severity)
-	if(prob(severity * 0.3))
-		qdel(src)
-
 ///Set the connected var
 /obj/machinery/computer/sleep_console/proc/set_connected(obj/future_connected)
 	if(connected)
@@ -119,6 +115,7 @@
 
 /obj/machinery/computer/sleep_console/pred
 	icon = 'icons/obj/machines/yautja_machines.dmi'
+
 /////////////////////////////////////////
 // THE SLEEPER ITSELF
 /////////////////////////////////////////
@@ -264,7 +261,7 @@
 		return
 	if(!occupant)
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
+	. += emissive_appearance(icon, "[icon_state]_emissive", src, alpha = src.alpha)
 	. += mutable_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 
 /obj/machinery/sleeper/attackby(obj/item/I, mob/user, params)

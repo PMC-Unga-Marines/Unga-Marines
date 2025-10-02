@@ -4,7 +4,6 @@
 	gender = PLURAL
 	density = FALSE
 	anchored = TRUE
-	layer = TURF_LAYER
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "shards"
 
@@ -31,7 +30,6 @@
 	gender = PLURAL
 	density = FALSE
 	anchored = TRUE
-	layer = TURF_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "dirt"
 	mouse_opacity = 0
@@ -42,7 +40,6 @@
 	gender = PLURAL
 	density = FALSE
 	anchored = TRUE
-	layer = TURF_LAYER
 	icon = 'icons/obj/items/shards.dmi'
 	icon_state = "tiny"
 	mouse_opacity = 0
@@ -59,7 +56,6 @@
 	gender = PLURAL
 	density = FALSE
 	anchored = TRUE
-	layer = TURF_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "flour"
 
@@ -69,7 +65,6 @@
 	gender = PLURAL
 	density = FALSE
 	anchored = TRUE
-	layer = TURF_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "greenglow"
 
@@ -107,7 +102,6 @@
 	gender = PLURAL
 	density = FALSE
 	anchored = TRUE
-	layer = TURF_LAYER
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "vomit_1"
 	random_icon_states = list("vomit_1", "vomit_2", "vomit_3", "vomit_4")
@@ -117,7 +111,6 @@
 	desc = "It's red."
 	density = FALSE
 	anchored = TRUE
-	layer = TURF_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "tomato_floor2"
 	random_icon_states = list("tomato_floor1", "tomato_floor2", "tomato_floor3")
@@ -127,7 +120,6 @@
 	desc = "Seems like this one won't hatch."
 	density = FALSE
 	anchored = TRUE
-	layer = TURF_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "smashed_egg1"
 	random_icon_states = list("smashed_egg1", "smashed_egg2", "smashed_egg3")
@@ -137,6 +129,5 @@
 	desc = "It's pie cream from a cream pie."
 	density = FALSE
 	anchored = TRUE
-	layer = TURF_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "smashed_pie"

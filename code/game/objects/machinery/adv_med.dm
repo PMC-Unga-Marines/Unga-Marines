@@ -42,7 +42,7 @@
 		return
 	if(!occupant)
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
+	. += emissive_appearance(icon, "[icon_state]_emissive", src, alpha = src.alpha)
 	. += mutable_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 
 /obj/machinery/bodyscanner/relaymove(mob/user)
@@ -187,10 +187,6 @@
 	. = ..()
 	set_connected(locate(/obj/machinery/bodyscanner, get_step(src, REVERSE_DIR(dir))))
 
-/obj/machinery/computer/body_scanconsole/ex_act(severity)
-	if(prob(severity * 0.3))
-		qdel(src)
-
 /obj/machinery/computer/body_scanconsole/can_interact(mob/user)
 	. = ..()
 	if(!.)
@@ -254,3 +250,4 @@
 	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "sleeperconsole"
 	base_icon_state = "sleeperconsole"
+	screen_overlay = "sleeperconsole_emissive"

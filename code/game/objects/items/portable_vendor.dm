@@ -187,10 +187,6 @@
 	if(prob(100 - (severity * 20)))
 		malfunction()
 
-/obj/item/portable_vendor/ex_act(severity)
-	if(prob(severity * 0.25))
-		qdel(src)
-
 /obj/item/portable_vendor/corporate
 	name = "\improper Nanotrasen Automated Storage Briefcase"
 	desc = "A suitcase-sized automated storage and retrieval system. Designed to efficiently store and selectively dispense small items. This one has the Nanotrasen logo stamped on its side."
