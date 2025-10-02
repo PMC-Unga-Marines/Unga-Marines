@@ -1,10 +1,10 @@
-/////////////////////////////// Placement Actions
-
-/datum/action/innate/remote_fob //Parent stuff
-	action_icon = 'icons/mob/actions.dmi'
-	var/mob/living/builder //the mob using the action
-	var/mob/camera/aiEye/remote/fobdrone //the drone belonging to the computer
-	var/obj/machinery/computer/camera_advanced/remote_fob/console //the computer itself
+/datum/action/innate/remote_fob
+	/// The mob using the action
+	var/mob/living/builder
+	/// The drone belonging to the computer
+	var/mob/camera/aiEye/remote/fobdrone
+	/// The computer itself
+	var/obj/machinery/computer/camera_advanced/remote_fob/console
 
 /datum/action/innate/remote_fob/Activate()
 	if(!target)
@@ -24,13 +24,11 @@
 	var/turf/build_area = get_area(build_target)
 
 	if(build_area.density)
-
 		fobdrone.balloon_alert(owner, "No space to build anything here.")
 		return FALSE
 	if(fobdrone.do_actions)
 		fobdrone.balloon_alert(owner, "You are already building something.")
 		return FALSE
-
 	return TRUE
 
 /datum/action/innate/camera_off/remote_fob
@@ -223,7 +221,7 @@
 
 /datum/action/innate/remote_fob/eject_metal_action
 	name = "Eject All Metal"
-	action_icon_state = "fobpc-eject_m"
+	action_icon_state = "eject_metal"
 
 /datum/action/innate/remote_fob/eject_metal_action/Activate()
 	. = ..()
@@ -235,10 +233,9 @@
 	console.eject_mat(EJECT_METAL)
 	fobdrone.balloon_alert(owner, "Metal sheets ejected")
 
-
 /datum/action/innate/remote_fob/eject_plasteel_action
 	name = "Eject All Plasteel"
-	action_icon_state = "fobpc-eject_p"
+	action_icon_state = "eject_plasteel"
 
 /datum/action/innate/remote_fob/eject_plasteel_action/Activate()
 	. = ..()

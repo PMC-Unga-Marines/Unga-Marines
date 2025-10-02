@@ -250,3 +250,4 @@
 	icon = 'icons/obj/machines/yautja_machines.dmi'
 	icon_state = "sleeperconsole"
 	base_icon_state = "sleeperconsole"
+	screen_overlay = "sleeperconsole_emissive"

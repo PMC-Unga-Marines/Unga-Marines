@@ -363,7 +363,7 @@
 	},
 /area/slumbridge/inside/prison/outerringsouth)
 "arg" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/indestructible,
 /area/slumbridge/caves/rock)
 "arq" = (
@@ -959,12 +959,12 @@
 /turf/open/floor/tile/dark,
 /area/slumbridge/inside/zeta/south)
 "aPm" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/mainship/gray,
 /area/slumbridge/inside/houses/dorms)
 "aPt" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/slumbridge/caves/rock)
 "aPv" = (
@@ -976,7 +976,7 @@
 "aPB" = (
 /obj/structure/closet/cabinet,
 /obj/effect/spawner/random/misc/plushie/fiftyfifty,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/wood,
 /area/slumbridge/inside/houses/dorms)
 "aPL" = (
@@ -1107,7 +1107,7 @@
 /obj/structure/platform/rockcliff{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/lavaland/basalt/dirt{
 	dir = 8
 	},
@@ -1268,7 +1268,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/brown{
 	dir = 4
 	},
@@ -2871,7 +2871,7 @@
 	},
 /area/slumbridge/landingzonetwo)
 "cfj" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/gm/dense,
 /area/slumbridge/caves/rock)
 "cfn" = (
@@ -3090,7 +3090,7 @@
 /area/slumbridge/outside/northwest/nearlz)
 "cmB" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/mono,
 /area/slumbridge/inside/houses/recreational)
 "cmY" = (
@@ -3113,7 +3113,7 @@
 "cni" = (
 /obj/structure/bed/fancy,
 /obj/effect/spawner/random/misc/bedsheet,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/wood,
 /area/slumbridge/inside/houses/dorms)
 "cnl" = (
@@ -3679,7 +3679,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/slumbridge/outside/northeast/bridges)
 "cJM" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/bigred,
 /area/slumbridge/caves/rock)
 "cJY" = (
@@ -3890,7 +3890,7 @@
 /turf/open/floor/tile/bar,
 /area/slumbridge/inside/medical/foyer)
 "cSs" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/slumbridge/caves/northeastcaves)
 "cSH" = (
@@ -4463,7 +4463,7 @@
 /area/slumbridge/inside/medical/foyer)
 "dqo" = (
 /obj/structure/lattice,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/slumbridge/outside/northeast)
 "dqB" = (
@@ -4581,7 +4581,7 @@
 /turf/open/floor/tile/dark,
 /area/slumbridge/inside/colony/oreprocess)
 "dxl" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/mainship/silver{
 	dir = 4
 	},
@@ -4601,7 +4601,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/colony/construction)
 "dxX" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/slumbridge/outside/northwest)
 "dyi" = (
@@ -4797,7 +4797,7 @@
 /area/slumbridge/outside/northwest/nearlz)
 "dEV" = (
 /obj/structure/barricade/snow,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/slumbridge/outside/southwest)
 "dFf" = (
@@ -5799,7 +5799,7 @@
 /area/slumbridge/inside/medical/southern)
 "etZ" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/brown/corner{
 	dir = 4
 	},
@@ -6171,7 +6171,7 @@
 /turf/open/floor/prison/darkbrown/full,
 /area/slumbridge/inside/houses/nwcargo)
 "eMn" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/lavaland/basalt/glowing,
 /area/slumbridge/outside/northwest)
 "eMW" = (
@@ -6604,7 +6604,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/brown{
 	dir = 1
 	},
@@ -6706,7 +6706,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/pmcdome/weaponvault)
 "fkd" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/slumbridge/caves/northeastcaves)
@@ -6716,7 +6716,7 @@
 /area/slumbridge/inside/engi/central)
 "fla" = (
 /obj/structure/desertdam/decals/road,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/slumbridge/outside/southwest)
 "flk" = (
@@ -7915,7 +7915,7 @@
 /area/slumbridge/outside/southwest)
 "gea" = (
 /obj/structure/table,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/bar,
 /area/slumbridge/inside/houses/recreational)
 "ger" = (
@@ -8240,7 +8240,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/slumbridge/inside/colony/southerndome)
 "gpx" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/slumbridge/outside/southwest)
 "gpK" = (
@@ -8258,7 +8258,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/houses/dorms)
 "gpX" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/ground/grass/weedable/patch,
 /area/slumbridge/outside/northeast)
 "gpZ" = (
@@ -8993,8 +8993,8 @@
 /turf/open/floor/plating/mainship,
 /area/slumbridge/landingzoneone)
 "gTH" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/indestructible,
 /area/slumbridge/caves/rock)
 "gTS" = (
@@ -9145,7 +9145,7 @@
 	},
 /area/slumbridge/outside/northeast)
 "gYC" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer2{
 	dir = 6
 	},
@@ -9387,7 +9387,7 @@
 /turf/open/floor,
 /area/slumbridge/inside/hydrotreatment/mining)
 "hiF" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 8
 	},
@@ -9506,7 +9506,7 @@
 /turf/open/floor/tile/bar,
 /area/slumbridge/inside/medical/surgery)
 "hmM" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/slumbridge/caves/southeastcaves)
 "hno" = (
@@ -9808,7 +9808,7 @@
 /turf/open/floor/tile/dark,
 /area/slumbridge/inside/zeta/south)
 "hxh" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/concrete,
 /area/slumbridge/outside/northeast)
 "hxr" = (
@@ -10294,7 +10294,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/bar,
 /area/slumbridge/inside/houses/recreational)
 "hNk" = (
@@ -10320,7 +10320,7 @@
 /turf/open/floor/tile/barber,
 /area/slumbridge/inside/houses/surgery)
 "hOs" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/slumbridge/caves/southeastcaves)
 "hOw" = (
@@ -11109,7 +11109,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/sombase/east)
 "iof" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/slumbridge/caves/rock)
 "ioi" = (
@@ -11631,7 +11631,7 @@
 /area/slumbridge/caves/southeastcaves/garbledradio)
 "iGG" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/mainship/gray,
 /area/slumbridge/inside/houses/dorms)
 "iGK" = (
@@ -11691,7 +11691,7 @@
 	dir = 8
 	},
 /obj/effect/landmark/start/job/survivor,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/purple/whitepurple{
 	dir = 4
 	},
@@ -12562,7 +12562,7 @@
 "jsn" = (
 /obj/structure/desertdam/decals/road,
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/slumbridge/outside/southwest)
 "jso" = (
@@ -13037,7 +13037,7 @@
 	dir = 4
 	},
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/brown/corner{
 	dir = 4
 	},
@@ -13091,7 +13091,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/slumbridge/inside/sombase/west)
 "jLs" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/slumbridge/outside/southwest)
 "jLU" = (
@@ -13330,7 +13330,7 @@
 /area/slumbridge/outside/southwest)
 "jUF" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/slumbridge/caves/southeastcaves)
 "jUL" = (
@@ -13419,7 +13419,7 @@
 	},
 /area/slumbridge/outside/southwest)
 "jYQ" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_door{
 	dir = 4
 	},
@@ -14024,7 +14024,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/brown/corner{
 	dir = 1
 	},
@@ -14252,7 +14252,7 @@
 	dir = 4;
 	on = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/brown{
 	dir = 1
 	},
@@ -14739,7 +14739,7 @@
 "kVU" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/structure/cable,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/dark,
 /area/slumbridge/outside/southwest)
 "kWc" = (
@@ -16160,14 +16160,14 @@
 /turf/open/floor,
 /area/slumbridge/inside/engi/south)
 "lWB" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall,
 /area/slumbridge/inside/colony/oreprocess)
 "lXi" = (
 /turf/closed/mineral/smooth/snowrock,
 /area/slumbridge/caves/rock)
 "lXk" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/slumbridge/outside/southeast)
 "lXF" = (
@@ -16418,7 +16418,7 @@
 /turf/open/floor/asteroidfloor,
 /area/slumbridge/landingzoneone)
 "mgf" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/cult,
 /area/slumbridge/caves/northeastcaves)
 "mgr" = (
@@ -17252,7 +17252,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/bar,
 /area/slumbridge/inside/houses/recreational)
 "mMU" = (
@@ -17605,7 +17605,7 @@
 	},
 /area/slumbridge/outside/northwest/nearlz)
 "nad" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer2{
 	dir = 1
 	},
@@ -18515,14 +18515,14 @@
 /turf/open/floor/tile/green,
 /area/slumbridge/inside/houses/recreational)
 "nDi" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer2{
 	dir = 8
 	},
 /area/slumbridge/outside/southwest)
 "nDl" = (
 /obj/structure/window/framed/mainship/gray,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/slumbridge/inside/houses/dorms)
 "nDp" = (
@@ -18970,7 +18970,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/slumbridge/caves/mining)
 "nUL" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/ground/grass/weedable/patch,
 /area/slumbridge/outside/northeast)
 "nUU" = (
@@ -19722,7 +19722,7 @@
 	},
 /area/slumbridge/inside/engi/central)
 "ove" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/lavaland/basalt,
 /area/slumbridge/inside/prison/outside)
 "owi" = (
@@ -20027,7 +20027,7 @@
 /turf/open/floor/mainship/ai,
 /area/slumbridge/inside/houses/recreational)
 "oIk" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/slumbridge/outside/southwest)
 "oIJ" = (
@@ -20517,7 +20517,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/medical/southern)
 "pch" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer2{
 	dir = 10
 	},
@@ -20885,7 +20885,7 @@
 /area/slumbridge/caves/minedrock)
 "prb" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/lavaland/basalt,
 /area/slumbridge/outside/northwest)
 "prd" = (
@@ -21031,7 +21031,7 @@
 	},
 /area/slumbridge/inside/prison/outerringnorth)
 "puH" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/concrete/lines,
 /area/slumbridge/outside/northeast)
 "pvf" = (
@@ -21350,7 +21350,7 @@
 /turf/open/floor/tile/green/whitegreenfull,
 /area/slumbridge/inside/hydrotreatment)
 "pIV" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/slumbridge/caves/northeastcaves)
 "pJX" = (
@@ -22204,7 +22204,7 @@
 /turf/open/floor/tile/dark,
 /area/slumbridge/outside/southwest)
 "qmF" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/mainship/gray,
 /area/slumbridge/inside/houses/recreational)
 "qmG" = (
@@ -23390,7 +23390,7 @@
 	},
 /area/slumbridge/inside/prison/innerring)
 "rfE" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/snow,
 /area/slumbridge/outside/southwest)
 "rfK" = (
@@ -23525,7 +23525,7 @@
 /turf/open/floor/tile/white,
 /area/slumbridge/inside/pmcdome)
 "rkB" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/dark,
 /area/slumbridge/outside/southwest)
 "rkO" = (
@@ -23777,7 +23777,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/slumbridge/outside/northeast)
 "rtv" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/bigred/indestructible,
 /area/slumbridge/caves/rock)
 "rul" = (
@@ -23943,7 +23943,7 @@
 /turf/open/floor/mainship/plate,
 /area/slumbridge/inside/sombase/east)
 "rzf" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/lavaland/basalt,
 /area/slumbridge/outside/northwest)
 "rzy" = (
@@ -24016,7 +24016,7 @@
 /turf/open/floor/tile/white,
 /area/slumbridge/inside/pmcdome)
 "rCf" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/asteroidfloor,
 /area/slumbridge/outside/northwest)
 "rCj" = (
@@ -24387,7 +24387,7 @@
 /obj/machinery/status_display{
 	pixel_y = -1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/mainship/gray,
 /area/slumbridge/inside/houses/recreational)
 "rQi" = (
@@ -24701,7 +24701,7 @@
 "sbk" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/mono,
 /area/slumbridge/inside/houses/recreational)
 "sbr" = (
@@ -25255,7 +25255,7 @@
 /turf/closed/wall/r_wall,
 /area/slumbridge/inside/pmcdome/nukevault)
 "sxe" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/ground/grass/weedable,
 /area/slumbridge/outside/southeast)
 "sxF" = (
@@ -25395,7 +25395,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/slumbridge/outside/southwest)
 "sCD" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/tile/dark,
 /area/slumbridge/inside/zeta/south)
 "sCG" = (
@@ -25403,7 +25403,7 @@
 /turf/open/floor,
 /area/slumbridge/inside/engi/engineroom)
 "sDd" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/grass,
 /area/slumbridge/caves/mining)
 "sDj" = (
@@ -26552,7 +26552,7 @@
 /area/slumbridge/inside/prison/outside)
 "txo" = (
 /obj/structure/cable,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/slumbridge/outside/southwest)
 "txA" = (
@@ -27521,7 +27521,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/concrete,
 /area/slumbridge/outside/northeast)
 "ujh" = (
@@ -27600,7 +27600,7 @@
 /turf/open/floor/plating,
 /area/slumbridge/inside/engi/central)
 "ulM" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/slumbridge/outside/southwest)
 "ulT" = (
@@ -27795,7 +27795,7 @@
 /turf/open/floor/asteroidfloor,
 /area/slumbridge/outside/northwest)
 "uuH" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/brown{
 	dir = 1
 	},
@@ -28193,7 +28193,7 @@
 /turf/open/liquid/lava/autosmoothing/catwalk,
 /area/slumbridge/inside/prison/outerringnorth)
 "uLL" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/slumbridge/outside/northeast)
 "uMa" = (
@@ -29067,7 +29067,7 @@
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/food_or_drink/beer,
 /obj/effect/spawner/random/food_or_drink/beer,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/slumbridge/outside/northwest)
 "vsl" = (
@@ -29293,7 +29293,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/concrete,
 /area/slumbridge/outside/northeast)
 "vBm" = (
@@ -29693,7 +29693,7 @@
 /area/slumbridge/inside/medical/foyer)
 "vOI" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/weed_node,
 /turf/open/ground/grass/weedable/patch,
 /area/slumbridge/outside/northeast)
@@ -29734,7 +29734,7 @@
 /turf/open/floor/tile/green,
 /area/slumbridge/inside/medical/surgery)
 "vQx" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/concrete/lines{
 	dir = 1
 	},
@@ -30163,7 +30163,7 @@
 /area/slumbridge/inside/colony/bar)
 "wdA" = (
 /obj/structure/flora/ausbushes/reedbush,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/slumbridge/outside/northeast)
 "wdB" = (
@@ -30967,7 +30967,7 @@
 /area/slumbridge/outside/southeast)
 "wGS" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/slumbridge/outside/northwest)
 "wHj" = (
@@ -31436,7 +31436,7 @@
 /area/slumbridge/inside/sombase/hangar)
 "wXa" = (
 /obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave/darker,
 /area/slumbridge/caves/northeastcaves)
 "wXb" = (
@@ -31644,14 +31644,6 @@
 	},
 /turf/open/floor,
 /area/slumbridge/inside/engi/engineroom)
-"xfF" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/catwalk,
-/turf/open/floor/plating,
-/area/slumbridge/inside/engi/engine)
 "xfG" = (
 /obj/structure/table/reinforced,
 /obj/item/clothing/mask/rebreather{
@@ -31688,7 +31680,7 @@
 	},
 /area/slumbridge/inside/prison/innerring)
 "xgk" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/concrete/lines,
 /area/slumbridge/outside/northeast)
 "xgn" = (
@@ -51524,7 +51516,7 @@ acW
 mcJ
 vNM
 vNM
-xfF
+vNM
 iLp
 vNM
 vNM

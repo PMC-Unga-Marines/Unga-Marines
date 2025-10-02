@@ -24,7 +24,7 @@
 	},
 /area/lv624/ground/caves/east1/garbledradio)
 "aaT" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/west1)
 "abc" = (
@@ -60,11 +60,11 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle2)
 "adx" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1)
 "aef" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
 "aeh" = (
@@ -286,7 +286,7 @@
 "akj" = (
 /obj/effect/landmark/xeno_resin_door,
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/west1)
 "akm" = (
@@ -336,7 +336,7 @@
 /turf/open/floor,
 /area/lv624/ground/caves/central1/garbledradio)
 "alB" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/rock)
 "alD" = (
@@ -1250,7 +1250,7 @@
 /turf/open/floor/mech_bay_recharge_floor/asteroid,
 /area/lv624/ground/sand2)
 "aGm" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand2)
 "aGH" = (
@@ -1310,7 +1310,7 @@
 /turf/open/liquid/water/river/autosmooth,
 /area/lv624/ground/river2)
 "aHI" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
 "aId" = (
@@ -1788,7 +1788,7 @@
 	},
 /area/lv624/lazarus/engineering)
 "aTd" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand8)
 "aTl" = (
@@ -2024,7 +2024,7 @@
 /turf/open/floor,
 /area/lv624/ground/jungle7)
 "aZd" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1/garbledradio)
 "aZj" = (
@@ -2270,7 +2270,7 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple)
 "bfK" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand9)
 "bfR" = (
@@ -2937,7 +2937,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 2
 	},
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor,
 /area/lv624/ground/caves/central3/garbledradio)
 "bzL" = (
@@ -3349,7 +3349,7 @@
 /turf/closed/wall/r_wall/chigusa,
 /area/lv624/lazarus/sandtemple)
 "bUQ" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1/garbledradio)
 "bVh" = (
@@ -3615,7 +3615,7 @@
 	pixel_x = -28
 	},
 /obj/structure/flora/jungle/vines,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
 "cnD" = (
@@ -3708,7 +3708,7 @@
 	},
 /area/lv624/lazarus/security)
 "ctp" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
 "ctO" = (
@@ -3745,7 +3745,7 @@
 "cwo" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1/garbledradio)
 "cwq" = (
@@ -4150,7 +4150,7 @@
 /turf/open/floor/tile/bar,
 /area/lv624/lazarus/canteen)
 "cTi" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/indestructible,
 /area/lv624/ground/caves/rock)
 "cTw" = (
@@ -4214,11 +4214,11 @@
 /area/lv624/ground/jungle5)
 "cUA" = (
 /obj/structure/flora/jungle/vines,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
 "cUD" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1)
 "cUE" = (
@@ -4888,7 +4888,7 @@
 /area/lv624/lazarus/main_hall)
 "dHa" = (
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central5/garbledradio)
 "dHc" = (
@@ -5475,7 +5475,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor,
 /area/lv624/ground/caves/central1/garbledradio)
 "elZ" = (
@@ -5617,7 +5617,7 @@
 /turf/open/ground/grass/grass2,
 /area/lv624/lazarus/overgrown)
 "evP" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/quartstorage/outdoors)
 "evV" = (
@@ -6704,7 +6704,7 @@
 /turf/open/floor/plating/platebotc,
 /area/lv624/lazarus/quartstorage/outdoors)
 "fLi" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand4)
 "fLY" = (
@@ -6858,7 +6858,7 @@
 	},
 /area/lv624/ground/caves/east1/garbledradio)
 "fXa" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central5/garbledradio)
 "fXk" = (
@@ -7246,7 +7246,7 @@
 /area/lv624/ground/jungle8)
 "gmf" = (
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central4/garbledradio)
 "gmv" = (
@@ -7313,7 +7313,7 @@
 /area/lv624/ground/jungle9)
 "gsr" = (
 /obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1/garbledradio)
 "gsx" = (
@@ -7663,7 +7663,7 @@
 	},
 /area/lv624/lazarus/tablefort)
 "gQt" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand4)
@@ -7890,7 +7890,7 @@
 /turf/open/ground/grass,
 /area/lv624/lazarus/overgrown)
 "hdX" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1/garbledradio)
@@ -7919,7 +7919,7 @@
 /turf/closed/wall,
 /area/lv624/lazarus/quartstorage)
 "heN" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central4/garbledradio)
 "heP" = (
@@ -8158,7 +8158,7 @@
 /area/lv624/lazarus/robotics)
 "htq" = (
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1/garbledradio)
 "htz" = (
@@ -8401,7 +8401,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage)
 "hHJ" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand4)
 "hHK" = (
@@ -8538,7 +8538,7 @@
 /area/lv624/lazarus/spaceport)
 "hQb" = (
 /obj/effect/turf_decal/sandytile,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple/garbledradio)
 "hQq" = (
@@ -8680,7 +8680,7 @@
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/jungle9)
 "hXH" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/west1)
 "hXM" = (
@@ -9083,7 +9083,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/ne)
 "ivV" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/cult,
 /area/lv624/ground/caves/rock)
 "iwP" = (
@@ -9375,7 +9375,7 @@
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/jungle9)
 "iLn" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central3/garbledradio)
 "iLu" = (
@@ -9819,7 +9819,7 @@
 /turf/open/floor/plating/platebotc,
 /area/lv624/lazarus/quartstorage/outdoors)
 "jlH" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central3/garbledradio)
@@ -10626,7 +10626,7 @@
 /obj/structure/flora/jungle/vines/heavy{
 	pixel_x = -28
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
 "kcH" = (
@@ -10672,7 +10672,7 @@
 /area/lv624/lazarus/sleep_male)
 "kfz" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1)
 "kfC" = (
@@ -10680,7 +10680,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle7)
 "kfX" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central5/garbledradio)
 "kfY" = (
@@ -11378,7 +11378,7 @@
 /turf/closed/wall/r_wall,
 /area/lv624/lazarus/comms)
 "kSK" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1/garbledradio)
 "kSN" = (
@@ -11427,7 +11427,7 @@
 /turf/closed/gm/dense,
 /area/lv624/ground/caves/rock)
 "kUD" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/jungle3)
 "kUY" = (
@@ -11698,7 +11698,7 @@
 /turf/open/floor/cult/clock,
 /area/lv624/lazarus/bar)
 "llB" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central5/garbledradio)
@@ -12536,7 +12536,7 @@
 	},
 /area/lv624/lazarus/main_hall)
 "miC" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "miY" = (
@@ -12635,7 +12635,7 @@
 /area/lv624/lazarus/research)
 "mlO" = (
 /obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1/garbledradio)
 "mlR" = (
@@ -12714,7 +12714,7 @@
 "mpL" = (
 /obj/effect/decal/remains/xeno,
 /obj/effect/turf_decal/sandytile,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple/garbledradio)
 "mqe" = (
@@ -12773,7 +12773,7 @@
 /area/lv624/ground/caves/central3/garbledradio)
 "msD" = (
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1/garbledradio)
 "msI" = (
@@ -12924,7 +12924,7 @@
 /area/lv624/lazarus/hydroponics)
 "mDp" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1/garbledradio)
 "mDv" = (
@@ -13602,7 +13602,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/jungle6)
 "nqt" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth/indestructible,
 /area/lv624/ground/caves/rock)
 "nqA" = (
@@ -13689,7 +13689,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/jungle4)
 "nwU" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/rock)
 "nxk" = (
@@ -14457,7 +14457,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
 "ovK" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
 "ovM" = (
@@ -14520,7 +14520,7 @@
 /area/lv624/ground/river1)
 "oyU" = (
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand4)
 "ozc" = (
@@ -16582,7 +16582,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
 "qVH" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central5/garbledradio)
 "qVK" = (
@@ -16616,7 +16616,7 @@
 /area/lv624/lazarus/tablefort)
 "qWu" = (
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/west1)
 "qWH" = (
@@ -18371,7 +18371,7 @@
 /turf/open/floor/engine/cult,
 /area/lv624/lazarus/bar)
 "sHN" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating,
 /area/lv624/ground/caves/central3/garbledradio)
 "sIc" = (
@@ -18821,7 +18821,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "tgT" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/gm/dense,
 /area/lv624/ground/caves/rock)
 "thg" = (
@@ -19754,7 +19754,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/tablefort)
 "ugE" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/sandtemple/garbledradio)
 "ugP" = (
@@ -20337,7 +20337,7 @@
 	},
 /area/lv624/lazarus/hydroponics)
 "uQd" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/cult,
 /area/lv624/ground/caves/rock)
 "uQt" = (
@@ -20778,7 +20778,7 @@
 /area/lv624/lazarus/internal_affairs)
 "vpj" = (
 /obj/structure/flora/jungle/vines/heavy,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
 "vpl" = (
@@ -20813,7 +20813,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/sw)
 "vqf" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle10)
 "vqx" = (
@@ -21218,7 +21218,7 @@
 /turf/closed/gm/dense,
 /area/lv624/ground/caves/rock)
 "vID" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1/garbledradio)
 "vJB" = (
@@ -21464,7 +21464,7 @@
 /turf/open/floor/tile/bar,
 /area/lv624/lazarus/canteen)
 "vWg" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central3/garbledradio)
@@ -21940,7 +21940,7 @@
 	pixel_x = -28
 	},
 /obj/structure/flora/jungle/vines/heavy,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
 "wwb" = (
@@ -23238,7 +23238,7 @@
 /turf/open/floor/grimy,
 /area/lv624/lazarus/bar)
 "xGi" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand7)
 "xGM" = (

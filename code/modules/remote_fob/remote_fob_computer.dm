@@ -2,7 +2,9 @@
 	name = "FOB Construction Drone Control"
 	desc = "A computer console equipped with camera screen and controls for a planetside deployed construction drone. Materials or equipment vouchers can be added simply by inserting them into the computer."
 	icon = 'icons/obj/machines/fob.dmi'
-	icon_state = "fobpc"
+	icon_state = "fob"
+	screen_overlay = "fob_emissive"
+	broken_icon = "fob_broken"
 	interaction_flags = INTERACT_MACHINE_DEFAULT
 	req_one_access = list(ACCESS_MARINE_REMOTEBUILD, ACCESS_MARINE_CE, ACCESS_MARINE_ENGINEERING, ACCESS_MARINE_LEADER)
 	resistance_flags = RESIST_ALL
@@ -31,7 +33,6 @@
 	toggle_wiring = new()
 	eject_metal_action = new()
 	eject_plasteel_action = new()
-
 	RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_TRANSIT, PROC_REF(disable_drone_creation))
 
 /obj/machinery/computer/camera_advanced/remote_fob/proc/disable_drone_creation()
@@ -55,13 +56,13 @@
 /obj/machinery/computer/camera_advanced/remote_fob/examine(mob/user)
 	. = ..()
 	var/list/details = list()
-	details +="It has [metal_remaining] sheets of metal remaining.</br>"
-	details +="It has [plasteel_remaining] sheets of plasteel remaining.</br>"
+	details += span_notice("It has [metal_remaining] sheets of metal remaining.</br>")
+	details += span_notice("It has [plasteel_remaining] sheets of plasteel remaining.</br>")
 	. += details.Join(" ")
 
 /obj/machinery/computer/camera_advanced/remote_fob/give_eye_control(mob/user)
 	. = ..()
-	icon_state = "fobpc-transfer"
+	screen_overlay = "fob_transfer_emissive"
 	user.lighting_cutoff = LIGHTING_CUTOFF_HIGH
 	user.update_sight()
 	eyeobj.name = "Remote Construction Drone"
@@ -70,7 +71,7 @@
 
 ///Eject all of the selected mat from the fob drone console
 /obj/machinery/computer/camera_advanced/remote_fob/proc/eject_mat(mattype)
-	flick("fobpc-eject", src)
+	flick("fob_eject", src)
 	var/turf/consolespot = get_turf(loc)
 	switch(mattype)
 		if(EJECT_METAL)
@@ -124,14 +125,14 @@
 			metal_remaining += useamount
 			attacking_stack.use(useamount)
 			to_chat(user, span_notice("Inserted [useamount] metal sheets."))
-			flick("fobpc-insert", src)
+			flick("fob_insert", src)
 			return
 		if(istype(attacking_stack, /obj/item/stack/sheet/plasteel))
 			var/useamount = attacking_stack.amount
 			plasteel_remaining += useamount
 			attacking_stack.use(useamount)
 			to_chat(user, span_notice("Inserted [useamount] plasteel sheets."))
-			flick("fobpc-insert", src)
+			flick("fob_insert", src)
 			return
 	return ..()
 
@@ -181,7 +182,7 @@
 	eyeobj.invisibility = 0
 
 /obj/machinery/computer/camera_advanced/remote_fob/remove_eye_control(mob/living/user)
-	icon_state = "fobpc"
+	screen_overlay = "fob_emissive"
 	eyeobj.invisibility = INVISIBILITY_ABSTRACT
 	eyeobj.eye_initialized = FALSE
 	UnregisterSignal(user, COMSIG_MOB_CLICKON)

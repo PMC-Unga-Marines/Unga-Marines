@@ -286,6 +286,8 @@
 	name = "VSD Specialist"
 	jobtype = /datum/job/vsd/spec
 
+	head = /obj/item/clothing/head/helmet/marine/vsd/upp
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor/upp
 	glasses = /obj/item/clothing/glasses/night/vsd
 	w_uniform = /obj/item/clothing/under/vsd/webbing
 	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
@@ -443,8 +445,6 @@
 
 /datum/outfit/job/vsd/spec/uslspec_one
 	w_uniform = /obj/item/clothing/under/vsd/upp/webbing
-	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor/upp
-	head = /obj/item/clothing/head/helmet/marine/vsd/upp
 	mask = /obj/item/clothing/mask/gas/vsd
 	suit_store = /obj/item/weapon/gun/rifle/type71/flamer
 	l_pocket = /obj/item/storage/pouch/general/large
@@ -461,7 +461,7 @@
 		/obj/item/storage/box/m94 = 1,
 		/obj/item/tool/crowbar/red = 1,
 		/obj/item/explosive/grenade/vsd = 1,
-		/obj/item/explosive/plastique = 2,
+		/obj/item/explosive/plastique = 1,
 	)
 	l_pocket_contents = list(
 		/obj/item/ammo_magazine/flamer_tank/mini = 3,
@@ -473,7 +473,6 @@
 
 /datum/outfit/job/vsd/spec/uslspec_two
 	w_uniform = /obj/item/clothing/under/vsd/upp/webbing
-	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/marmor/upp
 	head = /obj/item/clothing/head/uppcap/beret
 	glasses = /obj/item/clothing/glasses/sunglasses/fake
 	mask = /obj/item/clothing/mask/gas/vsd
@@ -492,11 +491,14 @@
 		/obj/item/ammo_magazine/pistol/vsd_pistol = 6,
 		/obj/item/weapon/gun/pistol/vsd_pistol/standard = 1,
 	)
+	head_contents = null
 
 /datum/outfit/job/vsd/leader
 	name = "VSD Squad Leader"
 	jobtype = /datum/job/vsd/leader
 
+	head = /obj/item/clothing/head/helmet/marine/vsd
+	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
 	w_uniform = /obj/item/clothing/under/vsd/webbing
 	r_pocket = /obj/item/storage/pouch/medical_injectors/firstaid
 	l_pocket = /obj/item/storage/pouch/magazine
@@ -547,8 +549,6 @@
 	head_contents = null
 
 /datum/outfit/job/vsd/leader/two
-	head = /obj/item/clothing/head/helmet/marine/vsd
-	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor
 	mask = /obj/item/clothing/mask/gas/vsd
 	glasses = /obj/item/clothing/glasses/night/vsd
 	suit_store = /obj/item/weapon/gun/rifle/vsd_lmg/juggernaut
@@ -572,7 +572,6 @@
 
 /datum/outfit/job/vsd/leader/upp_three
 	head = /obj/item/clothing/head/uppcap/beret
-	wear_suit = /obj/item/clothing/suit/storage/marine/vsd/harmor/upp
 	mask = /obj/item/clothing/mask/gas/vsd
 	glasses = /obj/item/clothing/glasses/night/vsd
 	suit_store = /obj/item/weapon/gun/rifle/vsd_lmg/juggernaut
@@ -593,3 +592,4 @@
 	l_pocket_contents = list(
 		/obj/item/ammo_magazine/rifle/vsd_mg = 2,
 	)
+	head_contents = null
