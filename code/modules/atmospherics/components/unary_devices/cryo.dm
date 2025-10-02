@@ -443,4 +443,7 @@
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, 1)
 	go_out()
 
+/obj/machinery/atmospherics/components/unary/cryo_cell/set_pipenet(datum/pipeline/reference, obj/machinery/atmospherics/A)
+	return
+
 #undef CRYOMOBS
