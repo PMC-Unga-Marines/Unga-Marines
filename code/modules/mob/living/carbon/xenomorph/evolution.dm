@@ -168,11 +168,6 @@
 	new_xeno.transfer_to_hive(hivenumber)
 	new_xeno.life_kills_total = life_kills_total
 	new_xeno.biomass = biomass
-	if(new_xeno.hunter_data)
-		new_xeno.hunter_data.clean_data()
-		qdel(new_xeno.hunter_data)
-		new_xeno.hunter_data = hunter_data
-		hunter_data = null
 	new_xeno.upgrades_holder = upgrades_holder
 	for(var/datum/status_effect/S AS in new_xeno.upgrades_holder)
 		new_xeno.apply_status_effect(S)
@@ -190,8 +185,8 @@
 		H.add_hud_to(new_xeno) //keep our mobhud choice
 		ENABLE_BITFIELD(new_xeno.xeno_flags, XENO_MOBHUD)
 
-	if(lighting_alpha != new_xeno.lighting_alpha)
-		new_xeno.toggle_nightvision(lighting_alpha)
+	if(lighting_cutoff != new_xeno.lighting_cutoff)
+		new_xeno.toggle_nightvision(lighting_cutoff)
 
 	if(keep_evolution_stored) // don't screw yourself over for using the feature
 		new_xeno.evolution_stored = evolution_stored
@@ -245,7 +240,7 @@
 		balloon_alert(src, "We're busy!")
 		return FALSE
 
-	if(is_ventcrawling)
+	if(HAS_TRAIT(src, TRAIT_MOVE_VENTCRAWLING))
 		balloon_alert(src, "This place is too constraining to evolve")
 		return FALSE
 

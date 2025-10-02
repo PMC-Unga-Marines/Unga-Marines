@@ -10,16 +10,23 @@
 	volume = 45
 	possible_transfer_amounts = list(1, 3, 5, 10, 15, 20, 30, 45)
 	list_reagents = list(/datum/reagent/consumable/sodiumchloride = 45)
+	///For keeping the initial name of the autoinjector, and not setting back to general autoinjector
+	var/base_name
+
+/obj/item/reagent_containers/hypospray/autoinjector/Initialize(mapload)
+	base_icon_state = icon_state
+	base_name = name
+	return ..() // some incomprehensible power of shitcode makes penals first update icon_state and only then set base_icon_state, works fine for simple autoinjectors tho
 
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon_state()
 	. = ..()
 	if(!(reagents?.total_volume) && is_drawable())
-		icon_state += "X"
-		name = "expended [name]" //So people can see what have been expended since we have smexy new sprites people aren't used too...
+		icon_state = "[base_icon_state]X"
+		name = "expended [base_name]"
 		DISABLE_BITFIELD(reagents.reagent_flags, DRAWABLE)
 	else if(reagents?.total_volume && !CHECK_BITFIELD(reagents.reagent_flags, DRAWABLE)) // refilling it somehow
-		icon_state = initial(icon_state)
-		name = initial(name)
+		icon_state = base_icon_state
+		name = base_name
 		ENABLE_BITFIELD(reagents.reagent_flags, DRAWABLE)
 
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)

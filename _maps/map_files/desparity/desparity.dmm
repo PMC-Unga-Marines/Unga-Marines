@@ -32,7 +32,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
 /area/lv624/ground/jungle10)
 "ah" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/indestructible,
 /area/lv624/ground/caves/rock)
 "ai" = (
@@ -131,7 +131,7 @@
 /area/lv624/lazarus/spaceport)
 "aS" = (
 /obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/central1)
 "aT" = (
@@ -261,7 +261,7 @@
 /area/lv624/ground/caves/central1)
 "bF" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
 "bG" = (
@@ -561,7 +561,7 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle7)
 "dn" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/ground/grass/weedable,
 /area/lv624/lazarus/overgrown)
 "do" = (
@@ -708,7 +708,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/spaceport)
 "dX" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
 "dY" = (
@@ -775,7 +775,7 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle10)
 "en" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "eq" = (
@@ -1083,7 +1083,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
 /area/lv624/ground/jungle5)
 "fH" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1)
 "fI" = (
@@ -2228,7 +2228,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
 /area/lv624/ground/jungle10)
 "lA" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "lB" = (
@@ -2727,7 +2727,7 @@
 "od" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "oe" = (
@@ -4312,7 +4312,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/engineering)
 "vP" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
 /area/lv624/ground/jungle9)
 "vR" = (
@@ -4627,7 +4627,7 @@
 "xH" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/medical/glass/free_access,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/lv624/lazarus/bar)
 "xI" = (
@@ -4841,7 +4841,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/research/caves)
 "yD" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central1)
 "yE" = (
@@ -5042,7 +5042,7 @@
 	},
 /area/lv624/lazarus/research/caves)
 "zx" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/gm/dense,
 /area/lv624/ground/caves/rock)
 "zy" = (
@@ -5374,7 +5374,7 @@
 /turf/closed/shuttle/dropship_regular/top_corner,
 /area/lv624/ground/jungle9)
 "Be" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/west1)
 "Bf" = (
@@ -5930,7 +5930,7 @@
 /area/lv624/ground/caves/rock)
 "DQ" = (
 /obj/structure/flora/jungle/vines,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "DR" = (
@@ -6062,7 +6062,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/research/caves)
 "Ew" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/rock)
 "Ex" = (
@@ -6112,7 +6112,7 @@
 /area/lv624/lazarus/chapel)
 "EL" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1)
 "EN" = (
@@ -6299,7 +6299,7 @@
 /area/lv624/lazarus/chapel)
 "FM" = (
 /obj/structure/flora/jungle/vines,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/gm/dense,
 /area/lv624/ground/caves/rock)
 "FO" = (
@@ -6401,7 +6401,7 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle9)
 "Go" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
 "Gp" = (
@@ -6749,7 +6749,7 @@
 /area/lv624/lazarus/captain)
 "Ib" = (
 /obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/west1)
 "Ic" = (
@@ -7190,7 +7190,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle5)
 "JV" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/wood,
 /area/lv624/lazarus/bar)
 "JX" = (
@@ -7481,7 +7481,7 @@
 	},
 /area/lv624/lazarus/sleep_male)
 "LE" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/west1)
 "LH" = (
@@ -7615,7 +7615,7 @@
 /turf/open/floor/tile/barber,
 /area/lv624/lazarus/canteen)
 "Mi" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle9)
 "Mj" = (
@@ -7658,7 +7658,7 @@
 /area/lv624/lazarus/bar)
 "Mr" = (
 /obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1)
 "Ms" = (
@@ -8682,7 +8682,7 @@
 /turf/open/floor/marking/bot,
 /area/lv624/lazarus/quartstorage/outdoors)
 "Rj" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1)
 "Rk" = (
@@ -8703,7 +8703,7 @@
 /area/lv624/ground/river3)
 "Rn" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1)
 "Ro" = (
@@ -8890,7 +8890,7 @@
 /obj/structure/flora/ausbushes/genericbush{
 	pixel_x = -5
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle9)
 "Sg" = (
@@ -9397,7 +9397,7 @@
 /turf/open/ground/grass/weedable,
 /area/lv624/ground/jungle10)
 "UE" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle10)
 "UF" = (
@@ -10038,7 +10038,7 @@
 /obj/structure/flora/ausbushes/fernybush{
 	pixel_x = -6
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable,
 /area/lv624/ground/jungle9)
 "XG" = (

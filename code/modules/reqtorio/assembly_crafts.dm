@@ -197,19 +197,19 @@ EXPLOSIVES
 /datum/assembly_craft/explosives/c4
 	name = "Plastic explosive"
 	input = list(/obj/item/stack/sheet/composite = 4, /obj/item/stack/gun_powder = 2) // 16 + 16 points
-	output = list(/obj/item/deployable_floodlight = 1) //30 points
+	output = list(/obj/item/explosive/plastique = 1) //30 points
 
 /datum/assembly_craft/explosives/detpack
 	name = "Detonation pack"
 	craft_time = 12 SECONDS
 	input = list(/obj/item/stack/sheet/composite = 4, /obj/item/stack/gun_powder = 3) // 16 + 24 points
-	output = list(/obj/item/deployable_floodlight = 1) //40 points
+	output = list(/obj/item/detpack = 1) //40 points
 
 /datum/assembly_craft/explosives/genghis
 	name = "EX-62 Genghis incendiary charge"
 	craft_time = 18 SECONDS
 	input = list(/obj/item/stack/sheet/composite = 4, /obj/item/stack/gun_powder = 6) // 16 + 48 points
-	output = list(/obj/item/deployable_floodlight = 1) //60 points
+	output = list(/obj/item/explosive/plastique/genghis_charge = 1) //60 points
 
 /*******************************************************************************
 WEAPONS

@@ -10,8 +10,8 @@
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
 	icon_state = "night"
 	worn_icon_state = "glasses"
-	darkness_view = 7
-	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
+	toggleable = TRUE
 
 /obj/item/clothing/glasses/night/tx8
 	name = "\improper BR-8 battle sight"
@@ -19,8 +19,8 @@
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
 	vision_flags = SEE_TURFS
-	darkness_view = 12
 	toggleable = TRUE
+	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/night/m42_night_goggles
 	name = "\improper M42 scout sight"
@@ -28,8 +28,8 @@
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
 	vision_flags = SEE_TURFS
-	darkness_view = 24
 	toggleable = TRUE
+	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/night/m42_night_goggles/upp
 	name = "\improper Type 9 elite goggles"
@@ -42,8 +42,7 @@
 	desc = "A thick, black coating over an alien's eyes, allowing them to see in the dark."
 	icon_state = "alien_lens"
 	worn_icon_state = "alien_lens"
-	darkness_view = 7
-	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_FULLBRIGHT
 	item_flags = DELONDROP
 
 /obj/item/clothing/glasses/night/sectoid/Initialize(mapload)
@@ -55,7 +54,6 @@
 	desc = "A headset and goggles system made to pair with any KTLD weapon, such as the SG type weapons. Has a low-res short range imager, allowing for view of terrain."
 	icon_state = "m56_goggles"
 	deactive_state = "m56_goggles_0"
-	darkness_view = 5
 	toggleable = TRUE
 	vision_flags = SEE_TURFS
 
@@ -65,7 +63,6 @@
 	icon_state = "m56sunglasses"
 	worn_icon_state = "m56sunglasses"
 	deactive_state = "deactivated_sunglasses"
-	darkness_view = 5
 	toggleable = TRUE
 	vision_flags = SEE_TURFS
 	prescription = TRUE
@@ -76,10 +73,10 @@
 	icon_state = "optgoggles"
 	worn_icon_state = "optgoggles"
 	deactive_state = "deactivated_mgoggles"
-	darkness_view = 0
 	toggleable = TRUE
 	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 0, ENERGY = 15, BOMB = 35, BIO = 10, FIRE = 30, ACID = 30)
 	goggles_layer = TRUE
+	lighting_cutoff = LIGHTING_CUTOFF_REAL_LOW
 
 /obj/item/clothing/glasses/night/optgoggles/prescription
 	name = "\improper Optical imager prescription ballistic goggles"
@@ -91,8 +88,8 @@
 	desc = "Uses image scanning to increase visibility of even the most dimly lit surroundings except total darkness"
 	icon_state = "securityhud"
 	deactive_state = "deactivated_sec" // there are differences in mob sprite
-	darkness_view = 0
 	toggleable = TRUE
+	lighting_cutoff = LIGHTING_CUTOFF_REAL_LOW
 
 /obj/item/clothing/glasses/night/imager_goggles/sunglasses
 	name = "\improper Optical imager sunglasses"
@@ -145,9 +142,8 @@
 	deactive_state = "night_vision_off"
 	worn_layer = COLLAR_LAYER	//The sprites are designed to render over helmets
 	worn_worn_icon_state_slots = list()
-	tint = COLOR_RED
-	darkness_view = 8
-	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
+	// Red with a tint of green
+	color_cutoffs = list(40, 15, 10)
 	vision_flags = SEE_TURFS
 	toggleable = TRUE
 	goggles_layer = TRUE
@@ -275,7 +271,6 @@
 	icon_state = "night_vision_mounted"
 	tint = COLOR_BLUE
 	vision_flags = NONE
-	darkness_view = 9	//The standalone version cannot see the edges
 	active_energy_cost = 2	//A little over 7 minutes of use
 	looping_sound_volume = 50
 
@@ -290,7 +285,6 @@
 	icon_state = "vsd_nvg"
 	worn_icon_state = "vsd_nvg"
 	deactive_state = "vsd_nvg_off"
-	darkness_view = 9
 	toggleable = TRUE
 	actions_types = list(/datum/action/item_action/toggle)
 	tint = COLOR_GREEN

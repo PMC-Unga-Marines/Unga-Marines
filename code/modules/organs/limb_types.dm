@@ -32,6 +32,17 @@
 	. = ..()
 	process_grasp(owner.l_hand, "left hand")
 
+/datum/limb/l_arm/drop_limb_object()
+	if(limb_status & LIMB_ROBOT)
+		return new /obj/item/limb/l_arm/robotic(owner.loc, owner)
+	return new /obj/item/limb/l_arm(owner.loc, owner)
+
+/datum/limb/l_arm/release_restraints()
+	if(!owner.handcuffed)
+		return
+	owner.visible_message("\The [owner.handcuffed.name] falls off of [owner.name].", "\The [owner.handcuffed.name] falls off you.")
+	owner.dropItemToGround(owner.handcuffed)
+
 /datum/limb/r_arm
 	name = "r_arm"
 	display_name = "right arm"
@@ -45,6 +56,17 @@
 	. = ..()
 	process_grasp(owner.r_hand, "right hand")
 
+/datum/limb/r_arm/drop_limb_object()
+	if(limb_status & LIMB_ROBOT)
+		return new /obj/item/limb/r_arm/robotic(owner.loc, owner)
+	return new /obj/item/limb/r_arm(owner.loc, owner)
+
+/datum/limb/r_arm/release_restraints()
+	if(!owner.handcuffed)
+		return
+	owner.visible_message("\The [owner.handcuffed.name] falls off of [owner.name].", "\The [owner.handcuffed.name] falls off you.")
+	owner.dropItemToGround(owner.handcuffed)
+
 /datum/limb/l_leg
 	name = "l_leg"
 	display_name = "left leg"
@@ -55,6 +77,11 @@
 	cover_index = 14
 	icon_position = LEFT
 
+/datum/limb/l_leg/drop_limb_object()
+	if(limb_status & LIMB_ROBOT)
+		return new /obj/item/limb/l_leg/robotic(owner.loc, owner)
+	return new /obj/item/limb/l_leg(owner.loc, owner)
+
 /datum/limb/r_leg
 	name = "r_leg"
 	display_name = "right leg"
@@ -64,6 +91,11 @@
 	body_part = LEG_RIGHT
 	cover_index = 14
 	icon_position = RIGHT
+
+/datum/limb/r_leg/drop_limb_object()
+	if(limb_status & LIMB_ROBOT)
+		return new /obj/item/limb/r_leg/robotic(owner.loc, owner)
+	return new /obj/item/limb/r_leg(owner.loc, owner)
 
 /datum/limb/foot
 	max_damage = 100
@@ -93,12 +125,24 @@
 	body_part = FOOT_LEFT
 	icon_position = LEFT
 
+/datum/limb/foot/l_foot/drop_limb_object()
+	owner.dropItemToGround(owner.shoes, force = TRUE)
+	if(limb_status & LIMB_ROBOT)
+		return new /obj/item/limb/l_foot/robotic(owner.loc, owner)
+	return new /obj/item/limb/l_foot(owner.loc, owner)
+
 /datum/limb/foot/r_foot
 	name = "r_foot"
 	display_name = "right foot"
 	icon_name = "r_foot"
 	body_part = FOOT_RIGHT
 	icon_position = RIGHT
+
+/datum/limb/foot/r_foot/drop_limb_object()
+	owner.dropItemToGround(owner.shoes, force = TRUE)
+	if(limb_status & LIMB_ROBOT)
+		return new /obj/item/limb/r_foot/robotic(owner.loc, owner)
+	return new /obj/item/limb/r_foot(owner.loc, owner)
 
 /datum/limb/hand
 	max_damage = 100
@@ -115,6 +159,19 @@
 	. = ..()
 	process_grasp(owner.r_hand, "right hand")
 
+/datum/limb/hand/r_hand/drop_limb_object()
+	owner.dropItemToGround(owner.gloves, force = TRUE)
+	owner.dropItemToGround(owner.r_hand, force = TRUE)
+	if(limb_status & LIMB_ROBOT)
+		return new /obj/item/limb/r_hand/robotic(owner.loc, owner)
+	return new /obj/item/limb/r_hand(owner.loc, owner)
+
+/datum/limb/hand/r_hand/release_restraints()
+	if(!owner.handcuffed)
+		return
+	owner.visible_message("\The [owner.handcuffed.name] falls off of [owner.name].", "\The [owner.handcuffed.name] falls off you.")
+	owner.dropItemToGround(owner.handcuffed)
+
 /datum/limb/hand/l_hand
 	name = "l_hand"
 	display_name = "left hand"
@@ -124,6 +181,19 @@
 /datum/limb/hand/l_hand/process()
 	. = ..()
 	process_grasp(owner.l_hand, "left hand")
+
+/datum/limb/hand/l_hand/drop_limb_object()
+	owner.dropItemToGround(owner.gloves, force = TRUE)
+	owner.dropItemToGround(owner.l_hand, force = TRUE)
+	if(limb_status & LIMB_ROBOT)
+		return new /obj/item/limb/l_hand/robotic(owner.loc, owner)
+	return new /obj/item/limb/l_hand(owner.loc, owner)
+
+/datum/limb/hand/l_hand/release_restraints()
+	if(!owner.handcuffed)
+		return
+	owner.visible_message("\The [owner.handcuffed.name] falls off of [owner.name].", "\The [owner.handcuffed.name] falls off you.")
+	owner.dropItemToGround(owner.handcuffed)
 
 /datum/limb/head
 	name = "head"
@@ -171,6 +241,20 @@
 		return
 	if(!(owner.species.species_flags & DETACHABLE_HEAD) && vital)
 		owner.set_undefibbable()
+
+/datum/limb/head/drop_limb_object()
+	owner.dropItemToGround(owner?.glasses, force = TRUE)
+	owner.dropItemToGround(owner?.head, force = TRUE)
+	owner.dropItemToGround(owner?.wear_ear, force = TRUE)
+	owner.dropItemToGround(owner?.wear_mask, force = TRUE)
+	owner.update_hair()
+	if(issynth(owner)) //special head for synth to allow brainmob to talk without an MMI
+		return new /obj/item/limb/head/synth(owner.loc, owner)
+	else if(isrobot(owner))
+		return new /obj/item/limb/head/robotic(owner.loc, owner)
+	else if(iszombie(owner))
+		return new /obj/item/limb/head/zombie(owner.loc, owner) // why is this like that
+	return new /obj/item/limb/head(owner.loc, owner)
 
 /datum/limb/head/owner_pre_death()
 	if(owner.species.species_flags & DETACHABLE_HEAD)
