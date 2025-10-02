@@ -193,30 +193,4 @@
 	id.iff_signal = iff_signal
 	return id
 
-/datum/item_representation/boot
-	///List of attachments on the boot.
-	var/list/datum/item_representation/armor_module/attachments = list()
-
-/datum/item_representation/boot/New(obj/item/item_to_copy)
-	if(!item_to_copy)
-		return
-	if(!istype(item_to_copy, /obj/item/clothing/shoes))
-		CRASH("/datum/item_representation/boot created from an item that is not a shoe")
-	. = ..()
-	var/obj/item/clothing/shoes/footwear = item_to_copy
-
-	for(var/key in footwear.attachments_by_slot)
-		if(!isitem(footwear.attachments_by_slot[key]))
-			continue
-		if(istype(footwear.attachments_by_slot[key], /obj/item/armor_module/storage))
-			attachments += new /datum/item_representation/armor_module/storage(footwear.attachments_by_slot[key])
-			continue
-		attachments += new /datum/item_representation/armor_module(footwear.attachments_by_slot[key])
-
-/datum/item_representation/boot/instantiate_object(datum/loadout_seller/seller, master = null, mob/living/user)
-	. = ..()
-	if(!.)
-		return
-	var/obj/item/clothing/shoes/footwear = .
-	for(var/datum/item_representation/armor_module/armor_attachement AS in attachments)
-		armor_attachement.install_on_armor(seller, footwear, user)
+/datum/item_representation/boot // bruh

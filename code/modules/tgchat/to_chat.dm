@@ -39,14 +39,16 @@
  *     html = "You have found <strong>[object]</strong>")
  * ```
  */
-/proc/to_chat(target, html,
-		type = null,
-		text = null,
-		avoid_highlighting = FALSE,
-		// FIXME: These flags are now pointless and have no effect
-		handle_whitespace = TRUE,
-		trailing_newline = TRUE,
-		confidential = FALSE)
+/proc/to_chat(
+	target, html,
+	type = null,
+	text = null,
+	avoid_highlighting = FALSE,
+	// FIXME: These flags are now pointless and have no effect
+	handle_whitespace = TRUE,
+	trailing_newline = TRUE,
+	confidential = FALSE,
+)
 	if(isnull(Master) || !SSchat?.initialized || !MC_RUNNING(SSchat.init_stage))
 		to_chat_immediate(target, html, type, text, avoid_highlighting)
 		return
@@ -56,8 +58,12 @@
 		target = GLOB.clients
 	// Build a message
 	var/message = list()
-	if(type) message["type"] = type
-	if(text) message["text"] = text
-	if(html) message["html"] = html
-	if(avoid_highlighting) message["avoidHighlighting"] = avoid_highlighting
+	if(type)
+		message["type"] = type
+	if(text)
+		message["text"] = text
+	if(html)
+		message["html"] = html
+	if(avoid_highlighting)
+		message["avoidHighlighting"] = avoid_highlighting
 	SSchat.queue(target, message)

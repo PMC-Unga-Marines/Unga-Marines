@@ -218,9 +218,6 @@
 	resistance_flags = RESIST_ALL
 	icon_state = "wall-invincible"
 
-/turf/closed/wall/sulaco/unmeltable/ex_act(severity) //Should make it indestructable
-	return
-
 /turf/closed/wall/sulaco/unmeltable/attackby(obj/item/I, mob/user, params) //This should fix everything else. No cables, etc
 	return
 
@@ -231,9 +228,6 @@
 	opacity = TRUE
 	resistance_flags = RESIST_ALL
 	smoothing_flags = NONE
-
-/turf/closed/wall/indestructible/ex_act(severity)
-	return
 
 /turf/closed/wall/indestructible/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/tool/pickaxe/plasmacutter)) //needed for user feedback, if not included the user will not receive a message when trying plasma cutter wall/indestructible turfs
@@ -257,10 +251,12 @@
 
 /turf/closed/wall/indestructible/splashscreen
 	name = "Space Station 13"
+	plane = SPLASHSCREEN_PLANE
 	icon_state = ""
-	layer = FLY_LAYER
 	pixel_x = -64
 
+//todo this should be using immediate instead of New()
+INITIALIZE_IMMEDIATE(/turf/closed/wall/indestructible/splashscreen)
 /turf/closed/wall/indestructible/splashscreen/New()
 	var/prefix = "icons/misc/lobby_art/"
 	var/list/lobby_art = flist(prefix)

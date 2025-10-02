@@ -26,14 +26,14 @@ SUBSYSTEM_DEF(air)
 
 	if(!pipe_init_dirs_cache[type]["[dir]"])
 		var/obj/machinery/atmospherics/temp = new type(null, FALSE, dir)
-		pipe_init_dirs_cache[type]["[dir]"] = temp.GetInitDirections()
+		pipe_init_dirs_cache[type]["[dir]"] = temp.get_init_directions()
 		qdel(temp)
 
 	return pipe_init_dirs_cache[type]["[dir]"]
 
 /datum/controller/subsystem/air/proc/setup_atmos_machinery()
 	for (var/obj/machinery/atmospherics/AM in atmos_machinery)
-		AM.atmosinit()
+		AM.atmos_init()
 		CHECK_TICK
 
 /datum/controller/subsystem/air/proc/setup_pipenets()
@@ -44,7 +44,7 @@ SUBSYSTEM_DEF(air)
 /datum/controller/subsystem/air/proc/setup_template_machinery(list/atmos_machines)
 	for(var/A in atmos_machines)
 		var/obj/machinery/atmospherics/AM = A
-		AM.atmosinit()
+		AM.atmos_init()
 		CHECK_TICK
 
 	for(var/A in atmos_machines)

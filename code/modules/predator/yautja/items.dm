@@ -254,11 +254,7 @@
 	anchored = TRUE
 
 /obj/item/clothing/shoes/marine/yautja/hunter/knife
-	attachments_allowed = list(/obj/item/armor_module/storage/boot/yautja_knife)
-	starting_attachments = list(/obj/item/armor_module/storage/boot/yautja_knife)
-
-/obj/item/armor_module/storage/boot/yautja_knife/PopulateContents()
-	new /obj/item/weapon/yautja/knife(src)
+	knife_to_add = /obj/item/weapon/yautja/knife
 
 /obj/item/clothing/under/chainshirt
 	name = "ancient alien mesh suit"
@@ -681,7 +677,7 @@
 	icon_state = "yauttrap0"
 	desc = "A bizarre Yautja device used for trapping and killing prey."
 
-	layer = LOWER_ITEM_LAYER
+	layer = LOW_ITEM_LAYER
 
 	var/armed = 0
 	var/resist_time = 15 SECONDS

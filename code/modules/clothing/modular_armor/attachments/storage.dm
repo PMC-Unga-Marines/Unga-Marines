@@ -143,22 +143,6 @@
 	icon_state = "mod_grenade_harness"
 	storage_type = /datum/storage/internal/grenade
 
-/obj/item/armor_module/storage/boot
-	name = "boot storage module"
-	desc = "A small set of straps to hold something in your boot."
-	icon_state = ""
-	storage_type = /datum/storage/internal/shoes/boot_knife
-	attach_features_flags = ATTACH_APPLY_ON_MOB
-
-/obj/item/armor_module/storage/boot/full/PopulateContents()
-	new /obj/item/weapon/combat_knife(src)
-
-/obj/item/armor_module/storage/boot/som_knife/PopulateContents()
-	new /obj/item/attachable/bayonetknife/som(src)
-
-/obj/item/armor_module/storage/boot/upp/PopulateContents()
-	new /obj/item/weapon/combat_knife/upp(src)
-
 /obj/item/armor_module/storage/helmet
 	name = "Jaeger Pattern helmet storage"
 	desc = "A small set of bands and straps to allow easy storage of small items."

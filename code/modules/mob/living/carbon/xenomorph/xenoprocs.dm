@@ -23,13 +23,6 @@
 
 	change_skin()
 
-/mob/living/carbon/xenomorph/verb/make_rouny()
-	set name = "Make rouny"
-	set desc = "Makes you funny beno."
-	set category = "Alien"
-
-	toggle_rouny()
-
 /mob/living/carbon/xenomorph/verb/tunnel_list()
 	set name = "Tunnel List"
 	set desc = "See all currently active tunnels."
@@ -68,43 +61,27 @@
 
 	return
 
-/mob/living/carbon/xenomorph/proc/toggle_rouny()
-	#ifndef TESTING
-	if(SSdiscord.get_boosty_tier(ckey) < BOOSTY_TIER_3)
-		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
-		return
-	#endif
-
-	if(!rouny_icon)
-		to_chat(usr, span_notice("Sorry, but rouny skin is currently unavailable for this caste."))
-		return
-
-	toggle_rouny_skin()
-
-/mob/living/carbon/xenomorph/proc/toggle_rouny_skin()
-	if(!rouny_icon) // we should check for it before using the proc, but just in case
-		return
-
-	if(icon == rouny_icon)
-		icon = base_icon
-	else
-		icon = rouny_icon
-
 /mob/living/carbon/xenomorph/proc/change_skin()
 	if(!length(skins))
 		balloon_alert(src, "Your caste does not have the ability to change appearance.")
 		return
 
-	#ifndef TESTING
-	if(SSdiscord.get_boosty_tier(ckey) < BOOSTY_TIER_2)
-		to_chat(usr, span_notice("You need a higher boosty tier to use this."))
+	var/boosty_access_tier = SSdiscord.get_boosty_tier(ckey)
+	if(check_other_rights(client, R_ADMIN, FALSE))
+		boosty_access_tier = BOOSTY_TIER_3
+	if(boosty_access_tier < BOOSTY_TIER_2)
+		to_chat(usr, span_notice("You need a higher boosty tier to use this!"))
 		return
-	#endif
 
 	var/datum/xenomorph_skin/selection
-	var/list/available_skins = list() // we do a list of names instead of datums
-	for(var/datum/xenomorph_skin/our_skin AS in skins)
+	var/list/available_skins = list()// we do a list of names instead of datums
+	for(var/datum/xenomorph_skin/our_skin as anything in skins)
+		if(our_skin.access_needed > boosty_access_tier)
+			continue
 		available_skins[our_skin.name] = our_skin
+	if(length(available_skins) < 2)
+		to_chat(usr, span_notice("There aren't any skins that you can access!"))
+		return
 	var/answer = tgui_input_list(src, "Choose a setting appearance", "Choose a setting appearance", available_skins)
 	selection = available_skins[answer]
 
@@ -112,9 +89,7 @@
 		return
 
 	icon = selection.icon
-	base_icon = selection.icon
 	effects_icon = selection.effects_icon
-	rouny_icon = selection.rouny_icon
 
 /mob/living/carbon/xenomorph/Topic(href, href_list)
 	. = ..()
@@ -451,30 +426,28 @@
 
 	return ..() //Do the parent otherwise, for turfs.
 
-/mob/living/carbon/xenomorph/proc/toggle_nightvision(new_lighting_alpha)
-	if(!new_lighting_alpha)
-		switch(lighting_alpha)
-			if(LIGHTING_PLANE_ALPHA_NV_TRAIT)
-				new_lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
-			if(LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE)
-				new_lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
-			if(LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE)
-				new_lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
+/mob/living/carbon/xenomorph/proc/toggle_nightvision(new_lighting_cutoff)
+	if(!new_lighting_cutoff)
+		switch(lighting_cutoff)
+			if(LIGHTING_CUTOFF_VISIBLE)
+				new_lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
+			if(LIGHTING_CUTOFF_MEDIUM)
+				new_lighting_cutoff = LIGHTING_CUTOFF_HIGH
+			if(LIGHTING_CUTOFF_HIGH)
+				new_lighting_cutoff = LIGHTING_CUTOFF_FULLBRIGHT
 			else
-				new_lighting_alpha = LIGHTING_PLANE_ALPHA_NV_TRAIT
+				new_lighting_cutoff = LIGHTING_CUTOFF_VISIBLE
 
-	switch(new_lighting_alpha)
-		if(LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE, LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE, LIGHTING_PLANE_ALPHA_INVISIBLE)
-			ENABLE_BITFIELD(sight, SEE_MOBS)
-			ENABLE_BITFIELD(sight, SEE_OBJS)
-			ENABLE_BITFIELD(sight, SEE_TURFS)
-		if(LIGHTING_PLANE_ALPHA_NV_TRAIT)
-			ENABLE_BITFIELD(sight, SEE_MOBS)
-			DISABLE_BITFIELD(sight, SEE_OBJS)
-			DISABLE_BITFIELD(sight, SEE_TURFS)
+	var/new_sight = NONE
+	switch(new_lighting_cutoff)
+		if(LIGHTING_CUTOFF_FULLBRIGHT, LIGHTING_CUTOFF_HIGH, LIGHTING_CUTOFF_MEDIUM)
+			new_sight = SEE_MOBS|SEE_OBJS|SEE_TURFS
+		if(LIGHTING_CUTOFF_VISIBLE)
+			new_sight = SEE_MOBS
 
-	lighting_alpha = new_lighting_alpha
+	lighting_cutoff = new_lighting_cutoff
 
+	set_sight(new_sight)
 	update_sight()
 
 /mob/living/carbon/xenomorph/proc/zoom_in(tileoffset = 5, viewsize = 12)
@@ -713,7 +686,7 @@
 		return
 
 	SSminimaps.remove_marker(src)
-	var/image/blip = image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon)
+	var/image/blip = image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon, MINIMAP_BLIPS_LAYER)
 	if(makeleader)
 		blip.overlays += image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_leadered_overlay)
 	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, blip)
