@@ -21,7 +21,7 @@ GLOBAL_LIST_EMPTY(spawns_by_job)			//2d array of /datum/job => list(turfs)
 GLOBAL_LIST_EMPTY(landmarks_round_start)		//landmarks that require action at round start
 
 GLOBAL_LIST_EMPTY(map_items)
-GLOBAL_LIST_EMPTY(fog_blocker_locations)		//list of turfs marked by /obj/effect/landmark/lv624/fog_blocker
+GLOBAL_LIST_EMPTY(fog_blocker_locations)		//list of turfs marked by /obj/effect/landmark/fog_blocker
 GLOBAL_LIST_EMPTY(xeno_spawn_protection_locations)
 GLOBAL_LIST_EMPTY(fog_blockers)
 
@@ -36,8 +36,13 @@ GLOBAL_LIST_EMPTY(deathmatch)
 
 GLOBAL_VAR_INIT(minidropship_start_loc, null)
 
-//used by jump-to-area etc. Updated by area/updateName()
+/// Just a list of all the area objects in the game
+/// Note, areas can have duplicate types
+GLOBAL_LIST_EMPTY(areas)
+/// Used by jump-to-area etc. Updated by area/updateName()
+/// If this is null, it needs to be recalculated. Use get_sorted_areas() as a getter please
 GLOBAL_LIST_EMPTY(sorted_areas)
+
 /// An association from typepath to area instance. Only includes areas with `unique` set.
 GLOBAL_LIST_EMPTY_TYPED(areas_by_type, /area)
 

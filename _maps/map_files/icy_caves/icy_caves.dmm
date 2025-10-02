@@ -423,7 +423,7 @@
 /area/icy_caves/outpost/LZ1)
 "bV" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
@@ -435,7 +435,7 @@
 /area/icy_caves/caves/northwestmonorail)
 "cb" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
 "cd" = (
@@ -516,7 +516,7 @@
 /turf/open/floor/tile/purple/whitepurplefull,
 /area/icy_caves/caves/northwestmonorail/medbay)
 "cv" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
 /area/icy_caves/caves/northwestmonorail)
 "cw" = (
@@ -535,7 +535,7 @@
 /turf/open/floor/plating/ground/snow/layer2,
 /area/icy_caves/outpost/LZ2)
 "cz" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "cA" = (
@@ -588,7 +588,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/icy_caves/caves/northwestmonorail)
 "cJ" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
 /area/icy_caves/caves/northwestmonorail/breakroom)
 "cL" = (
@@ -1168,7 +1168,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/south)
 "fG" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/south)
 "fK" = (
@@ -1234,7 +1234,7 @@
 /area/icy_caves/outpost/outside)
 "gr" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "gx" = (
@@ -1322,7 +1322,7 @@
 /area/icy_caves/caves/south)
 "gY" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/west)
 "gZ" = (
@@ -1332,7 +1332,7 @@
 /area/icy_caves/caves/northwestmonorail/medbay)
 "hd" = (
 /obj/structure/janitorialcart,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/plating_catwalk,
 /area/icy_caves/caves/northwestmonorail)
 "hh" = (
@@ -1353,7 +1353,7 @@
 /turf/open/floor/plating/ground/snow/layer2,
 /area/icy_caves/outpost/LZ1)
 "hq" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/east)
 "hr" = (
@@ -1460,7 +1460,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/morgue)
 "hU" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/west)
 "hW" = (
@@ -1665,7 +1665,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/outside)
 "iM" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/icy_caves/caves/west)
 "iN" = (
@@ -1757,7 +1757,7 @@
 /area/icy_caves/caves/underground_cafeteria)
 "jo" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
 "jp" = (
@@ -1858,7 +1858,7 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/LZ2)
 "jS" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/outside/center)
 "jU" = (
@@ -1906,7 +1906,7 @@
 	dir = 4;
 	on = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "kf" = (
@@ -1948,7 +1948,7 @@
 /area/icy_caves/caves/northwestmonorail)
 "kp" = (
 /obj/structure/cable,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/plating_catwalk,
 /area/icy_caves/caves/northwestmonorail)
 "kq" = (
@@ -2007,7 +2007,7 @@
 /area/icy_caves/outpost/LZ2)
 "kE" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "kF" = (
@@ -2318,7 +2318,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/engineering)
 "mq" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northern)
 "mr" = (
@@ -2596,7 +2596,7 @@
 /area/icy_caves/outpost/LZ2)
 "nK" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "nL" = (
@@ -4555,7 +4555,7 @@
 	},
 /area/icy_caves/outpost/medbay)
 "wD" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/caves)
 "wF" = (
@@ -4746,8 +4746,8 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/refinery)
 "xs" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/bluefrostwall,
 /area/icy_caves/caves/rock)
 "xu" = (
@@ -4868,7 +4868,7 @@
 	},
 /area/icy_caves/outpost/office)
 "yh" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
 "yi" = (
@@ -6175,7 +6175,7 @@
 /turf/open/floor/tile/dark/green2,
 /area/icy_caves/caves/alienstuff)
 "Er" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/icy_caves/outpost/outside/center)
 "Et" = (
@@ -6636,7 +6636,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/office)
 "Gl" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/icy_caves/outpost/LZ2)
 "Gm" = (
@@ -6696,7 +6696,7 @@
 /area/icy_caves/outpost/mining/east)
 "GB" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/west)
 "GD" = (
@@ -6715,7 +6715,7 @@
 /turf/closed/wall,
 /area/icy_caves/caves/west)
 "GH" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
 "GJ" = (
@@ -6880,11 +6880,11 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "Hx" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/icy_caves/outpost/outside)
 "HA" = (
@@ -7058,7 +7058,7 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/garage)
 "Ii" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/outside)
 "Ij" = (
@@ -7925,7 +7925,7 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "Mh" = (
@@ -7961,7 +7961,7 @@
 /turf/open/floor/tile/dark/green2,
 /area/icy_caves/outpost/medbay)
 "Mr" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/darkfrostwall,
 /area/icy_caves/caves/rock)
 "Ms" = (
@@ -8102,7 +8102,7 @@
 /turf/open/floor/wood,
 /area/icy_caves/outpost/office)
 "Na" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/west)
 "Nb" = (
@@ -9114,7 +9114,7 @@
 /turf/open/floor/wood,
 /area/icy_caves/outpost/dorms)
 "Sb" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/bluefrostwall,
 /area/icy_caves/caves/rock)
 "Sc" = (
@@ -9124,7 +9124,7 @@
 "Sd" = (
 /obj/item/lightstick/anchored,
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/west)
 "Se" = (
@@ -9373,7 +9373,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northern)
 "TA" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/plating_catwalk,
 /area/icy_caves/caves/northwestmonorail)
 "TB" = (
@@ -9415,7 +9415,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
 "TH" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/south)
 "TL" = (
@@ -9575,7 +9575,7 @@
 /turf/open/floor/wood,
 /area/icy_caves/outpost/dorms)
 "UC" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
 "UD" = (

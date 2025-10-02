@@ -146,8 +146,8 @@
 	for(var/mob/M in src) //Should only be one but whatever.
 		M.forceMove(loc)
 		if(M.client)
-			M.client.eye = M.client.mob
-			M.client.perspective = MOB_PERSPECTIVE
+			M.reset_perspective()
+
 	qdel(src)
 
 /obj/item/wrapping_paper
@@ -221,8 +221,7 @@
 	amount -= 2
 
 	if(H.client)
-		H.client.perspective = EYE_PERSPECTIVE
-		H.client.eye = present
+		H.reset_perspective(present)
 
 	H.forceMove(present)
 

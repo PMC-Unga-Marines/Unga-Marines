@@ -5,7 +5,6 @@
 	icon = 'icons/Xeno/castes/ravager/basic.dmi'
 	icon_state = "Ravager Walking"
 	effects_icon = 'icons/Xeno/castes/ravager/effects.dmi'
-	rouny_icon = 'icons/Xeno/castes/ravager/rouny.dmi'
 	health = 250
 	maxHealth = 250
 	plasma_stored = 50
@@ -16,8 +15,9 @@
 	pixel_x = -16
 	bubble_icon = "alienroyal"
 	skins = list(
-		/datum/xenomorph_skin/ravager/bonehead,
 		/datum/xenomorph_skin/ravager,
+		/datum/xenomorph_skin/ravager/rouny,
+		/datum/xenomorph_skin/ravager/bonehead,
 	)
 	var/rage_power
 	var/rage = FALSE

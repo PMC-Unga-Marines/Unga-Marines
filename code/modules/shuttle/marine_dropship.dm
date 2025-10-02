@@ -72,7 +72,7 @@
 	var/turf/left = locate(C.x - leftright, C.y, C.z)
 	var/turf/right = locate(C.x + leftright, C.y, C.z)
 
-	for(var/turf/T in range(3, rear)+range(3, left)+range(3, right)+range(2, front))
+	for(var/turf/T AS in RANGE_TURFS(3, rear) + RANGE_TURFS(3, left) + RANGE_TURFS(3, right) + RANGE_TURFS(2, front))
 		T.empty(/turf/open/floor/plating, ignore_typecache = typecacheof(/mob))
 
 	SSmonitor.process_human_positions()
@@ -659,6 +659,16 @@
 			if(!(xeno.hive.hive_flags & HIVE_CAN_HIJACK))
 				to_chat(xeno, span_warning("Нашему улью не хватает экстрасенсорных способностей, чтобы украсть птицу."))
 				return
+			var/groundside_humans = length(GLOB.humans_by_zlevel["[z]"])
+			if(groundside_humans > 5)
+				to_chat(usr, span_xenowarning("Еще осталась добыча, на которую можно охотиться!"))
+				return
+			if(!is_ground_level(xeno.loc.z)) // Don't hijack from the shipside
+				to_chat(xeno, span_xenowarning("The shuttle is already at the ship!"))
+				return
+			if(SSmonitor.gamestate == SHIPSIDE)
+				to_chat(xeno, span_xenowarning("The shuttle is already at the ship!"))
+				return
 			if(shuttle.mode == SHUTTLE_RECHARGING)
 				to_chat(xeno, span_xenowarning("Птица все еще остывает..."))
 				return
@@ -670,9 +680,6 @@
 				return
 			var/obj/docking_port/stationary/marine_dropship/crash_target/CT = pick(SSshuttle.crash_targets)
 			if(!CT)
-				return
-			if(SSmonitor.gamestate == SHIPSIDE)
-				to_chat(xeno, span_xenowarning("The shuttle is already at the ship!"))
 				return
 
 			do_hijack(shuttle, CT, xeno)
