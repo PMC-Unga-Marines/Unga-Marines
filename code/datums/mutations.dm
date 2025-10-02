@@ -1,10 +1,3 @@
-/// Get mutation datum by name
-/proc/get_xeno_mutation_by_name(mutation_name)
-	for(var/datum/xeno_mutation/mutation in GLOB.xeno_mutations)
-		if(mutation.name == mutation_name)
-			return mutation
-	return null
-
 /// Datum for handling the xenomorph mutation menu TGUI
 /datum/mutation_menu
 	/// The xenomorph using this menu
@@ -69,6 +62,7 @@
 
 /datum/mutation_menu/proc/get_mutations_data(mob/living/carbon/xenomorph/xeno)
 	var/list/mutations = list()
+	initialize_xeno_mutations()
 
 	//Конверт всего в лист для тгуи
 	for(var/datum/xeno_mutation/mutation in GLOB.xeno_mutations)
@@ -143,13 +137,12 @@
 	xeno_owner.purchased_mutations += mutation_name
 
 	//Remove conflicting mutations (only the specific one being replaced)
-	for(var/datum/xeno_mutation/conflicting_mutation in xeno_owner.owned_mutations)
-		if(conflicting_mutation.category == mutation_datum.category)
-			conflicting_mutation.remove_instance()
+	var/datum/status_effect/conflicting_upgrade = locate(mutation_datum.status_effect_type) in xeno_owner.status_effects
+	if(conflicting_upgrade)
+		xeno_owner.remove_status_effect(conflicting_upgrade)
+		xeno_owner.upgrades_holder.Remove(conflicting_upgrade.type)
 
 	xeno_owner.do_jitter_animation(500)
-
-	// Создаем экземпляр мутации для ксеноморфа
-	mutation_datum.create_instance(xeno_owner)
-
+	xeno_owner.apply_status_effect(mutation_datum.status_effect_type)
+	xeno_owner.upgrades_holder.Add(mutation_datum.status_effect_type)
 	SStgui.update_uis(src)

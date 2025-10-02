@@ -180,6 +180,9 @@
 	var/total_refund = 0
 	var/list/refunded_mutations = list()
 
+	// Initialize mutations if not already done
+	initialize_xeno_mutations()
+
 	// Calculate refund for all purchased mutations
 	for(var/mutation_name in new_xeno.purchased_mutations)
 		var/datum/xeno_mutation/mutation_datum = get_xeno_mutation_by_name(mutation_name)
