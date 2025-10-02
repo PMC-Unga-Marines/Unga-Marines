@@ -293,7 +293,11 @@
 
 /obj/machinery/camera/autoname/update_overlays()
 	. = ..()
+	if(machine_stat & (BROKEN|DISABLED|NOPOWER))
+		return
 	if(obj_integrity <= 0)
+		return
+	if(!base_icon_state) // how?
 		return
 	. += emissive_appearance(icon, "[base_icon_state]_emissive", src)
 

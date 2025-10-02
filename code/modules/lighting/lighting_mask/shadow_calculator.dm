@@ -359,7 +359,7 @@
 			var/top = max(vertex1[2], vertex2[2]) - 0.5
 			var/list/current_bottom_vertex = list(vertex1[1], bottom - 0.5)
 			var/list/current_top_vertex = list(vertex1[1], bottom - 0.5)
-			for(var/i as anything in bottom to top)
+			for(var/i in bottom to top)
 				var/list/left_list = sight_blockers["[left]"]
 				var/isLeftBlocked = left_list?.Find(i) ? TRUE : FALSE
 				var/list/right_list = sight_blockers["[right]"]
@@ -380,7 +380,7 @@
 			var/bottom = vertex1[2] - 0.5
 			var/list/current_left_vertex = list(left - 0.5, vertex1[2])
 			var/list/current_right_vertex = list(left - 0.5, vertex1[2])
-			for(var/i as anything in left to right)
+			for(var/i in left to right)
 				var/list/check_list = sight_blockers["[i]"]
 				var/isAboveBlocked = check_list?.Find(top) ? TRUE : FALSE
 				var/isBelowBlocked = check_list?.Find(bottom) ? TRUE : FALSE
@@ -533,7 +533,7 @@
 		var/list/y_components = ungrouped_things[x_key]
 		var/pointer = y_components[1]
 		var/list/group = list(list(text2num(x_key), y_components[1]))
-		for(var/i as anything in 2 to length(y_components))
+		for(var/i in 2 to length(y_components))
 			var/next = y_components[i]
 			if(next != pointer + 1)
 				if(length(group) == 1)
@@ -557,7 +557,7 @@
 		var/list/x_components = horizontal_atoms[y_key]
 		var/pointer = x_components[1]
 		var/list/group = list(list(x_components[1], text2num(y_key)))
-		for(var/i as anything in 2 to length(x_components))
+		for(var/i in 2 to length(x_components))
 			var/next = x_components[i]
 			if(next != pointer + 1)
 				. += list(group)
