@@ -104,6 +104,8 @@ SUBSYSTEM_DEF(shuttle)
 				break
 
 /datum/controller/subsystem/shuttle/proc/getShuttle(shuttle_id)
+	if(isnull(shuttle_id))
+		stack_trace("Passed a null as shuttle_id to getShuttle.")
 	for(var/obj/docking_port/mobile/mobile_port in mobile_docking_ports)
 		if(mobile_port.shuttle_id != shuttle_id)
 			continue
