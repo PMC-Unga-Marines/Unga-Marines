@@ -25,8 +25,7 @@
 
 	has_organ = list()
 
-	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
-	see_in_dark = 8
+	lighting_cutoff = LIGHTING_CUTOFF_HIGH
 
 	screams = list(MALE = SFX_MALE_SCREAM, FEMALE = SFX_FEMALE_SCREAM)
 	paincries = list(MALE = SFX_MALE_PAIN, FEMALE = SFX_FEMALE_PAIN)
@@ -34,11 +33,15 @@
 	warcries = list(MALE = SFX_MALE_WARCRY, FEMALE = SFX_FEMALE_WARCRY)
 	laughs = list(MALE = SFX_MALE_LAUGH, FEMALE = SFX_FEMALE_LAUGH)
 	special_death_message = "You have been shut down.<br><small>But it is not the end of you yet... if you still have your body, wait until somebody can resurrect you...</small>"
+	/// The minimum damage you get while in crit
+	var/melting_min_damage = 5
+	/// The maximum damage you get while in crit
+	var/melting_max_damage = 16
 
 /datum/species/synthetic/handle_unique_behavior(mob/living/carbon/human/H)
 	if(H.health <= SYNTHETIC_CRIT_THRESHOLD && H.stat != DEAD) // Instead of having a critical condition, they overheat and slowly die.
 		H.apply_effect(4 SECONDS, EFFECT_STUTTER) // Added flavor
-		H.take_overall_damage(rand(5, 16), BURN, updating_health = TRUE, max_limbs = 1) // Melting!!!
+		H.take_overall_damage(rand(melting_min_damage, melting_max_damage), BURN, updating_health = TRUE, max_limbs = 1) // Melting!!!
 		if(prob(12))
 			H.visible_message(span_boldwarning("[H] shudders violently and shoots out sparks!"), span_warning("Critical damage sustained. Internal temperature regulation systems offline. Shutdown imminent. <b>Estimated integrity: [round(H.health)]%.</b>"))
 			do_sparks(4, TRUE, H)
@@ -69,3 +72,18 @@
 
 /mob/living/carbon/human/species/synthetic/binarycheck(mob/H)
 	return TRUE
+
+/datum/species/synthetic/early // Worse at medical, better at engineering. Tougher in general than later synthetics.
+	name = "Early Synthetic"
+	icobase = 'icons/mob/human_races/r_synthetic.dmi'
+	slowdown = 1.15 //Slower than Late Synths.
+	total_health = 200 //Tough boys, very tough boys.
+	brute_mod = 0.6
+	burn_mod = 0.6
+
+	species_flags = NO_BREATHE|NO_BLOOD|NO_POISON|NO_PAIN|IS_SYNTHETIC|NO_CHEM_METABOLIZATION|NO_STAMINA|DETACHABLE_HEAD|HAS_UNDERWEAR|ROBOTIC_LIMBS|GREYSCALE_BLOOD
+
+	hair_color = "#000000"
+
+	melting_min_damage = 7
+	melting_max_damage = 19

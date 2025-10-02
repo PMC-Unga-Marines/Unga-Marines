@@ -27,6 +27,9 @@
 				return
 
 	else //store item
+		if(I.last_equipped_slot)
+			if(equip_to_slot_if_possible(I, I.last_equipped_slot, FALSE, FALSE, FALSE))
+				return
 		if(active_storage?.on_attackby(active_storage, I, src)) //stored in currently open storage
 			return TRUE
 		if(slot_requested)
@@ -189,7 +192,7 @@
 		glasses = null
 		I.unequipped(src, SLOT_GLASSES)
 		var/obj/item/clothing/glasses/G = I
-		if(G.vision_flags || G.darkness_view || !isnull(G.lighting_alpha))
+		if(G.vision_flags || G.invis_override || G.invis_view || !isnull(G.lighting_cutoff))
 			update_sight()
 		if(!QDELETED(src))
 			update_inv_glasses()
@@ -289,7 +292,7 @@
 			glasses = item_to_equip
 			item_to_equip.equipped(src, slot)
 			var/obj/item/clothing/glasses/G = item_to_equip
-			if(G.vision_flags || G.darkness_view || !isnull(G.lighting_alpha))
+			if(G.vision_flags || G.invis_override || G.invis_view || !isnull(G.lighting_cutoff))
 				update_sight()
 			update_inv_glasses()
 		if(SLOT_GLOVES)

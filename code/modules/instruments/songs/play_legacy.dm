@@ -82,9 +82,9 @@
 	for(var/mob/listener AS in hearing_mobs)
 		if(isAIeye(listener)) //isn't there someone you forgot to ask?
 			var/mob/camera/aiEye/listener_eye = listener
-			if(listener_eye.ai?.client?.prefs?.toggles_sound & SOUND_INSTRUMENTS_OFF)
+			if(!listener_eye.ai?.client?.prefs?.volume_instruments)
 				continue
-		if(listener?.client?.prefs?.toggles_sound & SOUND_INSTRUMENTS_OFF)
+		if(!listener?.client?.prefs?.volume_instruments)
 			continue
-		listener.playsound_local(get_turf(parent), music_played, volume * using_instrument.volume_multiplier)
+		listener.playsound_local(get_turf(parent), music_played, listener.client.prefs.volume_instruments * using_instrument.volume_multiplier)
 		// Could do environment and echo later but not for now

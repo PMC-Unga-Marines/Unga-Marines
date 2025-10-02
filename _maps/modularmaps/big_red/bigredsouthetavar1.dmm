@@ -104,14 +104,14 @@
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "az" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/tile/dark/yellow2/corner,
 /area/bigredv2/caves/south)
 "aA" = (
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "aC" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "aE" = (
@@ -172,7 +172,7 @@
 /turf/closed/mineral/smooth/bigred/indestructible,
 /area/space)
 "aT" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/r_wall,
 /area/bigredv2/caves/south)
 "aX" = (
@@ -188,7 +188,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "YJ" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 

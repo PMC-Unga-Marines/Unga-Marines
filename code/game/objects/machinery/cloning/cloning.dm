@@ -241,7 +241,7 @@ These act as a respawn mechanic growning a body and offering it up to ghosts.
 	. = ..()
 	if(!beaker)
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
+	. += emissive_appearance(icon, "[icon_state]_emissive", src, alpha = src.alpha)
 
 /// Eat up the biomass, start the grow timer
 /obj/machinery/cloning/vats/proc/grow_human(instant = FALSE)
@@ -271,7 +271,7 @@ These act as a respawn mechanic growning a body and offering it up to ghosts.
 	// Blindness doenst't trigger with just the disability, you need to set_blindness
 
 	LAZYOR(GLOB.ssd_living_mobs, occupant)
-	notify_ghosts(span_boldnotice("A new clone is available! Name: [name]"), enter_link = "claim=[REF(occupant)]", source = src, action = NOTIFY_ORBIT)
+	notify_ghosts(span_boldnotice("A new clone is available! Name: [name]"), enter_link = "claim=[REF(occupant)]", source = src, action = NOTIFY_ORBIT, flashwindow = TRUE)
 
 	// Cleanup the timers
 	deltimer(timerid)
@@ -303,6 +303,7 @@ You are weak, best rest up and get your strength before fighting.</span>"})
 /obj/machinery/cloning/vats/apc
 	pixel_y = 16
 	dir = NORTH
+	plane = WALL_PLANE // shitty solution, but meh
 
 /obj/machinery/cloning/vats/apc/south
 	pixel_y = -16

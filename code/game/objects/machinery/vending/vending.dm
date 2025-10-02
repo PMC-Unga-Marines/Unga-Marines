@@ -191,16 +191,13 @@
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return FALSE
 
-	switch(severity)
-		if(0 to EXPLODE_LIGHT)
-			if(prob(25))
-				tip_over()
-		if(EXPLODE_LIGHT to EXPLODE_HEAVY)
-			if(prob(50))
-				tip_over()
-				malfunction()
-		if(EXPLODE_HEAVY to INFINITY)
-			qdel(src)
+	if(severity > EXPLODE_HEAVY)
+		qdel(src)
+	else if(severity > EXPLODE_LIGHT && prob(50))
+		tip_over()
+		malfunction()
+	else if(prob(25))
+		tip_over()
 
 /**
  * Builds shared vendors inventory
@@ -387,7 +384,7 @@
 
 	if(tipped_level == 2)
 		user.visible_message(span_notice("[user] begins to heave the vending machine back into place!"), span_notice("You start heaving the vending machine back into place.."))
-		if(!do_after(user, 80, IGNORE_HELD_ITEM, src, BUSY_ICON_FRIENDLY))
+		if(!do_after(user, 8 SECONDS, IGNORE_HELD_ITEM, src, BUSY_ICON_FRIENDLY))
 			return FALSE
 
 		user.visible_message(span_notice("[user] rights the [src]!"), span_notice("You right the [src]!"))
@@ -406,10 +403,10 @@
 		return
 	if(!iscarbon(user)) // AI can't heave remotely
 		return
-	user.visible_message(span_notice(" [user] begins to heave the vending machine back into place!"),span_notice(" You start heaving the vending machine back into place.."))
+	user.visible_message(span_notice("[user] begins to heave the vending machine back into place!"),span_notice("You start heaving the vending machine back into place.."))
 	if(!do_after(user, 80, IGNORE_HELD_ITEM, src, BUSY_ICON_FRIENDLY))
 		return FALSE
-	user.visible_message(span_notice(" [user] rights the [src]!"),span_notice(" You right the [src]!"))
+	user.visible_message(span_notice("[user] rights the [src]!"),span_notice("You right the [src]!"))
 	flip_back()
 	return TRUE
 
@@ -776,7 +773,7 @@
 	. = ..()
 	if(machine_stat & (NOPOWER|BROKEN))
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive")
+	. += emissive_appearance(icon, "[icon_state]_emissive", src)
 
 //Oh no we're malfunctioning!  Dump out some product and break.
 /obj/machinery/vending/proc/malfunction()

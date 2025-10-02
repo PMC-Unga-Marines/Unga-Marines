@@ -93,6 +93,7 @@
 			/obj/item/ammo_magazine/flamer_tank/backtank,
 			/obj/item/ammo_magazine/flamer_tank/backtank/X,
 			/obj/item/ammo_magazine/flamer_tank/backtank/G,
+			/obj/item/cell/lasgun/volkite/powerpack/marine_back,
 	))
 
 /datum/storage/box/visual/magazine/compact

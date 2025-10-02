@@ -9,7 +9,6 @@
 /atom/movable/screen
 	name = ""
 	icon = 'icons/mob/screen/generic.dmi'
-	layer = HUD_LAYER
 	// NOTE: screen objects do NOT change their plane to match the z layer of their owner
 	// You shouldn't need this, but if you ever do and it's widespread, reconsider what you're doing.
 	plane = HUD_PLANE
@@ -45,8 +44,9 @@
 
 /atom/movable/screen/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	if(hud_owner && istype(hud_owner))
-		hud = hud_owner
+	if(isnull(hud_owner)) //some screens set their hud owners on /new, this prevents overriding them with null post atoms init
+		return
+	set_new_hud(hud_owner)
 
 /atom/movable/screen/Destroy()
 	master = null
@@ -62,13 +62,26 @@
 /atom/movable/screen/proc/component_click(atom/movable/screen/component_button/component, params)
 	return
 
+///setter used to set our new hud
+/atom/movable/screen/proc/set_new_hud(datum/hud/hud_owner)
+	if(hud)
+		UnregisterSignal(hud, COMSIG_QDELETING)
+	if(isnull(hud_owner))
+		hud = null
+		return
+	hud = hud_owner
+	RegisterSignal(hud, COMSIG_QDELETING, PROC_REF(on_hud_delete))
 
+/atom/movable/screen/proc/on_hud_delete(datum/source)
+	SIGNAL_HANDLER
+	set_new_hud(null)
 
 /atom/movable/screen/swap_hand
 	name = "swap hand"
 	name = "swap"
 	icon_state = "swap_1_m"
 	screen_loc = ui_swaphand1
+	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /atom/movable/screen/swap_hand/Click()
 	if(!iscarbon(usr))
@@ -88,12 +101,14 @@
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "craft"
 	screen_loc = ui_crafting
+	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /atom/movable/screen/language_menu
 	name = "language menu"
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "talk_wheel"
 	screen_loc = ui_language_menu
+	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /atom/movable/screen/language_menu/Click()
 	if(isliving(usr))
@@ -162,9 +177,9 @@
 
 /atom/movable/screen/close
 	name = "close"
-	layer = ABOVE_HUD_LAYER
 	plane = ABOVE_HUD_PLANE
 	icon_state = "backpack_close"
+	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /atom/movable/screen/close/Click()
 	var/datum/storage/storage = master
@@ -175,6 +190,7 @@
 	name = "intent"
 	icon_state = "help"
 	screen_loc = ui_acti
+	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /atom/movable/screen/act_intent/Click(location, control, params)
 	usr.a_intent_change(INTENT_HOTKEY_RIGHT)
@@ -200,6 +216,7 @@
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "running"
 	screen_loc = ui_movi
+	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /atom/movable/screen/mov_intent/Click()
 	usr.toggle_move_intent()
@@ -223,6 +240,7 @@
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "act_rest"
 	screen_loc = ui_above_movement
+	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /atom/movable/screen/rest/Click()
 	if(!isliving(usr))
@@ -242,6 +260,7 @@
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "pull0"
 	screen_loc = ui_above_movement
+	mouse_over_pointer = MOUSE_HAND_POINTER
 
 
 /atom/movable/screen/pull/Click()
@@ -264,6 +283,7 @@
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "act_resist"
 	screen_loc = ui_above_intent
+	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /atom/movable/screen/resist/Click()
 	if(!isliving(usr))
@@ -278,7 +298,7 @@
 	screen_loc = "7,7 to 10,8"
 
 /atom/movable/screen/storage/Click(location, control, params)
-	if(usr.incapacitated(TRUE))
+	if(!ishuman(usr) || usr.incapacitated(TRUE))
 		return
 
 	var/list/modifiers = params2list(params)
@@ -330,6 +350,8 @@
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "act_throw_off"
 	screen_loc = ui_drop_throw
+	mouse_over_pointer = MOUSE_HAND_POINTER
+
 
 /atom/movable/screen/throw_catch/Click()
 	if(!iscarbon(usr))
@@ -341,6 +363,7 @@
 	name = "damage zone"
 	icon_state = "zone_sel"
 	screen_loc = ui_zonesel
+	mouse_over_pointer = MOUSE_HAND_POINTER
 	var/selecting = "chest"
 	var/list/hover_overlays_cache = list()
 	var/hovering
@@ -388,8 +411,9 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
-	layer = ABOVE_HUD_LAYER
 	plane = ABOVE_HUD_PLANE
+	mouse_over_pointer = MOUSE_HAND_POINTER
+
 
 /atom/movable/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)
 	switch(icon_y)
@@ -472,6 +496,8 @@
 	icon_state = "stamloss-14"
 	screen_loc = UI_STAMINA
 	mouse_opacity = MOUSE_OPACITY_ICON
+	mouse_over_pointer = MOUSE_HAND_POINTER
+
 
 /atom/movable/screen/stamina_hud/update_icon_state()
 	. = ..()
@@ -511,6 +537,7 @@
 /atom/movable/screen/action_button
 	icon = 'icons/mob/actions.dmi'
 	icon_state = "template"
+	mouse_over_pointer = MOUSE_HAND_POINTER
 	var/datum/action/source_action
 
 /atom/movable/screen/action_button/Click(location, control, params)
@@ -544,7 +571,9 @@
 	name = "Hide Buttons"
 	icon = 'icons/mob/actions.dmi'
 	icon_state = "hide"
+	mouse_over_pointer = MOUSE_HAND_POINTER
 	var/hidden = 0
+
 
 /atom/movable/screen/action_button/hide_toggle/Click()
 	usr.hud_used.action_buttons_hidden = !usr.hud_used.action_buttons_hidden
@@ -571,16 +600,17 @@
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "act_drop"
 	screen_loc = ui_drop_throw
-	layer = HUD_LAYER
+	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /atom/movable/screen/drop/Click()
 	usr.drop_item_v()
 
 /atom/movable/screen/toggle_inv
-	name = "toggle"
+	name = "toggle inventory"
 	icon = 'icons/mob/screen/midnight.dmi'
 	icon_state = "toggle"
 	screen_loc = ui_inventory
+	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /atom/movable/screen/toggle_inv/Click()
 	if(usr.hud_used.inventory_shown)
@@ -617,7 +647,7 @@
 	flash_holder = new
 	flash_holder.icon_state = "frame"
 	flash_holder.icon = icon
-	flash_holder.plane = plane
+	flash_holder.vis_flags = VIS_INHERIT_PLANE
 	flash_holder.layer = layer+0.001
 	flash_holder.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	vis_contents += flash_holder

@@ -5,10 +5,6 @@
 	icon = 'icons/Xeno/castes/queen/basic.dmi'
 	icon_state = "Queen Walking"
 	effects_icon = 'icons/Xeno/castes/queen/effects.dmi'
-	rouny_icon = 'icons/Xeno/castes/queen/rouny.dmi'
-	attacktext = "bites"
-	attack_sound = null
-	friendly = "nuzzles"
 	health = 300
 	maxHealth = 300
 	plasma_stored = 300
@@ -21,6 +17,11 @@
 	footstep_type = FOOTSTEP_XENO_STOMPY
 	inherent_verbs = list(
 		/mob/living/carbon/xenomorph/proc/hijack,
+	)
+
+	skins = list(
+		/datum/xenomorph_skin/queen,
+		/datum/xenomorph_skin/queen/rouny,
 	)
 
 // ***************************************
@@ -52,21 +53,21 @@
 
 	if(observed_xeno && !stat)
 		client.perspective = EYE_PERSPECTIVE
-		client.eye = observed_xeno
+		client.set_eye(observed_xeno)
 		return
 
 	if(ismovableatom(A))
 		client.perspective = EYE_PERSPECTIVE
-		client.eye = A
+		client.set_eye(A)
 		return
 
 	if(isturf(loc))
-		client.eye = client.mob
+		client.set_eye(client.mob)
 		client.perspective = MOB_PERSPECTIVE
 		return
 
 	client.perspective = EYE_PERSPECTIVE
-	client.eye = loc
+	client.set_eye(loc)
 
 /mob/living/carbon/xenomorph/queen/upgrade_xeno(newlevel, silent = FALSE)
 	. = ..()

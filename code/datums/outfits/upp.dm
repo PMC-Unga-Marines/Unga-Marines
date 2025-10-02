@@ -72,12 +72,6 @@
 		/obj/item/ammo_magazine/smg/skorpion = 4,
 	)
 
-	l_pocket_contents = list(
-		/obj/item/reagent_containers/hypospray/advanced/oxycodone = 1,
-		/obj/item/reagent_containers/hypospray/advanced/tricordrazine = 1,
-		/obj/item/reagent_containers/glass/bottle/tricordrazine = 1,
-	)
-
 /datum/outfit/job/upp/medic/hvh
 	name = "USL Surgeon (HvH)"
 	wear_suit = /obj/item/clothing/suit/storage/faction/upp/hvh

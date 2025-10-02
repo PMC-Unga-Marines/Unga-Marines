@@ -1,0 +1,6 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - balance: "Сломанные буры теперь не видны маринам."
+  - balance: "Буры теперь спавнятся случайным образом в разных местах и не имеют постоянных мест спавна."
+  - code_imp: "/obj/effect/landmark/lv624/fog_blocker >> /obj/effect/landmark/fog_blocker"

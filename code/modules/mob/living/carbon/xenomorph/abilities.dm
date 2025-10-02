@@ -815,7 +815,7 @@
 	return ..()
 
 /datum/action/ability/activable/xeno/xeno_spit/use_ability(atom/A)
-	if(!owner.GetComponent(/datum/component/ai_controller)) //If its not an ai it will register to listen for clicks instead of use this proc. We want to call start_fire from here only if the owner is an ai.
+	if(owner.client) //If its not an ai it will register to listen for clicks instead of use this proc. We want to call start_fire from here only if the owner is an ai.
 		return
 	start_fire(object = A, can_use_ability_flags = ABILITY_IGNORE_SELECTED_ABILITY)
 
@@ -925,16 +925,16 @@
 	return ..()
 
 /datum/action/ability/xeno_action/xenohide/action_activate()
-	if(xeno_owner.layer != XENO_HIDING_LAYER)
+	if(xeno_owner.layer != BELOW_TABLE_LAYER)
 		RegisterSignals(xeno_owner, list(COMSIG_XENOMORPH_POUNCE, COMSIG_MOB_CRIT, COMSIG_MOB_DEATH), PROC_REF(unhide))
-		xeno_owner.layer = XENO_HIDING_LAYER
+		xeno_owner.layer = BELOW_TABLE_LAYER
 		to_chat(xeno_owner, span_notice("We are now hiding."))
-		button.add_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE))
+		button.add_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, null, FLOAT_PLANE))
 	else
 		UnregisterSignal(xeno_owner, list(COMSIG_XENOMORPH_POUNCE, COMSIG_MOB_CRIT, COMSIG_MOB_DEATH))
 		xeno_owner.layer = MOB_LAYER
 		to_chat(xeno_owner, span_notice("We have stopped hiding."))
-		button.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE))
+		button.cut_overlay(mutable_appearance('icons/Xeno/actions/_actions.dmi', "selected_purple_frame", ACTION_LAYER_ACTION_ICON_STATE, null, FLOAT_PLANE))
 
 /datum/action/ability/xeno_action/xenohide/proc/unhide()
 	SIGNAL_HANDLER
@@ -1088,7 +1088,7 @@
 /datum/action/ability/xeno_action/lay_egg/action_activate(mob/living/carbon/xenomorph/user)
 	var/turf/current_turf = get_turf(xeno_owner)
 
-	if(!current_turf.check_alien_construction(xeno_owner, planned_building = /obj/alien/egg/hugger))
+	if(!current_turf.check_alien_construction(xeno_owner, planned_building = /obj/alien/egg/facehugger))
 		return fail_activate()
 
 	if(!xeno_owner.loc_weeds_type)
@@ -1104,7 +1104,7 @@
 	if(!xeno_owner.loc_weeds_type)
 		return fail_activate()
 
-	new /obj/alien/egg/hugger(current_turf, xeno_owner.hivenumber)
+	new /obj/alien/egg/facehugger(current_turf, xeno_owner.hivenumber)
 	playsound(current_turf, 'sound/effects/splat.ogg', 15, 1)
 
 	succeed_activate()
@@ -1268,6 +1268,9 @@
 		psy_points_reward = psy_points_reward * 3
 	SSpoints.add_psy_points(xeno_owner.hivenumber, psy_points_reward)
 	GLOB.round_statistics.psypoints_from_psydrain += psy_points_reward
+
+	if(xeno_owner.hivenumber != XENO_HIVE_NORMAL)
+		return
 
 	if(SSticker.mode && !CHECK_BITFIELD(SSticker.mode.xeno_abilities_flags, ABILITY_CRASH))
 		var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)

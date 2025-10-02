@@ -29,8 +29,23 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/tgui_input_buttons_swap = FALSE
 	var/toggles_deadchat = TOGGLES_DEADCHAT_DEFAULT
 	var/toggles_chat = TOGGLES_CHAT_DEFAULT
-	var/toggles_sound = TOGGLES_SOUND_DEFAULT
 	var/toggles_gameplay = TOGGLES_GAMEPLAY_DEFAULT
+
+	//Sound Preferences
+	/// Volume setting that sets the volume of adminhelp sound
+	var/volume_adminhelp = 100
+	/// Volume setting that sets the volume of admin music
+	var/volume_adminmusic = 100
+	/// Volume setting that sets the volume of ambience
+	var/volume_ambience = 100
+	/// Volume setting that sets the volume of lobby music
+	var/volume_lobby = 100
+	/// Volume setting that sets the volume of musical instruments
+	var/volume_instruments = 100
+	/// Volume setting that sets the volume of weather
+	var/volume_weather = 100
+	/// Volume setting that sets the volume of end of the round sound
+	var/volume_end_of_round = 100
 
 	var/ghost_hud = TOGGLES_GHOSTHUD_DEFAULT
 	var/ghost_vision = TRUE
@@ -125,6 +140,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/exp = list()
 	var/list/menuoptions = list()
 
+	/// List of keys we are ignoring in global OOC
+	var/list/ignoring = list()
+
 	// Hud tooltip
 	var/tooltips = TRUE
 
@@ -163,11 +181,20 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/fullscreen_mode = FALSE
 	///Hide status bar (bottom left)
 	var/show_status_bar = TRUE
+	///ambient occlusion, or the shadows drawn below objects
+	var/ambient_occlusion = TRUE
+	///whether we want to use multi-z parallax. performance option
+	var/multiz_parallax = TRUE
+	///performance setting for multiz
+	var/multiz_performance = -1
 
 	///Whether or not the MC tab of the Stat Panel refreshes fast. This is expensive so make sure you need it.
 	var/fast_mc_refresh = FALSE
 	///When enabled, will split the 'Admin' panel into several tabs.
 	var/split_admin_tabs = TRUE
+	///When enabled, can hear OOC channels from anywhere in any situation.
+	///Ex: mentors/admins being able to hear XOOC as a human, or LOOC when not nearby the speaker.
+	var/hear_ooc_anywhere_as_staff = TRUE
 
 	/// If unique action will only act on the item in the active hand. If false, it will try to act on the item on the inactive hand as well in certain conditions.
 	var/unique_action_use_active_hand = TRUE

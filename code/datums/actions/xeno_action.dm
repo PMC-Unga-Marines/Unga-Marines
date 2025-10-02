@@ -3,12 +3,13 @@
 	///If you are going to add an explanation for an ability. don't use stats, give a very brief explanation of how to use it.
 	desc = "This ability can not be found in codex."
 	action_icon = 'icons/Xeno/actions/_actions.dmi'
+	background_icon = 'icons/Xeno/actions/_actions.dmi'
 	///Typecast owner since this is used constantly
 	var/mob/living/carbon/xenomorph/xeno_owner
 
 /datum/action/ability/xeno_action/New(Target)
 	. = ..()
-	var/mutable_appearance/empowered_appearence = mutable_appearance('icons/Xeno/actions/_actions.dmi', "borders_center", ACTION_LAYER_EMPOWERED, FLOAT_PLANE)
+	var/mutable_appearance/empowered_appearence = mutable_appearance('icons/Xeno/actions/_actions.dmi', "borders_center", ACTION_LAYER_EMPOWERED)
 	visual_references[VREF_MUTABLE_EMPOWERED_FRAME] = empowered_appearence
 
 /datum/action/ability/xeno_action/give_action(mob/living/L)
@@ -49,12 +50,13 @@
 
 //activatable
 /datum/action/ability/activable/xeno
+	background_icon = 'icons/Xeno/actions/_actions.dmi'
 	///Typecast owner since this is used constantly
 	var/mob/living/carbon/xenomorph/xeno_owner
 
 /datum/action/ability/activable/xeno/New(Target)
 	. = ..()
-	var/mutable_appearance/empowered_appearence = mutable_appearance('icons/Xeno/actions/_actions.dmi', "borders_center", ACTION_LAYER_EMPOWERED, FLOAT_PLANE)
+	var/mutable_appearance/empowered_appearence = mutable_appearance('icons/Xeno/actions/_actions.dmi', "borders_center", ACTION_LAYER_EMPOWERED)
 	visual_references[VREF_MUTABLE_EMPOWERED_FRAME] = empowered_appearence
 
 /datum/action/ability/activable/xeno/give_action(mob/living/L)

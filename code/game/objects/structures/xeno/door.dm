@@ -4,7 +4,7 @@
 	icon_state = "resin-door-1"
 	base_icon_state = "resin-door"
 	resistance_flags = NONE
-	layer = RESIN_STRUCTURE_LAYER
+	layer = BELOW_OBJ_LAYER
 	max_integrity = 100
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_XENO_STRUCTURES)
@@ -13,7 +13,7 @@
 		SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS,
 		SMOOTH_GROUP_MINERAL_STRUCTURES,
 	)
-	soft_armor = list(MELEE = 33, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 15, BIO = 0, FIRE = 0, ACID = 0)
+	soft_armor = list(MELEE = 33, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 65, BIO = 0, FIRE = 0, ACID = 0)
 	trigger_sound = SFX_ALIEN_RESIN_MOVE
 	hit_sound = SFX_ALIEN_RESIN_MOVE
 	destroy_sound = SFX_ALIEN_RESIN_MOVE
@@ -67,9 +67,6 @@
 
 /obj/structure/mineral_door/resin/fire_act(burn_level, flame_color)
 	take_damage(burn_level * 2, BURN, FIRE)
-
-/obj/structure/mineral_door/resin/ex_act(severity)
-	take_damage(severity * 0.5, BRUTE, BOMB)
 
 /obj/structure/mineral_door/resin/try_toggle_state(atom/user)
 	if(!isxeno(user))

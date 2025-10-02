@@ -98,10 +98,8 @@
 	var/taste_sensitivity = TASTE_NORMAL
 	/// Type that gets set as our language_holder on proc/set_species
 	var/default_language_holder = /datum/language_holder
-	/// Sets mob/var/see_in_dark on [/mob/living/carbon/human/update_sight]
-	var/see_in_dark = 2
 	/// Sets our mobs lighting_alpha on [/mob/living/carbon/human/update_sight]
-	var/lighting_alpha
+	var/lighting_cutoff
 	/// Used for metabolizing reagents
 	var/reagent_tag
 
@@ -257,7 +255,7 @@
 			victim.adjust_stamina_loss(damage)
 
 	// Will set our damageoverlay icon to the next level, which will then be set back to the normal level the next mob.Life().
-	SEND_SIGNAL(victim, COMSIG_HUMAN_DAMAGE_TAKEN, damage)
+	SEND_SIGNAL(victim, COMSIG_HUMAN_DAMAGE_TAKEN, damage, attacker) //add attacker arg everywhere needed
 
 	if(updating_health)
 		victim.update_health()

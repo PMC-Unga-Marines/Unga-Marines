@@ -45,6 +45,13 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_WEAPONABILITY_SWORDLUNGE,
 	)
+	///Range of this ability
+	var/lunge_range = 2
+
+/datum/action/ability/activable/weapon_skill/sword_lunge/ai_should_use(atom/target)
+	if(get_dist(owner, target) > lunge_range)
+		return FALSE
+	return ..()
 
 /datum/action/ability/activable/weapon_skill/sword_lunge/use_ability(atom/A)
 	var/mob/living/carbon/carbon_owner = owner
@@ -55,7 +62,7 @@
 
 	carbon_owner.visible_message(span_danger("[carbon_owner] charges towards \the [A]!"))
 	playsound(owner, 'sound/effects/alien/tail_swipe2.ogg', 50, 0, 4)
-	carbon_owner.throw_at(A, 2, 1, carbon_owner)
+	carbon_owner.throw_at(A, lunge_range, 1, carbon_owner)
 	succeed_activate()
 	add_cooldown()
 
@@ -152,6 +159,24 @@
 /obj/item/weapon/sword/machete/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/strappable)
+
+/obj/item/weapon/sword/machete/light
+	name = "\improper 'Recon' machete"
+	desc = "A lightweight and compact variant of the standard TGMC machete, designed for easy carry and rapid deployment. Its reduced weight and size make it a favored tool for scouts and trackers who prioritize mobility without sacrificing utility for clearing brush or in close-quarters combat."
+	icon_state = "machete_light"
+	worn_icon_state = "machete_light"
+	force = 70
+	penetration = 0
+	equip_slot_flags = ITEM_SLOT_BELT
+
+/obj/item/weapon/sword/machete/light/Initialize(mapload)
+	if(prob(70))
+		icon_state = initial(icon_state) + "_a"
+		worn_icon_state = initial(worn_icon_state) + "_a"
+	else
+		icon_state = initial(icon_state) + "_b"
+		worn_icon_state = initial(worn_icon_state) + "_b"
+	return ..()
 
 /obj/item/weapon/sword/machete/alt
 	name = "machete"

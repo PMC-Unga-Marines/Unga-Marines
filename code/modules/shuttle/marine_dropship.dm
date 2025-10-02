@@ -72,7 +72,7 @@
 	var/turf/left = locate(C.x - leftright, C.y, C.z)
 	var/turf/right = locate(C.x + leftright, C.y, C.z)
 
-	for(var/turf/T in range(3, rear)+range(3, left)+range(3, right)+range(2, front))
+	for(var/turf/T AS in RANGE_TURFS(3, rear) + RANGE_TURFS(3, left) + RANGE_TURFS(3, right) + RANGE_TURFS(2, front))
 		T.empty(/turf/open/floor/plating, ignore_typecache = typecacheof(/mob))
 
 	SSmonitor.process_human_positions()
@@ -379,7 +379,6 @@
 	hive?.xeno_message("[src] has summoned down the metal bird to [port], gather to her now!")
 	priority_announce("Неизвестное вмешательство в управление десантным шаттлом. Выключение автопилота...", "Неисправность Шаттла", type = ANNOUNCEMENT_PRIORITY, color_override = "red", sound = 'sound/AI/dropship_wrong.ogg')
 
-
 #define ALIVE_HUMANS_FOR_CALLDOWN 0.1
 
 /datum/game_mode/proc/can_summon_dropship(mob/user)
@@ -660,6 +659,16 @@
 			if(!(xeno.hive.hive_flags & HIVE_CAN_HIJACK))
 				to_chat(xeno, span_warning("Нашему улью не хватает экстрасенсорных способностей, чтобы украсть птицу."))
 				return
+			var/groundside_humans = length(GLOB.humans_by_zlevel["[z]"])
+			if(groundside_humans > 5)
+				to_chat(usr, span_xenowarning("Еще осталась добыча, на которую можно охотиться!"))
+				return
+			if(!is_ground_level(xeno.loc.z)) // Don't hijack from the shipside
+				to_chat(xeno, span_xenowarning("The shuttle is already at the ship!"))
+				return
+			if(SSmonitor.gamestate == SHIPSIDE)
+				to_chat(xeno, span_xenowarning("The shuttle is already at the ship!"))
+				return
 			if(shuttle.mode == SHUTTLE_RECHARGING)
 				to_chat(xeno, span_xenowarning("Птица все еще остывает..."))
 				return
@@ -672,9 +681,13 @@
 			var/obj/docking_port/stationary/marine_dropship/crash_target/CT = pick(SSshuttle.crash_targets)
 			if(!CT)
 				return
+
 			do_hijack(shuttle, CT, xeno)
+
 		if("abduct")
 			var/datum/game_mode/infestation/infestation_mode = SSticker.mode
+			if(!istype(infestation_mode))
+				return
 			if(infestation_mode.round_stage == INFESTATION_MARINE_CRASHING)
 				message_admins("[usr] tried to capture the shuttle after it was already hijacked, possible use of exploits.")
 				return
@@ -958,6 +971,7 @@
 	icon_state = "shuttle_glass1"
 
 /obj/structure/dropship_piece/glassone/tadpole
+	max_integrity = 600
 	icon = 'icons/turf/tadpole.dmi'
 	resistance_flags = XENO_DAMAGEABLE|DROPSHIP_IMMUNE
 	opacity = FALSE
@@ -968,12 +982,14 @@
 	icon_state = "shuttle_glass2"
 
 /obj/structure/dropship_piece/glasstwo/tadpole
+	max_integrity = 600
 	icon = 'icons/turf/tadpole.dmi'
 	resistance_flags = XENO_DAMAGEABLE|DROPSHIP_IMMUNE
 	opacity = FALSE
 	allow_pass_flags = PASS_GLASS
 
 /obj/structure/dropship_piece/singlewindow/tadpole
+	max_integrity = 600
 	icon = 'icons/turf/tadpole.dmi'
 	icon_state = "shuttle_single_window"
 	allow_pass_flags = PASS_GLASS
@@ -982,7 +998,7 @@
 
 /obj/structure/dropship_piece/tadpole/cockpit
 	desc = "The nose part of the tadpole, able to be destroyed."
-	max_integrity = 500
+	max_integrity = 600
 	resistance_flags = XENO_DAMAGEABLE | DROPSHIP_IMMUNE
 	opacity = FALSE
 	layer = BELOW_OBJ_LAYER

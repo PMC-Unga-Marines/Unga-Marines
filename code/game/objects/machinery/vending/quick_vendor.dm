@@ -82,7 +82,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 		.[X] = new X
 
 /obj/machinery/quick_vendor
-	name = "Kwik-E-Quip vendor"
+	name = "\improper Kwik-E-Quip vendor"
 	desc = "An advanced vendor to instantly arm soldiers with specific sets of equipment, allowing for immediate combat deployment. \
 	Mutually exclusive with the GHMME."
 	icon = 'icons/obj/machines/vending.dmi'
@@ -140,7 +140,7 @@ GLOBAL_LIST_INIT(quick_loadouts, init_quick_loadouts())
 	. = ..()
 	if(!is_operational())
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive")
+	. += emissive_appearance(icon, "[icon_state]_emissive", src)
 
 /obj/machinery/quick_vendor/can_interact(mob/user)
 	. = ..()

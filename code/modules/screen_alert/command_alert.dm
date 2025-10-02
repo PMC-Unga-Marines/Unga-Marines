@@ -45,6 +45,7 @@
 	var/text = tgui_input_text(human_owner, "Максимальная длина [MAX_COMMAND_MESSAGE_LEN]", "Отправить сообщение отряду",  max_length = MAX_COMMAND_MESSAGE_LEN, multiline = TRUE)
 	if(!text)
 		return
+	text = capitalize(text)
 	var/filter_result = CAN_BYPASS_FILTER(human_owner) ? null : is_ic_filtered(text)
 	if(filter_result)
 		to_chat(human_owner, span_warning("That message contained a word prohibited in IC chat! Consider reviewing the server rules.\n<span replaceRegex='show_filtered_ic_chat'>\"[text]\"</span>"))

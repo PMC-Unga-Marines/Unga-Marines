@@ -4,11 +4,12 @@
 		return COMPONENT_INCOMPATIBLE
 	RegisterSignal(target, COMSIG_CLICK_ALT, PROC_REF(on_alt_click))
 	RegisterSignal(target, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
+	RegisterSignals(target, list(COMSIG_AI_EQUIPPED_GUN, COMSIG_AI_EQUIPPED_MELEE), PROC_REF(ai_try_strap))
 	ADD_TRAIT(target, TRAIT_STRAPPABLE, STRAPPABLE_ITEM_TRAIT)
 
 /datum/element/strappable/Detach(datum/source, ...)
 	. = ..()
-	UnregisterSignal(source, list(COMSIG_CLICK_ALT, COMSIG_ATOM_EXAMINE, COMSIG_ITEM_UNEQUIPPED))
+	UnregisterSignal(source, list(COMSIG_CLICK_ALT, COMSIG_ATOM_EXAMINE, COMSIG_ITEM_UNEQUIPPED, COMSIG_AI_EQUIPPED_GUN))
 	REMOVE_TRAIT(source, TRAIT_STRAPPABLE, STRAPPABLE_ITEM_TRAIT)
 
 ///Toggles strap state
@@ -41,3 +42,13 @@
 	SIGNAL_HANDLER
 	UnregisterSignal(item_source, COMSIG_ITEM_UNEQUIPPED)
 	REMOVE_TRAIT(item_source, TRAIT_NODROP, STRAPPABLE_ITEM_TRAIT)
+
+///AI tries to toggle the strap
+/datum/element/strappable/proc/ai_try_strap(datum/source, mob/user, unequip = FALSE)
+	SIGNAL_HANDLER
+	if(HAS_TRAIT_FROM(source, TRAIT_NODROP, STRAPPABLE_ITEM_TRAIT))
+		if(!unequip)
+			return
+	else if(unequip)
+		return
+	on_alt_click(source, user)

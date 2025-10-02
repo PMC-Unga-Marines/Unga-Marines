@@ -317,6 +317,16 @@
 			continue
 		. += length(xenos_by_tier[t])
 
+///returns a list of all caste members, including other strains of this xeno caste
+/datum/hive_status/proc/get_all_caste_members(caste_type)
+	RETURN_TYPE(/list)
+
+	ASSERT(ispath(caste_type, /datum/xeno_caste))
+	. = list()
+	var/list/all_strain_types = get_strain_options(caste_type)
+	for(var/strain_type in all_strain_types)
+		. += xenos_by_typepath[strain_type]
+
 /datum/hive_status/proc/post_add(mob/living/carbon/xenomorph/X)
 	X.color = color
 
@@ -424,11 +434,11 @@
 		LAZYADD(xenos_by_zlevel["[X.z]"], X)
 	RegisterSignal(X, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(xeno_z_changed))
 
-	if(!xenos_by_typepath[X.xeno_caste.get_base_caste_type()])
+	if(!xenos_by_typepath[get_base_caste_type(X.xeno_caste.type)])
 		stack_trace("trying to add an invalid typepath into hivestatus list [X.caste_base_type]")
 		return FALSE
 
-	xenos_by_typepath[X.xeno_caste.get_base_caste_type()] += X
+	xenos_by_typepath[get_base_caste_type(X.xeno_caste.type)] += X
 	update_tier_limits() //Update our tier limits.
 
 	return TRUE
@@ -488,12 +498,12 @@
 		stack_trace("trying to remove a xeno from hivestatus upgrade list, nothing was removed!? removed_xeno = [removed_xeno], tier = [removed_xeno.upgrade]")
 		return FALSE
 
-	if(!xenos_by_typepath[removed_xeno.xeno_caste.get_base_caste_type()])
-		stack_trace("trying to remove an invalid typepath from hivestatus list, removed_xeno = [removed_xeno], caste = [removed_xeno.xeno_caste], base caste type = [removed_xeno.xeno_caste.get_base_caste_type()]")
+	if(!xenos_by_typepath[get_base_caste_type(removed_xeno.xeno_caste.type)])
+		stack_trace("trying to remove an invalid typepath from hivestatus list, removed_xeno = [removed_xeno], caste = [removed_xeno.xeno_caste], base caste type = [removed_xeno.xeno_caste.type]")
 		return FALSE
 
-	if(!xenos_by_typepath[removed_xeno.xeno_caste.get_base_caste_type()].Remove(removed_xeno))
-		stack_trace("failed to remove a xeno from hive status typepath list, nothing was removed!? removed_xeno = [removed_xeno], caste = [removed_xeno.xeno_caste], base caste type = [removed_xeno.xeno_caste.get_base_caste_type()]")
+	if(!xenos_by_typepath[get_base_caste_type(removed_xeno.xeno_caste.type)].Remove(removed_xeno))
+		stack_trace("failed to remove a xeno from hive status typepath list, nothing was removed!? removed_xeno = [removed_xeno], caste = [removed_xeno.xeno_caste], base caste type = [removed_xeno.xeno_caste.type]")
 		return FALSE
 
 	LAZYREMOVE(xenos_by_zlevel["[removed_xeno.z]"], removed_xeno)
@@ -599,7 +609,7 @@
 	if(!devolver.check_concious_state())
 		return
 
-	if(target.is_ventcrawling)
+	if(HAS_TRAIT(target, TRAIT_MOVE_VENTCRAWLING))
 		to_chat(devolver, span_xenonotice("Cannot deevolve, [target] is ventcrawling."))
 		return
 
@@ -728,7 +738,7 @@
 	return castedatum
 
 /datum/hive_status/proc/target_status_check(mob/living/carbon/xenomorph/user, mob/living/carbon/xenomorph/target)
-	if(target.is_ventcrawling)
+	if(HAS_TRAIT(target, TRAIT_MOVE_VENTCRAWLING))
 		to_chat(user, span_xenonotice("Cannot punish, [target] is ventcrawling."))
 		return FALSE
 
@@ -787,14 +797,13 @@
 	if(living_xeno_ruler == ruler)
 		set_ruler(null)
 	var/announce = TRUE
-	if(SSticker.current_state == GAME_STATE_FINISHED || SSticker.current_state == GAME_STATE_SETTING_UP)
+	if(SSticker.current_state == GAME_STATE_FINISHED || SSticker.current_state == GAME_STATE_SETTING_UP || is_centcom_level(ruler.loc.z))
 		announce = FALSE
 	if(announce)
 		xeno_message("A sudden tremor ripples through the hive... \the [ruler] has been slain! Vengeance!", "xenoannounce", 6, TRUE)
-	notify_ghosts("\The <b>[ruler]</b> has been slain!", source = ruler, action = NOTIFY_JUMP)
+		notify_ghosts("\The <b>[ruler]</b> has been slain!", source = ruler, action = NOTIFY_JUMP)
 	update_ruler()
 	return TRUE
-
 
 // This proc attempts to find a new ruler to lead the hive.
 /datum/hive_status/proc/update_ruler()
@@ -808,7 +817,7 @@
 		successor = candidates[1] //First come, first serve.
 
 	var/announce = TRUE
-	if(SSticker.current_state == GAME_STATE_FINISHED || SSticker.current_state == GAME_STATE_SETTING_UP)
+	if(SSticker.current_state == GAME_STATE_FINISHED || SSticker.current_state == GAME_STATE_SETTING_UP || is_centcom_level(successor?.loc?.z))
 		announce = FALSE
 
 	set_ruler(successor)
@@ -822,7 +831,7 @@
 		xeno_message("\A [successor] has risen to lead the Hive! Rejoice!", "xenoannounce", 6)
 		notify_ghosts("\The [successor] has risen to lead the Hive!", source = successor, action = NOTIFY_ORBIT)
 
-
+/// Set a ruler and announce it. If null just clears the xeno ruler.
 /datum/hive_status/proc/set_ruler(mob/living/carbon/xenomorph/successor)
 	SSdirection.clear_leader(hivenumber)
 	if(!isnull(successor))
