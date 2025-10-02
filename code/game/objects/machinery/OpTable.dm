@@ -259,6 +259,7 @@
 		return FALSE
 
 	return TRUE
+	
 /obj/machinery/optable/yautja
 	icon = 'icons/obj/machines/yautja_machines.dmi'
 
