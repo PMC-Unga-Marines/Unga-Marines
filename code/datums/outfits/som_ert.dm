@@ -16,7 +16,7 @@
 	l_pocket = /obj/item/storage/pouch/grenade/som/ert
 	back = /obj/item/storage/backpack/lightpack/som
 
-	r_pocket_contents = list(
+	head_contents = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/combat_advanced = 1,
 		/obj/item/reagent_containers/hypospray/autoinjector/russian_red = 1,
 	)
@@ -41,9 +41,6 @@
 		/obj/item/ammo_magazine/rifle/som = 2,
 		/obj/item/storage/box/m94 = 1,
 	)
-	belt_contents = list(
-		/obj/item/ammo_magazine/rifle/som = 6,
-	)
 	webbing_contents = list(
 		/obj/item/ammo_magazine/handful/micro_grenade = 2,
 		/obj/item/ammo_magazine/handful/micro_grenade/dragonbreath = 1,
@@ -62,9 +59,6 @@
 		/obj/item/tool/crowbar/red = 1,
 		/obj/item/explosive/grenade/som = 5,
 		/obj/item/storage/box/m94 = 1,
-	)
-	belt_contents = list(
-		/obj/item/ammo_magazine/smg/som = 6,
 	)
 	webbing_contents = list(
 		/obj/item/explosive/grenade/som = 2,
