@@ -820,7 +820,7 @@ Status: [status ? status : "Unknown"] | Damage: [health ? health : "None"]
 
 		switch(tgui_input_list(usr, "Where do you want to send it to?", "Send Mob", list("Area", "Mob", "Key", "Coords"), timeout = 0))
 			if("Area")
-				var/area/A = tgui_input_list(usr, "Pick an area.", "Pick an area", GLOB.sorted_areas, timeout = 0)
+				var/area/A = tgui_input_list(usr, "Pick an area.", "Pick an area", get_sorted_areas(), timeout = 0)
 				if(!A || !M)
 					return
 				target = pick(get_area_turfs(A))

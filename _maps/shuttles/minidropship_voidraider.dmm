@@ -1,26 +1,52 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
+"aa" = (
 /turf/closed/wall/mainship/outer/canterbury,
 /area/shuttle/minidropship)
-"c" = (
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"d" = (
+"ab" = (
 /obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8;
-	layer = 3
+	dir = 8
 	},
 /obj/machinery/light/floor{
 	dir = 8
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
-"e" = (
+"ac" = (
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
+"ag" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 4
+	},
+/obj/structure/closet/walllocker/hydrant/extinguisher{
+	dir = 1
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"ah" = (
+/obj/docking_port/mobile/marine_dropship/minidropship,
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 4
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"ai" = (
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
+/obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"aj" = (
 /obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
-"m" = (
+"ak" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 4
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
+"am" = (
 /obj/structure/dropship_piece/tadpole/tadpole_nose/right{
 	dir = 1;
 	pixel_y = 32
@@ -34,60 +60,34 @@
 	},
 /turf/closed/wall/mainship/outer/canterbury,
 /area/shuttle/minidropship)
-"n" = (
+"an" = (
 /obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
-"o" = (
+"ao" = (
 /turf/closed/shuttle/ert/engines/left{
 	dir = 1
 	},
 /area/shuttle/minidropship)
-"p" = (
+"ap" = (
 /obj/machinery/camera/autoname/mainship/dropship_two{
 	dir = 1
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
-"q" = (
-/obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
-/obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
-"r" = (
-/obj/structure/dropship_piece/tadpole/engine{
-	dir = 1;
-	pixel_x = -23
-	},
-/obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
-/obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
-"s" = (
+"as" = (
 /obj/structure/window/reinforced/west,
 /obj/machinery/cic_maptable,
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
-"t" = (
-/obj/effect/turf_decal/warning_stripes/thick/corner{
-	dir = 4
-	},
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
-"u" = (
+"au" = (
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
 /obj/machinery/door/poddoor/mainship/open{
 	id = "minidropship_podlock"
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
-"v" = (
-/obj/machinery/light/floor{
-	dir = 4
-	},
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
-"w" = (
+"aw" = (
 /obj/effect/attach_point/weapon/minidropship{
 	equipment_offset_y = 25
 	},
@@ -97,43 +97,119 @@
 	},
 /turf/closed/wall/mainship/outer/canterbury,
 /area/shuttle/minidropship)
-"y" = (
-/obj/machinery/vending/nanomed/tadpolemed{
-	dir = 1
-	},
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
-"z" = (
-/obj/structure/dropship_piece/tadpole/tadpole_nose{
-	dir = 1;
-	pixel_y = 32
-	},
-/turf/closed/wall/mainship/outer/canterbury,
-/area/shuttle/minidropship)
-"A" = (
+"aA" = (
 /obj/structure/dropship_piece/tadpole/engine{
 	dir = 1;
 	pixel_x = -23
 	},
 /turf/closed/wall/mainship/outer/canterbury,
 /area/shuttle/minidropship)
-"B" = (
+"aB" = (
 /obj/effect/attach_point/crew_weapon/minidropship,
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
-"D" = (
-/obj/docking_port/mobile/marine_dropship/minidropship,
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 4;
-	layer = 3
+"aC" = (
+/obj/machinery/light/floor{
+	dir = 4
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
-"F" = (
+"aF" = (
 /obj/machinery/holopad,
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
-"G" = (
+"aH" = (
+/obj/structure/bed/chair/dropship/pilot{
+	dir = 1
+	},
+/obj/machinery/door/window{
+	dir = 2
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
+"aK" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 1
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"aL" = (
+/obj/machinery/telecomms/relay/preset/telecomms/onboard,
+/turf/closed/wall/mainship/outer/canterbury,
+/area/shuttle/minidropship)
+"aM" = (
+/obj/machinery/vending/nanomed/tadpolemed{
+	dir = 1
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"aN" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 8
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"aP" = (
+/obj/machinery/door/poddoor/mainship/open{
+	id = "minidropship_podlock"
+	},
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
+"aQ" = (
+/turf/template_noop,
+/area/template_noop)
+"aU" = (
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing{
+	dir = 2
+	},
+/obj/machinery/door/poddoor/mainship/open{
+	id = "minidropship_podlock";
+	dir = 2
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
+"aV" = (
+/obj/structure/dropship_piece/tadpole/engine{
+	dir = 1;
+	pixel_x = 23
+	},
+/turf/closed/wall/mainship/outer/canterbury,
+/area/shuttle/minidropship)
+"aW" = (
+/obj/effect/turf_decal/warning_stripes/thick/corner{
+	dir = 4
+	},
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"aY" = (
+/turf/open/floor/mainship/mono,
+/area/shuttle/minidropship)
+"bJ" = (
+/obj/structure/dropship_piece/tadpole/tadpole_nose{
+	dir = 1;
+	pixel_y = 32
+	},
+/turf/closed/wall/mainship/outer/canterbury,
+/area/shuttle/minidropship)
+"ip" = (
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing{
+	dir = 2
+	},
+/obj/machinery/door/poddoor/mainship/open{
+	dir = 2;
+	id = "minidropship_podlock"
+	},
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
+"jt" = (
+/obj/effect/turf_decal/warning_stripes/thick{
+	dir = 1
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
+"rN" = (
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship,
 /obj/machinery/camera/autoname/mainship/dropship_two,
 /obj/machinery/door_control{
@@ -143,44 +219,16 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
-"H" = (
-/obj/structure/bed/chair/dropship/pilot{
-	dir = 1
-	},
-/obj/machinery/door/window{
-	dir = 2
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"I" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 4;
-	layer = 3
-	},
-/obj/structure/closet/walllocker/hydrant/extinguisher{
-	dir = 1
-	},
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
-"J" = (
-/obj/effect/turf_decal/warning_stripes/thick{
+"CK" = (
+/obj/structure/dropship_piece/tadpole/engine{
 	dir = 1;
-	layer = 3
+	pixel_x = -23
 	},
-/obj/machinery/light/floor,
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"K" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 1
-	},
+/obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
-"L" = (
-/obj/machinery/telecomms/relay/preset/telecomms/onboard,
-/turf/closed/wall/mainship/outer/canterbury,
-/area/shuttle/minidropship)
-"O" = (
+"Kp" = (
 /obj/effect/turf_decal/warning_stripes/thick/corner{
 	dir = 8
 	},
@@ -191,125 +239,81 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
-"P" = (
-/obj/machinery/door/poddoor/mainship/open{
-	id = "minidropship_podlock"
-	},
-/obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"R" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 8;
-	layer = 3
-	},
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
-"S" = (
-/obj/effect/turf_decal/warning_stripes/thick{
-	dir = 4;
-	layer = 3
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"U" = (
-/obj/machinery/door/poddoor/shutters/transit/nonsmoothing{
-	dir = 2
-	},
-/obj/machinery/door/poddoor/mainship/open{
-	id = "minidropship_podlock";
-	dir = 2
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/minidropship)
-"V" = (
-/obj/structure/dropship_piece/tadpole/engine{
-	dir = 1;
-	pixel_x = 23
-	},
-/turf/closed/wall/mainship/outer/canterbury,
-/area/shuttle/minidropship)
-"Y" = (
-/turf/open/floor/mainship/mono,
-/area/shuttle/minidropship)
-"Z" = (
-/turf/template_noop,
-/area/template_noop)
 
 (1,1,1) = {"
-w
-e
-r
-e
-u
-u
-P
-A
-Z
+aw
+aj
+CK
+aj
+au
+au
+aP
+aA
+aQ
 "}
 (2,1,1) = {"
-U
-K
-Y
-t
-R
-d
-R
-a
-a
+ip
+aK
+aY
+aW
+aN
+ab
+aN
+aa
+aa
 "}
 (3,1,1) = {"
-U
-J
-c
-c
-c
-B
-p
-a
-o
+ip
+jt
+ac
+ac
+ac
+aB
+ap
+aa
+ao
 "}
 (4,1,1) = {"
-U
-K
-Y
-O
-D
-S
-I
-a
-L
+aU
+aK
+aY
+Kp
+ah
+ak
+ag
+aa
+aL
 "}
 (5,1,1) = {"
-n
-a
-s
-a
-F
-Y
-y
-a
-o
+an
+aa
+as
+aa
+aF
+aY
+aM
+aa
+ao
 "}
 (6,1,1) = {"
-Z
-z
-G
-H
-Y
-v
-Y
-a
-a
+aQ
+bJ
+rN
+aH
+aY
+aC
+aY
+aa
+aa
 "}
 (7,1,1) = {"
-Z
-m
-V
-a
-e
-e
-q
-V
-Z
+aQ
+am
+aV
+aa
+aj
+aj
+ai
+aV
+aQ
 "}

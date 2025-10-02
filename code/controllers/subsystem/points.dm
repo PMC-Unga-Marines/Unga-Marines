@@ -96,8 +96,11 @@ SUBSYSTEM_DEF(points)
 /datum/controller/subsystem/points/fire(resumed = FALSE)
 	dropship_points += DROPSHIP_POINT_RATE / (1 MINUTES / wait)
 
+	var/current_supply_point_rate = SUPPLY_POINT_RATE / (1 MINUTES / wait)
 	for(var/key in supply_points)
-		supply_points[key] += SUPPLY_POINT_RATE / (1 MINUTES / wait)
+		supply_points[key] += current_supply_point_rate
+		if(key == FACTION_TERRAGOV)
+			GLOB.round_statistics.points_from_orbit += current_supply_point_rate
 
 	for(var/key in supply_points)
 		for(var/mob/living/account in GLOB.alive_human_list_faction[key])

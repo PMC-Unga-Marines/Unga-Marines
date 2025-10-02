@@ -59,7 +59,7 @@ SUBSYSTEM_DEF(mapping)
 	var/list/datum/space_level/z_list
 	var/datum/space_level/transit
 	var/num_of_res_levels = 1
-
+	
 	/// True when in the process of adding a new Z-level, global locking
 	var/adding_new_zlevel = FALSE
 	/// list of traits and their associated z leves
@@ -104,17 +104,63 @@ SUBSYSTEM_DEF(mapping)
 			if(M.config_tag in configs[GROUND_MAP].gamemodes)
 				continue
 			config.votable_modes -= M // remove invalid modes
-
+	plane_offset_to_true = list()
+	true_to_offset_planes = list()
+	plane_to_offset = list()
+	// VERY special cases for FLOAT_PLANE, so it will be treated as expected by plane management logic
+	// Sorry :(
+	plane_offset_to_true["[FLOAT_PLANE]"] = FLOAT_PLANE
+	true_to_offset_planes["[FLOAT_PLANE]"] = list(FLOAT_PLANE)
+	plane_to_offset["[FLOAT_PLANE]"] = 0
+	plane_offset_blacklist = list()
+	// You aren't allowed to offset a floatplane that'll just fuck it all up
+	plane_offset_blacklist["[FLOAT_PLANE]"] = TRUE
+	render_offset_blacklist = list()
+	critical_planes = list()
+	create_plane_offsets(0, 0)
 	loadWorld()
-	repopulate_sorted_areas()
+	require_area_resort()
 	load_last_round_playercount()
 	preloadTemplates()
 	// Add the first transit level
 	var/datum/space_level/base_transit = add_reservation_zlevel()
-	repopulate_sorted_areas()
+	require_area_resort()
 	initialize_reserved_level(base_transit.z_value)
 	calculate_default_z_level_gravities()
 	return SS_INIT_SUCCESS
+
+/datum/controller/subsystem/mapping/fire(resumed)
+	// Cache for sonic speed
+	var/list/unused_turfs = src.unused_turfs
+	var/list/world_contents = GLOB.areas_by_type[world.area].contents
+	var/list/world_turf_contents_by_z = GLOB.areas_by_type[world.area].turfs_by_zlevel
+	var/list/lists_to_reserve = src.lists_to_reserve
+	var/index = 0
+	while(index < length(lists_to_reserve))
+		var/list/packet = lists_to_reserve[index + 1]
+		var/packetlen = length(packet)
+		while(packetlen)
+			if(MC_TICK_CHECK)
+				if(index)
+					lists_to_reserve.Cut(1, index)
+				return
+			var/turf/reserving_turf = packet[packetlen]
+			reserving_turf.empty(RESERVED_TURF_TYPE, RESERVED_TURF_TYPE, null, TRUE)
+			LAZYINITLIST(unused_turfs["[reserving_turf.z]"])
+			unused_turfs["[reserving_turf.z]"] |= reserving_turf
+			var/area/old_area = reserving_turf.loc
+			LISTASSERTLEN(old_area.turfs_to_uncontain_by_zlevel, reserving_turf.z, list())
+			old_area.turfs_to_uncontain_by_zlevel[reserving_turf.z] += reserving_turf
+			//reserving_turf.turf_flags = UNUSED_RESERVATION_TURF
+
+			world_contents += reserving_turf
+			LISTASSERTLEN(world_turf_contents_by_z, reserving_turf.z, list())
+			world_turf_contents_by_z[reserving_turf.z] += reserving_turf
+			packet.len--
+			packetlen = length(packet)
+
+		index++
+	lists_to_reserve.Cut(1, index)
 
 //Loads the number of players we had last round, for use in modular mapping
 /datum/controller/subsystem/mapping/proc/load_last_round_playercount()
@@ -202,12 +248,13 @@ SUBSYSTEM_DEF(mapping)
 	z_list = SSmapping.z_list
 
 #define INIT_ANNOUNCE(X) to_chat(world, span_alert("<b>[X]</b>")); log_world(X)
-/datum/controller/subsystem/mapping/proc/LoadGroup(list/errorList, name, path, files, list/traits, list/default_traits, silent = FALSE)
+/datum/controller/subsystem/mapping/proc/LoadGroup(list/errorList, name, path, files, list/traits, list/default_traits, silent = FALSE, height_autosetup = TRUE)
 	. = list()
 	var/start_time = REALTIMEOFDAY
 
 	if(!islist(files))  // handle single-level maps
 		files = list(files)
+
 	// check that the total z count of all maps matches the list of traits
 	var/total_z = 0
 	var/list/parsed_maps = list()
@@ -220,15 +267,27 @@ SUBSYSTEM_DEF(mapping)
 			continue
 		parsed_maps[pm] = total_z  // save the start Z of this file
 		total_z += bounds[MAP_MAXZ] - bounds[MAP_MINZ] + 1
+
 	if(!length(traits))  // null or empty - default
 		for(var/i in 1 to total_z)
-			traits += list(default_traits)
-	else if(total_z != length(traits))  // mismatch
-		INIT_ANNOUNCE("WARNING: [length(traits)] trait sets specified for [total_z] z-levels in [path]!")
-		if(total_z < length(traits))  // ignore extra traits
+			traits += list(default_traits.Copy())
+	else if(total_z != traits.len)  // mismatch
+		INIT_ANNOUNCE("WARNING: [traits.len] trait sets specified for [total_z] z-levels in [path]!")
+		if(total_z < traits.len)  // ignore extra traits
 			traits.Cut(total_z + 1)
-		while(total_z > length(traits))  // fall back to defaults on extra levels
-			traits += list(default_traits)
+		while(total_z > traits.len)  // fall back to defaults on extra levels
+			traits += list(default_traits.Copy())
+
+	if(total_z > 1 && height_autosetup) // it's a multi z map, and we haven't opted out of trait autosetup
+		for(var/z in 1 to total_z)
+			if(z == 1) // bottom z-level
+				traits[z]["Up"] = TRUE
+			else if(z == total_z) // top z-level
+				traits[z]["Down"] = TRUE
+			else
+				traits[z]["Down"] = TRUE
+				traits[z]["Up"] = TRUE
+
 	// preload the relevant space_level datums
 	var/start_z = world.maxz + 1
 	var/i = 0
@@ -251,7 +310,7 @@ SUBSYSTEM_DEF(mapping)
 			x_offset = round(world.maxx * 0.5 - bounds[MAP_MAXX] * 0.5) + 1
 		if(bounds && world.maxy > bounds[MAP_MAXY])
 			y_offset = round(world.maxy * 0.5 - bounds[MAP_MAXY] * 0.5) + 1
-		if (!pm.load(x_offset, y_offset, start_z + parsed_maps[pm], no_changeturf = TRUE, new_z = TRUE))
+		if(!pm.load(x_offset, y_offset, start_z + parsed_maps[pm], no_changeturf = TRUE, new_z = TRUE))
 			errorList |= pm.original_path
 	// =============== END CM Change =================
 	if(!silent)
@@ -499,6 +558,128 @@ SUBSYSTEM_DEF(mapping)
 /datum/controller/subsystem/mapping/proc/manage_z_level(datum/space_level/new_z, filled_with_space, contain_turfs = TRUE)
 	// First, add the z
 	z_list += new_z
-	//TODO: All the Z-plane init stuff goes below here normally, we don't have that yet
+
 	// Then we build our lookup lists
-	//var/z_value = new_z.z_value
+	var/z_value = new_z.z_value
+	// We are guarenteed that we'll always grow bottom up
+	// Suck it jannies
+	z_level_to_plane_offset.len += 1
+	z_level_to_lowest_plane_offset.len += 1
+	gravity_by_z_level.len += 1
+	z_level_to_stack.len += 1
+	// Bare minimum we have ourselves
+	z_level_to_stack[z_value] = list(z_value)
+	// 0's the default value, we'll update it later if required
+	z_level_to_plane_offset[z_value] = 0
+	z_level_to_lowest_plane_offset[z_value] = 0
+
+	// Now we check if this plane is offset or not
+	var/below_offset = new_z.traits[ZTRAIT_DOWN]
+	if(below_offset)
+		update_plane_tracking(new_z)
+
+	if(contain_turfs)
+		build_area_turfs(z_value, filled_with_space)
+
+	// And finally, misc global generation
+
+	// We'll have to update this if offsets change, because we load lowest z to highest z
+	generate_lighting_appearance_by_z(z_value)
+
+/datum/controller/subsystem/mapping/proc/build_area_turfs(z_level, space_guaranteed)
+	// If we know this is filled with default tiles, we can use the default area
+	// Faster
+	if(space_guaranteed)
+		var/area/global_area = GLOB.areas_by_type[world.area]
+		LISTASSERTLEN(global_area.turfs_by_zlevel, z_level, list())
+		global_area.turfs_by_zlevel[z_level] = Z_TURFS(z_level)
+		return
+
+	for(var/turf/to_contain as anything in Z_TURFS(z_level))
+		var/area/our_area = to_contain.loc
+		LISTASSERTLEN(our_area.turfs_by_zlevel, z_level, list())
+		our_area.turfs_by_zlevel[z_level] += to_contain
+
+/datum/controller/subsystem/mapping/proc/update_plane_tracking(datum/space_level/update_with)
+	// We're essentially going to walk down the stack of connected z levels, and set their plane offset as we go
+	var/plane_offset = 0
+	var/datum/space_level/current_z = update_with
+	var/list/datum/space_level/levels_checked = list()
+	var/list/z_stack = list()
+	while(TRUE)
+		var/z_level = current_z.z_value
+		z_stack += z_level
+		z_level_to_plane_offset[z_level] = plane_offset
+		levels_checked += current_z
+		if(!current_z.traits[ZTRAIT_DOWN]) // If there's nothing below, stop looking
+			break
+		// Otherwise, down down down we go
+		current_z = z_list[z_level - 1]
+		plane_offset += 1
+
+	/// Updates the lowest offset value
+	for(var/datum/space_level/level_to_update in levels_checked)
+		z_level_to_lowest_plane_offset[level_to_update.z_value] = plane_offset
+		z_level_to_stack[level_to_update.z_value] = z_stack
+
+	// This can be affected by offsets, so we need to update it
+	// PAIN
+	for(var/i in 1 to length(z_list))
+		generate_lighting_appearance_by_z(i)
+
+	var/old_max = max_plane_offset
+	max_plane_offset = max(max_plane_offset, plane_offset)
+	if(max_plane_offset == old_max)
+		return
+
+	generate_offset_lists(old_max + 1, max_plane_offset)
+	SEND_SIGNAL(src, COMSIG_PLANE_OFFSET_INCREASE, old_max, max_plane_offset)
+	// Sanity check
+	if(max_plane_offset > MAX_EXPECTED_Z_DEPTH)
+		stack_trace("We've loaded a map deeper then the max expected z depth. Preferences won't cover visually disabling all of it!")
+
+/proc/generate_lighting_appearance_by_z(z_level)
+	if(length(GLOB.default_lighting_underlays_by_z) < z_level)
+		GLOB.default_lighting_underlays_by_z.len = z_level
+	GLOB.default_lighting_underlays_by_z[z_level] = mutable_appearance(LIGHTING_ICON, "transparent", z_level * 0.01, null, LIGHTING_PLANE, 255, RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM, offset_const = GET_Z_PLANE_OFFSET(z_level))
+
+/// Takes an offset to generate misc lists to, and a base to start from
+/// Use this to react globally to maintain parity with plane offsets
+/datum/controller/subsystem/mapping/proc/generate_offset_lists(gen_from, new_offset)
+	create_plane_offsets(gen_from, new_offset)
+
+/datum/controller/subsystem/mapping/proc/create_plane_offsets(gen_from, new_offset)
+	for(var/plane_offset in gen_from to new_offset)
+		for(var/atom/movable/screen/plane_master/master_type as anything in subtypesof(/atom/movable/screen/plane_master) - /atom/movable/screen/plane_master/rendering_plate)
+			var/plane_to_use = initial(master_type.plane)
+			var/string_real = "[plane_to_use]"
+
+			var/offset_plane = GET_NEW_PLANE(plane_to_use, plane_offset)
+			var/string_plane = "[offset_plane]"
+
+			if(initial(master_type.offsetting_flags) & BLOCKS_PLANE_OFFSETTING)
+				plane_offset_blacklist[string_plane] = TRUE
+				var/render_target = initial(master_type.render_target)
+				if(!render_target)
+					render_target = get_plane_master_render_base(initial(master_type.name))
+				render_offset_blacklist[render_target] = TRUE
+				if(plane_offset != 0)
+					continue
+
+			if(initial(master_type.critical) & PLANE_CRITICAL_DISPLAY)
+				critical_planes[string_plane] = TRUE
+
+			plane_offset_to_true[string_plane] = plane_to_use
+			plane_to_offset[string_plane] = plane_offset
+
+			if(!true_to_offset_planes[string_real])
+				true_to_offset_planes[string_real] = list()
+
+			true_to_offset_planes[string_real] |= offset_plane
+
+/// Takes a turf or a z level, and returns a list of all the z levels that are connected to it
+/datum/controller/subsystem/mapping/proc/get_connected_levels(turf/connected)
+	var/z_level = connected
+	if(isturf(z_level))
+		z_level = connected.z
+	//return z_level_to_stack[z_level]

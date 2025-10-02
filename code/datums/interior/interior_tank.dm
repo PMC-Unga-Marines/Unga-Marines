@@ -164,7 +164,7 @@
 
 /turf/open/interior/tank/eleven
 	icon_state = "tank_interior_11"
-	plane = GAME_PLANE
+	plane = WALL_PLANE
 
 /turf/open/interior/tank/fourteen
 	icon_state = "tank_interior_14"
@@ -193,15 +193,15 @@
 
 /turf/closed/interior/tank/som/thirteen
 	icon_state = "tank_interior_13"
-	plane = FLOOR_PLANE
+	layer = BELOW_CLOSED_TURF_LAYER
 
 /turf/closed/interior/tank/som/fourteen
 	icon_state = "tank_interior_14"
-	plane = FLOOR_PLANE
+	layer = BELOW_CLOSED_TURF_LAYER
 
 /turf/closed/interior/tank/som/fifteen
 	icon_state = "tank_interior_15"
-	plane = FLOOR_PLANE
+	layer = BELOW_CLOSED_TURF_LAYER
 
 /turf/open/interior/tank/som/sixteen
 	icon_state = "tank_interior_16"
@@ -265,7 +265,7 @@
 	name = "exit hatch"
 	icon = 'icons/obj/armored/3x4/som_tank_interior.dmi'
 	icon_state = "hatch"
-	plane = FLOOR_PLANE
+	layer = BELOW_CLOSED_TURF_LAYER
 
 /turf/closed/interior/tank/door/som/Initialize(mapload)
 	. = ..()
