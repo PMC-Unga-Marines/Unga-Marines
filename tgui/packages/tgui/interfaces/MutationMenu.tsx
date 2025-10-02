@@ -20,7 +20,6 @@ type MutationData = {
   mutations: MutationEntry[];
   categories: string[];
   passive_biomass_gain: number;
-  current_caste: string;
 };
 
 type MutationEntry = {
@@ -89,34 +88,15 @@ const iconOverlayStyles = {
 
 export const MutationMenu = (props: any) => {
   const { data } = useBackend<MutationData>();
-  const {
-    biomass,
-    max_biomass,
-    categories,
-    passive_biomass_gain,
-    current_caste,
-  } = data;
+  const { biomass, max_biomass, categories, passive_biomass_gain } = data;
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
     categories.length ? categories[0] : null,
   );
 
   return (
-    <Window theme="xeno" title="Mutation Menu" width={700} height={600}>
+    <Window theme="xeno" title="Mutations Menu" width={700} height={600}>
       <Window.Content scrollable>
-        <Section
-          title="Biomass Status"
-          buttons={
-            <Button
-              tooltip="Гайд на мутации от Фида:
-              Мутации с тирами заменяют друг-друга, а не стакаются --
-              При эволве ты теряешь все мутации и получаешь биомассу обратно --
-              Пси дрейн даёт 5 биомассы тебе и 0.05 пассивного прироста всему хайву --
-              Для того чтобы поддерживать пассивный приток биомассы улью нужны генераторы"
-            >
-              ?
-            </Button>
-          }
-        >
+        <Section title="Biomass Status">
           <Flex align="center">
             <Flex.Item grow={1}>
               <ProgressBar
@@ -191,7 +171,7 @@ export const MutationMenu = (props: any) => {
 
 const Mutations = (props: { selectedCategory: string | null }) => {
   const { data } = useBackend<MutationData>();
-  const { mutations, current_caste } = data;
+  const { mutations } = data;
   const { selectedCategory } = props;
 
   const filteredMutations = mutations.filter((mutation) => {
@@ -200,9 +180,11 @@ const Mutations = (props: { selectedCategory: string | null }) => {
       return false;
     }
 
-    // Filter by caste restrictions
-    if (mutation.caste_restriction && mutation.caste_restriction.length > 0) {
-      return mutation.caste_restriction.includes(current_caste);
+    // For Enhancement category, filter by caste restrictions
+    if (selectedCategory === 'Enhancement' && mutation.caste_restriction) {
+      // This would need to be passed from the backend with current caste info
+      // For now, we'll show all enhancement mutations and let the backend handle restrictions
+      return true;
     }
 
     return true;
@@ -372,7 +354,7 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
   const getIconOverlay = () => {
     if (purchased) return 'overlay_purchased'; // Green checkmark or glow
     if (isLockedByTier2 || isLockedByTier3) return 'overlay_locked'; // Red lock or X
-    if (unlocked && canAfford) return null; // No overlay for available mutations
+    if (unlocked && canAfford) return 'overlay_available'; // Yellow or white highlight
     if (unlocked && !canAfford) return 'overlay_orange'; // Orange for unlocked but can't afford
     return 'overlay_locked'; // Red lock for completely locked
   };
@@ -498,19 +480,17 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
               }}
             />
             {/* Status overlay */}
-            {getIconOverlay() && (
-              <Box
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  zIndex: 2,
-                  width: '32px',
-                  height: '32px',
-                  ...iconOverlayStyles[getIconOverlay()!],
-                }}
-              />
-            )}
+            <Box
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                zIndex: 2,
+                width: '32px',
+                height: '32px',
+                ...iconOverlayStyles[getIconOverlay()],
+              }}
+            />
           </Box>
         </Flex.Item>
         <Flex.Item grow={1}>
