@@ -637,7 +637,7 @@
 
 /mob/living/update_sight()
 	if(SSticker.current_state == GAME_STATE_FINISHED && !is_centcom_level(z)) //Reveal ghosts to remaining survivors
-		see_invisible = SEE_INVISIBLE_OBSERVER
+		set_invis_see(SEE_INVISIBLE_OBSERVER)
 	return ..()
 
 /mob/living/proc/can_track(mob/living/user)
@@ -728,7 +728,7 @@
 /mob/living/can_interact_with(datum/D)
 	return D == src || D.Adjacent(src)
 
-/mob/living/on_changed_z_level(turf/old_turf, turf/new_turf, notify_contents = TRUE)
+/mob/living/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents = TRUE)
 	set_jump_component()
 	. = ..()
 	update_z(new_turf?.z)
@@ -866,7 +866,7 @@
 
 /mob/living/carbon/xenomorph/transfer_mob(mob/candidate)
 	. = ..()
-	if(is_ventcrawling)  //If we are in a vent, fetch a fresh vent map
+	if(HAS_TRAIT(src, TRAIT_MOVE_VENTCRAWLING))  //If we are in a vent, fetch a fresh vent map
 		handle_ventcrawl(loc)
 		get_up()
 
@@ -922,8 +922,6 @@
 			set_blindness(var_value)
 		if(NAMEOF(src, eye_blurry))
 			set_blurriness(var_value)
-		if(NAMEOF(src, lighting_alpha))
-			sync_lighting_plane_alpha()
 		if(NAMEOF(src, resize))
 			if(var_value == 0) //prevents divisions of and by zero.
 				return FALSE

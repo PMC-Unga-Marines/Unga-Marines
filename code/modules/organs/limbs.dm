@@ -655,8 +655,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		hidden = null
 
 	// If any organs are attached to this, destroy them
-	for(var/c in children)
-		var/datum/limb/appendage = c
+	for(var/datum/limb/appendage as anything in children)
 		appendage.drop_limb(amputation, delete_limb, silent)
 
 	//Clear out any internal and external wounds, damage the parent limb
@@ -671,68 +670,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	//we reset the surgery related variables
 	reset_limb_surgeries()
 
-	var/obj/organ	//Dropped limb object
-	switch(body_part)
-		if(HEAD)
-			if(issynth(owner)) //special head for synth to allow brainmob to talk without an MMI
-				organ = new /obj/item/limb/head/synth(owner.loc, owner)
-			else if(isrobot(owner))
-				organ = new /obj/item/limb/head/robotic(owner.loc, owner)
-			else if(iszombie(owner))
-				organ = new /obj/item/limb/head/zombie(owner.loc, owner) // why is this like that
-			else
-				organ = new /obj/item/limb/head(owner.loc, owner)
-			owner.dropItemToGround(owner?.glasses, force = TRUE)
-			owner.dropItemToGround(owner?.head, force = TRUE)
-			owner.dropItemToGround(owner?.wear_ear, force = TRUE)
-			owner.dropItemToGround(owner?.wear_mask, force = TRUE)
-			owner.update_hair()
-		if(ARM_RIGHT)
-			if(limb_status & LIMB_ROBOT)
-				organ = new /obj/item/limb/r_arm/robotic(owner.loc, owner)
-			else
-				organ = new /obj/item/limb/r_arm(owner.loc, owner)
-		if(ARM_LEFT)
-			if(limb_status & LIMB_ROBOT)
-				organ = new /obj/item/limb/l_arm/robotic(owner.loc, owner)
-			else
-				organ = new /obj/item/limb/l_arm(owner.loc, owner)
-		if(LEG_RIGHT)
-			if(limb_status & LIMB_ROBOT)
-				organ = new /obj/item/limb/r_leg/robotic(owner.loc, owner)
-			else
-				organ = new /obj/item/limb/r_leg(owner.loc, owner)
-		if(LEG_LEFT)
-			if(limb_status & LIMB_ROBOT)
-				organ = new /obj/item/limb/l_leg/robotic(owner.loc, owner)
-			else
-				organ = new /obj/item/limb/l_leg(owner.loc, owner)
-		if(HAND_RIGHT)
-			if(limb_status & LIMB_ROBOT)
-				organ = new /obj/item/limb/r_hand/robotic(owner.loc, owner)
-			else
-				organ = new /obj/item/limb/r_hand(owner.loc, owner)
-			owner.dropItemToGround(owner.gloves, force = TRUE)
-			owner.dropItemToGround(owner.r_hand, force = TRUE)
-		if(HAND_LEFT)
-			if(limb_status & LIMB_ROBOT)
-				organ = new /obj/item/limb/l_hand/robotic(owner.loc, owner)
-			else
-				organ = new /obj/item/limb/l_hand(owner.loc, owner)
-			owner.dropItemToGround(owner.gloves, force = TRUE)
-			owner.dropItemToGround(owner.l_hand, force = TRUE)
-		if(FOOT_RIGHT)
-			if(limb_status & LIMB_ROBOT)
-				organ = new /obj/item/limb/r_foot/robotic(owner.loc, owner)
-			else
-				organ = new /obj/item/limb/r_foot(owner.loc, owner)
-			owner.dropItemToGround(owner.shoes, force = TRUE)
-		if(FOOT_LEFT)
-			if(limb_status & LIMB_ROBOT)
-				organ = new /obj/item/limb/l_foot/robotic(owner.loc, owner)
-			else
-				organ = new /obj/item/limb/l_foot(owner.loc, owner)
-			owner.dropItemToGround(owner.shoes, force = TRUE)
+	var/obj/organ = drop_limb_object()
 
 	if(delete_limb)
 		QDEL_NULL(organ)
@@ -743,8 +681,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	if(organ)
 		//Throw organs around
-		var/lol = pick(GLOB.cardinals)
-		step(organ, lol)
+		step(organ, pick(GLOB.cardinals))
 
 	owner.update_body(1, 1)
 
@@ -756,6 +693,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 		owner.death()
 	return TRUE
 
+/// Spawn an limb object, and drop anything tied to the limb
+/datum/limb/proc/drop_limb_object()
+	return null
+
 /// This is required for head, so it deletes brain for zombies before they start to reviving
 /datum/limb/proc/owner_pre_death()
 	return
@@ -766,19 +707,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 	owner.update_inv_gloves()
 
-
 /****************************************************
 			HELPERS
 ****************************************************/
 
 /datum/limb/proc/release_restraints()
-	if (owner.handcuffed && (body_part in list(ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT)))
-		owner.visible_message(\
-			"\The [owner.handcuffed.name] falls off of [owner.name].",\
-			"\The [owner.handcuffed.name] falls off you.")
-
-		owner.dropItemToGround(owner.handcuffed)
-
+	return
 
 /datum/limb/proc/bandage()
 	if(limb_wound_status & LIMB_WOUND_BANDAGED || !brute_dam)
@@ -846,16 +780,14 @@ Note that amputating the affected organ does in fact remove the infection from t
 /datum/limb/proc/robotize()
 	rejuvenate()
 	add_limb_flags(LIMB_ROBOT)
-	for(var/c in children)
-		var/datum/limb/child_limb = c
+	for(var/datum/limb/child_limb as anything in children)
 		child_limb.robotize()
 
 /// used to give LIMB_BIOTIC flag to the limb
 /datum/limb/proc/biotize()
 	rejuvenate()
 	add_limb_flags(LIMB_BIOTIC)
-	for(var/c in children)
-		var/datum/limb/child_limb = c
+	for(var/datum/limb/child_limb as anything in children)
 		child_limb.biotize()
 
 /datum/limb/proc/get_damage()	//returns total damage

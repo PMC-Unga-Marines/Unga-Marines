@@ -164,9 +164,6 @@
 	var/obj/item/current_internal_item = get_internal_item()
 	icon_state = "[current_internal_item.icon_state]_planted"
 
-/obj/structure/plantable_flag/ex_act(severity)
-	take_damage(severity, BRUTE, BOMB)
-
 /obj/structure/plantable_flag/fire_act(burn_level)
 	take_damage(burn_level, BURN, FIRE)
 

@@ -1,0 +1,4 @@
+author: "homexp13"
+delete-after: True
+changes:
+  - balance: "NUCLEAR_WAR_LARVA_POINTS_NEEDED 8 => 10"

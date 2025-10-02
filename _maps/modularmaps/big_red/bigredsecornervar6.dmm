@@ -102,7 +102,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/secomplex)
 "gP" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southeast/garbledradio)
 "gZ" = (
@@ -291,7 +291,7 @@
 /turf/open/shuttle/elevator/grating,
 /area/bigredv2/caves/secomplex)
 "sU" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/plating_catwalk,
 /area/bigredv2/caves/secomplex)
 "tb" = (
@@ -397,7 +397,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/secomplex)
 "xg" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southeast)
 "xl" = (
@@ -598,7 +598,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/bigredv2/caves/secomplex)
 "Le" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southeast)
 "Lq" = (
@@ -704,7 +704,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/secomplex)
 "Rf" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "Ro" = (

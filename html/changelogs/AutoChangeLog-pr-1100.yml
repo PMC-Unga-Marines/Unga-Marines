@@ -1,0 +1,4 @@
+author: "homexp13"
+delete-after: True
+changes:
+  - rscadd: "Цвет рунчата теперь зависит от цвета сквада игрока"

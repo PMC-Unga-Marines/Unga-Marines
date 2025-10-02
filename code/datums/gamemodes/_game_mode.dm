@@ -499,6 +499,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.points_from_research] requisitions points gained from research."
 	if(GLOB.round_statistics.points_from_xenos)
 		parts += "[GLOB.round_statistics.points_from_xenos] requisitions points gained from xenomorph sales."
+	if(GLOB.round_statistics.points_from_orbit)
+		parts += "[GLOB.round_statistics.points_from_orbit] requisitions points gained from passive orbit income."
 	if(GLOB.round_statistics.psypoints_from_psydrain)
 		parts += "[GLOB.round_statistics.psypoints_from_psydrain] psy points gained from psydrain."
 	if(GLOB.round_statistics.psypoints_from_cocoon)
