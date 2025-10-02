@@ -86,6 +86,7 @@ Redefine as needed.
 	icon_state = "2"
 	item_flags = NOBLUDGEON | ITEM_ABSTRACT | DELONDROP
 	w_class = WEIGHT_CLASS_GIGANTIC
+	layer = ABOVE_HUD_LAYER
 	plane = ABOVE_HUD_PLANE
 
 	var/atom/movable/focus = null
@@ -209,10 +210,12 @@ Redefine as needed.
 	. = ..()
 	if(!focus)
 		return
-
-	var/mutable_appearance/focus_overlay = new(focus)
-	focus_overlay.layer = layer + 0.01
-	SET_PLANE_EXPLICIT(focus_overlay, ABOVE_HUD_PLANE, focus)
-	. += focus_overlay
+	var/old_layer = focus.layer
+	var/old_plane = focus.plane
+	focus.layer = layer+0.01
+	focus.plane = ABOVE_HUD_PLANE
+	. += focus
+	focus.layer = old_layer
+	focus.plane = old_plane
 
 #undef TK_MAXRANGE

@@ -75,7 +75,7 @@
 		return
 	if(machine_stat & (BROKEN|DISABLED|NOPOWER))
 		return
-	. += emissive_appearance(icon, screen_overlay, src, alpha = src.alpha)
+	. += emissive_appearance(icon, screen_overlay, alpha = src.alpha)
 	. += mutable_appearance(icon, screen_overlay, alpha = src.alpha)
 
 /obj/machinery/prop/computer/PC
@@ -344,10 +344,8 @@
 	icon = 'icons/obj/structures/mainship_props64.dmi'
 	icon_state = "UPP1"
 	density = FALSE
-	plane = FLOOR_PLANE
-	layer = LOWER_RUNE_LAYER
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	resistance_flags = UNACIDABLE
+	layer = ABOVE_TURF_LAYER
 
 /obj/structure/prop/mainship/name_stencil/U
 	icon_state = "UPP1"
@@ -365,9 +363,7 @@
 	icon = 'icons/obj/structures/mainship_props96.dmi'
 	icon_state = "dropship1"
 	density = FALSE
-	plane = FLOOR_PLANE
-	layer = LOWER_RUNE_LAYER
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	layer = ABOVE_TURF_LAYER
 
 /obj/structure/prop/mainship/hangar_stencil/two
 	icon_state = "dropship2"
@@ -386,14 +382,14 @@
 	icon_state = "cannon_cables"
 	density = FALSE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	layer = BELOW_OBJ_LAYER
+	layer = LADDER_LAYER
 
 /obj/structure/prop/mainship/supermatter //functionally inert, but will consume mobs and objects
 	name = "supermatter crystal"
 	desc = "A strangely translucent and iridescent crystal."
 	icon = 'icons/obj/structures/mainship_props64.dmi'
 	icon_state = "darkmatter"
-	layer = BELOW_OBJ_LAYER
+	layer = LADDER_LAYER
 	light_range = 4
 	resistance_flags = RESIST_ALL //no delaminations here
 
@@ -423,7 +419,7 @@
 	desc = "A device which uses radiation and plasma to produce power."
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	icon_state = "radcollector"
-	layer = BELOW_OBJ_LAYER
+	layer = LADDER_LAYER
 	resistance_flags = RESIST_ALL
 
 /obj/structure/prop/mainship/invincibleshutter
@@ -432,7 +428,7 @@
 	icon = 'icons/obj/doors/mainship/blastdoors_shutters.dmi'
 	icon_state = "shutter1"
 	density = TRUE
-	layer = BELOW_OBJ_LAYER
+	layer = LADDER_LAYER
 	light_range = 4
 	resistance_flags = RESIST_ALL //no delaminations here
 	allow_pass_flags = NONE
@@ -1039,7 +1035,7 @@
 ///BROKEN VEHICLE PROPS
 /obj/structure/prop/vehicle
 	icon = 'icons/obj/vehicles/64x64.dmi'
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_MOB_PROP_LAYER
 	density = TRUE
 	resistance_flags = XENO_DAMAGEABLE
 	max_integrity = 300
@@ -1254,7 +1250,7 @@
 
 /obj/structure/prop/vehicle/tank/east/barrel
 	icon_state = "ltb_cannon_0"
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_MOB_PROP_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/structure/prop/vehicle/tank/east/barrel/broken
@@ -1673,8 +1669,7 @@
 	desc = "A heavy cable node used for connecting high performance cables between buildings."
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	icon_state = "powerconnector"
-	layer = RUNE_LAYER
-	plane = FLOOR_PLANE
+	layer = ATMOS_PIPE_LAYER
 	density = FALSE
 
 /obj/structure/prop/mainship/gelida/powerccable
@@ -1682,8 +1677,7 @@
 	desc = "A heavy cable wire used rapid data transfer between buildings."
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	icon_state = "powercableheavy"
-	layer = RUNE_LAYER
-	plane = FLOOR_PLANE
+	layer = ATMOS_PIPE_LAYER
 	density = FALSE
 
 /obj/structure/prop/mainship/gelida/powercconnectortwoside
@@ -1691,8 +1685,7 @@
 	desc = "A heavy cable wire used rapid data transfer between buildings."
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	icon_state = "powerconnectortwoside"
-	layer = RUNE_LAYER
-	plane = FLOOR_PLANE
+	layer = ATMOS_PIPE_LAYER
 	density = FALSE
 
 /obj/structure/prop/mainship/gelida/powercconnectortwosidealt
@@ -1700,8 +1693,7 @@
 	desc = "A heavy cable wire used rapid data transfer between buildings."
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	icon_state = "powerconnectortwosidealt"
-	layer = RUNE_LAYER
-	plane = FLOOR_PLANE
+	layer = ATMOS_PIPE_LAYER
 	density = FALSE
 
 /obj/structure/prop/mainship/gelida/powercconnectorthreeside
@@ -1709,8 +1701,7 @@
 	desc = "A heavy cable wire used rapid data transfer between buildings."
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	icon_state = "powerconnectorthreeside"
-	layer = RUNE_LAYER
-	plane = FLOOR_PLANE
+	layer = ATMOS_PIPE_LAYER
 	density = FALSE
 
 /obj/structure/prop/mainship/gelida/powercconnectorfourside
@@ -1718,8 +1709,7 @@
 	desc = "A heavy cable wire used rapid data transfer between buildings."
 	icon = 'icons/obj/structures/mainship_props.dmi'
 	icon_state = "powerconnectorfourside"
-	layer = RUNE_LAYER
-	plane = FLOOR_PLANE
+	layer = ATMOS_PIPE_LAYER
 	density = FALSE
 
 /obj/structure/prop/mainship/gelida/rails
@@ -2132,7 +2122,7 @@
 	desc = "A water filter specifically designed to separate micro-organisms, such as viruses and bacteria, from water."
 	icon = 'icons/obj/structures/pipe_multiple.dmi'
 	icon_state = "solo_tank_water"
-	layer = ABOVE_TREE_LAYER
+	layer = ABOVE_FLY_LAYER
 	density = TRUE
 
 /obj/machinery/filtration_pipes/Initialize(mapload)
@@ -2159,7 +2149,7 @@
 
 /obj/machinery/filtration_pipes/multiple/update_overlays()
 	. = ..()
-	. += image(icon, src, "disinfectiontop", layer = ABOVE_TREE_LAYER, pixel_y = 63)
+	. += image(icon, src, "disinfectiontop", layer = ABOVE_FLY_LAYER, pixel_y = 63)
 
 /obj/structure/prop/mainship/errorprop
 	name = "ERROR"

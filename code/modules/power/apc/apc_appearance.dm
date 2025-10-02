@@ -41,7 +41,7 @@
 		return
 
 	var/apc_locked = locked ? "locked" : "unlocked"
-	. += emissive_appearance(icon, "apc_overlay_[apc_locked]", src)
+	. += emissive_appearance(icon, "apc_overlay_[apc_locked]")
 	. += mutable_appearance(icon, "apc_overlay_[apc_locked]")
 
 	var/apc_charging = ""
@@ -52,7 +52,7 @@
 			apc_charging = "on"
 		if(APC_FULLY_CHARGED)
 			apc_charging = "full"
-	. += emissive_appearance(icon, "apc_charging_[apc_charging]", src)
+	. += emissive_appearance(icon, "apc_charging_[apc_charging]")
 	. += mutable_appearance(icon, "apc_charging_[apc_charging]")
 
 /// Checks for what icon updates we will need to handle

@@ -4,7 +4,7 @@
 	icon_state = "resin-door-1"
 	base_icon_state = "resin-door"
 	resistance_flags = NONE
-	layer = BELOW_OBJ_LAYER
+	layer = RESIN_STRUCTURE_LAYER
 	max_integrity = 100
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_XENO_STRUCTURES)

@@ -1,7 +1,7 @@
 /obj/effect/turf_decal/warning_stripes
 	icon = 'icons/turf/decals.dmi'
 	icon_state = "stripe_box_thick"
-	layer = TURF_DECAL_LAYER
+	layer = BELOW_ATMOS_PIPE_LAYER
 
 /obj/effect/turf_decal/warning_stripes/linethick
 	icon_state = "stripe_line_thick"

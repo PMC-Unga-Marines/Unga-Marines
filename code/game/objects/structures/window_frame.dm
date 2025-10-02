@@ -5,7 +5,7 @@
 	icon_state = "white_window_frame-0"
 	base_icon_state = "white_window_frame"
 	interaction_flags = INTERACT_CHECK_INCAPACITATED
-	layer = TABLE_LAYER
+	layer = WINDOW_FRAME_LAYER
 	density = TRUE
 	resistance_flags = DROPSHIP_IMMUNE | XENO_DAMAGEABLE
 	allow_pass_flags = PASS_LOW_STRUCTURE|PASSABLE|PASS_WALKOVER

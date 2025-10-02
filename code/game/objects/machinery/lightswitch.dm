@@ -35,7 +35,7 @@
 	. = ..()
 	if(machine_stat & NOPOWER)
 		return
-	. += emissive_appearance(icon, "light[on]_emissive", src)
+	. += emissive_appearance(icon, "light[on]_emissive")
 
 /obj/machinery/light_switch/examine(mob/user)
 	. = ..()

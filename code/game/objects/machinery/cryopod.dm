@@ -233,8 +233,6 @@
 	desc = "A bewildering tangle of machinery and pipes linking the hypersleep chambers to the hypersleep bay.."
 	icon = 'icons/obj/machines/cryogenics.dmi'
 	icon_state = "cryo_rear"
-	layer = ABOVE_WEEDS_LAYER
-	plane = FLOOR_PLANE
 	anchored = TRUE
 	///Flips the sprite.
 	var/orient_right
@@ -299,7 +297,7 @@
 		return
 	if(!occupant)
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive", src, alpha = src.alpha)
+	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 	. += mutable_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 
 /obj/machinery/cryopod/proc/shuttle_crush()

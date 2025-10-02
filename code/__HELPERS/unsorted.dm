@@ -538,38 +538,25 @@
 
 //Takes: Area type as text string or as typepath OR an instance of the area.
 //Returns: A list of all turfs in areas of that type of that type in the world.
-/proc/get_area_turfs(areatype, target_z = 0, subtypes=FALSE)
+/proc/get_area_turfs(areatype)
+	if(!areatype)
+		return
+
 	if(istext(areatype))
 		areatype = text2path(areatype)
-	else if(isarea(areatype))
+
+	if(isarea(areatype))
 		var/area/areatemp = areatype
 		areatype = areatemp.type
-	else if(!ispath(areatype))
-		return null
-	// Pull out the areas
-	var/list/areas_to_pull = list()
-	if(subtypes)
-		var/list/cache = typecacheof(areatype)
-		for(var/area/area_to_check as anything in GLOB.areas)
-			if(!cache[area_to_check.type])
-				continue
-			areas_to_pull += area_to_check
-	else
-		for(var/area/area_to_check as anything in GLOB.areas)
-			if(area_to_check.type != areatype)
-				continue
-			areas_to_pull += area_to_check
 
-	// Now their turfs
 	var/list/turfs = list()
-	for(var/area/pull_from as anything in areas_to_pull)
-//		if(target_z == 0)
-//			for(var/list/zlevel_turfs as anything in pull_from.get_zlevel_turf_lists())
-//				turfs += zlevel_turfs
-//		else
-//			turfs += pull_from.get_turfs_by_zlevel(target_z)
-		for(var/turf/turf in pull_from)
-			turfs += turf // TODO: fix with zlevel update?
+	for(var/i in GLOB.sorted_areas)
+		var/area/A = i
+		if(!istype(A, areatype))
+			continue
+		for(var/turf/T in A)
+			turfs += T
+
 	return turfs
 
 
@@ -911,15 +898,14 @@ GLOBAL_LIST_INIT(wallitems, typecacheof(list(
 			break
 	return turf_to_check
 
+//Repopulates sortedAreas list
+/proc/repopulate_sorted_areas()
+	GLOB.sorted_areas = list()
 
-/proc/require_area_resort()
-	GLOB.sorted_areas = null
+	for(var/area/A in world)
+		GLOB.sorted_areas.Add(A)
 
-/// Returns a sorted version of GLOB.areas, by name
-/proc/get_sorted_areas()
-	if(!GLOB.sorted_areas)
-		GLOB.sorted_areas = sortTim(GLOB.areas.Copy(), /proc/cmp_name_asc)
-	return GLOB.sorted_areas
+	sortTim(GLOB.sorted_areas, GLOBAL_PROC_REF(cmp_name_asc))
 
 
 // Format a power value in W, kW, MW, or GW.
@@ -982,7 +968,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 
 	GLOB.dview_mob.loc = center
 
-	GLOB.dview_mob.set_invis_see(invis_flags)
+	GLOB.dview_mob.see_invisible = invis_flags
 
 	. = view(range, GLOB.dview_mob)
 	GLOB.dview_mob.loc = null
@@ -991,6 +977,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	name = "INTERNAL DVIEW MOB"
 	invisibility = 101
 	density = FALSE
+	see_in_dark = 1e6
 	move_resist = INFINITY
 	var/ready_to_die = FALSE
 
@@ -1015,7 +1002,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 
 #define FOR_DVIEW(type, range, center, invis_flags) \
 	GLOB.dview_mob.loc = center;           \
-	GLOB.dview_mob.set_invis_see(invis_flags); \
+	GLOB.dview_mob.see_invisible = invis_flags; \
 	for(type in view(range, GLOB.dview_mob))
 
 #define FOR_DVIEW_END GLOB.dview_mob.loc = null
@@ -1141,13 +1128,15 @@ will handle it, but:
 	var/list/areas = list()
 	if(subtypes)
 		var/list/cache = typecacheof(areatype)
-		for(var/area/area_to_check as anything in GLOB.areas)
-			if(cache[area_to_check.type])
-				areas += area_to_check
+		for(var/V in GLOB.sorted_areas)
+			var/area/A = V
+			if(cache[A.type])
+				areas += V
 	else
-		for(var/area/area_to_check as anything in GLOB.areas)
-			if(area_to_check.type == areatype)
-				areas += area_to_check
+		for(var/V in GLOB.sorted_areas)
+			var/area/A = V
+			if(A.type == areatype)
+				areas += V
 	return areas
 
 ///Returns a list of all locations (except the area) the movable is within.

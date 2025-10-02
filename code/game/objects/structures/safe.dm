@@ -193,7 +193,7 @@
 	icon_state = "floorsafe"
 	density = FALSE
 	level = 1	//underfloor
-	layer = LOW_OBJ_LAYER
+	layer = UNDERFLOOR_OBJ_LAYER
 
 /obj/structure/safe/floor/Initialize(mapload)
 	. = ..()

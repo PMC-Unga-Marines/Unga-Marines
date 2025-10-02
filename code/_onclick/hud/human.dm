@@ -2,6 +2,7 @@
 	name = "equip"
 	icon_state = "act_equip"
 	screen_loc = ui_swaphand1
+	layer = ABOVE_HUD_LAYER
 
 /atom/movable/screen/human/equip/Click()
 	SEND_SIGNAL(usr, COMSIG_CLICK_QUICKEQUIP)
@@ -82,6 +83,7 @@
 
 		using = new /atom/movable/screen/human/equip(null, src)
 		using.icon = ui_style
+		using.plane = ABOVE_HUD_PLANE
 		using.color = ui_color
 		using.alpha = ui_alpha
 		static_inventory += using

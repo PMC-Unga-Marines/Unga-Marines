@@ -16,9 +16,8 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 /mob/dead/forceMove(atom/destination)
 	var/turf/old_turf = get_turf(src)
 	var/turf/new_turf = get_turf(destination)
-	if(old_turf?.z != new_turf?.z)
-		var/same_z_layer = (GET_TURF_PLANE_OFFSET(old_turf) == GET_TURF_PLANE_OFFSET(new_turf))
-		on_changed_z_level(old_turf, new_turf, same_z_layer) // todo these call seems redundant
+	if (old_turf?.z != new_turf?.z)
+		on_changed_z_level(old_turf, new_turf)
 	var/oldloc = loc
 	loc = destination
 	Moved(oldloc, NONE, TRUE)
@@ -27,6 +26,5 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	var/turf/old_turf = get_turf(src)
 	var/turf/new_turf = get_turf(destination)
 	if(old_turf?.z != new_turf?.z)
-		var/same_z_layer = (GET_TURF_PLANE_OFFSET(old_turf) == GET_TURF_PLANE_OFFSET(new_turf))
-		on_changed_z_level(old_turf, new_turf, same_z_layer) // todo these call seems redundant
+		on_changed_z_level(old_turf, new_turf)
 	return ..()

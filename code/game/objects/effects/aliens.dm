@@ -124,7 +124,7 @@
 /obj/effect/xenomorph/spray/weak
 	icon_state = "acid2-weak"
 
-//Medium-strength acid // todo please god make me into an overlay and component already...
+//Medium-strength acid
 /obj/effect/xenomorph/acid
 	name = "acid"
 	desc = "Burbling corrosive stuff. I wouldn't want to touch it."
@@ -167,7 +167,7 @@
 	RegisterSignal(acid_t, COMSIG_ITEM_ATTEMPT_PICK_UP, PROC_REF(on_attempt_pickup))
 	RegisterSignal(acid_t, COMSIG_QDELETING, PROC_REF(on_target_del))
 	RegisterSignal(acid_t, COMSIG_MOVABLE_MOVED, PROC_REF(on_target_move))
-	layer = acid_t.layer+0.001
+	layer = acid_t.layer
 	base_icon_state = icon_state
 	update_appearance(UPDATE_ICON_STATE)
 	START_PROCESSING(SSslowprocess, src)

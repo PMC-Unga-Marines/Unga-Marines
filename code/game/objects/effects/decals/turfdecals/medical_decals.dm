@@ -1,5 +1,6 @@
 /obj/effect/turf_decal/medical_decals
 	icon = 'icons/effects/medical_decals.dmi'
+	layer = TURF_LAYER
 
 /obj/effect/turf_decal/medical_decals/cryo
 	icon_state = "cryotop"

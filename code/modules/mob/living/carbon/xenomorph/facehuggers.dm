@@ -310,7 +310,7 @@
 		return FALSE
 
 	if(isturf(loc))
-		var/obj/alien/egg/facehugger/E = locate() in loc
+		var/obj/alien/egg/hugger/E = locate() in loc
 		if(E?.insert_new_hugger(src))
 			return FALSE
 		var/obj/structure/xeno/trap/T = locate() in loc

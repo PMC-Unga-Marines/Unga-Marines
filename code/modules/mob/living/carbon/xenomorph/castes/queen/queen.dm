@@ -53,21 +53,21 @@
 
 	if(observed_xeno && !stat)
 		client.perspective = EYE_PERSPECTIVE
-		client.set_eye(observed_xeno)
+		client.eye = observed_xeno
 		return
 
 	if(ismovableatom(A))
 		client.perspective = EYE_PERSPECTIVE
-		client.set_eye(A)
+		client.eye = A
 		return
 
 	if(isturf(loc))
-		client.set_eye(client.mob)
+		client.eye = client.mob
 		client.perspective = MOB_PERSPECTIVE
 		return
 
 	client.perspective = EYE_PERSPECTIVE
-	client.set_eye(loc)
+	client.eye = loc
 
 /mob/living/carbon/xenomorph/queen/upgrade_xeno(newlevel, silent = FALSE)
 	. = ..()

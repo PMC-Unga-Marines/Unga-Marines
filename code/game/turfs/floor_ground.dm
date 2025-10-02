@@ -456,6 +456,7 @@
 
 /turf/open/floor/plating/ground/lavaland
 	icon = 'icons/turf/lava.dmi'
+	plane = FLOOR_PLANE
 	baseturfs = /turf/open/floor/plating/ground/lavaland/basalt
 
 /turf/open/floor/plating/ground/lavaland/basalt

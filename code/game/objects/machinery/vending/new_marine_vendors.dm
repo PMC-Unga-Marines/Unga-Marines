@@ -45,9 +45,9 @@
 
 /obj/machinery/marine_selector/update_overlays()
 	. = ..()
-	if(!is_operational() || !icon_state)
+	if(!is_operational())
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive", src)
+	. += emissive_appearance(icon, "[icon_state]_emissive")
 
 /obj/machinery/marine_selector/can_interact(mob/user)
 	. = ..()

@@ -106,9 +106,8 @@
 
 	plant_target = target
 	if(ismovableatom(plant_target))
-		var/atom/movable/mover = plant_target
-		mover.vis_contents += src
-		layer = ABOVE_ALL_MOB_LAYER
+		var/atom/movable/T = plant_target
+		T.vis_contents += src
 	detonation_pending = addtimer(CALLBACK(src, PROC_REF(warning_sound), target, 'sound/items/countdown.ogg', 20, TRUE), ((timer*10) - 27), TIMER_STOPPABLE)
 	update_icon()
 
@@ -133,7 +132,6 @@
 	if(ismovableatom(plant_target))
 		var/atom/movable/T = plant_target
 		T.vis_contents -= src
-		layer = initial(layer)
 
 	forceMove(get_turf(user))
 	pixel_y = 0

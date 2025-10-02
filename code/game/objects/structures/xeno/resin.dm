@@ -16,8 +16,7 @@
 	density = FALSE
 	opacity = FALSE
 	max_integrity = 36
-	plane = FLOOR_PLANE
-	layer = ABOVE_WEEDS_LAYER
+	layer = RESIN_STRUCTURE_LAYER
 	hit_sound = SFX_ALIEN_RESIN_MOVE
 	var/slow_amt = 8
 	/// Does this refund build points when destoryed?

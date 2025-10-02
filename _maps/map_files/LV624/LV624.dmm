@@ -1499,8 +1499,7 @@
 /area/lv624/lazarus/internal_affairs)
 "aMo" = (
 /obj/structure/fence,
-/obj/structure/catwalk,
-/turf/open/floor/plating,
+/turf/open/floor/plating/catwalk,
 /area/lv624/ground/sand8)
 "aMA" = (
 /obj/structure/stairs/seamless{
@@ -2748,8 +2747,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/catwalk,
-/turf/open/floor/plating,
+/turf/open/floor/plating/catwalk,
 /area/lv624/ground/sand9)
 "brw" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
@@ -2757,8 +2755,7 @@
 /area/lv624/ground/jungle4)
 "brx" = (
 /obj/structure/disposalpipe/segment/corner,
-/obj/structure/catwalk,
-/turf/open/floor/plating,
+/turf/open/floor/plating/catwalk,
 /area/lv624/ground/sand9)
 "brD" = (
 /obj/prop/hydroponics,
@@ -2831,8 +2828,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
 "bvp" = (
-/obj/structure/catwalk,
-/turf/open/floor/plating,
+/turf/open/floor/plating/catwalk,
 /area/lv624/ground/river2)
 "bvs" = (
 /turf/open/floor/engine,
@@ -2982,8 +2978,7 @@
 /area/lv624/lazarus/quartstorage/dome)
 "bBg" = (
 /obj/structure/disposalpipe/segment,
-/obj/structure/catwalk,
-/turf/open/floor/plating,
+/turf/open/floor/plating/catwalk,
 /area/lv624/ground/river2)
 "bBF" = (
 /obj/structure/bed/chair{
@@ -4088,8 +4083,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/catwalk,
-/turf/open/floor/plating,
+/turf/open/floor/plating/catwalk,
 /area/lv624/ground/sand9)
 "cOH" = (
 /obj/structure/rack,
@@ -4142,8 +4136,7 @@
 /obj/structure/disposalpipe/junction/flipped{
 	dir = 1
 	},
-/obj/structure/catwalk,
-/turf/open/floor/plating,
+/turf/open/floor/plating/catwalk,
 /area/lv624/ground/river2)
 "cSW" = (
 /obj/item/frame/table,
@@ -21750,8 +21743,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/riverdecal,
-/obj/structure/catwalk,
-/turf/open/floor/plating,
+/turf/open/floor/plating/catwalk,
 /area/lv624/ground/river2)
 "wkF" = (
 /obj/machinery/vending/engineering,

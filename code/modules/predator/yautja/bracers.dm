@@ -817,16 +817,16 @@
 	SSminimaps.remove_marker(owner)
 
 	if(!isyautja(owner))
-		SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "bracer_stolen", MINIMAP_BLIPS_LAYER))
+		SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "bracer_stolen"))
 		if(owner.stat >= DEAD)
 			if(HAS_TRAIT(owner, TRAIT_UNDEFIBBABLE))
-				SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "undefibbable", MINIMAP_BLIPS_LAYER))
+				SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "undefibbable"))
 			else
-				SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "defibbable", MINIMAP_BLIPS_LAYER))
+				SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "defibbable"))
 	else
-		SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, minimap_icon, MINIMAP_BLIPS_LAYER))
+		SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, minimap_icon))
 		if(owner?.stat >= DEAD)
-			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "undefibbable", MINIMAP_BLIPS_LAYER))
+			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "undefibbable"))
 
 /*
 *This is the main proc for checking AND draining the bracer energy. It must have human passed as an argument.
@@ -994,12 +994,12 @@
 	if(!wearer_turf)
 		return
 
-	SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, minimap_icon, MINIMAP_BLIPS_LAYER))
+	SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, minimap_icon))
 	if(owner.stat >= DEAD)
 		if(HAS_TRAIT(owner, TRAIT_UNDEFIBBABLE))
-			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "undefibbable", MINIMAP_BLIPS_LAYER))
+			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "undefibbable"))
 		else
-			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "defibbable", MINIMAP_BLIPS_LAYER))
+			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "defibbable"))
 
 /obj/item/clothing/gloves/yautja/hunter
 	name = "clan bracers"

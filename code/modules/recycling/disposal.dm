@@ -206,7 +206,7 @@
 /obj/machinery/disposal/proc/go_out(mob/user)
 
 	if(user.client)
-		user.client.set_eye(user.client.mob)
+		user.client.eye = user.client.mob
 		user.client.perspective = MOB_PERSPECTIVE
 	user.forceMove(loc)
 	if(isliving(user))
@@ -528,7 +528,7 @@
 		if(ismob(AM))
 			var/mob/M = AM
 			if(M.client) //If a client mob, update eye to follow this holder
-				M.client.set_eye(src)
+				M.client.eye = src
 
 	qdel(other)
 
@@ -1334,7 +1334,7 @@
 	if(!client)
 		return
 	client.perspective = MOB_PERSPECTIVE
-	client.set_eye(src)
+	client.eye = src
 
 /obj/effect/decal/cleanable/blood/gibs/pipe_eject(direction)
 	var/list/dirs

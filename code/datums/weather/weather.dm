@@ -92,7 +92,6 @@
 /datum/weather/proc/telegraph()
 	if(stage == STARTUP_STAGE)
 		return
-	SEND_GLOBAL_SIGNAL(COMSIG_WEATHER_TELEGRAPH(type), src)
 	stage = STARTUP_STAGE
 	var/list/affectareas = get_areas(area_type)
 	for(var/V in protected_areas)
@@ -128,7 +127,6 @@
 /datum/weather/proc/start()
 	if(stage >= MAIN_STAGE)
 		return
-	SEND_GLOBAL_SIGNAL(COMSIG_WEATHER_START(type), src)
 	stage = MAIN_STAGE
 	update_areas()
 	for(var/mob/impacted_mob AS in GLOB.player_list)
@@ -153,7 +151,6 @@
 /datum/weather/proc/wind_down()
 	if(stage >= WIND_DOWN_STAGE)
 		return
-	SEND_GLOBAL_SIGNAL(COMSIG_WEATHER_WINDDOWN(type), src)
 	stage = WIND_DOWN_STAGE
 	update_areas()
 	for(var/mob/impacted_mob AS in GLOB.player_list)
@@ -178,7 +175,6 @@
 /datum/weather/proc/end()
 	if(stage == END_STAGE)
 		return TRUE
-	SEND_GLOBAL_SIGNAL(COMSIG_WEATHER_END(type), src)
 	stage = END_STAGE
 	SSweather.processing -= src
 	update_areas()
@@ -212,7 +208,7 @@
 	for(var/V in impacted_areas)
 		var/area/N = V
 		N.layer = overlay_layer
-		SET_PLANE_IMPLICIT(N, overlay_plane) // todo replace with tg style overlays
+		N.plane = overlay_plane
 		N.icon = 'icons/effects/weather_effects.dmi'
 		N.color = weather_color
 		switch(stage)
@@ -227,5 +223,5 @@
 				N.icon_state = ""
 				N.icon = 'icons/turf/areas.dmi'
 				N.layer = initial(N.layer)
-				SET_PLANE_IMPLICIT(N, initial(N.plane)) // todo replace with tg style overlays
+				N.plane = initial(N.plane)
 				N.set_opacity(FALSE)

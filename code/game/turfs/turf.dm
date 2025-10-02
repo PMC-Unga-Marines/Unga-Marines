@@ -60,23 +60,8 @@
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	ENABLE_BITFIELD(atom_flags, INITIALIZED)
 
-	/// We do NOT use the shortcut here, because this is faster
-	if(SSmapping.max_plane_offset)
-		if(!SSmapping.plane_offset_blacklist["[plane]"])
-			plane = plane - (PLANE_RANGE * SSmapping.z_level_to_plane_offset[z])
-/*
-		var/turf/T = GET_TURF_ABOVE(src)
-		if(T)
-			T.multiz_turf_new(src, DOWN)
-		T = GET_TURF_BELOW(src)
-		if(T)
-			T.multiz_turf_new(src, UP)
-*/
-	// by default, vis_contents is inherited from the turf that was here before.
-	// Checking length(vis_contents) in a proc this hot has huge wins for performance.
-	if(length(vis_contents))
-		vis_contents.Cut()
-
+	// by default, vis_contents is inherited from the turf that was here before
+	vis_contents.Cut()
 	assemble_baseturfs()
 	levelupdate()
 	visibilityChanged()
@@ -86,6 +71,11 @@
 
 	if(light_power && light_range)
 		update_light()
+
+	//Get area light
+	var/area/A = loc
+	if(A?.lighting_effect)
+		add_overlay(A.lighting_effect)
 
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
@@ -324,11 +314,9 @@
 	if(W.directional_opacity != old_directional_opacity)
 		W.reconsider_lights()
 
-	// We will only run this logic if the tile is not on the prime z layer, since we use area overlays to cover that
-	if(SSmapping.z_level_to_plane_offset[z])
-		var/area/our_area = W.loc
-		if(our_area.lighting_effects)
-			W.add_overlay(our_area.lighting_effects[SSmapping.z_level_to_plane_offset[z] + 1])
+	if(thisarea.area_has_base_lighting)
+		W.add_overlay(thisarea.lighting_effect)
+		W.luminosity = 1
 
 	if(!W.smoothing_behavior == NO_SMOOTHING)
 		return W
@@ -587,6 +575,9 @@
 /turf/open/floor/can_dig_xeno_tunnel()
 	return TRUE
 
+/turf/open/floor/plating/catwalk/can_dig_xeno_tunnel()
+	return FALSE
+
 /turf/open/floor/mainship/research/containment/can_dig_xeno_tunnel()
 	return FALSE
 
@@ -732,7 +723,16 @@
 
 /turf/proc/visibilityChanged()
 	for(var/datum/cameranet/net AS in list(GLOB.cameranet, GLOB.som_cameranet))
+
 		net.updateVisibility(src)
+		// The cameranet usually handles this for us, but if we've just been
+		// recreated we should make sure we have the cameranet vis_contents.
+		var/datum/camerachunk/C = net.chunkGenerated(x, y, z)
+		if(C)
+			if(C.obscuredTurfs[src])
+				vis_contents += net.vis_contents_opaque
+			else
+				vis_contents -= net.vis_contents_opaque
 
 /turf/AllowDrop()
 	return TRUE
@@ -747,6 +747,22 @@
 	// Balloon alerts occuring on turf objects result in mass spam of alerts.
 	// Thus, no more balloon alerts for turfs.
 	return
+
+/// Call to move a turf from its current area to a new one
+/turf/proc/change_area(area/old_area, area/new_area)
+	//dont waste our time
+	if(old_area == new_area)
+		return
+
+	//move the turf
+	new_area.contents += src
+
+	//changes to make after turf has moved
+	on_change_area(old_area, new_area)
+
+/// Allows for reactions to an area change without inherently requiring change_area() be called (I hate maploading)
+/turf/proc/on_change_area(area/old_area, area/new_area)
+	transfer_area_lighting(old_area, new_area)
 
 ///cleans any cleanable decals from the turf
 /turf/wash()

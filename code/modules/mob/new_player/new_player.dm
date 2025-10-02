@@ -1,6 +1,5 @@
 /mob/new_player
 	invisibility = INVISIBILITY_ABSTRACT
-	lighting_cutoff = LIGHTING_CUTOFF_FULLBRIGHT
 	stat = DEAD
 	density = FALSE
 	canmove = FALSE

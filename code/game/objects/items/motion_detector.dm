@@ -31,17 +31,17 @@
 	plane = ABOVE_HUD_PLANE
 	var/image/blip_image
 
-/obj/effect/blip/close_blip/Initialize(mapload, identifier, mob/user)
+/obj/effect/blip/close_blip/Initialize(mapload, identifier, mob/operator)
 	. = ..()
-	if(!user?.client)
+	if(!operator?.client)
 		return INITIALIZE_HINT_QDEL
 	blip_image = image('icons/effects/blips.dmi', src, "close_blip_[identifier]")
-	SET_PLANE_EXPLICIT(blip_image, ABOVE_HUD_PLANE, src)
-	user.client.images += blip_image
+	blip_image.layer = BELOW_FULLSCREEN_LAYER
+	operator.client.images += blip_image
 
 /// Remove the blip from the operator images
-/obj/effect/blip/close_blip/remove_blip(mob/user)
-	user?.client?.images -= blip_image
+/obj/effect/blip/close_blip/remove_blip(mob/operator)
+	operator?.client?.images -= blip_image
 	qdel(src)
 
 /obj/effect/blip/close_blip/Destroy()

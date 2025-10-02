@@ -7,7 +7,7 @@
 	opacity = FALSE
 	anchored = TRUE
 	max_integrity = 250
-	layer = BELOW_OBJ_LAYER
+	layer = RESIN_STRUCTURE_LAYER
 	pixel_x = -16
 	pixel_y = -16
 	xeno_structure_flags = IGNORE_WEED_REMOVAL

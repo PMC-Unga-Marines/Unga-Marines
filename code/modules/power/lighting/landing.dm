@@ -5,8 +5,7 @@
 	desc = "A landing light, if it's flashing stay clear!"
 	anchored = TRUE
 	density = FALSE
-	layer = LOWER_RUNE_LAYER
-	plane = FLOOR_PLANE
+	layer = LOW_OBJ_LAYER
 	use_power = ACTIVE_POWER_USE
 	idle_power_usage = 2
 	active_power_usage = 20

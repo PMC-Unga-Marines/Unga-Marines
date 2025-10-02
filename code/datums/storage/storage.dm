@@ -145,39 +145,43 @@
 	boxes.master = src
 	boxes.icon_state = "block"
 	boxes.screen_loc = "7,7 to 10,8"
-	SET_PLANE_EXPLICIT(boxes, HUD_PLANE, parent)
+	boxes.layer = HUD_LAYER
+	boxes.plane = HUD_PLANE
 
 	storage_start = new /atom/movable/screen/storage()
 	storage_start.name = "storage"
 	storage_start.master = src
 	storage_start.icon_state = "storage_start"
 	storage_start.screen_loc = "7,7 to 10,8"
-	SET_PLANE_EXPLICIT(storage_start, HUD_PLANE, parent)
+	storage_start.layer = HUD_LAYER
+	storage_start.plane = HUD_PLANE
 	storage_continue = new /atom/movable/screen/storage()
 	storage_continue.name = "storage"
 	storage_continue.master = src
 	storage_continue.icon_state = "storage_continue"
 	storage_continue.screen_loc = "7,7 to 10,8"
-	SET_PLANE_EXPLICIT(storage_continue, HUD_PLANE, parent)
-
+	storage_continue.layer = HUD_LAYER
+	storage_continue.plane = HUD_PLANE
 	storage_end = new /atom/movable/screen/storage()
 	storage_end.name = "storage"
 	storage_end.master = src
 	storage_end.icon_state = "storage_end"
 	storage_end.screen_loc = "7,7 to 10,8"
-	SET_PLANE_EXPLICIT(storage_end, HUD_PLANE, parent)
+	storage_end.layer = HUD_LAYER
+	storage_end.plane = HUD_PLANE
 
 	stored_start = new /obj() //we just need these to hold the icon
 	stored_start.icon_state = "stored_start"
-	SET_PLANE_EXPLICIT(stored_start, HUD_PLANE, parent)
-
+	stored_start.layer = HUD_LAYER
+	stored_start.plane = HUD_PLANE
 	stored_continue = new /obj()
 	stored_continue.icon_state = "stored_continue"
-	SET_PLANE_EXPLICIT(stored_continue, HUD_PLANE, parent)
-
+	stored_continue.layer = HUD_LAYER
+	stored_continue.plane = HUD_PLANE
 	stored_end = new /obj()
 	stored_end.icon_state = "stored_end"
-	SET_PLANE_EXPLICIT(stored_end, HUD_PLANE, parent)
+	stored_end.layer = HUD_LAYER
+	stored_end.plane = HUD_PLANE
 
 	closer = new()
 	closer.master = src
@@ -626,7 +630,8 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	boxes.screen_loc = "[tx]:,[ty] to [mx],[my]"
 	for(var/obj/object in parent.contents)
 		object.screen_loc = "[cx],[cy]"
-		SET_PLANE_IMPLICIT(object, ABOVE_HUD_PLANE)
+		object.layer = ABOVE_HUD_LAYER
+		object.plane = ABOVE_HUD_PLANE
 		cx++
 		if(cx > mx)
 			cx = tx
@@ -646,7 +651,8 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 			ND.sample_object.mouse_opacity = 2
 			ND.sample_object.screen_loc = "[cx]:16,[cy]:16"
 			ND.sample_object.maptext = "<font color='white'>[(ND.number > 1)? "[ND.number]" : ""]</font>"
-			SET_PLANE_IMPLICIT(ND.sample_object, ABOVE_HUD_PLANE)
+			ND.sample_object.layer = ABOVE_HUD_LAYER
+			ND.sample_object.plane = ABOVE_HUD_PLANE
 			cx++
 			if(cx > (4+cols))
 				cx = 4
@@ -656,7 +662,8 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 			object.mouse_opacity = 2 //So storage items that start with contents get the opacity trick.
 			object.screen_loc = "[cx]:16,[cy]:16"
 			object.maptext = ""
-			SET_PLANE_IMPLICIT(object, ABOVE_HUD_PLANE)
+			object.layer = ABOVE_HUD_LAYER
+			object.plane = ABOVE_HUD_PLANE
 			cx++
 			if(cx > (4+cols))
 				cx = 4
@@ -714,7 +721,8 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 		object.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
 		object.maptext = ""
-		SET_PLANE_IMPLICIT(object, ABOVE_HUD_PLANE)
+		object.layer = ABOVE_HUD_LAYER
+		object.plane = ABOVE_HUD_PLANE
 
 	closer.screen_loc = "4:[storage_width+19],2:16"
 
@@ -939,11 +947,12 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	if(new_location)
 		if(ismob(new_location))
-			SET_PLANE_EXPLICIT(item, ABOVE_HUD_PLANE, user)
+			item.layer = ABOVE_HUD_LAYER
+			item.plane = ABOVE_HUD_PLANE
 			item.pickup(new_location)
 		else
 			item.layer = initial(item.layer)
-			SET_PLANE_IMPLICIT(item, initial(item.plane))
+			item.plane = initial(item.plane)
 		if(move_item)
 			item.forceMove(new_location)
 	else if(move_item)

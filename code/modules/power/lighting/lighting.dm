@@ -476,7 +476,7 @@
 	icon_state = "floortube_empty"
 	base_icon_state = "floortube"
 	brightness = 6
-	layer = MAP_SWITCH(LOWER_RUNE_LAYER, LOW_OBJ_LAYER)
+	layer = BELOW_TABLE_LAYER
 	plane = FLOOR_PLANE
 
 /obj/machinery/light/floor/update_offsets()

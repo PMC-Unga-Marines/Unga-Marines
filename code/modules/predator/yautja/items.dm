@@ -677,7 +677,7 @@
 	icon_state = "yauttrap0"
 	desc = "A bizarre Yautja device used for trapping and killing prey."
 
-	layer = LOW_ITEM_LAYER
+	layer = LOWER_ITEM_LAYER
 
 	var/armed = 0
 	var/resist_time = 15 SECONDS

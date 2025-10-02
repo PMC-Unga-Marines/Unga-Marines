@@ -398,7 +398,7 @@
 /turf/open/floor/light,
 /area/yautja)
 "be" = (
-/obj/alien/egg/facehugger/yautja,
+/obj/alien/egg/hugger/yautja,
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "bg" = (
@@ -1446,7 +1446,7 @@
 /area/yautja)
 "jY" = (
 /obj/effect/decal/remains/human,
-/obj/alien/egg/facehugger/yautja,
+/obj/alien/egg/hugger/yautja,
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "kA" = (

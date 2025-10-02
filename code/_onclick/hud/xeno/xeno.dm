@@ -19,12 +19,12 @@
 		return
 	var/mob/living/carbon/xenomorph/X = usr
 	X.toggle_nightvision()
-	switch(X.lighting_cutoff)
-		if(LIGHTING_CUTOFF_FULLBRIGHT)
+	switch(X.lighting_alpha)
+		if(LIGHTING_PLANE_ALPHA_INVISIBLE)
 			icon_state = "nightvision3"
-		if(LIGHTING_CUTOFF_HIGH)
+		if(LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE)
 			icon_state = "nightvision2"
-		if(LIGHTING_CUTOFF_MEDIUM)
+		if(LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE)
 			icon_state = "nightvision1"
 		else
 			icon_state = "nightvision0"

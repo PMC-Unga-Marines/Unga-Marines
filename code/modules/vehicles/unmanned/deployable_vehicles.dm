@@ -90,6 +90,7 @@
 	pass_flags = PASS_LOW_STRUCTURE|PASS_GRILLE|PASS_MOB
 	turret_pattern = NO_PATTERN
 	unmanned_flags = GIVE_NIGHT_VISION
+	layer = XENO_HIDING_LAYER
 	allow_explosives = FALSE
 
 /obj/structure/closet/crate/uvt_crate

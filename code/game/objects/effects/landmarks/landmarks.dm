@@ -4,6 +4,7 @@
 	icon_state = "x2"
 	anchored = TRUE
 	resistance_flags = UNACIDABLE
+	layer = MID_LANDMARK_LAYER
 	invisibility = INVISIBILITY_ABSTRACT
 
 

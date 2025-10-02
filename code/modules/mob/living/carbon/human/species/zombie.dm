@@ -3,7 +3,8 @@
 	icobase = 'icons/mob/human_races/r_husk.dmi'
 	total_health = 125
 	species_flags = NO_BREATHE|NO_SCAN|NO_BLOOD|NO_POISON|NO_PAIN|NO_CHEM_METABOLIZATION|NO_STAMINA|HAS_UNDERWEAR|HEALTH_HUD_ALWAYS_DEAD|PARALYSE_RESISTANT
-	lighting_cutoff = LIGHTING_CUTOFF_HIGH
+	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+	see_in_dark = 8
 	blood_color = "#110a0a"
 	hair_color = "#000000"
 	slowdown = 0.5

@@ -426,7 +426,7 @@
 	. = ..()
 	if(machine_stat & (NOPOWER))
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive", src, alpha = src.alpha)
+	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 	. += mutable_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 
 /obj/machinery/chem_master/condimaster

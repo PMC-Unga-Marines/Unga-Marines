@@ -76,9 +76,9 @@
 /obj/alien/egg/ex_act(severity)
 	burst(TRUE)
 
-/obj/alien/egg/facehugger
+/obj/alien/egg/hugger
 	desc = "It looks like a weird egg"
-	name = "facehugger egg"
+	name = "hugger egg"
 	icon_state = "egg_hugger"
 	density = FALSE
 	atom_flags = CRITICAL_ATOM
@@ -86,19 +86,20 @@
 	maturity_time = 15 SECONDS
 	stage_ready_to_burst = 2
 	trigger_size = 2
+	plane = FLOOR_PLANE
 	///What type of hugger are produced here
 	var/hugger_type = /obj/item/clothing/mask/facehugger
 
-/obj/alien/egg/facehugger/Initialize(mapload, hivenumber)
+/obj/alien/egg/hugger/Initialize(mapload, hivenumber)
 	. = ..()
 	GLOB.xeno_egg_hugger += src
 
-/obj/alien/egg/facehugger/Destroy()
+/obj/alien/egg/hugger/Destroy()
 	GLOB.xeno_egg_hugger -= src
 	return ..()
 
 //Observers can become playable facehuggers by clicking on the egg
-/obj/alien/egg/facehugger/attack_ghost(mob/dead/observer/user)
+/obj/alien/egg/hugger/attack_ghost(mob/dead/observer/user)
 	. = ..()
 
 	if(maturity_stage != stage_ready_to_burst)
@@ -123,7 +124,7 @@
 	return TRUE
 
 //Sentient facehugger can get in the egg
-/obj/alien/egg/facehugger/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, isrightclick = FALSE)
+/obj/alien/egg/hugger/attack_facehugger(mob/living/carbon/xenomorph/facehugger/F, isrightclick = FALSE)
 	. = ..()
 
 	if(tgui_alert(F, "Do you want to get into the egg?", "Get inside the egg", list("Yes", "No")) != "Yes")
@@ -142,7 +143,7 @@
 	F.death(deathmessage = "get inside the egg", silent = TRUE)
 	qdel(F)
 
-/obj/alien/egg/facehugger/update_icon_state()
+/obj/alien/egg/hugger/update_icon_state()
 	. = ..()
 	overlays.Cut()
 	if(on_fire)
@@ -153,7 +154,7 @@
 		return
 	color = null
 
-/obj/alien/egg/facehugger/burst(via_damage = FALSE)
+/obj/alien/egg/hugger/burst(via_damage = FALSE)
 	. = ..()
 	if(!.)
 		return
@@ -166,12 +167,12 @@
 	flick("egg opening", src)
 	addtimer(CALLBACK(src, PROC_REF(spawn_hugger), loc), 1 SECONDS)
 
-/obj/alien/egg/facehugger/proc/spawn_hugger()
+/obj/alien/egg/hugger/proc/spawn_hugger()
 	var/obj/item/clothing/mask/facehugger/hugger = new hugger_type(get_turf(src), hivenumber)
 	hugger_type = null
 	hugger.go_active()
 
-/obj/alien/egg/facehugger/attack_alien(mob/living/carbon/xenomorph/xenomorph, damage_amount = xenomorph.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/alien/egg/hugger/attack_alien(mob/living/carbon/xenomorph/xenomorph, damage_amount = xenomorph.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = MELEE, effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(xenomorph.status_flags & INCORPOREAL)
 		return FALSE
 
@@ -196,7 +197,7 @@
 			playsound(loc, SFX_ALIEN_RESIN_BREAK, 25)
 			qdel(src)
 
-/obj/alien/egg/facehugger/attackby(obj/item/I, mob/user, params)
+/obj/alien/egg/hugger/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	if(.)
 		return
@@ -206,7 +207,7 @@
 	return insert_new_hugger(I, user)
 
 ///Try to insert a new hugger into the egg
-/obj/alien/egg/facehugger/proc/insert_new_hugger(obj/item/clothing/mask/facehugger/facehugger, mob/user)
+/obj/alien/egg/hugger/proc/insert_new_hugger(obj/item/clothing/mask/facehugger/facehugger, mob/user)
 	if(facehugger.stat == DEAD)
 		if(user)
 			to_chat(user, span_xenowarning("This child is dead."))
@@ -228,10 +229,10 @@
 	advance_maturity(stage_ready_to_burst)
 	return TRUE
 
-/obj/alien/egg/facehugger/yautja
+/obj/alien/egg/hugger/yautja
 	hivenumber = XENO_HIVE_YAUTJA
 
-/obj/alien/egg/facehugger/yautja/attack_ghost(mob/dead/observer/user)
+/obj/alien/egg/hugger/yautja/attack_ghost(mob/dead/observer/user)
 	return
 
 /obj/alien/egg/gas

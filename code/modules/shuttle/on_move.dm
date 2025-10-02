@@ -96,8 +96,7 @@
 /atom/movable/proc/after_shuttle_move(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	var/turf/newT = get_turf(src)
 	if(newT.z != oldT.z)
-		var/same_z_layer = (GET_TURF_PLANE_OFFSET(oldT) == GET_TURF_PLANE_OFFSET(newT))
-		on_changed_z_level(oldT, newT, same_z_layer)
+		on_changed_z_level(oldT, newT)
 
 	if(light)
 		update_light()
@@ -174,14 +173,14 @@
 			missing_nodes = TRUE
 
 	if(missing_nodes)
-		atmos_init()
+		atmosinit()
 		for(var/obj/machinery/atmospherics/A in pipeline_expansion())
-			A.atmos_init()
-			if(A.return_pipenet())
+			A.atmosinit()
+			if(A.returnPipenet())
 				A.addMember(src)
 		build_network()
 	else
-		// atmos_init() calls update_icon(), so we don't need to call it
+		// atmosinit() calls update_icon(), so we don't need to call it
 		update_icon()
 	covered_by_shuttle = FALSE
 

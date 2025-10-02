@@ -2,7 +2,7 @@
 	name = "Food Processor"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "processor"
-	layer = GIB_LAYER
+	layer = ABOVE_TABLE_LAYER
 	density = TRUE
 	anchored = TRUE
 	coverage = 20

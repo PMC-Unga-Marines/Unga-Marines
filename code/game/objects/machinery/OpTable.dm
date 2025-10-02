@@ -57,7 +57,7 @@
 	. = ..()
 	if(machine_stat & (BROKEN|DISABLED|NOPOWER))
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive", src, alpha = src.alpha)
+	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 	. += mutable_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 
 /obj/machinery/optable/ex_act(severity)
@@ -207,7 +207,7 @@
 		user.transferItemToLoc(I, src)
 		anes_tank = I
 		to_chat(user, span_notice("You connect \the [anes_tank] to \the [src]."))
-
+	
 	if(istype(I, /obj/item/riding_offhand))
 		var/obj/item/riding_offhand/carry_obj = I
 		if(carry_obj.is_rider(user))

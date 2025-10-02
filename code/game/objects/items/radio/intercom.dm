@@ -54,7 +54,7 @@
 	. = ..()
 	if(!on)
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive", src)
+	. += emissive_appearance(icon, "[icon_state]_emissive")
 
 /obj/item/radio/intercom/attack_ai(mob/user as mob)
 	attack_self(user)

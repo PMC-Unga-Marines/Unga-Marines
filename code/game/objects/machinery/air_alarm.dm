@@ -46,7 +46,7 @@
 	. = ..()
 	if(machine_stat & (BROKEN))
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive", src)
+	. += emissive_appearance(icon, "[icon_state]_emissive")
 
 /obj/machinery/air_alarm/crowbar_act(mob/living/user, obj/item/I)
 	. = ..()

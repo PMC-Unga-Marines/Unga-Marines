@@ -1,5 +1,4 @@
 /obj/effect/decal/cleanable
-	layer = CLEANABLE_FLOOR_OBJECT_LAYER
 	///List of icon states that our cleanable can have. Used to add variety
 	var/list/random_icon_states = list()
 	/// Used so cleanbots can't claim a mess.

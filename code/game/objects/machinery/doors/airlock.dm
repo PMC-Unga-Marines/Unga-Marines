@@ -80,7 +80,7 @@
 	switch(outcome)
 		if(1 to 9)
 			var/turf/here = get_turf(src)
-			for(var/turf/closed/T AS in RANGE_TURFS(2, src))
+			for(var/turf/closed/T in range(2, src))
 				here.place_on_top(T.type)
 				return
 			here.place_on_top(/turf/closed/wall)

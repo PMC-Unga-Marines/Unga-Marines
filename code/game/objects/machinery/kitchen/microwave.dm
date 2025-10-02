@@ -3,7 +3,7 @@
 	name = "Microwave"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "mw"
-	layer = GIB_LAYER
+	layer = ABOVE_TABLE_LAYER
 	density = TRUE
 	anchored = TRUE
 	coverage = 10

@@ -1,5 +1,5 @@
 /atom
-	layer = ABOVE_NORMAL_TURF_LAYER
+	layer = TURF_LAYER
 	plane = GAME_PLANE
 	appearance_flags = TILE_BOUND
 	var/level = 2
@@ -467,8 +467,6 @@ directive is properly returned.
 	if(atom_flags & INITIALIZED)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	atom_flags |= INITIALIZED
-
-	SET_PLANE_IMPLICIT(src, plane)
 
 	update_greyscale()
 

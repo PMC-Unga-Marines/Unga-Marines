@@ -1,7 +1,5 @@
 //turfs with density = TRUE
 /turf/closed
-	layer = CLOSED_TURF_LAYER
-	plane = WALL_PLANE
 	density = TRUE
 	opacity = TRUE
 	baseturfs = /turf/open/floor/plating
@@ -29,7 +27,7 @@
 	name = "world border"
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "pclosed"
-	layer = ABOVE_TREE_LAYER
+	layer = ABOVE_TURF_LAYER
 	baseturfs = /turf/closed/cordon
 
 /// Used as placeholder turf when something went really wrong, as per /tg/ string lists handler
@@ -440,6 +438,7 @@
 	name = "wall"
 	icon_state = "wall1"
 	icon = 'icons/turf/shuttle.dmi'
+	plane = FLOOR_PLANE
 	resistance_flags = PLASMACUTTER_IMMUNE
 
 /turf/closed/shuttle/add_debris_element()
@@ -490,10 +489,12 @@
 /turf/closed/shuttle/dropship
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rasputin1"
+	plane = GAME_PLANE
 
 /turf/closed/shuttle/ert
 	icon = 'icons/turf/ert_shuttle.dmi'
 	icon_state = "stan4"
+	plane = GAME_PLANE
 
 /turf/closed/shuttle/ert/engines
 	name = "engine"
@@ -520,6 +521,7 @@
 	name = "\improper Alamo"
 	icon = 'icons/turf/dropship.dmi'
 	icon_state = "1"
+	plane = GAME_PLANE
 	resistance_flags = NONE
 
 /turf/closed/shuttle/dropship1/transparent
@@ -708,6 +710,7 @@
 	name = "\improper Triumph"
 	icon = 'icons/turf/dropship.dmi'
 	icon_state = "1"
+	plane = GAME_PLANE
 
 /turf/closed/shuttle/dropship3/transparent
 	opacity = FALSE
@@ -716,6 +719,7 @@
 	name = "\improper Normandy"
 	icon = 'icons/turf/dropship2.dmi'
 	icon_state = "1"
+	plane = GAME_PLANE
 	resistance_flags = RESIST_ALL|PLASMACUTTER_IMMUNE
 
 /turf/closed/shuttle/dropship2/transparent
@@ -892,11 +896,13 @@
 	name = "\improper Tadpole"
 	icon = 'icons/turf/dropship2.dmi'
 	icon_state = "1"
+	plane = GAME_PLANE
 
 /turf/closed/shuttle/escapepod
 	name = "wall"
 	icon = 'icons/turf/escapepods.dmi'
 	icon_state = "wall0"
+	plane = GAME_PLANE
 
 /turf/closed/shuttle/escapepod/wallone
 	icon_state = "wall1"

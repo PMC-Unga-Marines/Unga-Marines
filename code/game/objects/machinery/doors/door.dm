@@ -9,13 +9,13 @@
 	dir = EAST
 	allow_pass_flags = NONE
 	move_resist = MOVE_FORCE_VERY_STRONG
-	layer = OPEN_DOOR_LAYER
+	layer = DOOR_OPEN_LAYER
 	explosion_block = 2
 	resistance_flags = DROPSHIP_IMMUNE
 	minimap_color = MINIMAP_DOOR
 	soft_armor = list(MELEE = 30, BULLET = 30, LASER = 20, ENERGY = 20, BOMB = 10, BIO = 100, FIRE = 80, ACID = 70)
-	var/open_layer = OPEN_DOOR_LAYER
-	var/closed_layer = CLOSED_DOOR_LAYER
+	var/open_layer = DOOR_OPEN_LAYER
+	var/closed_layer = DOOR_CLOSED_LAYER
 	var/id
 	/// How many seconds remain until the door is no longer electrified. -1 if it is permanently electrified until someone fixes it.
 	var/secondsElectrified = 0

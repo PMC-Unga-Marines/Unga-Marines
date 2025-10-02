@@ -181,7 +181,7 @@
 
 /datum/action/vehicle/sealed/armored/smoke_screen/New(Target)
 	. = ..()
-	visual_references[VREF_MUTABLE_AMMO_COUNTER] = mutable_appearance(null, null, ACTION_LAYER_MAPTEXT)
+	visual_references[VREF_MUTABLE_AMMO_COUNTER] = mutable_appearance(null, null, ACTION_LAYER_MAPTEXT, FLOAT_PLANE)
 
 /datum/action/vehicle/sealed/armored/smoke_screen/action_activate(trigger_flags)
 	if(!owner || !chassis || !(owner in chassis.occupants))
