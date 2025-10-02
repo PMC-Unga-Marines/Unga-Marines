@@ -297,6 +297,8 @@
 		return
 	if(obj_integrity <= 0)
 		return
+	if(!base_icon_state) // how?
+		return
 	. += emissive_appearance(icon, "[base_icon_state]_emissive", src)
 
 //This camera type automatically sets it's name to whatever the area that it's in is called.
