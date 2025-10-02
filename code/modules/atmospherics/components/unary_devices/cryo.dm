@@ -14,6 +14,7 @@
 	light_power = 0.5
 	light_color = LIGHT_COLOR_EMISSIVE_GREEN
 	vent_movement = NONE
+	device_type = NONE
 	var/autoeject = FALSE
 	var/release_notice = FALSE
 	var/temperature = 100
