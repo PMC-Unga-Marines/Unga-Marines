@@ -659,6 +659,16 @@
 			if(!(xeno.hive.hive_flags & HIVE_CAN_HIJACK))
 				to_chat(xeno, span_warning("Нашему улью не хватает экстрасенсорных способностей, чтобы украсть птицу."))
 				return
+			var/groundside_humans = length(GLOB.humans_by_zlevel["[z]"])
+			if(groundside_humans > 5)
+				to_chat(usr, span_xenowarning("Еще осталась добыча, на которую можно охотиться!"))
+				return
+			if(!is_ground_level(xeno.loc.z)) // Don't hijack from the shipside
+				to_chat(xeno, span_xenowarning("The shuttle is already at the ship!"))
+				return
+			if(SSmonitor.gamestate == SHIPSIDE)
+				to_chat(xeno, span_xenowarning("The shuttle is already at the ship!"))
+				return
 			if(shuttle.mode == SHUTTLE_RECHARGING)
 				to_chat(xeno, span_xenowarning("Птица все еще остывает..."))
 				return
@@ -670,9 +680,6 @@
 				return
 			var/obj/docking_port/stationary/marine_dropship/crash_target/CT = pick(SSshuttle.crash_targets)
 			if(!CT)
-				return
-			if(SSmonitor.gamestate == SHIPSIDE)
-				to_chat(xeno, span_xenowarning("The shuttle is already at the ship!"))
 				return
 
 			do_hijack(shuttle, CT, xeno)

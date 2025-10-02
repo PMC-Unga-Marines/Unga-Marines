@@ -125,6 +125,7 @@
 	resistance_flags = UNACIDABLE
 	hit_sound = 'sound/effects/Glasshit.ogg'
 	destroy_sound = "shatter"
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 50, BIO = 0, FIRE = 0, ACID = 0)
 	///Whatever is contained in the tank
 	var/obj/occupant
 	///What this tank is replaced by when broken
@@ -142,8 +143,6 @@
 
 	return ..()
 
-/obj/structure/xenoautopsy/tank/ex_act(severity)
-	take_damage(severity * 0.5, BRUTE, BOMB)
 
 ///Releases whatever is inside the tank
 /obj/structure/xenoautopsy/tank/proc/release_occupant()

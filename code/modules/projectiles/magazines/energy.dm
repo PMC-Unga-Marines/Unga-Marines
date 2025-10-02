@@ -77,6 +77,7 @@
 	maxcharge = 900
 	icon_state_mini = "mag_plasma"
 	charge_overlay = "plasma"
+	rechargable = FALSE
 
 //volkite
 

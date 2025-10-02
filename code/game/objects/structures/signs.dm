@@ -27,8 +27,9 @@
 			pixel_x = -30
 
 /obj/structure/sign/ex_act(severity)
-	if(severity >= EXPLODE_WEAK)
-		qdel(src)
+	if(severity < EXPLODE_WEAK)
+		return
+	qdel(src)
 
 /obj/structure/sign/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()

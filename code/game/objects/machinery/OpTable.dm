@@ -61,8 +61,9 @@
 	. += mutable_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
 
 /obj/machinery/optable/ex_act(severity)
-	if(prob(severity * 0.3))
-		qdel(src)
+	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
+		return FALSE
+	take_damage(severity, damage_flag = BOMB, effects = TRUE)
 
 /obj/machinery/optable/examine(mob/user)
 	. = ..()
@@ -258,6 +259,7 @@
 		return FALSE
 
 	return TRUE
+	
 /obj/machinery/optable/yautja
 	icon = 'icons/obj/machines/yautja_machines.dmi'
 

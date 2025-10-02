@@ -247,8 +247,9 @@
 	desc = "Some thick jungle trees."
 
 /turf/closed/gm/ex_act(severity)
-	if(severity >= EXPLODE_DEVASTATE)
-		change_turf(/turf/open/ground/grass/weedable)
+	if(severity < EXPLODE_DEVASTATE)
+		return
+	change_turf(/turf/open/ground/grass/weedable)
 
 /turf/closed/gm/dense
 	name = "dense jungle wall"

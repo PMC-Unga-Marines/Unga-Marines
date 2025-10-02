@@ -15,13 +15,11 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_FENCE)
 	canSmoothWith = list(SMOOTH_GROUP_FENCE)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 50, BIO = 0, FIRE = 0, ACID = 0)
 	/// Cut fences can be passed through
 	var/cut = FALSE
 	///Chance for the fence to break on /init
 	var/chance_to_break = 80 //Defaults to 80%
-
-/obj/structure/fence/ex_act(severity)
-	take_damage(severity * 0.5, BRUTE, BOMB)
 
 /obj/structure/fence/attackby(obj/item/I, mob/user, params)
 	. = ..()

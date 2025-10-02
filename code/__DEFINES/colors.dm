@@ -302,3 +302,13 @@ Important note: colors can end up significantly different from the basic html pi
 #define COLOR_SQUAD_BRAVO "#ffc32d" // rgb(255,195,45)
 #define COLOR_SQUAD_CHARLIE "#c864c8" // rgb(200,100,200)
 #define COLOR_SQUAD_DELTA "#4148c8" // rgb(65,72,200)
+
+//Colours associated with runechat
+#define CHAT_COLOR_SQUAD_ALPHA "#dd7878"
+#define CHAT_COLOR_DARKENED_SQUAD_ALPHA "#c85a5a"
+#define CHAT_COLOR_SQUAD_BRAVO "#ddc478"
+#define CHAT_COLOR_DARKENED_SQUAD_BRAVO "#c8ac5a"
+#define CHAT_COLOR_SQUAD_CHARLIE "#dd78d3"
+#define CHAT_COLOR_DARKENED_SQUAD_CHARLIE "#c85abd"
+#define CHAT_COLOR_SQUAD_DELTA "#787ddd"
+#define CHAT_COLOR_DARKENED_SQUAD_DELTA "#5a60c8"

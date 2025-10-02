@@ -45,10 +45,10 @@
 	update_icon()
 
 /obj/machinery/prop/computer/ex_act(severity)
+	if(severity >= EXPLODE_MEDIUM)
+		qdel(src)
+		return
 	if(prob(severity * 0.3))
-		if(severity >= EXPLODE_MEDIUM)
-			qdel(src)
-			return
 		set_broken()
 
 /obj/machinery/prop/computer/proc/set_broken()

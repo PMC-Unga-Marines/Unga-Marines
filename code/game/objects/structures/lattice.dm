@@ -34,8 +34,9 @@
 	return ..()
 
 /obj/structure/lattice/ex_act(severity)
-	if(severity >= EXPLODE_HEAVY)
-		qdel(src)
+	if(severity < EXPLODE_HEAVY)
+		return
+	qdel(src)
 
 /obj/structure/lattice/attackby(obj/item/C as obj, mob/user as mob)
 
@@ -59,6 +60,7 @@
 	icon_state = "lattice[dir_sum]"
 
 /obj/structure/catwalk
+	desc = "You can walk on this, even if you're not a cat."
 	icon = 'icons/obj/smooth_objects/catwalk.dmi'
 	icon_state = "catwalk-icon"
 	base_icon_state = "catwalk"

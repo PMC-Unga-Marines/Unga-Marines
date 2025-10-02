@@ -517,12 +517,9 @@
 "anQ" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
 /obj/item/bedsheet/purple{
-	layer = 3.2
 	},
 /obj/item/bedsheet/purple{
 	pixel_y = 13
@@ -585,12 +582,9 @@
 "aoA" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
 /obj/item/bedsheet/purple{
-	layer = 3.2
 	},
 /obj/item/bedsheet/purple{
 	pixel_y = 13
@@ -749,13 +743,9 @@
 "arx" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/purple{
-	layer = 3.2
-	},
+/obj/item/bedsheet/purple,
 /obj/item/bedsheet/purple{
 	pixel_y = 13
 	},
@@ -1563,13 +1553,9 @@
 "aLe" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/red{
-	layer = 3.2
-	},
+/obj/item/bedsheet/red,
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
@@ -2090,13 +2076,9 @@
 "bhE" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/purple{
-	layer = 3.2
-	},
+/obj/item/bedsheet/purple,
 /obj/item/bedsheet/purple{
 	pixel_y = 13
 	},
@@ -2890,13 +2872,9 @@
 "bFB" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/yellow{
-	layer = 3.2
-	},
+/obj/item/bedsheet/yellow,
 /obj/item/bedsheet/yellow{
 	pixel_y = 13
 	},
@@ -3125,13 +3103,9 @@
 "bLZ" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/yellow{
-	layer = 3.2
-	},
+/obj/item/bedsheet/yellow,
 /obj/item/bedsheet/yellow{
 	pixel_y = 13
 	},
@@ -3741,13 +3715,9 @@
 "cdc" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/blue{
-	layer = 3.2
-	},
+/obj/item/bedsheet/blue,
 /obj/item/bedsheet/blue{
 	pixel_y = 13
 	},
@@ -3937,13 +3907,9 @@
 "chQ" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/red{
-	layer = 3.2
-	},
+/obj/item/bedsheet/red,
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
@@ -4268,13 +4234,9 @@
 "csB" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/blue{
-	layer = 3.2
-	},
+/obj/item/bedsheet/blue,
 /obj/item/bedsheet/blue{
 	pixel_y = 13
 	},
@@ -4458,13 +4420,9 @@
 "cyW" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/purple{
-	layer = 3.2
-	},
+/obj/item/bedsheet/purple,
 /obj/item/bedsheet/purple{
 	pixel_y = 13
 	},
@@ -4989,13 +4947,9 @@
 "cQd" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/yellow{
-	layer = 3.2
-	},
+/obj/item/bedsheet/yellow,
 /obj/item/bedsheet/yellow{
 	pixel_y = 13
 	},
@@ -6050,13 +6004,9 @@
 "dvE" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/blue{
-	layer = 3.2
-	},
+/obj/item/bedsheet/blue,
 /obj/item/bedsheet/blue{
 	pixel_y = 13
 	},
@@ -7559,13 +7509,9 @@
 "eqT" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/blue{
-	layer = 3.2
-	},
+/obj/item/bedsheet/blue,
 /obj/item/bedsheet/blue{
 	pixel_y = 13
 	},
@@ -8011,13 +7957,9 @@
 "eEt" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/purple{
-	layer = 3.2
-	},
+/obj/item/bedsheet/purple,
 /obj/item/bedsheet/purple{
 	pixel_y = 13
 	},
@@ -8548,13 +8490,9 @@
 "eUa" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/blue{
-	layer = 3.2
-	},
+/obj/item/bedsheet/blue,
 /obj/item/bedsheet/blue{
 	pixel_y = 13
 	},
@@ -8659,13 +8597,9 @@
 "eVY" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/yellow{
-	layer = 3.2
-	},
+/obj/item/bedsheet/yellow,
 /obj/item/bedsheet/yellow{
 	pixel_y = 13
 	},
@@ -9669,13 +9603,9 @@
 "fxC" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/purple{
-	layer = 3.2
-	},
+/obj/item/bedsheet/purple,
 /obj/item/bedsheet/purple{
 	pixel_y = 13
 	},
@@ -10364,13 +10294,9 @@
 "fWu" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/blue{
-	layer = 3.2
-	},
+/obj/item/bedsheet/blue,
 /obj/item/bedsheet/blue{
 	pixel_y = 13
 	},
@@ -10666,13 +10592,9 @@
 "glD" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/red{
-	layer = 3.2
-	},
+/obj/item/bedsheet/red,
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
@@ -14239,9 +14161,7 @@
 /area/mainship/engineering/ce_room)
 "iFp" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/window/reinforced{
-	layer = 4.2
-	},
+/obj/structure/window/reinforced,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -14548,9 +14468,7 @@
 /area/mainship/living/basketball)
 "iMD" = (
 /obj/structure/flora/ausbushes/ppflowers,
-/obj/structure/window/reinforced{
-	layer = 4.2
-	},
+/obj/structure/window/reinforced,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -14760,13 +14678,9 @@
 "iSG" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/purple{
-	layer = 3.2
-	},
+/obj/item/bedsheet/purple,
 /obj/item/bedsheet/purple{
 	pixel_y = 13
 	},
@@ -15017,13 +14931,9 @@
 "jap" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/red{
-	layer = 3.2
-	},
+/obj/item/bedsheet/red,
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
@@ -16865,13 +16775,9 @@
 "khT" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/blue{
-	layer = 3.2
-	},
+/obj/item/bedsheet/blue,
 /obj/item/bedsheet/blue{
 	pixel_y = 13
 	},
@@ -16953,8 +16859,7 @@
 "kjY" = (
 /obj/machinery/chem_master,
 /obj/structure/window/reinforced{
-	dir = 4;
-	layer = 4.2
+	dir = 4
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/medical/medical_science)
@@ -18187,13 +18092,9 @@
 "kUp" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/red{
-	layer = 3.2
-	},
+/obj/item/bedsheet/red,
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
@@ -18235,13 +18136,9 @@
 "kVF" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/red{
-	layer = 3.2
-	},
+/obj/item/bedsheet/red,
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
@@ -19048,8 +18945,7 @@
 	pixel_x = -7
 	},
 /obj/structure/window/reinforced{
-	dir = 4;
-	layer = 4.2
+	dir = 4
 	},
 /turf/open/floor/mainship/metal/full,
 /area/mainship/medical/medical_science)
@@ -19231,13 +19127,9 @@
 "lvY" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/blue{
-	layer = 3.2
-	},
+/obj/item/bedsheet/blue,
 /obj/item/bedsheet/blue{
 	pixel_y = 13
 	},
@@ -19563,13 +19455,9 @@
 "lEC" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/yellow{
-	layer = 3.2
-	},
+/obj/item/bedsheet/yellow,
 /obj/item/bedsheet/yellow{
 	pixel_y = 13
 	},
@@ -22102,13 +21990,9 @@
 "mYr" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/yellow{
-	layer = 3.2
-	},
+/obj/item/bedsheet/yellow,
 /obj/item/bedsheet/yellow{
 	pixel_y = 13
 	},
@@ -22572,13 +22456,9 @@
 "nnX" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/red{
-	layer = 3.2
-	},
+/obj/item/bedsheet/red,
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
@@ -23298,13 +23178,9 @@
 "nJt" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/blue{
-	layer = 3.2
-	},
+/obj/item/bedsheet/blue,
 /obj/item/bedsheet/blue{
 	pixel_y = 13
 	},
@@ -23581,9 +23457,7 @@
 /turf/open/floor/plating/plating_catwalk/dark,
 /area/mainship/hallways/port_hallway)
 "nQj" = (
-/obj/structure/table/reinforced{
-	layer = 2.1
-	},
+/obj/structure/table/reinforced,
 /obj/machinery/door/firedoor/mainship,
 /obj/machinery/door/window/secure/req{
 	dir = 2
@@ -23860,13 +23734,9 @@
 "nVN" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/red{
-	layer = 3.2
-	},
+/obj/item/bedsheet/red,
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
@@ -24730,13 +24600,9 @@
 "oxS" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/red{
-	layer = 3.2
-	},
+/obj/item/bedsheet/red,
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
@@ -24799,13 +24665,9 @@
 "oBC" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/yellow{
-	layer = 3.2
-	},
+/obj/item/bedsheet/yellow,
 /obj/item/bedsheet/yellow{
 	pixel_y = 13
 	},
@@ -26256,13 +26118,9 @@
 "psl" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/red{
-	layer = 3.2
-	},
+/obj/item/bedsheet/red,
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
@@ -26576,13 +26434,9 @@
 "pAq" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/red{
-	layer = 3.2
-	},
+/obj/item/bedsheet/red,
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
@@ -27156,13 +27010,9 @@
 "pRM" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/blue{
-	layer = 3.2
-	},
+/obj/item/bedsheet/blue,
 /obj/item/bedsheet/blue{
 	pixel_y = 13
 	},
@@ -27932,9 +27782,7 @@
 "qmI" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/structure/window/reinforced{
-	layer = 4.2
-	},
+/obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -28488,13 +28336,9 @@
 "qER" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/purple{
-	layer = 3.2
-	},
+/obj/item/bedsheet/purple,
 /obj/item/bedsheet/purple{
 	pixel_y = 13
 	},
@@ -29042,8 +28886,7 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/window/reinforced{
-	dir = 8;
-	layer = 4.2
+	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -30254,13 +30097,9 @@
 "rIX" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/red{
-	layer = 3.2
-	},
+/obj/item/bedsheet/red,
 /obj/item/bedsheet/red{
 	pixel_y = 13
 	},
@@ -30939,13 +30778,9 @@
 "sfi" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/purple{
-	layer = 3.2
-	},
+/obj/item/bedsheet/purple,
 /obj/item/bedsheet/purple{
 	pixel_y = 13
 	},
@@ -32361,8 +32196,7 @@
 "sYh" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/window/reinforced{
-	dir = 8;
-	layer = 4.2
+	dir = 8
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/window/reinforced{
@@ -32376,13 +32210,9 @@
 "sYF" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/yellow{
-	layer = 3.2
-	},
+/obj/item/bedsheet/yellow,
 /obj/item/bedsheet/yellow{
 	pixel_y = 13
 	},
@@ -33591,13 +33421,9 @@
 "tQf" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/blue{
-	layer = 3.2
-	},
+/obj/item/bedsheet/blue,
 /obj/item/bedsheet/blue{
 	pixel_y = 13
 	},
@@ -34490,13 +34316,9 @@
 "uqU" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/yellow{
-	layer = 3.2
-	},
+/obj/item/bedsheet/yellow,
 /obj/item/bedsheet/yellow{
 	pixel_y = 13
 	},
@@ -35352,8 +35174,7 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/window/reinforced{
-	dir = 4;
-	layer = 4.2
+	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -37031,8 +36852,7 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/window/reinforced{
-	dir = 4;
-	layer = 4.2
+	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -38138,12 +37958,8 @@
 /area/mainship/hallways/hangar)
 "wFz" = (
 /obj/structure/bed,
-/obj/item/bedsheet/red{
-	layer = 3.2
-	},
+/obj/item/bedsheet/red,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
 /obj/item/bedsheet/red{
@@ -38555,13 +38371,9 @@
 "wUQ" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/purple{
-	layer = 3.2
-	},
+/obj/item/bedsheet/purple,
 /obj/item/bedsheet/purple{
 	pixel_y = 13
 	},
@@ -40012,13 +39824,9 @@
 "xNa" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/blue{
-	layer = 3.2
-	},
+/obj/item/bedsheet/blue,
 /obj/item/bedsheet/blue{
 	pixel_y = 13
 	},
@@ -40098,13 +39906,9 @@
 "xQZ" = (
 /obj/structure/bed,
 /obj/structure/bed{
-	layer = 3.5;
-	max_buckled_mobs = 13;
 	pixel_y = 13
 	},
-/obj/item/bedsheet/yellow{
-	layer = 3.2
-	},
+/obj/item/bedsheet/yellow,
 /obj/item/bedsheet/yellow{
 	pixel_y = 13
 	},

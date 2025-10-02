@@ -199,14 +199,15 @@
 
 	wall_integrity = max(0, wall_integrity - damage_amount)
 
-	if(wall_integrity <= 0)
-		// Xenos used to be able to crawl through the wall, should suggest some structural damage to the girder
-		if (acided_hole)
-			dismantle_wall(1)
-		else
-			dismantle_wall()
-	else
+	if(wall_integrity > 0)
 		update_icon()
+		return
+
+	// Xenos used to be able to crawl through the wall, should suggest some structural damage to the girder
+	if(acided_hole)
+		dismantle_wall(TRUE)
+		return
+	dismantle_wall()
 
 ///Repairs the wall by an amount
 /turf/closed/wall/proc/repair_damage(repair_amount, mob/user)
@@ -246,17 +247,7 @@
 /turf/closed/wall/ex_act(severity, explosion_direction)
 	if(resistance_flags & INDESTRUCTIBLE)
 		return
-
-	var/location = get_step(get_turf(src), explosion_direction) // shrapnel will just collide with the wall otherwise
-	if(wall_integrity + severity > max_integrity * 2)
-		dismantle_wall(FALSE, TRUE)
-		create_shrapnel(location, rand(2, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
-	else
-		if(prob(25))
-			create_shrapnel(location, rand(2, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/spall)
-			if(prob(50)) // prevents spam in close corridors etc
-				src.visible_message(span_warning("The explosion causes shards to spall off of [src]!"))
-		take_damage(severity * EXPLOSION_DAMAGE_MULTIPLIER_WALL, BRUTE, BOMB)
+	take_damage(severity * EXPLOSION_DAMAGE_MULTIPLIER_WALL, BRUTE, BOMB)
 
 /turf/closed/wall/get_explosion_resistance()
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))

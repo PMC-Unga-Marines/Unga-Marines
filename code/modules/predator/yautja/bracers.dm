@@ -623,7 +623,7 @@
 
 	exploding = TRUE
 	var/turf/T = get_turf(src)
-	if(explosion_type == SD_TYPE_BIG && victim.stat == CONSCIOUS && (is_ground_level(T.z) || SSticker.mode.round_type_flags & MODE_SHIPSIDE_SD))
+	if(explosion_type == SD_TYPE_BIG && victim.stat == CONSCIOUS && is_ground_level(T.z))
 		playsound(src, 'sound/voice/predator/deathlaugh.ogg', 100, 0, 17)
 
 	playsound(src, 'sound/effects/pred_countdown.ogg', 100, 0, 17)
@@ -637,7 +637,7 @@
 		if(victim)
 			victim.gib() // kills the pred
 			qdel(victim)
-		if(explosion_type == SD_TYPE_BIG && (is_ground_level(T.z) || SSticker.mode.round_type_flags & MODE_SHIPSIDE_SD))
+		if(explosion_type == SD_TYPE_BIG && is_ground_level(T.z))
 			cell_explosion(T, 700, 100)
 		else
 			cell_explosion(T, 300, 100)

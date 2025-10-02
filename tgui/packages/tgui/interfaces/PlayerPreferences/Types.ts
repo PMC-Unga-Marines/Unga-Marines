@@ -62,6 +62,13 @@ type GameSettingData = {
   multiz_performance: number;
   parallax: number;
   is_admin: number;
+  volume_adminhelp: number;
+  volume_adminmusic: number;
+  volume_ambience: number;
+  volume_lobby: number;
+  volume_instruments: number;
+  volume_weather: number;
+  volume_end_of_round: number;
 };
 
 type GearCustomizationData = {
