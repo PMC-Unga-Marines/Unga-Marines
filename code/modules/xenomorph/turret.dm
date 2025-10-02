@@ -33,7 +33,7 @@
 ///Change minimap icon if its firing or not firing
 /obj/structure/xeno/turret/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "xeno_turret[firing ? "_firing" : "_passive"]")) // RU TGMC edit - map blips
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "xeno_turret[firing ? "_firing" : "_passive"]"), MINIMAP_BLIPS_LAYER)
 
 /obj/structure/xeno/turret/Initialize(mapload, _hivenumber)
 	. = ..()
@@ -219,7 +219,7 @@
 	for(var/i in 1 to 20) // maybe a bit laggy
 		var/obj/projectile/new_proj = new(src)
 		new_proj.generate_bullet(ammo)
-		new_proj.fire_at(null, src, src, range = rand(1, 4), angle = rand(1, 360), recursivity = TRUE)
+		new_proj.fire_at(null, null, src, range = rand(1, 4), angle = rand(1, 360), recursivity = TRUE)
 
 /obj/structure/xeno/turret/facehugger
 	name = "hugger turret"

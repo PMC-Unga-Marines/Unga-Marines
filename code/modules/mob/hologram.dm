@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(hologram_list)
 
 	invisibility = INVISIBILITY_OBSERVER
 	sight = SEE_SELF
-	layer = ABOVE_FLY_LAYER
+	layer = ABOVE_TREE_LAYER
 
 	var/action_icon_state = "hologram_exit"
 
@@ -45,7 +45,7 @@ GLOBAL_LIST_EMPTY(hologram_list)
 		qdel(src)
 
 /mob/hologram/proc/handle_move(mob/M, NewLoc, direct)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 
 	Move(get_step(loc, direct), direct)
 	return COMPONENT_MOVABLE_BLOCK_PRE_MOVE

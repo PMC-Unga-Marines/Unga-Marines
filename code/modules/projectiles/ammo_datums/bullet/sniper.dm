@@ -54,6 +54,7 @@
 	penetration = 35
 	sundering = 0
 	additional_xeno_penetration = 15
+	matter_cost = 12
 	///shatter effection duration when hitting mobs
 	var/shatter_duration = 8 SECONDS
 
@@ -109,6 +110,7 @@
 	sundering = 0
 	additional_xeno_penetration = 0
 	damage_falloff = 0.25
+	matter_cost = 12
 
 /datum/ammo/bullet/sniper/pfc/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	staggerstun(target_mob, proj, slowdown = 1, max_range = 17)
@@ -122,6 +124,7 @@
 	additional_xeno_penetration = 0
 	sundering = 10
 	damage_falloff = 0.25
+	matter_cost = 0
 
 /datum/ammo/bullet/sniper/pfc/flak/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	staggerstun(target_mob, proj, knockback = 4, slowdown = 1.5, stagger = 2 SECONDS, max_range = 17)
@@ -138,6 +141,7 @@
 /datum/ammo/bullet/sniper/clf_heavyrifle
 	name = "high velocity incendiary sniper bullet"
 	handful_icon_state = "ptrs"
+	handful_amount = 5
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_SNIPER
 	hud_state = "sniper_fire"
 	accurate_range_min = 4
@@ -157,14 +161,12 @@
 	damage = 220
 	penetration = 50
 	accurate_range_min = 2
-	var/shatter_duration = 5 SECONDS
+	reload_delay = 8 SECONDS
 
 /datum/ammo/bullet/sniper/musket/on_hit_mob(mob/target_mob, obj/projectile/proj)
 	if(!isliving(target_mob))
 		return
 
 	var/mob/living/living_victim = target_mob
-	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, shatter_duration)
-
-/datum/ammo/bullet/sniper/musket/on_hit_mob(mob/target_mob,obj/projectile/proj)
-	staggerstun(target_mob, proj, slowdown = 1, knockback = 1)
+	living_victim.apply_status_effect(STATUS_EFFECT_SHATTER, 5 SECONDS)
+	staggerstun(living_victim, proj, slowdown = 1, knockback = 1)

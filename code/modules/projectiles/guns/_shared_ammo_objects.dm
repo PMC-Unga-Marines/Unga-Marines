@@ -27,7 +27,18 @@
 	var/burn_decay = 1
 
 /obj/fire/Initialize(mapload, new_burn_ticks = burn_ticks, new_burn_level = burn_level, f_color, fire_stacks = 0, fire_damage = 0)
+	switch(f_color) // need to set it before we update_light() in atom/Initialize()
+		if(FLAME_COLOR_RED)
+			light_color = LIGHT_COLOR_FLAME
+		if(FLAME_COLOR_BLUE)
+			light_color = LIGHT_COLOR_BLUE_FLAME
+		if(FLAME_COLOR_GREEN)
+			light_color = LIGHT_COLOR_ELECTRIC_GREEN
+		if(FLAME_COLOR_LIME)
+			light_color = LIGHT_COLOR_ELECTRIC_GREEN
+
 	. = ..()
+
 	START_PROCESSING(SSobj, src)
 
 	var/static/list/connections = list(
@@ -37,6 +48,7 @@
 	AddElement(/datum/element/connect_loc, connections)
 	AddComponent(/datum/component/submerge_modifier, 10)
 	set_fire(new_burn_ticks, new_burn_level, f_color, fire_stacks, fire_damage)
+	notify_ai_hazard()
 
 /obj/fire/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -56,15 +68,6 @@
 
 /obj/fire/update_icon_state()
 	. = ..()
-	switch(flame_color)
-		if(FLAME_COLOR_RED)
-			light_color = LIGHT_COLOR_FLAME
-		if(FLAME_COLOR_BLUE)
-			light_color = LIGHT_COLOR_BLUE_FLAME
-		if(FLAME_COLOR_GREEN)
-			light_color = LIGHT_COLOR_ELECTRIC_GREEN
-		if(FLAME_COLOR_LIME)
-			light_color = LIGHT_COLOR_ELECTRIC_GREEN
 	switch(burn_ticks)
 		if(1 to 9)
 			icon_state = "[flame_color]_1"
@@ -115,6 +118,7 @@
 		GLOB.flamer_particles[flame_color] = new /particles/flamer_fire(flame_color)
 
 	particles = GLOB.flamer_particles[flame_color]
+
 	update_appearance(UPDATE_ICON)
 
 	if((fire_stacks + fire_damage) <= 0)

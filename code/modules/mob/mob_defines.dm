@@ -9,6 +9,9 @@
 	atom_flags = PREVENT_CONTENTS_EXPLOSION
 	resistance_flags = NONE
 	faction = FACTION_NEUTRAL
+	// we never want to hide a turf because it's not lit
+	// We can rely on the lighting plane to handle that for us
+	see_in_dark = 1e6
 
 	//Mob
 	///Whether a mob is alive or dead. TODO: Move this to living - Nodrak
@@ -58,6 +61,10 @@
 	///Mob's angle in BYOND degrees. 0 is north (up/standing for humans), 90 and 270 are east and west respectively (lying horizontally), and 90 is south (upside-down).
 	var/lying_angle = 0
 	var/lying_prev = 0
+	/// Is mob able to crawl?
+	var/can_crawl = FALSE
+	/// Is the mob currently crawling?
+	var/crawling = FALSE
 
 	//Security
 	var/computer_id
@@ -78,7 +85,20 @@
 	var/list/alerts = list()
 	var/list/datum/action/actions = list()
 	var/list/actions_by_path = list()
-	var/lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+
+	/// Percentage of how much rgb to max the lighting plane at
+	/// This lets us brighten it without washing out color
+	/// Scale from 0-100, reset off update_sight()
+	var/lighting_cutoff = LIGHTING_CUTOFF_VISIBLE
+	// Individual color max for red, we can use this to color darkness without tinting the light
+	var/lighting_cutoff_red = 0
+	// Individual color max for green, we can use this to color darkness without tinting the light
+	var/lighting_cutoff_green = 0
+	// Individual color max for blue, we can use this to color darkness without tinting the light
+	var/lighting_cutoff_blue = 0
+	/// A list of red, green and blue cutoffs
+	/// This is what actually gets applied to the mob, it's modified by things like glasses
+	var/list/lighting_color_cutoffs = null
 
 	//Interaction
 	///Lazylist assoc list of do_after and do_mob actions the mob is currently performing: list([target] = amount)
@@ -128,8 +148,6 @@
 	/// HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 	var/client/canon_client
 
-	///Slowdown from readying shields
-	var/shield_slowdown = 0
 	///Color matrices to be applied to the client window. Assoc. list.
 	var/list/client_color_matrices
 

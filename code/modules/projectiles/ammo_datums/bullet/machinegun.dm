@@ -27,17 +27,6 @@
 	shrapnel_chance = 25
 	sundering = 2.5
 
-/datum/ammo/bullet/minigun/ltaap
-	name = "chaingun bullet"
-	damage = 30
-	penetration = 10
-	sundering = 0
-	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_IFF|AMMO_SNIPER
-	damage_falloff = 2
-	accurate_range = 7
-	accuracy = 10
-	barricade_clear_distance = 4
-
 /datum/ammo/bullet/auto_cannon
 	name = "autocannon high-velocity bullet"
 	hud_state = "minigun"
@@ -83,17 +72,6 @@
 
 /datum/ammo/bullet/auto_cannon/do_at_max_range(turf/target_turf, obj/projectile/proj)
 	airburst(target_turf, proj)
-
-/datum/ammo/bullet/cupola
-	name = "cupola bullet"
-	bullet_color = COLOR_SOFT_RED //Red bullets to indicate friendly fire restriction
-	hud_state = "smartgun"
-	hud_state_empty = "smartgun_empty"
-	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_IFF
-	accurate_range = 12
-	damage = 30
-	penetration = 10
-	sundering = 1
 
 /datum/ammo/bullet/smart_minigun
 	name = "smartminigun bullet"

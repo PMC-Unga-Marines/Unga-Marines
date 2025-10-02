@@ -43,7 +43,7 @@
 				return
 			var/p_dir = text2num(href_list["dir"])
 			var/obj/item/pipe/P = new (loc, p_type, p_dir)
-			P.setPipingLayer(piping_layer)
+			P.set_piping_layer(piping_layer)
 			wait = world.time + 10
 
 	if(href_list["makemeter"])
@@ -76,7 +76,7 @@
 		if(!do_after(user, 40, NONE, src, BUSY_ICON_BUILD))
 			return
 		user.visible_message("[user] unfastens \the [src].", \
-			span_notice(" You have unfastened \the [src]. Now it can be pulled somewhere else."), \
+			span_notice("You have unfastened \the [src]. Now it can be pulled somewhere else."), \
 			"You hear ratchet.")
 		anchored = FALSE
 		machine_stat |= MAINT
@@ -88,7 +88,7 @@
 		if(!do_after(user, 20, NONE, src, BUSY_ICON_BUILD))
 			return
 		user.visible_message("[user] fastens \the [src].", \
-			span_notice(" You have fastened \the [src]. Now it can dispense pipes."), \
+			span_notice("You have fastened \the [src]. Now it can dispense pipes."), \
 			"You hear ratchet.")
 		anchored = TRUE
 		machine_stat &= ~MAINT

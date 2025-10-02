@@ -145,43 +145,39 @@
 	boxes.master = src
 	boxes.icon_state = "block"
 	boxes.screen_loc = "7,7 to 10,8"
-	boxes.layer = HUD_LAYER
-	boxes.plane = HUD_PLANE
+	SET_PLANE_EXPLICIT(boxes, HUD_PLANE, parent)
 
 	storage_start = new /atom/movable/screen/storage()
 	storage_start.name = "storage"
 	storage_start.master = src
 	storage_start.icon_state = "storage_start"
 	storage_start.screen_loc = "7,7 to 10,8"
-	storage_start.layer = HUD_LAYER
-	storage_start.plane = HUD_PLANE
+	SET_PLANE_EXPLICIT(storage_start, HUD_PLANE, parent)
 	storage_continue = new /atom/movable/screen/storage()
 	storage_continue.name = "storage"
 	storage_continue.master = src
 	storage_continue.icon_state = "storage_continue"
 	storage_continue.screen_loc = "7,7 to 10,8"
-	storage_continue.layer = HUD_LAYER
-	storage_continue.plane = HUD_PLANE
+	SET_PLANE_EXPLICIT(storage_continue, HUD_PLANE, parent)
+
 	storage_end = new /atom/movable/screen/storage()
 	storage_end.name = "storage"
 	storage_end.master = src
 	storage_end.icon_state = "storage_end"
 	storage_end.screen_loc = "7,7 to 10,8"
-	storage_end.layer = HUD_LAYER
-	storage_end.plane = HUD_PLANE
+	SET_PLANE_EXPLICIT(storage_end, HUD_PLANE, parent)
 
 	stored_start = new /obj() //we just need these to hold the icon
 	stored_start.icon_state = "stored_start"
-	stored_start.layer = HUD_LAYER
-	stored_start.plane = HUD_PLANE
+	SET_PLANE_EXPLICIT(stored_start, HUD_PLANE, parent)
+
 	stored_continue = new /obj()
 	stored_continue.icon_state = "stored_continue"
-	stored_continue.layer = HUD_LAYER
-	stored_continue.plane = HUD_PLANE
+	SET_PLANE_EXPLICIT(stored_continue, HUD_PLANE, parent)
+
 	stored_end = new /obj()
 	stored_end.icon_state = "stored_end"
-	stored_end.layer = HUD_LAYER
-	stored_end.plane = HUD_PLANE
+	SET_PLANE_EXPLICIT(stored_end, HUD_PLANE, parent)
 
 	closer = new()
 	closer.master = src
@@ -353,7 +349,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
  * Attempts to draw an object from our storage
  */
 /datum/storage/proc/on_attack_hand_alternate(datum/source, mob/living/user)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	if(parent.Adjacent(user))
 		INVOKE_ASYNC(src, PROC_REF(attempt_draw_object), user)
 
@@ -582,7 +578,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 /// Signal handler for whenever a mob walks away with us, close if they can't reach us.
 /datum/storage/proc/close_distance(datum/source)
-	SIGNAL_HANDLER
+	SIGNAL_HANDLER_DOES_SLEEP
 	for(var/mob/user in can_see_content())
 		if(user.CanReach(parent))
 			continue
@@ -630,8 +626,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	boxes.screen_loc = "[tx]:,[ty] to [mx],[my]"
 	for(var/obj/object in parent.contents)
 		object.screen_loc = "[cx],[cy]"
-		object.layer = ABOVE_HUD_LAYER
-		object.plane = ABOVE_HUD_PLANE
+		SET_PLANE_IMPLICIT(object, ABOVE_HUD_PLANE)
 		cx++
 		if(cx > mx)
 			cx = tx
@@ -651,8 +646,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 			ND.sample_object.mouse_opacity = 2
 			ND.sample_object.screen_loc = "[cx]:16,[cy]:16"
 			ND.sample_object.maptext = "<font color='white'>[(ND.number > 1)? "[ND.number]" : ""]</font>"
-			ND.sample_object.layer = ABOVE_HUD_LAYER
-			ND.sample_object.plane = ABOVE_HUD_PLANE
+			SET_PLANE_IMPLICIT(ND.sample_object, ABOVE_HUD_PLANE)
 			cx++
 			if(cx > (4+cols))
 				cx = 4
@@ -662,8 +656,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 			object.mouse_opacity = 2 //So storage items that start with contents get the opacity trick.
 			object.screen_loc = "[cx]:16,[cy]:16"
 			object.maptext = ""
-			object.layer = ABOVE_HUD_LAYER
-			object.plane = ABOVE_HUD_PLANE
+			SET_PLANE_IMPLICIT(object, ABOVE_HUD_PLANE)
 			cx++
 			if(cx > (4+cols))
 				cx = 4
@@ -721,8 +714,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 		object.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
 		object.maptext = ""
-		object.layer = ABOVE_HUD_LAYER
-		object.plane = ABOVE_HUD_PLANE
+		SET_PLANE_IMPLICIT(object, ABOVE_HUD_PLANE)
 
 	closer.screen_loc = "4:[storage_width+19],2:16"
 
@@ -814,7 +806,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		if(item_to_insert.w_class >= parent_storage.w_class && istype(item_to_insert, /obj/item/storage) && !is_type_in_typecache(item_to_insert.type, typecacheof(storage_type_limits)))
 			if(!istype(src, /obj/item/storage/backpack/holding))	//bohs should be able to hold backpacks again. The override for putting a boh in a boh is in backpack.dm.
 				if(warning)
-					to_chat(user, span_notice("\The [parent.name] cannot hold [item_to_insert] as it's a storage item of the same size."))
+					to_chat(user, span_notice("\The [parent.name] cannot hold \the [item_to_insert] as it's a storage item of the same size."))
 				return FALSE //To prevent the stacking of same sized storage items.
 
 	for(var/limited_type in storage_type_limits_max)
@@ -845,11 +837,15 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 		to_chat(user, span_warning("You are busy doing something else!"))
 		return FALSE
 
-	if(!alert_user)
-		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, parent)
+	var/atom/delay_target = parent // if we have a storage inside another item, we won't see the do_after without this
+	if(isitem(parent.loc))
+		delay_target = parent.loc
 
-	to_chat(user, "<span class='notice'>You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] [parent.name]")
-	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, parent))
+	if(!alert_user)
+		return do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, delay_target)
+
+	to_chat(user, span_notice("You begin to [taking_out ? "take" : "put"] [accessed] [taking_out ? "out of" : "into"] \the [parent.name]"))
+	if(!do_after(user, access_delay, IGNORE_USER_LOC_CHANGE, delay_target))
 		to_chat(user, span_warning("You fumble [accessed]!"))
 		return FALSE
 	return TRUE
@@ -873,7 +869,7 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
  * such as when picking up all the items on a tile with one click.
  * user can be null, it refers to the potential mob doing the insertion.
  */
-/datum/storage/proc/handle_item_insertion(obj/item/item, prevent_warning = FALSE, mob/user)
+/datum/storage/proc/handle_item_insertion(obj/item/item, prevent_warning = FALSE, mob/user) //todo: this isnt called when spawning some populated items. lacking INVOKE_ASYNC(storage_datum, TYPE_PROC_REF(/datum/storage, handle_item_insertion), new_item)
 	if(!istype(item))
 		return FALSE
 	if(!handle_access_delay(item, user, taking_out = FALSE))
@@ -943,12 +939,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 
 	if(new_location)
 		if(ismob(new_location))
-			item.layer = ABOVE_HUD_LAYER
-			item.plane = ABOVE_HUD_PLANE
+			SET_PLANE_EXPLICIT(item, ABOVE_HUD_PLANE, user)
 			item.pickup(new_location)
 		else
 			item.layer = initial(item.layer)
-			item.plane = initial(item.plane)
+			SET_PLANE_IMPLICIT(item, initial(item.plane))
 		if(move_item)
 			item.forceMove(new_location)
 	else if(move_item)
@@ -965,11 +960,6 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 			storage_type_limits_max[limited_type] += 1
 	parent.update_icon()
 	return TRUE
-
-///Handles if the item is forcemoved out of storage
-/datum/storage/proc/item_removed_from_storage(obj/item/item)
-	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, PROC_REF(remove_from_storage), item, item.loc, null, FALSE, TRUE, FALSE)
 
 ///Refills the storage from the refill_types item
 /datum/storage/proc/do_refill(obj/item/storage/refiller, mob/user)
@@ -1007,9 +997,10 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 ///Delete everything that's inside the storage
 /datum/storage/proc/delete_contents()
 	for(var/obj/item/item in parent.contents)
-		if(item.item_flags & IN_STORAGE)
-			item.on_exit_storage(src)
-			qdel(item)
+		if(!(item.item_flags & IN_STORAGE))
+			continue
+		item.on_exit_storage(src)
+		qdel(item)
 
 ///Returns the storage depth of an atom. This is the number of storage items the atom is contained in before reaching toplevel (the area). Returns -1 if the atom was not found on container.
 /datum/storage/proc/storage_depth(atom/container)
@@ -1087,6 +1078,11 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	SIGNAL_HANDLER
 	if(isitem(movable_atom))
 		INVOKE_ASYNC(src, PROC_REF(remove_from_storage), movable_atom, null, usr, silent = TRUE, bypass_delay = TRUE)
+
+///Handles if the item is forcemoved out of storage
+/datum/storage/proc/item_removed_from_storage(obj/item/item)
+	SIGNAL_HANDLER
+	INVOKE_ASYNC(src, PROC_REF(remove_from_storage), item, item.loc, null, FALSE, TRUE, FALSE)
 
 ///signal sent from /atom/proc/max_stack_merging()
 /datum/storage/proc/max_stack_merging(datum/source, obj/item/stack/stacks)

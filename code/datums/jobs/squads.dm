@@ -5,6 +5,8 @@
 	var/id = NO_SQUAD
 	var/tracking_id = null // for use with SSdirection
 	var/color = 0 //Color for helmets, etc.
+	var/chat_color
+	var/chat_color_darkened
 	var/list/access = list() //Which special access do we grant them
 
 	var/current_positions = list(
@@ -42,6 +44,8 @@
 	color = COLOR_SQUAD_ALPHA
 	access = list(ACCESS_MARINE_ALPHA)
 	radio_freq = FREQ_ALPHA
+	chat_color = CHAT_COLOR_SQUAD_ALPHA
+	chat_color_darkened = CHAT_COLOR_DARKENED_SQUAD_ALPHA
 
 
 /datum/squad/bravo
@@ -50,6 +54,8 @@
 	color = COLOR_SQUAD_BRAVO
 	access = list(ACCESS_MARINE_BRAVO)
 	radio_freq = FREQ_BRAVO
+	chat_color = CHAT_COLOR_SQUAD_BRAVO
+	chat_color_darkened = CHAT_COLOR_DARKENED_SQUAD_BRAVO
 
 
 /datum/squad/charlie
@@ -58,6 +64,8 @@
 	color = COLOR_SQUAD_CHARLIE
 	access = list(ACCESS_MARINE_CHARLIE)
 	radio_freq = FREQ_CHARLIE
+	chat_color = CHAT_COLOR_SQUAD_CHARLIE
+	chat_color_darkened = CHAT_COLOR_DARKENED_SQUAD_CHARLIE
 
 /datum/squad/delta
 	name = "Delta"
@@ -65,6 +73,8 @@
 	color = COLOR_SQUAD_DELTA
 	access = list(ACCESS_MARINE_DELTA)
 	radio_freq = FREQ_DELTA
+	chat_color = CHAT_COLOR_SQUAD_DELTA
+	chat_color_darkened = CHAT_COLOR_DARKENED_SQUAD_DELTA
 
 /datum/squad/New(set_color, set_name)
 	tracking_id = SSdirection.init_squad(name, squad_leader)

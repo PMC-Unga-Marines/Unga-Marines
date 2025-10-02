@@ -62,11 +62,6 @@
 	///Threshold amount of evo points to next evolution
 	var/evolution_threshold = 0
 
-	///see_in_dark value while consicious
-	var/conscious_see_in_dark = 8
-	///see_in_dark value while unconscious
-	var/unconscious_see_in_dark = 5
-
 	// *** Flags *** //
 	///Bitwise flags denoting things a caste is or is not. Uses defines.
 	var/caste_flags = CASTE_EVOLUTION_ALLOWED
@@ -228,11 +223,10 @@
 	for(var/trait in caste_traits)
 		REMOVE_TRAIT(xenomorph, trait, XENO_TRAIT)
 
-///returns the basetype caste to get what the base caste is (e.g base rav not primo or strain rav)
-/datum/xeno_caste/proc/get_base_caste_type()
-	var/datum/xeno_caste/current_type = type
-	while(initial(current_type.upgrade) != XENO_UPGRADE_BASETYPE)
-		current_type = initial(current_type.parent_type)
+///returns the basetype caste from this caste or typepath to get what the base caste is (e.g base rav not primo or strain rav)
+/proc/get_base_caste_type(datum/xeno_caste/current_type)
+	while(current_type::upgrade != XENO_UPGRADE_BASETYPE)
+		current_type = current_type::parent_type
 	return current_type
 
 /// basetype = list(strain1, strain2)
@@ -252,12 +246,13 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	return strain_list
 
 ///returns a list of strains(xeno castedatum paths) that this caste can currently evolve to
-/datum/xeno_caste/proc/get_strain_options()
-	var/datum/xeno_caste/root_type = type
+/proc/get_strain_options(datum/xeno_caste/root_type)
+	RETURN_TYPE(/list)
+
+	ASSERT(ispath(root_type), "Bad root type passed to get_strain_options")
 	while(initial(root_type.parent_type) != /datum/xeno_caste)
 		root_type = root_type::parent_type
-	var/list/options = GLOB.strain_list[root_type]
-	return options?.Copy()
+	return GLOB.strain_list[root_type] + root_type
 
 /mob/living/carbon/xenomorph
 	name = "Drone"
@@ -267,8 +262,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	speak_emote = list("hisses")
 	melee_damage = 5 //Arbitrary damage value
 	attacktext = "claws"
-	attack_sound = null
-	friendly = "nuzzles"
+	attack_sound = SFX_ALIEN_CLAW_FLESH
 	wall_smash = FALSE
 	health = 5
 	maxHealth = 5
@@ -277,8 +271,7 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	move_resist = MOVE_FORCE_VERY_STRONG
 	mob_size = MOB_SIZE_XENO
 	hand = 1 //Make right hand active by default. 0 is left hand, mob defines it as null normally
-	see_in_dark = 8
-	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+	lighting_cutoff =  LIGHTING_CUTOFF_HIGH
 	sight = SEE_SELF|SEE_OBJS|SEE_TURFS|SEE_MOBS
 	appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER|LONG_GLIDE
 	see_infrared = TRUE
@@ -297,12 +290,8 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	///Xeno mob specific flags
 	var/xeno_flags = NONE
 
-	///Var for keeping the base icon of current skin, used for toggling to normal appearance from rouny skin, changeable with skin toggling
-	var/base_icon
-	///Var for keeping the effects icon of current skin, changeable with skin toggling
+	///Used for keeping the effects icon of current skin, changeable with skin toggling
 	var/effects_icon = 'icons/Xeno/castes/larva.dmi'
-	///Var for keeping the rouny icon of current skin, changeable with skin toggling
-	var/rouny_icon
 	/// List of alternative skins to which xeno is able to change, you put only skin datums in here
 	var/list/skins = list()
 
@@ -378,6 +367,9 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 
 	///Multiplicative melee damage modifier; referenced by attack_alien.dm, most notably attack_alien_harm
 	var/xeno_melee_damage_modifier = 1
+
+	/// Visual effect that appears when doing a normal attack.
+	var/attack_effect = ATTACK_EFFECT_REDSLASH
 
 	//Charge vars
 	///Will the mob charge when moving ? You need the charge verb to change this

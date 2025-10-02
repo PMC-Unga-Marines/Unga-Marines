@@ -35,6 +35,22 @@
 	full_name = "Quick equip 5"
 	quick_equip_slot = 5
 
+/datum/keybinding/human/interact_other_hand
+	name = "interact_other_hand"
+	full_name = "Interact with other hand"
+	keybind_signal = COMSIG_KB_HUMAN_INTERACT_OTHER_HAND
+
+/datum/keybinding/human/interact_other_hand/down(client/user)
+	. = ..()
+	if(.)
+		return
+
+	if(!ishuman(user.mob))
+		return
+	var/mob/living/carbon/human/human_user = user.mob
+
+	human_user.interact_other_hand()
+
 /datum/keybinding/human/unique_action
 	hotkey_keys = list("Space")
 	name = "unique_action"
@@ -82,6 +98,12 @@
 	name = "toggle_auto_eject"
 	full_name = "Toggle automatic magazine ejection"
 	keybind_signal = COMSIG_KB_AUTOEJECT
+
+/datum/keybinding/human/overhead_grenade_launcher
+	name = "overhead_grenade_launcher"
+	full_name = "Toggle overhead grenade launcher mode"
+	description = "Toggle between direct and indirect fire modes for grenade launchers"
+	keybind_signal = COMSIG_KB_OVERHEAD_GRENADE_LAUNCHER
 
 /datum/keybinding/human/give
 	name = "give"

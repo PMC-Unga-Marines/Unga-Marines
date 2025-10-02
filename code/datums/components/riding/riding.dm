@@ -5,7 +5,6 @@
  * and we make a new riding component, so on and so forth until the sun explodes.
  */
 
-
 /datum/component/riding
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 	/// whether our last owners move was diagonally done to update move speeds, bool
@@ -42,7 +41,6 @@
 	COOLDOWN_DECLARE(message_cooldown)
 	/// For telling someone they can't drive
 	COOLDOWN_DECLARE(vehicle_move_cooldown)
-
 
 /datum/component/riding/Initialize(mob/living/riding_mob, force = FALSE, check_loc, lying_buckle, hands_needed, target_hands_needed, silent)
 	if(!ismovable(parent))
@@ -115,7 +113,7 @@
 	SIGNAL_HANDLER
 
 	var/atom/movable/movable_parent = parent
-	if (isnull(dir))
+	if(isnull(dir))
 		dir = movable_parent.dir
 	for(var/mob/buckled_mob AS in movable_parent.buckled_mobs)
 		ride_check(buckled_mob)
@@ -143,7 +141,7 @@
 
 	for(var/mob/living/buckled_mob AS in AM.buckled_mobs)
 		passindex++
-		var/list/offsets = get_offsets(passindex, buckled_mob.type)
+		var/list/offsets = get_offsets(passindex, buckled_mob, buckled_mob.type)
 		buckled_mob.setDir(dir)
 		dir_loop:
 			for(var/offsetdir in offsets)
@@ -160,7 +158,7 @@
 	directional_vehicle_offsets["[dir]"] = list(x, y)
 
 //Override this to set your vehicle's various pixel offsets
-/datum/component/riding/proc/get_offsets(pass_index, mob_type) // list(dir = x, y, layer)
+/datum/component/riding/proc/get_offsets(pass_index, mob/mob, mob_type) // list(dir = x, y, layer)
 	. = list(TEXT_NORTH = list(0, 0), TEXT_SOUTH = list(0, 0), TEXT_EAST = list(0, 0), TEXT_WEST = list(0, 0))
 	if(riding_offsets["[pass_index]"])
 		. = riding_offsets["[pass_index]"]

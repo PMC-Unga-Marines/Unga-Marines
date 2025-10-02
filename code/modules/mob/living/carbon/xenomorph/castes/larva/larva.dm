@@ -8,11 +8,11 @@
 
 	maxHealth = 35
 	health = 35
-	see_in_dark = 8
 	allow_pass_flags = PASS_MOB|PASS_XENO
 	pass_flags = PASS_LOW_STRUCTURE|PASS_MOB|PASS_XENO
 	tier = XENO_TIER_ZERO  //Larva's don't count towards Pop limits
 	upgrade = XENO_UPGRADE_INVALID
+	mob_size = MOB_SIZE_SMALL
 	gib_chance = 25
 	hud_type = /datum/hud/larva
 	hud_possible = list(HEALTH_HUD_XENO, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_FIRE_HUD, XENO_BANISHED_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD, HUNTER_CLAN, HUNTER_HUD)

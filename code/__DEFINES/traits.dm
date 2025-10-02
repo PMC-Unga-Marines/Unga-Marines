@@ -74,6 +74,7 @@
 // common trait
 #define TRAIT_GENERIC "generic"
 #define INNATE_TRAIT "innate"
+#define ADMIN_TRAIT "admin_trait"
 #define ROUNDSTART_TRAIT "roundstart" //cannot be removed without admin intervention
 #define SLEEPER_TRAIT "sleeper"
 #define STASIS_BAG_TRAIT "stasis_bag"
@@ -121,10 +122,15 @@
 #define NIGHT_VISION_GOGGLES_TRAIT "night_vision_goggles"
 #define SUBMERGED_TRAIT "submerged_trait"
 #define TRAIT_DWARF "dwarf"
+#define MOVEMENT_SWAP_TRAIT "movement_swap_trait"
+#define MANIFESTED_TRAIT "manifested_trait"
+#define HOVERBIKE_TRAIT "hoverbike_trait"
 /// This trait comes from when a mob is currently typing.
 #define CURRENTLY_TYPING_TRAIT "currently_typing"
 /// Makes you way too tall. Like just too much, dude, it's kind of creepy. Humanoid only.
 #define TRAIT_TOO_TALL "too_tall"
+#define TRAIT_MOVE_VENTCRAWLING "move_ventcrawling"
+#define VENTCRAWLING_TRAIT "ventcrawling_trait"
 
 #define ABSTRACT_ITEM_TRAIT "abstract_item"
 /// A trait given by any status effect
@@ -184,6 +190,22 @@
 #define TRAIT_MEDIUM_PAIN_RESIST "medium_pain_resist"
 ///is currently riding an armored vehicle
 #define TRAIT_TANK_DESANT "tank_desant"
+/// Mob has fov applied to it
+#define TRAIT_FOV_APPLIED "fov_applied"
+
+///Traits for managing AM pass_flags
+#define TRAIT_PASS_LOW_STRUCTURE "pass_low_structure"
+#define TRAIT_PASS_GLASS "pass_glass"
+#define TRAIT_PASS_GRILLE "pass_grille"
+#define TRAIT_PASS_MOB "pass_mob"
+#define TRAIT_PASS_DEFENSIVE_STRUCTURE "pass_defensive_structure"
+#define TRAIT_PASS_FIRE "pass_fire"
+#define TRAIT_PASS_XENO "pass_xeno"
+#define TRAIT_PASS_THROW "pass_throw"
+#define TRAIT_PASS_PROJECTILE "pass_projectile"
+#define TRAIT_PASS_AIR "pass_air"
+#define TRAIT_PASS_WALKOVER "pass_walkover"
+#define TRAIT_PASS_TANK "pass_tank"
 
 /// Prevents usage of manipulation appendages (picking, holding or using items, manipulating storage).
 #define TRAIT_HANDS_BLOCKED "handsblocked"
@@ -196,6 +218,7 @@
 #define TRAIT_NOPLASMAREGEN "noplasmaregen"//xeno plasma wont recharge
 #define TRAIT_UNDEFIBBABLE "undefibbable"//human can't be revived
 #define TRAIT_IMMEDIATE_DEFIB "immediate_defib"//immediately revives when defibbed, rather than just healing
+#define TRAIT_CRIT_IS_DEATH "crit_is_death" ///instantly causes enough oxy damage to kill the user when they hit critical health
 #define TRAIT_HEALING_INFUSION "healing_infusion"//greatly improves natural healing for xenos
 #define TRAIT_PSY_DRAINED "psy_drained"//mob was drained of life force by a xenos
 #define TRAIT_HIVE_TARGET "hive_target"//mob is targeted for draining by the hive
@@ -281,3 +304,18 @@
 #define TRAIT_CASTE_SWAP "caste_swap"
 #define TRAIT_REGRESSING "regressing"
 #define TRAIT_STRAIN_SWAP "strain swap"
+
+GLOBAL_LIST_INIT(traits_to_pass_flags, list(
+	TRAIT_PASS_LOW_STRUCTURE = PASS_LOW_STRUCTURE,
+	TRAIT_PASS_GLASS = PASS_GLASS,
+	TRAIT_PASS_GRILLE = PASS_GRILLE,
+	TRAIT_PASS_MOB = PASS_MOB,
+	TRAIT_PASS_DEFENSIVE_STRUCTURE = PASS_DEFENSIVE_STRUCTURE,
+	TRAIT_PASS_FIRE = PASS_FIRE,
+	TRAIT_PASS_XENO = PASS_XENO,
+	TRAIT_PASS_THROW = PASS_THROW,
+	TRAIT_PASS_PROJECTILE = PASS_PROJECTILE,
+	TRAIT_PASS_AIR = PASS_AIR,
+	TRAIT_PASS_WALKOVER = PASS_WALKOVER,
+	TRAIT_PASS_TANK = PASS_TANK,
+))

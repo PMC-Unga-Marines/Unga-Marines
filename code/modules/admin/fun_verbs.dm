@@ -52,16 +52,6 @@ ADMIN_VERB(queen_report, R_FUN, "Queen Mother Report", "Play a Queen mother repo
 	log_admin("[key_name(user)] created a Queen Mother report: [input]")
 	message_admins("[ADMIN_TPMONTY(user.mob)] created a Queen Mother report.")
 
-ADMIN_VERB(rouny_all, R_FUN, "Toggle Glob Xeno Rouny", "Toggle all living xenos into rouny versions of themselves", ADMIN_CATEGORY_FUN)
-	for(var/mob/living/carbon/xenomorph/xenotorouny in GLOB.xeno_mob_list)
-		if(!isxeno(xenotorouny)) // will it even do something?
-			continue
-		if(!xenotorouny.rouny_icon)
-			continue
-		xenotorouny.toggle_rouny_skin()
-	log_admin("[key_name(user)] toggled global rounification")
-	message_admins("[ADMIN_TPMONTY(user.mob)] toggled global rounification.")
-
 ADMIN_VERB(hive_status, R_FUN, "Check Hive Status", "Check the status of the hive.", ADMIN_CATEGORY_FUN)
 	if(!SSticker)
 		return
@@ -208,7 +198,8 @@ ADMIN_VERB(sound_file, R_SOUND, "Play Imported Sound", "Play a sound imported fr
 		if("Global")
 			for(var/i in GLOB.clients)
 				var/client/C = i
-				if(C.prefs.toggles_sound & SOUND_MIDI)
+				if(C.prefs.volume_adminmusic)
+					uploaded_sound.volume = C.prefs.volume_adminmusic
 					SEND_SOUND(C, uploaded_sound)
 					heard_midi++
 		if("Local")
@@ -312,12 +303,12 @@ ADMIN_VERB(sound_web, R_SOUND, "Play Internet Sound", "Play a sound using a link
 				to_show_text = "An admin played: <a href='[data["webpage_url"]]'>[title]</a>"
 		else
 			return
-	for(var/i in targets)
+	for(var/i as anything in targets)
 		var/mob/M = i
 		var/client/C = M?.client
 		if(!C?.prefs)
 			continue
-		if(C.prefs.toggles_sound & SOUND_MIDI)
+		if(C.prefs.volume_adminmusic)
 			C.tgui_panel?.play_music(web_sound_url, music_extra_data)
 			to_chat(C, span_boldannounce(to_show_text))
 
@@ -579,17 +570,17 @@ ADMIN_VERB(drop_ob, R_FUN, "Drop OB", "Cause an OB explosion of varying strength
 			warhead.loc = target
 
 ADMIN_VERB(change_security_level, R_FUN, "Set Security Level", "Set the security level of the ship", ADMIN_CATEGORY_FUN)
-	var/sec_level = tgui_input_list(user, "It's currently code [GLOB.marine_main_ship.get_security_level()]. Choose the new security level.", "Set Security Level", list("green", "blue", "red", "delta") - GLOB.marine_main_ship.get_security_level())
+	var/sec_level = tgui_input_list(user, "Security level is currently [SSsecurity_level.get_current_level_as_text()]. Choose the new security level.", "Set Security Level", SSsecurity_level.available_levels - SSsecurity_level.get_current_level_as_text())
 	if(!sec_level)
 		return
 
-	if(tgui_alert(user, "Switch from code [GLOB.marine_main_ship.get_security_level()] to code [sec_level]?", "Set Security Level", list("Yes", "No")) != "Yes")
+	if(tgui_alert(user, "Switch from [SSsecurity_level.get_current_level_as_text()] to [sec_level]?", "Set Security Level", list("Yes", "No")) != "Yes")
 		return
 
-	GLOB.marine_main_ship.set_security_level(sec_level)
+	SSsecurity_level.set_level(sec_level, TRUE)
 
-	log_admin("[key_name(user)] changed the security level to code [sec_level].")
-	message_admins("[ADMIN_TPMONTY(user.mob)] changed the security level to code [sec_level].")
+	log_admin("[key_name(user)] changed the security level to [sec_level].")
+	message_admins("[ADMIN_TPMONTY(user.mob)] changed the security level to [sec_level].")
 
 ADMIN_VERB_ONLY_CONTEXT_MENU(rank_and_equipment, R_FUN, "Rank and Equipment", mob/living/carbon/human/H in GLOB.human_mob_list)
 	var/dat = "<br>"
@@ -909,3 +900,30 @@ ADMIN_VERB(adjust_gravity, R_FUN, "Adjust Gravity", "Adjusts gravity/jump compon
 			return
 
 	log_admin("[key_name(user)] set gravity to [choice].")
+
+ADMIN_VERB(ai_squad, R_FUN, "Spawn AI squad", "Spawns a AI squad of your choice", ADMIN_CATEGORY_FUN)
+	var/squad_choice = tgui_input_list(user, "What squad would you like to spawn?", "squad choice", GLOB.ai_squad_presets)
+	if(!squad_choice)
+		return
+	var/quantity = tgui_input_number(user, "How many mobs would you like in the squad?", title = "Squad Size", default = 5, max_value = length(GLOB.ai_squad_presets[squad_choice]), min_value = 1, timeout = 0, round_value = TRUE)
+	if(!quantity)
+		return
+	var/turf/spawn_loc = get_turf(user.mob)
+	if(!spawn_loc)
+		return
+	var/list/mob_list = list()
+	for(var/i = 1 to quantity)
+		var/mob/living/carbon/human/new_human = new()
+		mob_list += new_human
+		var/datum/job/new_job = SSjob.GetJob(GLOB.ai_squad_presets[squad_choice][i])
+		var/squad_to_insert_into
+		if(ismarinejob(new_job))
+			squad_to_insert_into = pick(SSjob.active_squads[new_job.faction])
+		new_human.apply_assigned_role_to_spawn(new_job, new_human.client, squad_to_insert_into, admin_action = TRUE)
+		stoplag()
+	for(var/mob/living/carbon/human/dude AS in mob_list)
+		dude.forceMove(spawn_loc)
+		dude.AddComponent(/datum/component/ai_controller, /datum/ai_behavior/human)
+
+	message_admins("[key_name_admin(user)] spawned a [quantity] man [squad_choice] of AI humans on the z-level [spawn_loc.z].")
+	log_admin("[key_name(user)] spawned a [quantity] man [squad_choice] of AI humans on the z-level [spawn_loc.z]")

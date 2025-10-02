@@ -1,5 +1,6 @@
 /atom/movable/screen/ghost
 	icon = 'icons/mob/screen_ghost.dmi'
+	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /atom/movable/screen/ghost/MouseEntered()
 	flick(icon_state + "_anim", src)
@@ -53,22 +54,6 @@
 		icon_state = "[base_icon_state]_out"
 	else
 		icon_state = "[base_icon_state]_in"
-
-// /atom/movable/screen/ghost/follow_xeno
-// 	name = "Follow Xeno"
-// 	icon_state = "follow_xeno"
-
-// /atom/movable/screen/ghost/follow_xeno/Click()
-// 	var/mob/dead/observer/G = usr
-// 	G.follow_xeno()
-
-// /atom/movable/screen/ghost/follow_human
-// 	name = "Follow Humans"
-// 	icon_state = "follow_human"
-
-// /atom/movable/screen/ghost/follow_human/Click()
-// 	var/mob/dead/observer/G = usr
-// 	G.follow_human()
 
 /atom/movable/screen/ghost/reenter_corpse
 	name = "Reenter corpse"

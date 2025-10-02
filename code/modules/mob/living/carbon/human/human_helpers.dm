@@ -200,6 +200,13 @@
 	if(has_limb(FOOT_LEFT) && has_limb(LEG_LEFT))
 		.++
 
+/mob/living/carbon/human/has_arms()
+	. = 0
+	if(has_limb(HAND_RIGHT) && has_limb(ARM_RIGHT))
+		.++
+	if(has_limb(HAND_LEFT) && has_limb(ARM_LEFT))
+		.++
+
 /mob/living/carbon/human/get_permeability_protection()
 	// hands = 1 | chest = 2 | groin = 3 | legs = 4 | feet = 5 | arms = 6 | head = 7
 	var/list/prot = list(0,0,0,0,0,0,0)
@@ -252,6 +259,18 @@
 	var/datum/internal_organ/organ = get_organ_slot(string)
 	internal_organs_by_name -= string
 	internal_organs -= organ
+
+/// Current active hand will interact with the other hand. Uses attackby and attack_hand.
+/mob/living/carbon/human/proc/interact_other_hand()
+	var/atom/active_hand = get_active_held_item()
+	var/atom/inactive_hand = get_inactive_held_item()
+
+	if(!inactive_hand)
+		return
+	if(!active_hand)
+		inactive_hand.attack_hand(src)
+		return
+	inactive_hand.attackby(active_hand, src)
 
 /// Does something. Unshitcode me.
 /mob/living/carbon/human/proc/disable_special_items()

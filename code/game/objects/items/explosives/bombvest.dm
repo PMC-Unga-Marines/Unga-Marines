@@ -7,6 +7,7 @@
 	item_map_variant_flags = NONE
 	armor_features_flags = NONE
 	species_exception = list(/datum/species/robot)
+	actions_types = list(/datum/action/item_action/toggle/suit_toggle/boom)
 	///Warcry to yell upon detonation
 	var/bomb_message
 	///List of warcries that are not allowed.
@@ -30,7 +31,7 @@
 	if(issynth(activator) && !CONFIG_GET(flag/allow_synthetic_gun_use))
 		balloon_alert(activator, "Can't wear this")
 		return TRUE
-	if(activator.alpha < LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE || HAS_TRAIT(activator, TRAIT_STEALTH))
+	if(HAS_TRAIT(activator, TRAIT_STEALTH))
 		balloon_alert(activator, "Can't, your cloak prevents you")
 		return TRUE
 	if(activator.wear_suit != src)
@@ -113,3 +114,23 @@
 	cell_explosion(target, 750, 50)
 	flame_radius(15, target)
 	qdel(src)
+
+//AI logic
+/datum/action/item_action/toggle/suit_toggle/boom/ai_should_start_consider()
+	return TRUE
+
+/datum/action/item_action/toggle/suit_toggle/boom/ai_should_use(atom/target)
+	if(!target)
+		return FALSE
+	if(isainode(target))
+		return FALSE
+	if(!isliving(target) && !isarmoredvehicle(target) && !ismecha(target))
+		return FALSE
+	if(get_dist(owner, target) > 2)
+		return FALSE
+	var/atom/movable/movable_target = target
+	if(movable_target.faction == owner.faction)
+		return FALSE
+	if(!can_use_action())
+		return FALSE
+	return TRUE

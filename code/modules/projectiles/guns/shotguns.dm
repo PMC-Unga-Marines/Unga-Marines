@@ -327,7 +327,7 @@
 	scatter_unwielded = 10
 	recoil = 0 // It has a stock. It's on the sprite.
 	recoil_unwielded = 0
-	cock_delay = 12
+	cock_delay = 1.2 SECONDS
 	aim_slowdown = 0.4
 
 /obj/item/weapon/gun/shotgun/pump/cmb/mag_harness
@@ -507,7 +507,7 @@
 	scatter_unwielded = 12
 	recoil = -3
 	recoil_unwielded = 4
-	cock_delay = 12
+	cock_delay = 1.2 SECONDS
 	aim_slowdown = 1
 	wield_delay = 1.4 SECONDS
 	movement_acc_penalty_mult = 4.5
@@ -752,7 +752,7 @@
 	scatter_unwielded = 7
 	recoil = 2
 	recoil_unwielded = 4
-	cock_delay = 6
+	cock_delay = 0.6 SECONDS
 
 
 // ***********************************************
@@ -805,7 +805,7 @@
 	scatter_unwielded = 7
 	recoil = 0
 	recoil_unwielded = 2
-	cock_delay = 2
+	cock_delay = 0.2 SECONDS
 	aim_slowdown = 0.6
 	movement_acc_penalty_mult = 5
 
@@ -901,7 +901,7 @@
 	recoil = 2
 	recoil_unwielded = 4
 	aim_slowdown = 0.45
-	cock_delay = 14
+	cock_delay = 1.4 SECONDS
 
 	placed_overlay_iconstate = "t35"
 
@@ -1111,12 +1111,12 @@
 	starting_attachment_types = null
 	attachable_offset = list("muzzle_x" = 52, "muzzle_y" = 20,"rail_x" = 24, "rail_y" = 22, "under_x" = 35, "under_y" = 14, "stock_x" = 13, "stock_y" = 13)
 
-	fire_delay = 3 //one shot every 0.3 seconds.
+	fire_delay = 4 //one shot every 0.4 seconds.
 	accuracy_mult = 1.05
 	scatter = 3
-	damage_mult = 0.6  //40% less damage.
+	damage_mult = 0.65  //35% less damage.
 	recoil = 0.5
-	wield_delay = 0.8 SECONDS
+	wield_delay = 0.6 SECONDS
 	aim_slowdown = 0.2
 
 //It's very fast shogun, it's made to prevent stagger/weaken spam.

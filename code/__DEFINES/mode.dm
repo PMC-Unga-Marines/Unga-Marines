@@ -51,6 +51,8 @@
 #define MODE_TELETOWER (1<<14)
 #define MODE_XENO_DEN (1<<15)
 #define MODE_HAS_EXCAVATION (1<<16)
+#define MODE_HAS_MINERS (1<<17)
+#define MODE_PREDATOR (1<<18)
 
 #define MODE_INFESTATION_X_MAJOR "Xenomorph Major Victory"
 #define MODE_INFESTATION_M_MAJOR "Marine Major Victory"
@@ -74,28 +76,14 @@
 #define INFESTATION_NUKE_COMPLETED_SHIPSIDE "INFESTATION_NUKE_COMPLETED_SHIPSIDE"
 #define INFESTATION_NUKE_COMPLETED_OTHER "INFESTATION_NUKE_COMPLETED_OTHER"
 
-#define SURVIVOR_WEAPONS list(\
-				list(/obj/item/weapon/gun/smg/mp7, /obj/item/ammo_magazine/smg/mp7),\
-				list(/obj/item/weapon/gun/shotgun/double/sawn, /obj/item/ammo_magazine/handful/buckshot),\
-				list(/obj/item/weapon/gun/smg/uzi, /obj/item/ammo_magazine/smg/uzi),\
-				list(/obj/item/weapon/gun/smg/m25, /obj/item/ammo_magazine/smg/m25),\
-				list(/obj/item/weapon/gun/rifle/m16, /obj/item/ammo_magazine/rifle/m16),\
-				list(/obj/item/weapon/gun/shotgun/pump/bolt, /obj/item/ammo_magazine/rifle/bolt),\
-				list(/obj/item/weapon/gun/shotgun/pump/lever, /obj/item/ammo_magazine/packet/magnum))
+#define SHUTTERS_DROP_TIME 20 MINUTES
 
-//Balance defines
-#define MARINE_GEAR_SCALING 30
-
-#define MAX_TUNNELS_PER_MAP 10
-
-#define FOG_DELAY_INTERVAL 40 MINUTES
-
-#define EVACUATION_TIME_LOCK 30 MINUTES
+#define EVACUATION_TIME_LOCK SHUTTERS_DROP_TIME + 5 MINUTES
 
 //Nuclear war mode collapse duration
 #define NUCLEAR_WAR_ORPHAN_HIVEMIND 5 MINUTES
 
-#define SHUTTLE_HIJACK_LOCK 30 MINUTES
+#define SHUTTLE_HIJACK_LOCK SHUTTERS_DROP_TIME + 5 MINUTES
 
 #define COOLDOWN_COMM_REQUEST 5 MINUTES
 #define COOLDOWN_COMM_MESSAGE 1 MINUTES
@@ -144,7 +132,7 @@
 #define INFESTATION_MARINE_DEN_RUSH 4
 #define INFESTATION_MARIN_RUSH_MAJOR 5
 
-#define NUCLEAR_WAR_LARVA_POINTS_NEEDED 8
+#define NUCLEAR_WAR_LARVA_POINTS_NEEDED 9
 #define CRASH_LARVA_POINTS_NEEDED 9
 
 #define FREE_XENO_AT_START 2
@@ -196,14 +184,14 @@
 
 	return desired_status
 
-#define MODE_SHIPSIDE_SD (1<<16)
-#define MODE_PREDATOR (1<<17)
-
 #define MAX_EXCAVATIONS 10
+
+#define MIN_PHORON_MINER_AMOUNT 5
+#define MIN_PLATINUM_MINER_AMOUNT 3
 
 // make sure you don't turn 0 into a false positive
 #define BIOSCAN_DELTA(count, delta) count ? max(0, count + rand(-delta, delta)) : 0
 
-#define BIOSCAN_LOCATION(show_locations, location) ((show_locations && location) ? ", including one in [location]" : "")
+#define BIOSCAN_LOCATION(show_locations, location) ((show_locations && location) ? ", включая одного в [location]" : "")
 
 #define AI_SCAN_DELAY 15 SECONDS

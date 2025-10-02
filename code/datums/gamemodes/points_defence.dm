@@ -48,10 +48,6 @@
 	//xenoden setup may lag and long loading time
 	load_new_z_level(XENO_DEN_LEVEL_PATH, "Xenoden", TRUE, list(ZTRAIT_GROUND = TRUE, ZTRAIT_XENO = TRUE))
 
-	//delete miners
-	QDEL_LIST(GLOB.miners_phorone)
-	QDEL_LIST(GLOB.miners_platinum)
-
 	//number of sensors
 	//the number of sensors is greater than necessary to win, so that the late game does not turn into a 1 point defense
 	switch(TGS_CLIENT_COUNT)
