@@ -82,8 +82,7 @@
 /area/bigredv2/outside/hydroponics)
 "dV" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4;
-	layer = 2.4
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/dmg1,
@@ -178,7 +177,7 @@
 /area/bigredv2/outside/general_offices)
 "gR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/caves/northeast/garbledradio)
 "gW" = (
@@ -188,7 +187,7 @@
 /area/bigredv2/outside/general_offices)
 "gX" = (
 /obj/item/stack/sheet/metal,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating,
 /area/bigredv2/caves/northeast/garbledradio)
 "hH" = (
@@ -243,7 +242,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/general_offices)
 "kv" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/shuttle/dropship2/corners,
 /area/bigredv2/caves/northeast/garbledradio)
 "kx" = (
@@ -310,13 +309,13 @@
 /turf/open/floor/plating/scorched,
 /area/bigredv2/outside/general_offices)
 "oc" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/shuttle/dropship2/corners{
 	dir = 1
 	},
 /area/bigredv2/caves/northeast/garbledradio)
 "oC" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/shuttle/dropship2/singlewindow{
 	dir = 1
 	},
@@ -490,8 +489,7 @@
 /area/bigredv2/outside/general_offices)
 "wq" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
-	dir = 4;
-	layer = 2.4
+	dir = 4
 	},
 /turf/open/floor/plating/scorched,
 /area/bigredv2/outside/ne)
@@ -843,7 +841,7 @@
 "Qx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/gibspawner/human,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/caves/northeast/garbledradio)
 "QB" = (
@@ -881,7 +879,7 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/general_offices)
 "SC" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "Tm" = (

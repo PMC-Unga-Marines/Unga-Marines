@@ -94,8 +94,8 @@
 /obj/machinery/light/ex_act(severity)
 	if(severity >= EXPLODE_HEAVY)
 		qdel(src)
-	else if(prob(severity * 0.5))
-		broken()
+		return
+	broken()
 
 /obj/machinery/light/fire_act(exposed_temperature, exposed_volume)
 	if(prob(max(0, exposed_temperature - 673))) //0% at <400C, 100% at >500C
@@ -476,7 +476,7 @@
 	icon_state = "floortube_empty"
 	base_icon_state = "floortube"
 	brightness = 6
-	layer = BELOW_TABLE_LAYER
+	layer = MAP_SWITCH(LOWER_RUNE_LAYER, LOW_OBJ_LAYER)
 	plane = FLOOR_PLANE
 
 /obj/machinery/light/floor/update_offsets()

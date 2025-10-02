@@ -211,11 +211,12 @@ SUBSYSTEM_DEF(ticker)
 		LAZYADD(round_end_events, cb)
 
 /datum/controller/subsystem/ticker/proc/station_explosion_detonation(atom/bomb)
-	if(bomb)	//BOOM
-		var/turf/epi = bomb.loc
-		qdel(bomb)
-		if(epi)
-			cell_explosion(epi, 3000, 10, silent = TRUE)
+	if(!bomb)	//BOOM
+		return
+	var/turf/epi = bomb.loc
+	qdel(bomb)
+	if(epi)
+		cell_explosion(epi, 3000, 10, silent = TRUE)
 
 /datum/controller/subsystem/ticker/proc/HasRoundStarted()
 	return current_state >= GAME_STATE_PLAYING
@@ -373,8 +374,9 @@ SUBSYSTEM_DEF(ticker)
 	///The reference to the end of round sound that we have chosen.
 	var/sound/end_of_round_sound_ref = sound(round_end_sound)
 	for(var/mob/M AS in GLOB.player_list)
-		if(M.client.prefs?.toggles_sound & SOUND_NOENDOFROUND)
+		if(!M.client?.prefs?.volume_end_of_round)
 			continue
+		end_of_round_sound_ref.volume = M.client.prefs.volume_end_of_round
 		SEND_SOUND(M.client, end_of_round_sound_ref)
 
 	text2file(login_music, "data/last_round_lobby_music.txt")

@@ -94,7 +94,7 @@
 	},
 /area/gelida/indoors/a_block/dorms)
 "acc" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/central_streets)
 "acn" = (
@@ -1233,7 +1233,7 @@
 /turf/open/floor/prison/darkred/full,
 /area/gelida/indoors/a_block/security)
 "aQR" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/central_caves/garbledradio)
@@ -2539,7 +2539,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/b_block/bar)
 "bJh" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/ice,
@@ -2597,7 +2597,7 @@
 /turf/open/floor/prison,
 /area/gelida/cavestructuretwo)
 "bLf" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/gelida/outdoors/colony_streets/east_central_street)
 "bLh" = (
@@ -3373,7 +3373,7 @@
 /area/gelida/landing_zone_1)
 "cpa" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/east_caves/garbledradio)
 "cpg" = (
@@ -5293,7 +5293,7 @@
 /turf/open/floor/wood,
 /area/gelida/indoors/b_block/bar)
 "dEu" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/darkfrostwall,
 /area/gelida/caves/central_caves)
 "dEF" = (
@@ -5645,7 +5645,7 @@
 /turf/open/floor/wood,
 /area/gelida/indoors/a_block/executive)
 "dPu" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/north_west_street)
 "dPy" = (
@@ -6469,7 +6469,7 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/gelida/powergen)
 "era" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/north_east_street)
 "err" = (
@@ -7162,7 +7162,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/dorms)
 "eLd" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_street)
 "eLe" = (
@@ -7508,7 +7508,7 @@
 /area/gelida/indoors/a_block/security)
 "eVB" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/central_caves/garbledradio)
 "eVG" = (
@@ -9153,7 +9153,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_east_street)
 "gkk" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/west_caves)
 "gkr" = (
@@ -9228,7 +9228,7 @@
 	dir = 8
 	},
 /obj/structure/fence,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/prison/plate,
 /area/gelida/outdoors/colony_streets/central_streets)
 "gmI" = (
@@ -9825,7 +9825,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/prison/plate,
 /area/gelida/outdoors/colony_streets/central_streets)
 "gGl" = (
@@ -10430,7 +10430,7 @@
 /turf/open/floor/prison/darkred/full,
 /area/gelida/indoors/a_block/kitchen)
 "haI" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/n_rockies)
 "haP" = (
@@ -11759,11 +11759,11 @@
 /area/gelida/indoors/a_block/dorms)
 "hXI" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "hXS" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/gelida/powergen)
 "hYa" = (
@@ -11985,7 +11985,7 @@
 	},
 /area/gelida/indoors/a_block/admin)
 "ieX" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/darkfrostwall,
 /area/gelida/outdoors/rock)
 "ieY" = (
@@ -12022,7 +12022,7 @@
 /turf/open/liquid/water/river,
 /area/gelida/indoors/a_block/fitness)
 "igB" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
 /area/gelida/powergen)
 "igD" = (
@@ -12494,7 +12494,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_east_street)
 "ivx" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "iwh" = (
@@ -13750,7 +13750,7 @@
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "jqL" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/north_street)
 "jqP" = (
@@ -14025,7 +14025,7 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/gelida/indoors/b_block/hydro)
 "jAG" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/powergen)
 "jAU" = (
@@ -14936,7 +14936,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/security)
 "khi" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "khq" = (
@@ -15966,7 +15966,7 @@
 	},
 /area/gelida/indoors/a_block/admin)
 "kST" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/central_caves/garbledradio)
 "kTi" = (
@@ -16215,7 +16215,7 @@
 /turf/open/floor/prison/plate,
 /area/gelida/landing_zone_2)
 "laW" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/east_caves)
 "lbu" = (
@@ -16371,7 +16371,7 @@
 /turf/open/floor/prison/darkbrown/full,
 /area/gelida/indoors/c_block/casino)
 "lhb" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
 /area/gelida/outdoors/colony_streets/windbreaker)
 "lhk" = (
@@ -17102,7 +17102,7 @@
 /turf/closed/mineral/smooth/snowrock,
 /area/gelida/outdoors/rock)
 "lGp" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
@@ -18409,7 +18409,7 @@
 /turf/open/floor/prison/darkbrown/full,
 /area/gelida/indoors/c_block/mining)
 "muV" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_door,
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating,
@@ -18774,7 +18774,7 @@
 /area/gelida/indoors/c_block/mining)
 "mKk" = (
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "mKq" = (
@@ -19654,7 +19654,7 @@
 /area/gelida/indoors/b_block/bar)
 "nqS" = (
 /obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/west_caves)
 "nqU" = (
@@ -19770,7 +19770,7 @@
 /area/gelida/powergen)
 "nue" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/central_caves/garbledradio)
 "nut" = (
@@ -19942,7 +19942,7 @@
 "nBG" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "nBP" = (
@@ -20011,12 +20011,12 @@
 "nEg" = (
 /obj/structure/cable,
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "nEw" = (
 /obj/structure/cable,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "nEF" = (
@@ -20059,7 +20059,7 @@
 "nFV" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/machinery/light,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
@@ -20164,7 +20164,7 @@
 /area/gelida/indoors/c_block/cargo)
 "nJe" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "nJZ" = (
@@ -20262,7 +20262,7 @@
 /area/gelida/outdoors/colony_streets/north_west_street)
 "nLC" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "nMr" = (
@@ -20283,7 +20283,7 @@
 /turf/open/floor/prison/whitegreenfull2,
 /area/gelida/landing_zone_2)
 "nMT" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/powergen)
 "nNn" = (
@@ -20431,7 +20431,7 @@
 /area/gelida/indoors/a_block/dorm_north)
 "nRL" = (
 /obj/structure/table/mainship,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "nRP" = (
@@ -20656,7 +20656,7 @@
 	},
 /area/gelida/indoors/a_block/admin)
 "nYF" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/east_caves)
 "nYL" = (
@@ -20964,11 +20964,11 @@
 /area/gelida/landing_zone_forecon/UD6_Tornado)
 "oiU" = (
 /obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/central_caves/garbledradio)
 "ojk" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/powergen)
@@ -21318,7 +21318,7 @@
 "oya" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
 "oyd" = (
@@ -21409,7 +21409,7 @@
 /area/gelida/indoors/c_block/casino)
 "oBs" = (
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/powergen)
 "oBw" = (
@@ -21575,7 +21575,7 @@
 /area/gelida/landing_zone_forecon/UD6_Typhoon)
 "oFs" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/central_caves)
 "oFt" = (
@@ -21671,7 +21671,7 @@
 /turf/open/floor/plating/ground/snow/layer1,
 /area/gelida/outdoors/nw_rockies)
 "oHy" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/central_caves/garbledradio)
 "oHR" = (
@@ -21792,7 +21792,7 @@
 /area/gelida/indoors/b_block/bridge)
 "oMk" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/west_caves)
 "oMo" = (
@@ -21816,7 +21816,7 @@
 	id = "E_B_Door";
 	name = "\improper Emergency Blast Door"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer2,
 /area/gelida/outdoors/w_rockies)
 "oMF" = (
@@ -22416,7 +22416,7 @@
 	},
 /area/gelida/indoors/a_block/admin)
 "peR" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/structure/cable,
 /turf/open/floor/mainship/black/full,
 /area/gelida/powergen)
@@ -22802,7 +22802,7 @@
 /area/gelida/indoors/a_block/dorms)
 "prh" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/east_caves)
 "prk" = (
@@ -22821,7 +22821,7 @@
 /area/gelida/indoors/c_block/casino)
 "prQ" = (
 /obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/east_caves)
 "prS" = (
@@ -23529,7 +23529,7 @@
 /area/gelida/indoors/c_block/mining)
 "pQM" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/east_caves/garbledradio)
 "pRa" = (
@@ -24722,7 +24722,7 @@
 "qIR" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/east_caves)
 "qIU" = (
@@ -24756,7 +24756,7 @@
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/gelida/indoors/c_block/mining)
 "qKf" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/central_caves)
 "qKi" = (
@@ -25068,7 +25068,7 @@
 /turf/open/floor/wood,
 /area/gelida/indoors/a_block/security)
 "qTf" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/central_caves)
 "qTi" = (
@@ -29358,7 +29358,7 @@
 /turf/open/floor/prison,
 /area/gelida/indoors/a_block/dorms)
 "tOc" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/east_caves/garbledradio)
 "tOY" = (
@@ -31724,7 +31724,7 @@
 /turf/open/floor/plating,
 /area/gelida/indoors/c_block/cargo)
 "vxv" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/snowrock,
 /area/gelida/outdoors/rock)
 "vxz" = (
@@ -32901,7 +32901,7 @@
 /obj/machinery/door/airlock/mainship/maint{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/outdoors/w_rockies)
 "wqh" = (
@@ -33072,7 +33072,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_east_street)
 "wuw" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/w_rockies)
 "wuC" = (
@@ -33916,7 +33916,7 @@
 /turf/open/floor/prison/darkred/full,
 /area/gelida/indoors/a_block/security)
 "xgx" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/gelida/outdoors/colony_streets/south_west_street)
 "xgS" = (
@@ -35109,7 +35109,7 @@
 /turf/open/floor/mainship/black/full,
 /area/gelida/outdoors/rock)
 "xUF" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
 /area/gelida/outdoors/rock)
 "xUH" = (
@@ -35127,7 +35127,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/gelida/indoors/c_block/mining)
 "xVe" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/south_west_street)
 "xVo" = (
@@ -35189,7 +35189,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/central_streets)
 "xXi" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/gelida/caves/west_caves)
 "xXU" = (

@@ -1,0 +1,7 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - refactor: "Refactored the backend for rendering heavily in support of Multi-Z"
+  - code_imp: "Added plane controllers"
+  - refactor: "refactored night vision to support rgb night vision, instead of a flat number"
+  - refactor: "Resorted all our layers and compressed them down"

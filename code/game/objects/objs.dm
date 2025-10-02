@@ -3,6 +3,7 @@
 	speech_span = SPAN_ROBOT
 	interaction_flags = INTERACT_OBJ_DEFAULT
 	resistance_flags = NONE
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 	/// Icon to use as a 32x32 preview in crafting menus and such
 	var/icon_preview
@@ -363,31 +364,23 @@
 
 	repair_time *= welder.toolspeed
 	balloon_alert_to_viewers("starting repair...")
-	handle_weldingtool_overlay()
-	while(obj_integrity < max_integrity)
-		playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
-		welder.eyecheck(user)
-		if(!do_after(user, repair_time, NONE, src, BUSY_ICON_FRIENDLY))
-			cut_overlay(GLOB.welding_sparks)
-			balloon_alert(user, "interrupted!")
-			return TRUE
-
-		if(obj_integrity <= max_integrity * repair_threshold || obj_integrity >= max_integrity)
-			handle_weldingtool_overlay(TRUE)
-			return TRUE
-
-		if(!welder.remove_fuel(fuel_req))
-			balloon_alert(user, "not enough fuel")
-			handle_weldingtool_overlay(TRUE)
+	while(needs_welder_repair(user))
+		if(!I.use_tool(src, user, repair_time, fuel_req, 2.5 SECONDS, CALLBACK(src, PROC_REF(is_repaired_enough), user, repair_threshold), BUSY_ICON_FRIENDLY))
 			return TRUE
 
 		repair_damage(repair_amount, user)
 		update_icon()
 
 	balloon_alert_to_viewers("repaired")
-	playsound(loc, 'sound/items/welder2.ogg', 25, TRUE)
-	handle_weldingtool_overlay(TRUE)
 	return TRUE
+
+///callback check to see if we're done repairing
+/obj/proc/is_repaired_enough(mob/user, repair_threshold)
+	return !needs_welder_repair(user) || (obj_integrity >= max_integrity * repair_threshold)
+
+//Returns true if we want to try to repair this object with welder_repair_act, false otherwise
+/obj/proc/needs_welder_repair(mob/user)
+	return obj_integrity < max_integrity
 
 /obj/grab_interact(obj/item/grab/grab, mob/user, base_damage = BASE_OBJ_SLAM_DAMAGE, is_sharp = FALSE)
 	if(isxeno(user))

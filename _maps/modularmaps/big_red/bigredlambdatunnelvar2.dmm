@@ -77,7 +77,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "Z" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 

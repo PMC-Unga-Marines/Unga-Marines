@@ -623,7 +623,7 @@
 
 	exploding = TRUE
 	var/turf/T = get_turf(src)
-	if(explosion_type == SD_TYPE_BIG && victim.stat == CONSCIOUS && (is_ground_level(T.z) || SSticker.mode.round_type_flags & MODE_SHIPSIDE_SD))
+	if(explosion_type == SD_TYPE_BIG && victim.stat == CONSCIOUS && is_ground_level(T.z))
 		playsound(src, 'sound/voice/predator/deathlaugh.ogg', 100, 0, 17)
 
 	playsound(src, 'sound/effects/pred_countdown.ogg', 100, 0, 17)
@@ -637,7 +637,7 @@
 		if(victim)
 			victim.gib() // kills the pred
 			qdel(victim)
-		if(explosion_type == SD_TYPE_BIG && (is_ground_level(T.z) || SSticker.mode.round_type_flags & MODE_SHIPSIDE_SD))
+		if(explosion_type == SD_TYPE_BIG && is_ground_level(T.z))
 			cell_explosion(T, 700, 100)
 		else
 			cell_explosion(T, 300, 100)
@@ -817,16 +817,16 @@
 	SSminimaps.remove_marker(owner)
 
 	if(!isyautja(owner))
-		SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "bracer_stolen"))
+		SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "bracer_stolen", MINIMAP_BLIPS_LAYER))
 		if(owner.stat >= DEAD)
 			if(HAS_TRAIT(owner, TRAIT_UNDEFIBBABLE))
-				SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "undefibbable"))
+				SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "undefibbable", MINIMAP_BLIPS_LAYER))
 			else
-				SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "defibbable"))
+				SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "defibbable", MINIMAP_BLIPS_LAYER))
 	else
-		SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, minimap_icon))
+		SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, minimap_icon, MINIMAP_BLIPS_LAYER))
 		if(owner?.stat >= DEAD)
-			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "undefibbable"))
+			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "undefibbable", MINIMAP_BLIPS_LAYER))
 
 /*
 *This is the main proc for checking AND draining the bracer energy. It must have human passed as an argument.
@@ -994,12 +994,12 @@
 	if(!wearer_turf)
 		return
 
-	SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, minimap_icon))
+	SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, minimap_icon, MINIMAP_BLIPS_LAYER))
 	if(owner.stat >= DEAD)
 		if(HAS_TRAIT(owner, TRAIT_UNDEFIBBABLE))
-			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "undefibbable"))
+			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "undefibbable", MINIMAP_BLIPS_LAYER))
 		else
-			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "defibbable"))
+			SSminimaps.add_marker(owner, MINIMAP_FLAG_YAUTJA, image('icons/UI_icons/map_blips.dmi', null, "defibbable", MINIMAP_BLIPS_LAYER))
 
 /obj/item/clothing/gloves/yautja/hunter
 	name = "clan bracers"
