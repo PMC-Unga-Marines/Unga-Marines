@@ -4,8 +4,6 @@
 	icon = 'icons/obj/structures/cas/ship.dmi'
 	icon_state = "1"
 	appearance_flags = TILE_BOUND|KEEP_TOGETHER
-	layer = OBJ_LAYER
-	plane = GAME_PLANE
 	opacity = FALSE
 	resistance_flags = RESIST_ALL
 

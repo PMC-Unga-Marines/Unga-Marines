@@ -18,10 +18,13 @@
 	var/deactive_state = ""
 	/// Flags for stuff like mesons and thermals
 	var/vision_flags = NONE
-	/// How far can we see in the darkness with this glasses on?
-	var/darkness_view = 0
-	/// How bright the dark tiles will look to us with the glasses on?
-	var/lighting_alpha
+	var/invis_view = SEE_INVISIBLE_LIVING
+	var/invis_override = 0 //Override to allow glasses to set higher than normal see_invis
+	/// A percentage of how much rgb to "max" on the lighting plane
+	/// This lets us brighten darkness without washing out bright color
+	var/lighting_cutoff = null
+	/// Similar to lighting_cutoff, except it has individual r g and b components in the same 0-100 scale
+	var/list/color_cutoffs = null
 	// If TRUE we will change our on-mob image layer to GOGGLES instead of GLASSES
 	var/goggles_layer = FALSE
 	///Sound played on activate() when turning on
@@ -369,9 +372,8 @@
 	name = "spatial agent's sunglasses"
 	desc = "Glasses worn by a spatial agent."
 	eye_protection = 2
-	darkness_view = 8
 	vision_flags = SEE_TURFS|SEE_MOBS|SEE_OBJS
-	lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
 
 /obj/item/clothing/glasses/sunglasses/sa/Initialize(mapload)
 	. = ..()

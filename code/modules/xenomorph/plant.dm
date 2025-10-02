@@ -13,7 +13,7 @@
 /obj/structure/xeno/plant/Initialize(mapload, _hivenumber)
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(on_mature)), maturation_time)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "[mature_icon_state]"))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "[mature_icon_state]", MINIMAP_BLIPS_LAYER))
 
 /obj/structure/xeno/plant/can_interact(mob/user)
 	. = ..()
