@@ -12,6 +12,7 @@
 	gloves = /obj/item/clothing/gloves/marine/icc
 	head = /obj/item/clothing/head/helmet/marine/icc
 	mask = /obj/item/clothing/mask/gas/icc
+	back = /obj/item/storage/backpack/lightpack/icc
 
 	head_contents = list(
 		/obj/item/reagent_containers/food/snacks/wrapped/barcaridine = 1,
@@ -26,7 +27,6 @@
 	gloves = /obj/item/clothing/gloves/marine/icc/insulated
 	r_pocket = /obj/item/storage/pouch/pistol/icc
 	l_pocket = /obj/item/storage/pouch/medical_injectors/icc/firstaid
-	back = /obj/item/storage/backpack/lightpack/icc
 
 	suit_contents = list(
 		/obj/item/stack/medical/heal_pack/gauze = 1,
@@ -167,7 +167,6 @@
 
 	id = /obj/item/card/id/silver
 	gloves = /obj/item/clothing/gloves/marine/icc
-	back = /obj/item/storage/backpack/lightpack/icc
 	belt = /obj/item/storage/belt/lifesaver/icc/ert
 	glasses = /obj/item/clothing/glasses/hud/health
 
