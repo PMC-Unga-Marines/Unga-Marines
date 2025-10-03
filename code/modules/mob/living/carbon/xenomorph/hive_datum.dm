@@ -271,8 +271,11 @@
 			if(!isxeno(usr))
 				return
 			var/mob/living/carbon/xenomorph/xeno = usr
-			var/datum/mutation_menu/menu = new(xeno)
-			menu.ui_interact(usr)
+			if(!GLOB.mutation_menu)
+				GLOB.mutation_menu = new(xeno)
+			else
+				GLOB.mutation_menu.xeno_owner = xeno
+			GLOB.mutation_menu.ui_interact(usr)
 		if("Follow")
 			if(isobserver(usr))
 				var/mob/dead/observer/ghost = usr

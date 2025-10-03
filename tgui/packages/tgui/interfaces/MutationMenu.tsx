@@ -454,7 +454,7 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
   return (
     <Box
       mb={1}
-      p={1}
+      p={1.5}
       backgroundColor="rgba(0, 0, 0, 0.3)"
       borderRadius="4px"
       border={`2px solid ${nodeColor === 'good' ? '#00ff00' : nodeColor === 'average' ? '#ffff00' : nodeColor === 'blue' ? '#0080ff' : '#ff0000'}`}
@@ -462,6 +462,7 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
         marginLeft: `${level * 20}px`,
         position: 'relative',
         opacity: purchased || canPurchase || (unlocked && !canAfford) ? 1 : 0.5, // Full opacity for purchased/available/unlocked, dimmed for locked
+        minHeight: '80px',
       }}
     >
       {/* Connection line to parent */}
@@ -482,9 +483,9 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
       <Flex align="center">
         <Flex.Item>
           <Box
-            mr={2}
+            mr={4}
             style={{
-              transform: 'scale(1.2)',
+              transform: 'scale(1.8)',
               position: 'relative',
               display: 'inline-block',
             }}
@@ -514,12 +515,17 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
           </Box>
         </Flex.Item>
         <Flex.Item grow={1}>
-          <Box bold color={getNameColor()}>
+          <Box bold fontSize="1.4em" color={getNameColor()}>
             {name}
           </Box>
-          <Box fontSize="0.9em" color="label" mt={0.5}>
+          <Box fontSize="1em" color="white" mt={1.8}>
             {desc}
           </Box>
+          {buff_desc && (
+            <Box fontSize="0.9em" color="label" mt={0.8}>
+              • {buff_desc}
+            </Box>
+          )}
         </Flex.Item>
         <Flex.Item>
           <Box
@@ -572,10 +578,6 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
           </Button>
         </Flex.Item>
       </Flex>
-      {/* Requirements display */}
-      <Box mt={1} fontSize="0.8em" color="label">
-        <Box>• {buff_desc}</Box>
-      </Box>
     </Box>
   );
 };
@@ -622,14 +624,16 @@ const MutationEntryComponent = (props: { mutation: MutationEntry }) => {
           <Flex.Item>
             <Box
               className={classes(['mutationmenu32x32', icon])}
-              mr={2}
+              mr={4}
               style={{
-                transform: 'scale(1.2)',
+                transform: 'scale(1.8)',
               }}
             />
           </Flex.Item>
           <Flex.Item grow={1}>
-            <Box bold>{name}</Box>
+            <Box bold fontSize="1.4em">
+              {name}
+            </Box>
           </Flex.Item>
           <Flex.Item>
             <Box
@@ -692,7 +696,6 @@ const MutationEntryComponent = (props: { mutation: MutationEntry }) => {
               <Box bold color="label">
                 Requirements:
               </Box>
-              <Box>• {buff_desc}</Box>
               {purchased && (
                 <Box color="good" bold>
                   • Already Owned

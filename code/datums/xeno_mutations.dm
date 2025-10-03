@@ -329,7 +329,8 @@ GLOBAL_LIST_EMPTY(xeno_mutations)
 
 	for(var/mutation_type in subtypesof(/datum/xeno_mutation))
 		var/datum/xeno_mutation/mutation = new mutation_type()
-		if(mutation.cost)
+		// Only initialize mutations that have a proper name and cost (exclude abstract base classes)
+		if(mutation.name && mutation.cost > 0)
 			GLOB.xeno_mutations += mutation
 
 /proc/get_xeno_mutation_by_name(mutation_name)
