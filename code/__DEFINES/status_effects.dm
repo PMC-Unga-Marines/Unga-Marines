@@ -36,18 +36,6 @@
 //Crush
 #define STATUS_EFFECT_CRUSH /datum/status_effect/crush
 
-//Toxin
-#define STATUS_EFFECT_TOXIN /datum/status_effect/toxin
-#define STATUS_EFFECT_TOXIN_TWO /datum/status_effect/toxin/tier2
-
-//Pheromones
-#define STATUS_EFFECT_PHERO /datum/status_effect/pheromones
-#define STATUS_EFFECT_PHERO_TWO /datum/status_effect/pheromones/tier2
-#define STATUS_EFFECT_PHERO_THREE /datum/status_effect/pheromones/tier3
-
-//Trail
-#define STATUS_EFFECT_TRAIL /datum/status_effect/trail
-
 #define STATUS_EFFECT_GUN_SKILL_ACCURACY_BUFF /datum/status_effect/stacking/gun_skill/accuracy/buff // Increases the accuracy of the mob
 #define STATUS_EFFECT_GUN_SKILL_SCATTER_BUFF /datum/status_effect/stacking/gun_skill/scatter/buff // Increases the scatter of the mob
 #define STATUS_EFFECT_XENO_ESSENCE_LINK /datum/status_effect/stacking/essence_link
@@ -62,11 +50,6 @@
 #define STATUS_EFFECT_PLASMA_SURGE /datum/status_effect/plasma_surge
 #define STATUS_EFFECT_HEALING_INFUSION /datum/status_effect/healing_infusion
 #define STATUS_EFFECT_DRAIN_SURGE /datum/status_effect/drain_surge
-
-// Enhancement mutations - caste-specific
-#define STATUS_EFFECT_UPGRADE_DRONE_MASTERY /datum/status_effect/upgrade_drone_mastery
-
-#define STATUS_EFFECT_UPGRADE_RUNNER_AGILITY /datum/status_effect/upgrade_runner_agility
 
 #define STATUS_EFFECT_MINDMEND /datum/status_effect/mindmeld
 

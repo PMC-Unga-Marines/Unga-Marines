@@ -194,6 +194,11 @@
 	new_xeno.purchased_mutations.Cut()
 	new_xeno.upgrades_holder.Cut()
 
+	// Remove all mutation abilities
+	for(var/datum/action/ability/xeno_action/mutation/ability in new_xeno.actions)
+		if(istype(ability, /datum/action/ability/xeno_action/mutation))
+			ability.remove_action(new_xeno)
+
 	if(total_refund > 0)
 		new_xeno.biomass += total_refund
 		to_chat(new_xeno, span_xenonotice("[total_refund] biomass returned."))

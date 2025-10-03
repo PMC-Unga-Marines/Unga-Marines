@@ -356,6 +356,10 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/selected_resin = /turf/closed/wall/resin/regenerating
 	///which reagent to slash with using reagent slash
 	var/selected_reagent = /datum/reagent/toxin/xeno_hemodile
+	///which reagent to inject with mutation-based toxin attacks (separate from selected_reagent)
+	var/datum/reagent/toxin/mutation_toxin_reagent = /datum/reagent/toxin/xeno_transvitox
+	///which trail type to leave with mutation-based trail ability
+	var/obj/mutation_trail_type = /obj/effect/xenomorph/spray
 	///which plant to place when we use sow
 	var/obj/structure/xeno/plant/selected_plant = /obj/structure/xeno/plant/heal_fruit
 	///Naming variables

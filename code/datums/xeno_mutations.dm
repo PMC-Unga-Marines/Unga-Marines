@@ -2,7 +2,7 @@
 	var/name = "Unknown Mutation"
 	var/desc = "A mysterious mutation"
 	var/category = "Survival"
-	var/cost = 0
+	var/cost
 	var/icon_state
 
 	///Тир, очередь в дереве, 1 если дерева нет
@@ -13,6 +13,8 @@
 	var/child_name
 	///Статус эффект, который мутация применяет (бафф)
 	var/status_effect_type
+	///Способность, которая добавляется при покупке мутации (опционально)
+	var/ability_type
 	///Описание баффа, желательно числа и цифры
 	var/buff_desc = ""
 	///Касты, которым будет доступна данная мутация
@@ -73,7 +75,7 @@
 
 /datum/xeno_mutation/carapace_one
 	name = "Carapace I"
-	desc = "Слабо увеличивает броню всех типов"
+	desc = "Слабо увеличивает броню всех типов."
 	category = "Survival"
 	cost = 10
 	icon_state = "carapace"
@@ -83,10 +85,9 @@
 	status_effect_type = STATUS_EFFECT_CARAPACE
 	buff_desc = "+2.5 soft armor"
 
-/datum/xeno_mutation/carapace_two
+/datum/xeno_mutation/carapace/two
 	name = "Carapace II"
-	desc = "Еще больше брони... Для богатых"
-	category = "Survival"
+	desc = "Больше брони?.."
 	cost = 15
 	icon_state = "carapace_two"
 	tier = 2
@@ -95,10 +96,9 @@
 	status_effect_type = STATUS_EFFECT_CARAPACE_TWO
 	buff_desc = "+5 soft armor"
 
-/datum/xeno_mutation/carapace_three
+/datum/xeno_mutation/carapace/three
 	name = "Carapace III"
-	desc = "Наномашины, сынок"
-	category = "Survival"
+	desc = "Nanomachines, son."
 	cost = 30
 	icon_state = "carapace_three"
 	tier = 3
@@ -112,9 +112,12 @@
 // Regeneration mutations
 //
 
-/datum/xeno_mutation/regeneration_one
+//Сделать чтоб абилки фер и токсинов вместо алерта давали полноценную абилку
+//И перенести некоторые изменения из im tired of it
+
+/datum/xeno_mutation/regeneration
 	name = "Regeneration I"
-	desc = "Незначительно увеличивает регенерацию"
+	desc = "Незначительно увеличивает регенерацию."
 	category = "Survival"
 	cost = 10
 	icon_state = "regeneration"
@@ -124,10 +127,9 @@
 	status_effect_type = STATUS_EFFECT_REGENERATION
 	buff_desc = "+0.8% health and sunder regen"
 
-/datum/xeno_mutation/regeneration_two
+/datum/xeno_mutation/regeneration/two
 	name = "Regeneration II"
-	desc = "Ну, её теперь чуть больше, возрадуйся"
-	category = "Survival"
+	desc = "Еще больше регенерации."
 	cost = 20
 	icon_state = "regeneration_two"
 	tier = 2
@@ -143,7 +145,7 @@
 
 /datum/xeno_mutation/vampirism
 	name = "Vampirism"
-	desc = "Регенерирует часть здоровья при базовых атаках"
+	desc = "Регенерирует часть здоровья при базовых атаках."
 	category = "Survival"
 	cost = 20
 	icon_state = "vampirism"
@@ -153,10 +155,9 @@
 	status_effect_type = STATUS_EFFECT_VAMPIRISM
 	buff_desc = "1% HP per slash"
 
-/datum/xeno_mutation/leech
+/datum/xeno_mutation/vampirism/two
 	name = "Leech"
-	desc = "Регенерирует СКОЛЬКО???"
-	category = "Survival"
+	desc = "Регенерирует СКОЛЬКО?..."
 	cost = 40
 	icon_state = "leech"
 	tier = 2
@@ -172,7 +173,7 @@
 
 /datum/xeno_mutation/celerity
 	name = "Celerity"
-	desc = "Незначительно увеличивает скорость.. твоего фида"
+	desc = "Увеличивает твою скорость."
 	category = "Offensive"
 	cost = 15
 	icon_state = "celerity"
@@ -199,10 +200,9 @@
 	status_effect_type = STATUS_EFFECT_IONIZE
 	buff_desc = "+5% max plasma"
 
-/datum/xeno_mutation/ionize_two
+/datum/xeno_mutation/ionize/two
 	name = "Ionize II"
-	desc = "Больше максимума плазмы, и немного регена в придачу"
-	category = "Specialized"
+	desc = "Увеличивает эффект прошлой мутации и добавляет регенерацию."
 	cost = 25
 	icon_state = "ionize_two"
 	tier = 2
@@ -217,9 +217,9 @@
 
 /datum/xeno_mutation/crush
 	name = "Crush"
-	desc = "Незначительно увеличивает пробитие базовой атаки"
+	desc = "Незначительно увеличивает пробитие базовой атаки по объектам."
 	category = "Offensive"
-	cost = 20
+	cost = 10
 	icon_state = "crush"
 	tier = 1
 	parent_name = null
@@ -233,27 +233,26 @@
 
 /datum/xeno_mutation/toxin
 	name = "Toxin I"
-	desc = "Позволяет вводить выбранный реагент при атаке"
+	desc = "Позволяет вводить выбранный реагент при атаке."
 	category = "Offensive"
 	cost = 15
 	icon_state = "toxin"
 	tier = 1
 	parent_name = null
 	child_name = "Toxin II"
-	status_effect_type = STATUS_EFFECT_TOXIN
+	ability_type = /datum/action/ability/xeno_action/mutation/toxin
 	buff_desc = "0.5 chosen xeno-toxin per slash"
 
-/datum/xeno_mutation/toxin_two
+/datum/xeno_mutation/toxin/two
 	name = "Toxin II"
-	desc = "Увеличивает ввод реагента и открывает sanguinal"
-	category = "Offensive"
+	desc = "Увеличивает ввод реагента и открывает sanguinal."
 	cost = 20
 	icon_state = "toxin_two"
 	tier = 2
 	parent_name = "Toxin I"
 	child_name = null
-	status_effect_type = STATUS_EFFECT_TOXIN_TWO
-	buff_desc = "1 chosen xeno-toxin per slash, adds sanguinal"
+	ability_type = /datum/action/ability/xeno_action/mutation/toxin
+	buff_desc = "1 chosen xeno-toxin per slash + sanguinal"
 
 //
 //Pheromones mutations
@@ -268,31 +267,27 @@
 	tier = 1
 	parent_name = null
 	child_name = "Pheromones II"
-	status_effect_type = STATUS_EFFECT_PHERO
+	ability_type = /datum/action/ability/xeno_action/mutation/pheromones
 	buff_desc = "1.5 pheromone power"
 
-/datum/xeno_mutation/pheromones_two
+/datum/xeno_mutation/pheromones/two
 	name = "Pheromones II"
 	desc = "Позволяет выделять средние феромоны."
-	category = "Specialized"
-	cost = 10
 	icon_state = "pheromones_two"
 	tier = 2
 	parent_name = "Pheromones I"
 	child_name = "Pheromones III"
-	status_effect_type = STATUS_EFFECT_PHERO_TWO
+	ability_type = /datum/action/ability/xeno_action/mutation/pheromones
 	buff_desc = "3 pheromone power"
 
-/datum/xeno_mutation/pheromones_three
+/datum/xeno_mutation/pheromones/three
 	name = "Pheromones III"
 	desc = "Позволяет выделять сильные феромоны."
-	category = "Specialized"
-	cost = 10
 	icon_state = "pheromones_three"
 	tier = 3
 	parent_name = "Pheromones II"
 	child_name = null
-	status_effect_type = STATUS_EFFECT_PHERO_THREE
+	ability_type = /datum/action/ability/xeno_action/mutation/pheromones
 	buff_desc = "4.5 pheromone power"
 
 //
@@ -301,17 +296,17 @@
 
 /datum/xeno_mutation/trail
 	name = "Trail"
-	desc = "Оставляет кислотный след с некоторым шансом."
+	desc = "Оставляет кислотный/липкий след с некоторым шансом."
 	category = "Specialized"
 	cost = 10
 	icon_state = "trail"
 	tier = 1
 	parent_name = null
 	child_name = null
-	status_effect_type = STATUS_EFFECT_TRAIL
+	ability_type = /datum/action/ability/xeno_action/mutation/trail
 	buff_desc = "50% acid trail chance"
 
-/// Drone Mastery mutation
+/*
 /datum/xeno_mutation/drone_mastery
 	name = "Drone Mastery"
 	desc = "Улучшает способности строителя, увеличивая скорость постройки и эффективность ремонта."
@@ -324,56 +319,19 @@
 	status_effect_type = STATUS_EFFECT_UPGRADE_DRONE_MASTERY
 	buff_desc = "+25% build speed, +15% repair efficiency"
 	caste_restrictions = list("drone", "shrike")
+*/
 
-/// Runner Agility mutation
-/datum/xeno_mutation/runner_agility
-	name = "Runner Agility"
-	desc = "Максимально увеличивает скорость и маневренность, делая раннера неуловимым."
-	category = "Enhancement"
-	cost = 10
-	icon_state = "xenobuff_generic"
-	tier = 1
-	parent_name = null
-	child_name = null
-	status_effect_type = STATUS_EFFECT_UPGRADE_RUNNER_AGILITY
-	buff_desc = "+20% speed, +10% dodge chance"
-	caste_restrictions = list("runner", "ravager")
-
-/// Global list to store all mutation datums
 GLOBAL_LIST_EMPTY(xeno_mutations)
 
-/// Initialize all mutation datums
 /proc/initialize_xeno_mutations()
 	if(length(GLOB.xeno_mutations))
-		return // Already initialized
+		return
 
-	var/mutation_types = list(
-		/datum/xeno_mutation/carapace_one,
-		/datum/xeno_mutation/carapace_two,
-		/datum/xeno_mutation/carapace_three,
-		/datum/xeno_mutation/regeneration_one,
-		/datum/xeno_mutation/regeneration_two,
-		/datum/xeno_mutation/vampirism,
-		/datum/xeno_mutation/leech,
-		/datum/xeno_mutation/celerity,
-		/datum/xeno_mutation/ionize,
-		/datum/xeno_mutation/ionize_two,
-		/datum/xeno_mutation/crush,
-		/datum/xeno_mutation/toxin,
-		/datum/xeno_mutation/toxin_two,
-		/datum/xeno_mutation/pheromones,
-		/datum/xeno_mutation/pheromones_two,
-		/datum/xeno_mutation/pheromones_three,
-		/datum/xeno_mutation/trail,
-		/datum/xeno_mutation/drone_mastery,
-		/datum/xeno_mutation/runner_agility
-	)
-
-	for(var/mutation_type in mutation_types)
+	for(var/mutation_type in subtypesof(/datum/xeno_mutation))
 		var/datum/xeno_mutation/mutation = new mutation_type()
-		GLOB.xeno_mutations += mutation
+		if(mutation.cost)
+			GLOB.xeno_mutations += mutation
 
-/// Get mutation datum by name
 /proc/get_xeno_mutation_by_name(mutation_name)
 	initialize_xeno_mutations()
 	for(var/datum/xeno_mutation/mutation in GLOB.xeno_mutations)

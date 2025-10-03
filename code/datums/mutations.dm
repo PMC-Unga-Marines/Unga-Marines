@@ -130,6 +130,15 @@
 	if(parent_to_remove)
 		xeno_owner.remove_status_effect(parent_to_remove)
 
+	// Remove parent abilities if purchasing higher tier
+	if(mutation_datum.parent_name)
+		var/datum/xeno_mutation/parent_mutation = get_xeno_mutation_by_name(mutation_datum.parent_name)
+		if(parent_mutation && parent_mutation.ability_type)
+			for(var/datum/action/ability/xeno_action/mutation/ability in xeno_owner.actions)
+				if(istype(ability, parent_mutation.ability_type))
+					ability.remove_action(xeno_owner)
+					xeno_owner.upgrades_holder.Remove(parent_mutation.ability_type)
+
 	xeno_owner.biomass -= mutation_datum.cost
 	to_chat(usr, span_xenonotice("[mutation_name] mutation gained."))
 
@@ -142,7 +151,28 @@
 		xeno_owner.remove_status_effect(conflicting_upgrade)
 		xeno_owner.upgrades_holder.Remove(conflicting_upgrade.type)
 
+	// Remove conflicting abilities
+	if(mutation_datum.ability_type)
+		for(var/datum/action/ability/xeno_action/mutation/ability in xeno_owner.actions)
+			if(istype(ability, mutation_datum.ability_type))
+				ability.remove_action(xeno_owner)
+				xeno_owner.upgrades_holder.Remove(mutation_datum.ability_type)
+
 	xeno_owner.do_jitter_animation(500)
-	xeno_owner.apply_status_effect(mutation_datum.status_effect_type)
-	xeno_owner.upgrades_holder.Add(mutation_datum.status_effect_type)
+
+	// Apply status effect if mutation has one
+	if(mutation_datum.status_effect_type)
+		xeno_owner.apply_status_effect(mutation_datum.status_effect_type)
+		xeno_owner.upgrades_holder.Add(mutation_datum.status_effect_type)
+
+	// Add ability if mutation has one
+	if(mutation_datum.ability_type)
+		var/datum/action/ability/ability = new mutation_datum.ability_type()
+		// Check if it's a mutation ability and call set_mutation_power
+		if(istype(ability, /datum/action/ability/xeno_action/mutation))
+			var/datum/action/ability/xeno_action/mutation/mutation_ability = ability
+			mutation_ability.set_mutation_power(mutation_datum.tier)
+		ability.give_action(xeno_owner)
+		xeno_owner.upgrades_holder.Add(mutation_datum.ability_type)
+
 	SStgui.update_uis(src)
