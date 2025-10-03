@@ -55,6 +55,10 @@
 			/obj/item/weapon/gun/rifle/famas = -1,
 			/obj/item/ammo_magazine/rifle/famas = -1,
 			/obj/item/weapon/brick = -1,
+			/obj/item/weapon/gun/rifle/tash12 = -1,
+			/obj/item/ammo_magazine/rifle/tash12/flechette = -1,
+			/obj/item/ammo_magazine/rifle/tash12/slug = -1,
+			/obj/item/ammo_magazine/rifle/tash12 = -1,
 		),
 		"Mounted" = list(
 			/obj/structure/largecrate/supply/weapons/at36 = -1,
