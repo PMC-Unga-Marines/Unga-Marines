@@ -116,6 +116,15 @@
 
 	hud_list[PHEROMONE_HUD] = holder
 
+///Set biomass on the hud
+/mob/living/carbon/xenomorph/proc/hud_set_biomass()
+	if(hud_used?.alien_biomass_display)
+		if(stat != DEAD)
+			var/amount = round(biomass, 1)
+			hud_used.alien_biomass_display.icon_state = "biomass_[amount]"
+		else
+			hud_used.alien_biomass_display.icon_state = "biomass_0"
+
 //Only called when an aura is added or removed
 /mob/living/carbon/xenomorph/update_aura_overlay()
 	var/image/holder = hud_list[PHEROMONE_HUD]

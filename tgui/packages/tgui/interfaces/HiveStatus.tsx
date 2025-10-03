@@ -44,6 +44,8 @@ type InputPack = {
   user_queen: boolean;
   user_watched_xeno: string;
   user_evolution: number;
+  user_biomass: number;
+  user_max_biomass: number;
   user_purchase_perms: boolean;
   user_tracked: string;
   user_show_compact: boolean;
@@ -251,6 +253,9 @@ const GeneralInfo = (_props: any) => {
         <Flex.Item>
           <EvolutionBar />
         </Flex.Item>
+        <Flex.Item mt={1}>
+          <BiomassBar />
+        </Flex.Item>
         <DeadXenoTimerCountdowns hive_death_timers={hive_death_timers} />
         <Flex.Item>
           <XenoCountdownBar
@@ -346,6 +351,33 @@ const LarvaBar = (_props: any) => {
         </Flex.Item>
       </Flex>
     </Tooltip>
+  );
+};
+
+const BiomassBar = (_props: any) => {
+  const { act, data } = useBackend<InputPack>();
+  const { user_ref, user_xeno, user_biomass, user_max_biomass } = data;
+
+  if (!user_xeno || user_max_biomass === 0) {
+    return <Box />; // Empty.
+  }
+
+  return (
+    <Flex>
+      <Flex.Item mr={2} width={bar_text_width}>
+        <Button
+          tooltip="Open Mutations Menu"
+          onClick={() => act('Mutations', { xeno: user_ref })}
+        >
+          Total Biomass:
+        </Button>
+      </Flex.Item>
+      <Flex.Item grow>
+        <ProgressBar color="good" value={user_biomass / user_max_biomass}>
+          {round(user_biomass, 1)} / {user_max_biomass}
+        </ProgressBar>
+      </Flex.Item>
+    </Flex>
   );
 };
 
