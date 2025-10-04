@@ -35,6 +35,9 @@ SUBSYSTEM_DEF(points)
 
 	var/list/request_shopping_cart = list()
 
+	var/list/delivery_shopping_cart = list()
+	var/list/supply_packs_delivery_ui = list()
+
 //Это явно должно быть выше, поправьте если разберётесь.
 /datum/controller/subsystem/points
 	///Assoc list of personal supply points
@@ -42,7 +45,7 @@ SUBSYSTEM_DEF(points)
 	///Personal supply points limit
 	var/psp_limit = 600
 	///Personal supply points base gain per update
-	var/psp_base_gain = 5 //per minute
+	var/psp_base_gain = 1 //per minute
 	///Used to delay fast delivery and for animation
 	var/fast_delivery_is_active = TRUE
 	///Reference to the balloon vis obj effect
@@ -75,13 +78,19 @@ SUBSYSTEM_DEF(points)
 		var/datum/supply_packs/P = pack
 		if(!initial(P.cost))
 			continue
+		if(istype(P, /datum/supply_packs/personal))
+			continue
 		if(is_mode_crash && P.crash_restricted)
 			continue
 		P = new pack()
 		if(!P.contains)
 			continue
 		supply_packs[pack] = P
-		LAZYADD(supply_packs_ui[P.group], pack)
+		if(istype(P, /datum/supply_packs/personal))
+			var/datum/supply_packs/personal/PP = pack
+			LAZYADD(supply_packs_delivery_ui[PP.job_type], PP)
+		else
+			LAZYADD(supply_packs_ui[P.group], pack)
 		var/list/containsname = list()
 		for(var/i in P.contains)
 			var/atom/movable/path = i
@@ -102,10 +111,11 @@ SUBSYSTEM_DEF(points)
 		if(key == FACTION_TERRAGOV)
 			GLOB.round_statistics.points_from_orbit += current_supply_point_rate
 
-	for(var/key in supply_points)
-		for(var/mob/living/account in GLOB.alive_human_list_faction[key])
-			if(account.job.title in GLOB.jobs_marines)
-				personal_supply_points[account.ckey] = min(personal_supply_points[account.ckey] + (psp_base_gain / (1 MINUTES / wait)), psp_limit)
+	if((length(GLOB.humans_by_zlevel["2"]) > 0.2 * length(GLOB.alive_human_list_faction[FACTION_TERRAGOV])))
+		for(var/key in supply_points)
+			for(var/mob/living/account in GLOB.alive_human_list_faction[key])
+				if(account.job.title in GLOB.jobs_marines)
+					personal_supply_points[account.ckey] = min(personal_supply_points[account.ckey] + (psp_base_gain / (1 MINUTES / wait)), psp_limit)
 
 /datum/controller/subsystem/points/proc/buy_using_psp(mob/living/user)
 	var/cost = 0
@@ -125,6 +135,53 @@ SUBSYSTEM_DEF(points)
 		LAZYADDASSOCSIMPLE(shoppinglist[user.faction], "[orders[i].id]", orders[i])
 	personal_supply_points[user.ckey] -= cost
 	ckey_shopping_cart.Cut()
+
+/datum/controller/subsystem/points/proc/buy_delivery_cart(mob/living/user)
+	var/list/shopping_cart = delivery_shopping_cart[user.ckey]
+	if(!shopping_cart || !length(shopping_cart))
+		return FALSE
+
+	var/total_cost = 0
+	for(var/pack_type in shopping_cart)
+		var/datum/supply_packs/P = supply_packs[pack_type]
+		if(P)
+			total_cost += P.cost * shopping_cart[pack_type]
+
+	if(personal_supply_points[user.ckey] < total_cost)
+		to_chat(user, span_warning("Not enough personal points."))
+		return FALSE
+
+	// Deduct points and create order
+	personal_supply_points[user.ckey] -= total_cost
+
+	var/datum/supply_order/order = process_cart(user, shopping_cart)[1]
+	/*
+	var/datum/supply_order/O = new()
+	O.orderer = user.real_name
+	O.orderer_rank = user.job
+	O.authorised_by = user.ckey
+	O.faction = user.faction
+	*/
+
+	/*
+	for(var/pack_type in shopping_cart)
+		var/datum/supply_packs/P = supply_packs[pack_type]
+		for(var/i in 1 to shopping_cart[pack_type])
+			order.pack += P*/
+
+	var/turf/TC = locate(user.x, user.y, user.z)
+
+	//spawn crate and clear shoping list
+	delivery_to_turf(order, TC)
+
+	// Clear the cart
+	shopping_cart.Cut()
+
+	//effects
+	TC.visible_message(span_boldnotice("A supply drop appears suddendly!"))
+	playsound(TC,'sound/effects/tadpolehovering.ogg', 30, TRUE)
+
+	return TRUE
 
 /datum/controller/subsystem/points/proc/fast_delivery(datum/supply_order/our_order, mob/living/user)
 	var/list/beacon_list = GLOB.supply_beacon.Copy()
@@ -167,8 +224,11 @@ SUBSYSTEM_DEF(points)
 
 	var/turf/TC = locate(supply_beacon.drop_location.x, supply_beacon.drop_location.y, supply_beacon.drop_location.z)
 
-	//spawn crate and clear shoping list
+	//spawn crate
 	delivery_to_turf(our_order, TC)
+
+	SSpoints.shoppinglist[our_order.faction] -= "[our_order.id]"
+	SSpoints.shopping_history += our_order
 
 	//effects
 	supply_beacon.drop_location.visible_message(span_boldnotice("A supply drop appears suddendly!"))
@@ -205,9 +265,6 @@ SUBSYSTEM_DEF(points)
 		if(!firstpack.containertype)
 			break
 		new typepath(A)
-
-	SSpoints.shoppinglist[our_order.faction] -= "[our_order.id]"
-	SSpoints.shopping_history += our_order
 
 	//animate delivery
 
