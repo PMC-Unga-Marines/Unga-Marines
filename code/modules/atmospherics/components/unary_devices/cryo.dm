@@ -14,6 +14,7 @@
 	light_power = 0.5
 	light_color = LIGHT_COLOR_EMISSIVE_GREEN
 	vent_movement = NONE
+	device_type = NONE
 	var/autoeject = FALSE
 	var/release_notice = FALSE
 	var/temperature = 100
@@ -441,5 +442,8 @@
 		return
 	playsound(loc, 'sound/effects/metal_creaking.ogg', 25, 1)
 	go_out()
+
+/obj/machinery/atmospherics/components/unary/cryo_cell/set_pipenet(datum/pipeline/reference, obj/machinery/atmospherics/A)
+	return
 
 #undef CRYOMOBS

@@ -72,7 +72,7 @@
 		contained_atom = source_atom
 		return
 	contained_atom = source_atom.loc
-	for(var/sanity as anything in 1 to 20)
+	for(var/sanity in 1 to 20)
 		if(!contained_atom)
 			//Welcome to nullspace my friend.
 			contained_atom = source_atom
