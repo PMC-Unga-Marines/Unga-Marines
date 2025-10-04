@@ -159,14 +159,11 @@
 
 	var/alarmed = lockdown
 	//Checks if there are fire alarms in any areas associated with that firedoor
-	for(var/area/A in areas_added)
-		if(A.fire_alarm || A.air_doors_activated)
-			alarmed = TRUE
+	for(var/area/A as anything in areas_added)
+		if(!A.fire_alarm)
+			continue
+		alarmed = TRUE
 
-	var/answer = tgui_alert(user, "Would you like to [density ? "open" : "close"] this [src.name]?[ alarmed && density ? "\nNote that by doing so, you acknowledge any damages from opening this\n[src.name] as being your own fault, and you will be held accountable under the law." : ""]",\
-	"\The [src]", list("Yes, [density ? "open" : "close"]", "No"))
-	if(answer == "No" || !answer)
-		return
 	if(user.incapacitated() || (!user.canmove && !isAI(user)) || (get_dist(src, user) > 1  && !isAI(user)))
 		to_chat(user, "Sorry, you must remain able bodied and close to \the [src] in order to use it.")
 		return
@@ -197,9 +194,10 @@
 
 /obj/machinery/door/firedoor/proc/closing_process()
 	var/alarmed = FALSE
-	for(var/area/A in areas_added) // Just in case a fire alarm is turned off while the firedoor is going through an autoclose cycle
-		if(A.fire_alarm || A.air_doors_activated)
-			alarmed = TRUE
+	for(var/area/A as anything in areas_added) // Just in case a fire alarm is turned off while the firedoor is going through an autoclose cycle
+		if(!A.fire_alarm)
+			continue
+		alarmed = TRUE
 	if(alarmed)
 		nextstate = FIREDOOR_CLOSED
 		close()
