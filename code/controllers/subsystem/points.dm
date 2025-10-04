@@ -108,11 +108,11 @@ SUBSYSTEM_DEF(points)
 	for(var/key in supply_points)
 		supply_points[key] += SUPPLY_POINT_RATE / (1 MINUTES / wait)
 
-	//сделать чтобы срало только в активной фазе
-	for(var/key in supply_points)
-		for(var/mob/living/account in GLOB.alive_human_list_faction[key])
-			if(account.job.title in GLOB.jobs_marines)
-				personal_supply_points[account.ckey] = min(personal_supply_points[account.ckey] + (psp_base_gain / (1 MINUTES / wait)), psp_limit)
+	if((length(GLOB.humans_by_zlevel["2"]) > 0.2 * length(GLOB.alive_human_list_faction[FACTION_TERRAGOV])))
+		for(var/key in supply_points)
+			for(var/mob/living/account in GLOB.alive_human_list_faction[key])
+				if(account.job.title in GLOB.jobs_marines)
+					personal_supply_points[account.ckey] = min(personal_supply_points[account.ckey] + (psp_base_gain / (1 MINUTES / wait)), psp_limit)
 
 /datum/controller/subsystem/points/proc/buy_using_psp(mob/living/user)
 	var/cost = 0

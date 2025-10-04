@@ -2227,6 +2227,8 @@
 #include "code\modules\reqs\tablet.dm"
 #include "code\modules\reqs\supplypacks\personal\_personal.dm"
 #include "code\modules\reqs\supplypacks\personal\engineer.dm"
+#include "code\modules\reqs\supplypacks\personal\leader.dm"
+#include "code\modules\reqs\supplypacks\personal\marine.dm"
 #include "code\modules\reqs\supplypacks\personal\medic.dm"
 #include "code\modules\reqs\supplypacks\personal\smartgunner.dm"
 #include "code\modules\reqs\supplypacks\_supplypacks.dm"
