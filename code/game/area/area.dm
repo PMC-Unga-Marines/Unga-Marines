@@ -286,24 +286,6 @@
 	for(var/obj/machinery/computer/station_alert/alert_computer as anything in GLOB.alert_consoles)
 		alert_computer.cancelAlarm("Fire", src, src)
 
-/area/update_icon_state()
-	. = ..()
-	var/I //More important == bottom. Fire normally takes priority over everything.
-	if(alarm_state_flags && (!requires_power || power_environ)) //It either doesn't require power or the environment is powered. And there is an alarm.
-		if(alarm_state_flags & ALARM_WARNING_READY)
-			I = "alarm_ready" //Area is ready for something.
-		if(alarm_state_flags & ALARM_WARNING_EVAC)
-			I = "alarm_evac" //Evacuation happening.
-		if(alarm_state_flags & ALARM_WARNING_ATMOS)
-			I = "alarm_atmos"	//Atmos breach.
-		if(alarm_state_flags & ALARM_WARNING_FIRE)
-			I = "alarm_fire" //Fire happening.
-		if(alarm_state_flags & ALARM_WARNING_DOWN)
-			I = "alarm_down" //Area is shut down.
-
-	if(icon_state != I)
-		icon_state = I //If the icon state changed, change it. Otherwise do nothing.
-
 /area/proc/powered(chan)
 	if(!requires_power)
 		return TRUE
