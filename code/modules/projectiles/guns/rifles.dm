@@ -765,7 +765,7 @@
 	force = 20
 	burst_amount = 2
 	autoburst_delay = 0.1 SECONDS
-	fire_delay = 0.25 SECONDS
+	fire_delay = 0.24 SECONDS
 	placed_overlay_iconstate = "ak47"
 
 /obj/item/weapon/gun/rifle/type16/m2
