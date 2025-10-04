@@ -734,7 +734,6 @@
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/flashlight/under,
 		/obj/item/attachable/foldable/bipod,
-		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/extended_barrel,
 		/obj/item/attachable/heavy_barrel,
@@ -762,11 +761,11 @@
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 35, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 5, "stock_y" = 12)
 	starting_attachment_types = list(/obj/item/attachable/stock/mpi_km)
-	damage_falloff_mult = 0.5
+	damage_falloff_mult = 0.6
 	force = 20
 	burst_amount = 2
 	autoburst_delay = 0.1 SECONDS
-	fire_delay = 0.2 SECONDS
+	fire_delay = 0.24 SECONDS
 	placed_overlay_iconstate = "ak47"
 
 /obj/item/weapon/gun/rifle/type16/m2
@@ -795,7 +794,6 @@
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/flashlight/under,
-		/obj/item/attachable/burstfire_assembly,
 		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/extended_barrel,
@@ -822,7 +820,7 @@
 	starting_attachment_types = list(/obj/item/attachable/foldable/som_carbine)
 	force = 10
 	burst_amount = 1
-	fire_delay = 0.20 SECONDS
+	fire_delay = 0.22 SECONDS
 	accuracy_mult = 0.75
 	scatter = 12
 	recoil = 2
@@ -830,7 +828,8 @@
 	movement_acc_penalty_mult = 4
 	burst_amount = 3
 	autoburst_delay = 0.10 SECONDS
-	damage_falloff_mult = 2.3
+	damage_falloff_mult = 2.1
+	damage_mult = 0.87
 	akimbo_additional_delay = 2
 	akimbo_scatter_mod = 24
 	akimbo_additional_delay = 20
@@ -1960,13 +1959,14 @@
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 46, "muzzle_y" = 16,"rail_x" = 18, "rail_y" = 19, "under_x" = 34, "under_y" = 13, "stock_x" = 0, "stock_y" = 13)
 	aim_fire_delay = 0.15 SECONDS
-	aim_speed_modifier = 2.5
+	aim_speed_modifier = 1.5
 
-	fire_delay = 0.25 SECONDS
+	fire_delay = 0.2 SECONDS
 	burst_amount = 1
 	burst_delay = 0.15 SECONDS
 	accuracy_mult = 1.2
 	scatter = -2
+	movement_acc_penalty_mult = 4
 	wield_delay = 0.8 SECONDS
 	aim_slowdown = 0.5
 	damage_falloff_mult = 0.5
