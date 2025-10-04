@@ -34,17 +34,17 @@
 	if(severity >= max(health, EXPLOSION_THRESHOLD_GIB + get_soft_armor(BOMB) * 2))
 		var/oldloc = loc
 		gib()
-		if(mob_size > MOB_SIZE_SMALL) // cause the size is 0 and will cause errors
+		if(mob_size > MOB_SIZE_SMALL) // cause the size of 0 will cause errors
 			create_shrapnel(oldloc, rand(4, 8) * mob_size, direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light/xeno)
 		return
-
-	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
 
 	var/sunder_amount = severity * 0.125
 	adjust_sunder(sunder_amount)
 
+	apply_damages(severity * 0.5, severity * 0.5, blocked = BOMB, updating_health = TRUE)
+
 	var/modified_severity = modify_by_armor(severity, BOMB)
-	explosion_throw(modified_severity, direction)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, explosion_throw), modified_severity, direction)
 
 	var/powerfactor_value = modified_severity * 0.01
 	if(mob_size < MOB_SIZE_BIG)

@@ -130,7 +130,7 @@
 #define INFESTATION_MARINE_DEN_RUSH 4
 #define INFESTATION_MARIN_RUSH_MAJOR 5
 
-#define NUCLEAR_WAR_LARVA_POINTS_NEEDED 8
+#define NUCLEAR_WAR_LARVA_POINTS_NEEDED 9
 #define CRASH_LARVA_POINTS_NEEDED 9
 
 #define FREE_XENO_AT_START 2
@@ -190,6 +190,6 @@
 // make sure you don't turn 0 into a false positive
 #define BIOSCAN_DELTA(count, delta) count ? max(0, count + rand(-delta, delta)) : 0
 
-#define BIOSCAN_LOCATION(show_locations, location) ((show_locations && location) ? ", including one in [location]" : "")
+#define BIOSCAN_LOCATION(show_locations, location) ((show_locations && location) ? ", включая одного в [location]" : "")
 
 #define AI_SCAN_DELAY 15 SECONDS

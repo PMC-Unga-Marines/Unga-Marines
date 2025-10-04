@@ -21,6 +21,7 @@
 	name = "Show Hive status"
 	action_icon = 'icons/Xeno/actions/queen.dmi'
 	action_icon_state = "watch_xeno"
+	background_icon = 'icons/Xeno/actions/_actions.dmi'
 
 /datum/action/observer_action/show_hivestatus/action_activate()
 	if(!can_use_action())
@@ -117,6 +118,7 @@
 	name = "Spawn as Facehugger"
 	action_icon = 'icons/Xeno/actions/carrier.dmi'
 	action_icon_state = "hugger_set"
+	background_icon = 'icons/Xeno/actions/_actions.dmi'
 
 /datum/action/observer_action/find_facehugger_spawn/action_activate()
 	var/mob/dead/observer/dead_owner = owner
@@ -157,14 +159,14 @@
 		name = potential_xeno.name
 		spawn_point[name] = potential_xeno
 
-	for(var/obj/alien/egg/hugger/potential_egg AS in GLOB.xeno_egg_hugger)
+	for(var/obj/alien/egg/facehugger/potential_egg AS in GLOB.xeno_egg_hugger)
 		if(dead_owner.z != potential_egg.z)
 			continue
 		if(potential_egg.maturity_stage != potential_egg.stage_ready_to_burst)
 			continue
 		if(!potential_egg.hugger_type)
 			continue
-		if(istype(potential_egg, /obj/alien/egg/hugger/yautja))
+		if(istype(potential_egg, /obj/alien/egg/facehugger/yautja))
 			continue
 
 		var/area_egg = get_area(potential_egg)
