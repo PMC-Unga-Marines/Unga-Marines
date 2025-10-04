@@ -829,7 +829,7 @@
 	burst_amount = 3
 	autoburst_delay = 0.10 SECONDS
 	damage_falloff_mult = 2.1
-	damage_mult = 0.8
+	damage_mult = 0.87
 	akimbo_additional_delay = 2
 	akimbo_scatter_mod = 24
 	akimbo_additional_delay = 20
