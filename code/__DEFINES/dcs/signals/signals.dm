@@ -868,3 +868,6 @@
 /// From [/datum/controller/subsystem/security_level/proc/set_level]
 /// `/datum/security_level/next_level`, `/datum/security_level/previous_level`
 #define COMSIG_SECURITY_LEVEL_CHANGED "security_level_changed"
+
+/// From /area/proc/fire_alert() and /area/proc/fire_reset()
+#define COMSIG_AREA_FIRE_ALARM_SET "area_fire_alarm_set"

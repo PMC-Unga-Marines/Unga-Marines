@@ -51,21 +51,15 @@
 		atom_flags |= INITIALIZED
 		return INITIALIZE_HINT_QDEL
 	var/area/A = get_area(src)
-	ASSERT(istype(A))
+	RegisterSignal(A, COMSIG_AREA_FIRE_ALARM_SET, PROC_REF(on_fire_alarm))
 
-	LAZYADD(A.all_fire_doors, src)
+	ASSERT(istype(A))
 	areas_added = list(A)
 
 	for(var/direction as anything in GLOB.cardinals)
 		A = get_area(get_step(src,direction))
 		if(istype(A) && !(A in areas_added))
-			LAZYADD(A.all_fire_doors, src)
 			areas_added += A
-
-/obj/machinery/door/firedoor/Destroy()
-	for(var/area/A as anything in areas_added)
-		LAZYREMOVE(A.all_fire_doors, src)
-	return ..()
 
 /obj/machinery/door/firedoor/examine(mob/user) // todo remove the shitty o vars
 	. = ..()
@@ -319,6 +313,23 @@
 		to_chat(user, span_warning("The firelock is welded shut."))
 		return
 	return ..()
+
+/obj/machinery/door/firedoor/proc/on_fire_alarm(datum/source, turned_on)
+	SIGNAL_HANDLER
+	if(blocked)
+		return
+	if(turned_on)
+		if(operating)
+			nextstate = FIREDOOR_CLOSED
+			return
+		if(!density)
+			close()
+		return
+	if(operating)
+		nextstate = OPEN
+		return
+	if(density)
+		open()
 
 /obj/machinery/door/firedoor/mainship
 	name = "\improper Emergency Shutter"

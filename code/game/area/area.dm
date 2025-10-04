@@ -59,8 +59,6 @@
 	var/area_flags = NONE
 	///Cameras in this area
 	var/list/cameras
-	///Keeps a lit of adjacent firelocks, used for alarms/ZAS
-	var/list/all_fire_doors
 	var/list/ambience = list('sound/ambience/ambigen1.ogg', 'sound/ambience/ambigen3.ogg', 'sound/ambience/ambigen4.ogg', \
 		'sound/ambience/ambigen5.ogg', 'sound/ambience/ambigen6.ogg', 'sound/ambience/ambigen7.ogg', 'sound/ambience/ambigen8.ogg',\
 		'sound/ambience/ambigen9.ogg', 'sound/ambience/ambigen10.ogg', 'sound/ambience/ambigen11.ogg', 'sound/ambience/ambigen12.ogg',\
@@ -253,34 +251,19 @@
 	if(fire_alarm)
 		return
 	fire_alarm = TRUE
-	for(var/obj/machinery/door/firedoor/D as anything in all_fire_doors)
-		if(D.blocked)
-			continue
-		if(D.operating)
-			D.nextstate = FIREDOOR_CLOSED
-			continue
-		if(!D.density)
-			D.close()
 	var/list/cameras = list()
 	for(var/obj/machinery/computer/station_alert/alert_computer as anything in GLOB.alert_consoles)
 		alert_computer.triggerAlarm("Fire", src, cameras, src)
+	SEND_SIGNAL(src, COMSIG_AREA_FIRE_ALARM_SET, TRUE)
 
 /area/proc/fire_reset()
 	if(!fire_alarm)
 		return
 	fire_alarm = FALSE
 
-	for(var/obj/machinery/door/firedoor/D as anything in all_fire_doors)
-		if(D.blocked)
-			continue
-		if(D.operating)
-			D.nextstate = OPEN
-			continue
-		if(D.density)
-			D.open()
-
 	for(var/obj/machinery/computer/station_alert/alert_computer as anything in GLOB.alert_consoles)
 		alert_computer.cancelAlarm("Fire", src, src)
+	SEND_SIGNAL(src, COMSIG_AREA_FIRE_ALARM_SET, FALSE)
 
 /area/proc/powered(chan)
 	if(!requires_power)
