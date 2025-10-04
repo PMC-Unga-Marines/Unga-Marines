@@ -5,7 +5,7 @@
 	accurate_range = 12
 	damage = 25
 	penetration = 5
-	additional_xeno_penetration = 10
+	additional_xeno_penetration = 20
 	matter_cost = 4
 
 /datum/ammo/bullet/rifle/ap
