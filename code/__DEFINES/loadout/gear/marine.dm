@@ -21,5 +21,6 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/vehicle/ridden/motorbike = list(CAT_MARINE, "Bike", 45, "blue"),
 	/obj/item/sidecar = list(CAT_MARINE, "Bike sidecar", 15, "blue"),
 	/obj/item/ammo_magazine/rifle/ar21/extended = list(CAT_MARINE, "AR-21 extended magazine", 15, "blue"),
+	/obj/item/ammo_magazine/rifle/type63 = list(CAT_MARINE, "Type-63 magazine", 15, "blue"),
 	/obj/item/storage/briefcase/standard_magnum = list(CAT_MARINE, "R-76 crate", 25, "blue"),
 ))
