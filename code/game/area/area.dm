@@ -251,7 +251,7 @@
 	if(fire_alarm)
 		return
 	fire_alarm = TRUE
-	var/list/cameras = list()
+	var/list/cameras = list() // what does it even do?
 	for(var/obj/machinery/computer/station_alert/alert_computer as anything in GLOB.alert_consoles)
 		alert_computer.triggerAlarm("Fire", src, cameras, src)
 	SEND_SIGNAL(src, COMSIG_AREA_FIRE_ALARM_SET, TRUE)
