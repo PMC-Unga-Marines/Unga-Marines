@@ -761,7 +761,7 @@
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 35, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 5, "stock_y" = 12)
 	starting_attachment_types = list(/obj/item/attachable/stock/mpi_km)
-	damage_falloff_mult = 0.5
+	damage_falloff_mult = 0.6
 	force = 20
 	burst_amount = 2
 	autoburst_delay = 0.1 SECONDS
