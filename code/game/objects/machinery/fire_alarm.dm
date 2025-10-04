@@ -68,7 +68,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/firealarm, (-32))
 		return
 
 	var/area/A = get_area(src)
-	if(A.alarm_state_flags & ALARM_WARNING_FIRE)
+	if(A.fire_alarm)
 		set_light_color(LIGHT_COLOR_EMISSIVE_ORANGE)
 	else
 		set_light_color(SSsecurity_level?.current_security_level?.fire_alarm_light_color || LIGHT_COLOR_WHITE)
@@ -78,7 +78,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/firealarm, (-32))
 /obj/machinery/firealarm/update_icon_state()
 	. = ..()
 	var/area/A = get_area(src)
-	icon_state = "fire[!CHECK_BITFIELD(A.alarm_state_flags, ALARM_WARNING_FIRE)]"
+	icon_state = "fire[!A.fire_alarm]"
 
 /obj/machinery/firealarm/update_overlays()
 	. = ..()
@@ -90,7 +90,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/firealarm, (-32))
 	. += emissive_appearance(icon, "fire_o[(is_mainship_level(z)) ? SSsecurity_level.get_current_level_as_text() : "green"]", src)
 	. += mutable_appearance(icon, "fire_o[(is_mainship_level(z)) ? SSsecurity_level.get_current_level_as_text() : "green"]")
 	var/area/A = get_area(src)
-	if(A.alarm_state_flags & ALARM_WARNING_FIRE)
+	if(A.fire_alarm)
 		. += mutable_appearance(icon, "fire_o1")
 
 /obj/machinery/firealarm/fire_act(burn_level, flame_color)
@@ -195,25 +195,23 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/firealarm, (-32))
 
 	return TRUE
 
-/obj/machinery/firealarm/attack_hand(mob/user, list/modifiers)
+/obj/machinery/firealarm/attack_hand(mob/user)
 	. = ..()
 	if(. || buildstage != FIRE_ALARM_BUILD_SECURED)
 		return .
-	add_fingerprint(user)
+	add_fingerprint(user, "firealarm set")
 	alarm(user)
-	return TRUE
 
-/obj/machinery/firealarm/attack_hand_secondary(mob/user, list/modifiers)
+/obj/machinery/firealarm/attack_hand_alternate(mob/user)
 	. = ..()
-	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN || buildstage != FIRE_ALARM_BUILD_SECURED)
+	if(. || buildstage != FIRE_ALARM_BUILD_SECURED)
 		return .
-	add_fingerprint(user)
+	add_fingerprint(user, "firealarm reset")
 	reset(user)
-	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 /obj/machinery/firealarm/attack_ai(mob/user)
 	var/area/A = get_area(src)
-	if(A.alarm_state_flags & ALARM_WARNING_FIRE)
+	if(A.fire_alarm)
 		return reset()
 	alarm()
 

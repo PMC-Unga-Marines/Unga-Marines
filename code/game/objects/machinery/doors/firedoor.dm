@@ -160,7 +160,7 @@
 	var/alarmed = lockdown
 	//Checks if there are fire alarms in any areas associated with that firedoor
 	for(var/area/A in areas_added)
-		if(A.alarm_state_flags & ALARM_WARNING_FIRE || A.air_doors_activated)
+		if(A.fire_alarm || A.air_doors_activated)
 			alarmed = TRUE
 
 	var/answer = tgui_alert(user, "Would you like to [density ? "open" : "close"] this [src.name]?[ alarmed && density ? "\nNote that by doing so, you acknowledge any damages from opening this\n[src.name] as being your own fault, and you will be held accountable under the law." : ""]",\
@@ -198,7 +198,7 @@
 /obj/machinery/door/firedoor/proc/closing_process()
 	var/alarmed = FALSE
 	for(var/area/A in areas_added) // Just in case a fire alarm is turned off while the firedoor is going through an autoclose cycle
-		if(A.alarm_state_flags & ALARM_WARNING_FIRE || A.air_doors_activated)
+		if(A.fire_alarm || A.air_doors_activated)
 			alarmed = TRUE
 	if(alarmed)
 		nextstate = FIREDOOR_CLOSED

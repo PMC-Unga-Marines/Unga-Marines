@@ -21,7 +21,8 @@
 	/// This uses the same nested list format as turfs_by_zlevel
 	var/list/list/turf/turfs_to_uncontain_by_zlevel = list()
 
-	var/alarm_state_flags = NONE
+	///Does the area has fire alarm?
+	var/fire_alarm = FALSE
 
 	var/unique = TRUE
 
@@ -250,11 +251,9 @@
 /area/proc/fire_alert()
 	if(name == "Space") //no fire alarms in space
 		return
-	if(alarm_state_flags & ALARM_WARNING_FIRE)
+	if(fire_alarm)
 		return
-	alarm_state_flags |= ALARM_WARNING_FIRE
-	update_icon()
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	fire_alarm = TRUE
 	for(var/obj/machinery/door/firedoor/D as anything in all_fire_doors)
 		if(D.blocked)
 			continue
@@ -268,11 +267,9 @@
 		alert_computer.triggerAlarm("Fire", src, cameras, src)
 
 /area/proc/fire_reset()
-	if(!(alarm_state_flags & ALARM_WARNING_FIRE))
+	if(!fire_alarm)
 		return
-	alarm_state_flags &= ~ALARM_WARNING_FIRE
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	update_icon()
+	fire_alarm = FALSE
 
 	for(var/obj/machinery/door/firedoor/D as anything in all_fire_doors)
 		if(D.blocked)
