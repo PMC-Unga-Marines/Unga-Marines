@@ -244,3 +244,14 @@
 	melee_mod = 10
 	pixel_shift_x = 0
 	pixel_shift_y = 0
+
+/obj/item/attachable/stock/type81
+	name = "Type-81 wooden stock"
+	desc = "A metallic stock with a wooden paint coating, made to fit lMG-D."
+	icon_state = "type81stock"
+
+/obj/item/attachable/stock/type53
+	name = "Type53 stock"
+	desc = "A specialized stock for the Type32."
+	icon_state = "type53stock"
+

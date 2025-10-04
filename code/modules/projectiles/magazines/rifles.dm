@@ -207,6 +207,50 @@
 	max_rounds = 50
 	wield_delay_mod = 1 SECONDS
 
+//-------------------------------------------------------
+// Marine mags for CKC
+/obj/item/ammo_magazine/rifle/type81
+	name = "\improper Type-81 drum magazine (6.02x41)"
+	desc = "A 75 round 6.02x41mm drum."
+	icon_state = "type81"
+	icon_state_mini = "type81"
+	bonus_overlay = "type81_mag"
+	w_class = WEIGHT_CLASS_NORMAL
+	max_rounds = 75
+	scatter_mod = 3
+	wield_delay_mod = 1.5 SECONDS
+
+/obj/item/ammo_magazine/rifle/type63clip
+	name = "Type-63 clip"
+	desc = "A enbloc clip filled with 10X27 rifle rounds for the Type-63."
+	caliber = CALIBER_10X27_CASELESS
+	icon_state = "type63clip"
+	icon_state_mini = "type63clip_e"
+	default_ammo = /datum/ammo/bullet/rifle/dmr37
+	max_rounds = 12
+
+/obj/item/ammo_magazine/rifle/type53clip
+	name = "Type-53 clip"
+	desc = "A enbloc clip filled with 10X27 rifle rounds for the Type-53 or Type-63."
+	caliber = CALIBER_10X27_CASELESS
+	w_class = WEIGHT_CLASS_SMALL
+	icon_state = "type53"
+	icon_state_mini = "type53_e"
+	default_ammo = /datum/ammo/bullet/rifle/dmr37
+	max_rounds = 4
+
+/obj/item/ammo_magazine/rifle/type63
+	name = "Type-63 magazine 10X27"
+	desc = "A 27 magazine 10X27 rifle rounds for the Type-63."
+	caliber = CALIBER_10X27_CASELESS
+	icon_state = "type63"
+	icon_state_mini = "type63"
+	bonus_overlay = "type63_mag"
+	default_ammo = /datum/ammo/bullet/rifle/dmr37
+	wield_delay_mod = 0.7 SECONDS
+	max_rounds = 27
+	scatter_mod = 2
+
 // RPD
 
 /obj/item/ammo_magazine/rifle/lmg_d

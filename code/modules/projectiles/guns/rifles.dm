@@ -700,6 +700,166 @@
 	)
 
 //-------------------------------------------------------
+// China SKS to marine
+
+/obj/item/weapon/gun/rifle/type63
+	name = "\improper Type-63 automatic rifle"
+	desc = "A Chinese automatic rifle based on the SCS to replace the Type 53 self-loading carbine."
+	icon = 'icons/obj/items/gun/rifle64.dmi'
+	icon_state = "type63"
+	worn_icon_state = "type63"
+	caliber = CALIBER_10X27_CASELESS //codex
+	load_method = SINGLE_CASING
+	muzzleflash_iconstate = "muzzle_flash_medium"
+	max_shells = 27  //codex
+	wield_delay = 0.3 SECONDS
+	aim_slowdown = 0.5
+	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mosin.ogg'
+	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/ak47_reload.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
+	default_ammo_type = /datum/ammo/bullet/rifle/dmr37
+	allowed_ammo_types = list(
+	/obj/item/ammo_magazine/rifle/type63clip,
+	/obj/item/ammo_magazine/rifle/type53clip,
+	/obj/item/ammo_magazine/rifle/type63,
+	/obj/item/ammo_magazine/rifle/type16,
+	)
+	attachable_allowed = list(
+		/obj/item/attachable/stock/type81,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight/under,
+	)
+
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+
+	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 15,"rail_x" = 20, "rail_y" = 19, "under_x" = 21, "under_y" = 13, "stock_x" = 5, "stock_y" = 12)
+	starting_attachment_types = list(/obj/item/attachable/stock/type81)
+
+	fire_delay = 0.5 SECONDS
+	damage_mult = 0.5
+	burst_amount = 1
+	movement_acc_penalty_mult = 3
+	damage_falloff_mult = 0.6
+	force = 20
+
+/obj/item/weapon/gun/rifle/type53
+	name = "\improper Type-53 self-loading carbine"
+	desc = "A Chinese automatic rifle based on the SCS."
+	icon = 'icons/obj/items/gun/rifle64.dmi'
+	icon_state = "type53"
+	worn_icon_state = "type53"
+	caliber = CALIBER_10X27_CASELESS //codex
+	load_method = SINGLE_CASING
+	muzzleflash_iconstate = "muzzle_flash_medium"
+	max_chamber_items = 2
+	max_shells = 24  //codex
+	wield_delay = 0.3 SECONDS
+	aim_slowdown = 0.5
+	fire_sound = 'sound/weapons/guns/fire/tgmc/kinetic/gun_mosin.ogg'
+	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/ak47_reload.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
+	default_ammo_type = /datum/ammo/bullet/rifle/dmr37
+	allowed_ammo_types = list(
+	/obj/item/ammo_magazine/rifle/type63clip,
+	/obj/item/ammo_magazine/rifle/type53clip,
+	)
+	attachable_allowed = list(
+		/obj/item/attachable/stock/type53,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight/under,
+	)
+
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
+
+	attachable_offset = list("muzzle_x" = 45, "muzzle_y" = 15,"rail_x" = 20, "rail_y" = 19, "under_x" = 21, "under_y" = 13, "stock_x" = 5, "stock_y" = 12)
+	starting_attachment_types = list(/obj/item/attachable/stock/type53)
+
+	fire_delay = 0.65 SECONDS
+	scatter = 0.5
+	burst_amount = 1
+	movement_acc_penalty_mult = 3
+	damage_falloff_mult = 0.7
+	force = 45
+
+/obj/item/weapon/gun/rifle/type81
+	name = "\improper Type-81 light machinegun"
+	desc = "Chinese Frankenstein Type-63 and Type-16. The resulting light machine gun can use a magazine from Type-16 and Type-63.."
+	icon = 'icons/obj/items/gun/rifle64.dmi'
+	icon_state = "type81"
+	worn_icon_state = "type81"
+	caliber = CALIBER_602X41 //codex
+	muzzleflash_iconstate = "muzzle_flash_medium"
+	max_shells = 75  //codex
+	wield_delay = 0.1 SECONDS
+	aim_slowdown = 1.2
+	fire_sound = 'sound/weapons/guns/fire/ak47.ogg'
+	unload_sound = 'sound/weapons/guns/interact/ak47_unload.ogg'
+	reload_sound = 'sound/weapons/guns/interact/ak47_reload.ogg'
+	cocked_sound = 'sound/weapons/guns/interact/ak47_cocked.ogg'
+	default_ammo_type = /obj/item/ammo_magazine/rifle/type81
+	allowed_ammo_types = list(
+	/obj/item/ammo_magazine/rifle/type81,
+	/obj/item/ammo_magazine/rifle/type16,
+	/obj/item/ammo_magazine/rifle/type16/m2,
+	/obj/item/ammo_magazine/rifle/type16/extended,
+	)
+	attachable_allowed = list(
+		/obj/item/attachable/stock/type81,
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
+		/obj/item/attachable/flashlight,
+		/obj/item/attachable/magnetic_harness,
+		/obj/item/attachable/buildasentry,
+		/obj/item/attachable/shoulder_mount,
+		/obj/item/attachable/verticalgrip,
+		/obj/item/attachable/foldable/bipod,
+		/obj/item/weapon/gun/pistol/plasma_pistol,
+		/obj/item/weapon/gun/shotgun/combat/masterkey,
+		/obj/item/weapon/gun/flamer/mini_flamer,
+		/obj/item/weapon/gun/grenade_launcher/underslung,
+		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
+		/obj/item/weapon/gun/grenade_launcher/underslung/mpi,
+		/obj/item/attachable/reddot,
+		/obj/item/attachable/b7_scope,
+		/obj/item/attachable/lasersight,
+		/obj/item/attachable/flashlight/under,
+	)
+
+	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES|GUN_WIELDED_FIRING_ONLY
+	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
+
+	attachable_offset = list("muzzle_x" = 35, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 5, "stock_y" = 12)
+	starting_attachment_types = list(/obj/item/attachable/stock/type81)
+
+	fire_delay = 0.23 SECONDS
+	scatter = -3
+	burst_amount = 3
+	movement_acc_penalty_mult = 6.5
+
+//-------------------------------------------------------
 // MPI-KM but for marines
 
 /obj/item/weapon/gun/rifle/type16
