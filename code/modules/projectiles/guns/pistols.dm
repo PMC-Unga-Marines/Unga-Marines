@@ -505,6 +505,7 @@
 	allowed_ammo_types = list(
 		/obj/item/ammo_magazine/pistol/vp70,
 		/obj/item/ammo_magazine/pistol/vp70/incendiary,
+		/obj/item/ammo_magazine/pistol/vp70/fmj,
 	)
 	force = 8
 	attachable_allowed = list(
