@@ -233,74 +233,58 @@
 /area/proc/PlaceOnTopReact(list/new_baseturfs, turf/fake_turf_type, flags)
 	return flags
 
-/area/proc/poweralert(state, obj/source)
+/area/proc/power_alert(state, obj/source)
 	if(state == poweralm)
 		return
 
 	poweralm = state
 
-	for(var/i in GLOB.alert_consoles)
-		var/obj/machinery/computer/station_alert/SA = i
-		if(SA.z != source.z)
+	for(var/obj/machinery/computer/station_alert/alert_computer as anything in GLOB.alert_consoles)
+		if(alert_computer.z != source.z)
 			continue
 		if(state == 1)
-			SA.cancelAlarm("Power", src, source)
+			alert_computer.cancelAlarm("Power", src, source)
 		else
-			SA.triggerAlarm("Power", src, null, source)
+			alert_computer.triggerAlarm("Power", src, null, source)
 
-/area/proc/air_doors_close()
-	for(var/obj/machinery/door/firedoor/E in all_fire_doors)
-		if(E.blocked)
-			continue
-
-		if(E.operating)
-			E.nextstate = OPEN
-		else if(!E.density)
-			E.close()
-
-/area/proc/air_doors_open()
-	for(var/obj/machinery/door/firedoor/E in all_fire_doors)
-		if(E.blocked)
-			continue
-
-		if(E.operating)
-			E.nextstate = OPEN
-		else if(E.density)
-			E.open()
-
-/area/proc/firealert()
+/area/proc/fire_alert()
 	if(name == "Space") //no fire alarms in space
 		return
-	if(!(alarm_state_flags & ALARM_WARNING_FIRE))
-		alarm_state_flags |= ALARM_WARNING_FIRE
-		update_icon()
-		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-		for(var/obj/machinery/door/firedoor/D in all_fire_doors)
-			if(!D.blocked)
-				if(D.operating)
-					D.nextstate = FIREDOOR_CLOSED
-				else if(!D.density)
-					D.close()
-		var/list/cameras = list()
-		for (var/obj/machinery/computer/station_alert/a in GLOB.machines)
-			a.triggerAlarm("Fire", src, cameras, src)
-
-/area/proc/firereset()
 	if(alarm_state_flags & ALARM_WARNING_FIRE)
-		alarm_state_flags &= ~ALARM_WARNING_FIRE
-		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-		update_icon()
+		return
+	alarm_state_flags |= ALARM_WARNING_FIRE
+	update_icon()
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	for(var/obj/machinery/door/firedoor/D as anything in all_fire_doors)
+		if(D.blocked)
+			continue
+		if(D.operating)
+			D.nextstate = FIREDOOR_CLOSED
+			continue
+		if(!D.density)
+			D.close()
+	var/list/cameras = list()
+	for(var/obj/machinery/computer/station_alert/alert_computer as anything in GLOB.alert_consoles)
+		alert_computer.triggerAlarm("Fire", src, cameras, src)
 
-		for(var/obj/machinery/door/firedoor/D in all_fire_doors)
-			if(!D.blocked)
-				if(D.operating)
-					D.nextstate = OPEN
-				else if(D.density)
-					D.open()
+/area/proc/fire_reset()
+	if(!(alarm_state_flags & ALARM_WARNING_FIRE))
+		return
+	alarm_state_flags &= ~ALARM_WARNING_FIRE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	update_icon()
 
-		for(var/obj/machinery/computer/station_alert/a in GLOB.machines)
-			a.cancelAlarm("Fire", src, src)
+	for(var/obj/machinery/door/firedoor/D as anything in all_fire_doors)
+		if(D.blocked)
+			continue
+		if(D.operating)
+			D.nextstate = OPEN
+			continue
+		if(D.density)
+			D.open()
 
+	for(var/obj/machinery/computer/station_alert/alert_computer as anything in GLOB.alert_consoles)
+		alert_computer.cancelAlarm("Fire", src, src)
 
 /area/update_icon_state()
 	. = ..()

@@ -46,23 +46,24 @@
 /obj/machinery/door/firedoor/Initialize(mapload)
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)
-		if(F != src)
-			atom_flags |= INITIALIZED
-			return INITIALIZE_HINT_QDEL
+		if(F == src)
+			continue
+		atom_flags |= INITIALIZED
+		return INITIALIZE_HINT_QDEL
 	var/area/A = get_area(src)
 	ASSERT(istype(A))
 
 	LAZYADD(A.all_fire_doors, src)
 	areas_added = list(A)
 
-	for(var/direction in GLOB.cardinals)
+	for(var/direction as anything in GLOB.cardinals)
 		A = get_area(get_step(src,direction))
 		if(istype(A) && !(A in areas_added))
 			LAZYADD(A.all_fire_doors, src)
 			areas_added += A
 
 /obj/machinery/door/firedoor/Destroy()
-	for(var/area/A in areas_added)
+	for(var/area/A as anything in areas_added)
 		LAZYREMOVE(A.all_fire_doors, src)
 	return ..()
 
