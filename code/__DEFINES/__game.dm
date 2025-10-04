@@ -24,19 +24,6 @@
 #define MAP_VAPOR_PROCESSING "Vapor Processing"
 #define MAP_TALOS "Talos"
 
-#define SEE_INVISIBLE_MINIMUM 5
-
-#define INVISIBILITY_LIGHTING 20
-
-#define SEE_INVISIBLE_LIVING 25
-
-#define INVISIBILITY_OBSERVER 60
-#define SEE_INVISIBLE_OBSERVER 60
-
-#define INVISIBILITY_MAXIMUM 100
-
-#define INVISIBILITY_ABSTRACT 101 //only used for abstract objects (e.g. spacevine_controller), things that are not really there.
-
 //Object specific defines
 #define CANDLE_LUM 3 //For how bright candles are
 
@@ -90,8 +77,3 @@
 #define WORLD_VIEW "15x15"
 #define WORLD_VIEW_NUM 7
 #define VIEW_NUM_TO_STRING(v) "[1 + 2 * v]x[1 + 2 * v]"
-
-#define TEXT_NORTH "[NORTH]"
-#define TEXT_SOUTH "[SOUTH]"
-#define TEXT_EAST "[EAST]"
-#define TEXT_WEST "[WEST]"

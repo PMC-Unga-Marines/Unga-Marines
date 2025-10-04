@@ -24,6 +24,11 @@
 	/// 2 = complete, 1 = no wires,  0 = circuit gone
 	var/buildstage = 2
 
+//whoever made these the sprites on these inverted I will find you, fix this shit and change the offset
+// todo: actually replace all of these in maps
+// also remove the 	switch(dir) when you do
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/firealarm, (-32))
+
 /obj/machinery/firealarm/Initialize(mapload, direction, building)
 	. = ..()
 
@@ -80,7 +85,7 @@
 		return
 	if(CHECK_BITFIELD(machine_stat, NOPOWER))
 		return
-	. += emissive_appearance(icon, "fire_o[(is_mainship_level(z)) ? SSsecurity_level.get_current_level_as_text() : "green"]")
+	. += emissive_appearance(icon, "fire_o[(is_mainship_level(z)) ? SSsecurity_level.get_current_level_as_text() : "green"]", src)
 	. += mutable_appearance(icon, "fire_o[(is_mainship_level(z)) ? SSsecurity_level.get_current_level_as_text() : "green"]")
 	var/area/A = get_area(src)
 	if(A.alarm_state_flags & ALARM_WARNING_FIRE)

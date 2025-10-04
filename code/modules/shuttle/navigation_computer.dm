@@ -47,16 +47,16 @@
 	if(!mapload)
 		connect_to_shuttle(SSshuttle.get_containing_shuttle(src))
 
-		for(var/obj/docking_port/stationary/S AS in SSshuttle.stationary_docking_ports)
-			if(S.shuttle_id == shuttle_id)
-				jumpto_ports[S.shuttle_id] = TRUE
+		for(var/obj/docking_port/stationary/port as anything in SSshuttle.stationary_docking_ports)
+			if(port.shuttle_id != shuttle_id)
+				continue
+			jumpto_ports[port.shuttle_id] = TRUE
 
-	for(var/V in SSshuttle.stationary_docking_ports)
-		if(!V)
+	for(var/obj/docking_port/stationary/port as anything in SSshuttle.stationary_docking_ports)
+		if(!port)
 			continue
-		var/obj/docking_port/stationary/S = V
-		if(jumpto_ports[S.shuttle_id])
-			z_lock |= S.z
+		if(jumpto_ports[port.shuttle_id])
+			z_lock |= port.z
 	whitelist_turfs = typecacheof(whitelist_turfs)
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/Destroy()
@@ -111,16 +111,16 @@
 	var/mob/camera/aiEye/remote/shuttle_docker/the_eye = eyeobj
 	the_eye.setDir(shuttle_port.dir)
 	var/turf/origin = locate(shuttle_port.x + x_offset, shuttle_port.y + y_offset, shuttle_port.z)
-	for(var/V in shuttle_port.shuttle_areas)
-		var/area/A = V
-		for(var/turf/T in A)
-			if(T.z != origin.z)
+	for(var/area/shuttle_area as anything in shuttle_port.shuttle_areas)
+		for(var/turf/shuttle_turf in shuttle_area)
+			if(shuttle_turf.z != origin.z)
 				continue
 			var/image/I = image('icons/effects/alphacolors.dmi', origin, "red")
-			var/x_off = T.x - origin.x
-			var/y_off = T.y - origin.y
+			var/x_off = shuttle_turf.x - origin.x
+			var/y_off = shuttle_turf.y - origin.y
 			I.loc = locate(origin.x + x_off, origin.y + y_off, origin.z) //we have to set this after creating the image because it might be null, and images created in nullspace are immutable.
 			I.layer = ABOVE_NORMAL_TURF_LAYER
+			SET_PLANE(I, ABOVE_GAME_PLANE, shuttle_turf)
 			I.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 			the_eye.placement_images[I] = list(x_off, y_off)
 
@@ -205,12 +205,11 @@
 
 	QDEL_LIST(the_eye.placed_images)
 
-	for(var/V in the_eye.placement_images)
-		var/image/I = V
+	for(var/image/place_spots as anything in the_eye.placement_images)
 		var/image/newI = image('icons/effects/alphacolors.dmi', the_eye.loc, "blue")
-		newI.loc = I.loc //It is highly unlikely that any landing spot including a null tile will get this far, but better safe than sorry.
+		newI.loc = place_spots.loc //It is highly unlikely that any landing spot including a null tile will get this far, but better safe than sorry.
 		newI.layer = ABOVE_OPEN_TURF_LAYER
-		newI.plane = 0
+		SET_PLANE_EXPLICIT(newI, ABOVE_GAME_PLANE, place_spots)
 		newI.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		the_eye.placed_images += newI
 
@@ -221,7 +220,7 @@
 
 /// Checks if we are able to designate the target location
 /obj/machinery/computer/camera_advanced/shuttle_docker/proc/canDesignateTarget()
-	if(!designating_target_loc || !current_user || (eyeobj.loc != designating_target_loc) || (machine_stat & (NOPOWER|BROKEN)) )
+	if(!designating_target_loc || !current_user || (eyeobj.loc != designating_target_loc) || (machine_stat & (NOPOWER|BROKEN)))
 		return FALSE
 	return TRUE
 
@@ -259,7 +258,6 @@
 			continue
 		return FALSE
 	return TRUE
-
 
 /// Checks if the currently hovered area is a valid landing spot
 /obj/machinery/computer/camera_advanced/shuttle_docker/proc/checkLandingSpot()
@@ -371,15 +369,14 @@
 /mob/camera/aiEye/remote/shuttle_docker/update_remote_sight(mob/living/user)
 	var/obj/machinery/computer/camera_advanced/shuttle_docker/console = origin
 	if(nvg_vision_possible && console?.nvg_vision_mode)
-		user.see_in_dark = 6
-		user.sight = 0
-		user.lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
-		user.sync_lighting_plane_alpha()
+		user.set_sight(NONE)
+		user.lighting_cutoff = LIGHTING_CUTOFF_HIGH
+		user.sync_lighting_plane_cutoff()
 		return TRUE
-	user.see_in_dark = 0
-	user.sight = BLIND|SEE_TURFS
-	user.lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
-	user.sync_lighting_plane_alpha()
+	user.set_sight(BLIND|SEE_TURFS)
+	// Pale blue, should look nice I think
+	user.lighting_color_cutoffs = list(30, 40, 50)
+	user.sync_lighting_plane_cutoff()
 	return TRUE
 
 /datum/action/innate/shuttledocker_rotate
@@ -433,17 +430,18 @@
 			L["([length(L)])[S.name]"] = S
 
 	playsound(console, 'sound/machines/terminal_prompt.ogg', 25, FALSE)
-	var/selected = input("Choose location to jump to", "Locations", null) as null|anything in sortList(L)
+	var/selected = tgui_input_list(usr, "Choose location to jump to", "Locations", sortList(L))
 	if(QDELETED(src) || QDELETED(target) || !isliving(target))
 		return
 	playsound(src, SFX_TERMINAL_TYPE, 25, FALSE)
-	if(selected)
-		var/turf/T = get_turf(L[selected])
-		if(T)
-			playsound(console, 'sound/machines/terminal_prompt_confirm.ogg', 25, FALSE)
-			remote_eye.setLoc(T)
-			to_chat(target, span_notice("Jumped to [selected]."))
-			C.overlay_fullscreen("flash", /atom/movable/screen/fullscreen/flash/noise)
-			C.clear_fullscreen("flash", 3)
-	else
+	if(isnull(selected))
 		playsound(console, 'sound/machines/terminal_prompt_deny.ogg', 25, FALSE)
+		return
+	var/turf/T = get_turf(L[selected])
+	if(isnull(T))
+		return
+	playsound(console, 'sound/machines/terminal_prompt_confirm.ogg', 25, FALSE)
+	remote_eye.setLoc(T)
+	to_chat(target, span_notice("Jumped to [selected]."))
+	C.overlay_fullscreen("flash", /atom/movable/screen/fullscreen/flash/noise)
+	C.clear_fullscreen("flash", 3)

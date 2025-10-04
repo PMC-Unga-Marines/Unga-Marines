@@ -16,6 +16,11 @@
 #define CHAT_MESSAGE_WIDTH 112
 /// Max length of chat message in characters
 #define CHAT_MESSAGE_MAX_LENGTH 110
+
+///Base layer of chat elements
+#define CHAT_LAYER 1
+///Highest possible layer of chat elements
+#define CHAT_LAYER_MAX 2
 /// Maximum precision of float before rounding errors occur (in this context)
 #define CHAT_LAYER_Z_STEP 0.0001
 /// The number of z-layer 'slices' usable by the chat message layering
@@ -111,9 +116,7 @@
 
 	// Calculate target color if not already present
 	if (!target.chat_color || target.chat_color_name != target.name)
-		target.chat_color = colorize_string(target.name)
-		target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
-		target.chat_color_name = target.name
+		set_chat_color(target)
 
 	// Get rid of any URL schemes that might cause BYOND to automatically wrap something in an anchor tag
 	var/static/regex/url_scheme = new(@"[A-Za-z][A-Za-z0-9+-\.]*:\/\/", "g")
@@ -157,6 +160,18 @@
 	SSrunechat.message_queue += our_callback
 	return
 
+/datum/chatmessage/proc/set_chat_color(atom/target)
+	if(ishuman(target))
+		var/mob/living/carbon/human/man = target
+		var/datum/squad/squad = man.assigned_squad
+		if(squad?.chat_color && squad?.chat_color_darkened)
+			target.chat_color = squad.chat_color
+			target.chat_color_darkened = squad.chat_color_darkened
+			target.chat_color_name = target.name
+			return
+	target.chat_color = colorize_string(target.name)
+	target.chat_color_darkened = colorize_string(target.name, 0.85, 0.85)
+	target.chat_color_name = target.name
 
 ///finishes the image generation after the MeasureText() call in generate_image().
 ///necessary because after that call the proc can resume at the end of the tick and cause overtime.
@@ -226,7 +241,7 @@
 
 	// Build message image
 	message = image(loc = message_loc, layer = CHAT_LAYER + CHAT_LAYER_Z_STEP * current_z_idx++)
-	message.plane = GAME_PLANE
+	SET_PLANE_EXPLICIT(message, RUNECHAT_PLANE, message_loc)
 	message.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
 	message.alpha = 0
 	message.pixel_y = starting_height

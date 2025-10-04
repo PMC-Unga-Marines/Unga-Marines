@@ -20,8 +20,6 @@
 	mini.give_action(src)
 	add_abilities()
 
-	base_icon = icon
-
 	create_reagents(1000)
 	gender = NEUTER
 
@@ -34,13 +32,9 @@
 		if(CONSCIOUS)
 			GLOB.alive_xeno_list += src
 			LAZYADD(GLOB.alive_xeno_list_hive[hivenumber], src)
-			see_in_dark = xeno_caste.conscious_see_in_dark
 		if(UNCONSCIOUS)
 			GLOB.alive_xeno_list += src
 			LAZYADD(GLOB.alive_xeno_list_hive[hivenumber], src)
-			see_in_dark = xeno_caste.unconscious_see_in_dark
-		if(DEAD)
-			see_in_dark = xeno_caste.unconscious_see_in_dark
 
 	GLOB.xeno_mob_list += src
 	GLOB.round_statistics.total_xenos_created++
@@ -78,12 +72,16 @@
 	if(CONFIG_GET(flag/xenos_on_strike))
 		replace_by_ai()
 	if(z) //Larva are initiated in null space
-		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon))
+		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon, MINIMAP_BLIPS_LAYER))
 	handle_weeds_on_movement()
 
 	AddElement(/datum/element/footstep, footstep_type, mob_size >= MOB_SIZE_BIG ? 0.8 : 0.5)
 	set_jump_component()
 	AddComponent(/datum/component/seethrough_mob)
+
+	if(!hunter_data)
+		hunter_data = new /datum/huntdata(src)
+	hud_set_hunter()
 
 /mob/living/carbon/xenomorph/register_init_signals()
 	. = ..()
@@ -283,7 +281,7 @@
 		mind.name = name //Grabs the name when the xeno is getting deleted, to reference through hive status later.
 	if(xeno_flags & XENO_ZOOMED)
 		zoom_out()
-	
+
 	remove_from_all_mob_huds()
 
 	remove_inherent_verbs()
@@ -450,17 +448,6 @@
 	if(mover.throwing && ismob(mover) && isxeno(mover.thrower)) //xenos can throw mobs past other xenos
 		return TRUE
 	return ..()
-
-/mob/living/carbon/xenomorph/set_stat(new_stat)
-	. = ..()
-	if(isnull(.))
-		return
-	switch(stat)
-		if(UNCONSCIOUS)
-			see_in_dark = xeno_caste.unconscious_see_in_dark
-		if(DEAD, CONSCIOUS)
-			if(. == UNCONSCIOUS)
-				see_in_dark = xeno_caste.conscious_see_in_dark
 
 ///Kick the player from this mob, replace it by a more competent ai
 /mob/living/carbon/xenomorph/proc/replace_by_ai()
@@ -656,3 +643,36 @@ Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change
 		set_light_range_power_color(0, 0)
 		set_light_on(FALSE)
 	set_light_range_power_color(glow, 4, color)
+
+/mob/living/carbon/xenomorph/vv_get_dropdown()
+	. = ..()
+	VV_DROPDOWN_OPTION("", "---------")
+	VV_DROPDOWN_OPTION(VV_HK_SET_XENO_SKIN, "Set Skin")
+
+/mob/living/carbon/xenomorph/vv_do_topic(list/href_list)
+	. = ..()
+
+	if(!.)
+		return
+
+	if(href_list[VV_HK_SET_XENO_SKIN])
+		if(!length(skins))
+			to_chat(usr, span_notice("This caste doesn't have any skins!"))
+			return
+
+		var/datum/xenomorph_skin/selection
+		var/list/available_skins = list() // we do a list of names instead of datums
+		for(var/datum/xenomorph_skin/our_skin as anything in skins)
+			available_skins[our_skin.name] = our_skin
+		if(length(available_skins) < 2)
+			to_chat(usr, span_notice("There aren't any skins that you can access!"))
+			return
+		var/answer = tgui_input_list(usr, "Choose a setting appearance", "Choose a setting appearance", available_skins)
+		selection = available_skins[answer]
+
+		if(!selection)
+			return
+
+		icon = selection.icon
+		effects_icon = selection.effects_icon
+		admin_ticket_log("[key_name_admin(usr)] has modified the appearance of [src] to [answer] skin.")

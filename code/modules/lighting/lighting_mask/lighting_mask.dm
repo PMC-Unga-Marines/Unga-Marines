@@ -3,19 +3,25 @@
 ///Lighting mask sprite diameter in pixels
 #define LIGHTING_MASK_SPRITE_SIZE LIGHTING_MASK_RADIUS * 64
 
-/atom/movable/lighting_mask
-	name = ""
+/atom/movable/lighting_mask // why the fuck is this an atom
+	name = "lighting mask"
+	desc = "Yell at coders for you seeing this."
 	icon = LIGHTING_ICON_BIG
 	icon_state = "light_big"
 
 	anchored = TRUE
 	plane = LIGHTING_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	layer = LIGHTING_SECONDARY_LAYER
 	invisibility = INVISIBILITY_LIGHTING
 	blend_mode = BLEND_ADD
 	appearance_flags = KEEP_TOGETHER|RESET_TRANSFORM
 	move_resist = INFINITY
+
+	bound_width = 256 // does it do something? i don't know
+	bound_height = 256
+
+	pixel_x = -1 // cringe
+	pixel_y = -1 // TODO: port from tg, this shit is horrible
 
 	///The current angle the item is pointing at
 	var/current_angle = 0
@@ -60,18 +66,18 @@
 	else
 		transform = to_apply
 
-///Creates a matrix for the lighting mak to use
+///Creates a matrix for the lighting mask to use
 /atom/movable/lighting_mask/proc/get_matrix(radius = 1)
 	var/matrix/new_size_matrix = new()
 	//Scale
 	// - Scale to the appropriate radius
 	new_size_matrix.Scale(radius / LIGHTING_MASK_RADIUS)
 	//Translate
-	// - Center the overlay image
+	// - Center the overlay image // The matrix calculations in shadow calculator seem to depend on this, and if we delete this, the shadows just offset by 3 tiles to north-east
 	// - Ok so apparently translate is affected by the scale we already did huh.
 	// ^ Future me here, its because it works as translate then scale since its backwards.
 	// ^ ^ Future future me here, it totally shouldnt since the translation component of a matrix is independant to the scale component.
-	new_size_matrix.Translate(-128 + 16)
+	new_size_matrix.Translate(-111, -111)
 	//Adjust for pixel offsets
 	var/invert_offsets = attached_atom.dir & (NORTH | EAST)
 	var/left_or_right = attached_atom.dir & (EAST | WEST)
@@ -122,10 +128,6 @@
 /atom/movable/lighting_mask/proc/rotate_mask_on_holder_turn(new_direction)
 	SIGNAL_HANDLER
 	rotate(dir2angle(new_direction) - 180)
-
-///Flickering lighting mask
-/atom/movable/lighting_mask/flicker
-	icon_state = "light_flicker"
 
 ///Conical Light mask
 /atom/movable/lighting_mask/conical

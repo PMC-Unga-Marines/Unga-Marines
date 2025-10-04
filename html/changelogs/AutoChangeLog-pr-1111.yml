@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - bugfix: "Исправил то что зажигательные пули на СГ153 не были ИФФ."

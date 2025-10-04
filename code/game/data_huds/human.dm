@@ -103,9 +103,23 @@
 			if(slowdown)
 				status_hud.icon_state = "slowdown"
 				return TRUE
-			else
-				status_hud.icon_state = "healthy"
+			for(var/datum/reagent/reagent AS in reagents.reagent_list)
+				if(!reagent.overdosed)
+					continue
+				status_hud.icon_state = "od"
 				return TRUE
+			for(var/datum/limb/limb AS in limbs)
+				if(!CHECK_BITFIELD(limb.limb_status, LIMB_BROKEN) || CHECK_BITFIELD(limb.limb_status, LIMB_STABILIZED) || CHECK_BITFIELD(limb.limb_status, LIMB_SPLINTED))
+					continue
+				status_hud.icon_state = "fracture"
+				return TRUE
+				for(var/datum/wound/wound in limb.wounds)
+					if(!istype(wound, /datum/wound/internal_bleeding))
+						continue
+					status_hud.icon_state = "blood"
+					return TRUE
+			status_hud.icon_state = "healthy"
+			return TRUE
 	return FALSE
 
 /mob/living/carbon/human/species/robot/set_status_hud()
@@ -161,31 +175,6 @@
 	return FALSE
 
 /mob/living/carbon/human/species/synthetic/set_status_hud()
-	var/image/status_hud = hud_list[STATUS_HUD]
-	status_hud.icon_state = ""
-	status_hud.overlays.Cut()
-	if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
-		status_hud.icon_state = "synth_dnr"
-		return TRUE
-	if(stat != DEAD)
-		status_hud.icon_state = "synth"
-		switch(round(health * 100 / maxHealth)) // special health HUD icons for damaged synthetics
-			if(-29 to 4) // close to overheating: should appear when health is less than 5
-				status_hud.icon_state = "synthsoftcrit"
-			if(-INFINITY to -30) // dying
-				status_hud.icon_state = "synthhardcrit"
-	else
-		status_hud.icon_state = "synth_dead"
-	if(!mind)
-		var/mob/dead/observer/ghost = get_ghost(TRUE)
-		if(!ghost)
-			return TRUE
-		if(!ghost.client) // DC'd ghost detected
-			status_hud.overlays += "dead_noclient"
-	if(!client && !get_ghost(TRUE)) // Nobody home, no ghost, must have disconnected while in their body
-		status_hud.overlays += "dead_noclient"
-
-/mob/living/carbon/human/species/early_synthetic/set_status_hud() //copypaste
 	var/image/status_hud = hud_list[STATUS_HUD]
 	status_hud.icon_state = ""
 	status_hud.overlays.Cut()

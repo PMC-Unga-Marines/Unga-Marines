@@ -762,7 +762,7 @@
 	gun_firemode_list = list(GUN_FIREMODE_SEMIAUTO, GUN_FIREMODE_AUTOMATIC)
 	attachable_offset = list("muzzle_x" = 35, "muzzle_y" = 18,"rail_x" = 6, "rail_y" = 20, "under_x" = 19, "under_y" = 14, "stock_x" = 5, "stock_y" = 12)
 	starting_attachment_types = list(/obj/item/attachable/stock/mpi_km)
-	damage_falloff_mult = 0.4
+	damage_falloff_mult = 0.5
 	force = 20
 	burst_amount = 2
 	autoburst_delay = 0.1 SECONDS
@@ -809,9 +809,7 @@
 		/obj/item/attachable/scope/mini,
 		/obj/item/attachable/scope/marine,
 		/obj/item/attachable/angledgrip,
-		/obj/item/weapon/gun/shotgun/combat/masterkey,
 		/obj/item/weapon/gun/flamer/mini_flamer,
-		/obj/item/weapon/gun/grenade_launcher/underslung,
 		/obj/item/attachable/motiondetector,
 		/obj/item/weapon/gun/rifle/pepperball/pepperball_mini,
 		/obj/item/attachable/shoulder_mount,
@@ -824,7 +822,7 @@
 	starting_attachment_types = list(/obj/item/attachable/foldable/som_carbine)
 	force = 10
 	burst_amount = 1
-	fire_delay = 0.15 SECONDS
+	fire_delay = 0.20 SECONDS
 	accuracy_mult = 0.75
 	scatter = 12
 	recoil = 2
@@ -832,7 +830,7 @@
 	movement_acc_penalty_mult = 4
 	burst_amount = 3
 	autoburst_delay = 0.10 SECONDS
-	damage_falloff_mult = 2.5
+	damage_falloff_mult = 2.3
 	akimbo_additional_delay = 2
 	akimbo_scatter_mod = 24
 	akimbo_additional_delay = 20
