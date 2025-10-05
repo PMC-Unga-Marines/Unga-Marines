@@ -609,7 +609,7 @@
 	if(!devolver.check_concious_state())
 		return
 
-	if(target.is_ventcrawling)
+	if(HAS_TRAIT(target, TRAIT_MOVE_VENTCRAWLING))
 		to_chat(devolver, span_xenonotice("Cannot deevolve, [target] is ventcrawling."))
 		return
 
@@ -738,7 +738,7 @@
 	return castedatum
 
 /datum/hive_status/proc/target_status_check(mob/living/carbon/xenomorph/user, mob/living/carbon/xenomorph/target)
-	if(target.is_ventcrawling)
+	if(HAS_TRAIT(target, TRAIT_MOVE_VENTCRAWLING))
 		to_chat(user, span_xenonotice("Cannot punish, [target] is ventcrawling."))
 		return FALSE
 
@@ -816,11 +816,8 @@
 	if(length(candidates)) //Priority to the queens.
 		successor = candidates[1] //First come, first serve.
 
-	if(!successor)
-		return
-
 	var/announce = TRUE
-	if(SSticker.current_state == GAME_STATE_FINISHED || SSticker.current_state == GAME_STATE_SETTING_UP || is_centcom_level(successor.loc.z))
+	if(SSticker.current_state == GAME_STATE_FINISHED || SSticker.current_state == GAME_STATE_SETTING_UP || is_centcom_level(successor?.loc?.z))
 		announce = FALSE
 
 	set_ruler(successor)
@@ -834,6 +831,7 @@
 		xeno_message("\A [successor] has risen to lead the Hive! Rejoice!", "xenoannounce", 6)
 		notify_ghosts("\The [successor] has risen to lead the Hive!", source = successor, action = NOTIFY_ORBIT)
 
+/// Set a ruler and announce it. If null just clears the xeno ruler.
 /datum/hive_status/proc/set_ruler(mob/living/carbon/xenomorph/successor)
 	SSdirection.clear_leader(hivenumber)
 	if(!isnull(successor))

@@ -8,9 +8,6 @@ SUBSYSTEM_DEF(lighting)
 	///Total times shadows were updated, debug
 	var/total_shadow_calculations = 0
 
-	///Whether the SS has begun setting up yet
-	var/started = FALSE
-
 	var/static/list/static_sources_queue = list() //! List of static lighting sources queued for update.
 	var/static/list/corners_queue = list() //! List of lighting corners queued for update.
 	var/static/list/objects_queue = list() //! List of lighting objects queued for update.
@@ -18,33 +15,36 @@ SUBSYSTEM_DEF(lighting)
 	var/static/list/mask_queue = list() //! List of hybrid lighting sources queued for update.
 
 /datum/controller/subsystem/lighting/Initialize()
-	started = TRUE
 	if(!initialized)
 		create_all_lighting_objects()
+		initialized = TRUE
+
 	fire(FALSE, TRUE)
+
 	return SS_INIT_SUCCESS
 
 ///Handle static lightning
 /datum/controller/subsystem/lighting/proc/create_all_lighting_objects()
-	for(var/area/our_area in world)
-		if(!our_area.static_lighting)
+	for(var/area/area as anything in GLOB.areas)
+		if(!area.static_lighting)
 			continue
 
-		for(var/turf/our_turf in our_area)
+		for(var/turf/our_turf in area)
 			new /datum/static_lighting_object(our_turf)
 			CHECK_TICK
 		CHECK_TICK
 
 /datum/controller/subsystem/lighting/stat_entry(msg)
-	msg = "ShCalcs:[total_shadow_calculations]|SourcQ:[length(static_sources_queue)]|CcornQ:[length(corners_queue)]|ObjQ:[length(objects_queue)]|HybrQ:[length(mask_queue)]"
+	msg = "ShadowCalculations:[total_shadow_calculations]|Sources:[length(static_sources_queue)]|Corners:[length(corners_queue)]|Objects:[length(objects_queue)]|Masks:[length(mask_queue)]"
 	return ..()
 
 /datum/controller/subsystem/lighting/fire(resumed, init_tick_checks)
 	MC_SPLIT_TICK_INIT(3)
 	if(!init_tick_checks)
 		MC_SPLIT_TICK
+
 	var/updators_num = 0
-	for(var/datum/static_light_source/L AS in static_sources_queue)
+	for(var/datum/static_light_source/L as anything in static_sources_queue)
 		updators_num++
 		L.update_corners()
 		if(QDELETED(L))
@@ -97,7 +97,7 @@ SUBSYSTEM_DEF(lighting)
 		MC_SPLIT_TICK
 
 	updators_num = 0
-	for(var/atom/movable/lighting_mask/mask_to_update AS in mask_queue)
+	for(var/atom/movable/lighting_mask/mask_to_update as anything in mask_queue)
 		updators_num++
 
 		mask_to_update.calculate_lighting_shadows()

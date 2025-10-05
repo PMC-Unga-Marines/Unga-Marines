@@ -4,7 +4,6 @@
 	icon_state = "x2"
 	anchored = TRUE
 	resistance_flags = UNACIDABLE
-	layer = MID_LANDMARK_LAYER
 	invisibility = INVISIBILITY_ABSTRACT
 
 
@@ -580,3 +579,23 @@
 /// In landmarks.dm and not unit_test.dm so it is always active in the mapping tools.
 /obj/effect/landmark/unit_test_top_right
 	name = "unit test zone top right"
+
+/obj/effect/landmark/miner_phoron
+	name = "damaged phoron miner location"
+	icon = 'icons/obj/mining_drill.dmi'
+	icon_state = "mining_drill_braced_"
+
+/obj/effect/landmark/miner_phoron/Initialize(mapload)
+	. = ..()
+	GLOB.miner_phorone_locs += loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/miner_platinum
+	name = "damaged platinum miner location"
+	icon = 'icons/obj/mining_drill.dmi'
+	icon_state = "mining_drill_braced_reinforced components"
+
+/obj/effect/landmark/miner_platinum/Initialize(mapload)
+	. = ..()
+	GLOB.miner_platinum_locs += loc
+	return INITIALIZE_HINT_QDEL

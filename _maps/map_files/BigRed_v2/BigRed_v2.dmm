@@ -40,7 +40,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
 "abx" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 2
 	},
@@ -7427,7 +7427,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/south)
 "bTs" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/ne)
 "bTK" = (
@@ -7450,7 +7450,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "bUf" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southwest)
 "bUW" = (
@@ -7551,7 +7551,7 @@
 	},
 /area/bigredv2/outside/marshal_office)
 "cfS" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast)
 "cfV" = (
@@ -7576,7 +7576,7 @@
 	},
 /area/bigredv2/outside/sw)
 "cjX" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast/garbledradio)
 "cki" = (
@@ -7646,7 +7646,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/dorms)
 "ctQ" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/north)
 "cua" = (
@@ -7819,7 +7819,7 @@
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/sw)
 "cOv" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 2
 	},
@@ -8078,7 +8078,7 @@
 /turf/open/floor/engine,
 /area/bigredv2/caves/lambda_lab)
 "dqj" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/west)
@@ -8148,7 +8148,7 @@
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/space_port/two)
 "dxt" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "dym" = (
@@ -8321,7 +8321,7 @@
 /area/bigredv2/caves/lambda_lab)
 "dWZ" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "dXh" = (
@@ -8344,7 +8344,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/virology)
 "dZG" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast)
@@ -8395,7 +8395,7 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/marshal_office)
 "eej" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast/garbledradio)
 "ees" = (
@@ -8576,7 +8576,7 @@
 /area/bigredv2/caves/lambda_lab)
 "evb" = (
 /obj/structure/fence,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/east/garbledradio)
 "evX" = (
@@ -9126,7 +9126,7 @@
 /turf/open/floor/carpet/side,
 /area/bigredv2/outside/bar)
 "fES" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "fFW" = (
@@ -9178,7 +9178,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/north)
 "fLL" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast)
 "fNn" = (
@@ -9216,7 +9216,7 @@
 /turf/closed/wall,
 /area/bigredv2/outside/engineering)
 "fQz" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/northeast/garbledradio)
 "fQL" = (
@@ -9405,7 +9405,7 @@
 /area/bigredv2/caves/northeast/garbledradio)
 "ghE" = (
 /obj/structure/fence,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/caves/east/garbledradio)
@@ -9784,7 +9784,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/nw)
 "gUD" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northwest)
 "gVm" = (
@@ -9794,7 +9794,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "gVs" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/west)
@@ -10306,7 +10306,7 @@
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/bigredv2/outside/c)
 "ihF" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/east)
@@ -10406,7 +10406,7 @@
 	id = "Marshal Offices";
 	name = "\improper Marshal Offices Shutters"
 	},
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating,
 /area/bigredv2/outside/marshal_office)
 "iwo" = (
@@ -10552,7 +10552,7 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/c)
 "iOc" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "iON" = (
@@ -10645,7 +10645,7 @@
 	},
 /area/bigredv2/caves/northeast/garbledradio)
 "iYQ" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/north)
 "iZv" = (
@@ -10703,7 +10703,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "jcm" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/east)
 "jdc" = (
@@ -10845,7 +10845,7 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/s)
 "jnj" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "jnD" = (
@@ -10931,7 +10931,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/engineering)
 "juj" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast)
 "juw" = (
@@ -11024,7 +11024,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
 "jCI" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/se)
 "jCL" = (
@@ -11032,7 +11032,7 @@
 /turf/open/floor/tile/darkgreen/darkgreen2,
 /area/bigredv2/caves/lambda_lab)
 "jDc" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/south)
 "jDi" = (
@@ -11069,7 +11069,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "jFb" = (
 /obj/structure/glowshroom,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/northeast)
 "jGk" = (
@@ -11086,7 +11086,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/marshal_office)
 "jHi" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast/garbledradio)
 "jHk" = (
@@ -11396,7 +11396,7 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/engineering)
 "krA" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "krO" = (
@@ -11477,7 +11477,7 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/e)
 "kCz" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/s)
 "kCN" = (
@@ -11912,7 +11912,7 @@
 /turf/open/floor/tile/dark/red2,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "lIi" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/northeast)
 "lIJ" = (
@@ -12010,7 +12010,7 @@
 /turf/open/floor/tile/dark/yellow2,
 /area/bigredv2/outside/nanotrasen_lab/inside/garbledradio)
 "lRk" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast/garbledradio)
@@ -12048,7 +12048,7 @@
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/hydroponics)
 "lVR" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
 /area/bigredv2/outside/c)
 "lWP" = (
@@ -12058,7 +12058,7 @@
 /area/bigredv2/outside/dorms)
 "lXU" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast)
 "lYl" = (
@@ -12114,7 +12114,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "mez" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/structure/cable,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
@@ -12237,7 +12237,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/north)
 "msV" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast)
@@ -12302,8 +12302,8 @@
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
 "mCI" = (
-/obj/machinery/miner/damaged/platinum,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/miner_platinum,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/east)
 "mEZ" = (
@@ -12436,7 +12436,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "mQG" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall,
 /area/bigredv2/outside/marshal_office)
 "mQP" = (
@@ -12553,7 +12553,7 @@
 /turf/open/floor/tile/lightred/full,
 /area/bigredv2/outside/cargo)
 "nfi" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/west)
@@ -12729,7 +12729,7 @@
 /turf/open/floor/marking/delivery,
 /area/bigredv2/caves/lambda_lab)
 "nuy" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
@@ -12763,7 +12763,7 @@
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/space_port/two)
 "nzC" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/ground/jungle/clear,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "nzJ" = (
@@ -12879,7 +12879,7 @@
 /area/bigredv2/caves/southwest)
 "nHg" = (
 /obj/structure/fence,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/se)
 "nIY" = (
@@ -12998,7 +12998,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast/garbledradio)
 "nWz" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/west)
 "oaq" = (
@@ -13071,7 +13071,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/nw)
 "ogS" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/south)
@@ -13217,7 +13217,7 @@
 	},
 /area/bigredv2/outside/nw)
 "owS" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/nw)
 "oxg" = (
@@ -13257,11 +13257,11 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/marshal_office)
 "oBp" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/north)
 "oCl" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/e)
 "oCo" = (
@@ -13499,7 +13499,7 @@
 /area/bigredv2/outside/hydroponics)
 "pjg" = (
 /obj/effect/landmark/xeno_resin_wall,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/east)
 "pjt" = (
@@ -13507,7 +13507,7 @@
 /turf/template_noop,
 /area/template_noop)
 "pkg" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/r_wall,
 /area/bigredv2/caves/rock)
 "pkF" = (
@@ -13821,7 +13821,7 @@
 	},
 /area/bigredv2/outside/marshal_office)
 "pUB" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southwest)
 "pUZ" = (
@@ -13929,7 +13929,7 @@
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/marshal_office)
 "qeD" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/east)
@@ -14125,11 +14125,11 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "qDQ" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/west)
 "qEU" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/marshal_office)
 "qFc" = (
@@ -14251,7 +14251,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "qXn" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating,
 /area/bigredv2/caves/south)
 "qXM" = (
@@ -14549,7 +14549,7 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/e)
 "rsj" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northwest)
@@ -14588,7 +14588,7 @@
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/space_port)
 "rww" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/n)
 "rwO" = (
@@ -14609,7 +14609,7 @@
 /area/bigredv2/outside/cargo)
 "ryU" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast)
 "rzc" = (
@@ -14669,7 +14669,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "rGY" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 2
 	},
@@ -15110,7 +15110,7 @@
 	},
 /area/bigredv2/outside/marshal_office)
 "sJp" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "sLE" = (
@@ -15191,7 +15191,7 @@
 /obj/item/shard,
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating,
 /area/bigredv2/outside/marshal_office)
 "sXc" = (
@@ -15205,7 +15205,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/w)
 "sZl" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/c)
 "sZJ" = (
@@ -15334,7 +15334,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/caves/lambda_lab)
 "tni" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/northeast)
 "tnv" = (
@@ -15935,7 +15935,7 @@
 /area/bigredv2/outside/space_port)
 "uyy" = (
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/lambda_lab)
 "uCj" = (
@@ -16001,7 +16001,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
 "uHm" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 2
 	},
@@ -16781,7 +16781,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "wmj" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/northeast/garbledradio)
 "wmV" = (
@@ -16984,7 +16984,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "wHs" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northwest)
@@ -17014,7 +17014,7 @@
 /area/bigredv2/outside/s)
 "wNf" = (
 /obj/structure/glowshroom,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast)
 "wOh" = (
@@ -17233,7 +17233,7 @@
 /area/bigredv2/outside/nw)
 "xsm" = (
 /obj/structure/fence,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
 	},

@@ -53,7 +53,8 @@
 /obj/structure/inflatable/ex_act(severity)
 	if(severity >= EXPLODE_HEAVY)
 		qdel(src)
-	else if(prob(severity * 0.5))
+		return
+	if(prob(severity * 0.5))
 		deflate(TRUE)
 
 /obj/structure/inflatable/attackby(obj/item/I, mob/user, params)

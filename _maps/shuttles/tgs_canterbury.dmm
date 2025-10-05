@@ -367,8 +367,7 @@
 "bu" = (
 /obj/effect/landmark/start/job/crash/squadengineer,
 /obj/structure/window/reinforced{
-	dir = 8;
-	layer = 4.2
+	dir = 8
 	},
 /turf/open/floor/mainship/red/full,
 /area/shuttle/canterbury)
@@ -638,8 +637,7 @@
 "cy" = (
 /obj/effect/landmark/start/job/crash/squadengineer,
 /obj/structure/window/reinforced{
-	dir = 8;
-	layer = 4.2
+	dir = 8
 	},
 /obj/machinery/door/window/right{
 	dir = 2
