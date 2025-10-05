@@ -179,7 +179,7 @@
 /datum/ammo/bullet/rifle/type16
 	name = "crude rifle bullet"
 	hud_state = "rifle_crude"
-	damage = 36
+	damage = 33
 	penetration = 10
 	additional_xeno_penetration = 15
 	matter_cost = 5
