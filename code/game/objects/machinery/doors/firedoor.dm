@@ -170,8 +170,8 @@
 		return
 	else
 		user.visible_message(span_notice("\The [src] [density ? "open" : "close"]s for \the [user]."),\
-		"\The [src] [density ? "open" : "close"]s.",\
-		"You hear a beep, and a door opening.")
+		span_warning("\The [src] [density ? "opens" : "closes"]."),\
+		span_hear("You hear a beep, and a door opening."))
 
 	var/needs_to_close = FALSE
 	if(density)
