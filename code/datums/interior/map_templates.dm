@@ -32,7 +32,3 @@
 /datum/map_template/interior/icc_recontank
 	name = "ICC Fallow Recon Vehicle Tracked interior template"
 	filename = "icc_recontank"
-
-/datum/map_template/interior/icc_recontank/crash
-	name = "Crash ICC Fallow Recon Vehicle Tracked interior template"
-	filename = "icc_recontank_crash"

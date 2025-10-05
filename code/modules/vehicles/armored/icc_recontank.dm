@@ -35,6 +35,3 @@
 	var/obj/item/armored_weapon/icc_coaxial/gun = new(src)
 	gun.attach(src)
 	gun.attach(src)
-
-/obj/vehicle/sealed/armored/multitile/icc_lvrt/crash
-	interior = /datum/interior/armored/icc_lvrt/crash

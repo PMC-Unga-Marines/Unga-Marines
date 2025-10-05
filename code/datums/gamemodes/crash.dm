@@ -35,13 +35,11 @@
 	// Shuttle details
 	var/shuttle_id = SHUTTLE_CANTERBURY
 	var/obj/docking_port/mobile/crashmode/shuttle
-	var/LZ_dock = FALSE
 
 	///How long between two larva check
 	var/larva_check_interval = 1 MINUTES
 	///Last time larva balance was checked
 	var/last_larva_check
-
 
 /datum/game_mode/infestation/crash/pre_setup()
 	. = ..()
@@ -68,26 +66,14 @@
 	GLOB.latejoin_gateway = shuttle.latejoins
 	// Launch shuttle
 	var/list/valid_docks = list()
-	if(!LZ_dock)
-		for(var/obj/docking_port/stationary/crashmode/potential_crash_site in SSshuttle.stationary_docking_ports)
-			if(!shuttle.check_dock(potential_crash_site, silent = TRUE))
-				continue
-			valid_docks += potential_crash_site
-	else
-		if(locate(/obj/docking_port/stationary/marine_dropship/lz1) in SSshuttle.stationary_docking_ports)
-			valid_docks += locate(/obj/docking_port/stationary/marine_dropship/lz1) in SSshuttle.stationary_docking_ports
-		if(locate(/obj/docking_port/stationary/marine_dropship/lz2) in SSshuttle.stationary_docking_ports)
-			valid_docks += locate(/obj/docking_port/stationary/marine_dropship/lz2) in SSshuttle.stationary_docking_ports
-		for(var/obj/docking_port/stationary/docking_port in valid_docks)
-			//cuz we use lz landing zone
-			docking_port.width = max(19, docking_port.width)
-			docking_port.height = max(31, docking_port.height)
-			docking_port.dwidth = max(9, docking_port.dwidth)
-			docking_port.dheight = max(15, docking_port.dheight)
+	for(var/obj/docking_port/stationary/crashmode/potential_crash_site in SSshuttle.stationary_docking_ports)
+		if(!shuttle.check_dock(potential_crash_site, silent = TRUE))
+			continue
+		valid_docks += potential_crash_site
 
 	if(!length(valid_docks))
 		CRASH("No valid crash sides found!")
-	var/obj/docking_port/stationary/actual_crash_site = pick(valid_docks)
+	var/obj/docking_port/stationary/crashmode/actual_crash_site = pick(valid_docks)
 
 	shuttle.crashing = TRUE
 	SSshuttle.moveShuttleToDock(shuttle.shuttle_id, actual_crash_site, TRUE) // FALSE = instant arrival
@@ -120,9 +106,8 @@
 	if(!(round_type_flags & MODE_INFESTATION))
 		return
 
-	if(round_type_flags & MODE_XENO_SPAWN_PROTECT)
-		for(var/i in GLOB.xeno_resin_silo_turfs)
-			new /obj/structure/xeno/silo/crash(i)
+	for(var/i in GLOB.xeno_resin_silo_turfs)
+		new /obj/structure/xeno/silo/crash(i)
 
 	for(var/obj/effect/landmark/corpsespawner/corpse AS in GLOB.corpse_landmarks_list)
 		corpse.create_mob()
