@@ -9,7 +9,7 @@
 	pounce_range = 5
 	var/base_damage = 25
 	/// How much it scales by every kill
-	var/damage_scale = 10
+	var/damage_scale = 5
 
 /datum/action/ability/activable/xeno/pounce/predalien/mob_hit(datum/source, mob/living/M)
 	. = ..()
