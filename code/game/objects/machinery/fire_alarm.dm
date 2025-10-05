@@ -221,6 +221,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/firealarm, (-32))
 	update_icon()
 	if(user && !silent)
 		balloon_alert(user, "triggered alarm!")
+	playsound(loc, 'sound/ambience/signal.ogg', 50, 0)
 
 /obj/machinery/firealarm/proc/reset(mob/user, silent = FALSE)
 	var/area/A = get_area(src)
