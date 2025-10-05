@@ -1961,7 +1961,7 @@
 	aim_fire_delay = 0.15 SECONDS
 	aim_speed_modifier = 1.5
 
-	fire_delay = 0.21 SECONDS
+	fire_delay = 0.22 SECONDS
 	burst_amount = 1
 	burst_delay = 0.15 SECONDS
 	accuracy_mult = 1.2
@@ -1969,7 +1969,7 @@
 	movement_acc_penalty_mult = 4
 	wield_delay = 0.8 SECONDS
 	aim_slowdown = 0.5
-	damage_falloff_mult = 0.5
+	damage_falloff_mult = 0.7
 
 /obj/item/weapon/gun/rifle/ar21/standard
 	starting_attachment_types = list(
