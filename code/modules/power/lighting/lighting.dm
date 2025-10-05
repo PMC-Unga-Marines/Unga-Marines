@@ -314,20 +314,37 @@
 
 ///update the light state then icon
 /obj/machinery/light/proc/update(trigger = TRUE, toggle_on = TRUE)
-	var/area/A = get_area(src)
-	if(!A.lightswitch || !A.power_light || status != LIGHT_OK || !toggle_on)
+	var/area/active_area = get_area(src)
+	if(!active_area.lightswitch || !active_area.power_light || status != LIGHT_OK || !toggle_on)
 		use_power = IDLE_POWER_USE
 		set_light(0)
 		active_power_usage = (luminosity * LIGHTING_POWER_FACTOR)
 		update_icon()
 		return
 
-	var/new_brightness = brightness
-	var/new_power = bulb_power
-	var/new_colour = color ? color : bulb_colour
-	var/matching = light && new_brightness == light.light_range && new_power == light.light_power && new_colour == light.light_color
-	if(matching)
+	var/new_base_icon_state = initial(base_icon_state)
+	var/new_light_color = color ? color : bulb_colour
+	var/new_light_range = brightness
+	var/new_light_power = bulb_power
+
+	var/matching = light && new_light_range == light.light_range && new_light_power == light.light_power && new_light_color == light.light_color
+	if(matching) // is this check really needed?
 		return
+
+	if(active_area.fire_alarm)
+		new_base_icon_state = "[initial(base_icon_state)]_red"
+		new_light_color = COLOR_FIRE_LIGHT_RED
+		new_light_range = 9
+		new_light_power = 0.5
+	else if(security_level_high)
+		new_base_icon_state = "[initial(base_icon_state)]_red"
+		new_light_color = COLOR_SOMEWHAT_LIGHTER_RED
+		new_light_range = 7.5
+		if(prob(75)) //randomize light range on most lights, patchy lighting gives a sense of danger
+			var/rangelevel = pick(5.5,6.0,6.5,7.0)
+			if(prob(15))
+				rangelevel -= pick(0.5,1.0,1.5,2.0)
+			new_light_range = rangelevel
 
 	switchcount++
 	if(trigger)
@@ -339,9 +356,14 @@
 			return
 
 	use_power = ACTIVE_POWER_USE
-	set_light(new_brightness, new_power, new_colour)
 	active_power_usage = (luminosity * LIGHTING_POWER_FACTOR)
-	update_icon()
+
+	base_icon_state = new_base_icon_state
+	light_color = new_light_color
+	light_range = new_light_range
+	light_power = new_light_power
+	update_light()
+	update_appearance(UPDATE_ICON)
 
 ///Returns true if area is powered and has lights toggled on
 /obj/machinery/light/proc/has_power()
@@ -444,48 +466,14 @@
 	var/most_recent_level_red_lights = ((previous_level.sec_level_flags & SEC_LEVEL_FLAG_RED_LIGHTS))
 	if(!(new_level.sec_level_flags & SEC_LEVEL_FLAG_RED_LIGHTS) && most_recent_level_red_lights)
 		security_level_high = FALSE
-		emergency_update()
+		update()
 	else if((new_level.sec_level_flags & SEC_LEVEL_FLAG_RED_LIGHTS) && !most_recent_level_red_lights)
 		security_level_high = TRUE
-		emergency_update()
+		update()
 
 /obj/machinery/light/mainship/proc/on_fire_alarm(datum/source)
 	SIGNAL_HANDLER
-	emergency_update()
-
-/// Update the icon_state and luminosity of the light depending on its state
-/obj/machinery/light/proc/emergency_update()
-	if(status != LIGHT_OK) //do not adjust unpowered or broken bulbs
-		return
-	var/area/active_area = get_area(src)
-	if(!active_area.power_light)
-		return
-	var/new_base_icon_state = initial(base_icon_state)
-	var/new_light_color = bulb_colour
-	var/new_light_range = brightness
-	var/new_light_power = bulb_power
-
-	if(active_area.fire_alarm)
-		new_base_icon_state = "[initial(base_icon_state)]_red"
-		new_light_color = COLOR_FIRE_LIGHT_RED
-		new_light_range = 9
-		new_light_power = 0.5
-	else if(security_level_high)
-		new_base_icon_state = "[initial(base_icon_state)]_red"
-		new_light_color = COLOR_SOMEWHAT_LIGHTER_RED
-		new_light_range = 7.5
-		if(prob(75)) //randomize light range on most lights, patchy lighting gives a sense of danger
-			var/rangelevel = pick(5.5,6.0,6.5,7.0)
-			if(prob(15))
-				rangelevel -= pick(0.5,1.0,1.5,2.0)
-			new_light_range = rangelevel
-
-	base_icon_state = new_base_icon_state
-	light_color = new_light_color
-	light_range = new_light_range
-	light_power = new_light_power
-	update_light()
-	update_appearance(UPDATE_ICON)
+	update()
 
 /obj/machinery/light/mainship/small
 	icon_state = "bulb_empty"
