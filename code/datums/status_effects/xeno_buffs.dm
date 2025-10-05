@@ -1142,10 +1142,8 @@
 		return
 	if(!ishuman(target))
 		return
-	var/bruteloss_healed = buff_owner.maxHealth * leech_buff
-	var/fireloss_healed = clamp(bruteloss_healed - buff_owner.bruteloss, 0, bruteloss_healed)
-	buff_owner.adjust_brute_loss(-bruteloss_healed)
-	buff_owner.adjust_fire_loss(-fireloss_healed)
+	var/heal_amount = buff_owner.maxHealth * leech_buff
+	HEAL_XENO_DAMAGE(buff_owner, heal_amount, FALSE)
 	buff_owner.update_health()
 
 // ***************************************

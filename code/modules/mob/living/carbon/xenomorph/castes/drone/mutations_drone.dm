@@ -16,7 +16,7 @@
 /datum/xeno_mutation/drone/scout
 	name = "Scout"
 	desc = "Значительный бонус к броне, пока находишься на траве."
-	cost = 10
+	cost = 5
 	icon_state = "xenobuff_generic"
 	tier = 1
 	parent_name = null
@@ -102,7 +102,7 @@
 /datum/xeno_mutation/drone/together_in_claws
 	name = "Together In Claws"
 	desc = "Регенерация 20% от нанесенного урона партнёром."
-	cost = 10
+	cost = 5
 	icon_state = "xenobuff_generic"
 	tier = 1
 	parent_name = null
@@ -144,7 +144,6 @@
 /// Returns the amount that Essence Link's lifesteal should be.
 /datum/status_effect/drone/together_in_claws/proc/get_lifesteal(structure_count, include_initial = TRUE)
 	return (include_initial ? percentage_initial : 0)
-
 
 //
 //
