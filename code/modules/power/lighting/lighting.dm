@@ -160,8 +160,8 @@
 		switchcount = L.switchcount
 		rigged = L.rigged
 		brightness = L.brightness
+		turn_light(user, TRUE)
 		update()
-
 		if(!user.temporarilyRemoveItemFromInventory(L))
 			return
 
