@@ -187,7 +187,9 @@
 	for(var/mutation_name in new_xeno.purchased_mutations)
 		var/datum/xeno_mutation/mutation_datum = get_xeno_mutation_by_name(mutation_name)
 		if(mutation_datum)
-			total_refund += mutation_datum.cost
+			// Use the OLD caste for refund calculation (the caste that originally purchased the mutation)
+			var/refund_cost = get_mutation_cost_for_caste(mutation_datum, src.xeno_caste.caste_name)
+			total_refund += refund_cost
 			refunded_mutations += mutation_name
 
 	// Clear all mutations and refund biomass

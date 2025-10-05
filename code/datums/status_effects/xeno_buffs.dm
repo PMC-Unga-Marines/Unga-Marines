@@ -1191,7 +1191,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/ionize
 	var/mob/living/carbon/xenomorph/buff_owner
 	var/plasma_regen_buff = 0
-	var/percent_buff = 0.05
+	var/percent_buff = 0.15
 
 /atom/movable/screen/alert/status_effect/ionize/tier2
 	name = "Ionize II"
@@ -1201,7 +1201,7 @@
 /datum/status_effect/ionize/tier2
 	alert_type = /atom/movable/screen/alert/status_effect/ionize/tier2
 	plasma_regen_buff = 0.1
-	percent_buff = 0.1
+	percent_buff = 0.3
 
 /datum/status_effect/ionize/on_apply()
 	if(!isxeno(owner))

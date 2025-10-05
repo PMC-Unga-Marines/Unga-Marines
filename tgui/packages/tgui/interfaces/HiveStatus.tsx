@@ -52,7 +52,11 @@ const MutationsDisplay = (props: { mutations: string }) => {
         style={{ display: 'inline', verticalAlign: 'baseline' }}
       >
         {count} {category}
-        {index < parts.length - 1 && '; '}
+        {index < parts.length - 1 && (
+          <Box as="span" style={{ color: 'white', margin: '0 4px' }}>
+            |
+          </Box>
+        )}
       </Box>
     );
   });
@@ -774,7 +778,7 @@ const XenoList = (_props: any) => {
   const minimap_mr = '6px';
   const name_width = '33%';
   const status_width = '60px';
-  const mutations_width = '120px';
+  const mutations_width = '140px';
 
   const sorting_direction = sortingBy.down ? 'column-reverse' : 'column';
 

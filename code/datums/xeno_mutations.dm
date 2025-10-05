@@ -3,6 +3,8 @@
 	var/desc = "A mysterious mutation"
 	var/category = "Survival"
 	var/cost
+	///Дополнительная стоимость для определенных каст (может быть отрицательной)
+	var/list/cost_change = list()
 	var/icon_state
 
 	///Тир, очередь в дереве, 1 если дерева нет
@@ -51,7 +53,7 @@
 		"name" = name,
 		"desc" = desc,
 		"category" = category,
-		"cost" = cost,
+		"cost" = get_mutation_cost_for_caste(src, xeno.xeno_caste.caste_name),
 		"icon" = icon_state,
 		"available" = is_available(xeno),
 		"purchased" = is_purchased(xeno),
@@ -77,7 +79,8 @@
 	name = "Carapace I"
 	desc = "Слабо увеличивает броню всех типов."
 	category = "Survival"
-	cost = 10
+	cost = 5
+	cost_change = list("crusher" = 5, "queen" = 5, "king" = 5, "behemoth" = 5)
 	icon_state = "carapace"
 	tier = 1
 	parent_name = null
@@ -88,7 +91,7 @@
 /datum/xeno_mutation/carapace/two
 	name = "Carapace II"
 	desc = "Больше брони?.."
-	cost = 15
+	cost = 10
 	icon_state = "carapace_two"
 	tier = 2
 	parent_name = "Carapace I"
@@ -99,7 +102,7 @@
 /datum/xeno_mutation/carapace/three
 	name = "Carapace III"
 	desc = "Nanomachines, son."
-	cost = 30
+	cost = 15
 	icon_state = "carapace_three"
 	tier = 3
 	parent_name = "Carapace II"
@@ -112,14 +115,13 @@
 // Regeneration mutations
 //
 
-//Сделать чтоб абилки фер и токсинов вместо алерта давали полноценную абилку
-//И перенести некоторые изменения из im tired of it
 
 /datum/xeno_mutation/regeneration
 	name = "Regeneration I"
 	desc = "Незначительно увеличивает регенерацию."
 	category = "Survival"
 	cost = 10
+	cost_change = list("queen" = 5, "king" = 5, "behemoth" = 5, "gorger" = 5)
 	icon_state = "regeneration"
 	tier = 1
 	parent_name = null
@@ -130,7 +132,7 @@
 /datum/xeno_mutation/regeneration/two
 	name = "Regeneration II"
 	desc = "Еще больше регенерации."
-	cost = 20
+	cost = 10
 	icon_state = "regeneration_two"
 	tier = 2
 	parent_name = "Regeneration I"
@@ -147,7 +149,8 @@
 	name = "Vampirism"
 	desc = "Регенерирует часть здоровья при базовых атаках."
 	category = "Survival"
-	cost = 20
+	cost = 15
+	cost_change = list("queen" = 5, "king" = 5, "behemoth" = 5, "gorger" = 5)
 	icon_state = "vampirism"
 	tier = 1
 	parent_name = null
@@ -158,7 +161,7 @@
 /datum/xeno_mutation/vampirism/two
 	name = "Leech"
 	desc = "Регенерирует СКОЛЬКО?..."
-	cost = 40
+	cost = 25
 	icon_state = "leech"
 	tier = 2
 	parent_name = "Vampirism"
@@ -175,7 +178,8 @@
 	name = "Celerity"
 	desc = "Увеличивает твою скорость."
 	category = "Offensive"
-	cost = 15
+	cost = 10
+	cost_change = list("runner" = 5, "hunter" = 5, "ravager" = 5, "defiler" = 5)
 	icon_state = "celerity"
 	tier = 1
 	parent_name = null
@@ -193,23 +197,24 @@
 	desc = "Незначительно увеличивает максимальную ёмкость плазмы"
 	category = "Specialized"
 	cost = 10
+	cost_change = list("drone" = 5, "hivelord" = 5, "warlock" = 5, "queen" = 5, "king" = 5)
 	icon_state = "ionize"
 	tier = 1
 	parent_name = null
 	child_name = "Ionize II"
 	status_effect_type = STATUS_EFFECT_IONIZE
-	buff_desc = "+5% max plasma"
+	buff_desc = "+15% max plasma"
 
 /datum/xeno_mutation/ionize/two
 	name = "Ionize II"
 	desc = "Увеличивает эффект прошлой мутации и добавляет регенерацию."
-	cost = 25
+	cost = 20
 	icon_state = "ionize_two"
 	tier = 2
 	parent_name = "Ionize I"
 	child_name = null
 	status_effect_type = STATUS_EFFECT_IONIZE_TWO
-	buff_desc = "+10% max plasma, +10% plasma regen"
+	buff_desc = "+30% max plasma, +10% plasma regen"
 
 //
 //Crush mutation
@@ -219,7 +224,8 @@
 	name = "Crush"
 	desc = "Незначительно увеличивает пробитие базовой атаки по объектам."
 	category = "Offensive"
-	cost = 10
+	cost = 5
+	cost_change = list("behemoth" = 5)
 	icon_state = "crush"
 	tier = 1
 	parent_name = null
@@ -235,7 +241,8 @@
 	name = "Toxin I"
 	desc = "Позволяет вводить выбранный реагент при атаке."
 	category = "Offensive"
-	cost = 15
+	cost = 10
+	cost_change = list("runner" = 5, "defiler" = 5)
 	icon_state = "toxin"
 	tier = 1
 	parent_name = null
@@ -246,7 +253,7 @@
 /datum/xeno_mutation/toxin/two
 	name = "Toxin II"
 	desc = "Увеличивает ввод реагента и открывает sanguinal."
-	cost = 20
+	cost = 15
 	icon_state = "toxin_two"
 	tier = 2
 	parent_name = "Toxin I"
@@ -262,7 +269,8 @@
 	name = "Pheromones I"
 	desc = "Позволяет выделять слабые феромоны."
 	category = "Specialized"
-	cost = 10
+	cost = 5
+	cost_change = list("hivemind" = 5, "queen" = 5, "king" = 5)
 	icon_state = "pheromones"
 	tier = 1
 	parent_name = null
@@ -273,6 +281,7 @@
 /datum/xeno_mutation/pheromones/two
 	name = "Pheromones II"
 	desc = "Позволяет выделять средние феромоны."
+	cost = 10
 	icon_state = "pheromones_two"
 	tier = 2
 	parent_name = "Pheromones I"
@@ -283,6 +292,7 @@
 /datum/xeno_mutation/pheromones/three
 	name = "Pheromones III"
 	desc = "Позволяет выделять сильные феромоны."
+	cost = 15
 	icon_state = "pheromones_three"
 	tier = 3
 	parent_name = "Pheromones II"
@@ -306,21 +316,6 @@
 	ability_type = /datum/action/ability/xeno_action/mutation/trail
 	buff_desc = "50% acid trail chance"
 
-/*
-/datum/xeno_mutation/drone_mastery
-	name = "Drone Mastery"
-	desc = "Улучшает способности строителя, увеличивая скорость постройки и эффективность ремонта."
-	category = "Enhancement"
-	cost = 12
-	icon_state = "xenobuff_generic"
-	tier = 1
-	parent_name = null
-	child_name = null
-	status_effect_type = STATUS_EFFECT_UPGRADE_DRONE_MASTERY
-	buff_desc = "+25% build speed, +15% repair efficiency"
-	caste_restrictions = list("drone", "shrike")
-*/
-
 GLOBAL_LIST_EMPTY(xeno_mutations)
 
 /proc/initialize_xeno_mutations()
@@ -339,3 +334,17 @@ GLOBAL_LIST_EMPTY(xeno_mutations)
 		if(mutation.name == mutation_name)
 			return mutation
 	return null
+
+/// Get the cost of a mutation for a specific caste
+/proc/get_mutation_cost_for_caste(datum/xeno_mutation/mutation, caste_type)
+	if(!mutation)
+		return 0
+
+	var/base_cost = mutation.cost
+	var/caste_name = lowertext(caste_type)
+
+	// Check if there's a cost change for this caste
+	if(caste_name in mutation.cost_change)
+		return base_cost + mutation.cost_change[caste_name]
+
+	return base_cost

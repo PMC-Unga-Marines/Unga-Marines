@@ -528,14 +528,20 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
                 color={
                   purchased
                     ? 'good'
-                    : isLockedByTier2 || isLockedByTier3
+                    : !unlocked || isLockedByTier2 || isLockedByTier3
                       ? 'bad'
-                      : canAfford
-                        ? 'good'
-                        : 'bad'
+                      : !canAfford
+                        ? 'label'
+                        : 'good'
                 }
                 fontSize="1.5em"
-                style={{ fontFamily: 'monospace', fontWeight: 'normal' }}
+                bold
+                style={{
+                  fontFamily: 'monospace',
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginTop: '2px',
+                }}
               >
                 {purchased
                   ? ''
@@ -546,9 +552,25 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
             </Flex.Item>
             <Flex.Item ml={1}>
               <Button
-                disabled={!canPurchase}
-                color={canPurchase ? 'good' : 'bad'}
+                disabled={
+                  !canPurchase &&
+                  !(!unlocked || isLockedByTier2 || isLockedByTier3)
+                }
+                color={
+                  purchased
+                    ? 'good'
+                    : !unlocked || isLockedByTier2 || isLockedByTier3
+                      ? 'bad'
+                      : !canAfford
+                        ? 'label'
+                        : 'good'
+                }
                 width="70px"
+                style={
+                  !unlocked || isLockedByTier2 || isLockedByTier3
+                    ? { backgroundColor: 'var(--color-bad) !important' }
+                    : {}
+                }
                 onClick={() =>
                   act('purchase_mutation', { mutation_name: name })
                 }
@@ -596,8 +618,17 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
 const MutationEntryComponent = (props: { mutation: MutationEntry }) => {
   const { act, data } = useBackend<MutationData>();
   const { mutation } = props;
-  const { name, desc, cost, icon, available, purchased, buff_desc, tier } =
-    mutation;
+  const {
+    name,
+    desc,
+    cost,
+    icon,
+    available,
+    purchased,
+    buff_desc,
+    tier,
+    unlocked,
+  } = mutation;
 
   const canAfford = cost <= data.biomass;
 
@@ -653,14 +684,20 @@ const MutationEntryComponent = (props: { mutation: MutationEntry }) => {
               color={
                 purchased
                   ? 'good'
-                  : isLockedByTier2 || isLockedByTier3
+                  : !unlocked || isLockedByTier2 || isLockedByTier3
                     ? 'bad'
-                    : canAfford
-                      ? 'good'
-                      : 'bad'
+                    : !canAfford
+                      ? 'label'
+                      : 'good'
               }
               fontSize="1.1em"
-              style={{ fontFamily: 'monospace', fontWeight: 'normal' }}
+              bold
+              style={{
+                fontFamily: 'monospace',
+                display: 'flex',
+                alignItems: 'center',
+                marginTop: '2px',
+              }}
             >
               {purchased
                 ? 'PURCHASED'
@@ -674,9 +711,24 @@ const MutationEntryComponent = (props: { mutation: MutationEntry }) => {
       buttons={
         <Button
           mr={1}
-          disabled={!canPurchase}
-          color={canPurchase ? 'good' : 'bad'}
+          disabled={
+            !canPurchase && !(!unlocked || isLockedByTier2 || isLockedByTier3)
+          }
+          color={
+            purchased
+              ? 'good'
+              : !unlocked || isLockedByTier2 || isLockedByTier3
+                ? 'bad'
+                : !canAfford
+                  ? 'label'
+                  : 'good'
+          }
           width="70px"
+          style={
+            !unlocked || isLockedByTier2 || isLockedByTier3
+              ? { backgroundColor: 'var(--color-bad) !important' }
+              : {}
+          }
           onClick={() => act('purchase_mutation', { mutation_name: name })}
           tooltip={
             !available

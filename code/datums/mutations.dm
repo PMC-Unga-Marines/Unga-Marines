@@ -111,8 +111,10 @@
 		to_chat(usr, span_warning("This mutation is not unlocked yet!"))
 		return
 
-	if(xeno_owner.biomass < mutation_datum.cost)
-		to_chat(usr, span_warning("You don't have enough biomass! You need [mutation_datum.cost] biomass, but you only have [xeno_owner.biomass]."))
+	var/mutation_cost = get_mutation_cost_for_caste(mutation_datum, xeno_owner.xeno_caste.caste_name)
+
+	if(xeno_owner.biomass < mutation_cost)
+		to_chat(usr, span_warning("You don't have enough biomass! You need [mutation_cost] biomass, but you only have [xeno_owner.biomass]."))
 		return
 
 	var/upgrade = locate(mutation_datum.status_effect_type) in xeno_owner.status_effects
@@ -139,7 +141,7 @@
 					ability.remove_action(xeno_owner)
 					xeno_owner.upgrades_holder.Remove(parent_mutation.ability_type)
 
-	xeno_owner.biomass -= mutation_datum.cost
+	xeno_owner.biomass -= mutation_cost
 	to_chat(usr, span_xenonotice("[mutation_name] mutation gained."))
 
 	//Add to purchase history
