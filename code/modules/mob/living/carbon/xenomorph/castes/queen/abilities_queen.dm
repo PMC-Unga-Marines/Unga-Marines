@@ -65,7 +65,7 @@
 	action_icon = 'icons/Xeno/actions/queen.dmi'
 	ability_cost = 250
 	cooldown_duration = 90 SECONDS
-	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SCREECH,
 	)
@@ -136,7 +136,7 @@
 	action_icon = 'icons/Xeno/actions/queen.dmi'
 	ability_cost = 300
 	cooldown_duration = 45 SECONDS
-	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PLASMA_SCREECH,
 	)
@@ -172,7 +172,7 @@
 	action_icon = 'icons/Xeno/actions/queen.dmi'
 	ability_cost = 300
 	cooldown_duration = 45 SECONDS
-	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY | ABILITY_IGNORE_SELECTED_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_FRENZY_SCREECH,
 	)
