@@ -271,7 +271,7 @@
 	var/obj/item/light_bulb/L = new light_type()
 	L.status = status
 	L.rigged = rigged
-	L.brightness = src.brightness
+	L.brightness = brightness
 
 	// light item inherits the switchcount, then zero it
 	L.switchcount = switchcount
