@@ -49,6 +49,8 @@
 	var/pixel_x_offset
 	/// Used for mapping to set custom pixel_y
 	var/pixel_y_offset
+	/// Is our security level red or higher? Used for emergency_update()
+	var/security_level_high = FALSE
 
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload, ...)
@@ -429,6 +431,8 @@
 	. = ..()
 	GLOB.mainship_lights += src
 	RegisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED, PROC_REF(on_alert_change))
+	var/area/A = get_area(src)
+	RegisterSignal(A, COMSIG_AREA_FIRE_ALARM_SET, PROC_REF(on_fire_alarm))
 
 /obj/machinery/light/mainship/Destroy()
 	. = ..()
@@ -439,28 +443,49 @@
 	SIGNAL_HANDLER
 	var/most_recent_level_red_lights = ((previous_level.sec_level_flags & SEC_LEVEL_FLAG_RED_LIGHTS))
 	if(!(new_level.sec_level_flags & SEC_LEVEL_FLAG_RED_LIGHTS) && most_recent_level_red_lights)
-		var/area/active_area = get_area(src)
-		if(!active_area.power_light || status != LIGHT_OK) //do not adjust unpowered or broken bulbs
-			return
-		base_icon_state = initial(base_icon_state)
-		light_color = bulb_colour
-		light_range = brightness
-		update_light()
-		update_appearance(UPDATE_ICON)
+		security_level_high = FALSE
+		emergency_update()
 	else if((new_level.sec_level_flags & SEC_LEVEL_FLAG_RED_LIGHTS) && !most_recent_level_red_lights)
-		var/area/active_area = get_area(src)
-		if(!active_area.power_light || status != LIGHT_OK) //do not adjust unpowered or broken bulbs
-			return
-		base_icon_state = "[initial(base_icon_state)]_red"
-		light_color = COLOR_SOMEWHAT_LIGHTER_RED
-		light_range = 7.5
+		security_level_high = TRUE
+		emergency_update()
+
+/obj/machinery/light/mainship/proc/on_fire_alarm(datum/source)
+	SIGNAL_HANDLER
+	emergency_update()
+
+/// Update the icon_state and luminosity of the light depending on its state
+/obj/machinery/light/proc/emergency_update()
+	if(status != LIGHT_OK) //do not adjust unpowered or broken bulbs
+		return
+	var/area/active_area = get_area(src)
+	if(!active_area.power_light)
+		return
+	var/new_base_icon_state = initial(base_icon_state)
+	var/new_light_color = bulb_colour
+	var/new_light_range = brightness
+	var/new_light_power = bulb_power
+
+	if(active_area.fire_alarm)
+		new_base_icon_state = "[initial(base_icon_state)]_red"
+		new_light_color = COLOR_FIRE_LIGHT_RED
+		new_light_range = 9
+		new_light_power = 0.5
+	else if(security_level_high)
+		new_base_icon_state = "[initial(base_icon_state)]_red"
+		new_light_color = COLOR_SOMEWHAT_LIGHTER_RED
+		new_light_range = 7.5
 		if(prob(75)) //randomize light range on most lights, patchy lighting gives a sense of danger
 			var/rangelevel = pick(5.5,6.0,6.5,7.0)
 			if(prob(15))
 				rangelevel -= pick(0.5,1.0,1.5,2.0)
-			light_range = rangelevel
-		update_light()
-		update_appearance(UPDATE_ICON)
+			new_light_range = rangelevel
+
+	base_icon_state = new_base_icon_state
+	light_color = new_light_color
+	light_range = new_light_range
+	light_power = new_light_power
+	update_light()
+	update_appearance(UPDATE_ICON)
 
 /obj/machinery/light/mainship/small
 	icon_state = "bulb_empty"
