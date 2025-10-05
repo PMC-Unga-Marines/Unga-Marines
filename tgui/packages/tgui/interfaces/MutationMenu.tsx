@@ -424,13 +424,13 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
   const getLinePosition = () => {
     switch (tier) {
       case 1:
-        return '-30px'; // Standard position
+        return '-12px'; // Standard position
       case 2:
-        return '-30px'; // Standard position
+        return '-16px'; // Adjusted for new margin
       case 3:
-        return '-50px'; // Moved further left for tier 3
+        return '-24px'; // Adjusted for new margin
       default:
-        return '-30px';
+        return '-12px';
     }
   };
 
@@ -459,7 +459,7 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
       borderRadius="4px"
       border={`2px solid ${nodeColor === 'good' ? '#00ff00' : nodeColor === 'average' ? '#ffff00' : nodeColor === 'blue' ? '#0080ff' : '#ff0000'}`}
       style={{
-        marginLeft: `${level * 20}px`,
+        marginLeft: `${level === 1 ? 12 : level === 2 ? 20 : level * 8}px`,
         position: 'relative',
         opacity: purchased || canPurchase || (unlocked && !canAfford) ? 1 : 0.5, // Full opacity for purchased/available/unlocked, dimmed for locked
         minHeight: '80px',
@@ -483,11 +483,13 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
       <Flex align="center">
         <Flex.Item>
           <Box
-            mr={4}
+            ml={2}
+            mr={6}
             style={{
-              transform: 'scale(1.8)',
+              transform: 'scale(2)',
               position: 'relative',
               display: 'inline-block',
+              overflow: 'hidden',
             }}
           >
             {/* Base icon */}
@@ -515,9 +517,68 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
           </Box>
         </Flex.Item>
         <Flex.Item grow={1}>
-          <Box bold fontSize="1.4em" color={getNameColor()}>
-            {name}
-          </Box>
+          <Flex align="center" mb={1}>
+            <Flex.Item grow={1}>
+              <Box bold fontSize="1.4em" color={getNameColor()}>
+                {name}
+              </Box>
+            </Flex.Item>
+            <Flex.Item>
+              <Box
+                color={
+                  purchased
+                    ? 'good'
+                    : isLockedByTier2 || isLockedByTier3
+                      ? 'bad'
+                      : canAfford
+                        ? 'good'
+                        : 'bad'
+                }
+                fontSize="1.5em"
+                style={{ fontFamily: 'monospace', fontWeight: 'normal' }}
+              >
+                {purchased
+                  ? ''
+                  : isLockedByTier2 || isLockedByTier3
+                    ? 'LOCKED'
+                    : `${cost}`}
+              </Box>
+            </Flex.Item>
+            <Flex.Item ml={1}>
+              <Button
+                disabled={!canPurchase}
+                color={canPurchase ? 'good' : 'bad'}
+                width="70px"
+                onClick={() =>
+                  act('purchase_mutation', { mutation_name: name })
+                }
+                tooltip={
+                  !unlocked
+                    ? 'Locked - requires parent mutation'
+                    : isLockedByTier2
+                      ? 'Locked - tier 2 mutation purchased'
+                      : isLockedByTier3
+                        ? 'Locked - tier 3 mutation purchased'
+                        : !available
+                          ? 'Not available'
+                          : !canAfford
+                            ? 'Not enough biomass'
+                            : purchased
+                              ? 'Already purchased'
+                              : 'Purchase this mutation'
+                }
+              >
+                {purchased
+                  ? ''
+                  : isLockedByTier2 || isLockedByTier3
+                    ? 'Locked'
+                    : unlocked
+                      ? 'Purchase'
+                      : 'Locked'}
+              </Button>
+            </Flex.Item>
+          </Flex>
+          <Divider mb={0.5} />
           <Box fontSize="1em" color="white" mt={1.8}>
             {desc}
           </Box>
@@ -526,56 +587,6 @@ const MutationNode = (props: { mutation: MutationEntry; level: number }) => {
               • {buff_desc}
             </Box>
           )}
-        </Flex.Item>
-        <Flex.Item>
-          <Box
-            color={
-              purchased
-                ? 'good'
-                : isLockedByTier2 || isLockedByTier3
-                  ? 'bad'
-                  : canAfford
-                    ? 'good'
-                    : 'bad'
-            }
-            bold
-          >
-            {purchased
-              ? 'PURCHASED'
-              : isLockedByTier2 || isLockedByTier3
-                ? 'LOCKED'
-                : `${cost} Biomass`}
-          </Box>
-        </Flex.Item>
-        <Flex.Item ml={1}>
-          <Button
-            disabled={!canPurchase}
-            color={canPurchase ? 'good' : 'bad'}
-            onClick={() => act('purchase_mutation', { mutation_name: name })}
-            tooltip={
-              !unlocked
-                ? 'Locked - requires parent mutation'
-                : isLockedByTier2
-                  ? 'Locked - tier 2 mutation purchased'
-                  : isLockedByTier3
-                    ? 'Locked - tier 3 mutation purchased'
-                    : !available
-                      ? 'Not available'
-                      : !canAfford
-                        ? 'Not enough biomass'
-                        : purchased
-                          ? 'Already purchased'
-                          : 'Purchase this mutation'
-            }
-          >
-            {purchased
-              ? 'Owned'
-              : isLockedByTier2 || isLockedByTier3
-                ? 'Locked'
-                : unlocked
-                  ? 'Purchase'
-                  : 'Locked'}
-          </Button>
         </Flex.Item>
       </Flex>
     </Box>
@@ -624,9 +635,11 @@ const MutationEntryComponent = (props: { mutation: MutationEntry }) => {
           <Flex.Item>
             <Box
               className={classes(['mutationmenu32x32', icon])}
-              mr={4}
+              ml={2}
+              mr={6}
               style={{
                 transform: 'scale(1.8)',
+                overflow: 'hidden',
               }}
             />
           </Flex.Item>
@@ -646,13 +659,14 @@ const MutationEntryComponent = (props: { mutation: MutationEntry }) => {
                       ? 'good'
                       : 'bad'
               }
-              bold
+              fontSize="1.1em"
+              style={{ fontFamily: 'monospace', fontWeight: 'normal' }}
             >
               {purchased
                 ? 'PURCHASED'
                 : isLockedByTier2 || isLockedByTier3
                   ? 'LOCKED'
-                  : `${cost} Biomass`}
+                  : `${cost}`}
             </Box>
           </Flex.Item>
         </Flex>
@@ -662,6 +676,7 @@ const MutationEntryComponent = (props: { mutation: MutationEntry }) => {
           mr={1}
           disabled={!canPurchase}
           color={canPurchase ? 'good' : 'bad'}
+          width="70px"
           onClick={() => act('purchase_mutation', { mutation_name: name })}
           tooltip={
             !available
@@ -678,7 +693,7 @@ const MutationEntryComponent = (props: { mutation: MutationEntry }) => {
           }
         >
           {purchased
-            ? 'Owned'
+            ? ''
             : isLockedByTier2 || isLockedByTier3
               ? 'Locked'
               : 'Purchase'}
@@ -686,6 +701,10 @@ const MutationEntryComponent = (props: { mutation: MutationEntry }) => {
       }
     >
       <Box p={2}>
+        <Box bold fontSize="1.2em" mb={1}>
+          {name}
+        </Box>
+        <Divider mb={1} />
         <Box mb={2} italic>
           {desc}
         </Box>

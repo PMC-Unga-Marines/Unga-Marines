@@ -22,12 +22,6 @@
 	var/list/obj/structure/xeno/psychictower/psychictowers = list()
 	///list of phero towers
 	var/list/obj/structure/xeno/pherotower/pherotowers = list()
-	///list of shell upgrade chambers
-	var/list/obj/structure/xeno/upgrade_chamber/shell/shell_chambers = list()
-	///list of spur upgrade chambers
-	var/list/obj/structure/xeno/upgrade_chamber/spur/spur_chambers = list()
-	///list of veil upgrade chambers
-	var/list/obj/structure/xeno/upgrade_chamber/veil/veil_chambers = list()
 	///list of hivemind cores
 	var/list/obj/structure/xeno/hivemindcore/hivemindcores = list()
 	var/tier3_xeno_limit
@@ -133,13 +127,6 @@
 	// Pheromone towers
 	for(var/obj/structure/xeno/pherotower/tower AS in GLOB.hive_datums[hivenumber].pherotowers)
 		.["hive_structures"] += list(get_structure_packet(tower))
-	// Upgrade chambers
-	for(var/obj/structure/xeno/upgrade_chamber/shell/chamber AS in GLOB.hive_datums[hivenumber].shell_chambers)
-		.["hive_structures"] += list(get_structure_packet(chamber))
-	for(var/obj/structure/xeno/upgrade_chamber/spur/chamber AS in GLOB.hive_datums[hivenumber].spur_chambers)
-		.["hive_structures"] += list(get_structure_packet(chamber))
-	for(var/obj/structure/xeno/upgrade_chamber/veil/chamber AS in GLOB.hive_datums[hivenumber].veil_chambers)
-		.["hive_structures"] += list(get_structure_packet(chamber))
 	// Hivemind cores
 	for(var/obj/structure/xeno/hivemindcore/core AS in GLOB.hive_datums[hivenumber].hivemindcores)
 		.["hive_structures"] += list(get_structure_packet(core))
@@ -163,6 +150,7 @@
 			"location" = get_xeno_location(xeno),
 			"health" = round(health * 100, 1),
 			"plasma" = round((xeno.plasma_stored / (caste.plasma_max * plasma_multi)) * 100, 1),
+			"mutations" = get_mutations_summary(xeno),
 			"can_be_leader" = CHECK_BITFIELD(initial(caste.can_flags), CASTE_CAN_BE_LEADER),
 			"is_leader" = xeno.xeno_flags & XENO_LEADER,
 			"is_ssd" = !xeno.client,
@@ -1405,6 +1393,32 @@ to_chat will check for valid clients itself already so no need to double check f
 	if(hugger)
 		return hugger.hivenumber
 	return ..()
+
+/// Returns a summary of mutations by category for a xenomorph
+/datum/hive_status/proc/get_mutations_summary(mob/living/carbon/xenomorph/xeno)
+	if(!xeno || !length(xeno.purchased_mutations))
+		return "None"
+
+	var/survival_count = 0
+	var/offensive_count = 0
+	var/specialized_count = 0
+	var/enhancement_count = 0
+
+	for(var/mutation_name in xeno.purchased_mutations)
+		var/datum/xeno_mutation/mutation = get_xeno_mutation_by_name(mutation_name)
+		if(!mutation)
+			continue
+		switch(mutation.category)
+			if("Survival")
+				survival_count++
+			if("Offensive")
+				offensive_count++
+			if("Specialized")
+				specialized_count++
+			if("Enhancement")
+				enhancement_count++
+
+	return "[survival_count] S; [offensive_count] O; [specialized_count] C; [enhancement_count] E"
 
 /mob/living/carbon/human/get_xeno_hivenumber()
 	if(faction == FACTION_ZOMBIE)

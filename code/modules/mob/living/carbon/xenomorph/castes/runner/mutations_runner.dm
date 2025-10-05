@@ -92,7 +92,7 @@
 
 /datum/xeno_mutation/runner/passing_glance
 	name = "Passing Glance"
-	desc = "Пока активен Evasion, контакт с органиком дизориентирует его на 4 секунды."
+	desc = "Пока активен Evasion, контакт дизориентирует врага на 4 секунды."
 	cost = 5
 	icon_state = "xenobuff_generic"
 	tier = 1
@@ -249,7 +249,7 @@
 
 /datum/xeno_mutation/runner/headslam
 	name = "Head Slam"
-	desc = "Стан от Pounce уменьшен в 4 раза, но дизориентирует и слепит врагов на 3 секунды."
+	desc = "Стан от Pounce уменьшен в 4 раза, но дизориентирует и слепит врага на 3 секунды."
 	cost = 5
 	icon_state = "xenobuff_generic"
 	tier = 1
