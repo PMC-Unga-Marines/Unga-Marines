@@ -145,10 +145,10 @@
 		return
 	round_finished = MODE_INFESTATION_M_MAJOR
 
-/datum/game_mode/infestation/distress/crash/get_siloless_collapse_countdown()
+/datum/game_mode/infestation/distro_crush/get_siloless_collapse_countdown()
 	var/eta = timeleft(siloless_hive_timer) MILLISECONDS
 	return !isnull(eta) ? round(eta) : 0
 
-/datum/game_mode/infestation/crash/can_summon_dropship(mob/user)
+/datum/game_mode/infestation/distro_crush/can_summon_dropship(mob/user)
 	to_chat(src, span_warning("This power doesn't work in this gamemode."))
 	return FALSE
