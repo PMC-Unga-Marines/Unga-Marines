@@ -77,7 +77,7 @@
 	///shatter effection duration when hitting mobs
 	var/shatter_duration = 3 SECONDS
 
-/datum/ammo/bullet/smg/squash/on_hit_mob(mob/target_mob, obj/projectile/proj)
+/datum/ammo/bullet/smg/squash/on_hit_mob(mob/target_mob, atom/movable/proj)
 	if(!isliving(target_mob))
 		return
 
