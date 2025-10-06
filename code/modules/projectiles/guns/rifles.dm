@@ -820,7 +820,7 @@
 	starting_attachment_types = list(/obj/item/attachable/foldable/som_carbine)
 	force = 10
 	burst_amount = 1
-	fire_delay = 0.22 SECONDS
+	fire_delay = 0.2 SECONDS
 	accuracy_mult = 0.75
 	scatter = 12
 	recoil = 2
