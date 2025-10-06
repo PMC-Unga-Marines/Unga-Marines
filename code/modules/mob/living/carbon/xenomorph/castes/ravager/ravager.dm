@@ -76,7 +76,7 @@
 
 	if((health <= 0) && !on_cooldown && stat == CONSCIOUS)
 		playsound(loc, 'sound/voice/alien/roar2.ogg', clamp(100 * rage_power, 25, 80), 0)
-		balloon_alert(src, "RIP AND TEAR")
+		//balloon_alert(src, "RIP AND TEAR")
 		plasma_stored += xeno_caste.plasma_max
 		var/datum/action/ability/xeno_action/charge = actions_by_path[/datum/action/ability/activable/xeno/charge]
 		var/datum/action/ability/xeno_action/ravage = actions_by_path[/datum/action/ability/activable/xeno/ravage]
