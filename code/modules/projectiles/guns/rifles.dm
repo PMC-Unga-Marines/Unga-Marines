@@ -1961,7 +1961,7 @@
 	aim_fire_delay = 0.15 SECONDS
 	aim_speed_modifier = 1.5
 
-	fire_delay = 0.22 SECONDS
+	fire_delay = 0.2 SECONDS
 	burst_amount = 1
 	burst_delay = 0.15 SECONDS
 	accuracy_mult = 1.2
