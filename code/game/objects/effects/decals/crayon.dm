@@ -4,7 +4,7 @@
 	icon = 'icons/effects/crayondecal.dmi'
 	anchored = TRUE
 
-/obj/effect/decal/cleanable/crayon/Initialize(mapload, main = "#FFFFFF", shade = "#000000", type = "rune"))
+/obj/effect/decal/cleanable/crayon/Initialize(mapload, main = "#FFFFFF", shade = "#000000", type = "rune")
 	. = ..()
 
 	name = type
