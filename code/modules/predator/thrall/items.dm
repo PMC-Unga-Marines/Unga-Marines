@@ -15,7 +15,7 @@
 		/obj/item/weapon,
 	)
 
-/obj/item/clothing/suit/armor/yautja/thrall/New(mapload, armor_area = pick("shoulders", "chest", "mix"), armor_number = rand(1,3), armor_material = pick("cloth", "bare"))
+/obj/item/clothing/suit/armor/yautja/thrall/Initialize(mapload, armor_area = pick("shoulders", "chest", "mix"), armor_number = rand(1,3), armor_material = pick("cloth", "bare"))
 	if(armor_number > 3)
 		armor_number = 1
 	if(armor_number)
@@ -34,7 +34,7 @@
 	)
 	thrall = TRUE
 
-/obj/item/clothing/shoes/marine/yautja/thrall/New(mapload, greaves_number = 1, armor_material = pick("cloth", "bare"))
+/obj/item/clothing/shoes/marine/yautja/thrall/Initialize(mapload, greaves_number = 1, armor_material = pick("cloth", "bare"))
 	if(greaves_number > 1)
 		greaves_number = 1
 	if(greaves_number)

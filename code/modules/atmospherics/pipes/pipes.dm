@@ -8,7 +8,7 @@
 	plane = FLOOR_PLANE
 	var/datum/pipeline/parent = null
 
-/obj/machinery/atmospherics/pipe/New(loc, process, setdir)
+/obj/machinery/atmospherics/pipe/Initialize(mapload, process, setdir)
 	. = ..()
 	add_atom_colour(pipe_color, FIXED_COLOR_PRIORITY)
 

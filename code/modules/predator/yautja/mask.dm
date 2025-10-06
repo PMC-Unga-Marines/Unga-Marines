@@ -41,9 +41,8 @@
 	var/list/mask_huds = list(DATA_HUD_MEDICAL_OBSERVER, DATA_HUD_XENO_STATUS, DATA_HUD_HUNTER, DATA_HUD_HUNTER_CLAN)
 	var/thrall = FALSE //Used to affect icon generation.
 
-/obj/item/clothing/mask/gas/yautja/New(location, mask_number = rand(1,12), armor_material = "ebony", legacy = "None")
-	..()
-	forceMove(location)
+/obj/item/clothing/mask/gas/yautja/Initialize(mapload, mask_number = rand(1,12), armor_material = "ebony", legacy = "None")
+	. = ..()
 	if(thrall)
 		return
 

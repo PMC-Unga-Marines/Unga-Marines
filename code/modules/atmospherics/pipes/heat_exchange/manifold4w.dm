@@ -16,7 +16,7 @@
 
 	var/mutable_appearance/center
 
-/obj/machinery/atmospherics/pipe/heat_exchanging/manifold4w/New(loc, process, setdir)
+/obj/machinery/atmospherics/pipe/heat_exchanging/manifold4w/Initialize(mapload, process, setdir)
 	. = ..()
 	icon_state = ""
 	center = mutable_appearance(icon, "manifold4w_center")

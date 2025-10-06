@@ -228,7 +228,7 @@
 	soft_armor = list(MELEE = 15, BULLET = 25, LASER = 20, ENERGY = 20, BOMB = 25, BIO = 20, FIRE = 20, ACID = 20)
 	var/thrall = FALSE//Used to affect icon generation.
 
-/obj/item/clothing/shoes/marine/yautja/New(location, boot_number = rand(1,4), armor_material = "ebony")
+/obj/item/clothing/shoes/marine/yautja/Initialize(mapload, boot_number = rand(1,4), armor_material = "ebony")
 	. = ..()
 	if(thrall)
 		return
