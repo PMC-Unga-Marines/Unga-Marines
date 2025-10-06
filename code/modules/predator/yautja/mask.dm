@@ -72,14 +72,14 @@
 	icon_state = "pred_mask[mask_number]_[armor_material]"
 	LAZYSET(worn_worn_icon_state_slots, slot_wear_mask_str, "pred_mask[mask_number]_[armor_material]")
 
-/obj/item/clothing/glasses/welding/Initialize()
+/obj/item/clothing/glasses/welding/Initialize(mapload)
 	AddComponent(/datum/component/clothing_tint, TINT_NONE, FALSE)
-	. = ..()
+	return ..()
 
 /obj/item/clothing/mask/gas/yautja/pickup(mob/living/user)
 	if(isyautja(user))
 		remove_from_missing_pred_gear(src)
-	..()
+	return ..()
 
 /obj/item/clothing/mask/gas/yautja/Destroy()
 	remove_from_missing_pred_gear(src)

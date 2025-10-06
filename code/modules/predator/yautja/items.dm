@@ -685,7 +685,7 @@
 	var/tether_range = 5
 	var/mob/trapped_mob
 
-/obj/item/hunting_trap/Initialize()
+/obj/item/hunting_trap/Initialize(mapload)
 	. = ..()
 	var/static/list/connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
@@ -884,7 +884,7 @@
 	item_flags = ITEM_PREDATOR
 	paygrade = null
 
-/obj/item/card/id/bracer_chip/Initialize()
+/obj/item/card/id/bracer_chip/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)
 

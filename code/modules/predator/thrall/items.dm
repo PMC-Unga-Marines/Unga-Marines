@@ -54,7 +54,7 @@
 	icon = 'icons/obj/structures/closet.dmi'
 	icon_state = "pred_coffin"
 
-/obj/item/storage/box/bracer/Initialize()
+/obj/item/storage/box/bracer/Initialize(mapload)
 	. = ..()
 	new /obj/item/clothing/gloves/yautja/thrall(src)
 	storage_datum.foldable = FALSE
