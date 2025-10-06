@@ -171,3 +171,29 @@
 			return
 
 	user.add_movespeed_modifier(MOVESPEED_ID_WIELDED_SLOWDOWN, TRUE, 0, NONE, TRUE, wielded_slowdown)
+///////////////////////////////////////////////////////////////////////////////
+////////////////// VS-21 ValiChain, the Vali Chainsword ///////////////////////
+///////////////////////////////////////////////////////////////////////////////
+/obj/item/weapon/twohanded/glaive/chainsword/harvester
+	name = "\improper VS-21 ValiChain harvester"
+	desc = "The advanced chainsword "Reaper" UPP, developed by the Sukhoi Research and Design Bureau. The first in the history of modern melee weapons is the realized chain saw, elegant lightness of the weapon and high breakthrough ability.Activate after loading to prime a single use of an effect. It also harvests substances from alien lifeforms it strikes when connected to the Vali system."
+	icon = 'icons/obj/items/vali.dmi'
+	icon_state = "chainsword"
+	worn_icon_state = "VAL-HAL-A"
+	worn_icon_list = list(
+		slot_back_str = 'icons/mob/clothing/back.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/weapons/vali_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/weapons/vali_right.dmi',
+	)
+	force = 28
+	w_class = WEIGHT_CLASS_BULKY
+	force_activated = 90 //Reminder: putting trama inside deals 60% additional damage
+	item_flags = TWOHANDED
+	throwforce = 65
+	throw_speed = 3
+	resistance_flags = 0 //override glavie
+	attack_speed = 12 //Default is 7, this has slower attack
+	reach = 1 //like spear
+	slowdown = 0 //Slowdown in back slot
+	var/wielded_slowdown = 0.5 //Slowdown in hands, wielded
+	var/wield_delay = 0.8 SECONDS
