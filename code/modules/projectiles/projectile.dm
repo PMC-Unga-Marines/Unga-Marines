@@ -21,7 +21,6 @@
 	name = "projectile"
 	icon = 'icons/obj/items/projectiles.dmi'
 	icon_state = "bullet"
-	density = FALSE
 	resistance_flags = RESIST_ALL
 	anchored = TRUE //You will not have me, space wind!
 	move_resist = INFINITY
@@ -90,6 +89,10 @@
 	var/projectile_speed = 1
 	///armour type this projectile is checked against
 	var/armor_type = BULLET
+	///How much armor it ignores before calculations take place
+	var/penetration = 0
+	///damage type to deal when this obj is attacking something
+	var/damtype = BRUTE
 
 	//Fired processing vars
 	///Last movement time
@@ -110,10 +113,6 @@
 	var/point_blank_range = 0
 	/// List of atoms already hit by that projectile. Will only matter for projectiles capable of passing through multiple atoms
 	var/list/atom/hit_atoms = list()
-	///How much armor it ignores before calculations take place
-	var/penetration = 0
-	///damage type to deal when this obj is attacking something
-	var/damtype = BRUTE
 
 /atom/movable/projectile/Initialize(mapload)
 	. = ..()
