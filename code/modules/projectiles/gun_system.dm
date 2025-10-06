@@ -917,7 +917,7 @@
 	var/firing_angle = get_angle_with_scatter((gun_user || get_turf(src)), target, proj_scatter, projectile_to_fire.p_x, projectile_to_fire.p_y)
 
 	//Finally, make with the pew pew!
-	if(!isobj(projectile_to_fire))
+	if(!ismovable(projectile_to_fire))
 		stack_trace("projectile malfunctioned while firing. User: [gun_user]")
 		return
 	play_fire_sound(loc)
