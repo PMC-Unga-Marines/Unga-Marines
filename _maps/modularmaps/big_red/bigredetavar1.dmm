@@ -17,7 +17,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
 "bi" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "bT" = (
@@ -519,7 +519,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
 "wE" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/caves/northeast/garbledradio)
 "xa" = (
@@ -804,7 +804,7 @@
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "Ir" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/bigredv2/caves/northeast/garbledradio)

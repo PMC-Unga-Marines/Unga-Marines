@@ -3,10 +3,10 @@
 	desc = "That looks like it doesn't open easily."
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
 	icon_state = "pdoor1"
-	soft_armor = list(MELEE = 50, BULLET = 100, LASER = 100, ENERGY = 100, BOMB = 50, BIO = 100, FIRE = 100, ACID = 70)
-	layer = PODDOOR_OPEN_LAYER
-	open_layer = PODDOOR_OPEN_LAYER
-	closed_layer = PODDOOR_CLOSED_LAYER
+	soft_armor = list(MELEE = 50, BULLET = 90, LASER = 90, ENERGY = 100, BOMB = 50, BIO = 100, FIRE = 100, ACID = 70)
+	layer = BLASTDOOR_LAYER
+	open_layer = BLASTDOOR_LAYER
+	closed_layer = CLOSED_BLASTDOOR_LAYER
 	obj_flags = NONE
 	explosion_block = 6
 	smoothing_groups = list(SMOOTH_GROUP_SHUTTERS)
@@ -183,7 +183,7 @@
 /obj/machinery/door/poddoor/mainship/open
 	density = FALSE
 	opacity = FALSE
-	layer = PODDOOR_OPEN_LAYER
+	layer = BLASTDOOR_LAYER
 	icon_state = "pdoor0"
 
 /obj/machinery/door/poddoor/mainship/ai
@@ -267,7 +267,7 @@
 	name = "Containment shutters"
 	desc = "Safety shutters triggered by some kind of lockdown event."
 	resistance_flags = DROPSHIP_IMMUNE|RESIST_ALL|BLOCK_PASSTHROUGH_PROJECTILES
-	open_layer = UNDER_TURF_LAYER //No longer needs to be interacted with.
+	open_layer = ABOVE_NORMAL_TURF_LAYER //No longer needs to be interacted with.
 	closed_layer = ABOVE_WINDOW_LAYER //Higher than usual, this is only around on the start of the round.
 
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/Initialize(mapload)

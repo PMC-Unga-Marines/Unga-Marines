@@ -682,17 +682,16 @@ ColorTone(rgb, tone)
 	else
 		return BlendRGB(tone, "#ffffff", (gray - tone_gray) / ((255 - tone_gray) || 1))
 
-
 /// Create a single [/icon] from a given [/atom] or [/image].
 ///
 /// Very low-performance. Should usually only be used for HTML, where BYOND's
 /// appearance system (overlays/underlays, etc.) is not available.
 ///
 /// Only the first argument is required.
-/proc/getFlatIcon(image/appearance, defdir, deficon, defstate, defblend, start = TRUE, no_anim = FALSE)
+/proc/getFlatIcon(image/appearance, defdir, deficon, defstate, defblend, start = TRUE, no_anim = FALSE, parentcolor)
 	// Loop through the underlays, then overlays, sorting them into the layers list
 	#define PROCESS_OVERLAYS_OR_UNDERLAYS(flat, process, base_layer) \
-		for(var/i in 1 to process.len) { \
+		for (var/i in 1 to process.len) { \
 			var/image/current = process[i]; \
 			if (!current) { \
 				continue; \
@@ -706,6 +705,10 @@ ColorTone(rgb, tone)
 					return flat; \
 				} \
 				current_layer = base_layer + appearance.layer + current_layer / 1000; \
+			} \
+			/* If we are using topdown rendering, chop that part off so things layer together as expected */ \
+			if((current_layer >= TOPDOWN_LAYER && current_layer < EFFECTS_LAYER) || current_layer > TOPDOWN_LAYER + EFFECTS_LAYER) { \
+				current_layer -= TOPDOWN_LAYER; \
 			} \
 			for (var/index_to_compare_to in 1 to layers.len) { \
 				var/compare_to = layers[index_to_compare_to]; \
@@ -746,12 +749,12 @@ ColorTone(rgb, tone)
 			else
 				render_icon = FALSE
 
-	var/base_icon_dir	//We'll use this to get the icon state to display if not null BUT NOT pass it to overlays as the dir we have
+	var/base_icon_dir //We'll use this to get the icon state to display if not null BUT NOT pass it to overlays as the dir we have
 
 	if(render_icon)
 		//Try to remove/optimize this section if you can, it's a CPU hog.
 		//Determines if there're directionals.
-		if(curdir != SOUTH)
+		if (curdir != SOUTH)
 			// icon states either have 1, 4 or 8 dirs. We only have to check
 			// one of NORTH, EAST or WEST to know that this isn't a 1-dir icon_state since they just have SOUTH.
 			if(!length(icon_states(icon(curicon, curstate, NORTH))))
@@ -766,11 +769,9 @@ ColorTone(rgb, tone)
 	if(!base_icon_dir)
 		base_icon_dir = curdir
 
-	ASSERT(!BLEND_DEFAULT)		//I might just be stupid but lets make sure this define is 0.
-
 	var/curblend = appearance.blend_mode || defblend
 
-	if(length(appearance.overlays) || length(appearance.underlays))
+	if(appearance.overlays.len || appearance.underlays.len)
 		// Layers will be a sorted list of icons/overlays, based on the order in which they are displayed
 		var/list/layers = list()
 		var/image/copy
@@ -797,23 +798,43 @@ ColorTone(rgb, tone)
 		var/addY1 = 0
 		var/addY2 = 0
 
+		if(appearance.color)
+			if(islist(appearance.color))
+				flat.MapColors(arglist(appearance.color))
+			else
+				flat.Blend(appearance.color, ICON_MULTIPLY)
+
+		if(parentcolor && !(appearance.appearance_flags & RESET_COLOR))
+			if(islist(parentcolor))
+				flat.MapColors(arglist(parentcolor))
+			else
+				flat.Blend(parentcolor, ICON_MULTIPLY)
+
+		var/next_parentcolor = appearance.color || parentcolor
+
 		for(var/image/layer_image as anything in layers)
 			if(layer_image.alpha == 0)
 				continue
 
-			if(layer_image ) // 'layer_image ' is an /image based on the object being flattened.
+			if(layer_image == copy) // 'layer_image' is an /image based on the object being flattened.
 				curblend = BLEND_OVERLAY
 				add = icon(layer_image.icon, layer_image.icon_state, base_icon_dir)
+				if(appearance.color)
+					if(islist(appearance.color))
+						add.MapColors(arglist(appearance.color))
+					else
+						add.Blend(appearance.color, ICON_MULTIPLY)
 			else // 'I' is an appearance object.
-				add = getFlatIcon(image(layer_image ), curdir, curicon, curstate, curblend, FALSE, no_anim)
+				add = getFlatIcon(image(layer_image), curdir, curicon, curstate, curblend, FALSE, no_anim, next_parentcolor)
+
 			if(!add)
 				continue
 
 			// Find the new dimensions of the flat icon to fit the added overlay
-			addX1 = min(flatX1, layer_image.pixel_x + 1)
-			addX2 = max(flatX2, layer_image.pixel_x + add.Width())
-			addY1 = min(flatY1, layer_image.pixel_y + 1)
-			addY2 = max(flatY2, layer_image.pixel_y + add.Height())
+			addX1 = min(flatX1, layer_image.pixel_x + layer_image.pixel_w + 1)
+			addX2 = max(flatX2, layer_image.pixel_x + layer_image.pixel_w + add.Width())
+			addY1 = min(flatY1, layer_image.pixel_y + layer_image.pixel_z + 1)
+			addY2 = max(flatY2, layer_image.pixel_y + layer_image.pixel_z + add.Height())
 
 			if(
 				addX1 != flatX1 \
@@ -828,19 +849,14 @@ ColorTone(rgb, tone)
 					addX2 - flatX1 + 1,
 					addY2 - flatY1 + 1
 				)
+
 				flatX1 = addX1
 				flatX2 = addY1
 				flatY1 = addX2
 				flatY2 = addY2
 
 			// Blend the overlay into the flattened icon
-			flat.Blend(add, blendMode2iconMode(curblend), layer_image.pixel_x + 2 - flatX1, layer_image.pixel_y + 2 - flatY1)
-
-		if(appearance.color)
-			if(islist(appearance.color))
-				flat.MapColors(arglist(appearance.color))
-			else
-				flat.Blend(appearance.color, ICON_MULTIPLY)
+			flat.Blend(add, blendMode2iconMode(curblend), layer_image.pixel_x + layer_image.pixel_w + 2 - flatX1, layer_image.pixel_y + layer_image.pixel_z + 2 - flatY1)
 
 		if(appearance.alpha < 255)
 			flat.Blend(rgb(255, 255, 255, appearance.alpha), ICON_MULTIPLY)
@@ -1148,29 +1164,59 @@ ColorTone(rgb, tone)
 	var/icon/I = getFlatIcon(thing)
 	return icon2html(I, target, sourceonly = sourceonly)
 
-///For creating consistent icons for human looking simple animals
-/proc/get_flat_human_icon(icon_id, datum/job/J, datum/preferences/prefs, dummy_key, showDirs = GLOB.cardinals, outfit_override)
+/// # If you already have a human and need to get its flat icon, call `get_flat_existing_human_icon()` instead.
+/// For creating consistent icons for human looking simple animals.
+/proc/get_flat_human_icon(icon_id, datum/job/job, datum/preferences/prefs, dummy_key, showDirs = GLOB.cardinals, outfit_override = null)
 	var/static/list/humanoid_icon_cache = list()
-	if(!icon_id || !humanoid_icon_cache[icon_id])
-		var/mob/living/carbon/human/dummy/body = generate_or_wait_for_human_dummy(dummy_key)
-		if(prefs)
-			prefs.copy_to(body,TRUE,FALSE)
-		if(J)
-			J.equip_dummy(body, outfit_override = outfit_override)
-		else if(outfit_override)
-			body.equipOutfit(outfit_override, visualsOnly = TRUE)
-
-		var/icon/out_icon = icon('icons/effects/effects.dmi', "nothing")
-		for(var/D in showDirs)
-			body.setDir(D)
-			var/icon/partial = getFlatIcon(body)
-			out_icon.Insert(partial, dir = D)
-
-		humanoid_icon_cache[icon_id] = out_icon
-		dummy_key ? unset_busy_human_dummy(dummy_key) : qdel(body)
-		return out_icon
-	else
+	if(icon_id && humanoid_icon_cache[icon_id])
 		return humanoid_icon_cache[icon_id]
+
+	var/mob/living/carbon/human/dummy/body = generate_or_wait_for_human_dummy(dummy_key)
+
+	if(prefs)
+		prefs.copy_to(body, TRUE, FALSE)
+
+	if(job)
+		job.equip_dummy(body, outfit_override = outfit_override)
+	else if(outfit_override)
+		body.equipOutfit(outfit_override, TRUE)
+
+	var/icon/out_icon = icon('icons/effects/effects.dmi', "nothing")
+	for(var/direction in showDirs)
+		var/icon/partial = getFlatIcon(body, defdir = direction)
+		out_icon.Insert(partial, dir = direction)
+
+	humanoid_icon_cache[icon_id] = out_icon
+	dummy_key ? unset_busy_human_dummy(dummy_key) : qdel(body)
+	return out_icon
+
+/**
+ * A simpler version of get_flat_human_icon() that uses an existing human as a base to create the icon.
+ * Does not feature caching yet, since I could not think of a good way to cache them without having a possibility
+ * of using the cached version when we don't want to, so only use this proc if you just need this flat icon
+ * generated once and handle the caching yourself if you need to access that icon multiple times, or
+ * refactor this proc to feature caching of icons.
+ *
+ * Arguments:
+ * * existing_human - The human we want to get a flat icon out of.
+ * * directions_to_output - The directions of the resulting flat icon, defaults to all cardinal directions.
+ */
+/proc/get_flat_existing_human_icon(mob/living/carbon/human/existing_human, directions_to_output = GLOB.cardinals)
+	RETURN_TYPE(/icon)
+	if(!existing_human || !istype(existing_human))
+		CRASH("Attempted to call get_flat_existing_human_icon on a [existing_human ? existing_human.type : "null"].")
+
+	// We need to force the dir of the human so we can take those pictures, we'll set it back afterwards.
+	var/initial_human_dir = existing_human.dir
+	existing_human.dir = SOUTH
+	var/icon/out_icon = icon('icons/effects/effects.dmi', "nothing")
+	for(var/direction in directions_to_output)
+		var/icon/partial = getFlatIcon(existing_human, defdir = direction)
+		out_icon.Insert(partial, dir = direction)
+
+	existing_human.dir = initial_human_dir
+
+	return out_icon
 
 GLOBAL_LIST_EMPTY(transformation_animation_objects)
 /**
@@ -1265,6 +1311,15 @@ GLOBAL_LIST_EMPTY(transformation_animation_objects)
 		var/icon/my_icon = icon(icon_path)
 		GLOB.icon_dimensions[icon_path] = list("width" = my_icon.Width(), "height" = my_icon.Height())
 	return GLOB.icon_dimensions[icon_path]
+
+/// Strips all underlays on a different plane from an appearance.
+/// Returns the stripped appearance.
+/proc/strip_appearance_underlays(mutable_appearance/appearance)
+	var/base_plane = PLANE_TO_TRUE(appearance.plane)
+	for(var/mutable_appearance/underlay as anything in appearance.underlays)
+		if(PLANE_TO_TRUE(underlay.plane) != base_plane)
+			appearance.underlays -= underlay
+	return appearance
 
 /// Checks whether a given icon state exists in a given icon file. If `file` and `state` both exist,
 /// this will return `TRUE` - otherwise, it will return `FALSE`.

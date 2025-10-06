@@ -1,0 +1,5 @@
+author: "CheBokJam"
+delete-after: True
+changes:
+  - rscadd: "В карго добавлены зажигательные магазины к M412."
+  - rscadd: "В карго добавлены увеличенные магазины к SMG-25, SMG-2, M412, AR-21."

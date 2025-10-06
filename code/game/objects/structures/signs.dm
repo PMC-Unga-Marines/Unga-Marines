@@ -4,6 +4,7 @@
 	opacity = FALSE
 	density = FALSE
 	layer = WALL_OBJ_LAYER
+	plane = WALL_PLANE
 	///if true init to a given x/y offset on a wall, if not leave floating in space. used for multiple signs on a wall to prevent them all from moving to the same offset and overlapping/becoming unreadable.
 	var/directional = TRUE
 	///The icon sign will change on Initialize.
@@ -26,8 +27,9 @@
 			pixel_x = -30
 
 /obj/structure/sign/ex_act(severity)
-	if(severity >= EXPLODE_WEAK)
-		qdel(src)
+	if(severity < EXPLODE_WEAK)
+		return
+	qdel(src)
 
 /obj/structure/sign/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()

@@ -99,7 +99,7 @@
 	},
 /area/outpost/hallway/central)
 "at" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
@@ -279,7 +279,7 @@
 	},
 /area/outpost/yard/east)
 "bm" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/south)
 "bn" = (
@@ -487,7 +487,7 @@
 /turf/open/floor/tile/dark,
 /area/outpost/brig/armoury)
 "ct" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
 "cu" = (
@@ -1719,7 +1719,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/south)
 "hL" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north)
 "hM" = (
@@ -1849,7 +1849,7 @@
 	},
 /area/outpost/yard/central)
 "ik" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/outpost/caves/north)
 "im" = (
@@ -2036,7 +2036,7 @@
 	},
 /area/outpost/lz1)
 "ja" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "jc" = (
@@ -2713,7 +2713,7 @@
 /turf/closed/mineral/smooth/bigred,
 /area/outpost/caves/north_east)
 "lK" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 4
 	},
@@ -2755,7 +2755,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
 "lV" = (
@@ -2958,8 +2958,8 @@
 	},
 /area/outpost/medbay/storage)
 "mS" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/south)
 "mU" = (
@@ -3989,7 +3989,7 @@
 	},
 /area/outpost/hallway/northern)
 "rg" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/outpost/yard/central)
 "ri" = (
@@ -4455,7 +4455,7 @@
 /turf/open/floor/tile/dark,
 /area/outpost/science)
 "tg" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
 "ti" = (
@@ -5133,7 +5133,7 @@
 	},
 /area/outpost/yard/south)
 "wk" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north)
 "wl" = (
@@ -5230,7 +5230,7 @@
 	},
 /area/outpost/medbay/security)
 "wE" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/south_west)
 "wF" = (
@@ -5673,7 +5673,7 @@
 	},
 /area/outpost/hallway/east)
 "yy" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/south)
@@ -6146,7 +6146,7 @@
 	},
 /area/outpost/lz1)
 "Az" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/outpost/caves/north)
 "AD" = (
@@ -7018,7 +7018,7 @@
 /turf/closed/mineral/smooth/bigred/indestructible,
 /area/bigredv2/caves/rock)
 "EF" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/south)
 "EG" = (
@@ -7230,7 +7230,7 @@
 	},
 /area/outpost/engineering)
 "Fw" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
 "Fy" = (
@@ -7312,7 +7312,7 @@
 /area/outpost/science)
 "FQ" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north)
 "FR" = (
@@ -7487,7 +7487,7 @@
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/outpost/yard/east)
 "GI" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_west)
 "GJ" = (
@@ -7581,7 +7581,7 @@
 /turf/open/floor/plating/ground/mars/random,
 /area/outpost/caves/north_west)
 "Hi" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/outpost/yard/south)
 "Hm" = (
@@ -7609,7 +7609,7 @@
 /turf/open/floor/plating/asteroidfloor,
 /area/outpost/yard/south)
 "Ht" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/south_east)
 "Hu" = (
@@ -7769,7 +7769,7 @@
 /area/outpost/cargo)
 "Ic" = (
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
 "Id" = (
@@ -8056,7 +8056,7 @@
 	},
 /area/outpost/engineering)
 "Jy" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/outpost/caves/south)
 "Jz" = (
@@ -8423,7 +8423,7 @@
 /turf/open/floor/tile/dark/red2,
 /area/outpost/brig)
 "KY" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_west)
 "KZ" = (
@@ -8453,7 +8453,7 @@
 /area/outpost/caves/north_east)
 "Li" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
 "Ll" = (
@@ -8529,7 +8529,7 @@
 	},
 /area/outpost/cargo/engineering)
 "LA" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/outpost/caves/north_east)
 "LB" = (
@@ -8768,7 +8768,7 @@
 	},
 /area/outpost/arrivals/securitylz1)
 "My" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/bigred,
 /area/outpost/caves/south_east)
 "Mz" = (
@@ -8859,7 +8859,7 @@
 	},
 /area/outpost/science/research)
 "MT" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/cavetodirt{
 	dir = 8
 	},
@@ -8910,8 +8910,8 @@
 	},
 /area/outpost/medbay)
 "Ne" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "Nf" = (
@@ -9526,7 +9526,7 @@
 	},
 /area/outpost/hallway/east)
 "PK" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/cavetodirt{
 	dir = 1
 	},
@@ -11220,7 +11220,7 @@
 	},
 /area/outpost/cargo)
 "Xf" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/yard/south_east)
 "Xg" = (
@@ -11585,7 +11585,7 @@
 	},
 /area/outpost/hallway/northern)
 "YE" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/cavetodirt{
 	dir = 4
 	},
@@ -11706,7 +11706,7 @@
 	},
 /area/outpost/yard/south)
 "Zj" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_west)
 "Zk" = (

@@ -98,10 +98,8 @@
 	var/taste_sensitivity = TASTE_NORMAL
 	/// Type that gets set as our language_holder on proc/set_species
 	var/default_language_holder = /datum/language_holder
-	/// Sets mob/var/see_in_dark on [/mob/living/carbon/human/update_sight]
-	var/see_in_dark = 2
 	/// Sets our mobs lighting_alpha on [/mob/living/carbon/human/update_sight]
-	var/lighting_alpha
+	var/lighting_cutoff
 	/// Used for metabolizing reagents
 	var/reagent_tag
 

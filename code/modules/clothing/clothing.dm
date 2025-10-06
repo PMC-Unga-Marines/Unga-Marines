@@ -17,9 +17,14 @@
 	var/eye_protection = 0
 	/// Used by headgear mostly to affect accuracy
 	var/accuracy_mod = 0
+	///Determines what subtype of storage is on our item, see datums\storage\subtypes
+	var/datum/storage/storage_type
 
 /obj/item/clothing/Initialize(mapload)
 	. = ..()
+	if(storage_type)
+		create_storage(storage_type)
+		PopulateContents()
 	attachments_allowed = string_list(attachments_allowed)
 	starting_attachments = string_list(starting_attachments)
 	if(!length(attachments_allowed) || !length(attachments_by_slot))
@@ -94,6 +99,10 @@
 /obj/item/clothing/alternate_color_item(obj/item/facepaint/paint, mob/user)
 	. = ..()
 	update_clothing_icon()
+
+///Use this to fill your storage with items. USE THIS INSTEAD OF NEW/INIT
+/obj/item/clothing/proc/PopulateContents()
+	return
 
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects

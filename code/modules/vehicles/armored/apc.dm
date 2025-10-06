@@ -11,8 +11,8 @@
 	required_entry_skill = SKILL_LARGE_VEHICLE_DEFAULT
 	minimap_icon_state = "apc"
 	turret_icon = null
-	pixel_x = -48
-	pixel_y = -40
+	pixel_w = -48
+	pixel_z = -40
 	max_integrity = 600
 	soft_armor = list(MELEE = 60, BULLET = 99 , LASER = 99, ENERGY = 60, BOMB = 60, BIO = 100, FIRE = 40, ACID = 40)
 	max_occupants = 20 //Clown car? Clown car.

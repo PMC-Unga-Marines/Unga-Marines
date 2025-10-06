@@ -44,7 +44,7 @@
 	icon_state = "monorail"
 	density = FALSE
 	anchored = TRUE
-	layer = ATMOS_PIPE_LAYER + 0.01
+	layer = LOW_OBJ_LAYER
 
 /obj/structure/mopbucket
 	name = "mop bucket"
@@ -125,6 +125,7 @@
 	resistance_flags = UNACIDABLE
 	hit_sound = 'sound/effects/Glasshit.ogg'
 	destroy_sound = "shatter"
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 50, BIO = 0, FIRE = 0, ACID = 0)
 	///Whatever is contained in the tank
 	var/obj/occupant
 	///What this tank is replaced by when broken
@@ -142,8 +143,6 @@
 
 	return ..()
 
-/obj/structure/xenoautopsy/tank/ex_act(severity)
-	take_damage(severity * 0.5, BRUTE, BOMB)
 
 ///Releases whatever is inside the tank
 /obj/structure/xenoautopsy/tank/proc/release_occupant()
@@ -197,9 +196,6 @@
 	pixel_x += rand(-3,3)
 	pixel_y += rand(-3,3)
 
-
-
-
 //stairs
 
 /obj/structure/stairs
@@ -207,7 +203,8 @@
 	icon = 'icons/obj/structures/stairs.dmi'
 	desc = "Stairs.  You walk up and down them."
 	icon_state = "rampbottom"
-	layer = TURF_LAYER
+	plane = FLOOR_PLANE // we want this to render below walls if we place them on top
+	layer = LOWER_RUNE_LAYER
 	density = FALSE
 	opacity = FALSE
 

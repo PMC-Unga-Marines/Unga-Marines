@@ -20,7 +20,7 @@
 /obj/effect/ai_node/spawner/zombie/Initialize(mapload)
 	. = ..()
 	GLOB.zombie_spawners += src
-	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, "zombie_spawner", VERY_HIGH_FLOAT_LAYER))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_ALL, image('icons/UI_icons/map_blips_large.dmi', null, "zombie_spawner", MINIMAP_LABELS_LAYER))
 
 /obj/effect/ai_node/spawner/zombie/Destroy()
 	. = ..()

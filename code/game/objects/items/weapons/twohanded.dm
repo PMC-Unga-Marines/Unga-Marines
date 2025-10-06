@@ -145,8 +145,7 @@
 	return
 
 /obj/item/weapon/twohanded/offhand/dropped(mob/user)
-	. = ..()
-	return
+	return ..()
 
 /obj/item/weapon/twohanded/offhand/forceMove(atom/destination)
 	if(!ismob(destination))

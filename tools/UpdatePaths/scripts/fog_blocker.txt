@@ -1,0 +1,1 @@
+/obj/effect/landmark/lv624/@SUBTYPES : /obj/effect/landmark/@SUBTYPES{@OLD}

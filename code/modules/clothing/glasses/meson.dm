@@ -12,7 +12,9 @@
 		"Hammerhead Combat Robot" = 'icons/mob/species/robot/glasses_alpharii.dmi',
 		"Ratcher Combat Robot" = 'icons/mob/species/robot/glasses_deltad.dmi')
 	toggleable = TRUE
-	vision_flags = SEE_TURFS
+	vision_flags = SEE_TURFS // todo replace with tgs TRAIT_MESON_VISION
+	lighting_cutoff = LIGHTING_CUTOFF_REAL_LOW
+	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/meson/enggoggles
 	name = "\improper Optical meson ballistic goggles"
@@ -49,8 +51,7 @@
 	worn_icon_list = list(
 		slot_glasses_str = 'icons/mob/hunter/pred_gear.dmi'
 	)
-	darkness_view = 12
-	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+	lighting_cutoff = LIGHTING_CUTOFF_HIGH
 	actions_types = null
 
 /obj/item/clothing/glasses/meson/yautja/Initialize()

@@ -59,7 +59,7 @@
 	},
 /area/bigredv2/caves/south)
 "an" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/tile/dark/yellow2/corner,
 /area/bigredv2/caves/south)
 "ao" = (
@@ -74,7 +74,7 @@
 	},
 /area/bigredv2/caves/south)
 "as" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/r_wall,
 /area/bigredv2/caves/south)
 "at" = (
@@ -157,11 +157,11 @@
 	},
 /area/bigredv2/caves/south)
 "aO" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "aP" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "aQ" = (
@@ -192,7 +192,7 @@
 	},
 /area/bigredv2/caves/south)
 "JO" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 

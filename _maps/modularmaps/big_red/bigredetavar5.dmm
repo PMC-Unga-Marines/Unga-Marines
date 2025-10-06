@@ -281,7 +281,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/bar)
 "mo" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/bigredv2/caves/northeast/garbledradio)
@@ -915,7 +915,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/ne)
 "Nu" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "NJ" = (
@@ -927,7 +927,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/general_offices)
 "Oq" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/caves/northeast/garbledradio)
 "Ox" = (

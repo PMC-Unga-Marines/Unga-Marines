@@ -332,7 +332,7 @@
 /datum/ammo/bullet/sg153/incendiary
 	name = "smart incendiary spotting  bullet"
 	hud_state = "spotrifle_incend"
-	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY
+	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_IFF
 	damage_type = BURN
 	damage = 10
 	sundering = 0.5

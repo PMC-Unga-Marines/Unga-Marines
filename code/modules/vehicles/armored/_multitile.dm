@@ -15,8 +15,8 @@
 	light_pixel_x = 32
 	light_pixel_y= 32
 	appearance_flags = PIXEL_SCALE
-	pixel_x = -56
-	pixel_y = -48
+	pixel_w = -56
+	pixel_z = -48
 	max_integrity = 700
 	soft_armor = list(MELEE = 40, BULLET = 99 , LASER = 99, ENERGY = 60, BOMB = 60, BIO = 100, FIRE = 50, ACID = 40)
 	hard_armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 20, FIRE = 0, ACID = 0)

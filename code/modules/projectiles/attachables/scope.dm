@@ -155,9 +155,8 @@
 	RegisterSignals(master_gun, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNWIELD, COMSIG_ITEM_DROPPED), PROC_REF(zoom_item_turnoff))
 	master_gun.accuracy_mult += scoped_accuracy_mod
 	if(has_nightvision)
-		update_remote_sight(user)
-		user.reset_perspective(src)
 		active_nightvision = TRUE
+		user.reset_perspective(src)
 
 /obj/item/attachable/scope/on_unzoomed(mob/living/user)
 	if(zoom_allow_movement)
@@ -168,15 +167,13 @@
 	UnregisterSignal(master_gun, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_UNWIELD, COMSIG_ITEM_DROPPED))
 	master_gun.accuracy_mult -= scoped_accuracy_mod
 	if(has_nightvision)
-		user.update_sight()
-		user.reset_perspective(user)
 		active_nightvision = FALSE
+		user.reset_perspective(user)
 
 /obj/item/attachable/scope/update_remote_sight(mob/living/user)
 	. = ..()
-	user.see_in_dark = 32
-	user.lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
-	user.sync_lighting_plane_alpha()
+	user.lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
+	user.sync_lighting_plane_cutoff()
 	return TRUE
 
 /obj/item/attachable/scope/zoom(mob/living/user, tileoffset, viewsize)
@@ -186,11 +183,6 @@
 		master_gun.zoom = TRUE
 	else
 		master_gun.zoom = FALSE
-
-/obj/item/attachable/scope/optical/update_remote_sight(mob/living/user)
-	. = ..()
-	user.see_in_dark = 2
-	return TRUE
 
 /obj/item/attachable/scope/unremovable/laser_sniper_scope
 	name = "Terra Experimental laser sniper rifle rail scope"

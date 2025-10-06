@@ -10,36 +10,31 @@
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.7
-
-	attachments_by_slot = list(
-		ATTACHMENT_SLOT_STORAGE,
-	)
-	attachments_allowed = list(
-		/obj/item/armor_module/storage/boot,
-		/obj/item/armor_module/storage/boot/full,
-		/obj/item/armor_module/storage/boot/som_knife,
-	)
-	starting_attachments = list(/obj/item/armor_module/storage/boot)
+	storage_type = /datum/storage/internal/shoes
+	/// The knife we add to the storage on Initialize
+	var/obj/item/knife_to_add
 
 /obj/item/clothing/shoes/marine/Initialize(mapload)
 	. = ..()
 	update_icon()
 
+/obj/item/clothing/shoes/marine/PopulateContents()
+	if(knife_to_add)
+		new knife_to_add(src)
+
 /obj/item/clothing/shoes/marine/update_icon_state()
 	. = ..()
 	icon_state = initial(icon_state)
-	if(!attachments_by_slot[ATTACHMENT_SLOT_STORAGE])
+	if(!storage_datum)
 		return
-	if(!istype(attachments_by_slot[ATTACHMENT_SLOT_STORAGE], /obj/item/armor_module/storage))
-		return
-	var/obj/item/armor_module/storage/armor_storage = attachments_by_slot[ATTACHMENT_SLOT_STORAGE]
-	for(var/atom/item_in_pocket AS in armor_storage.contents)
-		if(istype(item_in_pocket, /obj/item/weapon/combat_knife) || istype(item_in_pocket, /obj/item/attachable/bayonetknife) || istype(item_in_pocket, /obj/item/stack/throwing_knife))
-			icon_state += "-knife"
-			break
+	for(var/obj/item/item AS in contents)
+		if(!istype(item, /obj/item/weapon/combat_knife) && !istype(item, /obj/item/attachable/bayonetknife) && !istype(item, /obj/item/stack/throwing_knife))
+			continue
+		icon_state += "-knife"
+		break
 
 /obj/item/clothing/shoes/marine/full
-	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
+	knife_to_add = /obj/item/weapon/combat_knife
 
 /obj/item/clothing/shoes/marine/brown
 	name = "brown marine combat boots"
@@ -47,10 +42,10 @@
 	worn_icon_state = "marine_brown"
 
 /obj/item/clothing/shoes/marine/brown/full
-	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
+	knife_to_add = /obj/item/weapon/combat_knife
 
 /obj/item/clothing/shoes/marine/upp
-	starting_attachments = list(/obj/item/armor_module/storage/boot/upp)
+	knife_to_add = /obj/item/weapon/combat_knife/upp
 
 /obj/item/clothing/shoes/marinechief
 	name = "chief officer shoes"
@@ -89,7 +84,7 @@
 	siemens_coefficient = 0.6
 
 /obj/item/clothing/shoes/marine/pmc/full
-	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
+	knife_to_add = /obj/item/weapon/combat_knife
 
 /obj/item/clothing/shoes/marine/deathsquad
 	name = "\improper PMC commando boots"
@@ -100,7 +95,9 @@
 	soft_armor = list(MELEE = 40, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 30, BIO = 20, FIRE = 20, ACID = 25)
 	siemens_coefficient = 0.2
 	resistance_flags = UNACIDABLE
-	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
+
+/obj/item/clothing/shoes/marine/deathsquad
+	knife_to_add = /obj/item/weapon/combat_knife
 
 /*=========Imperium=========*/
 
@@ -117,7 +114,7 @@
 	worn_icon_state = "som"
 
 /obj/item/clothing/shoes/marine/som/knife
-	starting_attachments = list(/obj/item/armor_module/storage/boot/som_knife)
+	knife_to_add = /obj/item/attachable/bayonetknife/som
 
 /obj/item/clothing/shoes/sectoid
 	name = "psionic field"
@@ -151,10 +148,10 @@
 	worn_icon_state = "boots"
 
 /obj/item/clothing/shoes/marine/vsd/full
-	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
+	knife_to_add = /obj/item/weapon/combat_knife
 
 /obj/item/clothing/shoes/marine/clf/full
-	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
+	knife_to_add = /obj/item/weapon/combat_knife
 
 /obj/item/clothing/shoes/marine/icc
 	name = "\improper Modelle/32 combat shoes"
@@ -162,7 +159,7 @@
 	icon_state = "icc"
 
 /obj/item/clothing/shoes/marine/icc/knife
-	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
+	knife_to_add = /obj/item/weapon/combat_knife
 
 /obj/item/clothing/shoes/marine/icc/guard
 	name = "\improper Modelle/33 tactical shoes"
@@ -170,21 +167,25 @@
 	icon_state = "icc_guard"
 
 /obj/item/clothing/shoes/marine/icc/guard/knife
-	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
+	knife_to_add = /obj/item/weapon/combat_knife
 
 /obj/item/clothing/shoes/marine/headskin
 	name = "marine veteran combat boots"
 	desc = "Usual combat boots. There is nothing unusual about them. Nothing."
 	icon_state = "headskin"
 	worn_icon_state = "headskin"
-	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
+
+/obj/item/clothing/shoes/marine/headskin
+	knife_to_add = /obj/item/weapon/combat_knife
 
 /obj/item/clothing/shoes/marine/separatist
 	name = "Reinforced boots TS-28"
 	desc = "Well-robusted rubberized boots that protect against moisture, small fragments and impacts. The artisanal design of these shoes, of course, was canceled by production machines in order to provide for all employees as much as possible."
 	icon_state = "separatist"
 	worn_icon_state = "separatist"
-	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
+
+/obj/item/clothing/shoes/marine/separatist
+	knife_to_add = /obj/item/weapon/combat_knife
 
 /obj/item/clothing/shoes/marine/srf //Basically SWAT shoes combined with galoshes.
 	name = "combat boots"
@@ -202,4 +203,4 @@
 	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/shoes/marine/srf/full
-	starting_attachments = list(/obj/item/armor_module/storage/boot/full)
+	knife_to_add = /obj/item/weapon/combat_knife

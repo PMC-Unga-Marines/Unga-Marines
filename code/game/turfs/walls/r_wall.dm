@@ -88,8 +88,6 @@
 	resistance_flags = RESIST_ALL
 	base_icon_state = "rwall"
 
-/turf/closed/wall/r_wall/prison_unmeltable/ex_act(severity) //Should make it indestructable
-	return
 
 /turf/closed/wall/r_wall/prison_unmeltable/attackby(obj/item/I, mob/user, params) //This should fix everything else. No cables, etc
 	return

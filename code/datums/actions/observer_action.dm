@@ -159,14 +159,14 @@
 		name = potential_xeno.name
 		spawn_point[name] = potential_xeno
 
-	for(var/obj/alien/egg/hugger/potential_egg AS in GLOB.xeno_egg_hugger)
+	for(var/obj/alien/egg/facehugger/potential_egg AS in GLOB.xeno_egg_hugger)
 		if(dead_owner.z != potential_egg.z)
 			continue
 		if(potential_egg.maturity_stage != potential_egg.stage_ready_to_burst)
 			continue
 		if(!potential_egg.hugger_type)
 			continue
-		if(istype(potential_egg, /obj/alien/egg/hugger/yautja))
+		if(istype(potential_egg, /obj/alien/egg/facehugger/yautja))
 			continue
 
 		var/area_egg = get_area(potential_egg)

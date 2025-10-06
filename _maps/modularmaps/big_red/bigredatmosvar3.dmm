@@ -103,7 +103,7 @@
 /area/bigredv2/outside/filtration_plant)
 "fI" = (
 /obj/effect/spawner/random/engineering/structure/tank_dispenser/oxygenweighted,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/outside/se)
 "gg" = (
@@ -177,7 +177,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "kI" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "kO" = (
@@ -230,7 +230,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "ni" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/r_wall/unmeltable,
 /area/bigredv2/outside/s)
 "no" = (
@@ -256,7 +256,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "oz" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/s)
@@ -296,7 +296,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "qK" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
@@ -388,7 +388,7 @@
 /obj/structure/cargo_container/ch_red{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/turf_decal/warning_stripes/box/empty,
 /turf/open/floor,
 /area/bigredv2/outside/s)
@@ -400,7 +400,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "xL" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/s)
@@ -436,7 +436,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "zq" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
@@ -656,7 +656,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/s)
 "ME" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/outside/se)
 "Np" = (
@@ -721,7 +721,7 @@
 /turf/closed/wall,
 /area/bigredv2/outside/filtration_plant)
 "Rz" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/turf_decal/warning_stripes/box/empty,
 /turf/open/floor,
 /area/bigredv2/outside/s)
@@ -781,7 +781,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "UP" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor,
 /area/bigredv2/outside/s)
 "VK" = (

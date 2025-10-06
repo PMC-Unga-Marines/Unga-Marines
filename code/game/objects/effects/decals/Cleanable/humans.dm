@@ -6,7 +6,6 @@
 	gender = PLURAL
 	density = FALSE
 	anchored = TRUE
-	layer = TURF_LAYER
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mfloor1"
 	random_icon_states = list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")
@@ -16,12 +15,14 @@
 	var/drying_timer
 
 
-/obj/effect/decal/cleanable/blood/Initialize(mapload)
+/obj/effect/decal/cleanable/blood/Initialize(mapload, basecolor)
 	. = ..()
 	var/static/list/connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
 	)
 	AddElement(/datum/element/connect_loc, connections)
+	if(basecolor)
+		src.basecolor = basecolor
 	update_icon()
 	if(istype(src, /obj/effect/decal/cleanable/blood/gibs))
 		return
@@ -105,8 +106,6 @@
 	H.bloody_hands += taken
 	H.update_inv_gloves()
 
-
-
 /obj/effect/decal/cleanable/blood/splatter
 	random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
 	amount = 2
@@ -128,7 +127,7 @@
 	name = "tracking fluid"
 	desc = "Tracking fluid from a tracking round."
 	basecolor = "#00FFFF"
-	layer = TRACKING_FLUID_LAYER
+	layer = BELOW_OBJ_LAYER
 
 /obj/effect/decal/cleanable/blood/drip/tracking_fluid/dry()
 	name = "dried [name]"
@@ -163,7 +162,6 @@
 	gender = PLURAL
 	density = FALSE
 	anchored = TRUE
-	layer = TURF_LAYER
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "gibbl5"
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6")
@@ -202,18 +200,20 @@
 	random_icon_states = list("gibmid1", "gibmid2", "gibmid3")
 
 /obj/effect/decal/cleanable/blood/gibs/proc/streak(list/directions, mapload = FALSE)
-	spawn (0)
-		var/direction = pick(directions)
-		for(var/i = 0, i < pick(1, 200; 2, 150; 3, 50; 4), i++)
-			if(!mapload)
-				sleep(0.3 SECONDS)
-			if(i > 0)
-				var/obj/effect/decal/cleanable/blood/b = new /obj/effect/decal/cleanable/blood/splatter(src.loc)
-				b.basecolor = src.basecolor
-				b.update_icon()
+	var/direction = pick(directions)
+	if(!step_to(src, get_step(src, direction), 0))
+		return
 
-			if(step_to(src, get_step(src, direction), 0))
-				break
+	if(!mapload)
+		addtimer(CALLBACK(src, PROC_REF(streak), direction, TRUE), 0.3 SECONDS)
+		return
+
+	var/range = pick(0, 200; 1, 150; 2, 50; 3, 17; 50) //the 3% chance of 50 steps is intentional and played for laughs.
+	for(var/i in 1 to range)
+		new /obj/effect/decal/cleanable/blood/splatter(loc, basecolor)
+
+		if(!step_to(src, get_step(src, direction), 0))
+			break
 
 /obj/effect/decal/cleanable/mucus
 	name = "mucus"
@@ -221,7 +221,6 @@
 	gender = PLURAL
 	density = FALSE
 	anchored = TRUE
-	layer = TURF_LAYER
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mucus"
 	random_icon_states = list("mucus")

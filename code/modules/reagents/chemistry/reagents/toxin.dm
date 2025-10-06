@@ -605,20 +605,19 @@
 
 	return ..()
 
-/datum/reagent/toxin/xeno_ozelomelyn // deals capped toxloss and purges at a rapid rate
+/datum/reagent/toxin/xeno_ozelomelyn
 	name = "Ozelomelyn"
-	description = "A potent Xenomorph chemical that quickly purges other chemicals in a bloodstream, causing small scale poisoning in a organism that won't progress. Appears to be strangely water based.."
+	description = "A potent Xenomorph chemical that quickly purges other chemicals in a bloodstream, causing small scale poisoning in the organism. Appears to be strangely water based.."
 	reagent_state = LIQUID
 	color = COLOR_TOXIN_XENO_OZELOMELYN
 	custom_metabolism = 1.5 // metabolizes decently quickly. A sting does 15 at the same rate as neurotoxin.
 	overdose_threshold = 10000
-	toxpwr = 0 // This is going to do slightly snowflake tox damage.
+	toxpwr = 0.75
 	purge_list = list(/datum/reagent/medicine)
 	purge_rate = 5
 
 /datum/reagent/toxin/xeno_ozelomelyn/on_mob_life(mob/living/L, metabolism)
-	if(L.get_tox_loss() < 40) // if our toxloss is below 40, do 0.75 tox damage.
-		L.adjust_tox_loss(0.75)
+	if(L.get_tox_loss() < 40) // if our toxloss is below 40
 		if(prob(15))
 			to_chat(L, span_warning("Your veins feel like water and you can feel a growing itchy feeling in them!") )
 		return ..()

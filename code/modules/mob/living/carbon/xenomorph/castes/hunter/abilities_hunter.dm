@@ -129,7 +129,7 @@
 		animate(xeno_owner, 0.5 SECONDS, alpha = HUNTER_STEALTH_WALK_ALPHA * stealth_alpha_multiplier)
 	else
 		handle_plasma_usage(xeno_owner, HUNTER_STEALTH_RUN_PLASMADRAIN)
-		animate(owner, 0.5 SECONDS, alpha = HUNTER_STEALTH_RUN_ALPHA * stealth_alpha_multiplier)
+		animate(xeno_owner, 0.5 SECONDS, alpha = HUNTER_STEALTH_RUN_ALPHA * stealth_alpha_multiplier)
 	if(!xeno_owner.plasma_stored)
 		to_chat(xeno_owner, span_xenodanger("We lack sufficient plasma to remain camouflaged."))
 		cancel_stealth()
@@ -148,8 +148,7 @@
 /datum/action/ability/xeno_action/stealth/proc/handle_plasma_usage(mob/user, amount)
 	if(ispath(xeno_owner.loc_weeds_type, /obj/alien/weeds))
 		return
-	else
-		xeno_owner.use_plasma(amount)
+	xeno_owner.use_plasma(amount)
 
 /// Callback listening for a xeno_owner using the pounce ability
 /datum/action/ability/xeno_action/stealth/proc/sneak_attack_pounce()

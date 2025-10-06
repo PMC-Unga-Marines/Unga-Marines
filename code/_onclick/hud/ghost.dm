@@ -55,22 +55,6 @@
 	else
 		icon_state = "[base_icon_state]_in"
 
-// /atom/movable/screen/ghost/follow_xeno
-// 	name = "Follow Xeno"
-// 	icon_state = "follow_xeno"
-
-// /atom/movable/screen/ghost/follow_xeno/Click()
-// 	var/mob/dead/observer/G = usr
-// 	G.follow_xeno()
-
-// /atom/movable/screen/ghost/follow_human
-// 	name = "Follow Humans"
-// 	icon_state = "follow_human"
-
-// /atom/movable/screen/ghost/follow_human/Click()
-// 	var/mob/dead/observer/G = usr
-// 	G.follow_human()
-
 /atom/movable/screen/ghost/reenter_corpse
 	name = "Reenter corpse"
 	icon_state = "reenter_corpse"

@@ -1,0 +1,4 @@
+author: "CheBokJam"
+delete-after: True
+changes:
+  - bugfix: "Теперь горсти патрон к ПТРД вмещают максимум 5 пуль."

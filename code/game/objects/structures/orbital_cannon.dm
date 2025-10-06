@@ -13,7 +13,8 @@ GLOBAL_LIST_EMPTY(ob_type_fuel_requirements)
 	icon_state = "OBC_unloaded"
 	density = TRUE
 	anchored = TRUE
-	layer = LADDER_LAYER
+	layer = BELOW_OBJ_LAYER
+	appearance_flags = PIXEL_SCALE|LONG_GLIDE
 	bound_width = 128
 	bound_height = 64
 	bound_y = 64
@@ -268,7 +269,8 @@ GLOBAL_LIST_EMPTY(ob_type_fuel_requirements)
 	density = TRUE
 	anchored = TRUE
 	climbable = TRUE
-	layer = LADDER_LAYER + 0.01
+	appearance_flags = PIXEL_SCALE|LONG_GLIDE
+	layer = BELOW_OBJ_LAYER + 0.01
 	bound_width = 64
 	bound_height = 32
 	resistance_flags = RESIST_ALL
@@ -437,7 +439,7 @@ GLOBAL_LIST_EMPTY(ob_type_fuel_requirements)
 	set waitfor = FALSE
 	cluster_range = max(9 - inaccuracy_amt, 6)
 	var/list/turf_list = list()
-	for(var/turf/T in range(cluster_range, target))
+	for(var/turf/T AS in RANGE_TURFS(cluster_range, target))
 		turf_list += T
 	var/clusters_to_shoot = max(cluster_amount - inaccuracy_amt, cluster_amount - 5)
 	for(var/i = 1 to clusters_to_shoot)
@@ -474,6 +476,7 @@ GLOBAL_LIST_EMPTY(ob_type_fuel_requirements)
 	icon_state = "ob_console"
 	screen_overlay = "ob_console_screen"
 	dir = WEST
+	layer = LOW_ITEM_LAYER
 	atom_flags = ON_BORDER|CONDUCT
 	var/orbital_window_page = 0
 
@@ -573,7 +576,8 @@ GLOBAL_LIST_EMPTY(ob_type_fuel_requirements)
 	icon_state = "Railgun"
 	density = TRUE
 	anchored = TRUE
-	layer = LADDER_LAYER
+	appearance_flags = PIXEL_SCALE|LONG_GLIDE
+	layer = BELOW_OBJ_LAYER
 	bound_width = 128
 	bound_height = 64
 	bound_y = 64

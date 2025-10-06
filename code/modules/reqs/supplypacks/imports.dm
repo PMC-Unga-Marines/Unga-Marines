@@ -27,10 +27,20 @@
 	contains = list(/obj/item/weapon/gun/rifle/m412)
 	cost = 50
 
-/datum/supply_packs/imports/m41a2/ammo
+/datum/supply_packs/imports/m412/ammo
 	name = "PR-412 Pulse Rifle Ammo"
 	contains = list(/obj/item/ammo_magazine/rifle)
 	cost = 3
+
+/datum/supply_packs/imports/m412/ammo/extended
+	name = "PR-412 Pulse Rifle Extended Magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/extended)
+	cost = 30
+
+/datum/supply_packs/imports/m412/ammo/incendiary
+	name = "PR-412 Pulse Rifle Incendiary Magazine"
+	contains = list(/obj/item/ammo_magazine/rifle/incendiary)
+	cost = 25
 
 /datum/supply_packs/imports/m412l1
 	name = "PR-412L1 Heavy Pulse Rifle"
@@ -67,6 +77,23 @@
 	contains = list(/obj/item/ammo_magazine/smg/m25)
 	cost = 3
 
+/datum/supply_packs/imports/m25/ammo/extended
+	name = "SMG-25 SMG Extended Magazine"
+	contains = list(/obj/item/ammo_magazine/smg/m25/extended)
+	cost = 40
+
+/datum/supply_packs/imports/smg25_ap
+	name = "SMG-25 armor piercing magazine"
+	contains = list(/obj/item/ammo_magazine/smg/m25/ap)
+	cost = 30 //60 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
+/datum/supply_packs/imports/box_10x20mm_ap
+	name = "10x20mm armor piercing ammo box"
+	contains = list(/obj/item/ammo_magazine/packet/p10x20mm/ap)
+	cost = 50 //150 rounds
+	containertype = /obj/structure/closet/crate/ammo
+
 /datum/supply_packs/imports/alf
 	name = "ALF-51B Kauser machinecarbine"
 	contains = list(/obj/item/weapon/gun/rifle/alf_machinecarbine)
@@ -96,6 +123,11 @@
 	name = "SMG-2 Uzi SMG Ammo"
 	contains = list(/obj/item/ammo_magazine/smg/uzi)
 	cost = 3
+
+/datum/supply_packs/imports/uzi/ammo/extended
+	name = "SMG-2 Uzi SMG Extended Magazine"
+	contains = list(/obj/item/ammo_magazine/smg/uzi/extended)
+	cost = 15
 
 /datum/supply_packs/imports/ppsh
 	name = "PPSh-17b SMG"

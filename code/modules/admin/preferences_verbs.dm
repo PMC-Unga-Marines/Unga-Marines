@@ -42,9 +42,3 @@ ADMIN_VERB(toggle_prayers, R_MENTOR|R_ADMIN, "Toggle Prayers", "Toggle IC prayer
 	user.prefs.save_preferences()
 
 	to_chat(user, span_notice("You will [(user.prefs.toggles_chat & CHAT_PRAYER) ? "now" : "no longer"] see prayerchat."))
-
-ADMIN_VERB(toggle_adminhelp_sound, R_NONE, "Toggle Adminhelp Sound", "Toggle playing the ahelp sound.", ADMIN_CATEGORY_MAIN)
-	user.prefs.toggles_sound ^= SOUND_ADMINHELP
-	user.prefs.save_preferences() // todo dleete this and just put it in the admin tab on the pref ui
-
-	to_chat(user, span_notice("You will [(user.prefs.toggles_sound & SOUND_ADMINHELP) ? "now" : "no longer"] hear a sound when adminhelps arrive."))

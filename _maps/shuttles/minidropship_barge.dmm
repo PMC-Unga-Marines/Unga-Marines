@@ -128,9 +128,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
 "M" = (
-/obj/structure/window/framed/mainship/canterbury/dropship/reinforced{
-	layer = 1
-	},
+/obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
 /obj/machinery/door/poddoor/mainship/open/nonsmoothing{
 	id = "minidropship_podlock"

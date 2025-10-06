@@ -26,7 +26,7 @@
 		action_to_remove.remove_action(src)
 	set_focus(null)
 	if(hunter_data)
-		hunter_data.clean_data()
+		QDEL_NULL(hunter_data)
 	if(last_damage_source)
 		last_damage_source = null
 	return ..()
@@ -53,11 +53,6 @@
 	update_movespeed(TRUE)
 	log_mob_tag("\[[tag]\] CREATED: [key_name(src)]")
 	become_hearing_sensitive()
-//RUTGMC EDIT ADDITION BEGIN - Preds
-	if(!hunter_data)
-		hunter_data = new /datum/huntdata(src)
-	hud_set_hunter()
-//RUTGMC EDIT ADDITION END
 
 /mob/proc/show_message(msg, type, alt_msg, alt_type, avoid_highlight)
 	if(!client)
@@ -293,8 +288,7 @@
 		A.remove_action(src)
 
 	item_to_equip.screen_loc = null
-	item_to_equip.layer = ABOVE_HUD_LAYER
-	item_to_equip.plane = ABOVE_HUD_PLANE
+	SET_PLANE_EXPLICIT(item_to_equip, ABOVE_HUD_PLANE, src)
 	item_to_equip.forceMove(src)
 
 ///This is just a commonly used configuration for the equip_to_slot_if_possible() proc, used to equip people when the rounds starts and when events happen and such.
@@ -366,6 +360,17 @@
 	. = ..()
 	. += "---"
 	VV_DROPDOWN_OPTION(VV_HK_PLAYER_PANEL, "Show player panel")
+	VV_DROPDOWN_OPTION(VV_HK_VIEW_PLANES, "View/Edit Planes")
+
+/mob/vv_do_topic(list/href_list)
+	. = ..()
+
+	if(!.)
+		return
+	if(href_list[VV_HK_VIEW_PLANES])
+		if(!check_rights(R_DEBUG))
+			return
+		usr.client.edit_plane_masters(src)
 
 /mob/vv_edit_var(var_name, var_value)
 	switch(var_name)
@@ -382,6 +387,8 @@
 		if(NAMEOF(src, stat))
 			set_stat(var_value)
 			. = TRUE
+		if(NAMEOF(src, lighting_cutoff))
+			sync_lighting_plane_cutoff()
 
 	if(!isnull(.))
 		datum_flags |= DF_VAR_EDITED
@@ -690,8 +697,7 @@
 
 /mob/proc/add_emote_overlay(image/emote_overlay, remove_delay = TYPING_INDICATOR_LIFETIME)
 	emote_overlay.appearance_flags = APPEARANCE_UI_TRANSFORM
-	emote_overlay.plane = ABOVE_LIGHTING_PLANE
-	emote_overlay.layer = ABOVE_HUD_LAYER
+	SET_PLANE(emote_overlay, ABOVE_LIGHTING_PLANE, src)
 	overlays += emote_overlay
 
 	if(remove_delay)
@@ -741,28 +747,28 @@
 			//Set the new eye unless it's us
 			if(new_eye != src)
 				client.perspective = EYE_PERSPECTIVE
-				client.eye = new_eye
+				client.set_eye(new_eye)
 			else
-				client.eye = client.mob
+				client.set_eye(client.mob)
 				client.perspective = MOB_PERSPECTIVE
 		else if(isturf(new_eye))
 			//Set to the turf unless it's our current turf
 			if(new_eye != loc)
 				client.perspective = EYE_PERSPECTIVE
-				client.eye = new_eye
+				client.set_eye(new_eye)
 			else
-				client.eye = client.mob
+				client.set_eye(client.mob)
 				client.perspective = MOB_PERSPECTIVE
 		else
 			return TRUE //no setting eye to stupid things like areas or whatever
 	else
 		//Reset to common defaults: mob if on turf, otherwise current loc
 		if(isturf(loc))
-			client.eye = client.mob
+			client.set_eye(client.mob)
 			client.perspective = MOB_PERSPECTIVE
 		else
 			client.perspective = EYE_PERSPECTIVE
-			client.eye = loc
+			client.set_eye(loc)
 	return TRUE
 
 /mob/proc/update_joined_player_list(newname, oldname)
@@ -797,17 +803,18 @@
 
 	return TRUE
 
+///Update the lighting plane and sight of this mob (sends COMSIG_MOB_UPDATE_SIGHT)
 /mob/proc/update_sight()
+	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_MOB_UPDATE_SIGHT)
-	sync_lighting_plane_alpha()
+	sync_lighting_plane_cutoff()
 
-/mob/proc/sync_lighting_plane_alpha()
+///Set the lighting plane hud filters to the mobs lighting_cutoff var
+/mob/proc/sync_lighting_plane_cutoff()
 	if(!hud_used)
 		return
-
-	var/atom/movable/screen/plane_master/lighting/L = hud_used.plane_masters["[LIGHTING_PLANE]"]
-	if(L)
-		L.alpha = lighting_alpha
+	for(var/atom/movable/screen/plane_master/rendering_plate/lighting/light as anything in hud_used.get_true_plane_masters(RENDER_PLANE_LIGHTING))
+		light.set_light_cutoff(lighting_cutoff, lighting_color_cutoffs)
 
 /mob/proc/get_photo_description(obj/item/camera/camera)
 	return "a ... thing?"
@@ -876,7 +883,7 @@
 	clear_important_client_contents()
 	canon_client = null
 
-/mob/on_changed_z_level(turf/old_turf, turf/new_turf, notify_contents = TRUE)
+/mob/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents = TRUE)
 	. = ..()
 	if(!client || !hud_used)
 		return
@@ -904,18 +911,17 @@
 	return TRUE
 
 /atom/movable/proc/create_point_bubble(atom/pointed_atom)
-	var/obj/effect/thought_bubble_effect = new
-
 	var/mutable_appearance/thought_bubble = mutable_appearance(
 		'icons/effects/effects.dmi',
 		"thought_bubble",
-		plane = BALLOON_CHAT_PLANE,
-		appearance_flags = KEEP_APART|RESET_TRANSFORM,
+		offset_spokesman = src,
+		plane = POINT_PLANE,
+		appearance_flags = KEEP_APART,
 	)
 
 	var/mutable_appearance/pointed_atom_appearance = new(pointed_atom.appearance)
 	pointed_atom_appearance.blend_mode = BLEND_INSET_OVERLAY
-	pointed_atom_appearance.plane = thought_bubble.plane
+	pointed_atom_appearance.plane = FLOAT_PLANE
 	pointed_atom_appearance.layer = FLOAT_LAYER
 	pointed_atom_appearance.pixel_x = 0
 	pointed_atom_appearance.pixel_y = 0
@@ -924,7 +930,6 @@
 	thought_bubble.pixel_w = 16
 	thought_bubble.pixel_z = 32
 	thought_bubble.alpha = 200
-	thought_bubble.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 	var/mutable_appearance/point_visual = mutable_appearance(
 		'icons/mob/screen/generic.dmi',
@@ -933,11 +938,13 @@
 
 	thought_bubble.overlays += point_visual
 
-	// vis_contents is used to preserve mouse opacity
-	thought_bubble_effect.appearance = thought_bubble
-	vis_contents += thought_bubble_effect
+	add_overlay(thought_bubble)
+	LAZYADD(update_overlays_on_z, thought_bubble)
+	addtimer(CALLBACK(src, PROC_REF(clear_point_bubble), thought_bubble), POINT_TIME)
 
-	QDEL_IN(thought_bubble_effect, POINT_TIME)
+/atom/movable/proc/clear_point_bubble(mutable_appearance/thought_bubble)
+	LAZYREMOVE(update_overlays_on_z, thought_bubble)
+	cut_overlay(thought_bubble)
 
 #undef POINT_TIME
 

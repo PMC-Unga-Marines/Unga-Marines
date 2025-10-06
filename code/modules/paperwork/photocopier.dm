@@ -8,7 +8,8 @@
 	idle_power_usage = 30
 	active_power_usage = 200
 	power_channel = EQUIP
-	max_integrity = 300
+	max_integrity = 150
+	resistance_flags = XENO_DAMAGEABLE
 	var/obj/item/paper/copy
 	var/obj/item/photo/photocopy
 	var/copies = 1

@@ -1,0 +1,5 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - qol: "Добавил регулируемые настройки звука в настройки игры."
+  - bugfix: "Исправил то что pixel size scaling нельзя было переключить в настройках."

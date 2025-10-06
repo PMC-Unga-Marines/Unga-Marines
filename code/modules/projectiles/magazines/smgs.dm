@@ -117,7 +117,7 @@
 	max_rounds = 32
 
 /obj/item/ammo_magazine/smg/uzi/extended
-	name = "\improper GAL9 extended magazine (9mm)"
+	name = "\improper SMG-2 extended magazine (9mm)"
 	icon_state = "uzi_ext"
 	max_rounds = 50
 	bonus_overlay = "uzi_ex"

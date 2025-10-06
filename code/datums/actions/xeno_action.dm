@@ -9,7 +9,7 @@
 
 /datum/action/ability/xeno_action/New(Target)
 	. = ..()
-	var/mutable_appearance/empowered_appearence = mutable_appearance('icons/Xeno/actions/_actions.dmi', "borders_center", ACTION_LAYER_EMPOWERED, FLOAT_PLANE)
+	var/mutable_appearance/empowered_appearence = mutable_appearance('icons/Xeno/actions/_actions.dmi', "borders_center", ACTION_LAYER_EMPOWERED)
 	visual_references[VREF_MUTABLE_EMPOWERED_FRAME] = empowered_appearence
 
 /datum/action/ability/xeno_action/give_action(mob/living/L)
@@ -56,7 +56,7 @@
 
 /datum/action/ability/activable/xeno/New(Target)
 	. = ..()
-	var/mutable_appearance/empowered_appearence = mutable_appearance('icons/Xeno/actions/_actions.dmi', "borders_center", ACTION_LAYER_EMPOWERED, FLOAT_PLANE)
+	var/mutable_appearance/empowered_appearence = mutable_appearance('icons/Xeno/actions/_actions.dmi', "borders_center", ACTION_LAYER_EMPOWERED)
 	visual_references[VREF_MUTABLE_EMPOWERED_FRAME] = empowered_appearence
 
 /datum/action/ability/activable/xeno/give_action(mob/living/L)
