@@ -40,7 +40,7 @@
 		rage = FALSE
 		on_cooldown = FALSE
 		rage_power = 0
-		remove_filter("ravager_rage_outline")
+		//remove_filter("ravager_rage_outline")
 		xeno_melee_damage_modifier = initial(xeno_melee_damage_modifier)
 		remove_movespeed_modifier(MOVESPEED_ID_RAVAGER_RAGE)
 		REMOVE_TRAIT(src, TRAIT_STUNIMMUNE, RAGE_TRAIT)
@@ -54,7 +54,7 @@
 	var/rage_threshold = maxHealth * (1 - RAVAGER_RAGE_MIN_HEALTH_THRESHOLD)
 	rage_power = max(0, (1 - ((health - RAVAGER_ENDURE_HP_LIMIT) / (maxHealth - RAVAGER_ENDURE_HP_LIMIT - rage_threshold))))
 
-	add_filter("ravager_rage_outline", 5, outline_filter(rage_power, COLOR_RED))
+	//add_filter("ravager_rage_outline", 5, outline_filter(rage_power, COLOR_RED))
 
 	if(!rage)
 		RegisterSignal(src, COMSIG_XENOMORPH_ATTACK_LIVING, PROC_REF(drain_slash))
