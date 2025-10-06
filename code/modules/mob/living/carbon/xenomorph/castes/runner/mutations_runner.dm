@@ -201,7 +201,7 @@
 	return TRUE
 
 /// Checks if they can dodge a projectile. If they can, they do so.
-/datum/status_effect/runner/ingrained_evasion/proc/dodge_projectile(datum/source, obj/projectile/proj, cardinal_move, uncrossing)
+/datum/status_effect/runner/ingrained_evasion/proc/dodge_projectile(datum/source, atom/movable/projectile/proj, cardinal_move, uncrossing)
 	SIGNAL_HANDLER
 	if(!can_dodge())
 		return FALSE
