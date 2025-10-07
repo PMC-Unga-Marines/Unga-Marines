@@ -34,6 +34,8 @@
 	blink_drag_friendly_multiplier = 4
 	blink_range = 5
 
+	evolve_min_xenos = 8
+
 	minimap_icon = "chimera"
 
 	// *** Abilities *** //
