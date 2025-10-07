@@ -14,7 +14,7 @@
 	var/list/front_nodes
 	var/list/back_nodes
 
-/obj/machinery/atmospherics/pipe/layer_manifold/Initialize(mapload, process, setdir)
+/obj/machinery/atmospherics/pipe/layer_manifold/New(loc, process, setdir)
 	. = ..()
 	front_nodes = list()
 	back_nodes = list()
