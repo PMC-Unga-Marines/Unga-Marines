@@ -66,7 +66,7 @@
 /datum/supply_packs/personal/engineer/explosives_minelayer
 	name = "M21 APRDS \"Minelayer\""
 	contains = list(/obj/item/minelayer)
-	cost = 2
+	cost = 1
 
 /datum/supply_packs/personal/engineer/explosives_razor
 	name = "Razorburn grenade box"
@@ -98,3 +98,39 @@
 	name = "Mining well overclock upgrade"
 	contains = list(/obj/item/minerupgrade/overclock)
 	cost = 2
+
+/datum/supply_packs/personal/engineer/sentry
+	name = "Турель TUR-B \"Базис\""
+	contains = list(/obj/item/weapon/gun/sentry/basic)
+	cost = 10
+
+/datum/supply_packs/personal/engineer/sentry_upgrade
+	name = "Набор для улучшения турели TUR-B"
+	contains = list(/obj/item/sentry_upgrade_kit,)
+	cost = 5
+
+/datum/supply_packs/personal/engineer/sentry_ammo
+	name = "Магазин для турели TUR-B \"Базис\""
+	contains = list(/obj/item/ammo_magazine/sentry)
+	cost = 2
+
+/datum/supply_packs/personal/engineer/ammo_mini
+	name = "Магазин для турели TUR-M \"Гном\""
+	contains = list(/obj/item/ammo_magazine/minisentry)
+
+/datum/supply_packs/personal/engineer/ammo_sniper
+	name = "Магазин для турели TUR-SN \"Оса\""
+	contains = list(/obj/item/ammo_magazine/sentry/sniper)
+
+/datum/supply_packs/personal/engineer/ammo_shotgun
+	name = "Магазин для турели TUR-SH \"Бык\""
+	contains = list(/obj/item/ammo_magazine/sentry/shotgun)
+
+/datum/supply_packs/personal/engineer/ammo_flamer
+	name = "Бак для турели TUR-F \"Феникс\""
+	contains = list(/obj/item/ammo_magazine/flamer_tank/large/sentry)
+
+/datum/supply_packs/personal/engineer/buildasentry
+	name = "Build-A-Sentry attachment system"
+	contains = list(/obj/item/attachable/buildasentry)
+	cost = 250

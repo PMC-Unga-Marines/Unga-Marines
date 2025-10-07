@@ -252,7 +252,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	if(wearer.mind && wearer.assigned_squad && !sl_direction)
 		enable_sl_direction()
 	add_minimap()
-	add_pigs_wings()
+	if(SSpoints.supply_packs_delivery_ui[wearer.job.type])
+		add_pigs_wings()
 	balloon_alert(wearer, "toggles squad HUD on")
 	playsound(loc, 'sound/machines/click.ogg', 15, 0, 1)
 

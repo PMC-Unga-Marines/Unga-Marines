@@ -25,23 +25,12 @@
 /datum/supply_packs/personal/leader/imager_goggle
 	name = "Optical imager goggles"
 	contains = list(/obj/item/clothing/glasses/night/imager_goggles)
-	cost = 1
+	cost = 4
 
 /datum/supply_packs/personal/leader/night_vision_batteries
 	name = "Double pack of night vision batteries"
 	contains = list(/obj/item/cell/night_vision_battery, /obj/item/cell/night_vision_battery)
 	cost = 3
-
-/datum/supply_packs/personal/leader/explosives_mines
-	name = "Claymore mines"
-	notes = "Contains 5 mines"
-	contains = list(/obj/item/storage/box/explosive_mines)
-	cost = 4
-
-/datum/supply_packs/personal/leader/explosives_minelayer
-	name = "M21 APRDS \"Minelayer\""
-	contains = list(/obj/item/minelayer)
-	cost = 1
 
 /datum/supply_packs/personal/leader/stickytanglenades
 	name = "M45-T adhesive tanglefoot grenade"
@@ -117,14 +106,14 @@
 /datum/supply_packs/personal/leader/rpgoneuse
 	name = "RL-72 disposable RPG"
 	contains = list(/obj/item/weapon/gun/launcher/rocket/oneuse)
-	cost = 3
+	cost = 5
 
 /datum/supply_packs/personal/leader/standard_ammo
 	name = "Surplus standard ammo crate"
 	notes = "Contains 22 ammo boxes of a wide variety which come prefilled. You lazy bum."
 	contains = list(/obj/structure/largecrate/supply/ammo/standard_ammo)
 	containertype = null
-	cost = 5
+	cost = 3
 
 /datum/supply_packs/personal/leader/beacons_supply
 	name = "Supply beacon"
@@ -134,4 +123,4 @@
 /datum/supply_packs/personal/leader/fulton_extraction_pack
 	name = "Fulton extraction pack"
 	contains = list(/obj/item/fulton_extraction_pack)
-	cost = 1
+	cost = 2

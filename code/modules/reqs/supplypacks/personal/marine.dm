@@ -25,35 +25,19 @@
 /datum/supply_packs/personal/marine/imager_goggle
 	name = "Optical imager goggles"
 	contains = list(/obj/item/clothing/glasses/night/imager_goggles)
-	cost = 1
+	cost = 4
 
 /datum/supply_packs/personal/marine/night_vision_batteries
 	name = "Double pack of night vision batteries"
 	contains = list(/obj/item/cell/night_vision_battery, /obj/item/cell/night_vision_battery)
 	cost = 3
-
-/datum/supply_packs/personal/marine/explosives_mines
-	name = "Claymore mines"
-	notes = "Contains 5 mines"
-	contains = list(/obj/item/storage/box/explosive_mines)
-	cost = 4
-
-/datum/supply_packs/personal/marine/explosives_minelayer
-	name = "M21 APRDS \"Minelayer\""
-	contains = list(/obj/item/minelayer)
-	cost = 1
+	
 
 /datum/supply_packs/personal/marine/stickytanglenades
 	name = "M45-T adhesive tanglefoot grenade"
 	notes = "Contains 25 M45-T sticky grenade"
 	contains = list(/obj/item/storage/box/visual/grenade/drain/sticky)
 	cost = 8
-
-/datum/supply_packs/personal/marine/explosives_antigas
-	name = "M40-AG anti-gas grenade box"
-	notes = "Cotains 25 grenades"
-	contains = list(/obj/item/storage/box/visual/grenade/antigas)
-	cost = 18
 
 /datum/supply_packs/personal/marine/explosives_sticky
 	name = "M40 adhesive charge grenade box"
@@ -117,4 +101,4 @@
 /datum/supply_packs/personal/marine/rpgoneuse
 	name = "RL-72 disposable RPG"
 	contains = list(/obj/item/weapon/gun/launcher/rocket/oneuse)
-	cost = 3
+	cost = 5

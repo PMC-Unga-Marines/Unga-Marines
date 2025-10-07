@@ -12,7 +12,7 @@
 		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
 		/obj/item/stack/nanopaste,
 	)
-	cost = 8
+	cost = 12
 
 /datum/supply_packs/personal/medic/medical
 	name = "Pills and chemicals"
@@ -127,7 +127,7 @@
 		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
 		/obj/item/stack/nanopaste,
 	)
-	cost = 8
+	cost = 12
 
 /datum/supply_packs/personal/medic/combat_robot_medicine
 	name = "Combat repairing for robots"
@@ -148,7 +148,7 @@
 		/obj/item/reagent_containers/hypospray/advanced/nanoblood,
 		/obj/item/reagent_containers/hypospray/advanced/nanoblood,
 	)
-	cost = 3
+	cost = 4
 
 /datum/supply_packs/personal/medic/meraderm_pills
 	name = "Meraderm pill bottle"
@@ -157,7 +157,7 @@
 		/obj/item/storage/pill_bottle/dermaline,
 		/obj/item/storage/pill_bottle/meralyne,
 	)
-	cost = 7
+	cost = 11
 
 /datum/supply_packs/personal/medic/bkkt_dispenser
 	name = "BKKT Dispenser"
@@ -197,7 +197,7 @@
 	name = "Russian Red pill bottle"
 	notes = "contains one pill bottle red russian."
 	contains = list(/obj/item/storage/pill_bottle/russian_red)
-	cost = 14
+	cost = 21
 
 /datum/supply_packs/personal/medic/neuraline_kit
 	name ="Large neuraline autoinjector kit"
@@ -209,13 +209,13 @@
 		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
 		/obj/item/reagent_containers/hypospray/autoinjector/neuraline,
 	)
-	cost = 14
+	cost = 21
 
 /datum/supply_packs/personal/medic/neuraline_kit_injector
 	name ="Neuraline autoinjector"
 	notes = "contains one neuraline injector"
 	contains = list(/obj/item/reagent_containers/hypospray/autoinjector/neuraline)
-	cost = 3
+	cost = 5
 
 /datum/supply_packs/personal/medic/bkkt_kit
 	name = "BKKT pill bottles kit"
