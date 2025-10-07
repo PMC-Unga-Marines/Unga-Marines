@@ -186,7 +186,7 @@
 	return 1
 
 
-/mob/living/simple_animal/hostile/smartdisc/bullet_act(obj/projectile/proj)
+/mob/living/simple_animal/hostile/smartdisc/bullet_act(atom/movable/projectile/proj)
 	. = ..()
 
 	if(prob(60 - proj.damage))

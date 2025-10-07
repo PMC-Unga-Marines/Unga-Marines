@@ -351,7 +351,7 @@
 	return COMPONENT_PRE_THROW_IMPACT_HIT
 
 ///This is where the dodgy magic happens
-/datum/action/ability/xeno_action/evasive_maneuvers/proc/evasion_dodge(datum/source, obj/projectile/proj, cardinal_move, uncrossing)
+/datum/action/ability/xeno_action/evasive_maneuvers/proc/evasion_dodge(datum/source, atom/movable/projectile/proj, cardinal_move, uncrossing)
 	SIGNAL_HANDLER
 
 	if(!evade_active) //If evasion is not active we don't dodge
