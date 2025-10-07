@@ -8,7 +8,7 @@
 	wound_type = "Predalien"
 
 	// *** Melee Attacks *** //
-	melee_damage = 60
+	melee_damage = 40
 
 	// *** Speed *** //
 	speed = -0.8
@@ -24,8 +24,8 @@
 
 	// *** Evolution *** //
 	maximum_active_caste = 1
-	evolve_min_xenos = 8
-	death_evolution_delay = 7 MINUTES
+	evolve_min_xenos = 10
+	death_evolution_delay = 12 MINUTES
 
 	// *** Flags *** //
 	caste_flags = CASTE_IS_INTELLIGENT|CASTE_STAGGER_RESISTANT|CASTE_LEADER_TYPE|CASTE_INSTANT_EVOLUTION
@@ -51,6 +51,8 @@
 		/datum/action/ability/xeno_action/rally_hive,
 		/datum/action/ability/xeno_action/rally_minion,
 		/datum/action/ability/xeno_action/blessing_menu,
+		/datum/action/ability/xeno_action/set_xeno_lead,
+		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 	)
 
 
@@ -73,6 +75,8 @@
 		/datum/action/ability/xeno_action/rally_hive,
 		/datum/action/ability/xeno_action/rally_minion,
 		/datum/action/ability/xeno_action/blessing_menu,
+		/datum/action/ability/xeno_action/set_xeno_lead,
+		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 		/datum/action/ability/xeno_action/pheromones,
 		/datum/action/ability/xeno_action/pheromones/emit_recovery,
 		/datum/action/ability/xeno_action/pheromones/emit_warding,
