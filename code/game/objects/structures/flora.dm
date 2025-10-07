@@ -22,7 +22,7 @@
 	density = TRUE
 	pixel_x = -16
 	max_integrity = 500
-	layer = ABOVE_FLY_LAYER
+	layer = ABOVE_TREE_LAYER
 	allow_pass_flags = PASS_PROJECTILE|PASS_AIR
 	var/log_amount = 10
 	resistance_flags = XENO_DAMAGEABLE
@@ -192,7 +192,7 @@
 	name = "tall grass"
 	icon = 'icons/obj/flora/tallgrass.dmi'
 	icon_state = "tallgrass"
-	layer = TALL_GRASS_LAYER
+	plane = GAME_PLANE
 	opacity = TRUE
 	color = "#7a8c54"
 
@@ -212,7 +212,7 @@
 	icon_state = "tallgrass_corner"
 
 /obj/structure/flora/grass/tallgrass/hideable
-	layer = BUSH_LAYER
+	layer = ABOVE_OBJ_LAYER
 
 /obj/structure/flora/grass/tallgrass/hideable/tallgrasscorner
 	icon_state = "tallgrass_corner"
@@ -239,7 +239,7 @@
 
 /obj/structure/flora/grass/tallgrass/autosmooth/desert/Initialize(mapload)
 	. = ..()
-	layer = BUSH_LAYER //do this here instead of on type so it doesn't layer over things in map editor
+	layer = ABOVE_OBJ_LAYER //do this here instead of on type so it doesn't layer over things in map editor
 
 //bushes
 /obj/structure/flora/bush

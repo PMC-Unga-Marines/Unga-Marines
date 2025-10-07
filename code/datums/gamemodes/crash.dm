@@ -2,7 +2,7 @@
 	name = "Crash"
 	config_tag = "Crash"
 	required_players = 2
-	round_type_flags = MODE_INFESTATION|MODE_XENO_SPAWN_PROTECT|MODE_DEAD_GRAB_FORBIDDEN|MODE_DISALLOW_RAILGUN|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD
+	round_type_flags = MODE_INFESTATION|MODE_XENO_SPAWN_PROTECT|MODE_DEAD_GRAB_FORBIDDEN|MODE_DISALLOW_RAILGUN|MODE_PSY_POINTS|MODE_PSY_POINTS_ADVANCED|MODE_SILOS_SPAWN_MINIONS|MODE_ALLOW_XENO_QUICKBUILD|MODE_HAS_MINERS
 	xeno_abilities_flags = ABILITY_CRASH
 	valid_job_types = list(
 		/datum/job/terragov/squad/standard = -1,
@@ -195,7 +195,7 @@
 		xeno_hive.update_tier_limits()
 		return
 	if(xeno_hive.total_xenos_for_evolving() <= 0)
-		xeno_job.add_job_positions(1)
+		xeno_job.add_job_positions(2)
 		xeno_hive.update_tier_limits()
 
 /// Gets the difference of job points between humans and xenos. Negative means too many xenos. Positive means too many humans.

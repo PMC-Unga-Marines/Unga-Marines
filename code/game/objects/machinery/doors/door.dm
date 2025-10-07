@@ -9,13 +9,13 @@
 	dir = EAST
 	allow_pass_flags = NONE
 	move_resist = MOVE_FORCE_VERY_STRONG
-	layer = DOOR_OPEN_LAYER
+	layer = OPEN_DOOR_LAYER
 	explosion_block = 2
 	resistance_flags = DROPSHIP_IMMUNE
 	minimap_color = MINIMAP_DOOR
 	soft_armor = list(MELEE = 30, BULLET = 30, LASER = 20, ENERGY = 20, BOMB = 10, BIO = 100, FIRE = 80, ACID = 70)
-	var/open_layer = DOOR_OPEN_LAYER
-	var/closed_layer = DOOR_CLOSED_LAYER
+	var/open_layer = OPEN_DOOR_LAYER
+	var/closed_layer = CLOSED_DOOR_LAYER
 	var/id
 	/// How many seconds remain until the door is no longer electrified. -1 if it is permanently electrified until someone fixes it.
 	var/secondsElectrified = 0
@@ -149,12 +149,12 @@
 /obj/machinery/door/ex_act(severity)
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
 		return
-	if(!prob(severity * 0.25))
-		var/datum/effect_system/spark_spread/our_sparks = new /datum/effect_system/spark_spread
-		our_sparks.set_up(2, 1, src)
-		our_sparks.start()
-	else
+	if(prob(severity * 0.25))
 		qdel(src)
+		return
+	var/datum/effect_system/spark_spread/our_sparks = new /datum/effect_system/spark_spread
+	our_sparks.set_up(2, 1, src)
+	our_sparks.start()
 
 /obj/machinery/door/update_icon_state()
 	. = ..()

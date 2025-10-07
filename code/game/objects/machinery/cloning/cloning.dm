@@ -241,7 +241,7 @@ These act as a respawn mechanic growning a body and offering it up to ghosts.
 	. = ..()
 	if(!beaker)
 		return
-	. += emissive_appearance(icon, "[icon_state]_emissive", alpha = src.alpha)
+	. += emissive_appearance(icon, "[icon_state]_emissive", src, alpha = src.alpha)
 
 /// Eat up the biomass, start the grow timer
 /obj/machinery/cloning/vats/proc/grow_human(instant = FALSE)
@@ -303,6 +303,7 @@ You are weak, best rest up and get your strength before fighting.</span>"})
 /obj/machinery/cloning/vats/apc
 	pixel_y = 16
 	dir = NORTH
+	plane = WALL_PLANE // shitty solution, but meh
 
 /obj/machinery/cloning/vats/apc/south
 	pixel_y = -16

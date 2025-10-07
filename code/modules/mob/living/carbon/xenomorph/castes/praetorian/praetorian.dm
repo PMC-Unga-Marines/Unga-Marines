@@ -5,7 +5,6 @@
 	icon = 'icons/Xeno/castes/praetorian/basic.dmi'
 	icon_state = "Praetorian Walking"
 	effects_icon = 'icons/Xeno/castes/praetorian/effects.dmi'
-	rouny_icon = 'icons/Xeno/castes/praetorian/rouny.dmi'
 	health = 210
 	maxHealth = 210
 	plasma_stored = 200
@@ -16,8 +15,9 @@
 	upgrade = XENO_UPGRADE_NORMAL
 	bubble_icon = "alienroyal"
 	skins = list(
-		/datum/xenomorph_skin/praetorian/tacticool,
 		/datum/xenomorph_skin/praetorian,
+		/datum/xenomorph_skin/praetorian/rouny,
+		/datum/xenomorph_skin/praetorian/tacticool,
 	)
 
 /mob/living/carbon/xenomorph/praetorian/dancer

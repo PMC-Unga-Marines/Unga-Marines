@@ -52,12 +52,6 @@
 		/obj/item/ammo_magazine/smg/skorpion = 6,
 	)
 
-	l_pocket_contents = list(
-		/obj/item/reagent_containers/hypospray/advanced/oxycodone = 1,
-		/obj/item/reagent_containers/hypospray/advanced/tricordrazine = 1,
-		/obj/item/reagent_containers/glass/bottle/tricordrazine = 1,
-	)
-
 /datum/outfit/job/upp/commando/leader
 	name = "USL Elite Captain"
 	jobtype = /datum/job/upp/commando/leader

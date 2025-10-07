@@ -1200,7 +1200,9 @@ $ooc_alert_text_colors: (
     background: map.get($ooc_alert_bg_colors, $color-type);
     border: 1px solid map.get($ooc_alert_border_colors, $color-type);
     margin: 8px;
-    padding: 8px 8px 8px 3,2px;
+    padding:
+      8px 8px 8px 3,
+      2px;
     color: hsl(0, 0%, 0%);
     font-weight: bold;
     display: flex;

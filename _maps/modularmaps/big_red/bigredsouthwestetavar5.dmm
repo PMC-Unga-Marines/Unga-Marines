@@ -94,7 +94,7 @@
 /turf/closed/wall,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "kF" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "kJ" = (
@@ -123,7 +123,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "nj" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/south)
 "ok" = (
@@ -168,7 +168,7 @@
 /area/bigredv2/caves/south)
 "tu" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "tA" = (
@@ -259,7 +259,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "Av" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "Ay" = (
@@ -326,12 +326,12 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "Gt" = (
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "GY" = (
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/cavetodirt{
 	dir = 1
 	},
@@ -351,7 +351,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "IZ" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "JF" = (
@@ -373,7 +373,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "KC" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "KG" = (
@@ -516,7 +516,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "UV" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "Vk" = (
@@ -552,7 +552,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "Xq" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "YW" = (

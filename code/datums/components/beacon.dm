@@ -124,7 +124,7 @@
 		if(!marker_flags)
 			marker_flags = MINIMAP_FLAG_MARINE
 		if(minimap_icon)
-			SSminimaps.add_marker(source, marker_flags, image('icons/UI_icons/map_blips.dmi', null, minimap_icon))
+			SSminimaps.add_marker(source, marker_flags, image('icons/UI_icons/map_blips.dmi', null, minimap_icon, MINIMAP_BLIPS_LAYER))
 
 	message_admins("[ADMIN_TPMONTY(user)] set up a supply beacon.") //do something with this
 	playsound(source, 'sound/machines/twobeep.ogg', 15, 1)

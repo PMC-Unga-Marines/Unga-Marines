@@ -64,7 +64,9 @@
 
 /obj/structure/closet/ex_act(severity)
 	take_damage(severity, BRUTE, BOMB)
-	if(!locked || prob(severity * 0.3))
+	if(locked)
+		return
+	if(prob(severity * 0.3))
 		break_open()
 		contents_explosion(severity)
 

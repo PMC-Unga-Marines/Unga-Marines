@@ -47,12 +47,6 @@
 
 		to_chat(parent, span_userdanger("Forced keybindings for say (T), me (M), ooc (O), looc (L) have been applied."))
 
-	if(current_version < 46)
-		toggles_sound |= SOUND_WEATHER
-		WRITE_FILE(S["toggles_sound"], toggles_sound)
-		to_chat(parent, span_userdanger("Due to a fix, preferences for weather sound have been reverted to default settings; these are now ON. Go into Preferences and set sound toggles to OFF if you wish to not hear these sounds."))
-
-
 //handles converting savefiles to new formats
 //MAKE SURE YOU KEEP THIS UP TO DATE!
 //If the sanity checks are capable of handling any issues. Only increase SAVEFILE_VERSION_MAX,
@@ -129,10 +123,21 @@
 	READ_FILE(S["ui_style_alpha"], ui_style_alpha)
 
 	READ_FILE(S["toggles_chat"], toggles_chat)
-	READ_FILE(S["toggles_sound"], toggles_sound)
+
+	READ_FILE(S["volume_adminhelp"], volume_adminhelp)
+	READ_FILE(S["volume_adminmusic"], volume_adminmusic)
+	READ_FILE(S["volume_ambience"], volume_ambience)
+	READ_FILE(S["volume_lobby"], volume_lobby)
+	READ_FILE(S["volume_instruments"], volume_instruments)
+	READ_FILE(S["volume_weather"], volume_weather)
+	READ_FILE(S["volume_end_of_round"], volume_end_of_round)
+
 	READ_FILE(S["toggles_gameplay"], toggles_gameplay)
 	READ_FILE(S["fullscreen_mode"], fullscreen_mode)
 	READ_FILE(S["show_status_bar"], show_status_bar)
+	READ_FILE(S["ambient_occlusion"], ambient_occlusion)
+	READ_FILE(S["multiz_parallax"], multiz_parallax)
+	READ_FILE(S["multiz_performance"], multiz_performance)
 	READ_FILE(S["show_typing"], show_typing)
 	READ_FILE(S["ghost_hud"], ghost_hud)
 	READ_FILE(S["windowflashing"], windowflashing)
@@ -190,10 +195,21 @@
 	ui_style_alpha = sanitize_integer(ui_style_alpha, 0, 255, initial(ui_style_alpha))
 
 	toggles_chat = sanitize_integer(toggles_chat, NONE, MAX_BITFLAG, initial(toggles_chat))
-	toggles_sound = sanitize_integer(toggles_sound, NONE, MAX_BITFLAG, initial(toggles_sound))
+
+	volume_adminhelp = sanitize_integer(volume_adminhelp, 0, 100, initial(volume_adminhelp))
+	volume_adminmusic = sanitize_integer(volume_adminmusic, 0, 100, initial(volume_adminmusic))
+	volume_ambience = sanitize_integer(volume_ambience, 0, 100, initial(volume_ambience))
+	volume_lobby = sanitize_integer(volume_lobby, 0, 100, initial(volume_lobby))
+	volume_instruments = sanitize_integer(volume_instruments, 0, 100, initial(volume_instruments))
+	volume_weather = sanitize_integer(volume_weather, 0, 100, initial(volume_weather))
+	volume_end_of_round = sanitize_integer(volume_end_of_round, 0, 100, initial(volume_end_of_round))
+
 	toggles_gameplay = sanitize_integer(toggles_gameplay, NONE, MAX_BITFLAG, initial(toggles_gameplay))
 	fullscreen_mode = sanitize_integer(fullscreen_mode, FALSE, TRUE, initial(fullscreen_mode))
 	show_status_bar = sanitize_integer(show_status_bar, FALSE, TRUE, initial(show_status_bar))
+	ambient_occlusion = sanitize_integer(ambient_occlusion, FALSE, TRUE, initial(ambient_occlusion))
+	multiz_parallax = sanitize_integer(multiz_parallax, FALSE, TRUE, initial(multiz_parallax))
+	multiz_performance = sanitize_integer(multiz_performance, MULTIZ_PERFORMANCE_DISABLE, MAX_EXPECTED_Z_DEPTH - 1, initial(multiz_performance))
 	show_typing = sanitize_integer(show_typing, FALSE, TRUE, initial(show_typing))
 	ghost_hud = sanitize_integer(ghost_hud, NONE, MAX_BITFLAG, initial(ghost_hud))
 	windowflashing = sanitize_integer(windowflashing, FALSE, TRUE, initial(windowflashing))
@@ -265,10 +281,21 @@
 	ui_style_alpha = sanitize_integer(ui_style_alpha, 0, 255, initial(ui_style_alpha))
 
 	toggles_chat = sanitize_integer(toggles_chat, NONE, MAX_BITFLAG, initial(toggles_chat))
-	toggles_sound = sanitize_integer(toggles_sound, NONE, MAX_BITFLAG, initial(toggles_sound))
+
+	volume_adminhelp = sanitize_integer(volume_adminhelp, 0, 100, initial(volume_adminhelp))
+	volume_adminmusic = sanitize_integer(volume_adminmusic, 0, 100, initial(volume_adminmusic))
+	volume_ambience = sanitize_integer(volume_ambience, 0, 100, initial(volume_ambience))
+	volume_lobby = sanitize_integer(volume_lobby, 0, 100, initial(volume_lobby))
+	volume_instruments = sanitize_integer(volume_instruments, 0, 100, initial(volume_instruments))
+	volume_weather = sanitize_integer(volume_weather, 0, 100, initial(volume_weather))
+	volume_end_of_round = sanitize_integer(volume_end_of_round, 0, 100, initial(volume_end_of_round))
+
 	toggles_gameplay = sanitize_integer(toggles_gameplay, NONE, MAX_BITFLAG, initial(toggles_gameplay))
 	fullscreen_mode = sanitize_integer(fullscreen_mode, FALSE, TRUE, initial(fullscreen_mode))
 	show_status_bar = sanitize_integer(show_status_bar, FALSE, TRUE, initial(show_status_bar))
+	ambient_occlusion = sanitize_integer(ambient_occlusion, FALSE, TRUE, initial(ambient_occlusion))
+	multiz_parallax = sanitize_integer(multiz_parallax, FALSE, TRUE, initial(multiz_parallax))
+	multiz_performance = sanitize_integer(multiz_performance, MULTIZ_PERFORMANCE_DISABLE, MAX_EXPECTED_Z_DEPTH - 1, initial(multiz_performance))
 	show_typing = sanitize_integer(show_typing, FALSE, TRUE, initial(show_typing))
 	ghost_hud = sanitize_integer(ghost_hud, NONE, MAX_BITFLAG, initial(ghost_hud))
 	windowflashing = sanitize_integer(windowflashing, FALSE, TRUE, initial(windowflashing))
@@ -317,10 +344,21 @@
 	WRITE_FILE(S["ui_style_alpha"], ui_style_alpha)
 
 	WRITE_FILE(S["toggles_chat"], toggles_chat)
-	WRITE_FILE(S["toggles_sound"], toggles_sound)
+
+	WRITE_FILE(S["volume_adminhelp"], volume_adminhelp)
+	WRITE_FILE(S["volume_adminmusic"], volume_adminmusic)
+	WRITE_FILE(S["volume_ambience"], volume_ambience)
+	WRITE_FILE(S["volume_lobby"], volume_lobby)
+	WRITE_FILE(S["volume_instruments"], volume_instruments)
+	WRITE_FILE(S["volume_weather"], volume_weather)
+	WRITE_FILE(S["volume_end_of_round"], volume_end_of_round)
+
 	WRITE_FILE(S["toggles_gameplay"], toggles_gameplay)
 	WRITE_FILE(S["fullscreen_mode"], fullscreen_mode)
 	WRITE_FILE(S["show_status_bar"], show_status_bar)
+	WRITE_FILE(S["ambient_occlusion"], ambient_occlusion)
+	WRITE_FILE(S["multiz_parallax"], multiz_parallax)
+	WRITE_FILE(S["multiz_performance"], multiz_performance)
 	WRITE_FILE(S["show_typing"], show_typing)
 	WRITE_FILE(S["ghost_hud"], ghost_hud)
 	WRITE_FILE(S["windowflashing"], windowflashing)

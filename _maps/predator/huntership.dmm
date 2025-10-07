@@ -250,7 +250,6 @@
 "aC" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/hunting_trap,
@@ -359,7 +358,6 @@
 "aV" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/weapon/yautja/knife,
@@ -398,13 +396,12 @@
 /turf/open/floor/light,
 /area/yautja)
 "be" = (
-/obj/alien/egg/hugger/yautja,
+/obj/alien/egg/facehugger/yautja,
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "bg" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/stack/sheet/mineral/sandstone{
@@ -442,7 +439,6 @@
 "bn" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/weapon/harpoon/yautja,
@@ -557,7 +553,6 @@
 "bN" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/weapon/gun/energy/yautja/plasmapistol{
@@ -849,7 +844,6 @@
 "cK" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/weapon/sword{
@@ -902,7 +896,6 @@
 "cQ" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/stack/sheet/mineral/sandstone/runed{
@@ -950,7 +943,6 @@
 "cT" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/tool/pickaxe,
@@ -959,7 +951,6 @@
 "cU" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/tool/extinguisher,
@@ -998,7 +989,6 @@
 /obj/item/clothing/under/chainshirt/hunter,
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/storage/belt/yautja,
@@ -1033,7 +1023,6 @@
 "db" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/tool/pickaxe/jackhammer,
@@ -1202,7 +1191,6 @@
 "fF" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/tool/hatchet{
@@ -1368,9 +1356,7 @@
 /obj/item/reagent_containers/food/snacks/bearmeat{
 	pixel_y = -5
 	},
-/obj/item/reagent_containers/hypospray/autoinjector/medicalnanites{
-	layer = 2
-	},
+/obj/item/reagent_containers/hypospray/autoinjector/medicalnanites,
 /turf/open/floor/tile/dark/red2{
 	dir = 8
 	},
@@ -1416,7 +1402,6 @@
 "jP" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/weapon/sword{
@@ -1446,7 +1431,7 @@
 /area/yautja)
 "jY" = (
 /obj/effect/decal/remains/human,
-/obj/alien/egg/hugger/yautja,
+/obj/alien/egg/facehugger/yautja,
 /turf/open/floor/strata/multi_tiles,
 /area/yautja)
 "kA" = (
@@ -1535,7 +1520,6 @@
 /obj/item/storage/box/bracer,
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /turf/open/floor/corsat,
@@ -1543,7 +1527,6 @@
 "nv" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/weapon/twohanded/yautja/spear,
@@ -1598,7 +1581,6 @@
 "ov" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/stack/yautja_rope{
@@ -1642,7 +1624,6 @@
 "qj" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/tool/crowbar/yautja,
@@ -1680,7 +1661,6 @@
 "rY" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/stack/medical/splint{
@@ -1763,7 +1743,6 @@
 "tD" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/stack/sheet/plasteel{
@@ -1843,7 +1822,6 @@
 "wH" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/reagent_containers/food/snacks/flour{
@@ -1982,7 +1960,6 @@
 "BB" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/weapon/gun/energy/yautja/plasmarifle{
@@ -2135,7 +2112,6 @@
 "Ha" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/stack/medical/heal_pack/ointment/predator,
@@ -2186,7 +2162,6 @@
 "Ia" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/stack/sheet/wood/large_stack,
@@ -2211,7 +2186,6 @@
 "Im" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/stack/medical/heal_pack/gauze{
@@ -2246,7 +2220,6 @@
 "Je" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/stack/sheet/metal{
@@ -2273,7 +2246,6 @@
 "JE" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/stack/yautja_rope,
@@ -2421,7 +2393,6 @@
 "Nq" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/radio/headset/yautja,
@@ -2470,7 +2441,6 @@
 	},
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /turf/open/floor/corsat,
@@ -2712,7 +2682,6 @@
 "Xp" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/weapon/baseballbat/metal{
@@ -2817,7 +2786,6 @@
 "ZR" = (
 /obj/structure/rack{
 	color = "#6b675e";
-	layer = 2.79;
 	resistance_flags = 1
 	},
 /obj/item/stack/yautja_rope,

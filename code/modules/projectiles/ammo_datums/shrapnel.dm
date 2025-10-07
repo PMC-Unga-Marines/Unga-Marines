@@ -1,7 +1,6 @@
 /datum/ammo/bullet/shrapnel
 	name = "shrapnel"
 	icon_state = "buckshot_shrapnel"
-	icon = 'icons/obj/items/projectiles.dmi'
 	accuracy = 15
 	max_range = 8
 	damage = 25
@@ -29,24 +28,15 @@
 	shrapnel_chance = 50
 	shrapnel_type = /obj/item/shard/shrapnel/bone_chips/human
 
-/datum/ammo/bullet/shrapnel/light/human/var1 // sprite variants
-	icon_state = "shrapnel_human1"
-
-/datum/ammo/bullet/shrapnel/light/human/var2 // sprite variants
-	icon_state = "shrapnel_human2"
+/datum/ammo/bullet/shrapnel/light/human/New()
+	. = ..()
+	icon_state = pick("shrapnel_human", "shrapnel_human1", "shrapnel_human2")
 
 /datum/ammo/bullet/shrapnel/light/xeno
 	name = "alien bone fragments"
 	icon_state = "shrapnel_xeno"
 	shrapnel_chance = 50
 	shrapnel_type = /obj/item/shard/shrapnel/bone_chips/xeno
-
-/datum/ammo/bullet/shrapnel/spall // weak shrapnel
-	name = "spall"
-	icon_state = "shrapnel_light"
-	damage = 10
-	shell_speed = 2.5
-	shrapnel_chance = 0
 
 /datum/ammo/bullet/shrapnel/light/glass
 	name = "glass shrapnel"

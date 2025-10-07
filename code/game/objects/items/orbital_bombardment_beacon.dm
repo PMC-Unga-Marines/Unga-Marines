@@ -65,7 +65,7 @@
 	var/marker_flags = GLOB.faction_to_minimap_flag[H.faction]
 	if(!marker_flags)
 		marker_flags = MINIMAP_FLAG_MARINE
-	SSminimaps.add_marker(src, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "ob_beacon", ABOVE_FLOAT_LAYER))
+	SSminimaps.add_marker(src, marker_flags, image('icons/UI_icons/map_blips.dmi', null, "ob_beacon", MINIMAP_BLIPS_LAYER))
 	update_icon()
 	if(H.assigned_squad)
 		squad = H.assigned_squad

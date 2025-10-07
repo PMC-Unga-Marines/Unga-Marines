@@ -83,8 +83,6 @@ GLOBAL_LIST_INIT(mech_bodytypes, list(MECH_RECON, MECH_ASSAULT, MECH_VANGUARD))
 /datum/mech_limb/proc/get_overlays()
 	return icon2appearance(overlay_icon)
 
-
-
 ///MECH HEAD
 /datum/mech_limb/head
 	health_mod = 200
@@ -110,7 +108,7 @@ GLOBAL_LIST_INIT(mech_bodytypes, list(MECH_RECON, MECH_ASSAULT, MECH_VANGUARD))
 	visor_icon = SSgreyscale.GetColoredIconByType(visor_config, visor_color)
 
 /datum/mech_limb/head/get_overlays()
-	return list(icon2appearance(overlay_icon), icon2appearance(visor_icon), emissive_appearance(visor_icon))
+	return list(icon2appearance(overlay_icon), icon2appearance(visor_icon), emissive_appearance(visor_icon, offset_const = 1)) // TODO: port actual fix
 
 /datum/mech_limb/head/recon
 	health_mod = 180
@@ -135,7 +133,6 @@ GLOBAL_LIST_INIT(mech_bodytypes, list(MECH_RECON, MECH_ASSAULT, MECH_VANGUARD))
 	light_range = 5
 	greyscale_type = /datum/greyscale_config/mech_vanguard/head
 	visor_config = /datum/greyscale_config/mech_vanguard/visor
-
 
 /datum/mech_limb/torso
 	health_mod = 600

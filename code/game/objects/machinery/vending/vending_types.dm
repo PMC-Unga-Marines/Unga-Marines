@@ -532,6 +532,10 @@
 		/obj/item/tool/kitchen/knife = -1,
 	)
 
+/obj/machinery/vending/dinnerware/yautja
+	name = "dinnerplate dispenser"
+	icon = 'icons/obj/machines/yautja_machines.dmi'
+
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
 	desc = "An old sweet water vending machine,how did this end up here?"
@@ -578,6 +582,31 @@
 
 /obj/machinery/vending/engivend/nopower/valhalla
 	resistance_flags = INDESTRUCTIBLE
+
+/obj/machinery/vending/engivend/yautja
+	name = "yautja autolathe"
+	desc = "Weird alien industrial fabricator."
+	icon = 'icons/obj/machines/yautja_machines.dmi'
+	icon_state = "autolathe"
+	icon_vend = "autholate_n"
+	products = list(
+		/obj/item/tool/multitool/yautja = -1,
+		/obj/item/tool/analyzer = -1,
+		/obj/item/t_scanner = -1,
+		/obj/item/taperecorder = -1,
+		/obj/item/assembly/igniter = -1,
+		/obj/item/assembly/signaler = -1,
+		/obj/item/assembly/infra = -1,
+		/obj/item/assembly/timer = -1,
+		/obj/item/assembly/prox_sensor = -1,
+		/obj/item/light_bulb/tube = -1,
+		/obj/item/light_bulb/bulb = -1,
+		/obj/item/ashtray/glass = -1,
+		/obj/item/frame/camera = -1,
+		/obj/item/frame/table/reinforced = 10,
+		/obj/item/frame/table = 10,
+		/obj/item/reagent_containers/glass/bucket = -1,
+	)
 
 //This one's from bay12
 /obj/machinery/vending/robotics

@@ -49,12 +49,23 @@
 ///Check for whether the target turf has dense objects inside
 /datum/action/ability/activable/xeno/blink/proc/check_blink_target_turf_density(turf/T, silent = FALSE)
 	for(var/atom/blocker AS in T)
-		if(!blocker.CanPass(owner, T))
-			if(!silent)
-				to_chat(owner, span_xenowarning("We can't blink into a solid object!"))
-			return FALSE
+		if(blocker.CanPass(owner, T))
+			continue
+		if(!silent)
+			to_chat(owner, span_xenowarning("We can't blink into a solid object!"))
+		return FALSE
 
 	return TRUE
+
+/datum/action/ability/activable/xeno/blink/can_use_ability(atom/A, silent, override_flags)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(owner.issamexenohive(owner.pulling)) //xenos should be able to fling xenos into xeno passable areas!
+		return
+	for(var/obj/effect/forcefield/fog/fog in owner.loc)
+		owner.pulling.balloon_alert(owner, "Cannot, fog")
+		return fail_activate()
 
 /datum/action/ability/activable/xeno/blink/use_ability(atom/A)
 	. = ..()
@@ -63,7 +74,7 @@
 	var/check_distance = min(xeno_owner.xeno_caste.blink_range, get_dist(xeno_owner, A))
 	var/list/fully_legal_turfs = list()
 
-	for (var/x = 1 to check_distance)
+	for(var/x = 1 to check_distance)
 		temp_turf = get_step(T, get_dir(T, A))
 		if (!temp_turf)
 			break
@@ -83,7 +94,6 @@
 	var/cooldown_mod = 1
 	var/mob/pulled_target = xeno_owner.pulling
 	if(pulled_target) //bring the pulled target with us if applicable but at the cost of sharply increasing the next cooldown
-
 		if(pulled_target.issamexenohive(xeno_owner))
 			cooldown_mod = xeno_owner.xeno_caste.blink_drag_friendly_multiplier
 		else

@@ -1,6 +1,5 @@
 /obj/structure/xeno/spawner
 	icon = 'icons/Xeno/2x2building.dmi.dmi'
-	plane = FLOOR_PLANE
 	name = "spawner"
 	desc = "A slimy, oozy resin bed filled with foul-looking egg-like ...things."
 	icon_state = "spawner"
@@ -46,7 +45,7 @@
 ///Change minimap icon if spawner is under attack or not
 /obj/structure/xeno/spawner/update_minimap_icon()
 	SSminimaps.remove_marker(src)
-	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "spawner[threat_warning ? "_warn" : "_passive"]", ABOVE_FLOAT_LAYER))
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, "spawner[threat_warning ? "_warn" : "_passive"]", MINIMAP_LABELS_LAYER))
 
 /// Transfers the spawned minion to the silo's hivenumber.
 /obj/structure/xeno/spawner/proc/on_spawn(list/newly_spawned_things)

@@ -199,14 +199,15 @@
 
 	wall_integrity = max(0, wall_integrity - damage_amount)
 
-	if(wall_integrity <= 0)
-		// Xenos used to be able to crawl through the wall, should suggest some structural damage to the girder
-		if (acided_hole)
-			dismantle_wall(1)
-		else
-			dismantle_wall()
-	else
+	if(wall_integrity > 0)
 		update_icon()
+		return
+
+	// Xenos used to be able to crawl through the wall, should suggest some structural damage to the girder
+	if(acided_hole)
+		dismantle_wall(TRUE)
+		return
+	dismantle_wall()
 
 ///Repairs the wall by an amount
 /turf/closed/wall/proc/repair_damage(repair_amount, mob/user)
@@ -246,17 +247,7 @@
 /turf/closed/wall/ex_act(severity, explosion_direction)
 	if(resistance_flags & INDESTRUCTIBLE)
 		return
-
-	var/location = get_step(get_turf(src), explosion_direction) // shrapnel will just collide with the wall otherwise
-	if(wall_integrity + severity > max_integrity * 2)
-		dismantle_wall(FALSE, TRUE)
-		create_shrapnel(location, rand(2, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/light)
-	else
-		if(prob(25))
-			create_shrapnel(location, rand(2, 5), explosion_direction, shrapnel_type = /datum/ammo/bullet/shrapnel/spall)
-			if(prob(50)) // prevents spam in close corridors etc
-				src.visible_message(span_warning("The explosion causes shards to spall off of [src]!"))
-		take_damage(severity * EXPLOSION_DAMAGE_MULTIPLIER_WALL, BRUTE, BOMB)
+	take_damage(severity * EXPLOSION_DAMAGE_MULTIPLIER_WALL, BRUTE, BOMB)
 
 /turf/closed/wall/get_explosion_resistance()
 	if(CHECK_BITFIELD(resistance_flags, INDESTRUCTIBLE))
@@ -344,66 +335,47 @@
 
 		user.visible_message(span_notice("[user] starts repairing the damage to [src]."),
 		span_notice("You start repairing the damage to [src]."))
-		add_overlay(GLOB.welding_sparks)
-		playsound(src, 'sound/items/welder.ogg', 25, 1)
-		if(!do_after(user, 5 SECONDS, NONE, src, BUSY_ICON_FRIENDLY) || !iswallturf(src) || !WT?.isOn())
-			cut_overlay(GLOB.welding_sparks)
+		if(!WT.use_tool(src, user, 5 SECONDS, 1, 25, null, BUSY_ICON_FRIENDLY) || !iswallturf(src))
 			return
 
 		user.visible_message(span_notice("[user] finishes repairing the damage to [src]."),
 		span_notice("You finish repairing the damage to [src]."))
-		cut_overlay(GLOB.welding_sparks)
 		repair_damage(250, user)
 		return
 
 	//DECONSTRUCTION
 	switch(d_state)
 		if(0)
-			playsound(src, 'sound/items/welder.ogg', 25, 1)
 			user.visible_message(span_notice("[user] begins slicing through the outer plating."),
 			span_notice("You begin slicing through the outer plating."))
-			add_overlay(GLOB.welding_sparks)
-			if(!do_after(user, 6 SECONDS, NONE, src, BUSY_ICON_BUILD))
-				cut_overlay(GLOB.welding_sparks)
+			if(!WT.use_tool(src, user, 6 SECONDS, 1, 25, null, BUSY_ICON_BUILD))
 				return
 			if(!iswallturf(src) || !WT?.isOn())
-				cut_overlay(GLOB.welding_sparks)
 				return
 			d_state = 1
 			user.visible_message(span_notice("[user] slices through the outer plating."),
 			span_notice("You slice through the outer plating."))
-			cut_overlay(GLOB.welding_sparks)
 
 		if(2)
 			user.visible_message(span_notice("[user] begins slicing through the metal cover."),
 			span_notice("You begin slicing through the metal cover."))
-			add_overlay(GLOB.welding_sparks)
-			playsound(src, 'sound/items/welder.ogg', 25, 1)
-			if(!do_after(user, 6 SECONDS, NONE, src, BUSY_ICON_BUILD))
-				cut_overlay(GLOB.welding_sparks)
+			if(!WT.use_tool(src, user, 6 SECONDS, 1, 25, null, BUSY_ICON_BUILD))
 				return
 			if(!iswallturf(src) || !WT?.isOn())
-				cut_overlay(GLOB.welding_sparks)
 				return
 			d_state = 3
 			user.visible_message(span_notice("[user] presses firmly on the cover, dislodging it."),
 			span_notice("You press firmly on the cover, dislodging it."))
-			cut_overlay(GLOB.welding_sparks)
 		if(7)
 			user.visible_message(span_notice("[user] begins slicing through the final layer."),
 			span_notice("You begin slicing through the final layer."))
-			playsound(src, 'sound/items/welder.ogg', 25, 1)
-			add_overlay(GLOB.welding_sparks)
-			if(!do_after(user, 6 SECONDS, NONE, src, BUSY_ICON_BUILD))
-				cut_overlay(GLOB.welding_sparks)
+			if(!WT.use_tool(src, user, 6 SECONDS, 1, 25, null, BUSY_ICON_BUILD))
 				return
 			if(!iswallturf(src) || !WT?.isOn())
-				cut_overlay(GLOB.welding_sparks)
 				return
 			new /obj/item/stack/rods(src)
 			user.visible_message(span_notice("The support rods drop out as [user] slices through the final layer."),
 			span_notice("The support rods drop out as you slice through the final layer."))
-			cut_overlay(GLOB.welding_sparks)
 			dismantle_wall()
 
 /turf/closed/wall/screwdriver_act(mob/living/user, obj/item/I)

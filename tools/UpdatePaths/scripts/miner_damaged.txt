@@ -1,0 +1,2 @@
+/obj/machinery/miner/damaged : /obj/effect/landmark/miner_phoron
+/obj/machinery/miner/damaged/platinum : /obj/effect/landmark/miner_platinum

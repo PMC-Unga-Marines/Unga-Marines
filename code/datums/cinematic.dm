@@ -21,9 +21,7 @@ GLOBAL_LIST_EMPTY(cinematics)
 
 /atom/movable/screen/cinematic
 	icon = 'icons/effects/station_explosion.dmi'
-	icon_state = "station_intact"
 	plane = SPLASHSCREEN_PLANE
-	layer = SPLASHSCREEN_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	screen_loc = "CENTER-7,CENTER-7"
 
@@ -36,6 +34,7 @@ GLOBAL_LIST_EMPTY(cinematics)
 	///Global cinematics will override mob-specific ones
 	var/is_global = FALSE
 	var/atom/movable/screen/cinematic/screen
+	var/screen_icon_state = "station_intact"
 	///For special effects synced with animation (explosions after the countdown etc)
 	var/datum/callback/special_callback
 	///How long it runs for
@@ -48,18 +47,18 @@ GLOBAL_LIST_EMPTY(cinematics)
 /datum/cinematic/New()
 	GLOB.cinematics += src
 	screen = new(src)
+	screen.icon_state = screen_icon_state
 
 /datum/cinematic/Destroy()
 	GLOB.cinematics -= src
 	QDEL_NULL(screen)
-	for(var/mob/M in locked)
+	for(var/mob/M as anything in locked)
 		M.notransform = FALSE
 	return ..()
 
 /datum/cinematic/proc/play(watchers)
 	//Check if you can actually play it (stop mob cinematics for global ones) and create screen objects
-	for(var/A in GLOB.cinematics)
-		var/datum/cinematic/C = A
+	for(var/datum/cinematic/C as anything in GLOB.cinematics)
 		if(C == src)
 			continue
 		if(C.is_global || !is_global)
@@ -75,8 +74,7 @@ GLOBAL_LIST_EMPTY(cinematics)
 		ooc_toggled = TRUE
 		GLOB.ooc_allowed = FALSE
 
-	for(var/i in GLOB.mob_list)
-		var/mob/M = i
+	for(var/mob/M as anything  in GLOB.mob_list)
 		if(M in watchers)
 			M.notransform = TRUE //Should this be done for non-global cinematics or even at all ?
 			locked += M
@@ -97,9 +95,9 @@ GLOBAL_LIST_EMPTY(cinematics)
 /datum/cinematic/proc/cinematic_sound(s)
 	if(is_global)
 		SEND_SOUND(world, s)
-	else
-		for(var/C in watching)
-			SEND_SOUND(C, s)
+		return
+	for(var/C as anything in watching)
+		SEND_SOUND(C, s)
 
 ///Fire up special callback for actual effects synchronized with animation (eg real nuke explosion happens midway)
 /datum/cinematic/proc/special()
@@ -124,19 +122,23 @@ GLOBAL_LIST_EMPTY(cinematics)
 
 /datum/cinematic/nuke
 	runtime = 3.5 SECONDS
+	cleanup_time = 15 SECONDS
+	var/intro_icon = "intro_nuke"
 	var/icon_to_flick = "station_explode_fade_red"
 	var/sound_to_play = 'sound/effects/explosion/far0.ogg'
 	var/summary_icon_state = "summary_nukewin"
 
 /datum/cinematic/nuke/pre_content()
-	flick("intro_nuke", screen)
+	flick(intro_icon, screen)
 	addtimer(CALLBACK(src, PROC_REF(content)), runtime)
 
 /datum/cinematic/nuke/content()
-	flick(icon_to_flick, screen)
+	if(icon_to_flick)
+		flick(icon_to_flick, screen)
 	cinematic_sound(sound(sound_to_play, channel = CHANNEL_CINEMATIC))
 	special()
-	screen.icon_state = summary_icon_state
+	if(summary_icon_state)
+		screen.icon_state = summary_icon_state
 
 /datum/cinematic/nuke/win
 	id = CINEMATIC_NUKE_WIN
@@ -152,11 +154,8 @@ GLOBAL_LIST_EMPTY(cinematics)
 
 /datum/cinematic/nuke/selfdestruct_miss
 	id = CINEMATIC_SELFDESTRUCT_MISS
-
-/datum/cinematic/nuke/selfdestruct_miss/content()
-	cinematic_sound(sound('sound/effects/explosion/far0.ogg', channel = CHANNEL_CINEMATIC))
-	special()
-	screen.icon_state = "station_intact"
+	icon_to_flick = ""
+	summary_icon_state = "station_intact"
 
 /datum/cinematic/nuke/annihilation
 	id = CINEMATIC_ANNIHILATION
@@ -164,49 +163,31 @@ GLOBAL_LIST_EMPTY(cinematics)
 
 /datum/cinematic/nuke/fake
 	id = CINEMATIC_NUKE_FAKE
-	cleanup_time = 10 SECONDS
-
-/datum/cinematic/nuke/fake/content()
-	cinematic_sound(sound('sound/items/bikehorn.ogg', channel = CHANNEL_CINEMATIC))
-	flick("summary_selfdes", screen)
-	special()
+	icon_to_flick = "summary_selfdes"
+	sound_to_play = 'sound/items/bikehorn.ogg'
+	summary_icon_state = ""
 
 /datum/cinematic/nuke/no_core
 	id = CINEMATIC_NUKE_NO_CORE
-	cleanup_time = 10 SECONDS
-
-/datum/cinematic/nuke/no_core/content()
-	flick("station_intact", screen)
-	cinematic_sound(sound('sound/ambience/signal.ogg', channel = CHANNEL_CINEMATIC))
-
-/datum/cinematic/nuke_far
-	id = CINEMATIC_NUKE_FAR
-	cleanup_time = 0
-
-/datum/cinematic/nuke_far/content()
-	cinematic_sound(sound('sound/effects/explosion/far0.ogg', channel = CHANNEL_CINEMATIC))
-	special()
+	icon_to_flick = "station_intact"
+	sound_to_play = 'sound/ambience/signal.ogg'
+	summary_icon_state = ""
 
 /datum/cinematic/nuke/crash
 	id = CINEMATIC_CRASH_NUKE
-	cleanup_time = 15 SECONDS
+	screen_icon_state = "planet_start"
+	intro_icon = "planet_start"
 	icon_to_flick = "planet_nuke"
 	summary_icon_state = "planet_end"
 
-/datum/cinematic/nuke/crash/pre_content()
-	screen.icon_state = "planet_start"
-	return ..()
+/datum/cinematic/nuke/far
+	id = CINEMATIC_NUKE_FAR
+	icon_to_flick = ""
+	summary_icon_state = ""
 
-/datum/cinematic/malf
+/datum/cinematic/nuke/malf
 	id = CINEMATIC_MALF
 	runtime = 7.6 SECONDS
-
-/datum/cinematic/malf/pre_content()
-	flick("intro_malf", screen)
-	addtimer(CALLBACK(src, PROC_REF(content)), runtime)
-
-/datum/cinematic/malf/content()
-	flick("station_explode_fade_red", screen)
-	cinematic_sound(sound('sound/effects/explosion/far0.ogg', channel = CHANNEL_CINEMATIC))
-	special()
-	screen.icon_state = "summary_malf"
+	intro_icon = "intro_malf"
+	icon_to_flick = "station_explode_fade_red"
+	summary_icon_state = "summary_malf"

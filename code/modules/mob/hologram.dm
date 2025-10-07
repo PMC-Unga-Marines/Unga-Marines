@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(hologram_list)
 
 	invisibility = INVISIBILITY_OBSERVER
 	sight = SEE_SELF
-	layer = ABOVE_FLY_LAYER
+	layer = ABOVE_TREE_LAYER
 
 	var/action_icon_state = "hologram_exit"
 

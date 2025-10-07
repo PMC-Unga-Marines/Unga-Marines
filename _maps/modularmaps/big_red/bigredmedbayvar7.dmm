@@ -710,7 +710,7 @@
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/medical)
 "wT" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/c)
 "xc" = (

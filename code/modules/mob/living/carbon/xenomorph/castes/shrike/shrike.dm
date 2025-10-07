@@ -5,11 +5,12 @@
 	icon = 'icons/Xeno/castes/shrike/basic.dmi'
 	icon_state = "Shrike Walking"
 	effects_icon = 'icons/Xeno/castes/shrike/effects.dmi'
-	rouny_icon = 'icons/Xeno/castes/shrike/rouny.dmi'
 	bubble_icon = "alienroyal"
 	skins = list(
-		/datum/xenomorph_skin/shrike/joker,
 		/datum/xenomorph_skin/shrike,
+		/datum/xenomorph_skin/shrike/rouny,
+		/datum/xenomorph_skin/shrike/joker,
+		/datum/xenomorph_skin/shrike/clown,
 	)
 	health = 240
 	maxHealth = 240

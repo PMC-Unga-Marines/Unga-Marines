@@ -1,0 +1,4 @@
+author: "homexp13"
+delete-after: True
+changes:
+  - balance: "IS Pattern Storage module теперь имеет задержку при доставании предметов."

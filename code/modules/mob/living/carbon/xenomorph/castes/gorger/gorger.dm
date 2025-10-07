@@ -5,7 +5,6 @@
 	icon = 'icons/Xeno/castes/gorger/basic.dmi'
 	icon_state = "Gorger Walking"
 	effects_icon = 'icons/Xeno/castes/gorger/effects.dmi'
-	rouny_icon = 'icons/Xeno/castes/gorger/rouny.dmi'
 	health = 600
 	maxHealth = 600
 	plasma_stored = 100
@@ -14,6 +13,11 @@
 	upgrade = XENO_UPGRADE_NORMAL
 	mob_size = MOB_SIZE_BIG
 	bubble_icon = "alienroyal"
+
+	skins = list(
+		/datum/xenomorph_skin/gorger,
+		/datum/xenomorph_skin/gorger/rouny,
+	)
 
 /mob/living/carbon/xenomorph/gorger/Initialize(mapload)
 	. = ..()

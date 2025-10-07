@@ -5,6 +5,8 @@
 	icon_state = "rotating_alarm"
 	light_system = MOVABLE_LIGHT
 	light_color = LIGHT_COLOR_RED
+	plane = FLOOR_PLANE
+	layer = LOWER_RUNE_LAYER
 	light_mask_type = /atom/movable/lighting_mask/rotating_conical
 	light_power = 6
 	light_range = 4

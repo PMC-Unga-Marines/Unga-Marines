@@ -5,7 +5,6 @@
 	icon = 'icons/Xeno/castes/boiler/basic.dmi'
 	icon_state = "Boiler Walking"
 	effects_icon = 'icons/Xeno/castes/boiler/effects.dmi'
-	rouny_icon = 'icons/Xeno/castes/boiler/rouny.dmi'
 	bubble_icon = "alienroyal"
 	health = 200
 	maxHealth = 200
@@ -16,6 +15,10 @@
 	upgrade = XENO_UPGRADE_NORMAL
 	gib_chance = 100
 	drag_delay = 6 //pulling a big dead xeno is hard
+	skins = list(
+		/datum/xenomorph_skin/boiler,
+		/datum/xenomorph_skin/boiler/rouny,
+	)
 
 /mob/living/carbon/xenomorph/boiler/get_liquid_slowdown()
 	return BOILER_WATER_SLOWDOWN

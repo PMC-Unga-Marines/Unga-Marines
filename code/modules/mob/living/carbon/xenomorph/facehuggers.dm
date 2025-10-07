@@ -286,7 +286,7 @@
 
 	if(!about_to_jump)
 		return
-	add_overlay(image('icons/obj/items/grenade.dmi', "danger"))
+	add_overlay(image('icons/effects/danger.dmi', "danger_xeno"))
 
 ///Applies an alert overlay when the hugger is about to jump
 /obj/item/clothing/mask/facehugger/proc/apply_danger_overlay()
@@ -310,7 +310,7 @@
 		return FALSE
 
 	if(isturf(loc))
-		var/obj/alien/egg/hugger/E = locate() in loc
+		var/obj/alien/egg/facehugger/E = locate() in loc
 		if(E?.insert_new_hugger(src))
 			return FALSE
 		var/obj/structure/xeno/trap/T = locate() in loc

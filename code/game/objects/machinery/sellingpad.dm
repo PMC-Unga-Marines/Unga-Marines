@@ -45,8 +45,6 @@
 				to_chat(user, span_warning("[src] buzzes: This bounty is not dead and cannot be sold."))
 				continue
 			can_sell = TRUE
-		if(is_research_product(onpad))
-			can_sell = TRUE
 		if(!can_sell)
 			continue
 		var/datum/export_report/export_report = onpad.supply_export(user.faction)
@@ -68,7 +66,7 @@
 		to_chat(user, "You bolt the [src] to the ground, activating it.")
 		playsound(loc, 'sound/items/ratchet.ogg', 25, TRUE)
 		icon_state = "broadcaster"
-		SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, "asrs"))
+		SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, "asrs", MINIMAP_BLIPS_LAYER))
 	else
 		to_chat(user, "You unbolt the [src] from the ground, deactivating it.")
 		playsound(loc, 'sound/items/ratchet.ogg', 25, TRUE)

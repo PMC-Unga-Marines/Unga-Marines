@@ -99,6 +99,12 @@
 	full_name = "Toggle automatic magazine ejection"
 	keybind_signal = COMSIG_KB_AUTOEJECT
 
+/datum/keybinding/human/overhead_grenade_launcher
+	name = "overhead_grenade_launcher"
+	full_name = "Toggle overhead grenade launcher mode"
+	description = "Toggle between direct and indirect fire modes for grenade launchers"
+	keybind_signal = COMSIG_KB_OVERHEAD_GRENADE_LAUNCHER
+
 /datum/keybinding/human/give
 	name = "give"
 	full_name = "Give"

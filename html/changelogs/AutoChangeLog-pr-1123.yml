@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - balance: "КАС теперь получает меньше очков на высокой орбите."

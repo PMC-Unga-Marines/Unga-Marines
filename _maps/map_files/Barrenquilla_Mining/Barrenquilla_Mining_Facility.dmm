@@ -311,7 +311,7 @@
 /turf/open/floor/tile/dark2,
 /area/barren/engie/engine)
 "bK" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
@@ -501,8 +501,8 @@
 /turf/open/floor/tile/red/redtaupe,
 /area/barren/security)
 "cO" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "cP" = (
@@ -639,7 +639,7 @@
 /area/barren/caves/southwest)
 "dz" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "dA" = (
@@ -930,7 +930,7 @@
 /area/barren/cave/lz1)
 "eJ" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "eK" = (
@@ -1084,7 +1084,7 @@
 /turf/open/floor/wood,
 /area/barren/security)
 "ft" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "fu" = (
@@ -1340,7 +1340,7 @@
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "gy" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/west)
 "gz" = (
@@ -1636,7 +1636,7 @@
 /turf/open/floor/marking/delivery,
 /area/barren/misc/genstorage)
 "hN" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "hO" = (
@@ -2333,7 +2333,7 @@
 /turf/open/floor/plating/ground/lavaland/basalt/glowing,
 /area/barren/cave/central)
 "kR" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/east)
 "kS" = (
@@ -3120,7 +3120,7 @@
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "oB" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "oC" = (
@@ -3246,7 +3246,7 @@
 /turf/open/floor/wood,
 /area/barren/cave/lz1)
 "ph" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "pj" = (
@@ -3563,7 +3563,7 @@
 /area/barren/civilian)
 "qG" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/northwest)
 "qI" = (
@@ -5189,7 +5189,7 @@
 /turf/open/floor/prison/bright_clean/two,
 /area/barren/security)
 "ym" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "yn" = (
@@ -5688,7 +5688,7 @@
 /turf/open/floor/marking,
 /area/barren/cave/central)
 "AH" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/basalt,
 /area/barren/caves/southwest)
 "AI" = (
@@ -5965,7 +5965,7 @@
 /turf/open/floor/wood,
 /area/barren/civilian/workdorm)
 "BX" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "BY" = (
@@ -6358,7 +6358,7 @@
 /area/barren/security/nuke)
 "Ee" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "Eh" = (
@@ -6832,7 +6832,7 @@
 "Gk" = (
 /obj/effect/landmark/weed_node,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/north)
 "Gl" = (
@@ -7584,7 +7584,7 @@
 /turf/open/floor/wood,
 /area/barren/civilian/cook)
 "JM" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "JP" = (
@@ -9043,7 +9043,7 @@
 /turf/open/floor/vault,
 /area/barren/civilian/laundry)
 "QV" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall,
 /area/barren/civilian)
 "QW" = (
@@ -9352,7 +9352,7 @@
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "Sw" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southwest)
 "Sx" = (
@@ -9582,7 +9582,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_offices)
 "TB" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "TC" = (
@@ -10236,7 +10236,7 @@
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/south)
 "WS" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/basalt,
 /area/barren/caves/rock)
 "WT" = (
@@ -10401,7 +10401,7 @@
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/cave/central)
 "XH" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/lavaland/basalt,
 /area/barren/caves/southeast)
 "XJ" = (

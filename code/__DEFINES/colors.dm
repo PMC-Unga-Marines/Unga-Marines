@@ -10,6 +10,10 @@
 ///how many colour priority levels there are.
 #define COLOR_PRIORITY_AMOUNT 4
 
+//Filters
+#define AMBIENT_OCCLUSION filter(type="drop_shadow", x=0, y=-2, size=4, color="#04080FAA")
+#define GAUSSIAN_BLUR(filter_size) filter(type="blur", size=filter_size)
+
 #define LIGHTMODE_BACKGROUND "none"
 #define LIGHTMODE_TEXT "#000000"
 
@@ -42,6 +46,7 @@
 #define COLOR_VIVID_RED "#FF3232"
 #define COLOR_LIGHT_GRAYISH_RED "#E4C7C5"
 #define COLOR_LOBBY_RED "#B43535"
+#define COLOR_FIRE_LIGHT_RED "#B61C1C"
 
 /// Warm but extremely diluted red. rgb(250, 130, 130)
 #define COLOR_SOFT_RED "#FA8282"
@@ -298,3 +303,13 @@ Important note: colors can end up significantly different from the basic html pi
 #define COLOR_SQUAD_BRAVO "#ffc32d" // rgb(255,195,45)
 #define COLOR_SQUAD_CHARLIE "#c864c8" // rgb(200,100,200)
 #define COLOR_SQUAD_DELTA "#4148c8" // rgb(65,72,200)
+
+//Colours associated with runechat
+#define CHAT_COLOR_SQUAD_ALPHA "#dd7878"
+#define CHAT_COLOR_DARKENED_SQUAD_ALPHA "#c85a5a"
+#define CHAT_COLOR_SQUAD_BRAVO "#ddc478"
+#define CHAT_COLOR_DARKENED_SQUAD_BRAVO "#c8ac5a"
+#define CHAT_COLOR_SQUAD_CHARLIE "#dd78d3"
+#define CHAT_COLOR_DARKENED_SQUAD_CHARLIE "#c85abd"
+#define CHAT_COLOR_SQUAD_DELTA "#787ddd"
+#define CHAT_COLOR_DARKENED_SQUAD_DELTA "#5a60c8"

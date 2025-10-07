@@ -29,6 +29,10 @@
 	AddComponent(/datum/component/anti_juggling)
 	set_jump_component()
 
+	if(!hunter_data)
+		hunter_data = new /datum/huntdata(src)
+	hud_set_hunter()
+
 /mob/living/carbon/human/proc/human_z_changed(datum/source, old_z, new_z)
 	SIGNAL_HANDLER
 	LAZYREMOVE(GLOB.humans_by_zlevel["[old_z]"], src)
@@ -128,41 +132,26 @@
 		severity *= EXPLOSION_PRONE_MULTIPLIER
 
 	if(severity >= EXPLOSION_THRESHOLD_GIB + (get_soft_armor(BOMB) * 2))
-		var/oldloc = loc
+		create_shrapnel(loc, rand(9, 15), direction, 40, /datum/ammo/bullet/shrapnel/light/human)
 		gib()
-		create_shrapnel(oldloc, rand(3, 5), direction, 45, /datum/ammo/bullet/shrapnel/light/human)
-		create_shrapnel(oldloc, rand(3, 5), direction, 30, /datum/ammo/bullet/shrapnel/light/human/var1)
-		create_shrapnel(oldloc, rand(3, 5), direction, 45, /datum/ammo/bullet/shrapnel/light/human/var2)
 		return
 
-	var/stagger_amount = 0
-	var/slowdown_amount = 0
-	var/ear_damage_amount = 0
-	var/obj/item/active_item = get_active_held_item()
-	var/obj/item/inactive_item = get_inactive_held_item()
-	var/bomb_armor_ratio = modify_by_armor(1, BOMB) //percentage that pierces overall bomb armor
-
-	if(active_item && isturf(active_item.loc))
-		active_item.explosion_throw(severity, direction)
-	if(inactive_item && isturf(inactive_item.loc))
-		inactive_item.explosion_throw(severity, direction)
+	var/modified_severity = modify_by_armor(severity, BOMB)
+	var/powerfactor_value = modified_severity * 0.02
 
 	if(!istype(wear_ear, /obj/item/clothing/ears/earmuffs))
-		adjust_ear_damage(ear_damage_amount * bomb_armor_ratio, ear_damage_amount * 4 * bomb_armor_ratio)
+		adjust_ear_damage(powerfactor_value, powerfactor_value * 4)
 
-	if(severity >= 30)
+	if(severity >= EXPLODE_WEAK)
 		flash_act()
 
-	adjust_stagger(stagger_amount * bomb_armor_ratio)
-	add_slowdown(slowdown_amount * bomb_armor_ratio)
+	adjust_stagger(powerfactor_value SECONDS * 0.5)
+	add_slowdown(powerfactor_value)
 
-	#ifdef DEBUG_HUMAN_ARMOR
-	to_chat(world, "DEBUG EX_ACT: bomb_armor_ratio: [bomb_armor_ratio], severity: [severity]")
-	#endif
+	take_overall_damage(modified_severity * 0.5, BRUTE, updating_health = TRUE, max_limbs = 4)
+	take_overall_damage(modified_severity * 0.5, BURN, updating_health = TRUE, max_limbs = 4)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, explosion_throw), modified_severity, direction)explosion_throw(modified_severity, direction)
 
-	take_overall_damage(severity * 0.5, BRUTE, BOMB, updating_health = TRUE, max_limbs = 4)
-	take_overall_damage(severity * 0.5, BURN, BOMB, updating_health = TRUE, max_limbs = 4)
-	explosion_throw(severity, direction)
 	TIMER_COOLDOWN_START(src, COOLDOWN_MOB_EX_ACT, 0.1 SECONDS) // this is to prevent x2 damage from mob getting thrown into the explosions wave
 
 /mob/living/carbon/human/attack_animal(mob/living/M as mob)

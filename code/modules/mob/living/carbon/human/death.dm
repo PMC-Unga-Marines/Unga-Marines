@@ -20,15 +20,15 @@
 	if(species)
 		hgibs(loc, species.flesh_color, species.blood_color)
 		new /obj/effect/temp_visual/gib_particles(get_turf(src), species.blood_color)
-	else
-		hgibs(loc)
-		new /obj/effect/temp_visual/gib_particles(get_turf(src), get_blood_color())
+		return
+	hgibs(loc)
+	new /obj/effect/temp_visual/gib_particles(get_turf(src), get_blood_color())
 
 /mob/living/carbon/human/spawn_dust_remains()
 	if(species)
 		new species.remains_type(loc)
-	else
-		new /obj/effect/decal/remains/xeno(loc)
+		return
+	new /obj/effect/decal/remains/xeno(loc)
 
 /mob/living/carbon/human/dust_animation()
 	new /obj/effect/overlay/temp/dust_animation(loc, 0, src, "dust-h")
@@ -44,7 +44,6 @@
 	if(!silent && species.death_sound)
 		playsound(loc, species.death_sound, 50, TRUE)
 	return ..()
-
 
 /mob/living/carbon/human/on_death()
 	if(pulledby)

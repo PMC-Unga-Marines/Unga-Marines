@@ -26,7 +26,7 @@ SUBSYSTEM_DEF(hunting)
 	var/list/hunter_datas = list()
 
 /datum/controller/subsystem/hunting/fire(resumed, init_tick_checks)
-	for(var/datum/huntdata/data in hunter_datas)
+	for(var/datum/huntdata/data as anything in hunter_datas)
 		if(data.dishonored || data.thralled)
 			continue
 		if(ishuman(data.owner))

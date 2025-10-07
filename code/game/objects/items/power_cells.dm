@@ -170,11 +170,12 @@
 	update_appearance(UPDATE_ICON)
 
 /obj/item/cell/ex_act(severity)
-	if(prob(severity * 0.5))
-		if(severity >= EXPLODE_WEAK)
-			qdel(src)
-		else
-			corrupt()
+	if(!prob(severity * 0.5))
+		return
+	if(severity >= EXPLODE_WEAK)
+		qdel(src)
+	else
+		corrupt()
 
 /obj/item/cell/use(amount) // use power from a cell
 	if(rigged && amount > 0)
@@ -314,6 +315,9 @@
 	maxcharge = 300
 	minor_fault = 1
 
+/obj/item/cell/rtg // todo should kill this subtype
+	charge_overlay = null
+
 /obj/item/cell/rtg/small
 	name = "recharger cell"
 	desc = "This is a miniature radioisotope generator that can fit into APC's, but not laser-based weapory. The needed shielding lowers the maximum capacity significantly."
@@ -352,6 +356,7 @@
 	icon_state = "trashmelt"
 	worn_icon_state = "trashmelt"
 	w_class = WEIGHT_CLASS_HUGE
+	charge_overlay = null
 	self_recharge = TRUE
 	maxcharge = 1000
 	charge_amount = 30

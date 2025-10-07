@@ -141,6 +141,7 @@
 /datum/ammo/bullet/sniper/clf_heavyrifle
 	name = "high velocity incendiary sniper bullet"
 	handful_icon_state = "ptrs"
+	handful_amount = 5
 	ammo_behavior_flags = AMMO_BALLISTIC|AMMO_INCENDIARY|AMMO_SNIPER
 	hud_state = "sniper_fire"
 	accurate_range_min = 4

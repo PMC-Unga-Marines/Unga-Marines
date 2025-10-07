@@ -14,7 +14,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/caves/south)
 "m" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/southwest)
@@ -29,7 +29,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "w" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "x" = (
@@ -41,7 +41,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southwest)
 "z" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "E" = (
@@ -59,11 +59,11 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/south)
 "K" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southwest)
 "N" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "O" = (

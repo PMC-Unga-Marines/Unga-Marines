@@ -366,7 +366,7 @@
 /turf/open/floor/tile/dark2,
 /area/lawankaoutpost/colony/mining)
 "anT" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/north)
 "aoe" = (
@@ -470,7 +470,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 2
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/lawankaoutpost/caves/rock)
 "aun" = (
@@ -534,7 +534,7 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/south)
 "axh" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/northwest)
 "axz" = (
@@ -739,7 +739,7 @@
 /turf/open/floor,
 /area/lawankaoutpost/colony/landingzoneone)
 "aFl" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/central)
 "aFs" = (
@@ -985,7 +985,7 @@
 	},
 /area/lawankaoutpost/colony/operations_hall)
 "aOT" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/northwest/garbledradio)
 "aPf" = (
@@ -2255,7 +2255,7 @@
 /area/lawankaoutpost/colony/marshalls)
 "bWn" = (
 /obj/structure/fence,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lawankaoutpost/outside/central)
 "bWN" = (
@@ -3342,7 +3342,7 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/north)
 "cSN" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall,
 /area/lawankaoutpost/outside/west)
 "cSZ" = (
@@ -3373,7 +3373,7 @@
 /area/lawankaoutpost/outside/north)
 "cTU" = (
 /obj/effect/landmark/start/job/xenomorph,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/northwest)
 "cUP" = (
@@ -5534,7 +5534,7 @@
 /area/lawankaoutpost/colony/southdorms)
 "eLZ" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/east)
 "eMm" = (
@@ -8247,7 +8247,7 @@
 /area/lawankaoutpost/colony/robotics)
 "gWT" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/southwest)
 "gWU" = (
@@ -9690,7 +9690,7 @@
 	},
 /area/lawankaoutpost/colony/northdorms)
 "ioc" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/southwest)
 "ior" = (
@@ -10574,8 +10574,8 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 2
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/lawankaoutpost/caves/rock)
 "jaI" = (
@@ -12007,7 +12007,7 @@
 	},
 /area/lawankaoutpost/colony/robotics)
 "kod" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/indestructible,
 /area/lawankaoutpost/caves/rock)
 "kog" = (
@@ -15620,7 +15620,7 @@
 /turf/open/floor/tile/dark/purple2,
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "noY" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/northwest)
 "npa" = (
@@ -15735,7 +15735,7 @@
 /area/lawankaoutpost/colony/landingzoneone)
 "nsW" = (
 /obj/structure/fence,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lawankaoutpost/outside/west)
 "ntc" = (
@@ -16261,8 +16261,8 @@
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lawankaoutpost/outside/south)
 "nLR" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/indestructible,
 /area/lawankaoutpost/caves/rock)
 "nMn" = (
@@ -16380,7 +16380,7 @@
 /area/lawankaoutpost/outside/central)
 "nQs" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/east)
 "nQG" = (
@@ -16429,7 +16429,7 @@
 /turf/open/floor/tile/green/greentaupe,
 /area/lawankaoutpost/colony/recdorms)
 "nUt" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/northwest)
 "nUw" = (
@@ -17085,8 +17085,8 @@
 	},
 /area/lawankaoutpost/colony/marshalls)
 "ovj" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/southwest)
 "ovr" = (
@@ -18020,7 +18020,7 @@
 	},
 /area/lawankaoutpost/caves/nanotrasen_lab)
 "pjf" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/west)
 "pjz" = (
@@ -18176,7 +18176,7 @@
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/southeast)
 "ppP" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/southwest)
 "ppQ" = (
@@ -18328,7 +18328,7 @@
 /area/lawankaoutpost/outside/central)
 "pvH" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/lawankaoutpost/caves/rock)
 "pvY" = (
@@ -19443,7 +19443,7 @@
 /area/lawankaoutpost/outside/northeast)
 "qrf" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/east)
 "qrL" = (
@@ -19593,7 +19593,7 @@
 /turf/open/floor/tile/dark,
 /area/lawankaoutpost/colony/medbay)
 "qyf" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall,
 /area/lawankaoutpost/outside/central)
 "qyi" = (
@@ -20544,7 +20544,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 2
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/lawankaoutpost/caves/rock)
 "rmx" = (
@@ -20638,7 +20638,7 @@
 /turf/closed/wall,
 /area/lawankaoutpost/outside/east)
 "rqo" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/ground/grass,
 /area/lawankaoutpost/outside/southwest)
 "rqw" = (
@@ -20787,7 +20787,7 @@
 /turf/open/floor,
 /area/lawankaoutpost/colony/biologics)
 "rvV" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/west)
 "rxo" = (
@@ -22290,7 +22290,7 @@
 /turf/open/floor,
 /area/lawankaoutpost/colony/chapel)
 "sIW" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/east)
 "sJp" = (
@@ -22521,7 +22521,7 @@
 /area/lawankaoutpost/colony/engineering)
 "sVs" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/northwest/garbledradio)
 "sVw" = (
@@ -22803,7 +22803,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/outside/central)
 "teU" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/east)
@@ -22822,7 +22822,7 @@
 /area/lawankaoutpost/colony/biologics)
 "tgq" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/northwest/garbledradio)
 "tgX" = (
@@ -23938,7 +23938,7 @@
 /area/lawankaoutpost/colony/engineering)
 "tZS" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/lawankaoutpost/caves/rock)
 "tZX" = (
@@ -24585,7 +24585,7 @@
 	},
 /area/lawankaoutpost/colony/operations_meeting)
 "uDr" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/lawankaoutpost/caves/rock)
 "uDw" = (
@@ -27759,7 +27759,7 @@
 /area/lawankaoutpost/outside/northeast)
 "xho" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lawankaoutpost/caves/northwest)
 "xhp" = (

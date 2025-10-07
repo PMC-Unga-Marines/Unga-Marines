@@ -15,7 +15,7 @@
 /turf/closed/wall,
 /area/deltastation/service/lawoffice)
 "aae" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
 /area/deltastation/ai_monitored/turret_protected/aisat_interior)
 "aag" = (
@@ -1203,7 +1203,7 @@
 /turf/open/floor/glass/reinforced,
 /area/deltastation/hallway/primary/fore)
 "anf" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/spawner/random/machinery/status_display,
 /turf/closed/wall,
 /area/deltastation/cargo/storage)
@@ -1500,7 +1500,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/asteroidcaves/westerncaves/garbledradio)
 "aqM" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/unmeltable/regular,
 /area/deltastation/construction/mining/aux_base)
 "aqR" = (
@@ -3146,7 +3146,7 @@
 /area/deltastation/medical/medbay)
 "aJE" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/deltastation/construction/mining/aux_base)
 "aKc" = (
@@ -3222,7 +3222,7 @@
 /turf/open/floor/plating,
 /area/deltastation/science/ordnance/testlab)
 "aKF" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/mainship,
 /area/deltastation/asteroidcaves/ship)
 "aKI" = (
@@ -5113,7 +5113,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment/corner,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
@@ -5204,7 +5204,7 @@
 	dir = 10;
 	id = "cargoload"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/turf_decal/sandedge{
 	dir = 8
 	},
@@ -5560,7 +5560,7 @@
 /area/deltastation/maintenance/port/fore)
 "bjM" = (
 /obj/effect/spawner/random/machinery/status_display,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
 /area/deltastation/ai_monitored/turret_protected/aisat_interior)
 "bjO" = (
@@ -6854,7 +6854,7 @@
 /obj/effect/landmark/xeno_resin_door{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
@@ -8279,7 +8279,7 @@
 "bLR" = (
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/effect/turf_decal/box/red,
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/iron/dark,
 /area/deltastation/service/abandoned_gambling_den)
 "bLU" = (
@@ -8530,7 +8530,7 @@
 /obj/effect/turf_decal/loading_area{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "bPJ" = (
@@ -8661,7 +8661,7 @@
 /area/deltastation/asteroidcaves/derelictwest)
 "bRO" = (
 /obj/machinery/teleport/station,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/deltastation/asteroidcaves/derelictnortheast)
 "bRR" = (
@@ -9283,7 +9283,7 @@
 /obj/effect/landmark/xeno_resin_door{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/asteroidcaves/derelictwest)
 "bXK" = (
@@ -9426,7 +9426,7 @@
 /obj/effect/turf_decal/tile/transparent/brown/half/contrasted{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "bYx" = (
@@ -14111,7 +14111,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron/cafeteria,
 /area/deltastation/asteroidcaves/derelictwest)
 "cZC" = (
@@ -15076,7 +15076,7 @@
 /area/deltastation/commons/storage/tools)
 "djW" = (
 /obj/structure/sign/poster,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/mainship,
 /area/deltastation/asteroidcaves/ship)
 "dkn" = (
@@ -15414,7 +15414,7 @@
 /area/deltastation/security/processing)
 "dna" = (
 /obj/structure/sign/securearea,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/unmeltable,
 /area/deltastation/ai_monitored/turret_protected/aisat_interior)
 "dnk" = (
@@ -16977,7 +16977,7 @@
 /area/deltastation/science/genetics)
 "dCR" = (
 /obj/structure/sign/vacuum,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
 /area/deltastation/asteroidcaves/derelictnortheast)
 "dDi" = (
@@ -17188,7 +17188,7 @@
 /area/deltastation/medical/coldroom)
 "dFm" = (
 /obj/effect/spawner/random/misc/structure/girder,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/deltastation/service/kitchen/abandoned)
 "dFp" = (
@@ -19507,7 +19507,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/ai_node,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
@@ -20144,7 +20144,7 @@
 /obj/effect/turf_decal/loading_area{
 	dir = 8
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "egg" = (
@@ -23487,7 +23487,7 @@
 	dir = 1;
 	name = "Spare Equipment"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/prison/redfloor,
 /area/deltastation/asteroidcaves/ship)
 "eOc" = (
@@ -23578,7 +23578,7 @@
 /obj/effect/turf_decal/stripes/end{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "eOO" = (
@@ -26312,7 +26312,7 @@
 /area/deltastation/hallway/secondary/exit/departure_lounge)
 "frB" = (
 /obj/structure/window/framed/colony/reinforced,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/deltastation/construction/mining/aux_base)
 "frE" = (
@@ -29627,7 +29627,7 @@
 /turf/open/floor/iron,
 /area/deltastation/cargo/sorting)
 "fZP" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/engineering/storage/tech)
 "fZT" = (
@@ -31199,7 +31199,7 @@
 /area/deltastation/maintenance/port/fore)
 "gqs" = (
 /obj/structure/computer3frame,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/deltastation/asteroidcaves/derelictnortheast)
 "gqy" = (
@@ -32480,7 +32480,7 @@
 /obj/effect/landmark/xeno_resin_door{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/wood,
 /area/deltastation/asteroidcaves/derelictwest)
 "gDs" = (
@@ -33375,7 +33375,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/ai_node,
 /turf/open/floor/iron/dark,
 /area/deltastation/ai_monitored/turret_protected/aisat_interior)
@@ -34521,7 +34521,7 @@
 /area/deltastation/commons/locker)
 "has" = (
 /obj/machinery/smartfridge,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/deltastation/asteroidcaves/derelictwest)
 "hav" = (
@@ -35238,7 +35238,7 @@
 	dir = 4;
 	name = "Syndicate Ship Turret"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/mainship,
 /area/deltastation/asteroidcaves/ship)
 "hgp" = (
@@ -35629,7 +35629,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/ai_node,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
 	dir = 4
@@ -37204,7 +37204,7 @@
 /turf/closed/wall/r_wall,
 /area/deltastation/science/robotics/lab)
 "hDx" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall,
 /area/deltastation/construction/mining/aux_base)
 "hDQ" = (
@@ -37477,7 +37477,7 @@
 /area/deltastation/maintenance/port)
 "hHi" = (
 /obj/effect/spawner/random/misc/structure/girder,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/cargo/storage)
 "hHm" = (
@@ -37645,7 +37645,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/asteroidcaves/westerncaves)
 "hJu" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
 /area/deltastation/asteroidcaves/derelictnortheast)
 "hJv" = (
@@ -38472,7 +38472,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/ai_node,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
@@ -38644,7 +38644,7 @@
 /turf/closed/wall/r_wall,
 /area/security/nuke_storage)
 "hUI" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/asteroidcaves/northcaves)
 "hUL" = (
@@ -39465,8 +39465,8 @@
 /turf/open/floor/iron/sepia,
 /area/deltastation/service/library/artgallery)
 "ieI" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall,
 /area/deltastation/asteroidcaves/derelictwest)
 "ieP" = (
@@ -40887,7 +40887,7 @@
 /turf/open/floor/engine,
 /area/deltastation/science/ordnance/freezerchamber)
 "iww" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/asteroidcaves/securitycaves)
 "iwy" = (
@@ -41617,7 +41617,7 @@
 "iDU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/iron,
 /area/deltastation/engineering/atmos/project)
 "iEb" = (
@@ -42956,7 +42956,7 @@
 	id = "cargoload"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/deltastation/cargo/storage)
 "iSe" = (
@@ -43895,7 +43895,7 @@
 /area/deltastation/maintenance/starboard/aft)
 "jbY" = (
 /obj/effect/spawner/random/misc/structure/girder,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/construction/mining/aux_base)
 "jce" = (
@@ -47111,7 +47111,7 @@
 /turf/closed/wall,
 /area/deltastation/maintenance/department/chapel)
 "jPi" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_door{
 	dir = 4
 	},
@@ -47605,7 +47605,7 @@
 	dir = 2;
 	name = "Control Room"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/prison/redfloor,
 /area/deltastation/asteroidcaves/ship)
 "jUb" = (
@@ -47837,7 +47837,7 @@
 	},
 /obj/structure/cable,
 /obj/structure/window/framed/colony/reinforced/hull,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/deltastation/ai_monitored/turret_protected/ai_upload)
 "jWh" = (
@@ -48719,7 +48719,7 @@
 /area/deltastation/command/heads_quarters/hos)
 "kgm" = (
 /obj/machinery/newscaster,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall,
 /area/deltastation/service/kitchen/abandoned)
 "kgn" = (
@@ -49868,7 +49868,7 @@
 /obj/effect/turf_decal/loading_area{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "ktj" = (
@@ -50533,7 +50533,7 @@
 /turf/open/floor/iron,
 /area/deltastation/hallway/secondary/exit/departure_lounge)
 "kzE" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/asteroidcaves/westerncaves)
 "kzF" = (
@@ -50806,7 +50806,7 @@
 /area/deltastation/medical/virology)
 "kCh" = (
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 8
@@ -54818,7 +54818,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/iron/dark,
 /area/deltastation/service/library)
 "luB" = (
@@ -55159,7 +55159,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "lyu" = (
@@ -56345,7 +56345,7 @@
 /obj/effect/turf_decal/delivery,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/asteroidcaves/derelictwest)
 "lJY" = (
@@ -56448,7 +56448,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/deltastation/security/checkpoint/customs/aft)
 "lLb" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall,
 /area/deltastation/asteroidcaves/derelictwest)
 "lLd" = (
@@ -57296,7 +57296,7 @@
 "lTN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/asteroidcaves/derelictwest)
 "lTO" = (
@@ -58164,7 +58164,7 @@
 /turf/open/floor/plating,
 /area/deltastation/command/heads_quarters/cmo)
 "mdN" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/asteroidcaves/northeastcaves)
 "mdS" = (
@@ -60478,7 +60478,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "mCW" = (
@@ -61944,7 +61944,7 @@
 /obj/effect/turf_decal/loading_area{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "mSS" = (
@@ -65043,7 +65043,7 @@
 /area/deltastation/security/warden)
 "nCC" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/turf_decal/sandedge/corner{
 	dir = 1
 	},
@@ -65106,7 +65106,7 @@
 "nCT" = (
 /obj/structure/cable,
 /obj/effect/landmark/start/job/xenomorph,
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/manifold4w/scrubbers,
 /turf/open/floor/iron/grimy,
@@ -68161,7 +68161,7 @@
 /turf/open/floor/plating,
 /area/deltastation/engineering/atmos/storage/gas)
 "ole" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating,
 /area/deltastation/maintenance/port)
 "oll" = (
@@ -68285,7 +68285,7 @@
 /turf/open/floor/iron,
 /area/deltastation/engineering/main)
 "onS" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall,
 /area/deltastation/maintenance/fore)
 "ood" = (
@@ -69174,7 +69174,7 @@
 /area/deltastation/science/xenobiology)
 "oxy" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/cargo/storage)
 "oxD" = (
@@ -69356,7 +69356,7 @@
 /area/deltastation/engineering/storage_shared)
 "ozk" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/asteroidcaves/derelictwest)
 "ozs" = (
@@ -69737,7 +69737,7 @@
 "oBO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/xeno_resin_door,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/asteroidcaves/derelictwest)
 "oCf" = (
@@ -70828,7 +70828,7 @@
 /area/deltastation/engineering/supermatter)
 "oMX" = (
 /obj/effect/turf_decal/warning_stripes/box,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "oNi" = (
@@ -71683,7 +71683,7 @@
 /turf/open/floor/iron,
 /area/deltastation/maintenance/port/aft)
 "oYj" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/asteroidcaves/easterntunnel)
 "oYm" = (
@@ -73103,7 +73103,7 @@
 /area/deltastation/hallway/primary/central/fore)
 "pnA" = (
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/iron,
 /area/deltastation/cargo/lobby)
 "pnB" = (
@@ -73418,7 +73418,7 @@
 /turf/open/floor/iron,
 /area/deltastation/maintenance/department/crew_quarters/bar)
 "pqh" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/unmeltable,
 /area/deltastation/asteroidcaves/derelictnortheast)
 "pqk" = (
@@ -74165,7 +74165,7 @@
 	dir = 1;
 	id = "cargounload"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/deltastation/cargo/storage)
 "pwN" = (
@@ -78102,7 +78102,7 @@
 /area/deltastation/cargo/miningoffice)
 "qkF" = (
 /obj/effect/spawner/random/misc/structure/broken_ship_window,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/turf_decal/sandedge{
 	dir = 8
 	},
@@ -78284,7 +78284,7 @@
 /obj/effect/landmark/xeno_resin_door{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/deltastation/asteroidcaves/derelictnortheast)
 "qmT" = (
@@ -79389,7 +79389,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/window/framed/colony/reinforced/hull,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/deltastation/ai_monitored/turret_protected/ai_upload)
 "qxM" = (
@@ -79703,7 +79703,7 @@
 /obj/effect/landmark/xeno_resin_door{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/asteroidcaves/derelictwest)
 "qAW" = (
@@ -80071,7 +80071,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/iron,
 /area/ai_monitored/storage/eva)
 "qEF" = (
@@ -81108,7 +81108,7 @@
 /turf/open/floor/iron,
 /area/deltastation/maintenance/port/fore)
 "qPk" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall,
 /area/deltastation/cargo/storage)
 "qPt" = (
@@ -82117,7 +82117,7 @@
 "rbj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/warning_stripes/box/empty,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
@@ -83652,7 +83652,7 @@
 /area/deltastation/science/research)
 "rqS" = (
 /obj/effect/spawner/random/machinery/status_display,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/unmeltable,
 /area/deltastation/ai_monitored/turret_protected/ai_upload)
 "rri" = (
@@ -84909,7 +84909,7 @@
 /turf/open/floor/plating,
 /area/deltastation/maintenance/port/aft)
 "rFt" = (
-/obj/machinery/miner/damaged,
+/obj/effect/landmark/miner_phoron,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/asteroidcaves/northcaves)
 "rFA" = (
@@ -87272,7 +87272,7 @@
 /obj/effect/landmark/xeno_resin_door{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/asteroidcaves/derelictwest)
 "sfr" = (
@@ -91354,7 +91354,7 @@
 /turf/open/floor/iron,
 /area/deltastation/engineering/storage/tech)
 "sVG" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/unmeltable,
 /area/deltastation/ai_monitored/turret_protected/ai_upload)
 "sVL" = (
@@ -93463,7 +93463,7 @@
 /area/deltastation/science/auxlab/firing_range)
 "trt" = (
 /obj/structure/window/framed/colony/reinforced,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/turf_decal/sandedge{
 	dir = 8
 	},
@@ -95047,7 +95047,7 @@
 /area/deltastation/science/ordnance/storage)
 "tIm" = (
 /obj/machinery/teleport/hub,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/deltastation/asteroidcaves/derelictnortheast)
 "tIn" = (
@@ -95495,7 +95495,7 @@
 /obj/effect/turf_decal/tile/transparent/brown/half/contrasted{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "tNb" = (
@@ -95813,7 +95813,7 @@
 /obj/effect/turf_decal/loading_area{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "tPB" = (
@@ -97965,7 +97965,7 @@
 /turf/open/floor/iron,
 /area/deltastation/maintenance/disposal/incinerator)
 "uma" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/unmeltable,
 /area/deltastation/ai_monitored/turret_protected/aisat_interior)
 "umm" = (
@@ -99484,7 +99484,7 @@
 /turf/open/floor/grass,
 /area/deltastation/hallway/primary/fore)
 "uBW" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/cargo/storage)
 "uBX" = (
@@ -100306,7 +100306,7 @@
 /turf/open/floor/iron/dark,
 /area/deltastation/commons/fitness/recreation)
 "uKJ" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_door{
 	dir = 1
 	},
@@ -102076,7 +102076,7 @@
 /obj/effect/turf_decal/tile/transparent/brown/half/contrasted{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "vcY" = (
@@ -105235,7 +105235,7 @@
 /obj/effect/turf_decal/tile/transparent/brown{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "vJp" = (
@@ -105798,7 +105798,7 @@
 /area/deltastation/medical/virology)
 "vPz" = (
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "vPE" = (
@@ -110756,8 +110756,8 @@
 /turf/open/floor/iron,
 /area/deltastation/engineering/supermatter/room)
 "wNb" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall,
 /area/deltastation/maintenance/fore)
 "wNe" = (
@@ -111625,7 +111625,7 @@
 /turf/open/floor/iron,
 /area/deltastation/medical/surgery/theatre)
 "wXn" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall,
 /area/deltastation/service/kitchen/abandoned)
 "wXs" = (
@@ -112004,7 +112004,7 @@
 /obj/effect/turf_decal/tile/transparent/brown{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "xcN" = (
@@ -112352,7 +112352,7 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "xge" = (
@@ -112720,7 +112720,7 @@
 "xjQ" = (
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/iron,
 /area/deltastation/cargo/storage)
 "xjT" = (
@@ -113110,7 +113110,7 @@
 /area/deltastation/maintenance/port/fore)
 "xow" = (
 /obj/effect/spawner/random/misc/structure/broken_reinforced_window,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/turf_decal/sandedge{
 	dir = 8
 	},
@@ -116853,7 +116853,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/deltastation/medical/chemistry)
 "yaa" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/structure/noticeboard,
 /turf/closed/wall,
 /area/deltastation/asteroidcaves/derelictwest)
@@ -117134,7 +117134,7 @@
 /obj/effect/landmark/xeno_resin_door{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/deltastation/construction/mining/aux_base)
 "yct" = (
@@ -117687,7 +117687,7 @@
 /area/deltastation/service/barber)
 "yip" = (
 /obj/effect/spawner/random/machinery/status_display,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
 /area/deltastation/ai_monitored/turret_protected/ai_upload)
 "yiv" = (

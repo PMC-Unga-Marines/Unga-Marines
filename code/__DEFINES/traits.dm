@@ -129,6 +129,8 @@
 #define CURRENTLY_TYPING_TRAIT "currently_typing"
 /// Makes you way too tall. Like just too much, dude, it's kind of creepy. Humanoid only.
 #define TRAIT_TOO_TALL "too_tall"
+#define TRAIT_MOVE_VENTCRAWLING "move_ventcrawling"
+#define VENTCRAWLING_TRAIT "ventcrawling_trait"
 
 #define ABSTRACT_ITEM_TRAIT "abstract_item"
 /// A trait given by any status effect
@@ -188,6 +190,9 @@
 #define TRAIT_MEDIUM_PAIN_RESIST "medium_pain_resist"
 ///is currently riding an armored vehicle
 #define TRAIT_TANK_DESANT "tank_desant"
+/// Mob has fov applied to it
+#define TRAIT_FOV_APPLIED "fov_applied"
+
 ///Traits for managing AM pass_flags
 #define TRAIT_PASS_LOW_STRUCTURE "pass_low_structure"
 #define TRAIT_PASS_GLASS "pass_glass"

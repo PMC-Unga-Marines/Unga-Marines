@@ -11,6 +11,8 @@
 	var/neighbor_type = NEIGHBORS_CARDINAL
 
 /datum/automata_cell/New(turf/our_turf)
+	. = ..()
+
 	if(!istype(our_turf))
 		qdel(src)
 		return
@@ -34,15 +36,15 @@
 	SScellauto.cellauto_cells -= src
 	death()
 
-// Called when the cell is created
+/// Called when the cell is created
 /datum/automata_cell/proc/birth()
 	return
 
-// Called when the cell is deleted/when it dies
+/// Called when the cell is deleted/when it dies
 /datum/automata_cell/proc/death()
 	return
 
-// Transfer this automata cell to another turf
+/// Transfer this automata cell to another turf
 /datum/automata_cell/proc/transfer_turf(turf/new_turf)
 	if(QDELETED(new_turf))
 		return
@@ -54,43 +56,36 @@
 	in_turf = new_turf
 	LAZYADD(in_turf.autocells, src)
 
-// Use this proc to merge this cell with another one if the other cell enters the same turf
-// Return TRUE if this cell should survive the merge (the other one will die/be qdeleted)
-// Return FALSE if this cell should die and be replaced by the other cell
+/// Use this proc to merge this cell with another one if the other cell enters the same turf
+/// Return TRUE if this cell should survive the merge (the other one will die/be qdeleted)
+/// Return FALSE if this cell should die and be replaced by the other cell
 /datum/automata_cell/proc/merge(datum/automata_cell/other_cell)
 	return TRUE
 
-// Returns a list of neighboring cells
-// This is called by and results are passed to update_state by the cellauto subsystem
+/// Returns a list of neighboring cells
+/// This is called by and results are passed to update_state by the cellauto subsystem
 /datum/automata_cell/proc/get_neighbors()
 	if(QDELETED(in_turf))
 		return
 
-	var/list/neighbors = list()
-	// Get cardinal neighbors
-	if(neighbor_type & NEIGHBORS_CARDINAL)
-		for(var/dir in GLOB.cardinals)
-			var/turf/our_turf = get_step(in_turf, dir)
-			if(QDELETED(our_turf))
-				continue
-			// Only add neighboring cells of the same type
-			for(var/datum/automata_cell/our_cell in our_turf.autocells)
-				if(istype(our_cell, type))
-					neighbors += our_cell
-	// Get ordinal/diagonal neighbors
+	var/list/direction_list = GLOB.cardinals
 	if(neighbor_type & NEIGHBORS_ORDINAL)
-		for(var/dir in GLOB.diagonals)
-			var/turf/our_turf = get_step(in_turf, dir)
-			if(QDELETED(our_turf))
+		direction_list = GLOB.diagonals
+
+	var/list/neighbors = list()
+	for(var/dir in direction_list)
+		var/turf/our_turf = get_step(in_turf, dir)
+		if(QDELETED(our_turf))
+			continue
+		for(var/datum/automata_cell/our_cell as anything in our_turf.autocells)
+			if(!istype(our_cell, type))
 				continue
-			for(var/datum/automata_cell/our_cell in our_turf.autocells)
-				if(istype(our_cell, type))
-					neighbors += our_cell
+			neighbors += our_cell
 	return neighbors
 
-// Create a new cell in the given direction
-// Obviously override this if you want custom propagation,
-// but I figured this is pretty useful as a basic propagation function
+/// Create a new cell in the given direction
+/// Obviously override this if you want custom propagation,
+/// but I figured this is pretty useful as a basic propagation function
 /datum/automata_cell/proc/propagate(dir)
 	if(!dir)
 		return
@@ -103,7 +98,7 @@
 	var/datum/automata_cell/our_cell = new type(our_turf)
 	return our_cell
 
-// Update the state of this cell
+/// Update the state of this cell
 /datum/automata_cell/proc/update_state(list/turf/neighbors)
 	// just fucking DIE
 	qdel(src)

@@ -1,0 +1,4 @@
+author: "Helg2"
+delete-after: True
+changes:
+  - balance: "На краше теперь, при гибели всех ксеноморфов, выдаёт 2 лярвы, вместо 1."

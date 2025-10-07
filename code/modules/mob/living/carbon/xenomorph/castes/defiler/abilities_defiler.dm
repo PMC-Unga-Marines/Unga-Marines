@@ -297,7 +297,7 @@
 		A.balloon_alert(xeno_owner, "Egg already injected")
 		return fail_activate()
 
-	if(!istype(A, /obj/alien/egg/hugger))
+	if(!istype(A, /obj/alien/egg/facehugger))
 		return fail_activate()
 
 	var/obj/alien/egg/alien_egg = A

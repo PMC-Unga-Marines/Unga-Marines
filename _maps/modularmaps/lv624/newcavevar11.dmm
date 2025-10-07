@@ -20,7 +20,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
 "ae" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
 "af" = (
@@ -69,7 +69,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/vault{
 	dir = 8
 	},
@@ -103,7 +103,7 @@
 	},
 /area/lv624/ground/caves/central1)
 "ay" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
@@ -133,7 +133,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
 "aH" = (
-/obj/machinery/miner/damaged/platinum,
+/obj/effect/landmark/miner_platinum,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
 "aI" = (
@@ -148,14 +148,14 @@
 /turf/open/floor,
 /area/lv624/ground/caves/central1)
 "aL" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
 /area/lv624/ground/caves/rock)
 "aM" = (
 /turf/closed/mineral/smooth/indestructible,
 /area/lv624/ground/caves/rock)
 "aO" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
@@ -184,7 +184,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
 "aU" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/rock)
 "aV" = (
@@ -197,7 +197,7 @@
 "aX" = (
 /obj/structure/rack,
 /obj/item/tool/shovel,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/vault{
 	dir = 8
 	},
@@ -211,12 +211,12 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central2)
 "bq" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/rock)
 "dl" = (
-/obj/effect/landmark/lv624/fog_blocker,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/rock)
 "dJ" = (
@@ -238,7 +238,7 @@
 /area/lv624/ground/caves/central2)
 "Pf" = (
 /obj/structure/rack,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/tile/vault{
 	dir = 8
 	},

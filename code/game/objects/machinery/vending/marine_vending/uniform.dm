@@ -95,6 +95,7 @@
 			/obj/item/storage/pouch/tools/full = -1,
 			/obj/item/storage/pouch/field_pouch = -1,
 			/obj/item/storage/pouch/general/large = -1,
+			/obj/item/storage/pouch/machete/full = -1,
 			/obj/item/cell/lasgun/volkite/powerpack/marine = -1,
 			/obj/item/storage/pouch/general/medium = -1,
 		),

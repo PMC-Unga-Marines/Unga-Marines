@@ -44,7 +44,7 @@
 	if(use_obj_appeareance)
 		var/obj/item/I = target
 		// -0.5 so its below maptext and above the selected frames
-		var/item_image = mutable_appearance(I.icon, I.icon_state, ACTION_LAYER_IMAGE_ONTOP, FLOAT_PLANE)
+		var/item_image = mutable_appearance(I.icon, I.icon_state, ACTION_LAYER_IMAGE_ONTOP)
 		visual_references[VREF_MUTABLE_LINKED_OBJ] = item_image
 		button.add_overlay(item_image)
 	else
@@ -127,3 +127,14 @@
 /datum/action/item_action/aim_mode/action_activate()
 	var/obj/item/weapon/gun/I = target
 	I.toggle_auto_aim_mode(owner)
+
+/datum/action/item_action/overhead_grenade_launcher
+	name = "Overhead Grenade Launcher"
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_KB_OVERHEAD_GRENADE_LAUNCHER,
+	)
+
+/datum/action/item_action/overhead_grenade_launcher/action_activate()
+	. = ..()
+	var/obj/item/weapon/gun/grenade_launcher/I = target
+	I.toggle_overhead_launcher(owner)

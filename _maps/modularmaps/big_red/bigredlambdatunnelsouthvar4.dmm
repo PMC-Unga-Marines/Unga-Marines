@@ -12,7 +12,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/east/garbledradio)
 "k" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/east/garbledradio)
 "m" = (
@@ -39,7 +39,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/east/garbledradio)
 "H" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/east/garbledradio)
@@ -47,7 +47,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/east/garbledradio)
 "V" = (
-/obj/effect/landmark/lv624/fog_blocker,
+/obj/effect/landmark/fog_blocker,
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 

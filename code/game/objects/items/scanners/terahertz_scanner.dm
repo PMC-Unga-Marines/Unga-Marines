@@ -21,28 +21,29 @@
 	if(on)
 		START_PROCESSING(SSobj, src)
 
-
 /obj/item/t_scanner/process()
 	if(!on)
 		STOP_PROCESSING(SSobj, src)
 		return null
 
-	for(var/turf/T in range(1, src.loc) )
-
+	for(var/turf/T AS in RANGE_TURFS(1, loc))
 		if(!T.intact_tile)
 			continue
 
 		for(var/obj/O in T.contents)
-
 			if(!HAS_TRAIT(O, TRAIT_T_RAY_VISIBLE))
 				continue
 
-			if(O.invisibility == INVISIBILITY_MAXIMUM)
-				O.invisibility = 0
-				O.alpha = 128
-				spawn(10)
-					if(O && !O.gc_destroyed)
-						var/turf/U = O.loc
-						if(U.intact_tile)
-							O.invisibility = INVISIBILITY_MAXIMUM
-							O.alpha = 255
+			if(O.invisibility != INVISIBILITY_MAXIMUM)
+				continue
+			O.invisibility = 0
+			O.alpha = 128
+			addtimer(CALLBACK(src, PROC_REF(set_alpha_back), O), 1 SECONDS)
+
+/obj/item/t_scanner/proc/set_alpha_back(obj/O)
+	if(!O || O.gc_destroyed)
+		return
+	var/turf/U = O.loc
+	if(U.intact_tile)
+		O.invisibility = INVISIBILITY_MAXIMUM
+		O.alpha = 255
