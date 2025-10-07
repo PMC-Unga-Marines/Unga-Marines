@@ -17,6 +17,15 @@
 	bound_height = 64
 	density = TRUE
 
+/obj/structure/bluemoon_sign
+	name = "Blue Moon Sign"
+	desc = "A large sign that reads 'Blue Moon, Solaris Ridge -', the rest of it is scraped away. This sign seems to have heating plates to prevent it from freezing, neat!"
+	icon = 'icons/obj/landing_signs.dmi'
+	icon_state = "blue_sign"
+	bound_width = 64
+	bound_height = 64
+	density = TRUE
+
 /obj/structure/kutjevo_sign
 	name = "Kutjevo Sign"
 	desc = "A large sign that reads 'Kutjevo pop-', the rest of it is obscured by claw marks."
@@ -29,7 +38,7 @@
 /obj/structure/kutjevo_sign/Initialize(mapload)
 	. = ..()
 	icon_state = "kut_ingame"
-	overlays += image(icon, src, "kut_sign_top", layer = ABOVE_ALL_MOB_LAYER, pixel_x = 32)
+	overlays += image(icon, src, "kut_sign_top", layer = ABOVE_ALL_MOB_LAYER, pixel_y = 32)
 
 /obj/structure/prison_sign
 	name = "UA Prison Docking Sign"

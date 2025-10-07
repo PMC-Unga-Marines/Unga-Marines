@@ -11,8 +11,6 @@
 
 /obj/structure/lattice/Initialize(mapload)
 	. = ..()
-	if(!isspaceturf(loc))
-		qdel(src)
 	for(var/obj/structure/lattice/LAT in src.loc)
 		if(LAT != src)
 			qdel(LAT)
@@ -58,6 +56,17 @@
 			continue
 		dir_sum += direction
 	icon_state = "lattice[dir_sum]"
+
+/obj/structure/lattice/autosmooth
+	icon = 'icons/obj/smooth_objects/lattice.dmi'
+	icon_state = "lattice-0"
+	layer = ABOVE_ALL_MOB_LAYER
+	plane = GAME_PLANE
+	base_icon_state = "lattice"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_LATTICE_ABOVE)
+	canSmoothWith = list(SMOOTH_GROUP_LATTICE_ABOVE)
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/structure/catwalk
 	desc = "You can walk on this, even if you're not a cat."
