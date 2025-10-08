@@ -99,6 +99,7 @@
 /datum/game_mode/infestation/distro_crush/proc/crash_shuttle(obj/docking_port/stationary/target)
 	shuttle_landed = TRUE
 	shuttle.crashing = FALSE
+	SSsilo.can_fire = TRUE
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CANTERBURRY_LANDING)
 
 /datum/game_mode/infestation/distro_crush/scale_roles(initial_players_assigned)
