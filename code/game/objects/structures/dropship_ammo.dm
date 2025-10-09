@@ -555,15 +555,12 @@
 	flame_radius(fire_range, impact)
 
 /obj/structure/ship_ammo/cas/minirocket/incendiary/phosphorus
-	name = "MGA-110B incendiary phosphorus"
+	name = "MGA-110BP incendiary phosphorus"
 	desc = "A pack of incendiary phosphorus mini-rockets. Moving this will require some sort of lifter."
-	icon_state = "minirocket_inc"
+	icon_state = "minirocket_inc_phos"
 	ammo_count = 3
 	max_ammo_count = 3
 	point_cost = 350 // Потенциально возможно увеличение до 400, т.к. их тут три.
-	travelling_time = 3 SECONDS
-	fire_range = 4 //Fire range should be the same as the explosion range. Explosion should leave fire, not vice versa
-	prediction_type = CAS_AMMO_INCENDIARY
 	cas_effect = /obj/effect/overlay/blinking_laser/fatty // Enemies must know that something serious is coming at them
 	var/datum/effect_system/smoke_spread/phosphorus/smoke
 
