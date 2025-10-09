@@ -555,7 +555,7 @@
 	flame_radius(fire_range, impact)
 
 /obj/structure/ship_ammo/cas/minirocket/incendiary/phosphorus
-	name = "MGA-110BP incendiary phosphorus"
+	name = "MGA-110B phosphorus"
 	desc = "A pack of incendiary phosphorus mini-rockets. Moving this will require some sort of lifter."
 	icon_state = "minirocket_inc_phos"
 	ammo_count = 3
