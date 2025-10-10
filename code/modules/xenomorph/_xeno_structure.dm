@@ -120,47 +120,6 @@
 	playsound(src, SFX_ALIEN_RESIN_BREAK, 25)
 	return TRUE
 
-/obj/structure/xeno/silo/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
-	. = ..()
-	if((xeno_structure_flags & XENO_STRUCT_WARNING_RADIUS))
-		set_proximity_warning()
-
-///Sets the proxy signals for our loc, removing the old ones if any
-/obj/structure/xeno/proc/set_proximity_warning()
-	for(var/old_turf in prox_warning_turfs)
-		UnregisterSignal(old_turf, COMSIG_ATOM_ENTERED)
-	prox_warning_turfs.Cut()
-
-	for(var/new_turf in RANGE_TURFS(XENO_STRUCTURE_DETECTION_RANGE, src))
-		RegisterSignal(new_turf, COMSIG_ATOM_ENTERED, PROC_REF(proxy_alert))
-		prox_warning_turfs += new_turf
-
-///Alerts the Hive when hostiles get too close to this structure
-/obj/structure/xeno/proc/proxy_alert(datum/source, atom/movable/hostile)
-	SIGNAL_HANDLER
-
-	if(!COOLDOWN_CHECK(src, proxy_alert_cooldown))
-		return
-
-	if(!iscarbon(hostile) && !isvehicle(hostile))
-		return
-
-	if(iscarbon(hostile))
-		var/mob/living/carbon/carbon_triggerer = hostile
-		if(carbon_triggerer.stat == DEAD)
-			return
-		if(isxeno(hostile))
-			var/mob/living/carbon/xenomorph/xeno_triggerer = hostile
-			if(xeno_triggerer.hive == GLOB.hive_datums[hivenumber]) //Trigger proxy alert only for hostile xenos
-				return
-
-	threat_warning = TRUE
-	GLOB.hive_datums[hivenumber].xeno_message("Our [name] has detected a nearby hostile [hostile] at [get_area(hostile)] (X: [hostile.x], Y: [hostile.y]).", "xenoannounce", 5, FALSE, hostile, 'sound/voice/alien/help1.ogg', FALSE, null, /atom/movable/screen/arrow/leader_tracker_arrow)
-	COOLDOWN_START(src, proxy_alert_cooldown, XENO_STRUCTURE_DETECTION_COOLDOWN)
-	addtimer(CALLBACK(src, PROC_REF(clear_warning)), XENO_STRUCTURE_DETECTION_COOLDOWN)
-	update_minimap_icon()
-	update_appearance(UPDATE_ICON)
-
 ///Notifies the hive when we take damage
 /obj/structure/xeno/proc/damage_alert()
 	if(!COOLDOWN_CHECK(src, damage_alert_cooldown))
