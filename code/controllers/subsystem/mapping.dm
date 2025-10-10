@@ -65,8 +65,6 @@ SUBSYSTEM_DEF(mapping)
 
 	/// True when in the process of adding a new Z-level, global locking
 	var/adding_new_zlevel = FALSE
-	/// list of traits and their associated z leves
-	var/list/z_trait_levels = list()
 
 	///If true, non-admin players will not be able to initiate a vote to change groundmap
 	var/groundmap_voted = FALSE
