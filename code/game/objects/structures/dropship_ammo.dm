@@ -588,6 +588,23 @@
 	S.set_up(10, impact, 10)// Between grenade and mortar
 	S.start()
 
+/obj/structure/ship_ammo/cas/minirocket/antigas
+	name = "MGA-106AG antigas"
+	desc = "A pack of mini-rockets loaded with gas-draining gas. Moving this will require some sort of lifter."
+	icon_state = "minirocket_tfoot"
+	point_cost = 150
+	travelling_time = 6 SECONDS
+	explosion_power = 30
+	explosion_falloff = 15
+	cas_effect = /obj/effect/overlay/blinking_laser/tfoot
+
+/obj/structure/ship_ammo/cas/minirocket/black_gas/detonate_on(turf/impact, attackdir = NORTH)
+	impact.ceiling_debris_check(2)
+	cell_explosion(impact, explosion_power, explosion_falloff, adminlog = FALSE)//no messaging admin, that'd spam them.
+	var/datum/effect_system/smoke_spread/plasmaloss/S = new
+	S.set_up(10, impact, 10)// Between grenade and mortar
+	S.start()
+
 /obj/structure/ship_ammo/cas/minirocket/illumination
 	name = "MGA-104I illuminant"
 	desc = "A pack of mini-rockets, each loaded with a payload of white-star illuminant and a parachute, while extremely ineffective at damaging the enemy, it is very effective at lighting the battlefield so marines can damage the enemy. Moving this will require some sort of lifter."
