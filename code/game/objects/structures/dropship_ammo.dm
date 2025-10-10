@@ -601,7 +601,7 @@
 /obj/structure/ship_ammo/cas/minirocket/antigas/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
 	cell_explosion(impact, explosion_power, explosion_falloff, adminlog = FALSE)//no messaging admin, that'd spam them.
-	var//datum/effect_system/smoke_spread/antigas/S = new
+	var/datum/effect_system/smoke_spread/antigas/S = new
 	S.set_up(10, impact, 10)// Between grenade and mortar
 	S.start()
 
