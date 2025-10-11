@@ -701,6 +701,9 @@
 	attachable_allowed = list(
 		/obj/item/attachable/suppressor,
 		/obj/item/attachable/reddot,
+		/obj/item/attachable/stock/ar21stock,
+		/obj/item/attachable/foldable/ar18stock,
+		/obj/item/attachable/stock/ar12stock,
 		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/compensator,
 		/obj/item/attachable/lasersight,
@@ -722,7 +725,8 @@
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
-	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 16, "rail_x" = 22, "rail_y" = 19, "under_x" = 26, "under_y" = 14, "stock_x" = 24, "stock_y" = 10)
+	starting_attachment_types = list(/obj/item/attachable/foldable/ar18stock)
+	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 16, "rail_x" = 22, "rail_y" = 19, "under_x" = 26, "under_y" = 14, "stock_x" = 0, "stock_y" = 16)
 
 	fire_delay = 0.1 SECONDS
 	damage_mult = 1

@@ -99,6 +99,7 @@
 	desc = "A magnetically attached harness kit that attaches to the rail mount of a weapon. When dropped, the weapon will sling to a TGMC armor."
 	icon_state = "magnetic"
 	slot = ATTACHMENT_SLOT_RAIL
+	size_mod = 1
 	pixel_shift_x = 13
 	///Handles the harness functionality, created when attached to a gun and removed on detach
 	var/datum/component/reequip/reequip_component

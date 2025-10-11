@@ -465,6 +465,24 @@
 /obj/item/storage/holster/m25/full/PopulateContents()
 	new /obj/item/weapon/gun/smg/m25(src)
 
+
+/obj/item/storage/holster/ar18
+	name = "\improper M276 pattern Ar18 holster rig"
+	desc = "The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is designed for the Ar18, and features a larger frame to support the gun. Due to its unorthodox design, it isn't a very common sight, and is only specially issued."
+	icon_state = "ar18_holster"
+	equip_slot_flags = ITEM_SLOT_BELT
+	holsterable_allowed = list(
+		/obj/item/weapon/gun/rifle/ar18,
+	)
+
+	storage_type = /datum/storage/holster/ar18
+
+/obj/item/storage/holster/ar18/full/PopulateContents()
+	new /obj/item/weapon/gun/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+	new /obj/item/ammo_magazine/rifle/ar18(src)
+
+
 /obj/item/storage/holster/mp19
 	name = "\improper M276 pattern MP-19 holster rig"
 	desc = "The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is designed for the MP-19 SMG, and features a larger frame to support the gun. Due to its unorthodox design, it isn't a very common sight, and is only specially issued."

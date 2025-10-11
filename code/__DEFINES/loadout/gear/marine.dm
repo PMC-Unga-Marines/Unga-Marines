@@ -5,6 +5,7 @@ GLOBAL_LIST_INIT(marine_gear_listed_products, list(
 	/obj/item/implanter/skill/engineer = list(CAT_MARINE, "Engineering skills implanter", 20, "cyan2"),
 	/obj/item/implanter/skill/construct = list(CAT_MARINE, "Construction skills implanter", 20, "cyan2"),
 	/obj/item/storage/backpack/marine/radiopack = list(CAT_MARINE, "Radio Pack", 15, "orange"),
+	/obj/item/storage/holster/ar18 = list(CAT_MARINE, "Ar18 hoster", 10, "orange"),
 	/obj/item/stack/sandbags_empty/half = list(CAT_MARINE, "Sandbags x25", 5, "orange"),
 	/obj/item/fulton_extraction_pack = list(CAT_MARINE, "Fulton Extraction Pack", 15, "orange"),
 	/obj/item/explosive/grenade = list(CAT_MARINE, "M40 HEDP grenade", 2, "orange3"),

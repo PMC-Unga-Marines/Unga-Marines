@@ -101,6 +101,22 @@
 	accuracy_unwielded_mod = -0.1
 	scatter_unwielded_mod = 4
 
+/obj/item/attachable/foldable/ar18stock
+	name = "\improper Light stock"
+	desc = "A universal stock for the AR-18."
+	icon_state = "t18stock"
+	icon = 'icons/obj/items/attachments/attachments_64.dmi'
+	attach_features_flags = ATTACH_ACTIVATION
+	attach_features_flags = ATTACH_REMOVABLE
+	accuracy_mod = -0.45
+	scatter_mod = -3
+	size_mod = 1
+	recoil_mod = -2
+	aim_speed_mod = 0.10
+	movement_acc_penalty_mod = 1
+	pixel_shift_x = 32
+	pixel_shift_y = 13
+
 /obj/item/attachable/foldable/som_carbine
 	name = "\improper V-34 carbine stock"
 	desc = "A side folding stock built into the V-34 carbine. The gun is designed to be fired with the stock deployed, but can be done without, with some difficulty."

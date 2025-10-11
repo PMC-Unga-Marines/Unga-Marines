@@ -72,10 +72,11 @@
 			/obj/item/storage/holster/blade/machete/full = -1,
 			/obj/item/storage/holster/blade/harvester/full = -1,
 			/obj/item/weapon/twohanded/glaive/harvester = -1,
-			/obj/item/storage/belt/utility/full =-1,
+			/obj/item/storage/belt/utility/full = -1,
 			/obj/item/storage/belt/medical_small = -1,
 			/obj/item/storage/holster/belt/revolver/t500 = -1,
 			/obj/item/storage/belt/mortar_belt = 4,
+			/obj/item/storage/holster/ar18 = 5,
 		),
 		"Pouches" = list(
 			/obj/item/storage/pouch/pistol = -1,

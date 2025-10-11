@@ -164,6 +164,17 @@
 		/obj/item/ammo_magazine/smg/mp19,
 	))
 
+/datum/storage/holster/ar18
+	storage_slots = 3
+	max_storage_space = 9
+
+/datum/storage/holster/ar18/New(atom/parent)
+	. = ..()
+	set_holdable(can_hold_list = list(
+		/obj/item/weapon/gun/rifle/ar18,
+		/obj/item/ammo_magazine/rifle/ar18,
+	))
+
 /datum/storage/holster/flarepouch
 	storage_slots = 28
 	max_storage_space = 28

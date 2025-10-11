@@ -3,9 +3,9 @@
 	hud_state = "rifle"
 	hud_state_empty = "rifle_empty"
 	accurate_range = 12
-	damage = 25
+	damage = 27
 	penetration = 5
-	additional_xeno_penetration = 10
+	additional_xeno_penetration = 25
 	matter_cost = 4
 
 /datum/ammo/bullet/rifle/ap
@@ -39,8 +39,8 @@
 /datum/ammo/bullet/rifle/heavy
 	name = "heavy rifle bullet"
 	hud_state = "rifle_heavy"
-	damage = 30
-	penetration = 10
+	damage = 37
+	penetration = 15
 	additional_xeno_penetration = 15
 	matter_cost = 5
 
