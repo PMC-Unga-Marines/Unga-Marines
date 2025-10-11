@@ -725,6 +725,7 @@
 #include "code\datums\skins\queen.dm"
 #include "code\datums\skins\ravager.dm"
 #include "code\datums\skins\runner.dm"
+#include "code\datums\skins\scorpion.dm"
 #include "code\datums\skins\shrike.dm"
 #include "code\datums\skins\warlock.dm"
 #include "code\datums\skins\warrior.dm"
