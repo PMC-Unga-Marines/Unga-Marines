@@ -562,7 +562,7 @@
 	travelling_time = 4 SECONDS
 	fire_range = 4
 	prediction_type = CAS_AMMO_INCENDIARY
-	cas_effect = /obj/effect/overlay/blinking_laser/fatty // Enemies must know that something serious is coming at them
+	cas_effect = /obj/effect/overlay/blinking_laser/phosphorus // Enemies must know that something serious is coming at them
 	var/datum/effect_system/smoke_spread/phosphorus/smoke
 
 /obj/structure/ship_ammo/cas/minirocket/phosphorus/detonate_on(turf/impact, attackdir = NORTH)
