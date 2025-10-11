@@ -127,9 +127,6 @@
 	newfriend.turf_blacklist = turf_blacklist?.Copy()
 	return newfriend
 
-//text trimming (both directions) helper macro
-#define TRIM_TEXT(text) (trim_reduced(text))
-
 /**
  * Helper and recommened way to load a map file
  * - dmm_file: The path to the map file
@@ -322,7 +319,7 @@
 		} \
 	}
 
-// Do not call except via load() above.
+/// Do not call except via load() above.
 /datum/parsed_map/proc/_load_impl(x_offset, y_offset, z_offset, crop_map, no_changeturf, x_lower, x_upper, y_lower, y_upper, z_lower, z_upper, place_on_top, new_z)
 	PRIVATE_PROC(TRUE)
 	// Tell ss atoms that we're doing maploading
@@ -344,13 +341,18 @@
 	SSatoms.map_loader_stop(REF(src))
 	loading = FALSE
 
+	if(new_z)
+		for(var/z_index in bounds[MAP_MINZ] to bounds[MAP_MAXZ])
+			SSmapping.build_area_turfs(z_index)
+
 	if(!no_changeturf)
 		var/list/turfs = block(
-			locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]),
-			locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ]))
+			bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ],
+			bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ]
+		)
 		for(var/turf/T as anything in turfs)
 			//we do this after we load everything in. if we don't, we'll have weird atmos bugs regarding atmos adjacent turfs
-			T.AfterChange()
+			T.AfterChange(CHANGETURF_IGNORE_AIR)
 
 	if(expanded_x || expanded_y)
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, expanded_x, expanded_y)
@@ -388,7 +390,11 @@
 	var/highest_y = relative_y + y_relative_to_absolute
 
 	if(!crop_map && highest_y > world.maxy)
-		world.increase_max_y(highest_y)
+		if(new_z)
+			// Need to avoid improperly loaded area/turf_contents
+			world.increase_max_y(highest_y, map_load_z_cutoff = z_offset - 1)
+		else
+			world.increase_max_y(highest_y)
 		expanded_y = TRUE
 
 	// Skip Y coords that are above the smallest of the three params
@@ -420,7 +426,11 @@
 		var/delta = max(final_x - x_delta_with, 0)
 		final_x -= delta
 	if(final_x > world.maxx && !crop_map)
-		world.increase_max_x(final_x)
+		if(new_z)
+			// Need to avoid improperly loaded area/turf_contents
+			world.increase_max_x(final_x, map_load_z_cutoff = z_offset - 1)
+		else
+			world.increase_max_x(final_x)
 		expanded_x = TRUE
 
 	var/lowest_x = max(x_lower, 1 - x_relative_to_absolute)
@@ -551,7 +561,11 @@
 		var/ycrd = relative_y + y_relative_to_absolute
 		var/zcrd = gset.zcrd + grid_z_offset
 		if(!crop_map && ycrd > world.maxy)
-			world.increase_max_y(ycrd)
+			if(new_z)
+				// Need to avoid improperly loaded area/turf_contents
+				world.increase_max_y(ycrd, map_load_z_cutoff = z_offset - 1)
+			else
+				world.increase_max_y(ycrd)
 			expanded_y = TRUE
 		var/zexpansion = zcrd > world.maxz
 		var/no_afterchange = no_changeturf
@@ -563,8 +577,8 @@
 					world.incrementMaxZ()
 			if(!no_changeturf)
 				WARNING("Z-level expansion occurred without no_changeturf set, this may cause problems when /turf/AfterChange is called")
+			no_afterchange = TRUE
 
-		no_afterchange = TRUE
 		// Ok so like. something important
 		// We talk in "relative" coords here, so the coordinate system of the map datum
 		// This is so we can do offsets, but it is NOT the same as positions in game
@@ -604,7 +618,11 @@
 			final_x -= delta
 			x_target = x_step_count * key_len
 		if(final_x > world.maxx && !crop_map)
-			world.increase_max_x(final_x)
+			if(new_z)
+				// Need to avoid improperly loaded area/turf_contents
+				world.increase_max_x(final_x, map_load_z_cutoff = z_offset - 1)
+			else
+				world.increase_max_x(final_x)
 			expanded_x = TRUE
 
 		// We're gonna track the first and last pairs of coords we find
@@ -744,8 +762,10 @@ GLOBAL_LIST_EMPTY(map_model_default)
 							value = apply_text_macros(value)
 						current_attributes[var_edits.group[1]] = value
 						continue // Keep on keeping on brother
+
 					members_attributes += wrapped_default_list // We know this is a path, and we also know it has no vv's. so we'll just set this to the default list
 					path_to_init = line
+
 			// Alright, if we've gotten to this point, our string is a path
 			// Oh and we don't trim it, because we require no padding for these
 			// Saves like 1.5 deciseconds
@@ -817,7 +837,7 @@ GLOBAL_LIST_EMPTY(map_model_default)
 			if(member_string[length(member_string)] == "}")
 				variables_start = findtext(member_string, "{")
 
-			var/path_text = TRIM_TEXT(copytext(member_string, 1, variables_start))
+			var/path_text = trim(copytext(member_string, 1, variables_start))
 			var/atom_def = text2path(path_text) //path definition, e.g /obj/foo/bar
 
 			if(!ispath(atom_def, /atom)) // Skip the item if the path does not exist.  Fix your crap, mappers!
@@ -853,8 +873,8 @@ GLOBAL_LIST_EMPTY(map_model_default)
 		// We can skip calling this proc every time we see XXX
 		if(!set_space \
 			&& no_changeturf \
-			&& length(members) == 2 \
-			&& length(members_attributes) == 2 \
+			&& members.len == 2 \
+			&& members_attributes.len == 2 \
 			&& length(members_attributes[1]) == 0 \
 			&& length(members_attributes[2]) == 0 \
 			&& (world.area in members) \
@@ -909,10 +929,6 @@ GLOBAL_LIST_EMPTY(map_model_default)
 			LISTASSERTLEN(area_instance.turfs_by_zlevel, crds.z, list())
 			old_area.turfs_to_uncontain_by_zlevel[crds.z] += crds
 			area_instance.turfs_by_zlevel[crds.z] += crds
-		area_instance.contents.Add(crds)
-
-		if(!new_z)
-			old_area = crds.loc
 		area_instance.contents.Add(crds)
 
 		if(GLOB.use_preloader)
@@ -1002,7 +1018,7 @@ GLOBAL_LIST_EMPTY(map_model_default)
 		// check if this is a simple variable (as in list(var1, var2)) or an associative one (as in list(var1="foo",var2=7))
 		var/equal_position = findtext(text,"=",old_position, position)
 
-		var/trim_left = TRIM_TEXT(copytext(text,old_position,(equal_position ? equal_position : position)))
+		var/trim_left = trim(copytext(text,old_position,(equal_position ? equal_position : position)))
 		var/left_constant = parse_constant(trim_left)
 		if(position)
 			old_position = position + length(text[position])
@@ -1012,7 +1028,7 @@ GLOBAL_LIST_EMPTY(map_model_default)
 		if(equal_position && !isnum(left_constant))
 			// Associative var, so do the association.
 			// Note that numbers cannot be keys - the RHS is dropped if so.
-			var/trim_right = TRIM_TEXT(copytext(text, equal_position + length(text[equal_position]), position))
+			var/trim_right = trim(copytext(text, equal_position + length(text[equal_position]), position))
 			var/right_constant = parse_constant(trim_right)
 			.[left_constant] = right_constant
 
@@ -1070,5 +1086,4 @@ GLOBAL_LIST_EMPTY(map_model_default)
 #undef MAP_DMM
 #undef MAP_TGM
 #undef MAP_UNKNOWN
-#undef TRIM_TEXT
 #undef MAPLOADING_CHECK_TICK
