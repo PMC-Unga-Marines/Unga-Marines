@@ -32,6 +32,8 @@
 	var/cas_effect = /obj/effect/overlay/blinking_laser
 	///CAS impact prediction type used for codex. Explosive, incendiary, etc
 	var/prediction_type
+	///Crosshair to use when this ammo is loaded
+	var/crosshair = 'icons/UI_Icons/cas_crosshairs/gun.dmi'
 
 /obj/structure/ship_ammo/attack_powerloader(mob/living/user, obj/item/powerloader_clamp/attached_clamp)
 	. = ..()
@@ -204,6 +206,7 @@
 	var/attack_width = 3
 	ammo_type = CAS_30MM
 	cas_effect = /obj/effect/overlay/blinking_laser/heavygun
+	crosshair = 'icons/UI_Icons/cas_crosshairs/gun.dmi'
 
 /obj/structure/ship_ammo/cas/heavygun/examine(mob/user)
 	. = ..()
@@ -256,6 +259,7 @@
 	desc = "A crate full of 30mm high-velocity bullets used on the dropship heavy guns. Moving this will require some sort of lifter."
 	travelling_time = 2 SECONDS
 	point_cost = 175
+	crosshair = 'icons/UI_Icons/cas_crosshairs/gun_hv.dmi'
 
 //railgun
 /obj/structure/ship_ammo/railgun
@@ -275,6 +279,7 @@
 	explosion_power = 200
 	explosion_falloff = 75
 	prediction_type = CAS_AMMO_EXPLOSIVE
+
 
 /obj/structure/ship_ammo/railgun/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
@@ -308,6 +313,7 @@
 	var/laze_radius = 5
 	ammo_type = CAS_LASER_BATTERY
 	cas_effect = /obj/effect/overlay/blinking_laser/laser
+	crosshair = 'icons/UI_Icons/cas_crosshairs/laser.dmi'
 
 /obj/structure/ship_ammo/cas/laser_battery/examine(mob/user)
 	. = ..()
@@ -379,6 +385,7 @@
 	explosion_power = 320
 	explosion_falloff = 80
 	cas_effect = /obj/effect/overlay/blinking_laser/widowmaker
+	crosshair = 'icons/UI_Icons/cas_crosshairs/widowmaker.dmi'
 
 /obj/structure/ship_ammo/cas/rocket/widowmaker/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(3)
@@ -397,6 +404,7 @@
 	fire_range = 8
 	prediction_type = CAS_AMMO_INCENDIARY
 	cas_effect = /obj/effect/overlay/blinking_laser/banshee
+	crosshair = 'icons/UI_Icons/cas_crosshairs/banshee.dmi'
 
 /obj/structure/ship_ammo/cas/rocket/banshee/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(3)
@@ -414,6 +422,7 @@
 	explosion_power = 550
 	explosion_falloff = 145
 	cas_effect = /obj/effect/overlay/blinking_laser/keeper
+	crosshair = 'icons/UI_Icons/cas_crosshairs/keeper.dmi'
 
 /obj/structure/ship_ammo/cas/rocket/keeper/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(3)
@@ -430,6 +439,7 @@
 	explosion_power = 450
 	explosion_falloff = 120
 	cas_effect = /obj/effect/overlay/blinking_laser/fatty
+	crosshair = 'icons/UI_Icons/cas_crosshairs/fatty.dmi'
 
 /obj/structure/ship_ammo/cas/rocket/fatty/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
@@ -464,6 +474,7 @@
 	fire_range = 8
 	prediction_type = CAS_AMMO_INCENDIARY
 	cas_effect = /obj/effect/overlay/blinking_laser/incendiary
+	crosshair = 'icons/UI_Icons/cas_crosshairs/napalm.dmi'
 
 /obj/structure/ship_ammo/cas/rocket/napalm/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(3)
@@ -526,6 +537,7 @@
 	explosion_falloff = 40
 	prediction_type = CAS_AMMO_EXPLOSIVE
 	cas_effect = /obj/effect/overlay/blinking_laser/minirocket
+	crosshair = 'icons/UI_Icons/cas_crosshairs/rocket.dmi'
 
 /obj/structure/ship_ammo/cas/minirocket/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(4)
@@ -549,6 +561,7 @@
 	fire_range = 4 //Fire range should be the same as the explosion range. Explosion should leave fire, not vice versa
 	prediction_type = CAS_AMMO_INCENDIARY
 	cas_effect = /obj/effect/overlay/blinking_laser/incendiary
+	crosshair = 'icons/UI_Icons/cas_crosshairs/rocket_incend.dmi'
 
 /obj/structure/ship_ammo/cas/minirocket/incendiary/detonate_on(turf/impact, attackdir = NORTH)
 	. = ..()
@@ -561,6 +574,7 @@
 	point_cost = 35
 	travelling_time = 2 SECONDS
 	cas_effect = /obj/effect/overlay/blinking_laser/smoke
+	crosshair = 'icons/UI_Icons/cas_crosshairs/rocket_smoke.dmi'
 	explosion_power = 30
 	explosion_falloff = 15
 
@@ -580,6 +594,7 @@
 	explosion_power = 30
 	explosion_falloff = 15
 	cas_effect = /obj/effect/overlay/blinking_laser/tfoot
+	crosshair = 'icons/UI_Icons/cas_crosshairs/rocket_smoke.dmi'
 
 /obj/structure/ship_ammo/cas/minirocket/tangle/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
@@ -595,6 +610,7 @@
 	point_cost = 25 // Not a real rocket, so its cheap
 	travelling_time = 2 SECONDS
 	cas_effect = /obj/effect/overlay/blinking_laser/flare
+	crosshair = 'icons/UI_Icons/cas_crosshairs/rocket_flare.dmi'
 	explosion_power = 0
 	explosion_falloff = 0
 	prediction_type = CAS_AMMO_HARMLESS
