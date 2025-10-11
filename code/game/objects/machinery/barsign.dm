@@ -79,157 +79,157 @@
 	name = "Maltese Falcon"
 	icon_state = "maltesefalcon"
 	desc = "The Maltese Falcon, Space Bar and Grill."
-	neon_color = "#5E8EAC"
+	neon_color = COLOR_BLUE_GRAY
 
 /datum/barsign/thebark
 	name = "The Bark"
 	icon_state = "thebark"
 	desc = "Ian's bar of choice."
-	neon_color = "#f7a604"
+	neon_color = COLOR_ORANGE
 
 /datum/barsign/harmbaton
 	name = "The Harmbaton"
 	icon_state = "theharmbaton"
 	desc = "A great dining experience for both security members and assistants."
-	neon_color = "#ff7a4d"
+	neon_color = COLOR_TAN_ORANGE
 
 /datum/barsign/thesingulo
 	name = "The Singulo"
 	icon_state = "thesingulo"
 	desc = "Where people go that'd rather not be called by their name."
-	neon_color = "#E600DB"
+	neon_color = COLOR_VIOLET
 
 /datum/barsign/thedrunkcarp
 	name = "The Drunk Carp"
 	icon_state = "thedrunkcarp"
 	desc = "Don't drink and swim."
-	neon_color = "#a82196"
+	neon_color = COLOR_DEEP_MAGENTA
 
 /datum/barsign/scotchservinwillys
 	name = "Scotch Servin Willy's"
 	icon_state = "scotchservinwillys"
 	desc = "Willy sure moved up in the world from clown to bartender."
-	neon_color = "#fee4bf"
+	neon_color = COLOR_PALE_ORANGE
 
 /datum/barsign/officerbeersky
 	name = "Officer Beersky's"
 	icon_state = "officerbeersky"
 	desc = "Man eat a dong, these drinks are great."
-	neon_color = "#16C76B"
+	neon_color = COLOR_EMERALD_GREEN
 
 /datum/barsign/thecavern
 	name = "The Cavern"
 	icon_state = "thecavern"
 	desc = "Fine drinks while listening to some fine tunes."
-	neon_color = "#0fe500"
+	neon_color = COLOR_VIBRANT_LIME
 
 /datum/barsign/theouterspess
 	name = "The Outer Spess"
 	icon_state = "theouterspess"
 	desc = "This bar isn't actually located in outer space."
-	neon_color = "#30f3cc"
+	neon_color = COLOR_CYAN
 
 /datum/barsign/slipperyshots
 	name = "Slippery Shots"
 	icon_state = "slipperyshots"
 	desc = "Slippery slope to drunkenness with our shots!"
-	neon_color = "#70DF00"
+	neon_color = COLOR_MOSSY_GREEN
 
 /datum/barsign/thegreytide
 	name = "The Grey Tide"
 	icon_state = "thegreytide"
 	desc = "Abandon your toolboxing ways and enjoy a lazy beer!"
-	neon_color = "#00F4D6"
+	neon_color = COLOR_CYAN
 
 /datum/barsign/honkednloaded
 	name = "Honked 'n' Loaded"
 	icon_state = "honkednloaded"
 	desc = "Honk."
-	neon_color = "#FF998A"
+	neon_color = COLOR_SOFT_RED
 
 /datum/barsign/thenest
 	name = "The Nest"
 	icon_state = "thenest"
 	desc = "A good place to retire for a drink after a long night of crime fighting."
-	neon_color = "#4d6796"
+	neon_color = COLOR_DUSKY_BLUE
 
 /datum/barsign/thecoderbus
 	name = "The Coderbus"
 	icon_state = "thecoderbus"
 	desc = "A very controversial bar known for its wide variety of constantly-changing drinks."
-	neon_color = "#ffffff"
+	neon_color = COLOR_WHITE
 
 /datum/barsign/theadminbus
 	name = "The Adminbus"
 	icon_state = "theadminbus"
 	desc = "An establishment visited mainly by space-judges. It isn't bombed nearly as much as court hearings."
-	neon_color = "#ffffff"
+	neon_color = COLOR_WHITE
 
 /datum/barsign/oldcockinn
 	name = "The Old Cock Inn"
 	icon_state = "oldcockinn"
 	desc = "Something about this sign fills you with despair."
-	neon_color = "#a4352b"
+	neon_color = COLOR_LOBBY_RED
 
 /datum/barsign/thewretchedhive
 	name = "The Wretched Hive"
 	icon_state = "thewretchedhive"
 	desc = "Legally obligated to instruct you to check your drinks for acid before consumption."
-	neon_color = "#26b000"
+	neon_color = COLOR_LIME
 
 /datum/barsign/robustacafe
 	name = "The Robusta Cafe"
 	icon_state = "robustacafe"
 	desc = "Holder of the 'Most Lethal Barfights' record 5 years uncontested."
-	neon_color = "#c45f7a"
+	neon_color = COLOR_RED_GRAY
 
 /datum/barsign/emergencyrumparty
 	name = "The Emergency Rum Party"
 	icon_state = "emergencyrumparty"
 	desc = "Recently relicensed after a long closure."
-	neon_color = "#f90011"
+	neon_color = COLOR_RED
 
 /datum/barsign/combocafe
 	name = "The Combo Cafe"
 	icon_state = "combocafe"
 	desc = "Renowned system-wide for their utterly uncreative drink combinations."
-	neon_color = "#33ca40"
+	neon_color = COLOR_LIME
 
 /datum/barsign/vladssaladbar
 	name = "Vlad's Salad Bar"
 	icon_state = "vladssaladbar"
 	desc = "Under new management. Vlad was always a bit too trigger happy with that shotgun."
-	neon_color = "#306900"
+	neon_color = COLOR_DEEP_MOSS_GREEN
 
 /datum/barsign/theshaken
 	name = "The Shaken"
 	icon_state = "theshaken"
 	desc = "This establishment does not serve stirred drinks."
-	neon_color = "#dcd884"
+	neon_color = COLOR_VERY_SOFT_YELLOW
 
 /datum/barsign/thealenath
 	name = "The Ale' Nath"
 	icon_state = "thealenath"
 	desc = "All right, buddy. I think you've had EI NATH. Time to get a cab."
-	neon_color = "#ed0000"
+	neon_color = COLOR_RED
 
 /datum/barsign/thenet
 	name = "The Net"
 	icon_state = "thenet"
 	desc = "You just seem to get caught up in it for hours."
-	neon_color = "#0e8a00"
+	neon_color = COLOR_GREEN
 
 /datum/barsign/maidcafe
 	name = "Maid Cafe"
 	icon_state = "maidcafe"
 	desc = "Welcome back, master!"
-	neon_color = "#ff0051"
+	neon_color = COLOR_MOSTLY_PURE_PINK
 
 /datum/barsign/thelightbulb
 	name = "The Lightbulb"
 	icon_state = "thelightbulb"
 	desc = "A cafe popular among moths and moffs. Once shut down for a week after the bartender used mothballs to protect her spare uniforms."
-	neon_color = "#faff82"
+	neon_color = COLOR_VERY_SOFT_YELLOW
 
 /datum/barsign/orangejuice
 	name = "Oranges' Juicery"
