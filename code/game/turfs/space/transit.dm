@@ -10,7 +10,7 @@
 /turf/open/space/transit/Initialize(mapload)
 	. = ..()
 	update_appearance()
-	RegisterSignal(src, COMSIG_ATOM_ENTERED, PROC_REF(launch_contents))
+	RegisterSignal(src, COMSIG_ATOM_ENTERED, GLOBAL_PROC_REF(dump_in_space))
 
 /turf/open/space/transit/Destroy()
 	//Signals are NOT removed from turfs upon replacement, and we get replaced ALOT, so unregister our signal
@@ -45,20 +45,16 @@
 /turf/open/space/transit/east
 	dir = EAST
 
-///Get rid of all our contents, called when our reservation is released (which in our case means the shuttle arrived)
-/turf/open/space/transit/proc/launch_contents(datum/turf_reservation/reservation)
-	SIGNAL_HANDLER
-
-	for(var/atom/movable/movable in contents)
-		dump_in_space(movable, dir)
-
-/proc/dump_in_space(atom/movable/crosser, throw_direction = pick(GLOB.alldirs))
+/proc/dump_in_space(datum/source, atom/movable/crosser, oldloc, oldlocs)
+	if(isspaceturf(oldloc))
+		return
 	if(crosser.anchored || isxenohivemind(crosser))
 		return
 
 	if(!isobj(crosser) && !isliving(crosser))
 		return
 
+	var/throw_direction = pick(GLOB.alldirs)
 	if(crosser.dir == REVERSE_DIR(throw_direction)) // if mobs step in the reversed from transit turf direction, they will otherwise get smacked 2 times in a row.
 		throw_direction = crosser.dir
 	var/turf/projected = get_ranged_target_turf(crosser.loc, throw_direction, 10)
