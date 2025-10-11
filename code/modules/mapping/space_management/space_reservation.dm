@@ -131,7 +131,7 @@
 /datum/turf_reservation/transit/make_repel(turf/pre_cordon_turf)
 	..()
 
-	RegisterSignal(pre_cordon_turf, COMSIG_ATOM_ENTERED, PROC_REF(space_dump_soft))
+	RegisterSignal(pre_cordon_turf, COMSIG_ATOM_ENTERED, PROC_REF(space_dump))
 
 /datum/turf_reservation/transit/stop_repel(turf/pre_cordon_turf)
 	..()
@@ -142,13 +142,6 @@
 	SIGNAL_HANDLER
 
 	dump_in_space(enterer)
-
-///Only dump if we don't have the hyperspace cordon movement exemption trait
-/datum/turf_reservation/transit/proc/space_dump_soft(atom/source, atom/movable/enterer)
-	SIGNAL_HANDLER
-
-	if(!HAS_TRAIT(enterer, TRAIT_FREE_HYPERSPACE_SOFTCORDON_MOVEMENT))
-		space_dump(source, enterer)
 
 /datum/turf_reservation/turf_not_baseturf
 	turf_type_is_baseturf = FALSE
