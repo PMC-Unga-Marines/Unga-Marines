@@ -559,7 +559,7 @@
 	desc = "A pack of incendiary phosphorus mini-rockets. Moving this will require some sort of lifter."
 	icon_state = "minirocket_inc_phos"
 	point_cost = 350
-	travelling_time = 3 SECONDS
+	travelling_time = 4 SECONDS
 	fire_range = 4
 	prediction_type = CAS_AMMO_INCENDIARY
 	cas_effect = /obj/effect/overlay/blinking_laser/fatty // Enemies must know that something serious is coming at them
@@ -570,8 +570,7 @@
 	playsound(loc, 'sound/effects/smoke.ogg', 25, 1, 4)
 	smoke.set_up(6, impact, 7)
 	smoke.start()
-	flame_radius(fire_range, impact, colour = "blue")
-	flame_radius(1, impact, burn_intensity = 75, burn_duration = 45, burn_damage = 15, fire_stacks = 75)
+	flame_radius(fire_range, impact, burn_intensity = 75, burn_duration = 45, burn_damage = 15, fire_stacks = 75, colour = "blue")
 
 /obj/structure/ship_ammo/cas/minirocket/smoke
 	name = "MGA-108C smoke"
