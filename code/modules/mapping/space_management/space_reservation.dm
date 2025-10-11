@@ -138,7 +138,7 @@
 
 	UnregisterSignal(pre_cordon_turf, COMSIG_ATOM_ENTERED)
 
-/datum/turf_reservation/transit/proc/space_dump(atom/source, atom/movable/enterer)
+/datum/turf_reservation/transit/proc/space_dump(atom/source, atom/movable/enterer, oldloc, oldlocs)
 	SIGNAL_HANDLER
 
 	dump_in_space(enterer)
