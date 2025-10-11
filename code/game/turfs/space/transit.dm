@@ -48,17 +48,16 @@
 /proc/dump_in_space(datum/source, atom/movable/crosser, oldloc, oldlocs)
 	if(isspaceturf(oldloc))
 		return
-	if(crosser.anchored || isxenohivemind(crosser))
-		return
-
 	if(!isobj(crosser) && !isliving(crosser))
+		return
+	if(isxenohivemind(crosser))
 		return
 
 	var/throw_direction = pick(GLOB.alldirs)
 	if(crosser.dir == REVERSE_DIR(throw_direction)) // if mobs step in the reversed from transit turf direction, they will otherwise get smacked 2 times in a row.
 		throw_direction = crosser.dir
 	var/turf/projected = get_ranged_target_turf(crosser.loc, throw_direction, 10)
-	INVOKE_ASYNC(crosser, TYPE_PROC_REF(/atom/movable, throw_at), projected, 50, 2, null, TRUE, TRUE, TRUE)
+	INVOKE_ASYNC(crosser, TYPE_PROC_REF(/atom/movable, throw_at), projected, 5, 2, null, TRUE, TRUE, TRUE)
 	addtimer(CALLBACK(crosser, GLOBAL_PROC_REF(handle_crosser), crosser), 0.5 SECONDS, TIMER_UNIQUE)
 
 /proc/handle_crosser(atom/movable/crosser)
