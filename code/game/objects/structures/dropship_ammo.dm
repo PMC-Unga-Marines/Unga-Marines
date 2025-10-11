@@ -593,10 +593,10 @@
 	desc = "A pack of mini-rockets loaded with gas-draining gas. Moving this will require some sort of lifter."
 	icon_state = "minirocket_antigasfoot"
 	point_cost = 150
-	travelling_time = 2 SECONDS
+	travelling_time = 6 SECONDS
 	explosion_power = 30
 	explosion_falloff = 15
-	cas_effect = /obj/effect/overlay/blinking_laser/tfoot
+	cas_effect = /obj/effect/overlay/blinking_laser/antigas_target
 
 /obj/structure/ship_ammo/cas/minirocket/antigas/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
