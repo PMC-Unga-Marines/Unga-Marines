@@ -64,6 +64,9 @@
 	if(!iscarbon(hostile))
 		return
 
+	if(issamexenohive(hostile))
+		return
+
 	var/mob/living/carbon/carbon_triggerer = hostile
 	if(carbon_triggerer.stat == DEAD)
 		return
