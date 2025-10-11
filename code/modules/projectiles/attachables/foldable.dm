@@ -105,7 +105,7 @@
 	name = "\improper Light stock"
 	desc = "A universal stock for the AR-18."
 	icon_state = "t18stock"
-	icon = 'icons/obj/items/attachments/attachments_64.dmi'
+	icon = 'icons/obj/items/attachments/ar18.dmi'
 	attach_features_flags = ATTACH_ACTIVATION
 	attach_features_flags = ATTACH_REMOVABLE
 	accuracy_mod = -0.45
