@@ -1889,16 +1889,16 @@
 	attachable_offset = list("muzzle_x" = 31, "muzzle_y" = 17,"rail_x" = 6, "rail_y" = 20, "under_x" = 20, "under_y" = 12, "stock_x" = 17, "stock_y" = 14)
 	aim_fire_delay = 0.15 SECONDS
 
-	fire_delay = 0.2 SECONDS
+	fire_delay = 0.25 SECONDS
 	burst_amount = 3
 	burst_delay = 0.05 SECONDS
 	extra_delay = 0.15 SECONDS
 	accuracy_mult_unwielded = 0.5
 	accuracy_mult = 1.15
-	scatter = -3
+	scatter = -1
 	scatter_unwielded = 15
-	aim_slowdown = 0.3
-	movement_acc_penalty_mult = 5
+	aim_slowdown = 0.45
+	movement_acc_penalty_mult = 6
 
 /obj/item/weapon/gun/rifle/ar11/scopeless
 	starting_attachment_types = list(/obj/item/attachable/stock/ar11)
