@@ -194,9 +194,8 @@
 	accuracy_mod = -0.8
 	scatter_mod = -5
 	size_mod = 5
-	delay_mod = -0.2 SECONDS
 	recoil_mod = -2
-	wield_delay_mod = 0.1 SECONDS
+	wield_delay_mod = 0.4 SECONDS
 	movement_acc_penalty_mod = 2
 	pixel_shift_x = 32
 	pixel_shift_y = 13
