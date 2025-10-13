@@ -97,7 +97,7 @@
 	burst_delay = 0.1 SECONDS
 	extra_delay = 0.1 SECONDS
 	accuracy_mult = 1.50
-	scatter = 5
+	scatter = 3
 	w_class = 3
 	recoil = 1
 	burst_amount = 4
