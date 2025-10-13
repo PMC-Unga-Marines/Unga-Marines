@@ -197,7 +197,7 @@
 	accuracy_mult = 1.9
 	scatter = 3
 	w_class = 5
-	wield_delay = 0.2 SECONDS
+	wield_delay = 0.5 SECONDS
 	recoil = 1
 	burst_amount = 3
 	aim_slowdown = 0.6
