@@ -95,6 +95,8 @@
 	///any turf in this list is skipped inside of build_coordinate. Lazy assoc list
 	var/list/turf_blacklist
 
+	// raw strings used to represent regexes more accurately
+	// '' used to avoid confusing syntax highlighting
 	var/static/regex/dmm_regex = new(@'"([a-zA-Z]+)" = (?:\(\n|\()((?:.|\n)*?)\)\n(?!\t)|\((\d+),(\d+),(\d+)\) = \{"([a-zA-Z\n]*)"\}', "g")
 	/// Matches key formats in TMG (IE: newline after the \()
 	var/static/regex/matches_tgm = new(@'^"[A-z]*"[\s]*=[\s]*\([\s]*\n', "m")
@@ -577,8 +579,7 @@
 					world.incrementMaxZ()
 			if(!no_changeturf)
 				WARNING("Z-level expansion occurred without no_changeturf set, this may cause problems when /turf/AfterChange is called")
-			no_afterchange = TRUE
-
+				no_afterchange = TRUE
 		// Ok so like. something important
 		// We talk in "relative" coords here, so the coordinate system of the map datum
 		// This is so we can do offsets, but it is NOT the same as positions in game
@@ -766,6 +767,7 @@ GLOBAL_LIST_EMPTY(map_model_default)
 					members_attributes += wrapped_default_list // We know this is a path, and we also know it has no vv's. so we'll just set this to the default list
 					path_to_init = line
 
+
 			// Alright, if we've gotten to this point, our string is a path
 			// Oh and we don't trim it, because we require no padding for these
 			// Saves like 1.5 deciseconds
@@ -846,10 +848,10 @@ GLOBAL_LIST_EMPTY(map_model_default)
 				continue
 			members += atom_def
 
+			//transform the variables in text format into a list (e.g {var1="derp"; var2; var3=7} => list(var1="derp", var2, var3=7))
 			// OF NOTE: this could be made faster by replacing readlist with a progressive regex
 			// I'm just too much of a bum to do it rn, especially since we mandate tgm format for any maps in repo
 			var/list/fields = default_list
-
 			if(variables_start)//if there's any variable
 				member_string = copytext(member_string, variables_start + length(member_string[variables_start]), -length(copytext_char(member_string, -1))) //removing the last '}'
 				fields = list(readlist(member_string, ";"))
@@ -906,7 +908,7 @@ GLOBAL_LIST_EMPTY(map_model_default)
 
 	//The next part of the code assumes there's ALWAYS an /area AND a /turf on a given tile
 	//first instance the /area and remove it from the members list
-	index = length(members)
+	index = members.len
 	var/area/old_area
 	if(members[index] != /area/template_noop)
 		if(members_attributes[index] != default_list)
@@ -1007,13 +1009,11 @@ GLOBAL_LIST_EMPTY(map_model_default)
 	if (!text)
 		return
 
-	// If we're using a semi colon, we can do this as splittext rather then constant calls to find_next_delimiter_position
-	// This does make the code a bit harder to read, but saves a good bit of time so suck it up
 	var/position
 	var/old_position = 1
 	while(position != 0)
 		// find next delimiter that is not within  "..."
-		position = find_next_delimiter_position(text,old_position,delimiter)
+		position = find_next_delimiter_position(text, old_position, delimiter)
 
 		// check if this is a simple variable (as in list(var1, var2)) or an associative one (as in list(var1="foo",var2=7))
 		var/equal_position = findtext(text,"=",old_position, position)
@@ -1036,6 +1036,10 @@ GLOBAL_LIST_EMPTY(map_model_default)
 			. += list(left_constant)
 
 /datum/parsed_map/proc/parse_constant(text)
+	// empty text
+	if(!text)
+		return ""
+
 	// number
 	var/num = text2num(text)
 	if(isnum(num))
@@ -1073,7 +1077,7 @@ GLOBAL_LIST_EMPTY(map_model_default)
 	return text
 
 /datum/parsed_map/Destroy()
-	. = ..()
+	..()
 	SSatoms.map_loader_stop(REF(src)) // Just in case, I don't want to double up here
 	if(turf_blacklist)
 		turf_blacklist.Cut()
