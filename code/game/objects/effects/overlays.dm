@@ -305,6 +305,9 @@
 /obj/effect/overlay/blinking_laser/incendiary
 	icon_state = "incendiary_target"
 
+/obj/effect/overlay/blinking_laser/phosphorus
+	icon_state = "phosphorus_target"
+
 //Directional
 /obj/effect/overlay/blinking_laser/heavygun
 	icon_state = "gau_target"
