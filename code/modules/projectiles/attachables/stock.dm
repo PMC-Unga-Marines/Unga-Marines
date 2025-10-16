@@ -186,7 +186,7 @@
 	pixel_shift_x = 0
 	pixel_shift_y = 0
 
-/obj/item/attachable/stock/ar12stock
+/obj/item/attachable/stock/stock_m
 	name = "\improper Medium stock"
 	desc = "A universal stock for the AR-12."
 	icon_state = "t12stock"
@@ -200,7 +200,7 @@
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
-/obj/item/attachable/stock/t42stock
+/obj/item/attachable/stock/stock_h
 	name = "\improper Heavy stock"
 	desc = "A universal stock for the MG-42."
 	icon_state = "t42stock"
@@ -218,7 +218,7 @@
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
-/obj/item/attachable/stock/ar21stock
+/obj/item/attachable/stock/stock_mh
 	name = "\improper Medium-heavy stock"
 	desc = "A universal stock for the AR-21."
 	icon_state = "t21stock"
