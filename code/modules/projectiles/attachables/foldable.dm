@@ -101,7 +101,7 @@
 	accuracy_unwielded_mod = -0.1
 	scatter_unwielded_mod = 4
 
-/obj/item/attachable/foldable/ar18stock
+/obj/item/attachable/foldable/stock_l
 	name = "\improper Light stock"
 	desc = "A universal stock for the AR-18."
 	icon_state = "t18stock"
