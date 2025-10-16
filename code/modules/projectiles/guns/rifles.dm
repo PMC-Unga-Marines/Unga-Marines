@@ -49,10 +49,10 @@
 		/obj/item/ammo_magazine/rifle/ar18,
 	)
 	attachable_allowed = list(
-		/obj/item/attachable/stock/t42stock,
-		/obj/item/attachable/stock/ar21stock,
-		/obj/item/attachable/foldable/ar18stock,
-		/obj/item/attachable/stock/ar12stock,
+		/obj/item/attachable/foldable/stock_l,
+		/obj/item/attachable/stock/stock_m,
+		/obj/item/attachable/stock/stock_mh,
+		/obj/item/attachable/stock/stock_h,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
@@ -88,7 +88,7 @@
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC, GUN_FIREMODE_BURSTFIRE, GUN_FIREMODE_AUTOBURST)
-	starting_attachment_types = list(/obj/item/attachable/foldable/ar18stock)
+	starting_attachment_types = list(/obj/item/attachable/foldable/stock_l)
 	attachable_offset = list("muzzle_x" = 34, "muzzle_y" = 17, "rail_x" = 5, "rail_y" = 20, "under_x" = 24, "under_y" = 14, "stock_x" = 0, "stock_y" = 13)
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
@@ -106,22 +106,22 @@
 	movement_acc_penalty_mult = 3
 
 /obj/item/weapon/gun/rifle/ar18/pointman
-	starting_attachment_types = list(/obj/item/attachable/foldable/ar18stock, /obj/item/attachable/lasersight, /obj/item/attachable/flashlight)
+	starting_attachment_types = list(/obj/item/attachable/foldable/stock_l, /obj/item/attachable/lasersight, /obj/item/attachable/flashlight)
 
 /obj/item/weapon/gun/rifle/ar18/standard
-	starting_attachment_types = list(/obj/item/attachable/foldable/ar18stock, /obj/item/weapon/gun/grenade_launcher/underslung, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel)
+	starting_attachment_types = list(/obj/item/attachable/foldable/stock_l, /obj/item/weapon/gun/grenade_launcher/underslung, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel)
 
 /obj/item/weapon/gun/rifle/ar18/scout
-	starting_attachment_types = list(/obj/item/attachable/foldable/ar18stock, /obj/item/weapon/gun/grenade_launcher/underslung, /obj/item/attachable/motiondetector, /obj/item/attachable/extended_barrel)
+	starting_attachment_types = list(/obj/item/attachable/foldable/stock_l, /obj/item/weapon/gun/grenade_launcher/underslung, /obj/item/attachable/motiondetector, /obj/item/attachable/extended_barrel)
 
 /obj/item/weapon/gun/rifle/ar18/engineer
-	starting_attachment_types = list(/obj/item/attachable/foldable/ar18stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/lasersight)
+	starting_attachment_types = list(/obj/item/attachable/foldable/stock_l, /obj/item/attachable/magnetic_harness, /obj/item/attachable/lasersight)
 
 /obj/item/weapon/gun/rifle/ar18/plasma_pistol
-	starting_attachment_types = list(/obj/item/attachable/foldable/ar18stock, /obj/item/weapon/gun/pistol/plasma_pistol, /obj/item/attachable/motiondetector, /obj/item/attachable/compensator)
+	starting_attachment_types = list(/obj/item/attachable/foldable/stock_l, /obj/item/weapon/gun/pistol/plasma_pistol, /obj/item/attachable/motiondetector, /obj/item/attachable/compensator)
 
 /obj/item/weapon/gun/rifle/ar18/beginner
-	starting_attachment_types = list(/obj/item/attachable/foldable/ar18stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/angledgrip, /obj/item/attachable/compensator)
+	starting_attachment_types = list(/obj/item/attachable/foldable/stock_l, /obj/item/attachable/magnetic_harness, /obj/item/attachable/angledgrip, /obj/item/attachable/compensator)
 
 //-------------------------------------------------------
 //AR-12 Assault Rifle
@@ -146,10 +146,10 @@
 		/obj/item/ammo_magazine/rifle/ar12/incendiary,
 	)
 	attachable_allowed = list(
-		/obj/item/attachable/stock/t42stock,
-		/obj/item/attachable/stock/ar21stock,
-		/obj/item/attachable/foldable/ar18stock,
-		/obj/item/attachable/stock/ar12stock,
+		/obj/item/attachable/foldable/stock_l,
+		/obj/item/attachable/stock/stock_m,
+		/obj/item/attachable/stock/stock_mh,
+		/obj/item/attachable/stock/stock_h,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
@@ -189,7 +189,7 @@
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
 
-	starting_attachment_types = list(/obj/item/attachable/stock/ar12stock)
+	starting_attachment_types = list(/obj/item/attachable/stock/stock_m,)
 
 	fire_delay = 0.2 SECONDS
 	burst_delay = 0.15 SECONDS
@@ -207,13 +207,13 @@
 	placed_overlay_iconstate = "t12"
 
 /obj/item/weapon/gun/rifle/ar12/rifleman
-	starting_attachment_types = list(/obj/item/attachable/stock/ar12stock, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
+	starting_attachment_types = list(/obj/item/attachable/stock/stock_m, /obj/item/attachable/reddot, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
 
 /obj/item/weapon/gun/rifle/ar12/engineer
-	starting_attachment_types = list(/obj/item/attachable/stock/ar12stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/flamer/mini_flamer)
+	starting_attachment_types = list(/obj/item/attachable/stock/stock_m, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/flamer/mini_flamer)
 
 /obj/item/weapon/gun/rifle/ar12/medic
-	starting_attachment_types = list(/obj/item/attachable/stock/ar12stock, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
+	starting_attachment_types = list(/obj/item/attachable/stock/stock_m, /obj/item/attachable/magnetic_harness, /obj/item/attachable/extended_barrel, /obj/item/weapon/gun/grenade_launcher/underslung)
 
 //-------------------------------------------------------
 //DMR-37 DMR
@@ -1120,9 +1120,9 @@
 	default_ammo_type = /obj/item/ammo_magazine/mg42
 	allowed_ammo_types = list(/obj/item/ammo_magazine/mg42)
 	attachable_allowed = list(
-		/obj/item/attachable/stock/t42stock,
-		/obj/item/attachable/foldable/ar18stock,
-		/obj/item/attachable/stock/ar12stock,
+		/obj/item/attachable/foldable/stock_l,
+		/obj/item/attachable/stock/stock_m,
+		/obj/item/attachable/stock/stock_h,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
@@ -1160,7 +1160,7 @@
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
 
-	starting_attachment_types = list(/obj/item/attachable/stock/t42stock)
+	starting_attachment_types = list(/obj/item/attachable/stock/stock_h,)
 
 	fire_delay = 0.2 SECONDS
 	burst_delay = 0.15 SECONDS
@@ -1942,10 +1942,10 @@
 		/obj/item/ammo_magazine/rifle/ar21/extended,
 	)
 	attachable_allowed = list(
-		/obj/item/attachable/stock/ar21stock,
-		/obj/item/attachable/stock/t42stock,
-		/obj/item/attachable/foldable/ar18stock,
-		/obj/item/attachable/stock/ar12stock,
+		/obj/item/attachable/stock/stock_mh,
+		/obj/item/attachable/foldable/stock_l,
+		/obj/item/attachable/stock/stock_m,
+		/obj/item/attachable/stock/stock_h,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/b7_scope,
 		/obj/item/attachable/verticalgrip,
@@ -1978,7 +1978,7 @@
 
 	gun_features_flags = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_SMOKE_PARTICLES
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
-	starting_attachment_types = list(/obj/item/attachable/stock/ar21stock)
+	starting_attachment_types = list(/obj/item/attachable/stock/stock_mh)
 	attachable_offset = list("muzzle_x" = 37, "muzzle_y" = 16,"rail_x" = 8, "rail_y" = 19, "under_x" = 24, "under_y" = 13, "stock_x" = 0, "stock_y" = 12)
 	aim_fire_delay = 0.15 SECONDS
 	aim_speed_modifier = 2.5
