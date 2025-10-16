@@ -189,7 +189,7 @@
 	aim_fire_delay = 0.1 SECONDS
 	aim_speed_modifier = 2
 
-	starting_attachment_types = list(/obj/item/attachable/stock/stock_m,)
+	starting_attachment_types = list(/obj/item/attachable/stock/stock_m)
 
 	fire_delay = 0.2 SECONDS
 	burst_delay = 0.15 SECONDS
