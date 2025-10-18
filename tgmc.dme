@@ -1612,6 +1612,7 @@
 #include "code\modules\condor\cas_actions.dm"
 #include "code\modules\condor\cas_chair.dm"
 #include "code\modules\condor\cas_shuttle.dm"
+#include "code\modules\contracts\ui\request.dm"
 #include "code\modules\detectivework\evidence.dm"
 #include "code\modules\detectivework\footprints_and_rag.dm"
 #include "code\modules\detectivework\forensics.dm"
