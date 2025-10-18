@@ -45,10 +45,7 @@
 	max_shells = 36 //codex
 	force = 20
 	default_ammo_type = /obj/item/ammo_magazine/rifle/ar18
-	allowed_ammo_types = list(
-		/obj/item/ammo_magazine/rifle/ar18,
-        /obj/item/ammo_magazine/rifle/ar18/ap,
-	)
+	allowed_ammo_types = list(/obj/item/ammo_magazine/rifle/ar18, /obj/item/ammo_magazine/rifle/ar18/ap)
 	attachable_allowed = list(
 		/obj/item/attachable/foldable/stock_l,
 		/obj/item/attachable/stock/stock_m,
