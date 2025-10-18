@@ -350,6 +350,9 @@
 	cocked_sound = 'sound/weapons/guns/interact/trenchgun_pump.ogg'
 	default_ammo_type = /datum/ammo/bullet/shotgun/buckshot
 	attachable_allowed = list(
+		/obj/item/attachable/bayonet,
+		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,

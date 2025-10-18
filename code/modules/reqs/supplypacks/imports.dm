@@ -67,6 +67,11 @@
 	contains = list(/obj/item/ammo_magazine/smg/mp7)
 	cost = 3
 
+/datum/supply_packs/imports/trenchgun
+	name = "L-4034 Trenchgun"
+	contains = contains = list(/obj/item/weapon/gun/shotgun/pump/trenchgun)
+	cost = 50
+
 /datum/supply_packs/imports/m25
 	name = "SMG-25 SMG"
 	contains = list(/obj/item/weapon/gun/smg/m25)
