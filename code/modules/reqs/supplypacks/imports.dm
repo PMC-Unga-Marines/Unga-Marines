@@ -69,7 +69,7 @@
 
 /datum/supply_packs/imports/trenchgun
 	name = "L-4034 Trenchgun"
-	contains = contains = list(/obj/item/weapon/gun/shotgun/pump/trenchgun)
+	contains = list(/obj/item/weapon/gun/shotgun/pump/trenchgun)
 	cost = 50
 
 /datum/supply_packs/imports/m25
