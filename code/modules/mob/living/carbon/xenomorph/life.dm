@@ -184,13 +184,10 @@
 	var/area/A = get_area(src)
 	var/is_valhalla = istype(A, /area/centcom/valhalla)
 
-	// Check if generators are corrupted (like psy points system)
+	// Check if generators are corrupted (like psy points system) - using cached value for performance
 	var/corrupted_generators_bonus = 0
 	if(GLOB.generators_on_ground > 0)
-		var/corrupted_count = 0
-		for(var/obj/machinery/power/geothermal/generator in GLOB.machines)
-			if(generator.corrupted == hivenumber && generator.corruption_on)
-				corrupted_count++
+		var/corrupted_count = hive?.get_cached_corrupted_generators() || 0
 
 		// Only accumulate biomass if we have corrupted generators AND marines on ground (like psy points)
 		if(corrupted_count > 0 && (length(GLOB.humans_by_zlevel["2"]) > 0.2 * length(GLOB.alive_human_list_faction[FACTION_TERRAGOV])))
@@ -202,12 +199,8 @@
 	// Add corrupted generators biomass gain if conditions are met
 	biomass_gain_rate += corrupted_generators_bonus
 
-	// Hivemind bonus: +0.5 biomass per minute if hivemind is alive
-	var/has_living_hivemind = FALSE
-	for(var/mob/living/carbon/xenomorph/hivemind/hivemind AS in GLOB.alive_xeno_list_hive[hivenumber])
-		if(isxenohivemind(hivemind) && !QDELETED(hivemind))
-			has_living_hivemind = TRUE
-			break
+	// Hivemind bonus: +0.5 biomass per minute if hivemind is alive - using cached value for performance
+	var/has_living_hivemind = hive?.get_cached_hivemind_status() || FALSE
 
 	if(has_living_hivemind)
 		biomass_gain_rate += 0.5 / 60.0 // Hivemind bonus: +0.5 per minute

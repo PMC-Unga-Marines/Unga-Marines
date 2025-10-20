@@ -192,6 +192,9 @@
 			total_refund += refund_cost
 			refunded_mutations += mutation_name
 
+	// Save mutations list before clearing for later restoration
+	var/list/saved_mutations = new_xeno.purchased_mutations.Copy()
+
 	// Clear all mutations and refund biomass
 	new_xeno.purchased_mutations.Cut()
 	new_xeno.upgrades_holder.Cut()
@@ -257,6 +260,28 @@
 	while(new_xeno.upgrade_possible())
 		if(!new_xeno.upgrade_xeno(new_xeno.upgrade_next(), TRUE)) //This return shouldn't be possible to trigger, unless you varedit upgrade right on the tick the xeno evos
 			return
+
+	// Restore mutations after upgrade
+	for(var/mutation_name in saved_mutations)
+		var/datum/xeno_mutation/mutation_datum = get_xeno_mutation_by_name(mutation_name)
+		if(mutation_datum)
+			// Restore purchased mutations list (regardless of availability for new caste)
+			new_xeno.purchased_mutations += mutation_name
+
+			// Apply status effect if mutation has one
+			if(mutation_datum.status_effect_type)
+				new_xeno.apply_status_effect(mutation_datum.status_effect_type)
+				new_xeno.upgrades_holder.Add(mutation_datum.status_effect_type)
+
+			// Add ability if mutation has one
+			if(mutation_datum.ability_type)
+				var/datum/action/ability/ability = new mutation_datum.ability_type()
+				// Check if it's a mutation ability and call set_mutation_power
+				if(istype(ability, /datum/action/ability/xeno_action/mutation))
+					var/datum/action/ability/xeno_action/mutation/mutation_ability = ability
+					mutation_ability.set_mutation_power(mutation_datum.tier)
+				ability.give_action(new_xeno)
+				new_xeno.upgrades_holder.Add(mutation_datum.ability_type)
 
 	var/atom/movable/screen/zone_sel/selector = new_xeno.hud_used?.zone_sel
 	selector?.set_selected_zone(zone_selected, new_xeno)

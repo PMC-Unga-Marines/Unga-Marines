@@ -166,7 +166,12 @@
 			action.give_action(src)
 
 	for(var/datum/action/ability/xeno_action/action_already_added AS in actions_already_added)
-		action_already_added.remove_action(src)
+		// Don't remove mutation abilities as they should persist through upgrades
+		if(!istype(action_already_added, /datum/action/ability/xeno_action/mutation))
+			action_already_added.remove_action(src)
+		else
+			// Add mutation abilities back to mob_abilities list so they persist
+			mob_abilities.Add(action_already_added)
 
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_ABILITY_ON_UPGRADE)
 	if(selected_ability_type)
