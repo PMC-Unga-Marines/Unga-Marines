@@ -16,8 +16,8 @@
 /datum/xeno_mutation/drone/scout
 	name = "Scout"
 	desc = "Значительный бонус к броне, пока находишься на траве."
-	cost = 5
-	icon_state = "xenobuff_generic"
+	cost = 7.5
+	icon_state = "drone_scout"
 	tier = 1
 	parent_name = null
 	child_name = null
@@ -103,7 +103,7 @@
 	name = "Together In Claws"
 	desc = "Регенерация 20% от нанесенного урона партнёром."
 	cost = 5
-	icon_state = "xenobuff_generic"
+	icon_state = "drone_together_in_claws"
 	tier = 1
 	parent_name = null
 	child_name = null
@@ -153,7 +153,7 @@
 	name = "Revenge"
 	desc = "Если Essence Link прерывается из-за чей-то смерти, выживший получает +100% к урону на 15 секунд."
 	cost = 5
-	icon_state = "xenobuff_generic"
+	icon_state = "drone_revenge"
 	tier = 1
 	parent_name = null
 	child_name = null
@@ -203,7 +203,7 @@
 	name = "Saving Grace"
 	desc = "Salve Heal не имеет задержки при лечении партнёра."
 	cost = 5
-	icon_state = "xenobuff_generic"
+	icon_state = "drone_saving_grace"
 	tier = 1
 	parent_name = null
 	child_name = null

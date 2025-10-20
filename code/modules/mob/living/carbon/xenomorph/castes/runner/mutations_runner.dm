@@ -45,8 +45,8 @@
 /datum/xeno_mutation/runner/upfront_evasion
 	name = "Upfront Evasion"
 	desc = "Evasion длится на 3 секунды больше, но не может быть автоматическим"
-	cost = 5
-	icon_state = "xenobuff_generic"
+	cost = 7.5
+	icon_state = "runner_upfront_evasion"
 	tier = 1
 	parent_name = null
 	child_name = null
@@ -94,7 +94,7 @@
 	name = "Passing Glance"
 	desc = "Пока активен Evasion, контакт дизориентирует врага на 4 секунды."
 	cost = 5
-	icon_state = "xenobuff_generic"
+	icon_state = "runner_passing_glance"
 	tier = 1
 	parent_name = null
 	child_name = null
@@ -142,7 +142,7 @@
 	name = "Ingrained Evasion"
 	desc = "Удаляет способность Evasion, но даёт пассивный 50% шанс уворота. Особо точные выстрелы уменьшают данный шанс."
 	cost = 5
-	icon_state = "xenobuff_generic"
+	icon_state = "runner_ingrained_evasion"
 	tier = 1
 	parent_name = null
 	child_name = null
@@ -251,7 +251,7 @@
 	name = "Head Slam"
 	desc = "Стан от Pounce уменьшен в 4 раза, но дизориентирует и слепит врага на 3 секунды."
 	cost = 5
-	icon_state = "xenobuff_generic"
+	icon_state = "runner_headslam"
 	tier = 1
 	parent_name = null
 	child_name = null
