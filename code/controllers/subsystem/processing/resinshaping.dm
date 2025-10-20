@@ -64,10 +64,6 @@ SUBSYSTEM_DEF(resinshaping)
 			the_builder.biomass = min(the_builder.biomass + biomass_to_give, 50)
 			quickbuild_biomass_gained[player_key] = current_quickbuild_biomass + biomass_to_give
 
-		// Update HUD if we have a client
-		if(the_builder.client)
-			the_builder.hud_set_biomass()
-
 /// Decrements a mob buildings count , using their ckey.
 /datum/controller/subsystem/resinshaping/proc/decrement_build_counter(mob/living/carbon/xenomorph/the_builder)
 	var/player_key = "[the_builder.client?.ckey]"

@@ -283,6 +283,9 @@
 				ability.give_action(new_xeno)
 				new_xeno.upgrades_holder.Add(mutation_datum.ability_type)
 
+	// Update enhancement HUD after restoring mutations
+	new_xeno.hud_set_enhancement()
+
 	var/atom/movable/screen/zone_sel/selector = new_xeno.hud_used?.zone_sel
 	selector?.set_selected_zone(zone_selected, new_xeno)
 	qdel(src)

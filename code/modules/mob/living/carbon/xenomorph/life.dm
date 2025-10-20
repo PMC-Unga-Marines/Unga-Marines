@@ -172,10 +172,6 @@
 	if(biomass < 50)
 		biomass = min(biomass + biomass_gain, 50)
 
-	// Update HUD if we have a client
-	if(client)
-		hud_set_biomass()
-
 /// Calculate passive biomass gain rate per minute
 /mob/living/carbon/xenomorph/proc/get_passive_biomass_gain_rate()
 	var/biomass_gain_rate = 0

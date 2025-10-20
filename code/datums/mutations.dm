@@ -147,6 +147,10 @@
 	//Add to purchase history
 	xeno_owner.purchased_mutations += mutation_name
 
+	// Update enhancement HUD immediately after adding mutation to purchased_mutations
+	if(mutation_datum.category == "Enhancement")
+		xeno_owner.hud_set_enhancement()
+
 	//Remove conflicting mutations (only the specific one being replaced)
 	var/datum/status_effect/conflicting_upgrade = locate(mutation_datum.status_effect_type) in xeno_owner.status_effects
 	if(conflicting_upgrade)
@@ -176,5 +180,8 @@
 			mutation_ability.set_mutation_power(mutation_datum.tier)
 		ability.give_action(xeno_owner)
 		xeno_owner.upgrades_holder.Add(mutation_datum.ability_type)
+
+	// Update enhancement HUD after any mutation changes
+	xeno_owner.hud_set_enhancement()
 
 	SStgui.update_uis(src)

@@ -38,6 +38,7 @@
 
 /mob/living/carbon/xenomorph/med_hud_set_status()
 	hud_set_pheromone()
+	hud_set_enhancement()
 
 ///Set sunder on the hud
 /mob/living/carbon/xenomorph/proc/hud_set_sunder()
@@ -116,15 +117,6 @@
 
 	hud_list[PHEROMONE_HUD] = holder
 
-///Set biomass on the hud
-/mob/living/carbon/xenomorph/proc/hud_set_biomass()
-	if(hud_used?.alien_biomass_display)
-		if(stat != DEAD)
-			var/amount = round(biomass, 1)
-			hud_used.alien_biomass_display.icon_state = "biomass_[amount]"
-		else
-			hud_used.alien_biomass_display.icon_state = "biomass_0"
-
 //Only called when an aura is added or removed
 /mob/living/carbon/xenomorph/update_aura_overlay()
 	var/image/holder = hud_list[PHEROMONE_HUD]
@@ -136,6 +128,28 @@
 	for(var/aura_type in GLOB.pheromone_images_list)
 		if(emitted_auras.Find(aura_type))
 			holder.overlays += image('icons/mob/hud/aura.dmi', src, "[aura_type]_aura")
+
+// Helper function to check if xenomorph has any enhancement mutations
+/mob/living/carbon/xenomorph/proc/has_enhancement_mutation()
+	if(!length(purchased_mutations))
+		return FALSE
+
+	for(var/mutation_name in purchased_mutations)
+		var/datum/xeno_mutation/mutation = get_xeno_mutation_by_name(mutation_name)
+		if(mutation && mutation.category == "Enhancement")
+			return TRUE
+	return FALSE
+
+/mob/living/carbon/xenomorph/proc/hud_set_enhancement()
+	var/image/holder = hud_list[ENHANCEMENT_HUD]
+	if(!holder)
+		return
+	holder.overlays.Cut()
+	holder.icon_state = ""
+	if(stat != DEAD && has_enhancement_mutation())
+		holder.overlays += image('icons/mob/hud/aura.dmi', src, "enhancement_mutation")
+
+	hud_list[ENHANCEMENT_HUD] = holder
 
 /mob/living/carbon/xenomorph/proc/hud_set_queen_overwatch()
 	var/image/holder = hud_list[QUEEN_OVERWATCH_HUD]
