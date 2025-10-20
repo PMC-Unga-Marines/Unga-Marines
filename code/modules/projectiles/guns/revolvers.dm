@@ -487,8 +487,9 @@
 	recoil_unwielded = 6
 	recoil_backtime_multiplier = 2
 
-	fire_delay = 0.25 SECONDS
+	fire_delay = 0.3 SECONDS
 	aim_fire_delay = 0.25 SECONDS
+	wield_delay = 0.5 SECONDS
 	akimbo_scatter_mod = 8
 	akimbo_additional_delay = 1
 	aim_slowdown = 0.3

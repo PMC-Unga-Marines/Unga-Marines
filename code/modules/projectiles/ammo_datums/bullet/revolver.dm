@@ -15,8 +15,8 @@
 	name = ".44 Long Special bullet"
 	hud_state = "revolver_impact"
 	handful_amount = 8
-	damage = 55
-	penetration = 30
+	damage = 45
+	penetration = 20
 	additional_xeno_penetration = 10
 	damage_falloff = 0.5
 	shell_speed = 3.5
