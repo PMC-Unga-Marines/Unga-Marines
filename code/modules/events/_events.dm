@@ -52,23 +52,31 @@
 		return EVENT_CANT_RUN
 
 	triggering = TRUE
+
 	if(alert_observers)
-		if(!admin_approval("Event:[name]"))
-			triggering = FALSE
-			message_admins("An admin cancelled event [name].")
-			SSblackbox.record_feedback(FEEDBACK_TALLY, "event_admin_cancelled", 1, typepath)
-			return EVENT_CANCELLED
-		if(!triggering)
-			to_chat(usr, span_admin("You are too late to cancel that event"))
-			return
+		// We sleep HERE, in pre-event setup (because there's no sense doing it in run_event() since the event is already running!) for the given amount of time to make an admin has enough time to cancel an event un-fitting of the present round
+		message_admins("Random Event triggering in [DisplayTimeText(1 MINUTES)]: [name]. (<a href='byond://?src=[REF(src)];cancel=1'>CANCEL</a>)")
+		sleep(1 MINUTES)
 		var/gamemode = SSticker.mode.config_tag
 		var/players_amt = get_active_player_count(alive_check = TRUE, afk_check = TRUE)
 		if(!can_spawn_event(players_amt, gamemode))
 			message_admins("Second pre-condition check for [name] failed, skipping...")
 			return EVENT_INTERRUPTED
 
+	if(!triggering)
+		return EVENT_CANCELLED //admin cancelled
 	triggering = FALSE
 	return EVENT_READY
+
+/datum/round_event_control/Topic(href, href_list)
+	. = ..()
+	if(href_list["cancel"])
+		if(!triggering)
+			to_chat(usr, span_admin("You are too late to cancel that event"))
+			return
+		triggering = FALSE
+		message_admins("[key_name_admin(usr)] cancelled event [name].")
+		log_admin_private("[key_name(usr)] cancelled event [name].")
 
 /datum/round_event_control/proc/run_event(not_forced = FALSE)
 	var/datum/round_event/E = new typepath()
