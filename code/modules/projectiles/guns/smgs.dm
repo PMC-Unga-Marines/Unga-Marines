@@ -680,8 +680,8 @@
 	desc = "The Vector is the TerraGov Marine Corps depelopment to increase assault capability of marines. Lightweight and simple to use. It features delayed blowback system, heavily reducing recoil even with its high ROF. A highly-customizable platform, it is reliable and versatile. Ideal weapon for quick assaults. Uses extended .45 ACP HP magazines"
 	fire_sound = 'sound/weapons/guns/fire/tp23.ogg'
 	icon = 'icons/obj/items/gun/submachinegun64.dmi'
-	icon_state = "v45"
-	worn_icon_state = "v45"
+	icon_state = "v44"
+	worn_icon_state = "v44"
 	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/gun/submachinegun_lefthand_1.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/gun/submachinegun_righthand_1.dmi',
