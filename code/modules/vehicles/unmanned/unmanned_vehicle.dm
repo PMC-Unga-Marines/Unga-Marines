@@ -449,7 +449,6 @@
 /obj/structure/closet/crate/uav_crate/PopulateContents()
 	new vehicle_type(src)
 	new /obj/item/unmanned_vehicle_remote(src)
-	new /obj/item/cell/unmanned_vehicle(src)
 
 /obj/structure/closet/crate/uav_crate/medium
     name = "\improper UV-M Gecko Crate"
