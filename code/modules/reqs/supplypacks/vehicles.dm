@@ -126,6 +126,11 @@
 	contains = list(/obj/vehicle/unmanned/heavy)
 	cost = 550
 
+/datum/supply_packs/vehicles/uv_cell
+	name = "Unmanned vehicle battery"
+	contains = list(/obj/item/cell/unmanned_vehicle)
+	cost = 150
+
 /datum/supply_packs/vehicles/uv_light_weapon
 	name = "Light UV weapon"
 	contains = list(/obj/item/uav_turret)
