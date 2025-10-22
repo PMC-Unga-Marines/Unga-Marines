@@ -54,9 +54,9 @@
 	/// Power cell for vehicle operation
 	var/obj/item/cell/battery = null
 	/// Power consumption per movement action
-	var/power_per_move = 0.1
+	var/power_per_move = 2
 	/// Power consumption per shot fired
-	var/power_per_shot = 0.3
+	var/power_per_shot = 6
 	/// Additional slowdown from sticky weeds
 	var/weed_slowdown = 0
 	/// muzzleflash stuff
@@ -72,7 +72,7 @@
 	if(!is_centcom_level(loc.z))
 		GLOB.unmanned_vehicles += src
 	// Initialize with a charged battery
-	battery = new /obj/item/cell/night_vision_battery(src)
+	battery = new /obj/item/cell/unmanned_vehicle(src)
 	prepare_huds()
 	hud_set_machine_health()
 	if(spawn_equipped_type)
@@ -157,7 +157,7 @@
 		return equip_turret(I, user)
 	if(istype(I, /obj/item/ammo_magazine))
 		return reload_turret(I, user)
-	if(istype(I, /obj/item/cell/night_vision_battery))
+	if(istype(I, /obj/item/cell/unmanned_vehicle))
 		return insert_battery(I, user)
 
 /obj/vehicle/unmanned/relaymove(mob/living/user, direction)
@@ -210,7 +210,7 @@
 	return
 
 ///Insert a new battery into the vehicle
-/obj/vehicle/unmanned/proc/insert_battery(obj/item/cell/night_vision_battery/new_battery, mob/user)
+/obj/vehicle/unmanned/proc/insert_battery(obj/item/cell/unmanned_vehicle/new_battery, mob/user)
 	if(battery)
 		to_chat(user, span_warning("[src] already has a battery installed!"))
 		return
@@ -444,7 +444,7 @@
 /obj/structure/closet/crate/uav_crate/PopulateContents()
 	new vehicle_type(src)
 	new /obj/item/unmanned_vehicle_remote(src)
-	new /obj/item/cell/night_vision_battery(src)
+	new /obj/item/cell/unmanned_vehicle(src)
 
 /obj/structure/closet/crate/uav_crate/medium
     name = "\improper UV-M Gecko Crate"
