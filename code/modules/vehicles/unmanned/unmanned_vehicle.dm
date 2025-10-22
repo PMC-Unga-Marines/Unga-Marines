@@ -369,6 +369,11 @@
 		to_chat(user, span_warning("[src] is out of power!"))
 		return FALSE
 
+	if(target == pulling)
+		stop_pulling(target)
+		COOLDOWN_START(src, fire_cooldown, fire_delay)
+		return TRUE
+
 	// Check if target is adjacent
 	if(!Adjacent(target))
 		to_chat(user, span_warning("Target is too far away!"))
