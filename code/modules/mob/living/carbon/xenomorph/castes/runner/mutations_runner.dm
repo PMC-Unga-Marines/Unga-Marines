@@ -13,35 +13,6 @@
 	/// The xenomorph that owns this status effect.
 	var/mob/living/carbon/xenomorph/xenomorph_owner
 
-/*
-/datum/xeno_mutation/
-	name = ""
-	desc = ""
-	cost =
-	icon_state = "xenobuff_generic"
-	tier = 1
-	parent_name = null
-	child_name = null
-	status_effect_type = STATUS_EFFECT_
-	buff_desc = ""
-
-/atom/movable/screen/alert/status_effect/
-	name = ""
-	desc = ""
-	icon_state = "xenobuff_attack"
-
-/datum/status_effect/
-	id = "upgrade_"
-	alert_type = /atom/movable/screen/alert/status_effect/
-
-/datum/status_effect/.../on_apply()
-	xenomorph_owner = owner
-	return TRUE
-
-/datum/status_effect/.../on_remove()
-	return ..()
-*/
-
 /datum/xeno_mutation/runner/upfront_evasion
 	name = "Upfront Evasion"
 	desc = "Evasion длится на 3 секунды больше, но не может быть автоматическим"

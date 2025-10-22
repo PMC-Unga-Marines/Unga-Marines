@@ -199,6 +199,12 @@
 	new_xeno.purchased_mutations.Cut()
 	new_xeno.upgrades_holder.Cut()
 
+	// Remove all mutation status effects from the NEW xenomorph first
+	for(var/mutation_name in saved_mutations)
+		var/datum/xeno_mutation/mutation_datum = get_xeno_mutation_by_name(mutation_name)
+		if(mutation_datum && mutation_datum.status_effect_type)
+			new_xeno.remove_status_effect(mutation_datum.status_effect_type)
+
 	// Remove all mutation abilities
 	for(var/datum/action/ability/xeno_action/mutation/ability in new_xeno.actions)
 		if(istype(ability, /datum/action/ability/xeno_action/mutation))
@@ -261,30 +267,37 @@
 		if(!new_xeno.upgrade_xeno(new_xeno.upgrade_next(), TRUE)) //This return shouldn't be possible to trigger, unless you varedit upgrade right on the tick the xeno evos
 			return
 
-	// Restore mutations after upgrade
-	for(var/mutation_name in saved_mutations)
-		var/datum/xeno_mutation/mutation_datum = get_xeno_mutation_by_name(mutation_name)
-		if(mutation_datum)
-			// Restore purchased mutations list (regardless of availability for new caste)
-			new_xeno.purchased_mutations += mutation_name
+	// Restore mutations after upgrade (only if no biomass was refunded)
+	if(total_refund == 0)
+		for(var/mutation_name in saved_mutations)
+			var/datum/xeno_mutation/mutation_datum = get_xeno_mutation_by_name(mutation_name)
+			if(mutation_datum)
+				// Restore purchased mutations list (regardless of availability for new caste)
+				new_xeno.purchased_mutations += mutation_name
 
-			// Apply status effect if mutation has one
-			if(mutation_datum.status_effect_type)
-				new_xeno.apply_status_effect(mutation_datum.status_effect_type)
-				new_xeno.upgrades_holder.Add(mutation_datum.status_effect_type)
+				// Apply status effect if mutation has one
+				if(mutation_datum.status_effect_type)
+					new_xeno.apply_status_effect(mutation_datum.status_effect_type)
+					new_xeno.upgrades_holder.Add(mutation_datum.status_effect_type)
 
-			// Add ability if mutation has one
-			if(mutation_datum.ability_type)
-				var/datum/action/ability/ability = new mutation_datum.ability_type()
-				// Check if it's a mutation ability and call set_mutation_power
-				if(istype(ability, /datum/action/ability/xeno_action/mutation))
-					var/datum/action/ability/xeno_action/mutation/mutation_ability = ability
-					mutation_ability.set_mutation_power(mutation_datum.tier)
-				ability.give_action(new_xeno)
-				new_xeno.upgrades_holder.Add(mutation_datum.ability_type)
+				// Add ability if mutation has one
+				if(mutation_datum.ability_type)
+					var/datum/action/ability/ability = new mutation_datum.ability_type()
+					// Check if it's a mutation ability and call set_mutation_power
+					if(istype(ability, /datum/action/ability/xeno_action/mutation))
+						var/datum/action/ability/xeno_action/mutation/mutation_ability = ability
+						mutation_ability.set_mutation_power(mutation_datum.tier)
+					ability.give_action(new_xeno)
+					new_xeno.upgrades_holder.Add(mutation_datum.ability_type)
 
-	// Update enhancement HUD after restoring mutations
+	// Update enhancement HUD
 	new_xeno.hud_set_enhancement()
+
+	// Remove all mutation status effects from the old xenomorph before deletion
+	for(var/mutation_name in src.purchased_mutations)
+		var/datum/xeno_mutation/mutation_datum = get_xeno_mutation_by_name(mutation_name)
+		if(mutation_datum && mutation_datum.status_effect_type)
+			src.remove_status_effect(mutation_datum.status_effect_type)
 
 	var/atom/movable/screen/zone_sel/selector = new_xeno.hud_used?.zone_sel
 	selector?.set_selected_zone(zone_selected, new_xeno)
