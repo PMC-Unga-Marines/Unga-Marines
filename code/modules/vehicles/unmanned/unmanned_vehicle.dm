@@ -436,7 +436,7 @@
 
 /obj/structure/closet/crate/uav_crate
 	name = "\improper UV-L Iguana Crate"
-	desc = "A crate containing an unmanned vehicle with a controller and some spare ammo."
+	desc = "A crate containing an unmanned vehicle with a controller."
 	icon = 'icons/obj/structures/crates.dmi'
 	icon_state = "closed_weapons"
 	icon_opened = "open_weapons"
