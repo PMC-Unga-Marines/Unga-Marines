@@ -47,6 +47,10 @@
 			balloon_alert(user, "No connector")
 			return
 
+		if(!(I.type in allowed_cells))
+			balloon_alert(user, "[I] doesn't fit in [src].")
+			return
+
 		if(!user.transferItemToLoc(I, src))
 			return
 

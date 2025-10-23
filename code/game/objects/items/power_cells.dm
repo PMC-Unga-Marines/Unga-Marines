@@ -384,5 +384,5 @@
 	name = "unmanned vehicle battery"
 	desc = "A dense, tough-looking battery used to power UPP combat unmanned vehicles. Designed to survive gunfire, explosions, and three tours of abuse."
 	icon_state = "icell"
-	maxcharge = 10000
+	maxcharge = 20000
 	w_class = WEIGHT_CLASS_NORMAL

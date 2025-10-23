@@ -54,9 +54,9 @@
 	/// Power cell for vehicle operation
 	var/obj/item/cell/battery = null
 	/// Power consumption per movement action
-	var/power_per_move = 2
+	var/power_per_move = 4
 	/// Power consumption per shot fired
-	var/power_per_shot = 6
+	var/power_per_shot = 12
 	/// Additional slowdown from sticky weeds
 	var/weed_slowdown = 0
 	/// muzzleflash stuff
