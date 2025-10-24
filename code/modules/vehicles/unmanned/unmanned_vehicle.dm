@@ -196,7 +196,7 @@
 		to_chat(user,span_warning("There is nothing to remove from [src]!"))
 		return
 	user.visible_message(span_notice("[user] starts to remove [initial(turret_path.name)] from [src]"),	span_notice("You start to remove [initial(turret_path.name)] from [src]"))
-	if(!do_after(user, 3 SECONDS, NONE, src))
+	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
 		return
 	var/obj/item/equipment = new turret_path
 	user.visible_message(span_notice("[user] removes [equipment] from [src]."),
@@ -219,7 +219,7 @@
 		to_chat(user, span_warning("[src] already has a battery installed!"))
 		return
 	user.visible_message(span_notice("[user] starts to install [new_battery] into [src]."), span_notice("You start to install [new_battery] into [src]."))
-	if(!do_after(user, 3 SECONDS, NONE, src))
+	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
 		return
 	battery = new_battery
 	user.transferItemToLoc(new_battery, src)
@@ -235,7 +235,7 @@
 		to_chat(user, span_warning("There is no battery to remove from [src]!"))
 		return
 	user.visible_message(span_notice("[user] starts to remove the battery from [src]."), span_notice("You start to remove the battery from [src]."))
-	if(!do_after(user, 3 SECONDS, NONE, src))
+	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
 		return
 	var/obj/item/cell/removed_battery = battery
 	battery = null
@@ -252,7 +252,7 @@
 		to_chat(user, span_warning("The [src] ammo storage is already full!"))
 		return
 	user.visible_message(span_notice("[user] starts to reload [src] with [reload_ammo]."), span_notice("You start to reload [src] with [reload_ammo]."))
-	if(!do_after(user, 3 SECONDS, NONE, src))
+	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_GENERIC))
 		return
 	current_rounds = current_rounds + reload_ammo.current_rounds
 	if(current_rounds > max_rounds)
@@ -278,7 +278,7 @@
 			return
 	user.visible_message(span_notice("[user] starts to attach [I] to [src]."),
 	span_notice("You start to attach [I] to [src]."))
-	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_GENERIC))
+	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
 		return
 	turret_path = I.type
 	if(istype(I, /obj/item/uav_turret))
