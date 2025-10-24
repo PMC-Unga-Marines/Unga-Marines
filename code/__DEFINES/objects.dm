@@ -210,6 +210,7 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 #define OVERLAY_TURRET (1<<0)
 #define HAS_HEADLIGHTS (1<<1)
 #define GIVE_NIGHT_VISION (1<<2)
+#define NEED_BATTERY (1<<3)
 
 //Motion detector define
 #define MOTION_DETECTOR_HOSTILE "hostile"

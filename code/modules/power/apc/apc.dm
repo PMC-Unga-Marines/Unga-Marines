@@ -24,6 +24,8 @@
 	var/area/area
 	///The power cell inside the APC
 	var/obj/item/cell/cell
+	///The cells what allowed to be put in APC
+	var/list/allowed_cells = list(/obj/item/cell, /obj/item/cell/crap, /obj/item/cell/crap/empty, /obj/item/cell/apc, /obj/item/cell/high, /obj/item/cell/high/empty, /obj/item/cell/super, /obj/item/cell/super/empty, /obj/item/cell/hyper, /obj/item/cell/hyper/empty, /obj/item/cell/infinite, /obj/item/cell/potato, /obj/item/cell/rtg/small, /obj/item/cell/rtg/large)
 	///The charge of the APC when first spawned
 	var/start_charge = 90
 	///The type of cell to spawn this APC with

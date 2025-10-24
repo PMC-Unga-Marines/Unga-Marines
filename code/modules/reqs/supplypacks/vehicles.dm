@@ -114,34 +114,39 @@
 /datum/supply_packs/vehicles/light_uv
 	name = "Light unmanned vehicle - Iguana"
 	contains = list(/obj/vehicle/unmanned)
-	cost = 300
+	cost = 250
 
 /datum/supply_packs/vehicles/medium_uv
 	name = "Medium unmanned vehicle - Gecko"
 	contains = list(/obj/vehicle/unmanned/medium)
-	cost = 500
+	cost = 350
 
 /datum/supply_packs/vehicles/heavy_uv
 	name = "Heavy unmanned vehicle - Komodo"
 	contains = list(/obj/vehicle/unmanned/heavy)
-	cost = 700
+	cost = 550
+
+/datum/supply_packs/vehicles/uv_cell
+	name = "Unmanned vehicle battery"
+	contains = list(/obj/item/cell/unmanned_vehicle)
+	cost = 150
 
 /datum/supply_packs/vehicles/uv_light_weapon
 	name = "Light UV weapon"
 	contains = list(/obj/item/uav_turret)
-	cost = 200
+	cost = 100
 	containertype = /obj/structure/closet/crate/weapon
 
 /datum/supply_packs/vehicles/uv_heavy_weapon
 	name = "Heavy UV weapon"
 	contains = list(/obj/item/uav_turret/heavy)
-	cost = 200
+	cost = 150
 	containertype = /obj/structure/closet/crate/weapon
 
 /datum/supply_packs/vehicles/uv_light_ammo
 	name = "Light UV ammo - 11x35mm"
 	contains = list(/obj/item/ammo_magazine/box11x35mm)
-	cost = 30
+	cost = 20
 	containertype = /obj/structure/closet/crate/ammo
 
 /datum/supply_packs/vehicles/uv_heavy_ammo
