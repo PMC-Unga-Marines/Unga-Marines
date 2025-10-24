@@ -44,7 +44,7 @@
 	/// If something is already controlling the vehicle
 	var/controlled = FALSE
 	/// Flags for unmanned vehicules
-	var/unmanned_flags = OVERLAY_TURRET|HAS_HEADLIGHTS
+	var/unmanned_flags = OVERLAY_TURRET|HAS_HEADLIGHTS|NEED_BATTERY
 	/// Iff flags, to prevent friendly fire from sg and aiming marines
 	var/iff_signal = TGMC_LOYALIST_IFF
 	/// If explosives should be usable on the vehicle
@@ -72,7 +72,8 @@
 	if(!is_centcom_level(loc.z))
 		GLOB.unmanned_vehicles += src
 	// Initialize with a charged battery
-	battery = new /obj/item/cell/unmanned_vehicle(src)
+	if(unmanned_flags & NEED_BATTERY)
+		battery = new /obj/item/cell/unmanned_vehicle(src)
 	prepare_huds()
 	hud_set_machine_health()
 	if(spawn_equipped_type)
@@ -141,11 +142,12 @@
 			. += "It is equipped with a droid weapon system. It uses 11x35mm ammo."
 		if(TURRET_TYPE_CLAW)
 			. += "It is equipped with a mechanical claw system for grabbing and pulling objects and bodies."
-	if(battery)
-		. += "Battery: [round(battery.percent())]% charge remaining."
-	else
-		. += span_warning("No battery installed!")
-	. += "Use a screwdriver to replace the battery."
+	if(unmanned_flags & NEED_BATTERY)
+		if(battery)
+			. += "Battery: [round(battery.percent())]% charge remaining."
+		else
+			. += span_warning("No battery installed!")
+		. += "Use a screwdriver to replace the battery."
 
 /obj/vehicle/unmanned/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -157,17 +159,19 @@
 		return equip_turret(I, user)
 	if(istype(I, /obj/item/ammo_magazine))
 		return reload_turret(I, user)
-	if(istype(I, /obj/item/cell/unmanned_vehicle))
-		return insert_battery(I, user)
+	if(unmanned_flags & NEED_BATTERY)
+		if(istype(I, /obj/item/cell/unmanned_vehicle))
+			return insert_battery(I, user)
 
 /obj/vehicle/unmanned/relaymove(mob/living/user, direction)
 	if(user.incapacitated())
 		return FALSE
 
 	// Check if battery has enough power
-	if(!battery || !battery.use(power_per_move))
-		to_chat(user, span_warning("[src] is out of power!"))
-		return FALSE
+	if(unmanned_flags & NEED_BATTERY)
+		if(!battery || !battery.use(power_per_move))
+			to_chat(user, span_warning("[src] is out of power!"))
+			return FALSE
 
 	// Apply weed slowdown to the movement delay calculation
 	var/total_delay = next_move_delay + weed_slowdown
@@ -225,6 +229,8 @@
 ///Try to remove/replace the battery with a screwdriver
 /obj/vehicle/unmanned/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
+	if(unmanned_flags & NEED_BATTERY)
+		return
 	if(!battery)
 		to_chat(user, span_warning("There is no battery to remove from [src]!"))
 		return
@@ -335,9 +341,10 @@
 	if(!COOLDOWN_CHECK(src, fire_cooldown))
 		return FALSE
 	// Check if battery has enough power to fire
-	if(!battery || !battery.use(power_per_shot))
-		to_chat(user, span_warning("[src] is out of power!"))
-		return FALSE
+	if(unmanned_flags & NEED_BATTERY)
+		if(!battery || !battery.use(power_per_shot))
+			to_chat(user, span_warning("[src] is out of power!"))
+			return FALSE
 	if(load_into_chamber() && istype(in_chamber, /atom/movable/projectile))
 		//Setup projectile
 		in_chamber.original_target = target
@@ -419,7 +426,7 @@
 	icon_state = "medium_uv"
 	move_delay = 3
 	max_rounds = 200
-	max_integrity = 200
+	max_integrity = 180
 	soft_armor = list(MELEE = 35, BULLET = 90, LASER = 90, ENERGY = 90, BOMB = 55, BIO = 100, FIRE = 25, ACID = 35)
 	affected_by_sticky_weeds = FALSE
 	power_per_move = 0.2
@@ -429,8 +436,8 @@
 	icon_state = "heavy_uv"
 	move_delay = 4
 	max_rounds = 200
-	max_integrity = 250
-	soft_armor = list(MELEE = 55, BULLET = 95, LASER = 95, ENERGY = 95, BOMB = 60, BIO = 100, FIRE = 35, ACID = 55)
+	max_integrity = 220
+	soft_armor = list(MELEE = 50, BULLET = 95, LASER = 95, ENERGY = 95, BOMB = 60, BIO = 100, FIRE = 35, ACID = 50)
 	affected_by_sticky_weeds = FALSE
 	power_per_move = 0.3
 

@@ -41,7 +41,7 @@
 
 /obj/item/uav_turret/claw
 	name = "unmanned vehicle claw"
-	desc = "A mechanical claw attachment for an unmanned vehicle, capable of grabbing and pulling objects and bodies."
+	desc = "Small but sturdy, this claw module snaps onto an unmanned vehicle. Perfect for grabbing the corpses of those who disobeyed orders, carrying a single use explosive payload, or supplies."
 	icon_state = "claw_obj"
 	turret_type = TURRET_TYPE_CLAW
 	turret_pattern = PATTERN_TRACKED
