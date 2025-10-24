@@ -32,9 +32,10 @@
 		return
 
 	if(istype(I, /obj/item/cell) && opened) //Trying to put a cell inside
+		var/obj/item/cell/C = I
 		if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_ENGI)
-			user.visible_message(span_notice("[user] fumbles around figuring out how to fit [I] into [src]."),
-			span_notice("You fumble around figuring out how to fit [I] into [src]."))
+			user.visible_message(span_notice("[user] fumbles around figuring out how to fit [C] into [src]."),
+			span_notice("You fumble around figuring out how to fit [C] into [src]."))
 			var/fumbling_time = 5 SECONDS * ( SKILL_ENGINEER_ENGI - user.skills.getRating(SKILL_ENGINEER) )
 			if(!do_after(user, fumbling_time, NONE, src, BUSY_ICON_UNSKILLED))
 				return
@@ -47,16 +48,16 @@
 			balloon_alert(user, "No connector")
 			return
 
-		if(!(I.type in allowed_cells))
-			balloon_alert(user, "[I] doesn't fit in [src].")
+		if(!(C.apc_compatible))
+			balloon_alert(user, "[C] doesn't fit in [src].")
 			return
 
-		if(!user.transferItemToLoc(I, src))
+		if(!user.transferItemToLoc(C, src))
 			return
 
-		set_cell(I)
-		user.visible_message(span_notice("[user] inserts [I] into [src]!"),
-		span_notice("You insert [I] into [src]!"))
+		set_cell(C)
+		user.visible_message(span_notice("[user] inserts [C] into [src]!"),
+		span_notice("You insert [C] into [src]!"))
 		chargecount = 0
 		update_appearance()
 
