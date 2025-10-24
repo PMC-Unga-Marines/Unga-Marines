@@ -385,7 +385,7 @@
 		if(M.pulledby)
 			M.pulledby.stop_pulling()
 		start_pulling(M)
-		to_chat(user, span_notice("Claw grabs [M] and starts pulling them."))
+		to_chat(user, span_notice("Claw grabs [M] and starts pulling \him."))
 		log_attack("[key_name(user)] used claw to pull [key_name(M)] at [AREACOORD(src)]")
 	else if(isobj(target))
 		var/obj/O = target
