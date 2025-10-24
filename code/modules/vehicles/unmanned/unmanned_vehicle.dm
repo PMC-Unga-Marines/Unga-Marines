@@ -379,6 +379,10 @@
 		COOLDOWN_START(src, fire_cooldown, fire_delay)
 		return TRUE
 
+	// Check if target is adjacent
+	if(!Adjacent(target))
+		return FALSE
+
 	// Handle pulling different types of targets
 	if(ismob(target))
 		var/mob/M = target
