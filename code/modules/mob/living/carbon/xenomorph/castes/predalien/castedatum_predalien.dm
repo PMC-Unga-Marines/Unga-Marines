@@ -8,7 +8,7 @@
 	wound_type = "Predalien"
 
 	// *** Melee Attacks *** //
-	melee_damage = 60
+	melee_damage = 40
 
 	// *** Speed *** //
 	speed = -0.8
@@ -22,6 +22,19 @@
 	// *** Health *** //
 	max_health = 650
 
+	// *** Evolution *** //
+	maximum_active_caste = 1
+	evolve_min_xenos = 10
+	death_evolution_delay = 12 MINUTES
+
+	// *** Flags *** //
+	caste_flags = CASTE_IS_INTELLIGENT|CASTE_STAGGER_RESISTANT|CASTE_LEADER_TYPE|CASTE_INSTANT_EVOLUTION
+	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_CORRUPT_GENERATOR|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY
+	caste_traits = null
+
+	// *** Pheromones *** //
+	aura_strength = 5
+
 	// *** Minimap Icon *** //
 	minimap_icon = "predalien"
 
@@ -34,6 +47,12 @@
 		/datum/action/ability/activable/xeno/predalien_roar,
 		/datum/action/ability/activable/xeno/smash,
 		/datum/action/ability/activable/xeno/devastate,
+		/datum/action/ability/xeno_action/hive_message,
+		/datum/action/ability/xeno_action/rally_hive,
+		/datum/action/ability/xeno_action/rally_minion,
+		/datum/action/ability/xeno_action/blessing_menu,
+		/datum/action/ability/xeno_action/set_xeno_lead,
+		/datum/action/ability/activable/xeno/corrosive_acid/strong,
 	)
 
 
@@ -44,3 +63,22 @@
 	upgrade_name = "Primordial"
 	upgrade = XENO_UPGRADE_PRIMO
 
+	actions = list(
+		/datum/action/ability/xeno_action/xeno_resting,
+		/datum/action/ability/xeno_action/watch_xeno,
+		/datum/action/ability/activable/xeno/psydrain,
+		/datum/action/ability/activable/xeno/pounce/predalien,
+		/datum/action/ability/activable/xeno/predalien_roar,
+		/datum/action/ability/activable/xeno/smash,
+		/datum/action/ability/activable/xeno/devastate,
+		/datum/action/ability/xeno_action/hive_message,
+		/datum/action/ability/xeno_action/rally_hive,
+		/datum/action/ability/xeno_action/rally_minion,
+		/datum/action/ability/xeno_action/blessing_menu,
+		/datum/action/ability/xeno_action/set_xeno_lead,
+		/datum/action/ability/activable/xeno/corrosive_acid/strong,
+		/datum/action/ability/xeno_action/pheromones,
+		/datum/action/ability/xeno_action/pheromones/emit_recovery,
+		/datum/action/ability/xeno_action/pheromones/emit_warding,
+		/datum/action/ability/xeno_action/pheromones/emit_frenzy,
+	)

@@ -161,6 +161,7 @@ GLOBAL_LIST_INIT(xeno_types_tier_three, list(
 
 GLOBAL_LIST_INIT(xeno_types_tier_four, list(
 	/datum/xeno_caste/shrike,
+	/datum/xeno_caste/predalien,
 	/datum/xeno_caste/queen,
 	/datum/xeno_caste/king,
 ))
