@@ -61,9 +61,8 @@
 		return
 
 	// Create visual chat message for unmanned vehicles
-	if(istype(controlled, /obj/vehicle/unmanned) && user)
-		var/display_message = "[message]"
-		user.create_chat_message(controlled, language, display_message, list("virtual-speaker"), null, COMBAT_MESSAGE)
+	var/display_message = "[message]"
+	user.create_chat_message(controlled, language, display_message, list("virtual-speaker"), null, COMBAT_MESSAGE)
 
 	return COMSIG_RELAYED_SPEECH_DEALT
 

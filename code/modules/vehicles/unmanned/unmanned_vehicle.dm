@@ -133,21 +133,21 @@
 		. += "It has [current_rounds] shots left."
 	switch(turret_type)
 		if(TURRET_TYPE_LIGHT)
-			. += "It is equipped with a light weapon system. It uses 11x35mm ammo."
+			. += span_notice("It is equipped with a light weapon system. It uses 11x35mm ammo.")
 		if(TURRET_TYPE_HEAVY)
-			. += "It is equipped with a heavy weapon system. It uses 12x40mm ammo."
+			. += span_notice("It is equipped with a heavy weapon system. It uses 12x40mm ammo.")
 		if(TURRET_TYPE_EXPLOSIVE)
-			. += "It is equipped with an explosive weapon system. "
+			. += span_notice("It is equipped with an explosive weapon system.")
 		if(TURRET_TYPE_DROIDLASER)
-			. += "It is equipped with a droid weapon system. It uses 11x35mm ammo."
+			. += span_notice("It is equipped with a droid weapon system. It uses 11x35mm ammo.")
 		if(TURRET_TYPE_CLAW)
-			. += "It is equipped with a mechanical claw system for grabbing and pulling objects and bodies."
+			. += span_notice("It is equipped with a mechanical claw system for grabbing and pulling objects and bodies.")
 	if(unmanned_flags & NEED_BATTERY)
 		if(battery)
-			. += "Battery: [round(battery.percent())]% charge remaining."
+			. += span_notice("Battery: [round(battery.percent())]% charge remaining.")
 		else
 			. += span_warning("No battery installed!")
-		. += "Use a screwdriver to replace the battery."
+		. += span_notice("Use a screwdriver to replace the battery.")
 
 /obj/vehicle/unmanned/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -229,7 +229,7 @@
 ///Try to remove/replace the battery with a screwdriver
 /obj/vehicle/unmanned/screwdriver_act(mob/living/user, obj/item/I)
 	. = ..()
-	if(unmanned_flags & NEED_BATTERY)
+	if(!(unmanned_flags & NEED_BATTERY))
 		return
 	if(!battery)
 		to_chat(user, span_warning("There is no battery to remove from [src]!"))
@@ -239,11 +239,9 @@
 		return
 	var/obj/item/cell/removed_battery = battery
 	battery = null
-	removed_battery.forceMove(loc)
+	user.put_in_hands(removed_battery)
 	user.visible_message(span_notice("[user] removes [removed_battery] from [src]."), span_notice("You remove [removed_battery] from [src]."))
 	playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
-	if(user.put_in_hands(removed_battery))
-		to_chat(user, span_notice("You take [removed_battery]."))
 
 ///Try to reload the turret of our vehicule
 /obj/vehicle/unmanned/proc/reload_turret(obj/item/ammo_magazine/reload_ammo, mob/user)
@@ -380,11 +378,6 @@
 		stop_pulling(target)
 		COOLDOWN_START(src, fire_cooldown, fire_delay)
 		return TRUE
-
-	// Check if target is adjacent
-	if(!Adjacent(target))
-		to_chat(user, span_warning("Target is too far away!"))
-		return FALSE
 
 	// Handle pulling different types of targets
 	if(ismob(target))
