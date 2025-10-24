@@ -1281,6 +1281,7 @@
 	if(owner.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.drained++
+	playsound(xeno_owner, xeno_owner.killsound, 25)
 	log_combat(victim, owner, "was drained.")
 	log_game("[key_name(victim)] was drained at [AREACOORD(victim.loc)].")
 
@@ -1379,6 +1380,7 @@
 	if(owner.client)
 		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[owner.ckey]
 		personal_statistics.cocooned++
+	playsound(xeno_owner, xeno_owner.killsound, 25)
 
 /////////////////////////////////
 // blessing Menu
