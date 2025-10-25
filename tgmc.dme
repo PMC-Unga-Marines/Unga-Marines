@@ -423,6 +423,7 @@
 #include "code\datums\fluff_emails.dm"
 #include "code\datums\holocall.dm"
 #include "code\datums\http.dm"
+#include "code\datums\killsound.dm"
 #include "code\datums\lazy_template.dm"
 #include "code\datums\managed_inventory.dm"
 #include "code\datums\map_config.dm"

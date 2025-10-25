@@ -294,6 +294,8 @@ GLOBAL_LIST_INIT(strain_list, init_glob_strain_list())
 	var/effects_icon = 'icons/Xeno/castes/larva.dmi'
 	/// List of alternative skins to which xeno is able to change, you put only skin datums in here
 	var/list/skins = list()
+	///The sound that will play after psydrain
+	var/killsound = /datum/xenomorph_killsound
 
 	var/atom/movable/vis_obj/xeno_wounds/wound_overlay
 	///Handles displaying the various fire states of the xeno
