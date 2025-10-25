@@ -23,13 +23,6 @@
 
 	change_skin()
 
-/mob/living/carbon/xenomorph/verb/make_rouny()
-	set name = "Make rouny"
-	set desc = "Makes you funny beno."
-	set category = "Alien"
-
-	toggle_rouny()
-
 /mob/living/carbon/xenomorph/verb/killsound()
 	set name = "Change killsound"
 	set desc = "Changes the sound played after a confirmed kill (psydrain)."
