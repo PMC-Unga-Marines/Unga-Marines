@@ -99,6 +99,9 @@
 	worn_icon_state = "c_tube"
 	brightness = 8
 
+/obj/item/light_bulb/tube/blue
+	icon_state = "btube1"
+
 /obj/item/light_bulb/tube/large
 	w_class = WEIGHT_CLASS_SMALL
 	name = "large light tube"
@@ -110,3 +113,6 @@
 	icon_state = "lbulb"
 	base_icon_state = "lbulb"
 	brightness = 5
+
+/obj/item/light_bulb/bulb/blue
+	icon_state = "bbulb1"
