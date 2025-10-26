@@ -36,11 +36,32 @@
 		if(canDock(S) != SHUTTLE_CAN_DOCK) // discards occupied docks
 			continue
 		docks += S
+	if(SEND_GLOBAL_SIGNAL(COMSIG_GLOB_ERT_CALLED_GROUND))
+		docks.Cut()
+		for(var/obj/docking_port/stationary/marine_dropship/S in SSshuttle.stationary_docking_ports)
+			if(!istype(S, /obj/docking_port/stationary/marine_dropship/lz1))
+				if(!istype(S, /obj/docking_port/stationary/marine_dropship/lz2))
+					continue
+
+				else
+					docks += S
+			else
+				docks += S
+
+			if(canDock(S) != SHUTTLE_CAN_DOCK)
+				continue
 	for(var/i in SSshuttle.ert_shuttle_list)
 		var/obj/docking_port/mobile/ert/E = i
 		if(!(E.destination in docks))
 			continue
 		docks -= E.destination // another shuttle already headed there
+
+	for(var/obj/docking_port/stationary/docking_port in docks)
+		//cuz we use lz landing zone
+		docking_port.width = max(19, docking_port.width)
+		docking_port.height = max(31, docking_port.height)
+		docking_port.dwidth = max(9, docking_port.dwidth)
+		docking_port.dheight = max(15, docking_port.dheight)
 	return docks
 
 /obj/docking_port/mobile/ert/proc/auto_launch()
@@ -67,7 +88,13 @@
 	if(istype(get_docked(), /obj/docking_port/stationary/ert/target))
 		open_shutters()
 	else
-		close_shutters()
+		if(!istype(get_docked(), /obj/docking_port/stationary/marine_dropship/lz1))
+			if(!istype(get_docked(), /obj/docking_port/stationary/marine_dropship/lz2))
+				close_shutters()
+			else
+				open_shutters()
+		else
+			open_shutters()
 
 /obj/docking_port/mobile/ert/Destroy(force)
 	. = ..()
