@@ -123,7 +123,6 @@
 	set_tower_status()
 	if(!activating)
 		STOP_PROCESSING(SSmachines, src)
-		GLOB.tower_relays -= src
 		return
 
 	if(tower_status == TOWER_BROKEN)
@@ -137,21 +136,21 @@
 			first_login_alt = TRUE
 		return
 
-	GLOB.tower_relays += src
 	progress += progress_interval
 
 	if(first_login_alt)
 		first_login_alt = FALSE
-		priority_announce("Начинается активация вышки связи в [get_area(src)].", title = "[src]", sound = 'sound/AI/commandreport.ogg')
-		xeno_message("вышка связи активируется [get_area(src)]", "xenoannounce", 7, XENO_HIVE_NORMAL, FALSE, src) //не придумал 2. TODO: добаить звук уведомлению
+		priority_announce("РќР°С‡РёРЅР°РµС‚СЃСЏ РїСЂРѕС†РµСЃСЃ Р°РєС‚РёРІР°С†РёРё РІС‹С€РєРё СЃРІСЏР·Рё [get_area(src)].", title = "[src]", sound = 'sound/AI/commandreport.ogg')
+		xeno_message("Р’С‹С€РєР° СЃРІСЏР·Рё Р°РєС‚РёРІРёСЂСѓРµС‚СЃСЏ РІ [get_area(src)]", "xenoannounce", 7, XENO_HIVE_NORMAL, FALSE, src)
 
 	if(progress >= 100)
 		STOP_PROCESSING(SSmachines, src)
+		GLOB.tower_relays += src
 		activating = FALSE
 		on = TRUE
 		set_tower_status()
-		priority_announce("Вышка связи успешно активирована в [get_area(src)].", title = "[src]", sound = 'sound/AI/commandreport.ogg')
-		xeno_message("вышка связи активирована [get_area(src)]", "xenoannounce", 7, XENO_HIVE_NORMAL, FALSE, src) //не придумал. TODO: добаить звук уведомлению
+		priority_announce("Р’С‹С€РєР° СЃРІРІСЏР·Рё СѓСЃРїРµС€РЅРѕ Р°РєС‚РёРІРёСЂРѕРІР°РЅР° РІ [get_area(src)].", title = "[src]", sound = 'sound/AI/commandreport.ogg')
+		xeno_message("Р’С‹С€РєР° СЃРІСЏР·Рё Р°РєС‚РёРІРёСЂРѕРІР°РЅР° РІ [get_area(src)]", "xenoannounce", 7, XENO_HIVE_NORMAL, FALSE, src)
 	return
 
 /obj/machinery/telecomms/relay/preset/tower/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
@@ -217,7 +216,7 @@
 					return FALSE
 
 				if(signal_used)
-					to_chat(usr, span_warning("Недостаточно заряда для излучения сигнала"))
+					to_chat(usr, span_warning("РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ Р·Р°РѕСЂСЏРґР° РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЃРёРіРЅР°Р»Р°"))
 					return FALSE
 
 				var/All[] = SSticker.mode.count_humans_and_xenos()
@@ -239,7 +238,7 @@
 				just_called = FALSE
 				if(admin_response == "deny")
 					SSticker.mode.distress_cancelled = TRUE
-					priority_announce("Сигнал был заблокирован командованием.", "[src]", sound = 'sound/AI/distress_deny.ogg')
+					priority_announce("РЎРёРіРЅР°Р» Р±С‹Р» Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ РєРѕРјР°РЅРґРѕРІР°РЅРёРµРј.", "[src]", sound = 'sound/AI/distress_deny.ogg')
 					return FALSE
 				if(admin_response =="deny without annoncing")
 					SSticker.mode.distress_cancelled = TRUE
