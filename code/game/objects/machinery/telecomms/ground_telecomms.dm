@@ -198,9 +198,6 @@
 					if(ACCESS_MARINE_LEADER in I.access)
 						authenticated = 2
 
-		if("logout")
-			authenticated = 0
-
 		if("distress")
 			if(state == STATE_DISTRESS)
 				if(!CONFIG_GET(flag/infestation_ert_allowed))
@@ -213,6 +210,10 @@
 
 				if(just_called || SSticker.mode.waiting_for_candidates)
 					to_chat(usr, span_warning("The distress beacon has been just launched."))
+					return FALSE
+
+				if(SSticker.mode.on_distress_cooldown)
+					to_chat(usr, span_warning("The distress beacon is currently recalibrating."))
 					return FALSE
 
 				if(signal_used)
@@ -271,15 +272,11 @@
 			if(authenticated == 2)
 				if(CONFIG_GET(flag/infestation_ert_allowed)) // We only add the UI if the flag is allowed
 					dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=distress'>Send Distress Beacon</A> \]"
-					dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=logout'>LOG OUT</A> \]"
-					dat += "<BR><hr>"
-
 			else
 				dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=login'>LOG IN</A> \]"
 
 		if(STATE_DISTRESS)
 			if(CONFIG_GET(flag/infestation_ert_allowed))
-				dat += "<BR><hr>"
 				dat += "Are you sure you want to trigger a distress signal? The signal can be picked up by anyone listening, friendly or not. \[ <A href='byond://?src=[text_ref(src)];operation=distress'>Confirm</A>\]"
 
 	dat += "<BR>\[ [(state != STATE_DEFAULT) ? "<A href='byond://?src=[text_ref(src)];operation=main'>Main Menu</A>|" : ""]\]"

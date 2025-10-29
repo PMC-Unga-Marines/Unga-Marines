@@ -43,25 +43,23 @@
 				if(!istype(S, /obj/docking_port/stationary/marine_dropship/lz2))
 					continue
 
-				else
+				else if(canDock(S))
 					docks += S
-			else
+			else if(canDock(S))
 				docks += S
 
-			if(canDock(S) != SHUTTLE_CAN_DOCK)
-				continue
+		for(var/obj/docking_port/stationary/docking_port in docks)
+			//cuz we use lz landing zone
+			docking_port.width = max(19, docking_port.width)
+			docking_port.height = max(31, docking_port.height)
+			docking_port.dwidth = max(9, docking_port.dwidth)
+			docking_port.dheight = max(15, docking_port.dheight)
+
 	for(var/i in SSshuttle.ert_shuttle_list)
 		var/obj/docking_port/mobile/ert/E = i
 		if(!(E.destination in docks))
 			continue
 		docks -= E.destination // another shuttle already headed there
-
-	for(var/obj/docking_port/stationary/docking_port in docks)
-		//cuz we use lz landing zone
-		docking_port.width = max(19, docking_port.width)
-		docking_port.height = max(31, docking_port.height)
-		docking_port.dwidth = max(9, docking_port.dwidth)
-		docking_port.dheight = max(15, docking_port.dheight)
 	return docks
 
 /obj/docking_port/mobile/ert/proc/auto_launch()
