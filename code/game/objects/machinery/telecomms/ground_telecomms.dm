@@ -178,6 +178,9 @@
 		return
 
 	switch(href_list["operation"])
+		if("main")
+			state = STATE_DEFAULT
+
 		if("login")
 			if(isAI(usr))
 				authenticated = 2
@@ -277,6 +280,7 @@
 
 		if(STATE_DISTRESS)
 			if(CONFIG_GET(flag/infestation_ert_allowed))
+				dat += "<BR><hr>"
 				dat += "Are you sure you want to trigger a distress signal? The signal can be picked up by anyone listening, friendly or not. \[ <A href='byond://?src=[text_ref(src)];operation=distress'>Confirm</A>\]"
 
 	dat += "<BR>\[ [(state != STATE_DEFAULT) ? "<A href='byond://?src=[text_ref(src)];operation=main'>Main Menu</A>|" : ""]\]"

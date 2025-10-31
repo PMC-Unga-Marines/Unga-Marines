@@ -43,17 +43,29 @@
 				if(!istype(S, /obj/docking_port/stationary/marine_dropship/lz2))
 					continue
 
-				else if(canDock(S))
-					docks += S
-			else if(canDock(S))
-				docks += S
+				else
+					S.width = max(19, S.width)
+					S.height = max(31, S.height)
+					S.dwidth = max(9, S.dwidth)
+					S.dheight = max(15, S.dheight)
+					if(canDock(S == SHUTTLE_CAN_DOCK))
+						docks += S
 
-		for(var/obj/docking_port/stationary/docking_port in docks)
+			else
+				S.width = max(19, S.width)
+				S.height = max(31, S.height)
+				S.dwidth = max(9, S.dwidth)
+				S.dheight = max(15, S.dheight)
+				if(canDock(S == SHUTTLE_CAN_DOCK))
+					docks += S
+
+		for(var/obj/docking_port/stationary/docking_port in docks) // на всякий случай
 			//cuz we use lz landing zone
 			docking_port.width = max(19, docking_port.width)
 			docking_port.height = max(31, docking_port.height)
 			docking_port.dwidth = max(9, docking_port.dwidth)
 			docking_port.dheight = max(15, docking_port.dheight)
+		UnregisterSignal(SSdcs, COMSIG_GLOB_ERT_CALLED_GROUND)
 
 	for(var/i in SSshuttle.ert_shuttle_list)
 		var/obj/docking_port/mobile/ert/E = i
