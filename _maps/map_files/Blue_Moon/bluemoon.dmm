@@ -214,7 +214,7 @@
 /area/bluemoon/caves/se)
 "anp" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/se)
 "anw" = (
@@ -3138,7 +3138,7 @@
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/c)
 "dFY" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/darkfrostwall/indestructible,
 /area/bluemoon/caves/rock)
 "dGb" = (
@@ -3984,7 +3984,7 @@
 /area/bluemoon/caves/facility/omicron)
 "eHd" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/ne)
 "eIc" = (
@@ -4157,7 +4157,7 @@
 /turf/open/floor,
 /area/bluemoon/outside/building/cargo)
 "eVh" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/urbanshale/layer2,
 /area/bluemoon/caves/se)
 "eVp" = (
@@ -4400,7 +4400,7 @@
 	},
 /area/bluemoon/outside/building/marshal)
 "fjq" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/se)
 "fjV" = (
@@ -4849,7 +4849,7 @@
 /turf/open/floor/plating,
 /area/bluemoon/caves/e/shallow)
 "fRz" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/darkfrostwall,
 /area/bluemoon/caves/rock)
 "fRJ" = (
@@ -5012,7 +5012,7 @@
 /area/bluemoon/caves/se)
 "gah" = (
 /obj/machinery/floodlight/colony,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/ne)
 "gaE" = (
@@ -6410,7 +6410,7 @@
 /area/bluemoon/caves/facility/eta)
 "hFZ" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/urbanshale/layer1,
 /area/bluemoon/caves/se)
 "hGg" = (
@@ -6485,7 +6485,7 @@
 /turf/open/floor/grass,
 /area/bluemoon/outside/building/admin)
 "hMm" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/sw)
 "hMD" = (
@@ -6538,7 +6538,7 @@
 /area/bluemoon/outside/building/virology)
 "hQJ" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/urbanshale/layer1,
 /area/bluemoon/caves/se)
 "hRA" = (
@@ -8353,7 +8353,7 @@
 	},
 /area/bluemoon/caves/facility/eta/xeno)
 "jJO" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/w)
 "jJS" = (
@@ -9865,7 +9865,7 @@
 /turf/open/floor/wood/fancy,
 /area/bluemoon/outside/building/dorms/chapel)
 "ltn" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/ne)
 "ltA" = (
@@ -12376,7 +12376,7 @@
 	},
 /area/bluemoon/caves/facility/omicron)
 "ouB" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/e)
 "ouG" = (
@@ -13390,7 +13390,7 @@
 /turf/open/floor/mainship_hull,
 /area/bluemoon/caves/facility/omicron)
 "pLJ" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/n)
 "pMc" = (
@@ -13564,7 +13564,7 @@
 /area/bluemoon/outside/building/cargo)
 "qbI" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/e)
 "qbW" = (
@@ -14538,7 +14538,7 @@
 /area/bluemoon/caves/facility/omicron)
 "riT" = (
 /obj/effect/landmark/weed_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/e)
 "riY" = (
@@ -14955,7 +14955,7 @@
 /turf/open/floor/tile/dark,
 /area/bluemoon/outside/building/mining)
 "rKl" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/urbanshale/layer1,
 /area/bluemoon/caves/ne)
 "rKA" = (
@@ -16290,7 +16290,7 @@
 	},
 /area/bluemoon/caves/facility/lambda/sec)
 "tpv" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/urbanshale/layer1,
 /area/bluemoon/caves/se)
 "tpA" = (
@@ -16598,7 +16598,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/s)
 "tMt" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/ground/sandrock,
 /area/bluemoon/caves/se)
 "tMR" = (
@@ -17371,7 +17371,7 @@
 /turf/open/floor,
 /area/bluemoon/outside/building/engi/filt)
 "uHn" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/ice,
 /area/bluemoon/caves/s)
 "uHq" = (
@@ -18589,7 +18589,7 @@
 /turf/open/floor,
 /area/bluemoon/outside/building/dorms)
 "vZQ" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall,
 /area/bluemoon/caves/ne)
 "vZT" = (
@@ -19780,7 +19780,7 @@
 	},
 /area/bluemoon/caves/facility/lambda/s)
 "xyB" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/urbanshale/layer0_plate,
 /area/bluemoon/caves/ne)
 "xyG" = (
@@ -19973,7 +19973,7 @@
 	},
 /area/bluemoon/outside/building/med)
 "xGy" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/bluefrostwall,
 /area/bluemoon/caves/rock)
 "xGI" = (

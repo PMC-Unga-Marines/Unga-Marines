@@ -137,7 +137,7 @@
 	},
 /area/lv759/outdoors/landing_zone_1)
 "abL" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/top_corner{
 	dir = 1
 	},
@@ -1226,7 +1226,7 @@
 	dir = 8
 	},
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "akW" = (
@@ -1741,7 +1741,7 @@
 	},
 /area/lv759/indoors/power_plant/telecomms)
 "apx" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor13{
 	dir = 5
 	},
@@ -2178,7 +2178,7 @@
 /area/lv759/indoors/colonial_marshals/head_office)
 "atl" = (
 /obj/structure/prop/urban/cavedecor/stalagmite2,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/urbanshale/layer1,
 /area/lv759/indoors/caves/east_caves)
 "atn" = (
@@ -2316,7 +2316,7 @@
 /obj/machinery/space_heater/radiator/red{
 	dir = 8
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/urban/metal/bluemetal1{
 	dir = 8
 	},
@@ -2873,7 +2873,7 @@
 /turf/open/floor/plating/heatinggrate,
 /area/lv759/indoors/nt_research_complex/vehicledeploymentbay)
 "aAa" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/logo_wall{
 	dir = 1
 	},
@@ -4995,7 +4995,7 @@
 /turf/open/floor/mainship/black/full,
 /area/lv759/indoors/spaceport/cargo_maintenance)
 "aSw" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/weed_node,
 /turf/open/ground/sandrock,
 /area/lv759/indoors/caves/north_caves)
@@ -7367,7 +7367,7 @@
 "bpJ" = (
 /obj/effect/urban/decal/dirt,
 /obj/structure/cargo_container/gorg,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/lv759/indoors/caves/east_caves)
 "bpM" = (
@@ -8073,7 +8073,7 @@
 	pixel_y = 1
 	},
 /obj/item/tool/wet_sign,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/kutjevo,
 /area/lv759/indoors/spaceport/janitor)
 "bvf" = (
@@ -9594,7 +9594,7 @@
 /turf/open/urbanshale/layer1,
 /area/lv759/indoors/caves/east_caves)
 "bIJ" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/interior_wall,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "bIS" = (
@@ -12396,7 +12396,7 @@
 /obj/structure/prop/urban/lattice_prop/lattice_5{
 	pixel_y = 16
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/urban,
 /area/lv759/indoors/nt_office/pressroom)
 "cgt" = (
@@ -12739,7 +12739,7 @@
 /obj/effect/urban/decal/engineership_corners{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "cjY" = (
@@ -13310,7 +13310,7 @@
 /turf/open/floor/officetiles,
 /area/lv759/indoors/nt_research_complex/researchanddevelopment)
 "coU" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/urbanshale/layer2,
 /area/lv759/indoors/caves/north_caves)
 "coY" = (
@@ -16409,7 +16409,7 @@
 /turf/closed/wall/r_wall/urban,
 /area/lv759/indoors/nt_research_complex/hallwaysoutheast)
 "cQv" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/engineerwall/indestructible,
 /area/lv759/oob)
 "cQw" = (
@@ -17652,7 +17652,7 @@
 /obj/machinery/door/poddoor/shutters/urban/open_shutters/opened{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/lv759/indoors/nt_office/pressroom)
 "dax" = (
@@ -19151,7 +19151,7 @@
 	},
 /area/lv759/indoors/landing_zone_2/kmcc_hub_security)
 "dnn" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/structure/cable,
 /turf/open/floor/prison{
 	dir = 4
@@ -20063,7 +20063,7 @@
 	dir = 1
 	},
 /obj/structure/prop/urban/fakeplatforms/platform1,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "dvl" = (
@@ -20453,7 +20453,7 @@
 /turf/open/floor/yellowthree,
 /area/lv759/indoors/spaceport/cargo)
 "dzq" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/urbanshale/layer1,
 /area/lv759/indoors/caves/east_caves)
 "dzu" = (
@@ -22285,7 +22285,7 @@
 	dir = 4;
 	pixel_x = -8
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/lv759/indoors/caves/east_caves)
 "dRk" = (
@@ -23181,7 +23181,7 @@
 /obj/structure/prop/urban/fakeplatforms/platform1{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "dZe" = (
@@ -24373,7 +24373,7 @@
 	},
 /area/lv759/indoors/nt_research_complex_entrance)
 "ejF" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor13{
 	dir = 9
 	},
@@ -25176,7 +25176,7 @@
 /area/lv759/indoors/landing_zone_2/kmcc_hub_south_office)
 "eqw" = (
 /obj/effect/urban/decal/road/lines4,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	color = "#a6aeab"
 	},
@@ -26285,7 +26285,7 @@
 /turf/open/floor/marked,
 /area/lv759/indoors/spaceport/docking_bay_2)
 "eBa" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/backhatch,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "eBe" = (
@@ -27191,7 +27191,7 @@
 /turf/open/floor/plating,
 /area/lv759/indoors/caves/east_caves)
 "eIU" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/logo_wall/four,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "eJa" = (
@@ -28427,7 +28427,7 @@
 	},
 /area/lv759/indoors/power_plant)
 "eTF" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/urban,
 /area/lv759/indoors/spaceport/janitor)
 "eTH" = (
@@ -31988,7 +31988,7 @@
 /obj/effect/urban/decal/engineership_corners{
 	dir = 8
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "fzK" = (
@@ -32811,7 +32811,7 @@
 	},
 /area/lv759/indoors/nt_research_complex/dormsbedroom)
 "fGG" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/logo_wall/four{
 	dir = 1
 	},
@@ -33939,7 +33939,7 @@
 	pixel_y = 5
 	},
 /obj/effect/urban/decal/road/lines4,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship,
 /area/lv759/indoors/nt_office/pressroom)
 "fPE" = (
@@ -34209,7 +34209,7 @@
 	pixel_x = -8;
 	pixel_y = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/kutjevo,
 /area/lv759/indoors/spaceport/janitor)
 "fRL" = (
@@ -37343,7 +37343,7 @@
 	pixel_x = -12;
 	pixel_y = -12
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/cockpit_window,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "gsu" = (
@@ -38376,7 +38376,7 @@
 /obj/effect/urban/decal/engineership_corners{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "gCd" = (
@@ -41056,7 +41056,7 @@
 /obj/effect/urban/decal/engineership_corners{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "hcc" = (
@@ -43696,7 +43696,7 @@
 /area/lv759/outdoors/colony_streets/central_streets)
 "hxE" = (
 /obj/structure/sign/nosmoking_1,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/urban,
 /area/lv759/indoors/nt_office/pressroom)
 "hxF" = (
@@ -45551,7 +45551,7 @@
 /turf/open/floor/urban/carpet/carpetgreendeco,
 /area/lv759/indoors/meridian/meridian_managersoffice)
 "hNU" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/ground/sandrock,
 /area/lv759/indoors/caves/east_caves)
 "hNZ" = (
@@ -46560,7 +46560,7 @@
 /obj/structure/prop/urban/fakeplatforms/platform1{
 	dir = 8
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "hXt" = (
@@ -47007,7 +47007,7 @@
 /area/lv759/indoors/nt_research_complex/researchanddevelopment)
 "ibq" = (
 /obj/structure/extinguisher_cabinet,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/interior_corner,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "ibt" = (
@@ -47399,7 +47399,7 @@
 /turf/open/floor/plating,
 /area/lv759/indoors/colonial_marshals/hallway_central)
 "ieE" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/cockpit_window,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "ieN" = (
@@ -48977,7 +48977,7 @@
 /area/lv759/indoors/nt_office/pressroom)
 "isK" = (
 /obj/effect/urban/decal/dirt,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/urban,
 /area/lv759/oob)
 "isM" = (
@@ -50141,7 +50141,7 @@
 /turf/open/floor/urban/tile/tilebeige,
 /area/lv759/indoors/colonial_marshals/changing_room)
 "iDv" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/logo_wall/two{
 	dir = 8
 	},
@@ -51185,7 +51185,7 @@
 /obj/effect/urban/decal/engineership_corners{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "iNr" = (
@@ -52184,7 +52184,7 @@
 	pixel_y = 5
 	},
 /obj/effect/urban/decal/road/lines1,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/structure/cable,
 /turf/open/floor/mainship,
 /area/lv759/indoors/nt_office/pressroom)
@@ -55469,7 +55469,7 @@
 	},
 /area/lv759/outdoors/colony_streets/central_streets)
 "jxd" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/ground/sandrock,
 /area/lv759/indoors/caves/north_caves)
 "jxf" = (
@@ -57812,7 +57812,7 @@
 /turf/open/engineership/engineer_floor3,
 /area/lv759/indoors/derelict_ship)
 "jTS" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/engineership,
 /area/lv759/oob)
 "jTT" = (
@@ -57853,7 +57853,7 @@
 /area/lv759/oob)
 "jUi" = (
 /obj/machinery/streetlight/engineer_circular,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor2,
 /area/lv759/indoors/derelict_ship)
 "jUl" = (
@@ -59378,7 +59378,7 @@
 	pixel_y = 5
 	},
 /obj/effect/urban/decal/road/lines1,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship,
 /area/lv759/indoors/nt_office/pressroom)
@@ -60805,7 +60805,7 @@
 /obj/effect/urban/decal/engineership_corners{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "kvQ" = (
@@ -63755,7 +63755,7 @@
 /turf/open/floor/plating,
 /area/lv759/indoors/hospital/cryo_room)
 "kVR" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/logo_wall/two,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "kWj" = (
@@ -64856,7 +64856,7 @@
 /turf/open/urbanshale/layer2,
 /area/lv759/outdoors/colony_streets/east_central_street)
 "lgb" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/engine_corner{
 	dir = 1
 	},
@@ -64916,7 +64916,7 @@
 /turf/open/floor/prison/bright_clean,
 /area/lv759/indoors/power_plant/south_hallway)
 "lgB" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/top_corner/alt,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "lgE" = (
@@ -66082,7 +66082,7 @@
 /obj/effect/urban/decal/engineership_corners{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "lqU" = (
@@ -66527,7 +66527,7 @@
 	dir = 1
 	},
 /obj/effect/urban/decal/engineership_corners,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "lvs" = (
@@ -66972,7 +66972,7 @@
 /area/lv759/outdoors/colony_streets/south_east_street)
 "lzB" = (
 /obj/machinery/floodlight,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/lv759/indoors/caves/east_caves)
 "lzF" = (
@@ -67802,7 +67802,7 @@
 /obj/structure/prop/urban/fakeplatforms/platform1{
 	dir = 8
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "lHy" = (
@@ -68137,7 +68137,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 5
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/urban,
 /area/lv759/oob)
 "lJZ" = (
@@ -70572,7 +70572,7 @@
 /turf/open/floor/marked,
 /area/lv759/outdoors/landing_zone_2)
 "meK" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/start/job/xenomorph,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
@@ -74147,7 +74147,7 @@
 /turf/open/floor/plating,
 /area/lv759/indoors/spaceport/cuppajoes)
 "mJC" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/backhatch{
 	dir = 4
 	},
@@ -76028,7 +76028,7 @@
 /obj/machinery/door/airlock/urban/generic{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	color = "#a6aeab"
@@ -76460,7 +76460,7 @@
 /obj/effect/urban/decal/engineership_corners{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "ncG" = (
@@ -78791,7 +78791,7 @@
 	dir = 1;
 	name = "\improper Lockdown"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/marked,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "nwH" = (
@@ -80035,7 +80035,7 @@
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "nHz" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "nHB" = (
@@ -80043,7 +80043,7 @@
 /turf/open/floor/prison,
 /area/lv759/indoors/colonial_marshals/holding_cells)
 "nHF" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/urbanshale/layer1,
 /area/lv759/indoors/caves/north_caves)
 "nHQ" = (
@@ -81866,7 +81866,7 @@
 /turf/open/floor/urban/tile/tilebeigecheckered,
 /area/lv759/indoors/apartment/westhallway)
 "nXM" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/logo_wall/three{
 	dir = 4
 	},
@@ -82273,7 +82273,7 @@
 /obj/machinery/space_heater/radiator/red{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/urban/metal/bluemetal1{
 	dir = 4
 	},
@@ -82751,7 +82751,7 @@
 /turf/open/floor/urban/tile/tilewhite,
 /area/lv759/indoors/southwest_public_restroom)
 "ogd" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/wood,
 /area/lv759/indoors/caves/east_caves)
 "ogg" = (
@@ -85467,7 +85467,7 @@
 /obj/structure/flora/pottedplant{
 	pixel_y = 6
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/urban/metal/bluemetalcorner{
 	dir = 8
 	},
@@ -85518,7 +85518,7 @@
 /obj/machinery/light/built{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/urban/metal/bluemetal1{
 	dir = 8
 	},
@@ -86546,7 +86546,7 @@
 	pixel_y = 5
 	},
 /obj/effect/urban/decal/road/lines4,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship,
 /area/lv759/indoors/nt_office/pressroom)
@@ -86774,7 +86774,7 @@
 /turf/open/floor/plating,
 /area/lv759/indoors/mining_outpost/northeast)
 "oRG" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/r_wall/urban,
 /area/lv759/oob)
 "oRI" = (
@@ -87618,7 +87618,7 @@
 /obj/machinery/door/poddoor/shutters/urban/open_shutters/opened{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/lv759/indoors/nt_office/pressroom)
 "paF" = (
@@ -91068,7 +91068,7 @@
 /area/lv759/indoors/casino)
 "pCv" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor2,
 /area/lv759/indoors/derelict_ship)
 "pCy" = (
@@ -91334,7 +91334,7 @@
 	dir = 4;
 	name = "\improper Lockdown"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/structure/cable,
 /turf/open/floor/marked,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
@@ -92478,7 +92478,7 @@
 	pixel_x = 3;
 	pixel_y = 7
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/urban_plating,
 /area/lv759/indoors/spaceport/janitor)
 "pOp" = (
@@ -93160,7 +93160,7 @@
 /turf/closed/wall/urban/colony,
 /area/lv759/indoors/nt_security/checkpoint_east)
 "pVO" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/top_corner,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "pVS" = (
@@ -98938,7 +98938,7 @@
 /obj/structure/prop/urban/fakeplatforms/platform1{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "qXq" = (
@@ -102000,7 +102000,7 @@
 /area/lv759/indoors/spaceport/docking_bay_2)
 "ryb" = (
 /obj/structure/prop/urban/cavedecor/stalagmite5,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/urbanshale/layer1,
 /area/lv759/indoors/caves/north_caves)
 "ryd" = (
@@ -103222,7 +103222,7 @@
 /area/lv759/indoors/spaceport/communications_office)
 "rJr" = (
 /obj/structure/sign/safety/breakroom,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/urban,
 /area/lv759/indoors/nt_office/pressroom)
 "rJt" = (
@@ -104637,7 +104637,7 @@
 /turf/open/urban/street/sidewalkfull,
 /area/lv759/indoors/landing_zone_1/lz1_console)
 "rVT" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/urbanshale/layer2,
 /area/lv759/indoors/caves/east_caves)
 "rVW" = (
@@ -107326,7 +107326,7 @@
 /obj/structure/prop/urban/fakeplatforms/platform1{
 	dir = 8
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "stJ" = (
@@ -107986,7 +107986,7 @@
 	},
 /area/lv759/indoors/nt_office)
 "szs" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/interior_wall{
 	dir = 8
 	},
@@ -110275,8 +110275,8 @@
 /obj/structure/prop/urban/lattice_prop/lattice_5{
 	pixel_y = 16
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/urban,
 /area/lv759/indoors/nt_office/pressroom)
 "sTq" = (
@@ -110336,7 +110336,7 @@
 /obj/machinery/door/poddoor/shutters/urban/shutters/opened{
 	dir = 8
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/plating,
 /area/lv759/indoors/spaceport/heavyequip)
 "sTP" = (
@@ -110702,7 +110702,7 @@
 /obj/machinery/door/airlock/multi_tile/urban/personal{
 	dir = 1
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	color = "#a6aeab";
 	dir = 4
@@ -112243,7 +112243,7 @@
 /area/lv759/indoors/nt_research_complex/hallwaysouthwest)
 "tjF" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/urbanshale/layer1,
 /area/lv759/indoors/caves/east_caves)
 "tjR" = (
@@ -112885,7 +112885,7 @@
 /turf/open/urbanshale/layer1,
 /area/lv759/outdoors/colony_streets/north_street)
 "tpU" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/pillars/east/pillareast4,
 /area/lv759/oob)
 "tpX" = (
@@ -113166,7 +113166,7 @@
 /turf/open/ground/sandrock,
 /area/lv759/outdoors/colony_streets/north_street)
 "tsc" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/urbanshale/layer0_plate,
 /area/lv759/indoors/caves/south_west_caves)
 "tsn" = (
@@ -113651,7 +113651,7 @@
 /turf/closed/wall/r_wall/urban,
 /area/lv759/indoors/landing_zone_2/kmcc_hub_lounge_hallway)
 "twA" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/black_stone,
 /area/lv759/oob)
 "twK" = (
@@ -114804,7 +114804,7 @@
 /turf/open/urbanshale/layer1,
 /area/lv759/indoors/caves/north_east_caves)
 "tGZ" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/urban/carpet/carpetblack,
 /area/lv759/indoors/nt_office/pressroom)
 "tHa" = (
@@ -115163,7 +115163,7 @@
 	dir = 4
 	},
 /obj/structure/platform_decoration/urban/engineer_corner,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "tKn" = (
@@ -115718,7 +115718,7 @@
 	pixel_y = 6
 	},
 /obj/effect/urban/decal/road/lines1,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	color = "#a6aeab"
 	},
@@ -116456,7 +116456,7 @@
 /turf/closed/wall/urban/colony/engineering,
 /area/lv759/indoors/colonial_marshals/hallway_north_locker)
 "tVi" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor13{
 	dir = 5
 	},
@@ -116989,7 +116989,7 @@
 /turf/closed/wall/r_wall/bunker,
 /area/lv759/indoors/landing_zone_2/kmcc_hub_maintenance_north)
 "tZa" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/urban/metal/bluemetal1{
 	dir = 8
 	},
@@ -120275,7 +120275,7 @@
 	},
 /area/lv759/indoors/spaceport/docking_bay_1)
 "uBh" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/interior_corner{
 	dir = 1
 	},
@@ -122690,7 +122690,7 @@
 /turf/open/floor/plating,
 /area/lv759/indoors/apartment/westbedrooms)
 "uVM" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/logo_wall,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "uVP" = (
@@ -124732,7 +124732,7 @@
 /area/lv759/indoors/nt_research_complex/hangarbay)
 "vmx" = (
 /obj/machinery/door/airlock/mainship/generic,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/marked,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "vmy" = (
@@ -125679,7 +125679,7 @@
 /obj/machinery/light/spot{
 	dir = 4
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/urban/metal/bluemetal1{
 	dir = 8
 	},
@@ -127373,7 +127373,7 @@
 /obj/structure/prop/mainship/gelida/rails{
 	dir = 8
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/ground/sandrock,
 /area/lv759/indoors/caves/east_caves)
 "vKi" = (
@@ -127882,7 +127882,7 @@
 	dir = 1;
 	pixel_y = 5
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/mainship,
 /area/lv759/indoors/nt_office/pressroom)
 "vOC" = (
@@ -128308,7 +128308,7 @@
 /area/lv759/outdoors/colony_streets/east_central_street)
 "vRM" = (
 /obj/machinery/streetlight/engineer_circular,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor5,
 /area/lv759/indoors/derelict_ship)
 "vRS" = (
@@ -129317,7 +129317,7 @@
 	},
 /area/lv759/outdoors/colony_streets/south_east_street)
 "vZB" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/engine_corner,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "vZC" = (
@@ -129562,7 +129562,7 @@
 	},
 /area/lv759/outdoors/caveplateau)
 "wbI" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/urban,
 /area/lv759/indoors/nt_office/pressroom)
 "wbM" = (
@@ -131884,7 +131884,7 @@
 	},
 /area/lv759/outdoors/landing_zone_2)
 "wwV" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor2,
 /area/lv759/indoors/derelict_ship)
 "wwX" = (
@@ -132404,7 +132404,7 @@
 /obj/machinery/space_heater/radiator/red{
 	dir = 8
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/urban/metal/bluemetal1{
 	dir = 8
 	},
@@ -134251,7 +134251,7 @@
 	dir = 4;
 	name = "\improper Lockdown"
 	},
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/floor/marked,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "wQY" = (
@@ -137557,7 +137557,7 @@
 /turf/open/floor/plating/kutjevo,
 /area/lv759/indoors/colonial_marshals/armory_firingrange)
 "xua" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/logo_wall/three{
 	dir = 1
 	},
@@ -139746,7 +139746,7 @@
 /area/lv759/indoors/power_plant/telecomms)
 "xNV" = (
 /obj/effect/ai_node,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/open/engineership/engineer_floor9,
 /area/lv759/indoors/derelict_ship)
 "xOa" = (
@@ -141223,7 +141223,7 @@
 	},
 /area/lv759/indoors/hospital/cryo_room)
 "ybK" = (
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/shuttle/dropship_white/top_corner/alt{
 	dir = 1
 	},
@@ -142014,7 +142014,7 @@
 /area/lv759/indoors/nt_research_complex/hallwayeast)
 "yik" = (
 /obj/structure/sign/poster,
-/obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
+/obj/effect/landmark/fog_blocker/xeno_spawn,
 /turf/closed/wall/urban,
 /area/lv759/indoors/nt_office/pressroom)
 "yio" = (
