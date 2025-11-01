@@ -30,13 +30,14 @@
 
 /obj/docking_port/mobile/ert/proc/get_destinations()
 	var/list/docks = list()
+	var/ground_signal = SEND_GLOBAL_SIGNAL(COMSIG_GLOB_ERT_CALLED_GROUND)
 	for(var/obj/docking_port/stationary/S in SSshuttle.stationary_docking_ports)
 		if(!istype(S, /obj/docking_port/stationary/ert/target))
 			continue
 		if(canDock(S) != SHUTTLE_CAN_DOCK) // discards occupied docks
 			continue
 		docks += S
-	if(SEND_GLOBAL_SIGNAL(COMSIG_GLOB_ERT_CALLED_GROUND))
+	if(ground_signal)
 		docks.Cut()
 		for(var/obj/docking_port/stationary/marine_dropship/S in SSshuttle.stationary_docking_ports)
 			if(!istype(S, /obj/docking_port/stationary/marine_dropship/lz1))
@@ -93,6 +94,9 @@
 		if(!T.density)
 			T.close()
 
+/obj/docking_port/mobile/ert/proc/ground_signal(src)
+	SIGNAL_HANDLER
+	return TRUE
 /obj/docking_port/mobile/ert/after_shuttle_move()
 	. = ..()
 	if(istype(get_docked(), /obj/docking_port/stationary/ert/target))

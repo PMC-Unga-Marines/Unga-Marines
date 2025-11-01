@@ -201,6 +201,9 @@
 					if(ACCESS_MARINE_LEADER in I.access)
 						authenticated = 2
 
+		if("logout")
+			authenticated = 0
+
 		if("distress")
 			if(state == STATE_DISTRESS)
 				if(!CONFIG_GET(flag/infestation_ert_allowed))
@@ -252,7 +255,7 @@
 				SSticker.mode.activate_distress(E)
 				E.base_probability = 0
 				signal_used = TRUE
-				RegisterSignal(SSdcs, COMSIG_GLOB_ERT_CALLED_GROUND, PROC_REF(signal_proc))
+				RegisterSignal(SSdcs, COMSIG_GLOB_ERT_CALLED_GROUND, PROC_REF(ground_signal))
 				SEND_GLOBAL_SIGNAL(COMSIG_GLOB_ERT_CALLED_GROUND)
 				return TRUE
 			state = STATE_DISTRESS
@@ -273,6 +276,7 @@
 	switch(state)
 		if(STATE_DEFAULT)
 			if(authenticated == 2)
+				dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=logout'>LOG OUT</A> \]"
 				if(CONFIG_GET(flag/infestation_ert_allowed)) // We only add the UI if the flag is allowed
 					dat += "<BR>\[ <A href='byond://?src=[text_ref(src)];operation=distress'>Send Distress Beacon</A> \]"
 			else
@@ -356,7 +360,7 @@
 
 /obj/machinery/telecomms/relay/preset/tower/attack_ai(mob/user)
 	return attack_hand(user)
-/obj/machinery/telecomms/relay/preset/tower/proc/signal_proc()
+/obj/machinery/telecomms/relay/preset/tower/proc/ground_signal()
 	return TRUE
 //override
 /obj/machinery/telecomms/relay/preset/tower/update_power()
