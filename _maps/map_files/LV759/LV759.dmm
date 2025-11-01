@@ -29725,12 +29725,8 @@
 /turf/open/urban/street/asphalt,
 /area/lv759/outdoors/colony_streets/north_west_street)
 "fxR" = (
-/obj/structure/sign/double/barsign{
-	light_color = "#990044";
-	light_on = 1;
-	light_power = 4;
-	light_range = 5;
-	pixel_y = 32
+/obj/machinery/barsign{
+	dir = 1
 	},
 /obj/item/spacecash/ewallet,
 /obj/effect/decal/cleanable/dirt/grime3,
