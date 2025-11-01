@@ -941,7 +941,6 @@
 	name = "\improper Normandy"
 	icon = 'icons/turf/dropship4.dmi'
 	icon_state = "1"
-	plane = GAME_PLANE
 
 /turf/closed/shuttle/dropship4/transparent
 	opacity = FALSE
