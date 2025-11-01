@@ -31786,7 +31786,7 @@
 /turf/open/urban/street/asphalt,
 /area/lv759/outdoors/colony_streets/north_west_street)
 "fxR" = (
-/obj/structure/sign/double/barsign{
+/obj/machinery/barsign{
 	light_color = "#990044";
 	light_on = 1;
 	light_power = 4;
