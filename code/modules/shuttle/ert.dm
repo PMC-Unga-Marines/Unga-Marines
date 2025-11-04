@@ -27,18 +27,18 @@
 	var/list/item_spawns = list()
 	var/list/shutters = list()
 	var/departing = FALSE
+	var/ground = FALSE //is ert called from ground
 
 /obj/docking_port/mobile/ert/proc/get_destinations()
 	var/list/docks = list()
-	var/ground_signal = SEND_GLOBAL_SIGNAL(COMSIG_GLOB_ERT_CALLED_GROUND)
-	for(var/obj/docking_port/stationary/S in SSshuttle.stationary_docking_ports)
-		if(!istype(S, /obj/docking_port/stationary/ert/target))
-			continue
-		if(canDock(S) != SHUTTLE_CAN_DOCK) // discards occupied docks
-			continue
-		docks += S
-	if(ground_signal)
-		docks.Cut()
+	if(ground == FALSE)
+		for(var/obj/docking_port/stationary/S in SSshuttle.stationary_docking_ports)
+			if(!istype(S, /obj/docking_port/stationary/ert/target))
+				continue
+			if(canDock(S) != SHUTTLE_CAN_DOCK) // discards occupied docks
+				continue
+			docks += S
+	else
 		for(var/obj/docking_port/stationary/marine_dropship/S in SSshuttle.stationary_docking_ports)
 			if(!istype(S, /obj/docking_port/stationary/marine_dropship/lz1))
 				if(!istype(S, /obj/docking_port/stationary/marine_dropship/lz2))
@@ -59,20 +59,12 @@
 				S.dheight = max(15, S.dheight)
 				if(canDock(S == SHUTTLE_CAN_DOCK))
 					docks += S
-
-		for(var/obj/docking_port/stationary/docking_port in docks) // на всякий случай
-			//cuz we use lz landing zone
-			docking_port.width = max(19, docking_port.width)
-			docking_port.height = max(31, docking_port.height)
-			docking_port.dwidth = max(9, docking_port.dwidth)
-			docking_port.dheight = max(15, docking_port.dheight)
-		UnregisterSignal(SSdcs, COMSIG_GLOB_ERT_CALLED_GROUND)
-
 	for(var/i in SSshuttle.ert_shuttle_list)
 		var/obj/docking_port/mobile/ert/E = i
 		if(!(E.destination in docks))
 			continue
 		docks -= E.destination // another shuttle already headed there
+	UnregisterSignal(SSdcs, COMSIG_GLOB_ERT_CALLED_GROUND)
 	return docks
 
 /obj/docking_port/mobile/ert/proc/auto_launch()
@@ -93,10 +85,8 @@
 		var/obj/machinery/door/poddoor/shutters/transit/T = i
 		if(!T.density)
 			T.close()
-
-/obj/docking_port/mobile/ert/proc/ground_signal(src)
-	SIGNAL_HANDLER
-	return TRUE
+/obj/docking_port/mobile/ert/proc/ground_signal()
+	ground = TRUE
 /obj/docking_port/mobile/ert/after_shuttle_move()
 	. = ..()
 	if(istype(get_docked(), /obj/docking_port/stationary/ert/target))
@@ -117,6 +107,7 @@
 
 /obj/docking_port/mobile/ert/register()
 	. = ..()
+	RegisterSignal(SSdcs, COMSIG_GLOB_ERT_CALLED_GROUND, PROC_REF(ground_signal))
 	SSshuttle.ert_shuttle_list += src
 	for(var/t in return_turfs())
 		var/turf/T = t

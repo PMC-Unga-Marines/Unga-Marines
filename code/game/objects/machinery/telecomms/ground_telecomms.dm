@@ -174,6 +174,7 @@
 
 /obj/machinery/telecomms/relay/preset/tower/Topic(href, href_list)
 	. = ..()
+	set_tower_status()
 	if(.)
 		return
 
@@ -255,14 +256,14 @@
 				SSticker.mode.activate_distress(E)
 				E.base_probability = 0
 				signal_used = TRUE
-				RegisterSignal(SSdcs, COMSIG_GLOB_ERT_CALLED_GROUND, PROC_REF(ground_signal))
-				SEND_GLOBAL_SIGNAL(COMSIG_GLOB_ERT_CALLED_GROUND)
+				SEND_GLOBAL_SIGNAL(SSdcs, COMSIG_GLOB_ERT_CALLED_GROUND)
 				return TRUE
 			state = STATE_DISTRESS
 	updateUsrDialog()
 
 /obj/machinery/telecomms/relay/preset/tower/interact(mob/user)
 	. = ..()
+	set_tower_status()
 	if(.)
 		return
 
