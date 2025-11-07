@@ -45,6 +45,7 @@
 	var/signal_used = FALSE
 	var/state = STATE_DEFAULT
 	var/just_called = FALSE
+	var/ert_called = FALSE //for docks in ert.dm
 	var/status_display_freq = "1435"
 	var/authenticated = 0
 
@@ -224,7 +225,7 @@
 					return FALSE
 
 				if(signal_used)
-					to_chat(usr, span_warning("недостаточно заоряда для использования сигнала"))
+					to_chat(usr, span_warning("недостаточно заряда для излучения сигнала"))
 					return FALSE
 
 				var/All[] = SSticker.mode.count_humans_and_xenos()
@@ -246,7 +247,7 @@
 				just_called = FALSE
 				if(admin_response == "deny")
 					SSticker.mode.distress_cancelled = TRUE
-					priority_announce("Сигнал был заблокирован командованием.", "[src]", sound = 'sound/AI/distress_deny.ogg')
+					priority_announce("сигнал вышки связи был заблокирован.", "[src]", sound = 'sound/AI/distress_deny.ogg')
 					return FALSE
 				if(admin_response =="deny without annoncing")
 					SSticker.mode.distress_cancelled = TRUE
@@ -256,6 +257,7 @@
 				SSticker.mode.activate_distress(E)
 				E.base_probability = 0
 				signal_used = TRUE
+				ert_called = TRUE
 				SEND_GLOBAL_SIGNAL(SSdcs, COMSIG_GLOB_ERT_CALLED_GROUND)
 				return TRUE
 			state = STATE_DISTRESS
@@ -352,6 +354,8 @@
 		if(-INFINITY to 0)
 			tower_status = TOWER_BROKEN
 			marker_icon = "comm_tower_broken"
+			if(!on)
+				GLOB.tower_relays -= src
 		if(1 to INFINITY)
 			tower_status = on ? TOWER_ON : TOWER_OFF
 			marker_icon = "comm_tower[on ? "_on" : "_off"]"
