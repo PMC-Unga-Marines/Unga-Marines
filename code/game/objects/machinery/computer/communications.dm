@@ -234,7 +234,7 @@
 					return FALSE
 				SSticker.mode.activate_distress(E)
 				E.base_probability = 0
-				send_global_signal(COMSIG_GLOB_ERT_CALLED)
+				//send_global_signal(SSdcs, COMSIG_GLOB_ERT_CALLED) //COMSIG_GLOB_ERT_CALLED: undefined var
 				return TRUE
 			state = STATE_DISTRESS
 

@@ -31,7 +31,6 @@
 
 /obj/docking_port/mobile/ert/proc/get_destinations()
 	var/list/docks = list()
-	priority_announce(ground)
 	if(!ground)
 		for(var/obj/docking_port/stationary/S in SSshuttle.stationary_docking_ports)
 			if(!istype(S, /obj/docking_port/stationary/ert/target))
