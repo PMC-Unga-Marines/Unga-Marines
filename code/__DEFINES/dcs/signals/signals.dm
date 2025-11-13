@@ -42,7 +42,7 @@
 #define COMSIG_WEATHER_WINDDOWN(event_type) "!weather_winddown [event_type]"
 #define COMSIG_WEATHER_END(event_type) "!weather_end [event_type]"
 /// ert stuff
-#define COMSIG_GLOB_ERT_CALLED"!ert_called"
+#define COMSIG_GLOB_ERT_CALLED "!ert_called"
 #define COMSIG_GLOB_ERT_CALLED_GROUND "!ert_called_ground"
 
 #define COMSIG_GLOB_MOB_LOGIN "!mob_login"
