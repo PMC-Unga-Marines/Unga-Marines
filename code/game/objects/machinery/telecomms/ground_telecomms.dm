@@ -16,7 +16,7 @@
 	idle_power_usage = 0
 	on = FALSE
 	freq_listening = TOWER_FREQS
-	resistance_flags = DROPSHIP_IMMUNE | UNACIDABLE
+	resistance_flags = RESIST_ALL | DROPSHIP_IMMUNE
 	allow_pass_flags = PASS_PROJECTILE|PASS_AIR
 	interaction_flags = INTERACT_MACHINE_TGUI
 	obj_flags = IN_USE
