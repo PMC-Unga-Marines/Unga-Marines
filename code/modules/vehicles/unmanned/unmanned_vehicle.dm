@@ -8,7 +8,7 @@
 	light_range = 6
 	light_power = 3
 	light_system = MOVABLE_LIGHT
-	move_delay = 2.5	//set this to limit the speed of the vehicle
+	move_delay = 2	//set this to limit the speed of the vehicle
 	max_integrity = IGUANA_MAX_INTEGRITY
 	hud_possible = list(MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD)
 	atom_flags = BUMP_ATTACKABLE
@@ -44,11 +44,21 @@
 	/// If something is already controlling the vehicle
 	var/controlled = FALSE
 	/// Flags for unmanned vehicules
-	var/unmanned_flags = OVERLAY_TURRET|HAS_HEADLIGHTS
+	var/unmanned_flags = OVERLAY_TURRET|HAS_HEADLIGHTS|NEED_BATTERY
 	/// Iff flags, to prevent friendly fire from sg and aiming marines
 	var/iff_signal = TGMC_LOYALIST_IFF
 	/// If explosives should be usable on the vehicle
 	var/allow_explosives = TRUE
+	/// Whether this vehicle is affected by sticky weed slowdown
+	var/affected_by_sticky_weeds = TRUE
+	/// Power cell for vehicle operation
+	var/obj/item/cell/battery = null
+	/// Power consumption per movement action
+	var/power_per_move = 4
+	/// Power consumption per shot fired
+	var/power_per_shot = 12
+	/// Additional slowdown from sticky weeds
+	var/weed_slowdown = 0
 	/// muzzleflash stuff
 	var/atom/movable/vis_obj/effect/muzzle_flash/flash
 	COOLDOWN_DECLARE(fire_cooldown)
@@ -61,6 +71,9 @@
 	flash = new /atom/movable/vis_obj/effect/muzzle_flash(src)
 	if(!is_centcom_level(loc.z))
 		GLOB.unmanned_vehicles += src
+	// Initialize with a charged battery
+	if(unmanned_flags & NEED_BATTERY)
+		battery = new /obj/item/cell/unmanned_vehicle(src)
 	prepare_huds()
 	hud_set_machine_health()
 	if(spawn_equipped_type)
@@ -83,6 +96,7 @@
 	GLOB.unmanned_vehicles -= src
 	QDEL_NULL(flash)
 	QDEL_NULL(in_chamber)
+	QDEL_NULL(battery)
 	return ..()
 
 /obj/vehicle/unmanned/obj_destruction(damage_amount, damage_type, damage_flag, mob/living/blame_mob)
@@ -110,6 +124,8 @@
 			. += image('icons/obj/unmanned_vehicles.dmi', src, "bomb")
 		if(TURRET_TYPE_DROIDLASER)
 			. += image('icons/obj/unmanned_vehicles.dmi', src, "droidlaser")
+		if(TURRET_TYPE_CLAW)
+			. += image('icons/obj/unmanned_vehicles.dmi', src, "claw")
 
 /obj/vehicle/unmanned/examine(mob/user, distance, infix, suffix)
 	. = ..()
@@ -117,13 +133,21 @@
 		. += "It has [current_rounds] shots left."
 	switch(turret_type)
 		if(TURRET_TYPE_LIGHT)
-			. += "It is equipped with a light weapon system. It uses 11x35mm ammo."
+			. += span_notice("It is equipped with a light weapon system. It uses 11x35mm ammo.")
 		if(TURRET_TYPE_HEAVY)
-			. += "It is equipped with a heavy weapon system. It uses 12x40mm ammo."
+			. += span_notice("It is equipped with a heavy weapon system. It uses 12x40mm ammo.")
 		if(TURRET_TYPE_EXPLOSIVE)
-			. += "It is equipped with an explosive weapon system. "
+			. += span_notice("It is equipped with an explosive weapon system.")
 		if(TURRET_TYPE_DROIDLASER)
-			. += "It is equipped with a droid weapon system. It uses 11x35mm ammo."
+			. += span_notice("It is equipped with a droid weapon system. It uses 11x35mm ammo.")
+		if(TURRET_TYPE_CLAW)
+			. += span_notice("It is equipped with a mechanical claw system for grabbing and pulling objects and bodies.")
+	if(unmanned_flags & NEED_BATTERY)
+		if(battery)
+			. += span_notice("Battery: [round(battery.percent())]% charge remaining.")
+		else
+			. += span_warning("No battery installed!")
+		. += span_notice("Use a screwdriver to replace the battery.")
 
 /obj/vehicle/unmanned/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -135,12 +159,23 @@
 		return equip_turret(I, user)
 	if(istype(I, /obj/item/ammo_magazine))
 		return reload_turret(I, user)
+	if(unmanned_flags & NEED_BATTERY)
+		if(istype(I, /obj/item/cell/unmanned_vehicle))
+			return insert_battery(I, user)
 
 /obj/vehicle/unmanned/relaymove(mob/living/user, direction)
 	if(user.incapacitated())
 		return FALSE
 
-	if(world.time < last_move_time + next_move_delay)
+	// Check if battery has enough power
+	if(unmanned_flags & NEED_BATTERY)
+		if(!battery || !battery.use(power_per_move))
+			to_chat(user, span_warning("[src] is out of power!"))
+			return FALSE
+
+	// Apply weed slowdown to the movement delay calculation
+	var/total_delay = next_move_delay + weed_slowdown
+	if(world.time < last_move_time + total_delay)
 		return
 
 	. = Move(get_step(src, direction))
@@ -150,6 +185,10 @@
 	else
 		next_move_delay = move_delay
 
+	// Decay weed slowdown over time
+	if(weed_slowdown > 0)
+		weed_slowdown = max(0, weed_slowdown - 1)
+
 ///Try to desequip the turret
 /obj/vehicle/unmanned/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
@@ -157,7 +196,7 @@
 		to_chat(user,span_warning("There is nothing to remove from [src]!"))
 		return
 	user.visible_message(span_notice("[user] starts to remove [initial(turret_path.name)] from [src]"),	span_notice("You start to remove [initial(turret_path.name)] from [src]"))
-	if(!do_after(user, 3 SECONDS, NONE, src))
+	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
 		return
 	var/obj/item/equipment = new turret_path
 	user.visible_message(span_notice("[user] removes [equipment] from [src]."),
@@ -174,6 +213,36 @@
 	hud_set_uav_ammo()
 	return
 
+///Insert a new battery into the vehicle
+/obj/vehicle/unmanned/proc/insert_battery(obj/item/cell/unmanned_vehicle/new_battery, mob/user)
+	if(battery)
+		to_chat(user, span_warning("[src] already has a battery installed!"))
+		return
+	user.visible_message(span_notice("[user] starts to install [new_battery] into [src]."), span_notice("You start to install [new_battery] into [src]."))
+	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
+		return
+	battery = new_battery
+	user.transferItemToLoc(new_battery, src)
+	user.visible_message(span_notice("[user] installs [new_battery] into [src]."), span_notice("You install [new_battery] into [src]."))
+	playsound(loc, 'sound/items/ratchet.ogg', 25, 1)
+
+///Try to remove/replace the battery with a screwdriver
+/obj/vehicle/unmanned/screwdriver_act(mob/living/user, obj/item/I)
+	. = ..()
+	if(!(unmanned_flags & NEED_BATTERY))
+		return
+	if(!battery)
+		to_chat(user, span_warning("There is no battery to remove from [src]!"))
+		return
+	user.visible_message(span_notice("[user] starts to remove the battery from [src]."), span_notice("You start to remove the battery from [src]."))
+	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
+		return
+	var/obj/item/cell/removed_battery = battery
+	battery = null
+	user.put_in_hands(removed_battery)
+	user.visible_message(span_notice("[user] removes [removed_battery] from [src]."), span_notice("You remove [removed_battery] from [src]."))
+	playsound(loc, 'sound/items/screwdriver.ogg', 25, 1)
+
 ///Try to reload the turret of our vehicule
 /obj/vehicle/unmanned/proc/reload_turret(obj/item/ammo_magazine/reload_ammo, mob/user)
 	if(!ispath(reload_ammo.type, initial(turret_path.magazine_type)))
@@ -183,7 +252,7 @@
 		to_chat(user, span_warning("The [src] ammo storage is already full!"))
 		return
 	user.visible_message(span_notice("[user] starts to reload [src] with [reload_ammo]."), span_notice("You start to reload [src] with [reload_ammo]."))
-	if(!do_after(user, 3 SECONDS, NONE, src))
+	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_GENERIC))
 		return
 	current_rounds = current_rounds + reload_ammo.current_rounds
 	if(current_rounds > max_rounds)
@@ -209,7 +278,7 @@
 			return
 	user.visible_message(span_notice("[user] starts to attach [I] to [src]."),
 	span_notice("You start to attach [I] to [src]."))
-	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_GENERIC))
+	if(!do_after(user, 3 SECONDS, NONE, src, BUSY_ICON_BUILD))
 		return
 	turret_path = I.type
 	if(istype(I, /obj/item/uav_turret))
@@ -269,6 +338,11 @@
 /obj/vehicle/unmanned/proc/fire_shot(atom/target, mob/user)
 	if(!COOLDOWN_CHECK(src, fire_cooldown))
 		return FALSE
+	// Check if battery has enough power to fire
+	if(unmanned_flags & NEED_BATTERY)
+		if(!battery || !battery.use(power_per_shot))
+			to_chat(user, span_warning("[src] is out of power!"))
+			return FALSE
 	if(load_into_chamber() && istype(in_chamber, /atom/movable/projectile))
 		//Setup projectile
 		in_chamber.original_target = target
@@ -291,6 +365,50 @@
 /obj/vehicle/unmanned/proc/delete_muzzle_flash()
 	vis_contents -= flash
 
+///Uses the claw to grab and pull objects or mobs
+/obj/vehicle/unmanned/proc/use_claw(atom/target, mob/user)
+	if(!COOLDOWN_CHECK(src, fire_cooldown))
+		return FALSE
+	// Check if battery has enough power to operate claw
+	if(!battery || !battery.use(power_per_shot))
+		to_chat(user, span_warning("[src] is out of power!"))
+		return FALSE
+
+	if(target == pulling)
+		stop_pulling(target)
+		COOLDOWN_START(src, fire_cooldown, fire_delay)
+		return TRUE
+
+	// Check if target is adjacent
+	if(!Adjacent(target))
+		return FALSE
+
+	// Handle pulling different types of targets
+	if(ismob(target))
+		var/mob/M = target
+		if(M.pulledby)
+			M.pulledby.stop_pulling()
+		start_pulling(M)
+		to_chat(user, span_notice("Claw grabs [M] and starts pulling \him."))
+		log_attack("[key_name(user)] used claw to pull [key_name(M)] at [AREACOORD(src)]")
+	else if(isobj(target))
+		var/obj/O = target
+		if(O.anchored)
+			to_chat(user, span_warning("[O] is anchored and cannot be moved!"))
+			return FALSE
+		if(O.pulledby)
+			O.pulledby.stop_pulling()
+		start_pulling(O)
+		to_chat(user, span_notice("Claw grabs [O] and starts pulling it."))
+		log_attack("[key_name(user)] used claw to pull [O] at [AREACOORD(src)]")
+	else
+		to_chat(user, span_warning("Claw cannot grab that target!"))
+		return FALSE
+
+	COOLDOWN_START(src, fire_cooldown, fire_delay)
+	playsound(loc, 'sound/machines/click.ogg', 50, 1)
+	return TRUE
+
 /obj/vehicle/unmanned/fire_act(burn_level, flame_color)
 	take_damage(burn_level * 0.5, BURN, FIRE)
 
@@ -305,27 +423,56 @@
 	icon_state = "medium_uv"
 	move_delay = 3
 	max_rounds = 200
-	max_integrity = 200
+	max_integrity = 180
+	soft_armor = list(MELEE = 35, BULLET = 90, LASER = 90, ENERGY = 90, BOMB = 55, BIO = 100, FIRE = 25, ACID = 35)
+	affected_by_sticky_weeds = FALSE
+	power_per_move = 0.2
 
 /obj/vehicle/unmanned/heavy
 	name = "UV-H Komodo"
 	icon_state = "heavy_uv"
 	move_delay = 4
 	max_rounds = 200
-	max_integrity = 250
+	max_integrity = 220
+	soft_armor = list(MELEE = 50, BULLET = 95, LASER = 95, ENERGY = 95, BOMB = 60, BIO = 100, FIRE = 35, ACID = 50)
+	affected_by_sticky_weeds = FALSE
+	power_per_move = 0.3
 
 /obj/structure/closet/crate/uav_crate
 	name = "\improper UV-L Iguana Crate"
-	desc = "A crate containing an unmanned vehicle with a controller and some spare ammo."
+	desc = "A crate containing an unmanned vehicle with a controller."
 	icon = 'icons/obj/structures/crates.dmi'
 	icon_state = "closed_weapons"
 	icon_opened = "open_weapons"
 	icon_closed = "closed_weapons"
+	/// For doing less copy-paste (and make it look prettier) further as we want to expand UAV variations
+	var/vehicle_type = /obj/vehicle/unmanned
+
+// UAVs
 
 /obj/structure/closet/crate/uav_crate/PopulateContents()
-	new /obj/vehicle/unmanned(src)
-	new /obj/item/uav_turret(src)
-	new /obj/item/ammo_magazine/box11x35mm(src)
-	new /obj/item/ammo_magazine/box11x35mm(src)
-	new /obj/item/ammo_magazine/box11x35mm(src)
+	new vehicle_type(src)
 	new /obj/item/unmanned_vehicle_remote(src)
+
+/obj/structure/closet/crate/uav_crate/medium
+    name = "\improper UV-M Gecko Crate"
+    vehicle_type = /obj/vehicle/unmanned/medium
+
+/obj/structure/closet/crate/uav_crate/heavy
+    name = "\improper UV-H Komodo Crate"
+    vehicle_type = /obj/vehicle/unmanned/heavy
+
+// Weapons
+
+/obj/structure/closet/crate/uav_weapons_crate/light/PopulateContents()
+	new /obj/item/uav_turret(src)
+	for(var/i in 1 to 3)
+		new /obj/item/ammo_magazine/box11x35mm(src)
+
+/obj/structure/closet/crate/uav_weapons_crate/heavy/PopulateContents()
+	new /obj/item/uav_turret/heavy(src)
+	for(var/i in 1 to 3)
+		new /obj/item/ammo_magazine/box12x40mm(src)
+
+/obj/structure/closet/crate/uav_weapons_crate/claw/PopulateContents()
+	new /obj/item/uav_turret/claw(src)
