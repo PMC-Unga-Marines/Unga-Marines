@@ -23,6 +23,13 @@
 
 	change_skin()
 
+/mob/living/carbon/xenomorph/verb/killsound()
+	set name = "Change killsound"
+	set desc = "Changes the sound played after a confirmed kill (psydrain)."
+	set category = "Alien"
+
+	change_killsound()
+
 /mob/living/carbon/xenomorph/verb/tunnel_list()
 	set name = "Tunnel List"
 	set desc = "See all currently active tunnels."
@@ -90,6 +97,28 @@
 
 	icon = selection.icon
 	effects_icon = selection.effects_icon
+
+/mob/living/carbon/xenomorph/proc/change_killsound()
+	var/boosty_access_tier = SSdiscord.get_boosty_tier(ckey)
+	if(check_other_rights(client, R_ADMIN, FALSE))
+		boosty_access_tier = BOOSTY_TIER_3
+	if(boosty_access_tier < BOOSTY_TIER_2)
+		to_chat(usr, span_notice("You need a higher boosty tier to use this!"))
+		return
+
+	var/datum/xenomorph_killsound/selection
+	var/list/available_sounds = list()// we do a list of names instead of datums
+	for(var/datum/xenomorph_killsound/killsound as anything in typesof(/datum/xenomorph_killsound))
+		if(killsound.access_needed > boosty_access_tier)
+			continue
+		available_sounds[killsound.name] = killsound
+	var/answer = tgui_input_list(src, "Choose a killsound", "Choose a killsound", available_sounds)
+	selection = available_sounds[answer]
+
+	if(!selection)
+		return
+
+	killsound = selection.sound
 
 /mob/living/carbon/xenomorph/Topic(href, href_list)
 	. = ..()
